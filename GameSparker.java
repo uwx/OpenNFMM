@@ -1441,7 +1441,9 @@ public class GameSparker extends Applet implements Runnable {
 					System.gc();
 					if (Madness.endadv == 2)
 						Madness.advopen();
-					gamer.interrupt();
+					if(gamer != null){
+						gamer.interrupt();						
+					}
 					gamer = null;
 				}
 				l = Math.round(f_2_) - (l_95_ - l_11_);

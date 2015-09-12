@@ -1094,15 +1094,21 @@ public class xtGraphics extends Panel implements Runnable {
 		}
 		for (int i = 0; i < 5; i++)
 			for (int i_19_ = 0; i_19_ < 5; i_19_++) {
-				engs[i][i_19_].stop();
+				if(engs[i][i_19_] != null){
+					engs[i][i_19_].stop();
+				}				
 				engs[i][i_19_] = null;
 			}
 		for (int i = 0; i < 6; i++) {
-			air[i].stop();
+			if(air[i] != null){
+				air[i].stop();
+			}
 			air[i] = null;
 		}
 		wastd.stop();
-		intertrack.unload();
+		if(intertrack != null){
+			intertrack.unload();
+		}
 		intertrack = null;
 	}
 
