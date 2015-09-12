@@ -1,3 +1,4 @@
+
 /* MouseHandler - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -5,31 +6,30 @@ import java.awt.PopupMenu;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-class MouseHandler extends MouseAdapter
-{
-    private PopupMenu popupMenu;
-    int id;
-    
-    public MouseHandler(PopupMenu popupmenu, int i) {
-	popupMenu = popupmenu;
-	id = i;
-    }
-    
-    public void mousePressed(MouseEvent mouseevent) {
-	if (mouseevent.isPopupTrigger()) {
-	    popupMenu.show(mouseevent.getComponent(), mouseevent.getX(),
-			   mouseevent.getY());
-	    Madness.textid = id;
-	    mouseevent.consume();
+class MouseHandler extends MouseAdapter {
+	private final PopupMenu popupMenu;
+	int id;
+
+	public MouseHandler(final PopupMenu popupmenu, final int i) {
+		popupMenu = popupmenu;
+		id = i;
 	}
-    }
-    
-    public void mouseReleased(MouseEvent mouseevent) {
-	if (mouseevent.isPopupTrigger()) {
-	    popupMenu.show(mouseevent.getComponent(), mouseevent.getX(),
-			   mouseevent.getY());
-	    Madness.textid = id;
-	    mouseevent.consume();
+
+	@Override
+	public void mousePressed(final MouseEvent mouseevent) {
+		if (mouseevent.isPopupTrigger()) {
+			popupMenu.show(mouseevent.getComponent(), mouseevent.getX(), mouseevent.getY());
+			Madness.textid = id;
+			mouseevent.consume();
+		}
 	}
-    }
+
+	@Override
+	public void mouseReleased(final MouseEvent mouseevent) {
+		if (mouseevent.isPopupTrigger()) {
+			popupMenu.show(mouseevent.getComponent(), mouseevent.getX(), mouseevent.getY());
+			Madness.textid = id;
+			mouseevent.consume();
+		}
+	}
 }
