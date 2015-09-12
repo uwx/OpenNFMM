@@ -863,7 +863,7 @@ public class xtGraphics extends Panel implements Runnable {
 				}
 				runtyp = 0;
 				if ((app).cmsg.isShowing()) {
-					(app).cmsg.hide();
+					(app).cmsg.setVisible(false);
 					app.requestFocus();
 				}
 				runner.stop();
@@ -1556,8 +1556,8 @@ public class xtGraphics extends Panel implements Runnable {
 		35, null);
 		app.repaint();
 		if ((cd).staction != 0) {
-			(app).tnick.hide();
-			(app).tpass.hide();
+			(app).tnick.setVisible(false);
+			(app).tpass.setVisible(false);
 			(cd).staction = 0;
 		}
 		removeds = 0;
@@ -1650,8 +1650,8 @@ public class xtGraphics extends Panel implements Runnable {
 				if (nfmtab == 2 && (cd).staction == 0 && removeds == 1)
 				(checkpoints).stage = -3;
 				if ((app).openm && (cd).staction == 3) {
-					(app).tnick.hide();
-					(app).tpass.hide();
+					(app).tnick.setVisible(false);
+					(app).tpass.setVisible(false);
 					(cd).staction = 0;
 				}
 				int i_42_ = 0;
@@ -1725,8 +1725,8 @@ public class xtGraphics extends Panel implements Runnable {
 				}
 				if ((app).sgame.getSelectedIndex() == 5) {
 					if ((cd).staction != 0) {
-						(app).tnick.hide();
-						(app).tpass.hide();
+						(app).tnick.setVisible(false);
+						(app).tpass.setVisible(false);
 						(cd).staction = 0;
 					}
 					(app).mstgs.setSize(338,
@@ -1743,47 +1743,47 @@ public class xtGraphics extends Panel implements Runnable {
 						.mstgs.getWidth()) / 2;
 				}
 				if (!(app).sgame.isShowing())
-				(app).sgame.show();
+				(app).sgame.setVisible(true);
 				(app).sgame.move(i_42_, 62);
 				i_42_ += (app).sgame.getWidth() + 6;
 				if (nfmtab == 0) {
 					if (!(app).snfm1.isShowing()) {
-						(app).snfm1.show();
+						(app).snfm1.setVisible(true);
 						if (!bool_40_ && (checkpoints).stage > 0)
 						(app).snfm1.select((checkpoints).stage);
 					}
 					(app).snfm1.move(i_42_,
 					62);
 					if ((app).snfm2.isShowing())
-					(app).snfm2.hide();
+					(app).snfm2.setVisible(false);
 					if ((app).mstgs.isShowing())
-					(app).mstgs.hide();
+					(app).mstgs.setVisible(false);
 				}
 				if (nfmtab == 1) {
 					if (!(app).snfm2.isShowing()) {
-						(app).snfm2.show();
+						(app).snfm2.setVisible(true);
 						if (!bool_40_ && (checkpoints).stage > 10)
 						(app).snfm2.select((checkpoints).stage - 10);
 					}
 					(app).snfm2.move(i_42_,
 					62);
 					if ((app).snfm1.isShowing())
-					(app).snfm1.hide();
+					(app).snfm1.setVisible(false);
 					if ((app).mstgs.isShowing())
-					(app).mstgs.hide();
+					(app).mstgs.setVisible(false);
 				}
 				if (nfmtab == 2 || nfmtab == 3 || nfmtab == 4 || nfmtab == 5) {
 					if (!(app).mstgs.isShowing()) {
-						(app).mstgs.show();
+						(app).mstgs.setVisible(true);
 						if (!bool_40_)
 						(app).mstgs.select((checkpoints).name);
 					}
 					(app).mstgs.move(i_42_,
 					62);
 					if ((app).snfm1.isShowing())
-					(app).snfm1.hide();
+					(app).snfm1.setVisible(false);
 					if ((app).snfm2.isShowing())
-					(app).snfm2.hide();
+					(app).snfm2.setVisible(false);
 				}
 				rd.setFont(new Font("Arial", 1, 13));
 				ftm = rd.getFontMetrics();
@@ -1929,9 +1929,9 @@ public class xtGraphics extends Panel implements Runnable {
 								.tpass.getText().equals("")) {
 								autolog = false;
 								(app)
-									.tnick.hide();
+									.tnick.setVisible(false);
 								(app)
-									.tpass.hide();
+									.tpass.setVisible(false);
 								app.requestFocus();
 								(cd).staction = 4;
 								cd.sparkstageaction();
@@ -1952,8 +1952,8 @@ public class xtGraphics extends Panel implements Runnable {
 					}
 					if (drawcarb(true, null, "  Cancel  ", 409, 282, i, i_39_,
 					bool)) {
-						(app).tnick.hide();
-						(app).tpass.hide();
+						(app).tnick.setVisible(false);
+						(app).tpass.setVisible(false);
 						app.requestFocus();
 						(cd).staction = 0;
 					}
@@ -2061,7 +2061,7 @@ public class xtGraphics extends Panel implements Runnable {
 				if (testdrive == 0 && (checkpoints).top20 < 3) {
 					if (!(app).gmode.isShowing()) {
 						(app).gmode.select(0);
-						(app).gmode.show();
+						(app).gmode.setVisible(true);
 					}
 					(app).gmode.move(400 - (app)
 						.gmode.getWidth() / 2,
@@ -2077,7 +2077,7 @@ public class xtGraphics extends Panel implements Runnable {
 						app.requestFocus();
 					}
 				} else if ((app).gmode.isShowing())
-				(app).gmode.hide();
+				(app).gmode.setVisible(false);
 				if (nfmtab == 0 && ((app).snfm1.getSelectedIndex() != (checkpoints).stage) && (app).snfm1.getSelectedIndex() != 0) {
 					(checkpoints).stage = (app).snfm1.getSelectedIndex();
 					(checkpoints).top20 = 0;
@@ -2142,7 +2142,7 @@ public class xtGraphics extends Panel implements Runnable {
 			}
 			if ((cd).staction == 0) {
 				if (((control).handb || (control).enter) && (checkpoints).stage != -3 && (checkpoints).top20 < 3) {
-					(app).gmode.hide();
+					(app).gmode.setVisible(false);
 					hidos();
 					dudo = 150;
 					fase = 5;
@@ -2219,19 +2219,19 @@ public class xtGraphics extends Panel implements Runnable {
 			if (gmode == 0) opselect = 3;
 			if (gmode == 1) opselect = 0;
 			if (gmode == 2) opselect = 1;
-			(app).gmode.hide();
+			(app).gmode.setVisible(false);
 			hidos();
-			(app).tnick.hide();
-			(app).tpass.hide();
+			(app).tnick.setVisible(false);
+			(app).tpass.setVisible(false);
 			intertrack.stop();
 		}
 	}
 
 	public void hidos() {
-		(app).sgame.hide();
-		(app).snfm1.hide();
-		(app).snfm2.hide();
-		(app).mstgs.hide();
+		(app).sgame.setVisible(false);
+		(app).snfm1.setVisible(false);
+		(app).snfm2.setVisible(false);
+		(app).mstgs.setVisible(false);
 	}
 
 	public void hipnoload(int i, boolean bool) {
@@ -2925,7 +2925,7 @@ public class xtGraphics extends Panel implements Runnable {
 							761, 23);
 						}
 						if ((control).chatup == 0 && (app).cmsg.isShowing()) {
-							(app).cmsg.hide();
+							(app).cmsg.setVisible(false);
 							app.requestFocus();
 						}
 						if ((control).chatup != i_57_ + 1) {
@@ -3079,7 +3079,7 @@ public class xtGraphics extends Panel implements Runnable {
 							if ((app)
 								.cmsg.isShowing()) {
 								(app)
-									.cmsg.hide();
+									.cmsg.setVisible(false);
 								app.requestFocus();
 							}
 							runtyp = 0;
@@ -3101,7 +3101,7 @@ public class xtGraphics extends Panel implements Runnable {
 				} else {
 					drawWarning();
 					if ((app).cmsg.isShowing()) {
-						(app).cmsg.hide();
+						(app).cmsg.setVisible(false);
 						app.requestFocus();
 					}
 					warning++;
@@ -3351,7 +3351,7 @@ public class xtGraphics extends Panel implements Runnable {
 				.cgrnd[2]) / 1.2F)));
 			rd.drawRect(676, 426 - i_54_ * 23, 109, 17);
 			if (!(app).cmsg.isShowing()) {
-				(app).cmsg.show();
+				(app).cmsg.setVisible(true);
 				(app).cmsg.requestFocus();
 				lcmsg[i_54_] = "";
 				(app).cmsg.setText("");
@@ -4957,7 +4957,7 @@ public class xtGraphics extends Panel implements Runnable {
 					}
 					if (cfase == 7) {
 						if ((app).mycar.isShowing())
-						(app).mycar.hide();
+						(app).mycar.setVisible(false);
 						drawprom(145, 95);
 						drawcs(175, "Remove this car from your account?", 0, 0,
 						0, 3);
@@ -4997,13 +4997,13 @@ public class xtGraphics extends Panel implements Runnable {
 								if (!(app)
 									.mycar.isShowing()) {
 									(app)
-										.mycar.show();
+										.mycar.setVisible(true);
 									(app)
 										.mycar.setState((cd)
 										.include[sc[0] - 16]);
 								}
 							} else(app)
-								.mycar.hide();
+								.mycar.setVisible(false);
 							rd.setColor(new Color(198, 179,
 							129));
 							rd.fillRoundRect(305, 302, 190,
@@ -5031,7 +5031,7 @@ public class xtGraphics extends Panel implements Runnable {
 							if ((app)
 								.mycar.isShowing())
 							(app)
-								.mycar.hide();
+								.mycar.setVisible(false);
 						}
 						if ((cd).lastload == 2) {
 							if (drawcarb(true, null, "X", 567, 135, i, i_104_,
@@ -5302,7 +5302,7 @@ public class xtGraphics extends Panel implements Runnable {
 							0, 0, 3);
 							if (!showtf) {
 								(app)
-									.tnick.show();
+									.tnick.setVisible(true);
 								(app)
 									.tnick.setBackground(new Color(206, 237, 255));
 								if ((cd).reco != 1) {
@@ -5317,7 +5317,7 @@ public class xtGraphics extends Panel implements Runnable {
 								(app)
 									.tnick.requestFocus();
 								(app)
-									.tpass.show();
+									.tpass.setVisible(true);
 								(app)
 									.tpass.setBackground(new Color(206, 237, 255));
 								if ((cd).reco != 2) {
@@ -5369,9 +5369,9 @@ public class xtGraphics extends Panel implements Runnable {
 										.tpass.getText().equals("")) {
 										autolog = false;
 										(app)
-											.tnick.hide();
+											.tnick.setVisible(false);
 										(app)
-											.tpass.hide();
+											.tpass.setVisible(false);
 										app.requestFocus();
 										(cd)
 											.action = 1;
@@ -5401,9 +5401,9 @@ public class xtGraphics extends Panel implements Runnable {
 							if (drawcarb(true, null, "  Cancel  ", 409, 282, i,
 							i_104_, bool)) {
 								(app)
-									.tnick.hide();
+									.tnick.setVisible(false);
 								(app)
-									.tpass.hide();
+									.tpass.setVisible(false);
 								app.requestFocus();
 								cfase = basefase;
 							}
@@ -5760,7 +5760,7 @@ public class xtGraphics extends Panel implements Runnable {
 			if (cfase == 11 || cfase == 101)
 			(cd).action = 0;
 			if ((app).mycar.isShowing())
-			(app).mycar.hide();
+			(app).mycar.setVisible(false);
 			pback = 0;
 			pnext = 0;
 			gatey = 300;
@@ -5864,7 +5864,7 @@ public class xtGraphics extends Panel implements Runnable {
 				if (gmode == 1) scm[0] = sc[0];
 				if (gmode == 2) scm[1] = sc[0];
 				if ((app).mycar.isShowing())
-				(app).mycar.hide();
+				(app).mycar.setVisible(false);
 				flexpix = null;
 				(control).handb = false;
 				(control).enter = false;
@@ -5881,8 +5881,8 @@ public class xtGraphics extends Panel implements Runnable {
 			if (cfase == 5 && (cd).action == 0 && (control).enter) {
 				tcnt = 0;
 				if (!(app).tnick.getText().equals("") && !(app).tpass.getText().equals("")) {
-					(app).tnick.hide();
-					(app).tpass.hide();
+					(app).tnick.setVisible(false);
+					(app).tpass.setVisible(false);
 					app.requestFocus();
 					(cd).action = 1;
 					cd.sparkactionloader();
@@ -5912,7 +5912,7 @@ public class xtGraphics extends Panel implements Runnable {
 			multion = 1;
 			gmode = 0;
 			if ((app).mycar.isShowing())
-			(app).mycar.hide();
+			(app).mycar.setVisible(false);
 			flexpix = null;
 			(control).handb = false;
 			(control).enter = false;

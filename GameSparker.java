@@ -1149,7 +1149,7 @@ public class GameSparker extends Applet implements Runnable {
 					if ((var_xtGraphics).multion != 0) {
 						udpmistro.UDPquit();
 						var_xtGraphics.stopchat();
-						if (cmsg.isShowing()) cmsg.hide();
+						if (cmsg.isShowing()) cmsg.setVisible(false);
 						cmsg.setText("");
 						requestFocus();
 					}
@@ -1850,42 +1850,42 @@ public class GameSparker extends Applet implements Runnable {
 	}
 
 	public void hidefields() {
-		ilaps.hide();
-		icars.hide();
-		proitem.hide();
-		clcars.hide();
-		clanlev.hide();
-		mmsg.hide();
-		datat.hide();
-		senditem.hide();
-		sendtyp.hide();
-		rooms.hide();
-		mcars.hide();
-		mstgs.hide();
-		gmode.hide();
-		sclass.hide();
-		scars.hide();
-		sfix.hide();
-		mycar.hide();
-		notp.hide();
-		keplo.hide();
-		tnick.hide();
-		tpass.hide();
-		temail.hide();
-		cmsg.hide();
-		sgame.hide();
-		wgame.hide();
-		pgame.hide();
-		vnpls.hide();
-		vtyp.hide();
-		warb.hide();
-		slaps.hide();
-		snfm1.hide();
-		snfmm.hide();
-		snfm2.hide();
-		snpls.hide();
-		snbts.hide();
-		swait.hide();
+		ilaps.setVisible(false);
+		icars.setVisible(false);
+		proitem.setVisible(false);
+		clcars.setVisible(false);
+		clanlev.setVisible(false);
+		mmsg.setVisible(false);
+		datat.setVisible(false);
+		senditem.setVisible(false);
+		sendtyp.setVisible(false);
+		rooms.setVisible(false);
+		mcars.setVisible(false);
+		mstgs.setVisible(false);
+		gmode.setVisible(false);
+		sclass.setVisible(false);
+		scars.setVisible(false);
+		sfix.setVisible(false);
+		mycar.setVisible(false);
+		notp.setVisible(false);
+		keplo.setVisible(false);
+		tnick.setVisible(false);
+		tpass.setVisible(false);
+		temail.setVisible(false);
+		cmsg.setVisible(false);
+		sgame.setVisible(false);
+		wgame.setVisible(false);
+		pgame.setVisible(false);
+		vnpls.setVisible(false);
+		vtyp.setVisible(false);
+		warb.setVisible(false);
+		slaps.setVisible(false);
+		snfm1.setVisible(false);
+		snfmm.setVisible(false);
+		snfm2.setVisible(false);
+		snpls.setVisible(false);
+		snbts.setVisible(false);
+		swait.setVisible(false);
 	}
 
 	public void drawms() {
@@ -1966,7 +1966,7 @@ public class GameSparker extends Applet implements Runnable {
 			if (bool) {
 				if ((xm > i && xm < i + i_103_ && ym > i_102_ && ym < i_102_ + i_104_) || !textfield.getText().equals("")) {
 					if (!textfield.isShowing()) {
-						textfield.show();
+						textfield.setVisible(true);
 						textfield.requestFocus();
 					}
 					if (i_103_ == 360 || i_103_ == 576) {
@@ -1979,7 +1979,7 @@ public class GameSparker extends Applet implements Runnable {
 					if (textfield.getX() != i || textfield.getY() != i_102_) textfield.setBounds(i, i_102_, i_103_, i_104_);
 				} else {
 					if (textfield.isShowing()) {
-						textfield.hide();
+						textfield.setVisible(false);
 						requestFocus();
 					}
 					rd.setColor(textfield.getBackground());
@@ -1991,7 +1991,7 @@ public class GameSparker extends Applet implements Runnable {
 				}
 			}
 		} else {
-			if (bool && !textfield.isShowing()) textfield.show();
+			if (bool && !textfield.isShowing()) textfield.setVisible(true);
 			movefield(textfield, i, i_102_, i_103_, i_104_);
 		}
 	}
@@ -2001,7 +2001,7 @@ public class GameSparker extends Applet implements Runnable {
 		if (applejava) {
 			if ((xm > i && xm < i + i_106_ && ym > i_105_ && ym < i_105_ + i_107_) || !textarea.getText().equals(" ")) {
 				if (!textarea.isShowing()) {
-					textarea.show();
+					textarea.setVisible(true);
 					textarea.requestFocus();
 				}
 				if (i_106_ == 360 || i_106_ == 576) {
@@ -2014,7 +2014,7 @@ public class GameSparker extends Applet implements Runnable {
 				if (textarea.getX() != i || textarea.getY() != i_105_) textarea.setBounds(i, i_105_, i_106_, i_107_);
 			} else {
 				if (textarea.isShowing()) {
-					textarea.hide();
+					textarea.setVisible(false);
 					requestFocus();
 				}
 				rd.setColor(textarea.getBackground());
@@ -2025,7 +2025,7 @@ public class GameSparker extends Applet implements Runnable {
 				i_107_ - 1);
 			}
 		} else {
-			if (!textarea.isShowing()) textarea.show();
+			if (!textarea.isShowing()) textarea.setVisible(true);
 			movefield(textarea, i, i_105_, i_106_, i_107_);
 		}
 	}

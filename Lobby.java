@@ -313,9 +313,9 @@ public class Lobby implements Runnable {
 	}
 
 	public void inishlobby() {
-		(gs).tnick.hide();
-		(gs).tpass.hide();
-		(gs).temail.hide();
+		(gs).tnick.setVisible(false);
+		(gs).tpass.setVisible(false);
+		(gs).temail.setVisible(false);
 		hideinputs();
 		(gs).mycar.setBackground(color2k(255, 255,
 		255));
@@ -1972,7 +1972,7 @@ public class Lobby implements Runnable {
 							if (updatec != -1)
 							updatec = -1;
 							if ((gs).cmsg.isShowing()) {
-								(gs).cmsg.hide();
+								(gs).cmsg.setVisible(false);
 								gs.requestFocus();
 							}
 							opengame -= 2;
@@ -2011,7 +2011,7 @@ public class Lobby implements Runnable {
 								60));
 								if (!(gs)
 									.rooms.isShowing())
-								(gs).rooms.show();
+								(gs).rooms.setVisible(true);
 								(gs).rooms.move(580 - (((
 								gs).rooms)
 									.w) / 2,
@@ -2760,7 +2760,7 @@ public class Lobby implements Runnable {
 										if (!(gs)
 											.wgame.isShowing())
 										(gs)
-											.wgame.show();
+											.wgame.setVisible(true);
 										(gs)
 											.wgame.move(236, 68);
 										if ((gs)
@@ -2769,7 +2769,7 @@ public class Lobby implements Runnable {
 												inwab = false;
 												(
 												gs)
-													.warb.hide();
+													.warb.setVisible(false);
 												loadstage = 0;
 											}
 											rd.setColor(new Color(0, 0, 0));
@@ -3031,7 +3031,7 @@ public class Lobby implements Runnable {
 												.sgame.isShowing()) {
 												(
 												gs)
-													.sgame.show();
+													.sgame.setVisible(true);
 												remstage = 0;
 												if (loadstage == 0) {
 													int i_164_ = (int)(Math.random() * 3.0);
@@ -3054,7 +3054,7 @@ public class Lobby implements Runnable {
 													.snfmm.isShowing()) {
 													(
 													gs)
-														.snfmm.show();
+														.snfmm.setVisible(true);
 													if ((this
 														.loadstage) == 0)
 													(
@@ -3069,19 +3069,19 @@ public class Lobby implements Runnable {
 													.snfm1.isShowing())
 												(
 												gs)
-													.snfm1.hide();
+													.snfm1.setVisible(false);
 												if ((
 												gs)
 													.snfm2.isShowing())
 												(
 												gs)
-													.snfm2.hide();
+													.snfm2.setVisible(false);
 												if ((
 												gs)
 													.mstgs.isShowing())
 												(
 												gs)
-													.mstgs.hide();
+													.mstgs.setVisible(false);
 											}
 											if (((
 											gs)
@@ -3104,7 +3104,7 @@ public class Lobby implements Runnable {
 													.snfm2.isShowing()) {
 													(
 													gs)
-														.snfm2.show();
+														.snfm2.setVisible(true);
 													if ((this
 														.loadstage) == 0)
 													(
@@ -3119,19 +3119,19 @@ public class Lobby implements Runnable {
 													.snfmm.isShowing())
 												(
 												gs)
-													.snfmm.hide();
+													.snfmm.setVisible(false);
 												if ((
 												gs)
 													.snfm1.isShowing())
 												(
 												gs)
-													.snfm1.hide();
+													.snfm1.setVisible(false);
 												if ((
 												gs)
 													.mstgs.isShowing())
 												(
 												gs)
-													.mstgs.hide();
+													.mstgs.setVisible(false);
 											}
 											if (((
 											gs)
@@ -3154,7 +3154,7 @@ public class Lobby implements Runnable {
 													.snfm1.isShowing()) {
 													(
 													gs)
-														.snfm1.show();
+														.snfm1.setVisible(true);
 													if ((this
 														.loadstage) == 0)
 													(
@@ -3169,19 +3169,19 @@ public class Lobby implements Runnable {
 													.snfmm.isShowing())
 												(
 												gs)
-													.snfmm.hide();
+													.snfmm.setVisible(false);
 												if ((
 												gs)
 													.snfm2.isShowing())
 												(
 												gs)
-													.snfm2.hide();
+													.snfm2.setVisible(false);
 												if ((
 												gs)
 													.mstgs.isShowing())
 												(
 												gs)
-													.mstgs.hide();
+													.mstgs.setVisible(false);
 											}
 											if (((
 											gs)
@@ -3204,7 +3204,7 @@ public class Lobby implements Runnable {
 													.mstgs.isShowing()) {
 													(
 													gs)
-														.mstgs.show();
+														.mstgs.setVisible(true);
 													if ((this
 														.loadstage) == 0)
 													(
@@ -3219,19 +3219,19 @@ public class Lobby implements Runnable {
 													.snfmm.isShowing())
 												(
 												gs)
-													.snfmm.hide();
+													.snfmm.setVisible(false);
 												if ((
 												gs)
 													.snfm1.isShowing())
 												(
 												gs)
-													.snfm1.hide();
+													.snfm1.setVisible(false);
 												if ((
 												gs)
 													.snfm2.isShowing())
 												(
 												gs)
-													.snfm2.hide();
+													.snfm2.setVisible(false);
 											}
 											if (remstage != 2) {
 												if (((
@@ -3271,7 +3271,7 @@ public class Lobby implements Runnable {
 													.mstgs.isShowing()) {
 													(
 													gs)
-														.mstgs.show();
+														.mstgs.setVisible(true);
 													if ((this
 														.loadstage) == 0)
 													(
@@ -3286,19 +3286,19 @@ public class Lobby implements Runnable {
 													.snfmm.isShowing())
 												(
 												gs)
-													.snfmm.hide();
+													.snfmm.setVisible(false);
 												if ((
 												gs)
 													.snfm1.isShowing())
 												(
 												gs)
-													.snfm1.hide();
+													.snfm1.setVisible(false);
 												if ((
 												gs)
 													.snfm2.isShowing())
 												(
 												gs)
-													.snfm2.hide();
+													.snfm2.setVisible(false);
 											}
 											if (((
 											gs)
@@ -3347,7 +3347,7 @@ public class Lobby implements Runnable {
 													.slaps.isShowing())
 												(
 												gs)
-													.slaps.hide();
+													.slaps.setVisible(false);
 											} else {
 												if ((loadstage < 0) && (remstage == 0)) {
 													rd.setColor(new Color(0, 0, 0));
@@ -3370,7 +3370,7 @@ public class Lobby implements Runnable {
 														.slaps.isShowing()) {
 														(
 														gs)
-															.slaps.show();
+															.slaps.setVisible(true);
 														(
 														gs)
 															.slaps.select((this
@@ -3403,7 +3403,7 @@ public class Lobby implements Runnable {
 													.slaps.isShowing())
 												(
 												gs)
-													.slaps.hide();
+													.slaps.setVisible(false);
 												if (remstage == 3) {
 													if ((this
 														.loadstage) < 0) stringbutton("    Preview Stage    ",
@@ -3503,22 +3503,22 @@ public class Lobby implements Runnable {
 											if (!inwab) {
 												(
 												gs)
-													.sgame.hide();
+													.sgame.setVisible(false);
 												(
 												gs)
-													.mstgs.hide();
+													.mstgs.setVisible(false);
 												(
 												gs)
-													.slaps.hide();
+													.slaps.setVisible(false);
 												(
 												gs)
-													.snfm1.hide();
+													.snfm1.setVisible(false);
 												(
 												gs)
-													.snfmm.hide();
+													.snfmm.setVisible(false);
 												(
 												gs)
-													.snfm2.hide();
+													.snfm2.setVisible(false);
 											}
 											if (!(
 											xt)
@@ -3541,7 +3541,7 @@ public class Lobby implements Runnable {
 														.warb.isShowing())
 													(
 													gs)
-														.warb.show();
+														.warb.setVisible(true);
 													(
 													gs)
 														.warb.move(472 - (
@@ -3814,19 +3814,19 @@ public class Lobby implements Runnable {
 										}
 										if (bool_161_)
 										(gs)
-											.pgame.show();
+											.pgame.setVisible(true);
 										else(gs)
-											.pgame.hide();
+											.pgame.setVisible(false);
 										if (bool_162_) {
 											(gs)
-												.vnpls.show();
+												.vnpls.setVisible(true);
 											(gs)
-												.vtyp.show();
+												.vtyp.setVisible(true);
 										} else {
 											(gs)
-												.vnpls.hide();
+												.vnpls.setVisible(false);
 											(gs)
-												.vtyp.hide();
+												.vtyp.setVisible(false);
 										}
 									}
 									if (chalngd == -3) {
@@ -3845,7 +3845,7 @@ public class Lobby implements Runnable {
 										if (!(gs)
 											.snpls.isShowing()) {
 											(gs)
-												.snpls.show();
+												.snpls.setVisible(true);
 											(gs)
 												.snpls.select(gnpls - 1);
 										}
@@ -3861,7 +3861,7 @@ public class Lobby implements Runnable {
 												.snpls.getSelectedIndex() + 1;
 											bool_167_ = true;
 											(gs)
-												.swait.hide();
+												.swait.setVisible(false);
 										}
 										if ((xt)
 											.lan) {
@@ -3871,7 +3871,7 @@ public class Lobby implements Runnable {
 												.snbts.isShowing()) {
 												(
 												gs)
-													.snbts.show();
+													.snbts.setVisible(true);
 												(
 												gs)
 													.snbts.select(0);
@@ -3899,7 +3899,7 @@ public class Lobby implements Runnable {
 										if (!(gs)
 											.swait.isShowing()) {
 											(gs)
-												.swait.show();
+												.swait.setVisible(true);
 											if (gwait == 0)
 											(
 											gs)
@@ -3942,7 +3942,7 @@ public class Lobby implements Runnable {
 										if (!(gs)
 											.scars.isShowing()) {
 											(gs)
-												.scars.show();
+												.scars.setVisible(true);
 											if (gcars >= 0 && gcars <= 2)
 											(
 											gs)
@@ -3959,7 +3959,7 @@ public class Lobby implements Runnable {
 										if (!(gs)
 											.sclass.isShowing()) {
 											(gs)
-												.sclass.show();
+												.sclass.setVisible(true);
 											if (gclass >= 0 && gclass <= 5)
 											(
 											gs)
@@ -3976,7 +3976,7 @@ public class Lobby implements Runnable {
 										if (!(gs)
 											.sfix.isShowing()) {
 											(gs)
-												.sfix.show();
+												.sfix.setVisible(true);
 											if (gfix >= 0 && gfix <= 5)
 											(
 											gs)
@@ -4001,7 +4001,7 @@ public class Lobby implements Runnable {
 										if (!(gs)
 											.notp.isShowing()) {
 											(gs)
-												.notp.show();
+												.notp.setVisible(true);
 											if (gnotp == 0)
 											(
 											gs)
@@ -4031,7 +4031,7 @@ public class Lobby implements Runnable {
 												.mycar.isShowing()) {
 												(
 												gs)
-													.mycar.show();
+													.mycar.setVisible(true);
 												(
 												gs)
 													.mycar.setLabel(new StringBuilder().append("").append((
@@ -4089,7 +4089,7 @@ public class Lobby implements Runnable {
 													.sclass.getSelectedIndex();
 												(
 												gs)
-													.mycar.hide();
+													.mycar.setVisible(false);
 											}
 											if ((
 											gs)
@@ -4556,11 +4556,11 @@ public class Lobby implements Runnable {
 						if (updatec != -1)
 						updatec = -1;
 						if ((gs).cmsg.isShowing()) {
-							(gs).cmsg.hide();
+							(gs).cmsg.setVisible(false);
 							gs.requestFocus();
 						}
 						if ((gs).rooms.isShowing())
-						(gs).rooms.hide();
+						(gs).rooms.setVisible(false);
 						if (fstart)
 						fstart = false;
 						for (int i_192_ = 0; i_192_ < 9; i_192_++) {
@@ -4629,7 +4629,7 @@ public class Lobby implements Runnable {
 								ncnt--;
 							}
 							if ((gs).cmsg.isShowing()) {
-								(gs).cmsg.hide();
+								(gs).cmsg.setVisible(false);
 								gs.requestFocus();
 							}
 						} else {
@@ -6224,7 +6224,7 @@ public class Lobby implements Runnable {
 								}
 							} else {
 								if ((gs).cmsg.isShowing())
-								(gs).cmsg.hide();
+								(gs).cmsg.setVisible(false);
 								if (((pcars[dispcar]) == forcar) && forcar != -1) {
 									rd.drawImage((xt).crd,
 									517, 81, null);
@@ -6643,7 +6643,7 @@ public class Lobby implements Runnable {
 					}
 					btn = 0;
 					if ((gs).cmsg.isShowing()) {
-						(gs).cmsg.hide();
+						(gs).cmsg.setVisible(false);
 						gs.requestFocus();
 					}
 					rd.setColor(color2k(255, 255, 255));
@@ -6737,7 +6737,7 @@ public class Lobby implements Runnable {
 				xt.mainbg(3);
 				btn = 0;
 				if ((gs).cmsg.isShowing()) {
-					(gs).cmsg.hide();
+					(gs).cmsg.setVisible(false);
 					gs.requestFocus();
 				}
 				rd.setComposite(AlphaComposite.getInstance(3, 0.2F));
@@ -6804,7 +6804,7 @@ public class Lobby implements Runnable {
 		} else {
 			xt.drawWarning();
 			if ((gs).cmsg.isShowing()) {
-				(gs).cmsg.hide();
+				(gs).cmsg.setVisible(false);
 				gs.requestFocus();
 			}
 			if ((xt).warning > 220) {
@@ -6834,7 +6834,7 @@ public class Lobby implements Runnable {
 			if (!(gs).openm && (gb).open == 0) {
 				if (conon != 0) bool = true;
 			} else if ((gs).cmsg.isShowing())
-			(gs).cmsg.hide();
+			(gs).cmsg.setVisible(false);
 			gs.movefieldd(((gs)
 				.cmsg),
 			235, 390, 360, 22, bool);
@@ -6846,7 +6846,7 @@ public class Lobby implements Runnable {
 			boolean bool = false;
 			if (!(gs).openm && (gb).open == 0) bool = true;
 			else if ((gs).cmsg.isShowing())
-			(gs).cmsg.hide();
+			(gs).cmsg.setVisible(false);
 			gs.movefieldd(((gs)
 				.cmsg),
 			237, 390, 360, 22, bool);
@@ -7205,26 +7205,26 @@ public class Lobby implements Runnable {
 										if (!dinvi[i_311_].equals(""))
 										dinvi[i_311_] = "";
 									}
-									(gs).swait.hide();
-									(gs).snpls.hide();
-									(gs).snbts.hide();
-									(gs).sgame.hide();
-									(gs).wgame.hide();
-									(gs).pgame.hide();
-									(gs).vnpls.hide();
-									(gs).vtyp.hide();
-									(gs).warb.hide();
-									(gs).mstgs.hide();
-									(gs).slaps.hide();
-									(gs).snfm1.hide();
-									(gs).snfmm.hide();
-									(gs).snfm2.hide();
+									(gs).swait.setVisible(false);
+									(gs).snpls.setVisible(false);
+									(gs).snbts.setVisible(false);
+									(gs).sgame.setVisible(false);
+									(gs).wgame.setVisible(false);
+									(gs).pgame.setVisible(false);
+									(gs).vnpls.setVisible(false);
+									(gs).vtyp.setVisible(false);
+									(gs).warb.setVisible(false);
+									(gs).mstgs.setVisible(false);
+									(gs).slaps.setVisible(false);
+									(gs).snfm1.setVisible(false);
+									(gs).snfmm.setVisible(false);
+									(gs).snfm2.setVisible(false);
 									(gs)
-										.sclass.hide();
-									(gs).scars.hide();
-									(gs).sfix.hide();
-									(gs).mycar.hide();
-									(gs).notp.hide();
+										.sclass.setVisible(false);
+									(gs).scars.setVisible(false);
+									(gs).sfix.setVisible(false);
+									(gs).mycar.setVisible(false);
+									(gs).notp.setVisible(false);
 									gs.requestFocus();
 									chalngd = -1;
 								}
@@ -7276,26 +7276,26 @@ public class Lobby implements Runnable {
 										if (!dinvi[i_313_].equals(""))
 										dinvi[i_313_] = "";
 									}
-									(gs).swait.hide();
-									(gs).snpls.hide();
-									(gs).snbts.hide();
-									(gs).sgame.hide();
-									(gs).wgame.hide();
-									(gs).pgame.hide();
-									(gs).vnpls.hide();
-									(gs).vtyp.hide();
-									(gs).warb.hide();
-									(gs).mstgs.hide();
-									(gs).slaps.hide();
-									(gs).snfm1.hide();
-									(gs).snfmm.hide();
-									(gs).snfm2.hide();
+									(gs).swait.setVisible(false);
+									(gs).snpls.setVisible(false);
+									(gs).snbts.setVisible(false);
+									(gs).sgame.setVisible(false);
+									(gs).wgame.setVisible(false);
+									(gs).pgame.setVisible(false);
+									(gs).vnpls.setVisible(false);
+									(gs).vtyp.setVisible(false);
+									(gs).warb.setVisible(false);
+									(gs).mstgs.setVisible(false);
+									(gs).slaps.setVisible(false);
+									(gs).snfm1.setVisible(false);
+									(gs).snfmm.setVisible(false);
+									(gs).snfm2.setVisible(false);
 									(gs)
-										.sclass.hide();
-									(gs).scars.hide();
-									(gs).sfix.hide();
-									(gs).mycar.hide();
-									(gs).notp.hide();
+										.sclass.setVisible(false);
+									(gs).scars.setVisible(false);
+									(gs).sfix.setVisible(false);
+									(gs).mycar.setVisible(false);
+									(gs).notp.setVisible(false);
 									gs.requestFocus();
 									chalngd = -1;
 								}
@@ -7321,43 +7321,43 @@ public class Lobby implements Runnable {
 													gs.repaint();
 													(
 													gs)
-														.rooms.hide();
+														.rooms.setVisible(false);
 													(
 													gs)
-														.cmsg.hide();
+														.cmsg.setVisible(false);
 													(
 													gs)
-														.sgame.hide();
+														.sgame.setVisible(false);
 													(
 													gs)
-														.wgame.hide();
+														.wgame.setVisible(false);
 													(
 													gs)
-														.warb.hide();
+														.warb.setVisible(false);
 													(
 													gs)
-														.pgame.hide();
+														.pgame.setVisible(false);
 													(
 													gs)
-														.vnpls.hide();
+														.vnpls.setVisible(false);
 													(
 													gs)
-														.vtyp.hide();
+														.vtyp.setVisible(false);
 													(
 													gs)
-														.mstgs.hide();
+														.mstgs.setVisible(false);
 													(
 													gs)
-														.slaps.hide();
+														.slaps.setVisible(false);
 													(
 													gs)
-														.snfm1.hide();
+														.snfm1.setVisible(false);
 													(
 													gs)
-														.snfmm.hide();
+														.snfmm.setVisible(false);
 													(
 													gs)
-														.snfm2.hide();
+														.snfm2.setVisible(false);
 													gs.requestFocus();
 													(m)
 														.ptr = 0;
@@ -7390,37 +7390,37 @@ public class Lobby implements Runnable {
 													if (gstage != 0) {
 														(
 														gs)
-															.sgame.hide();
+															.sgame.setVisible(false);
 														(
 														gs)
-															.wgame.hide();
+															.wgame.setVisible(false);
 														(
 														gs)
-															.pgame.hide();
+															.pgame.setVisible(false);
 														(
 														gs)
-															.vnpls.hide();
+															.vnpls.setVisible(false);
 														(
 														gs)
-															.vtyp.hide();
+															.vtyp.setVisible(false);
 														(
 														gs)
-															.warb.hide();
+															.warb.setVisible(false);
 														(
 														gs)
-															.mstgs.hide();
+															.mstgs.setVisible(false);
 														(
 														gs)
-															.slaps.hide();
+															.slaps.setVisible(false);
 														(
 														gs)
-															.snfm1.hide();
+															.snfm1.setVisible(false);
 														(
 														gs)
-															.snfmm.hide();
+															.snfmm.setVisible(false);
 														(
 														gs)
-															.snfm2.hide();
+															.snfm2.setVisible(false);
 														gs.requestFocus();
 														chalngd = -3;
 														i_308_ = -1;
@@ -7513,19 +7513,19 @@ public class Lobby implements Runnable {
 													gnotp = 0;
 													(
 													gs)
-														.wgame.hide();
+														.wgame.setVisible(false);
 													(
 													gs)
-														.pgame.hide();
+														.pgame.setVisible(false);
 													(
 													gs)
-														.vnpls.hide();
+														.vnpls.setVisible(false);
 													(
 													gs)
-														.vtyp.hide();
+														.vtyp.setVisible(false);
 													(
 													gs)
-														.warb.hide();
+														.warb.setVisible(false);
 													gs.requestFocus();
 													chalngd = -5;
 												}
@@ -7575,19 +7575,19 @@ public class Lobby implements Runnable {
 												gplayers = "";
 												(
 												gs)
-													.wgame.hide();
+													.wgame.setVisible(false);
 												(
 												gs)
-													.pgame.hide();
+													.pgame.setVisible(false);
 												(
 												gs)
-													.vnpls.hide();
+													.vnpls.setVisible(false);
 												(
 												gs)
-													.vtyp.hide();
+													.vtyp.setVisible(false);
 												(
 												gs)
-													.warb.hide();
+													.warb.setVisible(false);
 												gs.requestFocus();
 												chalngd = -5;
 											}
@@ -7616,11 +7616,11 @@ public class Lobby implements Runnable {
 									if (i_308_ == 4) {
 										chalngd = -2;
 										(gs)
-											.snpls.hide();
+											.snpls.setVisible(false);
 										(gs)
-											.snbts.hide();
+											.snbts.setVisible(false);
 										(gs)
-											.swait.hide();
+											.swait.setVisible(false);
 										gs.requestFocus();
 									}
 									if (i_308_ == 5) {
@@ -7637,11 +7637,11 @@ public class Lobby implements Runnable {
 											}
 											i_308_ = -1;
 											(gs)
-												.snpls.hide();
+												.snpls.setVisible(false);
 											(gs)
-												.snbts.hide();
+												.snbts.setVisible(false);
 											(gs)
-												.swait.hide();
+												.swait.setVisible(false);
 											gs.requestFocus();
 										} else sflk = 25;
 									}
@@ -7677,15 +7677,15 @@ public class Lobby implements Runnable {
 										else gnotp = 0;
 										gplayers = "";
 										(gs)
-											.sclass.hide();
+											.sclass.setVisible(false);
 										(gs)
-											.scars.hide();
+											.scars.setVisible(false);
 										(gs)
-											.sfix.hide();
+											.sfix.setVisible(false);
 										(gs)
-											.mycar.hide();
+											.mycar.setVisible(false);
 										(gs)
-											.notp.hide();
+											.notp.setVisible(false);
 										gs.requestFocus();
 										chalngd = -3;
 									}
@@ -7722,15 +7722,15 @@ public class Lobby implements Runnable {
 											}
 										}
 										(gs)
-											.sclass.hide();
+											.sclass.setVisible(false);
 										(gs)
-											.scars.hide();
+											.scars.setVisible(false);
 										(gs)
-											.sfix.hide();
+											.sfix.setVisible(false);
 										(gs)
-											.mycar.hide();
+											.mycar.setVisible(false);
 										(gs)
-											.notp.hide();
+											.notp.setVisible(false);
 										gs.requestFocus();
 										chalngd = -5;
 									}
@@ -7875,7 +7875,7 @@ public class Lobby implements Runnable {
 								(m).trk = 4;
 								plsndt = 0;
 								if ((gs).cmsg.isShowing()) {
-									(gs).cmsg.hide();
+									(gs).cmsg.setVisible(false);
 									gs.requestFocus();
 								}
 							}
@@ -7954,27 +7954,27 @@ public class Lobby implements Runnable {
 	}
 
 	public void hideinputs() {
-		(gs).cmsg.hide();
-		(gs).swait.hide();
-		(gs).snpls.hide();
-		(gs).snbts.hide();
-		(gs).sgame.hide();
-		(gs).wgame.hide();
-		(gs).pgame.hide();
-		(gs).vnpls.hide();
-		(gs).vtyp.hide();
-		(gs).warb.hide();
-		(gs).mstgs.hide();
-		(gs).snfm1.hide();
-		(gs).snfmm.hide();
-		(gs).slaps.hide();
-		(gs).snfm2.hide();
-		(gs).sclass.hide();
-		(gs).scars.hide();
-		(gs).sfix.hide();
-		(gs).mycar.hide();
-		(gs).notp.hide();
-		(gs).rooms.hide();
+		(gs).cmsg.setVisible(false);
+		(gs).swait.setVisible(false);
+		(gs).snpls.setVisible(false);
+		(gs).snbts.setVisible(false);
+		(gs).sgame.setVisible(false);
+		(gs).wgame.setVisible(false);
+		(gs).pgame.setVisible(false);
+		(gs).vnpls.setVisible(false);
+		(gs).vtyp.setVisible(false);
+		(gs).warb.setVisible(false);
+		(gs).mstgs.setVisible(false);
+		(gs).snfm1.setVisible(false);
+		(gs).snfmm.setVisible(false);
+		(gs).slaps.setVisible(false);
+		(gs).snfm2.setVisible(false);
+		(gs).sclass.setVisible(false);
+		(gs).scars.setVisible(false);
+		(gs).sfix.setVisible(false);
+		(gs).mycar.setVisible(false);
+		(gs).notp.setVisible(false);
+		(gs).rooms.setVisible(false);
 		gs.requestFocus();
 	}
 

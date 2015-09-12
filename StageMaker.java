@@ -315,15 +315,15 @@ public class StageMaker extends Applet implements Runnable
                     if (slstage.getWidth() != 360)
                         slstage.setSize(360, 21);
                     if (!slstage.isShowing())
-                        slstage.show();
+                        slstage.setVisible(true);
                     if (button("    Make new Stage    ", 400, 296 + i_0_, 0, true)) {
                         srch.setText("");
-                        slstage.hide();
+                        slstage.setVisible(false);
                         sfase = 1;
                     }
                     if (button("     Rename Stage     ", 325, 336 + i_0_, 0, false)) {
                         if (!stagename.equals("")) {
-                            slstage.hide();
+                            slstage.setVisible(false);
                             srch.setText(stagename);
                             sfase = 2;
                         } else
@@ -354,19 +354,19 @@ public class StageMaker extends Applet implements Runnable
                     rd.drawString("New stage name :", 200, 246 + i_0_);
                     movefield(srch, 310, 231 + i_0_, 290, 23);
                     if (!srch.isShowing()) {
-                        srch.show();
+                        srch.setVisible(true);
                         srch.requestFocus();
                     }
                     fixtext(srch);
                     rd.drawString("Starting line type :", 293, 272 + i_0_);
                     strtyp.move(408, 256 + i_0_);
                     if (!strtyp.isShowing())
-                        strtyp.show();
+                        strtyp.setVisible(true);
                     if (button("    Make Stage    ", 400, 311 + i_0_, 0, true))
                         newstage();
                     if (button("  Cancel  ", 400, 351 + i_0_, 0, false)) {
-                        strtyp.hide();
-                        srch.hide();
+                        strtyp.setVisible(false);
+                        srch.setVisible(false);
                         sfase = 0;
                     }
                 }
@@ -375,7 +375,7 @@ public class StageMaker extends Applet implements Runnable
                     rd.setFont(new Font("Arial", 1, 12));
                     rd.drawString("New name :", 218, 266 + i_0_);
                     if (!srch.isShowing()) {
-                        srch.show();
+                        srch.setVisible(true);
                         srch.requestFocus();
                     }
                     movefield(srch, 292, 251 + i_0_, 290, 23);
@@ -383,7 +383,7 @@ public class StageMaker extends Applet implements Runnable
                     if (button("    Rename Stage    ", 400, 306 + i_0_, 0, true))
                         renstage(srch.getText());
                     if (button("  Cancel  ", 400, 346 + i_0_, 0, false)) {
-                        srch.hide();
+                        srch.setVisible(false);
                         sfase = 0;
                     }
                 }
@@ -1161,26 +1161,26 @@ public class StageMaker extends Applet implements Runnable
                 ftm = rd.getFontMetrics();
                 ptyp.move(10, 50);
                 if (!ptyp.isShowing()) {
-                    ptyp.show();
+                    ptyp.setVisible(true);
                     ptyp.select(sptyp);
                 }
                 if (sptyp != ptyp.getSelectedIndex()) {
                     sptyp = ptyp.getSelectedIndex();
                     if (sptyp == 0) {
                         partroads();
-                        part.show();
+                        part.setVisible(true);
                     }
                     if (sptyp == 1) {
                         partramps();
-                        part.show();
+                        part.setVisible(true);
                     }
                     if (sptyp == 2) {
                         partobst();
-                        part.show();
+                        part.setVisible(true);
                     }
                     if (sptyp == 5) {
                         partrees();
-                        part.show();
+                        part.setVisible(true);
                     }
                     spart = 0;
                     part.select(spart);
@@ -1192,11 +1192,11 @@ public class StageMaker extends Applet implements Runnable
                 part.setSize(200, 21);
                 if (sptyp == 0 || sptyp == 1 || sptyp == 2 || sptyp == 5) {
                     if (!part.isShowing()) {
-                        part.show();
+                        part.setVisible(true);
                         part.select(spart);
                     }
                 } else if (part.isShowing())
-                    part.hide();
+                    part.setVisible(false);
                 if (spart != part.getSelectedIndex()) {
                     spart = part.getSelectedIndex();
                     focuson = false;
@@ -1286,7 +1286,7 @@ public class StageMaker extends Applet implements Runnable
                     if (fixh.hasFocus())
                         focuson = false;
                     if (!fixh.isShowing())
-                        fixh.show();
+                        fixh.setVisible(true);
                     rd.setFont(new Font("Arial", 0, 11));
                     ftm = rd.getFontMetrics();
                     rd.drawString("(Height off the ground... )", 110 - ftm.stringWidth("(Height off the ground... )") / 2, 300);
@@ -1305,7 +1305,7 @@ public class StageMaker extends Applet implements Runnable
                         fixh.setText("2000");
                     }
                 } else if (fixh.isShowing())
-                    fixh.hide();
+                    fixh.setVisible(false);
                 (m).trk = 2;
                 (m).zy = 90;
                 (m).xz = 0;
@@ -1785,7 +1785,7 @@ public class StageMaker extends Applet implements Runnable
                     }
                     movefield(pfog, 258, 511, 200, 23);
                     if (!pfog.isShowing())
-                        pfog.show();
+                        pfog.setVisible(true);
                     if (pfog.getState()) {
                         rd.setComposite(AlphaComposite.getInstance(3, 0.25F));
                         rd.setColor(new Color(0, 0, 0));
@@ -2030,7 +2030,7 @@ public class StageMaker extends Applet implements Runnable
                     if (mgen.hasFocus())
                         focuson = false;
                     if (!mgen.isShowing())
-                        mgen.show();
+                        mgen.setVisible(true);
                     if (button("  Generate New  ", 512, 525, 3, true)) {
                         (m).mgen = (int) (Math.random() * 100000.0);
                         mgen.setText(new StringBuilder().append("").append((m).mgen).append("").toString());
@@ -2185,7 +2185,7 @@ public class StageMaker extends Applet implements Runnable
                     rd.drawString("Set the number of laps for this stage:", 130, 496);
                     nlaps.move(348, 480);
                     if (!nlaps.isShowing())
-                        nlaps.show();
+                        nlaps.setVisible(true);
                     if ((cp).nlaps != nlaps.getSelectedIndex() + 1) {
                         (cp).nlaps = nlaps.getSelectedIndex() + 1;
                         requestFocus();
@@ -2222,7 +2222,7 @@ public class StageMaker extends Applet implements Runnable
                     if (tracks.getWidth() != 200)
                         tracks.setSize(200, 21);
                     if (!tracks.isShowing())
-                        tracks.show();
+                        tracks.setVisible(true);
                     if ((track).playing && (track).loaded == 2) {
                         if (button("      Stop      ", 110, 495, 2, false))
                             track.stop();
@@ -2381,7 +2381,7 @@ public class StageMaker extends Applet implements Runnable
                     rd.drawString("Test Drive the Stage", 400 - ftm.stringWidth("Test Drive the Stage") / 2, 470);
                     witho.move(342, 480);
                     if (!witho.isShowing())
-                        witho.show();
+                        witho.setVisible(true);
                     if (button("     TEST DRIVE!     ", 400, 530, 0, true)) {
                         savefile();
                         errd = 0;
@@ -2410,7 +2410,7 @@ public class StageMaker extends Applet implements Runnable
                 rd.drawString("Publishing Type :", 30, 80);
                 pubtyp.move(150, 63);
                 if (!pubtyp.isShowing()) {
-                    pubtyp.show();
+                    pubtyp.setVisible(true);
                     pubtyp.select(1);
                 }
                 rd.setColor(new Color(0, 0, 0));
@@ -2910,11 +2910,11 @@ public class StageMaker extends Applet implements Runnable
                     rd.drawString("Login to Retrieve your Account Stages", 400 - ftm.stringWidth("Login to Retrieve your Account Stages") / 2, 220);
                     rd.drawString("Nickname:", 376 - ftm.stringWidth("Nickname:") - 14, 266);
                     if (!tnick.isShowing())
-                        tnick.show();
+                        tnick.setVisible(true);
                     movefield(tnick, 376, 250, 129, 23);
                     rd.drawString("Password:", 376 - ftm.stringWidth("Password:") - 14, 296);
                     if (!tpass.isShowing())
-                        tpass.show();
+                        tpass.setVisible(true);
                     movefield(tpass, 376, 280, 129, 23);
                     if (button("       Login       ", 400, 340, 0, true)) {
                         setCursor(new Cursor(3));
@@ -2932,8 +2932,8 @@ public class StageMaker extends Applet implements Runnable
                             i = -1;
                         }
                         if (i == 0 || i == 3 || i > 10) {
-                            tnick.hide();
-                            tpass.hide();
+                            tnick.setVisible(false);
+                            tpass.setVisible(false);
                             logged = 1;
                             savesettings();
                         }
@@ -3326,19 +3326,19 @@ public class StageMaker extends Applet implements Runnable
         }
         if (sptyp == 0) {
             partroads();
-            part.show();
+            part.setVisible(true);
         }
         if (sptyp == 1) {
             partramps();
-            part.show();
+            part.setVisible(true);
         }
         if (sptyp == 2) {
             partobst();
-            part.show();
+            part.setVisible(true);
         }
         if (sptyp == 5) {
             partrees();
-            part.show();
+            part.setVisible(true);
         }
         ptyp.select(sptyp);
         part.select(spart);
@@ -3498,20 +3498,20 @@ public class StageMaker extends Applet implements Runnable
     }
     
     public void hidefields() {
-        pubtyp.hide();
-        tpass.hide();
-        tnick.hide();
-        witho.hide();
-        strtyp.hide();
-        srch.hide();
-        slstage.hide();
-        tracks.hide();
-        nlaps.hide();
-        pfog.hide();
-        fixh.hide();
-        mgen.hide();
-        ptyp.hide();
-        part.hide();
+        pubtyp.setVisible(false);
+        tpass.setVisible(false);
+        tnick.setVisible(false);
+        witho.setVisible(false);
+        strtyp.setVisible(false);
+        srch.setVisible(false);
+        slstage.setVisible(false);
+        tracks.setVisible(false);
+        nlaps.setVisible(false);
+        pfog.setVisible(false);
+        fixh.setVisible(false);
+        mgen.setVisible(false);
+        ptyp.setVisible(false);
+        part.setVisible(false);
     }
     
     public void movefield(Component component, int i, int i_169_, int i_170_, int i_171_) {
@@ -4129,8 +4129,8 @@ public class StageMaker extends Applet implements Runnable
                 StageMaker stagemaker_238_ = this;
                 (stagemaker_238_).bstage = stringbuilder.append((stagemaker_238_).bstage).append("\r\nmaxl(3,-7200,-4800)\r\nmaxb(3,-7200,-4800)\r\nmaxr(3,7200,-4800)\r\nmaxt(3,7200,-4800)\r\n").toString();
                 savefile();
-                strtyp.hide();
-                srch.hide();
+                strtyp.setVisible(false);
+                srch.setVisible(false);
                 sfase = 0;
                 tabed = -2;
             } else

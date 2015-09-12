@@ -133,24 +133,24 @@ public class Login implements Runnable {
 	}
 
 	public void inishmulti() {
-		(gs).tnick.hide();
+		(gs).tnick.setVisible(false);
 		(gs).tnick.enable();
 		(gs).tnick.setForeground(new Color(0, 0,
 		0));
 		(gs).tnick.setBackground(color2k(240, 240,
 		240));
-		(gs).tpass.hide();
+		(gs).tpass.setVisible(false);
 		(gs).tpass.enable();
 		(gs).tpass.setForeground(new Color(0, 0,
 		0));
 		(gs).tpass.setBackground(color2k(240, 240,
 		240));
-		(gs).temail.hide();
+		(gs).temail.setVisible(false);
 		(gs).temail.enable();
 		(gs).temail.setForeground(new Color(0, 0,
 		0));
 		(gs).temail.setBackground(color2k(240, 240, 240));
-		(gs).keplo.hide();
+		(gs).keplo.setVisible(false);
 		(gs).keplo.enable();
 		(gs).keplo.setForeground(new Color(0, 0,
 		0));
@@ -348,10 +348,10 @@ public class Login implements Runnable {
 				(xt).nickname = (gs).tnick.getText();
 				if (i_15_ != -1)
 				(xt).nfreeplays = 0;
-				(gs).tnick.hide();
-				(gs).tpass.hide();
-				(gs).temail.hide();
-				(gs).keplo.hide();
+				(gs).tnick.setVisible(false);
+				(gs).tpass.setVisible(false);
+				(gs).temail.setVisible(false);
+				(gs).keplo.setVisible(false);
 				gs.requestFocus();
 				(xt).logged = false;
 				fase = 12;
@@ -420,10 +420,10 @@ public class Login implements Runnable {
 			if (i == 0 || i == 3 || i > 10 || i == -167 || i == 111) {
 				(xt).nickname = (gs).tnick.getText();
 				showtf = false;
-				(gs).tnick.hide();
-				(gs).tpass.hide();
-				(gs).temail.hide();
-				(gs).keplo.hide();
+				(gs).tnick.setVisible(false);
+				(gs).tpass.setVisible(false);
+				(gs).temail.setVisible(false);
+				(gs).keplo.setVisible(false);
 				gs.requestFocus();
 				gs.setloggedcookie();
 				btroom = false;
@@ -490,7 +490,7 @@ public class Login implements Runnable {
 			}
 			if (i == 0) {
 				showtf = false;
-				(gs).temail.hide();
+				(gs).temail.setVisible(false);
 				msg = new StringBuilder().append("Please check your Email: ").append((gs).temail.getText())
 					.append(" to login.").toString();
 				(gs).temail.setText("");
@@ -1155,7 +1155,7 @@ public class Login implements Runnable {
 				pessd[2] = true;
 			}
 			if (fase == 1 && !(gs).tnick.isShowing()) {
-				(gs).tnick.show();
+				(gs).tnick.setVisible(true);
 				(gs).tnick.requestFocus();
 				if ((gs).tnick.getText()
 					.equals("Nickname"))
@@ -1249,12 +1249,12 @@ public class Login implements Runnable {
 				showtf = true;
 				if (!(gs).applejava) {
 					if (!(gs).tpass.isShowing()) {
-						(gs).tpass.show();
+						(gs).tpass.setVisible(true);
 						if (!(gs).tnick.getText().equals(""))
 						(gs).tpass.requestFocus();
 					}
 					if (!(gs).tnick.isShowing()) {
-						(gs).tnick.show();
+						(gs).tnick.setVisible(true);
 						if ((gs).tnick.getText().equals(""))
 						(gs).tnick.requestFocus();
 					}
@@ -1305,7 +1305,7 @@ public class Login implements Runnable {
 			if (fase == 3 && ((!(gs).tpass.getText()
 				.equals("") && !(gs).tnick.getText()
 				.equals("")) || !(gs).applejava) && !(gs).keplo.isShowing())
-			(gs).keplo.show();
+			(gs).keplo.setVisible(true);
 			gs.movefield(((gs)
 				.keplo),
 			376, 275, 129, 23);
@@ -1333,7 +1333,7 @@ public class Login implements Runnable {
 				lnick = (gs).tnick.getText();
 			}
 			if (!(gs).tnick.isShowing())
-			(gs).tnick.show();
+			(gs).tnick.setVisible(true);
 			drawbutton((xt).register, 400, 325);
 			drawbutton((xt).cancel, 400, 375);
 		}
@@ -1371,7 +1371,7 @@ public class Login implements Runnable {
 			if (fase == 7) {
 				showtf = true;
 				if (!(gs).applejava && !(gs).temail.isShowing()) {
-					(gs).temail.show();
+					(gs).temail.setVisible(true);
 					(gs).temail.requestFocus();
 				}
 			}
@@ -1410,18 +1410,18 @@ public class Login implements Runnable {
 			}
 		}
 		if (i_49_ == 0) {
-			(gs).tnick.hide();
-			(gs).tpass.hide();
-			(gs).keplo.hide();
-			(gs).temail.hide();
+			(gs).tnick.setVisible(false);
+			(gs).tpass.setVisible(false);
+			(gs).keplo.setVisible(false);
+			(gs).temail.setVisible(false);
 			gs.requestFocus();
 			(xt).fase = 24;
 		}
 		if (i_49_ == 1 && fase != 5) {
-			(gs).tnick.hide();
-			(gs).tpass.hide();
-			(gs).keplo.hide();
-			(gs).temail.hide();
+			(gs).tnick.setVisible(false);
+			(gs).tpass.setVisible(false);
+			(gs).keplo.setVisible(false);
+			(gs).temail.setVisible(false);
 			gs.requestFocus();
 			(xt).fase = 23;
 		}
@@ -1674,9 +1674,9 @@ public class Login implements Runnable {
 				msg = "Please enter your Email Address to recover your account details.";
 				(gs).tnick.setForeground(new Color(0, 0, 0));
 				(gs).tpass.setForeground(new Color(0, 0, 0));
-				(gs).tnick.hide();
-				(gs).tpass.hide();
-				(gs).keplo.hide();
+				(gs).tnick.setVisible(false);
+				(gs).tpass.setVisible(false);
+				(gs).keplo.setVisible(false);
 				onf = false;
 				gs.setCursor(new Cursor(0));
 				fase = 7;
@@ -1775,7 +1775,7 @@ public class Login implements Runnable {
 			if (i_49_ == 2) {
 				fase = lrgfase;
 				if (fase == 12) {
-					(gs).tnick.hide();
+					(gs).tnick.setVisible(false);
 					connector = new Thread(this);
 					connector.start();
 				}

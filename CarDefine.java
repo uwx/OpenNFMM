@@ -924,7 +924,7 @@ public class CarDefine implements Runnable
 			action = -2;
 		}
 		if (action == 4) {
-		    (gs).mcars.hide();
+		    (gs).mcars.setVisible(false);
 		    (gs).mcars.removeAll();
 		    for (int i = 0; i < nl; i++)
 			(gs).mcars.add
@@ -1592,7 +1592,7 @@ public class CarDefine implements Runnable
 		msloaded = -1;
 	}
 	if (msloaded == 1) {
-	    (gs).mstgs.hide();
+	    (gs).mstgs.setVisible(false);
 	    (gs).mstgs.removeAll();
 	    (gs).mstgs
 		.add((gs).rd, "Select Stage");
@@ -1606,25 +1606,25 @@ public class CarDefine implements Runnable
 		}
 	    }
 	    (gs).mstgs.select(i_62_);
-	    (gs).mstgs.show();
+	    (gs).mstgs.setVisible(true);
 	}
 	if (msloaded == -2) {
-	    (gs).mstgs.hide();
+	    (gs).mstgs.setVisible(false);
 	    (gs).mstgs.removeAll();
 	    (gs).mstgs.add
 		((gs).rd,
 		 "You have not published or added any stages...");
 	    (gs).mstgs.select(0);
-	    (gs).mstgs.show();
+	    (gs).mstgs.setVisible(true);
 	}
 	if (msloaded == -1) {
-	    (gs).mstgs.hide();
+	    (gs).mstgs.setVisible(false);
 	    (gs).mstgs.removeAll();
 	    (gs).mstgs.add
 		((gs).rd,
 		 "Failed to load stages, please try again later.");
 	    (gs).mstgs.select(0);
-	    (gs).mstgs.show();
+	    (gs).mstgs.setVisible(true);
 	}
 	System.gc();
     }
@@ -1681,7 +1681,7 @@ public class CarDefine implements Runnable
 		msloaded = -1;
 	}
 	if (msloaded == i) {
-	    (gs).mstgs.hide();
+	    (gs).mstgs.setVisible(false);
 	    (gs).mstgs.removeAll();
 	    (gs).mstgs
 		.add((gs).rd, "Select Stage");
@@ -1692,17 +1692,17 @@ public class CarDefine implements Runnable
 			 (" ").append
 			 (strings[i_68_]).toString());
 	    (gs).mstgs.select(0);
-	    (gs).mstgs.show();
+	    (gs).mstgs.setVisible(true);
 	}
 	if (msloaded == -1
 	    || msloaded == -2) {
-	    (gs).mstgs.hide();
+	    (gs).mstgs.setVisible(false);
 	    (gs).mstgs.removeAll();
 	    (gs).mstgs.add
 		((gs).rd,
 		 "Failed to load Top20 list, please try again later.");
 	    (gs).mstgs.select(0);
-	    (gs).mstgs.show();
+	    (gs).mstgs.setVisible(true);
 	}
 	System.gc();
     }
@@ -1740,7 +1740,7 @@ public class CarDefine implements Runnable
 		    msloaded = -1;
 	    }
 	    if (msloaded == 7) {
-		(gs).mstgs.hide();
+		(gs).mstgs.setVisible(false);
 		(gs).mstgs.removeAll();
 		(gs).mstgs.add
 		    ((gs).rd, "Select Stage");
@@ -1749,41 +1749,41 @@ public class CarDefine implements Runnable
 			((gs).rd,
 			 strings[i_71_]);
 		(gs).mstgs.select(0);
-		(gs).mstgs.show();
+		(gs).mstgs.setVisible(true);
 	    }
 	    if (msloaded == -1) {
-		(gs).mstgs.hide();
+		(gs).mstgs.setVisible(false);
 		(gs).mstgs.removeAll();
 		(gs).mstgs.add
 		    ((gs).rd,
 		     "Failed to load clan stages, please try again later.");
 		(gs).mstgs.select(0);
-		(gs).mstgs.show();
+		(gs).mstgs.setVisible(true);
 	    }
 	    if (msloaded == -2) {
-		(gs).mstgs.hide();
+		(gs).mstgs.setVisible(false);
 		(gs).mstgs.removeAll();
 		(gs).mstgs.add
 		    ((gs).rd,
 		     "No stages have been added to your clan yet.");
 		(gs).mstgs.select(0);
-		(gs).mstgs.show();
+		(gs).mstgs.setVisible(true);
 	    }
 	    System.gc();
 	} else {
 	    msloaded = -2;
-	    (gs).mstgs.hide();
+	    (gs).mstgs.setVisible(false);
 	    (gs).mstgs.removeAll();
 	    (gs).mstgs.add
 		((gs).rd,
 		 "You are not a member of any clan yet.");
 	    (gs).mstgs.select(0);
-	    (gs).mstgs.show();
+	    (gs).mstgs.setVisible(true);
 	}
     }
     
     public void loadstagemaker() {
-	(gs).mstgs.hide();
+	(gs).mstgs.setVisible(false);
 	(gs).mstgs.removeAll();
 	(gs).mstgs
 	    .add((gs).rd, "Select Stage");
@@ -1814,7 +1814,7 @@ public class CarDefine implements Runnable
 	    msloaded = -1;
 	}
 	(gs).mstgs.select(0);
-	(gs).mstgs.show();
+	(gs).mstgs.setVisible(true);
     }
     
     public void loadcarmaker() {

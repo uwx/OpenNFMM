@@ -180,13 +180,29 @@ public class Smenu
 	return fcol;
     }
     
+    /**
+     * Use setVisible instead
+     */
+    @Deprecated
     public void hide() {
 	show = false;
 	open = false;
     }
     
+    /**
+     * Use setVisible instead
+     */
+    @Deprecated
     public void show() {
 	show = true;
+    }
+    
+    public void setVisible(boolean v) {
+    	if (v) show = true;
+    	else {
+    		show = false;
+    		open = false;
+    	}
     }
     
     public boolean isShowing() {

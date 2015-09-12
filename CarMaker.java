@@ -395,7 +395,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                     if (slcar.getWidth() != 200)
                         slcar.setSize(200, 21);
                     if (!slcar.isShowing())
-                        slcar.show();
+                        slcar.setVisible(true);
                     stringbutton("    Make new Car    ", 430, 296 + i_2_, 0, true);
                     stringbutton("     Rename Car     ", 270, 296 + i_2_, 0, false);
                     stringbutton("      Delete Car      ", 270, 336 + i_2_, 0, false);
@@ -418,7 +418,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                     rd.drawString("New car name :", 228, 266 + i_2_);
                     movefield(srch, 335, 250 + i_2_, 129, 22);
                     if (!srch.isShowing()) {
-                        srch.show();
+                        srch.setVisible(true);
                         srch.requestFocus();
                     }
                     fixtext(srch);
@@ -431,7 +431,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                     rd.drawString("New name :", 239, 266 + i_2_);
                     movefield(srch, 316, 250 + i_2_, 129, 22);
                     if (!srch.isShowing()) {
-                        srch.show();
+                        srch.setVisible(true);
                         srch.requestFocus();
                     }
                     fixtext(srch);
@@ -475,7 +475,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                     if (slcar.getWidth() != 200)
                         slcar.setSize(200, 21);
                     if (!slcar.isShowing())
-                        slcar.show();
+                        slcar.setVisible(true);
                     stringbutton("     Export Car     ", 350, 306 + i_2_, 0, true);
                     stringbutton("  Cancel  ", 350, 346 + i_2_, 0, false);
                     if (slcar.getSelectedIndex() != 0) {
@@ -502,17 +502,17 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                 movefield(editor, 5, 30, 690, 400);
                 if (!openm) {
                     if (!editor.isShowing()) {
-                        editor.show();
+                        editor.setVisible(true);
                         editor.requestFocus();
                     }
                 } else if (editor.isShowing())
-                    editor.hide();
+                    editor.setVisible(false);
                 rd.setFont(new Font("Arial", 1, 12));
                 if (prefs) {
                     rd.drawString("Code Font:", 10, 446);
                     fontsel.move(76, 430);
                     if (!fontsel.isShowing()) {
-                        fontsel.show();
+                        fontsel.setVisible(true);
                         fontsel.select(cfont);
                     }
                     if (!cfont.equals(fontsel.getSelectedItem())) {
@@ -528,7 +528,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                     rd.drawString("Code Theme:", 190, 446);
                     ctheme.move(271, 430);
                     if (!ctheme.isShowing()) {
-                        ctheme.show();
+                        ctheme.setVisible(true);
                         ctheme.select(cthm);
                     }
                     if (cthm != ctheme.getSelectedIndex()) {
@@ -544,9 +544,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                 } else {
                     stringbutton("Preferences", 52, 446, 3, false);
                     if (ctheme.isShowing())
-                        ctheme.hide();
+                        ctheme.setVisible(false);
                     if (fontsel.isShowing())
-                        fontsel.hide();
+                        fontsel.setVisible(false);
                     if (cntprf != 0)
                         cntprf = 0;
                     if (cntchk == 0) {
@@ -615,7 +615,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                     rd.drawString("Text to find:", 18, 500);
                     movefield(srch, 91, 484, 129, 22);
                     if (!srch.isShowing())
-                        srch.show();
+                        srch.setVisible(true);
                     boolean bool_9_ = false;
                     if (!srch.getText().equals(""))
                         bool_9_ = true;
@@ -623,16 +623,16 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                     rd.drawString("Replace with:", 255, 500);
                     movefield(rplc, 338, 484, 129, 22);
                     if (!rplc.isShowing())
-                        rplc.show();
+                        rplc.setVisible(true);
                     bool_9_ = false;
                     if (!srch.getText().equals("") && !rplc.getText().equals(""))
                         bool_9_ = true;
                     stringbutton(" Replace ", 376, 526, 2, bool_9_);
                 } else {
                     if (srch.isShowing())
-                        srch.hide();
+                        srch.setVisible(false);
                     if (rplc.isShowing())
-                        rplc.hide();
+                        rplc.setVisible(false);
                     rd.setColor(new Color(170, 170, 170));
                     rd.drawRect(5, 474, 450, 70);
                     rd.setColor(new Color(0, 0, 0));
@@ -805,7 +805,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                         if (srch.hasFocus())
                             focuson = false;
                         if (!srch.isShowing())
-                            srch.show();
+                            srch.setVisible(true);
                         for (int i_20_ = 0; i_20_ < 200; i_20_++) {
                             rd.setColor(Color.getHSBColor((float) ((double) (float) i_20_ * 0.005), 1.0F, 1.0F));
                             rd.drawLine(110 + i_20_, 442, 110 + i_20_, 449);
@@ -857,7 +857,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                         if (rplc.hasFocus())
                             focuson = false;
                         if (!rplc.isShowing())
-                            rplc.show();
+                            rplc.setVisible(true);
                         for (int i_24_ = 0; i_24_ < 200; i_24_++) {
                             rd.setColor(Color.getHSBColor((float) ((double) (float) i_24_ * 0.005), 1.0F, 1.0F));
                             rd.drawLine(450 + i_24_, 442, 450 + i_24_, 449);
@@ -1073,7 +1073,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                     } else
                         bfo = 0;
                     if (!compcar.isShowing())
-                        compcar.show();
+                        compcar.setVisible(true);
                     if (compsel != compcar.getSelectedIndex()) {
                         compsel = compcar.getSelectedIndex();
                         requestFocus();
@@ -1271,16 +1271,16 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                         if (wv[i_65_].hasFocus())
                             focuson = false;
                         if (!wv[i_65_].isShowing())
-                            wv[i_65_].show();
+                            wv[i_65_].setVisible(true);
                     }
                     if (srch.hasFocus())
                         focuson = false;
                     if (!srch.isShowing())
-                        srch.show();
+                        srch.setVisible(true);
                     if (rplc.hasFocus())
                         focuson = false;
                     if (!rplc.isShowing())
-                        rplc.show();
+                        rplc.setVisible(true);
                     if (!focuson) {
                         if (!aplyd1 && !aply1.equals(new StringBuilder().append("").append(wv[0].getText()).append("").append(wv[1].getText()).append("").append(wv[2].getText()).append("").append(wv[3].getText()).append("").append(wv[4].getText()).append("").append(srch.getText()).append("").append(wv[5].getText()).append("").append(wv[6].getText()).append("").append(wv[7].getText()).append("").toString()))
                             aplyd1 = true;
@@ -1372,13 +1372,13 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                         rd.drawString("To start, please select the most similar NFM car to this car", 350 - ftm.stringWidth("To start, please select the most similar NFM car to this car") / 2, 450);
                         simcar.move(288, 460);
                         if (!simcar.isShowing())
-                            simcar.show();
+                            simcar.setVisible(true);
                         stringbutton("   OK   ", 350, 515, 0, true);
                     } else {
                         rd.drawString("Car Class", 54, 435);
                         cls.move(34, 440);
                         if (!cls.isShowing())
-                            cls.show();
+                            cls.setVisible(true);
                         boolean bool_74_ = false;
                         int i_75_ = 0;
                         for (int i_76_ = 0; i_76_ < 5; i_76_++) {
@@ -1409,7 +1409,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                         rd.drawString("Most Similar Car", 36, 490);
                         simcar.move(20, 495);
                         if (!simcar.isShowing())
-                            simcar.show();
+                            simcar.setVisible(true);
                         if (carsel != simcar.getSelectedIndex()) {
                             carsel = simcar.getSelectedIndex();
                             if (carsel != 16) {
@@ -1690,7 +1690,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                         rd.drawString("Select the most suitable engine for your car :", 30, 440);
                         engine.move(293, 424);
                         if (!engine.isShowing()) {
-                            engine.show();
+                            engine.setVisible(true);
                             engine.select(engsel);
                         }
                         if (engsel != engine.getSelectedIndex()) {
@@ -1939,7 +1939,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                         rd.drawString("Test Drive the Car", 350 - ftm.stringWidth("Test Drive the Car") / 2, 445);
                         witho.move(292, 455);
                         if (!witho.isShowing())
-                            witho.show();
+                            witho.setVisible(true);
                         stringbutton("     TEST DRIVE!     ", 350, 505, 0, true);
                         if (tested) {
                             stringbutton("  Edit Stats & Class  ", 150, 471, 0, false);
@@ -2057,7 +2057,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                 rd.drawString("Publishing Type :", 30, 80);
                 pubtyp.move(150, 63);
                 if (!pubtyp.isShowing()) {
-                    pubtyp.show();
+                    pubtyp.setVisible(true);
                     pubtyp.select(1);
                 }
                 stringbutton("       Publish  >       ", 102, 110, 0, true);
@@ -2099,11 +2099,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                     rd.drawString("Nickname:", 326 - ftm.stringWidth("Nickname:") - 14, 266);
                     movefield(tnick, 326, 250, 129, 22);
                     if (!tnick.isShowing())
-                        tnick.show();
+                        tnick.setVisible(true);
                     rd.drawString("Password:", 326 - ftm.stringWidth("Password:") - 14, 296);
                     movefield(tpass, 326, 280, 129, 22);
                     if (!tpass.isShowing())
-                        tpass.show();
+                        tpass.setVisible(true);
                     stringbutton("       Login       ", 350, 340, 0, true);
                     rd.setFont(new Font("Arial", 1, 13));
                     ftm = rd.getFontMetrics();
@@ -3435,12 +3435,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                         if (i == 6) {
                             pfase = 2;
                             i = -1;
-                            engine.hide();
+                            engine.setVisible(false);
                         }
                         if (i == 7) {
                             pfase = 4;
                             i = -1;
-                            engine.hide();
+                            engine.setVisible(false);
                         }
                     }
                     i_206_ = 8;
@@ -3681,8 +3681,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                         i_299_ = -1;
                     }
                     if (i_299_ == 0 || i_299_ == 3 || i_299_ > 10) {
-                        tnick.hide();
-                        tpass.hide();
+                        tnick.setVisible(false);
+                        tpass.setVisible(false);
                         logged = 1;
                         savesettings();
                     }
@@ -4405,22 +4405,22 @@ public class CarMaker extends Applet implements Runnable, ActionListener
     }
     
     public void hidefields() {
-        pubtyp.hide();
-        tpass.hide();
-        tnick.hide();
-        slcar.hide();
-        witho.hide();
+        pubtyp.setVisible(false);
+        tpass.setVisible(false);
+        tnick.setVisible(false);
+        slcar.setVisible(false);
+        witho.setVisible(false);
         for (int i = 0; i < 16; i++)
-            wv[i].hide();
-        simcar.hide();
-        engine.hide();
-        cls.hide();
-        compcar.hide();
-        editor.hide();
-        fontsel.hide();
-        ctheme.hide();
-        srch.hide();
-        rplc.hide();
+            wv[i].setVisible(false);
+        simcar.setVisible(false);
+        engine.setVisible(false);
+        cls.setVisible(false);
+        compcar.setVisible(false);
+        editor.setVisible(false);
+        fontsel.setVisible(false);
+        ctheme.setVisible(false);
+        srch.setVisible(false);
+        rplc.setVisible(false);
     }
     
     public void movefield(Component component, int i, int i_343_, int i_344_, int i_345_) {
