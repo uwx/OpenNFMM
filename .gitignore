@@ -3,8 +3,17 @@
 ## Mine
 #################
 
-# mycars
+# ??? temp file ???
+__rzi_0.*
+
+# saved data
+data/*.data
+mycars/*.data
+mystages/*.data
+
+# mycars/stages
 *.rad
+mystages/mymusic/*.zip
 mystages/*.txt
 mycars/*.rad
 
