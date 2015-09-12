@@ -56,9 +56,6 @@ public class ModSlayer
     public int gain;
     public int nloops = 1;
     public boolean loud = false;
-    private static final int ERROR_SHIFT = 12;
-    private static final int ERROR_MASK = 4095;
-    private static final long ratediv = 22748294283264L;
     int oln = 0;
     int olav = 0;
     
@@ -66,7 +63,7 @@ public class ModSlayer
         samplingrate = i;
         gain = i_0_;
         oversample = 1;
-        mod = mod;
+        //mod = mod;
         def_tempo = 6;
         def_bpm = i_1_;
     }

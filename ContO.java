@@ -837,7 +837,6 @@ public class ContO
 		    boolean bool_54_ = false;
 		    for (int i_55_ = 0; i_55_ < npl; i_55_++) {
 			if (i_55_ != i_27_ && is_0_[i_55_] != 0) {
-			    boolean bool_56_ = false;
 			    int i_57_
 				= (p[i_55_]).ox[0];
 			    int i_58_

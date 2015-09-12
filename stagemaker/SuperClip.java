@@ -18,40 +18,40 @@ public class SuperClip implements Runnable
     ByteArrayInputStream stream;
     
     public SuperClip(byte[] is, int i, int i_0_) {
-        this.stoped = 2;
-        this.skiprate = i_0_;
-        this.stream = new ByteArrayInputStream(is, 0, i);
+        stoped = 2;
+        skiprate = i_0_;
+        stream = new ByteArrayInputStream(is, 0, i);
     }
     
     public void run() {
         boolean bool = false;
         try {
-            AudioFormat audioformat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, (float) this.skiprate, 16, 1, 2, (float) this.skiprate, false);
+            AudioFormat audioformat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, (float) skiprate, 16, 1, 2, (float) skiprate, false);
             DataLine.Info info = new DataLine.Info(null, audioformat);
-            this.source = (SourceDataLine) AudioSystem.getLine(info);
-            this.source.open(audioformat);
-            this.source.start();
+            source = (SourceDataLine) AudioSystem.getLine(info);
+            source.open(audioformat);
+            source.start();
         } catch (Exception exception) {
-            this.stoped = 1;
+            stoped = 1;
         }
-        while (this.stoped == 0) {
+        while (stoped == 0) {
             try {
-                if (this.source.available() < this.skiprate || !bool) {
-                    byte[] is = new byte[this.skiprate * 2];
-                    int i = this.stream.read(is, 0, is.length);
+                if (source.available() < skiprate || !bool) {
+                    byte[] is = new byte[skiprate * 2];
+                    int i = stream.read(is, 0, is.length);
                     if (i == -1) {
-                        this.stream.reset();
-                        this.stream.read(is, 0, is.length);
+                        stream.reset();
+                        stream.read(is, 0, is.length);
                     }
-                    this.source.write(is, 0, is.length);
+                    source.write(is, 0, is.length);
                     bool = true;
                 }
             } catch (Exception exception) {
                 System.out.println(new StringBuilder().append("Play error: ").append(exception).toString());
-                this.stoped = 1;
+                stoped = 1;
             }
             try {
-                if (this.cliper != null) {
+                if (cliper != null) {
                     /* empty */
                 }
                 Thread.sleep(200L);
@@ -59,45 +59,45 @@ public class SuperClip implements Runnable
                 /* empty */
             }
         }
-        this.source.stop();
-        this.source.close();
-        this.source = null;
-        this.stoped = 2;
+        source.stop();
+        source.close();
+        source = null;
+        stoped = 2;
     }
     
     public void play() {
-        if (this.stoped == 2) {
-            this.stoped = 0;
+        if (stoped == 2) {
+            stoped = 0;
             try {
-                this.stream.reset();
+                stream.reset();
             } catch (Exception exception) {
                 /* empty */
             }
-            this.cliper = new Thread(this);
-            this.cliper.start();
+            cliper = new Thread(this);
+            cliper.start();
         }
     }
     
     public void resume() {
-        if (this.stoped == 2) {
-            this.stoped = 0;
-            this.cliper = new Thread(this);
-            this.cliper.start();
+        if (stoped == 2) {
+            stoped = 0;
+            cliper = new Thread(this);
+            cliper.start();
         }
     }
     
     public void stop() {
-        if (this.stoped == 0) {
-            this.stoped = 1;
-            if (this.source != null)
-                this.source.stop();
+        if (stoped == 0) {
+            stoped = 1;
+            if (source != null)
+                source.stop();
         }
     }
     
     public void close() {
         try {
-            this.stream.close();
-            this.stream = null;
+            stream.close();
+            stream = null;
         } catch (Exception exception) {
             /* empty */
         }

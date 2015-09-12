@@ -58,9 +58,6 @@ public class ModSlayer
     public int gain;
     public int nloops = 1;
     public boolean loud = false;
-    private static final int ERROR_SHIFT = 12;
-    private static final int ERROR_MASK = 4095;
-    private static final long ratediv = 22748294283264L;
     int oln = 0;
     int olav = 0;
     
@@ -68,9 +65,9 @@ public class ModSlayer
         samplingrate = i;
         gain = i_0_;
         oversample = 1;
-        this.mod = mod;
-        this.def_tempo = 6;
-        this.def_bpm = i_1_;
+        mod = mod;
+        def_tempo = 6;
+        def_bpm = i_1_;
     }
     
     final void beattrack(ModTrackInfo modtrackinfo) {
@@ -90,7 +87,7 @@ public class ModSlayer
         }
         if (((modtrackinfo).effect & 0x4) != 0) {
             if (((modtrackinfo).period -= (modtrackinfo).port_up) < (modtrackinfo).period_low_limit) {
-                if ((this.mod).s3m)
+                if ((mod).s3m)
                     (modtrackinfo).period = (modtrackinfo).period_high_limit;
                 else
                     (modtrackinfo).period = (modtrackinfo).period_low_limit;
@@ -135,7 +132,7 @@ public class ModSlayer
         (modtrackinfo).effect = 0;
         if (i_2_ != 0) {
             i_2_--;
-            ModInstrument modinstrument = (this.mod).insts[i_2_];
+            ModInstrument modinstrument = (mod).insts[i_2_];
             (modtrackinfo).volume = (modinstrument).volume;
             (modtrackinfo).length = (modinstrument).sample_length;
             (modtrackinfo).repeat = (modinstrument).repeat_point;
@@ -219,8 +216,8 @@ public class ModSlayer
                     (modtrackinfo).volume = i_5_;
                 break;
                 case 13:
-                this.break_row = ((i_5_ & 0xf0) >> 4) * 10 + (i_5_ & 0xf);
-                this.row = 64;
+                break_row = ((i_5_ & 0xf0) >> 4) * 10 + (i_5_ & 0xf);
+                row = 64;
                 break;
                 case 14: {
                     int i_7_ = i_5_ & 0xf0;
@@ -246,11 +243,11 @@ public class ModSlayer
                 if (i_5_ != 0) {
                     i_5_ &= 0xff;
                     if (i_5_ <= 32) {
-                        this.tempo = i_5_;
-                        this.tempo_wait = i_5_;
+                        tempo = i_5_;
+                        tempo_wait = i_5_;
                     } else {
-                        this.bpm = i_5_;
-                        this.bpm_samples = samplingrate / (103 * i_5_ >> 8) * oversample;
+                        bpm = i_5_;
+                        bpm_samples = samplingrate / (103 * i_5_ >> 8) * oversample;
                     }
                 }
             }
@@ -259,15 +256,15 @@ public class ModSlayer
     }
     
     final void make_vol_table8() {
-        this.vol_table = new byte[16640];
+        vol_table = new byte[16640];
         for (int i = 0; i < 16640; i++)
-            this.vol_table[i] = (byte) (this.vol_adj[i >> 8] * (byte) i >> 8 + this.vol_shift);
+            vol_table[i] = (byte) (vol_adj[i >> 8] * (byte) i >> 8 + vol_shift);
     }
     
     final void mixtrack_16_mono(ModTrackInfo modtrackinfo, int[] is, int i, int i_8_) {
         byte[] is_9_ = (modtrackinfo).samples;
         int i_10_ = (modtrackinfo).position;
-        int i_11_ = this.vol_adj[(modtrackinfo).volume] * gain >> this.vol_shift + 8;
+        int i_11_ = vol_adj[(modtrackinfo).volume] * gain >> vol_shift + 8;
         int i_12_ = (modtrackinfo).error;
         int i_13_ = (modtrackinfo).pitch & 0xfff;
         int i_14_ = (modtrackinfo).pitch >> 12;
@@ -318,25 +315,25 @@ public class ModSlayer
     public byte[] turnbytesNorm(boolean bool) throws IOException {
         bit16 = true;
         startplaying(loud);
-        int[] is = new int[this.mixspeed];
-        int[] is_18_ = new int[this.mixspeed];
+        int[] is = new int[mixspeed];
+        int[] is_18_ = new int[mixspeed];
         byte[] is_19_ = new byte[18000000];
-        this.oln = 0;
-        this.olav = 1;
+        oln = 0;
+        olav = 1;
         int i = 1;
-        while (!this.mod_done) {
-            if (--this.tempo_wait > 0) {
-                for (int i_20_ = 0; i_20_ < this.numtracks; i_20_++)
-                    beattrack(this.tracks[i_20_]);
+        while (!mod_done) {
+            if (--tempo_wait > 0) {
+                for (int i_20_ = 0; i_20_ < numtracks; i_20_++)
+                    beattrack(tracks[i_20_]);
             } else
                 updatetracks();
-            System.arraycopy(is_18_, 0, is, 0, this.bpm_samples);
-            for (int i_21_ = 0; i_21_ < this.numtracks; i_21_++)
-                mixtrack_16_mono(this.tracks[i_21_], is, 0, this.bpm_samples);
-            int i_22_ = this.bpm_samples;
+            System.arraycopy(is_18_, 0, is, 0, bpm_samples);
+            for (int i_21_ = 0; i_21_ < numtracks; i_21_++)
+                mixtrack_16_mono(tracks[i_21_], is, 0, bpm_samples);
+            int i_22_ = bpm_samples;
             if (oversample > 1) {
                 int i_23_ = 0;
-                i_22_ = this.bpm_samples / oversample;
+                i_22_ = bpm_samples / oversample;
                 if (oversample == 2) {
                     for (int i_24_ = 0; i_24_ < i_22_; i_24_++) {
                         is[i_24_] = is[i_23_] + is[i_23_ + 1] >> 1;
@@ -351,7 +348,7 @@ public class ModSlayer
                     }
                 }
             }
-            if (this.oln + i_22_ < 18000000) {
+            if (oln + i_22_ < 18000000) {
                 if (bool) {
                     int i_28_ = 0;
                     int i_29_ = 0;
@@ -363,17 +360,17 @@ public class ModSlayer
                     }
                     if (i_28_ != 0) {
                         i_29_ /= i_28_;
-                        this.olav += i_29_;
+                        olav += i_29_;
                         i++;
                     }
                 }
-                intToBytes16(is, is_19_, i_22_, this.oln);
-                this.oln += i_22_;
+                intToBytes16(is, is_19_, i_22_, oln);
+                oln += i_22_;
             }
         }
         if (bool)
-            this.olav = this.olav / i;
-        this.oln++;
+            olav = olav / i;
+        oln++;
         return is_19_;
     }
     
@@ -388,23 +385,23 @@ public class ModSlayer
     public byte[] turnbytesUlaw() throws IOException {
         bit16 = true;
         startplaying(loud);
-        int[] is = new int[this.mixspeed];
-        int[] is_35_ = new int[this.mixspeed];
+        int[] is = new int[mixspeed];
+        int[] is_35_ = new int[mixspeed];
         int[] is_36_ = new int[3200000];
-        this.oln = 0;
-        while (!this.mod_done) {
-            if (--this.tempo_wait > 0) {
-                for (int i = 0; i < this.numtracks; i++)
-                    beattrack(this.tracks[i]);
+        oln = 0;
+        while (!mod_done) {
+            if (--tempo_wait > 0) {
+                for (int i = 0; i < numtracks; i++)
+                    beattrack(tracks[i]);
             } else
                 updatetracks();
-            System.arraycopy(is_35_, 0, is, 0, this.bpm_samples);
-            for (int i = 0; i < this.numtracks; i++)
-                mixtrack_16_mono(this.tracks[i], is, 0, this.bpm_samples);
-            int i = this.bpm_samples;
+            System.arraycopy(is_35_, 0, is, 0, bpm_samples);
+            for (int i = 0; i < numtracks; i++)
+                mixtrack_16_mono(tracks[i], is, 0, bpm_samples);
+            int i = bpm_samples;
             if (oversample > 1) {
                 int i_37_ = 0;
-                i = this.bpm_samples / oversample;
+                i = bpm_samples / oversample;
                 if (oversample == 2) {
                     for (int i_38_ = 0; i_38_ < i; i_38_++) {
                         is[i_38_] = is[i_37_] + is[i_37_ + 1] >> 1;
@@ -420,81 +417,81 @@ public class ModSlayer
                 }
             }
             for (int i_42_ = 0; i_42_ < i; i_42_++) {
-                if (this.oln < 3200000) {
-                    is_36_[this.oln] = is[i_42_];
-                    this.oln++;
+                if (oln < 3200000) {
+                    is_36_[oln] = is[i_42_];
+                    oln++;
                 }
             }
         }
-        for (int i = 2; i < this.oln; i++)
+        for (int i = 2; i < oln; i++)
             is_36_[i] = (is_36_[i] + is_36_[i - 2]) / 2;
-        for (int i = 57; i < this.oln; i++)
+        for (int i = 57; i < oln; i++)
             is_36_[i] = (is_36_[i] + is_36_[i] + is_36_[i - 50]) / 3;
-        byte[] is_43_ = new byte[this.oln];
-        for (int i = 0; i < this.oln; i++)
+        byte[] is_43_ = new byte[oln];
+        for (int i = 0; i < oln; i++)
             is_43_[i] = UlawUtils.linear2ulawclip(is_36_[i]);
         return is_43_;
     }
     
     final void startplaying(boolean bool) {
-        this.vol_adj = bool ? loud_vol_adj : normal_vol_adj;
-        this.mixspeed = samplingrate * oversample;
-        this.order_pos = 0;
-        this.tempo_wait = this.tempo = this.def_tempo;
-        this.bpm = this.def_bpm;
-        this.row = 64;
-        this.break_row = 0;
-        this.bpm_samples = samplingrate / (24 * this.bpm / 60) * oversample;
-        this.numtracks = (this.mod).numtracks;
-        this.tracks = new ModTrackInfo[this.numtracks];
-        for (int i = 0; i < this.tracks.length; i++)
-            this.tracks[i] = new ModTrackInfo();
-        if ((this.mod).s3m) {
-            for (int i = 0; i < (this.mod).insts.length; i++) {
-                ModInstrument modinstrument = (this.mod).insts[i];
-                (modinstrument).finetune_rate = (int) (428L * (long) (modinstrument).finetune_value << 8) / this.mixspeed;
+        vol_adj = bool ? loud_vol_adj : normal_vol_adj;
+        mixspeed = samplingrate * oversample;
+        order_pos = 0;
+        tempo_wait = tempo = def_tempo;
+        bpm = def_bpm;
+        row = 64;
+        break_row = 0;
+        bpm_samples = samplingrate / (24 * bpm / 60) * oversample;
+        numtracks = (mod).numtracks;
+        tracks = new ModTrackInfo[numtracks];
+        for (int i = 0; i < tracks.length; i++)
+            tracks[i] = new ModTrackInfo();
+        if ((mod).s3m) {
+            for (int i = 0; i < (mod).insts.length; i++) {
+                ModInstrument modinstrument = (mod).insts[i];
+                (modinstrument).finetune_rate = (int) (428L * (long) (modinstrument).finetune_value << 8) / mixspeed;
                 (modinstrument).period_low_limit = 14;
                 (modinstrument).period_high_limit = 1712;
             }
         } else {
-            for (int i = 0; i < (this.mod).insts.length; i++) {
-                ModInstrument modinstrument = (this.mod).insts[i];
-                (modinstrument).finetune_rate = (int) (22748294283264L / (long) (this.mixspeed * (1536 - (modinstrument).finetune_value)));
+            for (int i = 0; i < (mod).insts.length; i++) {
+                ModInstrument modinstrument = (mod).insts[i];
+                (modinstrument).finetune_rate = (int) (22748294283264L / (long) (mixspeed * (1536 - (modinstrument).finetune_value)));
                 (modinstrument).period_low_limit = 113;
                 (modinstrument).period_high_limit = 856;
             }
         }
-        if (this.numtracks > 8)
-            this.vol_shift = 2;
-        else if (this.numtracks > 4)
-            this.vol_shift = 1;
+        if (numtracks > 8)
+            vol_shift = 2;
+        else if (numtracks > 4)
+            vol_shift = 1;
         else
-            this.vol_shift = 0;
+            vol_shift = 0;
         if (!bit16)
             make_vol_table8();
     }
     
     final void updatetracks() {
-        this.tempo_wait = this.tempo;
-        if (this.row >= 64) {
-            if (this.order_pos >= (this.mod).song_length_patterns) {
-                this.order_pos = 0;
+        tempo_wait = tempo;
+        if (row >= 64) {
+            if (order_pos >= (mod).song_length_patterns) {
+                order_pos = 0;
                 nloops--;
                 if (nloops == 0)
-                    this.mod_done = true;
+                    mod_done = true;
             }
-            this.row = this.break_row;
-            this.break_row = 0;
-            if ((this.mod).positions[this.order_pos] == 255) {
-                this.order_pos = 0;
-                this.row = 0;
+            row = break_row;
+            break_row = 0;
+            if ((mod).positions[order_pos] == 255) {
+                order_pos = 0;
+                row = 0;
             }
-            this.patt = (this.mod).patterns[(this.mod).positions[this.order_pos]];
-            this.pattofs = this.row * 4 * this.numtracks;
-            this.order_pos++;
+            patt = (mod).patterns[(mod).positions[order_pos]];
+            pattofs = row * 4 * numtracks;
+            order_pos++;
         }
-        this.row++;
-        for (int i = 0; i < this.numtracks; i++)
-            this.pattofs = get_track(this.tracks[i], this.patt, this.pattofs);
+        row++;
+        for (int i = 0; i < numtracks; i++)
+            pattofs = get_track(tracks[i], patt, pattofs);
     }
 }

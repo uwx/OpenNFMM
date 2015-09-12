@@ -52,10 +52,9 @@ public class Mod
             }
             LoadMod(new ByteArrayInputStream(is));
             zipinputstream.close();
-            Object object = null;
-            this.loaded = true;
+            loaded = true;
         } catch (Exception exception) {
-            this.loaded = false;
+            loaded = false;
         }
     }
     
@@ -73,10 +72,9 @@ public class Mod
             }
             LoadMod(new ByteArrayInputStream(is));
             zipinputstream.close();
-            Object object = null;
-            this.loaded = true;
+            loaded = true;
         } catch (Exception exception) {
-            this.loaded = false;
+            loaded = false;
         }
     }
     
@@ -93,9 +91,9 @@ public class Mod
                 i_5_ += i_6_;
             }
             LoadMod(new ByteArrayInputStream(is_4_));
-            this.loaded = true;
+            loaded = true;
         } catch (Exception exception) {
-            this.loaded = false;
+            loaded = false;
         }
     }
     
@@ -106,8 +104,8 @@ public class Mod
     public void LoadMod(InputStream inputstream) throws IOException {
         DataInputStream datainputstream = new DataInputStream(inputstream);
         int i = 15;
-        this.numtracks = 4;
-        this.name = readText(datainputstream, 20);
+        numtracks = 4;
+        name = readText(datainputstream, 20);
         datainputstream.mark(1068);
         datainputstream.skip(1060L);
         int i_7_ = datainputstream.readInt();
@@ -120,21 +118,21 @@ public class Mod
         }
         if (i == 31) {
             if (i_7_ == voice_8chn)
-                this.numtracks = 8;
+                numtracks = 8;
             else if (i_7_ == voice_6chn)
-                this.numtracks = 6;
+                numtracks = 6;
             else if (i_7_ == voice_28ch)
-                this.numtracks = 28;
+                numtracks = 28;
         }
-        this.insts = new ModInstrument[i];
+        insts = new ModInstrument[i];
         for (int i_9_ = 0; i_9_ < i; i_9_++)
-            this.insts[i_9_] = readInstrument(datainputstream);
+            insts[i_9_] = readInstrument(datainputstream);
         readSequence(datainputstream);
         datainputstream.skipBytes(4);
         readPatterns(datainputstream);
         try {
             for (int i_10_ = 0; i_10_ < i; i_10_++)
-                readSampleData(datainputstream, this.insts[i_10_]);
+                readSampleData(datainputstream, insts[i_10_]);
         } catch (EOFException eofexception) {
             System.out.println("Warning: EOF on MOD file");
         }
@@ -143,15 +141,15 @@ public class Mod
     }
     
     public String getName() {
-        return this.name;
+        return name;
     }
     
     public int getNumPatterns() {
-        return this.numpatterns;
+        return numpatterns;
     }
     
     public int getNumTracks() {
-        return this.numtracks;
+        return numtracks;
     }
     
     static ModInstrument readInstrument(DataInputStream datainputstream) throws IOException {
@@ -171,11 +169,11 @@ public class Mod
     }
     
     void readPatterns(DataInputStream datainputstream) throws IOException {
-        int i = this.numtracks * 4 * 64;
-        this.patterns = new byte[this.numpatterns][];
-        for (int i_11_ = 0; i_11_ < this.numpatterns; i_11_++) {
-            this.patterns[i_11_] = new byte[i];
-            datainputstream.readFully(this.patterns[i_11_], 0, i);
+        int i = numtracks * 4 * 64;
+        patterns = new byte[numpatterns][];
+        for (int i_11_ = 0; i_11_ < numpatterns; i_11_++) {
+            patterns[i_11_] = new byte[i];
+            datainputstream.readFully(patterns[i_11_], 0, i);
         }
     }
     
@@ -186,18 +184,18 @@ public class Mod
     }
     
     void readSequence(DataInputStream datainputstream) throws IOException {
-        this.positions = new byte[128];
-        this.song_length_patterns = readu8(datainputstream);
-        this.song_repeat_patterns = readu8(datainputstream);
-        datainputstream.readFully(this.positions, 0, 128);
-        if (this.song_repeat_patterns > this.song_length_patterns)
-            this.song_repeat_patterns = this.song_length_patterns;
-        this.numpatterns = 0;
-        for (int i = 0; i < this.positions.length; i++) {
-            if (this.positions[i] > this.numpatterns)
-                this.numpatterns = this.positions[i];
+        positions = new byte[128];
+        song_length_patterns = readu8(datainputstream);
+        song_repeat_patterns = readu8(datainputstream);
+        datainputstream.readFully(positions, 0, 128);
+        if (song_repeat_patterns > song_length_patterns)
+            song_repeat_patterns = song_length_patterns;
+        numpatterns = 0;
+        for (int i = 0; i < positions.length; i++) {
+            if (positions[i] > numpatterns)
+                numpatterns = positions[i];
         }
-        this.numpatterns++;
+        numpatterns++;
     }
     
     static final String readText(DataInputStream datainputstream, int i) throws IOException {
@@ -219,6 +217,6 @@ public class Mod
     }
     
     public String toString() {
-        return new StringBuilder().append(this.name).append(" (").append(this.numtracks).append(" tracks, ").append(this.numpatterns).append(" patterns, ").append(this.insts.length).append(" samples)").toString();
+        return new StringBuilder().append(name).append(" (").append(numtracks).append(" tracks, ").append(numpatterns).append(" patterns, ").append(insts.length).append(" samples)").toString();
     }
 }

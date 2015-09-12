@@ -1,7 +1,6 @@
 /* Madness - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
-import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Dimension;
@@ -17,18 +16,20 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.net.URI;
-import java.net.URL;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
 
 public class Madness extends Panel
 {
-    static Frame frame;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8881840450218558380L;
+	static Frame frame;
     static GameSparker applet;
     static CarMaker cm;
     static stagemaker.StageMaker sm;
@@ -82,7 +83,6 @@ public class Madness extends Panel
 							 ("").toString());
 				bufferedwriter.newLine();
 				bufferedwriter.close();
-				Object object = null;
 			    }
 			} catch (Exception exception) {
 			    /* empty */
@@ -169,7 +169,6 @@ public class Madness extends Panel
 		    if (file.exists()) {
 			BufferedReader bufferedreader
 			    = new BufferedReader(new FileReader(file));
-			Object object = null;
 			String string;
 			for (boolean bool = false;
 			     (string = bufferedreader.readLine()) != null && !bool;
@@ -188,7 +187,6 @@ public class Madness extends Panel
 				i = i_3_ - 1;
 			}
 			bufferedreader.close();
-			Object object_9_ = null;
 		    }
 		} catch (Exception exception) {
 		    /* empty */
@@ -224,7 +222,6 @@ public class Madness extends Panel
 						 ("").toString());
 			bufferedwriter.newLine();
 			bufferedwriter.close();
-			Object object_15_ = null;
 		    } catch (Exception exception) {
 			/* empty */
 		    }
@@ -487,7 +484,6 @@ public class Madness extends Panel
 				("iexplore -k http://www.needformadness.com/");
 			    bufferedwriter.newLine();
 			    bufferedwriter.close();
-			    Object object = null;
 			}
 			Process process
 			    = Runtime.getRuntime()

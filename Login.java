@@ -12,14 +12,12 @@ import java.awt.RenderingHints;
 import java.awt.TextField;
 import java.awt.image.ImageObserver;
 import java.io.BufferedReader;
-import java.io.DataInputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.net.URL;
 import java.util.Date;
 
 public class Login implements Runnable {
@@ -257,7 +255,7 @@ public class Login implements Runnable {
 			dout = new PrintWriter(socket.getOutputStream(),
 			true);
 			dout.println(new StringBuilder().append("101|20|").append((xt).nickname).append("|").append((xt).nickey).append("|").append((xt).servername).append("|").append((xt).servport - 7070).append("|").toString());
-			String string = din.readLine();
+			din.readLine();
 			socket.close();
 			din.close();
 			dout.close();

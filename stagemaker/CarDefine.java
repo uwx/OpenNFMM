@@ -88,14 +88,14 @@ public class CarDefine implements Runnable
     int[] top20adds = new int[20];
     
     public CarDefine(ContO[] contos, Medium medium, Trackers trackers, GameSparker gamesparker) {
-        this.bco = contos;
-        this.m = medium;
-        this.t = trackers;
-        this.gs = gamesparker;
+        bco = contos;
+        m = medium;
+        t = trackers;
+        gs = gamesparker;
     }
     
     public void loadstat(byte[] is, String string, int i, int i_0_, int i_1_, int i_2_) {
-        this.names[i_2_] = string;
+        names[i_2_] = string;
         boolean bool = false;
         boolean bool_3_ = false;
         String string_4_ = "";
@@ -103,10 +103,10 @@ public class CarDefine implements Runnable
         int i_6_ = 640;
         int[] is_7_ = { 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50 };
         int[] is_8_ = { 50, 50, 50 };
-        this.enginsignature[i_2_] = 0;
+        enginsignature[i_2_] = 0;
         float f = 0.0F;
-        this.publish[i_2_ - 16] = 0;
-        this.createdby[i_2_ - 16] = "Unkown User";
+        publish[i_2_ - 16] = 0;
+        createdby[i_2_ - 16] = "Unkown User";
         try {
             DataInputStream datainputstream = new DataInputStream(new ByteArrayInputStream(is));
             while ((string_4_ = datainputstream.readLine()) != null) {
@@ -143,11 +143,11 @@ public class CarDefine implements Runnable
                             //if (is_8_[i_11_] < 0)
                             //    is_8_[i_11_] = 0;
                         }
-                        this.enginsignature[i_2_] = getvalue("physics", string_4_, 14);
-                        if (this.enginsignature[i_2_] > 4)
-                            this.enginsignature[i_2_] = 0;
-                        if (this.enginsignature[i_2_] < 0)
-                            this.enginsignature[i_2_] = 0;
+                        enginsignature[i_2_] = getvalue("physics", string_4_, 14);
+                        if (enginsignature[i_2_] > 4)
+                            enginsignature[i_2_] = 0;
+                        if (enginsignature[i_2_] < 0)
+                            enginsignature[i_2_] = 0;
                         f = (float) getvalue("physics", string_4_, 15);
                         if (f > 0.0F)
                             bool_3_ = true;
@@ -162,15 +162,15 @@ public class CarDefine implements Runnable
                         //    i_12_ = 200;
                         //if (i_12_ < 50)
                         //    i_12_ = 50;
-                        this.dishandle[i_2_] = (float) i_12_ / 200.0F;
+                        dishandle[i_2_] = (float) i_12_ / 200.0F;
                     } catch (Exception exception) {
                         /* empty */
                     }
                 }
                 if (string_4_.startsWith("carmaker("))
-                    this.createdby[i_2_ - 16] = getSvalue("carmaker", string_4_, 0);
+                    createdby[i_2_ - 16] = getSvalue("carmaker", string_4_, 0);
                 if (string_4_.startsWith("publish("))
-                    this.publish[i_2_ - 16] = getvalue("publish", string_4_, 0);
+                    publish[i_2_ - 16] = getvalue("publish", string_4_, 0);
             }
             datainputstream.close();
         } catch (Exception exception) {
@@ -206,15 +206,15 @@ public class CarDefine implements Runnable
             for (int i_15_ = 0; i_15_ < 5; i_15_++)
                 i_6_ += is_5_[i_15_];
             if (i_6_ == 520)
-                this.cclass[i_2_] = 0;
+                cclass[i_2_] = 0;
             if (i_6_ == 560)
-                this.cclass[i_2_] = 1;
+                cclass[i_2_] = 1;
             if (i_6_ == 600)
-                this.cclass[i_2_] = 2;
+                cclass[i_2_] = 2;
             if (i_6_ == 640)
-                this.cclass[i_2_] = 3;
+                cclass[i_2_] = 3;
             if (i_6_ == 680)
-                this.cclass[i_2_] = 4;
+                cclass[i_2_] = 4;
             int i_16_ = 0;
             int i_17_ = 0;
             float f_18_ = 0.5F;
@@ -277,16 +277,16 @@ public class CarDefine implements Runnable
                 i_17_ = 13;
             }
             if (is_5_[0] > 88) {
-                this.swits[i_2_][0] = (int) ((float) (this.swits[i_17_][0] - this.swits[i_16_][0]) * f_18_ + (float) this.swits[i_16_][0]);
-                this.swits[i_2_][1] = (int) ((float) (this.swits[i_17_][1] - this.swits[i_16_][1]) * f_18_ + (float) this.swits[i_16_][1]);
-                this.swits[i_2_][2] = (int) ((float) (this.swits[i_17_][2] - this.swits[i_16_][2]) * f_18_ + (float) this.swits[i_16_][2]);
+                swits[i_2_][0] = (int) ((float) (swits[i_17_][0] - swits[i_16_][0]) * f_18_ + (float) swits[i_16_][0]);
+                swits[i_2_][1] = (int) ((float) (swits[i_17_][1] - swits[i_16_][1]) * f_18_ + (float) swits[i_16_][1]);
+                swits[i_2_][2] = (int) ((float) (swits[i_17_][2] - swits[i_16_][2]) * f_18_ + (float) swits[i_16_][2]);
             } else {
                 f_18_ = (float) is_5_[0] / 88.0F;
                 if ((double) f_18_ < 0.76)
                     f_18_ = 0.76F;
-                this.swits[i_2_][0] = (int) (50.0F * f_18_);
-                this.swits[i_2_][1] = (int) (130.0F * f_18_);
-                this.swits[i_2_][2] = (int) (210.0F * f_18_);
+                swits[i_2_][0] = (int) (50.0F * f_18_);
+                swits[i_2_][1] = (int) (130.0F * f_18_);
+                swits[i_2_][2] = (int) (210.0F * f_18_);
             }
             i_16_ = 0;
             i_17_ = 0;
@@ -375,76 +375,76 @@ public class CarDefine implements Runnable
                 i_16_ = 13;
                 i_17_ = 13;
             }
-            this.acelf[i_2_][0] = (this.acelf[i_17_][0] - this.acelf[i_16_][0]) * f_18_ + this.acelf[i_16_][0];
-            this.acelf[i_2_][1] = (this.acelf[i_17_][1] - this.acelf[i_16_][1]) * f_18_ + this.acelf[i_16_][1];
-            this.acelf[i_2_][2] = (this.acelf[i_17_][2] - this.acelf[i_16_][2]) * f_18_ + this.acelf[i_16_][2];
+            acelf[i_2_][0] = (acelf[i_17_][0] - acelf[i_16_][0]) * f_18_ + acelf[i_16_][0];
+            acelf[i_2_][1] = (acelf[i_17_][1] - acelf[i_16_][1]) * f_18_ + acelf[i_16_][1];
+            acelf[i_2_][2] = (acelf[i_17_][2] - acelf[i_16_][2]) * f_18_ + acelf[i_16_][2];
             if (is_5_[1] <= 70 && is_5_[0] > 88) {
-                this.acelf[i_2_][0] = 9.0F;
-                this.acelf[i_2_][1] = 4.0F;
-                this.acelf[i_2_][2] = 3.0F;
+                acelf[i_2_][0] = 9.0F;
+                acelf[i_2_][1] = 4.0F;
+                acelf[i_2_][2] = 3.0F;
             }
             f_18_ = (float) (is_5_[2] - 88) / 109.0F;
             if (f_18_ > 1.0F)
                 f_18_ = 1.0F;
             if ((double) f_18_ < -0.55)
                 f_18_ = -0.55F;
-            this.airs[i_2_] = 0.55F + 0.45F * f_18_ + 0.4F * ((float) is_7_[9] / 100.0F);
-            if ((double) this.airs[i_2_] < 0.3)
-                this.airs[i_2_] = 0.3F;
-            this.airc[i_2_] = (int) (10.0F + 70.0F * f_18_ + 30.0F * ((float) is_7_[10] / 100.0F));
-            if (this.airc[i_2_] < 0)
-                this.airc[i_2_] = 0;
+            airs[i_2_] = 0.55F + 0.45F * f_18_ + 0.4F * ((float) is_7_[9] / 100.0F);
+            if ((double) airs[i_2_] < 0.3)
+                airs[i_2_] = 0.3F;
+            airc[i_2_] = (int) (10.0F + 70.0F * f_18_ + 30.0F * ((float) is_7_[10] / 100.0F));
+            if (airc[i_2_] < 0)
+                airc[i_2_] = 0;
             int i_19_ = (int) (670.0F - (float) (is_7_[9] + is_7_[10]) / 200.0F * 420.0F);
             if (is_5_[0] <= 88)
                 i_19_ = (int) (1670.0F - (float) (is_7_[9] + is_7_[10]) / 200.0F * 1420.0F);
             if (is_5_[2] > 190 && i_19_ < 300)
                 i_19_ = 300;
-            this.powerloss[i_2_] = i_19_ * 10000;
-            this.moment[i_2_] = 0.7F + (float) (is_5_[3] - 16) / 184.0F * 1.0F;
+            powerloss[i_2_] = i_19_ * 10000;
+            moment[i_2_] = 0.7F + (float) (is_5_[3] - 16) / 184.0F * 1.0F;
             if (is_5_[0] < 110)
-                this.moment[i_2_] = 0.75F + (float) (is_5_[3] - 16) / 184.0F * 1.25F;
+                moment[i_2_] = 0.75F + (float) (is_5_[3] - 16) / 184.0F * 1.25F;
             if (is_5_[3] == 200 && is_5_[4] == 200 && is_5_[0] <= 88)
-                this.moment[i_2_] = 3.0F;
+                moment[i_2_] = 3.0F;
             float f_20_ = 0.9F + (float) (is_5_[4] - 90) * 0.01F;
             if ((double) f_20_ < 0.6)
                 f_20_ = 0.6F;
             if (is_5_[4] == 200 && is_5_[0] <= 88)
                 f_20_ = 3.0F;
-            this.maxmag[i_2_] = (int) (f * f_20_);
-            this.outdam[i_2_] = 0.35F + (f_20_ - 0.6F) * 0.5F;
-            if ((double) this.outdam[i_2_] < 0.35)
-                this.outdam[i_2_] = 0.35F;
-            if (this.outdam[i_2_] > 1.0F)
-                this.outdam[i_2_] = 1.0F;
-            this.clrad[i_2_] = (int) ((double) (is_8_[0] * is_8_[0]) * 1.5);
-            if (this.clrad[i_2_] < 1000)
-                this.clrad[i_2_] = 1000;
-            this.dammult[i_2_] = 0.3F + (float) is_8_[1] * 0.005F;
-            this.msquash[i_2_] = (int) (2.0 + (double) (float) is_8_[2] / 7.6);
-            this.flipy[i_2_] = i_0_;
-            this.handb[i_2_] = (int) (7.0F + (float) is_7_[0] / 100.0F * 8.0F);
-            this.turn[i_2_] = (int) (4.0F + (float) is_7_[1] / 100.0F * 6.0F);
-            this.grip[i_2_] = 16.0F + (float) is_7_[2] / 100.0F * 14.0F;
-            if (this.grip[i_2_] < 21.0F) {
-                this.swits[i_2_][0] += 40.0F * ((21.0F - this.grip[i_2_]) / 5.0F);
-                if (this.swits[i_2_][0] > 100)
-                    this.swits[i_2_][0] = 100;
+            maxmag[i_2_] = (int) (f * f_20_);
+            outdam[i_2_] = 0.35F + (f_20_ - 0.6F) * 0.5F;
+            if ((double) outdam[i_2_] < 0.35)
+                outdam[i_2_] = 0.35F;
+            if (outdam[i_2_] > 1.0F)
+                outdam[i_2_] = 1.0F;
+            clrad[i_2_] = (int) ((double) (is_8_[0] * is_8_[0]) * 1.5);
+            if (clrad[i_2_] < 1000)
+                clrad[i_2_] = 1000;
+            dammult[i_2_] = 0.3F + (float) is_8_[1] * 0.005F;
+            msquash[i_2_] = (int) (2.0 + (double) (float) is_8_[2] / 7.6);
+            flipy[i_2_] = i_0_;
+            handb[i_2_] = (int) (7.0F + (float) is_7_[0] / 100.0F * 8.0F);
+            turn[i_2_] = (int) (4.0F + (float) is_7_[1] / 100.0F * 6.0F);
+            grip[i_2_] = 16.0F + (float) is_7_[2] / 100.0F * 14.0F;
+            if (grip[i_2_] < 21.0F) {
+                swits[i_2_][0] += 40.0F * ((21.0F - grip[i_2_]) / 5.0F);
+                if (swits[i_2_][0] > 100)
+                    swits[i_2_][0] = 100;
             }
-            this.bounce[i_2_] = 0.8F + (float) is_7_[3] / 100.0F * 0.6F;
+            bounce[i_2_] = 0.8F + (float) is_7_[3] / 100.0F * 0.6F;
             if (is_7_[3] > 67) {
-                this.airs[i_2_] *= 0.76F + (1.0F - (float) is_7_[3] / 100.0F) * 0.24F;
-                this.airc[i_2_] *= 0.76F + (1.0F - (float) is_7_[3] / 100.0F) * 0.24F;
+                airs[i_2_] *= 0.76F + (1.0F - (float) is_7_[3] / 100.0F) * 0.24F;
+                airc[i_2_] *= 0.76F + (1.0F - (float) is_7_[3] / 100.0F) * 0.24F;
             }
-            this.lift[i_2_] = (int) ((float) is_7_[5] * (float) is_7_[5] / 10000.0F * 30.0F);
-            this.revlift[i_2_] = (int) ((float) is_7_[6] / 100.0F * 32.0F);
-            this.push[i_2_] = (int) (2.0F + (float) is_7_[7] / 100.0F * 2.0F * (float) ((30 - this.lift[i_2_]) / 30));
-            this.revpush[i_2_] = (int) (1.0F + (float) is_7_[8] / 100.0F * 2.0F);
-            this.comprad[i_2_] = (float) i / 400.0F + (float) (is_5_[3] - 16) / 184.0F * 0.2F;
-            if ((double) this.comprad[i_2_] < 0.4)
-                this.comprad[i_2_] = 0.4F;
-            this.simag[i_2_] = (float) (i_1_ - 17) * 0.0167F + 0.85F;
+            lift[i_2_] = (int) ((float) is_7_[5] * (float) is_7_[5] / 10000.0F * 30.0F);
+            revlift[i_2_] = (int) ((float) is_7_[6] / 100.0F * 32.0F);
+            push[i_2_] = (int) (2.0F + (float) is_7_[7] / 100.0F * 2.0F * (float) ((30 - lift[i_2_]) / 30));
+            revpush[i_2_] = (int) (1.0F + (float) is_7_[8] / 100.0F * 2.0F);
+            comprad[i_2_] = (float) i / 400.0F + (float) (is_5_[3] - 16) / 184.0F * 0.2F;
+            if ((double) comprad[i_2_] < 0.4)
+                comprad[i_2_] = 0.4F;
+            simag[i_2_] = (float) (i_1_ - 17) * 0.0167F + 0.85F;
         } else
-            this.names[i_2_] = "";
+            names[i_2_] = "";
     }
     
     public int getvalue(String string, String string_21_, int i) {
@@ -530,66 +530,66 @@ public class CarDefine implements Runnable
     }
     
     public void loadready() {
-        (this.m).csky[0] = 170;
-        (this.m).csky[1] = 220;
-        (this.m).csky[2] = 255;
-        (this.m).cfade[0] = 255;
-        (this.m).cfade[1] = 220;
-        (this.m).cfade[2] = 220;
-        (this.m).snap[0] = 0;
-        (this.m).snap[1] = 0;
-        (this.m).snap[2] = 0;
-        this.fails = "";
+        (m).csky[0] = 170;
+        (m).csky[1] = 220;
+        (m).csky[2] = 255;
+        (m).cfade[0] = 255;
+        (m).cfade[1] = 220;
+        (m).cfade[2] = 220;
+        (m).snap[0] = 0;
+        (m).snap[1] = 0;
+        (m).snap[2] = 0;
+        fails = "";
         for (int i = 0; i < 20; i++)
-            this.loadnames[i] = "";
-        this.nl = 0;
-        this.action = 0;
+            loadnames[i] = "";
+        nl = 0;
+        action = 0;
     }
     
     public void sparkactionloader() {
-        this.actionloader = new Thread(this);
-        this.actionloader.start();
+        actionloader = new Thread(this);
+        actionloader.start();
     }
     
     public void sparkcarloader() {
-        if (!this.carlon) {
-            this.carloader = new Thread(this);
-            this.carloader.start();
-            this.carlon = true;
+        if (!carlon) {
+            carloader = new Thread(this);
+            carloader.start();
+            carlon = true;
         }
     }
     
     public void sparkstageaction() {
-        this.stageaction = new Thread(this);
-        this.stageaction.start();
+        stageaction = new Thread(this);
+        stageaction.start();
     }
     
     public void stopallnow() {
-        this.staction = 0;
-        this.action = 0;
-        if (this.carloader != null) {
-            this.carloader.stop();
-            this.carloader = null;
+        staction = 0;
+        action = 0;
+        if (carloader != null) {
+            carloader.stop();
+            carloader = null;
         }
-        if (this.actionloader != null) {
-            this.actionloader.stop();
-            this.actionloader = null;
+        if (actionloader != null) {
+            actionloader.stop();
+            actionloader = null;
         }
-        if (this.stageaction != null) {
-            this.stageaction.stop();
-            this.stageaction = null;
+        if (stageaction != null) {
+            stageaction.stop();
+            stageaction = null;
         }
     }
     
     public void run() {
-        if (Thread.currentThread() == this.actionloader) {
-            if (this.action == 10) {
+        if (Thread.currentThread() == actionloader) {
+            if (action == 10) {
                 int i = -1;
                 try {
                     Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println(new StringBuilder().append("9|").append((this.gs).tnick.getText()).append("|").append((this.gs).tpass.getText()).append("|").append(this.names[this.ac]).append("|").toString());
+                    printwriter.println(new StringBuilder().append("9|").append((gs).tnick.getText()).append("|").append((gs).tpass.getText()).append("|").append(names[ac]).append("|").toString());
                     String string = bufferedreader.readLine();
                     if (string != null)
                         i = servervalue(string, 0);
@@ -600,117 +600,117 @@ public class CarDefine implements Runnable
                     i = -1;
                 }
                 if (i == 0) {
-                    this.nl = 0;
-                    for (int i_43_ = 16; i_43_ < this.nlocars; i_43_++) {
-                        if (i_43_ != this.ac) {
-                            this.loadnames[this.nl] = this.names[i_43_];
-                            this.nl++;
+                    nl = 0;
+                    for (int i_43_ = 16; i_43_ < nlocars; i_43_++) {
+                        if (i_43_ != ac) {
+                            loadnames[nl] = names[i_43_];
+                            nl++;
                         }
                     }
-                    this.action = 4;
+                    action = 4;
                 } else
-                    this.action = -10;
+                    action = -10;
                 System.gc();
             }
-            if (this.action == 1) {
-                this.reco = -1;
+            if (action == 1) {
+                reco = -1;
                 try {
                     Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println(new StringBuilder().append("1|").append((this.gs).tnick.getText().toLowerCase()).append("|").append((this.gs).tpass.getText()).append("|").toString());
+                    printwriter.println(new StringBuilder().append("1|").append((gs).tnick.getText().toLowerCase()).append("|").append((gs).tpass.getText()).append("|").toString());
                     String string = bufferedreader.readLine();
                     if (string != null) {
-                        this.reco = servervalue(string, 0);
-                        if (this.reco == 0 || this.reco > 10)
-                            this.tnickey = serverSvalue(string, 1);
+                        reco = servervalue(string, 0);
+                        if (reco == 0 || reco > 10)
+                            tnickey = serverSvalue(string, 1);
                     }
                     socket.close();
                     bufferedreader.close();
                     printwriter.close();
                 } catch (Exception exception) {
-                    this.reco = -1;
+                    reco = -1;
                 }
-                if (this.reco == 0 || this.reco == 3 || this.reco > 10)
-                    this.action = 2;
+                if (reco == 0 || reco == 3 || reco > 10)
+                    action = 2;
                 else
-                    this.action = 0;
+                    action = 0;
                 System.gc();
             }
-            while (this.action == 2) {
+            while (action == 2) {
                 /* empty */
             }
-            if (this.action == 3) {
-                this.nl = 0;
+            if (action == 3) {
+                nl = 0;
                 String string = "";
                 try {
-                    URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/cars/lists/").append((this.gs).tnick.getText()).append(".txt?reqlo=").append((int) (Math.random() * 1000.0)).append("").toString());
+                    URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/cars/lists/").append((gs).tnick.getText()).append(".txt?reqlo=").append((int) (Math.random() * 1000.0)).append("").toString());
                     DataInputStream datainputstream = new DataInputStream(url.openStream());
                     while ((string = datainputstream.readLine()) != null) {
                         string = new StringBuilder().append("").append(string.trim()).toString();
                         if (string.startsWith("mycars")) {
                             boolean bool = true;
-                            while (bool && this.nl < 20) {
-                                this.loadnames[this.nl] = getSvalue("mycars", string, this.nl);
-                                if (this.loadnames[this.nl].equals(""))
+                            while (bool && nl < 20) {
+                                loadnames[nl] = getSvalue("mycars", string, nl);
+                                if (loadnames[nl].equals(""))
                                     bool = false;
                                 else
-                                    this.nl++;
+                                    nl++;
                             }
                         }
                     }
-                    if (this.nl > 0)
-                        this.action = 4;
+                    if (nl > 0)
+                        action = 4;
                     else
-                        this.action = -1;
+                        action = -1;
                     datainputstream.close();
                 } catch (Exception exception) {
                     String string_44_ = new StringBuilder().append("").append(exception).toString();
                     if (string_44_.indexOf("FileNotFound") != -1)
-                        this.action = -1;
+                        action = -1;
                     else
-                        this.action = -2;
+                        action = -2;
                 }
                 System.gc();
             }
-            if (this.action == 4) {
-                (this.m).csky[0] = 170;
-                (this.m).csky[1] = 220;
-                (this.m).csky[2] = 255;
-                (this.m).cfade[0] = 255;
-                (this.m).cfade[1] = 220;
-                (this.m).cfade[2] = 220;
-                (this.m).snap[0] = 0;
-                (this.m).snap[1] = 0;
-                (this.m).snap[2] = 0;
+            if (action == 4) {
+                (m).csky[0] = 170;
+                (m).csky[1] = 220;
+                (m).csky[2] = 255;
+                (m).cfade[0] = 255;
+                (m).cfade[1] = 220;
+                (m).cfade[2] = 220;
+                (m).snap[0] = 0;
+                (m).snap[1] = 0;
+                (m).snap[2] = 0;
                 for (int i = 0; i < 40; i++)
-                    this.include[i] = false;
-                this.nlocars = 16;
-                int i = this.nl;
-                for (this.nl = 0; this.nl < i; this.nl++) {
-                    if (this.nlocars < 36 && loadonlinecar(this.loadnames[this.nl], this.nlocars) == this.nlocars)
-                        this.nlocars++;
+                    include[i] = false;
+                nlocars = 16;
+                int i = nl;
+                for (nl = 0; nl < i; nl++) {
+                    if (nlocars < 36 && loadonlinecar(loadnames[nl], nlocars) == nlocars)
+                        nlocars++;
                 }
-                this.nl = 0;
-                if (this.nlocars > 16) {
-                    this.lastload = 2;
-                    this.action = 5;
+                nl = 0;
+                if (nlocars > 16) {
+                    lastload = 2;
+                    action = 5;
                 } else {
-                    if (this.lastload == 2)
-                        this.lastload = 0;
-                    this.action = -1;
+                    if (lastload == 2)
+                        lastload = 0;
+                    action = -1;
                 }
                 System.gc();
             }
-            if (this.action == 6) {
+            if (action == 6) {
                 int i = -1;
                 try {
-                    if (this.ac != -1)
-                        this.acname = this.names[this.ac];
+                    if (ac != -1)
+                        acname = names[ac];
                     Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println(new StringBuilder().append("8|").append((this.gs).tnick.getText()).append("|").append((this.gs).tpass.getText()).append("|").append(this.acname).append("|").toString());
+                    printwriter.println(new StringBuilder().append("8|").append((gs).tnick.getText()).append("|").append((gs).tpass.getText()).append("|").append(acname).append("|").toString());
                     String string = bufferedreader.readLine();
                     if (string != null)
                         i = servervalue(string, 0);
@@ -721,60 +721,60 @@ public class CarDefine implements Runnable
                     i = -1;
                 }
                 if (i == 0) {
-                    if (this.ac == -1 && this.lastload == 2)
-                        this.lastload = 0;
-                    if (this.lastload == 2 && this.nlocars < 36)
+                    if (ac == -1 && lastload == 2)
+                        lastload = 0;
+                    if (lastload == 2 && nlocars < 36)
                         copycar();
-                    this.action = 7;
+                    action = 7;
                 }
                 if (i == 3)
-                    this.action = -7;
+                    action = -7;
                 if (i == 4)
-                    this.action = -8;
-                if (this.action == 6)
-                    this.action = -9;
+                    action = -8;
+                if (action == 6)
+                    action = -9;
                 System.gc();
             }
-            if (this.action == 11) {
-                this.nl = 0;
+            if (action == 11) {
+                nl = 0;
                 String string = "";
                 try {
                     String string_45_ = "all";
-                    if (this.loadlist == 1)
+                    if (loadlist == 1)
                         string_45_ = "Wall";
-                    if (this.loadlist == 2)
+                    if (loadlist == 2)
                         string_45_ = "WA";
-                    if (this.loadlist == 3)
+                    if (loadlist == 3)
                         string_45_ = "WAB";
-                    if (this.loadlist == 4)
+                    if (loadlist == 4)
                         string_45_ = "WB";
-                    if (this.loadlist == 5)
+                    if (loadlist == 5)
                         string_45_ = "WBC";
-                    if (this.loadlist == 6)
+                    if (loadlist == 6)
                         string_45_ = "WC";
-                    if (this.loadlist == 7)
+                    if (loadlist == 7)
                         string_45_ = "Mall";
-                    if (this.loadlist == 8)
+                    if (loadlist == 8)
                         string_45_ = "MA";
-                    if (this.loadlist == 9)
+                    if (loadlist == 9)
                         string_45_ = "MAB";
-                    if (this.loadlist == 10)
+                    if (loadlist == 10)
                         string_45_ = "MB";
-                    if (this.loadlist == 11)
+                    if (loadlist == 11)
                         string_45_ = "MBC";
-                    if (this.loadlist == 12)
+                    if (loadlist == 12)
                         string_45_ = "MC";
-                    if (this.loadlist == 13)
+                    if (loadlist == 13)
                         string_45_ = "all";
-                    if (this.loadlist == 14)
+                    if (loadlist == 14)
                         string_45_ = "A";
-                    if (this.loadlist == 15)
+                    if (loadlist == 15)
                         string_45_ = "AB";
-                    if (this.loadlist == 16)
+                    if (loadlist == 16)
                         string_45_ = "B";
-                    if (this.loadlist == 17)
+                    if (loadlist == 17)
                         string_45_ = "BC";
-                    if (this.loadlist == 18)
+                    if (loadlist == 18)
                         string_45_ = "C";
                     URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/cars/top20/").append(string_45_).append(".txt").toString());
                     DataInputStream datainputstream = new DataInputStream(url.openStream());
@@ -782,86 +782,86 @@ public class CarDefine implements Runnable
                         string = new StringBuilder().append("").append(string.trim()).toString();
                         if (string.startsWith("cars")) {
                             boolean bool = true;
-                            while (bool && this.nl < 20) {
-                                this.loadnames[this.nl] = getSvalue("cars", string, this.nl);
-                                if (this.loadnames[this.nl].equals(""))
+                            while (bool && nl < 20) {
+                                loadnames[nl] = getSvalue("cars", string, nl);
+                                if (loadnames[nl].equals(""))
                                     bool = false;
                                 else
-                                    this.nl++;
+                                    nl++;
                             }
                         }
                         if (string.startsWith("adds")) {
-                            for (int i = 0; i < this.nl; i++)
-                                this.adds[i] = getvalue("adds", string, i);
+                            for (int i = 0; i < nl; i++)
+                                adds[i] = getvalue("adds", string, i);
                         }
                     }
-                    if (this.nl > 0)
-                        this.action = 12;
+                    if (nl > 0)
+                        action = 12;
                     else
-                        this.action = -1;
+                        action = -1;
                     datainputstream.close();
                 } catch (Exception exception) {
-                    this.action = -1;
+                    action = -1;
                 }
                 System.gc();
             }
-            if (this.action == 12) {
-                (this.m).csky[0] = 170;
-                (this.m).csky[1] = 220;
-                (this.m).csky[2] = 255;
-                (this.m).cfade[0] = 255;
-                (this.m).cfade[1] = 220;
-                (this.m).cfade[2] = 220;
-                (this.m).snap[0] = 0;
-                (this.m).snap[1] = 0;
-                (this.m).snap[2] = 0;
-                this.nlocars = 16;
-                int i = this.nl;
-                for (this.nl = 0; this.nl < i; this.nl++) {
-                    if (this.nlocars < 36 && loadonlinecar(this.loadnames[this.nl], this.nlocars) == this.nlocars)
-                        this.nlocars++;
+            if (action == 12) {
+                (m).csky[0] = 170;
+                (m).csky[1] = 220;
+                (m).csky[2] = 255;
+                (m).cfade[0] = 255;
+                (m).cfade[1] = 220;
+                (m).cfade[2] = 220;
+                (m).snap[0] = 0;
+                (m).snap[1] = 0;
+                (m).snap[2] = 0;
+                nlocars = 16;
+                int i = nl;
+                for (nl = 0; nl < i; nl++) {
+                    if (nlocars < 36 && loadonlinecar(loadnames[nl], nlocars) == nlocars)
+                        nlocars++;
                 }
-                this.nl = 0;
-                if (this.nlocars > 16) {
-                    this.lastload = 2 + this.loadlist;
-                    this.action = 13;
+                nl = 0;
+                if (nlocars > 16) {
+                    lastload = 2 + loadlist;
+                    action = 13;
                 } else {
-                    if (this.lastload >= 2)
-                        this.lastload = 0;
-                    this.action = -1;
+                    if (lastload >= 2)
+                        lastload = 0;
+                    action = -1;
                 }
                 System.gc();
             }
-            this.actionloader = null;
+            actionloader = null;
         }
-        if (Thread.currentThread() == this.carloader) {
-            while (this.nl > 0) {
+        if (Thread.currentThread() == carloader) {
+            while (nl > 0) {
                 int i = 0;
                 for (int i_46_ = 16; i_46_ < 56; i_46_++) {
-                    if (this.loadnames[this.nl - 1].equals(this.names[i_46_]))
+                    if (loadnames[nl - 1].equals(names[i_46_]))
                         i = -1;
                 }
-                if (this.fails.indexOf(new StringBuilder().append("|").append(this.loadnames[this.nl - 1]).append("|").toString()) != -1)
+                if (fails.indexOf(new StringBuilder().append("|").append(loadnames[nl - 1]).append("|").toString()) != -1)
                     i = -1;
                 if (i != -1) {
                     i = 36;
-                    int i_47_ = this.lcardate[0];
+                    int i_47_ = lcardate[0];
                     for (int i_48_ = 36; i_48_ < 56; i_48_++) {
-                        if (this.lcardate[i_48_ - 36] < i_47_) {
-                            i_47_ = this.lcardate[i_48_ - 36];
+                        if (lcardate[i_48_ - 36] < i_47_) {
+                            i_47_ = lcardate[i_48_ - 36];
                             i = i_48_;
                         }
                     }
-                    if (loadonlinecar(this.loadnames[this.nl - 1], i) == -1) {
+                    if (loadonlinecar(loadnames[nl - 1], i) == -1) {
                         StringBuilder stringbuilder = new StringBuilder();
                         CarDefine cardefine_49_ = this;
-                        (cardefine_49_).fails = stringbuilder.append((cardefine_49_).fails).append("|").append(this.loadnames[this.nl - 1]).append("|").toString();
+                        (cardefine_49_).fails = stringbuilder.append((cardefine_49_).fails).append("|").append(loadnames[nl - 1]).append("|").toString();
                     } else
-                        this.lcardate[i - 36]++;
+                        lcardate[i - 36]++;
                 }
-                this.nl--;
+                nl--;
                 try {
-                    if (this.carloader != null) {
+                    if (carloader != null) {
                         /* empty */
                     }
                     Thread.sleep(20L);
@@ -869,17 +869,17 @@ public class CarDefine implements Runnable
                     /* empty */
                 }
             }
-            this.carlon = false;
-            this.carloader = null;
+            carlon = false;
+            carloader = null;
         }
-        if (Thread.currentThread() == this.stageaction) {
-            if (this.staction == 1) {
+        if (Thread.currentThread() == stageaction) {
+            if (staction == 1) {
                 int i = -1;
                 try {
                     Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println(new StringBuilder().append("19|").append((this.gs).tnick.getText()).append("|").append((this.gs).tpass.getText()).append("|").append(this.onstage).append("|").toString());
+                    printwriter.println(new StringBuilder().append("19|").append((gs).tnick.getText()).append("|").append((gs).tpass.getText()).append("|").append(onstage).append("|").toString());
                     String string = bufferedreader.readLine();
                     if (string != null)
                         i = servervalue(string, 0);
@@ -891,51 +891,51 @@ public class CarDefine implements Runnable
                 }
                 if (i == 0) {
                     try {
-                        (this.gs).mstgs.remove(this.onstage);
+                        (gs).mstgs.remove(onstage);
                     } catch (Exception exception) {
                         /* empty */
                     }
-                    (this.gs).mstgs.select(0);
-                    this.staction = 0;
+                    (gs).mstgs.select(0);
+                    staction = 0;
                 } else
-                    this.staction = -1;
+                    staction = -1;
             }
-            if (this.staction == 4) {
-                this.reco = -1;
+            if (staction == 4) {
+                reco = -1;
                 try {
                     Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println(new StringBuilder().append("1|").append((this.gs).tnick.getText().toLowerCase()).append("|").append((this.gs).tpass.getText()).append("|").toString());
+                    printwriter.println(new StringBuilder().append("1|").append((gs).tnick.getText().toLowerCase()).append("|").append((gs).tpass.getText()).append("|").toString());
                     String string = bufferedreader.readLine();
                     if (string != null) {
-                        this.reco = servervalue(string, 0);
-                        if (this.reco == 0 || this.reco > 10)
-                            this.tnickey = serverSvalue(string, 1);
+                        reco = servervalue(string, 0);
+                        if (reco == 0 || reco > 10)
+                            tnickey = serverSvalue(string, 1);
                     }
                     socket.close();
                     bufferedreader.close();
                     printwriter.close();
                 } catch (Exception exception) {
-                    this.reco = -1;
+                    reco = -1;
                 }
-                if (this.reco == 0 || this.reco == 3 || this.reco > 10)
-                    this.staction = 5;
+                if (reco == 0 || reco == 3 || reco > 10)
+                    staction = 5;
                 else
-                    this.staction = 3;
+                    staction = 3;
                 System.gc();
-                while (this.staction == 5) {
+                while (staction == 5) {
                     /* empty */
                 }
             }
-            if (this.staction == 2) {
+            if (staction == 2) {
                 int i = -1;
-                if (this.msloaded == 1) {
-                    for (int i_50_ = 1; i_50_ < (this.gs).mstgs.getItemCount(); i_50_++) {
-                        if ((this.gs).mstgs.getItem(i_50_).equals(this.onstage))
+                if (msloaded == 1) {
+                    for (int i_50_ = 1; i_50_ < (gs).mstgs.getItemCount(); i_50_++) {
+                        if ((gs).mstgs.getItem(i_50_).equals(onstage))
                             i = 3;
                     }
-                    if ((this.gs).mstgs.getItemCount() >= 21 && i != 3)
+                    if ((gs).mstgs.getItemCount() >= 21 && i != 3)
                         i = 4;
                 }
                 if (i == -1) {
@@ -943,7 +943,7 @@ public class CarDefine implements Runnable
                         Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                         BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                         PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                        printwriter.println(new StringBuilder().append("18|").append((this.gs).tnick.getText()).append("|").append((this.gs).tpass.getText()).append("|").append(this.onstage).append("|").toString());
+                        printwriter.println(new StringBuilder().append("18|").append((gs).tnick.getText()).append("|").append((gs).tpass.getText()).append("|").append(onstage).append("|").toString());
                         String string = bufferedreader.readLine();
                         if (string != null)
                             i = servervalue(string, 0);
@@ -954,18 +954,18 @@ public class CarDefine implements Runnable
                         i = -1;
                     }
                 }
-                this.staction = -1;
+                staction = -1;
                 if (i == 0) {
-                    this.staction = 0;
-                    if (this.msloaded == 1)
-                        (this.gs).mstgs.add((this.gs).rd, this.onstage);
+                    staction = 0;
+                    if (msloaded == 1)
+                        (gs).mstgs.add((gs).rd, onstage);
                 }
                 if (i == 3)
-                    this.staction = -2;
+                    staction = -2;
                 if (i == 4)
-                    this.staction = -3;
+                    staction = -3;
             }
-            this.stageaction = null;
+            stageaction = null;
         }
     }
     
@@ -1001,36 +1001,36 @@ public class CarDefine implements Runnable
                     i_59_ = zipinputstream.read(is_57_, i_58_, i_56_);
                     i_58_ += i_59_;
                 }
-                (this.m).loadnew = true;
-                this.bco[i] = new ContO(is_57_, this.m, this.t);
-                if ((this.bco[i]).errd || (this.bco[i]).npl <= 60 || (this.bco[i]).maxR < 120)
+                (m).loadnew = true;
+                bco[i] = new ContO(is_57_, m, t);
+                if ((bco[i]).errd || (bco[i]).npl <= 60 || (bco[i]).maxR < 120)
                     i = -1;
                 if (i != -1) {
-                    (this.bco[i]).shadow = true;
-                    (this.bco[i]).noline = false;
-                    (this.bco[i]).decor = false;
-                    (this.bco[i]).tnt = 0;
-                    (this.bco[i]).disp = 0;
-                    (this.bco[i]).disline = 7;
-                    (this.bco[i]).grounded = 1.0F;
+                    (bco[i]).shadow = true;
+                    (bco[i]).noline = false;
+                    (bco[i]).decor = false;
+                    (bco[i]).tnt = 0;
+                    (bco[i]).disp = 0;
+                    (bco[i]).disline = 7;
+                    (bco[i]).grounded = 1.0F;
                     boolean bool = true;
-                    if ((this.bco[i]).keyz[0] < 0 || (this.bco[i]).keyx[0] > 0)
+                    if ((bco[i]).keyz[0] < 0 || (bco[i]).keyx[0] > 0)
                         bool = false;
-                    if ((this.bco[i]).keyz[1] < 0 || (this.bco[i]).keyx[1] < 0)
+                    if ((bco[i]).keyz[1] < 0 || (bco[i]).keyx[1] < 0)
                         bool = false;
-                    if ((this.bco[i]).keyz[2] > 0 || (this.bco[i]).keyx[2] > 0)
+                    if ((bco[i]).keyz[2] > 0 || (bco[i]).keyx[2] > 0)
                         bool = false;
-                    if ((this.bco[i]).keyz[3] > 0 || (this.bco[i]).keyx[3] < 0)
+                    if ((bco[i]).keyz[3] > 0 || (bco[i]).keyx[3] < 0)
                         bool = false;
                     if (!bool)
                         i = -1;
                 }
                 if (i != -1) {
-                    loadstat(is_57_, string, (this.bco[i]).maxR, (this.bco[i]).roofat, (this.bco[i]).wh, i);
-                    if (this.names[i].equals(""))
+                    loadstat(is_57_, string, (bco[i]).maxR, (bco[i]).roofat, (bco[i]).wh, i);
+                    if (names[i].equals(""))
                         i = -1;
                 }
-                (this.m).loadnew = false;
+                (m).loadnew = false;
                 datainputstream.close();
                 zipinputstream.close();
             } else
@@ -1043,43 +1043,43 @@ public class CarDefine implements Runnable
     }
     
     public void copycar() {
-        this.swits[this.nlocars][0] = this.swits[this.ac][0];
-        this.swits[this.nlocars][1] = this.swits[this.ac][1];
-        this.swits[this.nlocars][2] = this.swits[this.ac][2];
-        this.acelf[this.nlocars][0] = this.acelf[this.ac][0];
-        this.acelf[this.nlocars][1] = this.acelf[this.ac][1];
-        this.acelf[this.nlocars][2] = this.acelf[this.ac][2];
-        this.handb[this.nlocars] = this.handb[this.ac];
-        this.airs[this.nlocars] = this.airs[this.ac];
-        this.airc[this.nlocars] = this.airc[this.ac];
-        this.turn[this.nlocars] = this.turn[this.ac];
-        this.grip[this.nlocars] = this.grip[this.ac];
-        this.bounce[this.nlocars] = this.bounce[this.ac];
-        this.simag[this.nlocars] = this.simag[this.ac];
-        this.moment[this.nlocars] = this.moment[this.ac];
-        this.comprad[this.nlocars] = this.comprad[this.ac];
-        this.push[this.nlocars] = this.push[this.ac];
-        this.revpush[this.nlocars] = this.revpush[this.ac];
-        this.lift[this.nlocars] = this.lift[this.ac];
-        this.revlift[this.nlocars] = this.revlift[this.ac];
-        this.powerloss[this.nlocars] = this.powerloss[this.ac];
-        this.flipy[this.nlocars] = this.flipy[this.ac];
-        this.msquash[this.nlocars] = this.msquash[this.ac];
-        this.clrad[this.nlocars] = this.clrad[this.ac];
-        this.dammult[this.nlocars] = this.dammult[this.ac];
-        this.maxmag[this.nlocars] = this.maxmag[this.ac];
-        this.dishandle[this.nlocars] = this.dishandle[this.ac];
-        this.outdam[this.nlocars] = this.outdam[this.ac];
-        this.cclass[this.nlocars] = this.cclass[this.ac];
-        this.enginsignature[this.nlocars] = this.enginsignature[this.ac];
-        this.createdby[this.nlocars - 16] = this.createdby[this.ac - 16];
-        this.publish[this.nlocars - 16] = this.publish[this.ac - 16];
-        this.bco[this.nlocars] = new ContO(this.bco[this.ac], 0, 0, 0, 0);
-        this.names[this.nlocars] = this.names[this.ac];
-        this.nlocars++;
-        this.names[this.ac] = "";
-        if (this.ac > 36)
-            this.lcardate[this.ac - 36] = 0;
+        swits[nlocars][0] = swits[ac][0];
+        swits[nlocars][1] = swits[ac][1];
+        swits[nlocars][2] = swits[ac][2];
+        acelf[nlocars][0] = acelf[ac][0];
+        acelf[nlocars][1] = acelf[ac][1];
+        acelf[nlocars][2] = acelf[ac][2];
+        handb[nlocars] = handb[ac];
+        airs[nlocars] = airs[ac];
+        airc[nlocars] = airc[ac];
+        turn[nlocars] = turn[ac];
+        grip[nlocars] = grip[ac];
+        bounce[nlocars] = bounce[ac];
+        simag[nlocars] = simag[ac];
+        moment[nlocars] = moment[ac];
+        comprad[nlocars] = comprad[ac];
+        push[nlocars] = push[ac];
+        revpush[nlocars] = revpush[ac];
+        lift[nlocars] = lift[ac];
+        revlift[nlocars] = revlift[ac];
+        powerloss[nlocars] = powerloss[ac];
+        flipy[nlocars] = flipy[ac];
+        msquash[nlocars] = msquash[ac];
+        clrad[nlocars] = clrad[ac];
+        dammult[nlocars] = dammult[ac];
+        maxmag[nlocars] = maxmag[ac];
+        dishandle[nlocars] = dishandle[ac];
+        outdam[nlocars] = outdam[ac];
+        cclass[nlocars] = cclass[ac];
+        enginsignature[nlocars] = enginsignature[ac];
+        createdby[nlocars - 16] = createdby[ac - 16];
+        publish[nlocars - 16] = publish[ac - 16];
+        bco[nlocars] = new ContO(bco[ac], 0, 0, 0, 0);
+        names[nlocars] = names[ac];
+        nlocars++;
+        names[ac] = "";
+        if (ac > 36)
+            lcardate[ac - 36] = 0;
     }
     
     public void loadmystages(CheckPoints checkpoints) {
@@ -1087,7 +1087,7 @@ public class CarDefine implements Runnable
         int i = 0;
         String string = "";
         try {
-            URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/tracks/lists/").append((this.gs).tnick.getText()).append(".txt?reqlo=").append((int) (Math.random() * 1000.0)).append("").toString());
+            URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/tracks/lists/").append((gs).tnick.getText()).append(".txt?reqlo=").append((int) (Math.random() * 1000.0)).append("").toString());
             DataInputStream datainputstream = new DataInputStream(url.openStream());
             while ((string = datainputstream.readLine()) != null) {
                 string = new StringBuilder().append("").append(string.trim()).toString();
@@ -1103,45 +1103,45 @@ public class CarDefine implements Runnable
                 }
             }
             if (i > 0)
-                this.msloaded = 1;
+                msloaded = 1;
             else
-                this.msloaded = -2;
+                msloaded = -2;
             datainputstream.close();
         } catch (Exception exception) {
             String string_60_ = new StringBuilder().append("").append(exception).toString();
             if (string_60_.indexOf("FileNotFound") != -1)
-                this.msloaded = -2;
+                msloaded = -2;
             else
-                this.msloaded = -1;
+                msloaded = -1;
         }
-        if (this.msloaded == 1) {
-            (this.gs).mstgs.hide();
-            (this.gs).mstgs.removeAll();
-            (this.gs).mstgs.add((this.gs).rd, "Select Stage");
+        if (msloaded == 1) {
+            (gs).mstgs.hide();
+            (gs).mstgs.removeAll();
+            (gs).mstgs.add((gs).rd, "Select Stage");
             int i_61_ = 0;
             for (int i_62_ = 0; i_62_ < i; i_62_++) {
-                (this.gs).mstgs.add((this.gs).rd, strings[i_62_]);
+                (gs).mstgs.add((gs).rd, strings[i_62_]);
                 if ((checkpoints).name.equals(strings[i_62_])) {
                     i_61_ = i_62_ + 1;
                     (checkpoints).top20 = 0;
                 }
             }
-            (this.gs).mstgs.select(i_61_);
-            (this.gs).mstgs.show();
+            (gs).mstgs.select(i_61_);
+            (gs).mstgs.show();
         }
-        if (this.msloaded == -2) {
-            (this.gs).mstgs.hide();
-            (this.gs).mstgs.removeAll();
-            (this.gs).mstgs.add((this.gs).rd, "You have not published or added any stages...");
-            (this.gs).mstgs.select(0);
-            (this.gs).mstgs.show();
+        if (msloaded == -2) {
+            (gs).mstgs.hide();
+            (gs).mstgs.removeAll();
+            (gs).mstgs.add((gs).rd, "You have not published or added any stages...");
+            (gs).mstgs.select(0);
+            (gs).mstgs.show();
         }
-        if (this.msloaded == -1) {
-            (this.gs).mstgs.hide();
-            (this.gs).mstgs.removeAll();
-            (this.gs).mstgs.add((this.gs).rd, "Failed to load stages, please try again later.");
-            (this.gs).mstgs.select(0);
-            (this.gs).mstgs.show();
+        if (msloaded == -1) {
+            (gs).mstgs.hide();
+            (gs).mstgs.removeAll();
+            (gs).mstgs.add((gs).rd, "Failed to load stages, please try again later.");
+            (gs).mstgs.select(0);
+            (gs).mstgs.show();
         }
         System.gc();
     }
@@ -1172,89 +1172,89 @@ public class CarDefine implements Runnable
                 }
                 if (string.startsWith("adds")) {
                     for (int i_65_ = 0; i_65_ < i_63_; i_65_++)
-                        this.top20adds[i_65_] = getvalue("adds", string, i_65_);
+                        top20adds[i_65_] = getvalue("adds", string, i_65_);
                 }
             }
             if (i_63_ > 0)
-                this.msloaded = i;
+                msloaded = i;
             else
-                this.msloaded = -2;
+                msloaded = -2;
             datainputstream.close();
         } catch (Exception exception) {
             String string_66_ = new StringBuilder().append("").append(exception).toString();
             if (string_66_.indexOf("FileNotFound") != -1)
-                this.msloaded = -2;
+                msloaded = -2;
             else
-                this.msloaded = -1;
+                msloaded = -1;
         }
-        if (this.msloaded == i) {
-            (this.gs).mstgs.hide();
-            (this.gs).mstgs.removeAll();
-            (this.gs).mstgs.add((this.gs).rd, "Select Stage");
+        if (msloaded == i) {
+            (gs).mstgs.hide();
+            (gs).mstgs.removeAll();
+            (gs).mstgs.add((gs).rd, "Select Stage");
             for (int i_67_ = 0; i_67_ < i_63_; i_67_++)
-                (this.gs).mstgs.add((this.gs).rd, new StringBuilder().append("N#").append(i_67_ + 1).append(" ").append(strings[i_67_]).toString());
-            (this.gs).mstgs.select(0);
-            (this.gs).mstgs.show();
+                (gs).mstgs.add((gs).rd, new StringBuilder().append("N#").append(i_67_ + 1).append(" ").append(strings[i_67_]).toString());
+            (gs).mstgs.select(0);
+            (gs).mstgs.show();
         }
-        if (this.msloaded == -1 || this.msloaded == -2) {
-            (this.gs).mstgs.hide();
-            (this.gs).mstgs.removeAll();
-            (this.gs).mstgs.add((this.gs).rd, "Failed to load Top20 list, please try again later.");
-            (this.gs).mstgs.select(0);
-            (this.gs).mstgs.show();
+        if (msloaded == -1 || msloaded == -2) {
+            (gs).mstgs.hide();
+            (gs).mstgs.removeAll();
+            (gs).mstgs.add((gs).rd, "Failed to load Top20 list, please try again later.");
+            (gs).mstgs.select(0);
+            (gs).mstgs.show();
         }
         System.gc();
     }
     
     public void loadstagemaker() {
-        (this.gs).mstgs.hide();
-        (this.gs).mstgs.removeAll();
-        (this.gs).mstgs.add((this.gs).rd, "Select Stage");
+        (gs).mstgs.hide();
+        (gs).mstgs.removeAll();
+        (gs).mstgs.add((gs).rd, "Select Stage");
         int i = 0;
         File file = new File("mystages/");
         if (file.exists()) {
             String[] strings = new File("mystages/").list();
             for (int i_68_ = 0; i_68_ < strings.length; i_68_++) {
                 if (strings[i_68_].toLowerCase().endsWith(".txt") && i < 2000) {
-                    (this.gs).mstgs.add((this.gs).rd, strings[i_68_].substring(0, strings[i_68_].length() - 4));
+                    (gs).mstgs.add((gs).rd, strings[i_68_].substring(0, strings[i_68_].length() - 4));
                     i++;
                 }
             }
         }
         if (i != 0)
-            this.msloaded = 2;
+            msloaded = 2;
         else {
-            (this.gs).mstgs.add((this.gs).rd, "No stages where found in your 'mystages' folder.");
-            this.msloaded = -1;
+            (gs).mstgs.add((gs).rd, "No stages where found in your 'mystages' folder.");
+            msloaded = -1;
         }
-        (this.gs).mstgs.select(0);
-        (this.gs).mstgs.show();
+        (gs).mstgs.select(0);
+        (gs).mstgs.show();
     }
     
     public void loadcarmaker() {
-        (this.m).csky[0] = 170;
-        (this.m).csky[1] = 220;
-        (this.m).csky[2] = 255;
-        (this.m).cfade[0] = 255;
-        (this.m).cfade[1] = 220;
-        (this.m).cfade[2] = 220;
-        (this.m).snap[0] = 0;
-        (this.m).snap[1] = 0;
-        (this.m).snap[2] = 0;
+        (m).csky[0] = 170;
+        (m).csky[1] = 220;
+        (m).csky[2] = 255;
+        (m).cfade[0] = 255;
+        (m).cfade[1] = 220;
+        (m).cfade[2] = 220;
+        (m).snap[0] = 0;
+        (m).snap[1] = 0;
+        (m).snap[2] = 0;
         for (int i = 0; i < 40; i++)
-            this.include[i] = false;
-        this.nlcars = 16;
+            include[i] = false;
+        nlcars = 16;
         File file = new File("mycars/");
         if (file.exists()) {
             String[] strings = new File("mycars/").list();
             for (int i = 0; i < strings.length; i++) {
-                if (strings[i].toLowerCase().endsWith(".rad") && this.nlcars < 56 && loadcar(strings[i].substring(0, strings[i].length() - 4), this.nlcars) == this.nlcars)
-                    this.nlcars++;
+                if (strings[i].toLowerCase().endsWith(".rad") && nlcars < 56 && loadcar(strings[i].substring(0, strings[i].length() - 4), nlcars) == nlcars)
+                    nlcars++;
             }
         }
         System.gc();
-        if (this.nlcars > 16)
-            this.lastload = 1;
+        if (nlcars > 16)
+            lastload = 1;
     }
     
     public int loadcar(String string, int i) {
@@ -1263,42 +1263,40 @@ public class CarDefine implements Runnable
             if (file.exists()) {
                 String string_69_ = "";
                 BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
-                Object object = null;
                 String string_70_;
                 while ((string_70_ = bufferedreader.readLine()) != null)
                 string_69_ = new StringBuilder().append(string_69_).append("").append(string_70_).append("\n").toString();
                 bufferedreader.close();
-                Object object_71_ = null;
-                (this.m).loadnew = true;
-                this.bco[i] = new ContO(string_69_.getBytes(), this.m, this.t);
-                if ((this.bco[i]).errd || (this.bco[i]).npl <= 60)
+                (m).loadnew = true;
+                bco[i] = new ContO(string_69_.getBytes(), m, t);
+                if ((bco[i]).errd || (bco[i]).npl <= 60)
                     i = -1;
                 if (i != -1) {
-                    (this.bco[i]).shadow = true;
-                    (this.bco[i]).noline = false;
-                    (this.bco[i]).decor = false;
-                    (this.bco[i]).tnt = 0;
-                    (this.bco[i]).disp = 0;
-                    (this.bco[i]).disline = 7;
-                    (this.bco[i]).grounded = 1.0F;
+                    (bco[i]).shadow = true;
+                    (bco[i]).noline = false;
+                    (bco[i]).decor = false;
+                    (bco[i]).tnt = 0;
+                    (bco[i]).disp = 0;
+                    (bco[i]).disline = 7;
+                    (bco[i]).grounded = 1.0F;
                     boolean bool = true;
-                    if ((this.bco[i]).keyz[0] < 0 || (this.bco[i]).keyx[0] > 0)
+                    if ((bco[i]).keyz[0] < 0 || (bco[i]).keyx[0] > 0)
                         bool = false;
-                    if ((this.bco[i]).keyz[1] < 0 || (this.bco[i]).keyx[1] < 0)
+                    if ((bco[i]).keyz[1] < 0 || (bco[i]).keyx[1] < 0)
                         bool = false;
-                    if ((this.bco[i]).keyz[2] > 0 || (this.bco[i]).keyx[2] > 0)
+                    if ((bco[i]).keyz[2] > 0 || (bco[i]).keyx[2] > 0)
                         bool = false;
-                    if ((this.bco[i]).keyz[3] > 0 || (this.bco[i]).keyx[3] < 0)
+                    if ((bco[i]).keyz[3] > 0 || (bco[i]).keyx[3] < 0)
                         bool = false;
                     if (!bool)
                         i = -1;
                 }
                 if (i != -1) {
-                    loadstat(string_69_.getBytes(), string, (this.bco[i]).maxR, (this.bco[i]).roofat, (this.bco[i]).wh, i);
-                    if (this.names[i].equals(""))
+                    loadstat(string_69_.getBytes(), string, (bco[i]).maxR, (bco[i]).roofat, (bco[i]).wh, i);
+                    if (names[i].equals(""))
                         i = -1;
                 }
-                (this.m).loadnew = false;
+                (m).loadnew = false;
             } else
                 i = -1;
         } catch (Exception exception) {

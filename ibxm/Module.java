@@ -242,7 +242,7 @@ public class Module
                 loopStart = sampleLength;
                 loopLength = 0;
             }
-            boolean stereo = (moduleData.uByte(instOffset + 31) & 2) == 2;
+            moduleData.uByte(instOffset + 31);
             boolean sixteenBit = (moduleData.uByte(instOffset + 31) & 4) == 4;
             if(packed)
                 throw new IllegalArgumentException("Packed samples not supported!");

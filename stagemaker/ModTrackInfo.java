@@ -40,6 +40,6 @@ class ModTrackInfo
     int period_high_limit;
     
     ModTrackInfo() {
-        this.arp = new int[3];
+        arp = new int[3];
     }
 }

@@ -93,43 +93,43 @@ public class ContO
     int wh;
     
     public ContO(byte[] is, Medium medium, Trackers trackers) {
-        this.keyx = new int[4];
-        this.keyz = new int[4];
-        this.sprkat = 0;
-        this.tnt = 0;
-        this.ust = 0;
-        this.srx = 0;
-        this.sry = 0;
-        this.srz = 0;
-        this.rcx = 0.0F;
-        this.rcy = 0.0F;
-        this.rcz = 0.0F;
-        this.sprk = 0;
-        this.elec = false;
-        this.roted = false;
-        this.edl = new int[4];
-        this.edr = new int[4];
-        this.elc = new int[] { 0, 0, 0, 0 };
-        this.fix = false;
-        this.fcnt = 0;
-        this.checkpoint = 0;
-        this.fcol = new int[] { 0, 0, 0 };
-        this.scol = new int[] { 0, 0, 0 };
-        this.colok = 0;
-        this.errd = false;
-        this.err = "";
-        this.roofat = 0;
-        this.wh = 0;
-        this.m = medium;
-        this.t = trackers;
-        this.p = new Plane[10000];
+        keyx = new int[4];
+        keyz = new int[4];
+        sprkat = 0;
+        tnt = 0;
+        ust = 0;
+        srx = 0;
+        sry = 0;
+        srz = 0;
+        rcx = 0.0F;
+        rcy = 0.0F;
+        rcz = 0.0F;
+        sprk = 0;
+        elec = false;
+        roted = false;
+        edl = new int[4];
+        edr = new int[4];
+        elc = new int[] { 0, 0, 0, 0 };
+        fix = false;
+        fcnt = 0;
+        checkpoint = 0;
+        fcol = new int[] { 0, 0, 0 };
+        scol = new int[] { 0, 0, 0 };
+        colok = 0;
+        errd = false;
+        err = "";
+        roofat = 0;
+        wh = 0;
+        m = medium;
+        t = trackers;
+        p = new Plane[10000];
         int[] is_0_ = new int[10000];
         for (int i = 0; i < 286; i++)
             is_0_[i] = 0;
-        if ((this.m).loadnew) {
+        if ((m).loadnew) {
             for (int i = 0; i < 4; i++)
-                this.keyz[i] = 0;
-            this.shadow = true;
+                keyz[i] = 0;
+            shadow = true;
         }
         String string = "";
         boolean bool = false;
@@ -157,14 +157,14 @@ public class ContO
             String string_16_;
             while ((string_16_ = datainputstream.readLine()) != null) {
                 string = new StringBuilder().append("").append(string_16_.trim()).toString();
-                if (this.npl < 10000) {
+                if (npl < 10000) {
                     if (string.startsWith("<p>")) {
                         bool = true;
                         i = 0;
                         i_9_ = 0;
                         i_10_ = 0;
                         i_12_ = 0;
-                        is_0_[this.npl] = 1;
+                        is_0_[npl] = 1;
                         if (!bool_15_)
                             bool_14_ = false;
                     }
@@ -173,7 +173,7 @@ public class ContO
                             i_9_ = getvalue("gr", string, 0);
                         if (string.startsWith("fs(")) {
                             i_10_ = getvalue("fs", string, 0);
-                            is_0_[this.npl] = 2;
+                            is_0_[npl] = 2;
                         }
                         if (string.startsWith("c(")) {
                             i_13_ = 0;
@@ -198,164 +198,164 @@ public class ContO
                             is_4_[i] = (int) ((float) getvalue("p", string, 1) * f * fs[1]);
                             is_5_[i] = (int) ((float) getvalue("p", string, 2) * f * fs[2]);
                             int i_17_ = (int) Math.sqrt((double) (is_3_[i] * is_3_[i] + is_4_[i] * is_4_[i] + is_5_[i] * is_5_[i]));
-                            if (i_17_ > this.maxR)
-                                this.maxR = i_17_;
+                            if (i_17_ > maxR)
+                                maxR = i_17_;
                             i++;
                         }
                     }
                     if (string.startsWith("</p>")) {
-                        this.p[this.npl] = new Plane(this.m, this.t, is_3_, is_5_, is_4_, i, is_6_, i_13_, i_9_, i_10_, 0, 0, 0, this.disline, 0, bool_7_, i_12_, bool_14_);
-                        if (is_6_[0] == this.fcol[0] && is_6_[1] == this.fcol[1] && is_6_[2] == this.fcol[2] && i_13_ == 0)
-                            (this.p[this.npl]).colnum = 1;
-                        if (is_6_[0] == this.scol[0] && is_6_[1] == this.scol[1] && is_6_[2] == this.scol[2] && i_13_ == 0)
-                            (this.p[this.npl]).colnum = 2;
-                        this.npl++;
+                        p[npl] = new Plane(m, t, is_3_, is_5_, is_4_, i, is_6_, i_13_, i_9_, i_10_, 0, 0, 0, disline, 0, bool_7_, i_12_, bool_14_);
+                        if (is_6_[0] == fcol[0] && is_6_[1] == fcol[1] && is_6_[2] == fcol[2] && i_13_ == 0)
+                            (p[npl]).colnum = 1;
+                        if (is_6_[0] == scol[0] && is_6_[1] == scol[1] && is_6_[2] == scol[2] && i_13_ == 0)
+                            (p[npl]).colnum = 2;
+                        npl++;
                         bool = false;
                     }
                 }
                 if (string.startsWith("rims("))
                     wheels.setrims(getvalue("rims", string, 0), getvalue("rims", string, 1), getvalue("rims", string, 2), getvalue("rims", string, 3), getvalue("rims", string, 4));
                 if (string.startsWith("w(") && i_8_ < 4) {
-                    this.keyx[i_8_] = (int) ((float) getvalue("w", string, 0) * f * fs[0]);
-                    this.keyz[i_8_] = (int) ((float) getvalue("w", string, 2) * f * fs[2]);
-                    wheels.make(this.m, this.t, this.p, this.npl, (int) ((float) getvalue("w", string, 0) * f * f_2_ * fs[0]), (int) ((float) getvalue("w", string, 1) * f * fs[1]), (int) ((float) getvalue("w", string, 2) * f * fs[2]), getvalue("w", string, 3), (int) ((float) getvalue("w", string, 4) * f * f_2_), (int) ((float) getvalue("w", string, 5) * f), i_11_);
-                    this.npl += 19;
-                    if ((this.m).loadnew) {
-                        this.wh += (int) ((float) getvalue("w", string, 5) * f);
+                    keyx[i_8_] = (int) ((float) getvalue("w", string, 0) * f * fs[0]);
+                    keyz[i_8_] = (int) ((float) getvalue("w", string, 2) * f * fs[2]);
+                    wheels.make(m, t, p, npl, (int) ((float) getvalue("w", string, 0) * f * f_2_ * fs[0]), (int) ((float) getvalue("w", string, 1) * f * fs[1]), (int) ((float) getvalue("w", string, 2) * f * fs[2]), getvalue("w", string, 3), (int) ((float) getvalue("w", string, 4) * f * f_2_), (int) ((float) getvalue("w", string, 5) * f), i_11_);
+                    npl += 19;
+                    if ((m).loadnew) {
+                        wh += (int) ((float) getvalue("w", string, 5) * f);
                         if ((wheels).ground > 140) {
                             String string_18_ = "FRONT";
-                            if (this.keyz[i_8_] < 0)
+                            if (keyz[i_8_] < 0)
                                 string_18_ = "BACK";
-                            this.err = new StringBuilder().append("Wheels Error:\n").append(string_18_).append(" Wheels floor is too far below the center of Y Axis of the car!    \n\nPlease decrease the Y value of the ").append(string_18_).append(" Wheels or decrease its height.     \n \n").toString();
-                            this.errd = true;
-                            this.keyz[i_8_] = 0;
-                            this.keyx[i_8_] = 0;
+                            err = new StringBuilder().append("Wheels Error:\n").append(string_18_).append(" Wheels floor is too far below the center of Y Axis of the car!    \n\nPlease decrease the Y value of the ").append(string_18_).append(" Wheels or decrease its height.     \n \n").toString();
+                            errd = true;
+                            keyz[i_8_] = 0;
+                            keyx[i_8_] = 0;
                         }
                         if ((wheels).ground < -100) {
                             String string_19_ = "FRONT";
-                            if (this.keyz[i_8_] < 0)
+                            if (keyz[i_8_] < 0)
                                 string_19_ = "BACK";
-                            this.err = new StringBuilder().append("Wheels Error:\n").append(string_19_).append(" Wheels floor is too far above the center of Y Axis of the car!    \n\nPlease increase the Y value of the ").append(string_19_).append(" Wheels or increase its height.     \n \n").toString();
-                            this.errd = true;
-                            this.keyz[i_8_] = 0;
-                            this.keyx[i_8_] = 0;
+                            err = new StringBuilder().append("Wheels Error:\n").append(string_19_).append(" Wheels floor is too far above the center of Y Axis of the car!    \n\nPlease increase the Y value of the ").append(string_19_).append(" Wheels or increase its height.     \n \n").toString();
+                            errd = true;
+                            keyz[i_8_] = 0;
+                            keyx[i_8_] = 0;
                         }
-                        if (Math.abs(this.keyx[i_8_]) > 400) {
+                        if (Math.abs(keyx[i_8_]) > 400) {
                             String string_20_ = "FRONT";
-                            if (this.keyz[i_8_] < 0)
+                            if (keyz[i_8_] < 0)
                                 string_20_ = "BACK";
-                            this.err = new StringBuilder().append("Wheels Error:\n").append(string_20_).append(" Wheels are too far apart!    \n\nPlease decrease the \u00b1X value of the ").append(string_20_).append(" Wheels.     \n \n").toString();
-                            this.errd = true;
-                            this.keyz[i_8_] = 0;
-                            this.keyx[i_8_] = 0;
+                            err = new StringBuilder().append("Wheels Error:\n").append(string_20_).append(" Wheels are too far apart!    \n\nPlease decrease the \u00b1X value of the ").append(string_20_).append(" Wheels.     \n \n").toString();
+                            errd = true;
+                            keyz[i_8_] = 0;
+                            keyx[i_8_] = 0;
                         }
-                        if (Math.abs(this.keyz[i_8_]) > 700) {
-                            if (this.keyz[i_8_] < 0)
-                                this.err = "Wheels Error:\nBACK Wheels are too far backwards from the center of the Z Axis!    \n\nPlease increase the -Z value of the BACK Wheels.     \n \n";
+                        if (Math.abs(keyz[i_8_]) > 700) {
+                            if (keyz[i_8_] < 0)
+                                err = "Wheels Error:\nBACK Wheels are too far backwards from the center of the Z Axis!    \n\nPlease increase the -Z value of the BACK Wheels.     \n \n";
                             else
-                                this.err = "Wheels Error:\nFRONT Wheels are too far forwards from the center of the Z Axis!    \n\nPlease decrease the +Z value of the FRONT Wheels.     \n \n";
-                            this.errd = true;
-                            this.keyz[i_8_] = 0;
-                            this.keyx[i_8_] = 0;
+                                err = "Wheels Error:\nFRONT Wheels are too far forwards from the center of the Z Axis!    \n\nPlease decrease the +Z value of the FRONT Wheels.     \n \n";
+                            errd = true;
+                            keyz[i_8_] = 0;
+                            keyx[i_8_] = 0;
                         }
                         if ((int) ((float) getvalue("w", string, 4) * f * f_2_) > 300) {
                             String string_21_ = "FRONT";
-                            if (this.keyz[i_8_] < 0)
+                            if (keyz[i_8_] < 0)
                                 string_21_ = "BACK";
-                            this.err = new StringBuilder().append("Wheels Error:\nWidth of the ").append(string_21_).append(" Wheels is too large!    \n\nPlease decrease the width of the ").append(string_21_).append(" Wheels.     \n \n").toString();
-                            this.errd = true;
-                            this.keyz[i_8_] = 0;
-                            this.keyx[i_8_] = 0;
+                            err = new StringBuilder().append("Wheels Error:\nWidth of the ").append(string_21_).append(" Wheels is too large!    \n\nPlease decrease the width of the ").append(string_21_).append(" Wheels.     \n \n").toString();
+                            errd = true;
+                            keyz[i_8_] = 0;
+                            keyx[i_8_] = 0;
                         }
                     }
                     i_8_++;
                 }
                 if (string.startsWith("tracks")) {
                     int i_22_ = getvalue("tracks", string, 0);
-                    this.txy = new int[i_22_];
-                    this.tzy = new int[i_22_];
-                    this.tc = new int[i_22_][3];
-                    this.tradx = new int[i_22_];
-                    this.tradz = new int[i_22_];
-                    this.trady = new int[i_22_];
-                    this.tx = new int[i_22_];
-                    this.ty = new int[i_22_];
-                    this.tz = new int[i_22_];
-                    this.skd = new int[i_22_];
-                    this.dam = new int[i_22_];
-                    this.notwall = new boolean[i_22_];
+                    txy = new int[i_22_];
+                    tzy = new int[i_22_];
+                    tc = new int[i_22_][3];
+                    tradx = new int[i_22_];
+                    tradz = new int[i_22_];
+                    trady = new int[i_22_];
+                    tx = new int[i_22_];
+                    ty = new int[i_22_];
+                    tz = new int[i_22_];
+                    skd = new int[i_22_];
+                    dam = new int[i_22_];
+                    notwall = new boolean[i_22_];
                 }
                 if (string.startsWith("<track>")) {
                     bool_1_ = true;
-                    this.notwall[this.tnt] = false;
-                    this.dam[this.tnt] = 1;
-                    this.skd[this.tnt] = 0;
-                    this.ty[this.tnt] = 0;
-                    this.tx[this.tnt] = 0;
-                    this.tz[this.tnt] = 0;
-                    this.txy[this.tnt] = 0;
-                    this.tzy[this.tnt] = 0;
-                    this.trady[this.tnt] = 0;
-                    this.tradx[this.tnt] = 0;
-                    this.tradz[this.tnt] = 0;
-                    this.tc[this.tnt][0] = 0;
-                    this.tc[this.tnt][1] = 0;
-                    this.tc[this.tnt][2] = 0;
+                    notwall[tnt] = false;
+                    dam[tnt] = 1;
+                    skd[tnt] = 0;
+                    ty[tnt] = 0;
+                    tx[tnt] = 0;
+                    tz[tnt] = 0;
+                    txy[tnt] = 0;
+                    tzy[tnt] = 0;
+                    trady[tnt] = 0;
+                    tradx[tnt] = 0;
+                    tradz[tnt] = 0;
+                    tc[tnt][0] = 0;
+                    tc[tnt][1] = 0;
+                    tc[tnt][2] = 0;
                 }
                 if (bool_1_) {
                     if (string.startsWith("c")) {
-                        this.tc[this.tnt][0] = getvalue("c", string, 0);
-                        this.tc[this.tnt][1] = getvalue("c", string, 1);
-                        this.tc[this.tnt][2] = getvalue("c", string, 2);
+                        tc[tnt][0] = getvalue("c", string, 0);
+                        tc[tnt][1] = getvalue("c", string, 1);
+                        tc[tnt][2] = getvalue("c", string, 2);
                     }
                     if (string.startsWith("xy"))
-                        this.txy[this.tnt] = getvalue("xy", string, 0);
+                        txy[tnt] = getvalue("xy", string, 0);
                     if (string.startsWith("zy"))
-                        this.tzy[this.tnt] = getvalue("zy", string, 0);
+                        tzy[tnt] = getvalue("zy", string, 0);
                     if (string.startsWith("radx"))
-                        this.tradx[this.tnt] = (int) ((float) getvalue("radx", string, 0) * f);
+                        tradx[tnt] = (int) ((float) getvalue("radx", string, 0) * f);
                     if (string.startsWith("rady"))
-                        this.trady[this.tnt] = (int) ((float) getvalue("rady", string, 0) * f);
+                        trady[tnt] = (int) ((float) getvalue("rady", string, 0) * f);
                     if (string.startsWith("radz"))
-                        this.tradz[this.tnt] = (int) ((float) getvalue("radz", string, 0) * f);
+                        tradz[tnt] = (int) ((float) getvalue("radz", string, 0) * f);
                     if (string.startsWith("ty"))
-                        this.ty[this.tnt] = (int) ((float) getvalue("ty", string, 0) * f);
+                        ty[tnt] = (int) ((float) getvalue("ty", string, 0) * f);
                     if (string.startsWith("tx"))
-                        this.tx[this.tnt] = (int) ((float) getvalue("tx", string, 0) * f);
+                        tx[tnt] = (int) ((float) getvalue("tx", string, 0) * f);
                     if (string.startsWith("tz"))
-                        this.tz[this.tnt] = (int) ((float) getvalue("tz", string, 0) * f);
+                        tz[tnt] = (int) ((float) getvalue("tz", string, 0) * f);
                     if (string.startsWith("skid"))
-                        this.skd[this.tnt] = getvalue("skid", string, 0);
+                        skd[tnt] = getvalue("skid", string, 0);
                     if (string.startsWith("dam"))
-                        this.dam[this.tnt] = 3;
+                        dam[tnt] = 3;
                     if (string.startsWith("notwall"))
-                        this.notwall[this.tnt] = true;
+                        notwall[tnt] = true;
                 }
                 if (string.startsWith("</track>")) {
                     bool_1_ = false;
-                    this.tnt++;
+                    tnt++;
                 }
                 if (string.startsWith("disp("))
-                    this.disp = getvalue("disp", string, 0);
+                    disp = getvalue("disp", string, 0);
                 if (string.startsWith("disline("))
-                    this.disline = getvalue("disline", string, 0) * 2;
+                    disline = getvalue("disline", string, 0) * 2;
                 if (string.startsWith("shadow"))
-                    this.shadow = true;
+                    shadow = true;
                 if (string.startsWith("stonecold"))
-                    this.noline = true;
+                    noline = true;
                 if (string.startsWith("newstone")) {
-                    this.noline = true;
+                    noline = true;
                     bool_14_ = true;
                     bool_15_ = true;
                 }
                 if (string.startsWith("decorative"))
-                    this.decor = true;
+                    decor = true;
                 if (string.startsWith("road"))
                     bool_7_ = true;
                 if (string.startsWith("notroad"))
                     bool_7_ = false;
                 if (string.startsWith("grounded("))
-                    this.grounded = (float) getvalue("grounded", string, 0) / 100.0F;
+                    grounded = (float) getvalue("grounded", string, 0) / 100.0F;
                 if (string.startsWith("div("))
                     f = (float) getvalue("div", string, 0) / 10.0F;
                 if (string.startsWith("idiv("))
@@ -370,7 +370,7 @@ public class ContO
                     fs[2] = (float) getvalue("ScaleZ", string, 0) / 100.0F;
                 if (string.startsWith("gwgr(")) {
                     i_11_ = getvalue("gwgr", string, 0);
-                    if ((this.m).loadnew) {
+                    if ((m).loadnew) {
                         if (i_11_ > 40)
                             i_11_ = 40;
                         if (i_11_ < 0 && i_11_ >= -15)
@@ -380,61 +380,61 @@ public class ContO
                     }
                 }
                 if (string.startsWith("1stColor(")) {
-                    this.fcol[0] = getvalue("1stColor", string, 0);
-                    this.fcol[1] = getvalue("1stColor", string, 1);
-                    this.fcol[2] = getvalue("1stColor", string, 2);
-                    this.colok++;
+                    fcol[0] = getvalue("1stColor", string, 0);
+                    fcol[1] = getvalue("1stColor", string, 1);
+                    fcol[2] = getvalue("1stColor", string, 2);
+                    colok++;
                 }
                 if (string.startsWith("2ndColor(")) {
-                    this.scol[0] = getvalue("2ndColor", string, 0);
-                    this.scol[1] = getvalue("2ndColor", string, 1);
-                    this.scol[2] = getvalue("2ndColor", string, 2);
-                    this.colok++;
+                    scol[0] = getvalue("2ndColor", string, 0);
+                    scol[1] = getvalue("2ndColor", string, 1);
+                    scol[2] = getvalue("2ndColor", string, 2);
+                    colok++;
                 }
             }
             datainputstream.close();
         } catch (Exception exception) {
-            if (!this.errd) {
-                this.err = new StringBuilder().append("Error While Loading 3D Model\n\nLine:     ").append(string).append("\n\nError Detail:\n").append(exception).append("           \n \n").toString();
-                System.out.println(this.err);
-                this.errd = true;
+            if (!errd) {
+                err = new StringBuilder().append("Error While Loading 3D Model\n\nLine:     ").append(string).append("\n\nError Detail:\n").append(exception).append("           \n \n").toString();
+                System.out.println(err);
+                errd = true;
             }
         }
-        this.grat = (wheels).ground;
-        this.sprkat = (wheels).sparkat;
-        if (this.shadow) {
-            this.stg = new int[20];
-            this.rtg = new int[100];
+        grat = (wheels).ground;
+        sprkat = (wheels).sparkat;
+        if (shadow) {
+            stg = new int[20];
+            rtg = new int[100];
             for (int i_23_ = 0; i_23_ < 20; i_23_++)
-                this.stg[i_23_] = 0;
+                stg[i_23_] = 0;
             for (int i_24_ = 0; i_24_ < 100; i_24_++)
-                this.rtg[i_24_] = 0;
+                rtg[i_24_] = 0;
         }
-        if ((this.m).loadnew) {
+        if ((m).loadnew) {
             if (i_8_ != 0)
-                this.wh = this.wh / i_8_;
+                wh = wh / i_8_;
             boolean bool_25_ = false;
-            for (int i_26_ = 0; i_26_ < this.npl; i_26_++) {
+            for (int i_26_ = 0; i_26_ < npl; i_26_++) {
                 int i_27_ = 0;
-                int i_28_ = (this.p[i_26_]).ox[0];
-                int i_29_ = (this.p[i_26_]).ox[0];
-                int i_30_ = (this.p[i_26_]).oy[0];
-                int i_31_ = (this.p[i_26_]).oy[0];
-                int i_32_ = (this.p[i_26_]).oz[0];
-                int i_33_ = (this.p[i_26_]).oz[0];
-                for (int i_34_ = 0; i_34_ < (this.p[i_26_]).n; i_34_++) {
-                    if ((this.p[i_26_]).ox[i_34_] > i_28_)
-                        i_28_ = (this.p[i_26_]).ox[i_34_];
-                    if ((this.p[i_26_]).ox[i_34_] < i_29_)
-                        i_29_ = (this.p[i_26_]).ox[i_34_];
-                    if ((this.p[i_26_]).oy[i_34_] > i_30_)
-                        i_30_ = (this.p[i_26_]).oy[i_34_];
-                    if ((this.p[i_26_]).oy[i_34_] < i_31_)
-                        i_31_ = (this.p[i_26_]).oy[i_34_];
-                    if ((this.p[i_26_]).oz[i_34_] > i_32_)
-                        i_32_ = (this.p[i_26_]).oz[i_34_];
-                    if ((this.p[i_26_]).oz[i_34_] < i_33_)
-                        i_33_ = (this.p[i_26_]).oz[i_34_];
+                int i_28_ = (p[i_26_]).ox[0];
+                int i_29_ = (p[i_26_]).ox[0];
+                int i_30_ = (p[i_26_]).oy[0];
+                int i_31_ = (p[i_26_]).oy[0];
+                int i_32_ = (p[i_26_]).oz[0];
+                int i_33_ = (p[i_26_]).oz[0];
+                for (int i_34_ = 0; i_34_ < (p[i_26_]).n; i_34_++) {
+                    if ((p[i_26_]).ox[i_34_] > i_28_)
+                        i_28_ = (p[i_26_]).ox[i_34_];
+                    if ((p[i_26_]).ox[i_34_] < i_29_)
+                        i_29_ = (p[i_26_]).ox[i_34_];
+                    if ((p[i_26_]).oy[i_34_] > i_30_)
+                        i_30_ = (p[i_26_]).oy[i_34_];
+                    if ((p[i_26_]).oy[i_34_] < i_31_)
+                        i_31_ = (p[i_26_]).oy[i_34_];
+                    if ((p[i_26_]).oz[i_34_] > i_32_)
+                        i_32_ = (p[i_26_]).oz[i_34_];
+                    if ((p[i_26_]).oz[i_34_] < i_33_)
+                        i_33_ = (p[i_26_]).oz[i_34_];
                 }
                 if (Math.abs(i_28_ - i_29_) <= Math.abs(i_30_ - i_31_) && Math.abs(i_28_ - i_29_) <= Math.abs(i_32_ - i_33_))
                     i_27_ = 1;
@@ -442,23 +442,23 @@ public class ContO
                     i_27_ = 2;
                 if (Math.abs(i_32_ - i_33_) <= Math.abs(i_28_ - i_29_) && Math.abs(i_32_ - i_33_) <= Math.abs(i_30_ - i_31_))
                     i_27_ = 3;
-                if (i_27_ == 2 && (!bool_25_ || (i_30_ + i_31_) / 2 < this.roofat)) {
-                    this.roofat = (i_30_ + i_31_) / 2;
+                if (i_27_ == 2 && (!bool_25_ || (i_30_ + i_31_) / 2 < roofat)) {
+                    roofat = (i_30_ + i_31_) / 2;
                     bool_25_ = true;
                 }
                 if (is_0_[i_26_] == 1) {
                     int i_35_ = 1000;
                     int i_36_ = 0;
-                    for (int i_37_ = 0; i_37_ < (this.p[i_26_]).n; i_37_++) {
+                    for (int i_37_ = 0; i_37_ < (p[i_26_]).n; i_37_++) {
                         int i_38_ = i_37_ + 1;
-                        if (i_38_ >= (this.p[i_26_]).n)
-                            i_38_ -= (this.p[i_26_]).n;
+                        if (i_38_ >= (p[i_26_]).n)
+                            i_38_ -= (p[i_26_]).n;
                         int i_39_ = i_37_ + 2;
-                        if (i_39_ >= (this.p[i_26_]).n)
-                            i_39_ -= (this.p[i_26_]).n;
+                        if (i_39_ >= (p[i_26_]).n)
+                            i_39_ -= (p[i_26_]).n;
                         if (i_27_ == 1) {
-                            int i_40_ = Math.abs((int) (Math.atan((double) ((this.p[i_26_]).oz[i_37_] - (this.p[i_26_]).oz[i_38_]) / (double) ((this.p[i_26_]).oy[i_37_] - (this.p[i_26_]).oy[i_38_])) / 0.017453292519943295));
-                            int i_41_ = Math.abs((int) (Math.atan((double) ((this.p[i_26_]).oz[i_39_] - (this.p[i_26_]).oz[i_38_]) / (double) ((this.p[i_26_]).oy[i_39_] - (this.p[i_26_]).oy[i_38_])) / 0.017453292519943295));
+                            int i_40_ = Math.abs((int) (Math.atan((double) ((p[i_26_]).oz[i_37_] - (p[i_26_]).oz[i_38_]) / (double) ((p[i_26_]).oy[i_37_] - (p[i_26_]).oy[i_38_])) / 0.017453292519943295));
+                            int i_41_ = Math.abs((int) (Math.atan((double) ((p[i_26_]).oz[i_39_] - (p[i_26_]).oz[i_38_]) / (double) ((p[i_26_]).oy[i_39_] - (p[i_26_]).oy[i_38_])) / 0.017453292519943295));
                             if (i_40_ > 45)
                                 i_40_ = 90 - i_40_;
                             else
@@ -469,8 +469,8 @@ public class ContO
                             }
                         }
                         if (i_27_ == 2) {
-                            int i_42_ = Math.abs((int) (Math.atan((double) ((this.p[i_26_]).oz[i_37_] - (this.p[i_26_]).oz[i_38_]) / (double) ((this.p[i_26_]).ox[i_37_] - (this.p[i_26_]).ox[i_38_])) / 0.017453292519943295));
-                            int i_43_ = Math.abs((int) (Math.atan((double) ((this.p[i_26_]).oz[i_39_] - (this.p[i_26_]).oz[i_38_]) / (double) ((this.p[i_26_]).ox[i_39_] - (this.p[i_26_]).ox[i_38_])) / 0.017453292519943295));
+                            int i_42_ = Math.abs((int) (Math.atan((double) ((p[i_26_]).oz[i_37_] - (p[i_26_]).oz[i_38_]) / (double) ((p[i_26_]).ox[i_37_] - (p[i_26_]).ox[i_38_])) / 0.017453292519943295));
+                            int i_43_ = Math.abs((int) (Math.atan((double) ((p[i_26_]).oz[i_39_] - (p[i_26_]).oz[i_38_]) / (double) ((p[i_26_]).ox[i_39_] - (p[i_26_]).ox[i_38_])) / 0.017453292519943295));
                             if (i_42_ > 45)
                                 i_42_ = 90 - i_42_;
                             else
@@ -481,8 +481,8 @@ public class ContO
                             }
                         }
                         if (i_27_ == 3) {
-                            int i_44_ = Math.abs((int) (Math.atan((double) ((this.p[i_26_]).oy[i_37_] - (this.p[i_26_]).oy[i_38_]) / (double) ((this.p[i_26_]).ox[i_37_] - (this.p[i_26_]).ox[i_38_])) / 0.017453292519943295));
-                            int i_45_ = Math.abs((int) (Math.atan((double) ((this.p[i_26_]).oy[i_39_] - (this.p[i_26_]).oy[i_38_]) / (double) ((this.p[i_26_]).ox[i_39_] - (this.p[i_26_]).ox[i_38_])) / 0.017453292519943295));
+                            int i_44_ = Math.abs((int) (Math.atan((double) ((p[i_26_]).oy[i_37_] - (p[i_26_]).oy[i_38_]) / (double) ((p[i_26_]).ox[i_37_] - (p[i_26_]).ox[i_38_])) / 0.017453292519943295));
+                            int i_45_ = Math.abs((int) (Math.atan((double) ((p[i_26_]).oy[i_39_] - (p[i_26_]).oy[i_38_]) / (double) ((p[i_26_]).ox[i_39_] - (p[i_26_]).ox[i_38_])) / 0.017453292519943295));
                             if (i_44_ > 45)
                                 i_44_ = 90 - i_44_;
                             else
@@ -494,110 +494,109 @@ public class ContO
                         }
                     }
                     if (i_36_ != 0) {
-                        int[] is_46_ = new int[(this.p[i_26_]).n];
-                        int[] is_47_ = new int[(this.p[i_26_]).n];
-                        int[] is_48_ = new int[(this.p[i_26_]).n];
-                        for (int i_49_ = 0; i_49_ < (this.p[i_26_]).n; i_49_++) {
-                            is_46_[i_49_] = (this.p[i_26_]).ox[i_49_];
-                            is_47_[i_49_] = (this.p[i_26_]).oy[i_49_];
-                            is_48_[i_49_] = (this.p[i_26_]).oz[i_49_];
+                        int[] is_46_ = new int[(p[i_26_]).n];
+                        int[] is_47_ = new int[(p[i_26_]).n];
+                        int[] is_48_ = new int[(p[i_26_]).n];
+                        for (int i_49_ = 0; i_49_ < (p[i_26_]).n; i_49_++) {
+                            is_46_[i_49_] = (p[i_26_]).ox[i_49_];
+                            is_47_[i_49_] = (p[i_26_]).oy[i_49_];
+                            is_48_[i_49_] = (p[i_26_]).oz[i_49_];
                         }
-                        for (int i_50_ = 0; i_50_ < (this.p[i_26_]).n; i_50_++) {
+                        for (int i_50_ = 0; i_50_ < (p[i_26_]).n; i_50_++) {
                             int i_51_ = i_50_ + i_36_;
-                            if (i_51_ >= (this.p[i_26_]).n)
-                                i_51_ -= (this.p[i_26_]).n;
-                            (this.p[i_26_]).ox[i_50_] = is_46_[i_51_];
-                            (this.p[i_26_]).oy[i_50_] = is_47_[i_51_];
-                            (this.p[i_26_]).oz[i_50_] = is_48_[i_51_];
+                            if (i_51_ >= (p[i_26_]).n)
+                                i_51_ -= (p[i_26_]).n;
+                            (p[i_26_]).ox[i_50_] = is_46_[i_51_];
+                            (p[i_26_]).oy[i_50_] = is_47_[i_51_];
+                            (p[i_26_]).oz[i_50_] = is_48_[i_51_];
                         }
                     }
                     if (i_27_ == 1) {
-                        if (Math.abs((this.p[i_26_]).oz[0] - (this.p[i_26_]).oz[1]) > Math.abs((this.p[i_26_]).oy[0] - (this.p[i_26_]).oy[1])) {
-                            if ((this.p[i_26_]).oz[0] > (this.p[i_26_]).oz[1]) {
-                                if ((this.p[i_26_]).oy[1] > (this.p[i_26_]).oy[2])
-                                    (this.p[i_26_]).fs = 1;
+                        if (Math.abs((p[i_26_]).oz[0] - (p[i_26_]).oz[1]) > Math.abs((p[i_26_]).oy[0] - (p[i_26_]).oy[1])) {
+                            if ((p[i_26_]).oz[0] > (p[i_26_]).oz[1]) {
+                                if ((p[i_26_]).oy[1] > (p[i_26_]).oy[2])
+                                    (p[i_26_]).fs = 1;
                                 else
-                                    (this.p[i_26_]).fs = -1;
-                            } else if ((this.p[i_26_]).oy[1] > (this.p[i_26_]).oy[2])
-                                (this.p[i_26_]).fs = -1;
+                                    (p[i_26_]).fs = -1;
+                            } else if ((p[i_26_]).oy[1] > (p[i_26_]).oy[2])
+                                (p[i_26_]).fs = -1;
                             else
-                                (this.p[i_26_]).fs = 1;
-                        } else if ((this.p[i_26_]).oy[0] > (this.p[i_26_]).oy[1]) {
-                            if ((this.p[i_26_]).oz[1] > (this.p[i_26_]).oz[2])
-                                (this.p[i_26_]).fs = -1;
+                                (p[i_26_]).fs = 1;
+                        } else if ((p[i_26_]).oy[0] > (p[i_26_]).oy[1]) {
+                            if ((p[i_26_]).oz[1] > (p[i_26_]).oz[2])
+                                (p[i_26_]).fs = -1;
                             else
-                                (this.p[i_26_]).fs = 1;
-                        } else if ((this.p[i_26_]).oz[1] > (this.p[i_26_]).oz[2])
-                            (this.p[i_26_]).fs = 1;
+                                (p[i_26_]).fs = 1;
+                        } else if ((p[i_26_]).oz[1] > (p[i_26_]).oz[2])
+                            (p[i_26_]).fs = 1;
                         else
-                            (this.p[i_26_]).fs = -1;
+                            (p[i_26_]).fs = -1;
                     }
                     if (i_27_ == 2) {
-                        if (Math.abs((this.p[i_26_]).oz[0] - (this.p[i_26_]).oz[1]) > Math.abs((this.p[i_26_]).ox[0] - (this.p[i_26_]).ox[1])) {
-                            if ((this.p[i_26_]).oz[0] > (this.p[i_26_]).oz[1]) {
-                                if ((this.p[i_26_]).ox[1] > (this.p[i_26_]).ox[2])
-                                    (this.p[i_26_]).fs = -1;
+                        if (Math.abs((p[i_26_]).oz[0] - (p[i_26_]).oz[1]) > Math.abs((p[i_26_]).ox[0] - (p[i_26_]).ox[1])) {
+                            if ((p[i_26_]).oz[0] > (p[i_26_]).oz[1]) {
+                                if ((p[i_26_]).ox[1] > (p[i_26_]).ox[2])
+                                    (p[i_26_]).fs = -1;
                                 else
-                                    (this.p[i_26_]).fs = 1;
-                            } else if ((this.p[i_26_]).ox[1] > (this.p[i_26_]).ox[2])
-                                (this.p[i_26_]).fs = 1;
+                                    (p[i_26_]).fs = 1;
+                            } else if ((p[i_26_]).ox[1] > (p[i_26_]).ox[2])
+                                (p[i_26_]).fs = 1;
                             else
-                                (this.p[i_26_]).fs = -1;
-                        } else if ((this.p[i_26_]).ox[0] > (this.p[i_26_]).ox[1]) {
-                            if ((this.p[i_26_]).oz[1] > (this.p[i_26_]).oz[2])
-                                (this.p[i_26_]).fs = 1;
+                                (p[i_26_]).fs = -1;
+                        } else if ((p[i_26_]).ox[0] > (p[i_26_]).ox[1]) {
+                            if ((p[i_26_]).oz[1] > (p[i_26_]).oz[2])
+                                (p[i_26_]).fs = 1;
                             else
-                                (this.p[i_26_]).fs = -1;
-                        } else if ((this.p[i_26_]).oz[1] > (this.p[i_26_]).oz[2])
-                            (this.p[i_26_]).fs = -1;
+                                (p[i_26_]).fs = -1;
+                        } else if ((p[i_26_]).oz[1] > (p[i_26_]).oz[2])
+                            (p[i_26_]).fs = -1;
                         else
-                            (this.p[i_26_]).fs = 1;
+                            (p[i_26_]).fs = 1;
                     }
                     if (i_27_ == 3) {
-                        if (Math.abs((this.p[i_26_]).oy[0] - (this.p[i_26_]).oy[1]) > Math.abs((this.p[i_26_]).ox[0] - (this.p[i_26_]).ox[1])) {
-                            if ((this.p[i_26_]).oy[0] > (this.p[i_26_]).oy[1]) {
-                                if ((this.p[i_26_]).ox[1] > (this.p[i_26_]).ox[2])
-                                    (this.p[i_26_]).fs = 1;
+                        if (Math.abs((p[i_26_]).oy[0] - (p[i_26_]).oy[1]) > Math.abs((p[i_26_]).ox[0] - (p[i_26_]).ox[1])) {
+                            if ((p[i_26_]).oy[0] > (p[i_26_]).oy[1]) {
+                                if ((p[i_26_]).ox[1] > (p[i_26_]).ox[2])
+                                    (p[i_26_]).fs = 1;
                                 else
-                                    (this.p[i_26_]).fs = -1;
-                            } else if ((this.p[i_26_]).ox[1] > (this.p[i_26_]).ox[2])
-                                (this.p[i_26_]).fs = -1;
+                                    (p[i_26_]).fs = -1;
+                            } else if ((p[i_26_]).ox[1] > (p[i_26_]).ox[2])
+                                (p[i_26_]).fs = -1;
                             else
-                                (this.p[i_26_]).fs = 1;
-                        } else if ((this.p[i_26_]).ox[0] > (this.p[i_26_]).ox[1]) {
-                            if ((this.p[i_26_]).oy[1] > (this.p[i_26_]).oy[2])
-                                (this.p[i_26_]).fs = -1;
+                                (p[i_26_]).fs = 1;
+                        } else if ((p[i_26_]).ox[0] > (p[i_26_]).ox[1]) {
+                            if ((p[i_26_]).oy[1] > (p[i_26_]).oy[2])
+                                (p[i_26_]).fs = -1;
                             else
-                                (this.p[i_26_]).fs = 1;
-                        } else if ((this.p[i_26_]).oy[1] > (this.p[i_26_]).oy[2])
-                            (this.p[i_26_]).fs = 1;
+                                (p[i_26_]).fs = 1;
+                        } else if ((p[i_26_]).oy[1] > (p[i_26_]).oy[2])
+                            (p[i_26_]).fs = 1;
                         else
-                            (this.p[i_26_]).fs = -1;
+                            (p[i_26_]).fs = -1;
                     }
                     boolean bool_52_ = false;
                     boolean bool_53_ = false;
-                    for (int i_54_ = 0; i_54_ < this.npl; i_54_++) {
+                    for (int i_54_ = 0; i_54_ < npl; i_54_++) {
                         if (i_54_ != i_26_ && is_0_[i_54_] != 0) {
-                            boolean bool_55_ = false;
-                            int i_56_ = (this.p[i_54_]).ox[0];
-                            int i_57_ = (this.p[i_54_]).ox[0];
-                            int i_58_ = (this.p[i_54_]).oy[0];
-                            int i_59_ = (this.p[i_54_]).oy[0];
-                            int i_60_ = (this.p[i_54_]).oz[0];
-                            int i_61_ = (this.p[i_54_]).oz[0];
-                            for (int i_62_ = 0; i_62_ < (this.p[i_54_]).n; i_62_++) {
-                                if ((this.p[i_54_]).ox[i_62_] > i_56_)
-                                    i_56_ = (this.p[i_54_]).ox[i_62_];
-                                if ((this.p[i_54_]).ox[i_62_] < i_57_)
-                                    i_57_ = (this.p[i_54_]).ox[i_62_];
-                                if ((this.p[i_54_]).oy[i_62_] > i_58_)
-                                    i_58_ = (this.p[i_54_]).oy[i_62_];
-                                if ((this.p[i_54_]).oy[i_62_] < i_59_)
-                                    i_59_ = (this.p[i_54_]).oy[i_62_];
-                                if ((this.p[i_54_]).oz[i_62_] > i_60_)
-                                    i_60_ = (this.p[i_54_]).oz[i_62_];
-                                if ((this.p[i_54_]).oz[i_62_] < i_61_)
-                                    i_61_ = (this.p[i_54_]).oz[i_62_];
+                            int i_56_ = (p[i_54_]).ox[0];
+                            int i_57_ = (p[i_54_]).ox[0];
+                            int i_58_ = (p[i_54_]).oy[0];
+                            int i_59_ = (p[i_54_]).oy[0];
+                            int i_60_ = (p[i_54_]).oz[0];
+                            int i_61_ = (p[i_54_]).oz[0];
+                            for (int i_62_ = 0; i_62_ < (p[i_54_]).n; i_62_++) {
+                                if ((p[i_54_]).ox[i_62_] > i_56_)
+                                    i_56_ = (p[i_54_]).ox[i_62_];
+                                if ((p[i_54_]).ox[i_62_] < i_57_)
+                                    i_57_ = (p[i_54_]).ox[i_62_];
+                                if ((p[i_54_]).oy[i_62_] > i_58_)
+                                    i_58_ = (p[i_54_]).oy[i_62_];
+                                if ((p[i_54_]).oy[i_62_] < i_59_)
+                                    i_59_ = (p[i_54_]).oy[i_62_];
+                                if ((p[i_54_]).oz[i_62_] > i_60_)
+                                    i_60_ = (p[i_54_]).oz[i_62_];
+                                if ((p[i_54_]).oz[i_62_] < i_61_)
+                                    i_61_ = (p[i_54_]).oz[i_62_];
                             }
                             int i_63_ = (i_56_ + i_57_) / 2;
                             int i_64_ = (i_58_ + i_59_) / 2;
@@ -631,12 +630,12 @@ public class ContO
                     if (bool_52_ && !bool_53_)
                         bool_69_ = true;
                     if (bool_53_ && !bool_52_) {
-                        (this.p[i_26_]).fs *= -1;
+                        (p[i_26_]).fs *= -1;
                         bool_69_ = true;
                     }
                     if (bool_52_ && bool_53_) {
-                        (this.p[i_26_]).fs = 0;
-                        (this.p[i_26_]).gr = 40;
+                        (p[i_26_]).fs = 0;
+                        (p[i_26_]).gr = 40;
                         bool_69_ = true;
                     }
                     if (!bool_69_) {
@@ -654,39 +653,39 @@ public class ContO
                             i_70_ = (i_32_ + i_33_) / 2;
                             i_71_ = i_70_;
                         }
-                        for (int i_72_ = 0; i_72_ < this.npl; i_72_++) {
+                        for (int i_72_ = 0; i_72_ < npl; i_72_++) {
                             if (i_72_ != i_26_) {
                                 boolean bool_73_ = false;
-                                boolean[] bools = new boolean[(this.p[i_72_]).n];
-                                for (int i_74_ = 0; i_74_ < (this.p[i_72_]).n; i_74_++) {
+                                boolean[] bools = new boolean[(p[i_72_]).n];
+                                for (int i_74_ = 0; i_74_ < (p[i_72_]).n; i_74_++) {
                                     bools[i_74_] = false;
-                                    for (int i_75_ = 0; i_75_ < (this.p[i_26_]).n; i_75_++) {
-                                        if ((this.p[i_26_]).ox[i_75_] == (this.p[i_72_]).ox[i_74_] && (this.p[i_26_]).oy[i_75_] == (this.p[i_72_]).oy[i_74_] && (this.p[i_26_]).oz[i_75_] == (this.p[i_72_]).oz[i_74_]) {
+                                    for (int i_75_ = 0; i_75_ < (p[i_26_]).n; i_75_++) {
+                                        if ((p[i_26_]).ox[i_75_] == (p[i_72_]).ox[i_74_] && (p[i_26_]).oy[i_75_] == (p[i_72_]).oy[i_74_] && (p[i_26_]).oz[i_75_] == (p[i_72_]).oz[i_74_]) {
                                             bools[i_74_] = true;
                                             bool_73_ = true;
                                         }
                                     }
                                 }
                                 if (bool_73_) {
-                                    for (int i_76_ = 0; i_76_ < (this.p[i_72_]).n; i_76_++) {
+                                    for (int i_76_ = 0; i_76_ < (p[i_72_]).n; i_76_++) {
                                         if (!bools[i_76_]) {
                                             if (i_27_ == 1) {
-                                                if ((this.p[i_72_]).ox[i_76_] > i_70_)
-                                                    i_70_ = (this.p[i_72_]).ox[i_76_];
-                                                if ((this.p[i_72_]).ox[i_76_] < i_71_)
-                                                    i_71_ = (this.p[i_72_]).ox[i_76_];
+                                                if ((p[i_72_]).ox[i_76_] > i_70_)
+                                                    i_70_ = (p[i_72_]).ox[i_76_];
+                                                if ((p[i_72_]).ox[i_76_] < i_71_)
+                                                    i_71_ = (p[i_72_]).ox[i_76_];
                                             }
                                             if (i_27_ == 2) {
-                                                if ((this.p[i_72_]).oy[i_76_] > i_70_)
-                                                    i_70_ = (this.p[i_72_]).oy[i_76_];
-                                                if ((this.p[i_72_]).oy[i_76_] < i_71_)
-                                                    i_71_ = (this.p[i_72_]).oy[i_76_];
+                                                if ((p[i_72_]).oy[i_76_] > i_70_)
+                                                    i_70_ = (p[i_72_]).oy[i_76_];
+                                                if ((p[i_72_]).oy[i_76_] < i_71_)
+                                                    i_71_ = (p[i_72_]).oy[i_76_];
                                             }
                                             if (i_27_ == 3) {
-                                                if ((this.p[i_72_]).oz[i_76_] > i_70_)
-                                                    i_70_ = (this.p[i_72_]).oz[i_76_];
-                                                if ((this.p[i_72_]).oz[i_76_] < i_71_)
-                                                    i_71_ = (this.p[i_72_]).oz[i_76_];
+                                                if ((p[i_72_]).oz[i_76_] > i_70_)
+                                                    i_70_ = (p[i_72_]).oz[i_76_];
+                                                if ((p[i_72_]).oz[i_76_] < i_71_)
+                                                    i_71_ = (p[i_72_]).oz[i_76_];
                                             }
                                         }
                                     }
@@ -695,196 +694,196 @@ public class ContO
                         }
                         if (i_27_ == 1) {
                             if ((i_70_ + i_71_) / 2 > (i_28_ + i_29_) / 2)
-                                (this.p[i_26_]).fs *= -1;
+                                (p[i_26_]).fs *= -1;
                             else if ((i_70_ + i_71_) / 2 == (i_28_ + i_29_) / 2 && (i_28_ + i_29_) / 2 < 0)
-                                (this.p[i_26_]).fs *= -1;
+                                (p[i_26_]).fs *= -1;
                         }
                         if (i_27_ == 2) {
                             if ((i_70_ + i_71_) / 2 > (i_30_ + i_31_) / 2)
-                                (this.p[i_26_]).fs *= -1;
+                                (p[i_26_]).fs *= -1;
                             else if ((i_70_ + i_71_) / 2 == (i_30_ + i_31_) / 2 && (i_30_ + i_31_) / 2 < 0)
-                                (this.p[i_26_]).fs *= -1;
+                                (p[i_26_]).fs *= -1;
                         }
                         if (i_27_ == 3) {
                             if ((i_70_ + i_71_) / 2 > (i_32_ + i_33_) / 2)
-                                (this.p[i_26_]).fs *= -1;
+                                (p[i_26_]).fs *= -1;
                             else if ((i_70_ + i_71_) / 2 == (i_32_ + i_33_) / 2 && (i_32_ + i_33_) / 2 < 0)
-                                (this.p[i_26_]).fs *= -1;
+                                (p[i_26_]).fs *= -1;
                         }
                     }
-                    this.p[i_26_].deltafntyp();
+                    p[i_26_].deltafntyp();
                 }
             }
         }
     }
     
     public ContO(ContO conto_77_, int i, int i_78_, int i_79_, int i_80_) {
-        this.keyx = new int[4];
-        this.keyz = new int[4];
-        this.sprkat = 0;
-        this.tnt = 0;
-        this.ust = 0;
-        this.srx = 0;
-        this.sry = 0;
-        this.srz = 0;
-        this.rcx = 0.0F;
-        this.rcy = 0.0F;
-        this.rcz = 0.0F;
-        this.sprk = 0;
-        this.elec = false;
-        this.roted = false;
-        this.edl = new int[4];
-        this.edr = new int[4];
-        this.elc = new int[] { 0, 0, 0, 0 };
-        this.fix = false;
-        this.fcnt = 0;
-        this.checkpoint = 0;
-        this.fcol = new int[] { 0, 0, 0 };
-        this.scol = new int[] { 0, 0, 0 };
-        this.colok = 0;
-        this.errd = false;
-        this.err = "";
-        this.roofat = 0;
-        this.wh = 0;
-        this.m = (conto_77_).m;
-        this.t = (conto_77_).t;
-        this.npl = (conto_77_).npl;
-        this.maxR = (conto_77_).maxR;
-        this.disp = (conto_77_).disp;
-        this.disline = (conto_77_).disline;
-        this.noline = (conto_77_).noline;
-        this.shadow = (conto_77_).shadow;
-        this.grounded = (conto_77_).grounded;
-        this.decor = (conto_77_).decor;
-        if ((this.m).loadnew && (i_80_ == 90 || i_80_ == -90))
-            this.grounded += 10000.0F;
-        this.grat = (conto_77_).grat;
-        this.sprkat = (conto_77_).sprkat;
-        this.p = new Plane[(conto_77_).npl];
-        for (int i_81_ = 0; i_81_ < this.npl; i_81_++) {
+        keyx = new int[4];
+        keyz = new int[4];
+        sprkat = 0;
+        tnt = 0;
+        ust = 0;
+        srx = 0;
+        sry = 0;
+        srz = 0;
+        rcx = 0.0F;
+        rcy = 0.0F;
+        rcz = 0.0F;
+        sprk = 0;
+        elec = false;
+        roted = false;
+        edl = new int[4];
+        edr = new int[4];
+        elc = new int[] { 0, 0, 0, 0 };
+        fix = false;
+        fcnt = 0;
+        checkpoint = 0;
+        fcol = new int[] { 0, 0, 0 };
+        scol = new int[] { 0, 0, 0 };
+        colok = 0;
+        errd = false;
+        err = "";
+        roofat = 0;
+        wh = 0;
+        m = (conto_77_).m;
+        t = (conto_77_).t;
+        npl = (conto_77_).npl;
+        maxR = (conto_77_).maxR;
+        disp = (conto_77_).disp;
+        disline = (conto_77_).disline;
+        noline = (conto_77_).noline;
+        shadow = (conto_77_).shadow;
+        grounded = (conto_77_).grounded;
+        decor = (conto_77_).decor;
+        if ((m).loadnew && (i_80_ == 90 || i_80_ == -90))
+            grounded += 10000.0F;
+        grat = (conto_77_).grat;
+        sprkat = (conto_77_).sprkat;
+        p = new Plane[(conto_77_).npl];
+        for (int i_81_ = 0; i_81_ < npl; i_81_++) {
             if (((conto_77_).p[i_81_]).master == 1)
                 ((conto_77_).p[i_81_]).n = 20;
-            this.p[i_81_] = new Plane(this.m, this.t, ((conto_77_).p[i_81_]).ox, ((conto_77_).p[i_81_]).oz, ((conto_77_).p[i_81_]).oy, ((conto_77_).p[i_81_]).n, ((conto_77_).p[i_81_]).oc, ((conto_77_).p[i_81_]).glass, ((conto_77_).p[i_81_]).gr, ((conto_77_).p[i_81_]).fs, ((conto_77_).p[i_81_]).wx, ((conto_77_).p[i_81_]).wy, ((conto_77_).p[i_81_]).wz, (conto_77_).disline, ((conto_77_).p[i_81_]).bfase, ((conto_77_).p[i_81_]).road, ((conto_77_).p[i_81_]).light, ((conto_77_).p[i_81_]).solo);
+            p[i_81_] = new Plane(m, t, ((conto_77_).p[i_81_]).ox, ((conto_77_).p[i_81_]).oz, ((conto_77_).p[i_81_]).oy, ((conto_77_).p[i_81_]).n, ((conto_77_).p[i_81_]).oc, ((conto_77_).p[i_81_]).glass, ((conto_77_).p[i_81_]).gr, ((conto_77_).p[i_81_]).fs, ((conto_77_).p[i_81_]).wx, ((conto_77_).p[i_81_]).wy, ((conto_77_).p[i_81_]).wz, (conto_77_).disline, ((conto_77_).p[i_81_]).bfase, ((conto_77_).p[i_81_]).road, ((conto_77_).p[i_81_]).light, ((conto_77_).p[i_81_]).solo);
         }
-        this.x = i;
-        this.y = i_78_;
-        this.z = i_79_;
-        this.xz = 0;
-        this.xy = 0;
-        this.zy = 0;
-        for (int i_82_ = 0; i_82_ < this.npl; i_82_++) {
-            (this.p[i_82_]).colnum = ((conto_77_).p[i_82_]).colnum;
-            (this.p[i_82_]).master = ((conto_77_).p[i_82_]).master;
-            this.p[i_82_].rot((this.p[i_82_]).ox, (this.p[i_82_]).oz, 0, 0, i_80_, (this.p[i_82_]).n);
-            this.p[i_82_].loadprojf();
+        x = i;
+        y = i_78_;
+        z = i_79_;
+        xz = 0;
+        xy = 0;
+        zy = 0;
+        for (int i_82_ = 0; i_82_ < npl; i_82_++) {
+            (p[i_82_]).colnum = ((conto_77_).p[i_82_]).colnum;
+            (p[i_82_]).master = ((conto_77_).p[i_82_]).master;
+            p[i_82_].rot((p[i_82_]).ox, (p[i_82_]).oz, 0, 0, i_80_, (p[i_82_]).n);
+            p[i_82_].loadprojf();
         }
         if ((conto_77_).tnt != 0) {
             for (int i_83_ = 0; i_83_ < (conto_77_).tnt; i_83_++) {
-                (this.t).xy[(this.t).nt] = (int) ((float) (conto_77_).txy[i_83_] * this.m.cos(i_80_) - (float) (conto_77_).tzy[i_83_] * this.m.sin(i_80_));
-                (this.t).zy[(this.t).nt] = (int) ((float) (conto_77_).tzy[i_83_] * this.m.cos(i_80_) + (float) (conto_77_).txy[i_83_] * this.m.sin(i_80_));
+                (t).xy[(t).nt] = (int) ((float) (conto_77_).txy[i_83_] * m.cos(i_80_) - (float) (conto_77_).tzy[i_83_] * m.sin(i_80_));
+                (t).zy[(t).nt] = (int) ((float) (conto_77_).tzy[i_83_] * m.cos(i_80_) + (float) (conto_77_).txy[i_83_] * m.sin(i_80_));
                 for (int i_84_ = 0; i_84_ < 3; i_84_++) {
-                    (this.t).c[(this.t).nt][i_84_] = (int) ((float) (conto_77_).tc[i_83_][i_84_] + (float) (conto_77_).tc[i_83_][i_84_] * ((float) (this.m).snap[i_84_] / 100.0F));
-                    if ((this.t).c[(this.t).nt][i_84_] > 255)
-                        (this.t).c[(this.t).nt][i_84_] = 255;
-                    if ((this.t).c[(this.t).nt][i_84_] < 0)
-                        (this.t).c[(this.t).nt][i_84_] = 0;
+                    (t).c[(t).nt][i_84_] = (int) ((float) (conto_77_).tc[i_83_][i_84_] + (float) (conto_77_).tc[i_83_][i_84_] * ((float) (m).snap[i_84_] / 100.0F));
+                    if ((t).c[(t).nt][i_84_] > 255)
+                        (t).c[(t).nt][i_84_] = 255;
+                    if ((t).c[(t).nt][i_84_] < 0)
+                        (t).c[(t).nt][i_84_] = 0;
                 }
-                (this.t).x[(this.t).nt] = (int) ((float) this.x + (float) (conto_77_).tx[i_83_] * this.m.cos(i_80_) - (float) (conto_77_).tz[i_83_] * this.m.sin(i_80_));
-                (this.t).z[(this.t).nt] = (int) ((float) this.z + (float) (conto_77_).tz[i_83_] * this.m.cos(i_80_) + (float) (conto_77_).tx[i_83_] * this.m.sin(i_80_));
-                (this.t).y[(this.t).nt] = this.y + (conto_77_).ty[i_83_];
-                (this.t).skd[(this.t).nt] = (conto_77_).skd[i_83_];
-                (this.t).dam[(this.t).nt] = (conto_77_).dam[i_83_];
-                (this.t).notwall[(this.t).nt] = (conto_77_).notwall[i_83_];
-                if (this.decor)
-                    (this.t).decor[(this.t).nt] = true;
+                (t).x[(t).nt] = (int) ((float) x + (float) (conto_77_).tx[i_83_] * m.cos(i_80_) - (float) (conto_77_).tz[i_83_] * m.sin(i_80_));
+                (t).z[(t).nt] = (int) ((float) z + (float) (conto_77_).tz[i_83_] * m.cos(i_80_) + (float) (conto_77_).tx[i_83_] * m.sin(i_80_));
+                (t).y[(t).nt] = y + (conto_77_).ty[i_83_];
+                (t).skd[(t).nt] = (conto_77_).skd[i_83_];
+                (t).dam[(t).nt] = (conto_77_).dam[i_83_];
+                (t).notwall[(t).nt] = (conto_77_).notwall[i_83_];
+                if (decor)
+                    (t).decor[(t).nt] = true;
                 else
-                    (this.t).decor[(this.t).nt] = false;
+                    (t).decor[(t).nt] = false;
                 int i_85_ = Math.abs(i_80_);
                 if (i_85_ == 180)
                     i_85_ = 0;
-                (this.t).radx[(this.t).nt] = (int) Math.abs((float) (conto_77_).tradx[i_83_] * this.m.cos(i_85_) + (float) (conto_77_).tradz[i_83_] * this.m.sin(i_85_));
-                (this.t).radz[(this.t).nt] = (int) Math.abs((float) (conto_77_).tradx[i_83_] * this.m.sin(i_85_) + (float) (conto_77_).tradz[i_83_] * this.m.cos(i_85_));
-                (this.t).rady[(this.t).nt] = (conto_77_).trady[i_83_];
-                (this.t).nt++;
+                (t).radx[(t).nt] = (int) Math.abs((float) (conto_77_).tradx[i_83_] * m.cos(i_85_) + (float) (conto_77_).tradz[i_83_] * m.sin(i_85_));
+                (t).radz[(t).nt] = (int) Math.abs((float) (conto_77_).tradx[i_83_] * m.sin(i_85_) + (float) (conto_77_).tradz[i_83_] * m.cos(i_85_));
+                (t).rady[(t).nt] = (conto_77_).trady[i_83_];
+                (t).nt++;
             }
         }
         for (int i_86_ = 0; i_86_ < 4; i_86_++) {
-            this.keyx[i_86_] = (conto_77_).keyx[i_86_];
-            this.keyz[i_86_] = (conto_77_).keyz[i_86_];
+            keyx[i_86_] = (conto_77_).keyx[i_86_];
+            keyz[i_86_] = (conto_77_).keyz[i_86_];
         }
-        if (this.shadow) {
-            this.stg = new int[20];
-            this.sx = new int[20];
-            this.sy = new int[20];
-            this.sz = new int[20];
-            this.scx = new int[20];
-            this.scz = new int[20];
-            this.osmag = new float[20];
-            this.sav = new int[20];
-            this.smag = new float[20][8];
-            this.srgb = new int[20][3];
-            this.sbln = new float[20];
-            this.ust = 0;
+        if (shadow) {
+            stg = new int[20];
+            sx = new int[20];
+            sy = new int[20];
+            sz = new int[20];
+            scx = new int[20];
+            scz = new int[20];
+            osmag = new float[20];
+            sav = new int[20];
+            smag = new float[20][8];
+            srgb = new int[20][3];
+            sbln = new float[20];
+            ust = 0;
             for (int i_87_ = 0; i_87_ < 20; i_87_++)
-                this.stg[i_87_] = 0;
-            this.rtg = new int[100];
-            this.rbef = new boolean[100];
-            this.rx = new int[100];
-            this.ry = new int[100];
-            this.rz = new int[100];
-            this.vrx = new float[100];
-            this.vry = new float[100];
-            this.vrz = new float[100];
+                stg[i_87_] = 0;
+            rtg = new int[100];
+            rbef = new boolean[100];
+            rx = new int[100];
+            ry = new int[100];
+            rz = new int[100];
+            vrx = new float[100];
+            vry = new float[100];
+            vrz = new float[100];
             for (int i_88_ = 0; i_88_ < 100; i_88_++)
-                this.rtg[i_88_] = 0;
+                rtg[i_88_] = 0;
         }
     }
     
     public ContO(int i, int i_89_, int i_90_, Medium medium, Trackers trackers, int i_91_, int i_92_, int i_93_) {
-        this.keyx = new int[4];
-        this.keyz = new int[4];
-        this.sprkat = 0;
-        this.tnt = 0;
-        this.ust = 0;
-        this.srx = 0;
-        this.sry = 0;
-        this.srz = 0;
-        this.rcx = 0.0F;
-        this.rcy = 0.0F;
-        this.rcz = 0.0F;
-        this.sprk = 0;
-        this.elec = false;
-        this.roted = false;
-        this.edl = new int[4];
-        this.edr = new int[4];
-        this.elc = new int[] { 0, 0, 0, 0 };
-        this.fix = false;
-        this.fcnt = 0;
-        this.checkpoint = 0;
-        this.fcol = new int[] { 0, 0, 0 };
-        this.scol = new int[] { 0, 0, 0 };
-        this.colok = 0;
-        this.errd = false;
-        this.err = "";
-        this.roofat = 0;
-        this.wh = 0;
-        this.m = medium;
-        this.t = trackers;
-        this.x = i_91_;
-        this.z = i_92_;
-        this.y = i_93_;
-        this.xz = 0;
-        this.xy = 0;
-        this.zy = 0;
-        this.grat = 0;
-        this.sprkat = 0;
-        this.disline = 4;
-        this.noline = true;
-        this.shadow = false;
-        this.grounded = 115.0F;
-        this.decor = true;
-        this.npl = 5;
-        this.p = new Plane[5];
+        keyx = new int[4];
+        keyz = new int[4];
+        sprkat = 0;
+        tnt = 0;
+        ust = 0;
+        srx = 0;
+        sry = 0;
+        srz = 0;
+        rcx = 0.0F;
+        rcy = 0.0F;
+        rcz = 0.0F;
+        sprk = 0;
+        elec = false;
+        roted = false;
+        edl = new int[4];
+        edr = new int[4];
+        elc = new int[] { 0, 0, 0, 0 };
+        fix = false;
+        fcnt = 0;
+        checkpoint = 0;
+        fcol = new int[] { 0, 0, 0 };
+        scol = new int[] { 0, 0, 0 };
+        colok = 0;
+        errd = false;
+        err = "";
+        roofat = 0;
+        wh = 0;
+        m = medium;
+        t = trackers;
+        x = i_91_;
+        z = i_92_;
+        y = i_93_;
+        xz = 0;
+        xy = 0;
+        zy = 0;
+        grat = 0;
+        sprkat = 0;
+        disline = 4;
+        noline = true;
+        shadow = false;
+        grounded = 115.0F;
+        decor = true;
+        npl = 5;
+        p = new Plane[5];
         Random random = new Random((long) i);
         int[] is = new int[8];
         int[] is_94_ = new int[8];
@@ -929,7 +928,7 @@ public class ContO
             is_96_[i_98_] = (int) ((double) is_94_[i_98_] * (0.2 + 0.4 * random.nextDouble()));
             is_97_[i_98_] = -(int) ((10.0 + 15.0 * random.nextDouble()) * (double) i_90_);
         }
-        this.maxR = 0;
+        maxR = 0;
         for (int i_99_ = 0; i_99_ < 8; i_99_++) {
             int i_100_ = i_99_ - 1;
             if (i_100_ == -1)
@@ -943,13 +942,13 @@ public class ContO
             is_96_[i_99_] = ((is_96_[i_100_] + is_96_[i_101_]) / 2 + is_96_[i_99_]) / 2;
             is_97_[i_99_] = ((is_97_[i_100_] + is_97_[i_101_]) / 2 + is_97_[i_99_]) / 2;
             int i_102_ = (int) Math.sqrt((double) (is[i_99_] * is[i_99_] + is_94_[i_99_] * is_94_[i_99_]));
-            if (i_102_ > this.maxR)
-                this.maxR = i_102_;
+            if (i_102_ > maxR)
+                maxR = i_102_;
             i_102_ = (int) Math.sqrt((double) (is_95_[i_99_] * is_95_[i_99_] + is_97_[i_99_] * is_97_[i_99_] + is_96_[i_99_] * is_96_[i_99_]));
-            if (i_102_ > this.maxR)
-                this.maxR = i_102_;
+            if (i_102_ > maxR)
+                maxR = i_102_;
         }
-        this.disp = this.maxR / 17;
+        disp = maxR / 17;
         int[] is_103_ = new int[3];
         float f_104_ = -1.0F;
         float f_105_ = ((float) i_89_ / (float) i_90_ - 0.33F) / 33.4F;
@@ -988,179 +987,179 @@ public class ContO
             }
             f_104_ = f;
             for (int i_112_ = 0; i_112_ < 3; i_112_++) {
-                if ((this.m).trk == 2)
+                if ((m).trk == 2)
                     is_103_[i_112_] = (int) (390.0F / (2.2F + f - f_105_));
                 else
-                    is_103_[i_112_] = (int) ((float) ((this.m).cpol[i_112_] + (this.m).cgrnd[i_112_]) / (2.2F + f - f_105_));
+                    is_103_[i_112_] = (int) ((float) ((m).cpol[i_112_] + (m).cgrnd[i_112_]) / (2.2F + f - f_105_));
             }
-            this.p[i_106_] = new Plane(this.m, this.t, is_109_, is_111_, is_110_, 6, is_103_, 3, -8, 0, 0, 0, 0, this.disline, 0, true, 0, false);
+            p[i_106_] = new Plane(m, t, is_109_, is_111_, is_110_, 6, is_103_, 3, -8, 0, 0, 0, 0, disline, 0, true, 0, false);
         }
         f = (float) (0.02 * random.nextDouble());
         for (int i_113_ = 0; i_113_ < 3; i_113_++) {
-            if ((this.m).trk == 2)
+            if ((m).trk == 2)
                 is_103_[i_113_] = (int) (390.0F / (2.15F + f));
             else
-                is_103_[i_113_] = (int) ((float) ((this.m).cpol[i_113_] + (this.m).cgrnd[i_113_]) / (2.15F + f));
+                is_103_[i_113_] = (int) ((float) ((m).cpol[i_113_] + (m).cgrnd[i_113_]) / (2.15F + f));
         }
-        this.p[4] = new Plane(this.m, this.t, is_95_, is_96_, is_97_, 8, is_103_, 3, -8, 0, 0, 0, 0, this.disline, 0, true, 0, false);
+        p[4] = new Plane(m, t, is_95_, is_96_, is_97_, 8, is_103_, 3, -8, 0, 0, 0, 0, disline, 0, true, 0, false);
         int[] is_114_ = new int[2];
         int[] is_115_ = new int[2];
         for (int i_116_ = 0; i_116_ < 4; i_116_++) {
             int i_117_ = i_116_ * 2 + 1;
-            (this.t).y[(this.t).nt] = is_97_[i_117_] / 2;
-            (this.t).rady[(this.t).nt] = Math.abs(is_97_[i_117_] / 2);
+            (t).y[(t).nt] = is_97_[i_117_] / 2;
+            (t).rady[(t).nt] = Math.abs(is_97_[i_117_] / 2);
             if (i_116_ == 0 || i_116_ == 2) {
-                (this.t).z[(this.t).nt] = (is_94_[i_117_] + is_96_[i_117_]) / 2;
-                (this.t).radz[(this.t).nt] = Math.abs((this.t).z[(this.t).nt] - is_94_[i_117_]);
+                (t).z[(t).nt] = (is_94_[i_117_] + is_96_[i_117_]) / 2;
+                (t).radz[(t).nt] = Math.abs((t).z[(t).nt] - is_94_[i_117_]);
                 i_117_ = i_116_ * 2 + 2;
                 if (i_117_ == 8)
                     i_117_ = 0;
-                (this.t).x[(this.t).nt] = (is[i_116_ * 2] + is[i_117_]) / 2;
-                (this.t).radx[(this.t).nt] = Math.abs((this.t).x[(this.t).nt] - is[i_116_ * 2]);
+                (t).x[(t).nt] = (is[i_116_ * 2] + is[i_117_]) / 2;
+                (t).radx[(t).nt] = Math.abs((t).x[(t).nt] - is[i_116_ * 2]);
             } else {
-                (this.t).x[(this.t).nt] = (is[i_117_] + is_95_[i_117_]) / 2;
-                (this.t).radx[(this.t).nt] = Math.abs((this.t).x[(this.t).nt] - is[i_117_]);
+                (t).x[(t).nt] = (is[i_117_] + is_95_[i_117_]) / 2;
+                (t).radx[(t).nt] = Math.abs((t).x[(t).nt] - is[i_117_]);
                 i_117_ = i_116_ * 2 + 2;
                 if (i_117_ == 8)
                     i_117_ = 0;
-                (this.t).z[(this.t).nt] = (is_94_[i_116_ * 2] + is_94_[i_117_]) / 2;
-                (this.t).radz[(this.t).nt] = Math.abs((this.t).z[(this.t).nt] - is_94_[i_116_ * 2]);
+                (t).z[(t).nt] = (is_94_[i_116_ * 2] + is_94_[i_117_]) / 2;
+                (t).radz[(t).nt] = Math.abs((t).z[(t).nt] - is_94_[i_116_ * 2]);
             }
             if (i_116_ == 0) {
-                is_115_[0] = (this.t).z[(this.t).nt] - (this.t).radz[(this.t).nt];
-                (this.t).zy[(this.t).nt] = (int) (Math.atan((double) (this.t).rady[(this.t).nt] / (double) (this.t).radz[(this.t).nt]) / 0.017453292519943295);
-                if ((this.t).zy[(this.t).nt] > 40)
-                    (this.t).zy[(this.t).nt] = 40;
-                (this.t).xy[(this.t).nt] = 0;
+                is_115_[0] = (t).z[(t).nt] - (t).radz[(t).nt];
+                (t).zy[(t).nt] = (int) (Math.atan((double) (t).rady[(t).nt] / (double) (t).radz[(t).nt]) / 0.017453292519943295);
+                if ((t).zy[(t).nt] > 40)
+                    (t).zy[(t).nt] = 40;
+                (t).xy[(t).nt] = 0;
             }
             if (i_116_ == 1) {
-                is_114_[0] = (this.t).x[(this.t).nt] - (this.t).radx[(this.t).nt];
-                (this.t).xy[(this.t).nt] = (int) (Math.atan((double) (this.t).rady[(this.t).nt] / (double) (this.t).radx[(this.t).nt]) / 0.017453292519943295);
-                if ((this.t).xy[(this.t).nt] > 40)
-                    (this.t).xy[(this.t).nt] = 40;
-                (this.t).zy[(this.t).nt] = 0;
+                is_114_[0] = (t).x[(t).nt] - (t).radx[(t).nt];
+                (t).xy[(t).nt] = (int) (Math.atan((double) (t).rady[(t).nt] / (double) (t).radx[(t).nt]) / 0.017453292519943295);
+                if ((t).xy[(t).nt] > 40)
+                    (t).xy[(t).nt] = 40;
+                (t).zy[(t).nt] = 0;
             }
             if (i_116_ == 2) {
-                is_115_[1] = (this.t).z[(this.t).nt] + (this.t).radz[(this.t).nt];
-                (this.t).zy[(this.t).nt] = -(int) (Math.atan((double) (this.t).rady[(this.t).nt] / (double) (this.t).radz[(this.t).nt]) / 0.017453292519943295);
-                if ((this.t).zy[(this.t).nt] < -40)
-                    (this.t).zy[(this.t).nt] = -40;
-                (this.t).xy[(this.t).nt] = 0;
+                is_115_[1] = (t).z[(t).nt] + (t).radz[(t).nt];
+                (t).zy[(t).nt] = -(int) (Math.atan((double) (t).rady[(t).nt] / (double) (t).radz[(t).nt]) / 0.017453292519943295);
+                if ((t).zy[(t).nt] < -40)
+                    (t).zy[(t).nt] = -40;
+                (t).xy[(t).nt] = 0;
             }
             if (i_116_ == 3) {
-                is_114_[1] = (this.t).x[(this.t).nt] + (this.t).radx[(this.t).nt];
-                (this.t).xy[(this.t).nt] = -(int) (Math.atan((double) (this.t).rady[(this.t).nt] / (double) (this.t).radx[(this.t).nt]) / 0.017453292519943295);
-                if ((this.t).xy[(this.t).nt] < -40)
-                    (this.t).xy[(this.t).nt] = -40;
-                (this.t).zy[(this.t).nt] = 0;
+                is_114_[1] = (t).x[(t).nt] + (t).radx[(t).nt];
+                (t).xy[(t).nt] = -(int) (Math.atan((double) (t).rady[(t).nt] / (double) (t).radx[(t).nt]) / 0.017453292519943295);
+                if ((t).xy[(t).nt] < -40)
+                    (t).xy[(t).nt] = -40;
+                (t).zy[(t).nt] = 0;
             }
-            (this.t).x[(this.t).nt] += this.x;
-            (this.t).z[(this.t).nt] += this.z;
-            (this.t).y[(this.t).nt] += this.y;
+            (t).x[(t).nt] += x;
+            (t).z[(t).nt] += z;
+            (t).y[(t).nt] += y;
             for (int i_118_ = 0; i_118_ < 3; i_118_++)
-                (this.t).c[(this.t).nt][i_118_] = (this.p[i_116_]).oc[i_118_];
-            (this.t).skd[(this.t).nt] = 2;
-            (this.t).dam[(this.t).nt] = 1;
-            (this.t).notwall[(this.t).nt] = false;
-            (this.t).decor[(this.t).nt] = true;
-            (this.t).rady[(this.t).nt] += 10;
-            (this.t).nt++;
+                (t).c[(t).nt][i_118_] = (p[i_116_]).oc[i_118_];
+            (t).skd[(t).nt] = 2;
+            (t).dam[(t).nt] = 1;
+            (t).notwall[(t).nt] = false;
+            (t).decor[(t).nt] = true;
+            (t).rady[(t).nt] += 10;
+            (t).nt++;
         }
-        (this.t).y[(this.t).nt] = 0;
+        (t).y[(t).nt] = 0;
         for (int i_119_ = 0; i_119_ < 8; i_119_++)
-            (this.t).y[(this.t).nt] += is_97_[i_119_];
-        (this.t).y[(this.t).nt] = (this.t).y[(this.t).nt] / 8;
-        (this.t).y[(this.t).nt] += this.y;
-        (this.t).rady[(this.t).nt] = 200;
-        (this.t).radx[(this.t).nt] = is_114_[0] - is_114_[1];
-        (this.t).radz[(this.t).nt] = is_115_[0] - is_115_[1];
-        (this.t).x[(this.t).nt] = (is_114_[0] + is_114_[1]) / 2 + this.x;
-        (this.t).z[(this.t).nt] = (is_115_[0] + is_115_[1]) / 2 + this.z;
-        (this.t).zy[(this.t).nt] = 0;
-        (this.t).xy[(this.t).nt] = 0;
+            (t).y[(t).nt] += is_97_[i_119_];
+        (t).y[(t).nt] = (t).y[(t).nt] / 8;
+        (t).y[(t).nt] += y;
+        (t).rady[(t).nt] = 200;
+        (t).radx[(t).nt] = is_114_[0] - is_114_[1];
+        (t).radz[(t).nt] = is_115_[0] - is_115_[1];
+        (t).x[(t).nt] = (is_114_[0] + is_114_[1]) / 2 + x;
+        (t).z[(t).nt] = (is_115_[0] + is_115_[1]) / 2 + z;
+        (t).zy[(t).nt] = 0;
+        (t).xy[(t).nt] = 0;
         for (int i_120_ = 0; i_120_ < 3; i_120_++)
-            (this.t).c[(this.t).nt][i_120_] = (this.p[4]).oc[i_120_];
-        (this.t).skd[(this.t).nt] = 4;
-        (this.t).dam[(this.t).nt] = 1;
-        (this.t).notwall[(this.t).nt] = false;
-        (this.t).decor[(this.t).nt] = true;
-        (this.t).nt++;
+            (t).c[(t).nt][i_120_] = (p[4]).oc[i_120_];
+        (t).skd[(t).nt] = 4;
+        (t).dam[(t).nt] = 1;
+        (t).notwall[(t).nt] = false;
+        (t).decor[(t).nt] = true;
+        (t).nt++;
     }
     
     public void d(Graphics2D graphics2d) {
-        if (this.dist != 0)
-            this.dist = 0;
-        int i = (this.m).cx + (int) ((float) (this.x - (this.m).x - (this.m).cx) * this.m.cos((this.m).xz) - (float) (this.z - (this.m).z - (this.m).cz) * this.m.sin((this.m).xz));
-        int i_121_ = (this.m).cz + (int) ((float) (this.x - (this.m).x - (this.m).cx) * this.m.sin((this.m).xz) + (float) (this.z - (this.m).z - (this.m).cz) * this.m.cos((this.m).xz));
-        int i_122_ = (this.m).cz + (int) ((float) (this.y - (this.m).y - (this.m).cy) * this.m.sin((this.m).zy) + (float) (i_121_ - (this.m).cz) * this.m.cos((this.m).zy));
-        int i_123_ = xs(i + this.maxR, i_122_) - xs(i - this.maxR, i_122_);
-        if (xs(i + this.maxR * 2, i_122_) > (this.m).iw && xs(i - this.maxR * 2, i_122_) < (this.m).w && i_122_ > -this.maxR && (i_122_ < (this.m).fade[this.disline] + this.maxR || (this.m).trk != 0) && (i_123_ > this.disp || (this.m).trk != 0) && (!this.decor || (this.m).resdown != 2 && (this.m).trk != 1)) {
-            if (this.shadow) {
-                if (!(this.m).crs) {
+        if (dist != 0)
+            dist = 0;
+        int i = (m).cx + (int) ((float) (x - (m).x - (m).cx) * m.cos((m).xz) - (float) (z - (m).z - (m).cz) * m.sin((m).xz));
+        int i_121_ = (m).cz + (int) ((float) (x - (m).x - (m).cx) * m.sin((m).xz) + (float) (z - (m).z - (m).cz) * m.cos((m).xz));
+        int i_122_ = (m).cz + (int) ((float) (y - (m).y - (m).cy) * m.sin((m).zy) + (float) (i_121_ - (m).cz) * m.cos((m).zy));
+        int i_123_ = xs(i + maxR, i_122_) - xs(i - maxR, i_122_);
+        if (xs(i + maxR * 2, i_122_) > (m).iw && xs(i - maxR * 2, i_122_) < (m).w && i_122_ > -maxR && (i_122_ < (m).fade[disline] + maxR || (m).trk != 0) && (i_123_ > disp || (m).trk != 0) && (!decor || (m).resdown != 2 && (m).trk != 1)) {
+            if (shadow) {
+                if (!(m).crs) {
                     if (i_122_ < 2000) {
                         boolean bool = false;
-                        if ((this.t).ncx != 0 || (this.t).ncz != 0) {
-                            int i_124_ = (this.x - (this.t).sx) / 3000;
-                            if (i_124_ > (this.t).ncx)
-                                i_124_ = (this.t).ncx;
+                        if ((t).ncx != 0 || (t).ncz != 0) {
+                            int i_124_ = (x - (t).sx) / 3000;
+                            if (i_124_ > (t).ncx)
+                                i_124_ = (t).ncx;
                             if (i_124_ < 0)
                                 i_124_ = 0;
-                            int i_125_ = (this.z - (this.t).sz) / 3000;
-                            if (i_125_ > (this.t).ncz)
-                                i_125_ = (this.t).ncz;
+                            int i_125_ = (z - (t).sz) / 3000;
+                            if (i_125_ > (t).ncz)
+                                i_125_ = (t).ncz;
                             if (i_125_ < 0)
                                 i_125_ = 0;
-                            for (int i_126_ = (this.t).sect[i_124_][i_125_].length - 1; i_126_ >= 0; i_126_--) {
-                                int i_127_ = (this.t).sect[i_124_][i_125_][i_126_];
-                                if (Math.abs((this.t).zy[i_127_]) != 90 && Math.abs((this.t).xy[i_127_]) != 90 && Math.abs(this.x - (this.t).x[i_127_]) < (this.t).radx[i_127_] + this.maxR && Math.abs(this.z - (this.t).z[i_127_]) < (this.t).radz[i_127_] + this.maxR && (!(this.t).decor[i_127_] || (this.m).resdown != 2)) {
+                            for (int i_126_ = (t).sect[i_124_][i_125_].length - 1; i_126_ >= 0; i_126_--) {
+                                int i_127_ = (t).sect[i_124_][i_125_][i_126_];
+                                if (Math.abs((t).zy[i_127_]) != 90 && Math.abs((t).xy[i_127_]) != 90 && Math.abs(x - (t).x[i_127_]) < (t).radx[i_127_] + maxR && Math.abs(z - (t).z[i_127_]) < (t).radz[i_127_] + maxR && (!(t).decor[i_127_] || (m).resdown != 2)) {
                                     bool = true;
                                     break;
                                 }
                             }
                         }
                         if (bool) {
-                            for (int i_128_ = 0; i_128_ < this.npl; i_128_++)
-                                this.p[i_128_].s(graphics2d, this.x - (this.m).x, this.y - (this.m).y, this.z - (this.m).z, this.xz, this.xy, this.zy, 0);
+                            for (int i_128_ = 0; i_128_ < npl; i_128_++)
+                                p[i_128_].s(graphics2d, x - (m).x, y - (m).y, z - (m).z, xz, xy, zy, 0);
                         } else {
-                            int i_129_ = (this.m).cy + (int) ((float) ((this.m).ground - (this.m).cy) * this.m.cos((this.m).zy) - (float) (i_121_ - (this.m).cz) * this.m.sin((this.m).zy));
-                            int i_130_ = (this.m).cz + (int) ((float) ((this.m).ground - (this.m).cy) * this.m.sin((this.m).zy) + (float) (i_121_ - (this.m).cz) * this.m.cos((this.m).zy));
-                            if (ys(i_129_ + this.maxR, i_130_) > 0 && ys(i_129_ - this.maxR, i_130_) < (this.m).h) {
-                                for (int i_131_ = 0; i_131_ < this.npl; i_131_++)
-                                    this.p[i_131_].s(graphics2d, this.x - (this.m).x, this.y - (this.m).y, this.z - (this.m).z, this.xz, this.xy, this.zy, 1);
+                            int i_129_ = (m).cy + (int) ((float) ((m).ground - (m).cy) * m.cos((m).zy) - (float) (i_121_ - (m).cz) * m.sin((m).zy));
+                            int i_130_ = (m).cz + (int) ((float) ((m).ground - (m).cy) * m.sin((m).zy) + (float) (i_121_ - (m).cz) * m.cos((m).zy));
+                            if (ys(i_129_ + maxR, i_130_) > 0 && ys(i_129_ - maxR, i_130_) < (m).h) {
+                                for (int i_131_ = 0; i_131_ < npl; i_131_++)
+                                    p[i_131_].s(graphics2d, x - (m).x, y - (m).y, z - (m).z, xz, xy, zy, 1);
                             }
                         }
-                        this.m.addsp(this.x - (this.m).x, this.z - (this.m).z, (int) ((double) this.maxR * 0.8));
+                        m.addsp(x - (m).x, z - (m).z, (int) ((double) maxR * 0.8));
                     } else
                         lowshadow(graphics2d, i_122_);
                 } else {
-                    for (int i_132_ = 0; i_132_ < this.npl; i_132_++)
-                        this.p[i_132_].s(graphics2d, this.x - (this.m).x, this.y - (this.m).y, this.z - (this.m).z, this.xz, this.xy, this.zy, 2);
+                    for (int i_132_ = 0; i_132_ < npl; i_132_++)
+                        p[i_132_].s(graphics2d, x - (m).x, y - (m).y, z - (m).z, xz, xy, zy, 2);
                 }
             }
-            int i_133_ = (this.m).cy + (int) ((float) (this.y - (this.m).y - (this.m).cy) * this.m.cos((this.m).zy) - (float) (i_121_ - (this.m).cz) * this.m.sin((this.m).zy));
-            if (ys(i_133_ + this.maxR, i_122_) > (this.m).ih && ys(i_133_ - this.maxR, i_122_) < (this.m).h) {
-                if (this.elec && (this.m).noelec == 0)
+            int i_133_ = (m).cy + (int) ((float) (y - (m).y - (m).cy) * m.cos((m).zy) - (float) (i_121_ - (m).cz) * m.sin((m).zy));
+            if (ys(i_133_ + maxR, i_122_) > (m).ih && ys(i_133_ - maxR, i_122_) < (m).h) {
+                if (elec && (m).noelec == 0)
                     electrify(graphics2d);
-                if (this.fix)
+                if (fix)
                     fixit(graphics2d);
-                if (this.checkpoint != 0 && this.checkpoint - 1 == (this.m).checkpoint)
+                if (checkpoint != 0 && checkpoint - 1 == (m).checkpoint)
                     i_123_ = -1;
-                if (this.shadow) {
-                    this.dist = (int) Math.sqrt((double) (((this.m).x + (this.m).cx - this.x) * ((this.m).x + (this.m).cx - this.x) + ((this.m).z - this.z) * ((this.m).z - this.z) + ((this.m).y + (this.m).cy - this.y) * ((this.m).y + (this.m).cy - this.y)));
+                if (shadow) {
+                    dist = (int) Math.sqrt((double) (((m).x + (m).cx - x) * ((m).x + (m).cx - x) + ((m).z - z) * ((m).z - z) + ((m).y + (m).cy - y) * ((m).y + (m).cy - y)));
                     for (int i_134_ = 0; i_134_ < 20; i_134_++) {
-                        if (this.stg[i_134_] != 0)
+                        if (stg[i_134_] != 0)
                             pdust(i_134_, graphics2d, true);
                     }
                     dsprk(graphics2d, true);
                 }
-                int[] is = new int[this.npl];
-                int[] is_135_ = new int[this.npl];
-                for (int i_136_ = 0; i_136_ < this.npl; i_136_++)
+                int[] is = new int[npl];
+                int[] is_135_ = new int[npl];
+                for (int i_136_ = 0; i_136_ < npl; i_136_++)
                     is[i_136_] = 0;
-                for (int i_137_ = 0; i_137_ < this.npl; i_137_++) {
-                    for (int i_138_ = i_137_ + 1; i_138_ < this.npl; i_138_++) {
-                        if ((this.p[i_137_]).av != (this.p[i_138_]).av) {
-                            if ((this.p[i_137_]).av < (this.p[i_138_]).av)
+                for (int i_137_ = 0; i_137_ < npl; i_137_++) {
+                    for (int i_138_ = i_137_ + 1; i_138_ < npl; i_138_++) {
+                        if ((p[i_137_]).av != (p[i_138_]).av) {
+                            if ((p[i_137_]).av < (p[i_138_]).av)
                                 is[i_137_]++;
                             else
                                 is[i_138_]++;
@@ -1171,29 +1170,29 @@ public class ContO
                     }
                     is_135_[is[i_137_]] = i_137_;
                 }
-                for (int i_139_ = 0; i_139_ < this.npl; i_139_++)
-                    this.p[is_135_[i_139_]].d(graphics2d, this.x - (this.m).x, this.y - (this.m).y, this.z - (this.m).z, this.xz, this.xy, this.zy, this.wxz, this.wzy, this.noline, i_123_);
-                if (this.shadow) {
+                for (int i_139_ = 0; i_139_ < npl; i_139_++)
+                    p[is_135_[i_139_]].d(graphics2d, x - (m).x, y - (m).y, z - (m).z, xz, xy, zy, wxz, wzy, noline, i_123_);
+                if (shadow) {
                     for (int i_140_ = 0; i_140_ < 20; i_140_++) {
-                        if (this.stg[i_140_] != 0)
+                        if (stg[i_140_] != 0)
                             pdust(i_140_, graphics2d, false);
                     }
                     dsprk(graphics2d, false);
                 }
-                this.dist = (int) (Math.sqrt((double) (int) Math.sqrt((double) (((this.m).x + (this.m).cx - this.x) * ((this.m).x + (this.m).cx - this.x) + ((this.m).z - this.z) * ((this.m).z - this.z) + ((this.m).y + (this.m).cy - this.y) * ((this.m).y + (this.m).cy - this.y)))) * (double) this.grounded);
+                dist = (int) (Math.sqrt((double) (int) Math.sqrt((double) (((m).x + (m).cx - x) * ((m).x + (m).cx - x) + ((m).z - z) * ((m).z - z) + ((m).y + (m).cy - y) * ((m).y + (m).cy - y)))) * (double) grounded);
             }
         }
-        if (this.shadow && this.dist == 0) {
+        if (shadow && dist == 0) {
             for (int i_141_ = 0; i_141_ < 20; i_141_++) {
-                if (this.stg[i_141_] != 0)
-                    this.stg[i_141_] = 0;
+                if (stg[i_141_] != 0)
+                    stg[i_141_] = 0;
             }
             for (int i_142_ = 0; i_142_ < 100; i_142_++) {
-                if (this.rtg[i_142_] != 0)
-                    this.rtg[i_142_] = 0;
+                if (rtg[i_142_] != 0)
+                    rtg[i_142_] = 0;
             }
-            if (this.sprk != 0)
-                this.sprk = 0;
+            if (sprk != 0)
+                sprk = 0;
         }
     }
     
@@ -1203,61 +1202,61 @@ public class ContO
         int[] is_144_ = new int[4];
         int i_145_ = 1;
         int i_146_;
-        for (i_146_ = Math.abs(this.zy); i_146_ > 270; i_146_ -= 360) {
+        for (i_146_ = Math.abs(zy); i_146_ > 270; i_146_ -= 360) {
             /* empty */
         }
         i_146_ = Math.abs(i_146_);
         if (i_146_ > 90)
             i_145_ = -1;
-        is[0] = (int) ((double) this.keyx[0] * 1.2 + (double) this.x - (double) (this.m).x);
-        is_144_[0] = (int) ((double) ((this.keyz[0] + 30) * i_145_) * 1.2 + (double) this.z - (double) (this.m).z);
-        is[1] = (int) ((double) this.keyx[1] * 1.2 + (double) this.x - (double) (this.m).x);
-        is_144_[1] = (int) ((double) ((this.keyz[1] + 30) * i_145_) * 1.2 + (double) this.z - (double) (this.m).z);
-        is[2] = (int) ((double) this.keyx[3] * 1.2 + (double) this.x - (double) (this.m).x);
-        is_144_[2] = (int) ((double) ((this.keyz[3] - 30) * i_145_) * 1.2 + (double) this.z - (double) (this.m).z);
-        is[3] = (int) ((double) this.keyx[2] * 1.2 + (double) this.x - (double) (this.m).x);
-        is_144_[3] = (int) ((double) ((this.keyz[2] - 30) * i_145_) * 1.2 + (double) this.z - (double) (this.m).z);
-        rot(is, is_144_, this.x - (this.m).x, this.z - (this.m).z, this.xz, 4);
-        int i_147_ = (int) ((double) (float) (this.m).crgrnd[0] / 1.5);
-        int i_148_ = (int) ((double) (float) (this.m).crgrnd[1] / 1.5);
-        int i_149_ = (int) ((double) (float) (this.m).crgrnd[2] / 1.5);
+        is[0] = (int) ((double) keyx[0] * 1.2 + (double) x - (double) (m).x);
+        is_144_[0] = (int) ((double) ((keyz[0] + 30) * i_145_) * 1.2 + (double) z - (double) (m).z);
+        is[1] = (int) ((double) keyx[1] * 1.2 + (double) x - (double) (m).x);
+        is_144_[1] = (int) ((double) ((keyz[1] + 30) * i_145_) * 1.2 + (double) z - (double) (m).z);
+        is[2] = (int) ((double) keyx[3] * 1.2 + (double) x - (double) (m).x);
+        is_144_[2] = (int) ((double) ((keyz[3] - 30) * i_145_) * 1.2 + (double) z - (double) (m).z);
+        is[3] = (int) ((double) keyx[2] * 1.2 + (double) x - (double) (m).x);
+        is_144_[3] = (int) ((double) ((keyz[2] - 30) * i_145_) * 1.2 + (double) z - (double) (m).z);
+        rot(is, is_144_, x - (m).x, z - (m).z, xz, 4);
+        int i_147_ = (int) ((double) (float) (m).crgrnd[0] / 1.5);
+        int i_148_ = (int) ((double) (float) (m).crgrnd[1] / 1.5);
+        int i_149_ = (int) ((double) (float) (m).crgrnd[2] / 1.5);
         for (int i_150_ = 0; i_150_ < 4; i_150_++)
-            is_143_[i_150_] = (this.m).ground;
-        if ((this.t).ncx != 0 || (this.t).ncz != 0) {
-            int i_151_ = (this.x - (this.t).sx) / 3000;
-            if (i_151_ > (this.t).ncx)
-                i_151_ = (this.t).ncx;
+            is_143_[i_150_] = (m).ground;
+        if ((t).ncx != 0 || (t).ncz != 0) {
+            int i_151_ = (x - (t).sx) / 3000;
+            if (i_151_ > (t).ncx)
+                i_151_ = (t).ncx;
             if (i_151_ < 0)
                 i_151_ = 0;
-            int i_152_ = (this.z - (this.t).sz) / 3000;
-            if (i_152_ > (this.t).ncz)
-                i_152_ = (this.t).ncz;
+            int i_152_ = (z - (t).sz) / 3000;
+            if (i_152_ > (t).ncz)
+                i_152_ = (t).ncz;
             if (i_152_ < 0)
                 i_152_ = 0;
-            for (int i_153_ = (this.t).sect[i_151_][i_152_].length - 1; i_153_ >= 0; i_153_--) {
-                int i_154_ = (this.t).sect[i_151_][i_152_][i_153_];
+            for (int i_153_ = (t).sect[i_151_][i_152_].length - 1; i_153_ >= 0; i_153_--) {
+                int i_154_ = (t).sect[i_151_][i_152_][i_153_];
                 int i_155_ = 0;
                 for (int i_156_ = 0; i_156_ < 4; i_156_++) {
-                    if (Math.abs((this.t).zy[i_154_]) != 90 && Math.abs((this.t).xy[i_154_]) != 90 && (this.t).rady[i_154_] != 801 && Math.abs(is[i_156_] - ((this.t).x[i_154_] - (this.m).x)) < (this.t).radx[i_154_] && Math.abs(is_144_[i_156_] - ((this.t).z[i_154_] - (this.m).z)) < (this.t).radz[i_154_] && (!(this.t).decor[i_154_] || (this.m).resdown != 2))
+                    if (Math.abs((t).zy[i_154_]) != 90 && Math.abs((t).xy[i_154_]) != 90 && (t).rady[i_154_] != 801 && Math.abs(is[i_156_] - ((t).x[i_154_] - (m).x)) < (t).radx[i_154_] && Math.abs(is_144_[i_156_] - ((t).z[i_154_] - (m).z)) < (t).radz[i_154_] && (!(t).decor[i_154_] || (m).resdown != 2))
                         i_155_++;
                 }
                 if (i_155_ > 2) {
                     for (int i_157_ = 0; i_157_ < 4; i_157_++) {
-                        is_143_[i_157_] = (this.t).y[i_154_] - (this.m).y;
-                        if ((this.t).zy[i_154_] != 0)
-                            is_143_[i_157_] += (float) (is_144_[i_157_] - ((this.t).z[i_154_] - (this.m).z - (this.t).radz[i_154_])) * this.m.sin((this.t).zy[i_154_]) / this.m.sin(90 - (this.t).zy[i_154_]) - (float) (this.t).radz[i_154_] * this.m.sin((this.t).zy[i_154_]) / this.m.sin(90 - (this.t).zy[i_154_]);
-                        if ((this.t).xy[i_154_] != 0)
-                            is_143_[i_157_] += (float) (is[i_157_] - ((this.t).x[i_154_] - (this.m).x - (this.t).radx[i_154_])) * this.m.sin((this.t).xy[i_154_]) / this.m.sin(90 - (this.t).xy[i_154_]) - (float) (this.t).radx[i_154_] * this.m.sin((this.t).xy[i_154_]) / this.m.sin(90 - (this.t).xy[i_154_]);
+                        is_143_[i_157_] = (t).y[i_154_] - (m).y;
+                        if ((t).zy[i_154_] != 0)
+                            is_143_[i_157_] += (float) (is_144_[i_157_] - ((t).z[i_154_] - (m).z - (t).radz[i_154_])) * m.sin((t).zy[i_154_]) / m.sin(90 - (t).zy[i_154_]) - (float) (t).radz[i_154_] * m.sin((t).zy[i_154_]) / m.sin(90 - (t).zy[i_154_]);
+                        if ((t).xy[i_154_] != 0)
+                            is_143_[i_157_] += (float) (is[i_157_] - ((t).x[i_154_] - (m).x - (t).radx[i_154_])) * m.sin((t).xy[i_154_]) / m.sin(90 - (t).xy[i_154_]) - (float) (t).radx[i_154_] * m.sin((t).xy[i_154_]) / m.sin(90 - (t).xy[i_154_]);
                     }
-                    i_147_ = (int) ((double) (float) (this.t).c[i_154_][0] / 1.5);
-                    i_148_ = (int) ((double) (float) (this.t).c[i_154_][1] / 1.5);
-                    i_149_ = (int) ((double) (float) (this.t).c[i_154_][2] / 1.5);
+                    i_147_ = (int) ((double) (float) (t).c[i_154_][0] / 1.5);
+                    i_148_ = (int) ((double) (float) (t).c[i_154_][1] / 1.5);
+                    i_149_ = (int) ((double) (float) (t).c[i_154_][2] / 1.5);
                     break;
                 }
             }
         }
-        rot(is, is_144_, (this.m).cx, (this.m).cz, (this.m).xz, 4);
-        rot(is_143_, is_144_, (this.m).cy, (this.m).cz, (this.m).zy, 4);
+        rot(is, is_144_, (m).cx, (m).cz, (m).xz, 4);
+        rot(is_143_, is_144_, (m).cy, (m).cz, (m).zy, 4);
         boolean bool = true;
         int i_158_ = 0;
         int i_159_ = 0;
@@ -1266,23 +1265,23 @@ public class ContO
         for (int i_162_ = 0; i_162_ < 4; i_162_++) {
             is[i_162_] = xs(is[i_162_], is_144_[i_162_]);
             is_143_[i_162_] = ys(is_143_[i_162_], is_144_[i_162_]);
-            if (is_143_[i_162_] < (this.m).ih || is_144_[i_162_] < 10)
+            if (is_143_[i_162_] < (m).ih || is_144_[i_162_] < 10)
                 i_158_++;
-            if (is_143_[i_162_] > (this.m).h || is_144_[i_162_] < 10)
+            if (is_143_[i_162_] > (m).h || is_144_[i_162_] < 10)
                 i_159_++;
-            if (is[i_162_] < (this.m).iw || is_144_[i_162_] < 10)
+            if (is[i_162_] < (m).iw || is_144_[i_162_] < 10)
                 i_160_++;
-            if (is[i_162_] > (this.m).w || is_144_[i_162_] < 10)
+            if (is[i_162_] > (m).w || is_144_[i_162_] < 10)
                 i_161_++;
         }
         if (i_160_ == 4 || i_158_ == 4 || i_159_ == 4 || i_161_ == 4)
             bool = false;
         if (bool) {
             for (int i_163_ = 0; i_163_ < 16; i_163_++) {
-                if (i > (this.m).fade[i_163_]) {
-                    i_147_ = (i_147_ * (this.m).fogd + (this.m).cfade[0]) / ((this.m).fogd + 1);
-                    i_148_ = (i_148_ * (this.m).fogd + (this.m).cfade[1]) / ((this.m).fogd + 1);
-                    i_149_ = (i_149_ * (this.m).fogd + (this.m).cfade[2]) / ((this.m).fogd + 1);
+                if (i > (m).fade[i_163_]) {
+                    i_147_ = (i_147_ * (m).fogd + (m).cfade[0]) / ((m).fogd + 1);
+                    i_148_ = (i_148_ * (m).fogd + (m).cfade[1]) / ((m).fogd + 1);
+                    i_149_ = (i_149_ * (m).fogd + (m).cfade[2]) / ((m).fogd + 1);
                 }
             }
             graphics2d.setColor(new Color(i_147_, i_148_, i_149_));
@@ -1291,53 +1290,53 @@ public class ContO
     }
     
     public void fixit(Graphics2D graphics2d) {
-        if (this.fcnt == 1) {
-            for (int i = 0; i < this.npl; i++) {
-                (this.p[i]).hsb[0] = 0.57F;
-                (this.p[i]).hsb[2] = 0.8F;
-                (this.p[i]).hsb[1] = 0.8F;
-                Color color = Color.getHSBColor((this.p[i]).hsb[0], (this.p[i]).hsb[1], (this.p[i]).hsb[2]);
-                int i_164_ = (int) ((float) color.getRed() + (float) color.getRed() * ((float) (this.m).snap[0] / 100.0F));
+        if (fcnt == 1) {
+            for (int i = 0; i < npl; i++) {
+                (p[i]).hsb[0] = 0.57F;
+                (p[i]).hsb[2] = 0.8F;
+                (p[i]).hsb[1] = 0.8F;
+                Color color = Color.getHSBColor((p[i]).hsb[0], (p[i]).hsb[1], (p[i]).hsb[2]);
+                int i_164_ = (int) ((float) color.getRed() + (float) color.getRed() * ((float) (m).snap[0] / 100.0F));
                 if (i_164_ > 255)
                     i_164_ = 255;
                 if (i_164_ < 0)
                     i_164_ = 0;
-                int i_165_ = (int) ((float) color.getGreen() + (float) color.getGreen() * ((float) (this.m).snap[1] / 100.0F));
+                int i_165_ = (int) ((float) color.getGreen() + (float) color.getGreen() * ((float) (m).snap[1] / 100.0F));
                 if (i_165_ > 255)
                     i_165_ = 255;
                 if (i_165_ < 0)
                     i_165_ = 0;
-                int i_166_ = (int) ((float) color.getBlue() + (float) color.getBlue() * ((float) (this.m).snap[2] / 100.0F));
+                int i_166_ = (int) ((float) color.getBlue() + (float) color.getBlue() * ((float) (m).snap[2] / 100.0F));
                 if (i_166_ > 255)
                     i_166_ = 255;
                 if (i_166_ < 0)
                     i_166_ = 0;
-                Color.RGBtoHSB(i_164_, i_165_, i_166_, (this.p[i]).hsb);
-                (this.p[i]).flx = 1;
+                Color.RGBtoHSB(i_164_, i_165_, i_166_, (p[i]).hsb);
+                (p[i]).flx = 1;
             }
         }
-        if (this.fcnt == 2) {
-            for (int i = 0; i < this.npl; i++)
-                (this.p[i]).flx = 1;
+        if (fcnt == 2) {
+            for (int i = 0; i < npl; i++)
+                (p[i]).flx = 1;
         }
-        if (this.fcnt == 4) {
-            for (int i = 0; i < this.npl; i++)
-                (this.p[i]).flx = 3;
+        if (fcnt == 4) {
+            for (int i = 0; i < npl; i++)
+                (p[i]).flx = 3;
         }
-        if ((this.fcnt == 1 || this.fcnt > 2) && this.fcnt != 9) {
+        if ((fcnt == 1 || fcnt > 2) && fcnt != 9) {
             int[] is = new int[8];
             int[] is_167_ = new int[8];
             int[] is_168_ = new int[4];
             for (int i = 0; i < 4; i++) {
-                is[i] = this.keyx[i] + this.x - (this.m).x;
-                is_167_[i] = this.grat + this.y - (this.m).y;
-                is_168_[i] = this.keyz[i] + this.z - (this.m).z;
+                is[i] = keyx[i] + x - (m).x;
+                is_167_[i] = grat + y - (m).y;
+                is_168_[i] = keyz[i] + z - (m).z;
             }
-            rot(is, is_167_, this.x - (this.m).x, this.y - (this.m).y, this.xy, 4);
-            rot(is_167_, is_168_, this.y - (this.m).y, this.z - (this.m).y, this.zy, 4);
-            rot(is, is_168_, this.x - (this.m).x, this.z - (this.m).z, this.xz, 4);
-            rot(is, is_168_, (this.m).cx, (this.m).cz, (this.m).xz, 4);
-            rot(is_167_, is_168_, (this.m).cy, (this.m).cz, (this.m).zy, 4);
+            rot(is, is_167_, x - (m).x, y - (m).y, xy, 4);
+            rot(is_167_, is_168_, y - (m).y, z - (m).y, zy, 4);
+            rot(is, is_168_, x - (m).x, z - (m).z, xz, 4);
+            rot(is, is_168_, (m).cx, (m).cz, (m).xz, 4);
+            rot(is_167_, is_168_, (m).cy, (m).cz, (m).zy, 4);
             int i = 0;
             int i_169_ = 0;
             int i_170_ = 0;
@@ -1356,80 +1355,80 @@ public class ContO
                 i = i_170_;
             if (i_169_ < i_170_)
                 i_169_ = i_170_;
-            int i_173_ = (this.m).cx + (int) ((float) (this.x - (this.m).x - (this.m).cx) * this.m.cos((this.m).xz) - (float) (this.z - (this.m).z - (this.m).cz) * this.m.sin((this.m).xz));
-            int i_174_ = (this.m).cz + (int) ((float) (this.x - (this.m).x - (this.m).cx) * this.m.sin((this.m).xz) + (float) (this.z - (this.m).z - (this.m).cz) * this.m.cos((this.m).xz));
-            int i_175_ = (this.m).cy + (int) ((float) (this.y - (this.m).y - (this.m).cy) * this.m.cos((this.m).zy) - (float) (i_174_ - (this.m).cz) * this.m.sin((this.m).zy));
-            i_174_ = (this.m).cz + (int) ((float) (this.y - (this.m).y - (this.m).cy) * this.m.sin((this.m).zy) + (float) (i_174_ - (this.m).cz) * this.m.cos((this.m).zy));
-            is[0] = xs((int) ((double) i_173_ - (double) i / 0.8 - (double) this.m.random() * ((double) i / 2.4)), i_174_);
-            is_167_[0] = ys((int) ((double) i_175_ - (double) i_169_ / 1.92 - (double) this.m.random() * ((double) i_169_ / 5.67)), i_174_);
-            is[1] = xs((int) ((double) i_173_ - (double) i / 0.8 - (double) this.m.random() * ((double) i / 2.4)), i_174_);
-            is_167_[1] = ys((int) ((double) i_175_ + (double) i_169_ / 1.92 + (double) this.m.random() * ((double) i_169_ / 5.67)), i_174_);
-            is[2] = xs((int) ((double) i_173_ - (double) i / 1.92 - (double) this.m.random() * ((double) i / 5.67)), i_174_);
-            is_167_[2] = ys((int) ((double) i_175_ + (double) i_169_ / 0.8 + (double) this.m.random() * ((double) i_169_ / 2.4)), i_174_);
-            is[3] = xs((int) ((double) i_173_ + (double) i / 1.92 + (double) this.m.random() * ((double) i / 5.67)), i_174_);
-            is_167_[3] = ys((int) ((double) i_175_ + (double) i_169_ / 0.8 + (double) this.m.random() * ((double) i_169_ / 2.4)), i_174_);
-            is[4] = xs((int) ((double) i_173_ + (double) i / 0.8 + (double) this.m.random() * ((double) i / 2.4)), i_174_);
-            is_167_[4] = ys((int) ((double) i_175_ + (double) i_169_ / 1.92 + (double) this.m.random() * ((double) i_169_ / 5.67)), i_174_);
-            is[5] = xs((int) ((double) i_173_ + (double) i / 0.8 + (double) this.m.random() * ((double) i / 2.4)), i_174_);
-            is_167_[5] = ys((int) ((double) i_175_ - (double) i_169_ / 1.92 - (double) this.m.random() * ((double) i_169_ / 5.67)), i_174_);
-            is[6] = xs((int) ((double) i_173_ + (double) i / 1.92 + (double) this.m.random() * ((double) i / 5.67)), i_174_);
-            is_167_[6] = ys((int) ((double) i_175_ - (double) i_169_ / 0.8 - (double) this.m.random() * ((double) i_169_ / 2.4)), i_174_);
-            is[7] = xs((int) ((double) i_173_ - (double) i / 1.92 - (double) this.m.random() * ((double) i / 5.67)), i_174_);
-            is_167_[7] = ys((int) ((double) i_175_ - (double) i_169_ / 0.8 - (double) this.m.random() * ((double) i_169_ / 2.4)), i_174_);
-            if (this.fcnt == 3)
+            int i_173_ = (m).cx + (int) ((float) (x - (m).x - (m).cx) * m.cos((m).xz) - (float) (z - (m).z - (m).cz) * m.sin((m).xz));
+            int i_174_ = (m).cz + (int) ((float) (x - (m).x - (m).cx) * m.sin((m).xz) + (float) (z - (m).z - (m).cz) * m.cos((m).xz));
+            int i_175_ = (m).cy + (int) ((float) (y - (m).y - (m).cy) * m.cos((m).zy) - (float) (i_174_ - (m).cz) * m.sin((m).zy));
+            i_174_ = (m).cz + (int) ((float) (y - (m).y - (m).cy) * m.sin((m).zy) + (float) (i_174_ - (m).cz) * m.cos((m).zy));
+            is[0] = xs((int) ((double) i_173_ - (double) i / 0.8 - (double) m.random() * ((double) i / 2.4)), i_174_);
+            is_167_[0] = ys((int) ((double) i_175_ - (double) i_169_ / 1.92 - (double) m.random() * ((double) i_169_ / 5.67)), i_174_);
+            is[1] = xs((int) ((double) i_173_ - (double) i / 0.8 - (double) m.random() * ((double) i / 2.4)), i_174_);
+            is_167_[1] = ys((int) ((double) i_175_ + (double) i_169_ / 1.92 + (double) m.random() * ((double) i_169_ / 5.67)), i_174_);
+            is[2] = xs((int) ((double) i_173_ - (double) i / 1.92 - (double) m.random() * ((double) i / 5.67)), i_174_);
+            is_167_[2] = ys((int) ((double) i_175_ + (double) i_169_ / 0.8 + (double) m.random() * ((double) i_169_ / 2.4)), i_174_);
+            is[3] = xs((int) ((double) i_173_ + (double) i / 1.92 + (double) m.random() * ((double) i / 5.67)), i_174_);
+            is_167_[3] = ys((int) ((double) i_175_ + (double) i_169_ / 0.8 + (double) m.random() * ((double) i_169_ / 2.4)), i_174_);
+            is[4] = xs((int) ((double) i_173_ + (double) i / 0.8 + (double) m.random() * ((double) i / 2.4)), i_174_);
+            is_167_[4] = ys((int) ((double) i_175_ + (double) i_169_ / 1.92 + (double) m.random() * ((double) i_169_ / 5.67)), i_174_);
+            is[5] = xs((int) ((double) i_173_ + (double) i / 0.8 + (double) m.random() * ((double) i / 2.4)), i_174_);
+            is_167_[5] = ys((int) ((double) i_175_ - (double) i_169_ / 1.92 - (double) m.random() * ((double) i_169_ / 5.67)), i_174_);
+            is[6] = xs((int) ((double) i_173_ + (double) i / 1.92 + (double) m.random() * ((double) i / 5.67)), i_174_);
+            is_167_[6] = ys((int) ((double) i_175_ - (double) i_169_ / 0.8 - (double) m.random() * ((double) i_169_ / 2.4)), i_174_);
+            is[7] = xs((int) ((double) i_173_ - (double) i / 1.92 - (double) m.random() * ((double) i / 5.67)), i_174_);
+            is_167_[7] = ys((int) ((double) i_175_ - (double) i_169_ / 0.8 - (double) m.random() * ((double) i_169_ / 2.4)), i_174_);
+            if (fcnt == 3)
                 rot(is, is_167_, xs(i_173_, i_174_), ys(i_175_, i_174_), 22, 8);
-            if (this.fcnt == 4)
+            if (fcnt == 4)
                 rot(is, is_167_, xs(i_173_, i_174_), ys(i_175_, i_174_), 22, 8);
-            if (this.fcnt == 5)
+            if (fcnt == 5)
                 rot(is, is_167_, xs(i_173_, i_174_), ys(i_175_, i_174_), 0, 8);
-            if (this.fcnt == 6)
+            if (fcnt == 6)
                 rot(is, is_167_, xs(i_173_, i_174_), ys(i_175_, i_174_), -22, 8);
-            if (this.fcnt == 7)
+            if (fcnt == 7)
                 rot(is, is_167_, xs(i_173_, i_174_), ys(i_175_, i_174_), -22, 8);
-            int i_176_ = (int) (191.0F + 191.0F * ((float) (this.m).snap[0] / 350.0F));
+            int i_176_ = (int) (191.0F + 191.0F * ((float) (m).snap[0] / 350.0F));
             if (i_176_ > 255)
                 i_176_ = 255;
             if (i_176_ < 0)
                 i_176_ = 0;
-            int i_177_ = (int) (232.0F + 232.0F * ((float) (this.m).snap[1] / 350.0F));
+            int i_177_ = (int) (232.0F + 232.0F * ((float) (m).snap[1] / 350.0F));
             if (i_177_ > 255)
                 i_177_ = 255;
             if (i_177_ < 0)
                 i_177_ = 0;
-            int i_178_ = (int) (255.0F + 255.0F * ((float) (this.m).snap[2] / 350.0F));
+            int i_178_ = (int) (255.0F + 255.0F * ((float) (m).snap[2] / 350.0F));
             if (i_178_ > 255)
                 i_178_ = 255;
             if (i_178_ < 0)
                 i_178_ = 0;
             graphics2d.setColor(new Color(i_176_, i_177_, i_178_));
             graphics2d.fillPolygon(is, is_167_, 8);
-            is[0] = xs((int) ((float) (i_173_ - i) - this.m.random() * (float) (i / 4)), i_174_);
-            is_167_[0] = ys((int) ((double) i_175_ - (double) i_169_ / 2.4 - (double) this.m.random() * ((double) i_169_ / 9.6)), i_174_);
-            is[1] = xs((int) ((float) (i_173_ - i) - this.m.random() * (float) (i / 4)), i_174_);
-            is_167_[1] = ys((int) ((double) i_175_ + (double) i_169_ / 2.4 + (double) this.m.random() * ((double) i_169_ / 9.6)), i_174_);
-            is[2] = xs((int) ((double) i_173_ - (double) i / 2.4 - (double) this.m.random() * ((double) i / 9.6)), i_174_);
-            is_167_[2] = ys((int) ((float) (i_175_ + i_169_) + this.m.random() * (float) (i_169_ / 4)), i_174_);
-            is[3] = xs((int) ((double) i_173_ + (double) i / 2.4 + (double) this.m.random() * ((double) i / 9.6)), i_174_);
-            is_167_[3] = ys((int) ((float) (i_175_ + i_169_) + this.m.random() * (float) (i_169_ / 4)), i_174_);
-            is[4] = xs((int) ((float) (i_173_ + i) + this.m.random() * (float) (i / 4)), i_174_);
-            is_167_[4] = ys((int) ((double) i_175_ + (double) i_169_ / 2.4 + (double) this.m.random() * ((double) i_169_ / 9.6)), i_174_);
-            is[5] = xs((int) ((float) (i_173_ + i) + this.m.random() * (float) (i / 4)), i_174_);
-            is_167_[5] = ys((int) ((double) i_175_ - (double) i_169_ / 2.4 - (double) this.m.random() * ((double) i_169_ / 9.6)), i_174_);
-            is[6] = xs((int) ((double) i_173_ + (double) i / 2.4 + (double) this.m.random() * ((double) i / 9.6)), i_174_);
-            is_167_[6] = ys((int) ((float) (i_175_ - i_169_) - this.m.random() * (float) (i_169_ / 4)), i_174_);
-            is[7] = xs((int) ((double) i_173_ - (double) i / 2.4 - (double) this.m.random() * ((double) i / 9.6)), i_174_);
-            is_167_[7] = ys((int) ((float) (i_175_ - i_169_) - this.m.random() * (float) (i_169_ / 4)), i_174_);
-            i_176_ = (int) (213.0F + 213.0F * ((float) (this.m).snap[0] / 350.0F));
+            is[0] = xs((int) ((float) (i_173_ - i) - m.random() * (float) (i / 4)), i_174_);
+            is_167_[0] = ys((int) ((double) i_175_ - (double) i_169_ / 2.4 - (double) m.random() * ((double) i_169_ / 9.6)), i_174_);
+            is[1] = xs((int) ((float) (i_173_ - i) - m.random() * (float) (i / 4)), i_174_);
+            is_167_[1] = ys((int) ((double) i_175_ + (double) i_169_ / 2.4 + (double) m.random() * ((double) i_169_ / 9.6)), i_174_);
+            is[2] = xs((int) ((double) i_173_ - (double) i / 2.4 - (double) m.random() * ((double) i / 9.6)), i_174_);
+            is_167_[2] = ys((int) ((float) (i_175_ + i_169_) + m.random() * (float) (i_169_ / 4)), i_174_);
+            is[3] = xs((int) ((double) i_173_ + (double) i / 2.4 + (double) m.random() * ((double) i / 9.6)), i_174_);
+            is_167_[3] = ys((int) ((float) (i_175_ + i_169_) + m.random() * (float) (i_169_ / 4)), i_174_);
+            is[4] = xs((int) ((float) (i_173_ + i) + m.random() * (float) (i / 4)), i_174_);
+            is_167_[4] = ys((int) ((double) i_175_ + (double) i_169_ / 2.4 + (double) m.random() * ((double) i_169_ / 9.6)), i_174_);
+            is[5] = xs((int) ((float) (i_173_ + i) + m.random() * (float) (i / 4)), i_174_);
+            is_167_[5] = ys((int) ((double) i_175_ - (double) i_169_ / 2.4 - (double) m.random() * ((double) i_169_ / 9.6)), i_174_);
+            is[6] = xs((int) ((double) i_173_ + (double) i / 2.4 + (double) m.random() * ((double) i / 9.6)), i_174_);
+            is_167_[6] = ys((int) ((float) (i_175_ - i_169_) - m.random() * (float) (i_169_ / 4)), i_174_);
+            is[7] = xs((int) ((double) i_173_ - (double) i / 2.4 - (double) m.random() * ((double) i / 9.6)), i_174_);
+            is_167_[7] = ys((int) ((float) (i_175_ - i_169_) - m.random() * (float) (i_169_ / 4)), i_174_);
+            i_176_ = (int) (213.0F + 213.0F * ((float) (m).snap[0] / 350.0F));
             if (i_176_ > 255)
                 i_176_ = 255;
             if (i_176_ < 0)
                 i_176_ = 0;
-            i_177_ = (int) (239.0F + 239.0F * ((float) (this.m).snap[1] / 350.0F));
+            i_177_ = (int) (239.0F + 239.0F * ((float) (m).snap[1] / 350.0F));
             if (i_177_ > 255)
                 i_177_ = 255;
             if (i_177_ < 0)
                 i_177_ = 0;
-            i_178_ = (int) (255.0F + 255.0F * ((float) (this.m).snap[2] / 350.0F));
+            i_178_ = (int) (255.0F + 255.0F * ((float) (m).snap[2] / 350.0F));
             if (i_178_ > 255)
                 i_178_ = 255;
             if (i_178_ < 0)
@@ -1437,49 +1436,49 @@ public class ContO
             graphics2d.setColor(new Color(i_176_, i_177_, i_178_));
             graphics2d.fillPolygon(is, is_167_, 8);
         }
-        if (this.fcnt > 7) {
-            this.fcnt = 0;
-            this.fix = false;
+        if (fcnt > 7) {
+            fcnt = 0;
+            fix = false;
         } else
-            this.fcnt++;
+            fcnt++;
     }
     
     public void electrify(Graphics2D graphics2d) {
         for (int i = 0; i < 4; i++) {
-            if (this.elc[i] == 0) {
-                this.edl[i] = (int) (380.0F - this.m.random() * 760.0F);
-                this.edr[i] = (int) (380.0F - this.m.random() * 760.0F);
-                this.elc[i] = 1;
+            if (elc[i] == 0) {
+                edl[i] = (int) (380.0F - m.random() * 760.0F);
+                edr[i] = (int) (380.0F - m.random() * 760.0F);
+                elc[i] = 1;
             }
-            int i_179_ = (int) ((float) this.edl[i] + (190.0F - this.m.random() * 380.0F));
-            int i_180_ = (int) ((float) this.edr[i] + (190.0F - this.m.random() * 380.0F));
-            int i_181_ = (int) (this.m.random() * 126.0F);
-            int i_182_ = (int) (this.m.random() * 126.0F);
+            int i_179_ = (int) ((float) edl[i] + (190.0F - m.random() * 380.0F));
+            int i_180_ = (int) ((float) edr[i] + (190.0F - m.random() * 380.0F));
+            int i_181_ = (int) (m.random() * 126.0F);
+            int i_182_ = (int) (m.random() * 126.0F);
             int[] is = new int[8];
             int[] is_183_ = new int[8];
             int[] is_184_ = new int[8];
             for (int i_185_ = 0; i_185_ < 8; i_185_++)
-                is_184_[i_185_] = this.z - (this.m).z;
-            is[0] = this.x - (this.m).x - 504;
-            is_183_[0] = this.y - (this.m).y - this.edl[i] - 5 - (int) (this.m.random() * 5.0F);
-            is[1] = this.x - (this.m).x - 252 + i_182_;
-            is_183_[1] = this.y - (this.m).y - i_179_ - 5 - (int) (this.m.random() * 5.0F);
-            is[2] = this.x - (this.m).x + 252 - i_181_;
-            is_183_[2] = this.y - (this.m).y - i_180_ - 5 - (int) (this.m.random() * 5.0F);
-            is[3] = this.x - (this.m).x + 504;
-            is_183_[3] = this.y - (this.m).y - this.edr[i] - 5 - (int) (this.m.random() * 5.0F);
-            is[4] = this.x - (this.m).x + 504;
-            is_183_[4] = this.y - (this.m).y - this.edr[i] + 5 + (int) (this.m.random() * 5.0F);
-            is[5] = this.x - (this.m).x + 252 - i_181_;
-            is_183_[5] = this.y - (this.m).y - i_180_ + 5 + (int) (this.m.random() * 5.0F);
-            is[6] = this.x - (this.m).x - 252 + i_182_;
-            is_183_[6] = this.y - (this.m).y - i_179_ + 5 + (int) (this.m.random() * 5.0F);
-            is[7] = this.x - (this.m).x - 504;
-            is_183_[7] = this.y - (this.m).y - this.edl[i] + 5 + (int) (this.m.random() * 5.0F);
-            if (this.roted)
-                rot(is, is_184_, this.x - (this.m).x, this.z - (this.m).z, 90, 8);
-            rot(is, is_184_, (this.m).cx, (this.m).cz, (this.m).xz, 8);
-            rot(is_183_, is_184_, (this.m).cy, (this.m).cz, (this.m).zy, 8);
+                is_184_[i_185_] = z - (m).z;
+            is[0] = x - (m).x - 504;
+            is_183_[0] = y - (m).y - edl[i] - 5 - (int) (m.random() * 5.0F);
+            is[1] = x - (m).x - 252 + i_182_;
+            is_183_[1] = y - (m).y - i_179_ - 5 - (int) (m.random() * 5.0F);
+            is[2] = x - (m).x + 252 - i_181_;
+            is_183_[2] = y - (m).y - i_180_ - 5 - (int) (m.random() * 5.0F);
+            is[3] = x - (m).x + 504;
+            is_183_[3] = y - (m).y - edr[i] - 5 - (int) (m.random() * 5.0F);
+            is[4] = x - (m).x + 504;
+            is_183_[4] = y - (m).y - edr[i] + 5 + (int) (m.random() * 5.0F);
+            is[5] = x - (m).x + 252 - i_181_;
+            is_183_[5] = y - (m).y - i_180_ + 5 + (int) (m.random() * 5.0F);
+            is[6] = x - (m).x - 252 + i_182_;
+            is_183_[6] = y - (m).y - i_179_ + 5 + (int) (m.random() * 5.0F);
+            is[7] = x - (m).x - 504;
+            is_183_[7] = y - (m).y - edl[i] + 5 + (int) (m.random() * 5.0F);
+            if (roted)
+                rot(is, is_184_, x - (m).x, z - (m).z, 90, 8);
+            rot(is, is_184_, (m).cx, (m).cz, (m).xz, 8);
+            rot(is_183_, is_184_, (m).cy, (m).cz, (m).zy, 8);
             boolean bool = true;
             int i_186_ = 0;
             int i_187_ = 0;
@@ -1490,36 +1489,36 @@ public class ContO
             for (int i_192_ = 0; i_192_ < 8; i_192_++) {
                 is_190_[i_192_] = xs(is[i_192_], is_184_[i_192_]);
                 is_191_[i_192_] = ys(is_183_[i_192_], is_184_[i_192_]);
-                if (is_191_[i_192_] < (this.m).ih || is_184_[i_192_] < 10)
+                if (is_191_[i_192_] < (m).ih || is_184_[i_192_] < 10)
                     i_186_++;
-                if (is_191_[i_192_] > (this.m).h || is_184_[i_192_] < 10)
+                if (is_191_[i_192_] > (m).h || is_184_[i_192_] < 10)
                     i_187_++;
-                if (is_190_[i_192_] < (this.m).iw || is_184_[i_192_] < 10)
+                if (is_190_[i_192_] < (m).iw || is_184_[i_192_] < 10)
                     i_188_++;
-                if (is_190_[i_192_] > (this.m).w || is_184_[i_192_] < 10)
+                if (is_190_[i_192_] > (m).w || is_184_[i_192_] < 10)
                     i_189_++;
             }
             if (i_188_ == 8 || i_186_ == 8 || i_187_ == 8 || i_189_ == 8)
                 bool = false;
             if (bool) {
-                int i_193_ = (int) (160.0F + 160.0F * ((float) (this.m).snap[0] / 500.0F));
+                int i_193_ = (int) (160.0F + 160.0F * ((float) (m).snap[0] / 500.0F));
                 if (i_193_ > 255)
                     i_193_ = 255;
                 if (i_193_ < 0)
                     i_193_ = 0;
-                int i_194_ = (int) (238.0F + 238.0F * ((float) (this.m).snap[1] / 500.0F));
+                int i_194_ = (int) (238.0F + 238.0F * ((float) (m).snap[1] / 500.0F));
                 if (i_194_ > 255)
                     i_194_ = 255;
                 if (i_194_ < 0)
                     i_194_ = 0;
-                int i_195_ = (int) (255.0F + 255.0F * ((float) (this.m).snap[2] / 500.0F));
+                int i_195_ = (int) (255.0F + 255.0F * ((float) (m).snap[2] / 500.0F));
                 if (i_195_ > 255)
                     i_195_ = 255;
                 if (i_195_ < 0)
                     i_195_ = 0;
-                i_193_ = (i_193_ * 2 + 214 * (this.elc[i] - 1)) / (this.elc[i] + 1);
-                i_194_ = (i_194_ * 2 + 236 * (this.elc[i] - 1)) / (this.elc[i] + 1);
-                if ((this.m).trk == 1) {
+                i_193_ = (i_193_ * 2 + 214 * (elc[i] - 1)) / (elc[i] + 1);
+                i_194_ = (i_194_ * 2 + 236 * (elc[i] - 1)) / (elc[i] + 1);
+                if ((m).trk == 1) {
                     i_193_ = 255;
                     i_194_ = 128;
                     i_195_ = 0;
@@ -1527,17 +1526,17 @@ public class ContO
                 graphics2d.setColor(new Color(i_193_, i_194_, i_195_));
                 graphics2d.fillPolygon(is_190_, is_191_, 8);
                 if (is_184_[0] < 4000) {
-                    i_193_ = (int) (150.0F + 150.0F * ((float) (this.m).snap[0] / 500.0F));
+                    i_193_ = (int) (150.0F + 150.0F * ((float) (m).snap[0] / 500.0F));
                     if (i_193_ > 255)
                         i_193_ = 255;
                     if (i_193_ < 0)
                         i_193_ = 0;
-                    i_194_ = (int) (227.0F + 227.0F * ((float) (this.m).snap[1] / 500.0F));
+                    i_194_ = (int) (227.0F + 227.0F * ((float) (m).snap[1] / 500.0F));
                     if (i_194_ > 255)
                         i_194_ = 255;
                     if (i_194_ < 0)
                         i_194_ = 0;
-                    i_195_ = (int) (255.0F + 255.0F * ((float) (this.m).snap[2] / 500.0F));
+                    i_195_ = (int) (255.0F + 255.0F * ((float) (m).snap[2] / 500.0F));
                     if (i_195_ > 255)
                         i_195_ = 255;
                     if (i_195_ < 0)
@@ -1546,19 +1545,19 @@ public class ContO
                     graphics2d.drawPolygon(is_190_, is_191_, 8);
                 }
             }
-            if ((float) this.elc[i] > this.m.random() * 60.0F)
-                this.elc[i] = 0;
+            if ((float) elc[i] > m.random() * 60.0F)
+                elc[i] = 0;
             else
-                this.elc[i]++;
+                elc[i]++;
         }
-        if (!this.roted || this.xz != 0) {
-            this.xy += 11;
-            if (this.xy > 360)
-                this.xy -= 360;
+        if (!roted || xz != 0) {
+            xy += 11;
+            if (xy > 360)
+                xy -= 360;
         } else {
-            this.zy += 11;
-            if (this.zy > 360)
-                this.zy -= 360;
+            zy += 11;
+            if (zy > 360)
+                zy -= 360;
         }
     }
     
@@ -1566,54 +1565,54 @@ public class ContO
     
     public void pdust(int i, Graphics2D graphics2d, boolean bool) {
         if (bool)
-            this.sav[i] = (int) Math.sqrt((double) (((this.m).x + (this.m).cx - this.sx[i]) * ((this.m).x + (this.m).cx - this.sx[i]) + ((this.m).y + (this.m).cy - this.sy[i]) * ((this.m).y + (this.m).cy - this.sy[i]) + ((this.m).z - this.sz[i]) * ((this.m).z - this.sz[i])));
-        if (bool && this.sav[i] > this.dist || !bool && this.sav[i] <= this.dist) {
-            if (this.stg[i] == 1) {
-                this.sbln[i] = 0.6F;
+            sav[i] = (int) Math.sqrt((double) (((m).x + (m).cx - sx[i]) * ((m).x + (m).cx - sx[i]) + ((m).y + (m).cy - sy[i]) * ((m).y + (m).cy - sy[i]) + ((m).z - sz[i]) * ((m).z - sz[i])));
+        if (bool && sav[i] > dist || !bool && sav[i] <= dist) {
+            if (stg[i] == 1) {
+                sbln[i] = 0.6F;
                 boolean bool_205_ = false;
                 int[] is = new int[3];
                 for (int i_206_ = 0; i_206_ < 3; i_206_++) {
-                    is[i_206_] = (int) (255.0F + 255.0F * ((float) (this.m).snap[i_206_] / 100.0F));
+                    is[i_206_] = (int) (255.0F + 255.0F * ((float) (m).snap[i_206_] / 100.0F));
                     if (is[i_206_] > 255)
                         is[i_206_] = 255;
                     if (is[i_206_] < 0)
                         is[i_206_] = 0;
                 }
-                int i_207_ = (this.x - (this.t).sx) / 3000;
-                if (i_207_ > (this.t).ncx)
-                    i_207_ = (this.t).ncx;
+                int i_207_ = (x - (t).sx) / 3000;
+                if (i_207_ > (t).ncx)
+                    i_207_ = (t).ncx;
                 if (i_207_ < 0)
                     i_207_ = 0;
-                int i_208_ = (this.z - (this.t).sz) / 3000;
-                if (i_208_ > (this.t).ncz)
-                    i_208_ = (this.t).ncz;
+                int i_208_ = (z - (t).sz) / 3000;
+                if (i_208_ > (t).ncz)
+                    i_208_ = (t).ncz;
                 if (i_208_ < 0)
                     i_208_ = 0;
-                for (int i_209_ = 0; i_209_ < (this.t).sect[i_207_][i_208_].length; i_209_++) {
-                    int i_210_ = (this.t).sect[i_207_][i_208_][i_209_];
-                    if (Math.abs((this.t).zy[i_210_]) != 90 && Math.abs((this.t).xy[i_210_]) != 90 && Math.abs(this.sx[i] - (this.t).x[i_210_]) < (this.t).radx[i_210_] && Math.abs(this.sz[i] - (this.t).z[i_210_]) < (this.t).radz[i_210_]) {
-                        if ((this.t).skd[i_210_] == 0)
-                            this.sbln[i] = 0.2F;
-                        if ((this.t).skd[i_210_] == 1)
-                            this.sbln[i] = 0.4F;
-                        if ((this.t).skd[i_210_] == 2)
-                            this.sbln[i] = 0.45F;
+                for (int i_209_ = 0; i_209_ < (t).sect[i_207_][i_208_].length; i_209_++) {
+                    int i_210_ = (t).sect[i_207_][i_208_][i_209_];
+                    if (Math.abs((t).zy[i_210_]) != 90 && Math.abs((t).xy[i_210_]) != 90 && Math.abs(sx[i] - (t).x[i_210_]) < (t).radx[i_210_] && Math.abs(sz[i] - (t).z[i_210_]) < (t).radz[i_210_]) {
+                        if ((t).skd[i_210_] == 0)
+                            sbln[i] = 0.2F;
+                        if ((t).skd[i_210_] == 1)
+                            sbln[i] = 0.4F;
+                        if ((t).skd[i_210_] == 2)
+                            sbln[i] = 0.45F;
                         for (int i_211_ = 0; i_211_ < 3; i_211_++)
-                            this.srgb[i][i_211_] = ((this.t).c[i_210_][i_211_] + is[i_211_]) / 2;
+                            srgb[i][i_211_] = ((t).c[i_210_][i_211_] + is[i_211_]) / 2;
                         bool_205_ = true;
                     }
                 }
                 if (!bool_205_) {
                     for (int i_212_ = 0; i_212_ < 3; i_212_++)
-                        this.srgb[i][i_212_] = ((this.m).crgrnd[i_212_] + is[i_212_]) / 2;
+                        srgb[i][i_212_] = ((m).crgrnd[i_212_] + is[i_212_]) / 2;
                 }
-                float f = (float) (0.1 + (double) this.m.random());
+                float f = (float) (0.1 + (double) m.random());
                 if (f > 1.0F)
                     f = 1.0F;
-                this.scx[i] = (int) ((float) this.scx[i] * f);
-                this.scz[i] = (int) ((float) this.scx[i] * f);
+                scx[i] = (int) ((float) scx[i] * f);
+                scz[i] = (int) ((float) scx[i] * f);
                 for (int i_213_ = 0; i_213_ < 8; i_213_++)
-                    this.smag[i][i_213_] = this.osmag[i] * this.m.random() * 50.0F;
+                    smag[i][i_213_] = osmag[i] * m.random() * 50.0F;
                 for (int i_214_ = 0; i_214_ < 8; i_214_++) {
                     int i_215_ = i_214_ - 1;
                     if (i_215_ == -1)
@@ -1621,118 +1620,118 @@ public class ContO
                     int i_216_ = i_214_ + 1;
                     if (i_216_ == 8)
                         i_216_ = 0;
-                    this.smag[i][i_214_] = ((this.smag[i][i_215_] + this.smag[i][i_216_]) / 2.0F + this.smag[i][i_214_]) / 2.0F;
+                    smag[i][i_214_] = ((smag[i][i_215_] + smag[i][i_216_]) / 2.0F + smag[i][i_214_]) / 2.0F;
                 }
-                this.smag[i][6] = this.smag[i][7];
+                smag[i][6] = smag[i][7];
             }
-            int i_217_ = (this.m).cx + (int) ((float) (this.sx[i] - (this.m).x - (this.m).cx) * this.m.cos((this.m).xz) - (float) (this.sz[i] - (this.m).z - (this.m).cz) * this.m.sin((this.m).xz));
-            int i_218_ = (this.m).cz + (int) ((float) (this.sx[i] - (this.m).x - (this.m).cx) * this.m.sin((this.m).xz) + (float) (this.sz[i] - (this.m).z - (this.m).cz) * this.m.cos((this.m).xz));
-            int i_219_ = (this.m).cy + (int) (((float) (this.sy[i] - (this.m).y - (this.m).cy) - this.smag[i][7]) * this.m.cos((this.m).zy) - (float) (i_218_ - (this.m).cz) * this.m.sin((this.m).zy));
-            i_218_ = (this.m).cz + (int) (((float) (this.sy[i] - (this.m).y - (this.m).cy) - this.smag[i][7]) * this.m.sin((this.m).zy) + (float) (i_218_ - (this.m).cz) * this.m.cos((this.m).zy));
-            this.sx[i] += this.scx[i] / (this.stg[i] + 1);
-            this.sz[i] += this.scz[i] / (this.stg[i] + 1);
+            int i_217_ = (m).cx + (int) ((float) (sx[i] - (m).x - (m).cx) * m.cos((m).xz) - (float) (sz[i] - (m).z - (m).cz) * m.sin((m).xz));
+            int i_218_ = (m).cz + (int) ((float) (sx[i] - (m).x - (m).cx) * m.sin((m).xz) + (float) (sz[i] - (m).z - (m).cz) * m.cos((m).xz));
+            int i_219_ = (m).cy + (int) (((float) (sy[i] - (m).y - (m).cy) - smag[i][7]) * m.cos((m).zy) - (float) (i_218_ - (m).cz) * m.sin((m).zy));
+            i_218_ = (m).cz + (int) (((float) (sy[i] - (m).y - (m).cy) - smag[i][7]) * m.sin((m).zy) + (float) (i_218_ - (m).cz) * m.cos((m).zy));
+            sx[i] += scx[i] / (stg[i] + 1);
+            sz[i] += scz[i] / (stg[i] + 1);
             int[] is = new int[8];
             int[] is_220_ = new int[8];
-            is[0] = xs((int) ((float) i_217_ + this.smag[i][0] * 0.9238F * 1.5F), i_218_);
-            is_220_[0] = ys((int) ((float) i_219_ + this.smag[i][0] * 0.3826F * 1.5F), i_218_);
-            is[1] = xs((int) ((float) i_217_ + this.smag[i][1] * 0.9238F * 1.5F), i_218_);
-            is_220_[1] = ys((int) ((float) i_219_ - this.smag[i][1] * 0.3826F * 1.5F), i_218_);
-            is[2] = xs((int) ((float) i_217_ + this.smag[i][2] * 0.3826F), i_218_);
-            is_220_[2] = ys((int) ((float) i_219_ - this.smag[i][2] * 0.9238F), i_218_);
-            is[3] = xs((int) ((float) i_217_ - this.smag[i][3] * 0.3826F), i_218_);
-            is_220_[3] = ys((int) ((float) i_219_ - this.smag[i][3] * 0.9238F), i_218_);
-            is[4] = xs((int) ((float) i_217_ - this.smag[i][4] * 0.9238F * 1.5F), i_218_);
-            is_220_[4] = ys((int) ((float) i_219_ - this.smag[i][4] * 0.3826F * 1.5F), i_218_);
-            is[5] = xs((int) ((float) i_217_ - this.smag[i][5] * 0.9238F * 1.5F), i_218_);
-            is_220_[5] = ys((int) ((float) i_219_ + this.smag[i][5] * 0.3826F * 1.5F), i_218_);
-            is[6] = xs((int) ((float) i_217_ - this.smag[i][6] * 0.3826F * 1.7F), i_218_);
-            is_220_[6] = ys((int) ((float) i_219_ + this.smag[i][6] * 0.9238F), i_218_);
-            is[7] = xs((int) ((float) i_217_ + this.smag[i][7] * 0.3826F * 1.7F), i_218_);
-            is_220_[7] = ys((int) ((float) i_219_ + this.smag[i][7] * 0.9238F), i_218_);
+            is[0] = xs((int) ((float) i_217_ + smag[i][0] * 0.9238F * 1.5F), i_218_);
+            is_220_[0] = ys((int) ((float) i_219_ + smag[i][0] * 0.3826F * 1.5F), i_218_);
+            is[1] = xs((int) ((float) i_217_ + smag[i][1] * 0.9238F * 1.5F), i_218_);
+            is_220_[1] = ys((int) ((float) i_219_ - smag[i][1] * 0.3826F * 1.5F), i_218_);
+            is[2] = xs((int) ((float) i_217_ + smag[i][2] * 0.3826F), i_218_);
+            is_220_[2] = ys((int) ((float) i_219_ - smag[i][2] * 0.9238F), i_218_);
+            is[3] = xs((int) ((float) i_217_ - smag[i][3] * 0.3826F), i_218_);
+            is_220_[3] = ys((int) ((float) i_219_ - smag[i][3] * 0.9238F), i_218_);
+            is[4] = xs((int) ((float) i_217_ - smag[i][4] * 0.9238F * 1.5F), i_218_);
+            is_220_[4] = ys((int) ((float) i_219_ - smag[i][4] * 0.3826F * 1.5F), i_218_);
+            is[5] = xs((int) ((float) i_217_ - smag[i][5] * 0.9238F * 1.5F), i_218_);
+            is_220_[5] = ys((int) ((float) i_219_ + smag[i][5] * 0.3826F * 1.5F), i_218_);
+            is[6] = xs((int) ((float) i_217_ - smag[i][6] * 0.3826F * 1.7F), i_218_);
+            is_220_[6] = ys((int) ((float) i_219_ + smag[i][6] * 0.9238F), i_218_);
+            is[7] = xs((int) ((float) i_217_ + smag[i][7] * 0.3826F * 1.7F), i_218_);
+            is_220_[7] = ys((int) ((float) i_219_ + smag[i][7] * 0.9238F), i_218_);
             for (int i_221_ = 0; i_221_ < 7; i_221_++)
-                this.smag[i][i_221_] += 5.0F + this.m.random() * 15.0F;
-            this.smag[i][7] = this.smag[i][6];
+                smag[i][i_221_] += 5.0F + m.random() * 15.0F;
+            smag[i][7] = smag[i][6];
             boolean bool_222_ = true;
             int i_223_ = 0;
             int i_224_ = 0;
             int i_225_ = 0;
             int i_226_ = 0;
             for (int i_227_ = 0; i_227_ < 8; i_227_++) {
-                if (is_220_[i_227_] < (this.m).ih || i_218_ < 10)
+                if (is_220_[i_227_] < (m).ih || i_218_ < 10)
                     i_223_++;
-                if (is_220_[i_227_] > (this.m).h || i_218_ < 10)
+                if (is_220_[i_227_] > (m).h || i_218_ < 10)
                     i_224_++;
-                if (is[i_227_] < (this.m).iw || i_218_ < 10)
+                if (is[i_227_] < (m).iw || i_218_ < 10)
                     i_225_++;
-                if (is[i_227_] > (this.m).w || i_218_ < 10)
+                if (is[i_227_] > (m).w || i_218_ < 10)
                     i_226_++;
             }
             if (i_225_ == 4 || i_223_ == 4 || i_224_ == 4 || i_226_ == 4)
                 bool_222_ = false;
             if (bool_222_) {
-                int i_228_ = this.srgb[i][0];
-                int i_229_ = this.srgb[i][1];
-                int i_230_ = this.srgb[i][2];
+                int i_228_ = srgb[i][0];
+                int i_229_ = srgb[i][1];
+                int i_230_ = srgb[i][2];
                 for (int i_231_ = 0; i_231_ < 16; i_231_++) {
-                    if (this.sav[i] > (this.m).fade[i_231_]) {
-                        i_228_ = (i_228_ * (this.m).fogd + (this.m).cfade[0]) / ((this.m).fogd + 1);
-                        i_229_ = (i_229_ * (this.m).fogd + (this.m).cfade[1]) / ((this.m).fogd + 1);
-                        i_230_ = (i_230_ * (this.m).fogd + (this.m).cfade[2]) / ((this.m).fogd + 1);
+                    if (sav[i] > (m).fade[i_231_]) {
+                        i_228_ = (i_228_ * (m).fogd + (m).cfade[0]) / ((m).fogd + 1);
+                        i_229_ = (i_229_ * (m).fogd + (m).cfade[1]) / ((m).fogd + 1);
+                        i_230_ = (i_230_ * (m).fogd + (m).cfade[2]) / ((m).fogd + 1);
                     }
                 }
                 graphics2d.setColor(new Color(i_228_, i_229_, i_230_));
-                float f = this.sbln[i] - (float) this.stg[i] * (this.sbln[i] / 8.0F);
+                float f = sbln[i] - (float) stg[i] * (sbln[i] / 8.0F);
                 graphics2d.setComposite(AlphaComposite.getInstance(3, f));
                 graphics2d.fillPolygon(is, is_220_, 8);
                 graphics2d.setComposite(AlphaComposite.getInstance(3, 1.0F));
             }
-            if (this.stg[i] == 7)
-                this.stg[i] = 0;
+            if (stg[i] == 7)
+                stg[i] = 0;
             else
-                this.stg[i]++;
+                stg[i]++;
         }
     }
     
     public void sprk(float f, float f_232_, float f_233_, float f_234_, float f_235_, float f_236_, int i) {
         if (i != 1) {
-            this.srx = (int) (f - (float) this.sprkat * this.m.sin(this.xz));
-            this.sry = (int) (f_232_ - (float) this.sprkat * this.m.cos(this.zy) * this.m.cos(this.xy));
-            this.srz = (int) (f_233_ + (float) this.sprkat * this.m.cos(this.xz));
-            this.sprk = 1;
+            srx = (int) (f - (float) sprkat * m.sin(xz));
+            sry = (int) (f_232_ - (float) sprkat * m.cos(zy) * m.cos(xy));
+            srz = (int) (f_233_ + (float) sprkat * m.cos(xz));
+            sprk = 1;
         } else {
-            this.sprk++;
-            if (this.sprk == 4) {
-                this.srx = (int) ((float) this.x + f_234_);
-                this.sry = (int) f_232_;
-                this.srz = (int) ((float) this.z + f_236_);
-                this.sprk = 5;
+            sprk++;
+            if (sprk == 4) {
+                srx = (int) ((float) x + f_234_);
+                sry = (int) f_232_;
+                srz = (int) ((float) z + f_236_);
+                sprk = 5;
             } else {
-                this.srx = (int) f;
-                this.sry = (int) f_232_;
-                this.srz = (int) f_233_;
+                srx = (int) f;
+                sry = (int) f_232_;
+                srz = (int) f_233_;
             }
         }
         if (i == 2)
-            this.sprk = 6;
-        this.rcx = f_234_;
-        this.rcy = f_235_;
-        this.rcz = f_236_;
+            sprk = 6;
+        rcx = f_234_;
+        rcy = f_235_;
+        rcz = f_236_;
     }
     
     public void dsprk(Graphics2D graphics2d, boolean bool) {
-        if (bool && this.sprk != 0) {
-            int i = (int) (Math.sqrt((double) (this.rcx * this.rcx + this.rcy * this.rcy + this.rcz * this.rcz)) / 10.0);
+        if (bool && sprk != 0) {
+            int i = (int) (Math.sqrt((double) (rcx * rcx + rcy * rcy + rcz * rcz)) / 10.0);
             if (i > 5) {
                 boolean bool_237_ = false;
-                if ((double) this.dist < Math.sqrt((double) (((this.m).x + (this.m).cx - this.srx) * ((this.m).x + (this.m).cx - this.srx) + ((this.m).y + (this.m).cy - this.sry) * ((this.m).y + (this.m).cy - this.sry) + ((this.m).z - this.srz) * ((this.m).z - this.srz))))
+                if ((double) dist < Math.sqrt((double) (((m).x + (m).cx - srx) * ((m).x + (m).cx - srx) + ((m).y + (m).cy - sry) * ((m).y + (m).cy - sry) + ((m).z - srz) * ((m).z - srz))))
                     bool_237_ = true;
                 if (i > 33)
                     i = 33;
                 int i_238_ = 0;
                 for (int i_239_ = 0; i_239_ < 100; i_239_++) {
-                    if (this.rtg[i_239_] == 0) {
-                        this.rtg[i_239_] = 1;
-                        this.rbef[i_239_] = bool_237_;
+                    if (rtg[i_239_] == 0) {
+                        rtg[i_239_] = 1;
+                        rbef[i_239_] = bool_237_;
                         i_238_++;
                     }
                     if (i_238_ == i)
@@ -1741,101 +1740,101 @@ public class ContO
             }
         }
         for (int i = 0; i < 100; i++) {
-            if (this.rtg[i] != 0 && (this.rbef[i] && bool || !this.rbef[i] && !bool)) {
-                if (this.rtg[i] == 1) {
-                    if (this.sprk < 5) {
-                        this.rx[i] = this.srx + 3 - (int) ((double) this.m.random() * 6.7);
-                        this.ry[i] = this.sry + 3 - (int) ((double) this.m.random() * 6.7);
-                        this.rz[i] = this.srz + 3 - (int) ((double) this.m.random() * 6.7);
+            if (rtg[i] != 0 && (rbef[i] && bool || !rbef[i] && !bool)) {
+                if (rtg[i] == 1) {
+                    if (sprk < 5) {
+                        rx[i] = srx + 3 - (int) ((double) m.random() * 6.7);
+                        ry[i] = sry + 3 - (int) ((double) m.random() * 6.7);
+                        rz[i] = srz + 3 - (int) ((double) m.random() * 6.7);
                     } else {
-                        this.rx[i] = this.srx + 10 - (int) (this.m.random() * 20.0F);
-                        this.ry[i] = this.sry - (int) (this.m.random() * 4.0F);
-                        this.rz[i] = this.srz + 10 - (int) (this.m.random() * 20.0F);
+                        rx[i] = srx + 10 - (int) (m.random() * 20.0F);
+                        ry[i] = sry - (int) (m.random() * 4.0F);
+                        rz[i] = srz + 10 - (int) (m.random() * 20.0F);
                     }
-                    int i_240_ = (int) Math.sqrt((double) (this.rcx * this.rcx + this.rcy * this.rcy + this.rcz * this.rcz));
-                    float f = 0.2F + 0.4F * this.m.random();
-                    float f_241_ = this.m.random() * this.m.random() * this.m.random();
+                    int i_240_ = (int) Math.sqrt((double) (rcx * rcx + rcy * rcy + rcz * rcz));
+                    float f = 0.2F + 0.4F * m.random();
+                    float f_241_ = m.random() * m.random() * m.random();
                     float f_242_ = 1.0F;
-                    if (this.m.random() > this.m.random()) {
-                        if (this.m.random() > this.m.random())
+                    if (m.random() > m.random()) {
+                        if (m.random() > m.random())
                             f_242_ *= -1.0F;
-                        this.vrx[i] = -((this.rcx + (float) i_240_ * (1.0F - this.rcx / (float) i_240_) * f_241_ * f_242_) * f);
+                        vrx[i] = -((rcx + (float) i_240_ * (1.0F - rcx / (float) i_240_) * f_241_ * f_242_) * f);
                     }
-                    if (this.m.random() > this.m.random()) {
-                        if (this.m.random() > this.m.random())
+                    if (m.random() > m.random()) {
+                        if (m.random() > m.random())
                             f_242_ *= -1.0F;
-                        if (this.sprk == 5)
+                        if (sprk == 5)
                             f_242_ = 1.0F;
-                        this.vry[i] = -((this.rcy + (float) i_240_ * (1.0F - this.rcy / (float) i_240_) * f_241_ * f_242_) * f);
+                        vry[i] = -((rcy + (float) i_240_ * (1.0F - rcy / (float) i_240_) * f_241_ * f_242_) * f);
                     }
-                    if (this.m.random() > this.m.random()) {
-                        if (this.m.random() > this.m.random())
+                    if (m.random() > m.random()) {
+                        if (m.random() > m.random())
                             f_242_ *= -1.0F;
-                        this.vrz[i] = -((this.rcz + (float) i_240_ * (1.0F - this.rcz / (float) i_240_) * f_241_ * f_242_) * f);
+                        vrz[i] = -((rcz + (float) i_240_ * (1.0F - rcz / (float) i_240_) * f_241_ * f_242_) * f);
                     }
                 }
-                this.rx[i] += this.vrx[i];
-                this.ry[i] += this.vry[i];
-                this.rz[i] += this.vrz[i];
-                int i_243_ = (this.m).cx + (int) ((float) (this.rx[i] - (this.m).x - (this.m).cx) * this.m.cos((this.m).xz) - (float) (this.rz[i] - (this.m).z - (this.m).cz) * this.m.sin((this.m).xz));
-                int i_244_ = (this.m).cz + (int) ((float) (this.rx[i] - (this.m).x - (this.m).cx) * this.m.sin((this.m).xz) + (float) (this.rz[i] - (this.m).z - (this.m).cz) * this.m.cos((this.m).xz));
-                int i_245_ = (this.m).cy + (int) ((float) (this.ry[i] - (this.m).y - (this.m).cy) * this.m.cos((this.m).zy) - (float) (i_244_ - (this.m).cz) * this.m.sin((this.m).zy));
-                i_244_ = (this.m).cz + (int) ((float) (this.ry[i] - (this.m).y - (this.m).cy) * this.m.sin((this.m).zy) + (float) (i_244_ - (this.m).cz) * this.m.cos((this.m).zy));
-                int i_246_ = (this.m).cx + (int) (((float) (this.rx[i] - (this.m).x - (this.m).cx) + this.vrx[i]) * this.m.cos((this.m).xz) - ((float) (this.rz[i] - (this.m).z - (this.m).cz) + this.vrz[i]) * this.m.sin((this.m).xz));
-                int i_247_ = (this.m).cz + (int) (((float) (this.rx[i] - (this.m).x - (this.m).cx) + this.vrx[i]) * this.m.sin((this.m).xz) + ((float) (this.rz[i] - (this.m).z - (this.m).cz) + this.vrz[i]) * this.m.cos((this.m).xz));
-                int i_248_ = (this.m).cy + (int) (((float) (this.ry[i] - (this.m).y - (this.m).cy) + this.vry[i]) * this.m.cos((this.m).zy) - (float) (i_247_ - (this.m).cz) * this.m.sin((this.m).zy));
-                i_247_ = (this.m).cz + (int) (((float) (this.ry[i] - (this.m).y - (this.m).cy) + this.vry[i]) * this.m.sin((this.m).zy) + (float) (i_247_ - (this.m).cz) * this.m.cos((this.m).zy));
+                rx[i] += vrx[i];
+                ry[i] += vry[i];
+                rz[i] += vrz[i];
+                int i_243_ = (m).cx + (int) ((float) (rx[i] - (m).x - (m).cx) * m.cos((m).xz) - (float) (rz[i] - (m).z - (m).cz) * m.sin((m).xz));
+                int i_244_ = (m).cz + (int) ((float) (rx[i] - (m).x - (m).cx) * m.sin((m).xz) + (float) (rz[i] - (m).z - (m).cz) * m.cos((m).xz));
+                int i_245_ = (m).cy + (int) ((float) (ry[i] - (m).y - (m).cy) * m.cos((m).zy) - (float) (i_244_ - (m).cz) * m.sin((m).zy));
+                i_244_ = (m).cz + (int) ((float) (ry[i] - (m).y - (m).cy) * m.sin((m).zy) + (float) (i_244_ - (m).cz) * m.cos((m).zy));
+                int i_246_ = (m).cx + (int) (((float) (rx[i] - (m).x - (m).cx) + vrx[i]) * m.cos((m).xz) - ((float) (rz[i] - (m).z - (m).cz) + vrz[i]) * m.sin((m).xz));
+                int i_247_ = (m).cz + (int) (((float) (rx[i] - (m).x - (m).cx) + vrx[i]) * m.sin((m).xz) + ((float) (rz[i] - (m).z - (m).cz) + vrz[i]) * m.cos((m).xz));
+                int i_248_ = (m).cy + (int) (((float) (ry[i] - (m).y - (m).cy) + vry[i]) * m.cos((m).zy) - (float) (i_247_ - (m).cz) * m.sin((m).zy));
+                i_247_ = (m).cz + (int) (((float) (ry[i] - (m).y - (m).cy) + vry[i]) * m.sin((m).zy) + (float) (i_247_ - (m).cz) * m.cos((m).zy));
                 int i_249_ = xs(i_243_, i_244_);
                 int i_250_ = ys(i_245_, i_244_);
                 int i_251_ = xs(i_246_, i_247_);
                 int i_252_ = ys(i_248_, i_247_);
-                if (i_249_ < (this.m).iw && i_251_ < (this.m).iw)
-                    this.rtg[i] = 0;
-                if (i_249_ > (this.m).w && i_251_ > (this.m).w)
-                    this.rtg[i] = 0;
-                if (i_250_ < (this.m).ih && i_252_ < (this.m).ih)
-                    this.rtg[i] = 0;
-                if (i_250_ > (this.m).h && i_252_ > (this.m).h)
-                    this.rtg[i] = 0;
-                if (this.ry[i] > 250)
-                    this.rtg[i] = 0;
-                if (this.rtg[i] != 0) {
+                if (i_249_ < (m).iw && i_251_ < (m).iw)
+                    rtg[i] = 0;
+                if (i_249_ > (m).w && i_251_ > (m).w)
+                    rtg[i] = 0;
+                if (i_250_ < (m).ih && i_252_ < (m).ih)
+                    rtg[i] = 0;
+                if (i_250_ > (m).h && i_252_ > (m).h)
+                    rtg[i] = 0;
+                if (ry[i] > 250)
+                    rtg[i] = 0;
+                if (rtg[i] != 0) {
                     int i_253_ = 255;
-                    int i_254_ = 197 - 30 * this.rtg[i];
+                    int i_254_ = 197 - 30 * rtg[i];
                     int i_255_ = 0;
                     for (int i_256_ = 0; i_256_ < 16; i_256_++) {
-                        if (i_244_ > (this.m).fade[i_256_]) {
-                            i_253_ = (i_253_ * (this.m).fogd + (this.m).cfade[0]) / ((this.m).fogd + 1);
-                            i_254_ = (i_254_ * (this.m).fogd + (this.m).cfade[1]) / ((this.m).fogd + 1);
-                            i_255_ = (i_255_ * (this.m).fogd + (this.m).cfade[2]) / ((this.m).fogd + 1);
+                        if (i_244_ > (m).fade[i_256_]) {
+                            i_253_ = (i_253_ * (m).fogd + (m).cfade[0]) / ((m).fogd + 1);
+                            i_254_ = (i_254_ * (m).fogd + (m).cfade[1]) / ((m).fogd + 1);
+                            i_255_ = (i_255_ * (m).fogd + (m).cfade[2]) / ((m).fogd + 1);
                         }
                     }
                     graphics2d.setColor(new Color(i_253_, i_254_, i_255_));
                     graphics2d.drawLine(i_249_, i_250_, i_251_, i_252_);
-                    this.vrx[i] = this.vrx[i] * 0.8F;
-                    this.vry[i] = this.vry[i] * 0.8F;
-                    this.vrz[i] = this.vrz[i] * 0.8F;
-                    if (this.rtg[i] == 3)
-                        this.rtg[i] = 0;
+                    vrx[i] = vrx[i] * 0.8F;
+                    vry[i] = vry[i] * 0.8F;
+                    vrz[i] = vrz[i] * 0.8F;
+                    if (rtg[i] == 3)
+                        rtg[i] = 0;
                     else
-                        this.rtg[i]++;
+                        rtg[i]++;
                 }
             }
         }
-        if (this.sprk != 0)
-            this.sprk = 0;
+        if (sprk != 0)
+            sprk = 0;
     }
     
     public int xs(int i, int i_257_) {
         if (i_257_ < 50)
             i_257_ = 50;
-        return (i_257_ - (this.m).focus_point) * ((this.m).cx - i) / i_257_ + i;
+        return (i_257_ - (m).focus_point) * ((m).cx - i) / i_257_ + i;
     }
     
     public int ys(int i, int i_258_) {
         if (i_258_ < 50)
             i_258_ = 50;
-        return (i_258_ - (this.m).focus_point) * ((this.m).cy - i) / i_258_ + i;
+        return (i_258_ - (m).focus_point) * ((m).cy - i) / i_258_ + i;
     }
     
     public int getvalue(String string, String string_259_, int i) {
@@ -1854,7 +1853,7 @@ public class ContO
     }
     
     public int getpy(int i, int i_264_, int i_265_) {
-        return (i - this.x) / 10 * ((i - this.x) / 10) + (i_264_ - this.y) / 10 * ((i_264_ - this.y) / 10) + (i_265_ - this.z) / 10 * ((i_265_ - this.z) / 10);
+        return (i - x) / 10 * ((i - x) / 10) + (i_264_ - y) / 10 * ((i_264_ - y) / 10) + (i_265_ - z) / 10 * ((i_265_ - z) / 10);
     }
     
     public int py(int i, int i_266_, int i_267_, int i_268_) {
@@ -1866,8 +1865,8 @@ public class ContO
             for (int i_273_ = 0; i_273_ < i_272_; i_273_++) {
                 int i_274_ = is[i_273_];
                 int i_275_ = is_269_[i_273_];
-                is[i_273_] = i + (int) ((float) (i_274_ - i) * this.m.cos(i_271_) - (float) (i_275_ - i_270_) * this.m.sin(i_271_));
-                is_269_[i_273_] = i_270_ + (int) ((float) (i_274_ - i) * this.m.sin(i_271_) + (float) (i_275_ - i_270_) * this.m.cos(i_271_));
+                is[i_273_] = i + (int) ((float) (i_274_ - i) * m.cos(i_271_) - (float) (i_275_ - i_270_) * m.sin(i_271_));
+                is_269_[i_273_] = i_270_ + (int) ((float) (i_274_ - i) * m.sin(i_271_) + (float) (i_275_ - i_270_) * m.cos(i_271_));
             }
         }
     }

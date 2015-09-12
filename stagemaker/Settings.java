@@ -39,7 +39,7 @@ public class Settings {
 	}
 	
 	public void initMenu(Frame frame) {
-		this.frame = frame;
+		frame = frame;
 		menubar = new MenuBar();
         menuGadgets = new Menu("Hacks 1");
         menuAbout = new Menu("Hacked by Chris");
@@ -54,7 +54,7 @@ public class Settings {
 	}
 	
 	public void initmads(Mad[] mads) {
-		this.mads = mads;
+		mads = mads;
 	}
 	
 	public void initSpeedoMenu() {
@@ -263,13 +263,13 @@ public class Settings {
 	public void initclasses(GameSparker gamesparker, xtGraphics xtgraphics, CarDefine cardefine, ContO[] contos,
 			CheckPoints checkpoints, Trackers trackers, Medium medium)
 	{
-		this.gamesparker = gamesparker;
-		this.xtgraphics = xtgraphics;
-		this.cardefine = cardefine;
-		this.contos = contos;
-		this.checkpoints = checkpoints;
-		this.trackers = trackers;
-		this.medium = medium;
+		gamesparker = gamesparker;
+		xtgraphics = xtgraphics;
+		cardefine = cardefine;
+		contos = contos;
+		checkpoints = checkpoints;
+		trackers = trackers;
+		medium = medium;
 	}
 	
 	public void updateSetting(String setting, boolean value)

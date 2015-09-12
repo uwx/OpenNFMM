@@ -31,6 +31,10 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 public class GameSparker extends Applet implements Runnable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5976860556958716653L;
 	Graphics2D rd;
 	Image offImage;
 	Thread gamer;
@@ -2127,7 +2131,6 @@ public class GameSparker extends Applet implements Runnable {
 		(var_xtGraphics).newparts = false;
 		String string = "";
 		try {
-			Object object = null;
 			DataInputStream datainputstream;
 			if ((var_xtGraphics).multion == 0 && (checkpoints).stage != -2) {
 				String string_112_ = new StringBuilder().append("stages/").append((checkpoints).stage).append("").toString();
@@ -2546,7 +2549,6 @@ public class GameSparker extends Applet implements Runnable {
 		int i_152_ = 100;
 		String string_153_ = "";
 		try {
-			Object object = null;
 			DataInputStream datainputstream;
 			if ((checkpoints).stage > 0) {
 				URL url = (new URL(new StringBuilder().append("http://multiplayer.needformadness.com/stages/")
@@ -2787,7 +2789,6 @@ public class GameSparker extends Applet implements Runnable {
 		int i = 0;
 		(var_xtGraphics).dnload += 6;
 		try {
-			Object object = null;
 			ZipInputStream zipinputstream;
 			if (!bool) {
 				File file = new File(new StringBuilder().append("").append(Madness.fpath).append("data/models.zip").toString());
@@ -2797,7 +2798,6 @@ public class GameSparker extends Applet implements Runnable {
 				zipinputstream = new ZipInputStream(url.openStream());
 			}
 			ZipEntry zipentry = zipinputstream.getNextEntry();
-			Object object_174_ = null;
 			for (/**/ ; zipentry != null;
 			zipentry = zipinputstream.getNextEntry()) {
 				int i_175_ = 0;
@@ -2882,14 +2882,12 @@ public class GameSparker extends Applet implements Runnable {
 			};
 			if (file.exists()) {
 				BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
-				Object object = null;
 				String string_192_;
 				for (int i_193_ = 0;
 				((string_192_ = bufferedreader.readLine()) != null && i_193_ < 5);
 				i_193_++)
 				strings[i_193_] = string_192_;
 				bufferedreader.close();
-				Object object_194_ = null;
 			}
 			if (i_191_ == 0) strings[1] = new StringBuilder().append("lastcar(").append(i).append(",").append((int)(fs[0] * 100.0F)).append(",").append((int)(fs[1] * 100.0F)).append(",").append((int)(fs[2] * 100.0F)).append(",").append((int)(fs[3] * 100.0F)).append(",").append((int)(fs[4] * 100.0F)).append(",").append((int)(fs[5] * 100.0F)).append(",").append(string).append(")").toString();
 			if (i_191_ == 1) strings[2] = new StringBuilder().append("NFM1(").append(i).append(",").append(is[0]).append(")").toString();
@@ -2901,7 +2899,6 @@ public class GameSparker extends Applet implements Runnable {
 				bufferedwriter.newLine();
 			}
 			bufferedwriter.close();
-			Object object = null;
 		} catch (Exception exception) {
 			/* empty */
 		}
@@ -2915,14 +2912,12 @@ public class GameSparker extends Applet implements Runnable {
 			};
 			if (file.exists()) {
 				BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
-				Object object = null;
 				String string;
 				for (int i = 0;
 				(string = bufferedreader.readLine()) != null && i < 5;
 				i++)
 				strings[i] = string;
 				bufferedreader.close();
-				Object object_196_ = null;
 			}
 			if (keplo.getState()) strings[0] = new StringBuilder().append("lastuser(").append(tnick.getText()).append(",").append(tpass.getText()).append(")").toString();
 			else strings[0] = new StringBuilder().append("lastuser(").append(tnick.getText()).append(")").toString();
@@ -2932,7 +2927,6 @@ public class GameSparker extends Applet implements Runnable {
 				bufferedwriter.newLine();
 			}
 			bufferedwriter.close();
-			Object object = null;
 		} catch (Exception exception) {
 			/* empty */
 		}
@@ -2948,14 +2942,12 @@ public class GameSparker extends Applet implements Runnable {
 			};
 			if (file.exists()) {
 				BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
-				Object object = null;
 				String string;
 				for (int i = 0;
 				(string = bufferedreader.readLine()) != null && i < 5;
 				i++)
 				strings[i] = string;
 				bufferedreader.close();
-				Object object_197_ = null;
 			}
 			if (strings[0].startsWith("lastuser")) {
 				(var_xtGraphics).nickname = getstring("lastuser", strings[0], 0);
@@ -3244,7 +3236,6 @@ public class GameSparker extends Applet implements Runnable {
 				String[] strings = new String[40];
 				int i = 0;
 				BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
-				Object object = null;
 				String string;
 				for (/**/ ;
 				(string = bufferedreader.readLine()) != null && i < 40;
@@ -3257,14 +3248,12 @@ public class GameSparker extends Applet implements Runnable {
 					if (strings[i].startsWith("JRE Path")) strings[i] = "JRE Path=data\\jre\\";
 				}
 				bufferedreader.close();
-				Object object_209_ = null;
 				BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
 				for (int i_210_ = 0; i_210_ < i; i_210_++) {
 					bufferedwriter.write(strings[i_210_]);
 					bufferedwriter.newLine();
 				}
 				bufferedwriter.close();
-				Object object_211_ = null;
 			}
 		} catch (Exception exception) {
 			/* empty */

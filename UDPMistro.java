@@ -341,7 +341,7 @@ public class UDPMistro implements Runnable
             String string = new StringBuilder().append("3|").append(pgame).append("|finish|").toString();
             try {
                 dout.println(string);
-                String string_28_ = din.readLine();
+                din.readLine();
                 socket.close();
                 socket = null;
                 din.close();

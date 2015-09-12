@@ -17,7 +17,7 @@ public class IBXM
     public IBXM(Module module, int samplingRate)
     {
         mustNotify = false;
-        this.module = module;
+        module = module;
         setSampleRate(samplingRate);
         interpolation = 1;
         rampBuf = new int[128];
@@ -29,7 +29,7 @@ public class IBXM
 
     public void connect(IBXModSlayer slayer)
     {
-        this.slayer = slayer;
+        slayer = slayer;
         slayer.patternOffsets = new int[module.sequenceLength];
     }
 
@@ -52,7 +52,7 @@ public class IBXM
 
     public void setInterpolation(int interpolation)
     {
-        this.interpolation = interpolation;
+        interpolation = interpolation;
     }
 
     public int getMixBufferLength()

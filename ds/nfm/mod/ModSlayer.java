@@ -724,9 +724,6 @@ label0:
     public int gain;
     public int nloops;
     public boolean loud;
-    private static final int ERROR_SHIFT = 12;
-    private static final int ERROR_MASK = 4095;
-    private static final long ratediv = 0x14b080000000L;
     int loopA;
     int loopB;
     int loops;

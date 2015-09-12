@@ -27,6 +27,10 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 public class xtGraphics extends Panel implements Runnable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1254986552635023147L;
 	Graphics2D rd;
 	Medium m;
 	CarDefine cd;
@@ -906,7 +910,7 @@ public class xtGraphics extends Panel implements Runnable {
 				dout.println(new StringBuilder().append("101|").append(runtyp + 174).append("|").append((app).tnick.getText())
 					.append("|").append((app).tpass.getText())
 					.append("|").toString());
-				String string = din.readLine();
+				din.readLine();
 				socket.close();
 				socket = null;
 				din.close();
@@ -3153,9 +3157,6 @@ public class xtGraphics extends Panel implements Runnable {
 					for (int i_77_ = 0; i_77_ < nplayers;
 					i_77_++) {
 						if ((checkpoints).pos[i_77_] == i_75_ && (checkpoints).dested[i_77_] == 0 && !bool_76_) {
-							boolean bool_78_ = false;
-							boolean bool_79_ = false;
-							boolean bool_80_ = false;
 							int i_81_ = (int)(100.0F + (100.0F * ((float)((
 							m)
 								.snap[2]) / 100.0F)));
@@ -7720,7 +7721,6 @@ public class xtGraphics extends Panel implements Runnable {
 		is_218_[5] = i_221_ + 50;
 		is[6] = i_219_ + 35;
 		is_218_[6] = i_221_ + 50;
-		boolean bool_223_ = false;
 		int i_224_;
 		if (!bool) {
 			int i_225_ = 0;
@@ -8041,7 +8041,6 @@ public class xtGraphics extends Panel implements Runnable {
 		null);
 		int i_252_ = (conto).x - lcarx;
 		lcarx = (conto).x;
-		int i_253_ = (conto).y - lcary;
 		lcary = (conto).y;
 		int i_254_ = (conto).z - lcarz;
 		lcarz = (conto).z;
@@ -8458,9 +8457,6 @@ public class xtGraphics extends Panel implements Runnable {
 			int i_305_ = (int)(5.0 + Math.random() * 15.0);
 			for (int i_306_ = 0; i_306_ < 360000; i_306_++) {
 				Color color = new Color(flexpix[i_306_]);
-				boolean bool = false;
-				boolean bool_307_ = false;
-				boolean bool_308_ = false;
 				int i_309_;
 				int i_310_;
 				int i_311_;
@@ -8565,9 +8561,6 @@ public class xtGraphics extends Panel implements Runnable {
 		for (int i_329_ = 0; i_329_ < i_325_ * i_324_; i_329_++) {
 			if (is[i_329_] != is[i_323_]) {
 				Color color = new Color(is[i_329_]);
-				boolean bool = false;
-				boolean bool_330_ = false;
-				boolean bool_331_ = false;
 				int i_332_;
 				int i_333_;
 				int i_334_;
@@ -8656,7 +8649,6 @@ public class xtGraphics extends Panel implements Runnable {
 			int i_345_ = 0;
 			for (int i_346_ = 0; i_346_ < 360000; i_346_++) {
 				Color color = new Color(is[i_346_]);
-				boolean bool = false;
 				int i_347_;
 				if (i_345_ == 0) {
 					i_347_ = (color.getRed() + color.getGreen() + color.getBlue()) / 3;
@@ -8709,9 +8701,6 @@ public class xtGraphics extends Panel implements Runnable {
 			int i_355_ = 0;
 			for (int i_356_ = 0; i_356_ < 360000; i_356_++) {
 				Color color = new Color(is[i_356_]);
-				boolean bool = false;
-				boolean bool_357_ = false;
-				boolean bool_358_ = false;
 				int i_359_;
 				int i_360_;
 				int i_361_;
@@ -8755,8 +8744,6 @@ public class xtGraphics extends Panel implements Runnable {
 			mediatracker.addImage(image, 0);
 			mediatracker.waitForID(0);
 			mediatracker.removeImage(image, 0);
-			Object object = null;
-			Object object_363_ = null;
 		} catch (Exception exception) {
 			/* empty */
 		}
@@ -8817,7 +8804,6 @@ public class xtGraphics extends Panel implements Runnable {
 		}
 		BufferedImage bufferedimage = new BufferedImage(i_364_, i, 2);
 		bufferedimage.setRGB(0, 0, i_364_, i, is_365_, 0, i_364_);
-		Object object = null;
 		return bufferedimage;
 	}
 
@@ -8868,7 +8854,6 @@ public class xtGraphics extends Panel implements Runnable {
 			is_370_[0] = i_373_;
 			is_370_[1] = i_374_;
 		}
-		Object object = null;
 		Image image_376_;
 		if (i == 2) {
 			BufferedImage bufferedimage = new BufferedImage(i_369_, i_368_, 2);
@@ -8876,7 +8861,6 @@ public class xtGraphics extends Panel implements Runnable {
 			image_376_ = bufferedimage;
 		} else image_376_ = createImage(new MemoryImageSource(i_369_, i_368_, is_370_, 0,
 		i_369_));
-		Object object_377_ = null;
 		return image_376_;
 	}
 
@@ -9213,7 +9197,6 @@ public class xtGraphics extends Panel implements Runnable {
 	int i_429_, int i_430_, int i_431_,
 	boolean bool_432_) {
 		boolean bool_433_ = false;
-		boolean bool_434_ = false;
 		rd.setFont(new Font("Arial", 1, 13));
 		ftm = rd.getFontMetrics();
 		int i_435_;

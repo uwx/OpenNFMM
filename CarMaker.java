@@ -44,7 +44,11 @@ import java.util.zip.ZipInputStream;
 import javax.swing.JOptionPane;
 public class CarMaker extends Applet implements Runnable, ActionListener
 {
-    Graphics2D rd;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 7903118983954264757L;
+	Graphics2D rd;
     Image offImage;
     Thread thredo;
     boolean exwist = false;
@@ -2347,7 +2351,6 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                                             BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
                                             bufferedwriter.write(string_165_);
                                             bufferedwriter.close();
-                                            Object object = null;
                                             zipinputstream.close();
                                             if (carname.equals(mycars[i_148_])) {
                                                 editor.setText(string_165_);
@@ -2537,7 +2540,6 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                         if (file.exists()) {
                             try {
                                 BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
-                                Object object = null;
                                 boolean bool = false;
                                 boolean bool_182_ = false;
                                 String string;
@@ -2568,7 +2570,6 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                                 if (bool_182_)
                                     JOptionPane.showMessageDialog(null, new StringBuilder().append("Warning!\nThe number of Faces in file ").append(file.getName()).append(" exceeded the maximum of 600 that the Car Maker can read!     \n\nPlease choose a simpler model to import.\n \n").toString(), "Car Maker", 0);
                                 bufferedreader.close();
-                                Object object_183_ = null;
                             } catch (Exception exception) {
                                 JOptionPane.showMessageDialog(null, new StringBuilder().append("Unable to load file! Error Deatials:\n").append(exception).toString(), "Car Maker", 1);
                             }
@@ -2606,7 +2607,6 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                                     BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
                                     bufferedwriter.write(string);
                                     bufferedwriter.close();
-                                    Object object = null;
                                     if (file.exists()) {
                                         sfase = 0;
                                         hidefields();
@@ -2693,7 +2693,6 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                                 BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
                                 bufferedwriter.write(string);
                                 bufferedwriter.close();
-                                Object object = null;
                                 if (file.exists()) {
                                     JOptionPane.showMessageDialog(null, new StringBuilder().append("Car has been successfully exported to:\n").append(file.getAbsolutePath()).append("          \n \n").toString(), "Car Maker", 1);
                                     sfase = 0;
@@ -3735,7 +3734,6 @@ public class CarMaker extends Applet implements Runnable, ActionListener
         try {
             File file = new File(new StringBuilder().append("mycars/").append(carname).append(".rad").toString());
             BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
-            Object object = null;
             String string;
             while ((string = bufferedreader.readLine()) != null) {
                 StringBuilder stringbuilder = new StringBuilder();
@@ -3744,7 +3742,6 @@ public class CarMaker extends Applet implements Runnable, ActionListener
             }
             loadedfile = true;
             bufferedreader.close();
-            Object object_301_ = null;
         } catch (Exception exception) {
             loadedfile = false;
             lastedo = "";
@@ -3763,7 +3760,6 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                 BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
                 bufferedwriter.write(editor.getText());
                 bufferedwriter.close();
-                Object object = null;
                 changed = false;
                 lastedo = editor.getText();
             } catch (Exception exception) {
@@ -3788,7 +3784,6 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                     BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
                     bufferedwriter.write(string_302_);
                     bufferedwriter.close();
-                    Object object = null;
                     if (file.exists()) {
                         sfase = 0;
                         hidefields();
@@ -3869,7 +3864,6 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                     cthm = sthm;
                 }
                 bufferedreader.close();
-                Object object = null;
             }
         } catch (Exception exception) {
             /* empty */
@@ -3891,7 +3885,6 @@ public class CarMaker extends Applet implements Runnable, ActionListener
                 BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
                 bufferedwriter.write(string);
                 bufferedwriter.close();
-                Object object = null;
             } catch (Exception exception) {
                 /* empty */
             }
@@ -3992,11 +3985,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener
             if (string_309_.startsWith("handling(")) {
                 bool_308_ = true;
                 try {
-                    int i_314_ = getvalue("handling", string_309_, 0);
-                    //if (i_314_ > 200)
-                    //    bool_308_ = false;
-                    //if (i_314_ < 0)
-                    //    bool_308_ = false;
+                    getvalue("handling", string_309_, 0);
                 } catch (Exception exception) {
                     bool_308_ = false;
                 }
@@ -4648,7 +4637,6 @@ public class CarMaker extends Applet implements Runnable, ActionListener
             File file = new File("data/models.zip");
             ZipInputStream zipinputstream = new ZipInputStream(new FileInputStream(file));
             ZipEntry zipentry = zipinputstream.getNextEntry();
-            Object object = null;
             for (/**/; zipentry != null; zipentry = zipinputstream.getNextEntry()) {
                 int i = -1;
                 for (int i_356_ = 0; i_356_ < 16; i_356_++) {

@@ -161,7 +161,7 @@ public class Smenu
     }
     
     public void setFont(Font font) {
-	font = font;
+	//font = font;
     }
     
     public void setBackground(Color color) {

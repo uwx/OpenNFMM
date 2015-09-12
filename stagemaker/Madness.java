@@ -1,26 +1,20 @@
 package stagemaker;
 
-/* Madness - Decompiled by JODE extended
- * DragShot Software
- * JODE (c) 1998-2001 Jochen Hoenicke
- */
-import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Frame;
-import java.awt.Menu;
-import java.awt.MenuBar;
-import java.awt.MenuItem;
 import java.awt.Panel;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.net.URI;
 public class Madness extends Panel
 {
-    static Frame frame;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 2739583796811679120L;
+	static Frame frame;
     static GameSparker applet;
     static CarMaker cm;
     static StageMaker sm;

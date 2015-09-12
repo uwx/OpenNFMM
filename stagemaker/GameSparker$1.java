@@ -636,7 +636,7 @@ package stagemaker;
 /*     */   
 /*     */   public void keyPressed(KeyEvent paramKeyEvent)
 /*     */   {
-/* 637 */     //if ((paramKeyEvent.getKeyCode() == 10) && (GameSparker.class.u[0] != null)) this.this$0.u[0].enter = true;
+/* 637 */     //if ((paramKeyEvent.getKeyCode() == 10) && (GameSparker.class.u[0] != null)) this$0.u[0].enter = true;
 /*     */   }
 /*     */ }
 

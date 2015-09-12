@@ -50,7 +50,6 @@ public class Mod
             }
             LoadMod(new ByteArrayInputStream(is));
             zipinputstream.close();
-            Object object = null;
             loaded = true;
         } catch (Exception exception) {
             loaded = false;
@@ -71,7 +70,6 @@ public class Mod
             }
             LoadMod(new ByteArrayInputStream(is));
             zipinputstream.close();
-            Object object = null;
             loaded = true;
         } catch (Exception exception) {
             loaded = false;

@@ -807,8 +807,6 @@ public class Plane
 	    if (glass == 2)
 		i_98_ = 200;
 	    if (fs != 0) {
-		boolean bool_99_ = true;
-		boolean bool_100_ = true;
 		int i_101_;
 		int i_102_;
 		if (Math.abs(is_86_[0] - is_86_[1])

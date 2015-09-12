@@ -3652,7 +3652,6 @@ public class StageMaker extends Applet implements Runnable
             File file = new File("data/models.zip");
             ZipInputStream zipinputstream = new ZipInputStream(new FileInputStream(file));
             ZipEntry zipentry = zipinputstream.getNextEntry();
-            Object object = null;
             for (/**/; zipentry != null; zipentry = zipinputstream.getNextEntry()) {
                 int i = -1;
                 for (int i_176_ = 0; i_176_ < 66; i_176_++) {
@@ -4638,7 +4637,6 @@ public class StageMaker extends Applet implements Runnable
             bufferedwriter.write(tstage);
             bufferedwriter.write(bstage);
             bufferedwriter.close();
-            Object object = null;
         } catch (Exception exception) {
             JOptionPane.showMessageDialog(null, new StringBuilder().append("Unable to save file! Error Deatials:\n").append(exception).toString(), "Stage Maker", 1);
         }
@@ -4709,7 +4707,6 @@ public class StageMaker extends Applet implements Runnable
                         tnick.setText(suser);
                 }
                 bufferedreader.close();
-                Object object = null;
             }
         } catch (Exception exception) {
             /* empty */
@@ -4729,7 +4726,6 @@ public class StageMaker extends Applet implements Runnable
                 BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
                 bufferedwriter.write(string);
                 bufferedwriter.close();
-                Object object = null;
             } catch (Exception exception) {
                 /* empty */
             }

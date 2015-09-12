@@ -14,13 +14,13 @@ class MouseHandler extends MouseAdapter
     
     public MouseHandler(PopupMenu popupmenu, int i) {
         popupMenu = popupmenu;
-        this.id = i;
+        id = i;
     }
     
     public void mousePressed(MouseEvent mouseevent) {
         if (mouseevent.isPopupTrigger()) {
             popupMenu.show(mouseevent.getComponent(), mouseevent.getX(), mouseevent.getY());
-            Madness.textid = this.id;
+            Madness.textid = id;
             mouseevent.consume();
         }
     }
@@ -28,7 +28,7 @@ class MouseHandler extends MouseAdapter
     public void mouseReleased(MouseEvent mouseevent) {
         if (mouseevent.isPopupTrigger()) {
             popupMenu.show(mouseevent.getComponent(), mouseevent.getX(), mouseevent.getY());
-            Madness.textid = this.id;
+            Madness.textid = id;
             mouseevent.consume();
         }
     }

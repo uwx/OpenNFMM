@@ -296,23 +296,20 @@ public class Medium
 	if (vxz > 360)
 	    vxz -= 360;
 	xz = -vxz - 90;
-	boolean bool = false;
 	if (-y - cy < 0) {
-	    int i = -180;
 	}
-	int i
-	    = (int) Math.sqrt((double) (((trz
-					  - (long) z
-					  + (long) cz)
-					 * (trz
-					    - (long) z
-					    + (long) cz))
-					+ ((trx
-					    - (long) x
-					    - (long) cx)
-					   * (trx
-					      - (long) x
-					      - (long) cx))));
+	Math.sqrt((double) (((trz
+				  - (long) z
+				  + (long) cz)
+				 * (trz
+				    - (long) z
+				    + (long) cz))
+				+ ((trx
+				    - (long) x
+				    - (long) cx)
+				   * (trx
+				      - (long) x
+				      - (long) cx))));
 	if (cpflik)
 	    cpflik = false;
 	else
@@ -1307,14 +1304,7 @@ public class Medium
 		int[][] is_110_ = new int[3][12];
 		int[] is_111_ = new int[12];
 		int[] is_112_ = new int[12];
-		boolean bool = false;
-		boolean bool_113_ = false;
-		boolean bool_114_ = false;
-		boolean bool_115_ = false;
 		boolean bool_116_ = true;
-		boolean bool_117_ = false;
-		boolean bool_118_ = false;
-		boolean bool_119_ = false;
 		for (int i_120_ = 0; i_120_ < 3; i_120_++) {
 		    for (int i_121_ = 0; i_121_ < 12; i_121_++) {
 			is[i_120_][i_121_]
@@ -1835,10 +1825,6 @@ public class Medium
 		    zy, nmv[i_185_] * 2);
 		int[] is_196_ = new int[4];
 		int[] is_197_ = new int[4];
-		boolean bool = false;
-		boolean bool_198_ = false;
-		boolean bool_199_ = false;
-		boolean bool_200_ = false;
 		boolean bool_201_ = true;
 		for (int i_202_ = 0; i_202_ < nmv[i_185_] - 1;
 		     i_202_++) {

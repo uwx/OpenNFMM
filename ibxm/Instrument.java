@@ -12,25 +12,25 @@
 /* 12 */   public Sample[] samples = { new Sample() };
 /*    */   
 /*    */   public void toStringBuffer(StringBuffer out) {
-/* 15 */     out.append("Name: " + this.name + '\n');
-/* 16 */     if (this.numSamples > 0) {
-/* 17 */       out.append("Num Samples: " + this.numSamples + '\n');
-/* 18 */       out.append("Vibrato Type: " + this.vibratoType + '\n');
-/* 19 */       out.append("Vibrato Sweep: " + this.vibratoSweep + '\n');
-/* 20 */       out.append("Vibrato Depth: " + this.vibratoDepth + '\n');
-/* 21 */       out.append("Vibrato Rate: " + this.vibratoRate + '\n');
-/* 22 */       out.append("Volume Fade Out: " + this.volumeFadeOut + '\n');
+/* 15 */     out.append("Name: " + name + '\n');
+/* 16 */     if (numSamples > 0) {
+/* 17 */       out.append("Num Samples: " + numSamples + '\n');
+/* 18 */       out.append("Vibrato Type: " + vibratoType + '\n');
+/* 19 */       out.append("Vibrato Sweep: " + vibratoSweep + '\n');
+/* 20 */       out.append("Vibrato Depth: " + vibratoDepth + '\n');
+/* 21 */       out.append("Vibrato Rate: " + vibratoRate + '\n');
+/* 22 */       out.append("Volume Fade Out: " + volumeFadeOut + '\n');
 /* 23 */       out.append("Volume Envelope:\n");
-/* 24 */       this.volumeEnvelope.toStringBuffer(out);
+/* 24 */       volumeEnvelope.toStringBuffer(out);
 /* 25 */       out.append("Panning Envelope:\n");
-/* 26 */       this.panningEnvelope.toStringBuffer(out);
-/* 27 */       for (int samIdx = 0; samIdx < this.numSamples; samIdx++) {
+/* 26 */       panningEnvelope.toStringBuffer(out);
+/* 27 */       for (int samIdx = 0; samIdx < numSamples; samIdx++) {
 /* 28 */         out.append("Sample " + samIdx + ":\n");
-/* 29 */         this.samples[samIdx].toStringBuffer(out);
+/* 29 */         samples[samIdx].toStringBuffer(out);
 /*    */       }
 /* 31 */       out.append("Key To Sample: ");
 /* 32 */       for (int keyIdx = 1; keyIdx < 97; keyIdx++)
-/* 33 */         out.append(this.keyToSample[keyIdx] + ", ");
+/* 33 */         out.append(keyToSample[keyIdx] + ", ");
 /* 34 */       out.append('\n');
 /*    */     }
 /*    */   }

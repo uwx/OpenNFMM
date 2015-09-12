@@ -14,7 +14,11 @@ import java.awt.RenderingHints;
 
 public class update extends Applet implements Runnable
 {
-    Graphics2D rd;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -3064376056599448958L;
+	Graphics2D rd;
     FontMetrics ftm;
     Image offImage;
     Thread gamer;
@@ -172,7 +176,7 @@ public class update extends Applet implements Runnable
 	graphics.drawImage(offImage, 0, 0, this);
     }
     
-    public void update(Graphics graphics) {
+    public update(Graphics graphics) {
 	paint(graphics);
     }
 }

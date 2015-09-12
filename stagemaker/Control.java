@@ -88,134 +88,134 @@ public class Control
     int avoidnlev = 0;
     
     public Control(Medium medium) {
-        this.m = medium;
+        m = medium;
     }
     
     public void falseo(int i) {
-        this.left = false;
-        this.right = false;
-        this.up = false;
-        this.down = false;
-        this.handb = false;
-        this.lookback = 0;
-        this.enter = false;
-        this.exit = false;
+        left = false;
+        right = false;
+        up = false;
+        down = false;
+        handb = false;
+        lookback = 0;
+        enter = false;
+        exit = false;
         if (i != 1) {
-            this.arrace = false;
-            this.chatup = false;
+            arrace = false;
+            chatup = false;
             if (i != 2)
-                this.multion = 0;
+                multion = 0;
             if (i != 3) {
-                this.mutem = false;
-                this.mutes = false;
+                mutem = false;
+                mutes = false;
             }
         }
     }
     
     public void reset(CheckPoints checkpoints, int i) {
-        this.pan = 0;
-        this.attack = 0;
-        this.acr = 0;
-        this.afta = false;
-        this.trfix = 0;
-        this.acuracy = 0;
-        this.upwait = 0;
-        this.forget = false;
-        this.bulistc = false;
-        this.runbul = 0;
-        this.revstart = 0;
-        this.oupnt = 0;
-        this.gowait = false;
-        this.apunch = 0;
-        this.exitattack = false;
+        pan = 0;
+        attack = 0;
+        acr = 0;
+        afta = false;
+        trfix = 0;
+        acuracy = 0;
+        upwait = 0;
+        forget = false;
+        bulistc = false;
+        runbul = 0;
+        revstart = 0;
+        oupnt = 0;
+        gowait = false;
+        apunch = 0;
+        exitattack = false;
         if ((checkpoints).stage == 16 || (checkpoints).stage == 18)
-            this.hold = 50;
+            hold = 50;
         if ((checkpoints).stage == 17)
-            this.hold = 10;
+            hold = 10;
         if ((checkpoints).stage == 20)
-            this.hold = 30;
+            hold = 30;
         if ((checkpoints).stage == 21) {
             if (i != 13) {
-                this.hold = 35;
-                this.revstart = 25;
+                hold = 35;
+                revstart = 25;
             } else
-                this.hold = 5;
-            this.statusque = 0;
+                hold = 5;
+            statusque = 0;
         }
         if ((checkpoints).stage == 22) {
             if (i != 13) {
-                this.hold = (int) (20.0F + 10.0F * this.m.random());
-                this.revstart = (int) (10.0F + 10.0F * this.m.random());
+                hold = (int) (20.0F + 10.0F * m.random());
+                revstart = (int) (10.0F + 10.0F * m.random());
             } else
-                this.hold = 5;
-            this.statusque = 0;
+                hold = 5;
+            statusque = 0;
         }
         if ((checkpoints).stage == 24) {
-            this.hold = 30;
-            this.statusque = 0;
+            hold = 30;
+            statusque = 0;
             if (i != 14)
-                this.revstart = 1;
+                revstart = 1;
         }
         if ((checkpoints).stage == 25)
-            this.hold = 40;
+            hold = 40;
         if ((checkpoints).stage == 26)
-            this.hold = 20;
+            hold = 20;
         if ((checkpoints).stage != 19 && (checkpoints).stage != 26) {
             for (int i_0_ = 0; i_0_ < (checkpoints).fn; i_0_++) {
                 int i_1_ = -10;
                 for (int i_2_ = 0; i_2_ < (checkpoints).n; i_2_++) {
                     if (py((checkpoints).fx[i_0_] / 100, (checkpoints).x[i_2_] / 100, (checkpoints).fz[i_0_] / 100, (checkpoints).z[i_2_] / 100) < i_1_ || i_1_ == -10) {
                         i_1_ = py((checkpoints).fx[i_0_] / 100, (checkpoints).x[i_2_] / 100, (checkpoints).fz[i_0_] / 100, (checkpoints).z[i_2_] / 100);
-                        this.fpnt[i_0_] = i_2_;
+                        fpnt[i_0_] = i_2_;
                     }
                 }
             }
             for (int i_3_ = 0; i_3_ < (checkpoints).fn; i_3_++) {
-                this.fpnt[i_3_] -= 4;
-                if (this.fpnt[i_3_] < 0)
-                    this.fpnt[i_3_] += (checkpoints).nsp;
+                fpnt[i_3_] -= 4;
+                if (fpnt[i_3_] < 0)
+                    fpnt[i_3_] += (checkpoints).nsp;
             }
         } else {
             if ((checkpoints).stage == 19) {
-                this.fpnt[0] = 14;
-                this.fpnt[1] = 36;
+                fpnt[0] = 14;
+                fpnt[1] = 36;
             }
             if ((checkpoints).stage == 26)
-                this.fpnt[3] = 39;
+                fpnt[3] = 39;
         }
-        this.left = false;
-        this.right = false;
-        this.up = false;
-        this.down = false;
-        this.handb = false;
-        this.lookback = 0;
-        this.arrace = false;
-        this.mutem = false;
-        this.mutes = false;
+        left = false;
+        right = false;
+        up = false;
+        down = false;
+        handb = false;
+        lookback = 0;
+        arrace = false;
+        mutem = false;
+        mutes = false;
     }
     
     public void preform(Mad mad, ContO conto, CheckPoints checkpoints, Trackers trackers) {
-        this.left = false;
-        this.right = false;
-        this.up = false;
-        this.down = false;
-        this.handb = false;
+        left = false;
+        right = false;
+        up = false;
+        down = false;
+        handb = false;
         if (!(mad).dest) {
             if ((mad).mtouch) {
-                if (this.stcnt > this.statusque) {
+                if (stcnt > statusque) {
                     int i = (checkpoints).stage;
                     if (i > 10)
                         i -= 10;
-                    this.acuracy = (7 - (checkpoints).pos[(mad).im]) * (checkpoints).pos[0] * (6 - i * 2);
-                    if (this.acuracy < 0 || (checkpoints).stage == -1)
-                        this.acuracy = 0;
-                    this.clrnce = 5;
+                    acuracy = (7 - (checkpoints).pos[(mad).im]) * (checkpoints).pos[0] * (6 - i * 2);
+                    if (acuracy < 0 || (checkpoints).stage == -1)
+                        acuracy = 0;
+                    clrnce = 5;
                     if ((checkpoints).stage == 16 || (checkpoints).stage == 21)
-                        this.clrnce = 2;
+                        clrnce = 2;
                     if ((checkpoints).stage == 22 && ((mad).pcleared == 27 || (mad).pcleared == 17))
-                        this.clrnce = 3;
+                        clrnce = 3;
                     if ((checkpoints).stage == 26 && (mad).pcleared == 33)
-                        this.clrnce = 3;
+                        clrnce = 3;
                     float f = 0.0F;
                     if ((checkpoints).stage == 1)
                         f = 2.0F;
@@ -233,11 +233,11 @@ public class Control
                         f = 0.5F;
                     if ((checkpoints).stage == 14)
                         f = 0.5F;
-                    this.upwait = (int) ((float) (((checkpoints).pos[0] - (checkpoints).pos[(mad).im]) * ((checkpoints).pos[0] - (checkpoints).pos[(mad).im]) * ((checkpoints).pos[0] - (checkpoints).pos[(mad).im])) * f);
-                    if (this.upwait > 80)
-                        this.upwait = 80;
-                    if (((checkpoints).stage == 11 || (checkpoints).stage == 1) && this.upwait < 20)
-                        this.upwait = 20;
+                    upwait = (int) ((float) (((checkpoints).pos[0] - (checkpoints).pos[(mad).im]) * ((checkpoints).pos[0] - (checkpoints).pos[(mad).im]) * ((checkpoints).pos[0] - (checkpoints).pos[(mad).im])) * f);
+                    if (upwait > 80)
+                        upwait = 80;
+                    if (((checkpoints).stage == 11 || (checkpoints).stage == 1) && upwait < 20)
+                        upwait = 20;
                     f = 0.0F;
                     if ((checkpoints).stage == 1 || (checkpoints).stage == 2)
                         f = 1.0F;
@@ -256,103 +256,103 @@ public class Control
                     if ((checkpoints).stage == 15)
                         f = 0.2F;
                     if ((checkpoints).pos[(mad).im] - (checkpoints).pos[0] >= -1) {
-                        this.skiplev -= 0.1;
-                        if (this.skiplev < 0.0F)
-                            this.skiplev = 0.0F;
+                        skiplev -= 0.1;
+                        if (skiplev < 0.0F)
+                            skiplev = 0.0F;
                     } else {
-                        this.skiplev += 0.2;
-                        if (this.skiplev > f)
-                            this.skiplev = f;
+                        skiplev += 0.2;
+                        if (skiplev > f)
+                            skiplev = f;
                     }
                     if ((checkpoints).stage == 18) {
                         if ((mad).pcleared >= 10 && (mad).pcleared <= 24)
-                            this.skiplev = 1.0F;
+                            skiplev = 1.0F;
                         else
-                            this.skiplev = 0.0F;
+                            skiplev = 0.0F;
                     }
                     if ((checkpoints).stage == 21) {
-                        this.skiplev = 0.0F;
+                        skiplev = 0.0F;
                         if ((mad).pcleared == 5)
-                            this.skiplev = 1.0F;
+                            skiplev = 1.0F;
                         if ((mad).pcleared == 28 || (mad).pcleared == 35)
-                            this.skiplev = 0.5F;
+                            skiplev = 0.5F;
                     }
                     if ((checkpoints).stage == 23)
-                        this.skiplev = 0.5F;
+                        skiplev = 0.5F;
                     if ((checkpoints).stage == 24 || (checkpoints).stage == 22)
-                        this.skiplev = 1.0F;
+                        skiplev = 1.0F;
                     if ((checkpoints).stage == 26 || (checkpoints).stage == 25 || (checkpoints).stage == 20)
-                        this.skiplev = 0.0F;
-                    this.rampp = (int) (this.m.random() * 4.0F - 2.0F);
+                        skiplev = 0.0F;
+                    rampp = (int) (m.random() * 4.0F - 2.0F);
                     if ((mad).power == 98.0F)
-                        this.rampp = -1;
-                    if ((mad).power < 75.0F && this.rampp == -1)
-                        this.rampp = 0;
+                        rampp = -1;
+                    if ((mad).power < 75.0F && rampp == -1)
+                        rampp = 0;
                     if ((mad).power < 60.0F)
-                        this.rampp = 1;
+                        rampp = 1;
                     if ((checkpoints).stage == 6)
-                        this.rampp = 2;
+                        rampp = 2;
                     if ((checkpoints).stage == 18 && (mad).pcleared >= 45)
-                        this.rampp = 2;
+                        rampp = 2;
                     if ((checkpoints).stage == 22 && (mad).pcleared == 17)
-                        this.rampp = 2;
+                        rampp = 2;
                     if ((checkpoints).stage == 25 || (checkpoints).stage == 26)
-                        this.rampp = 0;
-                    if (this.cntrn == 0) {
-                        this.agressed = false;
-                        this.turntyp = (int) (this.m.random() * 4.0F);
+                        rampp = 0;
+                    if (cntrn == 0) {
+                        agressed = false;
+                        turntyp = (int) (m.random() * 4.0F);
                         if ((checkpoints).stage == 3 && (mad).cn == 6) {
-                            this.turntyp = 1;
-                            if (this.attack == 0)
-                                this.agressed = true;
+                            turntyp = 1;
+                            if (attack == 0)
+                                agressed = true;
                         }
                         if ((checkpoints).stage == 9 && (mad).cn == 15) {
-                            this.turntyp = 1;
-                            if (this.attack == 0)
-                                this.agressed = true;
+                            turntyp = 1;
+                            if (attack == 0)
+                                agressed = true;
                         }
                         if ((checkpoints).stage == 13 && (mad).cn == 9) {
-                            this.turntyp = 1;
-                            if (this.attack == 0)
-                                this.agressed = true;
+                            turntyp = 1;
+                            if (attack == 0)
+                                agressed = true;
                         }
                         if ((checkpoints).pos[0] - (checkpoints).pos[(mad).im] < 0)
-                            this.turntyp = (int) (this.m.random() * 2.0F);
+                            turntyp = (int) (m.random() * 2.0F);
                         if ((checkpoints).stage == 10)
-                            this.turntyp = 2;
+                            turntyp = 2;
                         if ((checkpoints).stage == 18)
-                            this.turntyp = 2;
+                            turntyp = 2;
                         if ((checkpoints).stage == 20)
-                            this.turntyp = 0;
+                            turntyp = 0;
                         if ((checkpoints).stage == 23)
-                            this.turntyp = 1;
+                            turntyp = 1;
                         if ((checkpoints).stage == 24)
-                            this.turntyp = 0;
-                        if (this.attack != 0) {
-                            this.turntyp = 2;
+                            turntyp = 0;
+                        if (attack != 0) {
+                            turntyp = 2;
                             if ((checkpoints).stage == 9 || (checkpoints).stage == 10 || (checkpoints).stage == 19 || (checkpoints).stage == 21 || (checkpoints).stage == 23 || (checkpoints).stage == 27)
-                                this.turntyp = (int) (this.m.random() * 3.0F);
+                                turntyp = (int) (m.random() * 3.0F);
                             if ((checkpoints).stage == 26 && (checkpoints).clear[(mad).im] - (checkpoints).clear[0] >= 5)
-                                this.turntyp = 0;
+                                turntyp = 0;
                         }
                         if ((checkpoints).stage == 6) {
-                            this.turntyp = 1;
-                            this.agressed = true;
+                            turntyp = 1;
+                            agressed = true;
                         }
                         if ((checkpoints).stage == 7 || (checkpoints).stage == 9 || (checkpoints).stage == 10 || (checkpoints).stage == 16 || (checkpoints).stage == 17 || (checkpoints).stage == 19 || (checkpoints).stage == 20 || (checkpoints).stage == 21 || (checkpoints).stage == 22 || (checkpoints).stage == 24 || (checkpoints).stage == 26 || (checkpoints).stage == 27)
-                            this.agressed = true;
+                            agressed = true;
                         if ((checkpoints).stage == -1) {
-                            if (this.m.random() > this.m.random())
-                                this.agressed = true;
+                            if (m.random() > m.random())
+                                agressed = true;
                             else
-                                this.agressed = false;
+                                agressed = false;
                         }
-                        this.cntrn = 5;
+                        cntrn = 5;
                     } else
-                        this.cntrn--;
-                    this.saftey = (int) ((double) ((98.0F - (mad).power) / 2.0F) * ((double) (this.m.random() / 2.0F) + 0.5));
-                    if (this.saftey > 20)
-                        this.saftey = 20;
+                        cntrn--;
+                    saftey = (int) ((double) ((98.0F - (mad).power) / 2.0F) * ((double) (m.random() / 2.0F) + 0.5));
+                    if (saftey > 20)
+                        saftey = 20;
                     f = 0.0F;
                     if ((checkpoints).stage == 1 || (checkpoints).stage == 11)
                         f = 0.9F;
@@ -360,7 +360,7 @@ public class Control
                         f = 0.7F;
                     if ((checkpoints).stage == 4 || (checkpoints).stage == 13)
                         f = 0.4F;
-                    this.mustland = f + (float) ((double) (this.m.random() / 2.0F) - 0.25);
+                    mustland = f + (float) ((double) (m.random() / 2.0F) - 0.25);
                     f = 1.0F;
                     if ((checkpoints).stage == 1 || (checkpoints).stage == 11)
                         f = 5.0F;
@@ -370,109 +370,109 @@ public class Control
                         f = 1.5F;
                     if ((mad).power > 50.0F) {
                         if ((checkpoints).pos[0] - (checkpoints).pos[(mad).im] > 0)
-                            this.saftey *= f;
+                            saftey *= f;
                         else
-                            this.mustland = 0.0F;
+                            mustland = 0.0F;
                     } else
-                        this.mustland -= 0.5F;
+                        mustland -= 0.5F;
                     if ((checkpoints).stage == 18 || (checkpoints).stage == 20 || (checkpoints).stage == 22 || (checkpoints).stage == 24)
-                        this.mustland = 0.0F;
-                    this.stuntf = 0;
+                        mustland = 0.0F;
+                    stuntf = 0;
                     if ((checkpoints).stage == 8)
-                        this.stuntf = 17;
+                        stuntf = 17;
                     if ((checkpoints).stage == 18 && (mad).pcleared == 57)
-                        this.stuntf = 1;
+                        stuntf = 1;
                     if ((checkpoints).stage == 19 && (mad).pcleared == 3)
-                        this.stuntf = 2;
+                        stuntf = 2;
                     if ((checkpoints).stage == 20) {
                         if ((checkpoints).pos[0] < (checkpoints).pos[(mad).im] || Math.abs((checkpoints).clear[0] - (mad).clear) >= 2 || (mad).clear < 2) {
-                            this.stuntf = 4;
-                            this.saftey = 10;
+                            stuntf = 4;
+                            saftey = 10;
                         } else
-                            this.stuntf = 3;
+                            stuntf = 3;
                     }
                     if ((checkpoints).stage == 21 && (mad).pcleared == 21)
-                        this.stuntf = 1;
+                        stuntf = 1;
                     if ((checkpoints).stage == 24) {
-                        this.saftey = 10;
+                        saftey = 10;
                         if ((mad).pcleared >= 4 && (mad).pcleared < 70)
-                            this.stuntf = 4;
+                            stuntf = 4;
                         else if ((mad).cn == 12 || (mad).cn == 8)
-                            this.stuntf = 2;
+                            stuntf = 2;
                         if ((mad).cn == 14)
-                            this.stuntf = 6;
+                            stuntf = 6;
                     }
                     if ((checkpoints).stage == 26) {
-                        this.mustland = 0.0F;
-                        this.saftey = 10;
-                        if (((mad).pcleared == 15 || (mad).pcleared == 51) && ((double) this.m.random() > 0.4 || this.trfix != 0))
-                            this.stuntf = 7;
+                        mustland = 0.0F;
+                        saftey = 10;
+                        if (((mad).pcleared == 15 || (mad).pcleared == 51) && ((double) m.random() > 0.4 || trfix != 0))
+                            stuntf = 7;
                         if ((mad).pcleared == 42)
-                            this.stuntf = 1;
+                            stuntf = 1;
                         if ((mad).pcleared == 77)
-                            this.stuntf = 7;
-                        this.avoidnlev = (int) (2700.0F * this.m.random());
+                            stuntf = 7;
+                        avoidnlev = (int) (2700.0F * m.random());
                     }
-                    this.trickprf = ((mad).power - 38.0F) / 50.0F - this.m.random() / 2.0F;
+                    trickprf = ((mad).power - 38.0F) / 50.0F - m.random() / 2.0F;
                     if ((mad).power < 60.0F)
-                        this.trickprf = -1.0F;
-                    if ((checkpoints).stage == 6 && (double) this.trickprf > 0.5)
-                        this.trickprf = 0.5F;
-                    if ((checkpoints).stage == 3 && (mad).cn == 6 && (double) this.trickprf > 0.7)
-                        this.trickprf = 0.7F;
-                    if ((checkpoints).stage == 13 && (mad).cn == 9 && (double) this.trickprf > 0.7)
-                        this.trickprf = 0.7F;
-                    if ((checkpoints).stage == 16 && (double) this.trickprf > 0.3)
-                        this.trickprf = 0.3F;
-                    if ((checkpoints).stage == 18 && (double) this.trickprf > 0.2)
-                        this.trickprf = 0.2F;
+                        trickprf = -1.0F;
+                    if ((checkpoints).stage == 6 && (double) trickprf > 0.5)
+                        trickprf = 0.5F;
+                    if ((checkpoints).stage == 3 && (mad).cn == 6 && (double) trickprf > 0.7)
+                        trickprf = 0.7F;
+                    if ((checkpoints).stage == 13 && (mad).cn == 9 && (double) trickprf > 0.7)
+                        trickprf = 0.7F;
+                    if ((checkpoints).stage == 16 && (double) trickprf > 0.3)
+                        trickprf = 0.3F;
+                    if ((checkpoints).stage == 18 && (double) trickprf > 0.2)
+                        trickprf = 0.2F;
                     if ((checkpoints).stage == 19) {
-                        if ((double) this.trickprf > 0.5)
-                            this.trickprf = 0.5F;
-                        if (((mad).im == 6 || (mad).im == 5) && (double) this.trickprf > 0.3)
-                            this.trickprf = 0.3F;
+                        if ((double) trickprf > 0.5)
+                            trickprf = 0.5F;
+                        if (((mad).im == 6 || (mad).im == 5) && (double) trickprf > 0.3)
+                            trickprf = 0.3F;
                     }
-                    if ((checkpoints).stage == 21 && this.trickprf != -1.0F)
-                        this.trickprf *= 0.75F;
+                    if ((checkpoints).stage == 21 && trickprf != -1.0F)
+                        trickprf *= 0.75F;
                     if ((checkpoints).stage == 22 && ((mad).pcleared == 55 || (mad).pcleared == 7)) {
-                        this.trickprf = -1.0F;
-                        this.stuntf = 5;
+                        trickprf = -1.0F;
+                        stuntf = 5;
                     }
-                    if ((checkpoints).stage == 23 && (double) this.trickprf > 0.4)
-                        this.trickprf = 0.4F;
-                    if ((checkpoints).stage == 24 && (double) this.trickprf > 0.5)
-                        this.trickprf = 0.5F;
+                    if ((checkpoints).stage == 23 && (double) trickprf > 0.4)
+                        trickprf = 0.4F;
+                    if ((checkpoints).stage == 24 && (double) trickprf > 0.5)
+                        trickprf = 0.5F;
                     if ((checkpoints).stage == 27)
-                        this.trickprf = -1.0F;
-                    if (this.m.random() > (mad).power / 100.0F)
-                        this.usebounce = true;
+                        trickprf = -1.0F;
+                    if (m.random() > (mad).power / 100.0F)
+                        usebounce = true;
                     else
-                        this.usebounce = false;
+                        usebounce = false;
                     if ((checkpoints).stage == 9)
-                        this.usebounce = false;
+                        usebounce = false;
                     if ((checkpoints).stage == 14 || (checkpoints).stage == 16)
-                        this.usebounce = true;
+                        usebounce = true;
                     if ((checkpoints).stage == 20 || (checkpoints).stage == 24)
-                        this.usebounce = false;
-                    if (this.m.random() > (float) (mad).hitmag / (float) ((mad).cd).maxmag[(mad).cn])
-                        this.perfection = false;
+                        usebounce = false;
+                    if (m.random() > (float) (mad).hitmag / (float) ((mad).cd).maxmag[(mad).cn])
+                        perfection = false;
                     else
-                        this.perfection = true;
+                        perfection = true;
                     if (100.0F * (float) (mad).hitmag / (float) ((mad).cd).maxmag[(mad).cn] > 60.0F)
-                        this.perfection = true;
+                        perfection = true;
                     if ((checkpoints).stage == 3 && (mad).cn == 6)
-                        this.perfection = true;
+                        perfection = true;
                     if ((checkpoints).stage == 6 || (checkpoints).stage == 8 || (checkpoints).stage == 9 || (checkpoints).stage == 10 || (checkpoints).stage == 16 || (checkpoints).stage == 18 || (checkpoints).stage == 19 || (checkpoints).stage == 20 || (checkpoints).stage == 21 || (checkpoints).stage == 22 || (checkpoints).stage == 24 || (checkpoints).stage == 26 || (checkpoints).stage == 27)
-                        this.perfection = true;
-                    if (this.attack == 0) {
+                        perfection = true;
+                    if (attack == 0) {
                         boolean bool = true;
                         if ((checkpoints).stage == 3 || (checkpoints).stage == 1 || (checkpoints).stage == 4 || (checkpoints).stage == 9 || (checkpoints).stage == 13 || (checkpoints).stage == 11 || (checkpoints).stage == 14 || (checkpoints).stage == 19 || (checkpoints).stage == 23 || (checkpoints).stage == 26)
-                            bool = this.afta;
+                            bool = afta;
                         if ((checkpoints).stage == 8 || (checkpoints).stage == 6 || (checkpoints).stage == 18 || (checkpoints).stage == 16 || (checkpoints).stage == 20 || (checkpoints).stage == 24)
                             bool = false;
                         if ((checkpoints).stage == 3 && (mad).cn == 6)
                             bool = false;
-                        if ((checkpoints).stage == -1 && this.m.random() > this.m.random())
+                        if ((checkpoints).stage == -1 && m.random() > m.random())
                             bool = false;
                         boolean bool_4_ = false;
                         if ((checkpoints).stage == 13 && (mad).cn == 9)
@@ -488,9 +488,9 @@ public class Control
                         int i_5_ = 60;
                         if ((checkpoints).stage == 5)
                             i_5_ = 40;
-                        if ((checkpoints).stage == 6 && this.bulistc)
+                        if ((checkpoints).stage == 6 && bulistc)
                             i_5_ = 40;
-                        if ((checkpoints).stage == 9 && this.bulistc)
+                        if ((checkpoints).stage == 9 && bulistc)
                             i_5_ = 30;
                         if ((checkpoints).stage == 3 || (checkpoints).stage == 13 || (checkpoints).stage == 21 || (checkpoints).stage == 27 || (checkpoints).stage == 20 || (checkpoints).stage == 18)
                             i_5_ = 30;
@@ -506,11 +506,11 @@ public class Control
                             i_5_ = 40;
                         if ((checkpoints).stage == 19 && bool_4_)
                             i_5_ = 30;
-                        if ((checkpoints).stage == 21 && this.bulistc)
+                        if ((checkpoints).stage == 21 && bulistc)
                             i_5_ = 30;
                         if ((checkpoints).stage == 22)
                             i_5_ = 50;
-                        if ((checkpoints).stage == 25 && this.bulistc)
+                        if ((checkpoints).stage == 25 && bulistc)
                             i_5_ = 40;
                         if ((checkpoints).stage == 26) {
                             if ((mad).cn == 11 && (checkpoints).clear[0] == 27)
@@ -525,7 +525,7 @@ public class Control
                         for (int i_6_ = 0; i_6_ < 7; i_6_++) {
                             if (i_6_ != (mad).im && (checkpoints).clear[i_6_] != -1) {
                                 int i_7_ = (conto).xz;
-                                if (this.zyinv)
+                                if (zyinv)
                                     i_7_ += 180;
                                 for (/**/; i_7_ < 0; i_7_ += 360) {
                                     /* empty */
@@ -547,7 +547,7 @@ public class Control
                                 if (i_10_ > 180)
                                     i_10_ = Math.abs(i_10_ - 360);
                                 int i_11_ = 2000 * (Math.abs((checkpoints).clear[i_6_] - (mad).clear) + 1);
-                                if (((checkpoints).stage == 6 || (checkpoints).stage == 9) && this.bulistc)
+                                if (((checkpoints).stage == 6 || (checkpoints).stage == 9) && bulistc)
                                     i_11_ = 6000;
                                 if ((checkpoints).stage == 3 && (mad).cn == 6 && (checkpoints).wasted < 2 && i_11_ > 4000)
                                     i_11_ = 4000;
@@ -563,14 +563,14 @@ public class Control
                                 if ((checkpoints).stage == 19 && ((mad).pcleared == 13 || (mad).pcleared == 33 || bool_4_) && i_11_ < 12000)
                                     i_11_ = 12000;
                                 if ((checkpoints).stage == 21) {
-                                    if (this.bulistc) {
+                                    if (bulistc) {
                                         i_11_ = 8000;
                                         i_10_ = 10;
-                                        this.afta = true;
+                                        afta = true;
                                     } else if (i_11_ < 6000)
                                         i_11_ = 6000;
                                 }
-                                if ((checkpoints).stage == 22 && this.bulistc) {
+                                if ((checkpoints).stage == 22 && bulistc) {
                                     i_11_ = 6000;
                                     i_10_ = 10;
                                 }
@@ -578,7 +578,7 @@ public class Control
                                     i_11_ = 21000;
                                 if ((checkpoints).stage == 25) {
                                     i_11_ *= Math.abs((checkpoints).clear[i_6_] - (mad).clear) + 1;
-                                    if (this.bulistc) {
+                                    if (bulistc) {
                                         i_11_ = 4000 * (Math.abs((checkpoints).clear[i_6_] - (mad).clear) + 1);
                                         i_10_ = 10;
                                     }
@@ -586,12 +586,12 @@ public class Control
                                 if ((checkpoints).stage == 20)
                                     i_11_ = 16000;
                                 if ((checkpoints).stage == 26) {
-                                    if ((mad).cn == 13 && this.bulistc) {
-                                        if (this.oupnt == 33)
+                                    if ((mad).cn == 13 && bulistc) {
+                                        if (oupnt == 33)
                                             i_11_ = 17000;
-                                        if (this.oupnt == 51)
+                                        if (oupnt == 51)
                                             i_11_ = 30000;
-                                        if (this.oupnt == 15 && (checkpoints).clear[0] >= 14)
+                                        if (oupnt == 15 && (checkpoints).clear[0] >= 14)
                                             i_11_ = 60000;
                                         i_10_ = 10;
                                     }
@@ -605,7 +605,7 @@ public class Control
                                     i_12_ = 45;
                                 if ((checkpoints).stage == 26 && ((mad).cn == 15 || (mad).cn == 9 || (mad).cn == 11 || (mad).cn == 14))
                                     i_12_ = 50 + 70 * Math.abs((checkpoints).clear[i_6_] - (mad).clear);
-                                if (i_10_ < i_12_ && py((conto).x / 100, (checkpoints).opx[i_6_] / 100, (conto).z / 100, (checkpoints).opz[i_6_] / 100) < i_11_ && this.afta && (mad).power > (float) i_5_) {
+                                if (i_10_ < i_12_ && py((conto).x / 100, (checkpoints).opx[i_6_] / 100, (conto).z / 100, (checkpoints).opz[i_6_] / 100) < i_11_ && afta && (mad).power > (float) i_5_) {
                                     float f_13_ = (float) (35 - Math.abs((checkpoints).clear[i_6_] - (mad).clear) * 10);
                                     if (f_13_ < 1.0F)
                                         f_13_ = 1.0F;
@@ -626,17 +626,17 @@ public class Control
                                         f_14_ = 0.0F;
                                     if ((checkpoints).stage == 6) {
                                         f_14_ = 0.0F;
-                                        if (this.bulistc && i_6_ == 0)
+                                        if (bulistc && i_6_ == 0)
                                             f_14_ = 1.0F;
                                     }
                                     if ((checkpoints).stage == 8) {
                                         f_14_ = 0.0F;
-                                        if (this.bulistc && (mad).cn != 11 && (mad).cn != 13)
+                                        if (bulistc && (mad).cn != 11 && (mad).cn != 13)
                                             f_14_ = 1.0F;
                                     }
                                     if ((checkpoints).stage == 9 && (mad).cn == 15)
                                         f_14_ = 0.0F;
-                                    if ((checkpoints).stage == 9 && this.bulistc) {
+                                    if ((checkpoints).stage == 9 && bulistc) {
                                         if (i_6_ == 0)
                                             f_14_ = 1.0F;
                                         else
@@ -645,7 +645,7 @@ public class Control
                                     if ((checkpoints).stage == 9 && ((checkpoints).pos[i_6_] == 4 || (checkpoints).pos[i_6_] == 3))
                                         f_14_ = 0.0F;
                                     if ((checkpoints).stage == 13) {
-                                        if ((mad).cn == 9 || (mad).cn == 13 && this.bulistc)
+                                        if ((mad).cn == 9 || (mad).cn == 13 && bulistc)
                                             f_14_ *= 2.0F;
                                         else
                                             f_14_ *= 0.5F;
@@ -655,7 +655,7 @@ public class Control
                                     if ((checkpoints).stage == 17 && (mad).im == 6 && i_6_ == 0)
                                         f_14_ *= 1.5;
                                     if ((checkpoints).stage == 18) {
-                                        if ((mad).cn == 11 || (mad).cn == 13 && this.bulistc)
+                                        if ((mad).cn == 11 || (mad).cn == 13 && bulistc)
                                             f_14_ *= 1.5F;
                                         else
                                             f_14_ = 0.0F;
@@ -670,10 +670,10 @@ public class Control
                                     }
                                     if ((checkpoints).stage == 20) {
                                         f_14_ = 0.0F;
-                                        if (this.bulistc && (mad).cn != 11 && (mad).cn != 13)
+                                        if (bulistc && (mad).cn != 11 && (mad).cn != 13)
                                             f_14_ = 1.0F;
                                     }
-                                    if ((checkpoints).stage == 21 && this.bulistc && i_6_ == 0)
+                                    if ((checkpoints).stage == 21 && bulistc && i_6_ == 0)
                                         f_14_ = 1.0F;
                                     if ((checkpoints).stage == 22) {
                                         if ((mad).cn != 11 && (mad).cn != 13)
@@ -688,7 +688,7 @@ public class Control
                                             f_14_ *= 0.5;
                                         if ((checkpoints).pos[0] < (checkpoints).pos[(mad).im])
                                             f_14_ *= 2.0F;
-                                        if (this.bulistc && i_6_ == 0)
+                                        if (bulistc && i_6_ == 0)
                                             f_14_ = 1.0F;
                                     }
                                     if ((checkpoints).stage == 26) {
@@ -706,70 +706,70 @@ public class Control
                                         if ((mad).cn == 10 || (mad).cn == 12)
                                             f_14_ = 0.0F;
                                     }
-                                    if (this.m.random() < f_14_) {
-                                        this.attack = 40 * (Math.abs((checkpoints).clear[i_6_] - (mad).clear) + 1);
-                                        if (this.attack > 500)
-                                            this.attack = 500;
-                                        this.aim = 0.0F;
-                                        if ((checkpoints).stage == 13 && (mad).cn == 9 && this.m.random() > this.m.random())
-                                            this.aim = 1.0F;
+                                    if (m.random() < f_14_) {
+                                        attack = 40 * (Math.abs((checkpoints).clear[i_6_] - (mad).clear) + 1);
+                                        if (attack > 500)
+                                            attack = 500;
+                                        aim = 0.0F;
+                                        if ((checkpoints).stage == 13 && (mad).cn == 9 && m.random() > m.random())
+                                            aim = 1.0F;
                                         if ((checkpoints).stage == 14) {
                                             if (i_6_ == 0 && (checkpoints).pos[0] < (checkpoints).pos[(mad).im])
-                                                this.aim = 1.5F;
+                                                aim = 1.5F;
                                             else
-                                                this.aim = this.m.random();
+                                                aim = m.random();
                                         }
                                         if ((checkpoints).stage == 15)
-                                            this.aim = this.m.random() * 1.5F;
-                                        if ((checkpoints).stage == 17 && (mad).im != 6 && (this.m.random() > this.m.random() || (checkpoints).pos[0] < (checkpoints).pos[(mad).im]))
-                                            this.aim = 1.0F;
-                                        if ((checkpoints).stage == 18 && (mad).cn == 11 && this.m.random() > this.m.random())
-                                            this.aim = 0.76F + this.m.random() * 0.76F;
+                                            aim = m.random() * 1.5F;
+                                        if ((checkpoints).stage == 17 && (mad).im != 6 && (m.random() > m.random() || (checkpoints).pos[0] < (checkpoints).pos[(mad).im]))
+                                            aim = 1.0F;
+                                        if ((checkpoints).stage == 18 && (mad).cn == 11 && m.random() > m.random())
+                                            aim = 0.76F + m.random() * 0.76F;
                                         if ((checkpoints).stage == 19 && ((mad).pcleared == 13 || (mad).pcleared == 33))
-                                            this.aim = 1.0F;
+                                            aim = 1.0F;
                                         if ((checkpoints).stage == 21) {
-                                            if (this.bulistc) {
-                                                this.aim = 0.7F;
-                                                if (this.attack > 150)
-                                                    this.attack = 150;
+                                            if (bulistc) {
+                                                aim = 0.7F;
+                                                if (attack > 150)
+                                                    attack = 150;
                                             } else
-                                                this.aim = this.m.random();
+                                                aim = m.random();
                                         }
                                         if ((checkpoints).stage == 22) {
-                                            if (this.m.random() > this.m.random())
-                                                this.aim = 0.7F;
-                                            if (this.bulistc && this.attack > 150)
-                                                this.attack = 150;
+                                            if (m.random() > m.random())
+                                                aim = 0.7F;
+                                            if (bulistc && attack > 150)
+                                                attack = 150;
                                         }
-                                        if ((checkpoints).stage == 23 && this.attack > 60)
-                                            this.attack = 60;
+                                        if ((checkpoints).stage == 23 && attack > 60)
+                                            attack = 60;
                                         if ((checkpoints).stage == 25) {
-                                            this.aim = this.m.random() * 1.5F;
-                                            this.attack = this.attack / 2;
-                                            if (this.m.random() > this.m.random())
-                                                this.exitattack = true;
+                                            aim = m.random() * 1.5F;
+                                            attack = attack / 2;
+                                            if (m.random() > m.random())
+                                                exitattack = true;
                                             else
-                                                this.exitattack = false;
+                                                exitattack = false;
                                         }
                                         if ((checkpoints).stage == 26) {
                                             if ((mad).cn == 13) {
-                                                this.aim = 0.76F;
-                                                this.attack = 150;
+                                                aim = 0.76F;
+                                                attack = 150;
                                             } else {
-                                                this.aim = this.m.random() * 1.5F;
+                                                aim = m.random() * 1.5F;
                                                 if (Math.abs((checkpoints).clear[i_6_] - (mad).clear) <= 2 || (mad).cn == 14)
-                                                    this.attack = this.attack / 3;
+                                                    attack = attack / 3;
                                             }
                                         }
-                                        if ((checkpoints).stage == -1 && this.m.random() > this.m.random())
-                                            this.aim = this.m.random() * 1.5F;
-                                        this.acr = i_6_;
-                                        this.turntyp = (int) (1.0F + this.m.random() * 2.0F);
+                                        if ((checkpoints).stage == -1 && m.random() > m.random())
+                                            aim = m.random() * 1.5F;
+                                        acr = i_6_;
+                                        turntyp = (int) (1.0F + m.random() * 2.0F);
                                     }
                                 }
-                                if (bool && i_10_ > 100 && py((conto).x / 100, (checkpoints).opx[i_6_] / 100, (conto).z / 100, (checkpoints).opz[i_6_] / 100) < 300 && (double) this.m.random() > 0.6 - (double) ((float) (checkpoints).pos[(mad).im] / 10.0F)) {
-                                    this.clrnce = 0;
-                                    this.acuracy = 0;
+                                if (bool && i_10_ > 100 && py((conto).x / 100, (checkpoints).opx[i_6_] / 100, (conto).z / 100, (checkpoints).opz[i_6_] / 100) < 300 && (double) m.random() > 0.6 - (double) ((float) (checkpoints).pos[(mad).im] / 10.0F)) {
+                                    clrnce = 0;
+                                    acuracy = 0;
                                 }
                             }
                         }
@@ -783,15 +783,15 @@ public class Control
                         bool = true;
                     if ((checkpoints).stage == 18 && (mad).pcleared != 73)
                         bool = true;
-                    if ((checkpoints).stage == -1 && this.m.random() > this.m.random())
+                    if ((checkpoints).stage == -1 && m.random() > m.random())
                         bool = true;
-                    if (this.trfix != 3) {
-                        this.trfix = 0;
+                    if (trfix != 3) {
+                        trfix = 0;
                         int i_15_ = 50;
                         if ((checkpoints).stage == 26)
                             i_15_ = 40;
                         if (100.0F * (float) (mad).hitmag / (float) ((mad).cd).maxmag[(mad).cn] > (float) i_15_)
-                            this.trfix = 1;
+                            trfix = 1;
                         if (!bool) {
                             int i_16_ = 80;
                             if ((checkpoints).stage == 18 && (mad).cn != 11)
@@ -803,83 +803,83 @@ public class Control
                             if ((checkpoints).stage == 26 && (checkpoints).clear[(mad).im] - (checkpoints).clear[0] >= 5 && (mad).cn != 10 && (mad).cn != 12)
                                 i_16_ = 50;
                             if (100.0F * (float) (mad).hitmag / (float) ((mad).cd).maxmag[(mad).cn] > (float) i_16_)
-                                this.trfix = 2;
+                                trfix = 2;
                         }
                     } else {
-                        this.upwait = 0;
-                        this.acuracy = 0;
-                        this.skiplev = 1.0F;
-                        this.clrnce = 2;
+                        upwait = 0;
+                        acuracy = 0;
+                        skiplev = 1.0F;
+                        clrnce = 2;
                     }
-                    if (!this.bulistc) {
+                    if (!bulistc) {
                         if ((checkpoints).stage == 18 && (mad).cn == 11 && (mad).pcleared == 35) {
                             (mad).pcleared = 73;
                             (mad).clear = 0;
-                            this.bulistc = true;
-                            this.runbul = (int) (100.0F * this.m.random());
+                            bulistc = true;
+                            runbul = (int) (100.0F * m.random());
                         }
                         if ((checkpoints).stage == 21 && (mad).cn == 13)
-                            this.bulistc = true;
+                            bulistc = true;
                         if ((checkpoints).stage == 22 && (mad).cn == 13)
-                            this.bulistc = true;
-                        if ((checkpoints).stage == 25 && (checkpoints).clear[0] - (mad).clear >= 3 && this.trfix == 0) {
-                            this.bulistc = true;
-                            this.oupnt = -1;
+                            bulistc = true;
+                        if ((checkpoints).stage == 25 && (checkpoints).clear[0] - (mad).clear >= 3 && trfix == 0) {
+                            bulistc = true;
+                            oupnt = -1;
                         }
                         if ((checkpoints).stage == 26) {
                             if ((mad).cn == 13 && (checkpoints).pcleared == 8) {
-                                this.bulistc = true;
-                                this.attack = 0;
+                                bulistc = true;
+                                attack = 0;
                             }
-                            if ((mad).cn == 11 && (checkpoints).clear[0] - (mad).clear >= 2 && this.trfix == 0) {
-                                this.bulistc = true;
-                                this.oupnt = -1;
+                            if ((mad).cn == 11 && (checkpoints).clear[0] - (mad).clear >= 2 && trfix == 0) {
+                                bulistc = true;
+                                oupnt = -1;
                             }
                         }
                         if (((checkpoints).stage == 6 || (checkpoints).stage == 8 || (checkpoints).stage == 12 || (checkpoints).stage == 13 || (checkpoints).stage == 14 || (checkpoints).stage == 15 || (checkpoints).stage == 18 || (checkpoints).stage == 20 || (checkpoints).stage == 23) && (mad).cn == 13 && Math.abs((checkpoints).clear[0] - (mad).clear) >= 2)
-                            this.bulistc = true;
+                            bulistc = true;
                         if (((checkpoints).stage == 8 || (checkpoints).stage == 20) && (mad).cn == 11 && Math.abs((checkpoints).clear[0] - (mad).clear) >= 1)
-                            this.bulistc = true;
+                            bulistc = true;
                         if ((checkpoints).stage == 6 && (mad).cn == 11)
-                            this.bulistc = true;
-                        if ((checkpoints).stage == 9 && this.afta && ((checkpoints).pos[(mad).im] == 4 || (checkpoints).pos[(mad).im] == 3) && (mad).cn != 15 && this.trfix != 0)
-                            this.bulistc = true;
+                            bulistc = true;
+                        if ((checkpoints).stage == 9 && afta && ((checkpoints).pos[(mad).im] == 4 || (checkpoints).pos[(mad).im] == 3) && (mad).cn != 15 && trfix != 0)
+                            bulistc = true;
                     } else if ((checkpoints).stage == 18) {
-                        this.runbul--;
+                        runbul--;
                         if ((mad).pcleared == 10)
-                            this.runbul = 0;
-                        if (this.runbul <= 0)
-                            this.bulistc = false;
+                            runbul = 0;
+                        if (runbul <= 0)
+                            bulistc = false;
                     }
-                    this.stcnt = 0;
-                    this.statusque = (int) (20.0F * this.m.random());
+                    stcnt = 0;
+                    statusque = (int) (20.0F * m.random());
                 } else
-                    this.stcnt++;
+                    stcnt++;
             }
             boolean bool = false;
-            if (this.usebounce)
+            if (usebounce)
                 bool = (mad).wtouch;
             else
                 bool = (mad).mtouch;
             if (bool) {
-                if (this.trickfase != 0)
-                    this.trickfase = 0;
-                if (this.trfix == 2 || this.trfix == 3)
-                    this.attack = 0;
-                if (this.attack == 0) {
-                    if (this.upcnt < 30) {
-                        if (this.revstart <= 0)
-                            this.up = true;
+                if (trickfase != 0)
+                    trickfase = 0;
+                if (trfix == 2 || trfix == 3)
+                    attack = 0;
+                if (attack == 0) {
+                    if (upcnt < 30) {
+                        if (revstart <= 0)
+                            up = true;
                         else {
-                            this.down = true;
-                            this.revstart--;
+                            down = true;
+                            revstart--;
                         }
                     }
-                    if (this.upcnt < 25 + this.actwait)
-                        this.upcnt++;
+                    if (upcnt < 25 + actwait)
+                        upcnt++;
                     else {
-                        this.upcnt = 0;
-                        this.actwait = this.upwait;
+                        upcnt = 0;
+                        actwait = upwait;
                     }
                     int i = (mad).point;
                     int i_17_ = 50;
@@ -891,17 +891,17 @@ public class Control
                         i_17_ = 40;
                     if ((checkpoints).stage == 26)
                         i_17_ = 20;
-                    if (!this.bulistc || this.trfix == 2 || this.trfix == 3 || this.trfix == 4 || (mad).power < (float) i_17_) {
-                        if (this.rampp == 1 && (checkpoints).typ[i] <= 0) {
+                    if (!bulistc || trfix == 2 || trfix == 3 || trfix == 4 || (mad).power < (float) i_17_) {
+                        if (rampp == 1 && (checkpoints).typ[i] <= 0) {
                             int i_18_ = i + 1;
                             if (i_18_ >= (checkpoints).n)
                                 i_18_ = 0;
                             if ((checkpoints).typ[i_18_] == -2)
                                 i = i_18_;
                         }
-                        if (this.rampp == -1 && (checkpoints).typ[i] == -2 && ++i >= (checkpoints).n)
+                        if (rampp == -1 && (checkpoints).typ[i] == -2 && ++i >= (checkpoints).n)
                             i = 0;
-                        if (this.m.random() > this.skiplev) {
+                        if (m.random() > skiplev) {
                             int i_19_ = i;
                             boolean bool_20_ = false;
                             if ((checkpoints).typ[i_19_] > 0) {
@@ -926,18 +926,18 @@ public class Control
                                     bool_20_ = (mad).clear != i_23_ + (mad).nlaps * (checkpoints).nsp;
                                 }
                             }
-                        } else if (this.m.random() > this.skiplev) {
+                        } else if (m.random() > skiplev) {
                             while ((checkpoints).typ[i] == -1) {
                                 if (++i >= (checkpoints).n)
                                     i = 0;
                             }
                         }
-                        if ((checkpoints).stage == 18 && (mad).pcleared == 73 && this.trfix == 0 && (mad).clear != 0)
+                        if ((checkpoints).stage == 18 && (mad).pcleared == 73 && trfix == 0 && (mad).clear != 0)
                             i = 10;
-                        if ((checkpoints).stage == 19 && (mad).pcleared == 18 && this.trfix == 0)
+                        if ((checkpoints).stage == 19 && (mad).pcleared == 18 && trfix == 0)
                             i = 27;
                         if ((checkpoints).stage == 21) {
-                            if ((mad).pcleared == 5 && this.trfix == 0 && (mad).power < 70.0F) {
+                            if ((mad).pcleared == 5 && trfix == 0 && (mad).power < 70.0F) {
                                 if (i <= 16)
                                     i = 16;
                                 else
@@ -969,10 +969,10 @@ public class Control
                                         i = 0;
                                 }
                             }
-                            if (this.oupnt >= 68)
+                            if (oupnt >= 68)
                                 i = 70;
                             else
-                                this.oupnt = i;
+                                oupnt = i;
                         }
                         if ((checkpoints).stage == 25) {
                             if ((mad).pcleared != 91 && (checkpoints).pos[0] < (checkpoints).pos[(mad).im] && (mad).cn != 13 || (checkpoints).pos[(mad).im] == 0 && ((mad).clear == 12 || (mad).clear == 20)) {
@@ -983,20 +983,20 @@ public class Control
                             }
                             if ((mad).pcleared == 9) {
                                 if (py((conto).x / 100, 297, (conto).z / 100, 347) < 400)
-                                    this.oupnt = 1;
-                                if (this.oupnt == 1 && i < 22)
+                                    oupnt = 1;
+                                if (oupnt == 1 && i < 22)
                                     i = 22;
                             }
                             if ((mad).pcleared == 67) {
                                 if (py((conto).x / 100, 28, (conto).z / 100, 494) < 4000)
-                                    this.oupnt = 2;
-                                if (this.oupnt == 2)
+                                    oupnt = 2;
+                                if (oupnt == 2)
                                     i = 76;
                             }
                             if ((mad).pcleared == 76) {
                                 if (py((conto).x / 100, -50, (conto).z / 100, 0) < 2000)
-                                    this.oupnt = 3;
-                                if (this.oupnt == 3)
+                                    oupnt = 3;
+                                if (oupnt == 3)
                                     i = 91;
                                 else
                                     i = 89;
@@ -1005,73 +1005,73 @@ public class Control
                         if ((checkpoints).stage == 26) {
                             if ((mad).pcleared == 128) {
                                 if (py((conto).x / 100, 0, (conto).z / 100, 229) < 1500 || (conto).z > 23000)
-                                    this.oupnt = 128;
-                                if (this.oupnt != 128)
+                                    oupnt = 128;
+                                if (oupnt != 128)
                                     i = 3;
                             }
                             if ((mad).pcleared == 8) {
                                 if (py((conto).x / 100, -207, (conto).z / 100, 549) < 1500 || (conto).x < -20700)
-                                    this.oupnt = 8;
-                                if (this.oupnt != 8)
+                                    oupnt = 8;
+                                if (oupnt != 8)
                                     i = 12;
                             }
                             if ((mad).pcleared == 33) {
                                 if (py((conto).x / 100, -60, (conto).z / 100, 168) < 250 || (conto).z > 17000)
-                                    this.oupnt = 331;
+                                    oupnt = 331;
                                 if (py((conto).x / 100, -112, (conto).z / 100, 414) < 10000 || (conto).z > 40000)
-                                    this.oupnt = 332;
-                                if (this.oupnt != 331 && this.oupnt != 332) {
-                                    if (this.trfix != 1)
+                                    oupnt = 332;
+                                if (oupnt != 331 && oupnt != 332) {
+                                    if (trfix != 1)
                                         i = 38;
                                     else
                                         i = 39;
                                 }
-                                if (this.oupnt == 331)
+                                if (oupnt == 331)
                                     i = 71;
                             }
                             if ((mad).pcleared == 42) {
                                 if (py((conto).x / 100, -269, (conto).z / 100, 493) < 100 || (conto).x < -27000)
-                                    this.oupnt = 142;
-                                if (this.oupnt != 142)
+                                    oupnt = 142;
+                                if (oupnt != 142)
                                     i = 47;
                             }
                             if ((mad).pcleared == 51) {
                                 if (py((conto).x / 100, -352, (conto).z / 100, 260) < 100 || (conto).z < 25000)
-                                    this.oupnt = 511;
+                                    oupnt = 511;
                                 if (py((conto).x / 100, -325, (conto).z / 100, 10) < 2000 || (conto).x > -32000)
-                                    this.oupnt = 512;
-                                if (this.oupnt != 511 && this.oupnt != 512)
+                                    oupnt = 512;
+                                if (oupnt != 511 && oupnt != 512)
                                     i = 80;
-                                if (this.oupnt == 511)
+                                if (oupnt == 511)
                                     i = 61;
                             }
                             if ((mad).pcleared == 77) {
                                 if (py((conto).x / 100, -371, (conto).z / 100, 319) < 100 || (conto).z < 31000)
-                                    this.oupnt = 77;
-                                if (this.oupnt != 77) {
+                                    oupnt = 77;
+                                if (oupnt != 77) {
                                     i = 78;
                                     (mad).nofocus = true;
                                 }
                             }
                             if ((mad).pcleared == 105) {
                                 if (py((conto).x / 100, -179, (conto).z / 100, 10) < 2300 || (conto).z < 1050)
-                                    this.oupnt = 105;
-                                if (this.oupnt != 105)
+                                    oupnt = 105;
+                                if (oupnt != 105)
                                     i = 65;
                                 else
                                     i = 125;
                             }
-                            if (this.trfix == 3) {
+                            if (trfix == 3) {
                                 if (py((conto).x / 100, -52, (conto).z / 100, 448) < 100 || (conto).z > 45000)
-                                    this.oupnt = 176;
-                                if (this.oupnt != 176)
+                                    oupnt = 176;
+                                if (oupnt != 176)
                                     i = 41;
                                 else
                                     i = 43;
                             }
-                            if ((checkpoints).clear[(mad).im] - (checkpoints).clear[0] >= 2 && py((conto).x / 100, (checkpoints).opx[0] / 100, (conto).z / 100, (checkpoints).opz[0] / 100) < 1000 + this.avoidnlev) {
+                            if ((checkpoints).clear[(mad).im] - (checkpoints).clear[0] >= 2 && py((conto).x / 100, (checkpoints).opx[0] / 100, (conto).z / 100, (checkpoints).opz[0] / 100) < 1000 + avoidnlev) {
                                 int i_25_ = (conto).xz;
-                                if (this.zyinv)
+                                if (zyinv)
                                     i_25_ += 180;
                                 for (/**/; i_25_ < 0; i_25_ += 360) {
                                     /* empty */
@@ -1093,23 +1093,23 @@ public class Control
                                 if (i_28_ > 180)
                                     i_28_ = Math.abs(i_28_ - 360);
                                 if (i_28_ < 90)
-                                    this.wall = 0;
+                                    wall = 0;
                             }
                         }
-                        if (this.rampp == 2) {
+                        if (rampp == 2) {
                             int i_29_ = i + 1;
                             if (i_29_ >= (checkpoints).n)
                                 i_29_ = 0;
                             if ((checkpoints).typ[i_29_] == -2 && i != (mad).point && --i < 0)
                                 i += (checkpoints).n;
                         }
-                        if (this.bulistc) {
+                        if (bulistc) {
                             (mad).nofocus = true;
-                            if (this.gowait)
-                                this.gowait = false;
+                            if (gowait)
+                                gowait = false;
                         }
                     } else {
-                        if ((checkpoints).stage != 25 && (checkpoints).stage != 26 || this.runbul == 0) {
+                        if ((checkpoints).stage != 25 && (checkpoints).stage != 26 || runbul == 0) {
                             i -= 2;
                             if (i < 0)
                                 i += (checkpoints).n;
@@ -1123,315 +1123,315 @@ public class Control
                         if ((checkpoints).stage == 21) {
                             if (i >= 14 && i <= 19)
                                 i = 13;
-                            if (this.oupnt == 72 && i != 56)
+                            if (oupnt == 72 && i != 56)
                                 i = 57;
-                            else if (this.oupnt == 54 && i != 52)
+                            else if (oupnt == 54 && i != 52)
                                 i = 53;
-                            else if (this.oupnt == 39 && i != 37)
+                            else if (oupnt == 39 && i != 37)
                                 i = 38;
                             else
-                                this.oupnt = i;
+                                oupnt = i;
                         }
                         if ((checkpoints).stage == 22) {
-                            if (!this.gowait) {
+                            if (!gowait) {
                                 if ((checkpoints).clear[0] == 0) {
-                                    this.wtx = -3500;
-                                    this.wtz = 19000;
-                                    this.frx = -3500;
-                                    this.frz = 39000;
-                                    this.frad = 12000;
-                                    this.oupnt = 37;
-                                    this.gowait = true;
-                                    this.afta = false;
+                                    wtx = -3500;
+                                    wtz = 19000;
+                                    frx = -3500;
+                                    frz = 39000;
+                                    frad = 12000;
+                                    oupnt = 37;
+                                    gowait = true;
+                                    afta = false;
                                 }
                                 if ((checkpoints).clear[0] == 7) {
-                                    this.wtx = -44800;
-                                    this.wtz = 40320;
-                                    this.frx = -44800;
-                                    this.frz = 34720;
-                                    this.frad = 30000;
-                                    this.oupnt = 27;
-                                    this.gowait = true;
-                                    this.afta = false;
+                                    wtx = -44800;
+                                    wtz = 40320;
+                                    frx = -44800;
+                                    frz = 34720;
+                                    frad = 30000;
+                                    oupnt = 27;
+                                    gowait = true;
+                                    afta = false;
                                 }
                                 if ((checkpoints).clear[0] == 10) {
-                                    this.wtx = 0;
-                                    this.wtz = 48739;
-                                    this.frx = 0;
-                                    this.frz = 38589;
-                                    this.frad = 90000;
-                                    this.oupnt = 55;
-                                    this.gowait = true;
-                                    this.afta = false;
+                                    wtx = 0;
+                                    wtz = 48739;
+                                    frx = 0;
+                                    frz = 38589;
+                                    frad = 90000;
+                                    oupnt = 55;
+                                    gowait = true;
+                                    afta = false;
                                 }
                                 if ((checkpoints).clear[0] == 14) {
-                                    this.wtx = -3500;
-                                    this.wtz = 19000;
-                                    this.frx = -14700;
-                                    this.frz = 39000;
-                                    this.frad = 45000;
-                                    this.oupnt = 37;
-                                    this.gowait = true;
-                                    this.afta = false;
+                                    wtx = -3500;
+                                    wtz = 19000;
+                                    frx = -14700;
+                                    frz = 39000;
+                                    frad = 45000;
+                                    oupnt = 37;
+                                    gowait = true;
+                                    afta = false;
                                 }
                                 if ((checkpoints).clear[0] == 18) {
-                                    this.wtx = -48300;
-                                    this.wtz = -4550;
-                                    this.frx = -48300;
-                                    this.frz = 5600;
-                                    this.frad = 90000;
-                                    this.oupnt = 17;
-                                    this.gowait = true;
-                                    this.afta = false;
+                                    wtx = -48300;
+                                    wtz = -4550;
+                                    frx = -48300;
+                                    frz = 5600;
+                                    frad = 90000;
+                                    oupnt = 17;
+                                    gowait = true;
+                                    afta = false;
                                 }
                             }
-                            if (this.gowait) {
-                                if (py((conto).x / 100, this.wtx / 100, (conto).z / 100, this.wtz / 100) < 10000 && (mad).speed > 50.0F)
-                                    this.up = false;
-                                if (py((conto).x / 100, this.wtx / 100, (conto).z / 100, this.wtz / 100) < 200) {
-                                    this.up = false;
-                                    this.handb = true;
+                            if (gowait) {
+                                if (py((conto).x / 100, wtx / 100, (conto).z / 100, wtz / 100) < 10000 && (mad).speed > 50.0F)
+                                    up = false;
+                                if (py((conto).x / 100, wtx / 100, (conto).z / 100, wtz / 100) < 200) {
+                                    up = false;
+                                    handb = true;
                                 }
-                                if ((checkpoints).pcleared == this.oupnt && py((checkpoints).opx[0] / 100, this.frx / 100, (checkpoints).opz[0] / 100, this.frz / 100) < this.frad) {
-                                    this.afta = true;
-                                    this.gowait = false;
+                                if ((checkpoints).pcleared == oupnt && py((checkpoints).opx[0] / 100, frx / 100, (checkpoints).opz[0] / 100, frz / 100) < frad) {
+                                    afta = true;
+                                    gowait = false;
                                 }
                                 if (py((conto).x / 100, (checkpoints).opx[0] / 100, (conto).z / 100, (checkpoints).opz[0] / 100) < 25) {
-                                    this.afta = true;
-                                    this.gowait = false;
-                                    this.attack = 200;
-                                    this.acr = 0;
+                                    afta = true;
+                                    gowait = false;
+                                    attack = 200;
+                                    acr = 0;
                                 }
                             }
                         }
                         if ((checkpoints).stage == 25) {
-                            if (this.oupnt == -1) {
+                            if (oupnt == -1) {
                                 int i_30_ = -10;
                                 for (int i_31_ = 0; i_31_ < (checkpoints).n; i_31_++) {
                                     if (((checkpoints).typ[i_31_] == -2 || (checkpoints).typ[i_31_] == -4) && (i_31_ < 50 || i_31_ > 54) && (py((conto).x / 100, (checkpoints).x[i_31_] / 100, (conto).z / 100, (checkpoints).z[i_31_] / 100) < i_30_ || i_30_ == -10)) {
                                         i_30_ = py((conto).x / 100, (checkpoints).x[i_31_] / 100, (conto).z / 100, (checkpoints).z[i_31_] / 100);
-                                        this.oupnt = i_31_;
+                                        oupnt = i_31_;
                                     }
                                 }
-                                this.oupnt--;
+                                oupnt--;
                                 if (i < 0)
-                                    this.oupnt += (checkpoints).n;
+                                    oupnt += (checkpoints).n;
                             }
-                            if (this.oupnt >= 0 && this.oupnt < (checkpoints).n) {
-                                i = this.oupnt;
+                            if (oupnt >= 0 && oupnt < (checkpoints).n) {
+                                i = oupnt;
                                 if (py((conto).x / 100, (checkpoints).x[i] / 100, (conto).z / 100, (checkpoints).z[i] / 100) < 800) {
-                                    this.oupnt = -(int) (75.0F + this.m.random() * 200.0F);
-                                    this.runbul = (int) (50.0F + this.m.random() * 100.0F);
+                                    oupnt = -(int) (75.0F + m.random() * 200.0F);
+                                    runbul = (int) (50.0F + m.random() * 100.0F);
                                 }
                             }
-                            if (this.oupnt < -1)
-                                this.oupnt++;
-                            if (this.runbul != 0)
-                                this.runbul--;
+                            if (oupnt < -1)
+                                oupnt++;
+                            if (runbul != 0)
+                                runbul--;
                         }
                         if ((checkpoints).stage == 26) {
                             boolean bool_32_ = false;
                             if ((mad).cn == 13) {
-                                if (!this.gowait) {
+                                if (!gowait) {
                                     if ((checkpoints).clear[0] == 1) {
-                                        if ((double) this.m.random() > 0.5) {
-                                            this.wtx = -14000;
-                                            this.wtz = 48000;
-                                            this.frx = -5600;
-                                            this.frz = 47600;
-                                            this.frad = 88000;
-                                            this.oupnt = 33;
+                                        if ((double) m.random() > 0.5) {
+                                            wtx = -14000;
+                                            wtz = 48000;
+                                            frx = -5600;
+                                            frz = 47600;
+                                            frad = 88000;
+                                            oupnt = 33;
                                         } else {
-                                            this.wtx = -5600;
-                                            this.wtz = 8000;
-                                            this.frx = -7350;
-                                            this.frz = -4550;
-                                            this.frad = 22000;
-                                            this.oupnt = 15;
+                                            wtx = -5600;
+                                            wtz = 8000;
+                                            frx = -7350;
+                                            frz = -4550;
+                                            frad = 22000;
+                                            oupnt = 15;
                                         }
-                                        this.gowait = true;
-                                        this.afta = false;
+                                        gowait = true;
+                                        afta = false;
                                     }
                                     if ((checkpoints).clear[0] == 4) {
-                                        this.wtx = -12700;
-                                        this.wtz = 14000;
-                                        this.frx = -31000;
-                                        this.frz = 1050;
-                                        this.frad = 11000;
-                                        this.oupnt = 51;
-                                        this.gowait = true;
-                                        this.afta = false;
+                                        wtx = -12700;
+                                        wtz = 14000;
+                                        frx = -31000;
+                                        frz = 1050;
+                                        frad = 11000;
+                                        oupnt = 51;
+                                        gowait = true;
+                                        afta = false;
                                     }
                                     if ((checkpoints).clear[0] == 14) {
-                                        this.wtx = -35350;
-                                        this.wtz = 6650;
-                                        this.frx = -48300;
-                                        this.frz = 54950;
-                                        this.frad = 11000;
-                                        this.oupnt = 15;
-                                        this.gowait = true;
-                                        this.afta = false;
+                                        wtx = -35350;
+                                        wtz = 6650;
+                                        frx = -48300;
+                                        frz = 54950;
+                                        frad = 11000;
+                                        oupnt = 15;
+                                        gowait = true;
+                                        afta = false;
                                     }
                                     if ((checkpoints).clear[0] == 17) {
-                                        this.wtx = -42700;
-                                        this.wtz = 41000;
-                                        this.frx = -40950;
-                                        this.frz = 49350;
-                                        this.frad = 7000;
-                                        this.oupnt = 42;
-                                        this.gowait = true;
-                                        this.afta = false;
+                                        wtx = -42700;
+                                        wtz = 41000;
+                                        frx = -40950;
+                                        frz = 49350;
+                                        frad = 7000;
+                                        oupnt = 42;
+                                        gowait = true;
+                                        afta = false;
                                     }
                                     if ((checkpoints).clear[0] == 21) {
-                                        this.wtx = -1750;
-                                        this.wtz = -15750;
-                                        this.frx = -25900;
-                                        this.frz = -14000;
-                                        this.frad = 11000;
-                                        this.oupnt = 125;
-                                        this.gowait = true;
-                                        this.afta = false;
+                                        wtx = -1750;
+                                        wtz = -15750;
+                                        frx = -25900;
+                                        frz = -14000;
+                                        frad = 11000;
+                                        oupnt = 125;
+                                        gowait = true;
+                                        afta = false;
                                     }
                                 }
-                                if (this.gowait) {
-                                    if (py((conto).x / 100, this.wtx / 100, (conto).z / 100, this.wtz / 100) < 10000 && (mad).speed > 50.0F)
-                                        this.up = false;
-                                    if (py((conto).x / 100, this.wtx / 100, (conto).z / 100, this.wtz / 100) < 200) {
-                                        this.up = false;
-                                        this.handb = true;
+                                if (gowait) {
+                                    if (py((conto).x / 100, wtx / 100, (conto).z / 100, wtz / 100) < 10000 && (mad).speed > 50.0F)
+                                        up = false;
+                                    if (py((conto).x / 100, wtx / 100, (conto).z / 100, wtz / 100) < 200) {
+                                        up = false;
+                                        handb = true;
                                     }
-                                    if ((checkpoints).pcleared == this.oupnt && py((checkpoints).opx[0] / 100, this.frx / 100, (checkpoints).opz[0] / 100, this.frz / 100) < this.frad) {
-                                        this.runbul = 0;
-                                        this.afta = true;
-                                        this.gowait = false;
+                                    if ((checkpoints).pcleared == oupnt && py((checkpoints).opx[0] / 100, frx / 100, (checkpoints).opz[0] / 100, frz / 100) < frad) {
+                                        runbul = 0;
+                                        afta = true;
+                                        gowait = false;
                                     }
                                     if (py((conto).x / 100, (checkpoints).opx[0] / 100, (conto).z / 100, (checkpoints).opz[0] / 100) < 25) {
-                                        this.afta = true;
-                                        this.gowait = false;
-                                        this.attack = 200;
-                                        this.acr = 0;
+                                        afta = true;
+                                        gowait = false;
+                                        attack = 200;
+                                        acr = 0;
                                     }
-                                    if ((checkpoints).clear[0] == 21 && this.oupnt != 125)
-                                        this.gowait = false;
+                                    if ((checkpoints).clear[0] == 21 && oupnt != 125)
+                                        gowait = false;
                                 }
-                                if ((checkpoints).clear[0] >= 11 && !this.gowait || (mad).power < 60.0F && (checkpoints).clear[0] < 21) {
+                                if ((checkpoints).clear[0] >= 11 && !gowait || (mad).power < 60.0F && (checkpoints).clear[0] < 21) {
                                     bool_32_ = true;
-                                    if (!this.exitattack) {
-                                        this.oupnt = -1;
-                                        this.exitattack = true;
+                                    if (!exitattack) {
+                                        oupnt = -1;
+                                        exitattack = true;
                                     }
-                                } else if (this.exitattack)
-                                    this.exitattack = false;
+                                } else if (exitattack)
+                                    exitattack = false;
                             }
                             if ((mad).cn == 11)
                                 bool_32_ = true;
                             if (bool_32_) {
-                                if (this.oupnt == -1) {
+                                if (oupnt == -1) {
                                     int i_33_ = -10;
                                     for (int i_34_ = 0; i_34_ < (checkpoints).n; i_34_++) {
-                                        if ((checkpoints).typ[i_34_] == -4 && (py((conto).x / 100, (checkpoints).x[i_34_] / 100, (conto).z / 100, (checkpoints).z[i_34_] / 100) < i_33_ && (double) this.m.random() > 0.6 || i_33_ == -10)) {
+                                        if ((checkpoints).typ[i_34_] == -4 && (py((conto).x / 100, (checkpoints).x[i_34_] / 100, (conto).z / 100, (checkpoints).z[i_34_] / 100) < i_33_ && (double) m.random() > 0.6 || i_33_ == -10)) {
                                             i_33_ = py((conto).x / 100, (checkpoints).x[i_34_] / 100, (conto).z / 100, (checkpoints).z[i_34_] / 100);
-                                            this.oupnt = i_34_;
+                                            oupnt = i_34_;
                                         }
                                     }
-                                    this.oupnt--;
+                                    oupnt--;
                                     if (i < 0)
-                                        this.oupnt += (checkpoints).n;
+                                        oupnt += (checkpoints).n;
                                 }
-                                if (this.oupnt >= 0 && this.oupnt < (checkpoints).n) {
-                                    i = this.oupnt;
+                                if (oupnt >= 0 && oupnt < (checkpoints).n) {
+                                    i = oupnt;
                                     if (py((conto).x / 100, (checkpoints).x[i] / 100, (conto).z / 100, (checkpoints).z[i] / 100) < 800) {
-                                        this.oupnt = -(int) (75.0F + this.m.random() * 200.0F);
-                                        this.runbul = (int) (50.0F + this.m.random() * 100.0F);
+                                        oupnt = -(int) (75.0F + m.random() * 200.0F);
+                                        runbul = (int) (50.0F + m.random() * 100.0F);
                                     }
                                 }
-                                if (this.oupnt < -1)
-                                    this.oupnt++;
-                                if (this.runbul != 0)
-                                    this.runbul--;
+                                if (oupnt < -1)
+                                    oupnt++;
+                                if (runbul != 0)
+                                    runbul--;
                             }
                         }
                         (mad).nofocus = true;
                     }
                     if ((checkpoints).stage != 27) {
                         if ((checkpoints).stage == 10 || (checkpoints).stage == 19 || (checkpoints).stage == 18 && (mad).pcleared == 73 || (checkpoints).stage == 26)
-                            this.forget = true;
-                        if (((mad).missedcp == 0 || this.forget || this.trfix == 4) && this.trfix != 0) {
+                            forget = true;
+                        if (((mad).missedcp == 0 || forget || trfix == 4) && trfix != 0) {
                             int i_35_ = 0;
                             if ((checkpoints).stage == 25 || (checkpoints).stage == 26)
                                 i_35_ = 3;
-                            if (this.trfix == 2) {
+                            if (trfix == 2) {
                                 int i_36_ = -10;
                                 int i_37_ = 0;
                                 for (int i_38_ = i_35_; i_38_ < (checkpoints).fn; i_38_++) {
-                                    if (py((conto).x / 100, (checkpoints).x[this.fpnt[i_38_]] / 100, (conto).z / 100, (checkpoints).z[this.fpnt[i_38_]] / 100) < i_36_ || i_36_ == -10) {
-                                        i_36_ = py((conto).x / 100, (checkpoints).x[this.fpnt[i_38_]] / 100, (conto).z / 100, (checkpoints).z[this.fpnt[i_38_]] / 100);
+                                    if (py((conto).x / 100, (checkpoints).x[fpnt[i_38_]] / 100, (conto).z / 100, (checkpoints).z[fpnt[i_38_]] / 100) < i_36_ || i_36_ == -10) {
+                                        i_36_ = py((conto).x / 100, (checkpoints).x[fpnt[i_38_]] / 100, (conto).z / 100, (checkpoints).z[fpnt[i_38_]] / 100);
                                         i_37_ = i_38_;
                                     }
                                 }
                                 if ((checkpoints).stage == 18 || (checkpoints).stage == 22)
                                     i_37_ = 1;
-                                i = this.fpnt[i_37_];
+                                i = fpnt[i_37_];
                                 if ((checkpoints).special[i_37_])
-                                    this.forget = true;
+                                    forget = true;
                                 else
-                                    this.forget = false;
+                                    forget = false;
                             }
                             for (int i_39_ = i_35_; i_39_ < (checkpoints).fn; i_39_++) {
-                                if (py((conto).x / 100, (checkpoints).x[this.fpnt[i_39_]] / 100, (conto).z / 100, (checkpoints).z[this.fpnt[i_39_]] / 100) < 2000) {
-                                    this.forget = false;
-                                    this.actwait = 0;
-                                    this.upwait = 0;
-                                    this.turntyp = 2;
-                                    this.randtcnt = -1;
-                                    this.acuracy = 0;
-                                    this.rampp = 0;
-                                    this.trfix = 3;
+                                if (py((conto).x / 100, (checkpoints).x[fpnt[i_39_]] / 100, (conto).z / 100, (checkpoints).z[fpnt[i_39_]] / 100) < 2000) {
+                                    forget = false;
+                                    actwait = 0;
+                                    upwait = 0;
+                                    turntyp = 2;
+                                    randtcnt = -1;
+                                    acuracy = 0;
+                                    rampp = 0;
+                                    trfix = 3;
                                 }
                             }
-                            if (this.trfix == 3)
+                            if (trfix == 3)
                                 (mad).nofocus = true;
                         }
                     }
-                    if (this.turncnt > this.randtcnt) {
-                        if (!this.gowait) {
+                    if (turncnt > randtcnt) {
+                        if (!gowait) {
                             int i_40_ = 0;
                             if ((checkpoints).x[i] - (conto).x >= 0)
                                 i_40_ = 180;
-                            this.pan = (int) ((double) (90 + i_40_) + Math.atan((double) ((checkpoints).z[i] - (conto).z) / (double) ((checkpoints).x[i] - (conto).x)) / 0.017453292519943295);
+                            pan = (int) ((double) (90 + i_40_) + Math.atan((double) ((checkpoints).z[i] - (conto).z) / (double) ((checkpoints).x[i] - (conto).x)) / 0.017453292519943295);
                         } else {
                             int i_41_ = 0;
-                            if (this.wtx - (conto).x >= 0)
+                            if (wtx - (conto).x >= 0)
                                 i_41_ = 180;
-                            this.pan = (int) ((double) (90 + i_41_) + Math.atan((double) (this.wtz - (conto).z) / (double) (this.wtx - (conto).x)) / 0.017453292519943295);
+                            pan = (int) ((double) (90 + i_41_) + Math.atan((double) (wtz - (conto).z) / (double) (wtx - (conto).x)) / 0.017453292519943295);
                         }
-                        this.turncnt = 0;
-                        this.randtcnt = (int) ((float) this.acuracy * this.m.random());
+                        turncnt = 0;
+                        randtcnt = (int) ((float) acuracy * m.random());
                     } else
-                        this.turncnt++;
+                        turncnt++;
                 } else {
-                    this.up = true;
+                    up = true;
                     int i = 0;
-                    int i_42_ = (int) ((float) pys((conto).x, (checkpoints).opx[this.acr], (conto).z, (checkpoints).opz[this.acr]) / 2.0F * this.aim);
-                    int i_43_ = (int) ((float) (checkpoints).opx[this.acr] - (float) i_42_ * this.m.sin((checkpoints).omxz[this.acr]));
-                    int i_44_ = (int) ((float) (checkpoints).opz[this.acr] + (float) i_42_ * this.m.cos((checkpoints).omxz[this.acr]));
+                    int i_42_ = (int) ((float) pys((conto).x, (checkpoints).opx[acr], (conto).z, (checkpoints).opz[acr]) / 2.0F * aim);
+                    int i_43_ = (int) ((float) (checkpoints).opx[acr] - (float) i_42_ * m.sin((checkpoints).omxz[acr]));
+                    int i_44_ = (int) ((float) (checkpoints).opz[acr] + (float) i_42_ * m.cos((checkpoints).omxz[acr]));
                     if (i_43_ - (conto).x >= 0)
                         i = 180;
-                    this.pan = (int) ((double) (90 + i) + Math.atan((double) (i_44_ - (conto).z) / (double) (i_43_ - (conto).x)) / 0.017453292519943295);
-                    this.attack--;
-                    if (this.attack <= 0)
-                        this.attack = 0;
-                    if ((checkpoints).stage == 25 && this.exitattack && !this.bulistc && (mad).missedcp != 0)
-                        this.attack = 0;
+                    pan = (int) ((double) (90 + i) + Math.atan((double) (i_44_ - (conto).z) / (double) (i_43_ - (conto).x)) / 0.017453292519943295);
+                    attack--;
+                    if (attack <= 0)
+                        attack = 0;
+                    if ((checkpoints).stage == 25 && exitattack && !bulistc && (mad).missedcp != 0)
+                        attack = 0;
                     if ((checkpoints).stage == 26 && (mad).cn == 13 && ((checkpoints).clear[0] == 4 || (checkpoints).clear[0] == 13 || (checkpoints).clear[0] == 21))
-                        this.attack = 0;
+                        attack = 0;
                     if ((checkpoints).stage == 26 && (mad).missedcp != 0 && ((checkpoints).pos[(mad).im] == 0 || (checkpoints).pos[(mad).im] == 1 && (checkpoints).pos[0] == 0))
-                        this.attack = 0;
+                        attack = 0;
                     if ((checkpoints).stage == 26 && (checkpoints).pos[0] > (checkpoints).pos[(mad).im] && (mad).power < 80.0F)
-                        this.attack = 0;
+                        attack = 0;
                 }
                 int i = (conto).xz;
-                if (this.zyinv)
+                if (zyinv)
                     i += 180;
                 for (/**/; i < 0; i += 360) {
                     /* empty */
@@ -1439,272 +1439,272 @@ public class Control
                 for (/**/; i > 180; i -= 360) {
                     /* empty */
                 }
-                for (/**/; this.pan < 0; this.pan += 360) {
+                for (/**/; pan < 0; pan += 360) {
                     /* empty */
                 }
-                for (/**/; this.pan > 180; this.pan -= 360) {
+                for (/**/; pan > 180; pan -= 360) {
                     /* empty */
                 }
-                if (this.wall != -1 && this.hold == 0)
-                    this.clrnce = 0;
-                if (this.hold == 0) {
-                    if (Math.abs(i - this.pan) < 180) {
-                        if (Math.abs(i - this.pan) > this.clrnce) {
-                            if (i < this.pan) {
-                                this.left = true;
-                                this.lastl = true;
+                if (wall != -1 && hold == 0)
+                    clrnce = 0;
+                if (hold == 0) {
+                    if (Math.abs(i - pan) < 180) {
+                        if (Math.abs(i - pan) > clrnce) {
+                            if (i < pan) {
+                                left = true;
+                                lastl = true;
                             } else {
-                                this.right = true;
-                                this.lastl = false;
+                                right = true;
+                                lastl = false;
                             }
-                            if (Math.abs(i - this.pan) > 50 && (mad).speed > (float) ((mad).cd).swits[(mad).cn][0] && this.turntyp != 0) {
-                                if (this.turntyp == 1)
-                                    this.down = true;
-                                if (this.turntyp == 2)
-                                    this.handb = true;
-                                if (!this.agressed)
-                                    this.up = false;
+                            if (Math.abs(i - pan) > 50 && (mad).speed > (float) ((mad).cd).swits[(mad).cn][0] && turntyp != 0) {
+                                if (turntyp == 1)
+                                    down = true;
+                                if (turntyp == 2)
+                                    handb = true;
+                                if (!agressed)
+                                    up = false;
                             }
                         }
-                    } else if (Math.abs(i - this.pan) < 360 - this.clrnce) {
-                        if (i < this.pan) {
-                            this.right = true;
-                            this.lastl = false;
+                    } else if (Math.abs(i - pan) < 360 - clrnce) {
+                        if (i < pan) {
+                            right = true;
+                            lastl = false;
                         } else {
-                            this.left = true;
-                            this.lastl = true;
+                            left = true;
+                            lastl = true;
                         }
-                        if (Math.abs(i - this.pan) < 310 && (mad).speed > (float) ((mad).cd).swits[(mad).cn][0] && this.turntyp != 0) {
-                            if (this.turntyp == 1)
-                                this.down = true;
-                            if (this.turntyp == 2)
-                                this.handb = true;
-                            if (!this.agressed)
-                                this.up = false;
+                        if (Math.abs(i - pan) < 310 && (mad).speed > (float) ((mad).cd).swits[(mad).cn][0] && turntyp != 0) {
+                            if (turntyp == 1)
+                                down = true;
+                            if (turntyp == 2)
+                                handb = true;
+                            if (!agressed)
+                                up = false;
                         }
                     }
                 }
-                if ((checkpoints).stage == 24 && this.wall != -1) {
-                    if ((trackers).dam[this.wall] == 0 || (mad).pcleared == 45)
-                        this.wall = -1;
+                if ((checkpoints).stage == 24 && wall != -1) {
+                    if ((trackers).dam[wall] == 0 || (mad).pcleared == 45)
+                        wall = -1;
                     if ((mad).pcleared == 58 && (checkpoints).opz[(mad).im] < 36700) {
-                        this.wall = -1;
-                        this.hold = 0;
+                        wall = -1;
+                        hold = 0;
                     }
                 }
-                if (this.wall != -1) {
-                    if (this.lwall != this.wall) {
-                        if (this.lastl)
-                            this.left = true;
+                if (wall != -1) {
+                    if (lwall != wall) {
+                        if (lastl)
+                            left = true;
                         else
-                            this.right = true;
-                        this.wlastl = this.lastl;
-                        this.lwall = this.wall;
-                    } else if (this.wlastl)
-                        this.left = true;
+                            right = true;
+                        wlastl = lastl;
+                        lwall = wall;
+                    } else if (wlastl)
+                        left = true;
                     else
-                        this.right = true;
-                    if ((trackers).dam[this.wall] != 0) {
+                        right = true;
+                    if ((trackers).dam[wall] != 0) {
                         int i_45_ = 1;
-                        if ((trackers).skd[this.wall] == 1)
+                        if ((trackers).skd[wall] == 1)
                             i_45_ = 3;
-                        this.hold += i_45_;
-                        if (this.hold > 10 * i_45_)
-                            this.hold = 10 * i_45_;
+                        hold += i_45_;
+                        if (hold > 10 * i_45_)
+                            hold = 10 * i_45_;
                     } else
-                        this.hold = 1;
-                    this.wall = -1;
-                } else if (this.hold != 0)
-                    this.hold--;
+                        hold = 1;
+                    wall = -1;
+                } else if (hold != 0)
+                    hold--;
             } else {
-                if (this.trickfase == 0) {
+                if (trickfase == 0) {
                     int i = (int) (((mad).scy[0] + (mad).scy[1] + (mad).scy[2] + (mad).scy[3]) * (float) ((conto).y - 300) / 4000.0F);
                     int i_46_ = 3;
                     if ((checkpoints).stage == 25)
                         i_46_ = 10;
-                    if (i > 7 && (this.m.random() > this.trickprf / (float) i_46_ || this.stuntf == 4 || this.stuntf == 3 || this.stuntf == 5 || this.stuntf == 6 || (checkpoints).stage == 26)) {
-                        this.oxy = (mad).pxy;
-                        this.ozy = (mad).pzy;
-                        this.flycnt = 0;
-                        this.uddirect = 0;
-                        this.lrdirect = 0;
-                        this.udswt = false;
-                        this.lrswt = false;
-                        this.trickfase = 1;
+                    if (i > 7 && (m.random() > trickprf / (float) i_46_ || stuntf == 4 || stuntf == 3 || stuntf == 5 || stuntf == 6 || (checkpoints).stage == 26)) {
+                        oxy = (mad).pxy;
+                        ozy = (mad).pzy;
+                        flycnt = 0;
+                        uddirect = 0;
+                        lrdirect = 0;
+                        udswt = false;
+                        lrswt = false;
+                        trickfase = 1;
                         if (i < 16) {
-                            if (this.stuntf != 6) {
-                                this.uddirect = -1;
-                                this.udstart = 0;
-                                this.udswt = false;
-                            } else if (this.oupnt != 70) {
-                                this.uddirect = 1;
-                                this.udstart = 0;
-                                this.udswt = false;
+                            if (stuntf != 6) {
+                                uddirect = -1;
+                                udstart = 0;
+                                udswt = false;
+                            } else if (oupnt != 70) {
+                                uddirect = 1;
+                                udstart = 0;
+                                udswt = false;
                             }
-                        } else if (this.m.random() > this.m.random() && this.stuntf != 1 || this.stuntf == 4 || this.stuntf == 6 || this.stuntf == 7 || this.stuntf == 17) {
-                            if ((this.m.random() > this.m.random() || this.stuntf == 2 || this.stuntf == 7) && this.stuntf != 4 && this.stuntf != 6)
-                                this.uddirect = -1;
+                        } else if (m.random() > m.random() && stuntf != 1 || stuntf == 4 || stuntf == 6 || stuntf == 7 || stuntf == 17) {
+                            if ((m.random() > m.random() || stuntf == 2 || stuntf == 7) && stuntf != 4 && stuntf != 6)
+                                uddirect = -1;
                             else
-                                this.uddirect = 1;
-                            this.udstart = (int) (10.0F * this.m.random() * this.trickprf);
-                            if (this.stuntf == 6)
-                                this.udstart = 0;
+                                uddirect = 1;
+                            udstart = (int) (10.0F * m.random() * trickprf);
+                            if (stuntf == 6)
+                                udstart = 0;
                             if ((checkpoints).stage == 26)
-                                this.udstart = 0;
-                            if ((checkpoints).stage == 24 && (this.oupnt == 68 || this.oupnt == 69)) {
-                                this.apunch = 20;
-                                this.oupnt = 70;
+                                udstart = 0;
+                            if ((checkpoints).stage == 24 && (oupnt == 68 || oupnt == 69)) {
+                                apunch = 20;
+                                oupnt = 70;
                             }
-                            if ((double) this.m.random() > 0.85 && this.stuntf != 4 && this.stuntf != 3 && this.stuntf != 6 && this.stuntf != 17 && (checkpoints).stage != 26)
-                                this.udswt = true;
-                            if (this.m.random() > this.trickprf + 0.3F && this.stuntf != 4 && this.stuntf != 6) {
-                                if (this.m.random() > this.m.random())
-                                    this.lrdirect = -1;
+                            if ((double) m.random() > 0.85 && stuntf != 4 && stuntf != 3 && stuntf != 6 && stuntf != 17 && (checkpoints).stage != 26)
+                                udswt = true;
+                            if (m.random() > trickprf + 0.3F && stuntf != 4 && stuntf != 6) {
+                                if (m.random() > m.random())
+                                    lrdirect = -1;
                                 else
-                                    this.lrdirect = 1;
-                                this.lrstart = (int) (30.0F * this.m.random());
-                                if ((double) this.m.random() > 0.75)
-                                    this.lrswt = true;
+                                    lrdirect = 1;
+                                lrstart = (int) (30.0F * m.random());
+                                if ((double) m.random() > 0.75)
+                                    lrswt = true;
                             }
                         } else {
-                            if (this.m.random() > this.m.random())
-                                this.lrdirect = -1;
+                            if (m.random() > m.random())
+                                lrdirect = -1;
                             else
-                                this.lrdirect = 1;
-                            this.lrstart = (int) (10.0F * this.m.random() * this.trickprf);
-                            if ((double) this.m.random() > 0.75 && (checkpoints).stage != 26)
-                                this.lrswt = true;
-                            if (this.m.random() > this.trickprf + 0.3F) {
-                                if (this.m.random() > this.m.random())
-                                    this.uddirect = -1;
+                                lrdirect = 1;
+                            lrstart = (int) (10.0F * m.random() * trickprf);
+                            if ((double) m.random() > 0.75 && (checkpoints).stage != 26)
+                                lrswt = true;
+                            if (m.random() > trickprf + 0.3F) {
+                                if (m.random() > m.random())
+                                    uddirect = -1;
                                 else
-                                    this.uddirect = 1;
-                                this.udstart = (int) (30.0F * this.m.random());
-                                if ((double) this.m.random() > 0.85)
-                                    this.udswt = true;
+                                    uddirect = 1;
+                                udstart = (int) (30.0F * m.random());
+                                if ((double) m.random() > 0.85)
+                                    udswt = true;
                             }
                         }
-                        if (this.trfix == 3 || this.trfix == 4) {
+                        if (trfix == 3 || trfix == 4) {
                             if ((checkpoints).stage != 18 && (checkpoints).stage != 8) {
-                                if ((checkpoints).stage != 25 && this.lrdirect == -1) {
+                                if ((checkpoints).stage != 25 && lrdirect == -1) {
                                     if ((checkpoints).stage != 19)
-                                        this.uddirect = -1;
+                                        uddirect = -1;
                                     else
-                                        this.uddirect = 1;
+                                        uddirect = 1;
                                 }
-                                this.lrdirect = 0;
-                                if (((checkpoints).stage == 19 || (checkpoints).stage == 25) && this.uddirect == -1)
-                                    this.uddirect = 1;
+                                lrdirect = 0;
+                                if (((checkpoints).stage == 19 || (checkpoints).stage == 25) && uddirect == -1)
+                                    uddirect = 1;
                                 if ((mad).power < 60.0F)
-                                    this.uddirect = -1;
+                                    uddirect = -1;
                             } else {
-                                if (this.uddirect != 0)
-                                    this.uddirect = -1;
-                                this.lrdirect = 0;
+                                if (uddirect != 0)
+                                    uddirect = -1;
+                                lrdirect = 0;
                             }
                             if ((checkpoints).stage == 20) {
-                                this.uddirect = 1;
-                                this.lrdirect = 0;
+                                uddirect = 1;
+                                lrdirect = 0;
                             }
                             if ((checkpoints).stage == 26) {
-                                this.uddirect = -1;
-                                this.lrdirect = 0;
+                                uddirect = -1;
+                                lrdirect = 0;
                                 if ((mad).cn != 11 && (mad).cn != 13) {
-                                    this.udstart = 7;
+                                    udstart = 7;
                                     if ((mad).cn == 14 && (mad).power > 30.0F)
-                                        this.udstart = 14;
+                                        udstart = 14;
                                 } else
-                                    this.udstart = 0;
+                                    udstart = 0;
                                 if ((mad).cn == 11) {
-                                    this.lrdirect = -1;
-                                    this.lrstart = 0;
+                                    lrdirect = -1;
+                                    lrstart = 0;
                                 }
                             }
                         }
                     } else
-                        this.trickfase = -1;
-                    if (!this.afta)
-                        this.afta = true;
-                    if (this.trfix == 3) {
-                        this.trfix = 4;
-                        this.statusque += 30;
+                        trickfase = -1;
+                    if (!afta)
+                        afta = true;
+                    if (trfix == 3) {
+                        trfix = 4;
+                        statusque += 30;
                     }
                 }
-                if (this.trickfase == 1) {
-                    this.flycnt++;
-                    if (this.lrdirect != 0 && this.flycnt > this.lrstart) {
-                        if (this.lrswt && Math.abs((mad).pxy - this.oxy) > 180) {
-                            if (this.lrdirect == -1)
-                                this.lrdirect = 1;
+                if (trickfase == 1) {
+                    flycnt++;
+                    if (lrdirect != 0 && flycnt > lrstart) {
+                        if (lrswt && Math.abs((mad).pxy - oxy) > 180) {
+                            if (lrdirect == -1)
+                                lrdirect = 1;
                             else
-                                this.lrdirect = -1;
-                            this.lrswt = false;
+                                lrdirect = -1;
+                            lrswt = false;
                         }
-                        if (this.lrdirect == -1) {
-                            this.handb = true;
-                            this.left = true;
+                        if (lrdirect == -1) {
+                            handb = true;
+                            left = true;
                         } else {
-                            this.handb = true;
-                            this.right = true;
+                            handb = true;
+                            right = true;
                         }
                     }
-                    if (this.uddirect != 0 && this.flycnt > this.udstart) {
-                        if (this.udswt && Math.abs((mad).pzy - this.ozy) > 180) {
-                            if (this.uddirect == -1)
-                                this.uddirect = 1;
+                    if (uddirect != 0 && flycnt > udstart) {
+                        if (udswt && Math.abs((mad).pzy - ozy) > 180) {
+                            if (uddirect == -1)
+                                uddirect = 1;
                             else
-                                this.uddirect = -1;
-                            this.udswt = false;
+                                uddirect = -1;
+                            udswt = false;
                         }
-                        if (this.uddirect == -1) {
-                            this.handb = true;
-                            this.down = true;
+                        if (uddirect == -1) {
+                            handb = true;
+                            down = true;
                         } else {
-                            this.handb = true;
-                            this.up = true;
-                            if (this.apunch > 0) {
-                                this.down = true;
-                                this.apunch--;
+                            handb = true;
+                            up = true;
+                            if (apunch > 0) {
+                                down = true;
+                                apunch--;
                             }
                         }
                     }
-                    if (((mad).scy[0] + (mad).scy[1] + (mad).scy[2] + (mad).scy[3]) * 100.0F / (float) ((conto).y - 300) < (float) -this.saftey) {
-                        this.onceu = false;
-                        this.onced = false;
-                        this.oncel = false;
-                        this.oncer = false;
-                        this.lrcomp = false;
-                        this.udcomp = false;
-                        this.udbare = false;
-                        this.lrbare = false;
-                        this.trickfase = 2;
-                        this.swat = 0;
+                    if (((mad).scy[0] + (mad).scy[1] + (mad).scy[2] + (mad).scy[3]) * 100.0F / (float) ((conto).y - 300) < (float) -saftey) {
+                        onceu = false;
+                        onced = false;
+                        oncel = false;
+                        oncer = false;
+                        lrcomp = false;
+                        udcomp = false;
+                        udbare = false;
+                        lrbare = false;
+                        trickfase = 2;
+                        swat = 0;
                     }
                 }
-                if (this.trickfase == 2) {
-                    if (this.swat == 0) {
+                if (trickfase == 2) {
+                    if (swat == 0) {
                         if ((mad).dcomp != 0.0F || (mad).ucomp != 0.0F)
-                            this.udbare = true;
+                            udbare = true;
                         if ((mad).lcomp != 0.0F || (mad).rcomp != 0.0F)
-                            this.lrbare = true;
-                        this.swat = 1;
+                            lrbare = true;
+                        swat = 1;
                     }
                     if ((mad).wtouch) {
-                        if (this.swat == 1)
-                            this.swat = 2;
-                    } else if (this.swat == 2) {
-                        if ((mad).capsized && this.m.random() > this.mustland) {
-                            if (this.udbare) {
-                                this.lrbare = true;
-                                this.udbare = false;
-                            } else if (this.lrbare) {
-                                this.udbare = true;
-                                this.lrbare = false;
+                        if (swat == 1)
+                            swat = 2;
+                    } else if (swat == 2) {
+                        if ((mad).capsized && m.random() > mustland) {
+                            if (udbare) {
+                                lrbare = true;
+                                udbare = false;
+                            } else if (lrbare) {
+                                udbare = true;
+                                lrbare = false;
                             }
                         }
-                        this.swat = 3;
+                        swat = 3;
                     }
-                    if (this.udbare) {
+                    if (udbare) {
                         int i;
                         for (i = (mad).pzy + 90; i < 0; i += 360) {
                             /* empty */
@@ -1713,53 +1713,53 @@ public class Control
                             /* empty */
                         }
                         i = Math.abs(i);
-                        if ((mad).lcomp - (mad).rcomp < 5.0F && (this.onced || this.onceu))
-                            this.udcomp = true;
+                        if ((mad).lcomp - (mad).rcomp < 5.0F && (onced || onceu))
+                            udcomp = true;
                         if ((mad).dcomp > (mad).ucomp) {
                             if ((mad).capsized) {
-                                if (this.udcomp) {
+                                if (udcomp) {
                                     if (i > 90)
-                                        this.up = true;
+                                        up = true;
                                     else
-                                        this.down = true;
-                                } else if (!this.onced)
-                                    this.down = true;
+                                        down = true;
+                                } else if (!onced)
+                                    down = true;
                             } else {
-                                if (this.udcomp) {
-                                    if (this.perfection && Math.abs(i - 90) > 30) {
+                                if (udcomp) {
+                                    if (perfection && Math.abs(i - 90) > 30) {
                                         if (i > 90)
-                                            this.up = true;
+                                            up = true;
                                         else
-                                            this.down = true;
+                                            down = true;
                                     }
-                                } else if (this.m.random() > this.mustland)
-                                    this.up = true;
-                                this.onced = true;
+                                } else if (m.random() > mustland)
+                                    up = true;
+                                onced = true;
                             }
                         } else if ((mad).capsized) {
-                            if (this.udcomp) {
+                            if (udcomp) {
                                 if (i > 90)
-                                    this.up = true;
+                                    up = true;
                                 else
-                                    this.down = true;
-                            } else if (!this.onceu)
-                                this.up = true;
+                                    down = true;
+                            } else if (!onceu)
+                                up = true;
                         } else {
-                            if (this.udcomp) {
-                                if (this.perfection && Math.abs(i - 90) > 30) {
+                            if (udcomp) {
+                                if (perfection && Math.abs(i - 90) > 30) {
                                     if (i > 90)
-                                        this.up = true;
+                                        up = true;
                                     else
-                                        this.down = true;
+                                        down = true;
                                 }
-                            } else if (this.m.random() > this.mustland)
-                                this.down = true;
-                            this.onceu = true;
+                            } else if (m.random() > mustland)
+                                down = true;
+                            onceu = true;
                         }
                     }
-                    if (this.lrbare) {
+                    if (lrbare) {
                         int i = (mad).pxy + 90;
-                        if (this.zyinv)
+                        if (zyinv)
                             i += 180;
                         for (/**/; i < 0; i += 360) {
                             /* empty */
@@ -1768,48 +1768,48 @@ public class Control
                             /* empty */
                         }
                         i = Math.abs(i);
-                        if ((mad).lcomp - (mad).rcomp < 10.0F && (this.oncel || this.oncer))
-                            this.lrcomp = true;
+                        if ((mad).lcomp - (mad).rcomp < 10.0F && (oncel || oncer))
+                            lrcomp = true;
                         if ((mad).lcomp > (mad).rcomp) {
                             if ((mad).capsized) {
-                                if (this.lrcomp) {
+                                if (lrcomp) {
                                     if (i > 90)
-                                        this.left = true;
+                                        left = true;
                                     else
-                                        this.right = true;
-                                } else if (!this.oncel)
-                                    this.left = true;
+                                        right = true;
+                                } else if (!oncel)
+                                    left = true;
                             } else {
-                                if (this.lrcomp) {
-                                    if (this.perfection && Math.abs(i - 90) > 30) {
+                                if (lrcomp) {
+                                    if (perfection && Math.abs(i - 90) > 30) {
                                         if (i > 90)
-                                            this.left = true;
+                                            left = true;
                                         else
-                                            this.right = true;
+                                            right = true;
                                     }
-                                } else if (this.m.random() > this.mustland)
-                                    this.right = true;
-                                this.oncel = true;
+                                } else if (m.random() > mustland)
+                                    right = true;
+                                oncel = true;
                             }
                         } else if ((mad).capsized) {
-                            if (this.lrcomp) {
+                            if (lrcomp) {
                                 if (i > 90)
-                                    this.left = true;
+                                    left = true;
                                 else
-                                    this.right = true;
-                            } else if (!this.oncer)
-                                this.right = true;
+                                    right = true;
+                            } else if (!oncer)
+                                right = true;
                         } else {
-                            if (this.lrcomp) {
-                                if (this.perfection && Math.abs(i - 90) > 30) {
+                            if (lrcomp) {
+                                if (perfection && Math.abs(i - 90) > 30) {
                                     if (i > 90)
-                                        this.left = true;
+                                        left = true;
                                     else
-                                        this.right = true;
+                                        right = true;
                                 }
-                            } else if (this.m.random() > this.mustland)
-                                this.left = true;
-                            this.oncer = true;
+                            } else if (m.random() > mustland)
+                                left = true;
+                            oncer = true;
                         }
                     }
                 }

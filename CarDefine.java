@@ -1863,7 +1863,6 @@ public class CarDefine implements Runnable
 		String string_73_ = "";
 		BufferedReader bufferedreader
 		    = new BufferedReader(new FileReader(file));
-		Object object = null;
 		String string_74_;
 		while ((string_74_ = bufferedreader.readLine()) != null)
 		    string_73_ = new StringBuilder().append(string_73_).append
@@ -1871,7 +1870,6 @@ public class CarDefine implements Runnable
 				     (string_74_).append
 				     ("\n").toString();
 		bufferedreader.close();
-		Object object_75_ = null;
 		(m).loadnew = true;
 		bco[i]
 		    = new ContO(string_73_.getBytes(), m,

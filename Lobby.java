@@ -8261,7 +8261,6 @@ public class Lobby implements Runnable {
 		String string_353_ = "";
 		if (!string.equals("")) {
 			try {
-				boolean bool = false;
 				int i_354_ = 0;
 				int i_355_ = 0;
 				int i_356_ = 0;

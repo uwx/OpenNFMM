@@ -8,43 +8,43 @@
 /*     */   private java.io.InputStream stream;
 /*     */   
 /*     */   public Data(java.io.InputStream inputStream) throws IOException {
-/*  11 */     this.bufLen = 65536;
-/*  12 */     this.buffer = new byte[this.bufLen];
-/*  13 */     this.stream = inputStream;
-/*  14 */     readFully(this.stream, this.buffer, 0, this.bufLen);
+/*  11 */     bufLen = 65536;
+/*  12 */     buffer = new byte[bufLen];
+/*  13 */     stream = inputStream;
+/*  14 */     readFully(stream, buffer, 0, bufLen);
 /*     */   }
 /*     */   
 /*     */   public Data(byte[] data) {
-/*  18 */     this.bufLen = data.length;
-/*  19 */     this.buffer = data;
+/*  18 */     bufLen = data.length;
+/*  19 */     buffer = data;
 /*     */   }
 /*     */   
 /*     */   public byte sByte(int offset) throws IOException {
 /*  23 */     load(offset, 1);
-/*  24 */     return this.buffer[offset];
+/*  24 */     return buffer[offset];
 /*     */   }
 /*     */   
 /*     */   public int uByte(int offset) throws IOException {
 /*  28 */     load(offset, 1);
-/*  29 */     return this.buffer[offset] & 0xFF;
+/*  29 */     return buffer[offset] & 0xFF;
 /*     */   }
 /*     */   
 /*     */   public int ubeShort(int offset) throws IOException {
 /*  33 */     load(offset, 2);
-/*  34 */     return (this.buffer[offset] & 0xFF) << 8 | this.buffer[(offset + 1)] & 0xFF;
+/*  34 */     return (buffer[offset] & 0xFF) << 8 | buffer[(offset + 1)] & 0xFF;
 /*     */   }
 /*     */   
 /*     */   public int uleShort(int offset) throws IOException {
 /*  38 */     load(offset, 2);
-/*  39 */     return this.buffer[offset] & 0xFF | (this.buffer[(offset + 1)] & 0xFF) << 8;
+/*  39 */     return buffer[offset] & 0xFF | (buffer[(offset + 1)] & 0xFF) << 8;
 /*     */   }
 /*     */   
 /*     */   public int uleInt(int offset) throws IOException {
 /*  43 */     load(offset, 4);
-/*  44 */     int value = this.buffer[offset] & 0xFF;
-/*  45 */     value |= (this.buffer[(offset + 1)] & 0xFF) << 8;
-/*  46 */     value |= (this.buffer[(offset + 2)] & 0xFF) << 16;
-/*  47 */     value |= (this.buffer[(offset + 3)] & 0x7F) << 24;
+/*  44 */     int value = buffer[offset] & 0xFF;
+/*  45 */     value |= (buffer[(offset + 1)] & 0xFF) << 8;
+/*  46 */     value |= (buffer[(offset + 2)] & 0xFF) << 16;
+/*  47 */     value |= (buffer[(offset + 3)] & 0x7F) << 24;
 /*  48 */     return value;
 /*     */   }
 /*     */   
@@ -52,7 +52,7 @@
 /*  52 */     load(offset, length);
 /*  53 */     char[] str = new char[length];
 /*  54 */     for (int idx = 0; idx < length; idx++) {
-/*  55 */       int chr = this.buffer[(offset + idx)] & 0xFF;
+/*  55 */       int chr = buffer[(offset + idx)] & 0xFF;
 /*  56 */       str[idx] = (chr < 32 ? 32 : (char)chr);
 /*     */     }
 /*  58 */     return new String(str);
@@ -61,7 +61,7 @@
 /*     */   public String strCp850(int offset, int length) throws IOException {
 /*  62 */     load(offset, length);
 /*     */     try {
-/*  64 */       char[] str = new String(this.buffer, offset, length, "Cp850").toCharArray();
+/*  64 */       char[] str = new String(buffer, offset, length, "Cp850").toCharArray();
 /*  65 */       for (int idx = 0; idx < str.length; idx++) {
 /*  66 */         str[idx] = (str[idx] < ' ' ? 32 : str[idx]);
 /*     */       }
@@ -75,7 +75,7 @@
 /*  75 */     load(offset, length);
 /*  76 */     short[] sampleData = new short[length];
 /*  77 */     for (int idx = 0; idx < length; idx++) {
-/*  78 */       sampleData[idx] = ((short)(this.buffer[(offset + idx)] << 8));
+/*  78 */       sampleData[idx] = ((short)(buffer[(offset + idx)] << 8));
 /*     */     }
 /*  80 */     return sampleData;
 /*     */   }
@@ -85,7 +85,7 @@
 /*  85 */     short[] sampleData = new short[length];
 /*  86 */     int sam = 0;
 /*  87 */     for (int idx = 0; idx < length; idx++) {
-/*  88 */       sam += this.buffer[(offset + idx)];
+/*  88 */       sam += buffer[(offset + idx)];
 /*  89 */       sampleData[idx] = ((short)(sam << 8));
 /*     */     }
 /*  91 */     return sampleData;
@@ -95,7 +95,7 @@
 /*  95 */     load(offset, length);
 /*  96 */     short[] sampleData = new short[length];
 /*  97 */     for (int idx = 0; idx < length; idx++) {
-/*  98 */       sampleData[idx] = ((short)((this.buffer[(offset + idx)] & 0xFF) - 128 << 8));
+/*  98 */       sampleData[idx] = ((short)((buffer[(offset + idx)] & 0xFF) - 128 << 8));
 /*     */     }
 /* 100 */     return sampleData;
 /*     */   }
@@ -104,7 +104,7 @@
 /* 104 */     load(offset, samples * 2);
 /* 105 */     short[] sampleData = new short[samples];
 /* 106 */     for (int idx = 0; idx < samples; idx++) {
-/* 107 */       sampleData[idx] = ((short)(this.buffer[(offset + idx * 2)] & 0xFF | this.buffer[(offset + idx * 2 + 1)] << 8));
+/* 107 */       sampleData[idx] = ((short)(buffer[(offset + idx * 2)] & 0xFF | buffer[(offset + idx * 2 + 1)] << 8));
 /*     */     }
 /* 109 */     return sampleData;
 /*     */   }
@@ -114,7 +114,7 @@
 /* 114 */     short[] sampleData = new short[samples];
 /* 115 */     int sam = 0;
 /* 116 */     for (int idx = 0; idx < samples; idx++) {
-/* 117 */       sam += (this.buffer[(offset + idx * 2)] & 0xFF | this.buffer[(offset + idx * 2 + 1)] << 8);
+/* 117 */       sam += (buffer[(offset + idx * 2)] & 0xFF | buffer[(offset + idx * 2 + 1)] << 8);
 /* 118 */       sampleData[idx] = ((short)sam);
 /*     */     }
 /* 120 */     return sampleData;
@@ -124,22 +124,22 @@
 /* 124 */     load(offset, samples * 2);
 /* 125 */     short[] sampleData = new short[samples];
 /* 126 */     for (int idx = 0; idx < samples; idx++) {
-/* 127 */       int sam = this.buffer[(offset + idx * 2)] & 0xFF | (this.buffer[(offset + idx * 2 + 1)] & 0xFF) << 8;
+/* 127 */       int sam = buffer[(offset + idx * 2)] & 0xFF | (buffer[(offset + idx * 2 + 1)] & 0xFF) << 8;
 /* 128 */       sampleData[idx] = ((short)(sam - 32768));
 /*     */     }
 /* 130 */     return sampleData;
 /*     */   }
 /*     */   
 /*     */   private void load(int offset, int length) throws IOException {
-/* 134 */     while (offset + length > this.bufLen) {
-/* 135 */       int newBufLen = this.bufLen << 1;
+/* 134 */     while (offset + length > bufLen) {
+/* 135 */       int newBufLen = bufLen << 1;
 /* 136 */       byte[] newBuf = new byte[newBufLen];
-/* 137 */       System.arraycopy(this.buffer, 0, newBuf, 0, this.bufLen);
-/* 138 */       if (this.stream != null) {
-/* 139 */         readFully(this.stream, newBuf, this.bufLen, newBufLen - this.bufLen);
+/* 137 */       System.arraycopy(buffer, 0, newBuf, 0, bufLen);
+/* 138 */       if (stream != null) {
+/* 139 */         readFully(stream, newBuf, bufLen, newBufLen - bufLen);
 /*     */       }
-/* 141 */       this.bufLen = newBufLen;
-/* 142 */       this.buffer = newBuf;
+/* 141 */       bufLen = newBufLen;
+/* 142 */       buffer = newBuf;
 /*     */     }
 /*     */   }
 /*     */   

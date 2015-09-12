@@ -85,9 +85,9 @@ public class Sample
         for(int end = idx + 16; idx < end; idx++)
             sampleData[idx] = sampleData[idx - loopLength];
 
-        this.sampleData = sampleData;
-        this.loopStart = loopStart;
-        this.loopLength = loopLength;
+        sampleData = sampleData;
+        loopStart = loopStart;
+        loopLength = loopLength;
     }
 
     public void resampleNearest(int sampleIdx, int sampleFrac, int step, int leftGain, int rightGain, int mixBuffer[], int offset, 
@@ -235,16 +235,6 @@ public class Sample
     private int loopStart;
     private int loopLength;
     private short sampleData[];
-    private static final int LOG2_FILTER_TAPS = 4;
-    private static final int FILTER_TAPS = 16;
-    private static final int DELAY = 8;
-    private static final int LOG2_TABLE_ACCURACY = 4;
-    private static final int TABLE_ACCURACY = 16;
-    private static final int TABLE_INTERP_SHIFT = 11;
-    private static final int TABLE_INTERP_ONE = 2048;
-    private static final int TABLE_INTERP_MASK = 2047;
-    private static final int LOG2_NUM_TABLES = 3;
-    private static final int NUM_TABLES = 8;
     private static final short SINC_TABLES[][] = calculateSincTables();
 
 }

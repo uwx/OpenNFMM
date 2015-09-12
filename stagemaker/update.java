@@ -1,10 +1,7 @@
 package stagemaker;
 
 /*    */ import java.applet.Applet;
-/*    */ import java.awt.Color;
-/*    */ import java.awt.Cursor;
 /*    */ import java.awt.Event;
-/*    */ import java.awt.Font;
 /*    */ import java.awt.FontMetrics;
 /*    */ import java.awt.Graphics;
 /*    */ import java.awt.Graphics2D;
@@ -17,6 +14,10 @@ package stagemaker;
 /*    */   extends Applet
 /*    */   implements Runnable
 /*    */ {
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1713950283760450017L;
 /* 18 */   int xm = 0; int ym = 0;
 /* 19 */   boolean moused = false;
 /* 20 */   int scur = 0;
@@ -30,26 +31,26 @@ package stagemaker;
 /*    */   Image offImage;
 /*    */   Thread gamer;
 /*    */   public void init() {
-/* 73 */     this.offImage = createImage(800, 300);
-/* 74 */     if (this.offImage != null) this.rd = ((Graphics2D)this.offImage.getGraphics());
-/* 75 */     this.rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+/* 73 */     offImage = createImage(800, 300);
+/* 74 */     if (offImage != null) rd = ((Graphics2D)offImage.getGraphics());
+/* 75 */     rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 /*    */   }
 /*    */   
 /*    */   public boolean mouseMove(Event paramEvent, int paramInt1, int paramInt2)
 /*    */   {
-/* 80 */     this.xm = paramInt1;this.ym = paramInt2;
+/* 80 */     xm = paramInt1;ym = paramInt2;
 /* 81 */     return false;
 /*    */   }
 /*    */   
 /*    */   public boolean mouseUp(Event paramEvent, int paramInt1, int paramInt2)
 /*    */   {
-/* 86 */     this.xm = paramInt1;this.ym = paramInt2;
-/* 87 */     this.moused = true;
+/* 86 */     xm = paramInt1;ym = paramInt2;
+/* 87 */     moused = true;
 /* 88 */     return false;
 /*    */   }
 /*    */   
-/* 91 */   public void start() { if (this.gamer == null) this.gamer = new Thread(this); this.gamer.start(); }
-/* 92 */   public void stop() { if (this.gamer != null) this.gamer.stop(); this.gamer = null; }
-/* 93 */   public void paint(Graphics paramGraphics) { paramGraphics.drawImage(this.offImage, 0, 0, this); }
-/* 94 */   public void update(Graphics paramGraphics) { paint(paramGraphics); }
+/* 91 */   public void start() { if (gamer == null) gamer = new Thread(this); gamer.start(); }
+/* 92 */   public void stop() { if (gamer != null) gamer.stop(); gamer = null; }
+/* 93 */   public void paint(Graphics paramGraphics) { paramGraphics.drawImage(offImage, 0, 0, this); }
+/* 94 */   public update(Graphics paramGraphics) { paint(paramGraphics); }
 /*    */ }

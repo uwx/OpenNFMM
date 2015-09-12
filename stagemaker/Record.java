@@ -1,10 +1,4 @@
 package stagemaker;
-
-/* Record - Decompiled by JODE extended
- * DragShot Software
- * JODE (c) 1998-2001 Jochen Hoenicke
- */
-import java.awt.Color;
 public class Record
 {
     Medium m;
