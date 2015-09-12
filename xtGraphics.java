@@ -776,62 +776,146 @@ public class xtGraphics extends Panel implements Runnable {
 	}
 
 	public void run() {
-		boolean bool = false;
-		while (runtyp > 0) {
-			if (runtyp >= 1 && runtyp <= 140) hipnoload(runtyp, false);
-			if (runtyp == 176) {
-				loading();
-				bool = true;
-			}
-			app.repaint();
-			try {
-				if (runner != null) {
+		if (!(Thread.currentThread().isInterrupted())) {
+			boolean bool = false;
+			while (runtyp > 0 && !(Thread.currentThread().isInterrupted())) {
+				if (runtyp >= 1 && runtyp <= 140) hipnoload(runtyp, false);
+				if (runtyp == 176) {
+					loading();
+					bool = true;
+				}
+				app.repaint();
+				try {
+					if (runner != null) {
+						/* empty */
+					}
+					Thread.sleep(20L);
+				} catch (InterruptedException interruptedexception) {
 					/* empty */
 				}
-				Thread.sleep(20L);
-			} catch (InterruptedException interruptedexception) {
-				/* empty */
 			}
-		}
-		if (bool) {
-			pingstat();
-			bool = false;
-		}
-		boolean[] bools = {
-			true, true
-		};
-		while ((runtyp == -101 || sendstat == 1) && !lan) {
-			String string = new StringBuilder().append("3|").append(playingame).append("|").append(updatec[0]).append("|").toString();
-			if (clanchat) string = new StringBuilder().append(string).append("").append(updatec[1]).append("|").append(clan).append("|").append(clankey).append("|").toString();
-			else string = new StringBuilder().append(string).append("0|||")
-				.toString();
-			if (updatec[0] <= -11) {
-				for (int i = 0; i < -updatec[0] - 10; i++)
-				string = new StringBuilder().append(string).append("").append(cnames[0][6 - i]).append("|").append(sentn[0][6 - i]).append("|").toString();
-				updatec[0] = -2;
+			if (bool) {
+				pingstat();
+				bool = false;
 			}
-			if (clanchat && updatec[1] <= -11) {
-				for (int i = 0; i < -updatec[1] - 10; i++)
-				string = new StringBuilder().append(string).append("").append(cnames[1][6 - i]).append("|").append(sentn[1][6 - i]).append("|").toString();
-				updatec[1] = -2;
-			}
-			if (sendstat == 1) {
-				string = new StringBuilder().append("5|").append(playingame).append("|").append(im).append("|").append(beststunt).append("|").append(fastestlap).append("|").toString();
-				for (int i = 0; i < nplayers; i++)
-				string = new StringBuilder().append(string).append("").append(dcrashes[i]).append("|").toString();
-				sendstat = 2;
-			}
-			boolean bool_13_ = false;
-			String string_14_ = "";
-			try {
-				dout.println(string);
-				string_14_ = din.readLine();
-				if (string_14_ == null) bool_13_ = true;
-			} catch (Exception exception) {
-				bool_13_ = true;
-			}
-			if (bool_13_) {
+			boolean[] bools = {
+				true, true
+			};
+			while ((runtyp == -101 || sendstat == 1) && !lan && !(Thread.currentThread().isInterrupted())) {
+				String string = new StringBuilder().append("3|").append(playingame).append("|").append(updatec[0]).append("|").toString();
+				if (clanchat) string = new StringBuilder().append(string).append("").append(updatec[1]).append("|").append(clan).append("|").append(clankey).append("|").toString();
+				else string = new StringBuilder().append(string).append("0|||")
+					.toString();
+				if (updatec[0] <= -11) {
+					for (int i = 0; i < -updatec[0] - 10; i++)
+					string = new StringBuilder().append(string).append("").append(cnames[0][6 - i]).append("|").append(sentn[0][6 - i]).append("|").toString();
+					updatec[0] = -2;
+				}
+				if (clanchat && updatec[1] <= -11) {
+					for (int i = 0; i < -updatec[1] - 10; i++)
+					string = new StringBuilder().append(string).append("").append(cnames[1][6 - i]).append("|").append(sentn[1][6 - i]).append("|").toString();
+					updatec[1] = -2;
+				}
+				if (sendstat == 1) {
+					string = new StringBuilder().append("5|").append(playingame).append("|").append(im).append("|").append(beststunt).append("|").append(fastestlap).append("|").toString();
+					for (int i = 0; i < nplayers; i++)
+					string = new StringBuilder().append(string).append("").append(dcrashes[i]).append("|").toString();
+					sendstat = 2;
+				}
+				boolean bool_13_ = false;
+				String string_14_ = "";
 				try {
+					dout.println(string);
+					string_14_ = din.readLine();
+					if (string_14_ == null) bool_13_ = true;
+				} catch (Exception exception) {
+					bool_13_ = true;
+				}
+				if (bool_13_) {
+					try {
+						socket.close();
+						socket = null;
+						din.close();
+						din = null;
+						dout.close();
+						dout = null;
+					} catch (Exception exception) {
+						/* empty */
+					}
+					try {
+						socket = new Socket(server,
+						servport);
+						din = (new BufferedReader(new InputStreamReader(socket.getInputStream())));
+						dout = new PrintWriter(socket.getOutputStream(),
+						true);
+						dout.println(string);
+						string_14_ = din.readLine();
+						if (string_14_ != null) bool_13_ = false;
+					} catch (Exception exception) {
+						/* empty */
+					}
+				}
+				if (bool_13_) {
+					try {
+						socket.close();
+						socket = null;
+					} catch (Exception exception) {
+						/* empty */
+					}
+					runtyp = 0;
+					if ((app).cmsg.isShowing()) {
+						(app).cmsg.setVisible(false);
+						app.requestFocus();
+					}
+					runner.interrupt(); runner = null;
+				}
+				if (sendstat != 2) {
+					int i = 2;
+					int i_15_ = 1;
+					if (clanchat) i_15_ = 2;
+					for (int i_16_ = 0; i_16_ < i_15_; i_16_++) {
+						int i_17_ = getvalue(string_14_, i_16_);
+						if (updatec[i_16_] != i_17_ && updatec[i_16_] >= -2 && pointc[i_16_] == 6) {
+							for (int i_18_ = 0; i_18_ < 7; i_18_++) {
+								cnames[i_16_][i_18_] = getSvalue(string_14_, i);
+								i++;
+								sentn[i_16_][i_18_] = getSvalue(string_14_, i);
+								i++;
+							}
+							if (cnames[i_16_][6].equals("")) {
+								if (i_16_ == 0) cnames[i_16_][6] = "Game Chat  ";
+								else cnames[i_16_][6] = new StringBuilder().append("").append(clan).append("'s Chat  ").toString();
+							}
+							if (updatec[i_16_] != -2) {
+								floater[i_16_] = 1;
+								if (bools[i_16_]) {
+									msgflk[i_16_] = 67;
+									bools[i_16_] = false;
+								} else msgflk[i_16_] = 110;
+							}
+							updatec[i_16_] = i_17_;
+						}
+					}
+				} else sendstat = 3;
+				try {
+					if (runner != null) {
+						/* empty */
+					}
+					Thread.sleep(1000L);
+				} catch (InterruptedException interruptedexception) {
+					/* empty */
+				}
+			}
+			if (runtyp == -167 || runtyp == -168) {
+				try {
+					socket = new Socket("multiplayer.needformadness.com", 7061);
+					din = (new BufferedReader(new InputStreamReader(socket.getInputStream())));
+					dout = new PrintWriter(socket.getOutputStream(),
+					true);
+					dout.println(new StringBuilder().append("101|").append(runtyp + 174).append("|").append((app).tnick.getText())
+						.append("|").append((app).tpass.getText())
+						.append("|").toString());
+					din.readLine();
 					socket.close();
 					socket = null;
 					din.close();
@@ -841,92 +925,10 @@ public class xtGraphics extends Panel implements Runnable {
 				} catch (Exception exception) {
 					/* empty */
 				}
-				try {
-					socket = new Socket(server,
-					servport);
-					din = (new BufferedReader(new InputStreamReader(socket.getInputStream())));
-					dout = new PrintWriter(socket.getOutputStream(),
-					true);
-					dout.println(string);
-					string_14_ = din.readLine();
-					if (string_14_ != null) bool_13_ = false;
-				} catch (Exception exception) {
-					/* empty */
-				}
-			}
-			if (bool_13_) {
-				try {
-					socket.close();
-					socket = null;
-				} catch (Exception exception) {
-					/* empty */
-				}
 				runtyp = 0;
-				if ((app).cmsg.isShowing()) {
-					(app).cmsg.setVisible(false);
-					app.requestFocus();
-				}
-				runner.stop();
 			}
-			if (sendstat != 2) {
-				int i = 2;
-				int i_15_ = 1;
-				if (clanchat) i_15_ = 2;
-				for (int i_16_ = 0; i_16_ < i_15_; i_16_++) {
-					int i_17_ = getvalue(string_14_, i_16_);
-					if (updatec[i_16_] != i_17_ && updatec[i_16_] >= -2 && pointc[i_16_] == 6) {
-						for (int i_18_ = 0; i_18_ < 7; i_18_++) {
-							cnames[i_16_][i_18_] = getSvalue(string_14_, i);
-							i++;
-							sentn[i_16_][i_18_] = getSvalue(string_14_, i);
-							i++;
-						}
-						if (cnames[i_16_][6].equals("")) {
-							if (i_16_ == 0) cnames[i_16_][6] = "Game Chat  ";
-							else cnames[i_16_][6] = new StringBuilder().append("").append(clan).append("'s Chat  ").toString();
-						}
-						if (updatec[i_16_] != -2) {
-							floater[i_16_] = 1;
-							if (bools[i_16_]) {
-								msgflk[i_16_] = 67;
-								bools[i_16_] = false;
-							} else msgflk[i_16_] = 110;
-						}
-						updatec[i_16_] = i_17_;
-					}
-				}
-			} else sendstat = 3;
-			try {
-				if (runner != null) {
-					/* empty */
-				}
-				Thread.sleep(1000L);
-			} catch (InterruptedException interruptedexception) {
-				/* empty */
-			}
+			if (runtyp == -166 || runtyp == -167 || runtyp == -168) pingstat();
 		}
-		if (runtyp == -167 || runtyp == -168) {
-			try {
-				socket = new Socket("multiplayer.needformadness.com", 7061);
-				din = (new BufferedReader(new InputStreamReader(socket.getInputStream())));
-				dout = new PrintWriter(socket.getOutputStream(),
-				true);
-				dout.println(new StringBuilder().append("101|").append(runtyp + 174).append("|").append((app).tnick.getText())
-					.append("|").append((app).tpass.getText())
-					.append("|").toString());
-				din.readLine();
-				socket.close();
-				socket = null;
-				din.close();
-				din = null;
-				dout.close();
-				dout = null;
-			} catch (Exception exception) {
-				/* empty */
-			}
-			runtyp = 0;
-		}
-		if (runtyp == -166 || runtyp == -167 || runtyp == -168) pingstat();
 	}
 
 	public void stopchat() {
@@ -1009,7 +1011,7 @@ public class xtGraphics extends Panel implements Runnable {
 
 	public void stopallnow() {
 		if (runner != null) {
-			runner.stop();
+			runner.interrupt();
 			runner = null;
 		}
 		runtyp = 0;
@@ -2238,7 +2240,7 @@ public class xtGraphics extends Panel implements Runnable {
 		int[] is = {
 			(m).snap[0], (m).snap[1], (m).snap[2]
 		};
-		while (is[0] + is[1] + is[2] < -30) {
+		while (is[0] + is[1] + is[2] < -30 && !(Thread.currentThread().isInterrupted())) {
 			for (int i_45_ = 0; i_45_ < 3; i_45_++) {
 				if (is[i_45_] < 50) is[i_45_]++;
 			}
@@ -2480,7 +2482,7 @@ public class xtGraphics extends Panel implements Runnable {
 		}
 		loadstrack(i, string, i_51_);
 		if (bool) {
-			runner.stop();
+			runner.interrupt();
 			runner = null;
 			runtyp = 0;
 		}
@@ -2705,7 +2707,7 @@ public class xtGraphics extends Panel implements Runnable {
 							if (multion == 1 && !lan && sendstat == 0) {
 								sendstat = 1;
 								if (runtyp != -101) {
-									if (runner != null) runner.stop();
+									if (runner != null) runner.interrupt(); runner = null;
 									runner = new Thread(this);
 									runner.start();
 								}
@@ -3112,7 +3114,7 @@ public class xtGraphics extends Panel implements Runnable {
 				(control).chatup = 0;
 				if (!lan) {
 					runtyp = -101;
-					if (runner != null) runner.stop();
+					if (runner != null) runner.interrupt(); runner = null;
 					runner = new Thread(this);
 					runner.start();
 				}
@@ -3120,7 +3122,7 @@ public class xtGraphics extends Panel implements Runnable {
 			if (holdit && multion == 1 && !lan && sendstat == 0) {
 				sendstat = 1;
 				if (runtyp != -101) {
-					if (runner != null) runner.stop();
+					if (runner != null) runner.interrupt(); runner = null;
 					runner = new Thread(this);
 					runner.start();
 				}
@@ -4430,7 +4432,7 @@ public class xtGraphics extends Panel implements Runnable {
 			String string = "Top 20 Cars";
 			int i_105_ = (cd).loadlist;
 			String string_106_ = "Weekly";
-			while (i_105_ > 6) {
+			while (i_105_ > 6 && !(Thread.currentThread().isInterrupted())) {
 				i_105_ -= 6;
 				if (string_106_.equals("Semi-Annual")) string_106_ = "Annual";
 				if (string_106_.equals("Monthly")) string_106_ = "Semi-Annual";
@@ -4663,7 +4665,7 @@ public class xtGraphics extends Panel implements Runnable {
 								.loadlist);
 							String string = "Top 20 Cars";
 							String string_120_ = "Weekly";
-							while (i_119_ > 6) {
+							while (i_119_ > 6 && !(Thread.currentThread().isInterrupted())) {
 								i_119_ -= 6;
 								if (string_120_.equals("Semi-Annual")) string_120_ = "Annual";
 								if (string_120_.equals("Monthly")) string_120_ = "Semi-Annual";
@@ -6401,7 +6403,7 @@ public class xtGraphics extends Panel implements Runnable {
 			int i_156_ = 2;
 			for (int i_157_ = 1; i_157_ < i_152_; i_157_++) {
 				bools[i_157_] = false;
-				while (!bools[i_157_]) {
+				while (!bools[i_157_] && !(Thread.currentThread().isInterrupted())) {
 					float f = 10.0F;
 					if (bool) f = 17.0F;
 					sc[i_157_] = (int)(Math.random() * (double)(24.0F + 8.0F * ((float) i / f)));
@@ -7368,11 +7370,11 @@ public class xtGraphics extends Panel implements Runnable {
 					spin = "";
 					asay = "";
 					int i = 0;
-					while ((mad).travzy > 225) {
+					while ((mad).travzy > 225 && !(Thread.currentThread().isInterrupted())) {
 						(mad).travzy -= 360;
 						i++;
 					}
-					while ((mad).travzy < -225) {
+					while ((mad).travzy < -225 && !(Thread.currentThread().isInterrupted())) {
 						(mad).travzy += 360;
 						i--;
 					}
@@ -7398,7 +7400,7 @@ public class xtGraphics extends Panel implements Runnable {
 					}
 					i = 0;
 					(mad).travxy = Math.abs((mad).travxy);
-					while ((mad).travxy > 270) {
+					while ((mad).travxy > 270 && !(Thread.currentThread().isInterrupted())) {
 						(mad).travxy -= 360;
 						i++;
 					}
@@ -7413,7 +7415,7 @@ public class xtGraphics extends Panel implements Runnable {
 					i = 0;
 					boolean bool_194_ = false;
 					(mad).travxz = Math.abs((mad).travxz);
-					while ((mad).travxz > 90) {
+					while ((mad).travxz > 90 && !(Thread.currentThread().isInterrupted())) {
 						(mad).travxz -= 180;
 						i += 180;
 						if (i > 900) {
@@ -8591,7 +8593,7 @@ public class xtGraphics extends Panel implements Runnable {
 		int[] is_327_ = {
 			(m).snap[0], (m).snap[1], (m).snap[2]
 		};
-		while (is_327_[0] + is_327_[1] + is_327_[2] < -30) {
+		while (is_327_[0] + is_327_[1] + is_327_[2] < -30 && !(Thread.currentThread().isInterrupted())) {
 			for (int i_328_ = 0; i_328_ < 3; i_328_++) {
 				if (is_327_[i_328_] < 50) is_327_[i_328_]++;
 			}

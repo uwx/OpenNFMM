@@ -188,7 +188,7 @@ public class GameSparker extends Applet implements Runnable {
 		double next_game_tick = System.currentTimeMillis();
 		int loops;
 
-		while (true) {
+		while (!(Thread.currentThread().isInterrupted())) {
 			loops = 0;
 			while (System.currentTimeMillis() > next_game_tick && loops < MAX_FRAMESKIP) {
 				date = new Date();
@@ -1497,7 +1497,7 @@ public class GameSparker extends Applet implements Runnable {
 					}
 					System.gc();
 					if (Madness.endadv == 2) Madness.advopen();
-					gamer.stop();
+					gamer.interrupt();
 					gamer = null;
 				}
 				l = (long) Math.round(f_2_) - (l_95_ - l_11_);
@@ -2799,7 +2799,7 @@ public class GameSparker extends Applet implements Runnable {
 	public void stop() {
 		if (exwist && gamer != null) {
 			System.gc();
-			gamer.stop();
+			gamer.interrupt();
 			gamer = null;
 		}
 		exwist = true;
