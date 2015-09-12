@@ -1039,7 +1039,7 @@ public class Login implements Runnable {
 		153, null);
 		// really dirty solution to a very specific bug
 		// DO NOT DELETE THE LINE BELOW
-		drawSbutton((this.xt).exit, 690, 17);
+		//drawSbutton((this.xt).exit, 690, 17);
 		drawSbutton((this.xt).exit, 690, 17);
 		this.rd.setFont(new Font("Arial", 1, 13));
 		this.ftm = this.rd.getFontMetrics();

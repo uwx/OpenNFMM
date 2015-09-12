@@ -3875,7 +3875,7 @@ public class Lobby implements Runnable {
 												(
 												this.gs)
 													.snbts.select(0);
-												this.gnbts = 0;
+												//this.gnbts = 0;
 											}
 											(this.gs)
 												.snbts.move(524, 105);
