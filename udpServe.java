@@ -15,133 +15,133 @@ public class udpServe implements Runnable
     int[] lsframe = { -1, -1, -1, -1, -1, -1, -1, -1 };
     
     public udpServe(UDPMistro udpmistro, int i) {
-	this.um = udpmistro;
-	this.im = i;
-	this.mport = 7060 + this.im;
-	this.servo = new Thread(this);
-	this.servo.start();
+	um = udpmistro;
+	im = i;
+	mport = 7060 + im;
+	servo = new Thread(this);
+	servo.start();
     }
     
     public void stopServe() {
 	try {
-	    this.dSocket.close();
-	    this.dSocket = null;
+	    dSocket.close();
+	    dSocket = null;
 	} catch (Exception exception) {
 	    /* empty */
 	}
-	if (this.servo != null) {
-	    this.servo.stop();
-	    this.servo = null;
+	if (servo != null) {
+	    servo.stop();
+	    servo = null;
 	}
     }
     
     public void run() {
 	try {
-	    this.dSocket
-		= new DatagramSocket(this.mport);
+	    dSocket
+		= new DatagramSocket(mport);
 	    byte[] is = new byte[128];
 	    for (;;) {
 		DatagramPacket datagrampacket
 		    = new DatagramPacket(is, is.length);
-		this.dSocket.receive(datagrampacket);
+		dSocket.receive(datagrampacket);
 		String string = new String(datagrampacket.getData());
 		String string_0_ = getSvalue(string, 0);
 		int i = getvalue(string, 1);
-		if (i == this.im
-		    && (this.im
-			< (this.um).nplayers)
-		    && (this.um).out[i] != 76) {
+		if (i == im
+		    && (im
+			< (um).nplayers)
+		    && (um).out[i] != 76) {
 		    int i_1_ = getvalue(string, 2);
 		    int i_2_ = 0;
 		    for (int i_3_ = 0; i_3_ < 3; i_3_++) {
-			if (i_1_ != ((this.um).frame
+			if (i_1_ != ((um).frame
 				     [i][i_3_]))
 			    i_2_++;
 		    }
 		    if (i_2_ == 3) {
 			for (int i_4_ = 0; i_4_ < 3; i_4_++) {
-			    if (i_1_ > ((this.um)
+			    if (i_1_ > ((um)
 					.frame[i][i_4_])) {
 				for (int i_5_ = 2; i_5_ >= i_4_ + 1; i_5_--) {
-				    (this.um)
+				    (um)
 					.frame[i][i_5_]
-					= ((this.um)
+					= ((um)
 					   .frame[i][i_5_ - 1]);
-				    (this.um).info
+				    (um).info
 					[i][i_5_]
-					= ((this.um)
+					= ((um)
 					   .info[i][i_5_ - 1]);
 				}
-				(this.um).frame[i]
+				(um).frame[i]
 				    [i_4_]
 				    = i_1_;
-				(this.um).info[i]
+				(um).info[i]
 				    [i_4_]
 				    = getSvalue(string, 3);
 				i_4_ = 3;
 			    }
 			}
 		    }
-		    if ((this.um).gocnt[i] != 0) {
+		    if ((um).gocnt[i] != 0) {
 			int i_6_ = 0;
 			for (int i_7_ = 0;
 			     (i_7_
-			      < (this.um).nplayers);
+			      < (um).nplayers);
 			     i_7_++) {
-			    if (((this.um).frame[i_7_]
+			    if (((um).frame[i_7_]
 				 [0])
 				>= 0)
 				i_6_++;
 			}
 			if (i_6_
-			    == (this.um).nplayers) {
+			    == (um).nplayers) {
 			    string_0_ = "1111111";
-			    (this.um).gocnt[i]--;
+			    (um).gocnt[i]--;
 			}
 		    }
-		    if (!(this.um).go) {
+		    if (!(um).go) {
 			int i_8_ = 0;
 			for (int i_9_ = 0;
 			     (i_9_
-			      < (this.um).nplayers);
+			      < (um).nplayers);
 			     i_9_++) {
-			    if (((this.um).frame[i_9_]
+			    if (((um).frame[i_9_]
 				 [0])
 				>= 0)
 				i_8_++;
 			}
 			if (i_8_
-			    == (this.um).nplayers)
-			    (this.um).gocnt[0]--;
-			if ((this.um).gocnt[0] <= 1)
-			    (this.um).go = true;
+			    == (um).nplayers)
+			    (um).gocnt[0]--;
+			if ((um).gocnt[0] <= 1)
+			    (um).go = true;
 		    }
 		}
 		InetAddress inetaddress = datagrampacket.getAddress();
 		int i_10_ = datagrampacket.getPort();
 		for (int i_11_ = 0;
-		     i_11_ < (this.um).nplayers;
+		     i_11_ < (um).nplayers;
 		     i_11_++) {
-		    if (i_11_ != this.im) {
+		    if (i_11_ != im) {
 			int i_12_ = -1;
 			for (int i_13_ = 0; i_13_ < 3; i_13_++) {
-			    if (((this.um).frame
+			    if (((um).frame
 				 [i_11_][i_13_])
-				== this.lsframe[i_11_] + 1)
+				== lsframe[i_11_] + 1)
 				i_12_ = i_13_;
 			}
 			if (i_12_ == -1) {
 			    for (int i_14_ = 0; i_14_ < 3; i_14_++) {
-				if (((this.um).frame
+				if (((um).frame
 				     [i_11_][i_14_])
-				    > this.lsframe[i_11_])
+				    > lsframe[i_11_])
 				    i_12_ = i_14_;
 			    }
 			}
 			if (i_12_ == -1)
 			    i_12_ = 0;
-			this.lsframe[i_11_]
-			    = ((this.um).frame[i_11_]
+			lsframe[i_11_]
+			    = ((um).frame[i_11_]
 			       [i_12_]);
 			String string_15_
 			    = new StringBuilder().append("").append
@@ -149,11 +149,11 @@ public class udpServe implements Runnable
 				  ("|").append
 				  (i_11_).append
 				  ("|").append
-				  ((this.um).frame
+				  ((um).frame
 				   [i_11_][i_12_])
 				  .append
 				  ("|").append
-				  ((this.um).info
+				  ((um).info
 				   [i_11_][i_12_])
 				  .append
 				  ("|").toString();
@@ -161,7 +161,7 @@ public class udpServe implements Runnable
 			DatagramPacket datagrampacket_17_
 			    = new DatagramPacket(is_16_, is_16_.length,
 						 inetaddress, i_10_);
-			this.dSocket.send(datagrampacket_17_);
+			dSocket.send(datagrampacket_17_);
 		    }
 		}
 	    }

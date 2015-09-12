@@ -45,131 +45,131 @@ public class CheckPoints
     
     public void checkstat(Mad[] mads, ContO[] contos, Record record, int i,
 			  int i_0_, int i_1_) {
-	if (!this.haltall) {
-	    this.pcleared = (mads[i_0_]).pcleared;
+	if (!haltall) {
+	    pcleared = (mads[i_0_]).pcleared;
 	    for (int i_2_ = 0; i_2_ < i; i_2_++) {
-		this.magperc[i_2_]
+		magperc[i_2_]
 		    = ((float) (mads[i_2_]).hitmag
 		       / (float) (((mads[i_2_]).cd).maxmag
 				  [(mads[i_2_]).cn]));
-		if (this.magperc[i_2_] > 1.0F)
-		    this.magperc[i_2_] = 1.0F;
-		this.pos[i_2_] = 0;
-		this.onscreen[i_2_]
+		if (magperc[i_2_] > 1.0F)
+		    magperc[i_2_] = 1.0F;
+		pos[i_2_] = 0;
+		onscreen[i_2_]
 		    = (contos[i_2_]).dist;
-		this.opx[i_2_] = (contos[i_2_]).x;
-		this.opz[i_2_] = (contos[i_2_]).z;
-		this.omxz[i_2_] = (mads[i_2_]).mxz;
-		if (this.dested[i_2_] == 0)
-		    this.clear[i_2_]
+		opx[i_2_] = (contos[i_2_]).x;
+		opz[i_2_] = (contos[i_2_]).z;
+		omxz[i_2_] = (mads[i_2_]).mxz;
+		if (dested[i_2_] == 0)
+		    clear[i_2_]
 			= (mads[i_2_]).clear;
 		else
-		    this.clear[i_2_] = -1;
+		    clear[i_2_] = -1;
 		(mads[i_2_]).outshakedam = (mads[i_2_]).shakedam;
 		(mads[i_2_]).shakedam = 0;
 	    }
 	    for (int i_3_ = 0; i_3_ < i; i_3_++) {
 		for (int i_4_ = i_3_ + 1; i_4_ < i; i_4_++) {
-		    if (this.clear[i_3_]
-			!= this.clear[i_4_]) {
-			if (this.clear[i_3_]
-			    < this.clear[i_4_])
-			    this.pos[i_3_]++;
+		    if (clear[i_3_]
+			!= clear[i_4_]) {
+			if (clear[i_3_]
+			    < clear[i_4_])
+			    pos[i_3_]++;
 			else
-			    this.pos[i_4_]++;
+			    pos[i_4_]++;
 		    } else {
 			int i_5_ = (mads[i_3_]).pcleared + 1;
-			if (i_5_ >= this.n)
+			if (i_5_ >= n)
 			    i_5_ = 0;
-			while (this.typ[i_5_] <= 0) {
-			    if (++i_5_ >= this.n)
+			while (typ[i_5_] <= 0) {
+			    if (++i_5_ >= n)
 				i_5_ = 0;
 			}
 			if (py((contos[i_3_]).x / 100,
-			       this.x[i_5_] / 100,
+			       x[i_5_] / 100,
 			       (contos[i_3_]).z / 100,
-			       this.z[i_5_] / 100)
+			       z[i_5_] / 100)
 			    > py((contos[i_4_]).x / 100,
-				 this.x[i_5_] / 100,
+				 x[i_5_] / 100,
 				 (contos[i_4_]).z / 100,
-				 this.z[i_5_] / 100))
-			    this.pos[i_3_]++;
+				 z[i_5_] / 100))
+			    pos[i_3_]++;
 			else
-			    this.pos[i_4_]++;
+			    pos[i_4_]++;
 		    }
 		}
 	    }
-	    if (this.stage > 2) {
+	    if (stage > 2) {
 		for (int i_6_ = 0; i_6_ < i; i_6_++) {
-		    if ((this.clear[i_6_]
-			 == (this.nlaps
-			     * this.nsp))
-			&& this.pos[i_6_] == 0) {
+		    if ((clear[i_6_]
+			 == (nlaps
+			     * nsp))
+			&& pos[i_6_] == 0) {
 			if (i_6_ == i_0_) {
 			    for (int i_7_ = 0; i_7_ < i; i_7_++) {
-				if (this.pos[i_7_] == 1)
-				    this.postwo = i_7_;
+				if (pos[i_7_] == 1)
+				    postwo = i_7_;
 			    }
-			    if ((py(this.opx[i_0_] / 100,
-				    (this.opx
-				     [this.postwo]) / 100,
-				    this.opz[i_0_] / 100,
-				    (this.opz
-				     [this.postwo]) / 100)
+			    if ((py(opx[i_0_] / 100,
+				    (opx
+				     [postwo]) / 100,
+				    opz[i_0_] / 100,
+				    (opz
+				     [postwo]) / 100)
 				 < 14000)
-				&& (this.clear[i_0_]
-				    - (this.clear
-				       [this.postwo])) == 1)
-				this.catchfin = 30;
-			} else if (this.pos[i_0_] == 1
-				   && (py(this.opx[i_0_] / 100,
-					  this.opx[i_6_] / 100,
-					  this.opz[i_0_] / 100,
-					  this.opz[i_6_] / 100)
+				&& (clear[i_0_]
+				    - (clear
+				       [postwo])) == 1)
+				catchfin = 30;
+			} else if (pos[i_0_] == 1
+				   && (py(opx[i_0_] / 100,
+					  opx[i_6_] / 100,
+					  opz[i_0_] / 100,
+					  opz[i_6_] / 100)
 				       < 14000)
-				   && ((this.clear[i_6_]
-					- this.clear[i_0_])
+				   && ((clear[i_6_]
+					- clear[i_0_])
 				       == 1)) {
-			    this.catchfin = 30;
-			    this.postwo = i_6_;
+			    catchfin = 30;
+			    postwo = i_6_;
 			}
 		    }
 		}
 	    }
 	}
-	this.wasted = 0;
+	wasted = 0;
 	for (int i_8_ = 0; i_8_ < i; i_8_++) {
 	    if ((i_0_ != i_8_ || i_1_ >= 2) && (mads[i_8_]).dest)
-		this.wasted++;
+		wasted++;
 	}
-	if (this.catchfin != 0 && i_1_ < 2) {
-	    this.catchfin--;
-	    if (this.catchfin == 0) {
-		record.cotchinow(this.postwo);
+	if (catchfin != 0 && i_1_ < 2) {
+	    catchfin--;
+	    if (catchfin == 0) {
+		record.cotchinow(postwo);
 		(record).closefinish
-		    = this.pos[i_0_] + 1;
+		    = pos[i_0_] + 1;
 	    }
 	}
     }
     
     public void calprox() {
 	int i = 0;
-	for (int i_9_ = 0; i_9_ < this.n - 1; i_9_++) {
-	    for (int i_10_ = i_9_ + 1; i_10_ < this.n;
+	for (int i_9_ = 0; i_9_ < n - 1; i_9_++) {
+	    for (int i_10_ = i_9_ + 1; i_10_ < n;
 		 i_10_++) {
-		if (Math.abs(this.x[i_9_]
-			     - this.x[i_10_])
+		if (Math.abs(x[i_9_]
+			     - x[i_10_])
 		    > i)
-		    i = Math.abs(this.x[i_9_]
-				 - this.x[i_10_]);
-		if (Math.abs(this.z[i_9_]
-			     - this.z[i_10_])
+		    i = Math.abs(x[i_9_]
+				 - x[i_10_]);
+		if (Math.abs(z[i_9_]
+			     - z[i_10_])
 		    > i)
-		    i = Math.abs(this.z[i_9_]
-				 - this.z[i_10_]);
+		    i = Math.abs(z[i_9_]
+				 - z[i_10_]);
 	    }
 	}
-	this.prox = (float) i / 90.0F;
+	prox = (float) i / 90.0F;
     }
     
     public int py(int i, int i_11_, int i_12_, int i_13_) {

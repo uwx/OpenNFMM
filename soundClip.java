@@ -19,70 +19,70 @@ public class soundClip
     public soundClip(byte[] is) {
         try {
             ByteArrayInputStream bytearrayinputstream = new ByteArrayInputStream(is);
-            this.sound = AudioSystem.getAudioInputStream(bytearrayinputstream);
-            this.sound.mark(is.length);
-            this.clip = AudioSystem.getClip();
-            this.loaded = true;
+            sound = AudioSystem.getAudioInputStream(bytearrayinputstream);
+            sound.mark(is.length);
+            clip = AudioSystem.getClip();
+            loaded = true;
         } catch (Exception exception) {
             System.out.println(new StringBuilder().append("Loading Clip error: ").append(exception).toString());
-            this.loaded = false;
+            loaded = false;
         }
     }
     
     public void play() {
-        if (this.loaded) {
-            if (!this.clip.isOpen()) {
+        if (loaded) {
+            if (!clip.isOpen()) {
                 try {
-                    this.clip.open(this.sound);
+                    clip.open(sound);
                 } catch (Exception exception) {
                     /* empty */
                 }
-                this.clip.loop(0);
+                clip.loop(0);
             } else
-                this.clip.loop(1);
-            this.lfrpo = -1;
-            this.cntcheck = 5;
+                clip.loop(1);
+            lfrpo = -1;
+            cntcheck = 5;
         }
     }
     
     public void loop() {
-        if (this.loaded) {
-            if (!this.clip.isOpen()) {
+        if (loaded) {
+            if (!clip.isOpen()) {
                 try {
-                    this.clip.open(this.sound);
+                    clip.open(sound);
                 } catch (Exception exception) {
                     /* empty */
                 }
             }
-            this.clip.loop(70);
-            this.lfrpo = -2;
-            this.cntcheck = 0;
+            clip.loop(70);
+            lfrpo = -2;
+            cntcheck = 0;
         }
     }
     
     public void stop() {
-        if (this.loaded) {
-            this.clip.stop();
-            this.lfrpo = -1;
+        if (loaded) {
+            clip.stop();
+            lfrpo = -1;
         }
     }
     
     public void checkopen() {
-        if (this.loaded && this.clip.isOpen() && this.lfrpo != -2) {
-            if (this.cntcheck == 0) {
-                int i = this.clip.getFramePosition();
-                if (this.lfrpo == i && !this.clip.isRunning()) {
+        if (loaded && clip.isOpen() && lfrpo != -2) {
+            if (cntcheck == 0) {
+                int i = clip.getFramePosition();
+                if (lfrpo == i && !clip.isRunning()) {
                     try {
-                        this.clip.close();
-                        this.sound.reset();
+                        clip.close();
+                        sound.reset();
                     } catch (Exception exception) {
                         /* empty */
                     }
-                    this.lfrpo = -1;
+                    lfrpo = -1;
                 } else
-                    this.lfrpo = i;
+                    lfrpo = i;
             } else
-                this.cntcheck--;
+                cntcheck--;
         }
     }
 }

@@ -7503,8 +7503,6 @@ public class xtGraphics extends Panel implements Runnable
             for (int i_260_ = 0; i_260_ < 360000; i_260_++) {
                 Color color = new Color(this.flexpix[i_260_]);
                 boolean bool = false;
-                boolean bool_261_ = false;
-                boolean bool_262_ = false;
                 int i_263_;
                 int i_264_;
                 int i_265_;

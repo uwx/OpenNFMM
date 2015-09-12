@@ -20,14 +20,14 @@ public class udpOnline implements Runnable
     
     public udpOnline(UDPMistro udpmistro, String string, int i, int i_0_,
 		     int i_1_) {
-	this.um = udpmistro;
-	this.gameport = i;
-	this.nu = i_0_;
+	um = udpmistro;
+	gameport = i;
+	nu = i_0_;
 	try {
-	    this.dSocket
-		= new DatagramSocket(7010 + i_1_ + this.nu);
-	    this.errd = false;
-	    this.IPAddress = InetAddress.getByName(string);
+	    dSocket
+		= new DatagramSocket(7010 + i_1_ + nu);
+	    errd = false;
+	    IPAddress = InetAddress.getByName(string);
 	} catch (Exception exception) {
 	    System.out.println(new StringBuilder().append
 				   ("Error preparing for UDP Connection: ")
@@ -37,18 +37,18 @@ public class udpOnline implements Runnable
     }
     
     public void spark() {
-	if (this.errd) {
+	if (errd) {
 	    try {
-		this.dSocket
-		    = new DatagramSocket(7020 + this.nu);
-		this.errd = false;
+		dSocket
+		    = new DatagramSocket(7020 + nu);
+		errd = false;
 	    } catch (Exception exception) {
 		/* empty */
 	    }
 	}
 	try {
-	    this.con = new Thread(this);
-	    this.con.start();
+	    con = new Thread(this);
+	    con.start();
 	} catch (Exception exception) {
 	    /* empty */
 	}
@@ -56,107 +56,107 @@ public class udpOnline implements Runnable
     
     public void closeSocket() {
 	try {
-	    this.dSocket.close();
+	    dSocket.close();
 	} catch (Exception exception) {
 	    /* empty */
 	}
-	this.dSocket = null;
-	this.errd = true;
-	if (this.con != null) {
-	    this.con.stop();
-	    this.con = null;
+	dSocket = null;
+	errd = true;
+	if (con != null) {
+	    con.stop();
+	    con = null;
 	}
-	this.started = false;
+	started = false;
     }
     
     public void stomp() {
-	if (this.con != null) {
-	    this.con.stop();
-	    this.con = null;
+	if (con != null) {
+	    con.stop();
+	    con = null;
 	}
-	this.started = false;
+	started = false;
     }
     
     public void run() {
-	this.started = true;
+	started = true;
 	Date date = new Date();
-	this.sendat = date.getTime();
+	sendat = date.getTime();
 	String string = "";
-	if (!(this.um).go)
+	if (!(um).go)
 	    string = "MAGNITUDE";
-	if (this.nu == 0
-	    && (this.um).diledelay == 0) {
-	    (this.um).sendat
-		= this.sendat;
+	if (nu == 0
+	    && (um).diledelay == 0) {
+	    (um).sendat
+		= sendat;
 	    string = new StringBuilder().append("").append
-			 (this.sendat).toString();
+			 (sendat).toString();
 	    string = string.substring(string.length() - 3, string.length());
-	    (this.um).sendcheck = string;
-	    (this.um).diledelay = 100;
+	    (um).sendcheck = string;
+	    (um).diledelay = 100;
 	}
 	try {
 	    byte[] is = new byte[4];
 	    DatagramPacket datagrampacket
 		= new DatagramPacket(is, is.length,
-				     this.IPAddress,
-				     this.gameport);
+				     IPAddress,
+				     gameport);
 	    String string_2_
 		= new StringBuilder().append("").append(string).append("|")
 		      .append
-		      ((this.um).im).append
+		      ((um).im).append
 		      ("|").append
-		      ((this.um).frame
-		       [(this.um).im][0])
+		      ((um).frame
+		       [(um).im][0])
 		      .append
 		      ("|").append
-		      ((this.um).info
-		       [(this.um).im][0])
+		      ((um).info
+		       [(um).im][0])
 		      .append
 		      ("|").toString();
 	    byte[] is_3_ = string_2_.getBytes();
 	    datagrampacket.setData(is_3_);
-	    this.dSocket.send(datagrampacket);
+	    dSocket.send(datagrampacket);
 	    for (int i = 0;
-		 i < (this.um).nplayers - 1; i++) {
-		this.dSocket.receive(datagrampacket);
+		 i < (um).nplayers - 1; i++) {
+		dSocket.receive(datagrampacket);
 		String string_4_ = new String(datagrampacket.getData());
-		if ((this.nu == 0
-		     || !(this.um).go)
+		if ((nu == 0
+		     || !(um).go)
 		    && i == 0) {
 		    string = getSvalue(string_4_, 0);
-		    if (!(this.um).go
+		    if (!(um).go
 			&& string.equals("1111111"))
-			(this.um).go = true;
+			(um).go = true;
 		}
 		int i_5_ = getvalue(string_4_, 1);
 		if (i_5_ >= 0
-		    && i_5_ < (this.um).nplayers) {
+		    && i_5_ < (um).nplayers) {
 		    int i_6_ = getvalue(string_4_, 2);
 		    int i_7_ = 0;
 		    for (int i_8_ = 0; i_8_ < 3; i_8_++) {
-			if (i_6_ != ((this.um).frame
+			if (i_6_ != ((um).frame
 				     [i_5_][i_8_]))
 			    i_7_++;
 		    }
 		    if (i_7_ == 3) {
 			for (int i_9_ = 0; i_9_ < 3; i_9_++) {
-			    if (i_6_ > ((this.um)
+			    if (i_6_ > ((um)
 					.frame[i_5_][i_9_])) {
 				for (int i_10_ = 2; i_10_ >= i_9_ + 1;
 				     i_10_--) {
-				    (this.um)
+				    (um)
 					.frame[i_5_][i_10_]
-					= ((this.um)
+					= ((um)
 					   .frame[i_5_][i_10_ - 1]);
-				    (this.um)
+				    (um)
 					.info[i_5_][i_10_]
-					= ((this.um)
+					= ((um)
 					   .info[i_5_][i_10_ - 1]);
 				}
-				(this.um).frame
+				(um).frame
 				    [i_5_][i_9_]
 				    = i_6_;
-				(this.um).info
+				(um).info
 				    [i_5_][i_9_]
 				    = getSvalue(string_4_, 3);
 				i_9_ = 3;
@@ -165,41 +165,41 @@ public class udpOnline implements Runnable
 		    }
 		}
 	    }
-	    if (this.nu == 0
-		&& (this.um).diledelay != 0
-		&& (this.um).sendcheck
+	    if (nu == 0
+		&& (um).diledelay != 0
+		&& (um).sendcheck
 		       .equals(string)) {
 		date = new Date();
 		for (int i = 4; i > 0; i--)
-		    (this.um).ldelays[i]
-			= (this.um).ldelays[i - 1];
-		(this.um).ldelays[0]
+		    (um).ldelays[i]
+			= (um).ldelays[i - 1];
+		(um).ldelays[0]
 		    = (int) (date.getTime()
-			     - (this.um).sendat);
-		(this.um).delay = 0;
+			     - (um).sendat);
+		(um).delay = 0;
 		for (int i = 0; i < 5; i++) {
-		    if ((this.um).ldelays[i] != 0
-			&& ((this.um).delay == 0
-			    || ((this.um).ldelays[i]
-				< (this.um).delay)))
-			(this.um).delay
-			    = (this.um).ldelays[i];
+		    if ((um).ldelays[i] != 0
+			&& ((um).delay == 0
+			    || ((um).ldelays[i]
+				< (um).delay)))
+			(um).delay
+			    = (um).ldelays[i];
 		}
-		(this.um).diledelay = 0;
-		if ((this.um).diled != 10)
-		    (this.um).diled++;
+		(um).diledelay = 0;
+		if ((um).diled != 10)
+		    (um).diled++;
 	    }
 	} catch (Exception exception) {
 	    try {
-		this.dSocket.close();
+		dSocket.close();
 	    } catch (Exception exception_11_) {
 		/* empty */
 	    }
-	    this.dSocket = null;
-	    this.errd = true;
+	    dSocket = null;
+	    errd = true;
 	}
-	this.started = false;
-	this.con = null;
+	started = false;
+	con = null;
     }
     
     public int getvalue(String string, int i) {
