@@ -176,6 +176,7 @@ public class xtGraphics extends Panel implements Runnable {
 	Image statb;
 	Image statbo;
 	Image mdness;
+	Image onfmm;
 	Image paused;
 	Image radicalplay;
 	Image logocars;
@@ -674,6 +675,7 @@ public class xtGraphics extends Panel implements Runnable {
 				if (string.equals("statb.gif")) this.statb = loadimage(is, mediatracker, toolkit);
 				if (string.equals("statbo.gif")) this.statbo = loadimage(is, mediatracker, toolkit);
 				if (string.equals("madness.gif")) this.mdness = loadude(is, mediatracker, toolkit);
+				if (string.equals("onfmm.gif")) this.onfmm = loadude(is, mediatracker, toolkit);
 				if (string.equals("fixhoop.png")) this.fixhoop = loadimage(is, mediatracker, toolkit);
 				if (string.equals("arrow.gif")) this.sarrow = loadimage(is, mediatracker, toolkit);
 				if (string.equals("stunts.png")) this.stunts = loadimage(is, mediatracker, toolkit);
@@ -1214,6 +1216,57 @@ public class xtGraphics extends Panel implements Runnable {
 			} else this.app.setCursor(new Cursor(0));
 		}
 		if (this.flipo == 102) {
+			mainbg(-1);
+			this.rd.drawImage(this.onfmm, 283,
+			32, null);
+			this.rd.setFont(new Font("Arial", 1, 13));
+			this.ftm = this.rd.getFontMetrics();
+			drawcs(165,
+				"Decompiled and fixed by",
+			0, 0, 0, 3);
+			drawcs(185, "rafa1231518 aka chrishansen69", 40, 60, 0, 3);
+			this.rd.setFont(new Font("Arial", 1, 13));
+			this.ftm = this.rd.getFontMetrics();
+			drawcs(225, "Special Thanks!", 0, 0, 0, 3);
+			this.rd.setFont(new Font("Arial", 1, 11));
+			this.ftm = this.rd.getFontMetrics();
+			drawcs(245,
+				"Dany Fernandez Diaz (DragShot) for some code I stole-uh, I mean borrowed!",
+				66, 98, 0, 3);
+			drawcs(260,
+				"Thanks to Kaffeinated, Ten Graves & everyone else for their awesome work in NFM2!",
+				66, 98, 0, 3);
+			drawcs(275,
+				"Thanks to Emmanuel Dupuy for JD-GUI, Pavel Kouznetsov for JAD and Jochen Hoenicke for JODE.",
+				66, 98, 0, 3);
+			drawcs(290,
+				"Thanks to Allan for being a glorious bastard and please add credits.",
+				66, 98, 0, 3);
+			drawcs(305,
+				"Thanks to the Eclipse Foundation for this laggy piece of shit-uh, I mean great IDE!",
+				66, 98, 0, 3);
+			this.rd.setFont(new Font("Arial", 1, 13));
+			this.ftm = this.rd.getFontMetrics();
+			drawcs(345, "~~~~~~ License ~~~~~~", 0, 0, 0, 3);
+			this.rd.setFont(new Font("Arial", 1, 11));
+			this.ftm = this.rd.getFontMetrics();
+			drawcs(365,
+				"All code is licensed under the BSD license, unless noted otherwise.",
+				66, 98, 0, 3);
+			drawcs(380,
+				"Need for Madness Multiplayer created by Omar Waly, copyright (c) Radical Play 2005-2015. All rights reserved.",
+				66, 98, 0, 3);
+			drawcs(395, "OpenNFMM copyright (c) C. Hansen 2015. Some rights reserved.",
+				66, 98, 0, 3);
+			drawcs(410, "Dual Mod Engine copyright (c) Dany Fernandez Diaz (DragShot) 2015. Some rights reserved.",
+				66, 98, 0, 3);
+			
+			if (i > 258 && i < 542 && i_23_ > 385 && i_23_ < 399) {
+				this.app.setCursor(new Cursor(12));
+				if (i_24_ == 2) this.app.musiclink();
+			} else this.app.setCursor(new Cursor(0));
+		}
+		if (this.flipo == 103) {
 			mainbg(0);
 			this.rd.drawImage(this.nfmcom, 190,
 			195, null);
@@ -1229,7 +1282,7 @@ public class xtGraphics extends Panel implements Runnable {
 				this.flipo = 101;
 				this.app.setCursor(new Cursor(0));
 			} else this.flipo++;
-			if (this.flipo == 103) {
+			if (this.flipo == 104) {
 				this.flipo = 0;
 				this.fase = 10;
 			}
