@@ -1669,7 +1669,7 @@ public class GameSparker extends Applet implements Runnable {
 		tnick.setFont(new Font("Arial", 1, 13));
 		tpass = new TextField("");
 		tpass.setFont(new Font("Arial", 1, 13));
-		tpass.setEchoCharacter('*');
+		tpass.setEchoChar('*');
 		temail = new TextField("");
 		temail.setFont(new Font("Arial", 1, 13));
 		cmsg = new TextField("");

@@ -239,7 +239,7 @@ public class CarDefine implements Runnable
 	try {
 	    DataInputStream datainputstream
 		= new DataInputStream(new ByteArrayInputStream(is));
-	    while ((string_4_ = datainputstream.readLine()) != null) {
+	    while ((string_4_ = datainputstream.readLine()) != null && !(Thread.currentThread().isInterrupted())) {
 		string_4_ = string_4_.trim();
 		if (string_4_.startsWith("stat(")) {
 		    try {
@@ -328,7 +328,7 @@ public class CarDefine implements Runnable
 		i_13_ = 520 - i_6_;
 	    if (i_6_ < 520)
 		i_13_ = 520 - i_6_;
-	    while (i_13_ != 0) {
+	    while (i_13_ != 0 && !(Thread.currentThread().isInterrupted())) {
 		for (int i_14_ = 0; i_14_ < 5; i_14_++) {
 		    if (i_13_ > 0 && is_5_[i_14_] < 200) {
 			is_5_[i_14_]++;
@@ -766,15 +766,18 @@ public class CarDefine implements Runnable
 	staction = 0;
 	action = 0;
 	if (carloader != null) {
-	    carloader.stop();
+	    //carloader.stop();
+	    carloader.interrupt();
 	    carloader = null;
 	}
 	if (actionloader != null) {
-	    actionloader.stop();
+	    //actionloader.stop();
+	    actionloader.interrupt();
 	    actionloader = null;
 	}
 	if (stageaction != null) {
-	    stageaction.stop();
+	    //stageaction.stop();
+	    stageaction.interrupt();
 	    stageaction = null;
 	}
     }
@@ -873,7 +876,7 @@ public class CarDefine implements Runnable
 		    action = 0;
 		System.gc();
 	    }
-	    while (action == 2) {
+	    while (action == 2 && !(Thread.currentThread().isInterrupted())) {
 		/* empty */
 	    }
 	    if (action == 3) {
@@ -894,12 +897,12 @@ public class CarDefine implements Runnable
 				("").toString()));
 		    DataInputStream datainputstream
 			= new DataInputStream(url.openStream());
-		    while ((string = datainputstream.readLine()) != null) {
+		    while ((string = datainputstream.readLine()) != null && !(Thread.currentThread().isInterrupted())) {
 			string = new StringBuilder().append("").append
 				     (string.trim()).toString();
 			if (string.startsWith("mycars")) {
 			    boolean bool = true;
-			    while (bool && nl < 700) {
+			    while (bool && nl < 700 && !(Thread.currentThread().isInterrupted())) {
 				strings[nl]
 				    = getSvalue("mycars", string,
 						nl);
@@ -1086,12 +1089,12 @@ public class CarDefine implements Runnable
 				(".txt").toString()));
 		    DataInputStream datainputstream
 			= new DataInputStream(url.openStream());
-		    while ((string = datainputstream.readLine()) != null) {
+		    while ((string = datainputstream.readLine()) != null && !(Thread.currentThread().isInterrupted())) {
 			string = new StringBuilder().append("").append
 				     (string.trim()).toString();
 			if (string.startsWith("cars")) {
 			    boolean bool = true;
-			    while (bool && nl < 20) {
+			    while (bool && nl < 20 && !(Thread.currentThread().isInterrupted())) {
 				loadnames
 				    [nl]
 				    = getSvalue("cars", string,
@@ -1162,12 +1165,12 @@ public class CarDefine implements Runnable
 				("").toString()));
 		    DataInputStream datainputstream
 			= new DataInputStream(url.openStream());
-		    while ((string = datainputstream.readLine()) != null) {
+		    while ((string = datainputstream.readLine()) != null && !(Thread.currentThread().isInterrupted())) {
 			string = new StringBuilder().append("").append
 				     (string.trim()).toString();
 			if (string.startsWith("mycars")) {
 			    boolean bool = true;
-			    while (bool && nl < 20) {
+			    while (bool && nl < 20 && !(Thread.currentThread().isInterrupted())) {
 				loadnames
 				    [nl]
 				    = getSvalue("mycars", string,
@@ -1228,7 +1231,7 @@ public class CarDefine implements Runnable
 	    actionloader = null;
 	}
 	if (Thread.currentThread() == carloader) {
-	    while (nl > 0) {
+	    while (nl > 0 && !(Thread.currentThread().isInterrupted())) {
 		int i = 0;
 		for (int i_46_ = 16; i_46_ < 56; i_46_++) {
 		    if (loadnames
@@ -1392,7 +1395,7 @@ public class CarDefine implements Runnable
 		else
 		    staction = 3;
 		System.gc();
-		while (staction == 5) {
+		while (staction == 5 && !(Thread.currentThread().isInterrupted())) {
 		    /* empty */
 		}
 	    }
@@ -1564,12 +1567,12 @@ public class CarDefine implements Runnable
 			("").toString()));
 	    DataInputStream datainputstream
 		= new DataInputStream(url.openStream());
-	    while ((string = datainputstream.readLine()) != null) {
+	    while ((string = datainputstream.readLine()) != null && !(Thread.currentThread().isInterrupted())) {
 		string = new StringBuilder().append("").append
 			     (string.trim()).toString();
 		if (string.startsWith("mystages")) {
 		    boolean bool = true;
-		    while (bool && i < 700) {
+		    while (bool && i < 700 && !(Thread.currentThread().isInterrupted())) {
 			strings[i] = getSvalue("mystages", string, i);
 			if (strings[i].equals(""))
 			    bool = false;
@@ -1648,12 +1651,12 @@ public class CarDefine implements Runnable
 			(".txt").toString()));
 	    DataInputStream datainputstream
 		= new DataInputStream(url.openStream());
-	    while ((string = datainputstream.readLine()) != null) {
+	    while ((string = datainputstream.readLine()) != null && !(Thread.currentThread().isInterrupted())) {
 		string = new StringBuilder().append("").append
 			     (string.trim()).toString();
 		if (string.startsWith("stages")) {
 		    boolean bool = true;
-		    while (bool && i_64_ < 20) {
+		    while (bool && i_64_ < 20 && !(Thread.currentThread().isInterrupted())) {
 			strings[i_64_] = getSvalue("stages", string, i_64_);
 			if (strings[i_64_].equals(""))
 			    bool = false;
@@ -1864,7 +1867,7 @@ public class CarDefine implements Runnable
 		BufferedReader bufferedreader
 		    = new BufferedReader(new FileReader(file));
 		String string_74_;
-		while ((string_74_ = bufferedreader.readLine()) != null)
+		while ((string_74_ = bufferedreader.readLine()) != null && !(Thread.currentThread().isInterrupted()))
 		    string_73_ = new StringBuilder().append(string_73_).append
 				     ("").append
 				     (string_74_).append
