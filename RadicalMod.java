@@ -96,6 +96,7 @@ public class RadicalMod
             catch(Exception exception)
             {
                 System.out.println((new StringBuilder()).append("Error making a imod: ").append(exception).toString());
+                exception.printStackTrace();
                 loaded = 0;
             }
             System.runFinalization();
@@ -128,6 +129,7 @@ public class RadicalMod
             catch(Exception exception)
             {
                 System.out.println((new StringBuilder()).append("Error making a imod: ").append(exception).toString());
+                exception.printStackTrace();
                 loaded = 0;
             }
             System.runFinalization();

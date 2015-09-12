@@ -48,7 +48,7 @@ public class Madness extends Panel
     static int endadv = 0;
     static long advtime = 0L;
 
-    public static void main(String[] strings) {
+	public static void main(String[] strings) {
 		System.runFinalizersOnExit(true);
 		frame = new Frame("Need for Madness");
 		frame.setBackground(new Color(0, 0, 0));
@@ -105,7 +105,7 @@ public class Madness extends Panel
 		    }
 		});
 		frame.add("Center", applet);
-		frame.show();
+		frame.setVisible(true);
 		frame.setMinimumSize(new Dimension(930, 586));
 		frame.setSize(930, 586);
 		frame.setExtendedState(6);
@@ -234,7 +234,7 @@ public class Madness extends Panel
 		    frame.setExtendedState(6);
 		    frame.setIgnoreRepaint(true);
 		    frame.add("Center", applet);
-		    frame.show();
+		    frame.setVisible(true);
 		    if (myDevice.isFullScreenSupported()) {
 			try {
 			    myDevice.setFullScreenWindow(frame);
@@ -267,7 +267,7 @@ public class Madness extends Panel
 		    }
 		});
 		frame.add("Center", applet);
-		frame.show();
+		frame.setVisible(true);
 		if (myDevice.isFullScreenSupported()) {
 		    try {
 			myDevice.setDisplayMode(defdisp);
@@ -376,7 +376,7 @@ public class Madness extends Panel
 		}
 		cm = new CarMaker();
 		frame.add("Center", cm);
-		frame.show();
+		frame.setVisible(true);
 		cm.init();
 		cm.start();
     }
@@ -424,12 +424,12 @@ public class Madness extends Panel
 		}
 		sm = new StageMaker();
 		frame.add("Center", sm);
-		frame.show();
+		frame.setVisible(true);
 		sm.init();
 		sm.start();
     }
     
-    public static void game() {
+	public static void game() {
     	try {
     		applet.stop();
     	} catch (Exception ex) {}
@@ -472,7 +472,7 @@ public class Madness extends Panel
 		}
 		applet = new GameSparker();
 		frame.add("Center", applet);
-		frame.show();
+		frame.setVisible(true);
 		applet.init();
 		applet.start();
     }
@@ -575,4 +575,5 @@ public class Madness extends Panel
 	}
 	return string_29_;
     }
+
 }

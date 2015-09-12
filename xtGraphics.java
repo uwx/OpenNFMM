@@ -487,6 +487,8 @@ public class xtGraphics extends Panel implements Runnable {
 	int flyr = 0;
 	int flyrdest = 0;
 	int flang = 0;
+    boolean chronostart;
+    Chronometer chrono;
 
 	public xtGraphics(Medium medium, CarDefine cardefine,
 	Graphics2D graphics2d, GameSparker gamesparker) {
@@ -510,6 +512,8 @@ public class xtGraphics extends Panel implements Runnable {
 			}
 		}
 		badmac = false;
+		chrono = new Chronometer(this);
+		chronostart = false;
 	}
 
 	public void loaddata() {
@@ -4060,6 +4064,10 @@ public class xtGraphics extends Panel implements Runnable {
 	}
 
 	public void pausedgame(int i, Control control, Record record) {
+		if(chronostart) {
+			chronostart = false;
+			chrono.pause();
+		}
 		if (!badmac) rd.drawImage(fleximg, 0, 0,
 		null);
 		else {
@@ -4108,6 +4116,8 @@ public class xtGraphics extends Panel implements Runnable {
 		null);
 		if ((control).enter || (control).handb) {
 			if (opselect == 0) {
+				chronostart = true;
+				chrono.resume();
 				if (loadedt && !mutem) strack.resume();
 				fase = 0;
 			}
@@ -4118,11 +4128,15 @@ public class xtGraphics extends Panel implements Runnable {
 				} else fase = -8;
 			}
 			if (opselect == 2) {
+				chronostart = false;
+				chrono.stop();
 				if (loadedt) strack.stop();
 				oldfase = -7;
 				fase = 11;
 			}
 			if (opselect == 3) {
+				chronostart = false;
+				chrono.stop();
 				if (loadedt) strack.unload();
 				fase = 102;
 				if (gmode == 0) opselect = 3;
@@ -5997,6 +6011,10 @@ public class xtGraphics extends Panel implements Runnable {
 
 	public void finish(CheckPoints checkpoints, ContO[] contos,
 	Control control, int i, int i_141_, boolean bool) {
+		if (chronostart) {
+			chrono.stop();
+			chronostart = false;
+		}
 		if (!badmac) rd.drawImage(fleximg, 0, 0,
 		null);
 		else {
@@ -6037,6 +6055,9 @@ public class xtGraphics extends Panel implements Runnable {
 					i_142_ = 184;
 				}
 			}
+			rd.setColor(new Color(193, 106, 0));
+            rd.drawString((new StringBuilder()).append("Your time: ").append(chrono.getTotalTime()).toString(), 380 - ftm.stringWidth((new StringBuilder()).append("Your time: ").append(chrono.getTotalTime()).toString()), 200);
+            rd.drawString((new StringBuilder()).append("Best lap: ").append(chrono.getBestLapTime()).toString(), 420, 200);
 		} else {
 			rd.drawImage(gameov, 315,
 			117, null);
@@ -6717,6 +6738,14 @@ public class xtGraphics extends Panel implements Runnable {
 
 	public void stat(Mad mad, ContO conto, CheckPoints checkpoints,
 	Control control, boolean bool) {
+		if (!chronostart)
+			if (starcnt == 0) {
+				chrono.setLaps(checkpoints.nlaps);
+				chrono.start();
+				chronostart = true;
+			}
+		if ((control).radar) chrono.paint(10, 260, 1);
+		else chrono.paint(10, 50, 1);
 		if (holdit) {
 			int i = 250;
 			if (fase == 7001) {
@@ -6890,6 +6919,10 @@ public class xtGraphics extends Panel implements Runnable {
 				if (!holdit) {
 					for (int i = 0; i < nplayers; i++) {
 						if (((checkpoints).clear[i] == ((checkpoints).nlaps * (checkpoints).nsp)) && (checkpoints).pos[i] == 0) {
+							if(chronostart) {
+								chrono.pause();
+								// it is stopped later on
+							}
 							if (clangame == 0) {
 								if (i == im) {
 									drawhi(youwon, 70);
@@ -7543,6 +7576,8 @@ public class xtGraphics extends Panel implements Runnable {
 						tcnt = 15;
 					}
 					clear = (mad).clear;
+					if(checkpoints.nlaps > 0 && clear % checkpoints.nsp == 0)
+	                    chrono.performLap();
 					if (!mutes) checkpoint.play();
 					cntovn = 0;
 					if (cntan != 0) cntan = 0;
@@ -9307,4 +9342,38 @@ public class xtGraphics extends Panel implements Runnable {
 		}
 		return string_443_;
 	}
+	
+	protected Color colorSnap(int r, int g, int b)
+    {
+        return colorSnap(r, g, b, 255);
+    }
+
+    protected Color colorSnap(int r, int g, int b, int a)
+    {
+        int nr = r;
+        int ng = g;
+        int nb = b;
+        nr = (int)((float)nr + (float)nr * ((float)m.snap[0] / 100F));
+        if(nr > 255)
+            nr = 255;
+        if(nr < 0)
+            nr = 0;
+        ng = (int)((float)ng + (float)ng * ((float)m.snap[1] / 100F));
+        if(ng > 255)
+            ng = 255;
+        if(ng < 0)
+            ng = 0;
+        nb = (int)((float)nb + (float)nb * ((float)m.snap[2] / 100F));
+        if(nb > 255)
+            nb = 255;
+        if(nb < 0)
+            nb = 0;
+        if(a > 255)
+            a = 255;
+        if(a < 0)
+            a = 0;
+        Color c = new Color(nr, ng, nb, a);
+        rd.setColor(c);
+        return c;
+    }
 }
