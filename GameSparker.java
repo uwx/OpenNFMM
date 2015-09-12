@@ -3201,6 +3201,10 @@ public class GameSparker extends Applet implements Runnable {
 			} else setCursor(new Cursor(0));
 		}
 	}
+	
+	public void onfmmlink() {
+		openurl("https://github.com/chrishansen69/OpenNFMM");
+	}
 
 	public void musiclink() {
 		openurl("http://multiplayer.needformadness.com/music.html");

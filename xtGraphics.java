@@ -1231,7 +1231,7 @@ public class xtGraphics extends Panel implements Runnable {
 			drawcs(185, "rafa1231518 aka chrishansen69", 40, 60, 0, 3);
 			rd.setFont(new Font("Arial", 1, 13));
 			ftm = rd.getFontMetrics();
-			drawcs(225, "Special Thanks!", 0, 0, 0, 3);
+			drawcs(225, "~~~~~~ Special Thanks ~~~~~~", 0, 0, 0, 3);
 			rd.setFont(new Font("Arial", 1, 11));
 			ftm = rd.getFontMetrics();
 			drawcs(245,
@@ -1265,9 +1265,12 @@ public class xtGraphics extends Panel implements Runnable {
 			drawcs(410, "Dual Mod Engine copyright (c) Dany Fernandez Diaz (DragShot) 2015. Some rights reserved.",
 				66, 98, 0, 3);
 			
-			if (i > 258 && i < 542 && i_23_ > 385 && i_23_ < 399) {
+			if (i_23_ > 354 && i_23_ < 410 && i < 665) {
 				app.setCursor(new Cursor(12));
-				if (i_24_ == 2) app.musiclink();
+				if (i_24_ == 2) app.onfmmlink();
+			} else if (i_23_ > 354 && i_23_ < 395 && i > 665) {
+				app.setCursor(new Cursor(12));
+				if (i_24_ == 2) app.onfmmlink();
 			} else app.setCursor(new Cursor(0));
 		}
 		if (flipo == 103) {
@@ -1279,8 +1282,8 @@ public class xtGraphics extends Panel implements Runnable {
 				if (i_24_ == 2) app.madlink();
 			} else app.setCursor(new Cursor(0));
 		}
-		rd.drawImage((next[pnext]),
-		665, 395, null);
+		rd.drawImage((next[pnext]), 665, 395, null);
+		
 		if ((control).enter || (control).handb || (control).right) {
 			if (flipo >= 1 && flipo <= 100) {
 				flipo = 101;
