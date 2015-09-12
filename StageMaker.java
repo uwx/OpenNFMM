@@ -1513,7 +1513,7 @@ public class StageMaker extends Applet implements Runnable
                 int i_63_ = 0;
                 int i_64_ = (int) ((float) xnob / 10000.0F * 200.0F); //limits
                 int i_65_ = i_64_;
-                int i_66_ = (int) ((float) (t).nt / 6700000.0F * 200.0F); //limits
+                int i_66_ = (int) ((float) (t).nt / 670000.0F * 200.0F); //limits
                 if (i_66_ > i_65_) {
                     i_65_ = i_66_;
                     i_63_ = 1;
@@ -4097,7 +4097,7 @@ public class StageMaker extends Applet implements Runnable
             errd = 6;
             if ((cp).fn >= 5) //file name size????
                 errd = 5;
-            if ((t).nt >= 6700000) //trackers limit
+            if ((t).nt >= 670000) //trackers limit
                 errd = 1;
             if ((cp).n >= 10000) // )p etc limit
                 errd = 2;

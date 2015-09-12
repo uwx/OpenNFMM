@@ -32,7 +32,7 @@ public class Madness extends Panel
 	static Frame frame;
     static GameSparker applet;
     static CarMaker cm;
-    static stagemaker.StageMaker sm;
+    static StageMaker sm;
     static String fpath = "";
     static boolean fullscreen = false;
     static int anti = 1;
@@ -294,15 +294,39 @@ public class Madness extends Panel
 		    if (endadv == 1)
 			endadv = 2;
 		    if (updateon != 3)
-			applet.stop();
+		    try {
+		    	applet.stop();
+		    } catch (Exception ex) {}
+		    try {
+		    	sm.stop();
+		    } catch (Exception ex) {}
+		    try {
+		    	cm.stop();
+		    } catch (Exception ex) {}
 		    frame.removeAll();
 		    try {
 			Thread.sleep(200L);
 		    } catch (Exception exception) {
 			/* empty */
 		    }
-		    applet.destroy();
-		    applet = null;
+		    try {
+	    		applet.destroy();
+	    	} catch (Exception ex) {}
+	        try {
+	    		cm.destroy();
+	    	} catch (Exception ex) {}
+	        try {
+	    		sm.destroy();
+	    	} catch (Exception ex) {}
+	        try {
+	    		applet = null;
+	    	} catch (Exception ex) {}
+	        try {
+	    		cm = null;
+	    	} catch (Exception ex) {}
+	        try {
+	    		sm = null;
+	    	} catch (Exception ex) {}
 		    System.exit(0);
 		}
     }
@@ -398,7 +422,7 @@ public class Madness extends Panel
 		} catch (Exception exception) {
 		    /* empty */
 		}
-		sm = new stagemaker.StageMaker();
+		sm = new StageMaker();
 		frame.add("Center", sm);
 		frame.show();
 		sm.init();
