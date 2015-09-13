@@ -3,30 +3,16 @@
  */
 
 public class Wheels {
+	float depth = 3.0F;
 	int ground = 0;
 	int mast = 0;
-	int sparkat = 0;
 	int[] rc = { 120, 120, 120 };
 	float size = 2.0F;
-	float depth = 3.0F;
+	int sparkat = 0;
 
 	public Wheels() {
 		sparkat = 0;
 		ground = 0;
-	}
-
-	public void setrims(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_) {
-		rc[0] = i;
-		rc[1] = i_0_;
-		rc[2] = i_1_;
-		size = i_2_ / 10.0F;
-		if (size < 0.0F)
-			size = 0.0F;
-		depth = i_3_ / 10.0F;
-		if (depth / size > 41.0F)
-			depth = size * 41.0F;
-		if (depth / size < -25.0F)
-			depth = -(size * 25.0F);
 	}
 
 	public void make(final Medium medium, final Trackers trackers, final Plane[] planes, int i, final int i_4_,
@@ -89,7 +75,7 @@ public class Wheels {
 		is_12_[19] = (int) (i_6_ + 12.557F * f_15_);
 		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 20, is_13_, 0, i_10_, 0, i_14_, i_5_, i_6_, 7, 0,
 				false, 0, false);
-		(planes[i]).master = 1;
+		planes[i].master = 1;
 		i++;
 		is[2] = (int) (i_4_ - depth * f);
 		is_11_[2] = i_5_;
@@ -104,7 +90,7 @@ public class Wheels {
 		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 3, rc, 0, i_18_, 0, i_14_, i_5_, i_6_, 7, 0, false,
 				0, false);
 		if (depth / size < 7.0F)
-			(planes[i]).master = 2;
+			planes[i].master = 2;
 		i++;
 		is_11_[0] = (int) (i_5_ + 8.66 * size);
 		is_12_[0] = (int) (i_6_ + 5.0F * size);
@@ -113,7 +99,7 @@ public class Wheels {
 		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 3, rc, 0, i_18_, 0, i_14_, i_5_, i_6_, 7, 0, false,
 				0, false);
 		if (depth / size < 7.0F)
-			(planes[i]).master = 2;
+			planes[i].master = 2;
 		i++;
 		is_11_[0] = (int) (i_5_ + 8.66 * size);
 		is_12_[0] = (int) (i_6_ - 5.0F * size);
@@ -122,7 +108,7 @@ public class Wheels {
 		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 3, rc, 0, i_18_, 0, i_14_, i_5_, i_6_, 7, 0, false,
 				0, false);
 		if (depth / size < 7.0F)
-			(planes[i]).master = 2;
+			planes[i].master = 2;
 		i++;
 		is_11_[0] = i_5_;
 		is_12_[0] = (int) (i_6_ - 10.0F * size);
@@ -131,7 +117,7 @@ public class Wheels {
 		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 3, rc, 0, i_18_, 0, i_14_, i_5_, i_6_, 7, 0, false,
 				0, false);
 		if (depth / size < 7.0F)
-			(planes[i]).master = 2;
+			planes[i].master = 2;
 		i++;
 		is_11_[0] = (int) (i_5_ - 8.66 * size);
 		is_12_[0] = (int) (i_6_ - 5.0F * size);
@@ -140,7 +126,7 @@ public class Wheels {
 		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 3, rc, 0, i_18_, 0, i_14_, i_5_, i_6_, 7, 0, false,
 				0, false);
 		if (depth / size < 7.0F)
-			(planes[i]).master = 2;
+			planes[i].master = 2;
 		i++;
 		is_11_[0] = (int) (i_5_ - 8.66 * size);
 		is_12_[0] = (int) (i_6_ + 5.0F * size);
@@ -149,7 +135,7 @@ public class Wheels {
 		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 3, rc, 0, i_18_, 0, i_14_, i_5_, i_6_, 7, 0, false,
 				0, false);
 		if (depth / size < 7.0F)
-			(planes[i]).master = 2;
+			planes[i].master = 2;
 		i++;
 		is[0] = (int) (i_4_ - 4.0F * f);
 		is_11_[0] = (int) (i_5_ - 12.557F * f_15_);
@@ -331,5 +317,19 @@ public class Wheels {
 		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 4, is_13_, 0, i_10_, 1 * i_16_, i_14_, i_5_, i_6_,
 				7, 0, false, 0, true);
 		i++;
+	}
+
+	public void setrims(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_) {
+		rc[0] = i;
+		rc[1] = i_0_;
+		rc[2] = i_1_;
+		size = i_2_ / 10.0F;
+		if (size < 0.0F)
+			size = 0.0F;
+		depth = i_3_ / 10.0F;
+		if (depth / size > 41.0F)
+			depth = size * 41.0F;
+		if (depth / size < -25.0F)
+			depth = -(size * 25.0F);
 	}
 }

@@ -11,16 +11,46 @@ import javax.sound.sampled.DataLine;
 import javax.sound.sampled.SourceDataLine;
 
 public class SuperClip implements Runnable {
-	int skiprate = 0;
 	Thread cliper;
-	int stoped = 1;
+	int skiprate = 0;
 	SourceDataLine source = null;
+	int stoped = 1;
 	ByteArrayInputStream stream;
 
 	public SuperClip(final byte[] is, final int i, final int i_0_) {
 		stoped = 2;
 		skiprate = i_0_;
 		stream = new ByteArrayInputStream(is, 0, i);
+	}
+
+	public void close() {
+		try {
+			stream.close();
+			stream = null;
+		} catch (final Exception exception) {
+			/* empty */
+		}
+	}
+
+	public void play() {
+		if (stoped == 2) {
+			stoped = 0;
+			try {
+				stream.reset();
+			} catch (final Exception exception) {
+				/* empty */
+			}
+			cliper = new Thread(this);
+			cliper.start();
+		}
+	}
+
+	public void resume() {
+		if (stoped == 2) {
+			stoped = 0;
+			cliper = new Thread(this);
+			cliper.start();
+		}
 	}
 
 	@Override
@@ -67,41 +97,11 @@ public class SuperClip implements Runnable {
 		stoped = 2;
 	}
 
-	public void play() {
-		if (stoped == 2) {
-			stoped = 0;
-			try {
-				stream.reset();
-			} catch (final Exception exception) {
-				/* empty */
-			}
-			cliper = new Thread(this);
-			cliper.start();
-		}
-	}
-
-	public void resume() {
-		if (stoped == 2) {
-			stoped = 0;
-			cliper = new Thread(this);
-			cliper.start();
-		}
-	}
-
 	public void stop() {
 		if (stoped == 0) {
 			stoped = 1;
 			if (source != null)
 				source.stop();
-		}
-	}
-
-	public void close() {
-		try {
-			stream.close();
-			stream = null;
-		} catch (final Exception exception) {
-			/* empty */
 		}
 	}
 }

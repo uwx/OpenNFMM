@@ -9,33 +9,33 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 
 public class Smenu {
-	int sel = 0;
-	String[] opts;
-	String[] sopts;
-	int no = 0;
-	int x = 0;
-	int y = 0;
-	Font font = new Font("Arial", 1, 13);
+	boolean alphad = false;
 	Color bcol = new Color(255, 255, 255);
-	Color fcol = new Color(0, 0, 0);
-	int w = 0;
-	int h = 0;
-	FontMetrics ftm;
-	boolean show = false;
-	boolean open = false;
+	boolean carsel = false;
 	boolean dis = false;
-	int maxl = 0;
-	boolean rooms = false;
+	Color fcol = new Color(0, 0, 0);
+	boolean flksel = false;
+	Font font = new Font("Arial", 1, 13);
+	FontMetrics ftm;
+	int h = 0;
 	int[] iroom;
 	int kmoused = 0;
-	boolean alphad = false;
-	boolean revup = false;
-	boolean carsel = false;
-	boolean flksel = false;
+	int maxl = 0;
+	int no = 0;
 	boolean om = false;
 	boolean onsc = false;
-	int scro = 0;
+	boolean open = false;
+	String[] opts;
+	boolean revup = false;
+	boolean rooms = false;
 	int scra = 0;
+	int scro = 0;
+	int sel = 0;
+	boolean show = false;
+	String[] sopts;
+	int w = 0;
+	int x = 0;
+	int y = 0;
 
 	public Smenu(final int i) {
 		opts = new String[i];
@@ -55,7 +55,7 @@ public class Smenu {
 		opts[no] = string;
 		if (maxl != 0) {
 			int i;
-			for (i = string.length(); (ftm.stringWidth(string.substring(0, i)) + 30 > maxl); i--) {
+			for (i = string.length(); ftm.stringWidth(string.substring(0, i)) + 30 > maxl; i--) {
 				/* empty */
 			}
 			if (i != string.length()) {
@@ -63,14 +63,6 @@ public class Smenu {
 				string = new StringBuilder().append(string).append("...").toString();
 			}
 		}
-		sopts[no] = string;
-		if (no < opts.length - 1)
-			no++;
-	}
-
-	public void addw(final String string, final String string_0_) {
-		w = 300;
-		opts[no] = string_0_;
 		sopts[no] = string;
 		if (no < opts.length - 1)
 			no++;
@@ -90,135 +82,16 @@ public class Smenu {
 		sopts[1] = string;
 	}
 
-	public void removeAll() {
-		no = 0;
-		w = 0;
-		sel = 0;
-	}
-
-	public void select(final int i) {
-		if (i >= 0 && i < no)
-			sel = i;
-	}
-
-	public void select(final String string) {
-		for (int i = 0; i < no; i++)
-			if (opts[i].equals(string)) {
-				sel = i;
-				break;
-			}
-	}
-
-	public int getSelectedIndex() {
-		return sel;
-	}
-
-	public String getSelectedItem() {
-		return opts[sel];
-	}
-
-	public String getItem(final int i) {
-		String string = "";
-		if (i >= 0 && i < no)
-			string = opts[i];
-		return string;
-	}
-
-	public int getItemCount() {
-		return no;
-	}
-
-	public void remove(final String string) {
-		for (int i = 0; i < no; i++)
-			if (opts[i].equals(string)) {
-				for (int i_1_ = i; i_1_ < no; i_1_++)
-					if (i_1_ != no - 1) {
-						opts[i_1_] = opts[i_1_ + 1];
-						sopts[i_1_] = sopts[i_1_ + 1];
-					}
-				no--;
-				break;
-			}
-	}
-
-	public void setSize(final int i, final int i_2_) {
-		w = i;
-		h = i_2_;
-	}
-
-	public int getWidth() {
-		return w;
-	}
-
-	public void setFont(final Font font) {
-		// font = font;
-	}
-
-	public void setBackground(final Color color) {
-		bcol = color;
-	}
-
-	public void setForeground(final Color color) {
-		fcol = color;
-	}
-
-	public Color getBackground() {
-		return bcol;
-	}
-
-	public Color getForeground() {
-		return fcol;
-	}
-
-	/**
-	 * Use setVisible instead
-	 */
-	@Deprecated
-	public void hide() {
-		show = false;
-		open = false;
-	}
-
-	/**
-	 * Use setVisible instead
-	 */
-	@Deprecated
-	public void show() {
-		show = true;
-	}
-
-	public void setVisible(final boolean v) {
-		if (v)
-			show = true;
-		else {
-			show = false;
-			open = false;
-		}
-	}
-
-	public boolean isShowing() {
-		return show;
-	}
-
-	public void move(final int i, final int i_3_) {
-		x = i;
-		y = i_3_;
-	}
-
-	public boolean hasFocus() {
-		return false;
+	public void addw(final String string, final String string_0_) {
+		w = 300;
+		opts[no] = string_0_;
+		sopts[no] = string;
+		if (no < opts.length - 1)
+			no++;
 	}
 
 	public void disable() {
 		dis = true;
-	}
-
-	public void enable() {
-		dis = false;
-	}
-
-	public boolean isEnabled() {
-		return !dis;
 	}
 
 	public boolean draw(final Graphics2D graphics2d, final int i, final int i_4_, final boolean bool, final int i_5_,
@@ -256,7 +129,7 @@ public class Smenu {
 			graphics2d.setFont(font);
 			ftm = graphics2d.getFontMetrics();
 			if (open) {
-				final int i_11_ = 4 + ((ftm.getHeight() + 2) * no);
+				final int i_11_ = 4 + (ftm.getHeight() + 2) * no;
 				if (!bool_6_) {
 					int i_12_ = 0;
 					graphics2d.setColor(bcol);
@@ -265,16 +138,16 @@ public class Smenu {
 							(fcol.getGreen() + bcol.getGreen()) / 2, (fcol.getBlue() + bcol.getBlue()) / 2));
 					graphics2d.drawRect(x, y + 23, w, i_11_);
 					if (y + 23 + i_11_ > i_5_) {
-						graphics2d.drawLine((x + w - 18), y + 17, (x + w - 18), i_5_);
+						graphics2d.drawLine(x + w - 18, y + 17, x + w - 18, i_5_);
 						if (bool_9_)
 							graphics2d.setColor(new Color((bcol.getRed() + 510) / 3, (bcol.getGreen() + 510) / 3,
 									(bcol.getBlue() + 510) / 3));
 						else
 							graphics2d.setColor(new Color((fcol.getRed() + 510) / 3, (fcol.getGreen() + 510) / 3,
 									(fcol.getBlue() + 510) / 3));
-						graphics2d.fillRect((x + w - 15), (y + 25 + scra), 13, 30);
+						graphics2d.fillRect(x + w - 15, y + 25 + scra, 13, 30);
 						graphics2d.setColor(fcol);
-						graphics2d.drawRect((x + w - 15), (y + 25 + scra), 12, 30);
+						graphics2d.drawRect(x + w - 15, y + 25 + scra, 12, 30);
 						graphics2d.setColor(new Color(0, 0, 0));
 						graphics2d.drawLine(x + w - 12, y + 9 + 29 + scra, x + w - 12, y + 10 + 29 + scra);
 						graphics2d.drawLine(x + w - 11, y + 10 + 29 + scra, x + w - 11, y + 11 + 29 + scra);
@@ -298,23 +171,23 @@ public class Smenu {
 							final int i_13_ = i_5_ - (y + 25) - 33;
 							if (scra > i_13_)
 								scra = i_13_;
-							final int i_14_ = ((no * (ftm.getHeight() + 2)) - i_13_ - ftm.getHeight() / 2);
+							final int i_14_ = no * (ftm.getHeight() + 2) - i_13_ - ftm.getHeight() / 2;
 							scro = -(int) (scra * ((float) i_14_ / (float) i_13_));
 						}
 					}
 					for (int i_15_ = 0; i_15_ < no; i_15_++)
 						if (Math.abs(scro) < (i_15_ + 1) * (ftm.getHeight() + 2)) {
 							graphics2d.setColor(fcol);
-							if (i > x && i < x + w && i_4_ > (y + 25 + scro + (i_15_ * (ftm.getHeight() + 2)))
-									&& i_4_ < (y + 25 + scro + ((i_15_ + 1) * (ftm.getHeight() + 2)))) {
+							if (i > x && i < x + w && i_4_ > y + 25 + scro + i_15_ * (ftm.getHeight() + 2)
+									&& i_4_ < y + 25 + scro + (i_15_ + 1) * (ftm.getHeight() + 2)) {
 								if (bool_9_)
 									graphics2d.setColor(new Color((fcol.getRed() + bcol.getRed()) / 2,
-											((fcol.getGreen() + bcol.getGreen()) / 2),
-											((fcol.getBlue() + bcol.getBlue()) / 2)));
+											(fcol.getGreen() + bcol.getGreen()) / 2,
+											(fcol.getBlue() + bcol.getBlue()) / 2));
 								else
 									graphics2d.setColor(fcol);
-								graphics2d.fillRect(x + 1, (y + 25 + scro + i_15_ * (ftm.getHeight() + 2)),
-										w - 1 + i_12_, ftm.getHeight() + 2);
+								graphics2d.fillRect(x + 1, y + 25 + scro + i_15_ * (ftm.getHeight() + 2), w - 1 + i_12_,
+										ftm.getHeight() + 2);
 								graphics2d.setColor(bcol);
 								if (bool_8_) {
 									if (!rooms || !opts[i_15_].equals("full")) {
@@ -328,12 +201,12 @@ public class Smenu {
 							}
 							if (rooms && sopts[i_15_].indexOf("10 / 10") != -1)
 								graphics2d.setColor(new Color(255, 0, 0));
-							graphics2d.drawString(sopts[i_15_], x + 4, (y + 38 + scro + i_15_ * (ftm.getHeight() + 2)));
+							graphics2d.drawString(sopts[i_15_], x + 4, y + 38 + scro + i_15_ * (ftm.getHeight() + 2));
 						}
 					if (i_12_ != 0) {
 						graphics2d.setColor(new Color((fcol.getRed() + bcol.getRed()) / 2,
 								(fcol.getGreen() + bcol.getGreen()) / 2, (fcol.getBlue() + bcol.getBlue()) / 2));
-						graphics2d.drawLine(x, i_5_ - 1, (x + w), i_5_ - 1);
+						graphics2d.drawLine(x, i_5_ - 1, x + w, i_5_ - 1);
 					}
 				} else {
 					int i_16_ = 0;
@@ -343,16 +216,16 @@ public class Smenu {
 							(fcol.getGreen() + bcol.getGreen()) / 2, (fcol.getBlue() + bcol.getBlue()) / 2));
 					graphics2d.drawRect(x, y - i_11_, w, i_11_);
 					if (y - i_11_ < 0) {
-						graphics2d.drawLine((x + w - 18), 0, (x + w - 18), y);
+						graphics2d.drawLine(x + w - 18, 0, x + w - 18, y);
 						if (bool_9_)
 							graphics2d.setColor(new Color((bcol.getRed() + 510) / 3, (bcol.getGreen() + 510) / 3,
 									(bcol.getBlue() + 510) / 3));
 						else
 							graphics2d.setColor(new Color((fcol.getRed() + 510) / 3, (fcol.getGreen() + 510) / 3,
 									(fcol.getBlue() + 510) / 3));
-						graphics2d.fillRect((x + w - 15), (y - scra - 33), 13, 30);
+						graphics2d.fillRect(x + w - 15, y - scra - 33, 13, 30);
 						graphics2d.setColor(fcol);
-						graphics2d.drawRect((x + w - 15), (y - scra - 33), 12, 30);
+						graphics2d.drawRect(x + w - 15, y - scra - 33, 12, 30);
 						graphics2d.setColor(new Color(0, 0, 0));
 						graphics2d.drawLine(x + w - 12, y + 13 - 29 - scra, x + w - 12, y + 12 - 29 - scra);
 						graphics2d.drawLine(x + w - 11, y + 12 - 29 - scra, x + w - 11, y + 11 - 29 - scra);
@@ -376,35 +249,35 @@ public class Smenu {
 							final int i_17_ = y - 35;
 							if (scra > i_17_)
 								scra = i_17_;
-							final int i_18_ = ((no * (ftm.getHeight() + 2)) - i_17_ - ftm.getHeight() / 2);
+							final int i_18_ = no * (ftm.getHeight() + 2) - i_17_ - ftm.getHeight() / 2;
 							scro = (int) (scra * ((float) i_18_ / (float) i_17_));
 						}
 					}
 					for (int i_19_ = 0; i_19_ < no; i_19_++)
 						if (Math.abs(scro) < (i_19_ + 1) * (ftm.getHeight() + 2)) {
 							graphics2d.setColor(fcol);
-							if (i > x && i < x + w && i_4_ < (y - 18 + scro - ((i_19_ - 1) * (ftm.getHeight() + 2)))
-									&& i_4_ > (y - 18 + scro - (i_19_ * (ftm.getHeight() + 2)))) {
+							if (i > x && i < x + w && i_4_ < y - 18 + scro - (i_19_ - 1) * (ftm.getHeight() + 2)
+									&& i_4_ > y - 18 + scro - i_19_ * (ftm.getHeight() + 2)) {
 								if (bool_9_)
 									graphics2d.setColor(new Color((fcol.getRed() + bcol.getRed()) / 2,
-											((fcol.getGreen() + bcol.getGreen()) / 2),
-											((fcol.getBlue() + bcol.getBlue()) / 2)));
+											(fcol.getGreen() + bcol.getGreen()) / 2,
+											(fcol.getBlue() + bcol.getBlue()) / 2));
 								else
 									graphics2d.setColor(fcol);
-								graphics2d.fillRect(x + 1, (y - 18 + scro - i_19_ * (ftm.getHeight() + 2)),
-										w - 1 + i_16_, ftm.getHeight() + 2);
+								graphics2d.fillRect(x + 1, y - 18 + scro - i_19_ * (ftm.getHeight() + 2), w - 1 + i_16_,
+										ftm.getHeight() + 2);
 								graphics2d.setColor(bcol);
 								if (bool_8_) {
 									sel = i_19_;
 									open = false;
 								}
 							}
-							graphics2d.drawString(sopts[i_19_], x + 4, (y - 5 + scro - i_19_ * (ftm.getHeight() + 2)));
+							graphics2d.drawString(sopts[i_19_], x + 4, y - 5 + scro - i_19_ * (ftm.getHeight() + 2));
 						}
 					if (i_16_ != 0) {
 						graphics2d.setColor(new Color((fcol.getRed() + bcol.getRed()) / 2,
 								(fcol.getGreen() + bcol.getGreen()) / 2, (fcol.getBlue() + bcol.getBlue()) / 2));
-						graphics2d.drawLine(x, 0, (x + w), 0);
+						graphics2d.drawLine(x, 0, x + w, 0);
 					}
 				}
 				bool_7_ = true;
@@ -425,8 +298,8 @@ public class Smenu {
 			} else
 				graphics2d.setColor(bcol);
 			graphics2d.fillRect(x, y + 1, w, 21);
-			graphics2d.setColor(new Color((fcol.getRed() + bcol.getRed()) / 2,
-					((fcol.getGreen() + bcol.getGreen()) / 2), ((fcol.getBlue() + bcol.getBlue()) / 2)));
+			graphics2d.setColor(new Color((fcol.getRed() + bcol.getRed()) / 2, (fcol.getGreen() + bcol.getGreen()) / 2,
+					(fcol.getBlue() + bcol.getBlue()) / 2));
 			graphics2d.drawRect(x, y + 1, w, 21);
 			if (bool_9_)
 				graphics2d.setColor(
@@ -472,7 +345,7 @@ public class Smenu {
 					flksel = false;
 				} else
 					flksel = true;
-			graphics2d.drawString(sopts[sel], x + 4, (y + (ftm.getHeight() + 2)));
+			graphics2d.drawString(sopts[sel], x + 4, y + ftm.getHeight() + 2);
 			if (alphad)
 				graphics2d.setComposite(AlphaComposite.getInstance(3, 1.0F));
 		} else {
@@ -482,5 +355,132 @@ public class Smenu {
 				scra = 0;
 		}
 		return bool_7_;
+	}
+
+	public void enable() {
+		dis = false;
+	}
+
+	public Color getBackground() {
+		return bcol;
+	}
+
+	public Color getForeground() {
+		return fcol;
+	}
+
+	public String getItem(final int i) {
+		String string = "";
+		if (i >= 0 && i < no)
+			string = opts[i];
+		return string;
+	}
+
+	public int getItemCount() {
+		return no;
+	}
+
+	public int getSelectedIndex() {
+		return sel;
+	}
+
+	public String getSelectedItem() {
+		return opts[sel];
+	}
+
+	public int getWidth() {
+		return w;
+	}
+
+	public boolean hasFocus() {
+		return false;
+	}
+
+	/**
+	 * Use setVisible instead
+	 */
+	@Deprecated
+	public void hide() {
+		show = false;
+		open = false;
+	}
+
+	public boolean isEnabled() {
+		return !dis;
+	}
+
+	public boolean isShowing() {
+		return show;
+	}
+
+	public void move(final int i, final int i_3_) {
+		x = i;
+		y = i_3_;
+	}
+
+	public void remove(final String string) {
+		for (int i = 0; i < no; i++)
+			if (opts[i].equals(string)) {
+				for (int i_1_ = i; i_1_ < no; i_1_++)
+					if (i_1_ != no - 1) {
+						opts[i_1_] = opts[i_1_ + 1];
+						sopts[i_1_] = sopts[i_1_ + 1];
+					}
+				no--;
+				break;
+			}
+	}
+
+	public void removeAll() {
+		no = 0;
+		w = 0;
+		sel = 0;
+	}
+
+	public void select(final int i) {
+		if (i >= 0 && i < no)
+			sel = i;
+	}
+
+	public void select(final String string) {
+		for (int i = 0; i < no; i++)
+			if (opts[i].equals(string)) {
+				sel = i;
+				break;
+			}
+	}
+
+	public void setBackground(final Color color) {
+		bcol = color;
+	}
+
+	public void setFont(final Font font) {
+		// font = font;
+	}
+
+	public void setForeground(final Color color) {
+		fcol = color;
+	}
+
+	public void setSize(final int i, final int i_2_) {
+		w = i;
+		h = i_2_;
+	}
+
+	public void setVisible(final boolean v) {
+		if (v)
+			show = true;
+		else {
+			show = false;
+			open = false;
+		}
+	}
+
+	/**
+	 * Use setVisible instead
+	 */
+	@Deprecated
+	public void show() {
+		show = true;
 	}
 }

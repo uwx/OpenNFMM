@@ -9,11 +9,11 @@ import java.awt.event.WindowEvent;
 
 class Madness$1 extends WindowAdapter {
 
+	Madness$1() {
+	}
+
 	@Override
 	public void windowClosing(final WindowEvent windowevent) {
 		Madness.exitsequance();
-	}
-
-	Madness$1() {
 	}
 }

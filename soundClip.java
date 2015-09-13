@@ -11,12 +11,12 @@ import javax.sound.sampled.Clip;
 
 public class soundClip {
 	Clip clip = null;
-	AudioInputStream sound;
-	boolean loaded = false;
-	int lfrpo = -1;
 	int cntcheck = 0;
+	int lfrpo = -1;
+	boolean loaded = false;
 	int rollBackPos;
 	int rollBackTrig;
+	AudioInputStream sound;
 
 	public soundClip(final byte[] is) {
 		try {
@@ -28,43 +28,6 @@ public class soundClip {
 		} catch (final Exception exception) {
 			System.out.println(new StringBuilder().append("Loading Clip error: ").append(exception).toString());
 			loaded = false;
-		}
-	}
-
-	public void play() {
-		if (loaded) {
-			if (!clip.isOpen()) {
-				try {
-					clip.open(sound);
-				} catch (final Exception exception) {
-					/* empty */
-				}
-				clip.loop(0);
-			} else
-				clip.loop(1);
-			lfrpo = -1;
-			cntcheck = 5;
-		}
-	}
-
-	public void loop() {
-		if (loaded) {
-			if (!clip.isOpen())
-				try {
-					clip.open(sound);
-				} catch (final Exception exception) {
-					/* empty */
-				}
-			clip.loop(70);
-			lfrpo = -2;
-			cntcheck = 0;
-		}
-	}
-
-	public void stop() {
-		if (loaded) {
-			clip.stop();
-			lfrpo = -1;
 		}
 	}
 
@@ -84,5 +47,42 @@ public class soundClip {
 					lfrpo = i;
 			} else
 				cntcheck--;
+	}
+
+	public void loop() {
+		if (loaded) {
+			if (!clip.isOpen())
+				try {
+					clip.open(sound);
+				} catch (final Exception exception) {
+					/* empty */
+				}
+			clip.loop(70);
+			lfrpo = -2;
+			cntcheck = 0;
+		}
+	}
+
+	public void play() {
+		if (loaded) {
+			if (!clip.isOpen()) {
+				try {
+					clip.open(sound);
+				} catch (final Exception exception) {
+					/* empty */
+				}
+				clip.loop(0);
+			} else
+				clip.loop(1);
+			lfrpo = -1;
+			cntcheck = 5;
+		}
+	}
+
+	public void stop() {
+		if (loaded) {
+			clip.stop();
+			lfrpo = -1;
+		}
 	}
 }

@@ -50,115 +50,154 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 	 *
 	 */
 	private static final long serialVersionUID = 7903118983954264757L;
-	Graphics2D rd;
-	Image offImage;
-	Thread thredo;
-	boolean exwist = false;
-	FontMetrics ftm;
-	int apx = 0;
-	int apy = 0;
-	boolean focuson = true;
-	Image[] btgame = new Image[2];
-	Image logo;
-	boolean onbtgame = false;
-	int tab = 0;
-	int tabed = -1;
-	boolean loadedfile = false;
-	String carname = "";
-	String scar = "";
-	String suser = "Horaks";
-	String sfont = "Monospaced";
-	int sthm = 0;
-	int sfase = 0;
-	Smenu slcar = new Smenu(2000);
-	boolean tutok = false;
-	int flk = 0;
-	boolean changed = false;
-	String lastedo = "";
-	boolean prefs = false;
-	boolean mirror = false;
-	PopupMenu popupMenu;
-	TextArea editor = new TextArea(20, 20);
-	TextField srch = new TextField("", 15);
-	TextField rplc = new TextField("", 15);
-	Smenu fontsel = new Smenu(40);
-	String cfont = "Monospaced";
-	Smenu ctheme = new Smenu(40);
-	Color defb;
-	Color deff;
-	int cthm = 0;
-	int cntprf = 0;
-	int cntpls = 0;
-	int cntchk = 0;
-	int npolys = 0;
-	boolean tomany = false;
-	int ox = 335;
-	int oy = 40;
-	int oz = 800;
-	int oxz = -90;
-	int oxy = 0;
-	int ozy = 0;
-	Medium m = new Medium();
-	Trackers t = new Trackers();
-	ContO o;
-	ContO[] compo = new ContO[16];
-	boolean right = false;
-	boolean left = false;
-	boolean up = false;
-	boolean down = false;
-	boolean rotl = false;
-	boolean rotr = false;
-	boolean plus = false;
-	boolean minus = false;
-	boolean in = false;
-	boolean out = false;
-	boolean pflk = false;
-	boolean breakbond = false;
-	int polynum = -1;
-	int prflk = 0;
-	int bfo = 0;
-	int dtab = 0;
-	int dtabed = -1;
-	int mouseon = -1;
-	String fcol = "";
-	String ofcol = "";
-	String scol = "";
-	String oscol = "";
-	float[] fhsb = { 0.5F, 0.5F, 0.5F };
-	float[] shsb = { 0.5F, 0.5F, 0.5F };
-	int[] scale = { 100, 100, 100 };
-	int[] oscale = { 100, 100, 100 };
-	Smenu compcar = new Smenu(40);
-	int compsel = 0;
+	int actmag = 0;
+	String[][] addeda = new String[20][5000];
 	int[] adna = { 276, 276, 276, 276, 276, 276 };
-	boolean changed2 = false;
-	TextField[] wv = new TextField[16];
-	boolean defnow = false;
 	String aply1 = "";
 	String aply2 = "";
 	boolean aplyd1 = false;
 	boolean aplyd2 = false;
-	boolean forwheels = false;
-	Smenu cls = new Smenu(40);
-	Smenu simcar = new Smenu(40);
-	int[] stat = { 100, 100, 100, 100, 100 };
-	int[] rstat = { 0, 0, 0, 0, 0 };
+	int apx = 0;
+	int apy = 0;
+	int bfo = 0;
+	boolean breakbond = false;
+	Image[] btgame = new Image[2];
+	int btn = 0;
+	int[] bw = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+	int[] bx = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+	int[] by = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+	String carname = "";
+	int carsel = 0;
 	int[][] carstat = { { 110, 81, 131, 98, 100 }, { 200, 200, 88, 16, 16 }, { 108, 80, 93, 114, 125 },
 			{ 146, 119, 100, 83, 72 }, { 109, 85, 141, 96, 93 }, { 128, 98, 102, 109, 123 }, { 115, 139, 96, 117, 133 },
 			{ 120, 81, 145, 126, 128 }, { 140, 122, 101, 113, 124 }, { 110, 144, 100, 154, 92 },
 			{ 133, 122, 144, 115, 126 }, { 107, 96, 96, 192, 189 }, { 192, 200, 106, 92, 90 },
 			{ 88, 104, 88, 200, 200 }, { 148, 150, 197, 95, 90 }, { 112, 128, 120, 192, 128 } };
-	int carsel = 0;
+	String cfont = "Monospaced";
+	boolean changed = false;
+	boolean changed2 = false;
+	int[] clas = new int[20];
+	Smenu cls = new Smenu(40);
 	int clsel = 0;
-	boolean statdef = false;
-	int pfase = 0;
-	int[] phys = { 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50 };
-	int[] rphys = { 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50 };
+	int cntchk = 0;
+	int cntpls = 0;
+	int cntprf = 0;
+	Smenu compcar = new Smenu(40);
+	ContO[] compo = new ContO[16];
+	int compsel = 0;
 	int[] crash = { 50, 50, 50 };
-	int[] rcrash = { 50, 50, 50 };
+	boolean crashleft = false;
+	boolean crashok = false;
+	soundClip[] crashs = new soundClip[3];
+	boolean crashup = false;
+	int crshturn = 0;
+	Smenu ctheme = new Smenu(40);
+	int cthm = 0;
+	Color defb;
+	Color deff;
+	boolean defnow = false;
+	boolean down = false;
+	int dtab = 0;
+	int dtabed = -1;
+	TextArea editor = new TextArea(20, 20);
+	Smenu engine = new Smenu(40);
+	boolean engon = false;
+	soundClip[][] engs = new soundClip[5][5];
+	int engsel = 0;
+	boolean exwist = false;
+	String fcol = "";
+	float[] fhsb = { 0.5F, 0.5F, 0.5F };
+	int flk = 0;
+	boolean focuson = true;
+	Smenu fontsel = new Smenu(40);
+	boolean forwheels = false;
+	FontMetrics ftm;
+	int handling = 140;
+	int hitmag = 0;
+	boolean in = false;
+	String lastedo = "";
+	boolean left = false;
+	boolean loadedfile = false;
+	int logged = 0;
+	Image logo;
+	soundClip[] lowcrashs = new soundClip[3];
+	Medium m = new Medium();
+	String[] maker = new String[20];
+	boolean minus = false;
+	boolean mirror = false;
+	boolean mousdr = false;
+	int mouseon = -1;
+	int mouses = 0;
+	boolean multf10 = false;
+	String[] mycars = new String[20];
+	int[] nad = new int[20];
+	int nmc = 0;
+	int npolys = 0;
+	ContO o;
+	boolean objfacend = false;
+	String ofcol = "";
+	Image offImage;
+	boolean onbtgame = false;
+	boolean openm = false;
+	int[] oscale = { 100, 100, 100 };
+	String oscol = "";
+	boolean out = false;
+	int ox = 335;
+	int oxy = 0;
+	int oxz = -90;
+	int oy = 40;
+	int oz = 800;
+	int ozy = 0;
+	boolean[] pessd = { false, false, false, false, false, false, false, false, false, false, false, false, false,
+			false, false, false, false, false, false, false, false, false, false, false };
+	int pfase = 0;
+	boolean pflk = false;
+	int[] phys = { 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50 };
+	boolean plus = false;
 	String[] pname = { "Handbrake", "Turning Sensitivity", "Tire Grip", "Bouncing", "Empty", "Lifts Others",
 			"Gets Lifted", "Pushes Others", "Gets Pushed", "Aerial Rotation Speed", "Aerial Control/Gliding" };
 	int[] pnx = { 62, 20, 76, 71, 60, 38, 44, 20, 33, 320, 324 };
+	int polynum = -1;
+	PopupMenu popupMenu;
+	boolean prefs = false;
+	int prflk = 0;
+	int[] pubt = new int[20];
+	Smenu pubtyp = new Smenu(40);
+	boolean rateh = false;
+	int[] rcrash = { 50, 50, 50 };
+	Graphics2D rd;
+	boolean right = false;
+	boolean rotl = false;
+	boolean rotr = false;
+	int[] rphys = { 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50 };
+	TextField rplc = new TextField("", 15);
+	int[] rstat = { 0, 0, 0, 0, 0 };
+	int[] scale = { 100, 100, 100 };
+	String scar = "";
+	String scol = "";
+	int sfase = 0;
+	String sfont = "Monospaced";
+	float[] shsb = { 0.5F, 0.5F, 0.5F };
+	Smenu simcar = new Smenu(40);
+	Smenu slcar = new Smenu(2000);
+	int sle = -1;
+	int sls = -1;
+	int squash = 0;
+	TextField srch = new TextField("", 15);
+	int[] stat = { 100, 100, 100, 100, 100 };
+	boolean statdef = false;
+	int sthm = 0;
+	String suser = "Horaks";
+	Trackers t = new Trackers();
+	int tab = 0;
+	int tabed = -1;
+	boolean tested = false;
+	Thread thredo;
+	TextField tnick = new TextField("", 15);
+	boolean tomany = false;
+	TextField tpass = new TextField("", 15);
+	boolean tutok = false;
+	boolean up = false;
 	String[] usage = {
 			"Handbrake:\nThis defines the hand braking power of the car.\nThe more handbrake the car has the faster it brakes when you press Spacebar while driving.\nBut also the lesser the Handbrake the more the car can drift when you press Spacebar.\n\n",
 			"Turning Sensitivity:\nThis defines how fast the car turns (or how fast the wheels respond to turning).\nThe more turning sensitive the faster the car turns and responds.\n\nWhen designing a fast car that is more racing oriented high turning sensitivity is     \nrecommended for the car to be able to take sharp and quick turns.\nHowever too much turning sensitivity can make the car hard to drive!\n\nWhen designing a slower and bigger car (like El King) lower turning sensitivity is\nrecommended for a more realistic effect.\n\n",
@@ -175,50 +214,2611 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			"Crash Radius:\nThe radius around the crash at which the polygons/pieces that lay inside it get\naffected.\n\nOr basically in other words the number of pieces that get affected on collision (the pieces\naround the crash location).\n\nIncreasing the radius will result in more pieces/polygons around the point of collision\ngetting crashed and distorted.\nDecreasing the radius means less pieces/polygons around the collision point getting\ndistorted and crashed.\n\n",
 			"Crash Magnitude:\nThe magnitude of the distortion and indentation to occur on the effected pieces/polygons.\n\nOr basically in other words the amount of destruction that happens to each piece when\ncrashed.\n\nHigher magnitude means the piece gets more destructed from an amount of damage,\nlower magnitude means the piece gets less destructed from that same amount of damage.\n\n",
 			"Roof Destruction:\nThe amount of destruction to occur on the car\u2019s top.\nThe length of indentation and destruction to happen from above.\n\nTo really see this variable's effect try crashing the roof alone (without a normal crash),\ntry more then once while fixing the car and changing the variable\u2019s value to see the\ndifference.\n\nThe roof crash normally happens in the game when the car lands upside down from a\njump or when a big car like Dr Monstaa steps on it.\n\n" };
-	int hitmag = 0;
-	int actmag = 0;
-	int squash = 0;
-	boolean crashok = false;
-	boolean crashleft = false;
-	soundClip[] crashs = new soundClip[3];
-	soundClip[] lowcrashs = new soundClip[3];
-	Smenu engine = new Smenu(40);
-	soundClip[][] engs = new soundClip[5][5];
-	int engsel = 0;
-	boolean engon = false;
+	boolean waso = false;
 	Smenu witho = new Smenu(40);
-	boolean tested = false;
-	boolean rateh = false;
-	int handling = 140;
-	int logged = 0;
-	TextField tnick = new TextField("", 15);
-	TextField tpass = new TextField("", 15);
-	Smenu pubtyp = new Smenu(40);
-	int nmc = 0;
-	String[] mycars = new String[20];
-	String[] maker = new String[20];
-	int[] pubt = new int[20];
-	int[] clas = new int[20];
-	String[][] addeda = new String[20][5000];
-	int[] nad = new int[20];
-	boolean[] pessd = { false, false, false, false, false, false, false, false, false, false, false, false, false,
-			false, false, false, false, false, false, false, false, false, false, false };
-	int[] bx = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-	int[] by = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-	int[] bw = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-	int btn = 0;
-	int mouses = 0;
+	TextField[] wv = new TextField[16];
 	int xm = 0;
 	int ym = 0;
-	int sls = -1;
-	int sle = -1;
-	int crshturn = 0;
-	boolean crashup = false;
-	boolean openm = false;
-	boolean mousdr = false;
-	boolean waso = false;
-	boolean objfacend = false;
-	boolean multf10 = false;
+
+	@Override
+	public void actionPerformed(final ActionEvent actionevent) {
+		TextComponent textcomponent = wv[0];
+		if (Madness.textid >= 0 && Madness.textid <= 15)
+			textcomponent = wv[Madness.textid];
+		if (Madness.textid == 16)
+			textcomponent = srch;
+		if (Madness.textid == 17)
+			textcomponent = rplc;
+		if (Madness.textid == 18)
+			textcomponent = editor;
+		final String string = actionevent.getActionCommand();
+		if (string.equals("Cut")) {
+			final StringSelection stringselection = new StringSelection(textcomponent.getSelectedText());
+			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringselection, null);
+			if (Madness.textid == 18)
+				editor.replaceText("", editor.getSelectionStart(), editor.getSelectionEnd());
+			else
+				textcomponent.setText(new StringBuilder()
+						.append(textcomponent.getText().substring(0, textcomponent.getSelectionStart()))
+						.append(textcomponent.getText().substring(textcomponent.getSelectionEnd(),
+								textcomponent.getText().length()))
+						.toString());
+		}
+		if (string.equals("Copy")) {
+			final StringSelection stringselection = new StringSelection(textcomponent.getSelectedText());
+			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringselection, null);
+		}
+		if (string.equals("Paste"))
+			try {
+				final String string_399_ = (String) Toolkit.getDefaultToolkit().getSystemClipboard()
+						.getData(DataFlavor.stringFlavor);
+				if (Madness.textid == 18)
+					editor.replaceText(string_399_, editor.getSelectionStart(), editor.getSelectionEnd());
+				else
+					textcomponent.setText(new StringBuilder()
+							.append(textcomponent.getText().substring(0, textcomponent.getSelectionStart()))
+							.append(string_399_).append(textcomponent.getText()
+									.substring(textcomponent.getSelectionEnd(), textcomponent.getText().length()))
+							.toString());
+			} catch (final Exception exception) {
+				/* empty */
+			}
+		if (string.equals("Select All"))
+			textcomponent.selectAll();
+	}
+
+	public boolean checko(final String string) {
+		loadfile();
+		setupo();
+		if (o.colok < 2) {
+			JOptionPane.showMessageDialog(null,
+					new StringBuilder().append("Car is not ready for ").append(string)
+							.append("!\nReason:\nFirst and Second colors not defined yet!\nPlease go to the 'Color Edit' tab to define the colors.\n")
+							.toString(),
+					"Car Maker", 1);
+			return false;
+		}
+		/*
+		 * boolean bool = true; if ((o).keyz[0] <= 0 || (o).keyx[0] >= 0) bool =
+		 * false; if ((o).keyz[1] <= 0 || (o).keyx[1] <= 0) bool = false; if
+		 * ((o).keyz[2] >= 0 || (o).keyx[2] >= 0) bool = false; if ((o).keyz[3]
+		 * >= 0 || (o).keyx[3] <= 0) bool = false; if (!bool) {
+		 * JOptionPane.showMessageDialog(null, new StringBuilder().append(
+		 * "Car is not ready for ").append(string).append(
+		 * "!\nReason:\nCar Wheels not defined or not defined correctly!\nPlease go to the \u2018Wheels\u2019 tab and use  [ Apply ]  and  [ Save ]  to define correctly.\n"
+		 * ).toString(), "Car Maker", 1); return false; }
+		 */
+		if (o.npl <= 0) {
+			JOptionPane.showMessageDialog(null,
+					new StringBuilder().append("Car is not ready for ").append(string)
+							.append("!\nReason:\nNo car seems to be designed!\nYou have not built a car yet please go to the \u2018Car\u2019 tab to find the tutorial on how to build a car.\n")
+							.toString(),
+					"Car Maker", 1);
+			return false;
+		}
+		if (o.npl > 10000) {
+			JOptionPane.showMessageDialog(null,
+					new StringBuilder().append("Car is not ready for ").append(string)
+							.append("!\nReason:\nCar contains too many polygons (pieces).\nNumber of polygons used need to be less then 10000.\nPlease use the counter in the \u2018Code Edit\u2019 to decrease the number of polygons (pieces).\n")
+							.toString(),
+					"Car Maker", 1);
+			return false;
+		}
+		if (o.maxR > 40000) {
+			JOptionPane.showMessageDialog(null,
+					new StringBuilder().append("Car is not ready for ").append(string)
+							.append("!\nReason:\nCar scale size is too large!\nPlease use the \u2018Scale All\u2019 option in the \u2018Scale & Align\u2019 tab to resize your car to suitable size.       \nCompare it to other NFM cars using the \u2018Compare Car...\u2019 option.\nCurrently you car needs to be scaled down by ")
+							.append((int) ((o.maxR / 400.0F - 1.0F) * 100.0F)).append("%.\n").toString(),
+					"Car Maker", 1);
+			return false;
+		}
+		if (o.maxR < 2) {
+			JOptionPane.showMessageDialog(null,
+					new StringBuilder().append("Car is not ready for ").append(string)
+							.append("!\nReason:\nCar scale size is too small!\nPlease use the \u2018Scale All\u2019 option in the \u2018Scale & Align\u2019 tab to resize your car to suitable size.       \nCompare it to other NFM cars using the \u2018Compare Car...\u2019 option.\nCurrently you car needs to be scaled up by ")
+							.append((int) ((120.0F / o.maxR - 1.0F) * 100.0F)).append("%.\n").toString(),
+					"Car Maker", 1);
+			return false;
+		}
+		final String string_304_ = new StringBuilder().append("").append(editor.getText()).append("\n").toString();
+		int i = 0;
+		int i_305_ = string_304_.indexOf("\n", 0);
+		boolean bool_306_ = false;
+		boolean bool_307_ = false;
+		boolean bool_308_ = false;
+		while (i_305_ != -1 && i < string_304_.length()) {
+			String string_309_ = string_304_.substring(i, i_305_);
+			string_309_ = string_309_.trim();
+			i = i_305_ + 1;
+			i_305_ = string_304_.indexOf("\n", i);
+			if (string_309_.startsWith("stat(")) {
+				bool_306_ = true;
+				try {
+					int i_310_ = 0;
+					for (int i_311_ = 0; i_311_ < 5; i_311_++) {
+						stat[i_311_] = getvalue("stat", string_309_, i_311_);
+						if (stat[i_311_] > 200)
+							bool_306_ = false;
+						if (stat[i_311_] < 16)
+							bool_306_ = false;
+						i_310_ += stat[i_311_];
+					}
+					if (i_310_ != 680 && i_310_ != 640 && i_310_ != 600 && i_310_ != 560 && i_310_ != 520)
+						bool_306_ = false;
+				} catch (final Exception exception) {
+					bool_306_ = false;
+				}
+			}
+			if (string_309_.startsWith("physics(")) {
+				bool_307_ = true;
+				try {
+					for (int i_312_ = 0; i_312_ < 11; i_312_++)
+						phys[i_312_] = getvalue("physics", string_309_, i_312_);
+					// if (phys[i_312_] > 100)
+					// bool_307_ = false;
+					// if (phys[i_312_] < 0)
+					// bool_307_ = false;
+					for (int i_313_ = 0; i_313_ < 3; i_313_++)
+						crash[i_313_] = getvalue("physics", string_309_, i_313_ + 11);
+					// if (i_313_ != 0 && crash[i_313_] > 100)
+					// bool_307_ = false;
+					// if (crash[i_313_] < 0)
+					// bool_307_ = false;
+					engsel = getvalue("physics", string_309_, 14);
+					if (engsel > 4)
+						bool_307_ = false;
+					if (engsel < 0)
+						bool_307_ = false;
+				} catch (final Exception exception) {
+					bool_307_ = false;
+				}
+			}
+			if (string_309_.startsWith("handling(")) {
+				bool_308_ = true;
+				try {
+					getvalue("handling", string_309_, 0);
+				} catch (final Exception exception) {
+					bool_308_ = false;
+				}
+			}
+		}
+		if (!bool_306_) {
+			JOptionPane.showMessageDialog(null,
+					new StringBuilder().append("Car is not ready for ").append(string)
+							.append("!\nReason:\nCar Stats & Class not defined correctly!\nPlease go to the 'Stats & Class' tab to define stats and don't forget to press  [ Save ]  when finished.\n")
+							.toString(),
+					"Car Maker", 1);
+			return false;
+		}
+		if (!bool_307_) {
+			JOptionPane.showMessageDialog(null,
+					new StringBuilder().append("Car is not ready for ").append(string)
+							.append("!\nReason:\nCar Physics not defined correctly!\nPlease go to the 'Physics' tab and complete the car physics definition until it is saved.\n")
+							.toString(),
+					"Car Maker", 1);
+			return false;
+		}
+		if (!bool_308_ && string.equals("Publishing")) {
+			JOptionPane.showMessageDialog(null,
+					new StringBuilder().append("Car is not ready for ").append(string)
+							.append("!\nReason:\nCar Handling not rated.\nPlease Test Drive your car to rate its handling before publishing!\n")
+							.toString(),
+					"Car Maker", 1);
+			return false;
+		}
+		return true;
+	}
+
+	public void crash(float f) {
+		if (f > 100.0F)
+			f -= 100.0F;
+		if (f < -100.0F)
+			f += 100.0F;
+		if (Math.abs(f) > 25.0F && Math.abs(f) < 170.0F)
+			lowcrashs[crshturn].play();
+		if (Math.abs(f) >= 170.0F)
+			crashs[crshturn].play();
+		if (Math.abs(f) > 25.0F) {
+			if (crashup)
+				crshturn--;
+			else
+				crshturn++;
+			if (crshturn == -1)
+				crshturn = 2;
+			if (crshturn == 3)
+				crshturn = 0;
+		}
+	}
+
+	public void ctachm() {
+		int i = -1;
+		for (int i_174_ = 0; i_174_ < btn; i_174_++) {
+			if (Math.abs(xm - bx[i_174_]) < bw[i_174_] / 2 + 12 && Math.abs(ym - by[i_174_]) < 14 && mouses == 1)
+				pessd[i_174_] = true;
+			else
+				pessd[i_174_] = false;
+			if (Math.abs(xm - bx[i_174_]) < bw[i_174_] / 2 + 12 && Math.abs(ym - by[i_174_]) < 14 && mouses == -1)
+				i = i_174_;
+		}
+		if (mouses == -1)
+			mouses = 0;
+		if (tab == 0) {
+			if (sfase == 0) {
+				if (i == 0) {
+					sfase = 1;
+					i = -1;
+					hidefields();
+				}
+				if (i == 1)
+					if (!carname.equals("")) {
+						srch.setText(carname);
+						sfase = 2;
+						i = -1;
+						hidefields();
+					} else
+						JOptionPane.showMessageDialog(null, "Please Select a Car to Rename!\n", "Car Maker", 1);
+				if (i == 2)
+					delcar(carname);
+				if (i == 3) {
+					sfase = 3;
+					i = -1;
+					hidefields();
+				}
+			}
+			if (sfase == 1) {
+				if (i == 0) {
+					newcar(srch.getText());
+					i = -1;
+				}
+				if (i == 1) {
+					srch.setText("");
+					sfase = 0;
+					i = -1;
+					hidefields();
+				}
+			}
+			if (sfase == 2) {
+				if (i == 0) {
+					rencar(srch.getText());
+					i = -1;
+				}
+				if (i == 1) {
+					srch.setText("");
+					sfase = 0;
+					i = -1;
+					hidefields();
+				}
+			}
+			if (sfase == 3) {
+				if (i == 0) {
+					File file = null;
+					final FileDialog filedialog = new FileDialog(new Frame(), "Car Maker - Wavefront OBJ Import");
+					filedialog.setFile("*.obj");
+					filedialog.setMode(0);
+					filedialog.setVisible(true);
+					try {
+						if (filedialog.getFile() != null)
+							file = new File(new StringBuilder().append("").append(filedialog.getDirectory()).append("")
+									.append(filedialog.getFile()).append("").toString());
+					} catch (final Exception exception) {
+						/* empty */
+					}
+					if (file != null) {
+						setCursor(new Cursor(3));
+						int i_175_ = 0;
+						if (tutok)
+							i_175_ = -70;
+						rd.setColor(new Color(225, 225, 225));
+						rd.fillRect(116, 246 + i_175_, 468, 50);
+						rd.setColor(new Color(0, 0, 0));
+						rd.setFont(new Font("Arial", 1, 13));
+						ftm = rd.getFontMetrics();
+						rd.drawString(
+								new StringBuilder().append("Reading ").append(file.getName()).append(", please wait...")
+										.toString(),
+								350 - ftm.stringWidth(new StringBuilder().append("Reading ").append(file.getName())
+										.append(", please wait...").toString()) / 2,
+								276 + i_175_);
+						repaint();
+						final int[] is = new int[6000];
+						final int[] is_176_ = new int[6000];
+						final int[] is_177_ = new int[6000];
+						int i_178_ = 0;
+						final int[][] is_179_ = new int[600][100];
+						final int[] is_180_ = new int[600];
+						int i_181_ = 0;
+						if (file.exists()) {
+							try {
+								final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
+								boolean bool = false;
+								boolean bool_182_ = false;
+								String string;
+								while ((string = bufferedreader.readLine()) != null) {
+									if (string.startsWith("v "))
+										if (i_178_ < 6000) {
+											multf10 = true;
+											is[i_178_] = objvalue(string, 0);
+											is_176_[i_178_] = objvalue(string, 1);
+											is_177_[i_178_] = objvalue(string, 2);
+											i_178_++;
+										} else
+											bool = true;
+									if (string.startsWith("f "))
+										if (i_181_ < 600) {
+											multf10 = false;
+											objfacend = false;
+											for (is_180_[i_181_] = 0; !objfacend
+													&& is_180_[i_181_] < 100; is_180_[i_181_]++)
+												is_179_[i_181_][is_180_[i_181_]] = objvalue(string, is_180_[i_181_]);
+											i_181_++;
+										} else
+											bool_182_ = true;
+								}
+								if (bool)
+									JOptionPane.showMessageDialog(null,
+											new StringBuilder().append("Warning!\nThe number of Vertices in file ")
+													.append(file.getName())
+													.append(" exceeded the maximum of 6000 that the Car Maker can read!     \n\nPlease choose a simpler model to import.\n \n")
+													.toString(),
+											"Car Maker", 0);
+								if (bool_182_)
+									JOptionPane.showMessageDialog(null,
+											new StringBuilder().append("Warning!\nThe number of Faces in file ")
+													.append(file.getName())
+													.append(" exceeded the maximum of 600 that the Car Maker can read!     \n\nPlease choose a simpler model to import.\n \n")
+													.toString(),
+											"Car Maker", 0);
+								bufferedreader.close();
+							} catch (final Exception exception) {
+								JOptionPane.showMessageDialog(null, new StringBuilder()
+										.append("Unable to load file! Error Deatials:\n").append(exception).toString(),
+										"Car Maker", 1);
+							}
+							rd.setColor(new Color(225, 225, 225));
+							rd.fillRect(116, 246 + i_175_, 468, 50);
+							rd.setColor(new Color(0, 0, 0));
+							rd.setFont(new Font("Arial", 1, 13));
+							ftm = rd.getFontMetrics();
+							rd.drawString(
+									new StringBuilder().append("Importing ").append(file.getName())
+											.append(", please wait...").toString(),
+									350 - ftm.stringWidth(new StringBuilder().append("Importing ")
+											.append(file.getName()).append(", please wait...").toString()) / 2,
+									276 + i_175_);
+							repaint();
+							carname = file.getName();
+							if (carname.endsWith(".obj"))
+								carname = carname.substring(0, carname.length() - 4);
+							String string = new StringBuilder().append("\n// imported car: ").append(carname)
+									.append("\n---------------------\n\n// Please read the helpful information about importing cars found at:\n// http://www.needformadness.com/developer/extras.html\n\n\n")
+									.toString();
+							for (int i_184_ = 0; i_184_ < i_181_; i_184_++) {
+								string = new StringBuilder().append(string).append("<p>\nc(200,200,220)\n\n")
+										.toString();
+								for (int i_185_ = 0; i_185_ < is_180_[i_184_]; i_185_++)
+									if (is_179_[i_184_][i_185_] < 6000) {
+										final int i_186_ = is_179_[i_184_][i_185_];
+										string = new StringBuilder().append(string).append("p(").append(is[i_186_])
+												.append(",").append(-is_176_[i_186_]).append(",")
+												.append(is_177_[i_186_]).append(")\n").toString();
+									}
+								string = new StringBuilder().append(string).append("</p>\n\n").toString();
+							}
+							string = new StringBuilder().append(string).append("\n\n\n\n").toString();
+							file = new File("mycars/");
+							if (!file.exists())
+								file.mkdirs();
+							file = new File(
+									new StringBuilder().append("mycars/").append(carname).append(".rad").toString());
+							int i_187_ = 0;
+							if (file.exists())
+								i_187_ = JOptionPane.showConfirmDialog(null,
+										new StringBuilder().append("Another car with the name '").append(carname)
+												.append("' already exists, replace it?      \n").toString(),
+										"Car Maker", 0);
+							if (i_187_ == 0)
+								try {
+									final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
+									bufferedwriter.write(string);
+									bufferedwriter.close();
+									if (file.exists()) {
+										sfase = 0;
+										hidefields();
+										tabed = -1;
+									} else {
+										carname = "";
+										JOptionPane.showMessageDialog(null, "Failed to create car, unknown reason!\n",
+												"Car Maker", 1);
+									}
+								} catch (final Exception exception) {
+									carname = "";
+									JOptionPane.showMessageDialog(null,
+											new StringBuilder().append("Unable to create file! Error Deatials:\n")
+													.append(exception).toString(),
+											"Car Maker", 1);
+								}
+						} else
+							JOptionPane.showMessageDialog(null, new StringBuilder().append("Error, ")
+									.append(file.getName()).append(" was not found!").toString(), "Car Maker", 1);
+						setCursor(new Cursor(0));
+					}
+				}
+				if (i == 1) {
+					sfase = 4;
+					i = -1;
+				}
+				if (i == 2) {
+					sfase = 0;
+					i = -1;
+				}
+			}
+			if (sfase == 4) {
+				if (i == 0) {
+					File file = null;
+					final FileDialog filedialog = new FileDialog(new Frame(), "Car Maker - Wavefront OBJ Import");
+					filedialog.setFile(new StringBuilder().append("").append(carname).append(".obj").toString());
+					filedialog.setMode(1);
+					filedialog.setVisible(true);
+					try {
+						if (filedialog.getFile() != null)
+							file = new File(new StringBuilder().append("").append(filedialog.getDirectory()).append("")
+									.append(filedialog.getFile()).append("").toString());
+					} catch (final Exception exception) {
+						/* empty */
+					}
+					if (file != null) {
+						int i_188_ = 0;
+						if (file.exists())
+							i_188_ = JOptionPane
+									.showConfirmDialog(null,
+											new StringBuilder().append("File ").append(file.getName())
+													.append(" already exists, replace it?      \n").toString(),
+											"Car Maker", 0);
+						if (i_188_ == 0) {
+							setCursor(new Cursor(3));
+							setupo();
+							final int[] is = new int[6000];
+							final int[] is_189_ = new int[6000];
+							final int[] is_190_ = new int[6000];
+							int i_191_ = 0;
+							String string = "";
+							for (int i_192_ = 0; i_192_ < o.npl; i_192_++)
+								for (int i_193_ = 0; i_193_ < o.p[i_192_].n; i_193_++) {
+									boolean bool = false;
+									for (int i_194_ = 0; i_194_ < i_191_; i_194_++)
+										if (is[i_194_] == o.p[i_192_].ox[i_193_]
+												&& is_189_[i_194_] == o.p[i_192_].oy[i_193_]
+												&& is_190_[i_194_] == o.p[i_192_].oz[i_193_])
+											bool = true;
+									if (!bool && i_191_ < 6000) {
+										is[i_191_] = o.p[i_192_].ox[i_193_];
+										is_189_[i_191_] = o.p[i_192_].oy[i_193_];
+										is_190_[i_191_] = o.p[i_192_].oz[i_193_];
+										i_191_++;
+									}
+								}
+							for (int i_195_ = 0; i_195_ < i_191_; i_195_++)
+								string = new StringBuilder().append(string).append("v ").append(is[i_195_] / 10.0F)
+										.append(" ").append(-is_189_[i_195_] / 10.0F).append(" ")
+										.append(is_190_[i_195_] / 10.0F).append("\n").toString();
+							for (int i_196_ = 0; i_196_ < o.npl; i_196_++)
+								if (o.p[i_196_].wz == 0) {
+									string = new StringBuilder().append(string).append("f").toString();
+									for (int i_197_ = 0; i_197_ < o.p[i_196_].n; i_197_++) {
+										string = new StringBuilder().append(string).append(" ").toString();
+										for (int i_198_ = 0; i_198_ < i_191_; i_198_++)
+											if (is[i_198_] == o.p[i_196_].ox[i_197_]
+													&& is_189_[i_198_] == o.p[i_196_].oy[i_197_]
+													&& is_190_[i_198_] == o.p[i_196_].oz[i_197_])
+												string = new StringBuilder().append(string).append("")
+														.append(i_198_ + 1).toString();
+									}
+									string = new StringBuilder().append(string).append("\n").toString();
+								}
+							try {
+								final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
+								bufferedwriter.write(string);
+								bufferedwriter.close();
+								if (file.exists()) {
+									JOptionPane.showMessageDialog(null,
+											new StringBuilder().append("Car has been successfully exported to:\n")
+													.append(file.getAbsolutePath()).append("          \n \n")
+													.toString(),
+											"Car Maker", 1);
+									sfase = 0;
+									hidefields();
+									tabed = -1;
+								} else
+									JOptionPane.showMessageDialog(null, "Failed to export car, unknown reason!\n",
+											"Car Maker", 1);
+							} catch (final Exception exception) {
+								JOptionPane.showMessageDialog(null,
+										new StringBuilder().append("Unable to create exported file! Error Deatials:\n")
+												.append(exception).toString(),
+										"Car Maker", 1);
+							}
+							setCursor(new Cursor(0));
+						}
+					}
+				}
+				if (i == 1) {
+					sfase = 0;
+					i = -1;
+				}
+			}
+		}
+		if (tab == 1) {
+			if (i == 0)
+				if (prefs)
+					prefs = false;
+				else
+					prefs = true;
+			if (i == 1 || i == 2) {
+				savefile();
+				if (i == 2)
+					tab = 2;
+			}
+			if (!mirror) {
+				boolean bool = false;
+				if (i == 4) {
+					if (sls != -1 && sle != -1 && editor.getSelectedText().equals(srch.getText())) {
+						editor.replaceText(rplc.getText(), sls, sle);
+						sls = -1;
+						sle = -1;
+						bool = true;
+						try {
+							if (thredo != null) {
+								/* empty */
+							}
+							Thread.sleep(100L);
+						} catch (final InterruptedException interruptedexception) {
+							/* empty */
+						}
+					}
+					i = 3;
+				}
+				if (i == 3 && !srch.getText().equals("")) {
+					editor.requestFocus();
+					sls = editor.getText().indexOf(srch.getText(), editor.getSelectionEnd());
+					if (sls != -1) {
+						sle = sls + srch.getText().length();
+						editor.select(sls, sle);
+					} else if (!bool)
+						JOptionPane.showMessageDialog(null, new StringBuilder().append("Cannot find  '")
+								.append(srch.getText()).append("'  from Cursor position    ").toString(), "Car Maker",
+								1);
+				}
+			} else {
+				if (i == 3 || i == 4 || i == 5) {
+					final String string = new StringBuilder().append("").append(editor.getSelectedText()).append("\n")
+							.toString();
+					String string_199_ = "\n\n";
+					if (cntpls == 1)
+						string_199_ = new StringBuilder().append(string_199_)
+								.append("// Mirror of the polygon above along the ").toString();
+					else
+						string_199_ = new StringBuilder().append(string_199_).append("// Mirror of the ").append(cntpls)
+								.append(" polygons above along the ").toString();
+					if (i == 3)
+						string_199_ = new StringBuilder().append(string_199_).append("X axis:").toString();
+					if (i == 4)
+						string_199_ = new StringBuilder().append(string_199_).append("Y axis:").toString();
+					if (i == 5)
+						string_199_ = new StringBuilder().append(string_199_).append("Z axis:").toString();
+					string_199_ = new StringBuilder().append(string_199_).append("\n\n").toString();
+					int i_200_ = 0;
+					int i_201_ = string.indexOf("\n", 0);
+					while (i_201_ != -1 && i_200_ < string.length()) {
+						String string_202_ = string.substring(i_200_, i_201_);
+						string_202_ = string_202_.trim();
+						i_200_ = i_201_ + 1;
+						i_201_ = string.indexOf("\n", i_200_);
+						if (string_202_.startsWith("fs(-"))
+							string_202_ = new StringBuilder().append("fs(")
+									.append(string_202_.substring(4, string_202_.length())).append("").toString();
+						else if (string_202_.startsWith("fs("))
+							string_202_ = new StringBuilder().append("fs(-")
+									.append(string_202_.substring(3, string_202_.length())).append("").toString();
+						if (i == 3)
+							if (string_202_.startsWith("p(-"))
+								string_202_ = new StringBuilder().append("p(")
+										.append(string_202_.substring(3, string_202_.length())).append("").toString();
+							else if (string_202_.startsWith("p("))
+								string_202_ = new StringBuilder().append("p(-")
+										.append(string_202_.substring(2, string_202_.length())).append("").toString();
+						if (i == 4 && string_202_.startsWith("p(")) {
+							final int i_203_ = string_202_.indexOf(",", 0);
+							if (i_203_ >= 0)
+								if (string_202_.startsWith(",-", i_203_))
+									string_202_ = new StringBuilder().append("")
+											.append(string_202_.substring(0, i_203_)).append(",")
+											.append(string_202_.substring(i_203_ + 2, string_202_.length())).append("")
+											.toString();
+								else if (string_202_.startsWith(",", i_203_))
+									string_202_ = new StringBuilder().append("")
+											.append(string_202_.substring(0, i_203_)).append(",-")
+											.append(string_202_.substring(i_203_ + 1, string_202_.length())).append("")
+											.toString();
+						}
+						if (i == 5 && string_202_.startsWith("p(")) {
+							int i_204_ = string_202_.indexOf(",", 0);
+							i_204_ = string_202_.indexOf(",", i_204_ + 1);
+							if (i_204_ >= 0)
+								if (string_202_.startsWith(",-", i_204_))
+									string_202_ = new StringBuilder().append("")
+											.append(string_202_.substring(0, i_204_)).append(",")
+											.append(string_202_.substring(i_204_ + 2, string_202_.length())).append("")
+											.toString();
+								else if (string_202_.startsWith(",", i_204_))
+									string_202_ = new StringBuilder().append("")
+											.append(string_202_.substring(0, i_204_)).append(",-")
+											.append(string_202_.substring(i_204_ + 1, string_202_.length())).append("")
+											.toString();
+						}
+						string_199_ = new StringBuilder().append(string_199_).append("").append(string_202_)
+								.append("\n").toString();
+					}
+					string_199_ = new StringBuilder().append(string_199_).append("\n// End of mirror").toString();
+					editor.insertText(string_199_, editor.getSelectionEnd());
+				}
+				if (i == 6) {
+					polynum = 0;
+					int i_205_ = editor.getText().lastIndexOf("</p>", editor.getSelectionStart());
+					boolean bool = false;
+					for (/**/; i_205_ >= 0; i_205_--)
+						if (!bool) {
+							i_205_ = editor.getText().lastIndexOf("<p>", i_205_);
+							if (i_205_ != -1) {
+								bool = true;
+								polynum++;
+							}
+						} else {
+							i_205_ = editor.getText().lastIndexOf("</p>", i_205_);
+							if (i_205_ != -1)
+								bool = false;
+						}
+					prflk = 0;
+					tab = 2;
+				}
+			}
+			i = -1;
+		}
+		if (tab == 2) {
+			int i_206_ = 0;
+			if (dtab == 1)
+				if (o.colok != 2) {
+					if (i == 0) {
+						JOptionPane.showMessageDialog(null,
+								"Car Maker will attempt now to find the first and second colors automatically.\nPlease make sure that they are the correct colors!\n\nPlease note that these are also the colors that will be editable in the multiplayer game.      ",
+								"Car Maker", 1);
+						final String string = new StringBuilder().append("").append(editor.getText()).append("\n")
+								.toString();
+						int i_207_ = 0;
+						int i_208_ = string.indexOf("\n", 0);
+						int i_209_ = 0;
+						String string_210_ = "";
+						String string_211_ = "";
+						while (i_208_ != -1 && i_207_ < string.length() && i_209_ != 2) {
+							String string_212_ = string.substring(i_207_, i_208_);
+							string_212_ = string_212_.trim();
+							i_207_ = i_208_ + 1;
+							i_208_ = string.indexOf("\n", i_207_);
+							if (string_212_.startsWith("c(")) {
+								final String string_213_ = string_212_.substring(1, string_212_.indexOf(")") + 1);
+								if (i_209_ == 1 && !string_213_.equals(string_211_)) {
+									string_210_ = new StringBuilder().append(string_210_).append("2ndColor")
+											.append(string_213_).append("\n\n\n").toString();
+									i_209_ = 2;
+								}
+								if (i_209_ == 0) {
+									string_211_ = string_213_;
+									string_210_ = new StringBuilder().append("1stColor").append(string_213_)
+											.append("\n").toString();
+									i_209_ = 1;
+								}
+							}
+						}
+						if (i_209_ == 0) {
+							string_210_ = "1stColor(255,0,0)\n2ndColor(0,0,255)\n\n\n";
+							i_209_ = 2;
+						}
+						if (i_209_ == 1) {
+							string_210_ = new StringBuilder().append(string_210_).append("2ndColor(0,0,255)\n\n\n")
+									.toString();
+							i_209_ = 2;
+						}
+						final int i_214_ = editor.getText().indexOf("<p>", 0);
+						editor.insertText(string_210_, i_214_);
+						editor.select(i_214_, i_214_ + string_210_.length() - 2);
+						breakbond = true;
+						tab = 1;
+					}
+					i_206_ = 1;
+				} else {
+					if (i == 0) {
+						ofcol = new StringBuilder().append("(").append(o.fcol[0]).append(",").append(o.fcol[1])
+								.append(",").append(o.fcol[2]).append(")").toString();
+						int i_215_ = editor.getText().indexOf(ofcol, 0);
+						final int i_216_ = i_215_;
+						for (/**/; i_215_ != -1; i_215_ = editor.getText().indexOf(ofcol, i_215_ + 1))
+							editor.replaceText(fcol, i_215_, i_215_ + ofcol.length());
+						ofcol = fcol;
+						editor.select(i_216_ - 8, i_216_ - 8);
+						savefile();
+						o.fcol[0] = Color.getHSBColor(fhsb[0], fhsb[2], fhsb[1]).getRed();
+						o.fcol[1] = Color.getHSBColor(fhsb[0], fhsb[2], fhsb[1]).getGreen();
+						o.fcol[2] = Color.getHSBColor(fhsb[0], fhsb[2], fhsb[1]).getBlue();
+					}
+					if (i == 1) {
+						oscol = new StringBuilder().append("(").append(o.scol[0]).append(",").append(o.scol[1])
+								.append(",").append(o.scol[2]).append(")").toString();
+						int i_217_ = editor.getText().indexOf(oscol, 0);
+						final int i_218_ = i_217_;
+						for (/**/; i_217_ != -1; i_217_ = editor.getText().indexOf(oscol, i_217_ + 1))
+							editor.replaceText(scol, i_217_, i_217_ + oscol.length());
+						oscol = scol;
+						editor.select(i_218_ - 8, i_218_ - 8);
+						savefile();
+						o.scol[0] = Color.getHSBColor(shsb[0], shsb[2], shsb[1]).getRed();
+						o.scol[1] = Color.getHSBColor(shsb[0], shsb[2], shsb[1]).getGreen();
+						o.scol[2] = Color.getHSBColor(shsb[0], shsb[2], shsb[1]).getBlue();
+					}
+					i_206_ = 2;
+				}
+			if (dtab == 2) {
+				if (i == 9) {
+					scale[0] = 100;
+					scale[1] = 100;
+					scale[2] = 100;
+				}
+				if (i == 0 || i == 1 || i == 6 || i == 7 || i == 9) {
+					if (i == 0 || i == 6)
+						scale[0] -= 5;
+					if (i == 1 || i == 7)
+						scale[0] += 5;
+					if (scale[0] < 0)
+						scale[0] = 0;
+					int i_219_ = editor.getText().indexOf("\nScaleX(", 0);
+					if (i_219_ != -1) {
+						i_219_++;
+						final int i_220_ = editor.getText().indexOf(")", i_219_);
+						final int i_221_ = editor.getText().indexOf("\n", i_219_);
+						if (i_221_ > i_220_)
+							editor.replaceText(
+									new StringBuilder().append("ScaleX(").append(scale[0]).append(")").toString(),
+									i_219_, i_220_ + 1);
+						else
+							editor.replaceText(
+									new StringBuilder().append("ScaleX(").append(scale[0]).append(")").toString(),
+									i_219_, i_221_);
+					} else {
+						final int i_222_ = editor.getText().indexOf("<p>", 0);
+						final int i_223_ = editor.getText().indexOf("\nScale", 0);
+						if (i_223_ < i_222_ && i_223_ != -1)
+							editor.insertText(
+									new StringBuilder().append("\nScaleX(").append(scale[0]).append(")").toString(),
+									i_223_);
+						else
+							editor.insertText(
+									new StringBuilder().append("ScaleX(").append(scale[0]).append(")\n\n\n").toString(),
+									i_222_);
+					}
+				}
+				if (i == 2 || i == 3 || i == 6 || i == 7 || i == 9) {
+					if (i == 2 || i == 6)
+						scale[1] -= 5;
+					if (i == 3 || i == 7)
+						scale[1] += 5;
+					if (scale[1] < 0)
+						scale[1] = 0;
+					int i_224_ = editor.getText().indexOf("\nScaleY(", 0);
+					if (i_224_ != -1) {
+						i_224_++;
+						final int i_225_ = editor.getText().indexOf(")", i_224_);
+						final int i_226_ = editor.getText().indexOf("\n", i_224_);
+						if (i_226_ > i_225_)
+							editor.replaceText(
+									new StringBuilder().append("ScaleY(").append(scale[1]).append(")").toString(),
+									i_224_, i_225_ + 1);
+						else
+							editor.replaceText(
+									new StringBuilder().append("ScaleY(").append(scale[1]).append(")").toString(),
+									i_224_, i_226_);
+					} else {
+						final int i_227_ = editor.getText().indexOf("<p>", 0);
+						final int i_228_ = editor.getText().indexOf("\nScale", 0);
+						if (i_228_ < i_227_ && i_228_ != -1)
+							editor.insertText(
+									new StringBuilder().append("\nScaleY(").append(scale[1]).append(")").toString(),
+									i_228_);
+						else
+							editor.insertText(
+									new StringBuilder().append("ScaleY(").append(scale[1]).append(")\n\n\n").toString(),
+									i_227_);
+					}
+				}
+				if (i == 4 || i == 5 || i == 6 || i == 7 || i == 9) {
+					if (i == 4 || i == 6)
+						scale[2] -= 5;
+					if (i == 5 || i == 7)
+						scale[2] += 5;
+					if (scale[2] < 0)
+						scale[2] = 0;
+					int i_229_ = editor.getText().indexOf("\nScaleZ(", 0);
+					if (i_229_ != -1) {
+						i_229_++;
+						final int i_230_ = editor.getText().indexOf(")", i_229_);
+						final int i_231_ = editor.getText().indexOf("\n", i_229_);
+						if (i_231_ > i_230_)
+							editor.replaceText(
+									new StringBuilder().append("ScaleZ(").append(scale[2]).append(")").toString(),
+									i_229_, i_230_ + 1);
+						else
+							editor.replaceText(
+									new StringBuilder().append("ScaleZ(").append(scale[2]).append(")").toString(),
+									i_229_, i_231_);
+					} else {
+						final int i_232_ = editor.getText().indexOf("<p>", 0);
+						final int i_233_ = editor.getText().indexOf("\nScale", 0);
+						if (i_233_ < i_232_ && i_233_ != -1)
+							editor.insertText(
+									new StringBuilder().append("\nScaleZ(").append(scale[2]).append(")").toString(),
+									i_233_);
+						else
+							editor.insertText(
+									new StringBuilder().append("ScaleZ(").append(scale[2]).append(")\n\n\n").toString(),
+									i_232_);
+					}
+				}
+				if (i == 0 || i == 1 || i == 2 || i == 3 || i == 4 || i == 5 || i == 6 || i == 7 || i == 9)
+					setupo();
+				if (i == 8) {
+					savefile();
+					oscale[0] = scale[0];
+					oscale[1] = scale[1];
+					oscale[2] = scale[2];
+				}
+				if (i == 10 || i == 11 || i == 12 || i == 13 || i == 14 || i == 15 || i == 16 || i == 17 || i == 18)
+					try {
+						final String string = new StringBuilder().append("").append(editor.getText()).append("\n")
+								.toString();
+						String string_234_ = "";
+						int i_235_ = 0;
+						int i_236_ = string.indexOf("\n", 0);
+						while (i_236_ != -1 && i_235_ < string.length()) {
+							String string_237_ = string.substring(i_235_, i_236_);
+							string_237_ = string_237_.trim();
+							i_235_ = i_236_ + 1;
+							i_236_ = string.indexOf("\n", i_235_);
+							if (string_237_.startsWith("p(")) {
+								final int i_238_ = string_237_.indexOf(",", 0);
+								final int i_239_ = string_237_.indexOf(",", i_238_ + 1);
+								final int i_240_ = string_237_.indexOf(")", i_239_ + 1);
+								if (i_238_ != -1 && i_239_ != -1 && i_240_ != -1) {
+									int i_241_ = Float.valueOf(string_237_.substring(2, i_238_)).intValue();
+									int i_242_ = Float.valueOf(string_237_.substring(i_238_ + 1, i_239_)).intValue();
+									int i_243_ = Float.valueOf(string_237_.substring(i_239_ + 1, i_240_)).intValue();
+									if (i == 10) {
+										final int i_244_ = i_242_;
+										i_242_ = i_243_;
+										i_243_ = -i_244_;
+									}
+									if (i == 11)
+										i_241_ += 10;
+									if (i == 12)
+										i_241_ -= 10;
+									if (i == 13) {
+										final int i_245_ = i_241_;
+										i_241_ = -i_243_;
+										i_243_ = i_245_;
+									}
+									if (i == 14)
+										i_242_ += 10;
+									if (i == 15)
+										i_242_ -= 10;
+									if (i == 16) {
+										final int i_246_ = i_242_;
+										i_242_ = -i_241_;
+										i_241_ = i_246_;
+									}
+									if (i == 17)
+										i_243_ += 10;
+									if (i == 18)
+										i_243_ -= 10;
+									string_234_ = new StringBuilder().append(string_234_).append("p(").append(i_241_)
+											.append(",").append(i_242_).append(",").append(i_243_).append(")")
+											.append(string_237_.substring(i_240_ + 1, string_237_.length()))
+											.append("\n").toString();
+								} else
+									string_234_ = new StringBuilder().append(string_234_).append("").append(string_237_)
+											.append("\n").toString();
+							} else
+								string_234_ = new StringBuilder().append(string_234_).append("").append(string_237_)
+										.append("\n").toString();
+						}
+						editor.setText(string_234_);
+						setupo();
+						changed2 = true;
+					} catch (final Exception exception) {
+						/* empty */
+					}
+				if (i == 19) {
+					editor.setText(lastedo);
+					setupo();
+					changed2 = false;
+				}
+				if (i == 20 && changed2) {
+					final int i_247_ = JOptionPane.showConfirmDialog(null,
+							"Saving now will permanently change the point locations & numbers entered in the code!      \n\nContinue?",
+							"Car Maker", 0);
+					if (i_247_ == 0) {
+						editor.setText(
+								new StringBuilder().append(editor.getText().trim()).append("\n\n\n\n").toString());
+						savefile();
+						changed2 = false;
+					}
+				}
+				i_206_ = 21;
+			}
+			if (dtab == 3) {
+				if (i == 0 || i == 2 || defnow) {
+					if (defnow) {
+						defnow = false;
+						repaint();
+						JOptionPane.showMessageDialog(null,
+								"Car Maker will setup default Front and Back Wheels positions and adjustments.\n\nEnter the desired positions and adjustments then press ' Apply ' to view!\nDon't forget to press ' Save ' when finished!",
+								"Car Maker", 1);
+					}
+					int i_248_ = 0;
+					try {
+						int i_249_ = Float.valueOf(wv[10].getText()).intValue();
+						if (i_249_ <= 0)
+							i_248_ = 1;
+						i_249_ = Float.valueOf(wv[2].getText()).intValue();
+						if (i_249_ >= 0)
+							i_248_ = 2;
+						i_249_ = Float.valueOf(wv[8].getText()).intValue();
+						if (i_249_ <= 0)
+							i_248_ = 3;
+						i_249_ = Float.valueOf(wv[0].getText()).intValue();
+						if (i_249_ <= 0)
+							i_248_ = 4;
+						i_249_ = Float.valueOf(wv[15].getText()).intValue();
+						if (i_249_ > 40)
+							wv[15].setText("40");
+						if (i_249_ < -40)
+							wv[15].setText("-40");
+						i_249_ = Float.valueOf(wv[7].getText()).intValue();
+						if (i_249_ > 40)
+							wv[7].setText("40");
+						if (i_249_ < -40)
+							wv[7].setText("-40");
+					} catch (final Exception exception) {
+						/* empty */
+					}
+					if (i_248_ == 1)
+						JOptionPane.showMessageDialog(null,
+								new StringBuilder()
+										.append("ERROR:\nThe Z location value of the FRONT Wheels must be greater then zero! (it should have a +ve value)\nZ :  '")
+										.append(wv[10].getText())
+										.append("'  is less or equal to zero, where it should have +ve value!")
+										.toString(),
+								"Car Maker", 1);
+					if (i_248_ == 2)
+						JOptionPane.showMessageDialog(null,
+								new StringBuilder()
+										.append("ERROR:\nThe Z location value of the BACK Wheels must be smaller then zero! (it should have a -ve value)\nZ :  '")
+										.append(wv[2].getText())
+										.append("'  is bigger or equal to zero, where it should have -ve value!")
+										.toString(),
+								"Car Maker", 1);
+					if (i_248_ == 3)
+						JOptionPane.showMessageDialog(null,
+								new StringBuilder()
+										.append("ERROR:\nThe \u00b1X location value of the FRONT or BACK Wheels must be greater then zero! (it should have a +ve value)\n\u00b1X :  '")
+										.append(wv[8].getText())
+										.append("'  is less or equal to zero, where it should have +ve value!")
+										.toString(),
+								"Car Maker", 1);
+					if (i_248_ == 4)
+						JOptionPane.showMessageDialog(null,
+								new StringBuilder()
+										.append("ERROR:\nThe \u00b1X location value of the FRONT or BACK Wheels must be greater then zero! (it should have a +ve value)\n\u00b1X :  '")
+										.append(wv[0].getText())
+										.append("'  is less or equal to zero, whenr it should have +ve value!")
+										.toString(),
+								"Car Maker", 1);
+					if (i_248_ == 0) {
+						final String string = new StringBuilder().append("").append(editor.getText()).append("\n")
+								.toString();
+						String string_250_ = "";
+						int i_251_ = 0;
+						int i_252_ = string.indexOf("\n", 0);
+						while (i_252_ != -1 && i_251_ < string.length()) {
+							String string_253_ = string.substring(i_251_, i_252_);
+							string_253_ = string_253_.trim();
+							i_251_ = i_252_ + 1;
+							i_252_ = string.indexOf("\n", i_251_);
+							if (!string_253_.startsWith("rims(") && !string_253_.startsWith("gwgr(")
+									&& !string_253_.startsWith("w("))
+								string_250_ = new StringBuilder().append(string_250_).append("").append(string_253_)
+										.append("\n").toString();
+							else {
+								string_250_ = string_250_.trim();
+								string_250_ = new StringBuilder().append(string_250_).append("\n").toString();
+							}
+						}
+						string_250_ = string_250_.trim();
+						string_250_ = new StringBuilder().append(string_250_).append("\n\n\ngwgr(")
+								.append(wv[15].getText()).append(")\n").toString();
+						String string_254_ = "140,140,140";
+						if (rplc.getText().startsWith("(") && rplc.getText().endsWith(")"))
+							string_254_ = rplc.getText().substring(1, rplc.getText().length() - 1);
+						string_250_ = new StringBuilder().append(string_250_).append("rims(").append(string_254_)
+								.append(",").append(wv[13].getText()).append(",").append(wv[14].getText()).append(")\n")
+								.toString();
+						string_250_ = new StringBuilder().append(string_250_).append("w(-").append(wv[8].getText())
+								.append(",").append(wv[9].getText()).append(",").append(wv[10].getText()).append(",11,")
+								.append(wv[12].getText()).append(",").append(wv[11].getText()).append(")\n").toString();
+						string_250_ = new StringBuilder().append(string_250_).append("w(").append(wv[8].getText())
+								.append(",").append(wv[9].getText()).append(",").append(wv[10].getText())
+								.append(",11,-").append(wv[12].getText()).append(",").append(wv[11].getText())
+								.append(")\n").toString();
+						string_250_ = new StringBuilder().append(string_250_).append("\ngwgr(").append(wv[7].getText())
+								.append(")\n").toString();
+						string_254_ = "140,140,140";
+						if (srch.getText().startsWith("(") && srch.getText().endsWith(")"))
+							string_254_ = srch.getText().substring(1, srch.getText().length() - 1);
+						string_250_ = new StringBuilder().append(string_250_).append("rims(").append(string_254_)
+								.append(",").append(wv[5].getText()).append(",").append(wv[6].getText()).append(")\n")
+								.toString();
+						string_250_ = new StringBuilder().append(string_250_).append("w(-").append(wv[0].getText())
+								.append(",").append(wv[1].getText()).append(",").append(wv[2].getText()).append(",0,")
+								.append(wv[4].getText()).append(",").append(wv[3].getText()).append(")\n").toString();
+						string_250_ = new StringBuilder().append(string_250_).append("w(").append(wv[0].getText())
+								.append(",").append(wv[1].getText()).append(",").append(wv[2].getText()).append(",0,-")
+								.append(wv[4].getText()).append(",").append(wv[3].getText()).append(")\n\n\n\n")
+								.toString();
+						editor.setText(string_250_);
+						forwheels = true;
+						setupo();
+						forwheels = false;
+						aply1 = new StringBuilder().append("").append(wv[0].getText()).append("")
+								.append(wv[1].getText()).append("").append(wv[2].getText()).append("")
+								.append(wv[3].getText()).append("").append(wv[4].getText()).append("")
+								.append(srch.getText()).append("").append(wv[5].getText()).append("")
+								.append(wv[6].getText()).append("").append(wv[7].getText()).append("").toString();
+						aply2 = new StringBuilder().append("").append(wv[8].getText()).append("")
+								.append(wv[9].getText()).append("").append(wv[10].getText()).append("")
+								.append(wv[11].getText()).append("").append(wv[12].getText()).append("")
+								.append(rplc.getText()).append("").append(wv[13].getText()).append("")
+								.append(wv[14].getText()).append("").append(wv[15].getText()).append("").toString();
+						aplyd1 = false;
+						aplyd2 = false;
+						changed2 = true;
+					}
+				}
+				if (i == 1 || i == 3)
+					if (!o.errd) {
+						savefile();
+						changed2 = false;
+					} else
+						JOptionPane.showMessageDialog(null, "Unable to Save, press  [ Apply ]  to find out why!",
+								"Car Maker", 1);
+				i_206_ = 4;
+			}
+			if (dtab == 4)
+				if (!statdef) {
+					if (i == 0) {
+						carsel = simcar.getSelectedIndex();
+						int i_255_ = 0;
+						for (int i_256_ = 0; i_256_ < 5; i_256_++) {
+							stat[i_256_] = carstat[carsel][i_256_];
+							rstat[i_256_] = stat[i_256_];
+							i_255_ += stat[i_256_];
+						}
+						clsel = 4 - (i_255_ - 520) / 40;
+						cls.select(clsel);
+						if (simcar.getItemCount() == 16)
+							simcar.add(rd, "   ");
+						statdef = true;
+						changed2 = true;
+					}
+					i_206_ = 1;
+				} else {
+					for (int i_257_ = 0; i_257_ < 5; i_257_++) {
+						int i_258_ = 0;
+						if (i == 1 + i_257_ * 2 && stat[i_257_] < 200) {
+							i_258_ = 200 - stat[i_257_];
+							if (i_258_ > 4)
+								i_258_ = 4;
+						}
+						if (i == i_257_ * 2 && stat[i_257_] > 16) {
+							i_258_ = 16 - stat[i_257_];
+							if (i_258_ < -4)
+								i_258_ = -4;
+						}
+						int i_259_ = 0;
+						while (i_258_ != 0 && i_259_ != 5) {
+							i_259_ = 0;
+							for (int i_260_ = 0; i_260_ < 5; i_260_++)
+								if (i_257_ != i_260_ && (stat[i_260_] <= 200 || i_258_ > 0)
+										&& (stat[i_260_] >= 16 || i_258_ < 0) && i_258_ != 0) {
+									if (i_258_ > 0) {
+										stat[i_257_]++;
+										stat[i_260_]--;
+										i_258_--;
+									} else {
+										stat[i_257_]--;
+										stat[i_260_]++;
+										i_258_++;
+									}
+								} else
+									i_259_++;
+						}
+					}
+					if (i == 10) {
+						carsel = simcar.getSelectedIndex();
+						int i_261_ = 0;
+						for (int i_262_ = 0; i_262_ < 5; i_262_++) {
+							stat[i_262_] = carstat[carsel][i_262_];
+							i_261_ += stat[i_262_];
+						}
+						clsel = 4 - (i_261_ - 520) / 40;
+						cls.select(clsel);
+					}
+					if (i == 11) {
+						final String string = new StringBuilder().append("").append(editor.getText()).append("\n")
+								.toString();
+						String string_263_ = "";
+						int i_264_ = 0;
+						int i_265_ = string.indexOf("\n", 0);
+						while (i_265_ != -1 && i_264_ < string.length()) {
+							String string_266_ = string.substring(i_264_, i_265_);
+							string_266_ = string_266_.trim();
+							i_264_ = i_265_ + 1;
+							i_265_ = string.indexOf("\n", i_264_);
+							if (!string_266_.startsWith("stat("))
+								string_263_ = new StringBuilder().append(string_263_).append("").append(string_266_)
+										.append("\n").toString();
+							else {
+								string_263_ = string_263_.trim();
+								string_263_ = new StringBuilder().append(string_263_).append("\n").toString();
+							}
+						}
+						string_263_ = string_263_.trim();
+						string_263_ = new StringBuilder().append(string_263_).append("\n\n\nstat(").append(stat[0])
+								.append(",").append(stat[1]).append(",").append(stat[2]).append(",").append(stat[3])
+								.append(",").append(stat[4]).append(")\n\n\n\n").toString();
+						editor.setText(string_263_);
+						savefile();
+						for (int i_267_ = 0; i_267_ < 5; i_267_++)
+							rstat[i_267_] = stat[i_267_];
+						changed2 = false;
+					}
+					if (i == 12)
+						for (int i_268_ = 0; i_268_ < 5; i_268_++)
+							stat[i_268_] = rstat[i_268_];
+					i_206_ = 13;
+				}
+			if (dtab == 5) {
+				if (pfase == 0) {
+					for (int i_269_ = 0; i_269_ < 4; i_269_++) {
+						if (i == 1 + i_269_ * 2) {
+							phys[i_269_] += 2;
+							if (phys[i_269_] > 100)
+								phys[i_269_] = 100;
+						}
+						if (i == i_269_ * 2) {
+							phys[i_269_] -= 2;
+							if (phys[i_269_] < 0)
+								phys[i_269_] = 0;
+						}
+					}
+					if (i == 8)
+						for (int i_270_ = 0; i_270_ < 5; i_270_++)
+							phys[i_270_] = (int) (Math.random() * 100.0);
+					if (i == 9)
+						for (int i_271_ = 0; i_271_ < 5; i_271_++)
+							phys[i_271_] = rphys[i_271_];
+					if (i == 10) {
+						pfase = 1;
+						i = -1;
+					}
+					i_206_ = 11;
+				}
+				if (pfase == 1) {
+					for (int i_272_ = 0; i_272_ < 6; i_272_++) {
+						if (i == 1 + i_272_ * 2) {
+							phys[i_272_ + 5] += 2;
+							if (phys[i_272_ + 5] > 100)
+								phys[i_272_ + 5] = 100;
+						}
+						if (i == i_272_ * 2) {
+							phys[i_272_ + 5] -= 2;
+							if (phys[i_272_ + 5] < 0)
+								phys[i_272_ + 5] = 0;
+						}
+					}
+					if (i == 12)
+						for (int i_273_ = 0; i_273_ < 6; i_273_++)
+							phys[i_273_ + 5] = (int) (Math.random() * 100.0);
+					if (i == 13)
+						for (int i_274_ = 0; i_274_ < 6; i_274_++)
+							phys[i_274_ + 5] = rphys[i_274_ + 5];
+					if (i == 14) {
+						pfase = 0;
+						i = -1;
+					}
+					if (i == 15) {
+						pfase = 2;
+						i = -1;
+					}
+					i_206_ = 16;
+				}
+				if (pfase == 2) {
+					for (int i_275_ = 0; i_275_ < 3; i_275_++) {
+						if (i == 1 + i_275_ * 2) {
+							crash[i_275_] += 2;
+							if (crash[i_275_] > 100)
+								crash[i_275_] = 100;
+						}
+						if (i == i_275_ * 2) {
+							crash[i_275_] -= 2;
+							if (crash[i_275_] < 0)
+								crash[i_275_] = 0;
+						}
+					}
+					if (i == 6) {
+						int i_276_ = (int) (150.0 + 600.0 * Math.random());
+						boolean bool = false;
+						boolean bool_277_ = false;
+						if (Math.random() > Math.random())
+							bool = true;
+						if (Math.random() > Math.random())
+							bool_277_ = true;
+						final int[] is = { -101, -101, -101, -101 };
+						is[0] = (int) (Math.random() * 4.0);
+						if (Math.random() > Math.random()) {
+							if (bool_277_)
+								is[1] = is[0] + 1;
+							else
+								is[1] = is[0] - 1;
+							if (Math.random() > Math.random()) {
+								if (bool_277_)
+									is[2] = is[1] + 1;
+								else
+									is[2] = is[1] - 1;
+								if (Math.random() > Math.random())
+									if (bool_277_)
+										is[3] = is[2] + 1;
+									else
+										is[3] = is[2] - 1;
+							}
+						}
+						if (Math.random() > Math.random())
+							crashup = false;
+						else
+							crashup = true;
+						for (int i_278_ = 0; i_278_ < 4; i_278_++)
+							if (is[i_278_] != -101) {
+								if (is[i_278_] >= 4)
+									is[i_278_] -= 4;
+								if (is[i_278_] <= -1)
+									is[i_278_] += 4;
+								i_276_ -= 50 * i_278_;
+								if (i_276_ < 150)
+									i_276_ = 150;
+								if (bool)
+									regx(is[i_278_], i_276_, false);
+								else
+									regz(is[i_278_], i_276_, false);
+							}
+						if (hitmag < 17000)
+							if (crashleft)
+								o.xz += 22;
+							else
+								o.xz -= 22;
+					}
+					if (i == 8) {
+						if (Math.random() > Math.random())
+							crashup = false;
+						else
+							crashup = true;
+						roofsqsh((int) (230.0 + Math.random() * 80.0));
+					}
+					if (i == 9 || i == 7) {
+						setupo();
+						if (Math.random() > Math.random())
+							crashleft = false;
+						else
+							crashleft = true;
+					}
+					if (i == 10)
+						for (int i_279_ = 0; i_279_ < 3; i_279_++)
+							crash[i_279_] = rcrash[i_279_];
+					if (i == 11) {
+						setupo();
+						pfase = 1;
+						i = -1;
+					}
+					if (i == 12) {
+						// if (crashok) {
+						setupo();
+						pfase = 3;
+						i = -1;
+						// } else
+						// JOptionPane.showMessageDialog(null, usage[11], "Car
+						// Maker", 1);
+					}
+					i_206_ = 13;
+				}
+				if (pfase == 3) {
+					for (int i_280_ = 0; i_280_ < 5; i_280_++) {
+						if (i == i_280_) {
+							for (int i_281_ = 0; i_281_ < 5; i_281_++)
+								for (int i_282_ = 0; i_282_ < 5; i_282_++)
+									engs[i_282_][i_281_].stop();
+							engs[engsel][i_280_].loop();
+							engon = true;
+						}
+						if (i == 5) {
+							for (int i_283_ = 0; i_283_ < 5; i_283_++)
+								for (int i_284_ = 0; i_284_ < 5; i_284_++)
+									engs[i_284_][i_283_].stop();
+							engon = false;
+						}
+						if (i == 6) {
+							pfase = 2;
+							i = -1;
+							engine.setVisible(false);
+						}
+						if (i == 7) {
+							pfase = 4;
+							i = -1;
+							engine.setVisible(false);
+						}
+					}
+					i_206_ = 8;
+				}
+			}
+			if (dtab == 6)
+				if (!rateh) {
+					if (i == 0 && checko("Test Drive")) {
+						Madness.testcar = carname;
+						Madness.testdrive = witho.getSelectedIndex() + 1;
+						Madness.game();
+					}
+					i_206_ = 1;
+					if (tested) {
+						if (i == 1) {
+							dtab = 4;
+							i = -1;
+						}
+						if (i == 2) {
+							dtab = 5;
+							i = -1;
+						}
+						if (i == 3) {
+							rateh = true;
+							hidefields();
+						}
+						i_206_ = 4;
+					}
+				} else {
+					if (i == 0) {
+						handling -= 2;
+						if (handling < 50)
+							handling = 50;
+					}
+					if (i == 1) {
+						handling += 2;
+						if (handling > 200)
+							handling = 200;
+					}
+					if (i == 2) {
+						final String string = new StringBuilder().append("").append(editor.getText()).append("\n")
+								.toString();
+						String string_285_ = "";
+						int i_286_ = 0;
+						int i_287_ = string.indexOf("\n", 0);
+						while (i_287_ != -1 && i_286_ < string.length()) {
+							String string_288_ = string.substring(i_286_, i_287_);
+							string_288_ = string_288_.trim();
+							i_286_ = i_287_ + 1;
+							i_287_ = string.indexOf("\n", i_286_);
+							if (!string_288_.startsWith("handling("))
+								string_285_ = new StringBuilder().append(string_285_).append("").append(string_288_)
+										.append("\n").toString();
+							else {
+								string_285_ = string_285_.trim();
+								string_285_ = new StringBuilder().append(string_285_).append("\n").toString();
+							}
+						}
+						string_285_ = string_285_.trim();
+						string_285_ = new StringBuilder().append(string_285_).append("\n\n\nhandling(").append(handling)
+								.append(")\n\n\n\n").toString();
+						editor.setText(string_285_);
+						savefile();
+						rateh = false;
+					}
+					if (i == 3)
+						rateh = false;
+					i_206_ = 4;
+				}
+			if (i == i_206_) {
+				for (int i_289_ = 0; i_289_ < o.npl; i_289_++) {
+					Color.RGBtoHSB(o.p[i_289_].c[0], o.p[i_289_].c[1], o.p[i_289_].c[2], o.p[i_289_].hsb);
+					if (o.p[i_289_].gr == -13)
+						o.p[i_289_].gr = 1;
+				}
+				polynum = -1;
+			}
+			i = -1;
+		}
+		if (tab == 3) {
+			if (i == 0) {
+				if (logged == 0)
+					JOptionPane.showMessageDialog(null,
+							"Please login to retrieve your account first before publishing!", "Car Maker", 1);
+				if ((logged == 3 || logged == -1) && checko("Publishing")) {
+					int i_290_ = 0;
+					for (int i_291_ = 0; i_291_ < nmc; i_291_++)
+						if (mycars[i_291_].equals(carname) && maker[i_291_].equals(tnick.getText()))
+							i_290_ = JOptionPane
+									.showConfirmDialog(null,
+											new StringBuilder().append("Replace your already online car '")
+													.append(carname).append("' with this one?").toString(),
+											"Car Maker", 0);
+					if (i_290_ == 0) {
+						setCursor(new Cursor(3));
+						rd.setFont(new Font("Arial", 1, 13));
+						ftm = rd.getFontMetrics();
+						rd.setColor(new Color(225, 225, 225));
+						rd.fillRect(11, 141, 679, 401);
+						rd.setColor(new Color(0, 0, 0));
+						rd.drawString("Connecting to Server...", 350 - ftm.stringWidth("Connecting to Server...") / 2,
+								250);
+						repaint();
+						int i_292_ = 0;
+						String string = new StringBuilder().append("").append(editor.getText()).append("\n").toString();
+						int i_293_ = 0;
+						int i_294_ = string.indexOf("\n", 0);
+						while (i_294_ != -1 && i_293_ < string.length()) {
+							i_293_ = i_294_ + 1;
+							i_294_ = string.indexOf("\n", i_293_);
+							i_292_++;
+						}
+						int i_295_ = -1;
+						try {
+							final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
+							final BufferedReader bufferedreader = new BufferedReader(
+									new InputStreamReader(socket.getInputStream()));
+							final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
+							printwriter.println(new StringBuilder().append("10|").append(tnick.getText()).append("|")
+									.append(tpass.getText()).append("|").append(carname).append("|")
+									.append(pubtyp.getSelectedIndex()).append("|").toString());
+							String string_296_ = bufferedreader.readLine();
+							if (string_296_ != null)
+								i_295_ = 0;
+							// i_295_ = servervalue(string_296_, 0);
+							if (i_295_ == 0) {
+								int i_297_ = 0;
+								string = new StringBuilder().append("").append(editor.getText()).append("\n")
+										.toString();
+								i_293_ = 0;
+								i_294_ = string.indexOf("\n", 0);
+								while (i_294_ != -1 && i_293_ < string.length()) {
+									String string_298_ = string.substring(i_293_, i_294_);
+									string_298_ = string_298_.trim();
+									printwriter.println(string_298_);
+									i_293_ = i_294_ + 1;
+									i_294_ = string.indexOf("\n", i_293_);
+									i_297_++;
+									rd.setColor(new Color(225, 225, 225));
+									rd.fillRect(11, 141, 679, 401);
+									rd.setColor(new Color(0, 0, 0));
+									rd.drawString("Publishing Car...", 350 - ftm.stringWidth("Publishing Car...") / 2,
+											250);
+									rd.setColor(new Color(119, 147, 191));
+									rd.fillRect(250, 270, (int) ((float) i_297_ / (float) i_292_ * 200.0F), 7);
+									rd.setColor(new Color(0, 0, 0));
+									rd.drawRect(250, 270, 200, 7);
+									repaint();
+									try {
+										if (thredo != null) {
+											/* empty */
+										}
+										Thread.sleep(10L);
+									} catch (final InterruptedException interruptedexception) {
+										/* empty */
+									}
+								}
+								printwriter.println("QUITX1111");
+								rd.setColor(new Color(225, 225, 225));
+								rd.fillRect(11, 141, 679, 401);
+								rd.setColor(new Color(0, 0, 0));
+								rd.drawString("Creating the car online...",
+										350 - ftm.stringWidth("Creating the car online...") / 2, 250);
+								rd.drawString("This may take a couple of minutes, please wait...",
+										350 - ftm.stringWidth("This may take a couple of minutes, please wait...") / 2,
+										280);
+								repaint();
+								string_296_ = bufferedreader.readLine();
+								if (string_296_ != null)
+									i_295_ = servervalue(string_296_, 0);
+							}
+							socket.close();
+						} catch (final Exception exception) {
+							i_295_ = -1;
+						}
+						setCursor(new Cursor(0));
+						boolean bool = false;
+						if (i_295_ == 0) {
+							logged = 1;
+							bool = true;
+						}
+						if (i_295_ == 3) {
+							JOptionPane.showMessageDialog(null,
+									"Unable to publish car.\nReason:\nCar name is too large.  Please rename your car.  Car name must be less then 15 characters.",
+									"Car Maker", 1);
+							bool = true;
+						}
+						if (i_295_ == 4) {
+							JOptionPane.showMessageDialog(null,
+									new StringBuilder().append("Unable to publish car.\nReason:  Car name used (")
+											.append(carname).append(").\nThe name '").append(carname)
+											.append("' is already used by another published car.  Please rename your car.")
+											.toString(),
+									"Car Maker", 1);
+							bool = true;
+						}
+						if (i_295_ == 6) {
+							JOptionPane.showMessageDialog(null,
+									"Error Creating Car!\nReason:\nError loading 3D model!  Format maybe incorrect!",
+									"Car Maker", 1);
+							bool = true;
+						}
+						if (i_295_ == 7) {
+							JOptionPane.showMessageDialog(null,
+									"Error Creating Car!\nReason:\nFirst and Second colors not defined yet!\nPlease go to the 'Color Edit' tab to define the colors.",
+									"Car Maker", 1);
+							bool = true;
+						}
+						if (i_295_ == 8) {
+							JOptionPane.showMessageDialog(null,
+									"Error Creating Car!\nReason:\nCar Wheels not defined or not defined correctly!\nPlease go to the \u2018Wheels\u2019 tab and use  [ Apply ]  and  [ Save ]  to define correctly.",
+									"Car Maker", 1);
+							bool = true;
+						}
+						if (i_295_ == 9) {
+							JOptionPane.showMessageDialog(null,
+									"Error Creating Car!\nReason:\nNo car seems to be designed!\nYou have not built a car yet please go to the \u2018Car\u2019 tab to find the tutorial on how to build a car.",
+									"Car Maker", 1);
+							bool = true;
+						}
+						if (i_295_ == 10) {
+							JOptionPane.showMessageDialog(null,
+									"Error Creating Car!\nReason:\nCar contains too many polygons (pieces).\nNumber of polygons used need to be less then 10000.\nPlease use the counter in the \u2018Code Edit\u2019 to decrease the number of polygons (pieces).",
+									"Car Maker", 1);
+							bool = true;
+						}
+						if (i_295_ == 11) {
+							JOptionPane.showMessageDialog(null,
+									new StringBuilder()
+											.append("Error Creating Car!\nReason:\nCar scale size is too large!\nPlease use the \u2018Scale All\u2019 option in the \u2018Scale & Align\u2019 tab to resize your car to suitable size.       \nCompare it to other NFM cars using the \u2018Compare Car...\u2019 option.\nCurrently you car needs to be scaled down by ")
+											.append((int) ((o.maxR / 400.0F - 1.0F) * 100.0F)).append("%.\n")
+											.toString(),
+									"Car Maker", 1);
+							bool = true;
+						}
+						if (i_295_ == 12) {
+							JOptionPane.showMessageDialog(null,
+									new StringBuilder()
+											.append("Error Creating Car!\nReason:\nCar scale size is too small!\nPlease use the \u2018Scale All\u2019 option in the \u2018Scale & Align\u2019 tab to resize your car to suitable size.       \nCompare it to other NFM cars using the \u2018Compare Car...\u2019 option.\nCurrently you car needs to be scaled up by ")
+											.append((int) ((120.0F / o.maxR - 1.0F) * 100.0F)).append("%.\n")
+											.toString(),
+									"Car Maker", 1);
+							bool = true;
+						}
+						if (i_295_ == 13) {
+							JOptionPane.showMessageDialog(null,
+									"Error Creating Car!\nReason:\nCar Stats & Class not defined correctly!\nPlease go to the 'Stats & Class' tab to define stats and don't forget to press  [ Save ]  when finished.\n",
+									"Car Maker", 1);
+							bool = true;
+						}
+						if (i_295_ == 14) {
+							JOptionPane.showMessageDialog(null,
+									"Error Creating Car!\nReason:\nCar Physics not defined correctly!\nPlease go to the 'Physics' tab and complete the car physics definition until it is saved.\n",
+									"Car Maker", 1);
+							bool = true;
+						}
+						if (i_295_ == 15) {
+							JOptionPane.showMessageDialog(null,
+									"Error Creating Car!\nReason:\nCar Handling not rated.\nPlease Test Drive your car to rate its handling before publishing!\n",
+									"Car Maker", 1);
+							bool = true;
+						}
+						if (i_295_ > 15) {
+							JOptionPane.showMessageDialog(null,
+									"Unable to publish car fully!  Unknown Error.  Please try again later.\n",
+									"Car Maker", 1);
+							bool = true;
+						}
+						if (!bool)
+							JOptionPane.showMessageDialog(null, "Unable to publish car!  Unknown Error.\n", "Car Maker",
+									1);
+					}
+				}
+			}
+			if (logged == 0) {
+				if (i == 1) {
+					setCursor(new Cursor(3));
+					int i_299_ = -1;
+					try {
+						final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
+						final BufferedReader bufferedreader = new BufferedReader(
+								new InputStreamReader(socket.getInputStream()));
+						final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
+						printwriter.println(new StringBuilder().append("1|").append(tnick.getText().toLowerCase())
+								.append("|").append(tpass.getText()).append("|").toString());
+						final String string = bufferedreader.readLine();
+						if (string != null)
+							i_299_ = servervalue(string, 0);
+						socket.close();
+					} catch (final Exception exception) {
+						i_299_ = -1;
+					}
+					if (i_299_ == 0 || i_299_ == 3 || i_299_ > 10) {
+						tnick.setVisible(false);
+						tpass.setVisible(false);
+						logged = 1;
+						savesettings();
+					}
+					if (i_299_ == 1 || i_299_ == 2) {
+						setCursor(new Cursor(0));
+						JOptionPane.showMessageDialog(null, "Sorry.  Incorrect Nickname or Password!", "Car Maker", 0);
+					}
+					if (i_299_ == -167) {
+						setCursor(new Cursor(0));
+						JOptionPane.showMessageDialog(null,
+								"Sorry.  Trial accounts are not allowed to publish cars & stages, please register a full account!",
+								"Car Maker", 0);
+					}
+					if (i_299_ == -1) {
+						setCursor(new Cursor(0));
+						JOptionPane.showMessageDialog(null,
+								"Unable to connect to server at this moment, please try again later.", "Car Maker", 1);
+					}
+				}
+				if (i == 2)
+					Madness.openurl("http://multiplayer.needformadness.com/register.html");
+			}
+		}
+	}
+
+	public void delcar(final String string) {
+		if (string.equals(""))
+			JOptionPane.showMessageDialog(null, "Please Select a Car to Delete!\n", "Car Maker", 1);
+		else {
+			final int i = JOptionPane.showConfirmDialog(null, new StringBuilder()
+					.append("Are you sure you want to delete car :  ").append(string).append(" ?  ").toString(),
+					"Car Maker", 0);
+			if (i == 0)
+				try {
+					final File file = new File(
+							new StringBuilder().append("mycars/").append(string).append(".rad").toString());
+					file.delete();
+					slcar.remove(string);
+					slcar.select(0);
+				} catch (final Exception exception) {
+					JOptionPane.showMessageDialog(null, new StringBuilder()
+							.append("Unable to delete file! Error Deatials:\n").append(exception).toString(),
+							"Car Maker", 1);
+				}
+		}
+	}
+
+	public void drawms() {
+		openm = false;
+		if (pubtyp.draw(rd, xm, ym, mousdr, 550, false))
+			openm = true;
+		if (fontsel.draw(rd, xm, ym, mousdr, 550, true))
+			openm = true;
+		if (ctheme.draw(rd, xm, ym, mousdr, 550, true))
+			openm = true;
+		if (compcar.draw(rd, xm, ym, mousdr, 550, true))
+			openm = true;
+		if (cls.draw(rd, xm, ym, mousdr, 550, true))
+			openm = true;
+		if (simcar.draw(rd, xm, ym, mousdr, 550, true))
+			openm = true;
+		if (engine.draw(rd, xm, ym, mousdr, 550, false))
+			openm = true;
+		if (witho.draw(rd, xm, ym, mousdr, 550, true))
+			openm = true;
+		if (slcar.draw(rd, xm, ym, mousdr, 550, false))
+			openm = true;
+		if (openm) {
+			waso = true;
+			mouses = 0;
+		}
+	}
+
+	public void fixtext(final TextField textfield) {
+		String string = textfield.getText();
+		string = string.replace('\"', '#');
+		final String string_360_ = "\\";
+		String string_361_ = "";
+		int i = 0;
+		int i_362_ = -1;
+		for (/**/; i < string.length(); i++) {
+			final String string_363_ = new StringBuilder().append("").append(string.charAt(i)).toString();
+			if (string_363_.equals("|") || string_363_.equals(",") || string_363_.equals("(") || string_363_.equals(")")
+					|| string_363_.equals("#") || string_363_.equals(string_360_) || string_363_.equals("!")
+					|| string_363_.equals("?") || string_363_.equals("~") || string_363_.equals(".")
+					|| string_363_.equals("@") || string_363_.equals("$") || string_363_.equals("%")
+					|| string_363_.equals("^") || string_363_.equals("&") || string_363_.equals("*")
+					|| string_363_.equals("+") || string_363_.equals("=") || string_363_.equals(">")
+					|| string_363_.equals("<") || string_363_.equals("/") || string_363_.equals("'")
+					|| string_363_.equals(";") || string_363_.equals(":") || i > 15)
+				i_362_ = i;
+			else
+				string_361_ = new StringBuilder().append(string_361_).append(string_363_).toString();
+		}
+		if (i_362_ != -1) {
+			textfield.setText(string_361_);
+			textfield.select(i_362_, i_362_);
+		}
+	}
+
+	public Image getImage(final String string) {
+		final Image image = Toolkit.getDefaultToolkit().createImage(string);
+		final MediaTracker mediatracker = new MediaTracker(this);
+		mediatracker.addImage(image, 0);
+		try {
+			mediatracker.waitForID(0);
+		} catch (final Exception exception) {
+			/* empty */
+		}
+		return image;
+	}
+
+	public String getSvalue(final String string, final String string_369_, final int i) {
+		String string_370_ = "";
+		int i_371_ = 0;
+		for (int i_372_ = string.length() + 1; i_372_ < string_369_.length() && i_371_ <= i; i_372_++) {
+			final String string_373_ = new StringBuilder().append("").append(string_369_.charAt(i_372_)).toString();
+			if (string_373_.equals(",") || string_373_.equals(")"))
+				i_371_++;
+			else if (i_371_ == i)
+				string_370_ = new StringBuilder().append(string_370_).append(string_373_).toString();
+		}
+		return string_370_;
+	}
+
+	public int getvalue(final String string, final String string_364_, final int i) {
+		int i_365_ = 0;
+		String string_366_ = "";
+		for (int i_367_ = string.length() + 1; i_367_ < string_364_.length(); i_367_++) {
+			final String string_368_ = new StringBuilder().append("").append(string_364_.charAt(i_367_)).toString();
+			if (string_368_.equals(",") || string_368_.equals(")")) {
+				i_365_++;
+				i_367_++;
+			}
+			if (i_365_ == i)
+				string_366_ = new StringBuilder().append(string_366_).append(string_364_.charAt(i_367_)).toString();
+		}
+		return Float.valueOf(string_366_).intValue();
+	}
+
+	@Override
+	public boolean gotFocus(final Event event, final Object object) {
+		focuson = true;
+		return false;
+	}
+
+	public void hidefields() {
+		pubtyp.setVisible(false);
+		tpass.setVisible(false);
+		tnick.setVisible(false);
+		slcar.setVisible(false);
+		witho.setVisible(false);
+		for (int i = 0; i < 16; i++)
+			wv[i].setVisible(false);
+		simcar.setVisible(false);
+		engine.setVisible(false);
+		cls.setVisible(false);
+		compcar.setVisible(false);
+		editor.setVisible(false);
+		fontsel.setVisible(false);
+		ctheme.setVisible(false);
+		srch.setVisible(false);
+		rplc.setVisible(false);
+	}
+
+	@Override
+	public void init() {
+		setBackground(new Color(0, 0, 0));
+		offImage = createImage(700, 550);
+		if (offImage != null)
+			rd = (Graphics2D) offImage.getGraphics();
+		rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+		setLayout(null);
+		slcar.setFont(new Font("Arial", 1, 13));
+		slcar.add(rd, "Select a Car...         ");
+		slcar.setForeground(new Color(63, 80, 110));
+		slcar.setBackground(new Color(209, 217, 230));
+		fontsel.setFont(new Font("Arial", 1, 12));
+		fontsel.add(rd, "Arial");
+		fontsel.add(rd, "Dialog");
+		fontsel.add(rd, "DialogInput");
+		fontsel.add(rd, "Monospaced");
+		fontsel.add(rd, "Serif");
+		fontsel.add(rd, "SansSerif");
+		fontsel.add(rd, "Verdana");
+		fontsel.setBackground(new Color(63, 80, 110));
+		fontsel.setForeground(new Color(209, 217, 230));
+		ctheme.setFont(new Font("Arial", 1, 12));
+		ctheme.add(rd, "Default");
+		ctheme.add(rd, "Author");
+		ctheme.add(rd, "Dos");
+		ctheme.add(rd, "Green");
+		ctheme.add(rd, "The Matrix");
+		ctheme.add(rd, "Ice Age");
+		ctheme.add(rd, "Fire");
+		ctheme.add(rd, "Ocean");
+		ctheme.setBackground(new Color(63, 80, 110));
+		ctheme.setForeground(new Color(209, 217, 230));
+		compcar.setFont(new Font("Arial", 1, 12));
+		compcar.add(rd, "Compare Car...");
+		compcar.add(rd, "Tornado Shark");
+		compcar.add(rd, "Formula 7");
+		compcar.add(rd, "Wow Caninaro");
+		compcar.add(rd, "La Vita Crab");
+		compcar.add(rd, "Nimi");
+		compcar.add(rd, "MAX Revenge");
+		compcar.add(rd, "Lead Oxide");
+		compcar.add(rd, "Kool Kat");
+		compcar.add(rd, "Drifter X");
+		compcar.add(rd, "Sword of Justice");
+		compcar.add(rd, "High Rider");
+		compcar.add(rd, "EL KING");
+		compcar.add(rd, "Mighty Eight");
+		compcar.add(rd, "M A S H E E N");
+		compcar.add(rd, "Radical One");
+		compcar.add(rd, "DR Monstaa");
+		compcar.add(rd, " -  None  - ");
+		compcar.setBackground(new Color(63, 80, 110));
+		compcar.setForeground(new Color(209, 217, 230));
+		cls.setFont(new Font("Arial", 1, 12));
+		cls.add(rd, "Class A");
+		cls.add(rd, "Class A & B");
+		cls.add(rd, "Class B");
+		cls.add(rd, "Class B & C");
+		cls.add(rd, "Class C");
+		cls.setBackground(new Color(63, 80, 110));
+		cls.setForeground(new Color(209, 217, 230));
+		simcar.setFont(new Font("Arial", 1, 12));
+		simcar.add(rd, "Tornado Shark");
+		simcar.add(rd, "Formula 7");
+		simcar.add(rd, "Wow Caninaro");
+		simcar.add(rd, "La Vita Crab");
+		simcar.add(rd, "Nimi");
+		simcar.add(rd, "MAX Revenge");
+		simcar.add(rd, "Lead Oxide");
+		simcar.add(rd, "Kool Kat");
+		simcar.add(rd, "Drifter X");
+		simcar.add(rd, "Sword of Justice");
+		simcar.add(rd, "High Rider");
+		simcar.add(rd, "EL KING");
+		simcar.add(rd, "Mighty Eight");
+		simcar.add(rd, "M A S H E E N");
+		simcar.add(rd, "Radical One");
+		simcar.add(rd, "DR Monstaa");
+		simcar.setBackground(new Color(63, 80, 110));
+		simcar.setForeground(new Color(209, 217, 230));
+		witho.setFont(new Font("Arial", 1, 12));
+		witho.add(rd, "With other cars");
+		witho.add(rd, "Alone");
+		witho.setBackground(new Color(63, 80, 110));
+		witho.setForeground(new Color(209, 217, 230));
+		engine.setFont(new Font("Arial", 1, 12));
+		engine.add(rd, "Normal Engine");
+		engine.add(rd, "V8 Engine");
+		engine.add(rd, "Retro Engine");
+		engine.add(rd, "Power Engine");
+		engine.add(rd, "Diesel Engine");
+		engine.setBackground(new Color(63, 80, 110));
+		engine.setForeground(new Color(209, 217, 230));
+		final MenuItem menuitem = new MenuItem("Cut");
+		final MenuItem menuitem_340_ = new MenuItem("Copy");
+		final MenuItem menuitem_341_ = new MenuItem("Paste");
+		final MenuItem menuitem_342_ = new MenuItem("Select All");
+		popupMenu = new PopupMenu();
+		popupMenu.add(menuitem);
+		popupMenu.add(menuitem_340_);
+		popupMenu.add(menuitem_341_);
+		popupMenu.add(menuitem_342_);
+		menuitem.addActionListener(this);
+		menuitem_340_.addActionListener(this);
+		menuitem_341_.addActionListener(this);
+		menuitem_342_.addActionListener(this);
+		add(popupMenu);
+		for (int i = 0; i < 16; i++) {
+			wv[i] = new TextField("", 2);
+			wv[i].setBackground(new Color(255, 255, 255));
+			wv[i].setForeground(new Color(0, 0, 0));
+			wv[i].setFont(new Font(cfont, 1, 14));
+			wv[i].addMouseListener(new MouseHandler(popupMenu, i));
+			add(wv[i]);
+		}
+		tnick.setFont(new Font("Arial", 1, 13));
+		tnick.setBackground(new Color(255, 255, 255));
+		tnick.setForeground(new Color(0, 0, 0));
+		tpass.setFont(new Font("Arial", 1, 13));
+		tpass.setEchoCharacter('*');
+		tpass.setBackground(new Color(255, 255, 255));
+		tpass.setForeground(new Color(0, 0, 0));
+		pubtyp.setFont(new Font("Arial", 1, 13));
+		pubtyp.add(rd, "Private");
+		pubtyp.add(rd, "Public");
+		pubtyp.add(rd, "Super Public");
+		pubtyp.setBackground(new Color(63, 80, 110));
+		pubtyp.setForeground(new Color(209, 217, 230));
+		srch.setBackground(new Color(255, 255, 255));
+		srch.setForeground(new Color(0, 0, 0));
+		srch.addMouseListener(new MouseHandler(popupMenu, 16));
+		rplc.setBackground(new Color(255, 255, 255));
+		rplc.setForeground(new Color(0, 0, 0));
+		rplc.addMouseListener(new MouseHandler(popupMenu, 17));
+		editor.addMouseListener(new MouseHandler(popupMenu, 18));
+		add(tnick);
+		add(tpass);
+		add(editor);
+		add(srch);
+		add(rplc);
+		defb = new Color(255, 255, 255);
+		deff = new Color(0, 0, 0);
+		hidefields();
+	}
+
+	@Override
+	public boolean keyDown(final Event event, final int i) {
+		if (focuson) {
+			if (i == 54 || i == 46 || i == 100 || i == 68)
+				rotr = true;
+			if (i == 52 || i == 44 || i == 97 || i == 65)
+				rotl = true;
+			if (i == 43 || i == 61)
+				plus = true;
+			if (i == 45)
+				minus = true;
+			if (i == 42 || i == 10 || i == 56 || i == 119 || i == 87)
+				in = true;
+			if (i == 47 || i == 8 || i == 50 || i == 115 || i == 83)
+				out = true;
+			if (i == 1006)
+				left = true;
+			if (i == 1007)
+				right = true;
+			if (i == 1005)
+				down = true;
+			if (i == 1004)
+				up = true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean keyUp(final Event event, final int i) {
+		if (i == 54 || i == 46 || i == 100 || i == 68)
+			rotr = false;
+		if (i == 52 || i == 44 || i == 97 || i == 65)
+			rotl = false;
+		if (i == 43 || i == 61)
+			plus = false;
+		if (i == 45)
+			minus = false;
+		if (i == 42 || i == 10 || i == 56 || i == 119 || i == 97)
+			in = false;
+		if (i == 47 || i == 8 || i == 50 || i == 115 || i == 83)
+			out = false;
+		if (i == 1006)
+			left = false;
+		if (i == 1007)
+			right = false;
+		if (i == 1005)
+			down = false;
+		if (i == 1004)
+			up = false;
+		return false;
+	}
+
+	public void loadbase() {
+		final String[] strings = { "2000tornados", "formula7", "canyenaro", "lescrab", "nimi", "maxrevenge",
+				"leadoxide", "koolkat", "drifter", "policecops", "mustang", "king", "audir8", "masheen", "radicalone",
+				"drmonster" };
+		try {
+			final File file = new File("data/models.zip");
+			final ZipInputStream zipinputstream = new ZipInputStream(new FileInputStream(file));
+			ZipEntry zipentry = zipinputstream.getNextEntry();
+			for (/**/; zipentry != null; zipentry = zipinputstream.getNextEntry()) {
+				int i = -1;
+				for (int i_356_ = 0; i_356_ < 16; i_356_++)
+					if (zipentry.getName().startsWith(strings[i_356_]))
+						i = i_356_;
+				if (i != -1) {
+					int i_357_ = (int) zipentry.getSize();
+					final byte[] is = new byte[i_357_];
+					int i_358_ = 0;
+					int i_359_;
+					for (/**/; i_357_ > 0; i_357_ -= i_359_) {
+						i_359_ = zipinputstream.read(is, i_358_, i_357_);
+						i_358_ += i_359_;
+					}
+					compo[i] = new ContO(is, m, t);
+					compo[i].shadow = false;
+					compo[i].noline = true;
+				}
+			}
+			zipinputstream.close();
+		} catch (final Exception exception) {
+			System.out.println(
+					new StringBuilder().append("Error Loading Models from Zip: ").append(exception).toString());
+		}
+		System.gc();
+	}
+
+	public void loadfile() {
+		loadedfile = false;
+		lastedo = "";
+		try {
+			final File file = new File(new StringBuilder().append("mycars/").append(carname).append(".rad").toString());
+			final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
+			String string;
+			while ((string = bufferedreader.readLine()) != null) {
+				final StringBuilder stringbuilder = new StringBuilder();
+				final CarMaker carmaker_300_ = this;
+				carmaker_300_.lastedo = stringbuilder.append(carmaker_300_.lastedo).append("").append(string)
+						.append("\n").toString();
+			}
+			loadedfile = true;
+			bufferedreader.close();
+		} catch (final Exception exception) {
+			loadedfile = false;
+			lastedo = "";
+			JOptionPane.showMessageDialog(null,
+					new StringBuilder().append("Unable to load file! Error Deatials:\n").append(exception).toString(),
+					"Car Maker", 1);
+		}
+		editor.setText(lastedo);
+	}
+
+	public void loadsettings() {
+		try {
+			final File file = new File("mycars/settings.data");
+			if (file.exists()) {
+				final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
+				String string = bufferedreader.readLine();
+				if (string != null) {
+					scar = string;
+					carname = scar;
+				}
+				string = bufferedreader.readLine();
+				if (string != null) {
+					suser = string;
+					if (!suser.equals("Horaks"))
+						tnick.setText(suser);
+				}
+				string = bufferedreader.readLine();
+				if (string != null) {
+					sfont = string;
+					cfont = sfont;
+				}
+				string = bufferedreader.readLine();
+				if (string != null) {
+					sthm = Float.valueOf(string).intValue();
+					cthm = sthm;
+				}
+				bufferedreader.close();
+			}
+		} catch (final Exception exception) {
+			/* empty */
+		}
+	}
+
+	public void loadsounds() {
+		try {
+			final File file = new File("data/sounds.zip");
+			final FileInputStream fileinputstream = new FileInputStream(file);
+			final ZipInputStream zipinputstream = new ZipInputStream(fileinputstream);
+			for (ZipEntry zipentry = zipinputstream.getNextEntry(); zipentry != null; zipentry = zipinputstream
+					.getNextEntry()) {
+				int i = (int) zipentry.getSize();
+				final String string = zipentry.getName();
+				final byte[] is = new byte[i];
+				int i_350_ = 0;
+				int i_351_;
+				for (/**/; i > 0; i -= i_351_) {
+					i_351_ = zipinputstream.read(is, i_350_, i);
+					i_350_ += i_351_;
+				}
+				for (int i_352_ = 0; i_352_ < 5; i_352_++)
+					for (int i_353_ = 0; i_353_ < 5; i_353_++)
+						if (string.equals(new StringBuilder().append("").append(i_353_).append("").append(i_352_)
+								.append(".wav").toString()))
+							engs[i_353_][i_352_] = new soundClip(is);
+				for (int i_354_ = 0; i_354_ < 3; i_354_++)
+					if (string.equals(new StringBuilder().append("crash").append(i_354_ + 1).append(".wav").toString()))
+						crashs[i_354_] = new soundClip(is);
+				for (int i_355_ = 0; i_355_ < 3; i_355_++)
+					if (string.equals(
+							new StringBuilder().append("lowcrash").append(i_355_ + 1).append(".wav").toString()))
+						lowcrashs[i_355_] = new soundClip(is);
+			}
+			fileinputstream.close();
+			zipinputstream.close();
+		} catch (final Exception exception) {
+			System.out.println(new StringBuilder().append("Error Loading Sounds: ").append(exception).toString());
+		}
+		System.gc();
+	}
+
+	@Override
+	public boolean lostFocus(final Event event, final Object object) {
+		focuson = false;
+		return false;
+	}
+
+	@Override
+	public boolean mouseDown(final Event event, final int i, final int i_347_) {
+		xm = i - apx;
+		ym = i_347_ - apy;
+		mouses = 1;
+		mousdr = true;
+		if (tab != 1)
+			requestFocus();
+		return false;
+	}
+
+	@Override
+	public boolean mouseDrag(final Event event, final int i, final int i_349_) {
+		mousdr = true;
+		xm = i - apx;
+		ym = i_349_ - apy;
+		return false;
+	}
+
+	@Override
+	public boolean mouseMove(final Event event, final int i, final int i_348_) {
+		xm = i - apx;
+		ym = i_348_ - apy;
+		if (xm > 520 && xm < 674 && ym > 0 && ym < 23) {
+			if (!onbtgame) {
+				onbtgame = true;
+				setCursor(new Cursor(12));
+			}
+		} else if (onbtgame) {
+			onbtgame = false;
+			setCursor(new Cursor(0));
+		}
+		return false;
+	}
+
+	@Override
+	public boolean mouseUp(final Event event, final int i, final int i_346_) {
+		xm = i - apx;
+		ym = i_346_ - apy;
+		if (waso)
+			waso = false;
+		else
+			mouses = -1;
+		mousdr = false;
+		if (onbtgame)
+			Madness.game();
+		return false;
+	}
+
+	public void movefield(final Component component, int i, int i_343_, final int i_344_, final int i_345_) {
+		i += apx;
+		i_343_ += apy;
+		if (component.getX() != i || component.getY() != i_343_ || component.getWidth() != i_344_
+				|| component.getHeight() != i_345_)
+			component.setBounds(i, i_343_, i_344_, i_345_);
+	}
+
+	public void newcar(final String string) {
+		if (string.equals(""))
+			JOptionPane.showMessageDialog(null, "Please Enter a Car Name!\n", "Car Maker", 1);
+		else {
+			final String string_302_ = new StringBuilder().append("\n// car: ").append(string)
+					.append("\n---------------------\n\n// To start making you car you must start by reading the tutorial at:\n// http://www.needformadness.com/developer/simplecar.html\n\n\n<p>\nc(100,200,100)\n\np(-40,-50,80)\np(-40,-50,-70)\np(40,-50,-70)\np(40,-50,80)\n</p>\n\n<p>\nc(100,150,200)\n\np(-40,-20,-100)\np(-40,-50,-70)\np(40,-50,-70)\np(40,-20,-100)\n</p>\n\n\n\n")
+					.toString();
+			try {
+				File file = new File("mycars/");
+				if (!file.exists())
+					file.mkdirs();
+				carname = string;
+				file = new File(new StringBuilder().append("mycars/").append(carname).append(".rad").toString());
+				if (!file.exists()) {
+					final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
+					bufferedwriter.write(string_302_);
+					bufferedwriter.close();
+					if (file.exists()) {
+						sfase = 0;
+						hidefields();
+						tabed = -1;
+					} else
+						JOptionPane.showMessageDialog(null, "Failed to create car, unknown reason!\n", "Car Maker", 1);
+				} else
+					JOptionPane.showMessageDialog(null,
+							new StringBuilder().append("A car with the name '").append(carname)
+									.append("' already exists, please choose another name!\n").toString(),
+							"Car Maker", 1);
+			} catch (final Exception exception) {
+				carname = "";
+				JOptionPane.showMessageDialog(null, new StringBuilder()
+						.append("Unable to create file! Error Deatials:\n").append(exception).toString(), "Car Maker",
+						1);
+			}
+		}
+	}
+
+	public int objvalue(final String string, final int i) {
+		int i_386_ = 0;
+		try {
+			int i_387_ = 2;
+			int i_388_ = 0;
+			int i_389_ = 0;
+			String string_390_ = "";
+			String string_391_ = "";
+			boolean bool = false;
+			for (/**/; i_387_ < string.length() && i_389_ != 2; i_387_++) {
+				string_390_ = new StringBuilder().append("").append(string.charAt(i_387_)).toString();
+				if (string_390_.equals(" ")) {
+					if (bool) {
+						i_388_++;
+						bool = false;
+					}
+					if (i_389_ == 1 || i_388_ > i)
+						i_389_ = 2;
+				} else {
+					if (i_388_ == i) {
+						string_391_ = new StringBuilder().append(string_391_).append(string_390_).toString();
+						i_389_ = 1;
+					}
+					bool = true;
+				}
+			}
+			if (i_387_ >= string.length())
+				objfacend = true;
+			if (string_391_.equals(""))
+				string_391_ = "0";
+			if (multf10)
+				i_386_ = (int) (Float.valueOf(string_391_).floatValue() * 10.0F);
+			else {
+				final int i_392_ = string_391_.indexOf("/", 0);
+				if (i_392_ != -1)
+					string_391_ = string_391_.substring(0, i_392_);
+				i_386_ = Float.valueOf(string_391_).intValue() - 1;
+				if (i_386_ < 0)
+					i_386_ = 0;
+			}
+		} catch (final Exception exception) {
+			/* empty */
+		}
+		return i_386_;
+	}
+
+	public void openelink() {
+		Madness.openurl("http://www.needformadness.com/developer/extras.html");
+	}
+
+	public void openhlink() {
+		Madness.openurl("http://www.needformadness.com/developer/");
+	}
+
+	public void openlink() {
+		Madness.openurl("http://www.needformadness.com/developer/simplecar.html");
+	}
+
+	public boolean ovbutton(final String string, final int i, final int i_395_) {
+		rd.setFont(new Font("Arial", 0, 12));
+		ftm = rd.getFontMetrics();
+		if (string.equals("X") || string.equals("Download")) {
+			rd.setFont(new Font("Arial", 1, 12));
+			ftm = rd.getFontMetrics();
+		}
+		final int i_396_ = ftm.stringWidth(string);
+		final int i_397_ = 4;
+		boolean bool = false;
+		boolean bool_398_ = false;
+		if (Math.abs(xm - i) < i_396_ / 2 + 12 && Math.abs(ym - i_395_ + 5) < 10 && mouses == 1)
+			bool = true;
+		else
+			bool = false;
+		if (Math.abs(xm - i) < i_396_ / 2 + 12 && Math.abs(ym - i_395_ + 5) < 10 && mouses == -1) {
+			mouses = 0;
+			bool_398_ = true;
+		}
+		if (!bool) {
+			rd.setColor(new Color(220, 220, 220));
+			rd.fillRect(i - i_396_ / 2 - 10, i_395_ - (17 - i_397_), i_396_ + 20, 25 - i_397_ * 2);
+			rd.setColor(new Color(240, 240, 240));
+			rd.drawLine(i - i_396_ / 2 - 10, i_395_ - (17 - i_397_), i + i_396_ / 2 + 10, i_395_ - (17 - i_397_));
+			rd.drawLine(i - i_396_ / 2 - 10, i_395_ - (18 - i_397_), i + i_396_ / 2 + 10, i_395_ - (18 - i_397_));
+			rd.setColor(new Color(240, 240, 240));
+			rd.drawLine(i - i_396_ / 2 - 9, i_395_ - (19 - i_397_), i + i_396_ / 2 + 9, i_395_ - (19 - i_397_));
+			rd.setColor(new Color(200, 200, 200));
+			rd.drawLine(i + i_396_ / 2 + 10, i_395_ - (17 - i_397_), i + i_396_ / 2 + 10, i_395_ + 7 - i_397_);
+			rd.drawLine(i + i_396_ / 2 + 11, i_395_ - (17 - i_397_), i + i_396_ / 2 + 11, i_395_ + 7 - i_397_);
+			rd.setColor(new Color(200, 200, 200));
+			rd.drawLine(i + i_396_ / 2 + 12, i_395_ - (16 - i_397_), i + i_396_ / 2 + 12, i_395_ + 6 - i_397_);
+			rd.drawLine(i - i_396_ / 2 - 10, i_395_ + 7 - i_397_, i + i_396_ / 2 + 10, i_395_ + 7 - i_397_);
+			rd.drawLine(i - i_396_ / 2 - 10, i_395_ + 8 - i_397_, i + i_396_ / 2 + 10, i_395_ + 8 - i_397_);
+			rd.setColor(new Color(200, 200, 200));
+			rd.drawLine(i - i_396_ / 2 - 9, i_395_ + 9 - i_397_, i + i_396_ / 2 + 9, i_395_ + 9 - i_397_);
+			rd.setColor(new Color(240, 240, 240));
+			rd.drawLine(i - i_396_ / 2 - 10, i_395_ - (17 - i_397_), i - i_396_ / 2 - 10, i_395_ + 7 - i_397_);
+			rd.drawLine(i - i_396_ / 2 - 11, i_395_ - (17 - i_397_), i - i_396_ / 2 - 11, i_395_ + 7 - i_397_);
+			rd.setColor(new Color(240, 240, 240));
+			rd.drawLine(i - i_396_ / 2 - 12, i_395_ - (16 - i_397_), i - i_396_ / 2 - 12, i_395_ + 6 - i_397_);
+			rd.setColor(new Color(0, 0, 0));
+			if (string.equals("X"))
+				rd.setColor(new Color(255, 0, 0));
+			if (string.equals("Download"))
+				rd.setColor(new Color(0, 64, 128));
+			rd.drawString(string, i - i_396_ / 2, i_395_);
+		} else {
+			rd.setColor(new Color(220, 220, 220));
+			rd.fillRect(i - i_396_ / 2 - 10, i_395_ - (17 - i_397_), i_396_ + 20, 25 - i_397_ * 2);
+			rd.setColor(new Color(192, 192, 192));
+			rd.drawLine(i - i_396_ / 2 - 10, i_395_ - (17 - i_397_), i + i_396_ / 2 + 10, i_395_ - (17 - i_397_));
+			rd.drawLine(i - i_396_ / 2 - 10, i_395_ - (18 - i_397_), i + i_396_ / 2 + 10, i_395_ - (18 - i_397_));
+			rd.drawLine(i - i_396_ / 2 - 9, i_395_ - (19 - i_397_), i + i_396_ / 2 + 9, i_395_ - (19 - i_397_));
+			rd.setColor(new Color(247, 247, 247));
+			rd.drawLine(i + i_396_ / 2 + 10, i_395_ - (17 - i_397_), i + i_396_ / 2 + 10, i_395_ + 7 - i_397_);
+			rd.drawLine(i + i_396_ / 2 + 11, i_395_ - (17 - i_397_), i + i_396_ / 2 + 11, i_395_ + 7 - i_397_);
+			rd.drawLine(i + i_396_ / 2 + 12, i_395_ - (16 - i_397_), i + i_396_ / 2 + 12, i_395_ + 6 - i_397_);
+			rd.drawLine(i - i_396_ / 2 - 10, i_395_ + 7 - i_397_, i + i_396_ / 2 + 10, i_395_ + 7 - i_397_);
+			rd.drawLine(i - i_396_ / 2 - 10, i_395_ + 8 - i_397_, i + i_396_ / 2 + 10, i_395_ + 8 - i_397_);
+			rd.drawLine(i - i_396_ / 2 - 9, i_395_ + 9 - i_397_, i + i_396_ / 2 + 9, i_395_ + 9 - i_397_);
+			rd.setColor(new Color(192, 192, 192));
+			rd.drawLine(i - i_396_ / 2 - 10, i_395_ - (17 - i_397_), i - i_396_ / 2 - 10, i_395_ + 7 - i_397_);
+			rd.drawLine(i - i_396_ / 2 - 11, i_395_ - (17 - i_397_), i - i_396_ / 2 - 11, i_395_ + 7 - i_397_);
+			rd.drawLine(i - i_396_ / 2 - 12, i_395_ - (16 - i_397_), i - i_396_ / 2 - 12, i_395_ + 6 - i_397_);
+			rd.setColor(new Color(0, 0, 0));
+			if (string.equals("X"))
+				rd.setColor(new Color(255, 0, 0));
+			if (string.equals("Download"))
+				rd.setColor(new Color(0, 64, 128));
+			rd.drawString(string, i - i_396_ / 2 + 1, i_395_ + 1);
+		}
+		return bool_398_;
+	}
+
+	@Override
+	public void paint(final Graphics graphics) {
+		apx = getWidth() / 2 - 350;
+		apy = getHeight() / 2 - 275;
+		graphics.drawImage(offImage, apx, apy, this);
+	}
+
+	public int py(final int i, final int i_328_, final int i_329_, final int i_330_) {
+		return (i - i_328_) * (i - i_328_) + (i_329_ - i_330_) * (i_329_ - i_330_);
+	}
+
+	public void regx(final int i, float f, final boolean bool) {
+		hitmag += f;
+		if (!bool)
+			crash(f);
+		f *= 0.3F + crash[1] * 0.005F;
+		if (Math.abs(f) > 100.0F) {
+			int i_315_ = (int) (crash[0] * crash[0] * 1.5);
+			if (i_315_ < 1000)
+				i_315_ = 1000;
+			if (f > 100.0F)
+				f -= 100.0F;
+			if (f < -100.0F)
+				f += 100.0F;
+			for (int i_316_ = 0; i_316_ < o.npl; i_316_++) {
+				float f_317_ = 0.0F;
+				for (int i_318_ = 0; i_318_ < o.p[i_316_].n; i_318_++)
+					if (o.p[i_316_].wz == 0
+							&& py(o.keyx[i], o.p[i_316_].ox[i_318_], o.keyz[i], o.p[i_316_].oz[i_318_]) < i_315_) {
+						f_317_ = f / 20.0F * m.random();
+						o.p[i_316_].oz[i_318_] -= f_317_ * m.sin(o.xz) * m.cos(o.zy);
+						o.p[i_316_].ox[i_318_] += f_317_ * m.cos(o.xz) * m.cos(o.xy);
+						if (bool)
+							actmag += Math.abs(f_317_);
+					}
+				if (f_317_ != 0.0F) {
+					if (Math.abs(f_317_) >= 1.0F) {
+						o.p[i_316_].chip = 1;
+						o.p[i_316_].ctmag = f_317_;
+					}
+					if (!o.p[i_316_].nocol && o.p[i_316_].glass != 1) {
+						if (o.p[i_316_].bfase > 20 && o.p[i_316_].hsb[1] > 0.25)
+							o.p[i_316_].hsb[1] = 0.25F;
+						if (o.p[i_316_].bfase > 25 && o.p[i_316_].hsb[2] > 0.7)
+							o.p[i_316_].hsb[2] = 0.7F;
+						if (o.p[i_316_].bfase > 30 && o.p[i_316_].hsb[1] > 0.15)
+							o.p[i_316_].hsb[1] = 0.15F;
+						if (o.p[i_316_].bfase > 35 && o.p[i_316_].hsb[2] > 0.6)
+							o.p[i_316_].hsb[2] = 0.6F;
+						if (o.p[i_316_].bfase > 40)
+							o.p[i_316_].hsb[0] = 0.075F;
+						if (o.p[i_316_].bfase > 50 && o.p[i_316_].hsb[2] > 0.5)
+							o.p[i_316_].hsb[2] = 0.5F;
+						if (o.p[i_316_].bfase > 60)
+							o.p[i_316_].hsb[0] = 0.05F;
+						o.p[i_316_].bfase += Math.abs(f_317_);
+						new Color(o.p[i_316_].c[0], o.p[i_316_].c[1], o.p[i_316_].c[2]);
+						final Color color = Color.getHSBColor(o.p[i_316_].hsb[0], o.p[i_316_].hsb[1],
+								o.p[i_316_].hsb[2]);
+						o.p[i_316_].c[0] = color.getRed();
+						o.p[i_316_].c[1] = color.getGreen();
+						o.p[i_316_].c[2] = color.getBlue();
+					}
+					if (o.p[i_316_].glass == 1)
+						o.p[i_316_].gr += Math.abs(f_317_ * 1.5);
+				}
+			}
+		}
+	}
+
+	public void regz(final int i, float f, final boolean bool) {
+		hitmag += f;
+		if (!bool)
+			crash(f);
+		f *= 0.3F + crash[1] * 0.005F;
+		if (Math.abs(f) > 100.0F) {
+			int i_319_ = (int) (crash[0] * crash[0] * 1.5);
+			if (i_319_ < 1000)
+				i_319_ = 1000;
+			if (f > 100.0F)
+				f -= 100.0F;
+			if (f < -100.0F)
+				f += 100.0F;
+			for (int i_320_ = 0; i_320_ < o.npl; i_320_++) {
+				float f_321_ = 0.0F;
+				for (int i_322_ = 0; i_322_ < o.p[i_320_].n; i_322_++)
+					if (o.p[i_320_].wz == 0
+							&& py(o.keyx[i], o.p[i_320_].ox[i_322_], o.keyz[i], o.p[i_320_].oz[i_322_]) < i_319_) {
+						f_321_ = f / 20.0F * m.random();
+						o.p[i_320_].oz[i_322_] += f_321_ * m.cos(o.xz) * m.cos(o.zy);
+						o.p[i_320_].ox[i_322_] += f_321_ * m.sin(o.xz) * m.cos(o.xy);
+						if (bool)
+							actmag += Math.abs(f_321_);
+					}
+				if (f_321_ != 0.0F) {
+					if (Math.abs(f_321_) >= 1.0F) {
+						o.p[i_320_].chip = 1;
+						o.p[i_320_].ctmag = f_321_;
+					}
+					if (!o.p[i_320_].nocol && o.p[i_320_].glass != 1) {
+						if (o.p[i_320_].bfase > 20 && o.p[i_320_].hsb[1] > 0.25)
+							o.p[i_320_].hsb[1] = 0.25F;
+						if (o.p[i_320_].bfase > 25 && o.p[i_320_].hsb[2] > 0.7)
+							o.p[i_320_].hsb[2] = 0.7F;
+						if (o.p[i_320_].bfase > 30 && o.p[i_320_].hsb[1] > 0.15)
+							o.p[i_320_].hsb[1] = 0.15F;
+						if (o.p[i_320_].bfase > 35 && o.p[i_320_].hsb[2] > 0.6)
+							o.p[i_320_].hsb[2] = 0.6F;
+						if (o.p[i_320_].bfase > 40)
+							o.p[i_320_].hsb[0] = 0.075F;
+						if (o.p[i_320_].bfase > 50 && o.p[i_320_].hsb[2] > 0.5)
+							o.p[i_320_].hsb[2] = 0.5F;
+						if (o.p[i_320_].bfase > 60)
+							o.p[i_320_].hsb[0] = 0.05F;
+						o.p[i_320_].bfase += Math.abs(f_321_);
+						new Color(o.p[i_320_].c[0], o.p[i_320_].c[1], o.p[i_320_].c[2]);
+						final Color color = Color.getHSBColor(o.p[i_320_].hsb[0], o.p[i_320_].hsb[1],
+								o.p[i_320_].hsb[2]);
+						o.p[i_320_].c[0] = color.getRed();
+						o.p[i_320_].c[1] = color.getGreen();
+						o.p[i_320_].c[2] = color.getBlue();
+					}
+					if (o.p[i_320_].glass == 1)
+						o.p[i_320_].gr += Math.abs(f_321_ * 1.5);
+				}
+			}
+		}
+	}
+
+	public void rencar(final String string) {
+		if (string.equals(""))
+			JOptionPane.showMessageDialog(null, "Please Enter a New Car Name!\n", "Car Maker", 1);
+		else
+			try {
+				final File file = new File(
+						new StringBuilder().append("mycars/").append(carname).append(".rad").toString());
+				final File file_303_ = new File(
+						new StringBuilder().append("mycars/").append(string).append(".rad").toString());
+				if (file.renameTo(file_303_)) {
+					carname = string;
+					sfase = 0;
+					hidefields();
+					tabed = -1;
+				} else
+					JOptionPane
+							.showMessageDialog(null,
+									new StringBuilder().append("Unable to rename car to: '").append(string)
+											.append("', possible reason: Car name already used!\n").toString(),
+									"Car Maker", 1);
+			} catch (final Exception exception) {
+				JOptionPane.showMessageDialog(null, new StringBuilder()
+						.append("Unable to rename file! Error Deatials:\n").append(exception).toString(), "Car Maker",
+						1);
+			}
+	}
+
+	public void roofsqsh(float f) {
+		if (f > 100.0F) {
+			crash(f);
+			f -= 100.0F;
+			final int i = (int) (2.0 + crash[2] / 7.6);
+			int i_323_ = 0;
+			int i_324_ = 1;
+			for (int i_325_ = 0; i_325_ < o.npl; i_325_++) {
+				float f_326_ = 0.0F;
+				if (Math.random() > 0.9)
+					f_326_ = f / 15.0F * m.random();
+				for (int i_327_ = 0; i_327_ < o.p[i_325_].n; i_327_++)
+					if (o.p[i_325_].wz == 0 && (Math.abs(o.p[i_325_].oy[i_327_] - o.roofat - squash) < i * 3
+							|| o.p[i_325_].oy[i_327_] < o.roofat + squash) && squash < i) {
+						f_326_ = f / 15.0F * m.random();
+						o.p[i_325_].oy[i_327_] += f_326_;
+						i_323_ += f_326_;
+						i_324_++;
+						hitmag += Math.abs(f_326_);
+					}
+				if (!o.p[i_325_].nocol && o.p[i_325_].glass != 1) {
+					if (f_326_ != 0.0F) {
+						if (o.p[i_325_].bfase > 20 && o.p[i_325_].hsb[1] > 0.25)
+							o.p[i_325_].hsb[1] = 0.25F;
+						if (o.p[i_325_].bfase > 25 && o.p[i_325_].hsb[2] > 0.7)
+							o.p[i_325_].hsb[2] = 0.7F;
+						if (o.p[i_325_].bfase > 30 && o.p[i_325_].hsb[1] > 0.15)
+							o.p[i_325_].hsb[1] = 0.15F;
+						if (o.p[i_325_].bfase > 35 && o.p[i_325_].hsb[2] > 0.6)
+							o.p[i_325_].hsb[2] = 0.6F;
+						if (o.p[i_325_].bfase > 40)
+							o.p[i_325_].hsb[0] = 0.075F;
+						if (o.p[i_325_].bfase > 50 && o.p[i_325_].hsb[2] > 0.5)
+							o.p[i_325_].hsb[2] = 0.5F;
+						if (o.p[i_325_].bfase > 60)
+							o.p[i_325_].hsb[0] = 0.05F;
+						o.p[i_325_].bfase += f_326_;
+						new Color(o.p[i_325_].c[0], o.p[i_325_].c[1], o.p[i_325_].c[2]);
+						final Color color = Color.getHSBColor(o.p[i_325_].hsb[0], o.p[i_325_].hsb[1],
+								o.p[i_325_].hsb[2]);
+						o.p[i_325_].c[0] = color.getRed();
+						o.p[i_325_].c[1] = color.getGreen();
+						o.p[i_325_].c[2] = color.getBlue();
+					}
+				} else if (o.p[i_325_].glass == 1)
+					o.p[i_325_].gr += 5;
+				if (Math.abs(f_326_) >= 1.0F) {
+					o.p[i_325_].chip = 1;
+					o.p[i_325_].ctmag = f_326_;
+				}
+			}
+			squash += i_323_ / i_324_;
+		}
+	}
+
+	public void rot(final int[] is, final int[] is_331_, final int i, final int i_332_, final int i_333_,
+			final int i_334_) {
+		if (i_333_ != 0)
+			for (int i_335_ = 0; i_335_ < i_334_; i_335_++) {
+				final int i_336_ = is[i_335_];
+				final int i_337_ = is_331_[i_335_];
+				is[i_335_] = i + (int) ((i_336_ - i) * m.cos(i_333_) - (i_337_ - i_332_) * m.sin(i_333_));
+				is_331_[i_335_] = i_332_ + (int) ((i_336_ - i) * m.sin(i_333_) + (i_337_ - i_332_) * m.cos(i_333_));
+			}
+	}
 
 	@Override
 	public void run() {
@@ -226,19 +2826,19 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 		btgame[0] = getImage("data/backtogame1.gif");
 		btgame[1] = getImage("data/backtogame2.gif");
 		logo = getImage("data/carmakerlogo.gif");
-		(m).w = 700;
-		(m).cx = 350;
-		(m).y = -240;
-		(m).z = -400;
-		(m).zy = 4;
-		(m).focus_point = 800;
+		m.w = 700;
+		m.cx = 350;
+		m.y = -240;
+		m.z = -400;
+		m.zy = 4;
+		m.focus_point = 800;
 		m.fadfrom(8000);
-		(m).cfade[0] = 187;
-		(m).cfade[1] = 210;
-		(m).cfade[2] = 227;
+		m.cfade[0] = 187;
+		m.cfade[1] = 210;
+		m.cfade[2] = 227;
 		loadsounds();
 		loadbase();
-		(m).loadnew = true;
+		m.loadnew = true;
 		loadsettings();
 		editor.setFont(new Font(cfont, 1, 14));
 		srch.setFont(new Font(cfont, 1, 14));
@@ -292,7 +2892,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			if (tab == 0) {
 				if (tabed != tab) {
 					slcar.removeAll();
-					(slcar).maxl = 200;
+					slcar.maxl = 200;
 					slcar.add(rd, "Select a Car                      ");
 					final String[] strings = new File("mycars/").list();
 					if (strings != null)
@@ -698,12 +3298,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 				o.d(rd);
 				if (dtab == 2) {
 					if (compsel > 0 && compsel <= 16) {
-						(compo[compsel - 1]).x = (o).x;
-						(compo[compsel - 1]).y = (o).y;
-						(compo[compsel - 1]).z = (o).z;
-						(compo[compsel - 1]).xz = (o).xz;
-						(compo[compsel - 1]).xy = (o).xy;
-						(compo[compsel - 1]).zy = (o).zy;
+						compo[compsel - 1].x = o.x;
+						compo[compsel - 1].y = o.y;
+						compo[compsel - 1].z = o.z;
+						compo[compsel - 1].xz = o.xz;
+						compo[compsel - 1].xy = o.xy;
+						compo[compsel - 1].zy = o.zy;
 						rd.setComposite(AlphaComposite.getInstance(3, 0.4F));
 						compo[compsel - 1].d(rd);
 						rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
@@ -713,15 +3313,15 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						final int[] is_10_ = { 0, 0, 50 + adna[2], -50 - adna[3], 0, 0 };
 						final int[] is_11_ = { 0, 0, 0, 0, 50 + adna[4], -50 - adna[5] };
 						for (int i_12_ = 0; i_12_ < 6; i_12_++) {
-							is[i_12_] += (o).x - (m).x;
-							is_10_[i_12_] += (o).y - (m).y;
-							is_11_[i_12_] += (o).z - (m).z;
+							is[i_12_] += o.x - m.x;
+							is_10_[i_12_] += o.y - m.y;
+							is_11_[i_12_] += o.z - m.z;
 						}
-						rot(is, is_10_, (o).x - (m).x, (o).y - (m).y, (o).xy, 6);
-						rot(is_10_, is_11_, (o).y - (m).y, (o).z - (m).z, (o).zy, 6);
-						rot(is, is_11_, (o).x - (m).x, (o).z - (m).z, (o).xz, 6);
-						rot(is, is_11_, (m).cx, (m).cz, (m).xz, 6);
-						rot(is_10_, is_11_, (m).cy, (m).cz, (m).zy, 6);
+						rot(is, is_10_, o.x - m.x, o.y - m.y, o.xy, 6);
+						rot(is_10_, is_11_, o.y - m.y, o.z - m.z, o.zy, 6);
+						rot(is, is_11_, o.x - m.x, o.z - m.z, o.xz, 6);
+						rot(is, is_11_, m.cx, m.cz, m.xz, 6);
+						rot(is_10_, is_11_, m.cy, m.cz, m.zy, 6);
 						final int[] is_13_ = new int[6];
 						final int[] is_14_ = new int[6];
 						for (int i_15_ = 0; i_15_ < 6; i_15_++) {
@@ -805,7 +3405,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							20, 515);
 				}
 				if (dtab == 1)
-					if ((o).colok != 2) {
+					if (o.colok != 2) {
 						rd.setFont(new Font("Arial", 1, 13));
 						ftm = rd.getFontMetrics();
 						rd.drawString("[  First & Second Color not defined yet  ]",
@@ -813,19 +3413,19 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						stringbutton(" Define 1st and 2nd Color ", 350, 490, 0, true);
 					} else {
 						if (dtabed != dtab) {
-							fcol = new StringBuilder().append("(").append((o).fcol[0]).append(",").append((o).fcol[1])
-									.append(",").append((o).fcol[2]).append(")").toString();
+							fcol = new StringBuilder().append("(").append(o.fcol[0]).append(",").append(o.fcol[1])
+									.append(",").append(o.fcol[2]).append(")").toString();
 							srch.setText(fcol);
 							ofcol = fcol;
-							Color.RGBtoHSB((o).fcol[0], (o).fcol[1], (o).fcol[2], fhsb);
+							Color.RGBtoHSB(o.fcol[0], o.fcol[1], o.fcol[2], fhsb);
 							float f = fhsb[1];
 							fhsb[1] = fhsb[2];
 							fhsb[2] = f;
-							scol = new StringBuilder().append("(").append((o).scol[0]).append(",").append((o).scol[1])
-									.append(",").append((o).scol[2]).append(")").toString();
+							scol = new StringBuilder().append("(").append(o.scol[0]).append(",").append(o.scol[1])
+									.append(",").append(o.scol[2]).append(")").toString();
 							rplc.setText(scol);
 							oscol = scol;
-							Color.RGBtoHSB((o).scol[0], (o).scol[1], (o).scol[2], shsb);
+							Color.RGBtoHSB(o.scol[0], o.scol[1], o.scol[2], shsb);
 							f = shsb[1];
 							shsb[1] = shsb[2];
 							shsb[2] = f;
@@ -944,16 +3544,16 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							fhsb[1] = 0.2F;
 						if (shsb[1] < 0.2)
 							shsb[1] = 0.2F;
-						for (int i_28_ = 0; i_28_ < (o).npl; i_28_++) {
-							if (((o).p[i_28_]).colnum == 1) {
-								((o).p[i_28_]).hsb[0] = fhsb[0];
-								((o).p[i_28_]).hsb[1] = fhsb[2];
-								((o).p[i_28_]).hsb[2] = fhsb[1];
+						for (int i_28_ = 0; i_28_ < o.npl; i_28_++) {
+							if (o.p[i_28_].colnum == 1) {
+								o.p[i_28_].hsb[0] = fhsb[0];
+								o.p[i_28_].hsb[1] = fhsb[2];
+								o.p[i_28_].hsb[2] = fhsb[1];
 							}
-							if (((o).p[i_28_]).colnum == 2) {
-								((o).p[i_28_]).hsb[0] = shsb[0];
-								((o).p[i_28_]).hsb[1] = shsb[2];
-								((o).p[i_28_]).hsb[2] = shsb[1];
+							if (o.p[i_28_].colnum == 2) {
+								o.p[i_28_].hsb[0] = shsb[0];
+								o.p[i_28_].hsb[1] = shsb[2];
+								o.p[i_28_].hsb[2] = shsb[1];
 							}
 						}
 						String string = new StringBuilder().append("(")
@@ -1554,13 +4154,13 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					if (dtabed != dtab) {
 						mouseon = -1;
 						pfase = 0;
-						if ((o).keyz[0] <= 0 || (o).keyx[0] >= 0)
+						if (o.keyz[0] <= 0 || o.keyx[0] >= 0)
 							pfase = -1;
-						if ((o).keyz[1] <= 0 || (o).keyx[1] <= 0)
+						if (o.keyz[1] <= 0 || o.keyx[1] <= 0)
 							pfase = -1;
-						if ((o).keyz[2] >= 0 || (o).keyx[2] >= 0)
+						if (o.keyz[2] >= 0 || o.keyx[2] >= 0)
 							pfase = -1;
-						if ((o).keyz[3] >= 0 || (o).keyx[3] <= 0)
+						if (o.keyz[3] >= 0 || o.keyx[3] <= 0)
 							pfase = -1;
 						crashok = false;
 						if (Math.random() > Math.random())
@@ -1708,10 +4308,10 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						if (hitmag > 17000) {
 							crashok = true;
 							hitmag = 17000;
-							for (int i_105_ = 0; i_105_ < (o).npl; i_105_++)
-								if ((((o).p[i_105_]).wz == 0 || ((o).p[i_105_]).gr == -17 || ((o).p[i_105_]).gr == -16)
-										&& ((o).p[i_105_]).embos == 0)
-									((o).p[i_105_]).embos = 1;
+							for (int i_105_ = 0; i_105_ < o.npl; i_105_++)
+								if ((o.p[i_105_].wz == 0 || o.p[i_105_].gr == -17 || o.p[i_105_].gr == -16)
+										&& o.p[i_105_].embos == 0)
+									o.p[i_105_].embos = 1;
 						}
 						rd.setColor(new Color(255, (int) (250.0F - hitmag / 68.0F), 0));
 						rd.fillRect(322, 423, (int) (hitmag / 170.0F), 7);
@@ -1857,7 +4457,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 								i_113_ = 2;
 							for (int i_115_ = 0; i_115_ < 10; i_115_++) {
 								setupo();
-								(o).xy = 0;
+								o.xy = 0;
 								hitmag = 0;
 								int i_116_ = 0;
 								actmag = 0;
@@ -1869,8 +4469,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 									else
 										regz(i_117_, (int) (150.0 + 600.0 * Math.random()), true);
 									if (++i_117_ == i_114_) {
-										(o).xz += 45;
-										(o).zy += 45;
+										o.xz += 45;
+										o.zy += 45;
 										i_117_ = 0;
 										if (bool_118_)
 											bool_118_ = false;
@@ -1885,7 +4485,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							float f = 0.0F;
 							for (int i_119_ = 0; i_119_ < 10; i_119_++) {
 								setupo();
-								(o).xy = 0;
+								o.xy = 0;
 								actmag = 0;
 								hitmag = 0;
 								int i_120_ = i_113_;
@@ -1896,8 +4496,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 									else
 										regz(i_120_, (int) (150.0 + 600.0 * Math.random()), true);
 									if (++i_120_ == i_114_) {
-										(o).xz += 45;
-										(o).zy += 45;
+										o.xz += 45;
+										o.zy += 45;
 										i_120_ = 0;
 										if (bool_121_)
 											bool_121_ = false;
@@ -1921,10 +4521,10 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							final int i_123_ = (int) (actmag * f_122_);
 							for (int i_124_ = 0; i_124_ < 12; i_124_++) {
 								setupo();
-								(o).xy = 0;
-								(o).xz = 90 * i_124_;
-								if ((o).xz >= 360)
-									(o).xz -= 360;
+								o.xy = 0;
+								o.xz = 90 * i_124_;
+								if (o.xz >= 360)
+									o.xz -= 360;
 								hitmag = 0;
 								int i_125_ = 0;
 								actmag = 0;
@@ -1951,7 +4551,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 								f = 0.0F;
 								for (int i_128_ = 0; i_128_ < 10; i_128_++) {
 									setupo();
-									(o).xy = 0;
+									o.xy = 0;
 									actmag = 0;
 									hitmag = 0;
 									int i_129_ = i_113_;
@@ -1962,8 +4562,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 										else
 											regz(i_129_, (int) (150.0 + 600.0 * Math.random()), true);
 										if (++i_129_ == i_114_) {
-											(o).xz += 45;
-											(o).zy += 45;
+											o.xz += 45;
+											o.zy += 45;
 											i_129_ = 0;
 											if (bool_130_)
 												bool_130_ = false;
@@ -2095,20 +4695,20 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					}
 				}
 				if (polynum >= 0 && cntpls > 0) {
-					for (int i_142_ = 0; i_142_ < (o).npl; i_142_++)
+					for (int i_142_ = 0; i_142_ < o.npl; i_142_++)
 						if (i_142_ >= polynum && i_142_ < polynum + cntpls) {
 							if (pflk)
-								((o).p[i_142_]).hsb[2] = 1.0F;
+								o.p[i_142_].hsb[2] = 1.0F;
 							else {
-								((o).p[i_142_]).hsb[2] = 0.0F;
-								((o).p[i_142_]).hsb[0] = Math.abs(0.5F - ((o).p[i_142_]).hsb[0]);
-								while (((o).p[i_142_]).hsb[0] > 1.0F)
-									((o).p[i_142_]).hsb[0]--;
+								o.p[i_142_].hsb[2] = 0.0F;
+								o.p[i_142_].hsb[0] = Math.abs(0.5F - o.p[i_142_].hsb[0]);
+								while (o.p[i_142_].hsb[0] > 1.0F)
+									o.p[i_142_].hsb[0]--;
 							}
 						} else if (prflk > 6 && prflk < 20)
-							((o).p[i_142_]).gr = -13;
+							o.p[i_142_].gr = -13;
 						else
-							((o).p[i_142_]).gr = 1;
+							o.p[i_142_].gr = 1;
 					if (pflk)
 						pflk = false;
 					else
@@ -2127,51 +4727,51 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 				}
 				i = 50;
 				if (rotr) {
-					(o).xz -= 5;
+					o.xz -= 5;
 					i = 15;
 				}
 				if (rotl) {
-					(o).xz += 5;
+					o.xz += 5;
 					i = 15;
 				}
 				if (left) {
-					(o).xy -= 5;
+					o.xy -= 5;
 					i = 15;
 				}
 				if (right) {
-					(o).xy += 5;
+					o.xy += 5;
 					i = 15;
 				}
 				if (up) {
-					(o).zy -= 5;
+					o.zy -= 5;
 					i = 15;
 				}
 				if (down) {
-					(o).zy += 5;
+					o.zy += 5;
 					i = 15;
 				}
 				if (plus) {
-					(o).y += 5;
+					o.y += 5;
 					i = 15;
 				}
 				if (minus) {
-					(o).y -= 5;
+					o.y -= 5;
 					i = 15;
 				}
 				if (in) {
-					(o).z += 10;
+					o.z += 10;
 					i = 15;
 				}
 				if (out) {
-					(o).z -= 10;
+					o.z -= 10;
 					i = 15;
 				}
-				ox = (o).x;
-				oy = (o).y;
-				oz = (o).z;
-				oxz = (o).xz;
-				oxy = (o).xy;
-				ozy = (o).zy;
+				ox = o.x;
+				oy = o.y;
+				oz = o.z;
+				oxz = o.xz;
+				oxy = o.xy;
+				ozy = o.zy;
 				if (dtabed != dtab)
 					dtabed = dtab;
 				if (dtab == 5 && pfase == -1) {
@@ -2651,1522 +5251,6 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 		System.gc();
 	}
 
-	public void ctachm() {
-		int i = -1;
-		for (int i_174_ = 0; i_174_ < btn; i_174_++) {
-			if (Math.abs(xm - bx[i_174_]) < bw[i_174_] / 2 + 12 && Math.abs(ym - by[i_174_]) < 14 && mouses == 1)
-				pessd[i_174_] = true;
-			else
-				pessd[i_174_] = false;
-			if (Math.abs(xm - bx[i_174_]) < bw[i_174_] / 2 + 12 && Math.abs(ym - by[i_174_]) < 14 && mouses == -1)
-				i = i_174_;
-		}
-		if (mouses == -1)
-			mouses = 0;
-		if (tab == 0) {
-			if (sfase == 0) {
-				if (i == 0) {
-					sfase = 1;
-					i = -1;
-					hidefields();
-				}
-				if (i == 1)
-					if (!carname.equals("")) {
-						srch.setText(carname);
-						sfase = 2;
-						i = -1;
-						hidefields();
-					} else
-						JOptionPane.showMessageDialog(null, "Please Select a Car to Rename!\n", "Car Maker", 1);
-				if (i == 2)
-					delcar(carname);
-				if (i == 3) {
-					sfase = 3;
-					i = -1;
-					hidefields();
-				}
-			}
-			if (sfase == 1) {
-				if (i == 0) {
-					newcar(srch.getText());
-					i = -1;
-				}
-				if (i == 1) {
-					srch.setText("");
-					sfase = 0;
-					i = -1;
-					hidefields();
-				}
-			}
-			if (sfase == 2) {
-				if (i == 0) {
-					rencar(srch.getText());
-					i = -1;
-				}
-				if (i == 1) {
-					srch.setText("");
-					sfase = 0;
-					i = -1;
-					hidefields();
-				}
-			}
-			if (sfase == 3) {
-				if (i == 0) {
-					File file = null;
-					final FileDialog filedialog = new FileDialog(new Frame(), "Car Maker - Wavefront OBJ Import");
-					filedialog.setFile("*.obj");
-					filedialog.setMode(0);
-					filedialog.setVisible(true);
-					try {
-						if (filedialog.getFile() != null)
-							file = new File(new StringBuilder().append("").append(filedialog.getDirectory()).append("")
-									.append(filedialog.getFile()).append("").toString());
-					} catch (final Exception exception) {
-						/* empty */
-					}
-					if (file != null) {
-						setCursor(new Cursor(3));
-						int i_175_ = 0;
-						if (tutok)
-							i_175_ = -70;
-						rd.setColor(new Color(225, 225, 225));
-						rd.fillRect(116, 246 + i_175_, 468, 50);
-						rd.setColor(new Color(0, 0, 0));
-						rd.setFont(new Font("Arial", 1, 13));
-						ftm = rd.getFontMetrics();
-						rd.drawString(
-								new StringBuilder().append("Reading ").append(file.getName()).append(", please wait...")
-										.toString(),
-								350 - ftm.stringWidth(new StringBuilder().append("Reading ").append(file.getName())
-										.append(", please wait...").toString()) / 2,
-								276 + i_175_);
-						repaint();
-						final int[] is = new int[6000];
-						final int[] is_176_ = new int[6000];
-						final int[] is_177_ = new int[6000];
-						int i_178_ = 0;
-						final int[][] is_179_ = new int[600][100];
-						final int[] is_180_ = new int[600];
-						int i_181_ = 0;
-						if (file.exists()) {
-							try {
-								final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
-								boolean bool = false;
-								boolean bool_182_ = false;
-								String string;
-								while ((string = bufferedreader.readLine()) != null) {
-									if (string.startsWith("v "))
-										if (i_178_ < 6000) {
-											multf10 = true;
-											is[i_178_] = objvalue(string, 0);
-											is_176_[i_178_] = objvalue(string, 1);
-											is_177_[i_178_] = objvalue(string, 2);
-											i_178_++;
-										} else
-											bool = true;
-									if (string.startsWith("f "))
-										if (i_181_ < 600) {
-											multf10 = false;
-											objfacend = false;
-											for (is_180_[i_181_] = 0; !objfacend
-													&& is_180_[i_181_] < 100; is_180_[i_181_]++)
-												is_179_[i_181_][is_180_[i_181_]] = objvalue(string, is_180_[i_181_]);
-											i_181_++;
-										} else
-											bool_182_ = true;
-								}
-								if (bool)
-									JOptionPane.showMessageDialog(null,
-											new StringBuilder().append("Warning!\nThe number of Vertices in file ")
-													.append(file.getName())
-													.append(" exceeded the maximum of 6000 that the Car Maker can read!     \n\nPlease choose a simpler model to import.\n \n")
-													.toString(),
-											"Car Maker", 0);
-								if (bool_182_)
-									JOptionPane.showMessageDialog(null,
-											new StringBuilder().append("Warning!\nThe number of Faces in file ")
-													.append(file.getName())
-													.append(" exceeded the maximum of 600 that the Car Maker can read!     \n\nPlease choose a simpler model to import.\n \n")
-													.toString(),
-											"Car Maker", 0);
-								bufferedreader.close();
-							} catch (final Exception exception) {
-								JOptionPane.showMessageDialog(null, new StringBuilder()
-										.append("Unable to load file! Error Deatials:\n").append(exception).toString(),
-										"Car Maker", 1);
-							}
-							rd.setColor(new Color(225, 225, 225));
-							rd.fillRect(116, 246 + i_175_, 468, 50);
-							rd.setColor(new Color(0, 0, 0));
-							rd.setFont(new Font("Arial", 1, 13));
-							ftm = rd.getFontMetrics();
-							rd.drawString(
-									new StringBuilder().append("Importing ").append(file.getName())
-											.append(", please wait...").toString(),
-									350 - ftm.stringWidth(new StringBuilder().append("Importing ")
-											.append(file.getName()).append(", please wait...").toString()) / 2,
-									276 + i_175_);
-							repaint();
-							carname = file.getName();
-							if (carname.endsWith(".obj"))
-								carname = carname.substring(0, carname.length() - 4);
-							String string = new StringBuilder().append("\n// imported car: ").append(carname)
-									.append("\n---------------------\n\n// Please read the helpful information about importing cars found at:\n// http://www.needformadness.com/developer/extras.html\n\n\n")
-									.toString();
-							for (int i_184_ = 0; i_184_ < i_181_; i_184_++) {
-								string = new StringBuilder().append(string).append("<p>\nc(200,200,220)\n\n")
-										.toString();
-								for (int i_185_ = 0; i_185_ < is_180_[i_184_]; i_185_++)
-									if (is_179_[i_184_][i_185_] < 6000) {
-										final int i_186_ = is_179_[i_184_][i_185_];
-										string = new StringBuilder().append(string).append("p(").append(is[i_186_])
-												.append(",").append(-is_176_[i_186_]).append(",")
-												.append(is_177_[i_186_]).append(")\n").toString();
-									}
-								string = new StringBuilder().append(string).append("</p>\n\n").toString();
-							}
-							string = new StringBuilder().append(string).append("\n\n\n\n").toString();
-							file = new File("mycars/");
-							if (!file.exists())
-								file.mkdirs();
-							file = new File(
-									new StringBuilder().append("mycars/").append(carname).append(".rad").toString());
-							int i_187_ = 0;
-							if (file.exists())
-								i_187_ = JOptionPane.showConfirmDialog(null,
-										new StringBuilder().append("Another car with the name '").append(carname)
-												.append("' already exists, replace it?      \n").toString(),
-										"Car Maker", 0);
-							if (i_187_ == 0)
-								try {
-									final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
-									bufferedwriter.write(string);
-									bufferedwriter.close();
-									if (file.exists()) {
-										sfase = 0;
-										hidefields();
-										tabed = -1;
-									} else {
-										carname = "";
-										JOptionPane.showMessageDialog(null, "Failed to create car, unknown reason!\n",
-												"Car Maker", 1);
-									}
-								} catch (final Exception exception) {
-									carname = "";
-									JOptionPane.showMessageDialog(null,
-											new StringBuilder().append("Unable to create file! Error Deatials:\n")
-													.append(exception).toString(),
-											"Car Maker", 1);
-								}
-						} else
-							JOptionPane.showMessageDialog(null, new StringBuilder().append("Error, ")
-									.append(file.getName()).append(" was not found!").toString(), "Car Maker", 1);
-						setCursor(new Cursor(0));
-					}
-				}
-				if (i == 1) {
-					sfase = 4;
-					i = -1;
-				}
-				if (i == 2) {
-					sfase = 0;
-					i = -1;
-				}
-			}
-			if (sfase == 4) {
-				if (i == 0) {
-					File file = null;
-					final FileDialog filedialog = new FileDialog(new Frame(), "Car Maker - Wavefront OBJ Import");
-					filedialog.setFile(new StringBuilder().append("").append(carname).append(".obj").toString());
-					filedialog.setMode(1);
-					filedialog.setVisible(true);
-					try {
-						if (filedialog.getFile() != null)
-							file = new File(new StringBuilder().append("").append(filedialog.getDirectory()).append("")
-									.append(filedialog.getFile()).append("").toString());
-					} catch (final Exception exception) {
-						/* empty */
-					}
-					if (file != null) {
-						int i_188_ = 0;
-						if (file.exists())
-							i_188_ = JOptionPane
-									.showConfirmDialog(null,
-											new StringBuilder().append("File ").append(file.getName())
-													.append(" already exists, replace it?      \n").toString(),
-											"Car Maker", 0);
-						if (i_188_ == 0) {
-							setCursor(new Cursor(3));
-							setupo();
-							final int[] is = new int[6000];
-							final int[] is_189_ = new int[6000];
-							final int[] is_190_ = new int[6000];
-							int i_191_ = 0;
-							String string = "";
-							for (int i_192_ = 0; i_192_ < (o).npl; i_192_++)
-								for (int i_193_ = 0; i_193_ < ((o).p[i_192_]).n; i_193_++) {
-									boolean bool = false;
-									for (int i_194_ = 0; i_194_ < i_191_; i_194_++)
-										if (is[i_194_] == ((o).p[i_192_]).ox[i_193_]
-												&& is_189_[i_194_] == ((o).p[i_192_]).oy[i_193_]
-												&& is_190_[i_194_] == ((o).p[i_192_]).oz[i_193_])
-											bool = true;
-									if (!bool && i_191_ < 6000) {
-										is[i_191_] = ((o).p[i_192_]).ox[i_193_];
-										is_189_[i_191_] = ((o).p[i_192_]).oy[i_193_];
-										is_190_[i_191_] = ((o).p[i_192_]).oz[i_193_];
-										i_191_++;
-									}
-								}
-							for (int i_195_ = 0; i_195_ < i_191_; i_195_++)
-								string = new StringBuilder().append(string).append("v ").append(is[i_195_] / 10.0F)
-										.append(" ").append(-is_189_[i_195_] / 10.0F).append(" ")
-										.append(is_190_[i_195_] / 10.0F).append("\n").toString();
-							for (int i_196_ = 0; i_196_ < (o).npl; i_196_++)
-								if (((o).p[i_196_]).wz == 0) {
-									string = new StringBuilder().append(string).append("f").toString();
-									for (int i_197_ = 0; i_197_ < ((o).p[i_196_]).n; i_197_++) {
-										string = new StringBuilder().append(string).append(" ").toString();
-										for (int i_198_ = 0; i_198_ < i_191_; i_198_++)
-											if (is[i_198_] == ((o).p[i_196_]).ox[i_197_]
-													&& is_189_[i_198_] == ((o).p[i_196_]).oy[i_197_]
-													&& is_190_[i_198_] == ((o).p[i_196_]).oz[i_197_])
-												string = new StringBuilder().append(string).append("")
-														.append(i_198_ + 1).toString();
-									}
-									string = new StringBuilder().append(string).append("\n").toString();
-								}
-							try {
-								final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
-								bufferedwriter.write(string);
-								bufferedwriter.close();
-								if (file.exists()) {
-									JOptionPane.showMessageDialog(null,
-											new StringBuilder().append("Car has been successfully exported to:\n")
-													.append(file.getAbsolutePath()).append("          \n \n")
-													.toString(),
-											"Car Maker", 1);
-									sfase = 0;
-									hidefields();
-									tabed = -1;
-								} else
-									JOptionPane.showMessageDialog(null, "Failed to export car, unknown reason!\n",
-											"Car Maker", 1);
-							} catch (final Exception exception) {
-								JOptionPane.showMessageDialog(null,
-										new StringBuilder().append("Unable to create exported file! Error Deatials:\n")
-												.append(exception).toString(),
-										"Car Maker", 1);
-							}
-							setCursor(new Cursor(0));
-						}
-					}
-				}
-				if (i == 1) {
-					sfase = 0;
-					i = -1;
-				}
-			}
-		}
-		if (tab == 1) {
-			if (i == 0)
-				if (prefs)
-					prefs = false;
-				else
-					prefs = true;
-			if (i == 1 || i == 2) {
-				savefile();
-				if (i == 2)
-					tab = 2;
-			}
-			if (!mirror) {
-				boolean bool = false;
-				if (i == 4) {
-					if (sls != -1 && sle != -1 && editor.getSelectedText().equals(srch.getText())) {
-						editor.replaceText(rplc.getText(), sls, sle);
-						sls = -1;
-						sle = -1;
-						bool = true;
-						try {
-							if (thredo != null) {
-								/* empty */
-							}
-							Thread.sleep(100L);
-						} catch (final InterruptedException interruptedexception) {
-							/* empty */
-						}
-					}
-					i = 3;
-				}
-				if (i == 3 && !srch.getText().equals("")) {
-					editor.requestFocus();
-					sls = editor.getText().indexOf(srch.getText(), editor.getSelectionEnd());
-					if (sls != -1) {
-						sle = sls + srch.getText().length();
-						editor.select(sls, sle);
-					} else if (!bool)
-						JOptionPane.showMessageDialog(null, new StringBuilder().append("Cannot find  '")
-								.append(srch.getText()).append("'  from Cursor position    ").toString(), "Car Maker",
-								1);
-				}
-			} else {
-				if (i == 3 || i == 4 || i == 5) {
-					final String string = new StringBuilder().append("").append(editor.getSelectedText()).append("\n")
-							.toString();
-					String string_199_ = "\n\n";
-					if (cntpls == 1)
-						string_199_ = new StringBuilder().append(string_199_)
-								.append("// Mirror of the polygon above along the ").toString();
-					else
-						string_199_ = new StringBuilder().append(string_199_).append("// Mirror of the ").append(cntpls)
-								.append(" polygons above along the ").toString();
-					if (i == 3)
-						string_199_ = new StringBuilder().append(string_199_).append("X axis:").toString();
-					if (i == 4)
-						string_199_ = new StringBuilder().append(string_199_).append("Y axis:").toString();
-					if (i == 5)
-						string_199_ = new StringBuilder().append(string_199_).append("Z axis:").toString();
-					string_199_ = new StringBuilder().append(string_199_).append("\n\n").toString();
-					int i_200_ = 0;
-					int i_201_ = string.indexOf("\n", 0);
-					while (i_201_ != -1 && i_200_ < string.length()) {
-						String string_202_ = string.substring(i_200_, i_201_);
-						string_202_ = string_202_.trim();
-						i_200_ = i_201_ + 1;
-						i_201_ = string.indexOf("\n", i_200_);
-						if (string_202_.startsWith("fs(-"))
-							string_202_ = new StringBuilder().append("fs(")
-									.append(string_202_.substring(4, string_202_.length())).append("").toString();
-						else if (string_202_.startsWith("fs("))
-							string_202_ = new StringBuilder().append("fs(-")
-									.append(string_202_.substring(3, string_202_.length())).append("").toString();
-						if (i == 3)
-							if (string_202_.startsWith("p(-"))
-								string_202_ = new StringBuilder().append("p(")
-										.append(string_202_.substring(3, string_202_.length())).append("").toString();
-							else if (string_202_.startsWith("p("))
-								string_202_ = new StringBuilder().append("p(-")
-										.append(string_202_.substring(2, string_202_.length())).append("").toString();
-						if (i == 4 && string_202_.startsWith("p(")) {
-							final int i_203_ = string_202_.indexOf(",", 0);
-							if (i_203_ >= 0)
-								if (string_202_.startsWith(",-", i_203_))
-									string_202_ = new StringBuilder().append("")
-											.append(string_202_.substring(0, i_203_)).append(",")
-											.append(string_202_.substring(i_203_ + 2, string_202_.length())).append("")
-											.toString();
-								else if (string_202_.startsWith(",", i_203_))
-									string_202_ = new StringBuilder().append("")
-											.append(string_202_.substring(0, i_203_)).append(",-")
-											.append(string_202_.substring(i_203_ + 1, string_202_.length())).append("")
-											.toString();
-						}
-						if (i == 5 && string_202_.startsWith("p(")) {
-							int i_204_ = string_202_.indexOf(",", 0);
-							i_204_ = string_202_.indexOf(",", i_204_ + 1);
-							if (i_204_ >= 0)
-								if (string_202_.startsWith(",-", i_204_))
-									string_202_ = new StringBuilder().append("")
-											.append(string_202_.substring(0, i_204_)).append(",")
-											.append(string_202_.substring(i_204_ + 2, string_202_.length())).append("")
-											.toString();
-								else if (string_202_.startsWith(",", i_204_))
-									string_202_ = new StringBuilder().append("")
-											.append(string_202_.substring(0, i_204_)).append(",-")
-											.append(string_202_.substring(i_204_ + 1, string_202_.length())).append("")
-											.toString();
-						}
-						string_199_ = new StringBuilder().append(string_199_).append("").append(string_202_)
-								.append("\n").toString();
-					}
-					string_199_ = new StringBuilder().append(string_199_).append("\n// End of mirror").toString();
-					editor.insertText(string_199_, editor.getSelectionEnd());
-				}
-				if (i == 6) {
-					polynum = 0;
-					int i_205_ = editor.getText().lastIndexOf("</p>", editor.getSelectionStart());
-					boolean bool = false;
-					for (/**/; i_205_ >= 0; i_205_--)
-						if (!bool) {
-							i_205_ = editor.getText().lastIndexOf("<p>", i_205_);
-							if (i_205_ != -1) {
-								bool = true;
-								polynum++;
-							}
-						} else {
-							i_205_ = editor.getText().lastIndexOf("</p>", i_205_);
-							if (i_205_ != -1)
-								bool = false;
-						}
-					prflk = 0;
-					tab = 2;
-				}
-			}
-			i = -1;
-		}
-		if (tab == 2) {
-			int i_206_ = 0;
-			if (dtab == 1)
-				if ((o).colok != 2) {
-					if (i == 0) {
-						JOptionPane.showMessageDialog(null,
-								"Car Maker will attempt now to find the first and second colors automatically.\nPlease make sure that they are the correct colors!\n\nPlease note that these are also the colors that will be editable in the multiplayer game.      ",
-								"Car Maker", 1);
-						final String string = new StringBuilder().append("").append(editor.getText()).append("\n")
-								.toString();
-						int i_207_ = 0;
-						int i_208_ = string.indexOf("\n", 0);
-						int i_209_ = 0;
-						String string_210_ = "";
-						String string_211_ = "";
-						while (i_208_ != -1 && i_207_ < string.length() && i_209_ != 2) {
-							String string_212_ = string.substring(i_207_, i_208_);
-							string_212_ = string_212_.trim();
-							i_207_ = i_208_ + 1;
-							i_208_ = string.indexOf("\n", i_207_);
-							if (string_212_.startsWith("c(")) {
-								final String string_213_ = string_212_.substring(1, string_212_.indexOf(")") + 1);
-								if (i_209_ == 1 && !string_213_.equals(string_211_)) {
-									string_210_ = new StringBuilder().append(string_210_).append("2ndColor")
-											.append(string_213_).append("\n\n\n").toString();
-									i_209_ = 2;
-								}
-								if (i_209_ == 0) {
-									string_211_ = string_213_;
-									string_210_ = new StringBuilder().append("1stColor").append(string_213_)
-											.append("\n").toString();
-									i_209_ = 1;
-								}
-							}
-						}
-						if (i_209_ == 0) {
-							string_210_ = "1stColor(255,0,0)\n2ndColor(0,0,255)\n\n\n";
-							i_209_ = 2;
-						}
-						if (i_209_ == 1) {
-							string_210_ = new StringBuilder().append(string_210_).append("2ndColor(0,0,255)\n\n\n")
-									.toString();
-							i_209_ = 2;
-						}
-						final int i_214_ = editor.getText().indexOf("<p>", 0);
-						editor.insertText(string_210_, i_214_);
-						editor.select(i_214_, i_214_ + string_210_.length() - 2);
-						breakbond = true;
-						tab = 1;
-					}
-					i_206_ = 1;
-				} else {
-					if (i == 0) {
-						ofcol = new StringBuilder().append("(").append((o).fcol[0]).append(",").append((o).fcol[1])
-								.append(",").append((o).fcol[2]).append(")").toString();
-						int i_215_ = editor.getText().indexOf(ofcol, 0);
-						final int i_216_ = i_215_;
-						for (/**/; i_215_ != -1; i_215_ = editor.getText().indexOf(ofcol, i_215_ + 1))
-							editor.replaceText(fcol, i_215_, i_215_ + ofcol.length());
-						ofcol = fcol;
-						editor.select(i_216_ - 8, i_216_ - 8);
-						savefile();
-						(o).fcol[0] = Color.getHSBColor(fhsb[0], fhsb[2], fhsb[1]).getRed();
-						(o).fcol[1] = Color.getHSBColor(fhsb[0], fhsb[2], fhsb[1]).getGreen();
-						(o).fcol[2] = Color.getHSBColor(fhsb[0], fhsb[2], fhsb[1]).getBlue();
-					}
-					if (i == 1) {
-						oscol = new StringBuilder().append("(").append((o).scol[0]).append(",").append((o).scol[1])
-								.append(",").append((o).scol[2]).append(")").toString();
-						int i_217_ = editor.getText().indexOf(oscol, 0);
-						final int i_218_ = i_217_;
-						for (/**/; i_217_ != -1; i_217_ = editor.getText().indexOf(oscol, i_217_ + 1))
-							editor.replaceText(scol, i_217_, i_217_ + oscol.length());
-						oscol = scol;
-						editor.select(i_218_ - 8, i_218_ - 8);
-						savefile();
-						(o).scol[0] = Color.getHSBColor(shsb[0], shsb[2], shsb[1]).getRed();
-						(o).scol[1] = Color.getHSBColor(shsb[0], shsb[2], shsb[1]).getGreen();
-						(o).scol[2] = Color.getHSBColor(shsb[0], shsb[2], shsb[1]).getBlue();
-					}
-					i_206_ = 2;
-				}
-			if (dtab == 2) {
-				if (i == 9) {
-					scale[0] = 100;
-					scale[1] = 100;
-					scale[2] = 100;
-				}
-				if (i == 0 || i == 1 || i == 6 || i == 7 || i == 9) {
-					if (i == 0 || i == 6)
-						scale[0] -= 5;
-					if (i == 1 || i == 7)
-						scale[0] += 5;
-					if (scale[0] < 0)
-						scale[0] = 0;
-					int i_219_ = editor.getText().indexOf("\nScaleX(", 0);
-					if (i_219_ != -1) {
-						i_219_++;
-						final int i_220_ = editor.getText().indexOf(")", i_219_);
-						final int i_221_ = editor.getText().indexOf("\n", i_219_);
-						if (i_221_ > i_220_)
-							editor.replaceText(
-									new StringBuilder().append("ScaleX(").append(scale[0]).append(")").toString(),
-									i_219_, i_220_ + 1);
-						else
-							editor.replaceText(
-									new StringBuilder().append("ScaleX(").append(scale[0]).append(")").toString(),
-									i_219_, i_221_);
-					} else {
-						final int i_222_ = editor.getText().indexOf("<p>", 0);
-						final int i_223_ = editor.getText().indexOf("\nScale", 0);
-						if (i_223_ < i_222_ && i_223_ != -1)
-							editor.insertText(
-									new StringBuilder().append("\nScaleX(").append(scale[0]).append(")").toString(),
-									i_223_);
-						else
-							editor.insertText(
-									new StringBuilder().append("ScaleX(").append(scale[0]).append(")\n\n\n").toString(),
-									i_222_);
-					}
-				}
-				if (i == 2 || i == 3 || i == 6 || i == 7 || i == 9) {
-					if (i == 2 || i == 6)
-						scale[1] -= 5;
-					if (i == 3 || i == 7)
-						scale[1] += 5;
-					if (scale[1] < 0)
-						scale[1] = 0;
-					int i_224_ = editor.getText().indexOf("\nScaleY(", 0);
-					if (i_224_ != -1) {
-						i_224_++;
-						final int i_225_ = editor.getText().indexOf(")", i_224_);
-						final int i_226_ = editor.getText().indexOf("\n", i_224_);
-						if (i_226_ > i_225_)
-							editor.replaceText(
-									new StringBuilder().append("ScaleY(").append(scale[1]).append(")").toString(),
-									i_224_, i_225_ + 1);
-						else
-							editor.replaceText(
-									new StringBuilder().append("ScaleY(").append(scale[1]).append(")").toString(),
-									i_224_, i_226_);
-					} else {
-						final int i_227_ = editor.getText().indexOf("<p>", 0);
-						final int i_228_ = editor.getText().indexOf("\nScale", 0);
-						if (i_228_ < i_227_ && i_228_ != -1)
-							editor.insertText(
-									new StringBuilder().append("\nScaleY(").append(scale[1]).append(")").toString(),
-									i_228_);
-						else
-							editor.insertText(
-									new StringBuilder().append("ScaleY(").append(scale[1]).append(")\n\n\n").toString(),
-									i_227_);
-					}
-				}
-				if (i == 4 || i == 5 || i == 6 || i == 7 || i == 9) {
-					if (i == 4 || i == 6)
-						scale[2] -= 5;
-					if (i == 5 || i == 7)
-						scale[2] += 5;
-					if (scale[2] < 0)
-						scale[2] = 0;
-					int i_229_ = editor.getText().indexOf("\nScaleZ(", 0);
-					if (i_229_ != -1) {
-						i_229_++;
-						final int i_230_ = editor.getText().indexOf(")", i_229_);
-						final int i_231_ = editor.getText().indexOf("\n", i_229_);
-						if (i_231_ > i_230_)
-							editor.replaceText(
-									new StringBuilder().append("ScaleZ(").append(scale[2]).append(")").toString(),
-									i_229_, i_230_ + 1);
-						else
-							editor.replaceText(
-									new StringBuilder().append("ScaleZ(").append(scale[2]).append(")").toString(),
-									i_229_, i_231_);
-					} else {
-						final int i_232_ = editor.getText().indexOf("<p>", 0);
-						final int i_233_ = editor.getText().indexOf("\nScale", 0);
-						if (i_233_ < i_232_ && i_233_ != -1)
-							editor.insertText(
-									new StringBuilder().append("\nScaleZ(").append(scale[2]).append(")").toString(),
-									i_233_);
-						else
-							editor.insertText(
-									new StringBuilder().append("ScaleZ(").append(scale[2]).append(")\n\n\n").toString(),
-									i_232_);
-					}
-				}
-				if (i == 0 || i == 1 || i == 2 || i == 3 || i == 4 || i == 5 || i == 6 || i == 7 || i == 9)
-					setupo();
-				if (i == 8) {
-					savefile();
-					oscale[0] = scale[0];
-					oscale[1] = scale[1];
-					oscale[2] = scale[2];
-				}
-				if (i == 10 || i == 11 || i == 12 || i == 13 || i == 14 || i == 15 || i == 16 || i == 17 || i == 18)
-					try {
-						final String string = new StringBuilder().append("").append(editor.getText()).append("\n")
-								.toString();
-						String string_234_ = "";
-						int i_235_ = 0;
-						int i_236_ = string.indexOf("\n", 0);
-						while (i_236_ != -1 && i_235_ < string.length()) {
-							String string_237_ = string.substring(i_235_, i_236_);
-							string_237_ = string_237_.trim();
-							i_235_ = i_236_ + 1;
-							i_236_ = string.indexOf("\n", i_235_);
-							if (string_237_.startsWith("p(")) {
-								final int i_238_ = string_237_.indexOf(",", 0);
-								final int i_239_ = string_237_.indexOf(",", i_238_ + 1);
-								final int i_240_ = string_237_.indexOf(")", i_239_ + 1);
-								if (i_238_ != -1 && i_239_ != -1 && i_240_ != -1) {
-									int i_241_ = Float.valueOf(string_237_.substring(2, i_238_)).intValue();
-									int i_242_ = Float.valueOf(string_237_.substring(i_238_ + 1, i_239_)).intValue();
-									int i_243_ = Float.valueOf(string_237_.substring(i_239_ + 1, i_240_)).intValue();
-									if (i == 10) {
-										final int i_244_ = i_242_;
-										i_242_ = i_243_;
-										i_243_ = -i_244_;
-									}
-									if (i == 11)
-										i_241_ += 10;
-									if (i == 12)
-										i_241_ -= 10;
-									if (i == 13) {
-										final int i_245_ = i_241_;
-										i_241_ = -i_243_;
-										i_243_ = i_245_;
-									}
-									if (i == 14)
-										i_242_ += 10;
-									if (i == 15)
-										i_242_ -= 10;
-									if (i == 16) {
-										final int i_246_ = i_242_;
-										i_242_ = -i_241_;
-										i_241_ = i_246_;
-									}
-									if (i == 17)
-										i_243_ += 10;
-									if (i == 18)
-										i_243_ -= 10;
-									string_234_ = new StringBuilder().append(string_234_).append("p(").append(i_241_)
-											.append(",").append(i_242_).append(",").append(i_243_).append(")")
-											.append(string_237_.substring(i_240_ + 1, string_237_.length()))
-											.append("\n").toString();
-								} else
-									string_234_ = new StringBuilder().append(string_234_).append("").append(string_237_)
-											.append("\n").toString();
-							} else
-								string_234_ = new StringBuilder().append(string_234_).append("").append(string_237_)
-										.append("\n").toString();
-						}
-						editor.setText(string_234_);
-						setupo();
-						changed2 = true;
-					} catch (final Exception exception) {
-						/* empty */
-					}
-				if (i == 19) {
-					editor.setText(lastedo);
-					setupo();
-					changed2 = false;
-				}
-				if (i == 20 && changed2) {
-					final int i_247_ = JOptionPane.showConfirmDialog(null,
-							"Saving now will permanently change the point locations & numbers entered in the code!      \n\nContinue?",
-							"Car Maker", 0);
-					if (i_247_ == 0) {
-						editor.setText(
-								new StringBuilder().append(editor.getText().trim()).append("\n\n\n\n").toString());
-						savefile();
-						changed2 = false;
-					}
-				}
-				i_206_ = 21;
-			}
-			if (dtab == 3) {
-				if (i == 0 || i == 2 || defnow) {
-					if (defnow) {
-						defnow = false;
-						repaint();
-						JOptionPane.showMessageDialog(null,
-								"Car Maker will setup default Front and Back Wheels positions and adjustments.\n\nEnter the desired positions and adjustments then press ' Apply ' to view!\nDon't forget to press ' Save ' when finished!",
-								"Car Maker", 1);
-					}
-					int i_248_ = 0;
-					try {
-						int i_249_ = Float.valueOf(wv[10].getText()).intValue();
-						if (i_249_ <= 0)
-							i_248_ = 1;
-						i_249_ = Float.valueOf(wv[2].getText()).intValue();
-						if (i_249_ >= 0)
-							i_248_ = 2;
-						i_249_ = Float.valueOf(wv[8].getText()).intValue();
-						if (i_249_ <= 0)
-							i_248_ = 3;
-						i_249_ = Float.valueOf(wv[0].getText()).intValue();
-						if (i_249_ <= 0)
-							i_248_ = 4;
-						i_249_ = Float.valueOf(wv[15].getText()).intValue();
-						if (i_249_ > 40)
-							wv[15].setText("40");
-						if (i_249_ < -40)
-							wv[15].setText("-40");
-						i_249_ = Float.valueOf(wv[7].getText()).intValue();
-						if (i_249_ > 40)
-							wv[7].setText("40");
-						if (i_249_ < -40)
-							wv[7].setText("-40");
-					} catch (final Exception exception) {
-						/* empty */
-					}
-					if (i_248_ == 1)
-						JOptionPane.showMessageDialog(null,
-								new StringBuilder()
-										.append("ERROR:\nThe Z location value of the FRONT Wheels must be greater then zero! (it should have a +ve value)\nZ :  '")
-										.append(wv[10].getText())
-										.append("'  is less or equal to zero, where it should have +ve value!")
-										.toString(),
-								"Car Maker", 1);
-					if (i_248_ == 2)
-						JOptionPane.showMessageDialog(null,
-								new StringBuilder()
-										.append("ERROR:\nThe Z location value of the BACK Wheels must be smaller then zero! (it should have a -ve value)\nZ :  '")
-										.append(wv[2].getText())
-										.append("'  is bigger or equal to zero, where it should have -ve value!")
-										.toString(),
-								"Car Maker", 1);
-					if (i_248_ == 3)
-						JOptionPane.showMessageDialog(null,
-								new StringBuilder()
-										.append("ERROR:\nThe \u00b1X location value of the FRONT or BACK Wheels must be greater then zero! (it should have a +ve value)\n\u00b1X :  '")
-										.append(wv[8].getText())
-										.append("'  is less or equal to zero, where it should have +ve value!")
-										.toString(),
-								"Car Maker", 1);
-					if (i_248_ == 4)
-						JOptionPane.showMessageDialog(null,
-								new StringBuilder()
-										.append("ERROR:\nThe \u00b1X location value of the FRONT or BACK Wheels must be greater then zero! (it should have a +ve value)\n\u00b1X :  '")
-										.append(wv[0].getText())
-										.append("'  is less or equal to zero, whenr it should have +ve value!")
-										.toString(),
-								"Car Maker", 1);
-					if (i_248_ == 0) {
-						final String string = new StringBuilder().append("").append(editor.getText()).append("\n")
-								.toString();
-						String string_250_ = "";
-						int i_251_ = 0;
-						int i_252_ = string.indexOf("\n", 0);
-						while (i_252_ != -1 && i_251_ < string.length()) {
-							String string_253_ = string.substring(i_251_, i_252_);
-							string_253_ = string_253_.trim();
-							i_251_ = i_252_ + 1;
-							i_252_ = string.indexOf("\n", i_251_);
-							if (!string_253_.startsWith("rims(") && !string_253_.startsWith("gwgr(")
-									&& !string_253_.startsWith("w("))
-								string_250_ = new StringBuilder().append(string_250_).append("").append(string_253_)
-										.append("\n").toString();
-							else {
-								string_250_ = string_250_.trim();
-								string_250_ = new StringBuilder().append(string_250_).append("\n").toString();
-							}
-						}
-						string_250_ = string_250_.trim();
-						string_250_ = new StringBuilder().append(string_250_).append("\n\n\ngwgr(")
-								.append(wv[15].getText()).append(")\n").toString();
-						String string_254_ = "140,140,140";
-						if (rplc.getText().startsWith("(") && rplc.getText().endsWith(")"))
-							string_254_ = rplc.getText().substring(1, rplc.getText().length() - 1);
-						string_250_ = new StringBuilder().append(string_250_).append("rims(").append(string_254_)
-								.append(",").append(wv[13].getText()).append(",").append(wv[14].getText()).append(")\n")
-								.toString();
-						string_250_ = new StringBuilder().append(string_250_).append("w(-").append(wv[8].getText())
-								.append(",").append(wv[9].getText()).append(",").append(wv[10].getText()).append(",11,")
-								.append(wv[12].getText()).append(",").append(wv[11].getText()).append(")\n").toString();
-						string_250_ = new StringBuilder().append(string_250_).append("w(").append(wv[8].getText())
-								.append(",").append(wv[9].getText()).append(",").append(wv[10].getText())
-								.append(",11,-").append(wv[12].getText()).append(",").append(wv[11].getText())
-								.append(")\n").toString();
-						string_250_ = new StringBuilder().append(string_250_).append("\ngwgr(").append(wv[7].getText())
-								.append(")\n").toString();
-						string_254_ = "140,140,140";
-						if (srch.getText().startsWith("(") && srch.getText().endsWith(")"))
-							string_254_ = srch.getText().substring(1, srch.getText().length() - 1);
-						string_250_ = new StringBuilder().append(string_250_).append("rims(").append(string_254_)
-								.append(",").append(wv[5].getText()).append(",").append(wv[6].getText()).append(")\n")
-								.toString();
-						string_250_ = new StringBuilder().append(string_250_).append("w(-").append(wv[0].getText())
-								.append(",").append(wv[1].getText()).append(",").append(wv[2].getText()).append(",0,")
-								.append(wv[4].getText()).append(",").append(wv[3].getText()).append(")\n").toString();
-						string_250_ = new StringBuilder().append(string_250_).append("w(").append(wv[0].getText())
-								.append(",").append(wv[1].getText()).append(",").append(wv[2].getText()).append(",0,-")
-								.append(wv[4].getText()).append(",").append(wv[3].getText()).append(")\n\n\n\n")
-								.toString();
-						editor.setText(string_250_);
-						forwheels = true;
-						setupo();
-						forwheels = false;
-						aply1 = new StringBuilder().append("").append(wv[0].getText()).append("")
-								.append(wv[1].getText()).append("").append(wv[2].getText()).append("")
-								.append(wv[3].getText()).append("").append(wv[4].getText()).append("")
-								.append(srch.getText()).append("").append(wv[5].getText()).append("")
-								.append(wv[6].getText()).append("").append(wv[7].getText()).append("").toString();
-						aply2 = new StringBuilder().append("").append(wv[8].getText()).append("")
-								.append(wv[9].getText()).append("").append(wv[10].getText()).append("")
-								.append(wv[11].getText()).append("").append(wv[12].getText()).append("")
-								.append(rplc.getText()).append("").append(wv[13].getText()).append("")
-								.append(wv[14].getText()).append("").append(wv[15].getText()).append("").toString();
-						aplyd1 = false;
-						aplyd2 = false;
-						changed2 = true;
-					}
-				}
-				if (i == 1 || i == 3)
-					if (!(o).errd) {
-						savefile();
-						changed2 = false;
-					} else
-						JOptionPane.showMessageDialog(null, "Unable to Save, press  [ Apply ]  to find out why!",
-								"Car Maker", 1);
-				i_206_ = 4;
-			}
-			if (dtab == 4)
-				if (!statdef) {
-					if (i == 0) {
-						carsel = simcar.getSelectedIndex();
-						int i_255_ = 0;
-						for (int i_256_ = 0; i_256_ < 5; i_256_++) {
-							stat[i_256_] = carstat[carsel][i_256_];
-							rstat[i_256_] = stat[i_256_];
-							i_255_ += stat[i_256_];
-						}
-						clsel = 4 - (i_255_ - 520) / 40;
-						cls.select(clsel);
-						if (simcar.getItemCount() == 16)
-							simcar.add(rd, "   ");
-						statdef = true;
-						changed2 = true;
-					}
-					i_206_ = 1;
-				} else {
-					for (int i_257_ = 0; i_257_ < 5; i_257_++) {
-						int i_258_ = 0;
-						if (i == 1 + i_257_ * 2 && stat[i_257_] < 200) {
-							i_258_ = 200 - stat[i_257_];
-							if (i_258_ > 4)
-								i_258_ = 4;
-						}
-						if (i == i_257_ * 2 && stat[i_257_] > 16) {
-							i_258_ = 16 - stat[i_257_];
-							if (i_258_ < -4)
-								i_258_ = -4;
-						}
-						int i_259_ = 0;
-						while (i_258_ != 0 && i_259_ != 5) {
-							i_259_ = 0;
-							for (int i_260_ = 0; i_260_ < 5; i_260_++)
-								if (i_257_ != i_260_ && (stat[i_260_] <= 200 || i_258_ > 0)
-										&& (stat[i_260_] >= 16 || i_258_ < 0) && i_258_ != 0) {
-									if (i_258_ > 0) {
-										stat[i_257_]++;
-										stat[i_260_]--;
-										i_258_--;
-									} else {
-										stat[i_257_]--;
-										stat[i_260_]++;
-										i_258_++;
-									}
-								} else
-									i_259_++;
-						}
-					}
-					if (i == 10) {
-						carsel = simcar.getSelectedIndex();
-						int i_261_ = 0;
-						for (int i_262_ = 0; i_262_ < 5; i_262_++) {
-							stat[i_262_] = carstat[carsel][i_262_];
-							i_261_ += stat[i_262_];
-						}
-						clsel = 4 - (i_261_ - 520) / 40;
-						cls.select(clsel);
-					}
-					if (i == 11) {
-						final String string = new StringBuilder().append("").append(editor.getText()).append("\n")
-								.toString();
-						String string_263_ = "";
-						int i_264_ = 0;
-						int i_265_ = string.indexOf("\n", 0);
-						while (i_265_ != -1 && i_264_ < string.length()) {
-							String string_266_ = string.substring(i_264_, i_265_);
-							string_266_ = string_266_.trim();
-							i_264_ = i_265_ + 1;
-							i_265_ = string.indexOf("\n", i_264_);
-							if (!string_266_.startsWith("stat("))
-								string_263_ = new StringBuilder().append(string_263_).append("").append(string_266_)
-										.append("\n").toString();
-							else {
-								string_263_ = string_263_.trim();
-								string_263_ = new StringBuilder().append(string_263_).append("\n").toString();
-							}
-						}
-						string_263_ = string_263_.trim();
-						string_263_ = new StringBuilder().append(string_263_).append("\n\n\nstat(").append(stat[0])
-								.append(",").append(stat[1]).append(",").append(stat[2]).append(",").append(stat[3])
-								.append(",").append(stat[4]).append(")\n\n\n\n").toString();
-						editor.setText(string_263_);
-						savefile();
-						for (int i_267_ = 0; i_267_ < 5; i_267_++)
-							rstat[i_267_] = stat[i_267_];
-						changed2 = false;
-					}
-					if (i == 12)
-						for (int i_268_ = 0; i_268_ < 5; i_268_++)
-							stat[i_268_] = rstat[i_268_];
-					i_206_ = 13;
-				}
-			if (dtab == 5) {
-				if (pfase == 0) {
-					for (int i_269_ = 0; i_269_ < 4; i_269_++) {
-						if (i == 1 + i_269_ * 2) {
-							phys[i_269_] += 2;
-							if (phys[i_269_] > 100)
-								phys[i_269_] = 100;
-						}
-						if (i == i_269_ * 2) {
-							phys[i_269_] -= 2;
-							if (phys[i_269_] < 0)
-								phys[i_269_] = 0;
-						}
-					}
-					if (i == 8)
-						for (int i_270_ = 0; i_270_ < 5; i_270_++)
-							phys[i_270_] = (int) (Math.random() * 100.0);
-					if (i == 9)
-						for (int i_271_ = 0; i_271_ < 5; i_271_++)
-							phys[i_271_] = rphys[i_271_];
-					if (i == 10) {
-						pfase = 1;
-						i = -1;
-					}
-					i_206_ = 11;
-				}
-				if (pfase == 1) {
-					for (int i_272_ = 0; i_272_ < 6; i_272_++) {
-						if (i == 1 + i_272_ * 2) {
-							phys[i_272_ + 5] += 2;
-							if (phys[i_272_ + 5] > 100)
-								phys[i_272_ + 5] = 100;
-						}
-						if (i == i_272_ * 2) {
-							phys[i_272_ + 5] -= 2;
-							if (phys[i_272_ + 5] < 0)
-								phys[i_272_ + 5] = 0;
-						}
-					}
-					if (i == 12)
-						for (int i_273_ = 0; i_273_ < 6; i_273_++)
-							phys[i_273_ + 5] = (int) (Math.random() * 100.0);
-					if (i == 13)
-						for (int i_274_ = 0; i_274_ < 6; i_274_++)
-							phys[i_274_ + 5] = rphys[i_274_ + 5];
-					if (i == 14) {
-						pfase = 0;
-						i = -1;
-					}
-					if (i == 15) {
-						pfase = 2;
-						i = -1;
-					}
-					i_206_ = 16;
-				}
-				if (pfase == 2) {
-					for (int i_275_ = 0; i_275_ < 3; i_275_++) {
-						if (i == 1 + i_275_ * 2) {
-							crash[i_275_] += 2;
-							if (crash[i_275_] > 100)
-								crash[i_275_] = 100;
-						}
-						if (i == i_275_ * 2) {
-							crash[i_275_] -= 2;
-							if (crash[i_275_] < 0)
-								crash[i_275_] = 0;
-						}
-					}
-					if (i == 6) {
-						int i_276_ = (int) (150.0 + 600.0 * Math.random());
-						boolean bool = false;
-						boolean bool_277_ = false;
-						if (Math.random() > Math.random())
-							bool = true;
-						if (Math.random() > Math.random())
-							bool_277_ = true;
-						final int[] is = { -101, -101, -101, -101 };
-						is[0] = (int) (Math.random() * 4.0);
-						if (Math.random() > Math.random()) {
-							if (bool_277_)
-								is[1] = is[0] + 1;
-							else
-								is[1] = is[0] - 1;
-							if (Math.random() > Math.random()) {
-								if (bool_277_)
-									is[2] = is[1] + 1;
-								else
-									is[2] = is[1] - 1;
-								if (Math.random() > Math.random())
-									if (bool_277_)
-										is[3] = is[2] + 1;
-									else
-										is[3] = is[2] - 1;
-							}
-						}
-						if (Math.random() > Math.random())
-							crashup = false;
-						else
-							crashup = true;
-						for (int i_278_ = 0; i_278_ < 4; i_278_++)
-							if (is[i_278_] != -101) {
-								if (is[i_278_] >= 4)
-									is[i_278_] -= 4;
-								if (is[i_278_] <= -1)
-									is[i_278_] += 4;
-								i_276_ -= 50 * i_278_;
-								if (i_276_ < 150)
-									i_276_ = 150;
-								if (bool)
-									regx(is[i_278_], i_276_, false);
-								else
-									regz(is[i_278_], i_276_, false);
-							}
-						if (hitmag < 17000)
-							if (crashleft)
-								(o).xz += 22;
-							else
-								(o).xz -= 22;
-					}
-					if (i == 8) {
-						if (Math.random() > Math.random())
-							crashup = false;
-						else
-							crashup = true;
-						roofsqsh((int) (230.0 + Math.random() * 80.0));
-					}
-					if (i == 9 || i == 7) {
-						setupo();
-						if (Math.random() > Math.random())
-							crashleft = false;
-						else
-							crashleft = true;
-					}
-					if (i == 10)
-						for (int i_279_ = 0; i_279_ < 3; i_279_++)
-							crash[i_279_] = rcrash[i_279_];
-					if (i == 11) {
-						setupo();
-						pfase = 1;
-						i = -1;
-					}
-					if (i == 12) {
-						// if (crashok) {
-						setupo();
-						pfase = 3;
-						i = -1;
-						// } else
-						// JOptionPane.showMessageDialog(null, usage[11], "Car
-						// Maker", 1);
-					}
-					i_206_ = 13;
-				}
-				if (pfase == 3) {
-					for (int i_280_ = 0; i_280_ < 5; i_280_++) {
-						if (i == i_280_) {
-							for (int i_281_ = 0; i_281_ < 5; i_281_++)
-								for (int i_282_ = 0; i_282_ < 5; i_282_++)
-									engs[i_282_][i_281_].stop();
-							engs[engsel][i_280_].loop();
-							engon = true;
-						}
-						if (i == 5) {
-							for (int i_283_ = 0; i_283_ < 5; i_283_++)
-								for (int i_284_ = 0; i_284_ < 5; i_284_++)
-									engs[i_284_][i_283_].stop();
-							engon = false;
-						}
-						if (i == 6) {
-							pfase = 2;
-							i = -1;
-							engine.setVisible(false);
-						}
-						if (i == 7) {
-							pfase = 4;
-							i = -1;
-							engine.setVisible(false);
-						}
-					}
-					i_206_ = 8;
-				}
-			}
-			if (dtab == 6)
-				if (!rateh) {
-					if (i == 0 && checko("Test Drive")) {
-						Madness.testcar = carname;
-						Madness.testdrive = witho.getSelectedIndex() + 1;
-						Madness.game();
-					}
-					i_206_ = 1;
-					if (tested) {
-						if (i == 1) {
-							dtab = 4;
-							i = -1;
-						}
-						if (i == 2) {
-							dtab = 5;
-							i = -1;
-						}
-						if (i == 3) {
-							rateh = true;
-							hidefields();
-						}
-						i_206_ = 4;
-					}
-				} else {
-					if (i == 0) {
-						handling -= 2;
-						if (handling < 50)
-							handling = 50;
-					}
-					if (i == 1) {
-						handling += 2;
-						if (handling > 200)
-							handling = 200;
-					}
-					if (i == 2) {
-						final String string = new StringBuilder().append("").append(editor.getText()).append("\n")
-								.toString();
-						String string_285_ = "";
-						int i_286_ = 0;
-						int i_287_ = string.indexOf("\n", 0);
-						while (i_287_ != -1 && i_286_ < string.length()) {
-							String string_288_ = string.substring(i_286_, i_287_);
-							string_288_ = string_288_.trim();
-							i_286_ = i_287_ + 1;
-							i_287_ = string.indexOf("\n", i_286_);
-							if (!string_288_.startsWith("handling("))
-								string_285_ = new StringBuilder().append(string_285_).append("").append(string_288_)
-										.append("\n").toString();
-							else {
-								string_285_ = string_285_.trim();
-								string_285_ = new StringBuilder().append(string_285_).append("\n").toString();
-							}
-						}
-						string_285_ = string_285_.trim();
-						string_285_ = new StringBuilder().append(string_285_).append("\n\n\nhandling(").append(handling)
-								.append(")\n\n\n\n").toString();
-						editor.setText(string_285_);
-						savefile();
-						rateh = false;
-					}
-					if (i == 3)
-						rateh = false;
-					i_206_ = 4;
-				}
-			if (i == i_206_) {
-				for (int i_289_ = 0; i_289_ < (o).npl; i_289_++) {
-					Color.RGBtoHSB(((o).p[i_289_]).c[0], ((o).p[i_289_]).c[1], ((o).p[i_289_]).c[2],
-							((o).p[i_289_]).hsb);
-					if (((o).p[i_289_]).gr == -13)
-						((o).p[i_289_]).gr = 1;
-				}
-				polynum = -1;
-			}
-			i = -1;
-		}
-		if (tab == 3) {
-			if (i == 0) {
-				if (logged == 0)
-					JOptionPane.showMessageDialog(null,
-							"Please login to retrieve your account first before publishing!", "Car Maker", 1);
-				if ((logged == 3 || logged == -1) && checko("Publishing")) {
-					int i_290_ = 0;
-					for (int i_291_ = 0; i_291_ < nmc; i_291_++)
-						if (mycars[i_291_].equals(carname) && maker[i_291_].equals(tnick.getText()))
-							i_290_ = JOptionPane
-									.showConfirmDialog(null,
-											new StringBuilder().append("Replace your already online car '")
-													.append(carname).append("' with this one?").toString(),
-											"Car Maker", 0);
-					if (i_290_ == 0) {
-						setCursor(new Cursor(3));
-						rd.setFont(new Font("Arial", 1, 13));
-						ftm = rd.getFontMetrics();
-						rd.setColor(new Color(225, 225, 225));
-						rd.fillRect(11, 141, 679, 401);
-						rd.setColor(new Color(0, 0, 0));
-						rd.drawString("Connecting to Server...", 350 - ftm.stringWidth("Connecting to Server...") / 2,
-								250);
-						repaint();
-						int i_292_ = 0;
-						String string = new StringBuilder().append("").append(editor.getText()).append("\n").toString();
-						int i_293_ = 0;
-						int i_294_ = string.indexOf("\n", 0);
-						while (i_294_ != -1 && i_293_ < string.length()) {
-							i_293_ = i_294_ + 1;
-							i_294_ = string.indexOf("\n", i_293_);
-							i_292_++;
-						}
-						int i_295_ = -1;
-						try {
-							final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
-							final BufferedReader bufferedreader = new BufferedReader(
-									new InputStreamReader(socket.getInputStream()));
-							final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-							printwriter.println(new StringBuilder().append("10|").append(tnick.getText()).append("|")
-									.append(tpass.getText()).append("|").append(carname).append("|")
-									.append(pubtyp.getSelectedIndex()).append("|").toString());
-							String string_296_ = bufferedreader.readLine();
-							if (string_296_ != null)
-								i_295_ = 0;
-							// i_295_ = servervalue(string_296_, 0);
-							if (i_295_ == 0) {
-								int i_297_ = 0;
-								string = new StringBuilder().append("").append(editor.getText()).append("\n")
-										.toString();
-								i_293_ = 0;
-								i_294_ = string.indexOf("\n", 0);
-								while (i_294_ != -1 && i_293_ < string.length()) {
-									String string_298_ = string.substring(i_293_, i_294_);
-									string_298_ = string_298_.trim();
-									printwriter.println(string_298_);
-									i_293_ = i_294_ + 1;
-									i_294_ = string.indexOf("\n", i_293_);
-									i_297_++;
-									rd.setColor(new Color(225, 225, 225));
-									rd.fillRect(11, 141, 679, 401);
-									rd.setColor(new Color(0, 0, 0));
-									rd.drawString("Publishing Car...", 350 - ftm.stringWidth("Publishing Car...") / 2,
-											250);
-									rd.setColor(new Color(119, 147, 191));
-									rd.fillRect(250, 270, (int) ((float) i_297_ / (float) i_292_ * 200.0F), 7);
-									rd.setColor(new Color(0, 0, 0));
-									rd.drawRect(250, 270, 200, 7);
-									repaint();
-									try {
-										if (thredo != null) {
-											/* empty */
-										}
-										Thread.sleep(10L);
-									} catch (final InterruptedException interruptedexception) {
-										/* empty */
-									}
-								}
-								printwriter.println("QUITX1111");
-								rd.setColor(new Color(225, 225, 225));
-								rd.fillRect(11, 141, 679, 401);
-								rd.setColor(new Color(0, 0, 0));
-								rd.drawString("Creating the car online...",
-										350 - ftm.stringWidth("Creating the car online...") / 2, 250);
-								rd.drawString("This may take a couple of minutes, please wait...",
-										350 - ftm.stringWidth("This may take a couple of minutes, please wait...") / 2,
-										280);
-								repaint();
-								string_296_ = bufferedreader.readLine();
-								if (string_296_ != null)
-									i_295_ = servervalue(string_296_, 0);
-							}
-							socket.close();
-						} catch (final Exception exception) {
-							i_295_ = -1;
-						}
-						setCursor(new Cursor(0));
-						boolean bool = false;
-						if (i_295_ == 0) {
-							logged = 1;
-							bool = true;
-						}
-						if (i_295_ == 3) {
-							JOptionPane.showMessageDialog(null,
-									"Unable to publish car.\nReason:\nCar name is too large.  Please rename your car.  Car name must be less then 15 characters.",
-									"Car Maker", 1);
-							bool = true;
-						}
-						if (i_295_ == 4) {
-							JOptionPane.showMessageDialog(null,
-									new StringBuilder().append("Unable to publish car.\nReason:  Car name used (")
-											.append(carname).append(").\nThe name '").append(carname)
-											.append("' is already used by another published car.  Please rename your car.")
-											.toString(),
-									"Car Maker", 1);
-							bool = true;
-						}
-						if (i_295_ == 6) {
-							JOptionPane.showMessageDialog(null,
-									"Error Creating Car!\nReason:\nError loading 3D model!  Format maybe incorrect!",
-									"Car Maker", 1);
-							bool = true;
-						}
-						if (i_295_ == 7) {
-							JOptionPane.showMessageDialog(null,
-									"Error Creating Car!\nReason:\nFirst and Second colors not defined yet!\nPlease go to the 'Color Edit' tab to define the colors.",
-									"Car Maker", 1);
-							bool = true;
-						}
-						if (i_295_ == 8) {
-							JOptionPane.showMessageDialog(null,
-									"Error Creating Car!\nReason:\nCar Wheels not defined or not defined correctly!\nPlease go to the \u2018Wheels\u2019 tab and use  [ Apply ]  and  [ Save ]  to define correctly.",
-									"Car Maker", 1);
-							bool = true;
-						}
-						if (i_295_ == 9) {
-							JOptionPane.showMessageDialog(null,
-									"Error Creating Car!\nReason:\nNo car seems to be designed!\nYou have not built a car yet please go to the \u2018Car\u2019 tab to find the tutorial on how to build a car.",
-									"Car Maker", 1);
-							bool = true;
-						}
-						if (i_295_ == 10) {
-							JOptionPane.showMessageDialog(null,
-									"Error Creating Car!\nReason:\nCar contains too many polygons (pieces).\nNumber of polygons used need to be less then 10000.\nPlease use the counter in the \u2018Code Edit\u2019 to decrease the number of polygons (pieces).",
-									"Car Maker", 1);
-							bool = true;
-						}
-						if (i_295_ == 11) {
-							JOptionPane.showMessageDialog(null,
-									new StringBuilder()
-											.append("Error Creating Car!\nReason:\nCar scale size is too large!\nPlease use the \u2018Scale All\u2019 option in the \u2018Scale & Align\u2019 tab to resize your car to suitable size.       \nCompare it to other NFM cars using the \u2018Compare Car...\u2019 option.\nCurrently you car needs to be scaled down by ")
-											.append((int) (((o).maxR / 400.0F - 1.0F) * 100.0F)).append("%.\n")
-											.toString(),
-									"Car Maker", 1);
-							bool = true;
-						}
-						if (i_295_ == 12) {
-							JOptionPane.showMessageDialog(null,
-									new StringBuilder()
-											.append("Error Creating Car!\nReason:\nCar scale size is too small!\nPlease use the \u2018Scale All\u2019 option in the \u2018Scale & Align\u2019 tab to resize your car to suitable size.       \nCompare it to other NFM cars using the \u2018Compare Car...\u2019 option.\nCurrently you car needs to be scaled up by ")
-											.append((int) ((120.0F / (o).maxR - 1.0F) * 100.0F)).append("%.\n")
-											.toString(),
-									"Car Maker", 1);
-							bool = true;
-						}
-						if (i_295_ == 13) {
-							JOptionPane.showMessageDialog(null,
-									"Error Creating Car!\nReason:\nCar Stats & Class not defined correctly!\nPlease go to the 'Stats & Class' tab to define stats and don't forget to press  [ Save ]  when finished.\n",
-									"Car Maker", 1);
-							bool = true;
-						}
-						if (i_295_ == 14) {
-							JOptionPane.showMessageDialog(null,
-									"Error Creating Car!\nReason:\nCar Physics not defined correctly!\nPlease go to the 'Physics' tab and complete the car physics definition until it is saved.\n",
-									"Car Maker", 1);
-							bool = true;
-						}
-						if (i_295_ == 15) {
-							JOptionPane.showMessageDialog(null,
-									"Error Creating Car!\nReason:\nCar Handling not rated.\nPlease Test Drive your car to rate its handling before publishing!\n",
-									"Car Maker", 1);
-							bool = true;
-						}
-						if (i_295_ > 15) {
-							JOptionPane.showMessageDialog(null,
-									"Unable to publish car fully!  Unknown Error.  Please try again later.\n",
-									"Car Maker", 1);
-							bool = true;
-						}
-						if (!bool)
-							JOptionPane.showMessageDialog(null, "Unable to publish car!  Unknown Error.\n", "Car Maker",
-									1);
-					}
-				}
-			}
-			if (logged == 0) {
-				if (i == 1) {
-					setCursor(new Cursor(3));
-					int i_299_ = -1;
-					try {
-						final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
-						final BufferedReader bufferedreader = new BufferedReader(
-								new InputStreamReader(socket.getInputStream()));
-						final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-						printwriter.println(new StringBuilder().append("1|").append(tnick.getText().toLowerCase())
-								.append("|").append(tpass.getText()).append("|").toString());
-						final String string = bufferedreader.readLine();
-						if (string != null)
-							i_299_ = servervalue(string, 0);
-						socket.close();
-					} catch (final Exception exception) {
-						i_299_ = -1;
-					}
-					if (i_299_ == 0 || i_299_ == 3 || i_299_ > 10) {
-						tnick.setVisible(false);
-						tpass.setVisible(false);
-						logged = 1;
-						savesettings();
-					}
-					if (i_299_ == 1 || i_299_ == 2) {
-						setCursor(new Cursor(0));
-						JOptionPane.showMessageDialog(null, "Sorry.  Incorrect Nickname or Password!", "Car Maker", 0);
-					}
-					if (i_299_ == -167) {
-						setCursor(new Cursor(0));
-						JOptionPane.showMessageDialog(null,
-								"Sorry.  Trial accounts are not allowed to publish cars & stages, please register a full account!",
-								"Car Maker", 0);
-					}
-					if (i_299_ == -1) {
-						setCursor(new Cursor(0));
-						JOptionPane.showMessageDialog(null,
-								"Unable to connect to server at this moment, please try again later.", "Car Maker", 1);
-					}
-				}
-				if (i == 2)
-					Madness.openurl("http://multiplayer.needformadness.com/register.html");
-			}
-		}
-	}
-
-	public void setupo() {
-		o = new ContO(editor.getText().getBytes(), m, t);
-		(o).x = ox;
-		(o).y = oy;
-		(o).z = oz;
-		(o).xz = oxz;
-		(o).xy = oxy;
-		(o).zy = ozy;
-		(o).shadow = true;
-		(o).tnt = 0;
-		(o).disp = 0;
-		(o).disline = 7;
-		(o).grounded = 1.0F;
-		(o).noline = false;
-		(o).decor = false;
-		if ((o).errd && (!(o).err.startsWith("Wheels Error:") || forwheels))
-			JOptionPane.showMessageDialog(null, (o).err, "Car Maker", 0);
-		if ((o).maxR == 0)
-			(o).maxR = 100;
-		squash = 0;
-		hitmag = 0;
-	}
-
-	public void loadfile() {
-		loadedfile = false;
-		lastedo = "";
-		try {
-			final File file = new File(new StringBuilder().append("mycars/").append(carname).append(".rad").toString());
-			final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
-			String string;
-			while ((string = bufferedreader.readLine()) != null) {
-				final StringBuilder stringbuilder = new StringBuilder();
-				final CarMaker carmaker_300_ = this;
-				(carmaker_300_).lastedo = stringbuilder.append((carmaker_300_).lastedo).append("").append(string)
-						.append("\n").toString();
-			}
-			loadedfile = true;
-			bufferedreader.close();
-		} catch (final Exception exception) {
-			loadedfile = false;
-			lastedo = "";
-			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Unable to load file! Error Deatials:\n").append(exception).toString(),
-					"Car Maker", 1);
-		}
-		editor.setText(lastedo);
-	}
-
 	public void savefile() {
 		if (!editor.getText().equals(""))
 			try {
@@ -4184,125 +5268,6 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						.append(exception).toString(), "Car Maker", 1);
 			}
 		savesettings();
-	}
-
-	public void newcar(final String string) {
-		if (string.equals(""))
-			JOptionPane.showMessageDialog(null, "Please Enter a Car Name!\n", "Car Maker", 1);
-		else {
-			final String string_302_ = new StringBuilder().append("\n// car: ").append(string)
-					.append("\n---------------------\n\n// To start making you car you must start by reading the tutorial at:\n// http://www.needformadness.com/developer/simplecar.html\n\n\n<p>\nc(100,200,100)\n\np(-40,-50,80)\np(-40,-50,-70)\np(40,-50,-70)\np(40,-50,80)\n</p>\n\n<p>\nc(100,150,200)\n\np(-40,-20,-100)\np(-40,-50,-70)\np(40,-50,-70)\np(40,-20,-100)\n</p>\n\n\n\n")
-					.toString();
-			try {
-				File file = new File("mycars/");
-				if (!file.exists())
-					file.mkdirs();
-				carname = string;
-				file = new File(new StringBuilder().append("mycars/").append(carname).append(".rad").toString());
-				if (!file.exists()) {
-					final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
-					bufferedwriter.write(string_302_);
-					bufferedwriter.close();
-					if (file.exists()) {
-						sfase = 0;
-						hidefields();
-						tabed = -1;
-					} else
-						JOptionPane.showMessageDialog(null, "Failed to create car, unknown reason!\n", "Car Maker", 1);
-				} else
-					JOptionPane.showMessageDialog(null,
-							new StringBuilder().append("A car with the name '").append(carname)
-									.append("' already exists, please choose another name!\n").toString(),
-							"Car Maker", 1);
-			} catch (final Exception exception) {
-				carname = "";
-				JOptionPane.showMessageDialog(null, new StringBuilder()
-						.append("Unable to create file! Error Deatials:\n").append(exception).toString(), "Car Maker",
-						1);
-			}
-		}
-	}
-
-	public void delcar(final String string) {
-		if (string.equals(""))
-			JOptionPane.showMessageDialog(null, "Please Select a Car to Delete!\n", "Car Maker", 1);
-		else {
-			final int i = JOptionPane.showConfirmDialog(null, new StringBuilder()
-					.append("Are you sure you want to delete car :  ").append(string).append(" ?  ").toString(),
-					"Car Maker", 0);
-			if (i == 0)
-				try {
-					final File file = new File(
-							new StringBuilder().append("mycars/").append(string).append(".rad").toString());
-					file.delete();
-					slcar.remove(string);
-					slcar.select(0);
-				} catch (final Exception exception) {
-					JOptionPane.showMessageDialog(null, new StringBuilder()
-							.append("Unable to delete file! Error Deatials:\n").append(exception).toString(),
-							"Car Maker", 1);
-				}
-		}
-	}
-
-	public void rencar(final String string) {
-		if (string.equals(""))
-			JOptionPane.showMessageDialog(null, "Please Enter a New Car Name!\n", "Car Maker", 1);
-		else
-			try {
-				final File file = new File(
-						new StringBuilder().append("mycars/").append(carname).append(".rad").toString());
-				final File file_303_ = new File(
-						new StringBuilder().append("mycars/").append(string).append(".rad").toString());
-				if (file.renameTo(file_303_)) {
-					carname = string;
-					sfase = 0;
-					hidefields();
-					tabed = -1;
-				} else
-					JOptionPane
-							.showMessageDialog(null,
-									new StringBuilder().append("Unable to rename car to: '").append(string)
-											.append("', possible reason: Car name already used!\n").toString(),
-									"Car Maker", 1);
-			} catch (final Exception exception) {
-				JOptionPane.showMessageDialog(null, new StringBuilder()
-						.append("Unable to rename file! Error Deatials:\n").append(exception).toString(), "Car Maker",
-						1);
-			}
-	}
-
-	public void loadsettings() {
-		try {
-			final File file = new File("mycars/settings.data");
-			if (file.exists()) {
-				final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
-				String string = bufferedreader.readLine();
-				if (string != null) {
-					scar = string;
-					carname = scar;
-				}
-				string = bufferedreader.readLine();
-				if (string != null) {
-					suser = string;
-					if (!suser.equals("Horaks"))
-						tnick.setText(suser);
-				}
-				string = bufferedreader.readLine();
-				if (string != null) {
-					sfont = string;
-					cfont = sfont;
-				}
-				string = bufferedreader.readLine();
-				if (string != null) {
-					sthm = Float.valueOf(string).intValue();
-					cthm = sthm;
-				}
-				bufferedreader.close();
-			}
-		} catch (final Exception exception) {
-			/* empty */
-		}
 	}
 
 	public void savesettings() {
@@ -4327,340 +5292,58 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 		}
 	}
 
-	public boolean checko(final String string) {
-		loadfile();
-		setupo();
-		if ((o).colok < 2) {
-			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Car is not ready for ").append(string)
-							.append("!\nReason:\nFirst and Second colors not defined yet!\nPlease go to the 'Color Edit' tab to define the colors.\n")
-							.toString(),
-					"Car Maker", 1);
-			return false;
-		}
-		/*
-		 * boolean bool = true; if ((o).keyz[0] <= 0 || (o).keyx[0] >= 0) bool =
-		 * false; if ((o).keyz[1] <= 0 || (o).keyx[1] <= 0) bool = false; if
-		 * ((o).keyz[2] >= 0 || (o).keyx[2] >= 0) bool = false; if ((o).keyz[3]
-		 * >= 0 || (o).keyx[3] <= 0) bool = false; if (!bool) {
-		 * JOptionPane.showMessageDialog(null, new StringBuilder().append(
-		 * "Car is not ready for ").append(string).append(
-		 * "!\nReason:\nCar Wheels not defined or not defined correctly!\nPlease go to the \u2018Wheels\u2019 tab and use  [ Apply ]  and  [ Save ]  to define correctly.\n"
-		 * ).toString(), "Car Maker", 1); return false; }
-		 */
-		if ((o).npl <= 0) {
-			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Car is not ready for ").append(string)
-							.append("!\nReason:\nNo car seems to be designed!\nYou have not built a car yet please go to the \u2018Car\u2019 tab to find the tutorial on how to build a car.\n")
-							.toString(),
-					"Car Maker", 1);
-			return false;
-		}
-		if ((o).npl > 10000) {
-			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Car is not ready for ").append(string)
-							.append("!\nReason:\nCar contains too many polygons (pieces).\nNumber of polygons used need to be less then 10000.\nPlease use the counter in the \u2018Code Edit\u2019 to decrease the number of polygons (pieces).\n")
-							.toString(),
-					"Car Maker", 1);
-			return false;
-		}
-		if ((o).maxR > 40000) {
-			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Car is not ready for ").append(string)
-							.append("!\nReason:\nCar scale size is too large!\nPlease use the \u2018Scale All\u2019 option in the \u2018Scale & Align\u2019 tab to resize your car to suitable size.       \nCompare it to other NFM cars using the \u2018Compare Car...\u2019 option.\nCurrently you car needs to be scaled down by ")
-							.append((int) (((o).maxR / 400.0F - 1.0F) * 100.0F)).append("%.\n").toString(),
-					"Car Maker", 1);
-			return false;
-		}
-		if ((o).maxR < 2) {
-			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Car is not ready for ").append(string)
-							.append("!\nReason:\nCar scale size is too small!\nPlease use the \u2018Scale All\u2019 option in the \u2018Scale & Align\u2019 tab to resize your car to suitable size.       \nCompare it to other NFM cars using the \u2018Compare Car...\u2019 option.\nCurrently you car needs to be scaled up by ")
-							.append((int) ((120.0F / (o).maxR - 1.0F) * 100.0F)).append("%.\n").toString(),
-					"Car Maker", 1);
-			return false;
-		}
-		final String string_304_ = new StringBuilder().append("").append(editor.getText()).append("\n").toString();
-		int i = 0;
-		int i_305_ = string_304_.indexOf("\n", 0);
-		boolean bool_306_ = false;
-		boolean bool_307_ = false;
-		boolean bool_308_ = false;
-		while (i_305_ != -1 && i < string_304_.length()) {
-			String string_309_ = string_304_.substring(i, i_305_);
-			string_309_ = string_309_.trim();
-			i = i_305_ + 1;
-			i_305_ = string_304_.indexOf("\n", i);
-			if (string_309_.startsWith("stat(")) {
-				bool_306_ = true;
-				try {
-					int i_310_ = 0;
-					for (int i_311_ = 0; i_311_ < 5; i_311_++) {
-						stat[i_311_] = getvalue("stat", string_309_, i_311_);
-						if (stat[i_311_] > 200)
-							bool_306_ = false;
-						if (stat[i_311_] < 16)
-							bool_306_ = false;
-						i_310_ += stat[i_311_];
-					}
-					if (i_310_ != 680 && i_310_ != 640 && i_310_ != 600 && i_310_ != 560 && i_310_ != 520)
-						bool_306_ = false;
-				} catch (final Exception exception) {
-					bool_306_ = false;
+	public String serverSvalue(final String string, final int i) {
+		String string_380_ = "";
+		try {
+			int i_381_ = 0;
+			int i_382_ = 0;
+			int i_383_ = 0;
+			String string_384_ = "";
+			String string_385_ = "";
+			for (/**/; i_381_ < string.length() && i_383_ != 2; i_381_++) {
+				string_384_ = new StringBuilder().append("").append(string.charAt(i_381_)).toString();
+				if (string_384_.equals("|")) {
+					i_382_++;
+					if (i_383_ == 1 || i_382_ > i)
+						i_383_ = 2;
+				} else if (i_382_ == i) {
+					string_385_ = new StringBuilder().append(string_385_).append(string_384_).toString();
+					i_383_ = 1;
 				}
 			}
-			if (string_309_.startsWith("physics(")) {
-				bool_307_ = true;
-				try {
-					for (int i_312_ = 0; i_312_ < 11; i_312_++)
-						phys[i_312_] = getvalue("physics", string_309_, i_312_);
-					// if (phys[i_312_] > 100)
-					// bool_307_ = false;
-					// if (phys[i_312_] < 0)
-					// bool_307_ = false;
-					for (int i_313_ = 0; i_313_ < 3; i_313_++)
-						crash[i_313_] = getvalue("physics", string_309_, i_313_ + 11);
-					// if (i_313_ != 0 && crash[i_313_] > 100)
-					// bool_307_ = false;
-					// if (crash[i_313_] < 0)
-					// bool_307_ = false;
-					engsel = getvalue("physics", string_309_, 14);
-					if (engsel > 4)
-						bool_307_ = false;
-					if (engsel < 0)
-						bool_307_ = false;
-				} catch (final Exception exception) {
-					bool_307_ = false;
-				}
-			}
-			if (string_309_.startsWith("handling(")) {
-				bool_308_ = true;
-				try {
-					getvalue("handling", string_309_, 0);
-				} catch (final Exception exception) {
-					bool_308_ = false;
-				}
-			}
+			string_380_ = string_385_;
+		} catch (final Exception exception) {
+			/* empty */
 		}
-		if (!bool_306_) {
-			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Car is not ready for ").append(string)
-							.append("!\nReason:\nCar Stats & Class not defined correctly!\nPlease go to the 'Stats & Class' tab to define stats and don't forget to press  [ Save ]  when finished.\n")
-							.toString(),
-					"Car Maker", 1);
-			return false;
-		}
-		if (!bool_307_) {
-			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Car is not ready for ").append(string)
-							.append("!\nReason:\nCar Physics not defined correctly!\nPlease go to the 'Physics' tab and complete the car physics definition until it is saved.\n")
-							.toString(),
-					"Car Maker", 1);
-			return false;
-		}
-		if (!bool_308_ && string.equals("Publishing")) {
-			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Car is not ready for ").append(string)
-							.append("!\nReason:\nCar Handling not rated.\nPlease Test Drive your car to rate its handling before publishing!\n")
-							.toString(),
-					"Car Maker", 1);
-			return false;
-		}
-		return true;
+		return string_380_;
 	}
 
-	public void regx(final int i, float f, final boolean bool) {
-		hitmag += f;
-		if (!bool)
-			crash(f);
-		f *= 0.3F + crash[1] * 0.005F;
-		if (Math.abs(f) > 100.0F) {
-			int i_315_ = (int) (crash[0] * crash[0] * 1.5);
-			if (i_315_ < 1000)
-				i_315_ = 1000;
-			if (f > 100.0F)
-				f -= 100.0F;
-			if (f < -100.0F)
-				f += 100.0F;
-			for (int i_316_ = 0; i_316_ < (o).npl; i_316_++) {
-				float f_317_ = 0.0F;
-				for (int i_318_ = 0; i_318_ < ((o).p[i_316_]).n; i_318_++)
-					if (((o).p[i_316_]).wz == 0 && py((o).keyx[i], ((o).p[i_316_]).ox[i_318_], (o).keyz[i],
-							((o).p[i_316_]).oz[i_318_]) < i_315_) {
-						f_317_ = f / 20.0F * m.random();
-						((o).p[i_316_]).oz[i_318_] -= f_317_ * m.sin((o).xz) * m.cos((o).zy);
-						((o).p[i_316_]).ox[i_318_] += f_317_ * m.cos((o).xz) * m.cos((o).xy);
-						if (bool)
-							actmag += Math.abs(f_317_);
-					}
-				if (f_317_ != 0.0F) {
-					if (Math.abs(f_317_) >= 1.0F) {
-						((o).p[i_316_]).chip = 1;
-						((o).p[i_316_]).ctmag = f_317_;
-					}
-					if (!((o).p[i_316_]).nocol && ((o).p[i_316_]).glass != 1) {
-						if (((o).p[i_316_]).bfase > 20 && ((o).p[i_316_]).hsb[1] > 0.25)
-							((o).p[i_316_]).hsb[1] = 0.25F;
-						if (((o).p[i_316_]).bfase > 25 && ((o).p[i_316_]).hsb[2] > 0.7)
-							((o).p[i_316_]).hsb[2] = 0.7F;
-						if (((o).p[i_316_]).bfase > 30 && ((o).p[i_316_]).hsb[1] > 0.15)
-							((o).p[i_316_]).hsb[1] = 0.15F;
-						if (((o).p[i_316_]).bfase > 35 && ((o).p[i_316_]).hsb[2] > 0.6)
-							((o).p[i_316_]).hsb[2] = 0.6F;
-						if (((o).p[i_316_]).bfase > 40)
-							((o).p[i_316_]).hsb[0] = 0.075F;
-						if (((o).p[i_316_]).bfase > 50 && ((o).p[i_316_]).hsb[2] > 0.5)
-							((o).p[i_316_]).hsb[2] = 0.5F;
-						if (((o).p[i_316_]).bfase > 60)
-							((o).p[i_316_]).hsb[0] = 0.05F;
-						((o).p[i_316_]).bfase += Math.abs(f_317_);
-						new Color(((o).p[i_316_]).c[0], ((o).p[i_316_]).c[1], ((o).p[i_316_]).c[2]);
-						final Color color = Color.getHSBColor(((o).p[i_316_]).hsb[0], ((o).p[i_316_]).hsb[1],
-								((o).p[i_316_]).hsb[2]);
-						((o).p[i_316_]).c[0] = color.getRed();
-						((o).p[i_316_]).c[1] = color.getGreen();
-						((o).p[i_316_]).c[2] = color.getBlue();
-					}
-					if (((o).p[i_316_]).glass == 1)
-						((o).p[i_316_]).gr += Math.abs(f_317_ * 1.5);
+	public int servervalue(final String string, final int i) {
+		int i_374_ = -1;
+		try {
+			int i_375_ = 0;
+			int i_376_ = 0;
+			int i_377_ = 0;
+			String string_378_ = "";
+			String string_379_ = "";
+			for (/**/; i_375_ < string.length() && i_377_ != 2; i_375_++) {
+				string_378_ = new StringBuilder().append("").append(string.charAt(i_375_)).toString();
+				if (string_378_.equals("|")) {
+					i_376_++;
+					if (i_377_ == 1 || i_376_ > i)
+						i_377_ = 2;
+				} else if (i_376_ == i) {
+					string_379_ = new StringBuilder().append(string_379_).append(string_378_).toString();
+					i_377_ = 1;
 				}
 			}
+			if (string_379_.equals(""))
+				string_379_ = "-1";
+			i_374_ = Integer.valueOf(string_379_).intValue();
+		} catch (final Exception exception) {
+			/* empty */
 		}
-	}
-
-	public void regz(final int i, float f, final boolean bool) {
-		hitmag += f;
-		if (!bool)
-			crash(f);
-		f *= 0.3F + crash[1] * 0.005F;
-		if (Math.abs(f) > 100.0F) {
-			int i_319_ = (int) (crash[0] * crash[0] * 1.5);
-			if (i_319_ < 1000)
-				i_319_ = 1000;
-			if (f > 100.0F)
-				f -= 100.0F;
-			if (f < -100.0F)
-				f += 100.0F;
-			for (int i_320_ = 0; i_320_ < (o).npl; i_320_++) {
-				float f_321_ = 0.0F;
-				for (int i_322_ = 0; i_322_ < ((o).p[i_320_]).n; i_322_++)
-					if (((o).p[i_320_]).wz == 0 && py((o).keyx[i], ((o).p[i_320_]).ox[i_322_], (o).keyz[i],
-							((o).p[i_320_]).oz[i_322_]) < i_319_) {
-						f_321_ = f / 20.0F * m.random();
-						((o).p[i_320_]).oz[i_322_] += f_321_ * m.cos((o).xz) * m.cos((o).zy);
-						((o).p[i_320_]).ox[i_322_] += f_321_ * m.sin((o).xz) * m.cos((o).xy);
-						if (bool)
-							actmag += Math.abs(f_321_);
-					}
-				if (f_321_ != 0.0F) {
-					if (Math.abs(f_321_) >= 1.0F) {
-						((o).p[i_320_]).chip = 1;
-						((o).p[i_320_]).ctmag = f_321_;
-					}
-					if (!((o).p[i_320_]).nocol && ((o).p[i_320_]).glass != 1) {
-						if (((o).p[i_320_]).bfase > 20 && ((o).p[i_320_]).hsb[1] > 0.25)
-							((o).p[i_320_]).hsb[1] = 0.25F;
-						if (((o).p[i_320_]).bfase > 25 && ((o).p[i_320_]).hsb[2] > 0.7)
-							((o).p[i_320_]).hsb[2] = 0.7F;
-						if (((o).p[i_320_]).bfase > 30 && ((o).p[i_320_]).hsb[1] > 0.15)
-							((o).p[i_320_]).hsb[1] = 0.15F;
-						if (((o).p[i_320_]).bfase > 35 && ((o).p[i_320_]).hsb[2] > 0.6)
-							((o).p[i_320_]).hsb[2] = 0.6F;
-						if (((o).p[i_320_]).bfase > 40)
-							((o).p[i_320_]).hsb[0] = 0.075F;
-						if (((o).p[i_320_]).bfase > 50 && ((o).p[i_320_]).hsb[2] > 0.5)
-							((o).p[i_320_]).hsb[2] = 0.5F;
-						if (((o).p[i_320_]).bfase > 60)
-							((o).p[i_320_]).hsb[0] = 0.05F;
-						((o).p[i_320_]).bfase += Math.abs(f_321_);
-						new Color(((o).p[i_320_]).c[0], ((o).p[i_320_]).c[1], ((o).p[i_320_]).c[2]);
-						final Color color = Color.getHSBColor(((o).p[i_320_]).hsb[0], ((o).p[i_320_]).hsb[1],
-								((o).p[i_320_]).hsb[2]);
-						((o).p[i_320_]).c[0] = color.getRed();
-						((o).p[i_320_]).c[1] = color.getGreen();
-						((o).p[i_320_]).c[2] = color.getBlue();
-					}
-					if (((o).p[i_320_]).glass == 1)
-						((o).p[i_320_]).gr += Math.abs(f_321_ * 1.5);
-				}
-			}
-		}
-	}
-
-	public void roofsqsh(float f) {
-		if (f > 100.0F) {
-			crash(f);
-			f -= 100.0F;
-			final int i = (int) (2.0 + crash[2] / 7.6);
-			int i_323_ = 0;
-			int i_324_ = 1;
-			for (int i_325_ = 0; i_325_ < (o).npl; i_325_++) {
-				float f_326_ = 0.0F;
-				if (Math.random() > 0.9)
-					f_326_ = f / 15.0F * m.random();
-				for (int i_327_ = 0; i_327_ < ((o).p[i_325_]).n; i_327_++)
-					if (((o).p[i_325_]).wz == 0 && (Math.abs(((o).p[i_325_]).oy[i_327_] - (o).roofat - squash) < i * 3
-							|| ((o).p[i_325_]).oy[i_327_] < (o).roofat + squash) && squash < i) {
-						f_326_ = f / 15.0F * m.random();
-						((o).p[i_325_]).oy[i_327_] += f_326_;
-						i_323_ += f_326_;
-						i_324_++;
-						hitmag += Math.abs(f_326_);
-					}
-				if (!((o).p[i_325_]).nocol && ((o).p[i_325_]).glass != 1) {
-					if (f_326_ != 0.0F) {
-						if (((o).p[i_325_]).bfase > 20 && ((o).p[i_325_]).hsb[1] > 0.25)
-							((o).p[i_325_]).hsb[1] = 0.25F;
-						if (((o).p[i_325_]).bfase > 25 && ((o).p[i_325_]).hsb[2] > 0.7)
-							((o).p[i_325_]).hsb[2] = 0.7F;
-						if (((o).p[i_325_]).bfase > 30 && ((o).p[i_325_]).hsb[1] > 0.15)
-							((o).p[i_325_]).hsb[1] = 0.15F;
-						if (((o).p[i_325_]).bfase > 35 && ((o).p[i_325_]).hsb[2] > 0.6)
-							((o).p[i_325_]).hsb[2] = 0.6F;
-						if (((o).p[i_325_]).bfase > 40)
-							((o).p[i_325_]).hsb[0] = 0.075F;
-						if (((o).p[i_325_]).bfase > 50 && ((o).p[i_325_]).hsb[2] > 0.5)
-							((o).p[i_325_]).hsb[2] = 0.5F;
-						if (((o).p[i_325_]).bfase > 60)
-							((o).p[i_325_]).hsb[0] = 0.05F;
-						((o).p[i_325_]).bfase += f_326_;
-						new Color(((o).p[i_325_]).c[0], ((o).p[i_325_]).c[1], ((o).p[i_325_]).c[2]);
-						final Color color = Color.getHSBColor(((o).p[i_325_]).hsb[0], ((o).p[i_325_]).hsb[1],
-								((o).p[i_325_]).hsb[2]);
-						((o).p[i_325_]).c[0] = color.getRed();
-						((o).p[i_325_]).c[1] = color.getGreen();
-						((o).p[i_325_]).c[2] = color.getBlue();
-					}
-				} else if (((o).p[i_325_]).glass == 1)
-					((o).p[i_325_]).gr += 5;
-				if (Math.abs(f_326_) >= 1.0F) {
-					((o).p[i_325_]).chip = 1;
-					((o).p[i_325_]).ctmag = f_326_;
-				}
-			}
-			squash += i_323_ / i_324_;
-		}
-	}
-
-	public void crash(float f) {
-		if (f > 100.0F)
-			f -= 100.0F;
-		if (f < -100.0F)
-			f += 100.0F;
-		if (Math.abs(f) > 25.0F && Math.abs(f) < 170.0F)
-			lowcrashs[crshturn].play();
-		if (Math.abs(f) >= 170.0F)
-			crashs[crshturn].play();
-		if (Math.abs(f) > 25.0F) {
-			if (crashup)
-				crshturn--;
-			else
-				crshturn++;
-			if (crshturn == -1)
-				crshturn = 2;
-			if (crshturn == 3)
-				crshturn = 0;
-		}
+		return i_374_;
 	}
 
 	public void setheme() {
@@ -4698,242 +5381,27 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 		}
 	}
 
-	public int py(final int i, final int i_328_, final int i_329_, final int i_330_) {
-		return (i - i_328_) * (i - i_328_) + (i_329_ - i_330_) * (i_329_ - i_330_);
-	}
-
-	public void rot(final int[] is, final int[] is_331_, final int i, final int i_332_, final int i_333_,
-			final int i_334_) {
-		if (i_333_ != 0)
-			for (int i_335_ = 0; i_335_ < i_334_; i_335_++) {
-				final int i_336_ = is[i_335_];
-				final int i_337_ = is_331_[i_335_];
-				is[i_335_] = i + (int) ((i_336_ - i) * m.cos(i_333_) - (i_337_ - i_332_) * m.sin(i_333_));
-				is_331_[i_335_] = i_332_ + (int) ((i_336_ - i) * m.sin(i_333_) + (i_337_ - i_332_) * m.cos(i_333_));
-			}
-	}
-
-	public int xs(final int i, int i_338_) {
-		if (i_338_ < (m).cz)
-			i_338_ = (m).cz;
-		return (i_338_ - (m).focus_point) * ((m).cx - i) / i_338_ + i;
-	}
-
-	public int ys(final int i, int i_339_) {
-		if (i_339_ < (m).cz)
-			i_339_ = (m).cz;
-		return (i_339_ - (m).focus_point) * ((m).cy - i) / i_339_ + i;
-	}
-
-	@Override
-	public void init() {
-		setBackground(new Color(0, 0, 0));
-		offImage = createImage(700, 550);
-		if (offImage != null)
-			rd = (Graphics2D) offImage.getGraphics();
-		rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-		setLayout(null);
-		slcar.setFont(new Font("Arial", 1, 13));
-		slcar.add(rd, "Select a Car...         ");
-		slcar.setForeground(new Color(63, 80, 110));
-		slcar.setBackground(new Color(209, 217, 230));
-		fontsel.setFont(new Font("Arial", 1, 12));
-		fontsel.add(rd, "Arial");
-		fontsel.add(rd, "Dialog");
-		fontsel.add(rd, "DialogInput");
-		fontsel.add(rd, "Monospaced");
-		fontsel.add(rd, "Serif");
-		fontsel.add(rd, "SansSerif");
-		fontsel.add(rd, "Verdana");
-		fontsel.setBackground(new Color(63, 80, 110));
-		fontsel.setForeground(new Color(209, 217, 230));
-		ctheme.setFont(new Font("Arial", 1, 12));
-		ctheme.add(rd, "Default");
-		ctheme.add(rd, "Author");
-		ctheme.add(rd, "Dos");
-		ctheme.add(rd, "Green");
-		ctheme.add(rd, "The Matrix");
-		ctheme.add(rd, "Ice Age");
-		ctheme.add(rd, "Fire");
-		ctheme.add(rd, "Ocean");
-		ctheme.setBackground(new Color(63, 80, 110));
-		ctheme.setForeground(new Color(209, 217, 230));
-		compcar.setFont(new Font("Arial", 1, 12));
-		compcar.add(rd, "Compare Car...");
-		compcar.add(rd, "Tornado Shark");
-		compcar.add(rd, "Formula 7");
-		compcar.add(rd, "Wow Caninaro");
-		compcar.add(rd, "La Vita Crab");
-		compcar.add(rd, "Nimi");
-		compcar.add(rd, "MAX Revenge");
-		compcar.add(rd, "Lead Oxide");
-		compcar.add(rd, "Kool Kat");
-		compcar.add(rd, "Drifter X");
-		compcar.add(rd, "Sword of Justice");
-		compcar.add(rd, "High Rider");
-		compcar.add(rd, "EL KING");
-		compcar.add(rd, "Mighty Eight");
-		compcar.add(rd, "M A S H E E N");
-		compcar.add(rd, "Radical One");
-		compcar.add(rd, "DR Monstaa");
-		compcar.add(rd, " -  None  - ");
-		compcar.setBackground(new Color(63, 80, 110));
-		compcar.setForeground(new Color(209, 217, 230));
-		cls.setFont(new Font("Arial", 1, 12));
-		cls.add(rd, "Class A");
-		cls.add(rd, "Class A & B");
-		cls.add(rd, "Class B");
-		cls.add(rd, "Class B & C");
-		cls.add(rd, "Class C");
-		cls.setBackground(new Color(63, 80, 110));
-		cls.setForeground(new Color(209, 217, 230));
-		simcar.setFont(new Font("Arial", 1, 12));
-		simcar.add(rd, "Tornado Shark");
-		simcar.add(rd, "Formula 7");
-		simcar.add(rd, "Wow Caninaro");
-		simcar.add(rd, "La Vita Crab");
-		simcar.add(rd, "Nimi");
-		simcar.add(rd, "MAX Revenge");
-		simcar.add(rd, "Lead Oxide");
-		simcar.add(rd, "Kool Kat");
-		simcar.add(rd, "Drifter X");
-		simcar.add(rd, "Sword of Justice");
-		simcar.add(rd, "High Rider");
-		simcar.add(rd, "EL KING");
-		simcar.add(rd, "Mighty Eight");
-		simcar.add(rd, "M A S H E E N");
-		simcar.add(rd, "Radical One");
-		simcar.add(rd, "DR Monstaa");
-		simcar.setBackground(new Color(63, 80, 110));
-		simcar.setForeground(new Color(209, 217, 230));
-		witho.setFont(new Font("Arial", 1, 12));
-		witho.add(rd, "With other cars");
-		witho.add(rd, "Alone");
-		witho.setBackground(new Color(63, 80, 110));
-		witho.setForeground(new Color(209, 217, 230));
-		engine.setFont(new Font("Arial", 1, 12));
-		engine.add(rd, "Normal Engine");
-		engine.add(rd, "V8 Engine");
-		engine.add(rd, "Retro Engine");
-		engine.add(rd, "Power Engine");
-		engine.add(rd, "Diesel Engine");
-		engine.setBackground(new Color(63, 80, 110));
-		engine.setForeground(new Color(209, 217, 230));
-		final MenuItem menuitem = new MenuItem("Cut");
-		final MenuItem menuitem_340_ = new MenuItem("Copy");
-		final MenuItem menuitem_341_ = new MenuItem("Paste");
-		final MenuItem menuitem_342_ = new MenuItem("Select All");
-		popupMenu = new PopupMenu();
-		popupMenu.add(menuitem);
-		popupMenu.add(menuitem_340_);
-		popupMenu.add(menuitem_341_);
-		popupMenu.add(menuitem_342_);
-		menuitem.addActionListener(this);
-		menuitem_340_.addActionListener(this);
-		menuitem_341_.addActionListener(this);
-		menuitem_342_.addActionListener(this);
-		add(popupMenu);
-		for (int i = 0; i < 16; i++) {
-			wv[i] = new TextField("", 2);
-			wv[i].setBackground(new Color(255, 255, 255));
-			wv[i].setForeground(new Color(0, 0, 0));
-			wv[i].setFont(new Font(cfont, 1, 14));
-			wv[i].addMouseListener(new MouseHandler(popupMenu, i));
-			add(wv[i]);
-		}
-		tnick.setFont(new Font("Arial", 1, 13));
-		tnick.setBackground(new Color(255, 255, 255));
-		tnick.setForeground(new Color(0, 0, 0));
-		tpass.setFont(new Font("Arial", 1, 13));
-		tpass.setEchoCharacter('*');
-		tpass.setBackground(new Color(255, 255, 255));
-		tpass.setForeground(new Color(0, 0, 0));
-		pubtyp.setFont(new Font("Arial", 1, 13));
-		pubtyp.add(rd, "Private");
-		pubtyp.add(rd, "Public");
-		pubtyp.add(rd, "Super Public");
-		pubtyp.setBackground(new Color(63, 80, 110));
-		pubtyp.setForeground(new Color(209, 217, 230));
-		srch.setBackground(new Color(255, 255, 255));
-		srch.setForeground(new Color(0, 0, 0));
-		srch.addMouseListener(new MouseHandler(popupMenu, 16));
-		rplc.setBackground(new Color(255, 255, 255));
-		rplc.setForeground(new Color(0, 0, 0));
-		rplc.addMouseListener(new MouseHandler(popupMenu, 17));
-		editor.addMouseListener(new MouseHandler(popupMenu, 18));
-		add(tnick);
-		add(tpass);
-		add(editor);
-		add(srch);
-		add(rplc);
-		defb = new Color(255, 255, 255);
-		deff = new Color(0, 0, 0);
-		hidefields();
-	}
-
-	public void hidefields() {
-		pubtyp.setVisible(false);
-		tpass.setVisible(false);
-		tnick.setVisible(false);
-		slcar.setVisible(false);
-		witho.setVisible(false);
-		for (int i = 0; i < 16; i++)
-			wv[i].setVisible(false);
-		simcar.setVisible(false);
-		engine.setVisible(false);
-		cls.setVisible(false);
-		compcar.setVisible(false);
-		editor.setVisible(false);
-		fontsel.setVisible(false);
-		ctheme.setVisible(false);
-		srch.setVisible(false);
-		rplc.setVisible(false);
-	}
-
-	public void movefield(final Component component, int i, int i_343_, final int i_344_, final int i_345_) {
-		i += apx;
-		i_343_ += apy;
-		if (component.getX() != i || component.getY() != i_343_ || component.getWidth() != i_344_
-				|| component.getHeight() != i_345_)
-			component.setBounds(i, i_343_, i_344_, i_345_);
-	}
-
-	public void drawms() {
-		openm = false;
-		if (pubtyp.draw(rd, xm, ym, mousdr, 550, false))
-			openm = true;
-		if (fontsel.draw(rd, xm, ym, mousdr, 550, true))
-			openm = true;
-		if (ctheme.draw(rd, xm, ym, mousdr, 550, true))
-			openm = true;
-		if (compcar.draw(rd, xm, ym, mousdr, 550, true))
-			openm = true;
-		if (cls.draw(rd, xm, ym, mousdr, 550, true))
-			openm = true;
-		if (simcar.draw(rd, xm, ym, mousdr, 550, true))
-			openm = true;
-		if (engine.draw(rd, xm, ym, mousdr, 550, false))
-			openm = true;
-		if (witho.draw(rd, xm, ym, mousdr, 550, true))
-			openm = true;
-		if (slcar.draw(rd, xm, ym, mousdr, 550, false))
-			openm = true;
-		if (openm) {
-			waso = true;
-			mouses = 0;
-		}
-	}
-
-	public void openlink() {
-		Madness.openurl("http://www.needformadness.com/developer/simplecar.html");
-	}
-
-	public void openhlink() {
-		Madness.openurl("http://www.needformadness.com/developer/");
-	}
-
-	public void openelink() {
-		Madness.openurl("http://www.needformadness.com/developer/extras.html");
+	public void setupo() {
+		o = new ContO(editor.getText().getBytes(), m, t);
+		o.x = ox;
+		o.y = oy;
+		o.z = oz;
+		o.xz = oxz;
+		o.xy = oxy;
+		o.zy = ozy;
+		o.shadow = true;
+		o.tnt = 0;
+		o.disp = 0;
+		o.disline = 7;
+		o.grounded = 1.0F;
+		o.noline = false;
+		o.decor = false;
+		if (o.errd && (!o.err.startsWith("Wheels Error:") || forwheels))
+			JOptionPane.showMessageDialog(null, o.err, "Car Maker", 0);
+		if (o.maxR == 0)
+			o.maxR = 100;
+		squash = 0;
+		hitmag = 0;
 	}
 
 	@Override
@@ -4946,370 +5414,6 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 	@Override
 	public void stop() {
 		exwist = true;
-	}
-
-	@Override
-	public void paint(final Graphics graphics) {
-		apx = getWidth() / 2 - 350;
-		apy = getHeight() / 2 - 275;
-		graphics.drawImage(offImage, apx, apy, this);
-	}
-
-	@Override
-	public void update(final Graphics graphics) {
-		paint(graphics);
-	}
-
-	@Override
-	public boolean mouseUp(final Event event, final int i, final int i_346_) {
-		xm = i - apx;
-		ym = i_346_ - apy;
-		if (waso)
-			waso = false;
-		else
-			mouses = -1;
-		mousdr = false;
-		if (onbtgame)
-			Madness.game();
-		return false;
-	}
-
-	@Override
-	public boolean mouseDown(final Event event, final int i, final int i_347_) {
-		xm = i - apx;
-		ym = i_347_ - apy;
-		mouses = 1;
-		mousdr = true;
-		if (tab != 1)
-			requestFocus();
-		return false;
-	}
-
-	@Override
-	public boolean mouseMove(final Event event, final int i, final int i_348_) {
-		xm = i - apx;
-		ym = i_348_ - apy;
-		if (xm > 520 && xm < 674 && ym > 0 && ym < 23) {
-			if (!onbtgame) {
-				onbtgame = true;
-				setCursor(new Cursor(12));
-			}
-		} else if (onbtgame) {
-			onbtgame = false;
-			setCursor(new Cursor(0));
-		}
-		return false;
-	}
-
-	@Override
-	public boolean mouseDrag(final Event event, final int i, final int i_349_) {
-		mousdr = true;
-		xm = i - apx;
-		ym = i_349_ - apy;
-		return false;
-	}
-
-	@Override
-	public boolean lostFocus(final Event event, final Object object) {
-		focuson = false;
-		return false;
-	}
-
-	@Override
-	public boolean gotFocus(final Event event, final Object object) {
-		focuson = true;
-		return false;
-	}
-
-	@Override
-	public boolean keyDown(final Event event, final int i) {
-		if (focuson) {
-			if (i == 54 || i == 46 || i == 100 || i == 68)
-				rotr = true;
-			if (i == 52 || i == 44 || i == 97 || i == 65)
-				rotl = true;
-			if (i == 43 || i == 61)
-				plus = true;
-			if (i == 45)
-				minus = true;
-			if (i == 42 || i == 10 || i == 56 || i == 119 || i == 87)
-				in = true;
-			if (i == 47 || i == 8 || i == 50 || i == 115 || i == 83)
-				out = true;
-			if (i == 1006)
-				left = true;
-			if (i == 1007)
-				right = true;
-			if (i == 1005)
-				down = true;
-			if (i == 1004)
-				up = true;
-		}
-		return false;
-	}
-
-	@Override
-	public boolean keyUp(final Event event, final int i) {
-		if (i == 54 || i == 46 || i == 100 || i == 68)
-			rotr = false;
-		if (i == 52 || i == 44 || i == 97 || i == 65)
-			rotl = false;
-		if (i == 43 || i == 61)
-			plus = false;
-		if (i == 45)
-			minus = false;
-		if (i == 42 || i == 10 || i == 56 || i == 119 || i == 97)
-			in = false;
-		if (i == 47 || i == 8 || i == 50 || i == 115 || i == 83)
-			out = false;
-		if (i == 1006)
-			left = false;
-		if (i == 1007)
-			right = false;
-		if (i == 1005)
-			down = false;
-		if (i == 1004)
-			up = false;
-		return false;
-	}
-
-	public void loadsounds() {
-		try {
-			final File file = new File("data/sounds.zip");
-			final FileInputStream fileinputstream = new FileInputStream(file);
-			final ZipInputStream zipinputstream = new ZipInputStream(fileinputstream);
-			for (ZipEntry zipentry = zipinputstream.getNextEntry(); zipentry != null; zipentry = zipinputstream
-					.getNextEntry()) {
-				int i = (int) zipentry.getSize();
-				final String string = zipentry.getName();
-				final byte[] is = new byte[i];
-				int i_350_ = 0;
-				int i_351_;
-				for (/**/; i > 0; i -= i_351_) {
-					i_351_ = zipinputstream.read(is, i_350_, i);
-					i_350_ += i_351_;
-				}
-				for (int i_352_ = 0; i_352_ < 5; i_352_++)
-					for (int i_353_ = 0; i_353_ < 5; i_353_++)
-						if (string.equals(new StringBuilder().append("").append(i_353_).append("").append(i_352_)
-								.append(".wav").toString()))
-							engs[i_353_][i_352_] = new soundClip(is);
-				for (int i_354_ = 0; i_354_ < 3; i_354_++)
-					if (string.equals(new StringBuilder().append("crash").append(i_354_ + 1).append(".wav").toString()))
-						crashs[i_354_] = new soundClip(is);
-				for (int i_355_ = 0; i_355_ < 3; i_355_++)
-					if (string.equals(
-							new StringBuilder().append("lowcrash").append(i_355_ + 1).append(".wav").toString()))
-						lowcrashs[i_355_] = new soundClip(is);
-			}
-			fileinputstream.close();
-			zipinputstream.close();
-		} catch (final Exception exception) {
-			System.out.println(new StringBuilder().append("Error Loading Sounds: ").append(exception).toString());
-		}
-		System.gc();
-	}
-
-	public void loadbase() {
-		final String[] strings = { "2000tornados", "formula7", "canyenaro", "lescrab", "nimi", "maxrevenge",
-				"leadoxide", "koolkat", "drifter", "policecops", "mustang", "king", "audir8", "masheen", "radicalone",
-				"drmonster" };
-		try {
-			final File file = new File("data/models.zip");
-			final ZipInputStream zipinputstream = new ZipInputStream(new FileInputStream(file));
-			ZipEntry zipentry = zipinputstream.getNextEntry();
-			for (/**/; zipentry != null; zipentry = zipinputstream.getNextEntry()) {
-				int i = -1;
-				for (int i_356_ = 0; i_356_ < 16; i_356_++)
-					if (zipentry.getName().startsWith(strings[i_356_]))
-						i = i_356_;
-				if (i != -1) {
-					int i_357_ = (int) zipentry.getSize();
-					final byte[] is = new byte[i_357_];
-					int i_358_ = 0;
-					int i_359_;
-					for (/**/; i_357_ > 0; i_357_ -= i_359_) {
-						i_359_ = zipinputstream.read(is, i_358_, i_357_);
-						i_358_ += i_359_;
-					}
-					compo[i] = new ContO(is, m, t);
-					(compo[i]).shadow = false;
-					(compo[i]).noline = true;
-				}
-			}
-			zipinputstream.close();
-		} catch (final Exception exception) {
-			System.out.println(
-					new StringBuilder().append("Error Loading Models from Zip: ").append(exception).toString());
-		}
-		System.gc();
-	}
-
-	public void fixtext(final TextField textfield) {
-		String string = textfield.getText();
-		string = string.replace('\"', '#');
-		final String string_360_ = "\\";
-		String string_361_ = "";
-		int i = 0;
-		int i_362_ = -1;
-		for (/**/; i < string.length(); i++) {
-			final String string_363_ = new StringBuilder().append("").append(string.charAt(i)).toString();
-			if (string_363_.equals("|") || string_363_.equals(",") || string_363_.equals("(") || string_363_.equals(")")
-					|| string_363_.equals("#") || string_363_.equals(string_360_) || string_363_.equals("!")
-					|| string_363_.equals("?") || string_363_.equals("~") || string_363_.equals(".")
-					|| string_363_.equals("@") || string_363_.equals("$") || string_363_.equals("%")
-					|| string_363_.equals("^") || string_363_.equals("&") || string_363_.equals("*")
-					|| string_363_.equals("+") || string_363_.equals("=") || string_363_.equals(">")
-					|| string_363_.equals("<") || string_363_.equals("/") || string_363_.equals("'")
-					|| string_363_.equals(";") || string_363_.equals(":") || i > 15)
-				i_362_ = i;
-			else
-				string_361_ = new StringBuilder().append(string_361_).append(string_363_).toString();
-		}
-		if (i_362_ != -1) {
-			textfield.setText(string_361_);
-			textfield.select(i_362_, i_362_);
-		}
-	}
-
-	public int getvalue(final String string, final String string_364_, final int i) {
-		int i_365_ = 0;
-		String string_366_ = "";
-		for (int i_367_ = string.length() + 1; i_367_ < string_364_.length(); i_367_++) {
-			final String string_368_ = new StringBuilder().append("").append(string_364_.charAt(i_367_)).toString();
-			if (string_368_.equals(",") || string_368_.equals(")")) {
-				i_365_++;
-				i_367_++;
-			}
-			if (i_365_ == i)
-				string_366_ = new StringBuilder().append(string_366_).append(string_364_.charAt(i_367_)).toString();
-		}
-		return Float.valueOf(string_366_).intValue();
-	}
-
-	public String getSvalue(final String string, final String string_369_, final int i) {
-		String string_370_ = "";
-		int i_371_ = 0;
-		for (int i_372_ = string.length() + 1; i_372_ < string_369_.length() && i_371_ <= i; i_372_++) {
-			final String string_373_ = new StringBuilder().append("").append(string_369_.charAt(i_372_)).toString();
-			if (string_373_.equals(",") || string_373_.equals(")"))
-				i_371_++;
-			else if (i_371_ == i)
-				string_370_ = new StringBuilder().append(string_370_).append(string_373_).toString();
-		}
-		return string_370_;
-	}
-
-	public int servervalue(final String string, final int i) {
-		int i_374_ = -1;
-		try {
-			int i_375_ = 0;
-			int i_376_ = 0;
-			int i_377_ = 0;
-			String string_378_ = "";
-			String string_379_ = "";
-			for (/**/; i_375_ < string.length() && i_377_ != 2; i_375_++) {
-				string_378_ = new StringBuilder().append("").append(string.charAt(i_375_)).toString();
-				if (string_378_.equals("|")) {
-					i_376_++;
-					if (i_377_ == 1 || i_376_ > i)
-						i_377_ = 2;
-				} else if (i_376_ == i) {
-					string_379_ = new StringBuilder().append(string_379_).append(string_378_).toString();
-					i_377_ = 1;
-				}
-			}
-			if (string_379_.equals(""))
-				string_379_ = "-1";
-			i_374_ = Integer.valueOf(string_379_).intValue();
-		} catch (final Exception exception) {
-			/* empty */
-		}
-		return i_374_;
-	}
-
-	public String serverSvalue(final String string, final int i) {
-		String string_380_ = "";
-		try {
-			int i_381_ = 0;
-			int i_382_ = 0;
-			int i_383_ = 0;
-			String string_384_ = "";
-			String string_385_ = "";
-			for (/**/; i_381_ < string.length() && i_383_ != 2; i_381_++) {
-				string_384_ = new StringBuilder().append("").append(string.charAt(i_381_)).toString();
-				if (string_384_.equals("|")) {
-					i_382_++;
-					if (i_383_ == 1 || i_382_ > i)
-						i_383_ = 2;
-				} else if (i_382_ == i) {
-					string_385_ = new StringBuilder().append(string_385_).append(string_384_).toString();
-					i_383_ = 1;
-				}
-			}
-			string_380_ = string_385_;
-		} catch (final Exception exception) {
-			/* empty */
-		}
-		return string_380_;
-	}
-
-	public int objvalue(final String string, final int i) {
-		int i_386_ = 0;
-		try {
-			int i_387_ = 2;
-			int i_388_ = 0;
-			int i_389_ = 0;
-			String string_390_ = "";
-			String string_391_ = "";
-			boolean bool = false;
-			for (/**/; i_387_ < string.length() && i_389_ != 2; i_387_++) {
-				string_390_ = new StringBuilder().append("").append(string.charAt(i_387_)).toString();
-				if (string_390_.equals(" ")) {
-					if (bool) {
-						i_388_++;
-						bool = false;
-					}
-					if (i_389_ == 1 || i_388_ > i)
-						i_389_ = 2;
-				} else {
-					if (i_388_ == i) {
-						string_391_ = new StringBuilder().append(string_391_).append(string_390_).toString();
-						i_389_ = 1;
-					}
-					bool = true;
-				}
-			}
-			if (i_387_ >= string.length())
-				objfacend = true;
-			if (string_391_.equals(""))
-				string_391_ = "0";
-			if (multf10)
-				i_386_ = (int) (Float.valueOf(string_391_).floatValue() * 10.0F);
-			else {
-				final int i_392_ = string_391_.indexOf("/", 0);
-				if (i_392_ != -1)
-					string_391_ = string_391_.substring(0, i_392_);
-				i_386_ = Float.valueOf(string_391_).intValue() - 1;
-				if (i_386_ < 0)
-					i_386_ = 0;
-			}
-		} catch (final Exception exception) {
-			/* empty */
-		}
-		return i_386_;
-	}
-
-	public Image getImage(final String string) {
-		final Image image = Toolkit.getDefaultToolkit().createImage(string);
-		final MediaTracker mediatracker = new MediaTracker(this);
-		mediatracker.addImage(image, 0);
-		try {
-			mediatracker.waitForID(0);
-		} catch (final Exception exception) {
-			/* empty */
-		}
-		return image;
 	}
 
 	public void stringbutton(final String string, final int i, final int i_393_, final int i_394_, final boolean bool) {
@@ -5337,23 +5441,23 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			rd.setColor(new Color(200, 200, 200));
 			if (bool)
 				rd.setColor(new Color(192, 192, 192));
-			rd.drawLine(i + bw[btn] / 2 + 10, i_393_ - (17 - i_394_), i + bw[btn] / 2 + 10, i_393_ + (7 - i_394_));
-			rd.drawLine(i + bw[btn] / 2 + 11, i_393_ - (17 - i_394_), i + bw[btn] / 2 + 11, i_393_ + (7 - i_394_));
+			rd.drawLine(i + bw[btn] / 2 + 10, i_393_ - (17 - i_394_), i + bw[btn] / 2 + 10, i_393_ + 7 - i_394_);
+			rd.drawLine(i + bw[btn] / 2 + 11, i_393_ - (17 - i_394_), i + bw[btn] / 2 + 11, i_393_ + 7 - i_394_);
 			rd.setColor(new Color(200, 200, 200));
-			rd.drawLine(i + bw[btn] / 2 + 12, i_393_ - (16 - i_394_), i + bw[btn] / 2 + 12, i_393_ + (6 - i_394_));
+			rd.drawLine(i + bw[btn] / 2 + 12, i_393_ - (16 - i_394_), i + bw[btn] / 2 + 12, i_393_ + 6 - i_394_);
 			if (bool)
 				rd.setColor(new Color(192, 192, 192));
-			rd.drawLine(i - bw[btn] / 2 - 10, i_393_ + (7 - i_394_), i + bw[btn] / 2 + 10, i_393_ + (7 - i_394_));
-			rd.drawLine(i - bw[btn] / 2 - 10, i_393_ + (8 - i_394_), i + bw[btn] / 2 + 10, i_393_ + (8 - i_394_));
+			rd.drawLine(i - bw[btn] / 2 - 10, i_393_ + 7 - i_394_, i + bw[btn] / 2 + 10, i_393_ + 7 - i_394_);
+			rd.drawLine(i - bw[btn] / 2 - 10, i_393_ + 8 - i_394_, i + bw[btn] / 2 + 10, i_393_ + 8 - i_394_);
 			rd.setColor(new Color(200, 200, 200));
-			rd.drawLine(i - bw[btn] / 2 - 9, i_393_ + (9 - i_394_), i + bw[btn] / 2 + 9, i_393_ + (9 - i_394_));
+			rd.drawLine(i - bw[btn] / 2 - 9, i_393_ + 9 - i_394_, i + bw[btn] / 2 + 9, i_393_ + 9 - i_394_);
 			rd.setColor(new Color(240, 240, 240));
 			if (bool)
 				rd.setColor(new Color(255, 255, 255));
-			rd.drawLine(i - bw[btn] / 2 - 10, i_393_ - (17 - i_394_), i - bw[btn] / 2 - 10, i_393_ + (7 - i_394_));
-			rd.drawLine(i - bw[btn] / 2 - 11, i_393_ - (17 - i_394_), i - bw[btn] / 2 - 11, i_393_ + (7 - i_394_));
+			rd.drawLine(i - bw[btn] / 2 - 10, i_393_ - (17 - i_394_), i - bw[btn] / 2 - 10, i_393_ + 7 - i_394_);
+			rd.drawLine(i - bw[btn] / 2 - 11, i_393_ - (17 - i_394_), i - bw[btn] / 2 - 11, i_393_ + 7 - i_394_);
 			rd.setColor(new Color(240, 240, 240));
-			rd.drawLine(i - bw[btn] / 2 - 12, i_393_ - (16 - i_394_), i - bw[btn] / 2 - 12, i_393_ + (6 - i_394_));
+			rd.drawLine(i - bw[btn] / 2 - 12, i_393_ - (16 - i_394_), i - bw[btn] / 2 - 12, i_393_ + 6 - i_394_);
 			rd.setColor(new Color(0, 0, 0));
 			rd.drawString(string, i - bw[btn] / 2, i_393_);
 		} else {
@@ -5364,141 +5468,36 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			rd.drawLine(i - bw[btn] / 2 - 10, i_393_ - (18 - i_394_), i + bw[btn] / 2 + 10, i_393_ - (18 - i_394_));
 			rd.drawLine(i - bw[btn] / 2 - 9, i_393_ - (19 - i_394_), i + bw[btn] / 2 + 9, i_393_ - (19 - i_394_));
 			rd.setColor(new Color(247, 247, 247));
-			rd.drawLine(i + bw[btn] / 2 + 10, i_393_ - (17 - i_394_), i + bw[btn] / 2 + 10, i_393_ + (7 - i_394_));
-			rd.drawLine(i + bw[btn] / 2 + 11, i_393_ - (17 - i_394_), i + bw[btn] / 2 + 11, i_393_ + (7 - i_394_));
-			rd.drawLine(i + bw[btn] / 2 + 12, i_393_ - (16 - i_394_), i + bw[btn] / 2 + 12, i_393_ + (6 - i_394_));
-			rd.drawLine(i - bw[btn] / 2 - 10, i_393_ + (7 - i_394_), i + bw[btn] / 2 + 10, i_393_ + (7 - i_394_));
-			rd.drawLine(i - bw[btn] / 2 - 10, i_393_ + (8 - i_394_), i + bw[btn] / 2 + 10, i_393_ + (8 - i_394_));
-			rd.drawLine(i - bw[btn] / 2 - 9, i_393_ + (9 - i_394_), i + bw[btn] / 2 + 9, i_393_ + (9 - i_394_));
+			rd.drawLine(i + bw[btn] / 2 + 10, i_393_ - (17 - i_394_), i + bw[btn] / 2 + 10, i_393_ + 7 - i_394_);
+			rd.drawLine(i + bw[btn] / 2 + 11, i_393_ - (17 - i_394_), i + bw[btn] / 2 + 11, i_393_ + 7 - i_394_);
+			rd.drawLine(i + bw[btn] / 2 + 12, i_393_ - (16 - i_394_), i + bw[btn] / 2 + 12, i_393_ + 6 - i_394_);
+			rd.drawLine(i - bw[btn] / 2 - 10, i_393_ + 7 - i_394_, i + bw[btn] / 2 + 10, i_393_ + 7 - i_394_);
+			rd.drawLine(i - bw[btn] / 2 - 10, i_393_ + 8 - i_394_, i + bw[btn] / 2 + 10, i_393_ + 8 - i_394_);
+			rd.drawLine(i - bw[btn] / 2 - 9, i_393_ + 9 - i_394_, i + bw[btn] / 2 + 9, i_393_ + 9 - i_394_);
 			rd.setColor(new Color(192, 192, 192));
-			rd.drawLine(i - bw[btn] / 2 - 10, i_393_ - (17 - i_394_), i - bw[btn] / 2 - 10, i_393_ + (7 - i_394_));
-			rd.drawLine(i - bw[btn] / 2 - 11, i_393_ - (17 - i_394_), i - bw[btn] / 2 - 11, i_393_ + (7 - i_394_));
-			rd.drawLine(i - bw[btn] / 2 - 12, i_393_ - (16 - i_394_), i - bw[btn] / 2 - 12, i_393_ + (6 - i_394_));
+			rd.drawLine(i - bw[btn] / 2 - 10, i_393_ - (17 - i_394_), i - bw[btn] / 2 - 10, i_393_ + 7 - i_394_);
+			rd.drawLine(i - bw[btn] / 2 - 11, i_393_ - (17 - i_394_), i - bw[btn] / 2 - 11, i_393_ + 7 - i_394_);
+			rd.drawLine(i - bw[btn] / 2 - 12, i_393_ - (16 - i_394_), i - bw[btn] / 2 - 12, i_393_ + 6 - i_394_);
 			rd.setColor(new Color(0, 0, 0));
 			rd.drawString(string, i - bw[btn] / 2 + 1, i_393_ + 1);
 		}
 		btn++;
 	}
 
-	public boolean ovbutton(final String string, final int i, final int i_395_) {
-		rd.setFont(new Font("Arial", 0, 12));
-		ftm = rd.getFontMetrics();
-		if (string.equals("X") || string.equals("Download")) {
-			rd.setFont(new Font("Arial", 1, 12));
-			ftm = rd.getFontMetrics();
-		}
-		final int i_396_ = ftm.stringWidth(string);
-		final int i_397_ = 4;
-		boolean bool = false;
-		boolean bool_398_ = false;
-		if (Math.abs(xm - i) < i_396_ / 2 + 12 && Math.abs(ym - i_395_ + 5) < 10 && mouses == 1)
-			bool = true;
-		else
-			bool = false;
-		if (Math.abs(xm - i) < i_396_ / 2 + 12 && Math.abs(ym - i_395_ + 5) < 10 && mouses == -1) {
-			mouses = 0;
-			bool_398_ = true;
-		}
-		if (!bool) {
-			rd.setColor(new Color(220, 220, 220));
-			rd.fillRect(i - i_396_ / 2 - 10, i_395_ - (17 - i_397_), i_396_ + 20, 25 - i_397_ * 2);
-			rd.setColor(new Color(240, 240, 240));
-			rd.drawLine(i - i_396_ / 2 - 10, i_395_ - (17 - i_397_), i + i_396_ / 2 + 10, i_395_ - (17 - i_397_));
-			rd.drawLine(i - i_396_ / 2 - 10, i_395_ - (18 - i_397_), i + i_396_ / 2 + 10, i_395_ - (18 - i_397_));
-			rd.setColor(new Color(240, 240, 240));
-			rd.drawLine(i - i_396_ / 2 - 9, i_395_ - (19 - i_397_), i + i_396_ / 2 + 9, i_395_ - (19 - i_397_));
-			rd.setColor(new Color(200, 200, 200));
-			rd.drawLine(i + i_396_ / 2 + 10, i_395_ - (17 - i_397_), i + i_396_ / 2 + 10, i_395_ + (7 - i_397_));
-			rd.drawLine(i + i_396_ / 2 + 11, i_395_ - (17 - i_397_), i + i_396_ / 2 + 11, i_395_ + (7 - i_397_));
-			rd.setColor(new Color(200, 200, 200));
-			rd.drawLine(i + i_396_ / 2 + 12, i_395_ - (16 - i_397_), i + i_396_ / 2 + 12, i_395_ + (6 - i_397_));
-			rd.drawLine(i - i_396_ / 2 - 10, i_395_ + (7 - i_397_), i + i_396_ / 2 + 10, i_395_ + (7 - i_397_));
-			rd.drawLine(i - i_396_ / 2 - 10, i_395_ + (8 - i_397_), i + i_396_ / 2 + 10, i_395_ + (8 - i_397_));
-			rd.setColor(new Color(200, 200, 200));
-			rd.drawLine(i - i_396_ / 2 - 9, i_395_ + (9 - i_397_), i + i_396_ / 2 + 9, i_395_ + (9 - i_397_));
-			rd.setColor(new Color(240, 240, 240));
-			rd.drawLine(i - i_396_ / 2 - 10, i_395_ - (17 - i_397_), i - i_396_ / 2 - 10, i_395_ + (7 - i_397_));
-			rd.drawLine(i - i_396_ / 2 - 11, i_395_ - (17 - i_397_), i - i_396_ / 2 - 11, i_395_ + (7 - i_397_));
-			rd.setColor(new Color(240, 240, 240));
-			rd.drawLine(i - i_396_ / 2 - 12, i_395_ - (16 - i_397_), i - i_396_ / 2 - 12, i_395_ + (6 - i_397_));
-			rd.setColor(new Color(0, 0, 0));
-			if (string.equals("X"))
-				rd.setColor(new Color(255, 0, 0));
-			if (string.equals("Download"))
-				rd.setColor(new Color(0, 64, 128));
-			rd.drawString(string, i - i_396_ / 2, i_395_);
-		} else {
-			rd.setColor(new Color(220, 220, 220));
-			rd.fillRect(i - i_396_ / 2 - 10, i_395_ - (17 - i_397_), i_396_ + 20, 25 - i_397_ * 2);
-			rd.setColor(new Color(192, 192, 192));
-			rd.drawLine(i - i_396_ / 2 - 10, i_395_ - (17 - i_397_), i + i_396_ / 2 + 10, i_395_ - (17 - i_397_));
-			rd.drawLine(i - i_396_ / 2 - 10, i_395_ - (18 - i_397_), i + i_396_ / 2 + 10, i_395_ - (18 - i_397_));
-			rd.drawLine(i - i_396_ / 2 - 9, i_395_ - (19 - i_397_), i + i_396_ / 2 + 9, i_395_ - (19 - i_397_));
-			rd.setColor(new Color(247, 247, 247));
-			rd.drawLine(i + i_396_ / 2 + 10, i_395_ - (17 - i_397_), i + i_396_ / 2 + 10, i_395_ + (7 - i_397_));
-			rd.drawLine(i + i_396_ / 2 + 11, i_395_ - (17 - i_397_), i + i_396_ / 2 + 11, i_395_ + (7 - i_397_));
-			rd.drawLine(i + i_396_ / 2 + 12, i_395_ - (16 - i_397_), i + i_396_ / 2 + 12, i_395_ + (6 - i_397_));
-			rd.drawLine(i - i_396_ / 2 - 10, i_395_ + (7 - i_397_), i + i_396_ / 2 + 10, i_395_ + (7 - i_397_));
-			rd.drawLine(i - i_396_ / 2 - 10, i_395_ + (8 - i_397_), i + i_396_ / 2 + 10, i_395_ + (8 - i_397_));
-			rd.drawLine(i - i_396_ / 2 - 9, i_395_ + (9 - i_397_), i + i_396_ / 2 + 9, i_395_ + (9 - i_397_));
-			rd.setColor(new Color(192, 192, 192));
-			rd.drawLine(i - i_396_ / 2 - 10, i_395_ - (17 - i_397_), i - i_396_ / 2 - 10, i_395_ + (7 - i_397_));
-			rd.drawLine(i - i_396_ / 2 - 11, i_395_ - (17 - i_397_), i - i_396_ / 2 - 11, i_395_ + (7 - i_397_));
-			rd.drawLine(i - i_396_ / 2 - 12, i_395_ - (16 - i_397_), i - i_396_ / 2 - 12, i_395_ + (6 - i_397_));
-			rd.setColor(new Color(0, 0, 0));
-			if (string.equals("X"))
-				rd.setColor(new Color(255, 0, 0));
-			if (string.equals("Download"))
-				rd.setColor(new Color(0, 64, 128));
-			rd.drawString(string, i - i_396_ / 2 + 1, i_395_ + 1);
-		}
-		return bool_398_;
+	@Override
+	public void update(final Graphics graphics) {
+		paint(graphics);
 	}
 
-	@Override
-	public void actionPerformed(final ActionEvent actionevent) {
-		TextComponent textcomponent = wv[0];
-		if (Madness.textid >= 0 && Madness.textid <= 15)
-			textcomponent = wv[Madness.textid];
-		if (Madness.textid == 16)
-			textcomponent = srch;
-		if (Madness.textid == 17)
-			textcomponent = rplc;
-		if (Madness.textid == 18)
-			textcomponent = editor;
-		final String string = actionevent.getActionCommand();
-		if (string.equals("Cut")) {
-			final StringSelection stringselection = new StringSelection(textcomponent.getSelectedText());
-			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringselection, null);
-			if (Madness.textid == 18)
-				editor.replaceText("", editor.getSelectionStart(), editor.getSelectionEnd());
-			else
-				textcomponent.setText(new StringBuilder()
-						.append(textcomponent.getText().substring(0, textcomponent.getSelectionStart()))
-						.append(textcomponent.getText().substring(textcomponent.getSelectionEnd(),
-								textcomponent.getText().length()))
-						.toString());
-		}
-		if (string.equals("Copy")) {
-			final StringSelection stringselection = new StringSelection(textcomponent.getSelectedText());
-			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringselection, null);
-		}
-		if (string.equals("Paste"))
-			try {
-				final String string_399_ = (String) Toolkit.getDefaultToolkit().getSystemClipboard()
-						.getData(DataFlavor.stringFlavor);
-				if (Madness.textid == 18)
-					editor.replaceText(string_399_, editor.getSelectionStart(), editor.getSelectionEnd());
-				else
-					textcomponent.setText(new StringBuilder()
-							.append(textcomponent.getText().substring(0, textcomponent.getSelectionStart()))
-							.append(string_399_).append(textcomponent.getText()
-									.substring(textcomponent.getSelectionEnd(), textcomponent.getText().length()))
-							.toString());
-			} catch (final Exception exception) {
-				/* empty */
-			}
-		if (string.equals("Select All"))
-			textcomponent.selectAll();
+	public int xs(final int i, int i_338_) {
+		if (i_338_ < m.cz)
+			i_338_ = m.cz;
+		return (i_338_ - m.focus_point) * (m.cx - i) / i_338_ + i;
+	}
+
+	public int ys(final int i, int i_339_) {
+		if (i_339_ < m.cz)
+			i_339_ = m.cz;
+		return (i_339_ - m.focus_point) * (m.cy - i) / i_339_ + i;
 	}
 }

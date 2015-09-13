@@ -7,51 +7,51 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
 public class Plane {
-	Medium m;
-	Trackers t;
-	int[] ox;
-	int[] oy;
-	int[] oz;
-	int n;
-	int[] c = new int[3];
-	int[] oc = new int[3];
-	float[] hsb = new float[3];
-	int glass = 0;
-	int gr = 0;
-	int fs = 0;
-	int disline = 7;
-	boolean road = false;
-	boolean solo = false;
-	int light = 0;
-	int master = 0;
-	int wx = 0;
-	int wz = 0;
-	int wy = 0;
-	float deltaf = 1.0F;
-	float projf = 1.0F;
 	int av = 0;
 	int bfase = 0;
-	boolean nocol = false;
+	int[] c = new int[3];
 	int chip = 0;
-	float ctmag = 0.0F;
-	int cxz = 0;
-	int cxy = 0;
-	int czy = 0;
+	int colnum = 0;
 	int[] cox = new int[3];
-	int[] coz = new int[3];
 	int[] coy = new int[3];
+	int[] coz = new int[3];
+	float ctmag = 0.0F;
+	int cxy = 0;
+	int cxz = 0;
+	int czy = 0;
+	float deltaf = 1.0F;
+	int disline = 7;
 	int dx = 0;
 	int dy = 0;
 	int dz = 0;
+	int embos = 0;
+	int flx = 0;
+	int fs = 0;
+	int glass = 0;
+	int gr = 0;
+	float[] hsb = new float[3];
+	int light = 0;
+	Medium m;
+	int master = 0;
+	int n;
+	boolean nocol = false;
+	int[] oc = new int[3];
+	int[] ox;
+	int[] oy;
+	int[] oz;
+	int pa = 0;
+	int pb = 0;
+	float projf = 1.0F;
+	boolean road = false;
+	boolean solo = false;
+	Trackers t;
+	int typ = 0;
 	int vx = 0;
 	int vy = 0;
 	int vz = 0;
-	int embos = 0;
-	int typ = 0;
-	int pa = 0;
-	int pb = 0;
-	int flx = 0;
-	int colnum = 0;
+	int wx = 0;
+	int wy = 0;
+	int wz = 0;
 
 	public Plane(final Medium medium, final Trackers trackers, final int[] is, final int[] is_0_, final int[] is_1_,
 			final int i, final int[] is_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_,
@@ -98,7 +98,7 @@ public class Plane {
 			nocol = true;
 		if (i_3_ == 0)
 			for (int i_20_ = 0; i_20_ < 3; i_20_++) {
-				c[i_20_] = (int) (is_2_[i_20_] + (is_2_[i_20_] * (((m).snap[i_20_]) / 100.0F)));
+				c[i_20_] = (int) (is_2_[i_20_] + is_2_[i_20_] * (m.snap[i_20_] / 100.0F));
 				if (c[i_20_] > 255)
 					c[i_20_] = 255;
 				if (c[i_20_] < 0)
@@ -106,10 +106,10 @@ public class Plane {
 			}
 		if (i_3_ == 1)
 			for (int i_21_ = 0; i_21_ < 3; i_21_++)
-				c[i_21_] = ((((m).csky[i_21_] * (m).fade[0] * 2) + (m).cfade[i_21_] * 3000) / ((m).fade[0] * 2 + 3000));
+				c[i_21_] = (m.csky[i_21_] * m.fade[0] * 2 + m.cfade[i_21_] * 3000) / (m.fade[0] * 2 + 3000);
 		if (i_3_ == 2)
 			for (int i_22_ = 0; i_22_ < 3; i_22_++)
-				c[i_22_] = (int) ((m).crgrnd[i_22_] * 0.925F);
+				c[i_22_] = (int) (m.crgrnd[i_22_] * 0.925F);
 		if (i_3_ == 3)
 			for (int i_23_ = 0; i_23_ < 3; i_23_++)
 				c[i_23_] = is_2_[i_23_];
@@ -117,7 +117,7 @@ public class Plane {
 		bfase = i_10_;
 		glass = i_3_;
 		Color.RGBtoHSB(c[0], c[1], c[2], hsb);
-		if (i_3_ == 3 && (m).trk != 2) {
+		if (i_3_ == 3 && m.trk != 2) {
 			hsb[1] += 0.05F;
 			if (hsb[1] > 1.0F)
 				hsb[1] = 1.0F;
@@ -149,40 +149,10 @@ public class Plane {
 		deltafntyp();
 	}
 
-	public void deltafntyp() {
-		final int i = Math.abs(ox[2] - ox[1]);
-		final int i_24_ = Math.abs(oy[2] - oy[1]);
-		final int i_25_ = Math.abs(oz[2] - oz[1]);
-		if (i_24_ <= i && i_24_ <= i_25_)
-			typ = 2;
-		if (i <= i_24_ && i <= i_25_)
-			typ = 1;
-		if (i_25_ <= i && i_25_ <= i_24_)
-			typ = 3;
-		deltaf = 1.0F;
-		for (int i_26_ = 0; i_26_ < 3; i_26_++)
-			for (int i_27_ = 0; i_27_ < 3; i_27_++)
-				if (i_27_ != i_26_)
-					deltaf *= (float) ((Math.sqrt(((ox[i_27_] - ox[i_26_]) * (ox[i_27_] - (ox[i_26_])))
-							+ ((oy[i_27_] - oy[i_26_]) * (oy[i_27_] - (oy[i_26_])))
-							+ ((oz[i_27_] - oz[i_26_]) * (oz[i_27_] - (oz[i_26_]))))) / 100.0);
-		deltaf = deltaf / 3.0F;
-	}
-
-	public void loadprojf() {
-		projf = 1.0F;
-		for (int i = 0; i < 3; i++)
-			for (int i_28_ = 0; i_28_ < 3; i_28_++)
-				if (i_28_ != i)
-					projf *= (float) ((Math.sqrt(((ox[i] - ox[i_28_]) * (ox[i] - (ox[i_28_])))
-							+ ((oz[i] - oz[i_28_]) * (oz[i] - (oz[i_28_]))))) / 100.0);
-		projf = projf / 3.0F;
-	}
-
 	public void d(final Graphics2D graphics2d, final int i, final int i_29_, final int i_30_, final int i_31_,
 			final int i_32_, final int i_33_, final int i_34_, final int i_35_, boolean bool, final int i_36_) {
 		if (master == 1)
-			if (av > 1500 && !(m).crs)
+			if (av > 1500 && !m.crs)
 				n = 12;
 			else
 				n = 20;
@@ -195,7 +165,7 @@ public class Plane {
 				is_38_[i_39_] = oy[i_39_] + i_29_;
 				is_37_[i_39_] = oz[i_39_] + i_30_;
 			}
-			if ((gr == -11 || gr == -12 || gr == -13) && (m).lastmaf == 1)
+			if ((gr == -11 || gr == -12 || gr == -13) && m.lastmaf == 1)
 				for (int i_40_ = 0; i_40_ < n; i_40_++) {
 					is[i_40_] = -ox[i_40_] + i;
 					is_38_[i_40_] = oy[i_40_] + i_29_;
@@ -211,8 +181,8 @@ public class Plane {
 				rot(is, is_38_, i, i_29_, i_32_, n);
 				rot(is_38_, is_37_, i_29_, i_30_, i_33_, n);
 				rot(is, is_37_, i, i_30_, i_31_, n);
-				rot(is, is_37_, (m).cx, (m).cz, (m).xz, n);
-				rot(is_38_, is_37_, (m).cy, (m).cz, (m).zy, n);
+				rot(is, is_37_, m.cx, m.cz, m.xz, n);
+				rot(is_38_, is_37_, m.cy, m.cz, m.zy, n);
 				final int[] is_42_ = new int[n];
 				final int[] is_43_ = new int[n];
 				for (int i_44_ = 0; i_44_ < n; i_44_++) {
@@ -302,23 +272,23 @@ public class Plane {
 				rot(is, is_38_, i, i_29_, i_32_, 3);
 				rot(is_38_, is_37_, i_29_, i_30_, i_33_, 3);
 				rot(is, is_37_, i, i_30_, i_31_, 3);
-				rot(is, is_37_, (m).cx, (m).cz, (m).xz, 3);
-				rot(is_38_, is_37_, (m).cy, (m).cz, (m).zy, 3);
+				rot(is, is_37_, m.cx, m.cz, m.xz, 3);
+				rot(is_38_, is_37_, m.cy, m.cz, m.zy, 3);
 				for (int i_54_ = 0; i_54_ < 3; i_54_++) {
 					is_49_[i_54_] = xs(is[i_54_], is_37_[i_54_]);
 					is_50_[i_54_] = ys(is_38_[i_54_], is_37_[i_54_]);
 				}
-				int i_55_ = (int) (255.0F + (255.0F * ((m).snap[0] / 400.0F)));
+				int i_55_ = (int) (255.0F + 255.0F * (m.snap[0] / 400.0F));
 				if (i_55_ > 255)
 					i_55_ = 255;
 				if (i_55_ < 0)
 					i_55_ = 0;
-				int i_56_ = (int) (169.0F + (169.0F * ((m).snap[1] / 300.0F)));
+				int i_56_ = (int) (169.0F + 169.0F * (m.snap[1] / 300.0F));
 				if (i_56_ > 255)
 					i_56_ = 255;
 				if (i_56_ < 0)
 					i_56_ = 0;
-				int i_57_ = (int) (89.0F + (89.0F * ((m).snap[2] / 200.0F)));
+				int i_57_ = (int) (89.0F + 89.0F * (m.snap[2] / 200.0F));
 				if (i_57_ > 255)
 					i_57_ = 255;
 				if (i_57_ < 0)
@@ -348,23 +318,23 @@ public class Plane {
 				rot(is, is_38_, i, i_29_, i_32_, 3);
 				rot(is_38_, is_37_, i_29_, i_30_, i_33_, 3);
 				rot(is, is_37_, i, i_30_, i_31_, 3);
-				rot(is, is_37_, (m).cx, (m).cz, (m).xz, 3);
-				rot(is_38_, is_37_, (m).cy, (m).cz, (m).zy, 3);
+				rot(is, is_37_, m.cx, m.cz, m.xz, 3);
+				rot(is_38_, is_37_, m.cy, m.cz, m.zy, 3);
 				for (int i_58_ = 0; i_58_ < 3; i_58_++) {
 					is_49_[i_58_] = xs(is[i_58_], is_37_[i_58_]);
 					is_50_[i_58_] = ys(is_38_[i_58_], is_37_[i_58_]);
 				}
-				i_55_ = (int) (255.0F + 255.0F * (((m).snap[0]) / 400.0F));
+				i_55_ = (int) (255.0F + 255.0F * (m.snap[0] / 400.0F));
 				if (i_55_ > 255)
 					i_55_ = 255;
 				if (i_55_ < 0)
 					i_55_ = 0;
-				i_56_ = (int) (207.0F + 207.0F * (((m).snap[1]) / 300.0F));
+				i_56_ = (int) (207.0F + 207.0F * (m.snap[1] / 300.0F));
 				if (i_56_ > 255)
 					i_56_ = 255;
 				if (i_56_ < 0)
 					i_56_ = 0;
-				i_57_ = (int) (136.0F + 136.0F * (((m).snap[2]) / 200.0F));
+				i_57_ = (int) (136.0F + 136.0F * (m.snap[2] / 200.0F));
 				if (i_57_ > 255)
 					i_57_ = 255;
 				if (i_57_ < 0)
@@ -413,12 +383,12 @@ public class Plane {
 					ctmag = 3.0F;
 				if (ctmag < -3.0F)
 					ctmag = -3.0F;
-				cox[1] = (int) (cox[0] + (ctmag * (10.0F - m.random() * 20.0F)));
-				cox[2] = (int) (cox[0] + (ctmag * (10.0F - m.random() * 20.0F)));
-				coy[1] = (int) (coy[0] + (ctmag * (10.0F - m.random() * 20.0F)));
-				coy[2] = (int) (coy[0] + (ctmag * (10.0F - m.random() * 20.0F)));
-				coz[1] = (int) (coz[0] + (ctmag * (10.0F - m.random() * 20.0F)));
-				coz[2] = (int) (coz[0] + (ctmag * (10.0F - m.random() * 20.0F)));
+				cox[1] = (int) (cox[0] + ctmag * (10.0F - m.random() * 20.0F));
+				cox[2] = (int) (cox[0] + ctmag * (10.0F - m.random() * 20.0F));
+				coy[1] = (int) (coy[0] + ctmag * (10.0F - m.random() * 20.0F));
+				coy[2] = (int) (coy[0] + ctmag * (10.0F - m.random() * 20.0F));
+				coz[1] = (int) (coz[0] + ctmag * (10.0F - m.random() * 20.0F));
+				coz[2] = (int) (coz[0] + ctmag * (10.0F - m.random() * 20.0F));
 				dx = 0;
 				dy = 0;
 				dz = 0;
@@ -453,10 +423,10 @@ public class Plane {
 			dz += vz;
 			dy += vy;
 			vy += 7;
-			if (is_63_[0] > (m).ground)
+			if (is_63_[0] > m.ground)
 				chip = 19;
-			rot(is_61_, is_62_, (m).cx, (m).cz, (m).xz, 3);
-			rot(is_63_, is_62_, (m).cy, (m).cz, (m).zy, 3);
+			rot(is_61_, is_62_, m.cx, m.cz, m.xz, 3);
+			rot(is_63_, is_62_, m.cy, m.cz, m.zy, 3);
 			final int[] is_66_ = new int[3];
 			final int[] is_67_ = new int[3];
 			for (int i_68_ = 0; i_68_ < 3; i_68_++) {
@@ -481,16 +451,16 @@ public class Plane {
 		rot(is, is_38_, i, i_29_, i_32_, n);
 		rot(is_38_, is_37_, i_29_, i_30_, i_33_, n);
 		rot(is, is_37_, i, i_30_, i_31_, n);
-		if ((i_32_ != 0 || i_33_ != 0 || i_31_ != 0) && (m).trk != 2) {
+		if ((i_32_ != 0 || i_33_ != 0 || i_31_ != 0) && m.trk != 2) {
 			projf = 1.0F;
 			for (int i_70_ = 0; i_70_ < 3; i_70_++)
 				for (int i_71_ = 0; i_71_ < 3; i_71_++)
 					if (i_71_ != i_70_)
-						projf *= (float) ((Math.sqrt(((is[i_70_] - is[i_71_]) * (is[i_70_] - is[i_71_]))
-								+ ((is_37_[i_70_] - is_37_[i_71_]) * (is_37_[i_70_] - is_37_[i_71_])))) / 100.0);
+						projf *= (float) (Math.sqrt((is[i_70_] - is[i_71_]) * (is[i_70_] - is[i_71_])
+								+ (is_37_[i_70_] - is_37_[i_71_]) * (is_37_[i_70_] - is_37_[i_71_])) / 100.0);
 			projf = projf / 3.0F;
 		}
-		rot(is, is_37_, (m).cx, (m).cz, (m).xz, n);
+		rot(is, is_37_, m.cx, m.cz, m.xz, n);
 		boolean bool_72_ = false;
 		final int[] is_73_ = new int[n];
 		final int[] is_74_ = new int[n];
@@ -503,11 +473,11 @@ public class Plane {
 		int i_78_ = 1;
 		for (int i_79_ = 0; i_79_ < n; i_79_++)
 			for (int i_80_ = i_79_; i_80_ < n; i_80_++)
-				if (i_79_ != i_80_ && (Math.abs(is_73_[i_79_] - is_73_[i_80_])
-						- Math.abs(is_74_[i_79_] - is_74_[i_80_])) < i_75_) {
+				if (i_79_ != i_80_
+						&& Math.abs(is_73_[i_79_] - is_73_[i_80_]) - Math.abs(is_74_[i_79_] - is_74_[i_80_]) < i_75_) {
 					i_78_ = i_79_;
 					i_77_ = i_80_;
-					i_75_ = (Math.abs(is_73_[i_79_] - is_73_[i_80_]) - Math.abs(is_74_[i_79_] - is_74_[i_80_]));
+					i_75_ = Math.abs(is_73_[i_79_] - is_73_[i_80_]) - Math.abs(is_74_[i_79_] - is_74_[i_80_]);
 				}
 		if (is_74_[i_77_] < is_74_[i_78_]) {
 			final int i_81_ = i_77_;
@@ -518,14 +488,14 @@ public class Plane {
 			bool_72_ = true;
 			int i_82_ = 0;
 			for (int i_83_ = 0; i_83_ < n; i_83_++)
-				if (is_37_[i_83_] < 50 && is_38_[i_83_] > (m).cy)
+				if (is_37_[i_83_] < 50 && is_38_[i_83_] > m.cy)
 					bool_72_ = false;
 				else if (is_38_[i_83_] == is_38_[0])
 					i_82_++;
-			if (i_82_ == n && is_38_[0] > (m).cy)
+			if (i_82_ == n && is_38_[0] > m.cy)
 				bool_72_ = false;
 		}
-		rot(is_38_, is_37_, (m).cy, (m).cz, (m).zy, n);
+		rot(is_38_, is_37_, m.cy, m.cz, m.zy, n);
 		boolean bool_84_ = true;
 		final int[] is_85_ = new int[n];
 		final int[] is_86_ = new int[n];
@@ -537,22 +507,22 @@ public class Plane {
 		for (int i_92_ = 0; i_92_ < n; i_92_++) {
 			is_85_[i_92_] = xs(is[i_92_], is_37_[i_92_]);
 			is_86_[i_92_] = ys(is_38_[i_92_], is_37_[i_92_]);
-			if (is_86_[i_92_] < (m).ih || is_37_[i_92_] < 10)
+			if (is_86_[i_92_] < m.ih || is_37_[i_92_] < 10)
 				i_87_++;
-			if (is_86_[i_92_] > (m).h || is_37_[i_92_] < 10)
+			if (is_86_[i_92_] > m.h || is_37_[i_92_] < 10)
 				i_88_++;
-			if (is_85_[i_92_] < (m).iw || is_37_[i_92_] < 10)
+			if (is_85_[i_92_] < m.iw || is_37_[i_92_] < 10)
 				i_89_++;
-			if (is_85_[i_92_] > (m).w || is_37_[i_92_] < 10)
+			if (is_85_[i_92_] > m.w || is_37_[i_92_] < 10)
 				i_90_++;
 			if (is_37_[i_92_] < 10)
 				i_91_++;
 		}
 		if (i_89_ == n || i_87_ == n || i_88_ == n || i_90_ == n)
 			bool_84_ = false;
-		if (((m).trk == 1 || (m).trk == 4) && (i_89_ != 0 || i_87_ != 0 || i_88_ != 0 || i_90_ != 0))
+		if ((m.trk == 1 || m.trk == 4) && (i_89_ != 0 || i_87_ != 0 || i_88_ != 0 || i_90_ != 0))
 			bool_84_ = false;
-		if ((m).trk == 3 && i_91_ != 0)
+		if (m.trk == 3 && i_91_ != 0)
 			bool_84_ = false;
 		if (i_91_ != 0)
 			bool = true;
@@ -570,7 +540,7 @@ public class Plane {
 			if (i_93_ == 0 || i_94_ == 0)
 				bool_84_ = false;
 			else if (i_93_ < 3 && i_94_ < 3 && (i_36_ / i_93_ > 15 && i_36_ / i_94_ > 15 || bool)
-					&& (!(m).lightson || light == 0))
+					&& (!m.lightson || light == 0))
 				bool_84_ = false;
 		}
 		if (bool_84_) {
@@ -609,7 +579,7 @@ public class Plane {
 					}
 				}
 			}
-			if ((m).lightson && light == 2)
+			if (m.lightson && light == 2)
 				i_98_ -= 40;
 			int i_103_ = is_38_[0];
 			int i_104_ = is_38_[0];
@@ -634,28 +604,28 @@ public class Plane {
 			final int i_110_ = (i_103_ + i_104_) / 2;
 			final int i_111_ = (i_105_ + i_106_) / 2;
 			final int i_112_ = (i_107_ + i_108_) / 2;
-			av = (int) Math.sqrt((((m).cy - i_110_) * ((m).cy - i_110_)) + (((m).cx - i_111_) * (((m).cx) - i_111_))
-					+ i_112_ * i_112_ + i_98_ * i_98_ * i_98_);
-			if ((m).trk == 0 && (av > ((m).fade[disline]) || av == 0))
+			av = (int) Math.sqrt((m.cy - i_110_) * (m.cy - i_110_) + (m.cx - i_111_) * (m.cx - i_111_) + i_112_ * i_112_
+					+ i_98_ * i_98_ * i_98_);
+			if (m.trk == 0 && (av > m.fade[disline] || av == 0))
 				bool_84_ = false;
 			if (i_97_ == -111 && av > 4500 && !road)
 				bool_84_ = false;
 			if (i_97_ == -111 && av > 1500)
 				bool = true;
-			if (av > 3000 && (m).adv <= 900)
+			if (av > 3000 && m.adv <= 900)
 				bool = true;
 			if (fs == 22 && av < 11200)
-				(m).lastmaf = i_97_;
-			if (gr == -13 && (!(m).lastcheck || i_36_ != -1))
+				m.lastmaf = i_97_;
+			if (gr == -13 && (!m.lastcheck || i_36_ != -1))
 				bool_84_ = false;
-			if (master == 2 && av > 1500 && !(m).crs)
+			if (master == 2 && av > 1500 && !m.crs)
 				bool_84_ = false;
-			if ((gr == -14 || gr == -15 || gr == -12) && (av > 11000 || bool_72_ || i_97_ == -111 || (m).resdown == 2)
-					&& (m).trk != 2 && (m).trk != 3)
+			if ((gr == -14 || gr == -15 || gr == -12) && (av > 11000 || bool_72_ || i_97_ == -111 || m.resdown == 2)
+					&& m.trk != 2 && m.trk != 3)
 				bool_84_ = false;
-			if (gr == -11 && av > 11000 && (m).trk != 2 && (m).trk != 3)
+			if (gr == -11 && av > 11000 && m.trk != 2 && m.trk != 3)
 				bool_84_ = false;
-			if (glass == 2 && ((m).trk != 0 || av > 6700))
+			if (glass == 2 && (m.trk != 0 || av > 6700))
 				bool_84_ = false;
 			if (flx != 0 && m.random() > 0.3 && flx != 77)
 				bool_84_ = false;
@@ -679,20 +649,20 @@ public class Plane {
 					f = 0.7F;
 				if (gr == -4)
 					f = 0.74F;
-				if (gr != -7 && (m).trk == 0 && bool_72_)
+				if (gr != -7 && m.trk == 0 && bool_72_)
 					f = 0.32F;
 				if (gr == -8 || gr == -14 || gr == -15)
 					f = 1.0F;
 				if (gr == -11 || gr == -12) {
 					f = 0.6F;
 					if (i_36_ == -1)
-						if ((m).cpflik || ((m).nochekflk && !(m).lastcheck))
+						if (m.cpflik || m.nochekflk && !m.lastcheck)
 							f = 1.0F;
 						else
 							f = 0.76F;
 				}
 				if (gr == -13 && i_36_ == -1)
-					if ((m).cpflik)
+					if (m.cpflik)
 						f = 0.0F;
 					else
 						f = 0.76F;
@@ -707,14 +677,14 @@ public class Plane {
 					f = 0.6F;
 			}
 			Color color = Color.getHSBColor(hsb[0], hsb[1], hsb[2] * f);
-			if ((m).trk == 1) {
+			if (m.trk == 1) {
 				final float[] fs = new float[3];
 				Color.RGBtoHSB(oc[0], oc[1], oc[2], fs);
 				fs[0] = 0.15F;
 				fs[1] = 0.3F;
 				color = Color.getHSBColor(fs[0], fs[1], fs[2] * f + 0.0F);
 			}
-			if ((m).trk == 3) {
+			if (m.trk == 3) {
 				final float[] fs = new float[3];
 				Color.RGBtoHSB(oc[0], oc[1], oc[2], fs);
 				fs[0] = 0.6F;
@@ -724,7 +694,7 @@ public class Plane {
 			int i_114_ = color.getRed();
 			int i_115_ = color.getGreen();
 			int i_116_ = color.getBlue();
-			if ((m).lightson && (light != 0 || ((gr == -11 || gr == -12) && i_36_ == -1))) {
+			if (m.lightson && (light != 0 || (gr == -11 || gr == -12) && i_36_ == -1)) {
 				i_114_ = oc[0];
 				if (i_114_ > 255)
 					i_114_ = 255;
@@ -741,16 +711,16 @@ public class Plane {
 				if (i_116_ < 0)
 					i_116_ = 0;
 			}
-			if ((m).trk == 0)
+			if (m.trk == 0)
 				for (int i_117_ = 0; i_117_ < 16; i_117_++)
-					if (av > (m).fade[i_117_]) {
-						i_114_ = ((i_114_ * (m).fogd + (m).cfade[0]) / ((m).fogd + 1));
-						i_115_ = ((i_115_ * (m).fogd + (m).cfade[1]) / ((m).fogd + 1));
-						i_116_ = ((i_116_ * (m).fogd + (m).cfade[2]) / ((m).fogd + 1));
+					if (av > m.fade[i_117_]) {
+						i_114_ = (i_114_ * m.fogd + m.cfade[0]) / (m.fogd + 1);
+						i_115_ = (i_115_ * m.fogd + m.cfade[1]) / (m.fogd + 1);
+						i_116_ = (i_116_ * m.fogd + m.cfade[2]) / (m.fogd + 1);
 					}
 			graphics2d.setColor(new Color(i_114_, i_115_, i_116_));
 			graphics2d.fillPolygon(is_85_, is_86_, n);
-			if ((m).trk != 0 && gr == -10)
+			if (m.trk != 0 && gr == -10)
 				bool = false;
 			if (!bool) {
 				if (flx == 0) {
@@ -758,7 +728,7 @@ public class Plane {
 						i_114_ = 0;
 						i_115_ = 0;
 						i_116_ = 0;
-						if ((m).lightson && light != 0) {
+						if (m.lightson && light != 0) {
 							i_114_ = oc[0] / 2;
 							if (i_114_ > 255)
 								i_114_ = 255;
@@ -776,8 +746,8 @@ public class Plane {
 								i_116_ = 0;
 						}
 						if (Madness.anti == 1)
-							graphics2d.setRenderingHint((RenderingHints.KEY_ANTIALIASING),
-									(RenderingHints.VALUE_ANTIALIAS_ON));
+							graphics2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+									RenderingHints.VALUE_ANTIALIAS_ON);
 						graphics2d.setColor(new Color(i_114_, i_115_, i_116_));
 						graphics2d.drawPolygon(is_85_, is_86_, n);
 						if (Madness.anti == 1)
@@ -791,12 +761,12 @@ public class Plane {
 					}
 					if (flx == 1) {
 						i_114_ = 0;
-						i_115_ = (int) (223.0F + 223.0F * (((m).snap[1]) / 100.0F));
+						i_115_ = (int) (223.0F + 223.0F * (m.snap[1] / 100.0F));
 						if (i_115_ > 255)
 							i_115_ = 255;
 						if (i_115_ < 0)
 							i_115_ = 0;
-						i_116_ = (int) (255.0F + 255.0F * (((m).snap[2]) / 100.0F));
+						i_116_ = (int) (255.0F + 255.0F * (m.snap[2] / 100.0F));
 						if (i_116_ > 255)
 							i_116_ = 255;
 						if (i_116_ < 0)
@@ -807,12 +777,12 @@ public class Plane {
 					}
 					if (flx == 3) {
 						i_114_ = 0;
-						i_115_ = (int) (255.0F + 255.0F * (((m).snap[1]) / 100.0F));
+						i_115_ = (int) (255.0F + 255.0F * (m.snap[1] / 100.0F));
 						if (i_115_ > 255)
 							i_115_ = 255;
 						if (i_115_ < 0)
 							i_115_ = 0;
-						i_116_ = (int) (223.0F + 223.0F * (((m).snap[2]) / 100.0F));
+						i_116_ = (int) (223.0F + 223.0F * (m.snap[2] / 100.0F));
 						if (i_116_ > 255)
 							i_116_ = 255;
 						if (i_116_ < 0)
@@ -827,7 +797,7 @@ public class Plane {
 						flx = 0;
 					}
 				}
-			} else if (road && av <= 3000 && (m).trk == 0 && (m).fade[0] > 4000) {
+			} else if (road && av <= 3000 && m.trk == 0 && m.fade[0] > 4000) {
 				i_114_ -= 10;
 				if (i_114_ < 0)
 					i_114_ = 0;
@@ -841,11 +811,11 @@ public class Plane {
 				graphics2d.drawPolygon(is_85_, is_86_, n);
 			}
 			if (gr == -10)
-				if ((m).trk == 0) {
+				if (m.trk == 0) {
 					i_114_ = c[0];
 					i_115_ = c[1];
 					i_116_ = c[2];
-					if (i_36_ == -1 && (m).cpflik) {
+					if (i_36_ == -1 && m.cpflik) {
 						i_114_ *= 1.6;
 						if (i_114_ > 255)
 							i_114_ = 255;
@@ -857,14 +827,14 @@ public class Plane {
 							i_116_ = 255;
 					}
 					for (int i_118_ = 0; i_118_ < 16; i_118_++)
-						if (av > (m).fade[i_118_]) {
-							i_114_ = ((i_114_ * (m).fogd + (m).cfade[0]) / ((m).fogd + 1));
-							i_115_ = ((i_115_ * (m).fogd + (m).cfade[1]) / ((m).fogd + 1));
-							i_116_ = ((i_116_ * (m).fogd + (m).cfade[2]) / ((m).fogd + 1));
+						if (av > m.fade[i_118_]) {
+							i_114_ = (i_114_ * m.fogd + m.cfade[0]) / (m.fogd + 1);
+							i_115_ = (i_115_ * m.fogd + m.cfade[1]) / (m.fogd + 1);
+							i_116_ = (i_116_ * m.fogd + m.cfade[2]) / (m.fogd + 1);
 						}
 					graphics2d.setColor(new Color(i_114_, i_115_, i_116_));
 					graphics2d.drawPolygon(is_85_, is_86_, n);
-				} else if ((m).cpflik && (m).hit == 5000) {
+				} else if (m.cpflik && m.hit == 5000) {
 					i_115_ = (int) (Math.random() * 115.0);
 					i_114_ = i_115_ * 2 - 54;
 					if (i_114_ < 0)
@@ -884,29 +854,71 @@ public class Plane {
 					graphics2d.setColor(new Color(i_114_, i_115_, i_116_));
 					graphics2d.drawPolygon(is_85_, is_86_, n);
 				}
-			if (gr == -18 && (m).trk == 0) {
+			if (gr == -18 && m.trk == 0) {
 				i_114_ = c[0];
 				i_115_ = c[1];
 				i_116_ = c[2];
-				if ((m).cpflik && (m).elecr >= 0.0F) {
-					i_114_ = (int) (25.5F * (m).elecr);
+				if (m.cpflik && m.elecr >= 0.0F) {
+					i_114_ = (int) (25.5F * m.elecr);
 					if (i_114_ > 255)
 						i_114_ = 255;
-					i_115_ = (int) (128.0F + 12.8F * (m).elecr);
+					i_115_ = (int) (128.0F + 12.8F * m.elecr);
 					if (i_115_ > 255)
 						i_115_ = 255;
 					i_116_ = 255;
 				}
 				for (int i_119_ = 0; i_119_ < 16; i_119_++)
-					if (av > (m).fade[i_119_]) {
-						i_114_ = ((i_114_ * (m).fogd + (m).cfade[0]) / ((m).fogd + 1));
-						i_115_ = ((i_115_ * (m).fogd + (m).cfade[1]) / ((m).fogd + 1));
-						i_116_ = ((i_116_ * (m).fogd + (m).cfade[2]) / ((m).fogd + 1));
+					if (av > m.fade[i_119_]) {
+						i_114_ = (i_114_ * m.fogd + m.cfade[0]) / (m.fogd + 1);
+						i_115_ = (i_115_ * m.fogd + m.cfade[1]) / (m.fogd + 1);
+						i_116_ = (i_116_ * m.fogd + m.cfade[2]) / (m.fogd + 1);
 					}
 				graphics2d.setColor(new Color(i_114_, i_115_, i_116_));
 				graphics2d.drawPolygon(is_85_, is_86_, n);
 			}
 		}
+	}
+
+	public void deltafntyp() {
+		final int i = Math.abs(ox[2] - ox[1]);
+		final int i_24_ = Math.abs(oy[2] - oy[1]);
+		final int i_25_ = Math.abs(oz[2] - oz[1]);
+		if (i_24_ <= i && i_24_ <= i_25_)
+			typ = 2;
+		if (i <= i_24_ && i <= i_25_)
+			typ = 1;
+		if (i_25_ <= i && i_25_ <= i_24_)
+			typ = 3;
+		deltaf = 1.0F;
+		for (int i_26_ = 0; i_26_ < 3; i_26_++)
+			for (int i_27_ = 0; i_27_ < 3; i_27_++)
+				if (i_27_ != i_26_)
+					deltaf *= (float) (Math.sqrt((ox[i_27_] - ox[i_26_]) * (ox[i_27_] - ox[i_26_])
+							+ (oy[i_27_] - oy[i_26_]) * (oy[i_27_] - oy[i_26_])
+							+ (oz[i_27_] - oz[i_26_]) * (oz[i_27_] - oz[i_26_])) / 100.0);
+		deltaf = deltaf / 3.0F;
+	}
+
+	public void loadprojf() {
+		projf = 1.0F;
+		for (int i = 0; i < 3; i++)
+			for (int i_28_ = 0; i_28_ < 3; i_28_++)
+				if (i_28_ != i)
+					projf *= (float) (Math
+							.sqrt((ox[i] - ox[i_28_]) * (ox[i] - ox[i_28_]) + (oz[i] - oz[i_28_]) * (oz[i] - oz[i_28_]))
+							/ 100.0);
+		projf = projf / 3.0F;
+	}
+
+	public void rot(final int[] is, final int[] is_163_, final int i, final int i_164_, final int i_165_,
+			final int i_166_) {
+		if (i_165_ != 0)
+			for (int i_167_ = 0; i_167_ < i_166_; i_167_++) {
+				final int i_168_ = is[i_167_];
+				final int i_169_ = is_163_[i_167_];
+				is[i_167_] = i + (int) ((i_168_ - i) * m.cos(i_165_) - (i_169_ - i_164_) * m.sin(i_165_));
+				is_163_[i_167_] = i_164_ + (int) ((i_168_ - i) * m.sin(i_165_) + (i_169_ - i_164_) * m.cos(i_165_));
+			}
 	}
 
 	public void s(final Graphics2D graphics2d, final int i, final int i_120_, final int i_121_, final int i_122_,
@@ -922,11 +934,11 @@ public class Plane {
 		rot(is, is_127_, i, i_120_, i_123_, n);
 		rot(is_127_, is_126_, i_120_, i_121_, i_124_, n);
 		rot(is, is_126_, i, i_121_, i_122_, n);
-		int i_129_ = (int) ((m).crgrnd[0] / 1.5);
-		int i_130_ = (int) ((m).crgrnd[1] / 1.5);
-		int i_131_ = (int) ((m).crgrnd[2] / 1.5);
+		int i_129_ = (int) (m.crgrnd[0] / 1.5);
+		int i_130_ = (int) (m.crgrnd[1] / 1.5);
+		int i_131_ = (int) (m.crgrnd[2] / 1.5);
 		for (int i_132_ = 0; i_132_ < n; i_132_++)
-			is_127_[i_132_] = (m).ground;
+			is_127_[i_132_] = m.ground;
 		if (i_125_ == 0) {
 			int i_133_ = 0;
 			int i_134_ = 0;
@@ -958,39 +970,39 @@ public class Plane {
 			}
 			final int i_143_ = (i_133_ + i_134_) / 2;
 			final int i_144_ = (i_135_ + i_136_) / 2;
-			int i_145_ = ((i_143_ - (t).sx + (m).x) / 3000);
-			if (i_145_ > (t).ncx)
-				i_145_ = (t).ncx;
+			int i_145_ = (i_143_ - t.sx + m.x) / 3000;
+			if (i_145_ > t.ncx)
+				i_145_ = t.ncx;
 			if (i_145_ < 0)
 				i_145_ = 0;
-			int i_146_ = ((i_144_ - (t).sz + (m).z) / 3000);
-			if (i_146_ > (t).ncz)
-				i_146_ = (t).ncz;
+			int i_146_ = (i_144_ - t.sz + m.z) / 3000;
+			if (i_146_ > t.ncz)
+				i_146_ = t.ncz;
 			if (i_146_ < 0)
 				i_146_ = 0;
-			for (int i_147_ = ((t).sect[i_145_][i_146_]).length - 1; i_147_ >= 0; i_147_--) {
-				final int i_148_ = ((t).sect[i_145_][i_146_][i_147_]);
+			for (int i_147_ = t.sect[i_145_][i_146_].length - 1; i_147_ >= 0; i_147_--) {
+				final int i_148_ = t.sect[i_145_][i_146_][i_147_];
 				int i_149_ = 0;
-				if (Math.abs((t).zy[i_148_]) != 90 && Math.abs((t).xy[i_148_]) != 90 && (t).rady[i_148_] != 801
-						&& (Math.abs(i_143_ - ((t).x[i_148_] - (m).x)) < (t).radx[i_148_])
-						&& (Math.abs(i_144_ - ((t).z[i_148_] - (m).z)) < (t).radz[i_148_])
-						&& (!(t).decor[i_148_] || (m).resdown != 2))
+				if (Math.abs(t.zy[i_148_]) != 90 && Math.abs(t.xy[i_148_]) != 90 && t.rady[i_148_] != 801
+						&& Math.abs(i_143_ - (t.x[i_148_] - m.x)) < t.radx[i_148_]
+						&& Math.abs(i_144_ - (t.z[i_148_] - m.z)) < t.radz[i_148_]
+						&& (!t.decor[i_148_] || m.resdown != 2))
 					i_149_++;
 				if (i_149_ != 0) {
 					for (int i_150_ = 0; i_150_ < n; i_150_++) {
-						is_127_[i_150_] = ((t).y[i_148_] - (m).y);
-						if ((t).zy[i_148_] != 0)
-							is_127_[i_150_] += (((is_126_[i_150_] - (((t).z[i_148_]) - ((m).z) - ((t).radz[i_148_])))
-									* m.sin((t).zy[i_148_]) / m.sin(90 - (((t)).zy[i_148_])))
-									- (((t).radz[i_148_]) * m.sin(((t)).zy[i_148_]) / (m.sin(90 - ((t).zy[i_148_])))));
-						if ((t).xy[i_148_] != 0)
-							is_127_[i_150_] += (((is[i_150_] - (((t).x[i_148_]) - ((m).x) - ((t).radx[i_148_])))
-									* m.sin((t).xy[i_148_]) / m.sin(90 - (((t)).xy[i_148_])))
-									- (((t).radx[i_148_]) * m.sin(((t)).xy[i_148_]) / (m.sin(90 - ((t).xy[i_148_])))));
+						is_127_[i_150_] = t.y[i_148_] - m.y;
+						if (t.zy[i_148_] != 0)
+							is_127_[i_150_] += (is_126_[i_150_] - (t.z[i_148_] - m.z - t.radz[i_148_]))
+									* m.sin(t.zy[i_148_]) / m.sin(90 - t.zy[i_148_])
+									- t.radz[i_148_] * m.sin(t.zy[i_148_]) / m.sin(90 - t.zy[i_148_]);
+						if (t.xy[i_148_] != 0)
+							is_127_[i_150_] += (is[i_150_] - (t.x[i_148_] - m.x - t.radx[i_148_])) * m.sin(t.xy[i_148_])
+									/ m.sin(90 - t.xy[i_148_])
+									- t.radx[i_148_] * m.sin(t.xy[i_148_]) / m.sin(90 - t.xy[i_148_]);
 					}
-					i_129_ = (int) (((t).c[i_148_][0]) / 1.5);
-					i_130_ = (int) (((t).c[i_148_][1]) / 1.5);
-					i_131_ = (int) (((t).c[i_148_][2]) / 1.5);
+					i_129_ = (int) (t.c[i_148_][0] / 1.5);
+					i_130_ = (int) (t.c[i_148_][1] / 1.5);
+					i_131_ = (int) (t.c[i_148_][2] / 1.5);
 					break;
 				}
 			}
@@ -1003,14 +1015,14 @@ public class Plane {
 			i_130_ = 85;
 			i_131_ = 57;
 		} else
-			for (int i_153_ = 0; i_153_ < (m).nsp; i_153_++)
+			for (int i_153_ = 0; i_153_ < m.nsp; i_153_++)
 				for (int i_154_ = 0; i_154_ < n; i_154_++)
-					if ((Math.abs(is[i_154_] - (m).spx[i_153_]) < (m).sprad[i_153_])
-							&& (Math.abs(is_126_[i_154_] - (m).spz[i_153_]) < (m).sprad[i_153_]))
+					if (Math.abs(is[i_154_] - m.spx[i_153_]) < m.sprad[i_153_]
+							&& Math.abs(is_126_[i_154_] - m.spz[i_153_]) < m.sprad[i_153_])
 						bool = false;
 		if (bool) {
-			rot(is, is_126_, (m).cx, (m).cz, (m).xz, n);
-			rot(is_127_, is_126_, (m).cy, (m).cz, (m).zy, n);
+			rot(is, is_126_, m.cx, m.cz, m.xz, n);
+			rot(is_127_, is_126_, m.cy, m.cz, m.zy, n);
 			int i_155_ = 0;
 			int i_156_ = 0;
 			int i_157_ = 0;
@@ -1018,13 +1030,13 @@ public class Plane {
 			for (int i_159_ = 0; i_159_ < n; i_159_++) {
 				is_151_[i_159_] = xs(is[i_159_], is_126_[i_159_]);
 				is_152_[i_159_] = ys(is_127_[i_159_], is_126_[i_159_]);
-				if (is_152_[i_159_] < (m).ih || is_126_[i_159_] < 10)
+				if (is_152_[i_159_] < m.ih || is_126_[i_159_] < 10)
 					i_155_++;
-				if (is_152_[i_159_] > (m).h || is_126_[i_159_] < 10)
+				if (is_152_[i_159_] > m.h || is_126_[i_159_] < 10)
 					i_156_++;
-				if (is_151_[i_159_] < (m).iw || is_126_[i_159_] < 10)
+				if (is_151_[i_159_] < m.iw || is_126_[i_159_] < 10)
 					i_157_++;
-				if (is_151_[i_159_] > (m).w || is_126_[i_159_] < 10)
+				if (is_151_[i_159_] > m.w || is_126_[i_159_] < 10)
 					i_158_++;
 			}
 			if (i_157_ == n || i_155_ == n || i_156_ == n || i_158_ == n)
@@ -1032,40 +1044,29 @@ public class Plane {
 		}
 		if (bool) {
 			for (int i_160_ = 0; i_160_ < 16; i_160_++)
-				if (av > (m).fade[i_160_]) {
-					i_129_ = ((i_129_ * (m).fogd + (m).cfade[0]) / ((m).fogd + 1));
-					i_130_ = ((i_130_ * (m).fogd + (m).cfade[1]) / ((m).fogd + 1));
-					i_131_ = ((i_131_ * (m).fogd + (m).cfade[2]) / ((m).fogd + 1));
+				if (av > m.fade[i_160_]) {
+					i_129_ = (i_129_ * m.fogd + m.cfade[0]) / (m.fogd + 1);
+					i_130_ = (i_130_ * m.fogd + m.cfade[1]) / (m.fogd + 1);
+					i_131_ = (i_131_ * m.fogd + m.cfade[2]) / (m.fogd + 1);
 				}
 			graphics2d.setColor(new Color(i_129_, i_130_, i_131_));
 			graphics2d.fillPolygon(is_151_, is_152_, n);
 		}
 	}
 
+	public int spy(final int i, final int i_170_) {
+		return (int) Math.sqrt((i - m.cx) * (i - m.cx) + i_170_ * i_170_);
+	}
+
 	public int xs(final int i, int i_161_) {
-		if (i_161_ < (m).cz)
-			i_161_ = (m).cz;
-		return (((i_161_ - (m).focus_point) * ((m).cx - i) / i_161_) + i);
+		if (i_161_ < m.cz)
+			i_161_ = m.cz;
+		return (i_161_ - m.focus_point) * (m.cx - i) / i_161_ + i;
 	}
 
 	public int ys(final int i, int i_162_) {
-		if (i_162_ < (m).cz)
-			i_162_ = (m).cz;
-		return (((i_162_ - (m).focus_point) * ((m).cy - i) / i_162_) + i);
-	}
-
-	public void rot(final int[] is, final int[] is_163_, final int i, final int i_164_, final int i_165_,
-			final int i_166_) {
-		if (i_165_ != 0)
-			for (int i_167_ = 0; i_167_ < i_166_; i_167_++) {
-				final int i_168_ = is[i_167_];
-				final int i_169_ = is_163_[i_167_];
-				is[i_167_] = i + (int) (((i_168_ - i) * m.cos(i_165_)) - ((i_169_ - i_164_) * m.sin(i_165_)));
-				is_163_[i_167_] = i_164_ + (int) (((i_168_ - i) * m.sin(i_165_)) + ((i_169_ - i_164_) * m.cos(i_165_)));
-			}
-	}
-
-	public int spy(final int i, final int i_170_) {
-		return (int) Math.sqrt(((i - (m).cx) * (i - (m).cx)) + i_170_ * i_170_);
+		if (i_162_ < m.cz)
+			i_162_ = m.cz;
+		return (i_162_ - m.focus_point) * (m.cy - i) / i_162_ + i;
 	}
 }

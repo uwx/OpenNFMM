@@ -8,6 +8,18 @@ import java.net.URL;
 
 public class RadicalMod {
 
+	String imod;
+
+	int loaded;
+
+	boolean playing;
+
+	String pmod;
+
+	int rvol;
+
+	SuperClip sClip;
+
 	public RadicalMod() {
 		playing = false;
 		loaded = 0;
@@ -18,6 +30,27 @@ public class RadicalMod {
 		System.gc();
 	}
 
+	public RadicalMod(final String string) {
+		playing = false;
+		loaded = 0;
+		rvol = 0;
+		imod = "";
+		pmod = "";
+		loaded = 1;
+		imod = string;
+	}
+
+	public RadicalMod(final String string, final boolean bool) {
+		playing = false;
+		loaded = 0;
+		rvol = 0;
+		imod = "";
+		pmod = "";
+		loaded = 1;
+		pmod = string;
+		loadpmod(true);
+	}
+
 	public RadicalMod(String string, int i, int i_0_, final int i_1_, final boolean bool, final boolean bool_2_) {
 		playing = false;
 		loaded = 0;
@@ -25,7 +58,7 @@ public class RadicalMod {
 		imod = "";
 		pmod = "";
 		final int i_3_ = 22000;
-		i_0_ = (int) ((i_0_ / 8000F) * 2.0F * i_3_);
+		i_0_ = (int) (i_0_ / 8000F * 2.0F * i_3_);
 		i = (int) (i * 0.8F);
 		try {
 			Mod mod;
@@ -34,8 +67,8 @@ public class RadicalMod {
 			else {
 				string = string.replace(' ', '_');
 				final URL url = new URL(
-						(new StringBuilder()).append("http://multiplayer.needformadness.com/tracks/music/")
-								.append(string).append(".zip").toString());
+						new StringBuilder().append("http://multiplayer.needformadness.com/tracks/music/").append(string)
+								.append(".zip").toString());
 				mod = new Mod(url);
 			}
 			if (mod.loaded) {
@@ -48,21 +81,11 @@ public class RadicalMod {
 			}
 		} catch (final Exception exception) {
 			System.out.println(
-					(new StringBuilder()).append("Error downloading and making Mod: ").append(exception).toString());
+					new StringBuilder().append("Error downloading and making Mod: ").append(exception).toString());
 			loaded = 0;
 		}
 		System.runFinalization();
 		System.gc();
-	}
-
-	public RadicalMod(final String string) {
-		playing = false;
-		loaded = 0;
-		rvol = 0;
-		imod = "";
-		pmod = "";
-		loaded = 1;
-		imod = string;
 	}
 
 	public void loadimod(final boolean bool) {
@@ -83,7 +106,7 @@ public class RadicalMod {
 					loaded = 2;
 				}
 			} catch (final Exception exception) {
-				System.out.println((new StringBuilder()).append("Error making a imod: ").append(exception).toString());
+				System.out.println(new StringBuilder().append("Error making a imod: ").append(exception).toString());
 				exception.printStackTrace();
 				loaded = 0;
 			}
@@ -110,24 +133,13 @@ public class RadicalMod {
 					loaded = 2;
 				}
 			} catch (final Exception exception) {
-				System.out.println((new StringBuilder()).append("Error making a imod: ").append(exception).toString());
+				System.out.println(new StringBuilder().append("Error making a imod: ").append(exception).toString());
 				exception.printStackTrace();
 				loaded = 0;
 			}
 			System.runFinalization();
 			System.gc();
 		}
-	}
-
-	public RadicalMod(final String string, final boolean bool) {
-		playing = false;
-		loaded = 0;
-		rvol = 0;
-		imod = "";
-		pmod = "";
-		loaded = 1;
-		pmod = string;
-		loadpmod(true);
 	}
 
 	public void play() {
@@ -153,22 +165,6 @@ public class RadicalMod {
 		}
 	}
 
-	protected void unloadimod() {
-		if (loaded == 2) {
-			if (playing) {
-				sClip.stop();
-				playing = false;
-			}
-			try {
-				sClip.close();
-				sClip = null;
-			} catch (final Exception _ex) {
-			}
-			System.gc();
-			loaded = 1;
-		}
-	}
-
 	protected void unload() {
 		if (playing && loaded == 2) {
 			sClip.stop();
@@ -187,10 +183,19 @@ public class RadicalMod {
 		loaded = 0;
 	}
 
-	SuperClip sClip;
-	boolean playing;
-	int loaded;
-	int rvol;
-	String imod;
-	String pmod;
+	protected void unloadimod() {
+		if (loaded == 2) {
+			if (playing) {
+				sClip.stop();
+				playing = false;
+			}
+			try {
+				sClip.close();
+				sClip = null;
+			} catch (final Exception _ex) {
+			}
+			System.gc();
+			loaded = 1;
+		}
+	}
 }
