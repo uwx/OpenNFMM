@@ -795,10 +795,10 @@ public class GameSparker extends Applet implements Runnable {
 				}
 				if (var_xtGraphics.multion == 0 && string.startsWith("nlaps")) {
 					checkpoints.nlaps = getint("nlaps", string, 0);
-					if (checkpoints.nlaps < 1)
-						checkpoints.nlaps = 1;
-					if (checkpoints.nlaps > 15)
-						checkpoints.nlaps = 15;
+					//if (checkpoints.nlaps < 1)
+					//	checkpoints.nlaps = 1;
+					//if (checkpoints.nlaps > 15)
+					//	checkpoints.nlaps = 15;
 				}
 				if (checkpoints.stage > 0 && string.startsWith("name"))
 					checkpoints.name = getstring("name", string, 0).replace('|', ',');
