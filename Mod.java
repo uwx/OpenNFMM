@@ -16,8 +16,6 @@ import java.util.zip.ZipInputStream;
 
 public class Mod {
 	static final int voice_28ch = FOURCC("28CH");
-	static final int[] voice_31_list = { voice_mk, voice_mk2, voice_mk3, voice_flt4, voice_flt8, voice_8chn, voice_6chn,
-			voice_28ch };
 	static final int voice_6chn = FOURCC("6CHN");
 	static final int voice_8chn = FOURCC("8CHN");
 	static final int voice_flt4 = FOURCC("FLT4");
@@ -25,7 +23,9 @@ public class Mod {
 	static final int voice_mk = FOURCC("M.K.");
 	static final int voice_mk2 = FOURCC("M!K!");
 	static final int voice_mk3 = FOURCC("M&K!");
-
+	static final int[] voice_31_list = { voice_mk, voice_mk2, voice_mk3, voice_flt4, voice_flt8, voice_8chn, voice_6chn,
+			voice_28ch };
+	
 	static final int FOURCC(final String string) {
 		return string.charAt(3) & 0xff | (string.charAt(2) & 0xff) << 8 | (string.charAt(1) & 0xff) << 16
 				| (string.charAt(0) & 0xff) << 24;
