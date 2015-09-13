@@ -8249,8 +8249,6 @@ public class xtGraphics extends Panel implements Runnable {
 	public void stat(final Mad mad, final ContO conto, final CheckPoints checkpoints, final Control control,
 			final boolean bool) {
 		if (!chronostart) {
-			//if (loadedt && !mutem)
-			//	strack.resume();
 			if (starcnt == 0) {
 				chrono.setLaps(checkpoints.nlaps);
 				chrono.start();
