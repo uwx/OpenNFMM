@@ -4647,6 +4647,7 @@ public class xtGraphics extends Panel implements Runnable {
 	}
 
 	public void loadingstage(final int i, final boolean bool) {
+		
 		trackbg(true);
 		rd.drawImage(br, 65, 25, null);
 		rd.setColor(new Color(212, 214, 138));
@@ -8247,12 +8248,15 @@ public class xtGraphics extends Panel implements Runnable {
 
 	public void stat(final Mad mad, final ContO conto, final CheckPoints checkpoints, final Control control,
 			final boolean bool) {
-		if (!chronostart)
+		if (!chronostart) {
+			//if (loadedt && !mutem)
+			//	strack.resume();
 			if (starcnt == 0) {
 				chrono.setLaps(checkpoints.nlaps);
 				chrono.start();
 				chronostart = true;
 			}
+		}
 		if (control.radar)
 			chrono.paint(10, 260, 1);
 		else
