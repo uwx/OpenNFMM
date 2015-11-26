@@ -936,7 +936,7 @@ public class xtGraphics extends Panel implements Runnable {
 				if (sc[0] != maxsl)
 					rd.drawImage(next[pnext], 645, 275, null);
 			}
-			if (gmode == 1) {
+			/*if (gmode == 1) {
 				if (sc[0] == 5 && unlocked[0] <= 2)
 					i_113_ = 2;
 				if (sc[0] == 6 && unlocked[0] <= 4)
@@ -947,7 +947,7 @@ public class xtGraphics extends Panel implements Runnable {
 					i_113_ = 8;
 				if (sc[0] == 15 && unlocked[0] <= 10)
 					i_113_ = 10;
-			}
+			}*/
 			if (gmode == 2 && sc[0] >= 8 && unlocked[1] <= (sc[0] - 7) * 2)
 				i_113_ = (sc[0] - 7) * 2;
 			if (i_113_ != 0) {
@@ -1886,12 +1886,12 @@ public class xtGraphics extends Panel implements Runnable {
 					}
 					if (nextc == 1) {
 						sc[0]++;
-						if (gmode == 1) {
+						/*if (gmode == 1) {
 							if (sc[0] == 7)
 								sc[0] = 11;
 							if (sc[0] == 12)
 								sc[0] = 14;
-						}
+						}*/
 						if (multion != 0 && onjoin != -1 && ontyp > 0 && ontyp <= 5)
 							for ( /**/ ; sc[0] < maxsl && Math.abs(cd.cclass[sc[0]] - (ontyp - 1)) > 1; sc[0]++) {
 								/* empty */
@@ -1899,12 +1899,12 @@ public class xtGraphics extends Panel implements Runnable {
 					}
 					if (nextc == -1) {
 						sc[0]--;
-						if (gmode == 1) {
+						/*if (gmode == 1) {
 							if (sc[0] == 13)
 								sc[0] = 11;
 							if (sc[0] == 10)
 								sc[0] = 6;
-						}
+						}*/
 						if (multion != 0 && onjoin != -1 && ontyp > 0 && ontyp <= 5)
 							for ( /**/ ; sc[0] > minsl && Math.abs(cd.cclass[sc[0]] - (ontyp - 1)) > 1; sc[0]--) {
 								/* empty */
@@ -1967,8 +1967,8 @@ public class xtGraphics extends Panel implements Runnable {
 				}
 				if (gmode == 0)
 					osc = sc[0];
-				if (gmode == 1)
-					scm[0] = sc[0];
+				//if (gmode == 1)
+				//	scm[0] = sc[0];
 				if (gmode == 2)
 					scm[1] = sc[0];
 				if (app.mycar.isShowing())
@@ -2953,7 +2953,7 @@ public class xtGraphics extends Panel implements Runnable {
 			i_142_ = 184;
 		}
 		if (winner && multion == 0 && gmode != 0
-				&& (checkpoints.stage == unlocked[gmode - 1] + (gmode - 1) * 10 || checkpoints.stage == 27)) {
+				&& (checkpoints.stage == unlocked[gmode - 1] /*+ (gmode - 1) * 10*/ || checkpoints.stage == 27)) {
 			int i_144_ = 0;
 			int i_145_ = 0;
 			pin = 60;
@@ -3223,7 +3223,7 @@ public class xtGraphics extends Panel implements Runnable {
 				strack.unload();
 			if (multion == 0) {
 				opselect = 3;
-				if (gmode == 1) {
+				/*if (gmode == 1) {
 					opselect = 0;
 					if (winner && checkpoints.stage == unlocked[gmode - 1] + (gmode - 1) * 10
 							&& checkpoints.stage != 27) {
@@ -3231,10 +3231,10 @@ public class xtGraphics extends Panel implements Runnable {
 						justwon1 = true;
 					} else
 						justwon1 = false;
-				}
+				}*/
 				if (gmode == 2) {
 					opselect = 1;
-					if (winner && checkpoints.stage == unlocked[gmode - 1] + (gmode - 1) * 10
+					if (winner && checkpoints.stage == unlocked[gmode - 1]/* + (gmode - 1) * 10*/
 							&& checkpoints.stage != 27) {
 						unlocked[gmode - 1]++;
 						justwon2 = true;
@@ -3849,19 +3849,19 @@ public class xtGraphics extends Panel implements Runnable {
 			if (!bool)
 				checkpoints.stage = (int) (Math.random() * 27.0) + 1;
 		}
-		if (gmode == 1) {
+		/*if (gmode == 1) {
 			if (unlocked[0] != 11 || justwon1)
 				checkpoints.stage = unlocked[0];
 			else if (winner || checkpoints.stage > 11)
 				checkpoints.stage = (int) (Math.random() * 11.0) + 1;
 			if (checkpoints.stage == 11)
 				checkpoints.stage = 27;
-		}
+		}*/
 		if (gmode == 2)
 			if (unlocked[0] != 17 || justwon2)
-				checkpoints.stage = unlocked[1] + 10;
-			else if (winner || checkpoints.stage < 11)
-				checkpoints.stage = (int) (Math.random() * 17.0) + 11;
+				checkpoints.stage = unlocked[1]/* + 10*/;
+			else if (winner/* || checkpoints.stage < 11*/)
+				checkpoints.stage = (int) (Math.random() * 27.0)/* + 11*/;
 		app.sgame.setBackground(new Color(0, 0, 0));
 		app.sgame.setForeground(new Color(47, 179, 255));
 		app.snfm1.setBackground(new Color(0, 0, 0));
@@ -4988,11 +4988,11 @@ public class xtGraphics extends Panel implements Runnable {
 			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 261,
 					8000, 125, false, false);
 		if (i == 27)
-			if (gmode == 2)
-				strack = new RadicalMod("music/party.zip", 400, 7600, 125, false, false);
-			else
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
-						276, 8800, 145, false, false);
+			//if (gmode == 2)
+			strack = new RadicalMod("music/party.zip", 400, 7600, 125, false, false);
+			//else
+			//	strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+			//			276, 8800, 145, false, false);
 		if (i == 28)
 			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 182,
 					8000, 125, false, false);
@@ -5348,11 +5348,11 @@ public class xtGraphics extends Panel implements Runnable {
 			if (opselect == 3)
 				fase = 8;
 			if (opselect == 0) {
-				if (unlocked[0] == 11)
+				/*if (unlocked[0] == 11)
 					if (unlocked[1] != 17)
 						opselect = 1;
 					else
-						opselect = 2;
+						opselect = 2;*/
 				if (firstime) {
 					oldfase = 102;
 					fase = 11;
@@ -5378,7 +5378,12 @@ public class xtGraphics extends Panel implements Runnable {
 
 	public void maini2(final Control control, final int i, final int i_98_, final int i_99_) {
 		mainbg(1);
-		rd.setComposite(AlphaComposite.getInstance(3, 0.6F));
+		multion = 0;
+		clangame = 0;
+		gmode = 2;
+		fase = -9;
+		opselect = 0;
+		/*rd.setComposite(AlphaComposite.getInstance(3, 0.6F));
 		rd.drawImage(logomadbg, 65, 25, null);
 		rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
 		rd.drawImage(logomadnes, 233, 186, null);
@@ -5545,9 +5550,9 @@ public class xtGraphics extends Panel implements Runnable {
 			try {
 				Thread.sleep(200L);
 			} catch (final InterruptedException interruptedexception) {
-				/* empty */
+				/* empty *//*
 			}
-		}
+		}*/
 	}
 
 	private void makecarsbgc(final Image image, final Image image_386_) {
@@ -6600,8 +6605,8 @@ public class xtGraphics extends Panel implements Runnable {
 				fase = 102;
 				if (gmode == 0)
 					opselect = 3;
-				if (gmode == 1)
-					opselect = 0;
+				//if (gmode == 1)
+				//	opselect = 0;
 				if (gmode == 2)
 					opselect = 1;
 				rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
@@ -7452,13 +7457,13 @@ public class xtGraphics extends Panel implements Runnable {
 			if (i < 0)
 				i = 27;
 			int i_152_ = 7;
-			if (gmode == 1)
-				i_152_ = 5;
+			//if (gmode == 1)
+			//	i_152_ = 5;
 			boolean bool = false;
 			if (i <= 10) {
 				int i_153_ = 6;
-				if (gmode == 1)
-					i_153_ = 4;
+				//if (gmode == 1)
+				//	i_153_ = 4;
 				if ((i == 1 || i == 2) && sc[0] != 5) {
 					sc[i_153_] = 5;
 					i_152_ = i_153_;
@@ -7512,7 +7517,7 @@ public class xtGraphics extends Panel implements Runnable {
 						f_159_ = 0.5F;
 					if (f_159_ > Math.random())
 						bools[i_157_] = false;
-					if (gmode == 1) {
+					/*if (gmode == 1) {
 						if (sc[i_157_] >= 7 && sc[i_157_] <= 10)
 							bools[i_157_] = false;
 						if (sc[i_157_] == 12 || sc[i_157_] == 13)
@@ -7525,7 +7530,7 @@ public class xtGraphics extends Panel implements Runnable {
 							bools[i_157_] = false;
 						if (sc[i_157_] > 14 && unlocked[0] <= 8)
 							bools[i_157_] = false;
-					}
+					}*/
 					if (gmode == 2) {
 						if ((sc[i_157_] - 7) * 2 > unlocked[1])
 							bools[i_157_] = false;
@@ -7674,7 +7679,7 @@ public class xtGraphics extends Panel implements Runnable {
 		rd.drawImage(select, 338, 35, null);
 		if (testdrive != 3 && testdrive != 4) {
 			if (checkpoints.stage > 0 && cd.staction == 0) {
-				if (checkpoints.stage != 1 && (checkpoints.stage != 11 || gmode != 2))
+				if (checkpoints.stage != 1 && (checkpoints.stage != 11/* || gmode != 2*/))
 					rd.drawImage(back[pback], 115, 135, null);
 				if (checkpoints.stage != 27)
 					rd.drawImage(next[pnext], 625, 135, null);
@@ -8173,13 +8178,13 @@ public class xtGraphics extends Panel implements Runnable {
 				}
 				if (checkpoints.stage > 0) {
 					if (control.right) {
-						if (gmode == 0 || gmode == 1 && checkpoints.stage != unlocked[0]
-								|| gmode == 2 && checkpoints.stage != unlocked[1] + 10 || checkpoints.stage == 27) {
+						if (gmode == 0 /*|| gmode == 1 && checkpoints.stage != unlocked[0]*/
+								|| gmode == 2 && checkpoints.stage != unlocked[1]/* + 10*/ || checkpoints.stage == 27) {
 							if (checkpoints.stage != 27) {
 								hidos();
 								checkpoints.stage++;
-								if (gmode == 1 && checkpoints.stage == 11)
-									checkpoints.stage = 27;
+								//if (gmode == 1 && checkpoints.stage == 11)
+								//	checkpoints.stage = 27;
 								if (checkpoints.stage > 10) {
 									app.sgame.select(1);
 									nfmtab = 1;
@@ -8195,11 +8200,11 @@ public class xtGraphics extends Panel implements Runnable {
 						}
 						control.right = false;
 					}
-					if (control.left && checkpoints.stage != 1 && (checkpoints.stage != 11 || gmode != 2)) {
+					if (control.left && checkpoints.stage != 1/* && (checkpoints.stage != 11 || gmode != 2)*/) {
 						hidos();
 						checkpoints.stage--;
-						if (gmode == 1 && checkpoints.stage == 26)
-							checkpoints.stage = 10;
+						//if (gmode == 1 && checkpoints.stage == 26)
+						//	checkpoints.stage = 10;
 						if (checkpoints.stage > 10) {
 							app.sgame.select(1);
 							nfmtab = 1;
@@ -8234,8 +8239,8 @@ public class xtGraphics extends Panel implements Runnable {
 			fase = 102;
 			if (gmode == 0)
 				opselect = 3;
-			if (gmode == 1)
-				opselect = 0;
+			//if (gmode == 1)
+			//	opselect = 0;
 			if (gmode == 2)
 				opselect = 1;
 			app.gmode.setVisible(false);

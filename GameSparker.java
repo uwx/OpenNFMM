@@ -586,11 +586,11 @@ public class GameSparker extends Applet implements Runnable {
 			final CheckPoints checkpoints, final xtGraphics var_xtGraphics, final Mad[] mads, final Record record) {
 		if (var_xtGraphics.testdrive == 2 || var_xtGraphics.testdrive == 4)
 			var_xtGraphics.nplayers = 1;
-		if (var_xtGraphics.gmode == 1) {
+		/*if (var_xtGraphics.gmode == 1) {
 			var_xtGraphics.nplayers = 5;
 			var_xtGraphics.xstart[4] = 0;
 			var_xtGraphics.zstart[4] = 760;
-		}
+		}*/
 		trackers.nt = 0;
 		nob = var_xtGraphics.nplayers;
 		notb = 0;
