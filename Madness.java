@@ -90,10 +90,10 @@ public class Madness extends Panel {
 	}
 
 	public static void carmaker() {
-		try {
+		/*try {
 			applet.stop();
 		} catch (final Exception ex) {
-		}
+		}*/
 		try {
 			cm.stop();
 		} catch (final Exception ex) {
@@ -108,10 +108,10 @@ public class Madness extends Panel {
 		} catch (final Exception exception) {
 			/* empty */
 		}
-		try {
+		/*try {
 			applet.destroy();
 		} catch (final Exception ex) {
-		}
+		}*/
 		try {
 			cm.destroy();
 		} catch (final Exception ex) {
@@ -189,10 +189,10 @@ public class Madness extends Panel {
 			if (endadv == 1)
 				endadv = 2;
 			if (updateon != 3)
-				try {
+				/*try {
 					applet.stop();
 				} catch (final Exception ex) {
-				}
+				}*/
 			try {
 				sm.stop();
 			} catch (final Exception ex) {
@@ -207,10 +207,10 @@ public class Madness extends Panel {
 			} catch (final Exception exception) {
 				/* empty */
 			}
-			try {
+			/*try {
 				applet.destroy();
 			} catch (final Exception ex) {
-			}
+			}*/
 			try {
 				cm.destroy();
 			} catch (final Exception ex) {
@@ -236,10 +236,10 @@ public class Madness extends Panel {
 	}
 
 	public static void game() {
-		try {
+		/*try {
 			applet.stop();
 		} catch (final Exception ex) {
-		}
+		}*/
 		try {
 			cm.stop();
 		} catch (final Exception ex) {
@@ -254,10 +254,10 @@ public class Madness extends Panel {
 		} catch (final Exception exception) {
 			/* empty */
 		}
-		try {
+		/*try {
 			applet.destroy();
 		} catch (final Exception ex) {
-		}
+		}*/
 		try {
 			cm.destroy();
 		} catch (final Exception ex) {
@@ -288,8 +288,8 @@ public class Madness extends Panel {
 		applet = new GameSparker();
 		frame.add("Center", applet);
 		frame.setVisible(true);
-		applet.init();
-		applet.start();
+		//applet.init();
+		//applet.start();
 	}
 
 	public static String getfuncSvalue(final String string, final String string_28_, final int i) {
@@ -466,8 +466,8 @@ public class Madness extends Panel {
 		frame.setMinimumSize(new Dimension(930, 586));
 		frame.setSize(930, 586);
 		frame.setExtendedState(6);
-		applet.init();
-		applet.start();
+		//applet.init();
+		//applet.start();
 		final GraphicsEnvironment graphicsenvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		myDevice = graphicsenvironment.getDefaultScreenDevice();
 		defdisp = myDevice.getDisplayMode();
@@ -495,10 +495,10 @@ public class Madness extends Panel {
 	}
 
 	public static void stagemaker() {
-		try {
+		/*try {
 			applet.stop();
 		} catch (final Exception ex) {
-		}
+		}*/
 		try {
 			cm.stop();
 		} catch (final Exception ex) {
@@ -513,10 +513,10 @@ public class Madness extends Panel {
 		} catch (final Exception exception) {
 			/* empty */
 		}
-		try {
+		/*try {
 			applet.destroy();
 		} catch (final Exception ex) {
-		}
+		}*/
 		try {
 			cm.destroy();
 		} catch (final Exception ex) {
