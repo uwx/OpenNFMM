@@ -2890,7 +2890,8 @@ public class xtGraphics extends Panel implements Runnable {
 			stopallnow();
 			runtyp = 0;
 			app.repaint();
-			app.gamer.interrupt();
+			System.exit(0);
+			//app.gamer.interrupt();
 		}
 	}
 

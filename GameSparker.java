@@ -2,7 +2,6 @@
 /* GameSparker - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
-import java.applet.Applet;
 import java.awt.AlphaComposite;
 import java.awt.Checkbox;
 import java.awt.Color;
@@ -17,6 +16,14 @@ import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.TextArea;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
@@ -31,7 +38,11 @@ import java.util.Date;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-public class GameSparker extends Applet implements Runnable {
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
+import javax.swing.Timer;
+
+public class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMotionListener, ActionListener {
 	/**
 	 *
 	 */
@@ -50,7 +61,6 @@ public class GameSparker extends Applet implements Runnable {
 	boolean exwist = false;
 	int fcscnt = 0;
 	Image fulls;
-	Thread gamer;
 	Smenu gmode = new Smenu(3);
 	Smenu icars = new Smenu(5);
 	Smenu ilaps = new Smenu(18);
@@ -72,7 +82,7 @@ public class GameSparker extends Applet implements Runnable {
 	int nob = 0;
 	int notb = 0;
 	Checkbox notp;
-	Image offImage;
+	BufferedImage offImage;
 	boolean onbar = false;
 	boolean oncarm = false;
 	boolean onfulls = false;
@@ -292,14 +302,12 @@ public class GameSparker extends Applet implements Runnable {
 		swait.setVisible(false);
 	}
 
-	@Override
-	public void init() {
+	//@Override
+	public void initApplet() {
 		setBackground(new Color(0, 0, 0));
-		offImage = createImage(800, 450);
-		if (offImage != null)
-			rd = (Graphics2D) offImage.getGraphics();
-		rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-		rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		//offImage = createImage(800, 450);
+		//if (offImage != null)
+		//	rd = (Graphics2D) offImage.getGraphics();
 		setLayout(null);
 		tnick = new TextField("Nickbname");
 		tnick.setFont(new Font("Arial", 1, 13));
@@ -358,173 +366,6 @@ public class GameSparker extends Applet implements Runnable {
 		ilaps.setFont(new Font("Arial", 1, 13));
 		icars.setFont(new Font("Arial", 1, 12));
 		proitem.setFont(new Font("Arial", 1, 12));
-		sgame.add(rd, " NFM 1     ");
-		sgame.add(rd, " NFM 2     ");
-		sgame.add(rd, " My Stages ");
-		sgame.add(rd, " Weekly Top20 ");
-		sgame.add(rd, " Monthly Top20 ");
-		sgame.add(rd, " All Time Top20 ");
-		sgame.add(rd, " Stage Maker ");
-		wgame.add(rd, " Normal Game");
-		wgame.add(rd, " War / Battle");
-		wgame.add(rd, " War / Battle - Practice");
-		warb.add(rd, " Loading your clan's wars and battles, please wait...");
-		pgame.add(rd, " Select the game you want to practice");
-		vnpls.add(rd, "Players");
-		vnpls.add(rd, " 2 VS 2");
-		vnpls.add(rd, " 3 VS 3");
-		vnpls.add(rd, " 4 VS 4");
-		vtyp.add(rd, "Normal clan game");
-		vtyp.add(rd, "Racing only");
-		vtyp.add(rd, "Wasting only");
-		vtyp.add(rd, "Racers VS Wasters - my clan wastes");
-		vtyp.add(rd, "Racers VS Wasters - my clan races");
-		snfmm.add(rd, "Select Stage");
-		snfm1.add(rd, "Select Stage");
-		snfm2.add(rd, "Select Stage");
-		mstgs.add(rd, "Suddenly the King becomes Santa's Little Helper");
-		mcars.add(rd, "Sword of Justice");
-		snpls.add(rd, "Select");
-		swait.add(rd, "1 Minute");
-		ilaps.add(rd, "Laps");
-		ilaps.add(rd, "1 Lap");
-		for (int i = 0; i < 5; i++)
-			snfmm.add(rd, new StringBuilder().append(" Stage ").append(i + 1).append("").toString());
-		for (int i = 0; i < 10; i++)
-			snfm1.add(rd, new StringBuilder().append(" Stage ").append(i + 1).append("").toString());
-		for (int i = 0; i < 17; i++)
-			snfm2.add(rd, new StringBuilder().append(" Stage ").append(i + 1).append("").toString());
-		for (int i = 0; i < 7; i++)
-			snpls.add(rd, new StringBuilder().append("    ").append(i + 2).append("").toString());
-		for (int i = 0; i < 7; i++)
-			snbts.add(rd, new StringBuilder().append("    ").append(i).append("    ").toString());
-		for (int i = 0; i < 2; i++)
-			swait.add(rd, new StringBuilder().append("").append(i + 2).append(" Minutes").toString());
-		for (int i = 0; i < 15; i++)
-			slaps.add(rd, new StringBuilder().append("").append(i + 1).append("").toString());
-		for (int i = 0; i < 14; i++)
-			ilaps.add(rd, new StringBuilder().append("").append(i + 2).append(" Laps").toString());
-		sclass.add(rd, "All Classes");
-		sclass.add(rd, "Class C Cars");
-		sclass.add(rd, "Class B & C Cars");
-		sclass.add(rd, "Class B Cars");
-		sclass.add(rd, "Class A & B Cars");
-		sclass.add(rd, "Class A Cars");
-		scars.add(rd, "All Cars");
-		scars.add(rd, "Custom Cars");
-		scars.add(rd, "Game Cars");
-		sfix.add(rd, "Unlimited Fixing");
-		sfix.add(rd, "4 Fixes");
-		sfix.add(rd, "3 Fixes");
-		sfix.add(rd, "2 Fixes");
-		sfix.add(rd, "1 Fix");
-		sfix.add(rd, "No Fixing");
-		icars.add(rd, "Type of Cars");
-		icars.add(rd, "All Cars");
-		icars.add(rd, "Clan Cars");
-		icars.add(rd, "Game Cars");
-		icars.w = 140;
-		gmode.add(rd, " Normal Game ");
-		gmode.add(rd, " Practice Game ");
-		rooms.rooms = true;
-		rooms.add(rd, "Ghostrider :: 1");
-		sendtyp.add(rd, "Write a Message");
-		sendtyp.add(rd, "Share a Custom Car");
-		sendtyp.add(rd, "Share a Custom Stage");
-		sendtyp.add(rd, "Send a Clan Invitation");
-		sendtyp.add(rd, "Share a Relative Date");
-		senditem.add(rd, "Suddenly the King becomes Santa's Little Helper");
-		for (int i = 0; i < 6; i++)
-			clanlev.add(rd, new StringBuilder().append("").append(i + 1).append("").toString());
-		clanlev.add(rd, "7 - Admin");
-		hidefields();
-	}
-
-	@Override
-	public boolean keyDown(final Event event, final int i) {
-		if (!exwist) {
-			if (u[0].multion < 2) {
-				if (i == 1004)
-					u[0].up = true;
-				if (i == 1005)
-					u[0].down = true;
-				if (i == 1007)
-					u[0].right = true;
-				if (i == 1006)
-					u[0].left = true;
-				if (i == 32)
-					u[0].handb = true;
-			}
-			if (i == 10)
-				u[0].enter = true;
-			if (i == 27) {
-				u[0].exit = true;
-				if (u[0].chatup != 0)
-					u[0].chatup = 0;
-			}
-			if ((i == 67 || i == 99) && u[0].multion != 0 && u[0].chatup == 0) {
-				u[0].chatup = 2;
-				view = 0;
-			}
-			if (u[0].chatup == 0) {
-				if (i == 120 || i == 88)
-					u[0].lookback = -1;
-				if (i == 122 || i == 90)
-					u[0].lookback = 1;
-				if (i == 77 || i == 109)
-					if (u[0].mutem)
-						u[0].mutem = false;
-					else
-						u[0].mutem = true;
-				if (i == 78 || i == 110)
-					if (u[0].mutes)
-						u[0].mutes = false;
-					else
-						u[0].mutes = true;
-				if (i == 97 || i == 65)
-					if (u[0].arrace)
-						u[0].arrace = false;
-					else
-						u[0].arrace = true;
-				if (i == 115 || i == 83)
-					if (u[0].radar)
-						u[0].radar = false;
-					else
-						u[0].radar = true;
-				if (i == 118 || i == 86) {
-					view++;
-					if (view == 3)
-						view = 0;
-				}
-			}
-		}
-		return false;
-	}
-
-	@Override
-	public boolean keyUp(final Event event, final int i) {
-		if (!exwist) {
-			if (u[0].multion < 2) {
-				if (i == 1004)
-					u[0].up = false;
-				if (i == 1005)
-					u[0].down = false;
-				if (i == 1007)
-					u[0].right = false;
-				if (i == 1006)
-					u[0].left = false;
-				if (i == 32)
-					u[0].handb = false;
-			}
-			if (i == 27) {
-				u[0].exit = false;
-				if (Madness.fullscreen)
-					Madness.exitfullscreen();
-			}
-			if (i == 120 || i == 88 || i == 122 || i == 90)
-				u[0].lookback = 0;
-		}
-		return false;
 	}
 
 	public void loadbase(final ContO[] contos, final Medium medium, final Trackers trackers,
@@ -1242,116 +1083,6 @@ public class GameSparker extends Applet implements Runnable {
 		openurl("http://www.needformadness.com/");
 	}
 
-	@Override
-	public boolean mouseDown(final Event event, final int i, final int i_204_) {
-		requestFocus();
-		if (!exwist) {
-			if (mouses == 0) {
-				xm = (int) ((i - apx) / apmult);
-				ym = (int) ((i_204_ - apy) / apmult);
-				mouses = 1;
-			}
-			moused = true;
-		}
-		if (!Madness.fullscreen)
-			sizescreen(i, i_204_);
-		return false;
-	}
-
-	@Override
-	public boolean mouseDrag(final Event event, final int i, final int i_206_) {
-		if (!exwist && !lostfcs) {
-			xm = (int) ((i - apx) / apmult);
-			ym = (int) ((i_206_ - apy) / apmult);
-		}
-		if (!Madness.fullscreen)
-			sizescreen(i, i_206_);
-		return false;
-	}
-
-	@Override
-	public boolean mouseMove(final Event event, final int i, final int i_205_) {
-		if (!exwist && !lostfcs) {
-			xm = (int) ((i - apx) / apmult);
-			ym = (int) ((i_205_ - apy) / apmult);
-		}
-		if (!Madness.fullscreen) {
-			if (showsize < 20)
-				showsize = 20;
-			if (i > 50 && i < 192 && i_205_ > 14 && i_205_ < 37) {
-				if (!oncarm) {
-					oncarm = true;
-					setCursor(new Cursor(12));
-				}
-			} else if (oncarm) {
-				oncarm = false;
-				setCursor(new Cursor(0));
-			}
-			if (i > getWidth() - 208 && i < getWidth() - 50 && i_205_ > 14 && i_205_ < 37) {
-				if (!onstgm) {
-					onstgm = true;
-					setCursor(new Cursor(12));
-				}
-			} else if (onstgm) {
-				onstgm = false;
-				setCursor(new Cursor(0));
-			}
-			if (i > getWidth() / 2 + 22 && i < getWidth() / 2 + 122 && i_205_ > 14 && i_205_ < 37) {
-				if (!onfulls) {
-					onfulls = true;
-					setCursor(new Cursor(12));
-				}
-			} else if (onfulls) {
-				onfulls = false;
-				setCursor(new Cursor(0));
-			}
-		}
-		return false;
-	}
-
-	@Override
-	public boolean mouseUp(final Event event, final int i, final int i_203_) {
-		if (!exwist) {
-			if (mouses == 11) {
-				xm = (int) ((i - apx) / apmult);
-				ym = (int) ((i_203_ - apy) / apmult);
-				mouses = -1;
-			}
-			moused = false;
-		}
-		if (!Madness.fullscreen) {
-			if (i > getWidth() / 2 - 55 && i < getWidth() / 2 + 7 && i_203_ > 21 && i_203_ < 38 && !onbar) {
-				if (smooth == 1)
-					smooth = 0;
-				else
-					smooth = 1;
-				showsize = 60;
-			}
-			if (i > getWidth() / 2 + 133 && i < getWidth() / 2 + 231 && i_203_ > 7 && i_203_ < 24 && !onbar) {
-				if (Madness.anti == 0)
-					Madness.anti = 1;
-				else
-					Madness.anti = 0;
-				showsize = 60;
-			}
-			if (i > getWidth() / 2 + 133 && i < getWidth() / 2 + 231 && i_203_ > 24 && i_203_ < 41 && !onbar) {
-				if (moto == 0)
-					moto = 1;
-				else
-					moto = 0;
-				showsize = 60;
-			}
-			if (oncarm)
-				Madness.carmaker();
-			if (onstgm)
-				Madness.stagemaker();
-			if (onfulls)
-				Madness.gofullscreen();
-			onbar = false;
-		}
-		return false;
-	}
-
 	public void mouseW(final int i) {
 		if (!exwist)
 			mousew += i * 4;
@@ -1467,8 +1198,11 @@ public class GameSparker extends Applet implements Runnable {
 	}
 
 	@Override
-	public void paint(final Graphics graphics) {
+	public void paintComponent(final Graphics graphics) {
 		final Graphics2D graphics2d = (Graphics2D) graphics;
+		graphics.setColor(Color.BLACK);
+		graphics.fillRect(0, 0, getWidth(), getHeight());
+		gameTick();
 		if (lastw != getWidth() || lasth != getHeight()) {
 			lastw = getWidth();
 			lasth = getHeight();
@@ -1691,20 +1425,172 @@ public class GameSparker extends Applet implements Runnable {
 		/* empty */
 	}
 
-	@Override
-	public void run() {
+	public void makeMenus() {
+		rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+		rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		sgame.add(rd, " NFM 1     ");
+		sgame.add(rd, " NFM 2     ");
+		sgame.add(rd, " My Stages ");
+		sgame.add(rd, " Weekly Top20 ");
+		sgame.add(rd, " Monthly Top20 ");
+		sgame.add(rd, " All Time Top20 ");
+		sgame.add(rd, " Stage Maker ");
+		wgame.add(rd, " Normal Game");
+		wgame.add(rd, " War / Battle");
+		wgame.add(rd, " War / Battle - Practice");
+		warb.add(rd, " Loading your clan's wars and battles, please wait...");
+		pgame.add(rd, " Select the game you want to practice");
+		vnpls.add(rd, "Players");
+		vnpls.add(rd, " 2 VS 2");
+		vnpls.add(rd, " 3 VS 3");
+		vnpls.add(rd, " 4 VS 4");
+		vtyp.add(rd, "Normal clan game");
+		vtyp.add(rd, "Racing only");
+		vtyp.add(rd, "Wasting only");
+		vtyp.add(rd, "Racers VS Wasters - my clan wastes");
+		vtyp.add(rd, "Racers VS Wasters - my clan races");
+		snfmm.add(rd, "Select Stage");
+		snfm1.add(rd, "Select Stage");
+		snfm2.add(rd, "Select Stage");
+		mstgs.add(rd, "Suddenly the King becomes Santa's Little Helper");
+		mcars.add(rd, "Sword of Justice");
+		snpls.add(rd, "Select");
+		swait.add(rd, "1 Minute");
+		ilaps.add(rd, "Laps");
+		ilaps.add(rd, "1 Lap");
+		for (int i = 0; i < 5; i++)
+			snfmm.add(rd, new StringBuilder().append(" Stage ").append(i + 1).append("").toString());
+		for (int i = 0; i < 10; i++)
+			snfm1.add(rd, new StringBuilder().append(" Stage ").append(i + 1).append("").toString());
+		for (int i = 0; i < 17; i++)
+			snfm2.add(rd, new StringBuilder().append(" Stage ").append(i + 1).append("").toString());
+		for (int i = 0; i < 7; i++)
+			snpls.add(rd, new StringBuilder().append("    ").append(i + 2).append("").toString());
+		for (int i = 0; i < 7; i++)
+			snbts.add(rd, new StringBuilder().append("    ").append(i).append("    ").toString());
+		for (int i = 0; i < 2; i++)
+			swait.add(rd, new StringBuilder().append("").append(i + 2).append(" Minutes").toString());
+		for (int i = 0; i < 15; i++)
+			slaps.add(rd, new StringBuilder().append("").append(i + 1).append("").toString());
+		for (int i = 0; i < 14; i++)
+			ilaps.add(rd, new StringBuilder().append("").append(i + 2).append(" Laps").toString());
+		sclass.add(rd, "All Classes");
+		sclass.add(rd, "Class C Cars");
+		sclass.add(rd, "Class B & C Cars");
+		sclass.add(rd, "Class B Cars");
+		sclass.add(rd, "Class A & B Cars");
+		sclass.add(rd, "Class A Cars");
+		scars.add(rd, "All Cars");
+		scars.add(rd, "Custom Cars");
+		scars.add(rd, "Game Cars");
+		sfix.add(rd, "Unlimited Fixing");
+		sfix.add(rd, "4 Fixes");
+		sfix.add(rd, "3 Fixes");
+		sfix.add(rd, "2 Fixes");
+		sfix.add(rd, "1 Fix");
+		sfix.add(rd, "No Fixing");
+		icars.add(rd, "Type of Cars");
+		icars.add(rd, "All Cars");
+		icars.add(rd, "Clan Cars");
+		icars.add(rd, "Game Cars");
+		icars.w = 140;
+		gmode.add(rd, " Normal Game ");
+		gmode.add(rd, " Practice Game ");
+		rooms.rooms = true;
+		rooms.add(rd, "Ghostrider :: 1");
+		sendtyp.add(rd, "Write a Message");
+		sendtyp.add(rd, "Share a Custom Car");
+		sendtyp.add(rd, "Share a Custom Stage");
+		sendtyp.add(rd, "Send a Clan Invitation");
+		sendtyp.add(rd, "Share a Relative Date");
+		senditem.add(rd, "Suddenly the King becomes Santa's Little Helper");
+		for (int i = 0; i < 6; i++)
+			clanlev.add(rd, new StringBuilder().append("").append(i + 1).append("").toString());
+		clanlev.add(rd, "7 - Admin");
+		hidefields();
+	}
+
+	public GameSparker() {
+		initApplet();
+        setBorder(BorderFactory.createLineBorder(Color.black));
+        //
+        setBackground(new Color(0, 0, 0));
+
+		//rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+		//rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		setLayout(null);
+		//dr = new DebugRunner();
+		//dr.start();
+
+		offImage = new BufferedImage(800, 450, BufferedImage.TYPE_INT_ARGB);
+		if (offImage != null)
+			rd = offImage.createGraphics();
+		makeMenus();
+		initialize();
+		addKeyListener(this);
+		addMouseListener(this);
+		addMouseMotionListener(this);
+		setFocusable(true);
+		requestFocusInWindow();
+		//ActionListener animate =
+        /*ActionListener count = new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                counted++;
+            }
+        };*/
+		// 40 - 25 fps
+        // 33 - 30 fps
+		// 25 - 40 fps
+        Timer timer = new Timer(25, this);
+        timer.start();
+        /*Timer counter = new Timer(1, count);
+        counter.start();*/
+        //timer.setDelay(delay);
+	}
+
+
+
+	//allan please remove this soon
+	private Date date;
+	private int i_7_;
+	private xtGraphics var_xtGraphics;
+	private ContO[] contos;
+	private ContO[] contos_0_;
+	private Mad[] mads;
+	private Medium medium;
+	private Trackers trackers;
+	private CheckPoints checkpoints;
+	private CarDefine cardefine;
+	private Login login = null;
+	private Lobby lobby = null;
+	private Globe globe = null;
+	private UDPMistro udpmistro = new UDPMistro();
+	private boolean bool = false;
+	Record record;
+	private int i_6_;
+	private int i_8_;
+	private int i_9_;
+	private boolean bool_10_;
+	private long l_1_;
+	private float f_2_;
+	private boolean bool_3_;
+	private int i_4_;
+	private int i_5_;
+	private float f;
+	//@Override
+	public void initialize() {
 		rd.setColor(new Color(0, 0, 0));
 		rd.fillRect(0, 0, 800, 450);
 		repaint();
 		requestFocus();
 		if (System.getProperty("java.vendor").toLowerCase().indexOf("apple") != -1)
 			applejava = true;
-		final Medium medium = new Medium();
-		final Trackers trackers = new Trackers();
-		final CheckPoints checkpoints = new CheckPoints();
-		final ContO[] contos = new ContO[124];
-		final CarDefine cardefine = new CarDefine(contos, medium, trackers, this);
-		final xtGraphics var_xtGraphics = new xtGraphics(medium, cardefine, rd, this);
+		medium = new Medium();
+		trackers = new Trackers();
+		checkpoints = new CheckPoints();
+		contos = new ContO[124];
+		cardefine = new CarDefine(contos, medium, trackers, this);
+		var_xtGraphics = new xtGraphics(medium, cardefine, rd, this);
 		sizebar = var_xtGraphics.getImage("data/sizebar.gif");
 		blb = var_xtGraphics.getImage("data/b.gif");
 		fulls = var_xtGraphics.getImage("data/fullscreen.gif");
@@ -1715,20 +1601,20 @@ public class GameSparker extends Applet implements Runnable {
 		stagemaker[0] = var_xtGraphics.getImage("data/stagemaker1.gif");
 		stagemaker[1] = var_xtGraphics.getImage("data/stagemaker2.gif");
 		var_xtGraphics.loaddata();
-		Login login = null;
-		Lobby lobby = null;
-		Globe globe = null;
-		boolean bool = false;
-		final UDPMistro udpmistro = new UDPMistro();
-		final Record record = new Record(medium);
+		//login = null;
+		//lobby = null;
+		//globe = null;
+		//boolean bool = false;
+		//final UDPMistro udpmistro = new UDPMistro();
+		record = new Record(medium);
 		loadbase(contos, medium, trackers, var_xtGraphics, false);
-		final ContO[] contos_0_ = new ContO[10000];
-		final Mad[] mads = new Mad[8];
+		contos_0_ = new ContO[10000];
+		mads = new Mad[8];
 		for (int i = 0; i < 8; i++) {
 			mads[i] = new Mad(cardefine, medium, record, var_xtGraphics, i);
 			u[i] = new Control(medium);
 		}
-		float f = 47.0F;
+		f = 47.0F;
 		readcookies(var_xtGraphics, cardefine, contos);
 		var_xtGraphics.testdrive = Madness.testdrive;
 		if (var_xtGraphics.testdrive != 0)
@@ -1749,613 +1635,783 @@ public class GameSparker extends Applet implements Runnable {
 		if (var_xtGraphics.testdrive == 0 && var_xtGraphics.firstime)
 			setupini();
 		System.gc();
-		Date date = new Date();
-		long l = 0L;
-		long l_1_ = date.getTime();
-		float f_2_ = 30.0F;
-		boolean bool_3_ = false;
-		int i = 30;
-		final int i_4_ = 530;
-		int i_5_ = 0;
-		int i_6_ = 0;
-		int i_7_ = 0;
-		int i_8_ = 0;
-		int i_9_ = 0;
-		boolean bool_10_ = false;
-		final int TICKS_PER_SECOND = 25;
-		final int SKIP_TICKS = 1000 / TICKS_PER_SECOND;
-		final int MAX_FRAMESKIP = 5;
+		date = new Date();
+		l_1_ = date.getTime();
+		f_2_ = 30.0F;
+		bool_3_ = false;
+		i_4_ = 530;
+		i_5_ = 0;
+		i_6_ = 0;
+		i_7_ = 0;
+		i_8_ = 0;
+		i_9_ = 0;
+		bool_10_ = false;
 
-		double next_game_tick = System.currentTimeMillis();
-		int loops;
+		//while (!Thread.currentThread().isInterrupted()) {}
+	}
 
-		while (!Thread.currentThread().isInterrupted()) {
-			loops = 0;
-			while (System.currentTimeMillis() > next_game_tick && loops < MAX_FRAMESKIP) {
-				date = new Date();
-				final long l_11_ = date.getTime();
-				if (var_xtGraphics.fase == 111) {
-					if (mouses == 1)
-						i_7_ = 800;
-					if (i_7_ < 800) {
-						var_xtGraphics.clicknow();
-						i_7_++;
-					} else {
-						i_7_ = 0;
-						if (!exwist)
-							var_xtGraphics.fase = 9;
-						mouses = 0;
-						lostfcs = false;
-					}
+	public void gameTick() {
+
+			date = new Date();
+			date.getTime();
+			if (var_xtGraphics.fase == 111) {
+				if (mouses == 1)
+					i_7_ = 800;
+				if (i_7_ < 800) {
+					var_xtGraphics.clicknow();
+					i_7_++;
+				} else {
+					i_7_ = 0;
+					if (!exwist)
+						var_xtGraphics.fase = 9;
+					mouses = 0;
+					lostfcs = false;
 				}
-				if (var_xtGraphics.fase == 9)
-					if (i_7_ < 76) {
-						var_xtGraphics.rad(i_7_);
-						catchlink();
-						if (mouses == 2)
-							mouses = 0;
-						if (mouses == 1)
-							mouses = 2;
-						i_7_++;
-					} else {
-						i_7_ = 0;
-						var_xtGraphics.fase = 10;
-						mouses = 0;
-						u[0].falseo(0);
-					}
-				if (var_xtGraphics.fase == -9) {
-					if (var_xtGraphics.loadedt) {
-						var_xtGraphics.mainbg(-101);
-						rd.setColor(new Color(0, 0, 0));
-						rd.fillRect(0, 0, 800, 450);
-						repaint();
-						var_xtGraphics.strack.unload();
-						var_xtGraphics.strack = null;
-						var_xtGraphics.flexpix = null;
-						var_xtGraphics.fleximg = null;
-						System.gc();
-						var_xtGraphics.loadedt = false;
-					}
-					if (i_7_ < 2) {
-						var_xtGraphics.mainbg(-101);
-						rd.setColor(new Color(0, 0, 0));
-						rd.fillRect(65, 25, 670, 400);
-						i_7_++;
-					} else {
-						checkmemory(var_xtGraphics);
-						var_xtGraphics.inishcarselect(contos);
-						i_7_ = 0;
-						var_xtGraphics.fase = 7;
-						mvect = 50;
-						mouses = 0;
-					}
-				}
-				if (var_xtGraphics.fase == 8) {
-					var_xtGraphics.credits(u[0], xm, ym, mouses);
-					var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
-					if (var_xtGraphics.flipo <= 100)
-						catchlink();
+			}
+			if (var_xtGraphics.fase == 9)
+				if (i_7_ < 76) {
+					var_xtGraphics.rad(i_7_);
+					catchlink();
 					if (mouses == 2)
 						mouses = 0;
 					if (mouses == 1)
 						mouses = 2;
+					i_7_++;
+				} else {
+					i_7_ = 0;
+					var_xtGraphics.fase = 10;
+					mouses = 0;
+					u[0].falseo(0);
 				}
-				if (var_xtGraphics.fase == 10) {
-					mvect = 100;
-					var_xtGraphics.maini(u[0]);
-					var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
-					if (mouses == 2)
-						mouses = 0;
-					if (mouses == 1)
-						mouses = 2;
+			if (var_xtGraphics.fase == -9) {
+				if (var_xtGraphics.loadedt) {
+					var_xtGraphics.mainbg(-101);
+					rd.setColor(new Color(0, 0, 0));
+					rd.fillRect(0, 0, 800, 450);
+					repaint();
+					var_xtGraphics.strack.unload();
+					var_xtGraphics.strack = null;
+					var_xtGraphics.flexpix = null;
+					var_xtGraphics.fleximg = null;
+					System.gc();
+					var_xtGraphics.loadedt = false;
 				}
-				if (var_xtGraphics.fase == 102) {
-					mvect = 100;
-					if (var_xtGraphics.loadedt) {
-						rd.setColor(new Color(0, 0, 0));
-						rd.fillRect(0, 0, 800, 450);
-						repaint();
-						checkmemory(var_xtGraphics);
-						var_xtGraphics.strack.unload();
-						var_xtGraphics.strack = null;
-						var_xtGraphics.flexpix = null;
-						var_xtGraphics.fleximg = null;
-						System.gc();
-						var_xtGraphics.loadedt = false;
-					}
-					if (var_xtGraphics.testdrive == 1 || var_xtGraphics.testdrive == 2)
-						Madness.carmaker();
-					if (var_xtGraphics.testdrive == 3 || var_xtGraphics.testdrive == 4)
-						Madness.stagemaker();
-					var_xtGraphics.maini2(u[0], xm, ym, mouses);
-					var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
-					if (mouses == 2)
-						mouses = 0;
-					if (mouses == 1)
-						mouses = 2;
-				}
-				if (var_xtGraphics.fase == -22) {
-					checkpoints.name = Madness.testcar;
-					checkpoints.stage = -1;
-					loadstage(contos_0_, contos, medium, trackers, checkpoints, var_xtGraphics, mads, record);
-					if (checkpoints.stage == -3) {
-						Madness.testcar = "Failx12";
-						Madness.stagemaker();
-					}
-				}
-				if (var_xtGraphics.fase == 11) {
-					var_xtGraphics.inst(u[0]);
-					var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
-					if (mouses == 2)
-						mouses = 0;
-					if (mouses == 1)
-						mouses = 2;
-				}
-				if (var_xtGraphics.fase == -5) {
-					mvect = 100;
-					var_xtGraphics.finish(checkpoints, contos, u[0], xm, ym, moused);
-					var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
-					if (mouses == 2)
-						mouses = 0;
-					if (mouses == 1)
-						mouses = 2;
-				}
-				if (var_xtGraphics.fase == 7) {
-					var_xtGraphics.carselect(u[0], contos, mads[0], xm, ym, moused);
-					var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
-					if (mouses == 2)
-						mouses = 0;
-					if (mouses == 1)
-						mouses = 2;
-					drawms();
-				}
-				if (var_xtGraphics.fase == 6) {
-					var_xtGraphics.musicomp(checkpoints.stage, u[0]);
-					var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
-					if (mouses == 2)
-						mouses = 0;
-					if (mouses == 1)
-						mouses = 2;
-				}
-				if (var_xtGraphics.fase == 5) {
-					mvect = 100;
-					var_xtGraphics.loadmusic(checkpoints.stage, checkpoints.trackname, checkpoints.trackvol);
-				}
-				if (var_xtGraphics.fase == 4) {
-					var_xtGraphics.cantgo(u[0]);
-					var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
-					if (mouses == 2)
-						mouses = 0;
-					if (mouses == 1)
-						mouses = 2;
-				}
-				if (var_xtGraphics.fase == 3) {
+				if (i_7_ < 2) {
+					var_xtGraphics.mainbg(-101);
 					rd.setColor(new Color(0, 0, 0));
 					rd.fillRect(65, 25, 670, 400);
+					i_7_++;
+				} else {
+					checkmemory(var_xtGraphics);
+					var_xtGraphics.inishcarselect(contos);
+					i_7_ = 0;
+					var_xtGraphics.fase = 7;
+					mvect = 50;
+					mouses = 0;
+				}
+			}
+			if (var_xtGraphics.fase == 8) {
+				var_xtGraphics.credits(u[0], xm, ym, mouses);
+				var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
+				if (var_xtGraphics.flipo <= 100)
+					catchlink();
+				if (mouses == 2)
+					mouses = 0;
+				if (mouses == 1)
+					mouses = 2;
+			}
+			if (var_xtGraphics.fase == 10) {
+				mvect = 100;
+				var_xtGraphics.maini(u[0]);
+				var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
+				if (mouses == 2)
+					mouses = 0;
+				if (mouses == 1)
+					mouses = 2;
+			}
+			if (var_xtGraphics.fase == 102) {
+				mvect = 100;
+				if (var_xtGraphics.loadedt) {
+					rd.setColor(new Color(0, 0, 0));
+					rd.fillRect(0, 0, 800, 450);
 					repaint();
-					var_xtGraphics.inishstageselect(checkpoints);
+					checkmemory(var_xtGraphics);
+					var_xtGraphics.strack.unload();
+					var_xtGraphics.strack = null;
+					var_xtGraphics.flexpix = null;
+					var_xtGraphics.fleximg = null;
+					System.gc();
+					var_xtGraphics.loadedt = false;
 				}
-				if (var_xtGraphics.fase == 2) {
-					mvect = 100;
-					var_xtGraphics.loadingstage(checkpoints.stage, true);
-					checkpoints.nfix = 0;
-					checkpoints.notb = false;
-					loadstage(contos_0_, contos, medium, trackers, checkpoints, var_xtGraphics, mads, record);
-					u[0].falseo(0);
-					udpmistro.freg = 0.0F;
-					mvect = 20;
+				if (var_xtGraphics.testdrive == 1 || var_xtGraphics.testdrive == 2)
+					Madness.carmaker();
+				if (var_xtGraphics.testdrive == 3 || var_xtGraphics.testdrive == 4)
+					Madness.stagemaker();
+				var_xtGraphics.maini2(u[0], xm, ym, mouses);
+				var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
+				if (mouses == 2)
+					mouses = 0;
+				if (mouses == 1)
+					mouses = 2;
+			}
+			if (var_xtGraphics.fase == -22) {
+				checkpoints.name = Madness.testcar;
+				checkpoints.stage = -1;
+				loadstage(contos_0_, contos, medium, trackers, checkpoints, var_xtGraphics, mads, record);
+				if (checkpoints.stage == -3) {
+					Madness.testcar = "Failx12";
+					Madness.stagemaker();
 				}
-				if (var_xtGraphics.fase == 1) {
-					var_xtGraphics.trackbg(false);
-					rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
-					if (checkpoints.stage != -3) {
-						medium.aroundtrack(checkpoints);
-						if (medium.hit == 5000 && mvect < 40)
-							mvect++;
-						int i_12_ = 0;
-						final int[] is = new int[1000];
-						for (int i_13_ = var_xtGraphics.nplayers; i_13_ < notb; i_13_++)
-							if (contos_0_[i_13_].dist != 0) {
-								is[i_12_] = i_13_;
-								i_12_++;
-							} else
-								contos_0_[i_13_].d(rd);
-						final int[] is_14_ = new int[i_12_];
-						for (int i_15_ = 0; i_15_ < i_12_; i_15_++)
-							is_14_[i_15_] = 0;
-						for (int i_16_ = 0; i_16_ < i_12_; i_16_++)
-							for (int i_17_ = i_16_ + 1; i_17_ < i_12_; i_17_++)
-								if (contos_0_[is[i_16_]].dist != contos_0_[is[i_17_]].dist) {
-									if (contos_0_[is[i_16_]].dist < contos_0_[is[i_17_]].dist)
-										is_14_[i_16_]++;
-									else
-										is_14_[i_17_]++;
-								} else if (i_17_ > i_16_)
+			}
+			if (var_xtGraphics.fase == 11) {
+				var_xtGraphics.inst(u[0]);
+				var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
+				if (mouses == 2)
+					mouses = 0;
+				if (mouses == 1)
+					mouses = 2;
+			}
+			if (var_xtGraphics.fase == -5) {
+				mvect = 100;
+				var_xtGraphics.finish(checkpoints, contos, u[0], xm, ym, moused);
+				var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
+				if (mouses == 2)
+					mouses = 0;
+				if (mouses == 1)
+					mouses = 2;
+			}
+			if (var_xtGraphics.fase == 7) {
+				var_xtGraphics.carselect(u[0], contos, mads[0], xm, ym, moused);
+				var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
+				if (mouses == 2)
+					mouses = 0;
+				if (mouses == 1)
+					mouses = 2;
+				drawms();
+			}
+			if (var_xtGraphics.fase == 6) {
+				var_xtGraphics.musicomp(checkpoints.stage, u[0]);
+				var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
+				if (mouses == 2)
+					mouses = 0;
+				if (mouses == 1)
+					mouses = 2;
+			}
+			if (var_xtGraphics.fase == 5) {
+				mvect = 100;
+				var_xtGraphics.loadmusic(checkpoints.stage, checkpoints.trackname, checkpoints.trackvol);
+			}
+			if (var_xtGraphics.fase == 4) {
+				var_xtGraphics.cantgo(u[0]);
+				var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
+				if (mouses == 2)
+					mouses = 0;
+				if (mouses == 1)
+					mouses = 2;
+			}
+			if (var_xtGraphics.fase == 3) {
+				rd.setColor(new Color(0, 0, 0));
+				rd.fillRect(65, 25, 670, 400);
+				repaint();
+				var_xtGraphics.inishstageselect(checkpoints);
+			}
+			if (var_xtGraphics.fase == 2) {
+				mvect = 100;
+				var_xtGraphics.loadingstage(checkpoints.stage, true);
+				checkpoints.nfix = 0;
+				checkpoints.notb = false;
+				loadstage(contos_0_, contos, medium, trackers, checkpoints, var_xtGraphics, mads, record);
+				u[0].falseo(0);
+				udpmistro.freg = 0.0F;
+				mvect = 20;
+			}
+			if (var_xtGraphics.fase == 1) {
+				var_xtGraphics.trackbg(false);
+				rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
+				if (checkpoints.stage != -3) {
+					medium.aroundtrack(checkpoints);
+					if (medium.hit == 5000 && mvect < 40)
+						mvect++;
+					int i_12_ = 0;
+					final int[] is = new int[1000];
+					for (int i_13_ = var_xtGraphics.nplayers; i_13_ < notb; i_13_++)
+						if (contos_0_[i_13_].dist != 0) {
+							is[i_12_] = i_13_;
+							i_12_++;
+						} else
+							contos_0_[i_13_].d(rd);
+					final int[] is_14_ = new int[i_12_];
+					for (int i_15_ = 0; i_15_ < i_12_; i_15_++)
+						is_14_[i_15_] = 0;
+					for (int i_16_ = 0; i_16_ < i_12_; i_16_++)
+						for (int i_17_ = i_16_ + 1; i_17_ < i_12_; i_17_++)
+							if (contos_0_[is[i_16_]].dist != contos_0_[is[i_17_]].dist) {
+								if (contos_0_[is[i_16_]].dist < contos_0_[is[i_17_]].dist)
 									is_14_[i_16_]++;
 								else
 									is_14_[i_17_]++;
-						for (int i_18_ = 0; i_18_ < i_12_; i_18_++)
-							for (int i_19_ = 0; i_19_ < i_12_; i_19_++)
-								if (is_14_[i_19_] == i_18_)
-									contos_0_[is[i_19_]].d(rd);
-					}
-					if (!openm)
-						var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
-					if (mouses == 2)
-						mouses = 0;
-					if (mouses == 1)
-						mouses = 2;
-					rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-					var_xtGraphics.stageselect(checkpoints, u[0], xm, ym, moused);
-					drawms();
+							} else if (i_17_ > i_16_)
+								is_14_[i_16_]++;
+							else
+								is_14_[i_17_]++;
+					for (int i_18_ = 0; i_18_ < i_12_; i_18_++)
+						for (int i_19_ = 0; i_19_ < i_12_; i_19_++)
+							if (is_14_[i_19_] == i_18_)
+								contos_0_[is[i_19_]].d(rd);
 				}
-				if (var_xtGraphics.fase == 1177) {
-					mvect = 100;
-					if (!bool) {
-						if (var_xtGraphics.loadedt) {
-							rd.setColor(new Color(0, 0, 0));
-							rd.fillRect(0, 0, 800, 450);
-							repaint();
-							checkmemory(var_xtGraphics);
-							var_xtGraphics.strack.unload();
-							var_xtGraphics.strack = null;
-							var_xtGraphics.flexpix = null;
-							var_xtGraphics.fleximg = null;
-							System.gc();
-							var_xtGraphics.loadedt = false;
-						}
-						var_xtGraphics.intertrack.unload();
+				if (!openm)
+					var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
+				if (mouses == 2)
+					mouses = 0;
+				if (mouses == 1)
+					mouses = 2;
+				rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+				var_xtGraphics.stageselect(checkpoints, u[0], xm, ym, moused);
+				drawms();
+			}
+			if (var_xtGraphics.fase == 1177) {
+				mvect = 100;
+				if (!bool) {
+					if (var_xtGraphics.loadedt) {
 						rd.setColor(new Color(0, 0, 0));
-						rd.fillRect(65, 25, 670, 400);
-						if (mload > 0)
-							rd.drawImage(var_xtGraphics.mload, 259, 195, this);
+						rd.fillRect(0, 0, 800, 450);
 						repaint();
-						if (mload == 2) {
-							cardefine.loadready();
-							loadbase(contos, medium, trackers, var_xtGraphics, true);
-							readcookies(var_xtGraphics, cardefine, contos);
-							mload = -1;
-						}
+						checkmemory(var_xtGraphics);
+						var_xtGraphics.strack.unload();
+						var_xtGraphics.strack = null;
+						var_xtGraphics.flexpix = null;
+						var_xtGraphics.fleximg = null;
 						System.gc();
-						login = new Login(medium, rd, var_xtGraphics, this);
-						globe = new Globe(rd, var_xtGraphics, medium, login, cardefine, checkpoints, contos, contos_0_,
-								this);
-						lobby = new Lobby(medium, rd, login, globe, var_xtGraphics, cardefine, this);
-						bool = true;
+						var_xtGraphics.loadedt = false;
 					}
-					if (login.fase != 18) {
-						boolean bool_20_ = false;
-						if (login.fase == 0)
-							login.inishmulti();
-						if (login.fase >= 1 && login.fase <= 11)
-							login.multistart(contos, xm, ym, moused);
-						if (login.fase >= 12 && login.fase <= 17) {
-							if (globe.open != 452)
-								login.multimode(contos);
-							else
-								bool_20_ = true;
-							globe.dome(0, xm, ym, moused, u[0]);
-						}
-						if (login.justlog) {
-							if (!var_xtGraphics.clan.equals(""))
-								globe.itab = 2;
-							login.justlog = false;
-						}
-						if (!bool_20_) {
-							login.ctachm(xm, ym, mouses, u[0], lobby);
-							mvect = 50;
-						} else {
-							drawms();
-							mvect = 100;
-						}
-						if (mouses == 1)
-							mouses = 11;
-						if (mouses <= -1) {
-							mouses--;
-							if (mouses == -4)
-								mouses = 0;
-						}
-						if (mousew != 0)
-							if (mousew > 0)
-								mousew--;
-							else
-								mousew++;
+					var_xtGraphics.intertrack.unload();
+					rd.setColor(new Color(0, 0, 0));
+					rd.fillRect(65, 25, 670, 400);
+					if (mload > 0)
+						rd.drawImage(var_xtGraphics.mload, 259, 195, this);
+					repaint();
+					if (mload == 2) {
+						cardefine.loadready();
+						loadbase(contos, medium, trackers, var_xtGraphics, true);
+						readcookies(var_xtGraphics, cardefine, contos);
+						mload = -1;
+					}
+					System.gc();
+					login = new Login(medium, rd, var_xtGraphics, this);
+					globe = new Globe(rd, var_xtGraphics, medium, login, cardefine, checkpoints, contos, contos_0_,
+							this);
+					lobby = new Lobby(medium, rd, login, globe, var_xtGraphics, cardefine, this);
+					bool = true;
+				}
+				if (login.fase != 18) {
+					boolean bool_20_ = false;
+					if (login.fase == 0)
+						login.inishmulti();
+					if (login.fase >= 1 && login.fase <= 11)
+						login.multistart(contos, xm, ym, moused);
+					if (login.fase >= 12 && login.fase <= 17) {
+						if (globe.open != 452)
+							login.multimode(contos);
+						else
+							bool_20_ = true;
+						globe.dome(0, xm, ym, moused, u[0]);
+					}
+					if (login.justlog) {
+						if (!var_xtGraphics.clan.equals(""))
+							globe.itab = 2;
+						login.justlog = false;
+					}
+					if (!bool_20_) {
+						login.ctachm(xm, ym, mouses, u[0], lobby);
+						mvect = 50;
 					} else {
-						boolean bool_21_ = false;
-						if (lobby.fase == 0) {
-							lobby.inishlobby();
-							mvect = 100;
-						}
-						if (lobby.fase == 1) {
-							if (globe.open >= 2 && globe.open < 452)
-								openm = true;
-							if (globe.open != 452)
-								lobby.lobby(xm, ym, moused, mousew, checkpoints, u[0], contos);
-							else
-								bool_21_ = true;
-							globe.dome(lobby.conon, xm, ym, moused, u[0]);
-							if (lobby.loadstage > 0) {
-								setCursor(new Cursor(3));
-								drawms();
-								repaint();
-								trackers.nt = 0;
-								if (loadstagePreview(lobby.loadstage, "", contos_0_, contos, medium, checkpoints)) {
-									lobby.gstagename = checkpoints.name;
-									lobby.gstagelaps = checkpoints.nlaps;
-									lobby.loadstage = -lobby.loadstage;
-								} else {
-									lobby.loadstage = 0;
-									checkpoints.name = "";
-								}
-								setCursor(new Cursor(0));
+						drawms();
+						mvect = 100;
+					}
+					if (mouses == 1)
+						mouses = 11;
+					if (mouses <= -1) {
+						mouses--;
+						if (mouses == -4)
+							mouses = 0;
+					}
+					if (mousew != 0)
+						if (mousew > 0)
+							mousew--;
+						else
+							mousew++;
+				} else {
+					boolean bool_21_ = false;
+					if (lobby.fase == 0) {
+						lobby.inishlobby();
+						mvect = 100;
+					}
+					if (lobby.fase == 1) {
+						if (globe.open >= 2 && globe.open < 452)
+							openm = true;
+						if (globe.open != 452)
+							lobby.lobby(xm, ym, moused, mousew, checkpoints, u[0], contos);
+						else
+							bool_21_ = true;
+						globe.dome(lobby.conon, xm, ym, moused, u[0]);
+						if (lobby.loadstage > 0) {
+							setCursor(new Cursor(3));
+							drawms();
+							repaint();
+							trackers.nt = 0;
+							if (loadstagePreview(lobby.loadstage, "", contos_0_, contos, medium, checkpoints)) {
+								lobby.gstagename = checkpoints.name;
+								lobby.gstagelaps = checkpoints.nlaps;
+								lobby.loadstage = -lobby.loadstage;
+							} else {
+								lobby.loadstage = 0;
+								checkpoints.name = "";
 							}
-							if (lobby.msload != 0) {
-								setCursor(new Cursor(3));
-								drawms();
-								repaint();
-								if (lobby.msload == 1)
-									cardefine.loadmystages(checkpoints);
-								if (lobby.msload == 7)
-									cardefine.loadclanstages(var_xtGraphics.clan);
-								if (lobby.msload == 3 || lobby.msload == 4)
-									cardefine.loadtop20(lobby.msload);
-								lobby.msload = 0;
-								setCursor(new Cursor(0));
-							}
+							setCursor(new Cursor(0));
 						}
-						if (lobby.fase == 3) {
-							var_xtGraphics.trackbg(false);
-							medium.trk = 0;
-							medium.focus_point = 400;
-							medium.crs = true;
-							medium.x = -335;
-							medium.y = 0;
-							medium.z = -50;
-							medium.xz = 0;
-							medium.zy = 20;
-							medium.ground = -2000;
-							mvect = 100;
-							lobby.fase = 1;
+						if (lobby.msload != 0) {
+							setCursor(new Cursor(3));
+							drawms();
+							repaint();
+							if (lobby.msload == 1)
+								cardefine.loadmystages(checkpoints);
+							if (lobby.msload == 7)
+								cardefine.loadclanstages(var_xtGraphics.clan);
+							if (lobby.msload == 3 || lobby.msload == 4)
+								cardefine.loadtop20(lobby.msload);
+							lobby.msload = 0;
+							setCursor(new Cursor(0));
 						}
-						if (lobby.fase == 4) {
-							mvect = 50;
-							rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
-							medium.d(rd);
-							medium.aroundtrack(checkpoints);
-							int i_22_ = 0;
-							final int[] is = new int[1000];
-							for (int i_23_ = 0; i_23_ < nob; i_23_++)
-								if (contos_0_[i_23_].dist != 0) {
-									is[i_22_] = i_23_;
-									i_22_++;
-								} else
-									contos_0_[i_23_].d(rd);
-							final int[] is_24_ = new int[i_22_];
-							for (int i_25_ = 0; i_25_ < i_22_; i_25_++)
-								is_24_[i_25_] = 0;
-							for (int i_26_ = 0; i_26_ < i_22_; i_26_++)
-								for (int i_27_ = i_26_ + 1; i_27_ < i_22_; i_27_++)
-									if (contos_0_[is[i_26_]].dist != contos_0_[is[i_27_]].dist) {
-										if (contos_0_[is[i_26_]].dist < contos_0_[is[i_27_]].dist)
-											is_24_[i_26_]++;
-										else
-											is_24_[i_27_]++;
-									} else if (i_27_ > i_26_)
+					}
+					if (lobby.fase == 3) {
+						var_xtGraphics.trackbg(false);
+						medium.trk = 0;
+						medium.focus_point = 400;
+						medium.crs = true;
+						medium.x = -335;
+						medium.y = 0;
+						medium.z = -50;
+						medium.xz = 0;
+						medium.zy = 20;
+						medium.ground = -2000;
+						mvect = 100;
+						lobby.fase = 1;
+					}
+					if (lobby.fase == 4) {
+						mvect = 50;
+						rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
+						medium.d(rd);
+						medium.aroundtrack(checkpoints);
+						int i_22_ = 0;
+						final int[] is = new int[1000];
+						for (int i_23_ = 0; i_23_ < nob; i_23_++)
+							if (contos_0_[i_23_].dist != 0) {
+								is[i_22_] = i_23_;
+								i_22_++;
+							} else
+								contos_0_[i_23_].d(rd);
+						final int[] is_24_ = new int[i_22_];
+						for (int i_25_ = 0; i_25_ < i_22_; i_25_++)
+							is_24_[i_25_] = 0;
+						for (int i_26_ = 0; i_26_ < i_22_; i_26_++)
+							for (int i_27_ = i_26_ + 1; i_27_ < i_22_; i_27_++)
+								if (contos_0_[is[i_26_]].dist != contos_0_[is[i_27_]].dist) {
+									if (contos_0_[is[i_26_]].dist < contos_0_[is[i_27_]].dist)
 										is_24_[i_26_]++;
 									else
 										is_24_[i_27_]++;
-							for (int i_28_ = 0; i_28_ < i_22_; i_28_++)
-								for (int i_29_ = 0; i_29_ < i_22_; i_29_++)
-									if (is_24_[i_29_] == i_28_)
-										contos_0_[is[i_29_]].d(rd);
-							rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-							lobby.stageselect(checkpoints, u[0], xm, ym, moused);
-							if (lobby.plsndt == 1) {
-								mvect = 70;
-								repaint();
-								setCursor(new Cursor(3));
-								var_xtGraphics.loadstrack(checkpoints.stage, checkpoints.trackname,
-										checkpoints.trackvol);
-								var_xtGraphics.strack.play();
-								lobby.plsndt = 2;
-								moused = false;
-								mouses = 0;
-							}
+								} else if (i_27_ > i_26_)
+									is_24_[i_26_]++;
+								else
+									is_24_[i_27_]++;
+						for (int i_28_ = 0; i_28_ < i_22_; i_28_++)
+							for (int i_29_ = 0; i_29_ < i_22_; i_29_++)
+								if (is_24_[i_29_] == i_28_)
+									contos_0_[is[i_29_]].d(rd);
+						rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+						lobby.stageselect(checkpoints, u[0], xm, ym, moused);
+						if (lobby.plsndt == 1) {
+							mvect = 70;
+							repaint();
+							setCursor(new Cursor(3));
+							var_xtGraphics.loadstrack(checkpoints.stage, checkpoints.trackname,
+									checkpoints.trackvol);
+							var_xtGraphics.strack.play();
+							lobby.plsndt = 2;
+							moused = false;
+							mouses = 0;
 						}
-						if (lobby.fase == 2) {
-							int i_30_ = 0;
-							for (int i_31_ = 0; i_31_ < lobby.ngm; i_31_++)
-								if (lobby.ongame == lobby.gnum[i_31_])
-									i_30_ = i_31_;
-							boolean bool_32_ = false;
-							if (lobby.gstgn[i_30_] > 0) {
-								if (lobby.gstgn[i_30_] == -lobby.loadstage)
-									bool_32_ = true;
-							} else if (lobby.gstages[i_30_].equals(checkpoints.name))
+					}
+					if (lobby.fase == 2) {
+						int i_30_ = 0;
+						for (int i_31_ = 0; i_31_ < lobby.ngm; i_31_++)
+							if (lobby.ongame == lobby.gnum[i_31_])
+								i_30_ = i_31_;
+						boolean bool_32_ = false;
+						if (lobby.gstgn[i_30_] > 0) {
+							if (lobby.gstgn[i_30_] == -lobby.loadstage)
 								bool_32_ = true;
-							if (bool_32_) {
+						} else if (lobby.gstages[i_30_].equals(checkpoints.name))
+							bool_32_ = true;
+						if (bool_32_) {
+							lobby.fase = 4;
+							lobby.addstage = 0;
+						} else {
+							var_xtGraphics.loadingstage(lobby.gstgn[i_30_], false);
+							trackers.nt = 0;
+							if (loadstagePreview(lobby.gstgn[i_30_], lobby.gstages[i_30_], contos_0_, contos,
+									medium, checkpoints)) {
+								lobby.loadstage = -lobby.gstgn[i_30_];
 								lobby.fase = 4;
 								lobby.addstage = 0;
 							} else {
-								var_xtGraphics.loadingstage(lobby.gstgn[i_30_], false);
-								trackers.nt = 0;
-								if (loadstagePreview(lobby.gstgn[i_30_], lobby.gstages[i_30_], contos_0_, contos,
-										medium, checkpoints)) {
-									lobby.loadstage = -lobby.gstgn[i_30_];
-									lobby.fase = 4;
-									lobby.addstage = 0;
-								} else {
-									lobby.loadstage = 0;
-									checkpoints.name = "";
-									lobby.fase = 3;
-								}
+								lobby.loadstage = 0;
+								checkpoints.name = "";
+								lobby.fase = 3;
 							}
 						}
-						if (lobby.fase == 76) {
-							checkpoints.nlaps = lobby.laps;
-							checkpoints.stage = lobby.stage;
-							checkpoints.name = lobby.stagename;
-							checkpoints.nfix = lobby.nfix;
-							checkpoints.notb = lobby.notb;
-							var_xtGraphics.fase = 21;
-							u[0].multion = var_xtGraphics.multion;
-						}
-						if (globe.loadwbgames == 7) {
-							repaint();
-							globe.redogame();
-						}
-						if (!openm) {
-							if (!bool_21_)
-								lobby.ctachm(xm, ym, mouses, u[0]);
-						} else
-							mouses = 0;
-						drawms();
-						if (lobby.fase == 1)
-							lobby.preforma(xm, ym);
-						if (lobby.loadwarb) {
-							repaint();
-							globe.loadwarb();
-							lobby.loadwarb = false;
-						}
-						if (globe.loadwbgames == 1) {
-							repaint();
-							globe.loadwgames();
-						}
-						if (mouses == 1)
-							mouses = 11;
-						if (mouses <= -1) {
-							mouses--;
-							if (mouses == -4)
-								mouses = 0;
-						}
-						if (mousew != 0) {
-							if (mousew > 0)
-								mousew--;
-							else
-								mousew++;
-							if (!lobby.zeromsw)
-								mousew = 0;
-						}
 					}
-				}
-				if (var_xtGraphics.fase == 24) {
-					login.endcons();
-					login = null;
-					lobby = null;
-					globe = null;
-					bool = false;
-					System.gc();
-					System.runFinalization();
-					if (!var_xtGraphics.mtop) {
-						var_xtGraphics.fase = 102;
-						var_xtGraphics.opselect = 2;
-					} else {
-						var_xtGraphics.fase = 10;
-						var_xtGraphics.opselect = 1;
+					if (lobby.fase == 76) {
+						checkpoints.nlaps = lobby.laps;
+						checkpoints.stage = lobby.stage;
+						checkpoints.name = lobby.stagename;
+						checkpoints.nfix = lobby.nfix;
+						checkpoints.notb = lobby.notb;
+						var_xtGraphics.fase = 21;
+						u[0].multion = var_xtGraphics.multion;
 					}
-				}
-				if (var_xtGraphics.fase == 23) {
-					if (login.fase == 18)
-						var_xtGraphics.playingame = -101;
-					login.stopallnow();
-					lobby.stopallnow();
-					globe.stopallnow();
-					login = null;
-					lobby = null;
-					globe = null;
-					hidefields();
-					bool = false;
-					System.gc();
-					System.runFinalization();
-					var_xtGraphics.fase = -9;
-				}
-				if (var_xtGraphics.fase == 22) {
-					loadstage(contos_0_, contos, medium, trackers, checkpoints, var_xtGraphics, mads, record);
-					if (checkpoints.stage != -3) {
-						if (var_xtGraphics.lan && var_xtGraphics.im == 0)
-							udpmistro.UDPLanServer(var_xtGraphics.nplayers, var_xtGraphics.server,
-									var_xtGraphics.servport, var_xtGraphics.playingame);
-						u[0].falseo(2);
-						requestFocus();
+					if (globe.loadwbgames == 7) {
+						repaint();
+						globe.redogame();
+					}
+					if (!openm) {
+						if (!bool_21_)
+							lobby.ctachm(xm, ym, mouses, u[0]);
 					} else
-						var_xtGraphics.fase = 1177;
+						mouses = 0;
+					drawms();
+					if (lobby.fase == 1)
+						lobby.preforma(xm, ym);
+					if (lobby.loadwarb) {
+						repaint();
+						globe.loadwarb();
+						lobby.loadwarb = false;
+					}
+					if (globe.loadwbgames == 1) {
+						repaint();
+						globe.loadwgames();
+					}
+					if (mouses == 1)
+						mouses = 11;
+					if (mouses <= -1) {
+						mouses--;
+						if (mouses == -4)
+							mouses = 0;
+					}
+					if (mousew != 0) {
+						if (mousew > 0)
+							mousew--;
+						else
+							mousew++;
+						if (!lobby.zeromsw)
+							mousew = 0;
+					}
 				}
-				if (var_xtGraphics.fase == 21) {
-					login.endcons();
-					login = null;
-					lobby = null;
-					globe = null;
-					bool = false;
-					System.gc();
-					System.runFinalization();
-					var_xtGraphics.fase = 22;
+			}
+			if (var_xtGraphics.fase == 24) {
+				login.endcons();
+				login = null;
+				lobby = null;
+				globe = null;
+				bool = false;
+				System.gc();
+				System.runFinalization();
+				if (!var_xtGraphics.mtop) {
+					var_xtGraphics.fase = 102;
+					var_xtGraphics.opselect = 2;
+				} else {
+					var_xtGraphics.fase = 10;
+					var_xtGraphics.opselect = 1;
 				}
-				if (var_xtGraphics.fase == 0) {
-					for (int i_33_ = 0; i_33_ < var_xtGraphics.nplayers; i_33_++)
-						if (mads[i_33_].newcar) {
-							final int i_34_ = contos_0_[i_33_].xz;
-							final int i_35_ = contos_0_[i_33_].xy;
-							final int i_36_ = contos_0_[i_33_].zy;
-							contos_0_[i_33_] = new ContO(contos[mads[i_33_].cn], contos_0_[i_33_].x, contos_0_[i_33_].y,
-									contos_0_[i_33_].z, 0);
-							contos_0_[i_33_].xz = i_34_;
-							contos_0_[i_33_].xy = i_35_;
-							contos_0_[i_33_].zy = i_36_;
-							mads[i_33_].newcar = false;
+			}
+			if (var_xtGraphics.fase == 23) {
+				if (login.fase == 18)
+					var_xtGraphics.playingame = -101;
+				login.stopallnow();
+				lobby.stopallnow();
+				globe.stopallnow();
+				login = null;
+				lobby = null;
+				globe = null;
+				hidefields();
+				bool = false;
+				System.gc();
+				System.runFinalization();
+				var_xtGraphics.fase = -9;
+			}
+			if (var_xtGraphics.fase == 22) {
+				loadstage(contos_0_, contos, medium, trackers, checkpoints, var_xtGraphics, mads, record);
+				if (checkpoints.stage != -3) {
+					if (var_xtGraphics.lan && var_xtGraphics.im == 0)
+						udpmistro.UDPLanServer(var_xtGraphics.nplayers, var_xtGraphics.server,
+								var_xtGraphics.servport, var_xtGraphics.playingame);
+					u[0].falseo(2);
+					requestFocus();
+				} else
+					var_xtGraphics.fase = 1177;
+			}
+			if (var_xtGraphics.fase == 21) {
+				login.endcons();
+				login = null;
+				lobby = null;
+				globe = null;
+				bool = false;
+				System.gc();
+				System.runFinalization();
+				var_xtGraphics.fase = 22;
+			}
+			if (var_xtGraphics.fase == 0) {
+				for (int i_33_ = 0; i_33_ < var_xtGraphics.nplayers; i_33_++)
+					if (mads[i_33_].newcar) {
+						final int i_34_ = contos_0_[i_33_].xz;
+						final int i_35_ = contos_0_[i_33_].xy;
+						final int i_36_ = contos_0_[i_33_].zy;
+						contos_0_[i_33_] = new ContO(contos[mads[i_33_].cn], contos_0_[i_33_].x, contos_0_[i_33_].y,
+								contos_0_[i_33_].z, 0);
+						contos_0_[i_33_].xz = i_34_;
+						contos_0_[i_33_].xy = i_35_;
+						contos_0_[i_33_].zy = i_36_;
+						mads[i_33_].newcar = false;
+					}
+				medium.d(rd);
+				int i_37_ = 0;
+				final int[] is = new int[10000];
+				for (int i_38_ = 0; i_38_ < nob; i_38_++)
+					if (contos_0_[i_38_].dist != 0) {
+						is[i_37_] = i_38_;
+						i_37_++;
+					} else
+						contos_0_[i_38_].d(rd);
+				final int[] is_39_ = new int[i_37_];
+				final int[] is_40_ = new int[i_37_];
+				for (int i_41_ = 0; i_41_ < i_37_; i_41_++)
+					is_39_[i_41_] = 0;
+				for (int i_42_ = 0; i_42_ < i_37_; i_42_++) {
+					for (int i_43_ = i_42_ + 1; i_43_ < i_37_; i_43_++)
+						if (contos_0_[is[i_42_]].dist < contos_0_[is[i_43_]].dist)
+							is_39_[i_42_]++;
+						else
+							is_39_[i_43_]++;
+					is_40_[is_39_[i_42_]] = i_42_;
+				}
+				for (int i_44_ = 0; i_44_ < i_37_; i_44_++)
+					contos_0_[is[is_40_[i_44_]]].d(rd);
+				if (var_xtGraphics.starcnt == 0) {
+					for (int i_45_ = 0; i_45_ < var_xtGraphics.nplayers; i_45_++)
+						for (int i_46_ = 0; i_46_ < var_xtGraphics.nplayers; i_46_++)
+							if (i_46_ != i_45_)
+								mads[i_45_].colide(contos_0_[i_45_], mads[i_46_], contos_0_[i_46_]);
+					for (int i_47_ = 0; i_47_ < var_xtGraphics.nplayers; i_47_++)
+						mads[i_47_].drive(u[i_47_], contos_0_[i_47_], trackers, checkpoints);
+					for (int i_48_ = 0; i_48_ < var_xtGraphics.nplayers; i_48_++)
+						record.rec(contos_0_[i_48_], i_48_, mads[i_48_].squash, mads[i_48_].lastcolido,
+								mads[i_48_].cntdest, 0);
+					checkpoints.checkstat(mads, contos_0_, record, var_xtGraphics.nplayers, var_xtGraphics.im, 0);
+					for (int i_49_ = 1; i_49_ < var_xtGraphics.nplayers; i_49_++)
+						u[i_49_].preform(mads[i_49_], contos_0_[i_49_], checkpoints, trackers);
+				} else {
+					if (var_xtGraphics.starcnt == 130) {
+						medium.adv = 1900;
+						medium.zy = 40;
+						medium.vxz = 70;
+						rd.setColor(new Color(255, 255, 255));
+						rd.fillRect(0, 0, 800, 450);
+					}
+					if (var_xtGraphics.starcnt != 0)
+						var_xtGraphics.starcnt--;
+				}
+				if (var_xtGraphics.starcnt < 38) {
+					if (view == 0) {
+						medium.follow(contos_0_[0], mads[0].cxz, u[0].lookback);
+						var_xtGraphics.stat(mads[0], contos_0_[0], checkpoints, u[0], true);
+						if (mads[0].outshakedam > 0) {
+							shaka = mads[0].outshakedam / 20;
+							if (shaka > 25)
+								shaka = 25;
 						}
-					medium.d(rd);
-					int i_37_ = 0;
-					final int[] is = new int[10000];
-					for (int i_38_ = 0; i_38_ < nob; i_38_++)
-						if (contos_0_[i_38_].dist != 0) {
-							is[i_37_] = i_38_;
-							i_37_++;
+						mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
+						if (mvect > 90)
+							mvect = 90;
+						lmxz = medium.xz;
+					}
+					if (view == 1) {
+						medium.around(contos_0_[0], false);
+						var_xtGraphics.stat(mads[0], contos_0_[0], checkpoints, u[0], false);
+						mvect = 80;
+					}
+					if (view == 2) {
+						medium.watch(contos_0_[0], mads[0].mxz);
+						var_xtGraphics.stat(mads[0], contos_0_[0], checkpoints, u[0], false);
+						mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
+						if (mvect > 90)
+							mvect = 90;
+						lmxz = medium.xz;
+					}
+					if (mouses == 1) {
+						u[0].enter = true;
+						mouses = 0;
+					}
+				} else {
+					int i_50_ = 3;
+					if (var_xtGraphics.nplayers == 1)
+						i_50_ = 0;
+					medium.around(contos_0_[i_50_], true);
+					mvect = 80;
+					if (u[0].enter || u[0].handb) {
+						var_xtGraphics.starcnt = 38;
+						u[0].enter = false;
+						u[0].handb = false;
+					}
+					if (var_xtGraphics.starcnt == 38) {
+						mouses = 0;
+						medium.vert = false;
+						medium.adv = 900;
+						medium.vxz = 180;
+						checkpoints.checkstat(mads, contos_0_, record, var_xtGraphics.nplayers, var_xtGraphics.im,
+								0);
+						medium.follow(contos_0_[0], mads[0].cxz, 0);
+						var_xtGraphics.stat(mads[0], contos_0_[0], checkpoints, u[0], true);
+						rd.setColor(new Color(255, 255, 255));
+						rd.fillRect(0, 0, 800, 450);
+					}
+				}
+			}
+			if (var_xtGraphics.fase == 7001) {
+				for (int i_51_ = 0; i_51_ < var_xtGraphics.nplayers; i_51_++)
+					if (mads[i_51_].newedcar == 0 && mads[i_51_].newcar) {
+						final int i_52_ = contos_0_[i_51_].xz;
+						final int i_53_ = contos_0_[i_51_].xy;
+						final int i_54_ = contos_0_[i_51_].zy;
+						var_xtGraphics.colorCar(contos[mads[i_51_].cn], i_51_);
+						contos_0_[i_51_] = new ContO(contos[mads[i_51_].cn], contos_0_[i_51_].x, contos_0_[i_51_].y,
+								contos_0_[i_51_].z, 0);
+						contos_0_[i_51_].xz = i_52_;
+						contos_0_[i_51_].xy = i_53_;
+						contos_0_[i_51_].zy = i_54_;
+						mads[i_51_].newedcar = 20;
+					}
+				medium.d(rd);
+				int i_55_ = 0;
+				final int[] is = new int[10000];
+				for (int i_56_ = 0; i_56_ < nob; i_56_++)
+					if (contos_0_[i_56_].dist != 0) {
+						is[i_55_] = i_56_;
+						i_55_++;
+					} else
+						contos_0_[i_56_].d(rd);
+				final int[] is_57_ = new int[i_55_];
+				final int[] is_58_ = new int[i_55_];
+				for (int i_59_ = 0; i_59_ < i_55_; i_59_++)
+					is_57_[i_59_] = 0;
+				for (int i_60_ = 0; i_60_ < i_55_; i_60_++) {
+					for (int i_61_ = i_60_ + 1; i_61_ < i_55_; i_61_++)
+						if (contos_0_[is[i_60_]].dist < contos_0_[is[i_61_]].dist)
+							is_57_[i_60_]++;
+						else
+							is_57_[i_61_]++;
+					is_58_[is_57_[i_60_]] = i_60_;
+				}
+				for (int i_62_ = 0; i_62_ < i_55_; i_62_++) {
+					if (is[is_58_[i_62_]] < var_xtGraphics.nplayers && is[is_58_[i_62_]] != var_xtGraphics.im)
+						udpmistro.readContOinfo(contos_0_[is[is_58_[i_62_]]], is[is_58_[i_62_]]);
+					contos_0_[is[is_58_[i_62_]]].d(rd);
+				}
+				if (var_xtGraphics.starcnt == 0) {
+					if (var_xtGraphics.multion == 1) {
+						int i_63_ = 1;
+						for (int i_64_ = 0; i_64_ < var_xtGraphics.nplayers; i_64_++)
+							if (var_xtGraphics.im != i_64_) {
+								udpmistro.readinfo(mads[i_64_], contos_0_[i_64_], u[i_63_], i_64_,
+										checkpoints.dested);
+								i_63_++;
+							}
+					} else
+						for (int i_65_ = 0; i_65_ < var_xtGraphics.nplayers; i_65_++)
+							udpmistro.readinfo(mads[i_65_], contos_0_[i_65_], u[i_65_], i_65_, checkpoints.dested);
+					for (int i_66_ = 0; i_66_ < var_xtGraphics.nplayers; i_66_++)
+						for (int i_67_ = 0; i_67_ < var_xtGraphics.nplayers; i_67_++)
+							if (i_67_ != i_66_)
+								mads[i_66_].colide(contos_0_[i_66_], mads[i_67_], contos_0_[i_67_]);
+					if (var_xtGraphics.multion == 1) {
+						int i_68_ = 1;
+						for (int i_69_ = 0; i_69_ < var_xtGraphics.nplayers; i_69_++)
+							if (var_xtGraphics.im != i_69_) {
+								mads[i_69_].drive(u[i_68_], contos_0_[i_69_], trackers, checkpoints);
+								i_68_++;
+							} else
+								mads[i_69_].drive(u[0], contos_0_[i_69_], trackers, checkpoints);
+						for (int i_70_ = 0; i_70_ < var_xtGraphics.nplayers; i_70_++)
+							record.rec(contos_0_[i_70_], i_70_, mads[i_70_].squash, mads[i_70_].lastcolido,
+									mads[i_70_].cntdest, var_xtGraphics.im);
+					} else
+						for (int i_71_ = 0; i_71_ < var_xtGraphics.nplayers; i_71_++)
+							mads[i_71_].drive(u[i_71_], contos_0_[i_71_], trackers, checkpoints);
+					checkpoints.checkstat(mads, contos_0_, record, var_xtGraphics.nplayers, var_xtGraphics.im,
+							var_xtGraphics.multion);
+				} else {
+					if (var_xtGraphics.starcnt == 130) {
+						medium.adv = 1900;
+						medium.zy = 40;
+						medium.vxz = 70;
+						rd.setColor(new Color(255, 255, 255));
+						rd.fillRect(0, 0, 800, 450);
+						repaint();
+						if (var_xtGraphics.lan) {
+							udpmistro.UDPConnectLan(var_xtGraphics.localserver, var_xtGraphics.nplayers,
+									var_xtGraphics.im);
+							if (var_xtGraphics.im == 0)
+								var_xtGraphics.setbots(udpmistro.isbot, udpmistro.frame);
 						} else
-							contos_0_[i_38_].d(rd);
-					final int[] is_39_ = new int[i_37_];
-					final int[] is_40_ = new int[i_37_];
-					for (int i_41_ = 0; i_41_ < i_37_; i_41_++)
-						is_39_[i_41_] = 0;
-					for (int i_42_ = 0; i_42_ < i_37_; i_42_++) {
-						for (int i_43_ = i_42_ + 1; i_43_ < i_37_; i_43_++)
-							if (contos_0_[is[i_42_]].dist < contos_0_[is[i_43_]].dist)
-								is_39_[i_42_]++;
-							else
-								is_39_[i_43_]++;
-						is_40_[is_39_[i_42_]] = i_42_;
-					}
-					for (int i_44_ = 0; i_44_ < i_37_; i_44_++)
-						contos_0_[is[is_40_[i_44_]]].d(rd);
-					if (var_xtGraphics.starcnt == 0) {
-						for (int i_45_ = 0; i_45_ < var_xtGraphics.nplayers; i_45_++)
-							for (int i_46_ = 0; i_46_ < var_xtGraphics.nplayers; i_46_++)
-								if (i_46_ != i_45_)
-									mads[i_45_].colide(contos_0_[i_45_], mads[i_46_], contos_0_[i_46_]);
-						for (int i_47_ = 0; i_47_ < var_xtGraphics.nplayers; i_47_++)
-							mads[i_47_].drive(u[i_47_], contos_0_[i_47_], trackers, checkpoints);
-						for (int i_48_ = 0; i_48_ < var_xtGraphics.nplayers; i_48_++)
-							record.rec(contos_0_[i_48_], i_48_, mads[i_48_].squash, mads[i_48_].lastcolido,
-									mads[i_48_].cntdest, 0);
-						checkpoints.checkstat(mads, contos_0_, record, var_xtGraphics.nplayers, var_xtGraphics.im, 0);
-						for (int i_49_ = 1; i_49_ < var_xtGraphics.nplayers; i_49_++)
-							u[i_49_].preform(mads[i_49_], contos_0_[i_49_], checkpoints, trackers);
-					} else {
-						if (var_xtGraphics.starcnt == 130) {
-							medium.adv = 1900;
-							medium.zy = 40;
-							medium.vxz = 70;
-							rd.setColor(new Color(255, 255, 255));
-							rd.fillRect(0, 0, 800, 450);
+							udpmistro.UDPConnectOnline(var_xtGraphics.server, var_xtGraphics.gameport,
+									var_xtGraphics.nplayers, var_xtGraphics.im);
+						if (var_xtGraphics.multion >= 2) {
+							var_xtGraphics.im = (int) (Math.random() * var_xtGraphics.nplayers);
+							var_xtGraphics.starcnt = 0;
 						}
-						if (var_xtGraphics.starcnt != 0)
-							var_xtGraphics.starcnt--;
 					}
-					if (var_xtGraphics.starcnt < 38) {
+					if (var_xtGraphics.starcnt == 50)
+						udpmistro.frame[udpmistro.im][0] = 0;
+					if (var_xtGraphics.starcnt != 39 && var_xtGraphics.starcnt != 0)
+						var_xtGraphics.starcnt--;
+					if (udpmistro.go && var_xtGraphics.starcnt >= 39) {
+						var_xtGraphics.starcnt = 38;
+						if (var_xtGraphics.lan) {
+							int i_72_ = checkpoints.stage;
+							if (i_72_ < 0)
+								i_72_ = 33;
+							if (var_xtGraphics.loadedt)
+								var_xtGraphics.strack.play();
+						}
+					}
+				}
+				if (var_xtGraphics.lan && udpmistro.im == 0)
+					for (int i_73_ = 2; i_73_ < var_xtGraphics.nplayers; i_73_++)
+						if (udpmistro.isbot[i_73_]) {
+							u[i_73_].preform(mads[i_73_], contos_0_[i_73_], checkpoints, trackers);
+							udpmistro.setinfo(mads[i_73_], contos_0_[i_73_], u[i_73_], checkpoints.pos[i_73_],
+									checkpoints.magperc[i_73_], false, i_73_);
+						}
+				if (var_xtGraphics.starcnt < 38) {
+					if (var_xtGraphics.multion == 1) {
+						udpmistro.setinfo(mads[var_xtGraphics.im], contos_0_[var_xtGraphics.im], u[0],
+								checkpoints.pos[var_xtGraphics.im], checkpoints.magperc[var_xtGraphics.im],
+								var_xtGraphics.holdit, var_xtGraphics.im);
 						if (view == 0) {
-							medium.follow(contos_0_[0], mads[0].cxz, u[0].lookback);
-							var_xtGraphics.stat(mads[0], contos_0_[0], checkpoints, u[0], true);
-							if (mads[0].outshakedam > 0) {
-								shaka = mads[0].outshakedam / 20;
+							medium.follow(contos_0_[var_xtGraphics.im], mads[var_xtGraphics.im].cxz, u[0].lookback);
+							var_xtGraphics.stat(mads[var_xtGraphics.im], contos_0_[var_xtGraphics.im], checkpoints,
+									u[0], true);
+							if (mads[var_xtGraphics.im].outshakedam > 0) {
+								shaka = mads[var_xtGraphics.im].outshakedam / 20;
 								if (shaka > 25)
 									shaka = 25;
 							}
@@ -2365,671 +2421,476 @@ public class GameSparker extends Applet implements Runnable {
 							lmxz = medium.xz;
 						}
 						if (view == 1) {
-							medium.around(contos_0_[0], false);
-							var_xtGraphics.stat(mads[0], contos_0_[0], checkpoints, u[0], false);
+							medium.around(contos_0_[var_xtGraphics.im], false);
+							var_xtGraphics.stat(mads[var_xtGraphics.im], contos_0_[var_xtGraphics.im], checkpoints,
+									u[0], false);
 							mvect = 80;
 						}
 						if (view == 2) {
-							medium.watch(contos_0_[0], mads[0].mxz);
-							var_xtGraphics.stat(mads[0], contos_0_[0], checkpoints, u[0], false);
+							medium.watch(contos_0_[var_xtGraphics.im], mads[var_xtGraphics.im].mxz);
+							var_xtGraphics.stat(mads[var_xtGraphics.im], contos_0_[var_xtGraphics.im], checkpoints,
+									u[0], false);
 							mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
 							if (mvect > 90)
 								mvect = 90;
 							lmxz = medium.xz;
 						}
-						if (mouses == 1) {
-							u[0].enter = true;
-							mouses = 0;
-						}
 					} else {
-						int i_50_ = 3;
-						if (var_xtGraphics.nplayers == 1)
-							i_50_ = 0;
-						medium.around(contos_0_[i_50_], true);
-						mvect = 80;
-						if (u[0].enter || u[0].handb) {
-							var_xtGraphics.starcnt = 38;
-							u[0].enter = false;
-							u[0].handb = false;
+						if (view == 0) {
+							medium.getaround(contos_0_[var_xtGraphics.im]);
+							mvect = 80;
 						}
-						if (var_xtGraphics.starcnt == 38) {
-							mouses = 0;
-							medium.vert = false;
-							medium.adv = 900;
-							medium.vxz = 180;
-							checkpoints.checkstat(mads, contos_0_, record, var_xtGraphics.nplayers, var_xtGraphics.im,
-									0);
-							medium.follow(contos_0_[0], mads[0].cxz, 0);
-							var_xtGraphics.stat(mads[0], contos_0_[0], checkpoints, u[0], true);
-							rd.setColor(new Color(255, 255, 255));
-							rd.fillRect(0, 0, 800, 450);
+						if (view == 1) {
+							medium.getfollow(contos_0_[var_xtGraphics.im], mads[var_xtGraphics.im].cxz,
+									u[0].lookback);
+							mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
+							if (mvect > 90)
+								mvect = 90;
+							lmxz = medium.xz;
 						}
-					}
-				}
-				if (var_xtGraphics.fase == 7001) {
-					for (int i_51_ = 0; i_51_ < var_xtGraphics.nplayers; i_51_++)
-						if (mads[i_51_].newedcar == 0 && mads[i_51_].newcar) {
-							final int i_52_ = contos_0_[i_51_].xz;
-							final int i_53_ = contos_0_[i_51_].xy;
-							final int i_54_ = contos_0_[i_51_].zy;
-							var_xtGraphics.colorCar(contos[mads[i_51_].cn], i_51_);
-							contos_0_[i_51_] = new ContO(contos[mads[i_51_].cn], contos_0_[i_51_].x, contos_0_[i_51_].y,
-									contos_0_[i_51_].z, 0);
-							contos_0_[i_51_].xz = i_52_;
-							contos_0_[i_51_].xy = i_53_;
-							contos_0_[i_51_].zy = i_54_;
-							mads[i_51_].newedcar = 20;
+						if (view == 2) {
+							medium.watch(contos_0_[var_xtGraphics.im], mads[var_xtGraphics.im].mxz);
+							mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
+							if (mvect > 90)
+								mvect = 90;
+							lmxz = medium.xz;
 						}
-					medium.d(rd);
-					int i_55_ = 0;
-					final int[] is = new int[10000];
-					for (int i_56_ = 0; i_56_ < nob; i_56_++)
-						if (contos_0_[i_56_].dist != 0) {
-							is[i_55_] = i_56_;
-							i_55_++;
-						} else
-							contos_0_[i_56_].d(rd);
-					final int[] is_57_ = new int[i_55_];
-					final int[] is_58_ = new int[i_55_];
-					for (int i_59_ = 0; i_59_ < i_55_; i_59_++)
-						is_57_[i_59_] = 0;
-					for (int i_60_ = 0; i_60_ < i_55_; i_60_++) {
-						for (int i_61_ = i_60_ + 1; i_61_ < i_55_; i_61_++)
-							if (contos_0_[is[i_60_]].dist < contos_0_[is[i_61_]].dist)
-								is_57_[i_60_]++;
-							else
-								is_57_[i_61_]++;
-						is_58_[is_57_[i_60_]] = i_60_;
+						var_xtGraphics.stat(mads[var_xtGraphics.im], contos_0_[var_xtGraphics.im], checkpoints,
+								u[0], true);
 					}
-					for (int i_62_ = 0; i_62_ < i_55_; i_62_++) {
-						if (is[is_58_[i_62_]] < var_xtGraphics.nplayers && is[is_58_[i_62_]] != var_xtGraphics.im)
-							udpmistro.readContOinfo(contos_0_[is[is_58_[i_62_]]], is[is_58_[i_62_]]);
-						contos_0_[is[is_58_[i_62_]]].d(rd);
+					if (mouses == 1) {
+						if (var_xtGraphics.holdit && var_xtGraphics.exitm != 4 && var_xtGraphics.multion == 1)
+							u[0].enter = true;
+						mouses = 0;
 					}
-					if (var_xtGraphics.starcnt == 0) {
-						if (var_xtGraphics.multion == 1) {
-							int i_63_ = 1;
-							for (int i_64_ = 0; i_64_ < var_xtGraphics.nplayers; i_64_++)
-								if (var_xtGraphics.im != i_64_) {
-									udpmistro.readinfo(mads[i_64_], contos_0_[i_64_], u[i_63_], i_64_,
-											checkpoints.dested);
-									i_63_++;
-								}
-						} else
-							for (int i_65_ = 0; i_65_ < var_xtGraphics.nplayers; i_65_++)
-								udpmistro.readinfo(mads[i_65_], contos_0_[i_65_], u[i_65_], i_65_, checkpoints.dested);
-						for (int i_66_ = 0; i_66_ < var_xtGraphics.nplayers; i_66_++)
-							for (int i_67_ = 0; i_67_ < var_xtGraphics.nplayers; i_67_++)
-								if (i_67_ != i_66_)
-									mads[i_66_].colide(contos_0_[i_66_], mads[i_67_], contos_0_[i_67_]);
-						if (var_xtGraphics.multion == 1) {
-							int i_68_ = 1;
-							for (int i_69_ = 0; i_69_ < var_xtGraphics.nplayers; i_69_++)
-								if (var_xtGraphics.im != i_69_) {
-									mads[i_69_].drive(u[i_68_], contos_0_[i_69_], trackers, checkpoints);
-									i_68_++;
-								} else
-									mads[i_69_].drive(u[0], contos_0_[i_69_], trackers, checkpoints);
-							for (int i_70_ = 0; i_70_ < var_xtGraphics.nplayers; i_70_++)
-								record.rec(contos_0_[i_70_], i_70_, mads[i_70_].squash, mads[i_70_].lastcolido,
-										mads[i_70_].cntdest, var_xtGraphics.im);
-						} else
-							for (int i_71_ = 0; i_71_ < var_xtGraphics.nplayers; i_71_++)
-								mads[i_71_].drive(u[i_71_], contos_0_[i_71_], trackers, checkpoints);
+				} else {
+					medium.around(contos_0_[var_xtGraphics.im], true);
+					mvect = 80;
+					if (var_xtGraphics.starcnt == 39)
+						var_xtGraphics.waitenter();
+					if (var_xtGraphics.starcnt == 38) {
+						var_xtGraphics.forstart = 0;
+						mouses = 0;
+						medium.vert = false;
+						medium.adv = 900;
+						medium.vxz = 180;
 						checkpoints.checkstat(mads, contos_0_, record, var_xtGraphics.nplayers, var_xtGraphics.im,
 								var_xtGraphics.multion);
-					} else {
-						if (var_xtGraphics.starcnt == 130) {
-							medium.adv = 1900;
-							medium.zy = 40;
-							medium.vxz = 70;
-							rd.setColor(new Color(255, 255, 255));
-							rd.fillRect(0, 0, 800, 450);
-							repaint();
-							if (var_xtGraphics.lan) {
-								udpmistro.UDPConnectLan(var_xtGraphics.localserver, var_xtGraphics.nplayers,
-										var_xtGraphics.im);
-								if (var_xtGraphics.im == 0)
-									var_xtGraphics.setbots(udpmistro.isbot, udpmistro.frame);
-							} else
-								udpmistro.UDPConnectOnline(var_xtGraphics.server, var_xtGraphics.gameport,
-										var_xtGraphics.nplayers, var_xtGraphics.im);
-							if (var_xtGraphics.multion >= 2) {
-								var_xtGraphics.im = (int) (Math.random() * var_xtGraphics.nplayers);
-								var_xtGraphics.starcnt = 0;
-							}
-						}
-						if (var_xtGraphics.starcnt == 50)
-							udpmistro.frame[udpmistro.im][0] = 0;
-						if (var_xtGraphics.starcnt != 39 && var_xtGraphics.starcnt != 0)
-							var_xtGraphics.starcnt--;
-						if (udpmistro.go && var_xtGraphics.starcnt >= 39) {
-							var_xtGraphics.starcnt = 38;
-							if (var_xtGraphics.lan) {
-								int i_72_ = checkpoints.stage;
-								if (i_72_ < 0)
-									i_72_ = 33;
-								if (var_xtGraphics.loadedt)
-									var_xtGraphics.strack.play();
-							}
-						}
+						medium.follow(contos_0_[var_xtGraphics.im], mads[var_xtGraphics.im].cxz, 0);
+						var_xtGraphics.stat(mads[var_xtGraphics.im], contos_0_[var_xtGraphics.im], checkpoints,
+								u[0], true);
+						rd.setColor(new Color(255, 255, 255));
+						rd.fillRect(0, 0, 800, 450);
 					}
-					if (var_xtGraphics.lan && udpmistro.im == 0)
-						for (int i_73_ = 2; i_73_ < var_xtGraphics.nplayers; i_73_++)
-							if (udpmistro.isbot[i_73_]) {
-								u[i_73_].preform(mads[i_73_], contos_0_[i_73_], checkpoints, trackers);
-								udpmistro.setinfo(mads[i_73_], contos_0_[i_73_], u[i_73_], checkpoints.pos[i_73_],
-										checkpoints.magperc[i_73_], false, i_73_);
-							}
-					if (var_xtGraphics.starcnt < 38) {
-						if (var_xtGraphics.multion == 1) {
-							udpmistro.setinfo(mads[var_xtGraphics.im], contos_0_[var_xtGraphics.im], u[0],
-									checkpoints.pos[var_xtGraphics.im], checkpoints.magperc[var_xtGraphics.im],
-									var_xtGraphics.holdit, var_xtGraphics.im);
-							if (view == 0) {
-								medium.follow(contos_0_[var_xtGraphics.im], mads[var_xtGraphics.im].cxz, u[0].lookback);
-								var_xtGraphics.stat(mads[var_xtGraphics.im], contos_0_[var_xtGraphics.im], checkpoints,
-										u[0], true);
-								if (mads[var_xtGraphics.im].outshakedam > 0) {
-									shaka = mads[var_xtGraphics.im].outshakedam / 20;
-									if (shaka > 25)
-										shaka = 25;
-								}
-								mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
-								if (mvect > 90)
-									mvect = 90;
-								lmxz = medium.xz;
-							}
-							if (view == 1) {
-								medium.around(contos_0_[var_xtGraphics.im], false);
-								var_xtGraphics.stat(mads[var_xtGraphics.im], contos_0_[var_xtGraphics.im], checkpoints,
-										u[0], false);
-								mvect = 80;
-							}
-							if (view == 2) {
-								medium.watch(contos_0_[var_xtGraphics.im], mads[var_xtGraphics.im].mxz);
-								var_xtGraphics.stat(mads[var_xtGraphics.im], contos_0_[var_xtGraphics.im], checkpoints,
-										u[0], false);
-								mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
-								if (mvect > 90)
-									mvect = 90;
-								lmxz = medium.xz;
-							}
-						} else {
-							if (view == 0) {
-								medium.getaround(contos_0_[var_xtGraphics.im]);
-								mvect = 80;
-							}
-							if (view == 1) {
-								medium.getfollow(contos_0_[var_xtGraphics.im], mads[var_xtGraphics.im].cxz,
-										u[0].lookback);
-								mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
-								if (mvect > 90)
-									mvect = 90;
-								lmxz = medium.xz;
-							}
-							if (view == 2) {
-								medium.watch(contos_0_[var_xtGraphics.im], mads[var_xtGraphics.im].mxz);
-								mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
-								if (mvect > 90)
-									mvect = 90;
-								lmxz = medium.xz;
-							}
-							var_xtGraphics.stat(mads[var_xtGraphics.im], contos_0_[var_xtGraphics.im], checkpoints,
-									u[0], true);
-						}
-						if (mouses == 1) {
-							if (var_xtGraphics.holdit && var_xtGraphics.exitm != 4 && var_xtGraphics.multion == 1)
-								u[0].enter = true;
-							mouses = 0;
-						}
-					} else {
-						medium.around(contos_0_[var_xtGraphics.im], true);
-						mvect = 80;
-						if (var_xtGraphics.starcnt == 39)
-							var_xtGraphics.waitenter();
-						if (var_xtGraphics.starcnt == 38) {
-							var_xtGraphics.forstart = 0;
-							mouses = 0;
-							medium.vert = false;
-							medium.adv = 900;
-							medium.vxz = 180;
-							checkpoints.checkstat(mads, contos_0_, record, var_xtGraphics.nplayers, var_xtGraphics.im,
-									var_xtGraphics.multion);
-							medium.follow(contos_0_[var_xtGraphics.im], mads[var_xtGraphics.im].cxz, 0);
-							var_xtGraphics.stat(mads[var_xtGraphics.im], contos_0_[var_xtGraphics.im], checkpoints,
-									u[0], true);
-							rd.setColor(new Color(255, 255, 255));
-							rd.fillRect(0, 0, 800, 450);
-						}
-					}
-					var_xtGraphics.multistat(u[0], checkpoints, xm, ym, moused, udpmistro);
 				}
-				if (var_xtGraphics.fase == -1) {
-					if (i_6_ == 0)
-						for (int i_74_ = 0; i_74_ < var_xtGraphics.nplayers; i_74_++) {
-							record.ocar[i_74_] = new ContO(contos_0_[i_74_], 0, 0, 0, 0);
-							contos_0_[i_74_] = new ContO(record.car[0][i_74_], 0, 0, 0, 0);
-						}
-					medium.d(rd);
-					int i_75_ = 0;
-					final int[] is = new int[10000];
-					for (int i_76_ = 0; i_76_ < nob; i_76_++)
-						if (contos_0_[i_76_].dist != 0) {
-							is[i_75_] = i_76_;
-							i_75_++;
-						} else
-							contos_0_[i_76_].d(rd);
-					final int[] is_77_ = new int[i_75_];
-					for (int i_78_ = 0; i_78_ < i_75_; i_78_++)
-						is_77_[i_78_] = 0;
-					for (int i_79_ = 0; i_79_ < i_75_; i_79_++)
-						for (int i_80_ = i_79_ + 1; i_80_ < i_75_; i_80_++)
-							if (contos_0_[is[i_79_]].dist != contos_0_[is[i_80_]].dist) {
-								if (contos_0_[is[i_79_]].dist < contos_0_[is[i_80_]].dist)
-									is_77_[i_79_]++;
-								else
-									is_77_[i_80_]++;
-							} else if (i_80_ > i_79_)
+				var_xtGraphics.multistat(u[0], checkpoints, xm, ym, moused, udpmistro);
+			}
+			if (var_xtGraphics.fase == -1) {
+				if (i_6_ == 0)
+					for (int i_74_ = 0; i_74_ < var_xtGraphics.nplayers; i_74_++) {
+						record.ocar[i_74_] = new ContO(contos_0_[i_74_], 0, 0, 0, 0);
+						contos_0_[i_74_] = new ContO(record.car[0][i_74_], 0, 0, 0, 0);
+					}
+				medium.d(rd);
+				int i_75_ = 0;
+				final int[] is = new int[10000];
+				for (int i_76_ = 0; i_76_ < nob; i_76_++)
+					if (contos_0_[i_76_].dist != 0) {
+						is[i_75_] = i_76_;
+						i_75_++;
+					} else
+						contos_0_[i_76_].d(rd);
+				final int[] is_77_ = new int[i_75_];
+				for (int i_78_ = 0; i_78_ < i_75_; i_78_++)
+					is_77_[i_78_] = 0;
+				for (int i_79_ = 0; i_79_ < i_75_; i_79_++)
+					for (int i_80_ = i_79_ + 1; i_80_ < i_75_; i_80_++)
+						if (contos_0_[is[i_79_]].dist != contos_0_[is[i_80_]].dist) {
+							if (contos_0_[is[i_79_]].dist < contos_0_[is[i_80_]].dist)
 								is_77_[i_79_]++;
 							else
 								is_77_[i_80_]++;
-					for (int i_81_ = 0; i_81_ < i_75_; i_81_++)
-						for (int i_82_ = 0; i_82_ < i_75_; i_82_++)
-							if (is_77_[i_82_] == i_81_)
-								contos_0_[is[i_82_]].d(rd);
-					if (u[0].enter || u[0].handb || mouses == 1) {
-						i_6_ = 299;
-						u[0].enter = false;
-						u[0].handb = false;
-						mouses = 0;
-					}
-					for (int i_83_ = 0; i_83_ < var_xtGraphics.nplayers; i_83_++) {
-						if (record.fix[i_83_] == i_6_)
-							if (contos_0_[i_83_].dist == 0)
-								contos_0_[i_83_].fcnt = 8;
-							else
-								contos_0_[i_83_].fix = true;
-						if (contos_0_[i_83_].fcnt == 7 || contos_0_[i_83_].fcnt == 8) {
-							contos_0_[i_83_] = new ContO(contos[mads[i_83_].cn], 0, 0, 0, 0);
-							record.cntdest[i_83_] = 0;
-						}
-						if (i_6_ == 299)
-							contos_0_[i_83_] = new ContO(record.ocar[i_83_], 0, 0, 0, 0);
-						record.play(contos_0_[i_83_], mads[i_83_], i_83_, i_6_);
-					}
-					if (++i_6_ == 300) {
-						i_6_ = 0;
-						var_xtGraphics.fase = -6;
-					} else
-						var_xtGraphics.replyn();
-					medium.around(contos_0_[0], false);
-				}
-				if (var_xtGraphics.fase == -2) {
-					if (var_xtGraphics.multion >= 2)
-						record.hcaught = false;
-					u[0].falseo(3);
-					if (record.hcaught && record.wasted == 0 && record.whenwasted != 229
-							&& (checkpoints.stage == 1 || checkpoints.stage == 2) && var_xtGraphics.looped != 0)
-						record.hcaught = false;
-					if (record.hcaught) {
-						rd.setColor(new Color(0, 0, 0));
-						rd.fillRect(0, 0, 800, 450);
-						repaint();
-					}
-					if (var_xtGraphics.multion != 0) {
-						udpmistro.UDPquit();
-						var_xtGraphics.stopchat();
-						if (cmsg.isShowing())
-							cmsg.setVisible(false);
-						cmsg.setText("");
-						requestFocus();
-					}
-					if (record.hcaught) {
-						if (medium.random() > 0.45)
-							medium.vert = false;
+						} else if (i_80_ > i_79_)
+							is_77_[i_79_]++;
 						else
-							medium.vert = true;
-						medium.adv = (int) (900.0F * medium.random());
-						medium.vxz = (int) (360.0F * medium.random());
-						i_6_ = 0;
-						var_xtGraphics.fase = -3;
-						i_7_ = 0;
-						i_8_ = 0;
-					} else {
-						i_6_ = -2;
-						var_xtGraphics.fase = -4;
-					}
+							is_77_[i_80_]++;
+				for (int i_81_ = 0; i_81_ < i_75_; i_81_++)
+					for (int i_82_ = 0; i_82_ < i_75_; i_82_++)
+						if (is_77_[i_82_] == i_81_)
+							contos_0_[is[i_82_]].d(rd);
+				if (u[0].enter || u[0].handb || mouses == 1) {
+					i_6_ = 299;
+					u[0].enter = false;
+					u[0].handb = false;
+					mouses = 0;
 				}
-				if (var_xtGraphics.fase == -3) {
-					if (i_6_ == 0) {
-						if (record.wasted == 0) {
-							if (record.whenwasted == 229) {
-								i_9_ = 67;
-								medium.vxz += 90;
-							} else {
-								i_9_ = (int) (medium.random() * 4.0F);
-								if (i_9_ == 1 || i_9_ == 3)
-									i_9_ = 69;
-								if (i_9_ == 2 || i_9_ == 4)
-									i_9_ = 30;
-							}
-						} else if (record.closefinish != 0 && i_8_ != 0)
-							medium.vxz += 90;
-						for (int i_84_ = 0; i_84_ < var_xtGraphics.nplayers; i_84_++)
-							contos_0_[i_84_] = new ContO(record.starcar[i_84_], 0, 0, 0, 0);
+				for (int i_83_ = 0; i_83_ < var_xtGraphics.nplayers; i_83_++) {
+					if (record.fix[i_83_] == i_6_)
+						if (contos_0_[i_83_].dist == 0)
+							contos_0_[i_83_].fcnt = 8;
+						else
+							contos_0_[i_83_].fix = true;
+					if (contos_0_[i_83_].fcnt == 7 || contos_0_[i_83_].fcnt == 8) {
+						contos_0_[i_83_] = new ContO(contos[mads[i_83_].cn], 0, 0, 0, 0);
+						record.cntdest[i_83_] = 0;
 					}
-					medium.d(rd);
-					int i_85_ = 0;
-					final int[] is = new int[10000];
-					for (int i_86_ = 0; i_86_ < nob; i_86_++)
-						if (contos_0_[i_86_].dist != 0) {
-							is[i_85_] = i_86_;
-							i_85_++;
-						} else
-							contos_0_[i_86_].d(rd);
-					final int[] is_87_ = new int[i_85_];
-					for (int i_88_ = 0; i_88_ < i_85_; i_88_++)
-						is_87_[i_88_] = 0;
-					for (int i_89_ = 0; i_89_ < i_85_; i_89_++)
-						for (int i_90_ = i_89_ + 1; i_90_ < i_85_; i_90_++)
-							if (contos_0_[is[i_89_]].dist != contos_0_[is[i_90_]].dist) {
-								if (contos_0_[is[i_89_]].dist < contos_0_[is[i_90_]].dist)
-									is_87_[i_89_]++;
-								else
-									is_87_[i_90_]++;
-							} else if (i_90_ > i_89_)
+					if (i_6_ == 299)
+						contos_0_[i_83_] = new ContO(record.ocar[i_83_], 0, 0, 0, 0);
+					record.play(contos_0_[i_83_], mads[i_83_], i_83_, i_6_);
+				}
+				if (++i_6_ == 300) {
+					i_6_ = 0;
+					var_xtGraphics.fase = -6;
+				} else
+					var_xtGraphics.replyn();
+				medium.around(contos_0_[0], false);
+			}
+			if (var_xtGraphics.fase == -2) {
+				if (var_xtGraphics.multion >= 2)
+					record.hcaught = false;
+				u[0].falseo(3);
+				if (record.hcaught && record.wasted == 0 && record.whenwasted != 229
+						&& (checkpoints.stage == 1 || checkpoints.stage == 2) && var_xtGraphics.looped != 0)
+					record.hcaught = false;
+				if (record.hcaught) {
+					rd.setColor(new Color(0, 0, 0));
+					rd.fillRect(0, 0, 800, 450);
+					repaint();
+				}
+				if (var_xtGraphics.multion != 0) {
+					udpmistro.UDPquit();
+					var_xtGraphics.stopchat();
+					if (cmsg.isShowing())
+						cmsg.setVisible(false);
+					cmsg.setText("");
+					requestFocus();
+				}
+				if (record.hcaught) {
+					if (medium.random() > 0.45)
+						medium.vert = false;
+					else
+						medium.vert = true;
+					medium.adv = (int) (900.0F * medium.random());
+					medium.vxz = (int) (360.0F * medium.random());
+					i_6_ = 0;
+					var_xtGraphics.fase = -3;
+					i_7_ = 0;
+					i_8_ = 0;
+				} else {
+					i_6_ = -2;
+					var_xtGraphics.fase = -4;
+				}
+			}
+			if (var_xtGraphics.fase == -3) {
+				if (i_6_ == 0) {
+					if (record.wasted == 0) {
+						if (record.whenwasted == 229) {
+							i_9_ = 67;
+							medium.vxz += 90;
+						} else {
+							i_9_ = (int) (medium.random() * 4.0F);
+							if (i_9_ == 1 || i_9_ == 3)
+								i_9_ = 69;
+							if (i_9_ == 2 || i_9_ == 4)
+								i_9_ = 30;
+						}
+					} else if (record.closefinish != 0 && i_8_ != 0)
+						medium.vxz += 90;
+					for (int i_84_ = 0; i_84_ < var_xtGraphics.nplayers; i_84_++)
+						contos_0_[i_84_] = new ContO(record.starcar[i_84_], 0, 0, 0, 0);
+				}
+				medium.d(rd);
+				int i_85_ = 0;
+				final int[] is = new int[10000];
+				for (int i_86_ = 0; i_86_ < nob; i_86_++)
+					if (contos_0_[i_86_].dist != 0) {
+						is[i_85_] = i_86_;
+						i_85_++;
+					} else
+						contos_0_[i_86_].d(rd);
+				final int[] is_87_ = new int[i_85_];
+				for (int i_88_ = 0; i_88_ < i_85_; i_88_++)
+					is_87_[i_88_] = 0;
+				for (int i_89_ = 0; i_89_ < i_85_; i_89_++)
+					for (int i_90_ = i_89_ + 1; i_90_ < i_85_; i_90_++)
+						if (contos_0_[is[i_89_]].dist != contos_0_[is[i_90_]].dist) {
+							if (contos_0_[is[i_89_]].dist < contos_0_[is[i_90_]].dist)
 								is_87_[i_89_]++;
 							else
 								is_87_[i_90_]++;
-					for (int i_91_ = 0; i_91_ < i_85_; i_91_++)
-						for (int i_92_ = 0; i_92_ < i_85_; i_92_++)
-							if (is_87_[i_92_] == i_91_)
-								contos_0_[is[i_92_]].d(rd);
-					for (int i_93_ = 0; i_93_ < var_xtGraphics.nplayers; i_93_++) {
-						if (record.hfix[i_93_] == i_6_)
-							if (contos_0_[i_93_].dist == 0)
-								contos_0_[i_93_].fcnt = 8;
-							else
-								contos_0_[i_93_].fix = true;
-						if (contos_0_[i_93_].fcnt == 7 || contos_0_[i_93_].fcnt == 8) {
-							contos_0_[i_93_] = new ContO(contos[mads[i_93_].cn], 0, 0, 0, 0);
-							record.cntdest[i_93_] = 0;
-						}
-						record.playh(contos_0_[i_93_], mads[i_93_], i_93_, i_6_, var_xtGraphics.im);
+						} else if (i_90_ > i_89_)
+							is_87_[i_89_]++;
+						else
+							is_87_[i_90_]++;
+				for (int i_91_ = 0; i_91_ < i_85_; i_91_++)
+					for (int i_92_ = 0; i_92_ < i_85_; i_92_++)
+						if (is_87_[i_92_] == i_91_)
+							contos_0_[is[i_92_]].d(rd);
+				for (int i_93_ = 0; i_93_ < var_xtGraphics.nplayers; i_93_++) {
+					if (record.hfix[i_93_] == i_6_)
+						if (contos_0_[i_93_].dist == 0)
+							contos_0_[i_93_].fcnt = 8;
+						else
+							contos_0_[i_93_].fix = true;
+					if (contos_0_[i_93_].fcnt == 7 || contos_0_[i_93_].fcnt == 8) {
+						contos_0_[i_93_] = new ContO(contos[mads[i_93_].cn], 0, 0, 0, 0);
+						record.cntdest[i_93_] = 0;
 					}
-					if (i_8_ == 2 && i_6_ == 299)
-						u[0].enter = true;
-					if (u[0].enter || u[0].handb) {
-						var_xtGraphics.fase = -4;
-						u[0].enter = false;
-						u[0].handb = false;
-						i_6_ = -7;
-					} else {
-						var_xtGraphics.levelhigh(record.wasted, record.whenwasted, record.closefinish, i_6_,
-								checkpoints.stage);
-						if (i_6_ == 0 || i_6_ == 1 || i_6_ == 2) {
-							rd.setColor(new Color(0, 0, 0));
-							rd.fillRect(0, 0, 800, 450);
-						}
-						if (record.wasted != var_xtGraphics.im) {
-							if (record.closefinish == 0) {
-								if (i_7_ == 9 || i_7_ == 11) {
-									rd.setColor(new Color(255, 255, 255));
-									rd.fillRect(0, 0, 800, 450);
-								}
-								if (i_7_ == 0)
-									medium.around(contos_0_[var_xtGraphics.im], false);
-								if (i_7_ > 0 && i_7_ < 20)
-									medium.transaround(contos_0_[var_xtGraphics.im], contos_0_[record.wasted], i_7_);
-								if (i_7_ == 20)
-									medium.around(contos_0_[record.wasted], false);
-								if (i_6_ > record.whenwasted && i_7_ != 20)
-									i_7_++;
-								if ((i_7_ == 0 || i_7_ == 20) && ++i_6_ == 300) {
-									i_6_ = 0;
-									i_7_ = 0;
-									i_8_++;
-								}
-							} else if (record.closefinish == 1) {
-								if (i_7_ == 0)
-									medium.around(contos_0_[var_xtGraphics.im], false);
-								if (i_7_ > 0 && i_7_ < 20)
-									medium.transaround(contos_0_[var_xtGraphics.im], contos_0_[record.wasted], i_7_);
-								if (i_7_ == 20)
-									medium.around(contos_0_[record.wasted], false);
-								if (i_7_ > 20 && i_7_ < 40)
-									medium.transaround(contos_0_[record.wasted], contos_0_[var_xtGraphics.im],
-											i_7_ - 20);
-								if (i_7_ == 40)
-									medium.around(contos_0_[var_xtGraphics.im], false);
-								if (i_7_ > 40 && i_7_ < 60)
-									medium.transaround(contos_0_[var_xtGraphics.im], contos_0_[record.wasted],
-											i_7_ - 40);
-								if (i_7_ == 60)
-									medium.around(contos_0_[record.wasted], false);
-								if (i_6_ > 160 && i_7_ < 20)
-									i_7_++;
-								if (i_6_ > 230 && i_7_ < 40)
-									i_7_++;
-								if (i_6_ > 280 && i_7_ < 60)
-									i_7_++;
-								if ((i_7_ == 0 || i_7_ == 20 || i_7_ == 40 || i_7_ == 60) && ++i_6_ == 300) {
-									i_6_ = 0;
-									i_7_ = 0;
-									i_8_++;
-								}
-							} else {
-								if (i_7_ == 0)
-									medium.around(contos_0_[var_xtGraphics.im], false);
-								if (i_7_ > 0 && i_7_ < 20)
-									medium.transaround(contos_0_[var_xtGraphics.im], contos_0_[record.wasted], i_7_);
-								if (i_7_ == 20)
-									medium.around(contos_0_[record.wasted], false);
-								if (i_7_ > 20 && i_7_ < 40)
-									medium.transaround(contos_0_[record.wasted], contos_0_[var_xtGraphics.im],
-											i_7_ - 20);
-								if (i_7_ == 40)
-									medium.around(contos_0_[var_xtGraphics.im], false);
-								if (i_7_ > 40 && i_7_ < 60)
-									medium.transaround(contos_0_[var_xtGraphics.im], contos_0_[record.wasted],
-											i_7_ - 40);
-								if (i_7_ == 60)
-									medium.around(contos_0_[record.wasted], false);
-								if (i_7_ > 60 && i_7_ < 80)
-									medium.transaround(contos_0_[record.wasted], contos_0_[var_xtGraphics.im],
-											i_7_ - 60);
-								if (i_7_ == 80)
-									medium.around(contos_0_[var_xtGraphics.im], false);
-								if (i_6_ > 90 && i_7_ < 20)
-									i_7_++;
-								if (i_6_ > 160 && i_7_ < 40)
-									i_7_++;
-								if (i_6_ > 230 && i_7_ < 60)
-									i_7_++;
-								if (i_6_ > 280 && i_7_ < 80)
-									i_7_++;
-								if ((i_7_ == 0 || i_7_ == 20 || i_7_ == 40 || i_7_ == 60 || i_7_ == 80)
-										&& ++i_6_ == 300) {
-									i_6_ = 0;
-									i_7_ = 0;
-									i_8_++;
-								}
+					record.playh(contos_0_[i_93_], mads[i_93_], i_93_, i_6_, var_xtGraphics.im);
+				}
+				if (i_8_ == 2 && i_6_ == 299)
+					u[0].enter = true;
+				if (u[0].enter || u[0].handb) {
+					var_xtGraphics.fase = -4;
+					u[0].enter = false;
+					u[0].handb = false;
+					i_6_ = -7;
+				} else {
+					var_xtGraphics.levelhigh(record.wasted, record.whenwasted, record.closefinish, i_6_,
+							checkpoints.stage);
+					if (i_6_ == 0 || i_6_ == 1 || i_6_ == 2) {
+						rd.setColor(new Color(0, 0, 0));
+						rd.fillRect(0, 0, 800, 450);
+					}
+					if (record.wasted != var_xtGraphics.im) {
+						if (record.closefinish == 0) {
+							if (i_7_ == 9 || i_7_ == 11) {
+								rd.setColor(new Color(255, 255, 255));
+								rd.fillRect(0, 0, 800, 450);
+							}
+							if (i_7_ == 0)
+								medium.around(contos_0_[var_xtGraphics.im], false);
+							if (i_7_ > 0 && i_7_ < 20)
+								medium.transaround(contos_0_[var_xtGraphics.im], contos_0_[record.wasted], i_7_);
+							if (i_7_ == 20)
+								medium.around(contos_0_[record.wasted], false);
+							if (i_6_ > record.whenwasted && i_7_ != 20)
+								i_7_++;
+							if ((i_7_ == 0 || i_7_ == 20) && ++i_6_ == 300) {
+								i_6_ = 0;
+								i_7_ = 0;
+								i_8_++;
+							}
+						} else if (record.closefinish == 1) {
+							if (i_7_ == 0)
+								medium.around(contos_0_[var_xtGraphics.im], false);
+							if (i_7_ > 0 && i_7_ < 20)
+								medium.transaround(contos_0_[var_xtGraphics.im], contos_0_[record.wasted], i_7_);
+							if (i_7_ == 20)
+								medium.around(contos_0_[record.wasted], false);
+							if (i_7_ > 20 && i_7_ < 40)
+								medium.transaround(contos_0_[record.wasted], contos_0_[var_xtGraphics.im],
+										i_7_ - 20);
+							if (i_7_ == 40)
+								medium.around(contos_0_[var_xtGraphics.im], false);
+							if (i_7_ > 40 && i_7_ < 60)
+								medium.transaround(contos_0_[var_xtGraphics.im], contos_0_[record.wasted],
+										i_7_ - 40);
+							if (i_7_ == 60)
+								medium.around(contos_0_[record.wasted], false);
+							if (i_6_ > 160 && i_7_ < 20)
+								i_7_++;
+							if (i_6_ > 230 && i_7_ < 40)
+								i_7_++;
+							if (i_6_ > 280 && i_7_ < 60)
+								i_7_++;
+							if ((i_7_ == 0 || i_7_ == 20 || i_7_ == 40 || i_7_ == 60) && ++i_6_ == 300) {
+								i_6_ = 0;
+								i_7_ = 0;
+								i_8_++;
 							}
 						} else {
-							if (i_9_ == 67 && (i_7_ == 3 || i_7_ == 31 || i_7_ == 66)) {
-								rd.setColor(new Color(255, 255, 255));
-								rd.fillRect(0, 0, 800, 450);
-							}
-							if (i_9_ == 69 && (i_7_ == 3 || i_7_ == 5 || i_7_ == 31 || i_7_ == 33 || i_7_ == 66
-									|| i_7_ == 68)) {
-								rd.setColor(new Color(255, 255, 255));
-								rd.fillRect(0, 0, 800, 450);
-							}
-							if (i_9_ == 30 && i_7_ >= 1 && i_7_ < 30)
-								if (i_7_ % (int) (2.0F + medium.random() * 3.0F) == 0 && !bool_10_) {
-									rd.setColor(new Color(255, 255, 255));
-									rd.fillRect(0, 0, 800, 450);
-									bool_10_ = true;
-								} else
-									bool_10_ = false;
-							if (i_6_ > record.whenwasted && i_7_ != i_9_)
+							if (i_7_ == 0)
+								medium.around(contos_0_[var_xtGraphics.im], false);
+							if (i_7_ > 0 && i_7_ < 20)
+								medium.transaround(contos_0_[var_xtGraphics.im], contos_0_[record.wasted], i_7_);
+							if (i_7_ == 20)
+								medium.around(contos_0_[record.wasted], false);
+							if (i_7_ > 20 && i_7_ < 40)
+								medium.transaround(contos_0_[record.wasted], contos_0_[var_xtGraphics.im],
+										i_7_ - 20);
+							if (i_7_ == 40)
+								medium.around(contos_0_[var_xtGraphics.im], false);
+							if (i_7_ > 40 && i_7_ < 60)
+								medium.transaround(contos_0_[var_xtGraphics.im], contos_0_[record.wasted],
+										i_7_ - 40);
+							if (i_7_ == 60)
+								medium.around(contos_0_[record.wasted], false);
+							if (i_7_ > 60 && i_7_ < 80)
+								medium.transaround(contos_0_[record.wasted], contos_0_[var_xtGraphics.im],
+										i_7_ - 60);
+							if (i_7_ == 80)
+								medium.around(contos_0_[var_xtGraphics.im], false);
+							if (i_6_ > 90 && i_7_ < 20)
 								i_7_++;
-							medium.around(contos_0_[var_xtGraphics.im], false);
-							if ((i_7_ == 0 || i_7_ == i_9_) && ++i_6_ == 300) {
+							if (i_6_ > 160 && i_7_ < 40)
+								i_7_++;
+							if (i_6_ > 230 && i_7_ < 60)
+								i_7_++;
+							if (i_6_ > 280 && i_7_ < 80)
+								i_7_++;
+							if ((i_7_ == 0 || i_7_ == 20 || i_7_ == 40 || i_7_ == 60 || i_7_ == 80)
+									&& ++i_6_ == 300) {
 								i_6_ = 0;
 								i_7_ = 0;
 								i_8_++;
 							}
 						}
-					}
-				}
-				if (var_xtGraphics.fase == -4) {
-					if (i_6_ == 0) {
-						var_xtGraphics.sendwin(checkpoints);
-						if (var_xtGraphics.winner && var_xtGraphics.multion == 0 && var_xtGraphics.gmode != 0
-								&& checkpoints.stage != 27
-								&& checkpoints.stage == var_xtGraphics.unlocked[var_xtGraphics.gmode - 1]
-										+ (var_xtGraphics.gmode - 1) * 10) {
-							var_xtGraphics.unlocked[var_xtGraphics.gmode - 1]++;
-							setcarcookie(var_xtGraphics.sc[0], cardefine.names[var_xtGraphics.sc[0]],
-									var_xtGraphics.arnp, var_xtGraphics.gmode, var_xtGraphics.unlocked, false);
-							var_xtGraphics.unlocked[var_xtGraphics.gmode - 1]--;
+					} else {
+						if (i_9_ == 67 && (i_7_ == 3 || i_7_ == 31 || i_7_ == 66)) {
+							rd.setColor(new Color(255, 255, 255));
+							rd.fillRect(0, 0, 800, 450);
+						}
+						if (i_9_ == 69 && (i_7_ == 3 || i_7_ == 5 || i_7_ == 31 || i_7_ == 33 || i_7_ == 66
+								|| i_7_ == 68)) {
+							rd.setColor(new Color(255, 255, 255));
+							rd.fillRect(0, 0, 800, 450);
+						}
+						if (i_9_ == 30 && i_7_ >= 1 && i_7_ < 30)
+							if (i_7_ % (int) (2.0F + medium.random() * 3.0F) == 0 && !bool_10_) {
+								rd.setColor(new Color(255, 255, 255));
+								rd.fillRect(0, 0, 800, 450);
+								bool_10_ = true;
+							} else
+								bool_10_ = false;
+						if (i_6_ > record.whenwasted && i_7_ != i_9_)
+							i_7_++;
+						medium.around(contos_0_[var_xtGraphics.im], false);
+						if ((i_7_ == 0 || i_7_ == i_9_) && ++i_6_ == 300) {
+							i_6_ = 0;
+							i_7_ = 0;
+							i_8_++;
 						}
 					}
-					if (i_6_ <= 0) {
-						rd.drawImage(var_xtGraphics.mdness, 289, 30, null);
-						rd.drawImage(var_xtGraphics.dude[0], 135, 10, null);
-					}
-					if (i_6_ >= 0)
-						var_xtGraphics.fleximage(offImage, i_6_, checkpoints.stage);
-					if (++i_6_ == 7) {
-						var_xtGraphics.fase = -5;
-						rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
-								RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-						rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+				}
+			}
+			if (var_xtGraphics.fase == -4) {
+				if (i_6_ == 0) {
+					var_xtGraphics.sendwin(checkpoints);
+					if (var_xtGraphics.winner && var_xtGraphics.multion == 0 && var_xtGraphics.gmode != 0
+							&& checkpoints.stage != 27
+							&& checkpoints.stage == var_xtGraphics.unlocked[var_xtGraphics.gmode - 1]
+									+ (var_xtGraphics.gmode - 1) * 10) {
+						var_xtGraphics.unlocked[var_xtGraphics.gmode - 1]++;
+						setcarcookie(var_xtGraphics.sc[0], cardefine.names[var_xtGraphics.sc[0]],
+								var_xtGraphics.arnp, var_xtGraphics.gmode, var_xtGraphics.unlocked, false);
+						var_xtGraphics.unlocked[var_xtGraphics.gmode - 1]--;
 					}
 				}
-				if (var_xtGraphics.fase == -6) {
-					repaint();
-					var_xtGraphics.pauseimage(offImage);
+				if (i_6_ <= 0) {
+					rd.drawImage(var_xtGraphics.mdness, 289, 30, null);
+					rd.drawImage(var_xtGraphics.dude[0], 135, 10, null);
+				}
+				if (i_6_ >= 0)
+					var_xtGraphics.fleximage(offImage, i_6_, checkpoints.stage);
+				if (++i_6_ == 7) {
+					var_xtGraphics.fase = -5;
+					rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
+							RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+					rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+				}
+			}
+			if (var_xtGraphics.fase == -6) {
+				repaint();
+				var_xtGraphics.pauseimage(offImage);
+				var_xtGraphics.fase = -7;
+				mouses = 0;
+			}
+			if (var_xtGraphics.fase == -7) {
+				var_xtGraphics.pausedgame(checkpoints.stage, u[0], record);
+				if (i_6_ != 0)
+					i_6_ = 0;
+				var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
+				if (mouses == 2)
+					mouses = 0;
+				if (mouses == 1)
+					mouses = 2;
+			}
+			if (var_xtGraphics.fase == -8) {
+				var_xtGraphics.cantreply();
+				if (++i_6_ == 150 || u[0].enter || u[0].handb || mouses == 1) {
 					var_xtGraphics.fase = -7;
 					mouses = 0;
+					u[0].enter = false;
+					u[0].handb = false;
 				}
-				if (var_xtGraphics.fase == -7) {
-					var_xtGraphics.pausedgame(checkpoints.stage, u[0], record);
-					if (i_6_ != 0)
-						i_6_ = 0;
-					var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
-					if (mouses == 2)
-						mouses = 0;
-					if (mouses == 1)
-						mouses = 2;
+			}
+			if (lostfcs && var_xtGraphics.fase == 7001)
+				if (fcscnt == 0) {
+					if (u[0].chatup == 0)
+						requestFocus();
+					fcscnt = 10;
+				} else
+					fcscnt--;
+			repaint();
+			if (var_xtGraphics.im > -1 && var_xtGraphics.im < 8) {
+				int i_94_ = 0;
+				if (var_xtGraphics.multion == 2 || var_xtGraphics.multion == 3) {
+					i_94_ = var_xtGraphics.im;
+					u[i_94_].mutem = u[0].mutem;
+					u[i_94_].mutes = u[0].mutes;
 				}
-				if (var_xtGraphics.fase == -8) {
-					var_xtGraphics.cantreply();
-					if (++i_6_ == 150 || u[0].enter || u[0].handb || mouses == 1) {
-						var_xtGraphics.fase = -7;
-						mouses = 0;
-						u[0].enter = false;
-						u[0].handb = false;
-					}
+				var_xtGraphics.playsounds(mads[var_xtGraphics.im], u[i_94_], checkpoints.stage);
+			}
+			date = new Date();
+			final long l_95_ = date.getTime();
+			if (var_xtGraphics.fase == 0 || var_xtGraphics.fase == -1 || var_xtGraphics.fase == -3
+					|| var_xtGraphics.fase == 7001) {
+				if (!bool_3_) {
+					f_2_ = f;
+					if (f_2_ < 30.0F)
+						f_2_ = 30.0F;
+					bool_3_ = true;
+					i_5_ = 0;
 				}
-				if (lostfcs && var_xtGraphics.fase == 7001)
-					if (fcscnt == 0) {
-						if (u[0].chatup == 0)
-							requestFocus();
-						fcscnt = 10;
-					} else
-						fcscnt--;
-				repaint();
-				if (var_xtGraphics.im > -1 && var_xtGraphics.im < 8) {
-					int i_94_ = 0;
-					if (var_xtGraphics.multion == 2 || var_xtGraphics.multion == 3) {
-						i_94_ = var_xtGraphics.im;
-						u[i_94_].mutem = u[0].mutem;
-						u[i_94_].mutes = u[0].mutes;
-					}
-					var_xtGraphics.playsounds(mads[var_xtGraphics.im], u[i_94_], checkpoints.stage);
+				if (i_5_ == 10) {
+					float f_96_ = (i_4_ + udpmistro.freg - (l_95_ - l_1_)) / 20.0F;
+					if (f_96_ > 40.0F)
+						f_96_ = 40.0F;
+					if (f_96_ < -40.0F)
+						f_96_ = -40.0F;
+					f_2_ += f_96_;
+					if (f_2_ < 5.0F)
+						f_2_ = 5.0F;
+					medium.adjstfade(f_2_, f_96_, var_xtGraphics.starcnt, this);
+					l_1_ = l_95_;
+					i_5_ = 0;
+				} else
+					i_5_++;
+			} else {
+				if (bool_3_) {
+					f = f_2_;
+					bool_3_ = false;
+					i_5_ = 0;
 				}
-				date = new Date();
-				final long l_95_ = date.getTime();
-				if (var_xtGraphics.fase == 0 || var_xtGraphics.fase == -1 || var_xtGraphics.fase == -3
-						|| var_xtGraphics.fase == 7001) {
-					if (!bool_3_) {
-						i = 15;
-						f_2_ = f;
-						if (f_2_ < 30.0F)
-							f_2_ = 30.0F;
-						bool_3_ = true;
-						i_5_ = 0;
-					}
-					if (i_5_ == 10) {
-						float f_96_ = (i_4_ + udpmistro.freg - (l_95_ - l_1_)) / 20.0F;
-						if (f_96_ > 40.0F)
-							f_96_ = 40.0F;
-						if (f_96_ < -40.0F)
-							f_96_ = -40.0F;
-						f_2_ += f_96_;
+				if (i_5_ == 10) {
+					if (l_95_ - l_1_ < 400L)
+						f_2_ += 3.5;
+					else {
+						f_2_ -= 3.5;
 						if (f_2_ < 5.0F)
 							f_2_ = 5.0F;
-						medium.adjstfade(f_2_, f_96_, var_xtGraphics.starcnt, this);
-						l_1_ = l_95_;
-						i_5_ = 0;
-					} else
-						i_5_++;
-				} else {
-					if (bool_3_) {
-						i = 30;
-						f = f_2_;
-						bool_3_ = false;
-						i_5_ = 0;
 					}
-					if (i_5_ == 10) {
-						if (l_95_ - l_1_ < 400L)
-							f_2_ += 3.5;
-						else {
-							f_2_ -= 3.5;
-							if (f_2_ < 5.0F)
-								f_2_ = 5.0F;
-						}
-						l_1_ = l_95_;
-						i_5_ = 0;
-					} else
-						i_5_++;
-				}
-				if (exwist) {
-					rd.dispose();
-					var_xtGraphics.stopallnow();
-					cardefine.stopallnow();
-					udpmistro.UDPquit();
-					if (bool) {
-						lobby.stopallnow();
-						login.stopallnow();
-						globe.stopallnow();
-					}
-					System.gc();
-					if (Madness.endadv == 2)
-						Madness.advopen();
-					if (gamer != null)
-						gamer.interrupt();
-					gamer = null;
-				}
-				l = Math.round(f_2_) - (l_95_ - l_11_);
-				if (l < i)
-					l = i;
-				try {
-					if (gamer != null) {
-						/* empty */
-					}
-					Thread.sleep(l);
-				} catch (final InterruptedException interruptedexception) {
-					/* empty */
-				}
-				next_game_tick += SKIP_TICKS;
-				loops++;
+					l_1_ = l_95_;
+					i_5_ = 0;
+				} else
+					i_5_++;
 			}
-		}
+			if (exwist) {
+				rd.dispose();
+				var_xtGraphics.stopallnow();
+				cardefine.stopallnow();
+				udpmistro.UDPquit();
+				if (bool) {
+					lobby.stopallnow();
+					login.stopallnow();
+					globe.stopallnow();
+				}
+				System.gc();
+				if (Madness.endadv == 2)
+					Madness.advopen();
+			}
+
 	}
 
 	public void setcarcookie(final int i, final String string, final float[] fs, final int i_191_, final int[] is,
@@ -3143,7 +3004,7 @@ public class GameSparker extends Applet implements Runnable {
 		}
 	}
 
-	@Override
+	/*-@Override
 	public void start() {
 		if (gamer == null)
 			gamer = new Thread(this);
@@ -3158,10 +3019,210 @@ public class GameSparker extends Applet implements Runnable {
 			gamer = null;
 		}
 		exwist = true;
+	}*/
+
+	/*@Override
+	public void update(final Graphics graphics) {
+		paint(graphics);
+	}*/
+
+
+	public void keyTyped(KeyEvent e) {
+    }
+    public void keyPressed(KeyEvent e) {
+    	if (!exwist) {
+			//115 114 99
+			if (e.getKeyCode() == KeyEvent.VK_UP)
+				u[0].up = true;
+			if (e.getKeyCode() == KeyEvent.VK_DOWN)
+				u[0].down = true;
+			if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+				u[0].right = true;
+			if (e.getKeyCode() == KeyEvent.VK_LEFT)
+				u[0].left = true;
+			if (e.getKeyCode() == KeyEvent.VK_SPACE)
+				u[0].handb = true;
+			if (e.getKeyCode() == KeyEvent.VK_ENTER)
+				u[0].enter = true;
+			if (e.getKeyCode() == KeyEvent.VK_Z)
+				u[0].lookback = -1;
+			if (e.getKeyCode() == KeyEvent.VK_X)
+				u[0].lookback = 1;
+			if (e.getKeyCode() == KeyEvent.VK_M)
+				if (u[0].mutem)
+					u[0].mutem = false;
+				else
+					u[0].mutem = true;
+			if (e.getKeyCode() == KeyEvent.VK_N)
+				if (u[0].mutes)
+					u[0].mutes = false;
+				else
+					u[0].mutes = true;
+			if (e.getKeyCode() == KeyEvent.VK_A)
+				if (u[0].arrace)
+					u[0].arrace = false;
+				else
+					u[0].arrace = true;
+			if (e.getKeyCode() == KeyEvent.VK_S)
+				if (u[0].radar)
+					u[0].radar = false;
+				else
+					u[0].radar = true;
+			if (e.getKeyCode() == KeyEvent.VK_V) {
+				view++;
+				if (view == 8)
+					view = 0;
+			}
+		}
+    }
+    public void keyReleased(KeyEvent e) {
+    	if (!exwist) {
+			if (u[0].multion < 2) {
+				if (e.getKeyCode() == KeyEvent.VK_UP)
+					u[0].up = false;
+				if (e.getKeyCode() == KeyEvent.VK_DOWN)
+					u[0].down = false;
+				if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+					u[0].right = false;
+				if (e.getKeyCode() == KeyEvent.VK_LEFT)
+					u[0].left = false;
+				if (e.getKeyCode() == KeyEvent.VK_SPACE)
+					u[0].handb = false;
+			}
+			if (e.getKeyCode() == 27) {
+				u[0].exit = false;
+				if (Madness.fullscreen)
+					Madness.exitfullscreen();
+			}
+			if (e.getKeyCode() == KeyEvent.VK_X || e.getKeyCode() == KeyEvent.VK_Z)
+				u[0].lookback = 0;
+    	}
 	}
 
 	@Override
-	public void update(final Graphics graphics) {
-		paint(graphics);
+	public void mouseDragged(MouseEvent e) {
+		int i = e.getX();
+		int i_206_ = e.getY();
+		if (!exwist && !lostfcs) {
+			xm = (int) ((i - apx) / apmult);
+			ym = (int) ((i_206_ - apy) / apmult);
+		}
+		if (!Madness.fullscreen)
+			sizescreen(i, i_206_);
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		int i = e.getX();
+		int i_205_ = e.getY();
+		if (!exwist && !lostfcs) {
+			xm = (int) ((i - apx) / apmult);
+			ym = (int) ((i_205_ - apy) / apmult);
+		}
+		if (!Madness.fullscreen) {
+			if (showsize < 20)
+				showsize = 20;
+			if (i > 50 && i < 192 && i_205_ > 14 && i_205_ < 37) {
+				if (!oncarm) {
+					oncarm = true;
+					setCursor(new Cursor(12));
+				}
+			} else if (oncarm) {
+				oncarm = false;
+				setCursor(new Cursor(0));
+			}
+			if (i > getWidth() - 208 && i < getWidth() - 50 && i_205_ > 14 && i_205_ < 37) {
+				if (!onstgm) {
+					onstgm = true;
+					setCursor(new Cursor(12));
+				}
+			} else if (onstgm) {
+				onstgm = false;
+				setCursor(new Cursor(0));
+			}
+			if (i > getWidth() / 2 + 22 && i < getWidth() / 2 + 122 && i_205_ > 14 && i_205_ < 37) {
+				if (!onfulls) {
+				onfulls = true;
+					setCursor(new Cursor(12));
+				}
+			} else if (onfulls) {
+				onfulls = false;
+				setCursor(new Cursor(0));
+			}
+		}
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		int i = e.getX();
+		int i_204_ = e.getY();
+	requestFocus();
+		if (!exwist) {
+			if (mouses == 0) {
+				xm = (int) ((i - apx) / apmult);
+				ym = (int) ((i_204_ - apy) / apmult);
+				mouses = 1;
+			}
+			moused = true;
+		}
+		if (!Madness.fullscreen)
+			sizescreen(i, i_204_);
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		int i = e.getX();
+		int i_203_ = e.getY();
+		if (!exwist) {
+			if (mouses == 11) {
+				xm = (int) ((i - apx) / apmult);
+				ym = (int) ((i_203_ - apy) / apmult);
+				mouses = -1;
+			}
+			moused = false;
+		}
+		if (!Madness.fullscreen) {
+			if (i > getWidth() / 2 - 55 && i < getWidth() / 2 + 7 && i_203_ > 21 && i_203_ < 38 && !onbar) {
+				if (smooth == 1)
+					smooth = 0;
+				else
+					smooth = 1;
+				showsize = 60;
+			}
+			if (i > getWidth() / 2 + 133 && i < getWidth() / 2 + 231 && i_203_ > 7 && i_203_ < 24 && !onbar) {
+				if (Madness.anti == 0)
+					Madness.anti = 1;
+				else
+					Madness.anti = 0;
+				showsize = 60;
+			}
+			if (i > getWidth() / 2 + 133 && i < getWidth() / 2 + 231 && i_203_ > 24 && i_203_ < 41 && !onbar) {
+				if (moto == 0)
+					moto = 1;
+				else
+					moto = 0;
+				showsize = 60;
+			}
+			if (onfulls)
+				Madness.gofullscreen();
+			onbar = false;
+		}
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+ 	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		repaint();
 	}
 }
