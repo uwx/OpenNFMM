@@ -4909,105 +4909,112 @@ public class xtGraphics extends Panel implements Runnable {
 	}
 
 	public void loadstrack(final int i, final String string, final int i_52_) {
-		if (i == 1)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 240,
-					8400, 135, false, false);
-		if (i == 2)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 190,
-					9000, 145, false, false);
-		if (i == 3)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 170,
-					8500, 145, false, false);
-		if (i == 4)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 205,
-					7500, 125, false, false);
-		if (i == 5)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 170,
-					7900, 125, false, false);
-		if (i == 6)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 370,
-					7900, 125, false, false);
-		if (i == 7)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 205,
-					7500, 125, false, false);
-		if (i == 8)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 230,
-					7900, 125, false, false);
-		if (i == 9)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 180,
-					7900, 125, false, false);
-		if (i == 10)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 280,
-					8100, 145, false, false);
-		if (i == 11)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 120,
-					8000, 125, false, false);
-		if (i == 12)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 260,
-					7200, 125, false, false);
-		if (i == 13)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 270,
-					8000, 125, false, false);
-		if (i == 14)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 190,
-					8000, 125, false, false);
-		if (i == 15)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 162,
-					7800, 125, false, false);
-		if (i == 16)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 220,
-					7600, 125, false, false);
-		if (i == 17)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 300,
-					7500, 125, false, false);
-		if (i == 18)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 200,
-					7900, 125, false, false);
-		if (i == 19)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 200,
-					7900, 125, false, false);
-		if (i == 20)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 232,
-					7300, 125, false, false);
-		if (i == 21)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 370,
-					7900, 125, false, false);
-		if (i == 22)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 290,
-					7900, 125, false, false);
-		if (i == 23)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 222,
-					7600, 125, false, false);
-		if (i == 24)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 230,
-					8000, 125, false, false);
-		if (i == 25)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 220,
-					8000, 125, false, false);
-		if (i == 26)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 261,
-					8000, 125, false, false);
-		if (i == 27)
-			//if (gmode == 2)
-			strack = new RadicalMod("music/party.zip", 400, 7600, 125, false, false);
-			//else
-			//	strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
-			//			276, 8800, 145, false, false);
-		if (i == 28)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 182,
-					8000, 125, false, false);
-		if (i == 29)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 220,
-					8000, 125, false, false);
-		if (i == 30)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 200,
-					8000, 125, false, false);
-		if (i == 31)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 350,
-					7900, 125, false, false);
-		if (i == 32)
-			strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 310,
-					8000, 125, false, false);
+		if (new File("music/stage" + i + ".mid").exists())
+			strack = new RadicalMidi("music/stage" + i + ".mid");
+		else if (new File("music/stage" + i + ".mp3").exists())
+			strack = new RadicalMp3("music/stage" + i + ".mp3");
+		else if (new File("music/stage" + i + ".ogg").exists())
+			strack = new RadicalOgg("music/stage" + i + ".ogg");
+		else {
+			if (i == 1)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						240, 8400, 135, false, false);
+			if (i == 2)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						190, 9000, 145, false, false);
+			if (i == 3)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						170, 8500, 145, false, false);
+			if (i == 4)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						205, 7500, 125, false, false);
+			if (i == 5)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						170, 7900, 125, false, false);
+			if (i == 6)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						370, 7900, 125, false, false);
+			if (i == 7)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						205, 7500, 125, false, false);
+			if (i == 8)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						230, 7900, 125, false, false);
+			if (i == 9)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						180, 7900, 125, false, false);
+			if (i == 10)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						280, 8100, 145, false, false);
+			if (i == 11)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						120, 8000, 125, false, false);
+			if (i == 12)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						260, 7200, 125, false, false);
+			if (i == 13)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						270, 8000, 125, false, false);
+			if (i == 14)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						190, 8000, 125, false, false);
+			if (i == 15)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						162, 7800, 125, false, false);
+			if (i == 16)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						220, 7600, 125, false, false);
+			if (i == 17)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						300, 7500, 125, false, false);
+			if (i == 18)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						200, 7900, 125, false, false);
+			if (i == 19)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						200, 7900, 125, false, false);
+			if (i == 20)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						232, 7300, 125, false, false);
+			if (i == 21)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						370, 7900, 125, false, false);
+			if (i == 22)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						290, 7900, 125, false, false);
+			if (i == 23)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						222, 7600, 125, false, false);
+			if (i == 24)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						230, 8000, 125, false, false);
+			if (i == 25)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						220, 8000, 125, false, false);
+			if (i == 26)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						261, 8000, 125, false, false);
+			if (i == 27)
+				strack = new RadicalMod("music/party.zip", 400, 7600, 125, false, false);
+			if (i == 28)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						182, 8000, 125, false, false);
+			if (i == 29)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						220, 8000, 125, false, false);
+			if (i == 30)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						200, 8000, 125, false, false);
+			if (i == 31)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						350, 7900, 125, false, false);
+			if (i == 32)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						310, 8000, 125, false, false);
+			if (i > 32)
+				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+						550, 8000, 125, false, false);
+		}
 		if (i < 0)
 			if (!string.equals("")) {
 				if (i != -2)
