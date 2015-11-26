@@ -3,25 +3,25 @@
  * JODE (c) 1998-2001 Jochen Hoenicke
  */
 public class Trackers {
-	int[][] c = new int[6700000][3];
-	int[] dam = new int[6700000];
-	boolean[] decor = new boolean[6700000];
+	int[][] c = new int[95000][3];
+	int[] dam = new int[95000];
+	boolean[] decor = new boolean[95000];
 	int ncx = 0;
 	int ncz = 0;
-	boolean[] notwall = new boolean[6700000];
+	boolean[] notwall = new boolean[95000];
 	int nt = 0;
-	int[] radx = new int[6700000];
-	int[] rady = new int[6700000];
-	int[] radz = new int[6700000];
+	int[] radx = new int[95000];
+	int[] rady = new int[95000];
+	int[] radz = new int[95000];
 	int[][][] sect = null;
-	int[] skd = new int[6700000];
+	int[] skd = new int[95000];
 	int sx = 0;
 	int sz = 0;
-	int[] x = new int[6700000];
-	int[] xy = new int[6700000];
-	int[] y = new int[6700000];
-	int[] z = new int[6700000];
-	int[] zy = new int[6700000];
+	int[] x = new int[95000];
+	int[] xy = new int[95000];
+	int[] y = new int[95000];
+	int[] z = new int[95000];
+	int[] zy = new int[95000];
 
 	public void devidetrackers(final int i, final int i_0_, final int i_1_, final int i_2_) {
 		sect = null;
