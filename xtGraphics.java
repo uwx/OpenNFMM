@@ -180,7 +180,7 @@ public class xtGraphics extends Panel implements Runnable {
 	boolean holdit = false;
 	int hours = 8;
 	int im = 0;
-	RadicalMod intertrack;
+	RadicalMusic intertrack;
 	boolean[] isbot = new boolean[8];
 	boolean justwon1 = false;
 	boolean justwon2 = false;
@@ -368,7 +368,7 @@ public class xtGraphics extends Panel implements Runnable {
 	Image statbo;
 	Image stg;
 	int stopcnt = 0;
-	RadicalMod strack;
+	RadicalMusic strack;
 	Image sts;
 	Image stunts;
 	int sturn0 = 0;
@@ -3829,7 +3829,7 @@ public class xtGraphics extends Panel implements Runnable {
 		m.cy = 225;
 		m.cz = 50;
 		if (multion == 0) {
-			intertrack.loadimod(false);
+			//intertrack.loadimod(false);
 			intertrack.play();
 		}
 	}
@@ -8174,7 +8174,7 @@ public class xtGraphics extends Panel implements Runnable {
 					control.handb = false;
 					control.enter = false;
 					intertrack.stop();
-					intertrack.unloadimod();
+					intertrack.unload();
 				}
 				if (checkpoints.stage > 0) {
 					if (control.right) {
@@ -8232,7 +8232,7 @@ public class xtGraphics extends Panel implements Runnable {
 				control.handb = false;
 				control.enter = false;
 				intertrack.stop();
-				intertrack.unloadimod();
+				intertrack.unload();
 			}
 		}
 		if (drawcarb(true, null, " Exit X ", 670, 30, i, i_39_, bool)) {
@@ -9059,12 +9059,12 @@ public class xtGraphics extends Panel implements Runnable {
 			}
 		}
 		if (m.lightn != -1) {
-			final int i = strack.sClip.stream.available();
+			//final int i = strack.sClip.stream.available();
 			m.lton = false;
-			if (i <= 6380001 && i > 5368001)
-				m.lton = true;
-			if (i <= 2992001 && i > 1320001)
-				m.lton = true;
+			//if (i <= 6380001 && i > 5368001)
+			//	m.lton = true;
+			//if (i <= 2992001 && i > 1320001)
+			//	m.lton = true;
 		}
 	}
 
