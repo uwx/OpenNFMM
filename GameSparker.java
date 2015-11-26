@@ -2004,7 +2004,7 @@ public class GameSparker extends Applet implements Runnable {
 							System.gc();
 							var_xtGraphics.loadedt = false;
 						}
-						var_xtGraphics.intertrack.unloadimod();
+						var_xtGraphics.intertrack.unload();
 						rd.setColor(new Color(0, 0, 0));
 						rd.fillRect(65, 25, 670, 400);
 						if (mload > 0)
