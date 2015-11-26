@@ -2914,8 +2914,8 @@ public class xtGraphics extends Panel implements Runnable {
 		String string = ":";
 		if (checkpoints.stage > 0) {
 			int i_143_ = checkpoints.stage;
-			if (i_143_ > 10)
-				i_143_ -= 10;
+			//if (i_143_ > 10)
+			//	i_143_ -= 10;
 			string = new StringBuilder().append(" ").append(i_143_).append("!").toString();
 		}
 		if (multion < 3) {
@@ -2957,7 +2957,7 @@ public class xtGraphics extends Panel implements Runnable {
 			int i_144_ = 0;
 			int i_145_ = 0;
 			pin = 60;
-			if (gmode == 1) {
+			/*if (gmode == 1) {
 				if (checkpoints.stage == 2) {
 					i_144_ = 5;
 					i_145_ = 365;
@@ -2988,51 +2988,51 @@ public class xtGraphics extends Panel implements Runnable {
 					pin = -20;
 					scm[0] = 15;
 				}
-			}
+			}*/
 			if (gmode == 2) {
-				if (checkpoints.stage == 12) {
+				if (checkpoints.stage == 2) {
 					i_144_ = 8;
 					i_145_ = 365;
 					pin = -20;
 					scm[1] = 8;
 				}
-				if (checkpoints.stage == 14) {
+				if (checkpoints.stage == 4) {
 					i_144_ = 9;
 					i_145_ = 320;
 					pin = -20;
 					scm[1] = 9;
 				}
-				if (checkpoints.stage == 16) {
+				if (checkpoints.stage == 6) {
 					i_144_ = 10;
 					i_145_ = 370;
 					pin = -20;
 					scm[1] = 10;
 				}
-				if (checkpoints.stage == 18) {
+				if (checkpoints.stage == 8) {
 					i_144_ = 11;
 					i_145_ = 326;
 					pin = -20;
 					scm[1] = 11;
 				}
-				if (checkpoints.stage == 20) {
+				if (checkpoints.stage == 10) {
 					i_144_ = 12;
 					i_145_ = 310;
 					pin = -20;
 					scm[1] = 12;
 				}
-				if (checkpoints.stage == 22) {
+				if (checkpoints.stage == 12) {
 					i_144_ = 13;
 					i_145_ = 310;
 					pin = -20;
 					scm[1] = 13;
 				}
-				if (checkpoints.stage == 24) {
+				if (checkpoints.stage == 14) {
 					i_144_ = 14;
 					i_145_ = 350;
 					pin = -20;
 					scm[1] = 14;
 				}
-				if (checkpoints.stage == 26) {
+				if (checkpoints.stage == 16) {
 					i_144_ = 15;
 					i_145_ = 370;
 					pin = -20;
@@ -4647,7 +4647,7 @@ public class xtGraphics extends Panel implements Runnable {
 	}
 
 	public void loadingstage(final int i, final boolean bool) {
-		
+
 		trackbg(true);
 		rd.drawImage(br, 65, 25, null);
 		rd.setColor(new Color(212, 214, 138));
@@ -7480,7 +7480,7 @@ public class xtGraphics extends Panel implements Runnable {
 					i_152_ = i_153_;
 				}
 			} else {
-				i -= 10;
+				//i -= 10;
 				bool = true;
 				if (sc[0] != 7 + (i + 1) / 2 && i != 17) {
 					sc[6] = 7 + (i + 1) / 2;
@@ -8140,8 +8140,8 @@ public class xtGraphics extends Panel implements Runnable {
 				ftm = rd.getFontMetrics();
 				if (checkpoints.stage != 27) {
 					int i_44_ = checkpoints.stage;
-					if (i_44_ > 10)
-						i_44_ -= 10;
+					//if (i_44_ > 10)
+					//	i_44_ -= 10;
 					drawcs(80, new StringBuilder().append("Stage ").append(i_44_).append("  >").toString(), 255, 128, 0,
 							3);
 				} else
