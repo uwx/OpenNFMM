@@ -1688,7 +1688,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					var_xtGraphics.mainbg(-101);
 					rd.setColor(new Color(0, 0, 0));
 					rd.fillRect(0, 0, 800, 450);
-					repaint();
+					//repaint();
 					var_xtGraphics.strack.unload();
 					var_xtGraphics.strack = null;
 					var_xtGraphics.flexpix = null;
@@ -1734,7 +1734,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				if (var_xtGraphics.loadedt) {
 					rd.setColor(new Color(0, 0, 0));
 					rd.fillRect(0, 0, 800, 450);
-					repaint();
+					//repaint();
 					checkmemory(var_xtGraphics);
 					var_xtGraphics.strack.unload();
 					var_xtGraphics.strack = null;
@@ -1812,7 +1812,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			if (var_xtGraphics.fase == 3) {
 				rd.setColor(new Color(0, 0, 0));
 				rd.fillRect(65, 25, 670, 400);
-				repaint();
+				//repaint();
 				var_xtGraphics.inishstageselect(checkpoints);
 			}
 			if (var_xtGraphics.fase == 2) {
@@ -1875,7 +1875,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					if (var_xtGraphics.loadedt) {
 						rd.setColor(new Color(0, 0, 0));
 						rd.fillRect(0, 0, 800, 450);
-						repaint();
+						//repaint();
 						checkmemory(var_xtGraphics);
 						var_xtGraphics.strack.unload();
 						var_xtGraphics.strack = null;
@@ -1889,7 +1889,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					rd.fillRect(65, 25, 670, 400);
 					if (mload > 0)
 						rd.drawImage(var_xtGraphics.mload, 259, 195, this);
-					repaint();
+					//repaint();
 					if (mload == 2) {
 						cardefine.loadready();
 						loadbase(contos, medium, trackers, var_xtGraphics, true);
@@ -1957,7 +1957,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 						if (lobby.loadstage > 0) {
 							setCursor(new Cursor(3));
 							drawms();
-							repaint();
+							//repaint();
 							trackers.nt = 0;
 							if (loadstagePreview(lobby.loadstage, "", contos_0_, contos, medium, checkpoints)) {
 								lobby.gstagename = checkpoints.name;
@@ -1972,7 +1972,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 						if (lobby.msload != 0) {
 							setCursor(new Cursor(3));
 							drawms();
-							repaint();
+							//repaint();
 							if (lobby.msload == 1)
 								cardefine.loadmystages(checkpoints);
 							if (lobby.msload == 7)
@@ -2032,7 +2032,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 						lobby.stageselect(checkpoints, u[0], xm, ym, moused);
 						if (lobby.plsndt == 1) {
 							mvect = 70;
-							repaint();
+							//repaint();
 							setCursor(new Cursor(3));
 							var_xtGraphics.loadstrack(checkpoints.stage, checkpoints.trackname,
 									checkpoints.trackvol);
@@ -2081,7 +2081,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 						u[0].multion = var_xtGraphics.multion;
 					}
 					if (globe.loadwbgames == 7) {
-						repaint();
+						//repaint();
 						globe.redogame();
 					}
 					if (!openm) {
@@ -2093,12 +2093,12 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					if (lobby.fase == 1)
 						lobby.preforma(xm, ym);
 					if (lobby.loadwarb) {
-						repaint();
+						//repaint();
 						globe.loadwarb();
 						lobby.loadwarb = false;
 					}
 					if (globe.loadwbgames == 1) {
-						repaint();
+						//repaint();
 						globe.loadwgames();
 					}
 					if (mouses == 1)
@@ -2365,7 +2365,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 						medium.vxz = 70;
 						rd.setColor(new Color(255, 255, 255));
 						rd.fillRect(0, 0, 800, 450);
-						repaint();
+						//repaint();
 						if (var_xtGraphics.lan) {
 							udpmistro.UDPConnectLan(var_xtGraphics.localserver, var_xtGraphics.nplayers,
 									var_xtGraphics.im);
@@ -2555,7 +2555,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				if (record.hcaught) {
 					rd.setColor(new Color(0, 0, 0));
 					rd.fillRect(0, 0, 800, 450);
-					repaint();
+					//repaint();
 				}
 				if (var_xtGraphics.multion != 0) {
 					udpmistro.UDPquit();
@@ -2791,7 +2791,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				}
 			}
 			if (var_xtGraphics.fase == -6) {
-				repaint();
+				//repaint();
 				var_xtGraphics.pauseimage(offImage);
 				var_xtGraphics.fase = -7;
 				mouses = 0;
@@ -2822,7 +2822,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					fcscnt = 10;
 				} else
 					fcscnt--;
-			repaint();
+			//repaint();
 			if (var_xtGraphics.im > -1 && var_xtGraphics.im < 8) {
 				int i_94_ = 0;
 				if (var_xtGraphics.multion == 2 || var_xtGraphics.multion == 3) {

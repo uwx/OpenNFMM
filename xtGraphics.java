@@ -1609,7 +1609,7 @@ public class xtGraphics extends Panel implements Runnable {
 					if (cfase == 2) {
 						drawprom(165, 70);
 						drawcs(205, "Loading Car Maker Cars...", 0, 0, 0, 3);
-						app.repaint();
+						//app.repaint();
 						cd.loadcarmaker();
 						if (cd.nlcars > 16) {
 							minsl = 16;
@@ -2889,7 +2889,7 @@ public class xtGraphics extends Panel implements Runnable {
 		if (warning > 250) {
 			stopallnow();
 			runtyp = 0;
-			app.repaint();
+			//app.repaint();
 			System.exit(0);
 			//app.gamer.interrupt();
 		}
@@ -4660,7 +4660,7 @@ public class xtGraphics extends Panel implements Runnable {
 		drawcs(219, "Loading, please wait...", 58, 61, 17, 3);
 		if (bool)
 			rd.drawImage(select, 338, 35, null);
-		app.repaint();
+		//app.repaint();
 		if (cd.staction != 0) {
 			app.tnick.setVisible(false);
 			app.tpass.setVisible(false);
@@ -4672,7 +4672,7 @@ public class xtGraphics extends Panel implements Runnable {
 	public void loadmusic(final int i, final String string, final int i_51_) {
 		hipnoload(i, false);
 		app.setCursor(new Cursor(3));
-		app.repaint();
+		//app.repaint();
 		boolean bool = false;
 		if (multion == 0) {
 			if (i == 1 || i == 2 || i == 3 || i == 4 || i == 5 || i == 10)
@@ -5375,7 +5375,7 @@ public class xtGraphics extends Panel implements Runnable {
 		rd.drawImage(byrd, 72, 410, null);
 		rd.drawImage(nfmcoms, 567, 410, null);
 		if (shaded) {
-			app.repaint();
+			//app.repaint();
 			try {
 				Thread.sleep(200L);
 			} catch (final InterruptedException interruptedexception) {
@@ -7168,7 +7168,7 @@ public class xtGraphics extends Panel implements Runnable {
 					loading();
 					bool = true;
 				}
-				app.repaint();
+				//app.repaint();
 				try {
 					if (runner != null) {
 						/* empty */
@@ -7889,7 +7889,7 @@ public class xtGraphics extends Panel implements Runnable {
 							drawcs(155, "It could be a connection error, please try again later.", 255, 138, 0, 3);
 						if (nfmtab == 1 || nfmtab == 0) {
 							drawcs(155, "Will try to load another stage...", 255, 138, 0, 3);
-							app.repaint();
+							//app.repaint();
 							try {
 								Thread.sleep(5000L);
 							} catch (final InterruptedException interruptedexception) {
@@ -8028,17 +8028,17 @@ public class xtGraphics extends Panel implements Runnable {
 				}
 				if (i_41_ == 1) {
 					app.drawms();
-					app.repaint();
+					//app.repaint();
 					cd.loadmystages(checkpoints);
 				}
 				if (i_41_ >= 3) {
 					app.drawms();
-					app.repaint();
+					//app.repaint();
 					cd.loadtop20(i_41_);
 				}
 				if (i_41_ == 2) {
 					app.drawms();
-					app.repaint();
+					//app.repaint();
 					cd.loadstagemaker();
 				}
 				if (checkpoints.stage != -3 && cd.staction == 0 && checkpoints.top20 < 3)
@@ -9129,7 +9129,7 @@ public class xtGraphics extends Panel implements Runnable {
 
 	public void stoploading() {
 		loading();
-		app.repaint();
+		//app.repaint();
 		runtyp = 0;
 	}
 
