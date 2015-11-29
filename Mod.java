@@ -15,14 +15,14 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 public class Mod {
-	static final int voice_28ch = FOURCC("28CH");
-	static final int voice_6chn = FOURCC("6CHN");
-	static final int voice_8chn = FOURCC("8CHN");
-	static final int voice_flt4 = FOURCC("FLT4");
-	static final int voice_flt8 = FOURCC("FLT8");
-	static final int voice_mk = FOURCC("M.K.");
-	static final int voice_mk2 = FOURCC("M!K!");
-	static final int voice_mk3 = FOURCC("M&K!");
+	static final int voice_28ch = FOURCC(Messages.getString("Mod.0")); //$NON-NLS-1$
+	static final int voice_6chn = FOURCC(Messages.getString("Mod.1")); //$NON-NLS-1$
+	static final int voice_8chn = FOURCC(Messages.getString("Mod.2")); //$NON-NLS-1$
+	static final int voice_flt4 = FOURCC(Messages.getString("Mod.3")); //$NON-NLS-1$
+	static final int voice_flt8 = FOURCC(Messages.getString("Mod.4")); //$NON-NLS-1$
+	static final int voice_mk = FOURCC(Messages.getString("Mod.5")); //$NON-NLS-1$
+	static final int voice_mk2 = FOURCC(Messages.getString("Mod.6")); //$NON-NLS-1$
+	static final int voice_mk3 = FOURCC(Messages.getString("Mod.7")); //$NON-NLS-1$
 	static final int[] voice_31_list = { voice_mk, voice_mk2, voice_mk3, voice_flt4, voice_flt8, voice_8chn, voice_6chn,
 			voice_28ch };
 	
@@ -61,7 +61,7 @@ public class Mod {
 		for (int i_12_ = i - 1; i_12_ >= 0; i_12_--)
 			if (is[i_12_] != 0)
 				return new String(is, 0, 0, i_12_ + 1);
-		return "";
+		return Messages.getString("Mod.8"); //$NON-NLS-1$
 	}
 
 	static final int readu16(final DataInputStream datainputstream) throws IOException {
@@ -193,7 +193,7 @@ public class Mod {
 			for (int i_10_ = 0; i_10_ < i; i_10_++)
 				readSampleData(datainputstream, insts[i_10_]);
 		} catch (final EOFException eofexception) {
-			System.out.println("Warning: EOF on MOD file");
+			System.out.println(Messages.getString("Mod.9")); //$NON-NLS-1$
 		}
 		datainputstream.close();
 		inputstream.close();
@@ -224,7 +224,7 @@ public class Mod {
 
 	@Override
 	public String toString() {
-		return new StringBuilder().append(name).append(" (").append(numtracks).append(" tracks, ").append(numpatterns)
-				.append(" patterns, ").append(insts.length).append(" samples)").toString();
+		return new StringBuilder().append(name).append(Messages.getString("Mod.10")).append(numtracks).append(Messages.getString("Mod.11")).append(numpatterns) //$NON-NLS-1$ //$NON-NLS-2$
+				.append(Messages.getString("Mod.12")).append(insts.length).append(Messages.getString("Mod.13")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 }

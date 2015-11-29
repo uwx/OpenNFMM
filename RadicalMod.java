@@ -9,8 +9,8 @@ import ds.nfm.ModuleLoader;
 import ds.nfm.ModuleSlayer;
 
 class RadicalMod implements RadicalMusic {
-	static String name = "";
-	static String filename = "";
+	static String name = Messages.getString("RadicalMod.0"); //$NON-NLS-1$
+	static String filename = Messages.getString("RadicalMod.1"); //$NON-NLS-1$
 	static boolean nonempty = false;
 	SuperClip sClip;
 	boolean playing;
@@ -23,8 +23,8 @@ class RadicalMod implements RadicalMusic {
 		playing = false;
 		loaded = 0;
 		rvol = 0;
-		imod = "";
-		pmod = "";
+		imod = Messages.getString("RadicalMod.2"); //$NON-NLS-1$
+		pmod = Messages.getString("RadicalMod.3"); //$NON-NLS-1$
 		loaded = 0;
 		nonempty = false;
 		System.gc();
@@ -34,12 +34,12 @@ class RadicalMod implements RadicalMusic {
 		playing = false;
 		loaded = 0;
 		rvol = 0;
-		imod = "";
-		pmod = "";
+		imod = Messages.getString("RadicalMod.4"); //$NON-NLS-1$
+		pmod = Messages.getString("RadicalMod.5"); //$NON-NLS-1$
 		final int i_3 = 22000;
 		i_0 = (int) (i_0 / 8000F * 2.0F * i_3);
 		i = (int) (i * 0.8F);
-		filename = string.replace("mystages/mymusic/", "");
+		filename = string.replace(Messages.getString("RadicalMod.6"), Messages.getString("RadicalMod.7")); //$NON-NLS-1$ //$NON-NLS-2$
 		nonempty = true;
 		try {
 			Module module;
@@ -48,14 +48,14 @@ class RadicalMod implements RadicalMusic {
 			else {
 				string = string.replace(' ', '_');
 				final URL url = new URL(
-						new StringBuilder().append("http://multiplayer.needformadness.com/tracks/music/").append(string)
-								.append(".zip").toString());
+						new StringBuilder().append(Messages.getString("RadicalMod.8")).append(string) //$NON-NLS-1$
+								.append(Messages.getString("RadicalMod.9")).toString()); //$NON-NLS-1$
 				module = ModuleLoader.loadMod(url);
 			}
 			if (module.isLoaded()) {
 				name = module.getName();
-				if (name.trim().equals(""))
-					name = "Untitled";
+				if (name.trim().equals(Messages.getString("RadicalMod.10"))) //$NON-NLS-1$
+					name = Messages.getString("RadicalMod.11"); //$NON-NLS-1$
 				final ModuleSlayer moduleslayer = ModuleLoader.prepareSlayer(module, i_0, i, i_1);
 				final byte is[] = moduleslayer.turnbytesNorm(bool);
 				if (bool)
@@ -64,13 +64,13 @@ class RadicalMod implements RadicalMusic {
 				sClip.rollBackPos = moduleslayer.rollBackPos;
 				sClip.rollBackTrig = moduleslayer.oln - moduleslayer.rollBackTrig;
 				if (bool_2)
-					filename = new StringBuilder().append("Length: ").append(getTimer(sClip.stream.available() / 44100))
+					filename = new StringBuilder().append(Messages.getString("RadicalMod.12")).append(getTimer(sClip.stream.available() / 44100)) //$NON-NLS-1$
 							.toString();
 				loaded = 2;
 			}
 		} catch (final Exception exception) {
 			exception.printStackTrace();
-			System.out.println(new StringBuilder().append("Error downloading and making Mod: ")
+			System.out.println(new StringBuilder().append(Messages.getString("RadicalMod.13")) //$NON-NLS-1$
 					.append(exception.toString()).toString());
 			loaded = 0;
 			nonempty = false;
@@ -83,8 +83,8 @@ class RadicalMod implements RadicalMusic {
 		playing = false;
 		loaded = 0;
 		rvol = 0;
-		imod = "";
-		pmod = "";
+		imod = Messages.getString("RadicalMod.14"); //$NON-NLS-1$
+		pmod = Messages.getString("RadicalMod.15"); //$NON-NLS-1$
 		loaded = 1;
 		imod = string;
 		filename = string;
@@ -96,9 +96,9 @@ class RadicalMod implements RadicalMusic {
 		final int mins = secs / 60;
 		secs %= 60;
 		if (secs >= 10)
-			return new StringBuilder().append(mins).append(":").append(secs).toString();
+			return new StringBuilder().append(mins).append(Messages.getString("RadicalMod.16")).append(secs).toString(); //$NON-NLS-1$
 		else
-			return new StringBuilder().append(mins).append(":0").append(secs).toString();
+			return new StringBuilder().append(mins).append(Messages.getString("RadicalMod.17")).append(secs).toString(); //$NON-NLS-1$
 	}
 
 	public void loadimod(final boolean bool) {
@@ -112,8 +112,8 @@ class RadicalMod implements RadicalMusic {
 				final Module module = ModuleLoader.loadMod(imod);
 				if (module.isLoaded()) {
 					name = module.getName();
-					if (name.trim().equals(""))
-						name = "Untitled";
+					if (name.trim().equals(Messages.getString("RadicalMod.18"))) //$NON-NLS-1$
+						name = Messages.getString("RadicalMod.19"); //$NON-NLS-1$
 					final ModuleSlayer moduleslayer = ModuleLoader.prepareSlayer(module, i, i_6, i_7);
 					final byte is[] = moduleslayer.turnbytesNorm(bool);
 					if (bool)
@@ -125,7 +125,7 @@ class RadicalMod implements RadicalMusic {
 				}
 			} catch (final Exception exception) {
 				System.out.println(
-						new StringBuilder().append("Error making a imod: ").append(exception.toString()).toString());
+						new StringBuilder().append(Messages.getString("RadicalMod.20")).append(exception.toString()).toString()); //$NON-NLS-1$
 				loaded = 0;
 				nonempty = false;
 			}
@@ -145,8 +145,8 @@ class RadicalMod implements RadicalMusic {
 				final Module module = ModuleLoader.loadMod(pmod);
 				if (module.isLoaded()) {
 					name = module.getName();
-					if (name.trim().equals(""))
-						name = "Untitled";
+					if (name.trim().equals(Messages.getString("RadicalMod.21"))) //$NON-NLS-1$
+						name = Messages.getString("RadicalMod.22"); //$NON-NLS-1$
 					final ModuleSlayer moduleslayer = ModuleLoader.prepareSlayer(module, i, i_10, i_11);
 					final byte is[] = moduleslayer.turnbytesNorm(bool);
 					if (bool)
@@ -158,7 +158,7 @@ class RadicalMod implements RadicalMusic {
 				}
 			} catch (final Exception exception) {
 				System.out.println(
-						new StringBuilder().append("Error making a imod: ").append(exception.toString()).toString());
+						new StringBuilder().append(Messages.getString("RadicalMod.23")).append(exception.toString()).toString()); //$NON-NLS-1$
 				loaded = 0;
 				nonempty = false;
 			}
@@ -171,8 +171,8 @@ class RadicalMod implements RadicalMusic {
 		playing = false;
 		loaded = 0;
 		rvol = 0;
-		imod = "";
-		pmod = "";
+		imod = Messages.getString("RadicalMod.24"); //$NON-NLS-1$
+		pmod = Messages.getString("RadicalMod.25"); //$NON-NLS-1$
 		loaded = 1;
 		pmod = string;
 		loadpmod(true);

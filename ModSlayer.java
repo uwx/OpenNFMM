@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class ModSlayer {
 
-	static final String COPYRIGHT = "";
+	static final String COPYRIGHT = Messages.getString("ModSlayer.0"); //$NON-NLS-1$
 
 	static final int DEF_BPM_NTSC = 125;
 
@@ -50,12 +50,12 @@ public class ModSlayer {
 			233, 220, 208, 196, 185, 175, 165, 155, 147, 139, 131, 123, 116, 110, 104, 98, 92, 87, 82, 78, 73, 69, 65,
 			62, 58, 55, 51, 49, 46, 43, 41, 39, 37, 35, 33, 31, 29, 27, 26, 24, 23, 21, 20, 19, 18, 17, 16, 15, 14,
 			14 };
-	static final int S3M_INSTR2 = Mod.FOURCC("SCRS");
+	static final int S3M_INSTR2 = Mod.FOURCC(Messages.getString("ModSlayer.1")); //$NON-NLS-1$
 	static final int S3M_MAGIC1 = 4122;
-	static final int S3M_MAGIC2 = Mod.FOURCC("SCRM");
+	static final int S3M_MAGIC2 = Mod.FOURCC(Messages.getString("ModSlayer.2")); //$NON-NLS-1$
 	static final int sintable[] = { 0, 25, 50, 74, 98, 120, 142, 162, 180, 197, 212, 225, 236, 244, 250, 254, 255, 254,
 			250, 244, 236, 225, 212, 197, 180, 162, 142, 120, 98, 74, 50, 25 };
-	static final String VERSION = "1.0";
+	static final String VERSION = Messages.getString("ModSlayer.3"); //$NON-NLS-1$
 
 	public static void intToBytes16(final int ai[], final byte abyte0[], final int i, final int j) {
 		int k = j;

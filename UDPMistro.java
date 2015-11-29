@@ -34,37 +34,37 @@ public class UDPMistro implements Runnable {
 	Thread runner;
 	int runon = 0;
 	long sendat = 0L;
-	String sendcheck = "";
+	String sendcheck = Messages.getString("UDPMistro.0"); //$NON-NLS-1$
 	Socket socket;
 	udpOnline[] udpc = new udpOnline[20];
 	udpServe[] usrv = new udpServe[9];
 	int wx = 0;
-	String xtserver = "";
+	String xtserver = Messages.getString("UDPMistro.1"); //$NON-NLS-1$
 	int xtservport = 0;
 
 	public int getncoms(final String string) {
 		int i = 0;
 		int i_89_ = 0;
-		String string_90_ = "";
+		String string_90_ = Messages.getString("UDPMistro.2"); //$NON-NLS-1$
 		for (/**/; i_89_ < string.length(); i_89_++) {
-			string_90_ = new StringBuilder().append("").append(string.charAt(i_89_)).toString();
-			if (string_90_.equals(","))
+			string_90_ = new StringBuilder().append(Messages.getString("UDPMistro.3")).append(string.charAt(i_89_)).toString(); //$NON-NLS-1$
+			if (string_90_.equals(Messages.getString("UDPMistro.4"))) //$NON-NLS-1$
 				i++;
 		}
 		return i;
 	}
 
 	public String getSvalue(final String string, final int i) {
-		String string_83_ = "";
+		String string_83_ = Messages.getString("UDPMistro.5"); //$NON-NLS-1$
 		try {
 			int i_84_ = 0;
 			int i_85_ = 0;
 			int i_86_ = 0;
-			String string_87_ = "";
-			String string_88_ = "";
+			String string_87_ = Messages.getString("UDPMistro.6"); //$NON-NLS-1$
+			String string_88_ = Messages.getString("UDPMistro.7"); //$NON-NLS-1$
 			for (/**/; i_84_ < string.length() && i_86_ != 2; i_84_++) {
-				string_87_ = new StringBuilder().append("").append(string.charAt(i_84_)).toString();
-				if (string_87_.equals(",")) {
+				string_87_ = new StringBuilder().append(Messages.getString("UDPMistro.8")).append(string.charAt(i_84_)).toString(); //$NON-NLS-1$
+				if (string_87_.equals(Messages.getString("UDPMistro.9"))) { //$NON-NLS-1$
 					i_85_++;
 					if (i_86_ == 1 || i_85_ > i)
 						i_86_ = 2;
@@ -85,11 +85,11 @@ public class UDPMistro implements Runnable {
 		try {
 			int i_79_ = 0;
 			int i_80_ = 0;
-			String string_81_ = "";
-			String string_82_ = "";
+			String string_81_ = Messages.getString("UDPMistro.10"); //$NON-NLS-1$
+			String string_82_ = Messages.getString("UDPMistro.11"); //$NON-NLS-1$
 			for (/**/; wx < string.length() && i_80_ != 2; wx++) {
-				string_81_ = new StringBuilder().append("").append(string.charAt(wx)).toString();
-				if (string_81_.equals(",")) {
+				string_81_ = new StringBuilder().append(Messages.getString("UDPMistro.12")).append(string.charAt(wx)).toString(); //$NON-NLS-1$
+				if (string_81_.equals(Messages.getString("UDPMistro.13"))) { //$NON-NLS-1$
 					i_79_++;
 					if (i_80_ == 1 || i_79_ > i)
 						i_80_ = 2;
@@ -98,8 +98,8 @@ public class UDPMistro implements Runnable {
 					i_80_ = 1;
 				}
 			}
-			if (string_82_.equals(""))
-				string_82_ = "-1";
+			if (string_82_.equals(Messages.getString("UDPMistro.14"))) //$NON-NLS-1$
+				string_82_ = Messages.getString("UDPMistro.15"); //$NON-NLS-1$
 			i_78_ = Integer.valueOf(string_82_).intValue();
 		} catch (final Exception exception) {
 			/* empty */
@@ -175,83 +175,83 @@ public class UDPMistro implements Runnable {
 				final String string = info[i][i_29_];
 				final String string_34_ = getSvalue(string, 0);
 				if (string_34_.length() == 16) {
-					String string_35_ = "";
-					string_35_ = new StringBuilder().append("").append(string_34_.charAt(0)).toString();
-					if (string_35_.equals("0"))
+					String string_35_ = Messages.getString("UDPMistro.16"); //$NON-NLS-1$
+					string_35_ = new StringBuilder().append(Messages.getString("UDPMistro.17")).append(string_34_.charAt(0)).toString(); //$NON-NLS-1$
+					if (string_35_.equals(Messages.getString("UDPMistro.18"))) //$NON-NLS-1$
 						control.left = false;
 					else
 						control.left = true;
-					string_35_ = new StringBuilder().append("").append(string_34_.charAt(1)).toString();
-					if (string_35_.equals("0"))
+					string_35_ = new StringBuilder().append(Messages.getString("UDPMistro.19")).append(string_34_.charAt(1)).toString(); //$NON-NLS-1$
+					if (string_35_.equals(Messages.getString("UDPMistro.20"))) //$NON-NLS-1$
 						control.right = false;
 					else
 						control.right = true;
-					string_35_ = new StringBuilder().append("").append(string_34_.charAt(2)).toString();
-					if (string_35_.equals("0"))
+					string_35_ = new StringBuilder().append(Messages.getString("UDPMistro.21")).append(string_34_.charAt(2)).toString(); //$NON-NLS-1$
+					if (string_35_.equals(Messages.getString("UDPMistro.22"))) //$NON-NLS-1$
 						control.up = false;
 					else
 						control.up = true;
-					string_35_ = new StringBuilder().append("").append(string_34_.charAt(3)).toString();
-					if (string_35_.equals("0"))
+					string_35_ = new StringBuilder().append(Messages.getString("UDPMistro.23")).append(string_34_.charAt(3)).toString(); //$NON-NLS-1$
+					if (string_35_.equals(Messages.getString("UDPMistro.24"))) //$NON-NLS-1$
 						control.down = false;
 					else
 						control.down = true;
-					string_35_ = new StringBuilder().append("").append(string_34_.charAt(4)).toString();
-					if (string_35_.equals("0"))
+					string_35_ = new StringBuilder().append(Messages.getString("UDPMistro.25")).append(string_34_.charAt(4)).toString(); //$NON-NLS-1$
+					if (string_35_.equals(Messages.getString("UDPMistro.26"))) //$NON-NLS-1$
 						control.handb = false;
 					else
 						control.handb = true;
-					string_35_ = new StringBuilder().append("").append(string_34_.charAt(5)).toString();
-					if (string_35_.equals("0"))
+					string_35_ = new StringBuilder().append(Messages.getString("UDPMistro.27")).append(string_34_.charAt(5)).toString(); //$NON-NLS-1$
+					if (string_35_.equals(Messages.getString("UDPMistro.28"))) //$NON-NLS-1$
 						mad.newcar = false;
 					else
 						mad.newcar = true;
-					string_35_ = new StringBuilder().append("").append(string_34_.charAt(6)).toString();
-					if (string_35_.equals("0"))
+					string_35_ = new StringBuilder().append(Messages.getString("UDPMistro.29")).append(string_34_.charAt(6)).toString(); //$NON-NLS-1$
+					if (string_35_.equals(Messages.getString("UDPMistro.30"))) //$NON-NLS-1$
 						mad.mtouch = false;
 					else
 						mad.mtouch = true;
-					string_35_ = new StringBuilder().append("").append(string_34_.charAt(7)).toString();
-					if (string_35_.equals("0"))
+					string_35_ = new StringBuilder().append(Messages.getString("UDPMistro.31")).append(string_34_.charAt(7)).toString(); //$NON-NLS-1$
+					if (string_35_.equals(Messages.getString("UDPMistro.32"))) //$NON-NLS-1$
 						mad.wtouch = false;
 					else
 						mad.wtouch = true;
-					string_35_ = new StringBuilder().append("").append(string_34_.charAt(8)).toString();
-					if (string_35_.equals("0"))
+					string_35_ = new StringBuilder().append(Messages.getString("UDPMistro.33")).append(string_34_.charAt(8)).toString(); //$NON-NLS-1$
+					if (string_35_.equals(Messages.getString("UDPMistro.34"))) //$NON-NLS-1$
 						mad.pushed = false;
 					else
 						mad.pushed = true;
-					string_35_ = new StringBuilder().append("").append(string_34_.charAt(9)).toString();
-					if (string_35_.equals("0"))
+					string_35_ = new StringBuilder().append(Messages.getString("UDPMistro.35")).append(string_34_.charAt(9)).toString(); //$NON-NLS-1$
+					if (string_35_.equals(Messages.getString("UDPMistro.36"))) //$NON-NLS-1$
 						mad.gtouch = false;
 					else
 						mad.gtouch = true;
-					string_35_ = new StringBuilder().append("").append(string_34_.charAt(10)).toString();
-					if (string_35_.equals("0"))
+					string_35_ = new StringBuilder().append(Messages.getString("UDPMistro.37")).append(string_34_.charAt(10)).toString(); //$NON-NLS-1$
+					if (string_35_.equals(Messages.getString("UDPMistro.38"))) //$NON-NLS-1$
 						mad.pl = false;
 					else
 						mad.pl = true;
-					string_35_ = new StringBuilder().append("").append(string_34_.charAt(11)).toString();
-					if (string_35_.equals("0"))
+					string_35_ = new StringBuilder().append(Messages.getString("UDPMistro.39")).append(string_34_.charAt(11)).toString(); //$NON-NLS-1$
+					if (string_35_.equals(Messages.getString("UDPMistro.40"))) //$NON-NLS-1$
 						mad.pr = false;
 					else
 						mad.pr = true;
-					string_35_ = new StringBuilder().append("").append(string_34_.charAt(12)).toString();
-					if (string_35_.equals("0"))
+					string_35_ = new StringBuilder().append(Messages.getString("UDPMistro.41")).append(string_34_.charAt(12)).toString(); //$NON-NLS-1$
+					if (string_35_.equals(Messages.getString("UDPMistro.42"))) //$NON-NLS-1$
 						mad.pd = false;
 					else
 						mad.pd = true;
-					string_35_ = new StringBuilder().append("").append(string_34_.charAt(13)).toString();
-					if (string_35_.equals("0"))
+					string_35_ = new StringBuilder().append(Messages.getString("UDPMistro.43")).append(string_34_.charAt(13)).toString(); //$NON-NLS-1$
+					if (string_35_.equals(Messages.getString("UDPMistro.44"))) //$NON-NLS-1$
 						mad.pu = false;
 					else
 						mad.pu = true;
-					string_35_ = new StringBuilder().append("").append(string_34_.charAt(14)).toString();
-					if (string_35_.equals("0"))
+					string_35_ = new StringBuilder().append(Messages.getString("UDPMistro.45")).append(string_34_.charAt(14)).toString(); //$NON-NLS-1$
+					if (string_35_.equals(Messages.getString("UDPMistro.46"))) //$NON-NLS-1$
 						mad.dest = false;
 					else
 						mad.dest = true;
-				} else if (string_34_.equals("disco")) {
+				} else if (string_34_.equals(Messages.getString("UDPMistro.47"))) { //$NON-NLS-1$
 					is[i] = 3;
 					mad.hitmag = mad.cd.maxmag[mad.cn] + 100;
 					force[i] = 7;
@@ -351,8 +351,8 @@ public class UDPMistro implements Runnable {
 			for (int i_21_ = 0; i_21_ < nplayers; i_21_++) {
 				boolean bool = false;
 				if (info[i_21_][0].length() > 16) {
-					final String string = new StringBuilder().append("").append(info[i_21_][0].charAt(15)).toString();
-					if (!string.equals("0"))
+					final String string = new StringBuilder().append(Messages.getString("UDPMistro.48")).append(info[i_21_][0].charAt(15)).toString(); //$NON-NLS-1$
+					if (!string.equals(Messages.getString("UDPMistro.49"))) //$NON-NLS-1$
 						bool = true;
 				}
 				if (!bool && out[i_21_] == 77)
@@ -369,7 +369,7 @@ public class UDPMistro implements Runnable {
 							if (bool)
 								out[i_21_] = 77;
 							if (out[i_21_] == 76) {
-								info[i_21_][0] = "disco";
+								info[i_21_][0] = Messages.getString("UDPMistro.50"); //$NON-NLS-1$
 								frame[i_21_][0] += 10;
 							}
 						}
@@ -380,8 +380,8 @@ public class UDPMistro implements Runnable {
 					}
 			}
 			if (i_20_ == 10) {
-				final String string = new StringBuilder().append("3|").append(pgame).append("|alive|").toString();
-				String string_22_ = "";
+				final String string = new StringBuilder().append(Messages.getString("UDPMistro.51")).append(pgame).append(Messages.getString("UDPMistro.52")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
+				String string_22_ = Messages.getString("UDPMistro.53"); //$NON-NLS-1$
 				if (i_19_ == 0)
 					try {
 						dout.println(string);
@@ -473,7 +473,7 @@ public class UDPMistro implements Runnable {
 				} catch (final Exception exception) {
 					/* empty */
 				}
-			final String string = new StringBuilder().append("3|").append(pgame).append("|finish|").toString();
+			final String string = new StringBuilder().append(Messages.getString("UDPMistro.54")).append(pgame).append(Messages.getString("UDPMistro.55")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 			try {
 				dout.println(string);
 				din.readLine();
@@ -495,198 +495,198 @@ public class UDPMistro implements Runnable {
 
 	public void setinfo(final Mad mad, final ContO conto, final Control control, final int i, final float f,
 			final boolean bool, final int i_41_) {
-		info[i_41_][0] = "";
+		info[i_41_][0] = Messages.getString("UDPMistro.56"); //$NON-NLS-1$
 		if (control.left) {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_42_ = 0;
-			strings[i_42_] = stringbuilder.append(strings[i_42_]).append("1").toString();
+			strings[i_42_] = stringbuilder.append(strings[i_42_]).append(Messages.getString("UDPMistro.57")).toString(); //$NON-NLS-1$
 		} else {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_43_ = 0;
-			strings[i_43_] = stringbuilder.append(strings[i_43_]).append("0").toString();
+			strings[i_43_] = stringbuilder.append(strings[i_43_]).append(Messages.getString("UDPMistro.58")).toString(); //$NON-NLS-1$
 		}
 		if (control.right) {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_44_ = 0;
-			strings[i_44_] = stringbuilder.append(strings[i_44_]).append("1").toString();
+			strings[i_44_] = stringbuilder.append(strings[i_44_]).append(Messages.getString("UDPMistro.59")).toString(); //$NON-NLS-1$
 		} else {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_45_ = 0;
-			strings[i_45_] = stringbuilder.append(strings[i_45_]).append("0").toString();
+			strings[i_45_] = stringbuilder.append(strings[i_45_]).append(Messages.getString("UDPMistro.60")).toString(); //$NON-NLS-1$
 		}
 		if (control.up) {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_46_ = 0;
-			strings[i_46_] = stringbuilder.append(strings[i_46_]).append("1").toString();
+			strings[i_46_] = stringbuilder.append(strings[i_46_]).append(Messages.getString("UDPMistro.61")).toString(); //$NON-NLS-1$
 		} else {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_47_ = 0;
-			strings[i_47_] = stringbuilder.append(strings[i_47_]).append("0").toString();
+			strings[i_47_] = stringbuilder.append(strings[i_47_]).append(Messages.getString("UDPMistro.62")).toString(); //$NON-NLS-1$
 		}
 		if (control.down) {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_48_ = 0;
-			strings[i_48_] = stringbuilder.append(strings[i_48_]).append("1").toString();
+			strings[i_48_] = stringbuilder.append(strings[i_48_]).append(Messages.getString("UDPMistro.63")).toString(); //$NON-NLS-1$
 		} else {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_49_ = 0;
-			strings[i_49_] = stringbuilder.append(strings[i_49_]).append("0").toString();
+			strings[i_49_] = stringbuilder.append(strings[i_49_]).append(Messages.getString("UDPMistro.64")).toString(); //$NON-NLS-1$
 		}
 		if (control.handb) {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_50_ = 0;
-			strings[i_50_] = stringbuilder.append(strings[i_50_]).append("1").toString();
+			strings[i_50_] = stringbuilder.append(strings[i_50_]).append(Messages.getString("UDPMistro.65")).toString(); //$NON-NLS-1$
 		} else {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_51_ = 0;
-			strings[i_51_] = stringbuilder.append(strings[i_51_]).append("0").toString();
+			strings[i_51_] = stringbuilder.append(strings[i_51_]).append(Messages.getString("UDPMistro.66")).toString(); //$NON-NLS-1$
 		}
 		if (mad.newcar) {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_52_ = 0;
-			strings[i_52_] = stringbuilder.append(strings[i_52_]).append("1").toString();
+			strings[i_52_] = stringbuilder.append(strings[i_52_]).append(Messages.getString("UDPMistro.67")).toString(); //$NON-NLS-1$
 		} else {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_53_ = 0;
-			strings[i_53_] = stringbuilder.append(strings[i_53_]).append("0").toString();
+			strings[i_53_] = stringbuilder.append(strings[i_53_]).append(Messages.getString("UDPMistro.68")).toString(); //$NON-NLS-1$
 		}
 		if (mad.mtouch) {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_54_ = 0;
-			strings[i_54_] = stringbuilder.append(strings[i_54_]).append("1").toString();
+			strings[i_54_] = stringbuilder.append(strings[i_54_]).append(Messages.getString("UDPMistro.69")).toString(); //$NON-NLS-1$
 		} else {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_55_ = 0;
-			strings[i_55_] = stringbuilder.append(strings[i_55_]).append("0").toString();
+			strings[i_55_] = stringbuilder.append(strings[i_55_]).append(Messages.getString("UDPMistro.70")).toString(); //$NON-NLS-1$
 		}
 		if (mad.wtouch) {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_56_ = 0;
-			strings[i_56_] = stringbuilder.append(strings[i_56_]).append("1").toString();
+			strings[i_56_] = stringbuilder.append(strings[i_56_]).append(Messages.getString("UDPMistro.71")).toString(); //$NON-NLS-1$
 		} else {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_57_ = 0;
-			strings[i_57_] = stringbuilder.append(strings[i_57_]).append("0").toString();
+			strings[i_57_] = stringbuilder.append(strings[i_57_]).append(Messages.getString("UDPMistro.72")).toString(); //$NON-NLS-1$
 		}
 		if (mad.pushed) {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_58_ = 0;
-			strings[i_58_] = stringbuilder.append(strings[i_58_]).append("1").toString();
+			strings[i_58_] = stringbuilder.append(strings[i_58_]).append(Messages.getString("UDPMistro.73")).toString(); //$NON-NLS-1$
 		} else {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_59_ = 0;
-			strings[i_59_] = stringbuilder.append(strings[i_59_]).append("0").toString();
+			strings[i_59_] = stringbuilder.append(strings[i_59_]).append(Messages.getString("UDPMistro.74")).toString(); //$NON-NLS-1$
 		}
 		if (mad.gtouch) {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_60_ = 0;
-			strings[i_60_] = stringbuilder.append(strings[i_60_]).append("1").toString();
+			strings[i_60_] = stringbuilder.append(strings[i_60_]).append(Messages.getString("UDPMistro.75")).toString(); //$NON-NLS-1$
 		} else {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_61_ = 0;
-			strings[i_61_] = stringbuilder.append(strings[i_61_]).append("0").toString();
+			strings[i_61_] = stringbuilder.append(strings[i_61_]).append(Messages.getString("UDPMistro.76")).toString(); //$NON-NLS-1$
 		}
 		if (mad.pl) {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_62_ = 0;
-			strings[i_62_] = stringbuilder.append(strings[i_62_]).append("1").toString();
+			strings[i_62_] = stringbuilder.append(strings[i_62_]).append(Messages.getString("UDPMistro.77")).toString(); //$NON-NLS-1$
 		} else {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_63_ = 0;
-			strings[i_63_] = stringbuilder.append(strings[i_63_]).append("0").toString();
+			strings[i_63_] = stringbuilder.append(strings[i_63_]).append(Messages.getString("UDPMistro.78")).toString(); //$NON-NLS-1$
 		}
 		if (mad.pr) {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_64_ = 0;
-			strings[i_64_] = stringbuilder.append(strings[i_64_]).append("1").toString();
+			strings[i_64_] = stringbuilder.append(strings[i_64_]).append(Messages.getString("UDPMistro.79")).toString(); //$NON-NLS-1$
 		} else {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_65_ = 0;
-			strings[i_65_] = stringbuilder.append(strings[i_65_]).append("0").toString();
+			strings[i_65_] = stringbuilder.append(strings[i_65_]).append(Messages.getString("UDPMistro.80")).toString(); //$NON-NLS-1$
 		}
 		if (mad.pd) {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_66_ = 0;
-			strings[i_66_] = stringbuilder.append(strings[i_66_]).append("1").toString();
+			strings[i_66_] = stringbuilder.append(strings[i_66_]).append(Messages.getString("UDPMistro.81")).toString(); //$NON-NLS-1$
 		} else {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_67_ = 0;
-			strings[i_67_] = stringbuilder.append(strings[i_67_]).append("0").toString();
+			strings[i_67_] = stringbuilder.append(strings[i_67_]).append(Messages.getString("UDPMistro.82")).toString(); //$NON-NLS-1$
 		}
 		if (mad.pu) {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_68_ = 0;
-			strings[i_68_] = stringbuilder.append(strings[i_68_]).append("1").toString();
+			strings[i_68_] = stringbuilder.append(strings[i_68_]).append(Messages.getString("UDPMistro.83")).toString(); //$NON-NLS-1$
 		} else {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_69_ = 0;
-			strings[i_69_] = stringbuilder.append(strings[i_69_]).append("0").toString();
+			strings[i_69_] = stringbuilder.append(strings[i_69_]).append(Messages.getString("UDPMistro.84")).toString(); //$NON-NLS-1$
 		}
 		if (mad.dest) {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_70_ = 0;
-			strings[i_70_] = stringbuilder.append(strings[i_70_]).append("1").toString();
+			strings[i_70_] = stringbuilder.append(strings[i_70_]).append(Messages.getString("UDPMistro.85")).toString(); //$NON-NLS-1$
 		} else {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_71_ = 0;
-			strings[i_71_] = stringbuilder.append(strings[i_71_]).append("0").toString();
+			strings[i_71_] = stringbuilder.append(strings[i_71_]).append(Messages.getString("UDPMistro.86")).toString(); //$NON-NLS-1$
 		}
 		if (bool) {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_72_ = 0;
-			strings[i_72_] = stringbuilder.append(strings[i_72_]).append("1").toString();
+			strings[i_72_] = stringbuilder.append(strings[i_72_]).append(Messages.getString("UDPMistro.87")).toString(); //$NON-NLS-1$
 		} else {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings = info[i_41_];
 			final int i_73_ = 0;
-			strings[i_73_] = stringbuilder.append(strings[i_73_]).append("0").toString();
+			strings[i_73_] = stringbuilder.append(strings[i_73_]).append(Messages.getString("UDPMistro.88")).toString(); //$NON-NLS-1$
 		}
 		final StringBuilder stringbuilder = new StringBuilder();
 		final String[] strings = info[i_41_];
 		final int i_74_ = 0;
-		strings[i_74_] = stringbuilder.append(strings[i_74_]).append(",").append(conto.x).append(",").append(conto.y)
-				.append(",").append(conto.z).append(",").append(conto.xz).append(",").append(conto.xy).append(",")
-				.append(conto.zy).append(",").append((int) (mad.speed * 100.0F)).append(",")
-				.append((int) (mad.power * 100.0F)).append(",").append(mad.mxz).append(",").append(mad.pzy).append(",")
-				.append(mad.pxy).append(",").append(mad.txz).append(",").append(mad.loop).append(",").append(conto.wxz)
-				.append(",").append(mad.pcleared).append(",").append(mad.clear).append(",").append(mad.nlaps)
-				.append(",").append((int) (f * 100.0F)).append(",").append(i).append(",").toString();
+		strings[i_74_] = stringbuilder.append(strings[i_74_]).append(Messages.getString("UDPMistro.89")).append(conto.x).append(Messages.getString("UDPMistro.90")).append(conto.y) //$NON-NLS-1$ //$NON-NLS-2$
+				.append(Messages.getString("UDPMistro.91")).append(conto.z).append(Messages.getString("UDPMistro.92")).append(conto.xz).append(Messages.getString("UDPMistro.93")).append(conto.xy).append(Messages.getString("UDPMistro.94")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+				.append(conto.zy).append(Messages.getString("UDPMistro.95")).append((int) (mad.speed * 100.0F)).append(Messages.getString("UDPMistro.96")) //$NON-NLS-1$ //$NON-NLS-2$
+				.append((int) (mad.power * 100.0F)).append(Messages.getString("UDPMistro.97")).append(mad.mxz).append(Messages.getString("UDPMistro.98")).append(mad.pzy).append(Messages.getString("UDPMistro.99")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				.append(mad.pxy).append(Messages.getString("UDPMistro.100")).append(mad.txz).append(Messages.getString("UDPMistro.101")).append(mad.loop).append(Messages.getString("UDPMistro.102")).append(conto.wxz) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				.append(Messages.getString("UDPMistro.103")).append(mad.pcleared).append(Messages.getString("UDPMistro.104")).append(mad.clear).append(Messages.getString("UDPMistro.105")).append(mad.nlaps) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				.append(Messages.getString("UDPMistro.106")).append((int) (f * 100.0F)).append(Messages.getString("UDPMistro.107")).append(i).append(Messages.getString("UDPMistro.108")).toString(); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		while (info[i_41_][0].length() < 110) {
 			final StringBuilder stringbuilder_75_ = new StringBuilder();
 			final String[] strings_76_ = info[i_41_];
 			final int i_77_ = 0;
-			strings_76_[i_77_] = stringbuilder_75_.append(strings_76_[i_77_]).append("|").toString();
+			strings_76_[i_77_] = stringbuilder_75_.append(strings_76_[i_77_]).append(Messages.getString("UDPMistro.109")).toString(); //$NON-NLS-1$
 		}
 		if (runon == 2)
 			mad.hitmag = mad.cd.maxmag[mad.cn] + 100;
@@ -706,7 +706,7 @@ public class UDPMistro implements Runnable {
 		for (int i_9_ = 0; i_9_ < 7; i_9_++) {
 			for (int i_10_ = 0; i_10_ < 3; i_10_++) {
 				frame[i_9_][i_10_] = -1;
-				info[i_9_][i_10_] = "";
+				info[i_9_][i_10_] = Messages.getString("UDPMistro.110"); //$NON-NLS-1$
 			}
 			isbot[i_9_] = false;
 			lframe[i_9_] = 0;
@@ -722,12 +722,12 @@ public class UDPMistro implements Runnable {
 				porturn = 0;
 			if (im >= nplayers) {
 				frame[im][0] = 11111;
-				info[im][0] = "watching";
+				info[im][0] = Messages.getString("UDPMistro.111"); //$NON-NLS-1$
 				while (info[im][0].length() < 110) {
 					final StringBuilder stringbuilder = new StringBuilder();
 					final String[] strings = info[im];
 					final int i_12_ = 0;
-					strings[i_12_] = stringbuilder.append(strings[i_12_]).append("|").toString();
+					strings[i_12_] = stringbuilder.append(strings[i_12_]).append(Messages.getString("UDPMistro.112")).toString(); //$NON-NLS-1$
 				}
 				nplayers++;
 				go = true;
@@ -760,7 +760,7 @@ public class UDPMistro implements Runnable {
 		for (int i_3_ = 0; i_3_ < 7; i_3_++) {
 			for (int i_4_ = 0; i_4_ < 3; i_4_++) {
 				frame[i_3_][i_4_] = -1;
-				info[i_3_][i_4_] = "";
+				info[i_3_][i_4_] = Messages.getString("UDPMistro.113"); //$NON-NLS-1$
 			}
 			isbot[i_3_] = false;
 			lframe[i_3_] = 0;
@@ -775,12 +775,12 @@ public class UDPMistro implements Runnable {
 			porturn = 0;
 		if (im >= nplayers) {
 			frame[im][0] = 11111;
-			info[im][0] = "watching";
+			info[im][0] = Messages.getString("UDPMistro.114"); //$NON-NLS-1$
 			while (info[im][0].length() < 110) {
 				final StringBuilder stringbuilder = new StringBuilder();
 				final String[] strings = info[im];
 				final int i_6_ = 0;
-				strings[i_6_] = stringbuilder.append(strings[i_6_]).append("|").toString();
+				strings[i_6_] = stringbuilder.append(strings[i_6_]).append(Messages.getString("UDPMistro.115")).toString(); //$NON-NLS-1$
 			}
 			nplayers++;
 			go = true;
@@ -799,7 +799,7 @@ public class UDPMistro implements Runnable {
 			out[i_15_] = 0;
 			for (int i_16_ = 0; i_16_ < 3; i_16_++) {
 				frame[i_15_][i_16_] = -1;
-				info[i_15_][i_16_] = "";
+				info[i_15_][i_16_] = Messages.getString("UDPMistro.116"); //$NON-NLS-1$
 			}
 			lframe[i_15_] = 0;
 			force[i_15_] = 0;

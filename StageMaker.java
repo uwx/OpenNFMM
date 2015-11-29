@@ -67,7 +67,7 @@ public class StageMaker extends Applet implements Runnable {
 			{ 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } };
 	int avon = 0;
 	ContO[] bco = new ContO[67];
-	String bstage = "set(47,0,0,0)\r\nmaxr(11,28500,-5600)\r\nmaxb(9,-8000,-12300)\r\nmaxl(11,-14700,-5600)\r\nmaxt(9,44800,-12300)\r\n";
+	String bstage = Messages.getString("StageMaker.0"); //$NON-NLS-1$
 	Image[] btgame = new Image[2];
 	int btn = 0;
 	int[] bw = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -82,90 +82,90 @@ public class StageMaker extends Applet implements Runnable {
 	CheckPoints cp = new CheckPoints();
 	int[] csky = { 170, 220, 255 };
 	String[] discp = {
-			"NormalRoad :  Basic asphalt road.\nAttaches correctly to the following other parts :\n\n'NormalRoad Turn',  'NormalRoad End',  'NormalRoad TwistedLeft',  'NormalRoad TwistedRight',  'NormalRoad Edged',\n'NormalRoad-Raised Ramp',  'Normal-Off-Road Blend'  and  'Halfpipe-Normal-Road Blend'\n\n",
-			"NormalRoad Edged :  Asphalt road with edged side blocks (a destructive road).\nAttaches correctly to the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad TwistedLeft',  'NormalRoad TwistedRight',\n'NormalRoad-Raised Ramp',  'Normal-Off-Road Blend'  and  'Halfpipe-Normal-Road Blend'\n\n",
-			"NormalRoad TwistedRight :  Asphalt road twisted towards the right.\nAttaches correctly to the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad Twistedleft',\n'NormalRoad-Raised Ramp',  'Normal-Off-Road Blend'  and  'Halfpipe-Normal-Road Blend'\n\n",
-			"NormalRoad TwistedLeft :  Asphalt road twisted towards the left.\nAttaches correctly to the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedRight',\n'NormalRoad-Raised Ramp',  'Normal-Off-Road Blend'  and  'Halfpipe-Normal-Road Blend'\n\n",
-			"NormalRoad Turn :  Asphalt corner road turn.\nAttaches correctly to the following other parts :\n\n'NormalRoad',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft',  'NormalRoad TwistedRight',\n'NormalRoad-Raised Ramp', 'Normal-Off-Road Blend'  and  'Halfpipe-Normal-Road Blend'\n\n",
-			"OffRoad :  Basic sandy dirt-road.\nAttaches correctly to the following other parts :\n\n'OffRoad Turn',  'OffRoad End',  'OffRoad BumpyGreen',  'OffRoad-BumpySides Start',  'Off-Halfpipe-Road Blend'\nand  'Normal-Off-Road Blend'\n\n",
-			"OffRoad BumpyGreen :  Dirt-road with bumpy greenery in the middle.\nAttaches correctly to the following other parts :\n\n'OffRoad',  'OffRoad Turn',  'OffRoad End',  'OffRoad-BumpySides Start',  'Off-Halfpipe-Road Blend'\nand  'Normal-Off-Road Blend'\n\n",
-			"OffRoad Turn :  Dirt-road corner turn.\nAttaches correctly to the following other parts :\n\n'OffRoad',  'OffRoad End',  'OffRoad BumpyGreen',  ' OffRoad-BumpySides Start',  'Off-Halfpipe-Road Blend'\nand 'Normal-Off-Road Blend'\n\n",
-			"HalfpipeRoad :  Basic road for the half-pipe ramp.\nAttaches correctly to the following other parts :\n\n'Off-Halfpipe-Road Blend',  'HalfpipeRoad',  'HalfpipeRoad Turn',  'HalfpipeRoad-Ramp Filler'\nand  'Halfpipe-Normal-Road Blend'\n\n",
-			"HalfpipeRoad Turn :  Half-pipe corner road turn.\nAttaches correctly to the following other parts :\n\n'HalfpipeRoad',  'Off-Halfpipe-Road Blend',  'HalfpipeRoad'  and  'Halfpipe-Normal-Road Blend'\n\n",
-			"Normal-Off-Road Blend :  Road blend between the normal asphalt road and the dirt-road.\nAttaches correctly to the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft',\n'NormalRoad TwistedRight',  'NormalRoad-Raised Ramp', 'Halfpipe-Normal-Road Blend' 'OffRoad',  'OffRoad Turn',\n'OffRoad End',  'OffRoad BumpyGreen',  ' OffRoad-BumpySides Start'  and  'Off-Halfpipe-Road Blend'\n\n",
-			"Off-Halfpipe-Road Blend :  Road blend between the dirt-road and the half-pipe road.\nAttaches correctly to the following other parts :\n\n'OffRoad',  'OffRoad Turn',  'OffRoad End',  'OffRoad BumpyGreen',  'OffRoad-BumpySides Start',\n'HalfpipeRoad',  'HalfpipeRoad Turn',  'Halfpipe-Normal-Road Blend'  and  'Normal-Off-Road Blend'\n\n",
-			"Halfpipe-Normal-Road Blend :  Road blend between the normal asphalt road and the half-pipe road.\nAttaches correctly to the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft',\n'NormalRoad TwistedRight',  'NormalRoad-Raised Ramp',  'HalfpipeRoad',  'Off-Halfpipe-Road Blend',  'HalfpipeRoad'\nand  'Off-Halfpipe-Road Blend'\n\n",
-			"NormalRoad End :  The end part of the normal asphalt road.\nAttaches correctly to the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad Edged',  'NormalRoad TwistedLeft',  'NormalRoad TwistedRight',\n'NormalRoad-Raised Ramp',  'Normal-Off-Road Blend'  and  'Halfpipe-Normal-Road Blend'\n\n",
-			"OffRoad End :  The end part of the dirt-road.\nAttaches correctly to the following other parts :\n\n'OffRoad',  'OffRoad Turn',  'OffRoad BumpyGreen',  ' OffRoad-BumpySides Start',  'Off-Halfpipe-Road Blend'\nand  'Normal-Off-Road Blend'\n\n",
-			"HalfpipeRoad-Ramp Filler :  A part that gets placed between the half-pipe road and the half-pipe ramp to extend the distance in between.\nAttaches correctly to the following other parts :\n\n'HalfpipeRoad'  and  'Halfpipe'\n\n",
-			"Basic Ramp :  Basic 30 degree asphalt ramp.\nAttaches correctly over and to the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft'\nand  'NormalRoad TwistedRight'\n\n",
-			"Crash Ramp :  A 35 degree ramp with big side blocks for crashing into.\nAttaches correctly over and to the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft'\nand  'NormalRoad TwistedRight'\n\n",
-			"Two-Way Ramp :  Two way 15 degree inclined ramp.\nAttaches correctly over and to the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft'\nand  'NormalRoad TwistedRight'\n\n",
-			"Two-Way High-Low Ramp :  Two way 15 degree inclined ramp, with peeked side for an optional higher car jump.\nAttaches correctly over and to the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft'\nand  'NormalRoad TwistedRight'\n\n",
-			"Landing Ramp :  A ramp that is both a landing inclination and an obstacle as well, it is usually placed just after another normal ramp.\nAttaches correctly over and to the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft'\nand   'NormalRoad TwistedRight'\n\n",
-			"Big-Takeoff Ramp:  A big takeoff ramp for getting huge heights with the cars.\nAttaches correctly over and to the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft'\nand   'NormalRoad TwistedRight'\n\n",
-			"Small Ramp :  A small ramp that can be placed on either side of the road.\nAttaches correctly over and to the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft'\nand   'NormalRoad TwistedRight'\n\n",
-			"Offroad Bump Ramp :  A small bump ramp that is to be placed over the off-road dirt tracks.\nAttaches correctly over and to the following other parts :\n\n'OffRoad',  'OffRoad Turn',  'OffRoad End',  'OffRoad BumpyGreen',  'OffRoad-BumpySides Start'\nand  'OffRoad-BumpySides'\n\n",
-			"Offroad Big Ramp :  The big off-road dirt mountain like ramp!\nAttaches correctly over and to the following other parts :\n\n'OffRoad',  'OffRoad Turn',  'OffRoad End',  'OffRoad BumpyGreen',  'OffRoad-BumpySides Start'\nand  'OffRoad-BumpySides'\n\n",
-			"Offroad Ramp :  Normal sized off-road dirt track ramp!\nAttaches correctly over and to the following other parts :\n\n'OffRoad',  'OffRoad Turn',  'OffRoad End',  'OffRoad BumpyGreen',  'OffRoad-BumpySides Start'\nand  'OffRoad-BumpySides'\n\n",
-			"Halfpipe :  The Half-pipe ramp, two of these ramps opposite each other create a half-pipe for the cars!\nAttaches correctly over and to the following other parts :\n\n'HalfpipeRoad',  'HalfpipeRoad Turn'  and  'HalfpipeRoad-Ramp Filler'\n\n",
-			"Spiky Pillars :  An obstacle that is usually placed after a ramp for the cars to crash onto if they did not jump high or far enough!\nAttaches correctly over following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft'\nand  'NormalRoad TwistedRight'\n\n",
-			"Rail Doorway :  A rail doorway that works as an obstacle for cars flying above it or cars driving through it!\nAttaches correctly over following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft'\nand  'NormalRoad TwistedRight'\n\n",
-			"The Wall",
-			"Checkpoint :  The checkpoint part that ultimately decides how you stage is raced, place carefully with thought.\n(Any stage must have at least two checkpoints to work).\nMounts correctly over the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft',\n'NormalRoad TwistedRight',  'OffRoad',  'OffRoad Turn',  'OffRoad End',  'OffRoad BumpyGreen',\n'OffRoad-BumpySides Start',  'OffRoad-BumpySides',  'Rollercoaster Start/End'  and  'Rollercoaster Road 2,3,4 and 5'\n\n",
-			"Fixing Hoop :  The fixing hoop that fixes a car when it flies through it! You can add a max of 5 fixing hoops per stage.\nPlace it anywhere in the stage at an height your choose, the only important thing is that it needs to be reachable by the cars.",
-			"Checkpoint :  The checkpoint part that ultimately decides how you stage is raced, place carefully with thought.\n(Any stage must have at least two checkpoints to work).\nMounts correctly over the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft',\n'NormalRoad TwistedRight',  'OffRoad',  'OffRoad Turn',  'OffRoad End',  'OffRoad BumpyGreen',\n'OffRoad-BumpySides Start',  'OffRoad-BumpySides',  'Rollercoaster Start/End'  and  'Rollercoaster Road 2,3,4 and 5'\n\n",
-			"OffRoad BumpySides :  Off-road dirt track with bumpy sandbar sides.\nAttaches correctly to the following other parts :\n\n'OffRoad-BumpySides Start'\n\n",
-			"OffRoad-BumpySides Start: The start of the off-road dirt track with bumpy sandbar sides.\nAttaches correctly to the following other parts :\n\n'OffRoad',  'OffRoad Turn',  'OffRoad End',  'OffRoad BumpyGreen',  'OffRoad-BumpySides',\n'Off-Halfpipe-Road Blend'  and  'Normal-Off-Road Blend'\n\n",
-			"NormalRoad-Raised Ramp:  The start of the raised above the ground road (NormalRoad Raised).\nAttaches correctly to the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft',\n'NormalRoad TwistedRight'  and  'NormalRoad Raised'\n\n",
-			"NormalRoad Raised :  Normal road raised above the ground, cars must avoid falling off it when driving on it.\nAttaches correctly to the following other parts :\n\n'NormalRoad-Raised Ramp'\n\n",
-			"The Start1", "The Start2",
-			"Tunnel Side Ramp:  A ramp that can be used to create a tunnel like road with an open top or can be used as a wall ramp!\nAttaches correctly over only the 'NormalRoad' part.",
-			"Launch Pad Ramp:  A ramp that launches your car fully upwards like a rocket, it also has sides to lock any car climbing it!\nAttaches correctly over following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad TwistedLeft'\nand  'NormalRoad TwistedRight'\n\n",
-			"The Net:  An obstacle part that is to be placed in the center of the road right after a ramp, the idea is that the\ncars jumping the ramp should try to go over it or through it without getting caught crashing (without getting\ncaught in it, getting caught in the net!).\nAttaches correctly over following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft'\nand  'NormalRoad TwistedRight'\n\n",
-			"Speed Ramp:  A ramp that is designed to have the perfect angle to catapult your car the furthest when doing forward loops, it is half the roads width.\nAttaches correctly over following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft'\nand  'NormalRoad TwistedRight'\n\n",
-			"Offroad Hill Ramp:  An offroad hill ramp that has two different inclines from the front and back to jump.\nAttaches correctly over the following other parts :\n\n'OffRoad',  'OffRoad Turn',  'OffRoad End',  'OffRoad BumpyGreen',  'OffRoad-BumpySides Start'\nand  'OffRoad-BumpySides'\n\n",
-			"Bump Slide:  A small bump obstacle that is to be placed on the sides of the road or in the center.\nAttaches correctly over the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft'\nand  'NormalRoad TwistedRight'\n\n",
-			"Offroad Big Hill Ramp:  An offroad big hill ramp that has two different inclines from the front and back to jump.\nAttaches correctly over the following other parts :\n\n'OffRoad',  'OffRoad Turn',  'OffRoad End',  'OffRoad BumpyGreen',  'OffRoad-BumpySides Start'\nand  'OffRoad-BumpySides'\n\n",
-			"Rollercoaster Start/End:  The ramp that starts the Rollercoaster Road and ends it.\nAttaches correctly over and to following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft',\n 'NormalRoad TwistedRight'  and  'Rollercoaster Start/End'\n\n",
-			"Rollercoaster Road1\nAttaches correctly to only 'Rollercoaster Start/End', 'Rollercoaster Road2' and itself.\n\n",
-			"Rollercoaster Road3\nAttaches correctly to only 'Rollercoaster Road2', 'Rollercoaster Road4' and itself.\n\n",
-			"Rollercoaster Road4\nAttaches correctly to only 'Rollercoaster Road3', 'Rollercoaster Road5' and itself.\n\n",
-			"Rollercoaster Road2\nAttaches correctly to only 'Rollercoaster Road1', 'Rollercoaster Road3' and itself.\n\n",
-			"Rollercoaster Road5\nAttaches correctly to only 'Rollercoaster Road4' and itself.\n\n",
-			"Offroad Dirt-Pile:  A dirt pile obstacle that is to be placed anywhere in the middle of the road.\nAttaches correctly over the following other parts :\n\n'OffRoad',  'OffRoad Turn',  'OffRoad End',  'OffRoad-BumpySides Start'  and  'OffRoad-BumpySides'\n\n",
-			"Offroad Dirt-Pile:  A dirt pile obstacle that is to be placed anywhere in the middle of the road.\nAttaches correctly over the following other parts :\n\n'OffRoad',  'OffRoad Turn',  'OffRoad End',  'OffRoad-BumpySides Start'  and  'OffRoad-BumpySides'\n\n",
-			"Checkpoint :  The checkpoint part that ultimately decides how you stage is raced, place carefully with thought.\n(Any stage must have at least two checkpoints to work).\nMounts correctly over the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft',\n'NormalRoad TwistedRight',  'OffRoad',  'OffRoad Turn',  'OffRoad End',  'OffRoad BumpyGreen',\n'OffRoad-BumpySides Start',  'OffRoad-BumpySides',  'Rollercoaster Start/End'  and  'Rollercoaster Road 2,3,4 and 5'\n\n",
-			"Trees/Cactus are decorative stage parts that should be placed outside the race track on the ground and NEVER on any road part or ramp!\nTrees/Cactus are not to be used as obstacles of the race course!\nThey are to be used as out of path ground decoration only.\n\n",
-			"Trees/Cactus are decorative stage parts that should be placed outside the race track on the ground and NEVER on any road part or ramp!\nTrees/Cactus are not to be used as obstacles of the race course!\nThey are to be used as out of path ground decoration only.\n\n",
-			"Trees/Cactus are decorative stage parts that should be placed outside the race track on the ground and NEVER on any road part or ramp!\nTrees/Cactus are not to be used as obstacles of the race course!\nThey are to be used as out of path ground decoration only.\n\n",
-			"Trees/Cactus are decorative stage parts that should be placed outside the race track on the ground and NEVER on any road part or ramp!\nTrees/Cactus are not to be used as obstacles of the race course!\nThey are to be used as out of path ground decoration only.\n\n",
-			"Trees/Cactus are decorative stage parts that should be placed outside the race track on the ground and NEVER on any road part or ramp!\nTrees/Cactus are not to be used as obstacles of the race course!\nThey are to be used as out of path ground decoration only.\n\n",
-			"Trees/Cactus are decorative stage parts that should be placed outside the race track on the ground and NEVER on any road part or ramp!\nTrees/Cactus are not to be used as obstacles of the race course!\nThey are to be used as out of path ground decoration only.\n\n",
-			"Trees/Cactus are decorative stage parts that should be placed outside the race track on the ground and NEVER on any road part or ramp!\nTrees/Cactus are not to be used as obstacles of the race course!\nThey are to be used as out of path ground decoration only.\n\n",
-			"Trees/Cactus are decorative stage parts that should be placed outside the race track on the ground and NEVER on any road part or ramp!\nTrees/Cactus are not to be used as obstacles of the race course!\nThey are to be used as out of path ground decoration only.\n\n",
-			"Trees/Cactus are decorative stage parts that should be placed outside the race track on the ground and NEVER on any road part or ramp!\nTrees/Cactus are not to be used as obstacles of the race course!\nThey are to be used as out of path ground decoration only.\n\n",
-			"Trees/Cactus are decorative stage parts that should be placed outside the race track on the ground and NEVER on any road part or ramp!\nTrees/Cactus are not to be used as obstacles of the race course!\nThey are to be used as out of path ground decoration only.\n\n",
-			"Trees/Cactus are decorative stage parts that should be placed outside the race track on the ground and NEVER on any road part or ramp!\nTrees/Cactus are not to be used as obstacles of the race course!\nThey are to be used as out of path ground decoration only.\n\n",
-			"Ground Piles are to be paced outside the race track on the ground and NEVER on any road part or ramp!\nThey are to be used as ground decoration and out of race course obstacles (ground obstacles)!\n\n" };
+			Messages.getString("StageMaker.1"), //$NON-NLS-1$
+			Messages.getString("StageMaker.2"), //$NON-NLS-1$
+			Messages.getString("StageMaker.3"), //$NON-NLS-1$
+			Messages.getString("StageMaker.4"), //$NON-NLS-1$
+			Messages.getString("StageMaker.5"), //$NON-NLS-1$
+			Messages.getString("StageMaker.6"), //$NON-NLS-1$
+			Messages.getString("StageMaker.7"), //$NON-NLS-1$
+			Messages.getString("StageMaker.8"), //$NON-NLS-1$
+			Messages.getString("StageMaker.9"), //$NON-NLS-1$
+			Messages.getString("StageMaker.10"), //$NON-NLS-1$
+			Messages.getString("StageMaker.11"), //$NON-NLS-1$
+			Messages.getString("StageMaker.12"), //$NON-NLS-1$
+			Messages.getString("StageMaker.13"), //$NON-NLS-1$
+			Messages.getString("StageMaker.14"), //$NON-NLS-1$
+			Messages.getString("StageMaker.15"), //$NON-NLS-1$
+			Messages.getString("StageMaker.16"), //$NON-NLS-1$
+			Messages.getString("StageMaker.17"), //$NON-NLS-1$
+			Messages.getString("StageMaker.18"), //$NON-NLS-1$
+			Messages.getString("StageMaker.19"), //$NON-NLS-1$
+			Messages.getString("StageMaker.20"), //$NON-NLS-1$
+			Messages.getString("StageMaker.21"), //$NON-NLS-1$
+			Messages.getString("StageMaker.22"), //$NON-NLS-1$
+			Messages.getString("StageMaker.23"), //$NON-NLS-1$
+			Messages.getString("StageMaker.24"), //$NON-NLS-1$
+			Messages.getString("StageMaker.25"), //$NON-NLS-1$
+			Messages.getString("StageMaker.26"), //$NON-NLS-1$
+			Messages.getString("StageMaker.27"), //$NON-NLS-1$
+			Messages.getString("StageMaker.28"), //$NON-NLS-1$
+			Messages.getString("StageMaker.29"), //$NON-NLS-1$
+			Messages.getString("StageMaker.30"), //$NON-NLS-1$
+			Messages.getString("StageMaker.31"), //$NON-NLS-1$
+			Messages.getString("StageMaker.32"), //$NON-NLS-1$
+			Messages.getString("StageMaker.33"), //$NON-NLS-1$
+			Messages.getString("StageMaker.34"), //$NON-NLS-1$
+			Messages.getString("StageMaker.35"), //$NON-NLS-1$
+			Messages.getString("StageMaker.36"), //$NON-NLS-1$
+			Messages.getString("StageMaker.37"), //$NON-NLS-1$
+			Messages.getString("StageMaker.38"), Messages.getString("StageMaker.39"), //$NON-NLS-1$ //$NON-NLS-2$
+			Messages.getString("StageMaker.40"), //$NON-NLS-1$
+			Messages.getString("StageMaker.41"), //$NON-NLS-1$
+			Messages.getString("StageMaker.42"), //$NON-NLS-1$
+			Messages.getString("StageMaker.43"), //$NON-NLS-1$
+			Messages.getString("StageMaker.44"), //$NON-NLS-1$
+			Messages.getString("StageMaker.45"), //$NON-NLS-1$
+			Messages.getString("StageMaker.46"), //$NON-NLS-1$
+			Messages.getString("StageMaker.47"), //$NON-NLS-1$
+			Messages.getString("StageMaker.48"), //$NON-NLS-1$
+			Messages.getString("StageMaker.49"), //$NON-NLS-1$
+			Messages.getString("StageMaker.50"), //$NON-NLS-1$
+			Messages.getString("StageMaker.51"), //$NON-NLS-1$
+			Messages.getString("StageMaker.52"), //$NON-NLS-1$
+			Messages.getString("StageMaker.53"), //$NON-NLS-1$
+			Messages.getString("StageMaker.54"), //$NON-NLS-1$
+			Messages.getString("StageMaker.55"), //$NON-NLS-1$
+			Messages.getString("StageMaker.56"), //$NON-NLS-1$
+			Messages.getString("StageMaker.57"), //$NON-NLS-1$
+			Messages.getString("StageMaker.58"), //$NON-NLS-1$
+			Messages.getString("StageMaker.59"), //$NON-NLS-1$
+			Messages.getString("StageMaker.60"), //$NON-NLS-1$
+			Messages.getString("StageMaker.61"), //$NON-NLS-1$
+			Messages.getString("StageMaker.62"), //$NON-NLS-1$
+			Messages.getString("StageMaker.63"), //$NON-NLS-1$
+			Messages.getString("StageMaker.64"), //$NON-NLS-1$
+			Messages.getString("StageMaker.65"), //$NON-NLS-1$
+			Messages.getString("StageMaker.66"), //$NON-NLS-1$
+			Messages.getString("StageMaker.67") }; //$NON-NLS-1$
 	boolean down = false;
 	int dtab = 0;
 	int dtabed = -1;
 	boolean epart = false;
 	int errd = 0;
 	String[] errlo = {
-			"The maximum allocated memory for the stage's part's details has been exerted.\nPlease decrease the amount of parts in the stage that have more details then average.",
-			"The maximum amount of road points allowed in the track has been exceeded.\nPlease remove some of the road parts that are in the circler path of the track (the parts that are between the checkpoints).\nOr try to remove some of the extra checkpoints in the track as well.",
-			"The maximum allowed area for a track (the area in between its walls) has been exceeded.\nPlease try to place parts only inside the current allowed area, inside the area between the current maximum wall placements.",
-			"The maximum number of parts allowed per stage has been exceeded.\nPlease remove some of the already extra parts placed in order to make space.",
-			"The maximum number of Fixing Hoops allowed per stage is 5!\nPlease remove the extra Fixing Hoops from your stage to have only 5 main ones left.",
-			"Unknown Error, please make sure the stage you are handling is saved correctly.\nPlease go to the 'Build' tab and press 'Save & Preview'.",
-			"There needs to be at least 2 checkpoints in the Stage in order for the game to work.\nPlease go to the 'Build' tab and select 'Checkpoint' in the Part Selection menu to add more checkpoints.",
-			"The name of the stage is too long!\nPlease go to the 'Stage' tab, click 'Rename Stage' and give your stage a shorter name." };
+			Messages.getString("StageMaker.68"), //$NON-NLS-1$
+			Messages.getString("StageMaker.69"), //$NON-NLS-1$
+			Messages.getString("StageMaker.70"), //$NON-NLS-1$
+			Messages.getString("StageMaker.71"), //$NON-NLS-1$
+			Messages.getString("StageMaker.72"), //$NON-NLS-1$
+			Messages.getString("StageMaker.73"), //$NON-NLS-1$
+			Messages.getString("StageMaker.74"), //$NON-NLS-1$
+			Messages.getString("StageMaker.75") }; //$NON-NLS-1$
 	int esp = -1;
 	boolean exwist = false;
 	int fgen = 0;
-	TextField fixh = new TextField("2000", 5);
+	TextField fixh = new TextField(Messages.getString("StageMaker.76"), 5); //$NON-NLS-1$
 	int flyh = 0;
 	boolean focuson = true;
 	int[] fogn = { 60, 0 };
@@ -177,12 +177,12 @@ public class StageMaker extends Applet implements Runnable {
 	int logged = 0;
 	Image logo;
 	int lsp = -1;
-	String ltrackname = "";
+	String ltrackname = Messages.getString("StageMaker.77"); //$NON-NLS-1$
 	int lxm = 0;
 	int lym = 0;
 	Medium m = new Medium();
 	String[] maker = new String[20];
-	TextField mgen = new TextField("", 10);
+	TextField mgen = new TextField(Messages.getString("StageMaker.78"), 10); //$NON-NLS-1$
 	boolean mousdr = false;
 	int mouseon = -1;
 	int mouses = 0;
@@ -202,7 +202,7 @@ public class StageMaker extends Applet implements Runnable {
 	Smenu part = new Smenu(40);
 	boolean[] pessd = { false, false, false, false, false, false, false, false, false, false, false, false, false,
 			false, false, false, false, false, false, false, false, false, false, false };
-	Checkbox pfog = new Checkbox("Linked Blend");
+	Checkbox pfog = new Checkbox(Messages.getString("StageMaker.79")); //$NON-NLS-1$
 	boolean pgen = false;
 	float phd = 2L + Math.round(Math.random() * 4.0);
 	boolean preop = false;
@@ -226,12 +226,12 @@ public class StageMaker extends Applet implements Runnable {
 	int spart = 0;
 	int sptyp = 0;
 	Image[] sr = new Image[2];
-	TextField srch = new TextField("", 38);
-	String sstage = "";
-	String stagename = "";
+	TextField srch = new TextField(Messages.getString("StageMaker.80"), 38); //$NON-NLS-1$
+	String sstage = Messages.getString("StageMaker.81"); //$NON-NLS-1$
+	String stagename = Messages.getString("StageMaker.82"); //$NON-NLS-1$
 	Smenu strtyp = new Smenu(40);
 	Image[] su = new Image[2];
-	String suser = "Horaks";
+	String suser = Messages.getString("StageMaker.83"); //$NON-NLS-1$
 	int sx = 0;
 	int sy = -10000;
 	int sz = 1500;
@@ -240,17 +240,17 @@ public class StageMaker extends Applet implements Runnable {
 	int tabed = -1;
 	int[] texture = { 0, 0, 0, 10 };
 	Thread thredo;
-	TextField tnick = new TextField("", 15);
-	TextField tpass = new TextField("", 15);
+	TextField tnick = new TextField(Messages.getString("StageMaker.84"), 15); //$NON-NLS-1$
+	TextField tpass = new TextField(Messages.getString("StageMaker.85"), 15); //$NON-NLS-1$
 	RadicalMod track = new RadicalMod();
-	String trackname = "";
+	String trackname = Messages.getString("StageMaker.86"); //$NON-NLS-1$
 	Smenu tracks = new Smenu(2000);
 	int tracksize = 111;
 	int trackvol = 200;
 	String tstage = new StringBuilder()
-			.append("snap(0,0,0)\r\nsky(191,215,255)\r\nclouds(255,255,255,5,-1000)\r\nfog(195,207,230)\r\nground(192,194,202)\r\ntexture(0,0,0,50)\r\nfadefrom(5000)\r\ndensity(5)\n\rmountains(")
-			.append((int) (Math.random() * 100000.0)).append(")\r\nnlaps(5)\r\n\r\n").toString();
-	String ttstage = "";
+			.append(Messages.getString("StageMaker.87")) //$NON-NLS-1$
+			.append((int) (Math.random() * 100000.0)).append(Messages.getString("StageMaker.88")).toString(); //$NON-NLS-1$
+	String ttstage = Messages.getString("StageMaker.89"); //$NON-NLS-1$
 	String[] undos = new String[5000];
 	boolean up = false;
 	int vx = 0;
@@ -267,12 +267,12 @@ public class StageMaker extends Applet implements Runnable {
 	boolean zoomo = false;
 
 	public boolean button(final String string, final int i, final int i_381_, final int i_382_, final boolean bool) {
-		rd.setFont(new Font("Arial", 1, 12));
+		rd.setFont(new Font(Messages.getString("StageMaker.90"), 1, 12)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
 		final int i_383_ = ftm.stringWidth(string);
 		boolean bool_384_ = false;
 		boolean bool_385_ = false;
-		if (string.equals(" Cancel ") && epart && Math.abs(xm - i) < i_383_ / 2 + 12 && Math.abs(ym - i_381_ + 5) < 10)
+		if (string.equals(Messages.getString("StageMaker.91")) && epart && Math.abs(xm - i) < i_383_ / 2 + 12 && Math.abs(ym - i_381_ + 5) < 10) //$NON-NLS-1$
 			overcan = true;
 		if (Math.abs(xm - i) < i_383_ / 2 + 12 && Math.abs(ym - i_381_ + 5) < 10 && mouses == 1)
 			bool_384_ = true;
@@ -332,7 +332,7 @@ public class StageMaker extends Applet implements Runnable {
 			rd.setColor(new Color(240, 240, 240));
 			rd.drawLine(i - i_383_ / 2 - 12, i_381_ - (16 - i_382_), i - i_383_ / 2 - 12, i_381_ + 6 - i_382_);
 			rd.setColor(new Color(0, 0, 0));
-			if (string.equals("  Keyboard Controls  "))
+			if (string.equals(Messages.getString("StageMaker.92"))) //$NON-NLS-1$
 				rd.setColor(new Color(100, 100, 100));
 			rd.drawString(string, i - i_383_ / 2, i_381_);
 		} else {
@@ -354,7 +354,7 @@ public class StageMaker extends Applet implements Runnable {
 			rd.drawLine(i - i_383_ / 2 - 11, i_381_ - (17 - i_382_), i - i_383_ / 2 - 11, i_381_ + 7 - i_382_);
 			rd.drawLine(i - i_383_ / 2 - 12, i_381_ - (16 - i_382_), i - i_383_ / 2 - 12, i_381_ + 6 - i_382_);
 			rd.setColor(new Color(0, 0, 0));
-			if (string.equals("  Keyboard Controls  "))
+			if (string.equals(Messages.getString("StageMaker.93"))) //$NON-NLS-1$
 				rd.setColor(new Color(100, 100, 100));
 			rd.drawString(string, i - i_383_ / 2 + 1, i_381_ + 1);
 		}
@@ -651,24 +651,24 @@ public class StageMaker extends Applet implements Runnable {
 	public void delstage(final String string) {
 		try {
 			final File file = new File(
-					new StringBuilder().append("mystages/").append(string).append(".txt").toString());
+					new StringBuilder().append(Messages.getString("StageMaker.94")).append(string).append(Messages.getString("StageMaker.95")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 			file.delete();
 			slstage.remove(string);
 			slstage.select(0);
 		} catch (final Exception exception) {
 			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Unable to delete file! Error Deatials:\n").append(exception).toString(),
-					"Stage Maker", 1);
+					new StringBuilder().append(Messages.getString("StageMaker.96")).append(exception).toString(), //$NON-NLS-1$
+					Messages.getString("StageMaker.97"), 1); //$NON-NLS-1$
 		}
 	}
 
 	public void deltrack() {
 		try {
-			final File file = new File(new StringBuilder().append("mystages/mymusic/").append(tracks.getSelectedItem())
-					.append(".zip").toString());
+			final File file = new File(new StringBuilder().append(Messages.getString("StageMaker.98")).append(tracks.getSelectedItem()) //$NON-NLS-1$
+					.append(Messages.getString("StageMaker.99")).toString()); //$NON-NLS-1$
 			file.delete();
 			if (trackname.equals(tracks.getSelectedItem())) {
-				trackname = "";
+				trackname = Messages.getString("StageMaker.100"); //$NON-NLS-1$
 				sortop();
 				savefile();
 			}
@@ -676,8 +676,8 @@ public class StageMaker extends Applet implements Runnable {
 			tracks.select(0);
 		} catch (final Exception exception) {
 			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Unable to delete file! Error Deatials:\n").append(exception).toString(),
-					"Stage Maker", 1);
+					new StringBuilder().append(Messages.getString("StageMaker.101")).append(exception).toString(), //$NON-NLS-1$
+					Messages.getString("StageMaker.102"), 1); //$NON-NLS-1$
 		}
 	}
 
@@ -712,22 +712,22 @@ public class StageMaker extends Applet implements Runnable {
 	public void fixtext(final TextField textfield) {
 		String string = textfield.getText();
 		string = string.replace('\"', '#');
-		final String string_330_ = "\\";
-		String string_331_ = "";
+		final String string_330_ = Messages.getString("StageMaker.103"); //$NON-NLS-1$
+		String string_331_ = Messages.getString("StageMaker.104"); //$NON-NLS-1$
 		int i = 0;
 		int i_332_ = -1;
-		rd.setFont(new Font("Arial", 1, 12));
+		rd.setFont(new Font(Messages.getString("StageMaker.105"), 1, 12)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
 		for (/**/; i < string.length(); i++) {
-			final String string_333_ = new StringBuilder().append("").append(string.charAt(i)).toString();
-			if (string_333_.equals("|") || string_333_.equals(",") || string_333_.equals("(") || string_333_.equals(")")
-					|| string_333_.equals("#") || string_333_.equals(string_330_) || string_333_.equals("!")
-					|| string_333_.equals("?") || string_333_.equals("~") || string_333_.equals(".")
-					|| string_333_.equals("@") || string_333_.equals("$") || string_333_.equals("%")
-					|| string_333_.equals("^") || string_333_.equals("&") || string_333_.equals("*")
-					|| string_333_.equals("+") || string_333_.equals("=") || string_333_.equals(">")
-					|| string_333_.equals("<") || string_333_.equals("/") || string_333_.equals(";")
-					|| string_333_.equals(":") || ftm.stringWidth(string_331_) > 274)
+			final String string_333_ = new StringBuilder().append(Messages.getString("StageMaker.106")).append(string.charAt(i)).toString(); //$NON-NLS-1$
+			if (string_333_.equals(Messages.getString("StageMaker.107")) || string_333_.equals(Messages.getString("StageMaker.108")) || string_333_.equals(Messages.getString("StageMaker.109")) || string_333_.equals(Messages.getString("StageMaker.110")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+					|| string_333_.equals(Messages.getString("StageMaker.111")) || string_333_.equals(string_330_) || string_333_.equals(Messages.getString("StageMaker.112")) //$NON-NLS-1$ //$NON-NLS-2$
+					|| string_333_.equals(Messages.getString("StageMaker.113")) || string_333_.equals(Messages.getString("StageMaker.114")) || string_333_.equals(Messages.getString("StageMaker.115")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					|| string_333_.equals(Messages.getString("StageMaker.116")) || string_333_.equals(Messages.getString("StageMaker.117")) || string_333_.equals(Messages.getString("StageMaker.118")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					|| string_333_.equals(Messages.getString("StageMaker.119")) || string_333_.equals(Messages.getString("StageMaker.120")) || string_333_.equals(Messages.getString("StageMaker.121")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					|| string_333_.equals(Messages.getString("StageMaker.122")) || string_333_.equals(Messages.getString("StageMaker.123")) || string_333_.equals(Messages.getString("StageMaker.124")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					|| string_333_.equals(Messages.getString("StageMaker.125")) || string_333_.equals(Messages.getString("StageMaker.126")) || string_333_.equals(Messages.getString("StageMaker.127")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					|| string_333_.equals(Messages.getString("StageMaker.128")) || ftm.stringWidth(string_331_) > 274) //$NON-NLS-1$
 				i_332_ = i;
 			else
 				string_331_ = new StringBuilder().append(string_331_).append(string_333_).toString();
@@ -752,10 +752,10 @@ public class StageMaker extends Applet implements Runnable {
 
 	public int getint(final String string, final String string_354_, final int i) {
 		int i_355_ = 0;
-		String string_356_ = "";
+		String string_356_ = Messages.getString("StageMaker.129"); //$NON-NLS-1$
 		for (int i_357_ = string.length() + 1; i_357_ < string_354_.length(); i_357_++) {
-			final String string_358_ = new StringBuilder().append("").append(string_354_.charAt(i_357_)).toString();
-			if (string_358_.equals(",") || string_358_.equals(")")) {
+			final String string_358_ = new StringBuilder().append(Messages.getString("StageMaker.130")).append(string_354_.charAt(i_357_)).toString(); //$NON-NLS-1$
+			if (string_358_.equals(Messages.getString("StageMaker.131")) || string_358_.equals(Messages.getString("StageMaker.132"))) { //$NON-NLS-1$ //$NON-NLS-2$
 				i_355_++;
 				i_357_++;
 			}
@@ -767,10 +767,10 @@ public class StageMaker extends Applet implements Runnable {
 
 	public String getstring(final String string, final String string_349_, final int i) {
 		int i_350_ = 0;
-		String string_351_ = "";
+		String string_351_ = Messages.getString("StageMaker.133"); //$NON-NLS-1$
 		for (int i_352_ = string.length() + 1; i_352_ < string_349_.length(); i_352_++) {
-			final String string_353_ = new StringBuilder().append("").append(string_349_.charAt(i_352_)).toString();
-			if (string_353_.equals(",") || string_353_.equals(")")) {
+			final String string_353_ = new StringBuilder().append(Messages.getString("StageMaker.134")).append(string_349_.charAt(i_352_)).toString(); //$NON-NLS-1$
+			if (string_353_.equals(Messages.getString("StageMaker.135")) || string_353_.equals(Messages.getString("StageMaker.136"))) { //$NON-NLS-1$ //$NON-NLS-2$
 				i_350_++;
 				i_352_++;
 			}
@@ -781,11 +781,11 @@ public class StageMaker extends Applet implements Runnable {
 	}
 
 	public String getSvalue(final String string, final String string_376_, final int i) {
-		String string_377_ = "";
+		String string_377_ = Messages.getString("StageMaker.137"); //$NON-NLS-1$
 		int i_378_ = 0;
 		for (int i_379_ = string.length() + 1; i_379_ < string_376_.length() && i_378_ <= i; i_379_++) {
-			final String string_380_ = new StringBuilder().append("").append(string_376_.charAt(i_379_)).toString();
-			if (string_380_.equals(",") || string_380_.equals(")"))
+			final String string_380_ = new StringBuilder().append(Messages.getString("StageMaker.138")).append(string_376_.charAt(i_379_)).toString(); //$NON-NLS-1$
+			if (string_380_.equals(Messages.getString("StageMaker.139")) || string_380_.equals(Messages.getString("StageMaker.140"))) //$NON-NLS-1$ //$NON-NLS-2$
 				i_378_++;
 			else if (i_378_ == i)
 				string_377_ = new StringBuilder().append(string_377_).append(string_380_).toString();
@@ -795,10 +795,10 @@ public class StageMaker extends Applet implements Runnable {
 
 	public int getvalue(final String string, final String string_371_, final int i) {
 		int i_372_ = 0;
-		String string_373_ = "";
+		String string_373_ = Messages.getString("StageMaker.141"); //$NON-NLS-1$
 		for (int i_374_ = string.length() + 1; i_374_ < string_371_.length(); i_374_++) {
-			final String string_375_ = new StringBuilder().append("").append(string_371_.charAt(i_374_)).toString();
-			if (string_375_.equals(",") || string_375_.equals(")")) {
+			final String string_375_ = new StringBuilder().append(Messages.getString("StageMaker.142")).append(string_371_.charAt(i_374_)).toString(); //$NON-NLS-1$
+			if (string_375_.equals(Messages.getString("StageMaker.143")) || string_375_.equals(Messages.getString("StageMaker.144"))) { //$NON-NLS-1$ //$NON-NLS-2$
 				i_372_++;
 				i_374_++;
 			}
@@ -833,66 +833,66 @@ public class StageMaker extends Applet implements Runnable {
 			rd = (Graphics2D) offImage.getGraphics();
 		rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		setLayout(null);
-		slstage.setFont(new Font("Arial", 1, 13));
-		slstage.add(rd, "Select a Stage...         ");
+		slstage.setFont(new Font(Messages.getString("StageMaker.145"), 1, 13)); //$NON-NLS-1$
+		slstage.add(rd, Messages.getString("StageMaker.146")); //$NON-NLS-1$
 		slstage.setForeground(new Color(63, 80, 110));
 		slstage.setBackground(new Color(209, 217, 230));
-		srch.setFont(new Font("Arial", 1, 12));
+		srch.setFont(new Font(Messages.getString("StageMaker.147"), 1, 12)); //$NON-NLS-1$
 		srch.setBackground(new Color(255, 255, 255));
 		srch.setForeground(new Color(0, 0, 0));
-		strtyp.setFont(new Font("Arial", 1, 12));
-		strtyp.add(rd, "NormalRoad");
-		strtyp.add(rd, "OffRoad");
+		strtyp.setFont(new Font(Messages.getString("StageMaker.148"), 1, 12)); //$NON-NLS-1$
+		strtyp.add(rd, Messages.getString("StageMaker.149")); //$NON-NLS-1$
+		strtyp.add(rd, Messages.getString("StageMaker.150")); //$NON-NLS-1$
 		strtyp.setBackground(new Color(63, 80, 110));
 		strtyp.setForeground(new Color(209, 217, 230));
-		ptyp.setFont(new Font("Arial", 1, 12));
-		ptyp.add(rd, "Roads");
-		ptyp.add(rd, "Ramps");
-		ptyp.add(rd, "Obstacles");
-		ptyp.add(rd, "Checkpoint");
-		ptyp.add(rd, "Fixing Hoop");
-		ptyp.add(rd, "Trees");
-		ptyp.add(rd, "Ground Pile");
+		ptyp.setFont(new Font(Messages.getString("StageMaker.151"), 1, 12)); //$NON-NLS-1$
+		ptyp.add(rd, Messages.getString("StageMaker.152")); //$NON-NLS-1$
+		ptyp.add(rd, Messages.getString("StageMaker.153")); //$NON-NLS-1$
+		ptyp.add(rd, Messages.getString("StageMaker.154")); //$NON-NLS-1$
+		ptyp.add(rd, Messages.getString("StageMaker.155")); //$NON-NLS-1$
+		ptyp.add(rd, Messages.getString("StageMaker.156")); //$NON-NLS-1$
+		ptyp.add(rd, Messages.getString("StageMaker.157")); //$NON-NLS-1$
+		ptyp.add(rd, Messages.getString("StageMaker.158")); //$NON-NLS-1$
 		ptyp.setBackground(new Color(63, 80, 110));
 		ptyp.setForeground(new Color(209, 217, 230));
-		part.setFont(new Font("Arial", 1, 12));
-		part.add(rd, "Halfpipe-Normal-Road Blend");
+		part.setFont(new Font(Messages.getString("StageMaker.159"), 1, 12)); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.160")); //$NON-NLS-1$
 		part.setBackground(new Color(63, 80, 110));
 		part.setForeground(new Color(209, 217, 230));
-		fixh.setFont(new Font("Arial", 1, 12));
+		fixh.setFont(new Font(Messages.getString("StageMaker.161"), 1, 12)); //$NON-NLS-1$
 		fixh.setBackground(new Color(255, 255, 255));
 		fixh.setForeground(new Color(0, 0, 0));
-		mgen.setFont(new Font("Arial", 1, 12));
+		mgen.setFont(new Font(Messages.getString("StageMaker.162"), 1, 12)); //$NON-NLS-1$
 		mgen.setBackground(new Color(255, 255, 255));
 		mgen.setForeground(new Color(0, 0, 0));
-		pfog.setFont(new Font("Arial", 1, 12));
+		pfog.setFont(new Font(Messages.getString("StageMaker.163"), 1, 12)); //$NON-NLS-1$
 		pfog.setBackground(new Color(225, 225, 225));
 		pfog.setForeground(new Color(0, 0, 0));
-		nlaps.setFont(new Font("Arial", 1, 12));
+		nlaps.setFont(new Font(Messages.getString("StageMaker.164"), 1, 12)); //$NON-NLS-1$
 		for (int i = 0; i < 15; i++)
-			nlaps.add(rd, new StringBuilder().append(" ").append(i + 1).append(" ").toString());
+			nlaps.add(rd, new StringBuilder().append(Messages.getString("StageMaker.165")).append(i + 1).append(Messages.getString("StageMaker.166")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 		nlaps.setBackground(new Color(63, 80, 110));
 		nlaps.setForeground(new Color(209, 217, 230));
-		tracks.setFont(new Font("Arial", 1, 12));
-		tracks.add(rd, "Select MOD Track");
+		tracks.setFont(new Font(Messages.getString("StageMaker.167"), 1, 12)); //$NON-NLS-1$
+		tracks.add(rd, Messages.getString("StageMaker.168")); //$NON-NLS-1$
 		tracks.setForeground(new Color(63, 80, 110));
 		tracks.setBackground(new Color(209, 217, 230));
-		witho.setFont(new Font("Arial", 1, 12));
-		witho.add(rd, "With other cars");
-		witho.add(rd, "Alone");
+		witho.setFont(new Font(Messages.getString("StageMaker.169"), 1, 12)); //$NON-NLS-1$
+		witho.add(rd, Messages.getString("StageMaker.170")); //$NON-NLS-1$
+		witho.add(rd, Messages.getString("StageMaker.171")); //$NON-NLS-1$
 		witho.setBackground(new Color(63, 80, 110));
 		witho.setForeground(new Color(209, 217, 230));
-		tnick.setFont(new Font("Arial", 1, 13));
+		tnick.setFont(new Font(Messages.getString("StageMaker.172"), 1, 13)); //$NON-NLS-1$
 		tnick.setBackground(new Color(255, 255, 255));
 		tnick.setForeground(new Color(0, 0, 0));
-		tpass.setFont(new Font("Arial", 1, 13));
+		tpass.setFont(new Font(Messages.getString("StageMaker.173"), 1, 13)); //$NON-NLS-1$
 		tpass.setEchoCharacter('*');
 		tpass.setBackground(new Color(255, 255, 255));
 		tpass.setForeground(new Color(0, 0, 0));
-		pubtyp.setFont(new Font("Arial", 1, 13));
-		pubtyp.add(rd, "Private");
-		pubtyp.add(rd, "Public");
-		pubtyp.add(rd, "Super Public");
+		pubtyp.setFont(new Font(Messages.getString("StageMaker.174"), 1, 13)); //$NON-NLS-1$
+		pubtyp.add(rd, Messages.getString("StageMaker.175")); //$NON-NLS-1$
+		pubtyp.add(rd, Messages.getString("StageMaker.176")); //$NON-NLS-1$
+		pubtyp.add(rd, Messages.getString("StageMaker.177")); //$NON-NLS-1$
 		pubtyp.setBackground(new Color(63, 80, 110));
 		pubtyp.setForeground(new Color(209, 217, 230));
 		add(tnick);
@@ -941,16 +941,16 @@ public class StageMaker extends Applet implements Runnable {
 	}
 
 	public void loadbase() {
-		final String[] strings = { "road", "froad", "twister2", "twister1", "turn", "offroad", "bumproad", "offturn",
-				"nroad", "nturn", "roblend", "noblend", "rnblend", "roadend", "offroadend", "hpground", "ramp30",
-				"cramp35", "dramp15", "dhilo15", "slide10", "takeoff", "sramp22", "offbump", "offramp", "sofframp",
-				"halfpipe", "spikes", "rail", "thewall", "checkpoint", "fixpoint", "offcheckpoint", "sideoff",
-				"bsideoff", "uprise", "riseroad", "sroad", "soffroad", "tside", "launchpad", "thenet", "speedramp",
-				"offhill", "slider", "uphill", "roll1", "roll2", "roll3", "roll4", "roll5", "roll6", "opile1", "opile2",
-				"aircheckpoint", "tree1", "tree2", "tree3", "tree4", "tree5", "tree6", "tree7", "tree8", "cac1", "cac2",
-				"cac3" };
+		final String[] strings = { Messages.getString("StageMaker.178"), Messages.getString("StageMaker.179"), Messages.getString("StageMaker.180"), Messages.getString("StageMaker.181"), Messages.getString("StageMaker.182"), Messages.getString("StageMaker.183"), Messages.getString("StageMaker.184"), Messages.getString("StageMaker.185"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
+				Messages.getString("StageMaker.186"), Messages.getString("StageMaker.187"), Messages.getString("StageMaker.188"), Messages.getString("StageMaker.189"), Messages.getString("StageMaker.190"), Messages.getString("StageMaker.191"), Messages.getString("StageMaker.192"), Messages.getString("StageMaker.193"), Messages.getString("StageMaker.194"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$
+				Messages.getString("StageMaker.195"), Messages.getString("StageMaker.196"), Messages.getString("StageMaker.197"), Messages.getString("StageMaker.198"), Messages.getString("StageMaker.199"), Messages.getString("StageMaker.200"), Messages.getString("StageMaker.201"), Messages.getString("StageMaker.202"), Messages.getString("StageMaker.203"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$
+				Messages.getString("StageMaker.204"), Messages.getString("StageMaker.205"), Messages.getString("StageMaker.206"), Messages.getString("StageMaker.207"), Messages.getString("StageMaker.208"), Messages.getString("StageMaker.209"), Messages.getString("StageMaker.210"), Messages.getString("StageMaker.211"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
+				Messages.getString("StageMaker.212"), Messages.getString("StageMaker.213"), Messages.getString("StageMaker.214"), Messages.getString("StageMaker.215"), Messages.getString("StageMaker.216"), Messages.getString("StageMaker.217"), Messages.getString("StageMaker.218"), Messages.getString("StageMaker.219"), Messages.getString("StageMaker.220"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$
+				Messages.getString("StageMaker.221"), Messages.getString("StageMaker.222"), Messages.getString("StageMaker.223"), Messages.getString("StageMaker.224"), Messages.getString("StageMaker.225"), Messages.getString("StageMaker.226"), Messages.getString("StageMaker.227"), Messages.getString("StageMaker.228"), Messages.getString("StageMaker.229"), Messages.getString("StageMaker.230"), Messages.getString("StageMaker.231"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$ //$NON-NLS-10$ //$NON-NLS-11$
+				Messages.getString("StageMaker.232"), Messages.getString("StageMaker.233"), Messages.getString("StageMaker.234"), Messages.getString("StageMaker.235"), Messages.getString("StageMaker.236"), Messages.getString("StageMaker.237"), Messages.getString("StageMaker.238"), Messages.getString("StageMaker.239"), Messages.getString("StageMaker.240"), Messages.getString("StageMaker.241"), Messages.getString("StageMaker.242"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$ //$NON-NLS-10$ //$NON-NLS-11$
+				Messages.getString("StageMaker.243") }; //$NON-NLS-1$
 		try {
-			final File file = new File("data/models.zip");
+			final File file = new File(Messages.getString("StageMaker.244")); //$NON-NLS-1$
 			final ZipInputStream zipinputstream = new ZipInputStream(new FileInputStream(file));
 			ZipEntry zipentry = zipinputstream.getNextEntry();
 			for (/**/; zipentry != null; zipentry = zipinputstream.getNextEntry()) {
@@ -978,15 +978,15 @@ public class StageMaker extends Applet implements Runnable {
 			bco[66] = new ContO((int) (10000.0 * Math.random()), (int) pwd, (int) phd, m, t, 0, 0, 0);
 		} catch (final Exception exception) {
 			JOptionPane.showMessageDialog(null, new StringBuilder()
-					.append("Unable to load file 'data/models.zip'!\nError:\n").append(exception).toString(),
-					"Stage Maker", 1);
+					.append(Messages.getString("StageMaker.245")).append(exception).toString(), //$NON-NLS-1$
+					Messages.getString("StageMaker.246"), 1); //$NON-NLS-1$
 		}
 		System.gc();
 	}
 
 	public void loadsettings() {
 		try {
-			final File file = new File("mystages/settings.data");
+			final File file = new File(Messages.getString("StageMaker.247")); //$NON-NLS-1$
 			if (file.exists()) {
 				final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
 				String string = bufferedreader.readLine();
@@ -997,7 +997,7 @@ public class StageMaker extends Applet implements Runnable {
 				string = bufferedreader.readLine();
 				if (string != null) {
 					suser = string;
-					if (!suser.equals("Horaks"))
+					if (!suser.equals(Messages.getString("StageMaker.248"))) //$NON-NLS-1$
 						tnick.setText(suser);
 				}
 				bufferedreader.close();
@@ -1063,22 +1063,22 @@ public class StageMaker extends Applet implements Runnable {
 	}
 
 	public void newstage() {
-		if (!srch.getText().equals("")) {
+		if (!srch.getText().equals(Messages.getString("StageMaker.249"))) { //$NON-NLS-1$
 			final File file = new File(
-					new StringBuilder().append("mystages/").append(srch.getText()).append(".txt").toString());
+					new StringBuilder().append(Messages.getString("StageMaker.250")).append(srch.getText()).append(Messages.getString("StageMaker.251")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 			if (!file.exists()) {
 				stagename = srch.getText();
 				tstage = new StringBuilder()
-						.append("snap(0,0,0)\r\nsky(191,215,255)\r\nclouds(255,255,255,5,-1000)\r\nfog(195,207,230)\r\nground(192,194,202)\r\ntexture(0,0,0,50)\r\nfadefrom(5000)\r\ndensity(5)\r\nmountains(")
-						.append((int) (Math.random() * 100000.0)).append(")\r\nnlaps(5)\r\n\r\n").toString();
+						.append(Messages.getString("StageMaker.252")) //$NON-NLS-1$
+						.append((int) (Math.random() * 100000.0)).append(Messages.getString("StageMaker.253")).toString(); //$NON-NLS-1$
 				if (strtyp.getSelectedIndex() == 1)
-					bstage = "set(48,0,0,0)\r\n";
+					bstage = Messages.getString("StageMaker.254"); //$NON-NLS-1$
 				else
-					bstage = "set(47,0,0,0)\r\n";
+					bstage = Messages.getString("StageMaker.255"); //$NON-NLS-1$
 				final StringBuilder stringbuilder = new StringBuilder();
 				final StageMaker stagemaker_238_ = this;
 				stagemaker_238_.bstage = stringbuilder.append(stagemaker_238_.bstage)
-						.append("\r\nmaxl(3,-7200,-4800)\r\nmaxb(3,-7200,-4800)\r\nmaxr(3,7200,-4800)\r\nmaxt(3,7200,-4800)\r\n")
+						.append(Messages.getString("StageMaker.256")) //$NON-NLS-1$
 						.toString();
 				savefile();
 				strtyp.setVisible(false);
@@ -1087,24 +1087,24 @@ public class StageMaker extends Applet implements Runnable {
 				tabed = -2;
 			} else
 				JOptionPane.showMessageDialog(null,
-						"A stage with that name already exists, please choose another name!", "Stage Maker", 1);
+						Messages.getString("StageMaker.257"), Messages.getString("StageMaker.258"), 1); //$NON-NLS-1$ //$NON-NLS-2$
 		} else
-			JOptionPane.showMessageDialog(null, "Please enter a stage name first!", "Stage Maker", 1);
+			JOptionPane.showMessageDialog(null, Messages.getString("StageMaker.259"), Messages.getString("StageMaker.260"), 1); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	public void openhlink() {
-		Madness.openurl("http://www.needformadness.com/developer/");
+		Madness.openurl(Messages.getString("StageMaker.261")); //$NON-NLS-1$
 	}
 
 	public void openlink() {
-		Madness.openurl("http://www.needformadness.com/developer/help.html");
+		Madness.openurl(Messages.getString("StageMaker.262")); //$NON-NLS-1$
 	}
 
 	public boolean ovbutton(final String string, final int i, final int i_387_) {
-		rd.setFont(new Font("Arial", 0, 12));
+		rd.setFont(new Font(Messages.getString("StageMaker.263"), 0, 12)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
-		if (string.equals("X") || string.equals("Download")) {
-			rd.setFont(new Font("Arial", 1, 12));
+		if (string.equals(Messages.getString("StageMaker.264")) || string.equals(Messages.getString("StageMaker.265"))) { //$NON-NLS-1$ //$NON-NLS-2$
+			rd.setFont(new Font(Messages.getString("StageMaker.266"), 1, 12)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
 		}
 		final int i_388_ = ftm.stringWidth(string);
@@ -1142,9 +1142,9 @@ public class StageMaker extends Applet implements Runnable {
 			rd.setColor(new Color(240, 240, 240));
 			rd.drawLine(i - i_388_ / 2 - 12, i_387_ - (16 - i_389_), i - i_388_ / 2 - 12, i_387_ + 6 - i_389_);
 			rd.setColor(new Color(0, 0, 0));
-			if (string.equals("X"))
+			if (string.equals(Messages.getString("StageMaker.267"))) //$NON-NLS-1$
 				rd.setColor(new Color(255, 0, 0));
-			if (string.equals("Download"))
+			if (string.equals(Messages.getString("StageMaker.268"))) //$NON-NLS-1$
 				rd.setColor(new Color(0, 64, 128));
 			rd.drawString(string, i - i_388_ / 2, i_387_);
 		} else {
@@ -1166,9 +1166,9 @@ public class StageMaker extends Applet implements Runnable {
 			rd.drawLine(i - i_388_ / 2 - 11, i_387_ - (17 - i_389_), i - i_388_ / 2 - 11, i_387_ + 7 - i_389_);
 			rd.drawLine(i - i_388_ / 2 - 12, i_387_ - (16 - i_389_), i - i_388_ / 2 - 12, i_387_ + 6 - i_389_);
 			rd.setColor(new Color(0, 0, 0));
-			if (string.equals("X"))
+			if (string.equals(Messages.getString("StageMaker.269"))) //$NON-NLS-1$
 				rd.setColor(new Color(255, 0, 0));
-			if (string.equals("Download"))
+			if (string.equals(Messages.getString("StageMaker.270"))) //$NON-NLS-1$
 				rd.setColor(new Color(0, 64, 128));
 			rd.drawString(string, i - i_388_ / 2 + 1, i_387_ + 1);
 		}
@@ -1184,77 +1184,77 @@ public class StageMaker extends Applet implements Runnable {
 
 	public void partobst() {
 		part.removeAll();
-		part.add(rd, "Spiky Pillars");
-		part.add(rd, "Rail Doorway");
-		part.add(rd, "The Net");
-		part.add(rd, "Bump Slide");
-		part.add(rd, "Offroad Dirt-Pile 1");
-		part.add(rd, "Offroad Dirt-Pile 2");
+		part.add(rd, Messages.getString("StageMaker.271")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.272")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.273")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.274")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.275")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.276")); //$NON-NLS-1$
 	}
 
 	public void partramps() {
 		part.removeAll();
-		part.add(rd, "Basic Ramp");
-		part.add(rd, "Two-Way Ramp");
-		part.add(rd, "Two-Way High-Low Ramp");
-		part.add(rd, "Small Ramp");
-		part.add(rd, "Crash Ramp");
-		part.add(rd, "Big-Takeoff Ramp");
-		part.add(rd, "Landing Ramp");
-		part.add(rd, "Tunnel Side Ramp");
-		part.add(rd, "Speed Ramp");
-		part.add(rd, "Launch Pad Ramp");
-		part.add(rd, "Offroad Bump Ramp");
-		part.add(rd, "Offroad Ramp");
-		part.add(rd, "Offroad Big Ramp");
-		part.add(rd, "Offroad Hill Ramp");
-		part.add(rd, "Offroad Big Hill Ramp");
-		part.add(rd, "Halfpipe");
+		part.add(rd, Messages.getString("StageMaker.277")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.278")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.279")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.280")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.281")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.282")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.283")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.284")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.285")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.286")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.287")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.288")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.289")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.290")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.291")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.292")); //$NON-NLS-1$
 	}
 
 	public void partrees() {
 		part.removeAll();
-		part.add(rd, "Tree 1");
-		part.add(rd, "Tree 2");
-		part.add(rd, "Tree 3");
-		part.add(rd, "Tree 4");
-		part.add(rd, "Tree 5");
-		part.add(rd, "Palm Tree 1");
-		part.add(rd, "Palm Tree 2");
-		part.add(rd, "Palm Tree 3");
-		part.add(rd, "Cactus 1");
-		part.add(rd, "Cactus 2");
-		part.add(rd, "Cactus 3");
+		part.add(rd, Messages.getString("StageMaker.293")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.294")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.295")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.296")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.297")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.298")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.299")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.300")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.301")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.302")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.303")); //$NON-NLS-1$
 	}
 
 	public void partroads() {
 		part.removeAll();
-		part.add(rd, "NormalRoad");
-		part.add(rd, "NormalRoad Turn");
-		part.add(rd, "NormalRoad End");
-		part.add(rd, "NormalRoad TwistedLeft");
-		part.add(rd, "NormalRoad TwistedRight");
-		part.add(rd, "NormalRoad Edged");
-		part.add(rd, "NormalRoad-Raised Ramp");
-		part.add(rd, "NormalRoad Raised");
-		part.add(rd, "Normal-Off-Road Blend");
-		part.add(rd, "OffRoad");
-		part.add(rd, "OffRoad Turn");
-		part.add(rd, "OffRoad End");
-		part.add(rd, "OffRoad BumpyGreen");
-		part.add(rd, "OffRoad-BumpySides Start");
-		part.add(rd, "OffRoad BumpySides");
-		part.add(rd, "Off-Halfpipe-Road Blend");
-		part.add(rd, "HalfpipeRoad");
-		part.add(rd, "HalfpipeRoad Turn");
-		part.add(rd, "HalfpipeRoad-Ramp Filler");
-		part.add(rd, "Halfpipe-Normal-Road Blend");
-		part.add(rd, "Rollercoaster Start/End");
-		part.add(rd, "Rollercoaster Road1");
-		part.add(rd, "Rollercoaster Road2");
-		part.add(rd, "Rollercoaster Road3");
-		part.add(rd, "Rollercoaster Road4");
-		part.add(rd, "Rollercoaster Road5");
+		part.add(rd, Messages.getString("StageMaker.304")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.305")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.306")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.307")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.308")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.309")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.310")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.311")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.312")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.313")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.314")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.315")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.316")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.317")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.318")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.319")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.320")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.321")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.322")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.323")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.324")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.325")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.326")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.327")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.328")); //$NON-NLS-1$
+		part.add(rd, Messages.getString("StageMaker.329")); //$NON-NLS-1$
 	}
 
 	public int py(final int i, final int i_343_, final int i_344_, final int i_345_) {
@@ -1267,7 +1267,7 @@ public class StageMaker extends Applet implements Runnable {
 
 	public void readstage(final int i) {
 		errd = 0;
-		trackname = "";
+		trackname = Messages.getString("StageMaker.330"); //$NON-NLS-1$
 		t.nt = 0;
 		nob = 0;
 		xnob = 0;
@@ -1285,116 +1285,116 @@ public class StageMaker extends Applet implements Runnable {
 			m.snap[2] = 0;
 		}
 		if (i == 3) {
-			tstage = "";
-			bstage = "";
+			tstage = Messages.getString("StageMaker.331"); //$NON-NLS-1$
+			bstage = Messages.getString("StageMaker.332"); //$NON-NLS-1$
 		}
 		String string = bstage;
 		if (i == 1 || i == 2)
-			string = new StringBuilder().append("").append(tstage).append("\r\n").append(bstage).append("").toString();
+			string = new StringBuilder().append(Messages.getString("StageMaker.333")).append(tstage).append(Messages.getString("StageMaker.334")).append(bstage).append(Messages.getString("StageMaker.335")).toString(); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		int i_181_ = 0;
 		int i_182_ = 100;
 		int i_183_ = 0;
 		int i_184_ = 100;
 		boolean bool = true;
 		boolean bool_185_ = true;
-		String string_186_ = "";
+		String string_186_ = Messages.getString("StageMaker.336"); //$NON-NLS-1$
 		try {
 			DataInputStream datainputstream;
 			if (i == 3) {
 				final File file = new File(
-						new StringBuilder().append("mystages/").append(stagename).append(".txt").toString());
+						new StringBuilder().append(Messages.getString("StageMaker.337")).append(stagename).append(Messages.getString("StageMaker.338")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 				datainputstream = new DataInputStream(new FileInputStream(file));
 				nundo = 0;
 			} else
 				datainputstream = new DataInputStream(new ByteArrayInputStream(string.getBytes()));
 			String string_187_;
 			while ((string_187_ = datainputstream.readLine()) != null) {
-				string_186_ = new StringBuilder().append("").append(string_187_.trim()).toString();
-				if (string_186_.startsWith("sky")) {
-					csky[0] = getint("sky", string_186_, 0);
-					csky[1] = getint("sky", string_186_, 1);
-					csky[2] = getint("sky", string_186_, 2);
+				string_186_ = new StringBuilder().append(Messages.getString("StageMaker.339")).append(string_187_.trim()).toString(); //$NON-NLS-1$
+				if (string_186_.startsWith(Messages.getString("StageMaker.340"))) { //$NON-NLS-1$
+					csky[0] = getint(Messages.getString("StageMaker.341"), string_186_, 0); //$NON-NLS-1$
+					csky[1] = getint(Messages.getString("StageMaker.342"), string_186_, 1); //$NON-NLS-1$
+					csky[2] = getint(Messages.getString("StageMaker.343"), string_186_, 2); //$NON-NLS-1$
 					m.setsky(csky[0], csky[1], csky[2]);
 					if (i == 3) {
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_188_ = this;
-						stagemaker_188_.tstage = stringbuilder.append(stagemaker_188_.tstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_188_.tstage = stringbuilder.append(stagemaker_188_.tstage).append(Messages.getString("StageMaker.344")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.345")).toString(); //$NON-NLS-1$
 					}
 				}
-				if (string_186_.startsWith("ground")) {
-					cgrnd[0] = getint("ground", string_186_, 0);
-					cgrnd[1] = getint("ground", string_186_, 1);
-					cgrnd[2] = getint("ground", string_186_, 2);
+				if (string_186_.startsWith(Messages.getString("StageMaker.346"))) { //$NON-NLS-1$
+					cgrnd[0] = getint(Messages.getString("StageMaker.347"), string_186_, 0); //$NON-NLS-1$
+					cgrnd[1] = getint(Messages.getString("StageMaker.348"), string_186_, 1); //$NON-NLS-1$
+					cgrnd[2] = getint(Messages.getString("StageMaker.349"), string_186_, 2); //$NON-NLS-1$
 					m.setgrnd(cgrnd[0], cgrnd[1], cgrnd[2]);
 					if (i == 3) {
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_189_ = this;
-						stagemaker_189_.tstage = stringbuilder.append(stagemaker_189_.tstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_189_.tstage = stringbuilder.append(stagemaker_189_.tstage).append(Messages.getString("StageMaker.350")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.351")).toString(); //$NON-NLS-1$
 					}
 				}
-				if (string_186_.startsWith("polys")) {
-					m.setpolys(getint("polys", string_186_, 0), getint("polys", string_186_, 1),
-							getint("polys", string_186_, 2));
+				if (string_186_.startsWith(Messages.getString("StageMaker.352"))) { //$NON-NLS-1$
+					m.setpolys(getint(Messages.getString("StageMaker.353"), string_186_, 0), getint(Messages.getString("StageMaker.354"), string_186_, 1), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("StageMaker.355"), string_186_, 2)); //$NON-NLS-1$
 					if (i == 3) {
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_190_ = this;
-						stagemaker_190_.tstage = stringbuilder.append(stagemaker_190_.tstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_190_.tstage = stringbuilder.append(stagemaker_190_.tstage).append(Messages.getString("StageMaker.356")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.357")).toString(); //$NON-NLS-1$
 					}
 				}
-				if (string_186_.startsWith("fog")) {
-					cfade[0] = getint("fog", string_186_, 0);
-					cfade[1] = getint("fog", string_186_, 1);
-					cfade[2] = getint("fog", string_186_, 2);
+				if (string_186_.startsWith(Messages.getString("StageMaker.358"))) { //$NON-NLS-1$
+					cfade[0] = getint(Messages.getString("StageMaker.359"), string_186_, 0); //$NON-NLS-1$
+					cfade[1] = getint(Messages.getString("StageMaker.360"), string_186_, 1); //$NON-NLS-1$
+					cfade[2] = getint(Messages.getString("StageMaker.361"), string_186_, 2); //$NON-NLS-1$
 					m.setfade(cfade[0], cfade[1], cfade[2]);
 					if (i == 3) {
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_191_ = this;
-						stagemaker_191_.tstage = stringbuilder.append(stagemaker_191_.tstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_191_.tstage = stringbuilder.append(stagemaker_191_.tstage).append(Messages.getString("StageMaker.362")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.363")).toString(); //$NON-NLS-1$
 					}
 				}
-				if (string_186_.startsWith("texture")) {
-					texture[0] = getint("texture", string_186_, 0);
-					texture[1] = getint("texture", string_186_, 1);
-					texture[2] = getint("texture", string_186_, 2);
-					texture[3] = getint("texture", string_186_, 3);
+				if (string_186_.startsWith(Messages.getString("StageMaker.364"))) { //$NON-NLS-1$
+					texture[0] = getint(Messages.getString("StageMaker.365"), string_186_, 0); //$NON-NLS-1$
+					texture[1] = getint(Messages.getString("StageMaker.366"), string_186_, 1); //$NON-NLS-1$
+					texture[2] = getint(Messages.getString("StageMaker.367"), string_186_, 2); //$NON-NLS-1$
+					texture[3] = getint(Messages.getString("StageMaker.368"), string_186_, 3); //$NON-NLS-1$
 					m.setexture(texture[0], texture[1], texture[2], texture[3]);
 					if (i == 3) {
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_192_ = this;
-						stagemaker_192_.tstage = stringbuilder.append(stagemaker_192_.tstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_192_.tstage = stringbuilder.append(stagemaker_192_.tstage).append(Messages.getString("StageMaker.369")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.370")).toString(); //$NON-NLS-1$
 					}
 				}
-				if (string_186_.startsWith("clouds")) {
-					cldd[0] = getint("clouds", string_186_, 0);
-					cldd[1] = getint("clouds", string_186_, 1);
-					cldd[2] = getint("clouds", string_186_, 2);
-					cldd[3] = getint("clouds", string_186_, 3);
-					cldd[4] = getint("clouds", string_186_, 4);
+				if (string_186_.startsWith(Messages.getString("StageMaker.371"))) { //$NON-NLS-1$
+					cldd[0] = getint(Messages.getString("StageMaker.372"), string_186_, 0); //$NON-NLS-1$
+					cldd[1] = getint(Messages.getString("StageMaker.373"), string_186_, 1); //$NON-NLS-1$
+					cldd[2] = getint(Messages.getString("StageMaker.374"), string_186_, 2); //$NON-NLS-1$
+					cldd[3] = getint(Messages.getString("StageMaker.375"), string_186_, 3); //$NON-NLS-1$
+					cldd[4] = getint(Messages.getString("StageMaker.376"), string_186_, 4); //$NON-NLS-1$
 					m.setcloads(cldd[0], cldd[1], cldd[2], cldd[3], cldd[4]);
 					if (i == 3) {
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_193_ = this;
-						stagemaker_193_.tstage = stringbuilder.append(stagemaker_193_.tstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_193_.tstage = stringbuilder.append(stagemaker_193_.tstage).append(Messages.getString("StageMaker.377")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.378")).toString(); //$NON-NLS-1$
 					}
 				}
-				if (i != 2 && string_186_.startsWith("snap")) {
-					m.setsnap(getint("snap", string_186_, 0), getint("snap", string_186_, 1),
-							getint("snap", string_186_, 2));
+				if (i != 2 && string_186_.startsWith(Messages.getString("StageMaker.379"))) { //$NON-NLS-1$
+					m.setsnap(getint(Messages.getString("StageMaker.380"), string_186_, 0), getint(Messages.getString("StageMaker.381"), string_186_, 1), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("StageMaker.382"), string_186_, 2)); //$NON-NLS-1$
 					if (i == 3) {
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_194_ = this;
-						stagemaker_194_.tstage = stringbuilder.append(stagemaker_194_.tstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_194_.tstage = stringbuilder.append(stagemaker_194_.tstage).append(Messages.getString("StageMaker.383")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.384")).toString(); //$NON-NLS-1$
 					}
 				}
-				if (string_186_.startsWith("density")) {
-					m.fogd = (getint("density", string_186_, 0) + 1) * 2 - 1;
+				if (string_186_.startsWith(Messages.getString("StageMaker.385"))) { //$NON-NLS-1$
+					m.fogd = (getint(Messages.getString("StageMaker.386"), string_186_, 0) + 1) * 2 - 1; //$NON-NLS-1$
 					if (m.fogd < 1)
 						m.fogd = 1;
 					if (m.fogd > 30)
@@ -1402,40 +1402,40 @@ public class StageMaker extends Applet implements Runnable {
 					if (i == 3) {
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_195_ = this;
-						stagemaker_195_.tstage = stringbuilder.append(stagemaker_195_.tstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_195_.tstage = stringbuilder.append(stagemaker_195_.tstage).append(Messages.getString("StageMaker.387")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.388")).toString(); //$NON-NLS-1$
 					}
 				}
-				if (string_186_.startsWith("mountains")) {
-					m.mgen = getint("mountains", string_186_, 0);
+				if (string_186_.startsWith(Messages.getString("StageMaker.389"))) { //$NON-NLS-1$
+					m.mgen = getint(Messages.getString("StageMaker.390"), string_186_, 0); //$NON-NLS-1$
 					if (i == 3) {
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_196_ = this;
-						stagemaker_196_.tstage = stringbuilder.append(stagemaker_196_.tstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_196_.tstage = stringbuilder.append(stagemaker_196_.tstage).append(Messages.getString("StageMaker.391")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.392")).toString(); //$NON-NLS-1$
 					}
 				}
-				if (string_186_.startsWith("fadefrom")) {
-					m.fadfrom(getint("fadefrom", string_186_, 0));
+				if (string_186_.startsWith(Messages.getString("StageMaker.393"))) { //$NON-NLS-1$
+					m.fadfrom(getint(Messages.getString("StageMaker.394"), string_186_, 0)); //$NON-NLS-1$
 					origfade = m.fade[0];
 					if (i == 3) {
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_197_ = this;
-						stagemaker_197_.tstage = stringbuilder.append(stagemaker_197_.tstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_197_.tstage = stringbuilder.append(stagemaker_197_.tstage).append(Messages.getString("StageMaker.395")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.396")).toString(); //$NON-NLS-1$
 					}
 				}
-				if (string_186_.startsWith("lightson")) {
+				if (string_186_.startsWith(Messages.getString("StageMaker.397"))) { //$NON-NLS-1$
 					m.lightson = true;
 					if (i == 3) {
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_198_ = this;
-						stagemaker_198_.tstage = stringbuilder.append(stagemaker_198_.tstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_198_.tstage = stringbuilder.append(stagemaker_198_.tstage).append(Messages.getString("StageMaker.398")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.399")).toString(); //$NON-NLS-1$
 					}
 				}
-				if (string_186_.startsWith("nlaps")) {
-					cp.nlaps = getint("nlaps", string_186_, 0);
+				if (string_186_.startsWith(Messages.getString("StageMaker.400"))) { //$NON-NLS-1$
+					cp.nlaps = getint(Messages.getString("StageMaker.401"), string_186_, 0); //$NON-NLS-1$
 					if (cp.nlaps < 1)
 						cp.nlaps = 1;
 					if (cp.nlaps > 15)
@@ -1443,42 +1443,42 @@ public class StageMaker extends Applet implements Runnable {
 					if (i == 3) {
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_199_ = this;
-						stagemaker_199_.tstage = stringbuilder.append(stagemaker_199_.tstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_199_.tstage = stringbuilder.append(stagemaker_199_.tstage).append(Messages.getString("StageMaker.402")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.403")).toString(); //$NON-NLS-1$
 					}
 				}
-				if (string_186_.startsWith("soundtrack")) {
-					trackname = getstring("soundtrack", string_186_, 0);
-					trackvol = getint("soundtrack", string_186_, 1);
-					tracksize = getint("soundtrack", string_186_, 2);
+				if (string_186_.startsWith(Messages.getString("StageMaker.404"))) { //$NON-NLS-1$
+					trackname = getstring(Messages.getString("StageMaker.405"), string_186_, 0); //$NON-NLS-1$
+					trackvol = getint(Messages.getString("StageMaker.406"), string_186_, 1); //$NON-NLS-1$
+					tracksize = getint(Messages.getString("StageMaker.407"), string_186_, 2); //$NON-NLS-1$
 					if (i == 3) {
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_200_ = this;
-						stagemaker_200_.tstage = stringbuilder.append(stagemaker_200_.tstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_200_.tstage = stringbuilder.append(stagemaker_200_.tstage).append(Messages.getString("StageMaker.408")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.409")).toString(); //$NON-NLS-1$
 					}
 				}
-				if (string_186_.startsWith("set")) {
-					int i_201_ = getint("set", string_186_, 0);
+				if (string_186_.startsWith(Messages.getString("StageMaker.410"))) { //$NON-NLS-1$
+					int i_201_ = getint(Messages.getString("StageMaker.411"), string_186_, 0); //$NON-NLS-1$
 					if (i_201_ >= 10 && i_201_ <= 25)
 						m.loadnew = true;
 					i_201_ -= 10;
-					co[nob] = new ContO(bco[i_201_], getint("set", string_186_, 1), m.ground - bco[i_201_].grat,
-							getint("set", string_186_, 2), getint("set", string_186_, 3));
-					co[nob].roofat = getint("set", string_186_, 3);
+					co[nob] = new ContO(bco[i_201_], getint(Messages.getString("StageMaker.412"), string_186_, 1), m.ground - bco[i_201_].grat, //$NON-NLS-1$
+							getint(Messages.getString("StageMaker.413"), string_186_, 2), getint(Messages.getString("StageMaker.414"), string_186_, 3)); //$NON-NLS-1$ //$NON-NLS-2$
+					co[nob].roofat = getint(Messages.getString("StageMaker.415"), string_186_, 3); //$NON-NLS-1$
 					co[nob].colok = i_201_;
-					if (string_186_.indexOf(")p") != -1) {
-						cp.x[cp.n] = getint("chk", string_186_, 1);
-						cp.z[cp.n] = getint("chk", string_186_, 2);
+					if (string_186_.indexOf(Messages.getString("StageMaker.416")) != -1) { //$NON-NLS-1$
+						cp.x[cp.n] = getint(Messages.getString("StageMaker.417"), string_186_, 1); //$NON-NLS-1$
+						cp.z[cp.n] = getint(Messages.getString("StageMaker.418"), string_186_, 2); //$NON-NLS-1$
 						cp.y[cp.n] = 0;
 						cp.typ[cp.n] = 0;
-						if (string_186_.indexOf(")pt") != -1)
+						if (string_186_.indexOf(Messages.getString("StageMaker.419")) != -1) //$NON-NLS-1$
 							cp.typ[cp.n] = -1;
-						if (string_186_.indexOf(")pr") != -1)
+						if (string_186_.indexOf(Messages.getString("StageMaker.420")) != -1) //$NON-NLS-1$
 							cp.typ[cp.n] = -2;
-						if (string_186_.indexOf(")po") != -1)
+						if (string_186_.indexOf(Messages.getString("StageMaker.421")) != -1) //$NON-NLS-1$
 							cp.typ[cp.n] = -3;
-						if (string_186_.indexOf(")ph") != -1)
+						if (string_186_.indexOf(Messages.getString("StageMaker.422")) != -1) //$NON-NLS-1$
 							cp.typ[cp.n] = -4;
 						cp.n++;
 					}
@@ -1488,39 +1488,39 @@ public class StageMaker extends Applet implements Runnable {
 						if (bool_185_) {
 							final StringBuilder stringbuilder = new StringBuilder();
 							final StageMaker stagemaker_202_ = this;
-							stagemaker_202_.bstage = stringbuilder.append(stagemaker_202_.bstage).append("\r\n")
+							stagemaker_202_.bstage = stringbuilder.append(stagemaker_202_.bstage).append(Messages.getString("StageMaker.423")) //$NON-NLS-1$
 									.toString();
 							bool_185_ = false;
 						}
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_203_ = this;
-						stagemaker_203_.bstage = stringbuilder.append(stagemaker_203_.bstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_203_.bstage = stringbuilder.append(stagemaker_203_.bstage).append(Messages.getString("StageMaker.424")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.425")).toString(); //$NON-NLS-1$
 					}
 					if (m.loadnew)
 						m.loadnew = false;
 				}
-				if (string_186_.startsWith("chk")) {
-					int i_204_ = getint("chk", string_186_, 0);
+				if (string_186_.startsWith(Messages.getString("StageMaker.426"))) { //$NON-NLS-1$
+					int i_204_ = getint(Messages.getString("StageMaker.427"), string_186_, 0); //$NON-NLS-1$
 					i_204_ -= 10;
 					int i_205_ = m.ground - bco[i_204_].grat;
 					if (i_204_ == 54)
-						i_205_ = getint("chk", string_186_, 4);
-					co[nob] = new ContO(bco[i_204_], getint("chk", string_186_, 1), i_205_,
-							getint("chk", string_186_, 2), getint("chk", string_186_, 3));
-					co[nob].roofat = getint("chk", string_186_, 3);
+						i_205_ = getint(Messages.getString("StageMaker.428"), string_186_, 4); //$NON-NLS-1$
+					co[nob] = new ContO(bco[i_204_], getint(Messages.getString("StageMaker.429"), string_186_, 1), i_205_, //$NON-NLS-1$
+							getint(Messages.getString("StageMaker.430"), string_186_, 2), getint(Messages.getString("StageMaker.431"), string_186_, 3)); //$NON-NLS-1$ //$NON-NLS-2$
+					co[nob].roofat = getint(Messages.getString("StageMaker.432"), string_186_, 3); //$NON-NLS-1$
 					co[nob].colok = i_204_;
-					cp.x[cp.n] = getint("chk", string_186_, 1);
-					cp.z[cp.n] = getint("chk", string_186_, 2);
+					cp.x[cp.n] = getint(Messages.getString("StageMaker.433"), string_186_, 1); //$NON-NLS-1$
+					cp.z[cp.n] = getint(Messages.getString("StageMaker.434"), string_186_, 2); //$NON-NLS-1$
 					cp.y[cp.n] = i_205_;
-					if (getint("chk", string_186_, 3) == 0)
+					if (getint(Messages.getString("StageMaker.435"), string_186_, 3) == 0) //$NON-NLS-1$
 						cp.typ[cp.n] = 1;
 					else
 						cp.typ[cp.n] = 2;
 					cp.pcs = cp.n;
 					cp.n++;
 					co[nob].checkpoint = cp.nsp + 1;
-					if (string_186_.indexOf(")r") != -1)
+					if (string_186_.indexOf(Messages.getString("StageMaker.436")) != -1) //$NON-NLS-1$
 						co[nob].wh = cp.nsp + 1;
 					cp.nsp++;
 					xnob++;
@@ -1529,33 +1529,33 @@ public class StageMaker extends Applet implements Runnable {
 						if (bool_185_) {
 							final StringBuilder stringbuilder = new StringBuilder();
 							final StageMaker stagemaker_206_ = this;
-							stagemaker_206_.bstage = stringbuilder.append(stagemaker_206_.bstage).append("\r\n")
+							stagemaker_206_.bstage = stringbuilder.append(stagemaker_206_.bstage).append(Messages.getString("StageMaker.437")) //$NON-NLS-1$
 									.toString();
 							bool_185_ = false;
 						}
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_207_ = this;
-						stagemaker_207_.bstage = stringbuilder.append(stagemaker_207_.bstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_207_.bstage = stringbuilder.append(stagemaker_207_.bstage).append(Messages.getString("StageMaker.438")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.439")).toString(); //$NON-NLS-1$
 					}
 				}
-				if (string_186_.startsWith("fix")) {
-					int i_208_ = getint("fix", string_186_, 0);
+				if (string_186_.startsWith(Messages.getString("StageMaker.440"))) { //$NON-NLS-1$
+					int i_208_ = getint(Messages.getString("StageMaker.441"), string_186_, 0); //$NON-NLS-1$
 					i_208_ -= 10;
-					co[nob] = new ContO(bco[i_208_], getint("fix", string_186_, 1), getint("fix", string_186_, 3),
-							getint("fix", string_186_, 2), getint("fix", string_186_, 4));
-					co[nob].roofat = getint("fix", string_186_, 4);
+					co[nob] = new ContO(bco[i_208_], getint(Messages.getString("StageMaker.442"), string_186_, 1), getint(Messages.getString("StageMaker.443"), string_186_, 3), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("StageMaker.444"), string_186_, 2), getint(Messages.getString("StageMaker.445"), string_186_, 4)); //$NON-NLS-1$ //$NON-NLS-2$
+					co[nob].roofat = getint(Messages.getString("StageMaker.446"), string_186_, 4); //$NON-NLS-1$
 					co[nob].colok = i_208_;
-					cp.fx[cp.fn] = getint("fix", string_186_, 1);
-					cp.fz[cp.fn] = getint("fix", string_186_, 2);
-					cp.fy[cp.fn] = getint("fix", string_186_, 3);
+					cp.fx[cp.fn] = getint(Messages.getString("StageMaker.447"), string_186_, 1); //$NON-NLS-1$
+					cp.fz[cp.fn] = getint(Messages.getString("StageMaker.448"), string_186_, 2); //$NON-NLS-1$
+					cp.fy[cp.fn] = getint(Messages.getString("StageMaker.449"), string_186_, 3); //$NON-NLS-1$
 					co[nob].elec = true;
-					if (getint("fix", string_186_, 4) != 0) {
+					if (getint(Messages.getString("StageMaker.450"), string_186_, 4) != 0) { //$NON-NLS-1$
 						cp.roted[cp.fn] = true;
 						co[nob].roted = true;
 					} else
 						cp.roted[cp.fn] = false;
-					if (string_186_.indexOf(")s") != -1)
+					if (string_186_.indexOf(Messages.getString("StageMaker.451")) != -1) //$NON-NLS-1$
 						cp.special[cp.fn] = true;
 					else
 						cp.special[cp.fn] = false;
@@ -1566,23 +1566,23 @@ public class StageMaker extends Applet implements Runnable {
 						if (bool_185_) {
 							final StringBuilder stringbuilder = new StringBuilder();
 							final StageMaker stagemaker_209_ = this;
-							stagemaker_209_.bstage = stringbuilder.append(stagemaker_209_.bstage).append("\r\n")
+							stagemaker_209_.bstage = stringbuilder.append(stagemaker_209_.bstage).append(Messages.getString("StageMaker.452")) //$NON-NLS-1$
 									.toString();
 							bool_185_ = false;
 						}
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_210_ = this;
-						stagemaker_210_.bstage = stringbuilder.append(stagemaker_210_.bstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_210_.bstage = stringbuilder.append(stagemaker_210_.bstage).append(Messages.getString("StageMaker.453")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.454")).toString(); //$NON-NLS-1$
 					}
 				}
-				if (string_186_.startsWith("pile")) {
-					co[nob] = new ContO(getint("pile", string_186_, 0), getint("pile", string_186_, 1),
-							getint("pile", string_186_, 2), m, t, getint("pile", string_186_, 3),
-							getint("pile", string_186_, 4), m.ground);
-					co[nob].srz = getint("pile", string_186_, 0);
-					co[nob].srx = getint("pile", string_186_, 1);
-					co[nob].sry = getint("pile", string_186_, 2);
+				if (string_186_.startsWith(Messages.getString("StageMaker.455"))) { //$NON-NLS-1$
+					co[nob] = new ContO(getint(Messages.getString("StageMaker.456"), string_186_, 0), getint(Messages.getString("StageMaker.457"), string_186_, 1), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("StageMaker.458"), string_186_, 2), m, t, getint(Messages.getString("StageMaker.459"), string_186_, 3), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("StageMaker.460"), string_186_, 4), m.ground); //$NON-NLS-1$
+					co[nob].srz = getint(Messages.getString("StageMaker.461"), string_186_, 0); //$NON-NLS-1$
+					co[nob].srx = getint(Messages.getString("StageMaker.462"), string_186_, 1); //$NON-NLS-1$
+					co[nob].sry = getint(Messages.getString("StageMaker.463"), string_186_, 2); //$NON-NLS-1$
 					co[nob].colok = 66;
 					xnob++;
 					nob++;
@@ -1590,21 +1590,21 @@ public class StageMaker extends Applet implements Runnable {
 						if (bool_185_) {
 							final StringBuilder stringbuilder = new StringBuilder();
 							final StageMaker stagemaker_211_ = this;
-							stagemaker_211_.bstage = stringbuilder.append(stagemaker_211_.bstage).append("\r\n")
+							stagemaker_211_.bstage = stringbuilder.append(stagemaker_211_.bstage).append(Messages.getString("StageMaker.464")) //$NON-NLS-1$
 									.toString();
 							bool_185_ = false;
 						}
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_212_ = this;
-						stagemaker_212_.bstage = stringbuilder.append(stagemaker_212_.bstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_212_.bstage = stringbuilder.append(stagemaker_212_.bstage).append(Messages.getString("StageMaker.465")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.466")).toString(); //$NON-NLS-1$
 					}
 				}
-				if (string_186_.startsWith("maxr")) {
-					final int i_213_ = getint("maxr", string_186_, 0);
-					final int i_214_ = getint("maxr", string_186_, 1);
+				if (string_186_.startsWith(Messages.getString("StageMaker.467"))) { //$NON-NLS-1$
+					final int i_213_ = getint(Messages.getString("StageMaker.468"), string_186_, 0); //$NON-NLS-1$
+					final int i_214_ = getint(Messages.getString("StageMaker.469"), string_186_, 1); //$NON-NLS-1$
 					i_181_ = i_214_;
-					final int i_215_ = getint("maxr", string_186_, 2);
+					final int i_215_ = getint(Messages.getString("StageMaker.470"), string_186_, 2); //$NON-NLS-1$
 					for (int i_216_ = 0; i_216_ < i_213_; i_216_++) {
 						co[nob] = new ContO(bco[29], i_214_, m.ground - bco[29].grat, i_216_ * 4800 + i_215_, 0);
 						if (i == 0)
@@ -1616,21 +1616,21 @@ public class StageMaker extends Applet implements Runnable {
 						if (bool) {
 							final StringBuilder stringbuilder = new StringBuilder();
 							final StageMaker stagemaker_217_ = this;
-							stagemaker_217_.bstage = stringbuilder.append(stagemaker_217_.bstage).append("\r\n")
+							stagemaker_217_.bstage = stringbuilder.append(stagemaker_217_.bstage).append(Messages.getString("StageMaker.471")) //$NON-NLS-1$
 									.toString();
 							bool = false;
 						}
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_218_ = this;
-						stagemaker_218_.bstage = stringbuilder.append(stagemaker_218_.bstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_218_.bstage = stringbuilder.append(stagemaker_218_.bstage).append(Messages.getString("StageMaker.472")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.473")).toString(); //$NON-NLS-1$
 					}
 				}
-				if (string_186_.startsWith("maxl")) {
-					final int i_219_ = getint("maxl", string_186_, 0);
-					final int i_220_ = getint("maxl", string_186_, 1);
+				if (string_186_.startsWith(Messages.getString("StageMaker.474"))) { //$NON-NLS-1$
+					final int i_219_ = getint(Messages.getString("StageMaker.475"), string_186_, 0); //$NON-NLS-1$
+					final int i_220_ = getint(Messages.getString("StageMaker.476"), string_186_, 1); //$NON-NLS-1$
 					i_182_ = i_220_;
-					final int i_221_ = getint("maxl", string_186_, 2);
+					final int i_221_ = getint(Messages.getString("StageMaker.477"), string_186_, 2); //$NON-NLS-1$
 					for (int i_222_ = 0; i_222_ < i_219_; i_222_++) {
 						co[nob] = new ContO(bco[29], i_220_, m.ground - bco[29].grat, i_222_ * 4800 + i_221_, 180);
 						if (i == 0)
@@ -1642,21 +1642,21 @@ public class StageMaker extends Applet implements Runnable {
 						if (bool) {
 							final StringBuilder stringbuilder = new StringBuilder();
 							final StageMaker stagemaker_223_ = this;
-							stagemaker_223_.bstage = stringbuilder.append(stagemaker_223_.bstage).append("\r\n")
+							stagemaker_223_.bstage = stringbuilder.append(stagemaker_223_.bstage).append(Messages.getString("StageMaker.478")) //$NON-NLS-1$
 									.toString();
 							bool = false;
 						}
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_224_ = this;
-						stagemaker_224_.bstage = stringbuilder.append(stagemaker_224_.bstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_224_.bstage = stringbuilder.append(stagemaker_224_.bstage).append(Messages.getString("StageMaker.479")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.480")).toString(); //$NON-NLS-1$
 					}
 				}
-				if (string_186_.startsWith("maxt")) {
-					final int i_225_ = getint("maxt", string_186_, 0);
-					final int i_226_ = getint("maxt", string_186_, 1);
+				if (string_186_.startsWith(Messages.getString("StageMaker.481"))) { //$NON-NLS-1$
+					final int i_225_ = getint(Messages.getString("StageMaker.482"), string_186_, 0); //$NON-NLS-1$
+					final int i_226_ = getint(Messages.getString("StageMaker.483"), string_186_, 1); //$NON-NLS-1$
 					i_183_ = i_226_;
-					final int i_227_ = getint("maxt", string_186_, 2);
+					final int i_227_ = getint(Messages.getString("StageMaker.484"), string_186_, 2); //$NON-NLS-1$
 					for (int i_228_ = 0; i_228_ < i_225_; i_228_++) {
 						co[nob] = new ContO(bco[29], i_228_ * 4800 + i_227_, m.ground - bco[29].grat, i_226_, 90);
 						if (i == 0)
@@ -1668,21 +1668,21 @@ public class StageMaker extends Applet implements Runnable {
 						if (bool) {
 							final StringBuilder stringbuilder = new StringBuilder();
 							final StageMaker stagemaker_229_ = this;
-							stagemaker_229_.bstage = stringbuilder.append(stagemaker_229_.bstage).append("\r\n")
+							stagemaker_229_.bstage = stringbuilder.append(stagemaker_229_.bstage).append(Messages.getString("StageMaker.485")) //$NON-NLS-1$
 									.toString();
 							bool = false;
 						}
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_230_ = this;
-						stagemaker_230_.bstage = stringbuilder.append(stagemaker_230_.bstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_230_.bstage = stringbuilder.append(stagemaker_230_.bstage).append(Messages.getString("StageMaker.486")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.487")).toString(); //$NON-NLS-1$
 					}
 				}
-				if (string_186_.startsWith("maxb")) {
-					final int i_231_ = getint("maxb", string_186_, 0);
-					final int i_232_ = getint("maxb", string_186_, 1);
+				if (string_186_.startsWith(Messages.getString("StageMaker.488"))) { //$NON-NLS-1$
+					final int i_231_ = getint(Messages.getString("StageMaker.489"), string_186_, 0); //$NON-NLS-1$
+					final int i_232_ = getint(Messages.getString("StageMaker.490"), string_186_, 1); //$NON-NLS-1$
 					i_184_ = i_232_;
-					final int i_233_ = getint("maxb", string_186_, 2);
+					final int i_233_ = getint(Messages.getString("StageMaker.491"), string_186_, 2); //$NON-NLS-1$
 					for (int i_234_ = 0; i_234_ < i_231_; i_234_++) {
 						co[nob] = new ContO(bco[29], i_234_ * 4800 + i_233_, m.ground - bco[29].grat, i_232_, -90);
 						if (i == 0)
@@ -1694,14 +1694,14 @@ public class StageMaker extends Applet implements Runnable {
 						if (bool) {
 							final StringBuilder stringbuilder = new StringBuilder();
 							final StageMaker stagemaker_235_ = this;
-							stagemaker_235_.bstage = stringbuilder.append(stagemaker_235_.bstage).append("\r\n")
+							stagemaker_235_.bstage = stringbuilder.append(stagemaker_235_.bstage).append(Messages.getString("StageMaker.492")) //$NON-NLS-1$
 									.toString();
 							bool = false;
 						}
 						final StringBuilder stringbuilder = new StringBuilder();
 						final StageMaker stagemaker_236_ = this;
-						stagemaker_236_.bstage = stringbuilder.append(stagemaker_236_.bstage).append("")
-								.append(string_186_).append("\r\n").toString();
+						stagemaker_236_.bstage = stringbuilder.append(stagemaker_236_.bstage).append(Messages.getString("StageMaker.493")) //$NON-NLS-1$
+								.append(string_186_).append(Messages.getString("StageMaker.494")).toString(); //$NON-NLS-1$
 					}
 				}
 			}
@@ -1711,9 +1711,9 @@ public class StageMaker extends Applet implements Runnable {
 			m.newmountains(i_182_, i_181_, i_184_, i_183_);
 			m.newstars();
 		} catch (final Exception exception) {
-			System.out.println(new StringBuilder().append("Error in stage ").append(stagename).toString());
-			System.out.println(new StringBuilder().append("").append(exception).toString());
-			System.out.println(new StringBuilder().append("At line: ").append(string_186_).toString());
+			System.out.println(new StringBuilder().append(Messages.getString("StageMaker.495")).append(stagename).toString()); //$NON-NLS-1$
+			System.out.println(new StringBuilder().append(Messages.getString("StageMaker.496")).append(exception).toString()); //$NON-NLS-1$
+			System.out.println(new StringBuilder().append(Messages.getString("StageMaker.497")).append(string_186_).toString()); //$NON-NLS-1$
 			errd = 6;
 			if (cp.fn >= 5) // file name size????
 				errd = 5;
@@ -1728,10 +1728,10 @@ public class StageMaker extends Applet implements Runnable {
 			errd = 3;
 		if (xnob >= 10000)
 			errd = 4;
-		if (i == 3 && bstage.indexOf("set(47,0,0,0)") == -1 && bstage.indexOf("set(48,0,0,0)") == -1) {
+		if (i == 3 && bstage.indexOf(Messages.getString("StageMaker.498")) == -1 && bstage.indexOf(Messages.getString("StageMaker.499")) == -1) { //$NON-NLS-1$ //$NON-NLS-2$
 			final StringBuilder stringbuilder = new StringBuilder();
 			final StageMaker stagemaker_237_ = this;
-			stagemaker_237_.bstage = stringbuilder.append(stagemaker_237_.bstage).append("set(47,0,0,0)\r\n")
+			stagemaker_237_.bstage = stringbuilder.append(stagemaker_237_.bstage).append(Messages.getString("StageMaker.500")) //$NON-NLS-1$
 					.toString();
 		}
 	}
@@ -1741,59 +1741,59 @@ public class StageMaker extends Applet implements Runnable {
 			undos[nundo] = bstage;
 			nundo++;
 		}
-		String string = "";
+		String string = Messages.getString("StageMaker.501"); //$NON-NLS-1$
 		if (co[esp].colok != 30 && co[esp].colok != 31 && co[esp].colok != 32 && co[esp].colok != 66)
-			string = new StringBuilder().append("set(").append(co[esp].colok + 10).append(",").append(co[esp].x)
-					.append(",").append(co[esp].z).append(",").append(co[esp].roofat).append(")").toString();
+			string = new StringBuilder().append(Messages.getString("StageMaker.502")).append(co[esp].colok + 10).append(Messages.getString("StageMaker.503")).append(co[esp].x) //$NON-NLS-1$ //$NON-NLS-2$
+					.append(Messages.getString("StageMaker.504")).append(co[esp].z).append(Messages.getString("StageMaker.505")).append(co[esp].roofat).append(Messages.getString("StageMaker.506")).toString(); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		if (co[esp].colok == 31)
-			string = new StringBuilder().append("fix(").append(co[esp].colok + 10).append(",").append(co[esp].x)
-					.append(",").append(co[esp].z).append(",").append(co[esp].y).append(",").append(co[esp].roofat)
-					.append(")").toString();
+			string = new StringBuilder().append(Messages.getString("StageMaker.507")).append(co[esp].colok + 10).append(Messages.getString("StageMaker.508")).append(co[esp].x) //$NON-NLS-1$ //$NON-NLS-2$
+					.append(Messages.getString("StageMaker.509")).append(co[esp].z).append(Messages.getString("StageMaker.510")).append(co[esp].y).append(Messages.getString("StageMaker.511")).append(co[esp].roofat) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					.append(Messages.getString("StageMaker.512")).toString(); //$NON-NLS-1$
 		if (co[esp].colok == 30 || co[esp].colok == 32)
-			string = new StringBuilder().append("chk(").append(co[esp].colok + 10).append(",").append(co[esp].x)
-					.append(",").append(co[esp].z).append(",").append(co[esp].roofat).append(")").toString();
+			string = new StringBuilder().append(Messages.getString("StageMaker.513")).append(co[esp].colok + 10).append(Messages.getString("StageMaker.514")).append(co[esp].x) //$NON-NLS-1$ //$NON-NLS-2$
+					.append(Messages.getString("StageMaker.515")).append(co[esp].z).append(Messages.getString("StageMaker.516")).append(co[esp].roofat).append(Messages.getString("StageMaker.517")).toString(); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		if (co[esp].colok == 54)
-			string = new StringBuilder().append("chk(").append(co[esp].colok + 10).append(",").append(co[esp].x)
-					.append(",").append(co[esp].z).append(",").append(co[esp].roofat).append(",").append(co[esp].y)
-					.append(")").toString();
+			string = new StringBuilder().append(Messages.getString("StageMaker.518")).append(co[esp].colok + 10).append(Messages.getString("StageMaker.519")).append(co[esp].x) //$NON-NLS-1$ //$NON-NLS-2$
+					.append(Messages.getString("StageMaker.520")).append(co[esp].z).append(Messages.getString("StageMaker.521")).append(co[esp].roofat).append(Messages.getString("StageMaker.522")).append(co[esp].y) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					.append(Messages.getString("StageMaker.523")).toString(); //$NON-NLS-1$
 		if (co[esp].colok == 66)
-			string = new StringBuilder().append("pile(").append(co[esp].srz).append(",").append(co[esp].srx).append(",")
-					.append(co[esp].sry).append(",").append(co[esp].x).append(",").append(co[esp].z).append(")")
+			string = new StringBuilder().append(Messages.getString("StageMaker.524")).append(co[esp].srz).append(Messages.getString("StageMaker.525")).append(co[esp].srx).append(Messages.getString("StageMaker.526")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					.append(co[esp].sry).append(Messages.getString("StageMaker.527")).append(co[esp].x).append(Messages.getString("StageMaker.528")).append(co[esp].z).append(Messages.getString("StageMaker.529")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 					.toString();
 		final int i = bstage.indexOf(string);
 		int i_166_ = i + string.length();
 		int i_167_ = -1;
-		int i_168_ = bstage.indexOf("set", i_166_);
+		int i_168_ = bstage.indexOf(Messages.getString("StageMaker.530"), i_166_); //$NON-NLS-1$
 		if (i_168_ != -1)
 			i_167_ = i_168_;
-		i_168_ = bstage.indexOf("chk", i_166_);
+		i_168_ = bstage.indexOf(Messages.getString("StageMaker.531"), i_166_); //$NON-NLS-1$
 		if (i_168_ != -1 && i_168_ < i_167_)
 			i_167_ = i_168_;
-		i_168_ = bstage.indexOf("fix", i_166_);
+		i_168_ = bstage.indexOf(Messages.getString("StageMaker.532"), i_166_); //$NON-NLS-1$
 		if (i_168_ != -1 && i_168_ < i_167_)
 			i_167_ = i_168_;
 		if (i_167_ == -1) {
-			i_167_ = bstage.indexOf("\r\n", i_166_);
+			i_167_ = bstage.indexOf(Messages.getString("StageMaker.533"), i_166_); //$NON-NLS-1$
 			if (i_167_ != -1)
 				i_167_++;
 		}
 		if (i_167_ != -1)
 			i_166_ = i_167_;
 		if (i != -1)
-			bstage = new StringBuilder().append("").append(bstage.substring(0, i)).append("")
-					.append(bstage.substring(i_166_, bstage.length())).append("").toString();
+			bstage = new StringBuilder().append(Messages.getString("StageMaker.534")).append(bstage.substring(0, i)).append(Messages.getString("StageMaker.535")) //$NON-NLS-1$ //$NON-NLS-2$
+					.append(bstage.substring(i_166_, bstage.length())).append(Messages.getString("StageMaker.536")).toString(); //$NON-NLS-1$
 		readstage(0);
 	}
 
 	public void renstage(final String string) {
-		if (string.equals(""))
-			JOptionPane.showMessageDialog(null, "Please Enter a New Stage Name!\n", "Stage Maker", 1);
+		if (string.equals(Messages.getString("StageMaker.537"))) //$NON-NLS-1$
+			JOptionPane.showMessageDialog(null, Messages.getString("StageMaker.538"), Messages.getString("StageMaker.539"), 1); //$NON-NLS-1$ //$NON-NLS-2$
 		else
 			try {
 				final File file = new File(
-						new StringBuilder().append("mystages/").append(stagename).append(".txt").toString());
+						new StringBuilder().append(Messages.getString("StageMaker.540")).append(stagename).append(Messages.getString("StageMaker.541")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 				final File file_329_ = new File(
-						new StringBuilder().append("mystages/").append(string).append(".txt").toString());
+						new StringBuilder().append(Messages.getString("StageMaker.542")).append(string).append(Messages.getString("StageMaker.543")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 				if (file.renameTo(file_329_)) {
 					stagename = string;
 					sfase = 0;
@@ -1801,12 +1801,12 @@ public class StageMaker extends Applet implements Runnable {
 					tabed = -2;
 				} else
 					JOptionPane.showMessageDialog(null,
-							new StringBuilder().append("Unable to rename stage to: '").append(string)
-									.append("', possible reason: stage name already used!\n").toString(),
-							"Stage Maker", 1);
+							new StringBuilder().append(Messages.getString("StageMaker.544")).append(string) //$NON-NLS-1$
+									.append(Messages.getString("StageMaker.545")).toString(), //$NON-NLS-1$
+							Messages.getString("StageMaker.546"), 1); //$NON-NLS-1$
 			} catch (final Exception exception) {
 				JOptionPane.showMessageDialog(null, new StringBuilder()
-						.append("Unable to rename file! Error Deatials:\n").append(exception).toString(), "Stage Maker",
+						.append(Messages.getString("StageMaker.547")).append(exception).toString(), Messages.getString("StageMaker.548"), //$NON-NLS-1$ //$NON-NLS-2$
 						1);
 			}
 	}
@@ -1825,24 +1825,24 @@ public class StageMaker extends Applet implements Runnable {
 	@Override
 	public void run() {
 		thredo.setPriority(10);
-		btgame[0] = getImage("data/backtogame1.gif");
-		btgame[1] = getImage("data/backtogame2.gif");
-		logo = getImage("data/stagemakerlogo.gif");
+		btgame[0] = getImage(Messages.getString("StageMaker.549")); //$NON-NLS-1$
+		btgame[1] = getImage(Messages.getString("StageMaker.550")); //$NON-NLS-1$
+		logo = getImage(Messages.getString("StageMaker.551")); //$NON-NLS-1$
 		for (int i = 0; i < 2; i++) {
-			su[i] = getImage(new StringBuilder().append("data/su").append(i + 1).append(".gif").toString());
-			sl[i] = getImage(new StringBuilder().append("data/sl").append(i + 1).append(".gif").toString());
-			sd[i] = getImage(new StringBuilder().append("data/sd").append(i + 1).append(".gif").toString());
-			sr[i] = getImage(new StringBuilder().append("data/sr").append(i + 1).append(".gif").toString());
-			zi[i] = getImage(new StringBuilder().append("data/zi").append(i + 1).append(".gif").toString());
-			zo[i] = getImage(new StringBuilder().append("data/zo").append(i + 1).append(".gif").toString());
+			su[i] = getImage(new StringBuilder().append(Messages.getString("StageMaker.552")).append(i + 1).append(Messages.getString("StageMaker.553")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+			sl[i] = getImage(new StringBuilder().append(Messages.getString("StageMaker.554")).append(i + 1).append(Messages.getString("StageMaker.555")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+			sd[i] = getImage(new StringBuilder().append(Messages.getString("StageMaker.556")).append(i + 1).append(Messages.getString("StageMaker.557")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+			sr[i] = getImage(new StringBuilder().append(Messages.getString("StageMaker.558")).append(i + 1).append(Messages.getString("StageMaker.559")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+			zi[i] = getImage(new StringBuilder().append(Messages.getString("StageMaker.560")).append(i + 1).append(Messages.getString("StageMaker.561")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+			zo[i] = getImage(new StringBuilder().append(Messages.getString("StageMaker.562")).append(i + 1).append(Messages.getString("StageMaker.563")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 		loadbase();
 		loadsettings();
 		if (Madness.testdrive != 0) {
-			if (Madness.testcar.equals("Failx12")) {
+			if (Madness.testcar.equals(Messages.getString("StageMaker.564"))) { //$NON-NLS-1$
 				JOptionPane.showMessageDialog(null,
-						"Failed to load stage! Please make sure stage is saved properly before Test Drive.",
-						"Stage Maker", 1);
+						Messages.getString("StageMaker.565"), //$NON-NLS-1$
+						Messages.getString("StageMaker.566"), 1); //$NON-NLS-1$
 				thredo.stop();
 			} else {
 				stagename = Madness.testcar;
@@ -1854,7 +1854,7 @@ public class StageMaker extends Applet implements Runnable {
 					witho.select(Madness.testdrive - 3);
 				}
 			}
-			Madness.testcar = "";
+			Madness.testcar = Messages.getString("StageMaker.567"); //$NON-NLS-1$
 			Madness.testdrive = 0;
 		}
 		requestFocus();
@@ -1868,13 +1868,13 @@ public class StageMaker extends Applet implements Runnable {
 				if (tabed != tab) {
 					slstage.removeAll();
 					slstage.maxl = 360;
-					slstage.add(rd, "Select a Stage                      ");
-					final String[] strings = new File("mystages/").list();
+					slstage.add(rd, Messages.getString("StageMaker.568")); //$NON-NLS-1$
+					final String[] strings = new File(Messages.getString("StageMaker.569")).list(); //$NON-NLS-1$
 					if (strings != null)
 						for (int i = 0; i < strings.length; i++)
-							if (strings[i].toLowerCase().endsWith(".txt"))
+							if (strings[i].toLowerCase().endsWith(Messages.getString("StageMaker.570"))) //$NON-NLS-1$
 								slstage.add(rd, strings[i].substring(0, strings[i].length() - 4));
-					if (stagename.equals(""))
+					if (stagename.equals(Messages.getString("StageMaker.571"))) //$NON-NLS-1$
 						slstage.select(0);
 					else {
 						slstage.select(stagename);
@@ -1884,7 +1884,7 @@ public class StageMaker extends Applet implements Runnable {
 							sz = 1500;
 							sy = -10000;
 						} else {
-							stagename = "";
+							stagename = Messages.getString("StageMaker.572"); //$NON-NLS-1$
 							slstage.select(0);
 						}
 					}
@@ -1903,7 +1903,7 @@ public class StageMaker extends Applet implements Runnable {
 				}
 				if (mouseon == 3 && mouses == -1)
 					openhlink();
-				rd.setFont(new Font("Arial", 1, 13));
+				rd.setFont(new Font(Messages.getString("StageMaker.573"), 1, 13)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
 				if (xm > 200 && xm < 550 && ym > 467 && ym < 504) {
 					if (mouseon == -1) {
@@ -1918,11 +1918,11 @@ public class StageMaker extends Applet implements Runnable {
 					rd.setColor(new Color(0, 64, 128));
 				else
 					rd.setColor(new Color(0, 0, 0));
-				rd.drawString("For the Stage Maker Homepage, Development Center and Forums :",
-						400 - ftm.stringWidth("For the Stage Maker Homepage, Development Center and Forums :") / 2,
+				rd.drawString(Messages.getString("StageMaker.574"), //$NON-NLS-1$
+						400 - ftm.stringWidth(Messages.getString("StageMaker.575")) / 2, //$NON-NLS-1$
 						480);
 				rd.setColor(new Color(0, 128, 255));
-				String string = "http://www.needformadness.com/developer/";
+				String string = Messages.getString("StageMaker.576"); //$NON-NLS-1$
 				rd.drawString(string, 400 - ftm.stringWidth(string) / 2, 500);
 				if (mouseon == 2)
 					rd.setColor(new Color(0, 128, 255));
@@ -1945,12 +1945,12 @@ public class StageMaker extends Applet implements Runnable {
 					rd.setColor(new Color(0, 64, 128));
 				else
 					rd.setColor(new Color(0, 0, 0));
-				rd.drawString("For help and a detailed step by step description on how to use the Stage Maker :",
+				rd.drawString(Messages.getString("StageMaker.577"), //$NON-NLS-1$
 						400 - ftm.stringWidth(
-								"For help and a detailed step by step description on how to use the Stage Maker :") / 2,
+								Messages.getString("StageMaker.578")) / 2, //$NON-NLS-1$
 						480 + i);
 				rd.setColor(new Color(0, 128, 255));
-				string = "http://www.needformadness.com/developer/help.html";
+				string = Messages.getString("StageMaker.579"); //$NON-NLS-1$
 				rd.drawString(string, 400 - ftm.stringWidth(string) / 2, 500 + i);
 				if (mouseon == 1)
 					rd.setColor(new Color(0, 128, 255));
@@ -1964,36 +1964,36 @@ public class StageMaker extends Applet implements Runnable {
 				rd.setColor(new Color(0, 0, 0));
 				rd.drawRect(227 - i_1_, 194 + i_0_, 346 + i_1_ * 2, 167 + i_1_ / 5);
 				if (sfase == 0) {
-					rd.drawString("Select Stage to Edit", 400 - ftm.stringWidth("Select Stage to Edit") / 2,
+					rd.drawString(Messages.getString("StageMaker.580"), 400 - ftm.stringWidth(Messages.getString("StageMaker.581")) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 							230 + i_0_);
 					slstage.move(220, 240 + i_0_);
 					if (slstage.getWidth() != 360)
 						slstage.setSize(360, 21);
 					if (!slstage.isShowing())
 						slstage.setVisible(true);
-					if (button("    Make new Stage    ", 400, 296 + i_0_, 0, true)) {
-						srch.setText("");
+					if (button(Messages.getString("StageMaker.582"), 400, 296 + i_0_, 0, true)) { //$NON-NLS-1$
+						srch.setText(Messages.getString("StageMaker.583")); //$NON-NLS-1$
 						slstage.setVisible(false);
 						sfase = 1;
 					}
-					if (button("     Rename Stage     ", 325, 336 + i_0_, 0, false))
-						if (!stagename.equals("")) {
+					if (button(Messages.getString("StageMaker.584"), 325, 336 + i_0_, 0, false)) //$NON-NLS-1$
+						if (!stagename.equals(Messages.getString("StageMaker.585"))) { //$NON-NLS-1$
 							slstage.setVisible(false);
 							srch.setText(stagename);
 							sfase = 2;
 						} else
-							JOptionPane.showMessageDialog(null, "Please select a stage to rename first.", "Stage Maker",
+							JOptionPane.showMessageDialog(null, Messages.getString("StageMaker.586"), Messages.getString("StageMaker.587"), //$NON-NLS-1$ //$NON-NLS-2$
 									1);
-					if (button("      Delete Stage      ", 475, 336 + i_0_, 0, false))
-						if (!stagename.equals("")) {
+					if (button(Messages.getString("StageMaker.588"), 475, 336 + i_0_, 0, false)) //$NON-NLS-1$
+						if (!stagename.equals(Messages.getString("StageMaker.589"))) { //$NON-NLS-1$
 							if (JOptionPane.showConfirmDialog(null,
 									new StringBuilder()
-											.append("Are you sure you want to permanently delete this stage?\n\n")
-											.append(stagename).append("\n\n").toString(),
-									"Stage Maker", 0) == 0)
+											.append(Messages.getString("StageMaker.590")) //$NON-NLS-1$
+											.append(stagename).append(Messages.getString("StageMaker.591")).toString(), //$NON-NLS-1$
+									Messages.getString("StageMaker.592"), 0) == 0) //$NON-NLS-1$
 								delstage(stagename);
 						} else
-							JOptionPane.showMessageDialog(null, "Please select a stage to delete first.", "Stage Maker",
+							JOptionPane.showMessageDialog(null, Messages.getString("StageMaker.593"), Messages.getString("StageMaker.594"), //$NON-NLS-1$ //$NON-NLS-2$
 									1);
 					if (slstage.getSelectedIndex() != 0) {
 						if (!stagename.equals(slstage.getSelectedItem())) {
@@ -2005,25 +2005,25 @@ public class StageMaker extends Applet implements Runnable {
 							requestFocus();
 						}
 					} else
-						stagename = "";
+						stagename = Messages.getString("StageMaker.595"); //$NON-NLS-1$
 				}
 				if (sfase == 1) {
-					rd.drawString("Make a new Stage", 400 - ftm.stringWidth("Make a new Stage") / 2, 220 + i_0_);
-					rd.setFont(new Font("Arial", 1, 12));
-					rd.drawString("New stage name :", 200, 246 + i_0_);
+					rd.drawString(Messages.getString("StageMaker.596"), 400 - ftm.stringWidth(Messages.getString("StageMaker.597")) / 2, 220 + i_0_); //$NON-NLS-1$ //$NON-NLS-2$
+					rd.setFont(new Font(Messages.getString("StageMaker.598"), 1, 12)); //$NON-NLS-1$
+					rd.drawString(Messages.getString("StageMaker.599"), 200, 246 + i_0_); //$NON-NLS-1$
 					movefield(srch, 310, 231 + i_0_, 290, 23);
 					if (!srch.isShowing()) {
 						srch.setVisible(true);
 						srch.requestFocus();
 					}
 					fixtext(srch);
-					rd.drawString("Starting line type :", 293, 272 + i_0_);
+					rd.drawString(Messages.getString("StageMaker.600"), 293, 272 + i_0_); //$NON-NLS-1$
 					strtyp.move(408, 256 + i_0_);
 					if (!strtyp.isShowing())
 						strtyp.setVisible(true);
-					if (button("    Make Stage    ", 400, 311 + i_0_, 0, true))
+					if (button(Messages.getString("StageMaker.601"), 400, 311 + i_0_, 0, true)) //$NON-NLS-1$
 						newstage();
-					if (button("  Cancel  ", 400, 351 + i_0_, 0, false)) {
+					if (button(Messages.getString("StageMaker.602"), 400, 351 + i_0_, 0, false)) { //$NON-NLS-1$
 						strtyp.setVisible(false);
 						srch.setVisible(false);
 						sfase = 0;
@@ -2031,21 +2031,21 @@ public class StageMaker extends Applet implements Runnable {
 				}
 				if (sfase == 2) {
 					rd.drawString(
-							new StringBuilder().append("Rename Stage :  ").append(stagename).append("").toString(),
-							400 - ftm.stringWidth(new StringBuilder().append("Rename Stage :  ").append(stagename)
-									.append("").toString()) / 2,
+							new StringBuilder().append(Messages.getString("StageMaker.603")).append(stagename).append(Messages.getString("StageMaker.604")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
+							400 - ftm.stringWidth(new StringBuilder().append(Messages.getString("StageMaker.605")).append(stagename) //$NON-NLS-1$
+									.append(Messages.getString("StageMaker.606")).toString()) / 2, //$NON-NLS-1$
 							230 + i_0_);
-					rd.setFont(new Font("Arial", 1, 12));
-					rd.drawString("New name :", 218, 266 + i_0_);
+					rd.setFont(new Font(Messages.getString("StageMaker.607"), 1, 12)); //$NON-NLS-1$
+					rd.drawString(Messages.getString("StageMaker.608"), 218, 266 + i_0_); //$NON-NLS-1$
 					if (!srch.isShowing()) {
 						srch.setVisible(true);
 						srch.requestFocus();
 					}
 					movefield(srch, 292, 251 + i_0_, 290, 23);
 					fixtext(srch);
-					if (button("    Rename Stage    ", 400, 306 + i_0_, 0, true))
+					if (button(Messages.getString("StageMaker.609"), 400, 306 + i_0_, 0, true)) //$NON-NLS-1$
 						renstage(srch.getText());
-					if (button("  Cancel  ", 400, 346 + i_0_, 0, false)) {
+					if (button(Messages.getString("StageMaker.610"), 400, 346 + i_0_, 0, false)) { //$NON-NLS-1$
 						srch.setVisible(false);
 						sfase = 0;
 					}
@@ -2307,12 +2307,12 @@ public class StageMaker extends Applet implements Runnable {
 								rd.fillOval(xs(i_9_, i_12_) - i_13_ / 2, ys(i_11_, i_12_) - i_13_ / 2, i_13_, i_13_);
 								graphics2d.setComposite(AlphaComposite.getInstance(3, 1.0F));
 								rd.setColor(new Color(0, 0, 0));
-								rd.setFont(new Font("Arial", 1, 12));
+								rd.setFont(new Font(Messages.getString("StageMaker.611"), 1, 12)); //$NON-NLS-1$
 								ftm = rd.getFontMetrics();
 								rd.drawString(
-										new StringBuilder().append("NO# ").append(arrcnt + 1).append("").toString(),
-										xs(i_9_, i_12_) - ftm.stringWidth(new StringBuilder().append("NO# ")
-												.append(arrcnt + 1).append("").toString()) / 2,
+										new StringBuilder().append(Messages.getString("StageMaker.612")).append(arrcnt + 1).append(Messages.getString("StageMaker.613")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
+										xs(i_9_, i_12_) - ftm.stringWidth(new StringBuilder().append(Messages.getString("StageMaker.614")) //$NON-NLS-1$
+												.append(arrcnt + 1).append(Messages.getString("StageMaker.615")).toString()) / 2, //$NON-NLS-1$
 										ys(i_11_, i_12_) - i_13_ / 2);
 							}
 							if (arrng && (co[is[i_8_]].colok == 30 || co[is[i_8_]].colok == 32
@@ -2332,13 +2332,13 @@ public class StageMaker extends Applet implements Runnable {
 								rd.fillOval(xs(i_14_, i_17_) - i_18_ / 2, ys(i_16_, i_17_) - i_18_ / 2, i_18_, i_18_);
 								graphics2d.setComposite(AlphaComposite.getInstance(3, 1.0F));
 								rd.setColor(new Color(0, 0, 0));
-								rd.setFont(new Font("Arial", 1, 12));
+								rd.setFont(new Font(Messages.getString("StageMaker.616"), 1, 12)); //$NON-NLS-1$
 								ftm = rd.getFontMetrics();
 								rd.drawString(
-										new StringBuilder().append("NO# ").append(co[is[i_8_]].wh).append("")
+										new StringBuilder().append(Messages.getString("StageMaker.617")).append(co[is[i_8_]].wh).append(Messages.getString("StageMaker.618")) //$NON-NLS-1$ //$NON-NLS-2$
 												.toString(),
-										xs(i_14_, i_17_) - ftm.stringWidth(new StringBuilder().append("NO# ")
-												.append(co[is[i_8_]].wh).append("").toString()) / 2,
+										xs(i_14_, i_17_) - ftm.stringWidth(new StringBuilder().append(Messages.getString("StageMaker.619")) //$NON-NLS-1$
+												.append(co[is[i_8_]].wh).append(Messages.getString("StageMaker.620")).toString()) / 2, //$NON-NLS-1$
 										ys(i_16_, i_17_) - i_18_ / 2);
 							}
 							co[is[i_8_]].d(rd);
@@ -2533,8 +2533,8 @@ public class StageMaker extends Applet implements Runnable {
 												co[nob].roofat = bco[sp].xz;
 												co[nob].colok = sp;
 												nob++;
-												fixh.setText(new StringBuilder().append("").append(Math.abs(bco[sp].y))
-														.append("").toString());
+												fixh.setText(new StringBuilder().append(Messages.getString("StageMaker.621")).append(Math.abs(bco[sp].y)) //$NON-NLS-1$
+														.append(Messages.getString("StageMaker.622")).toString()); //$NON-NLS-1$
 											} else
 												errd = 5;
 										if (sp == 54)
@@ -2589,9 +2589,9 @@ public class StageMaker extends Applet implements Runnable {
 									}
 									if (errd != 0) {
 										JOptionPane.showMessageDialog(null,
-												new StringBuilder().append("Error!  Unable to place part!\nReason:\n")
-														.append(errlo[errd - 1]).append("\n\n").toString(),
-												"Stage Maker", 0);
+												new StringBuilder().append(Messages.getString("StageMaker.623")) //$NON-NLS-1$
+														.append(errlo[errd - 1]).append(Messages.getString("StageMaker.624")).toString(), //$NON-NLS-1$
+												Messages.getString("StageMaker.625"), 0); //$NON-NLS-1$
 										if (bool) {
 											nundo--;
 											bstage = undos[nundo];
@@ -2720,7 +2720,7 @@ public class StageMaker extends Applet implements Runnable {
 						rd.fillRect(i_57_, i_58_, 90, 88);
 						rd.setColor(new Color(138, 147, 160));
 						rd.drawRect(i_57_, i_58_, 90, 88);
-						if (button("   Edit   ", i_57_ + 45, i_58_ + 22, 3, false)) {
+						if (button(Messages.getString("StageMaker.626"), i_57_ + 45, i_58_ + 22, 3, false)) { //$NON-NLS-1$
 							copyesp(true);
 							removesp();
 							lxm = 0;
@@ -2728,12 +2728,12 @@ public class StageMaker extends Applet implements Runnable {
 							cntout = 2;
 							epart = false;
 						}
-						if (button(" Remove ", i_57_ + 45, i_58_ + 49, 3, false)) {
+						if (button(Messages.getString("StageMaker.627"), i_57_ + 45, i_58_ + 49, 3, false)) { //$NON-NLS-1$
 							removesp();
 							esp = -1;
 							mouses = 0;
 						}
-						if (button("  Copy  ", i_57_ + 45, i_58_ + 76, 3, false)) {
+						if (button(Messages.getString("StageMaker.628"), i_57_ + 45, i_58_ + 76, 3, false)) { //$NON-NLS-1$
 							copyesp(false);
 							lxm = 0;
 							lym = 0;
@@ -2741,7 +2741,7 @@ public class StageMaker extends Applet implements Runnable {
 							epart = false;
 						}
 						rd.setColor(new Color(255, 0, 0));
-						rd.drawString("x", i_57_ + 82, i_58_ - 2);
+						rd.drawString(Messages.getString("StageMaker.629"), i_57_ + 82, i_58_ - 2); //$NON-NLS-1$
 						if (xm > 248 && xm < 762 && ym > 63 && ym < 517 && mouses == 1
 								&& (xm < i_57_ || xm > i_57_ + 90 || ym < i_58_ || ym > i_58_ + 88)) {
 							esp = -1;
@@ -2756,9 +2756,9 @@ public class StageMaker extends Applet implements Runnable {
 				rd.fillRect(762, 25, 38, 530);
 				if (sptyp == 6) {
 					rd.setColor(new Color(0, 0, 0));
-					rd.setFont(new Font("Arial", 1, 12));
-					rd.drawString("Radius:", 11, 97);
-					rd.drawString("Height:", 14, 117);
+					rd.setFont(new Font(Messages.getString("StageMaker.630"), 1, 12)); //$NON-NLS-1$
+					rd.drawString(Messages.getString("StageMaker.631"), 11, 97); //$NON-NLS-1$
+					rd.drawString(Messages.getString("StageMaker.632"), 14, 117); //$NON-NLS-1$
 					boolean bool = false;
 					if (xm > 57 && xm < 204 && ym > 90 && ym < 99)
 						bool = true;
@@ -2854,11 +2854,11 @@ public class StageMaker extends Applet implements Runnable {
 				rd.drawImage(zo[i_60_], 690, 30, null);
 				if ((epart || arrng) && sy < -36000)
 					sy = -36000;
-				rd.setFont(new Font("Arial", 1, 11));
+				rd.setFont(new Font(Messages.getString("StageMaker.633"), 1, 11)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
 				rd.setColor(new Color(0, 0, 0));
-				rd.drawString("Part Selection", 11, 47);
-				rd.setFont(new Font("Arial", 1, 13));
+				rd.drawString(Messages.getString("StageMaker.634"), 11, 47); //$NON-NLS-1$
+				rd.setFont(new Font(Messages.getString("StageMaker.635"), 1, 13)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
 				ptyp.move(10, 50);
 				if (!ptyp.isShowing()) {
@@ -2886,7 +2886,7 @@ public class StageMaker extends Applet implements Runnable {
 					spart = 0;
 					part.select(spart);
 					requestFocus();
-					fixh.setText("2000");
+					fixh.setText(Messages.getString("StageMaker.636")); //$NON-NLS-1$
 					focuson = false;
 				}
 				part.move(10, 80);
@@ -2903,9 +2903,9 @@ public class StageMaker extends Applet implements Runnable {
 					focuson = false;
 				}
 				if (sptyp == 3)
-					rd.drawString("Checkpoint", 110 - ftm.stringWidth("Checkpoint") / 2, 120);
+					rd.drawString(Messages.getString("StageMaker.637"), 110 - ftm.stringWidth(Messages.getString("StageMaker.638")) / 2, 120); //$NON-NLS-1$ //$NON-NLS-2$
 				if (sptyp == 4)
-					rd.drawString("Fixing Hoop", 110 - ftm.stringWidth("Fixing Hoop") / 2, 120);
+					rd.drawString(Messages.getString("StageMaker.639"), 110 - ftm.stringWidth(Messages.getString("StageMaker.640")) / 2, 120); //$NON-NLS-1$ //$NON-NLS-2$
 				if (lsp != sp) {
 					seq = 3;
 					bco[sp].xy = 0;
@@ -2929,7 +2929,7 @@ public class StageMaker extends Applet implements Runnable {
 					seqn = false;
 				}
 				rd.fillRect(10, 130, 200, 200);
-				if ((sp == 30 || sp == 32 || sp == 54) && button("  Rearrange Checkpoints  >  ", 110, 315, 2, true)) {
+				if ((sp == 30 || sp == 32 || sp == 54) && button(Messages.getString("StageMaker.641"), 110, 315, 2, true)) { //$NON-NLS-1$
 					mouses = 0;
 					epart = false;
 					if (!arrng) {
@@ -2977,31 +2977,31 @@ public class StageMaker extends Applet implements Runnable {
 						phd = 2L + Math.round(Math.random() * 4.0);
 					}
 				if (sp == 31) {
-					rd.setFont(new Font("Arial", 1, 12));
+					rd.setFont(new Font(Messages.getString("StageMaker.642"), 1, 12)); //$NON-NLS-1$
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Height:", 62, 280);
+					rd.drawString(Messages.getString("StageMaker.643"), 62, 280); //$NON-NLS-1$
 					movefield(fixh, 107, 266, 50, 20);
 					if (fixh.hasFocus())
 						focuson = false;
 					if (!fixh.isShowing())
 						fixh.setVisible(true);
-					rd.setFont(new Font("Arial", 0, 11));
+					rd.setFont(new Font(Messages.getString("StageMaker.644"), 0, 11)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
-					rd.drawString("(Height off the ground... )",
-							110 - ftm.stringWidth("(Height off the ground... )") / 2, 300);
-					if (fixh.getText().equals("")) {
-						fixh.setText("0");
+					rd.drawString(Messages.getString("StageMaker.645"), //$NON-NLS-1$
+							110 - ftm.stringWidth(Messages.getString("StageMaker.646")) / 2, 300); //$NON-NLS-1$
+					if (fixh.getText().equals(Messages.getString("StageMaker.647"))) { //$NON-NLS-1$
+						fixh.setText(Messages.getString("StageMaker.648")); //$NON-NLS-1$
 						fixh.select(0, 0);
 					}
 					try {
 						hf = Integer.valueOf(fixh.getText()).intValue();
 						if (hf > 8000) {
 							hf = 8000;
-							fixh.setText("8000");
+							fixh.setText(Messages.getString("StageMaker.649")); //$NON-NLS-1$
 						}
 					} catch (final Exception exception) {
 						hf = 2000;
-						fixh.setText("2000");
+						fixh.setText(Messages.getString("StageMaker.650")); //$NON-NLS-1$
 					}
 				} else if (fixh.isShowing())
 					fixh.setVisible(false);
@@ -3115,7 +3115,7 @@ public class StageMaker extends Applet implements Runnable {
 						}
 				}
 				if (sp != 66) {
-					if (button("  Rotate  ", 110, 348, 3, true)) {
+					if (button(Messages.getString("StageMaker.651"), 110, 348, 3, true)) { //$NON-NLS-1$
 						boolean bool = false;
 						if (rot == 0 && !bool) {
 							rot = 90;
@@ -3145,12 +3145,12 @@ public class StageMaker extends Applet implements Runnable {
 						epart = false;
 						arrng = false;
 					}
-				} else if (button("  Generate New  ", 110, 348, 3, true)) {
+				} else if (button(Messages.getString("StageMaker.652"), 110, 348, 3, true)) { //$NON-NLS-1$
 					pgen = false;
 					pwd = 2L + Math.round(Math.random() * 4.0);
 					phd = 2L + Math.round(Math.random() * 4.0);
 				}
-				if (button(">", 191, 348, 3, true) && (sptyp == 0 || sptyp == 1 || sptyp == 2 || sptyp == 5)) {
+				if (button(Messages.getString("StageMaker.653"), 191, 348, 3, true) && (sptyp == 0 || sptyp == 1 || sptyp == 2 || sptyp == 5)) { //$NON-NLS-1$
 					spart++;
 					if (spart == part.getItemCount())
 						spart = 0;
@@ -3158,7 +3158,7 @@ public class StageMaker extends Applet implements Runnable {
 					epart = false;
 					arrng = false;
 				}
-				if (button("<", 28, 348, 3, true) && (sptyp == 0 || sptyp == 1 || sptyp == 2 || sptyp == 5)) {
+				if (button(Messages.getString("StageMaker.654"), 28, 348, 3, true) && (sptyp == 0 || sptyp == 1 || sptyp == 2 || sptyp == 5)) { //$NON-NLS-1$
 					spart--;
 					if (spart == -1)
 						spart = part.getItemCount() - 1;
@@ -3166,7 +3166,7 @@ public class StageMaker extends Applet implements Runnable {
 					epart = false;
 					arrng = false;
 				}
-				if (button("   <  Undo   ", 204, 404, 0, true)) {
+				if (button(Messages.getString("StageMaker.655"), 204, 404, 0, true)) { //$NON-NLS-1$
 					epart = false;
 					arrng = false;
 					if (nundo > 0) {
@@ -3175,7 +3175,7 @@ public class StageMaker extends Applet implements Runnable {
 						readstage(0);
 					}
 				}
-				if (button("   Remove / Edit  Part   ", 172, 454, 0, true)) {
+				if (button(Messages.getString("StageMaker.656"), 172, 454, 0, true)) { //$NON-NLS-1$
 					if (!epart)
 						epart = true;
 					else
@@ -3183,29 +3183,29 @@ public class StageMaker extends Applet implements Runnable {
 					arrng = false;
 					esp = -1;
 				}
-				if (button("   Go to >  Startline   ", 175, 504, 0, true)) {
+				if (button(Messages.getString("StageMaker.657"), 175, 504, 0, true)) { //$NON-NLS-1$
 					sx = 0;
 					sz = 1500;
 				}
-				if (button(" About Part ", 164, 66, 3, false))
-					JOptionPane.showMessageDialog(null, discp[sp], "Stage Maker", 1);
-				if (button("  Keyboard Controls  ", 691, 536, 3, false))
+				if (button(Messages.getString("StageMaker.658"), 164, 66, 3, false)) //$NON-NLS-1$
+					JOptionPane.showMessageDialog(null, discp[sp], Messages.getString("StageMaker.659"), 1); //$NON-NLS-1$
+				if (button(Messages.getString("StageMaker.660"), 691, 536, 3, false)) //$NON-NLS-1$
 					JOptionPane.showMessageDialog(null,
-							"Instead of clicking the triangular buttons around the Building Area to scroll, you can use:\n[ Keyboard Arrows ]\n\nYou can also zoom in and out using the following keys:\n[+] & [-]  or  [8] & [2]  or  [Enter] & [Backspace]\n\n",
-							"Stage Maker", 1);
-				if (button("  Save  ", 280, 50, 0, false)) {
+							Messages.getString("StageMaker.661"), //$NON-NLS-1$
+							Messages.getString("StageMaker.662"), 1); //$NON-NLS-1$
+				if (button(Messages.getString("StageMaker.663"), 280, 50, 0, false)) { //$NON-NLS-1$
 					epart = false;
 					arrng = false;
 					savefile();
 				}
-				if (button("  Save & Preview  ", 380, 50, 0, false)) {
+				if (button(Messages.getString("StageMaker.664"), 380, 50, 0, false)) { //$NON-NLS-1$
 					epart = false;
 					arrng = false;
 					savefile();
 					hidefields();
 					tab = 2;
 				}
-				rd.setFont(new Font("Arial", 1, 12));
+				rd.setFont(new Font(Messages.getString("StageMaker.665"), 1, 12)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
 				rd.setColor(new Color(0, 0, 0));
 				int i_63_ = 0;
@@ -3236,25 +3236,25 @@ public class StageMaker extends Applet implements Runnable {
 				else
 					rd.setColor(new Color(200, 325 - i_65_, 30));
 				rd.fillRect(167, 531, i_65_, 9);
-				if (button("Memory Consumption :", 85, 540, 3, false))
+				if (button(Messages.getString("StageMaker.666"), 85, 540, 3, false)) //$NON-NLS-1$
 					JOptionPane.showMessageDialog(null,
-							new StringBuilder().append("Memory Consumption Details\n\nNumber of Parts:  ")
-									.append(i_64_ / 2).append(" %\nPart's Details:  ").append(i_66_ / 2)
-									.append(" %\nRoad Points:  ").append(i_67_ / 2).append(" %\nStage Area:  ")
-									.append(i_68_ / 2).append(" %\n \n").toString(),
-							"Stage Maker", 1);
+							new StringBuilder().append(Messages.getString("StageMaker.667")) //$NON-NLS-1$
+									.append(i_64_ / 2).append(Messages.getString("StageMaker.668")).append(i_66_ / 2) //$NON-NLS-1$
+									.append(Messages.getString("StageMaker.669")).append(i_67_ / 2).append(Messages.getString("StageMaker.670")) //$NON-NLS-1$ //$NON-NLS-2$
+									.append(i_68_ / 2).append(Messages.getString("StageMaker.671")).toString(), //$NON-NLS-1$
+							Messages.getString("StageMaker.672"), 1); //$NON-NLS-1$
 				rd.setColor(new Color(0, 0, 0));
 				rd.drawRect(167, 531, 200, 9);
-				final String[] strings = { "Number of Parts", "Part's Details", "Road Points", "Stage Area" };
+				final String[] strings = { Messages.getString("StageMaker.673"), Messages.getString("StageMaker.674"), Messages.getString("StageMaker.675"), Messages.getString("StageMaker.676") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 				rd.drawString(strings[i_63_], 267 - ftm.stringWidth(strings[i_63_]) / 2, 540);
-				rd.drawString(new StringBuilder().append("").append(i_65_ / 2).append(" %  used").toString(), 375, 540);
+				rd.drawString(new StringBuilder().append(Messages.getString("StageMaker.677")).append(i_65_ / 2).append(Messages.getString("StageMaker.678")).toString(), 375, 540); //$NON-NLS-1$ //$NON-NLS-2$
 				if (overcan)
 					overcan = false;
 				if (epart) {
 					if (esp == -1) {
 						rd.setColor(new Color(0, 0, 0));
-						rd.drawString("Click on any part to Edit >", 257, 454);
-						if (button(" Cancel ", 323, 474, 4, false))
+						rd.drawString(Messages.getString("StageMaker.679"), 257, 454); //$NON-NLS-1$
+						if (button(Messages.getString("StageMaker.680"), 323, 474, 4, false)) //$NON-NLS-1$
 							epart = false;
 					}
 				} else {
@@ -3265,15 +3265,15 @@ public class StageMaker extends Applet implements Runnable {
 				}
 				if (arrng) {
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString(new StringBuilder().append("Click on Checkpoint NO# ").append(arrcnt + 1)
-							.append("  >").toString(), 257, 80);
-					if (button(" Cancel ", 330, 100, 4, false))
+					rd.drawString(new StringBuilder().append(Messages.getString("StageMaker.681")).append(arrcnt + 1) //$NON-NLS-1$
+							.append(Messages.getString("StageMaker.682")).toString(), 257, 80); //$NON-NLS-1$
+					if (button(Messages.getString("StageMaker.683"), 330, 100, 4, false)) //$NON-NLS-1$
 						arrng = false;
 					if (arrcnt == cp.nsp) {
 						sortstage();
 						JOptionPane.showMessageDialog(null,
-								"Checkpoints Arranged!\nPress Save and Test Drive to check the new checkpoint order.\n",
-								"Stage Maker", 1);
+								Messages.getString("StageMaker.684"), //$NON-NLS-1$
+								Messages.getString("StageMaker.685"), 1); //$NON-NLS-1$
 						arrng = false;
 					}
 				} else if (chi != -1)
@@ -3362,10 +3362,10 @@ public class StageMaker extends Applet implements Runnable {
 				rd.fillRect(790, 25, 10, 525);
 				rd.fillRect(10, 25, 780, 10);
 				rd.fillRect(10, 445, 780, 105);
-				rd.setFont(new Font("Arial", 1, 12));
+				rd.setFont(new Font(Messages.getString("StageMaker.686"), 1, 12)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
-				final String[] strings = { "Controls", "Atmosphere", "Colors", "Scenery", "Laps", "Sound Track",
-						"Test Drive" };
+				final String[] strings = { Messages.getString("StageMaker.687"), Messages.getString("StageMaker.688"), Messages.getString("StageMaker.689"), Messages.getString("StageMaker.690"), Messages.getString("StageMaker.691"), Messages.getString("StageMaker.692"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$
+						Messages.getString("StageMaker.693") }; //$NON-NLS-1$
 				final int[] is_76_ = { 10, 10, 121, 111 };
 				final int[] is_77_ = { 425, 445, 445, 425 };
 				for (int i_78_ = 0; i_78_ < 7; i_78_++) {
@@ -3383,21 +3383,21 @@ public class StageMaker extends Applet implements Runnable {
 						is_76_[i_79_] += 111;
 				}
 				if (tabed == tab && dtab != dtabed) {
-					if (!ttstage.equals("")) {
+					if (!ttstage.equals(Messages.getString("StageMaker.694"))) { //$NON-NLS-1$
 						tstage = ttstage;
-						ttstage = "";
+						ttstage = Messages.getString("StageMaker.695"); //$NON-NLS-1$
 					}
 					readstage(1);
 					hidefields();
 				}
 				if (dtab == 0) {
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Use the [ Keyboard Arrows ] to navigate through the stage.", 20, 470);
+					rd.drawString(Messages.getString("StageMaker.696"), 20, 470); //$NON-NLS-1$
 					rd.drawString(
-							"[Left] & [Right] arrows are for rotating.  [Up] & [Down] arrows are for moving forwards and backwards.",
+							Messages.getString("StageMaker.697"), //$NON-NLS-1$
 							20, 490);
 					rd.drawString(
-							"For moving vertically down and up use the following keys:  [+] & [-]  or  [8] & [2]  or  [Enter] & [Backspace]",
+							Messages.getString("StageMaker.698"), //$NON-NLS-1$
 							20, 520);
 				}
 				if (dtab == 2) {
@@ -3415,19 +3415,19 @@ public class StageMaker extends Applet implements Runnable {
 							pfog.setState(true);
 						else
 							pfog.setState(false);
-						ttstage = "";
+						ttstage = Messages.getString("StageMaker.699"); //$NON-NLS-1$
 						mouseon = -1;
 					}
 					if (mouses != 1) {
 						if ((mouseon >= 6 || mouseon < 3) && mouseon != -1) {
-							if (ttstage.equals(""))
+							if (ttstage.equals(Messages.getString("StageMaker.700"))) //$NON-NLS-1$
 								ttstage = tstage;
 							sortop();
 							readstage(1);
 						}
 						mouseon = -1;
 					}
-					final String[] strings_81_ = { "Sky", "Dust / Fog", "Ground" };
+					final String[] strings_81_ = { Messages.getString("StageMaker.701"), Messages.getString("StageMaker.702"), Messages.getString("StageMaker.703") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 					for (int i_82_ = 0; i_82_ < 3; i_82_++) {
 						rd.setColor(new Color(0, 0, 0));
 						rd.drawString(strings_81_[i_82_], 107 + 195 * i_82_ - ftm.stringWidth(strings_81_[i_82_]) / 2,
@@ -3526,17 +3526,17 @@ public class StageMaker extends Applet implements Runnable {
 					cgrnd[0] = color.getRed();
 					cgrnd[1] = color.getGreen();
 					cgrnd[2] = color.getBlue();
-					if (button(" Reset ", 650, 510, 0, true)) {
-						if (!ttstage.equals("")) {
+					if (button(Messages.getString("StageMaker.704"), 650, 510, 0, true)) { //$NON-NLS-1$
+						if (!ttstage.equals(Messages.getString("StageMaker.705"))) { //$NON-NLS-1$
 							tstage = ttstage;
-							ttstage = "";
+							ttstage = Messages.getString("StageMaker.706"); //$NON-NLS-1$
 						}
 						readstage(1);
 						dtabed = -2;
 					}
-					if (button("        Save        ", 737, 510, 0, true)) {
+					if (button(Messages.getString("StageMaker.707"), 737, 510, 0, true)) { //$NON-NLS-1$
 						sortop();
-						ttstage = "";
+						ttstage = Messages.getString("StageMaker.708"); //$NON-NLS-1$
 						savefile();
 					}
 				}
@@ -3544,23 +3544,23 @@ public class StageMaker extends Applet implements Runnable {
 					if (dtabed != dtab) {
 						Color.RGBtoHSB(cldd[0], cldd[1], cldd[2], hsb[0]);
 						Color.RGBtoHSB(texture[0], texture[1], texture[2], hsb[1]);
-						mgen.setText(new StringBuilder().append("").append(m.mgen).append("").toString());
+						mgen.setText(new StringBuilder().append(Messages.getString("StageMaker.709")).append(m.mgen).append(Messages.getString("StageMaker.710")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 						mouseon = -1;
-						ttstage = "";
+						ttstage = Messages.getString("StageMaker.711"); //$NON-NLS-1$
 					}
 					if (mouses != 1) {
 						if (mouseon == 0 || mouseon == 1 || mouseon == 2 || mouseon == 6) {
-							if (ttstage.equals(""))
+							if (ttstage.equals(Messages.getString("StageMaker.712"))) //$NON-NLS-1$
 								ttstage = tstage;
 							sortop();
 							readstage(1);
 						}
 						mouseon = -1;
 					}
-					rd.setFont(new Font("Arial", 1, 12));
+					rd.setFont(new Font(Messages.getString("StageMaker.713"), 1, 12)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Clouds", 32, 461);
+					rd.drawString(Messages.getString("StageMaker.714"), 32, 461); //$NON-NLS-1$
 					for (int i_89_ = 0; i_89_ < 150; i_89_++) {
 						rd.setColor(Color.getHSBColor(i_89_ * 0.006667F, 1.0F, 1.0F));
 						rd.drawLine(32 + i_89_ + 0, 467, 32 + i_89_ + 0, 474);
@@ -3573,10 +3573,10 @@ public class StageMaker extends Applet implements Runnable {
 						rd.setColor(Color.getHSBColor(hsb[0][0], i_91_ * 0.003333F, hsb[0][2]));
 						rd.drawLine(32 + i_91_ + 0, 499, 32 + i_91_ + 0, 506);
 					}
-					rd.setFont(new Font("Arial", 0, 11));
+					rd.setFont(new Font(Messages.getString("StageMaker.715"), 0, 11)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Blend:", 32, 529);
+					rd.drawString(Messages.getString("StageMaker.716"), 32, 529); //$NON-NLS-1$
 					rd.setColor(new Color(0, 0, 0));
 					rd.fillRect(70, 522, 112, 2);
 					rd.fillRect(70, 528, 112, 2);
@@ -3593,14 +3593,14 @@ public class StageMaker extends Applet implements Runnable {
 						rd.drawLine(70 + i_93_, 524, 70 + i_93_, 527);
 					}
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Height", 202 - ftm.stringWidth("Height") / 2, 461);
+					rd.drawString(Messages.getString("StageMaker.717"), 202 - ftm.stringWidth(Messages.getString("StageMaker.718")) / 2, 461); //$NON-NLS-1$ //$NON-NLS-2$
 					rd.drawLine(202, 467, 202, 530);
 					for (int i_94_ = 0; i_94_ < 8; i_94_++)
 						rd.drawLine(202, 466 + i_94_ * 8, 202 + 8 - i_94_, 466 + i_94_ * 8);
-					rd.setFont(new Font("Arial", 1, 12));
+					rd.setFont(new Font(Messages.getString("StageMaker.719"), 1, 12)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Ground Texture", 257, 471);
+					rd.drawString(Messages.getString("StageMaker.720"), 257, 471); //$NON-NLS-1$
 					for (int i_95_ = 0; i_95_ < 150; i_95_++) {
 						rd.setColor(Color.getHSBColor(i_95_ * 0.006667F, 1.0F, 1.0F));
 						rd.drawLine(32 + i_95_ + 225, 477, 32 + i_95_ + 225, 484);
@@ -3609,10 +3609,10 @@ public class StageMaker extends Applet implements Runnable {
 						rd.setColor(Color.getHSBColor(hsb[1][0], i_96_ * 0.006667F, i_96_ * 0.006667F));
 						rd.drawLine(32 + i_96_ + 225, 493, 32 + i_96_ + 225, 500);
 					}
-					rd.setFont(new Font("Arial", 0, 11));
+					rd.setFont(new Font(Messages.getString("StageMaker.721"), 0, 11)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Blend:", 257, 523);
+					rd.drawString(Messages.getString("StageMaker.722"), 257, 523); //$NON-NLS-1$
 					rd.setColor(new Color(0, 0, 0));
 					rd.fillRect(295, 516, 112, 2);
 					rd.fillRect(295, 522, 112, 2);
@@ -3745,46 +3745,46 @@ public class StageMaker extends Applet implements Runnable {
 					texture[0] = color.getRed();
 					texture[1] = color.getGreen();
 					texture[2] = color.getBlue();
-					rd.setFont(new Font("Arial", 1, 12));
+					rd.setFont(new Font(Messages.getString("StageMaker.723"), 1, 12)); //$NON-NLS-1$
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Mountains", 452, 465);
-					rd.setFont(new Font("Arial", 0, 11));
-					rd.drawString("Mountain Generator Key:", 452, 480);
+					rd.drawString(Messages.getString("StageMaker.724"), 452, 465); //$NON-NLS-1$
+					rd.setFont(new Font(Messages.getString("StageMaker.725"), 0, 11)); //$NON-NLS-1$
+					rd.drawString(Messages.getString("StageMaker.726"), 452, 480); //$NON-NLS-1$
 					movefield(mgen, 452, 484, 120, 20);
 					if (mgen.hasFocus())
 						focuson = false;
 					if (!mgen.isShowing())
 						mgen.setVisible(true);
-					if (button("  Generate New  ", 512, 525, 3, true)) {
+					if (button(Messages.getString("StageMaker.727"), 512, 525, 3, true)) { //$NON-NLS-1$
 						m.mgen = (int) (Math.random() * 100000.0);
-						mgen.setText(new StringBuilder().append("").append(m.mgen).append("").toString());
-						if (ttstage.equals(""))
+						mgen.setText(new StringBuilder().append(Messages.getString("StageMaker.728")).append(m.mgen).append(Messages.getString("StageMaker.729")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+						if (ttstage.equals(Messages.getString("StageMaker.730"))) //$NON-NLS-1$
 							ttstage = tstage;
 						sortop();
 						readstage(1);
 					}
-					if (!mgen.getText().equals(new StringBuilder().append("").append(m.mgen).append("").toString()))
+					if (!mgen.getText().equals(new StringBuilder().append(Messages.getString("StageMaker.731")).append(m.mgen).append(Messages.getString("StageMaker.732")).toString())) //$NON-NLS-1$ //$NON-NLS-2$
 						try {
 							final int i_107_ = Integer.valueOf(mgen.getText()).intValue();
 							m.mgen = i_107_;
-							if (ttstage.equals(""))
+							if (ttstage.equals(Messages.getString("StageMaker.733"))) //$NON-NLS-1$
 								ttstage = tstage;
 							sortop();
 							readstage(1);
 						} catch (final Exception exception) {
-							mgen.setText(new StringBuilder().append("").append(m.mgen).append("").toString());
+							mgen.setText(new StringBuilder().append(Messages.getString("StageMaker.734")).append(m.mgen).append(Messages.getString("StageMaker.735")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 						}
-					if (button(" Reset ", 650, 510, 0, true)) {
-						if (!ttstage.equals("")) {
+					if (button(Messages.getString("StageMaker.736"), 650, 510, 0, true)) { //$NON-NLS-1$
+						if (!ttstage.equals(Messages.getString("StageMaker.737"))) { //$NON-NLS-1$
 							tstage = ttstage;
-							ttstage = "";
+							ttstage = Messages.getString("StageMaker.738"); //$NON-NLS-1$
 						}
 						readstage(1);
 						dtabed = -2;
 					}
-					if (button("        Save        ", 737, 510, 0, true)) {
+					if (button(Messages.getString("StageMaker.739"), 737, 510, 0, true)) { //$NON-NLS-1$
 						sortop();
-						ttstage = "";
+						ttstage = Messages.getString("StageMaker.740"); //$NON-NLS-1$
 						savefile();
 					}
 				}
@@ -3796,7 +3796,7 @@ public class StageMaker extends Applet implements Runnable {
 						fogn[1] = (m.fade[0] - 5000) / 30;
 					}
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Atmosphere RGB Mask", 20, 461);
+					rd.drawString(Messages.getString("StageMaker.741"), 20, 461); //$NON-NLS-1$
 					rd.setColor(new Color(128, 128, 128));
 					rd.drawLine(10, 457, 17, 457);
 					rd.drawLine(260, 457, 152, 457);
@@ -3805,14 +3805,14 @@ public class StageMaker extends Applet implements Runnable {
 					rd.drawLine(260, 527, 360, 527);
 					rd.drawLine(10, 546, 360, 546);
 					rd.drawLine(360, 527, 360, 546);
-					final String[] strings_109_ = { "Red", "Green", "Blue" };
+					final String[] strings_109_ = { Messages.getString("StageMaker.742"), Messages.getString("StageMaker.743"), Messages.getString("StageMaker.744") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 					final int[] is_110_ = { 32, 20, 29 };
 					int i_111_ = 38;
 					int i_112_ = -70;
 					for (int i_113_ = 0; i_113_ < 3; i_113_++) {
 						rd.setColor(new Color(0, 0, 0));
 						rd.drawString(
-								new StringBuilder().append("").append(strings_109_[i_113_]).append(" :").toString(),
+								new StringBuilder().append(Messages.getString("StageMaker.745")).append(strings_109_[i_113_]).append(Messages.getString("StageMaker.746")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 								is_110_[i_113_], 447 + i_113_ * 24 + i_111_);
 						rd.drawLine(140 + i_112_, 443 + i_113_ * 24 + i_111_, 230 + i_112_, 443 + i_113_ * 24 + i_111_);
 						for (int i_114_ = 1; i_114_ < 10; i_114_++)
@@ -3824,12 +3824,12 @@ public class StageMaker extends Applet implements Runnable {
 								5, i_115_ * 2 + 1);
 						rd.setColor(new Color(255, 128, 0));
 						rd.drawRect(139 + (int) (snap[i_113_] / 1.1111F) + i_112_, 434 + i_113_ * 24 + i_111_, 2, 18);
-						if (button(" - ", 260 + i_112_, 447 + i_113_ * 24 + i_111_, 4, false)) {
+						if (button(Messages.getString("StageMaker.747"), 260 + i_112_, 447 + i_113_ * 24 + i_111_, 4, false)) { //$NON-NLS-1$
 							snap[i_113_] -= 2;
 							if (snap[i_113_] < 0)
 								snap[i_113_] = 0;
 						}
-						if (button(" + ", 300 + i_112_, 447 + i_113_ * 24 + i_111_, 4, false)) {
+						if (button(Messages.getString("StageMaker.748"), 300 + i_112_, 447 + i_113_ * 24 + i_111_, 4, false)) { //$NON-NLS-1$
 							if (snap[0] + snap[1] + snap[2] > 200)
 								for (int i_116_ = 0; i_116_ < 3; i_116_++)
 									if (i_116_ != i_113_) {
@@ -3849,25 +3849,25 @@ public class StageMaker extends Applet implements Runnable {
 						readstage(2);
 					}
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Car Lights :", 265, 541);
+					rd.drawString(Messages.getString("StageMaker.749"), 265, 541); //$NON-NLS-1$
 					if (snap[0] + snap[1] + snap[2] > 110) {
-						rd.drawString("Off", 335, 541);
+						rd.drawString(Messages.getString("StageMaker.750"), 335, 541); //$NON-NLS-1$
 						m.lightson = false;
 					} else {
 						rd.setColor(new Color(0, 200, 0));
-						rd.drawString("On", 335, 541);
+						rd.drawString(Messages.getString("StageMaker.751"), 335, 541); //$NON-NLS-1$
 						m.lightson = true;
 					}
 					final int i_118_ = 33;
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Dust/Fog Properties", 280 + i_118_, 461);
+					rd.drawString(Messages.getString("StageMaker.752"), 280 + i_118_, 461); //$NON-NLS-1$
 					rd.setColor(new Color(128, 128, 128));
 					rd.drawLine(270 + i_118_, 457, 277 + i_118_, 457);
 					rd.drawLine(540 + i_118_, 457, 393 + i_118_, 457);
 					rd.drawLine(270 + i_118_, 457, 270 + i_118_, 522);
 					rd.drawLine(540 + i_118_, 457, 540 + i_118_, 522);
 					rd.drawLine(270 + i_118_, 522, 540 + i_118_, 522);
-					final String[] strings_119_ = { "Density", "Near / Far" };
+					final String[] strings_119_ = { Messages.getString("StageMaker.753"), Messages.getString("StageMaker.754") }; //$NON-NLS-1$ //$NON-NLS-2$
 					final int[] is_120_ = { 292 + i_118_, 280 + i_118_ };
 					final int[] is_121_ = { 20, 10 };
 					i_111_ = 38;
@@ -3875,7 +3875,7 @@ public class StageMaker extends Applet implements Runnable {
 					for (int i_122_ = 0; i_122_ < 2; i_122_++) {
 						rd.setColor(new Color(0, 0, 0));
 						rd.drawString(
-								new StringBuilder().append("").append(strings_119_[i_122_]).append(" :").toString(),
+								new StringBuilder().append(Messages.getString("StageMaker.755")).append(strings_119_[i_122_]).append(Messages.getString("StageMaker.756")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 								is_120_[i_122_], 447 + i_122_ * 24 + i_111_);
 						rd.drawLine(140 + i_112_, 443 + i_122_ * 24 + i_111_, 230 + i_112_, 443 + i_122_ * 24 + i_111_);
 						for (int i_123_ = 1; i_123_ < 10; i_123_++)
@@ -3887,12 +3887,12 @@ public class StageMaker extends Applet implements Runnable {
 								5, i_124_ * 2 + 1);
 						rd.setColor(new Color(255, 128, 0));
 						rd.drawRect(139 + (int) (fogn[i_122_] / 1.1111F) + i_112_, 434 + i_122_ * 24 + i_111_, 2, 18);
-						if (button(" - ", 260 + i_112_, 447 + i_122_ * 24 + i_111_, 4, false)) {
+						if (button(Messages.getString("StageMaker.757"), 260 + i_112_, 447 + i_122_ * 24 + i_111_, 4, false)) { //$NON-NLS-1$
 							fogn[i_122_] -= is_121_[i_122_];
 							if (fogn[i_122_] < 0)
 								fogn[i_122_] = 0;
 						}
-						if (button(" + ", 300 + i_112_, 447 + i_122_ * 24 + i_111_, 4, false)) {
+						if (button(Messages.getString("StageMaker.758"), 300 + i_112_, 447 + i_122_ * 24 + i_111_, 4, false)) { //$NON-NLS-1$
 							fogn[i_122_] += is_121_[i_122_];
 							if (fogn[i_122_] > 100)
 								fogn[i_122_] = 100;
@@ -3901,9 +3901,9 @@ public class StageMaker extends Applet implements Runnable {
 					m.fogd = (8 - fogn[0] / 20 + 1) * 2 - 1;
 					m.fadfrom(5000 + fogn[1] * 30);
 					origfade = m.fade[0];
-					if (button(" Reset ", 650, 510, 0, true))
+					if (button(Messages.getString("StageMaker.759"), 650, 510, 0, true)) //$NON-NLS-1$
 						dtabed = -2;
-					if (button("        Save        ", 737, 510, 0, true)) {
+					if (button(Messages.getString("StageMaker.760"), 737, 510, 0, true)) { //$NON-NLS-1$
 						sortop();
 						savefile();
 					}
@@ -3912,7 +3912,7 @@ public class StageMaker extends Applet implements Runnable {
 					if (dtabed != dtab && cp.nlaps - 1 >= 0 && cp.nlaps - 1 <= 14)
 						nlaps.select(cp.nlaps - 1);
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Set the number of laps for this stage:", 130, 496);
+					rd.drawString(Messages.getString("StageMaker.761"), 130, 496); //$NON-NLS-1$
 					nlaps.move(348, 480);
 					if (!nlaps.isShowing())
 						nlaps.setVisible(true);
@@ -3920,9 +3920,9 @@ public class StageMaker extends Applet implements Runnable {
 						cp.nlaps = nlaps.getSelectedIndex() + 1;
 						requestFocus();
 					}
-					if (button(" Reset ", 530, 496, 0, true))
+					if (button(Messages.getString("StageMaker.762"), 530, 496, 0, true)) //$NON-NLS-1$
 						dtabed = -2;
-					if (button("        Save        ", 617, 496, 0, true)) {
+					if (button(Messages.getString("StageMaker.763"), 617, 496, 0, true)) { //$NON-NLS-1$
 						sortop();
 						savefile();
 					}
@@ -3931,15 +3931,15 @@ public class StageMaker extends Applet implements Runnable {
 					if (dtabed != dtab) {
 						tracks.removeAll();
 						tracks.maxl = 200;
-						tracks.add(rd, "The Play List  -  MOD Tracks");
-						final String[] strings_125_ = new File("mystages/mymusic/").list();
+						tracks.add(rd, Messages.getString("StageMaker.764")); //$NON-NLS-1$
+						final String[] strings_125_ = new File(Messages.getString("StageMaker.765")).list(); //$NON-NLS-1$
 						if (strings_125_ != null)
 							for (int i_126_ = 0; i_126_ < strings_125_.length; i_126_++)
-								if (strings_125_[i_126_].toLowerCase().endsWith(".zip"))
+								if (strings_125_[i_126_].toLowerCase().endsWith(Messages.getString("StageMaker.766"))) //$NON-NLS-1$
 									tracks.add(rd,
 											strings_125_[i_126_].substring(0, strings_125_[i_126_].length() - 4));
-						if (ltrackname.equals("")) {
-							if (trackname.equals(""))
+						if (ltrackname.equals(Messages.getString("StageMaker.767"))) { //$NON-NLS-1$
+							if (trackname.equals(Messages.getString("StageMaker.768"))) //$NON-NLS-1$
 								tracks.select(0);
 							else
 								tracks.select(trackname);
@@ -3953,7 +3953,7 @@ public class StageMaker extends Applet implements Runnable {
 					if (!tracks.isShowing())
 						tracks.setVisible(true);
 					if (track.playing && track.loaded == 2) {
-						if (button("      Stop      ", 110, 495, 2, false))
+						if (button(Messages.getString("StageMaker.769"), 110, 495, 2, false)) //$NON-NLS-1$
 							track.stop();
 						if (!ltrackname.equals(tracks.getSelectedItem()))
 							track.stop();
@@ -3990,98 +3990,98 @@ public class StageMaker extends Applet implements Runnable {
 						rd.setColor(new Color(0, 164, 242));
 						rd.drawLine(10 + i_127_, 520, 10 + i_127_, 518);
 						rd.drawLine(10 + i_127_, 530, 10 + i_127_, 532);
-					} else if (tracks.getSelectedIndex() != 0 && button("      Play  >      ", 110, 495, 2, false)) {
+					} else if (tracks.getSelectedIndex() != 0 && button(Messages.getString("StageMaker.770"), 110, 495, 2, false)) { //$NON-NLS-1$
 						if (!ltrackname.equals(tracks.getSelectedItem())) {
 							track.unload();
-							track = new RadicalMod(new StringBuilder().append("mystages/mymusic/")
-									.append(tracks.getSelectedItem()).append(".zip").toString(), 300, 8000, 125, true,
+							track = new RadicalMod(new StringBuilder().append(Messages.getString("StageMaker.771")) //$NON-NLS-1$
+									.append(tracks.getSelectedItem()).append(Messages.getString("StageMaker.772")).toString(), 300, 8000, 125, true, //$NON-NLS-1$
 									false);
 							if (track.loaded == 2) {
 								avon = track.sClip.stream.available();
 								ltrackname = tracks.getSelectedItem();
 							} else
-								ltrackname = "";
+								ltrackname = Messages.getString("StageMaker.773"); //$NON-NLS-1$
 						}
-						if (!ltrackname.equals(""))
+						if (!ltrackname.equals(Messages.getString("StageMaker.774"))) //$NON-NLS-1$
 							track.play();
 						else
 							JOptionPane.showMessageDialog(null,
-									new StringBuilder().append("Failed to load '").append(tracks.getSelectedItem())
-											.append("', please make sure it is a valid MOD Track!").toString(),
-									"Stage Maker", 1);
+									new StringBuilder().append(Messages.getString("StageMaker.775")).append(tracks.getSelectedItem()) //$NON-NLS-1$
+											.append(Messages.getString("StageMaker.776")).toString(), //$NON-NLS-1$
+									Messages.getString("StageMaker.777"), 1); //$NON-NLS-1$
 					}
 					if (tracks.getSelectedIndex() != 0) {
-						if (button("   Set as the stage's Sound Track  >   ", 330, 466, 2, false)) {
+						if (button(Messages.getString("StageMaker.778"), 330, 466, 2, false)) { //$NON-NLS-1$
 							if (!ltrackname.equals(tracks.getSelectedItem())) {
 								track.unload();
-								track = new RadicalMod(new StringBuilder().append("mystages/mymusic/")
-										.append(tracks.getSelectedItem()).append(".zip").toString(), 300, 8000, 125,
+								track = new RadicalMod(new StringBuilder().append(Messages.getString("StageMaker.779")) //$NON-NLS-1$
+										.append(tracks.getSelectedItem()).append(Messages.getString("StageMaker.780")).toString(), 300, 8000, 125, //$NON-NLS-1$
 										true, false);
 								if (track.loaded == 2) {
 									avon = track.sClip.stream.available();
 									ltrackname = tracks.getSelectedItem();
 								} else
-									ltrackname = "";
+									ltrackname = Messages.getString("StageMaker.781"); //$NON-NLS-1$
 							}
-							if (!ltrackname.equals("")) {
+							if (!ltrackname.equals(Messages.getString("StageMaker.782"))) { //$NON-NLS-1$
 								trackname = ltrackname;
 								trackvol = (int) (220.0F / (track.rvol / 3750.0F));
 								try {
-									final File file = new File(new StringBuilder().append("mystages/mymusic/")
-											.append(trackname).append(".zip").toString());
+									final File file = new File(new StringBuilder().append(Messages.getString("StageMaker.783")) //$NON-NLS-1$
+											.append(trackname).append(Messages.getString("StageMaker.784")).toString()); //$NON-NLS-1$
 									tracksize = (int) (file.length() / 1024L);
 									if (tracksize > 250) {
 										JOptionPane.showMessageDialog(null,
-												new StringBuilder().append("Cannot use '")
+												new StringBuilder().append(Messages.getString("StageMaker.785")) //$NON-NLS-1$
 														.append(tracks.getSelectedItem())
-														.append("' as the sound track!\nIts file size is bigger then 250KB.\n\n")
+														.append(Messages.getString("StageMaker.786")) //$NON-NLS-1$
 														.toString(),
-												"Stage Maker", 1);
-										trackname = "";
+												Messages.getString("StageMaker.787"), 1); //$NON-NLS-1$
+										trackname = Messages.getString("StageMaker.788"); //$NON-NLS-1$
 									}
 								} catch (final Exception exception) {
 									tracksize = 111;
 								}
 							} else
 								JOptionPane.showMessageDialog(null,
-										new StringBuilder().append("Failed to load '").append(tracks.getSelectedItem())
-												.append("', please make sure it is a valid MOD Track!").toString(),
-										"Stage Maker", 1);
+										new StringBuilder().append(Messages.getString("StageMaker.789")).append(tracks.getSelectedItem()) //$NON-NLS-1$
+												.append(Messages.getString("StageMaker.790")).toString(), //$NON-NLS-1$
+										Messages.getString("StageMaker.791"), 1); //$NON-NLS-1$
 						}
-						if (button("   X Delete   ", 258, 495, 2, false) && JOptionPane.showConfirmDialog(null,
+						if (button(Messages.getString("StageMaker.792"), 258, 495, 2, false) && JOptionPane.showConfirmDialog(null, //$NON-NLS-1$
 								new StringBuilder()
-										.append("Are you sure you want to permanently delete this MOD Track from your Play List?\n\n")
+										.append(Messages.getString("StageMaker.793")) //$NON-NLS-1$
 										.append(tracks.getSelectedItem())
-										.append("\n\n>  If you delete this Track from the Play List you will not be able to use it for other stages as well!     \n\n")
+										.append(Messages.getString("StageMaker.794")) //$NON-NLS-1$
 										.toString(),
-								"Stage Maker", 0) == 0)
+								Messages.getString("StageMaker.795"), 0) == 0) //$NON-NLS-1$
 							deltrack();
 					}
-					if (button("   Add a new MOD Track from file . . .  ", 330, 530, 0, false)
+					if (button(Messages.getString("StageMaker.796"), 330, 530, 0, false) //$NON-NLS-1$
 							&& JOptionPane.showConfirmDialog(null,
-									"The game only accepts MOD format music files for the game ('.mod' file extension).\nA good place to find MOD Tracks is the modarchive.com, all the current MOD Tracks\nthat are distributed with the game are from the modarchive.com.\n\nTo find out more about MOD Tracks and to learn how to compose & remix your own\nmusic, please read the section of the Stage Maker help about it.\n\nThe MOD Track needs to be compressed in a zip file to be added here, please make\nsure the MOD Track you wish to add to your stages sound track play list is zipped before\nadding it here.\nThe ZIP file must also be less then 250KB in size.\n\nIs the track you are about to insert a MOD Track in a ZIP file that is less then 250KB?\n",
-									"Stage Maker", 0) == 0) {
+									Messages.getString("StageMaker.797"), //$NON-NLS-1$
+									Messages.getString("StageMaker.798"), 0) == 0) { //$NON-NLS-1$
 						File file = null;
 						final FileDialog filedialog = new FileDialog(new Frame(),
-								"Stage Maker - Add MOD Track file to stage sound track play list!");
-						filedialog.setFile("*.zip");
+								Messages.getString("StageMaker.799")); //$NON-NLS-1$
+						filedialog.setFile(Messages.getString("StageMaker.800")); //$NON-NLS-1$
 						filedialog.setMode(0);
 						filedialog.setVisible(true);
 						try {
 							if (filedialog.getFile() != null)
-								file = new File(new StringBuilder().append("").append(filedialog.getDirectory())
-										.append("").append(filedialog.getFile()).append("").toString());
+								file = new File(new StringBuilder().append(Messages.getString("StageMaker.801")).append(filedialog.getDirectory()) //$NON-NLS-1$
+										.append(Messages.getString("StageMaker.802")).append(filedialog.getFile()).append(Messages.getString("StageMaker.803")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 						} catch (final Exception exception) {
 							/* empty */
 						}
 						if (file != null)
 							try {
 								if (file.length() / 1024L < 250L) {
-									File file_128_ = new File("mystages/mymusic/");
+									File file_128_ = new File(Messages.getString("StageMaker.804")); //$NON-NLS-1$
 									if (!file_128_.exists())
 										file_128_.mkdirs();
-									file_128_ = new File(new StringBuilder().append("mystages/mymusic/")
-											.append(file.getName()).append("").toString());
+									file_128_ = new File(new StringBuilder().append(Messages.getString("StageMaker.805")) //$NON-NLS-1$
+											.append(file.getName()).append(Messages.getString("StageMaker.806")).toString()); //$NON-NLS-1$
 									final FileInputStream fileinputstream = new FileInputStream(file);
 									final FileOutputStream fileoutputstream = new FileOutputStream(file_128_);
 									final byte[] is_129_ = new byte[1024];
@@ -4091,32 +4091,32 @@ public class StageMaker extends Applet implements Runnable {
 									fileinputstream.close();
 									fileoutputstream.close();
 									tracks.removeAll();
-									tracks.add(rd, "Select MOD Track                      ");
-									final String[] strings_131_ = new File("mystages/mymusic/").list();
+									tracks.add(rd, Messages.getString("StageMaker.807")); //$NON-NLS-1$
+									final String[] strings_131_ = new File(Messages.getString("StageMaker.808")).list(); //$NON-NLS-1$
 									if (strings_131_ != null)
 										for (int i_132_ = 0; i_132_ < strings_131_.length; i_132_++)
-											if (strings_131_[i_132_].toLowerCase().endsWith(".zip"))
+											if (strings_131_[i_132_].toLowerCase().endsWith(Messages.getString("StageMaker.809"))) //$NON-NLS-1$
 												tracks.add(rd, strings_131_[i_132_].substring(0,
 														strings_131_[i_132_].length() - 4));
 									tracks.select(file.getName().substring(0, file.getName().length() - 4));
 								} else
 									JOptionPane.showMessageDialog(null,
-											"The selected file is larger then 250KB in size and therefore cannot be added!",
-											"Stage Maker", 1);
+											Messages.getString("StageMaker.810"), //$NON-NLS-1$
+											Messages.getString("StageMaker.811"), 1); //$NON-NLS-1$
 							} catch (final Exception exception) {
 								JOptionPane.showMessageDialog(null, new StringBuilder()
-										.append("Unable to copy file! Error Deatials:\n").append(exception).toString(),
-										"Stage Maker", 1);
+										.append(Messages.getString("StageMaker.812")).append(exception).toString(), //$NON-NLS-1$
+										Messages.getString("StageMaker.813"), 1); //$NON-NLS-1$
 							}
 					}
 					final int i_133_ = 200;
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Sound Track", 280 + i_133_, 461);
+					rd.drawString(Messages.getString("StageMaker.814"), 280 + i_133_, 461); //$NON-NLS-1$
 					String string = trackname;
-					if (string.equals(""))
-						string = "No Sound Track set.";
-					else if (button("   <  Remove Track   ", 378, 495, 2, false))
-						trackname = "";
+					if (string.equals(Messages.getString("StageMaker.815"))) //$NON-NLS-1$
+						string = Messages.getString("StageMaker.816"); //$NON-NLS-1$
+					else if (button(Messages.getString("StageMaker.817"), 378, 495, 2, false)) //$NON-NLS-1$
+						trackname = Messages.getString("StageMaker.818"); //$NON-NLS-1$
 					rd.drawString(string, 629 - ftm.stringWidth(string) / 2, 482);
 					rd.setColor(new Color(128, 128, 128));
 					rd.drawLine(270 + i_133_, 457, 277 + i_133_, 457);
@@ -4124,24 +4124,24 @@ public class StageMaker extends Applet implements Runnable {
 					rd.drawLine(270 + i_133_, 457, 270 + i_133_, 497);
 					rd.drawLine(589 + i_133_, 457, 589 + i_133_, 497);
 					rd.drawLine(270 + i_133_, 497, 589 + i_133_, 497);
-					if (button(" Reset ", 576, 530, 0, true)) {
-						ltrackname = "";
+					if (button(Messages.getString("StageMaker.819"), 576, 530, 0, true)) { //$NON-NLS-1$
+						ltrackname = Messages.getString("StageMaker.820"); //$NON-NLS-1$
 						dtabed = -2;
 					}
-					if (button("        Save        ", 663, 530, 0, true)) {
+					if (button(Messages.getString("StageMaker.821"), 663, 530, 0, true)) { //$NON-NLS-1$
 						sortop();
 						savefile();
 					}
 				}
 				if (dtab == 6) {
 					rd.setColor(new Color(0, 0, 0));
-					rd.setFont(new Font("Arial", 1, 13));
+					rd.setFont(new Font(Messages.getString("StageMaker.822"), 1, 13)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
-					rd.drawString("Test Drive the Stage", 400 - ftm.stringWidth("Test Drive the Stage") / 2, 470);
+					rd.drawString(Messages.getString("StageMaker.823"), 400 - ftm.stringWidth(Messages.getString("StageMaker.824")) / 2, 470); //$NON-NLS-1$ //$NON-NLS-2$
 					witho.move(342, 480);
 					if (!witho.isShowing())
 						witho.setVisible(true);
-					if (button("     TEST DRIVE!     ", 400, 530, 0, true)) {
+					if (button(Messages.getString("StageMaker.825"), 400, 530, 0, true)) { //$NON-NLS-1$
 						savefile();
 						errd = 0;
 						readstage(3);
@@ -4154,9 +4154,9 @@ public class StageMaker extends Applet implements Runnable {
 						} else
 							JOptionPane.showMessageDialog(null,
 									new StringBuilder()
-											.append("Error!  This stage is not ready for a test drive!\nReason:\n")
-											.append(errlo[errd - 1]).append("\n\n").toString(),
-									"Stage Maker", 0);
+											.append(Messages.getString("StageMaker.826")) //$NON-NLS-1$
+											.append(errlo[errd - 1]).append(Messages.getString("StageMaker.827")).toString(), //$NON-NLS-1$
+									Messages.getString("StageMaker.828"), 0); //$NON-NLS-1$
 					}
 				}
 				if (dtabed != dtab)
@@ -4166,61 +4166,61 @@ public class StageMaker extends Applet implements Runnable {
 						dtabed = dtab;
 			}
 			if (tab == 3) {
-				rd.setFont(new Font("Arial", 1, 13));
+				rd.setFont(new Font(Messages.getString("StageMaker.829"), 1, 13)); //$NON-NLS-1$
 				rd.setColor(new Color(0, 0, 0));
 				rd.drawString(
-						new StringBuilder().append("Publish Stage :  [ ").append(stagename).append(" ]").toString(), 30,
+						new StringBuilder().append(Messages.getString("StageMaker.830")).append(stagename).append(Messages.getString("StageMaker.831")).toString(), 30, //$NON-NLS-1$ //$NON-NLS-2$
 						50);
-				rd.drawString("Publishing Type :", 30, 80);
+				rd.drawString(Messages.getString("StageMaker.832"), 30, 80); //$NON-NLS-1$
 				pubtyp.move(150, 63);
 				if (!pubtyp.isShowing()) {
 					pubtyp.setVisible(true);
 					pubtyp.select(1);
 				}
 				rd.setColor(new Color(0, 0, 0));
-				rd.setFont(new Font("Arial", 0, 12));
+				rd.setFont(new Font(Messages.getString("StageMaker.833"), 0, 12)); //$NON-NLS-1$
 				if (pubtyp.getSelectedIndex() == 0) {
 					rd.drawString(
-							"Private :  This means only you can have your stage in your account and no one else can add",
+							Messages.getString("StageMaker.834"), //$NON-NLS-1$
 							268, 72);
-					rd.drawString("it to their account to play it!", 268, 88);
+					rd.drawString(Messages.getString("StageMaker.835"), 268, 88); //$NON-NLS-1$
 				}
 				if (pubtyp.getSelectedIndex() == 1) {
 					rd.drawString(
-							"Public :  This means anyone can add this stage to their account to play it, but only you can",
+							Messages.getString("StageMaker.836"), //$NON-NLS-1$
 							268, 72);
-					rd.drawString("download it to your Stage Maker and edit it (no one else but you can edit it).", 268,
+					rd.drawString(Messages.getString("StageMaker.837"), 268, //$NON-NLS-1$
 							88);
 				}
 				if (pubtyp.getSelectedIndex() == 2) {
 					rd.drawString(
-							"Super Public :  This means anyone can add this stage to their account to play it and can also",
+							Messages.getString("StageMaker.838"), //$NON-NLS-1$
 							268, 72);
-					rd.drawString("download it to their stage Maker, edit it and publish it.", 268, 88);
+					rd.drawString(Messages.getString("StageMaker.839"), 268, 88); //$NON-NLS-1$
 				}
-				rd.setFont(new Font("Arial", 1, 12));
+				rd.setFont(new Font(Messages.getString("StageMaker.840"), 1, 12)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
-				rd.drawString("Stage Name", 180 - ftm.stringWidth("Stage Name") / 2, 138);
-				rd.drawString("Created By", 400 - ftm.stringWidth("Created By") / 2, 138);
-				rd.drawString("Added By", 500 - ftm.stringWidth("Added By") / 2, 138);
-				rd.drawString("Publish Type", 600 - ftm.stringWidth("Publish Type") / 2, 138);
-				rd.drawString("Options", 720 - ftm.stringWidth("Options") / 2, 138);
+				rd.drawString(Messages.getString("StageMaker.841"), 180 - ftm.stringWidth(Messages.getString("StageMaker.842")) / 2, 138); //$NON-NLS-1$ //$NON-NLS-2$
+				rd.drawString(Messages.getString("StageMaker.843"), 400 - ftm.stringWidth(Messages.getString("StageMaker.844")) / 2, 138); //$NON-NLS-1$ //$NON-NLS-2$
+				rd.drawString(Messages.getString("StageMaker.845"), 500 - ftm.stringWidth(Messages.getString("StageMaker.846")) / 2, 138); //$NON-NLS-1$ //$NON-NLS-2$
+				rd.drawString(Messages.getString("StageMaker.847"), 600 - ftm.stringWidth(Messages.getString("StageMaker.848")) / 2, 138); //$NON-NLS-1$ //$NON-NLS-2$
+				rd.drawString(Messages.getString("StageMaker.849"), 720 - ftm.stringWidth(Messages.getString("StageMaker.850")) / 2, 138); //$NON-NLS-1$ //$NON-NLS-2$
 				rd.drawLine(350, 129, 350, 140);
 				rd.drawLine(450, 129, 450, 140);
 				rd.drawLine(550, 129, 550, 140);
 				rd.drawLine(650, 129, 650, 140);
 				rd.drawRect(10, 140, 780, 402);
-				if (button("       Publish  >       ", 102, 110, 0, true)) {
+				if (button(Messages.getString("StageMaker.851"), 102, 110, 0, true)) { //$NON-NLS-1$
 					if (logged == 0)
 						JOptionPane.showMessageDialog(null,
-								"Please login to retrieve your account first before publishing!", "Stage Maker", 1);
+								Messages.getString("StageMaker.852"), Messages.getString("StageMaker.853"), 1); //$NON-NLS-1$ //$NON-NLS-2$
 					if (logged == 3 || logged == -1) {
 						savefile();
 						errd = 0;
 						readstage(3);
 						if (cp.nsp < 2)
 							errd = 7;
-						rd.setFont(new Font("Arial", 1, 12));
+						rd.setFont(new Font(Messages.getString("StageMaker.854"), 1, 12)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
 						if (ftm.stringWidth(stagename) > 274)
 							errd = 8;
@@ -4230,35 +4230,35 @@ public class StageMaker extends Applet implements Runnable {
 								if (mystages[i_134_].equals(stagename)
 										&& maker[i_134_].toLowerCase().equals(tnick.getText().toLowerCase()))
 									i = JOptionPane.showConfirmDialog(null,
-											new StringBuilder().append("Replace your already online stage '")
-													.append(stagename).append("' with this one?").toString(),
-											"Stage Maker", 0);
+											new StringBuilder().append(Messages.getString("StageMaker.855")) //$NON-NLS-1$
+													.append(stagename).append(Messages.getString("StageMaker.856")).toString(), //$NON-NLS-1$
+											Messages.getString("StageMaker.857"), 0); //$NON-NLS-1$
 							if (i == 0) {
 								setCursor(new Cursor(3));
-								rd.setFont(new Font("Arial", 1, 13));
+								rd.setFont(new Font(Messages.getString("StageMaker.858"), 1, 13)); //$NON-NLS-1$
 								ftm = rd.getFontMetrics();
 								rd.setColor(new Color(225, 225, 225));
 								rd.fillRect(11, 141, 779, 401);
 								rd.setColor(new Color(0, 0, 0));
-								rd.drawString("Connecting to Server...",
-										400 - ftm.stringWidth("Connecting to Server...") / 2, 250);
+								rd.drawString(Messages.getString("StageMaker.859"), //$NON-NLS-1$
+										400 - ftm.stringWidth(Messages.getString("StageMaker.860")) / 2, 250); //$NON-NLS-1$
 								repaint();
 								int i_135_ = -1;
 								try {
-									final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
+									final Socket socket = new Socket(Messages.getString("StageMaker.861"), 7061); //$NON-NLS-1$
 									final BufferedReader bufferedreader = new BufferedReader(
 											new InputStreamReader(socket.getInputStream()));
 									final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-									printwriter.println(new StringBuilder().append("20|").append(tnick.getText())
-											.append("|").append(tpass.getText()).append("|").append(stagename)
-											.append("|").append(pubtyp.getSelectedIndex()).append("|").toString());
+									printwriter.println(new StringBuilder().append(Messages.getString("StageMaker.862")).append(tnick.getText()) //$NON-NLS-1$
+											.append(Messages.getString("StageMaker.863")).append(tpass.getText()).append(Messages.getString("StageMaker.864")).append(stagename) //$NON-NLS-1$ //$NON-NLS-2$
+											.append(Messages.getString("StageMaker.865")).append(pubtyp.getSelectedIndex()).append(Messages.getString("StageMaker.866")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 									String string = bufferedreader.readLine();
 									if (string != null)
 										i_135_ = servervalue(string, 0);
 									if (i_135_ == 0) {
-										String string_136_ = " Publishing Stage ";
-										final String string_137_ = new StringBuilder().append("").append(tstage)
-												.append("\r\n").append(bstage).append("").toString();
+										String string_136_ = Messages.getString("StageMaker.867"); //$NON-NLS-1$
+										final String string_137_ = new StringBuilder().append(Messages.getString("StageMaker.868")).append(tstage) //$NON-NLS-1$
+												.append(Messages.getString("StageMaker.869")).append(bstage).append(Messages.getString("StageMaker.870")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 										final DataInputStream datainputstream = new DataInputStream(
 												new ByteArrayInputStream(string_137_.getBytes()));
 										String string_139_;
@@ -4269,11 +4269,11 @@ public class StageMaker extends Applet implements Runnable {
 											rd.fillRect(11, 141, 779, 401);
 											rd.setColor(new Color(0, 0, 0));
 											rd.drawString(string_136_, 400 - ftm.stringWidth(string_136_) / 2, 250);
-											string_136_ = new StringBuilder().append("| ").append(string_136_)
-													.append(" |").toString();
+											string_136_ = new StringBuilder().append(Messages.getString("StageMaker.871")).append(string_136_) //$NON-NLS-1$
+													.append(Messages.getString("StageMaker.872")).toString(); //$NON-NLS-1$
 											if (string_136_.equals(
-													"| | | | | | | | | | | | | | | | | | | | | | | |  Publishing Stage  | | | | | | | | | | | | | | | | | | | | | | | |"))
-												string_136_ = " Publishing Stage ";
+													Messages.getString("StageMaker.873"))) //$NON-NLS-1$
+												string_136_ = Messages.getString("StageMaker.874"); //$NON-NLS-1$
 											repaint();
 											try {
 												if (thredo != null) {
@@ -4284,14 +4284,14 @@ public class StageMaker extends Applet implements Runnable {
 												/* empty */
 											}
 										}
-										printwriter.println("QUITX1111");
+										printwriter.println(Messages.getString("StageMaker.875")); //$NON-NLS-1$
 										rd.setColor(new Color(225, 225, 225));
 										rd.fillRect(11, 141, 779, 401);
 										rd.setColor(new Color(0, 0, 0));
-										rd.drawString("Creating the stage online...",
-												400 - ftm.stringWidth("Creating the stage online...") / 2, 250);
-										rd.drawString("This may take a couple of minutes, please wait...", 400
-												- ftm.stringWidth("This may take a couple of minutes, please wait...")
+										rd.drawString(Messages.getString("StageMaker.876"), //$NON-NLS-1$
+												400 - ftm.stringWidth(Messages.getString("StageMaker.877")) / 2, 250); //$NON-NLS-1$
+										rd.drawString(Messages.getString("StageMaker.878"), 400 //$NON-NLS-1$
+												- ftm.stringWidth(Messages.getString("StageMaker.879")) //$NON-NLS-1$
 														/ 2,
 												280);
 										repaint();
@@ -4304,20 +4304,20 @@ public class StageMaker extends Applet implements Runnable {
 											rd.setColor(new Color(225, 225, 225));
 											rd.fillRect(11, 141, 779, 401);
 											rd.setColor(new Color(0, 0, 0));
-											rd.drawString("Uploading stage's sound track...",
-													400 - ftm.stringWidth("Uploading Stage's Sound Track...") / 2, 250);
-											rd.drawString("This may take a couple of minutes, please wait...",
+											rd.drawString(Messages.getString("StageMaker.880"), //$NON-NLS-1$
+													400 - ftm.stringWidth(Messages.getString("StageMaker.881")) / 2, 250); //$NON-NLS-1$
+											rd.drawString(Messages.getString("StageMaker.882"), //$NON-NLS-1$
 													400 - ftm.stringWidth(
-															"This may take a couple of minutes, please wait...") / 2,
+															Messages.getString("StageMaker.883")) / 2, //$NON-NLS-1$
 													280);
 											repaint();
-											final File file = new File(new StringBuilder().append("mystages/mymusic/")
-													.append(trackname).append(".zip").toString());
-											if (!trackname.equals("") && file.exists()) {
+											final File file = new File(new StringBuilder().append(Messages.getString("StageMaker.884")) //$NON-NLS-1$
+													.append(trackname).append(Messages.getString("StageMaker.885")).toString()); //$NON-NLS-1$
+											if (!trackname.equals(Messages.getString("StageMaker.886")) && file.exists()) { //$NON-NLS-1$
 												final int i_140_ = (int) file.length();
 												printwriter
-														.println(new StringBuilder().append("track|").append(trackname)
-																.append("|").append(i_140_).append("|").toString());
+														.println(new StringBuilder().append(Messages.getString("StageMaker.887")).append(trackname) //$NON-NLS-1$
+																.append(Messages.getString("StageMaker.888")).append(i_140_).append(Messages.getString("StageMaker.889")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 												string = bufferedreader.readLine();
 												if (string != null)
 													i_135_ = servervalue(string, 0);
@@ -4340,7 +4340,7 @@ public class StageMaker extends Applet implements Runnable {
 												if (i_135_ == -67)
 													i_135_ = 0;
 											} else {
-												printwriter.println("END");
+												printwriter.println(Messages.getString("StageMaker.890")); //$NON-NLS-1$
 												string = bufferedreader.readLine();
 											}
 										}
@@ -4358,64 +4358,64 @@ public class StageMaker extends Applet implements Runnable {
 								if (i_135_ == 3) {
 									JOptionPane
 											.showMessageDialog(null,
-													new StringBuilder().append("Unable to publish stage.\nReason:\n")
-															.append(errlo[8]).append("\n\n").toString(),
-													"Stage Maker", 1);
+													new StringBuilder().append(Messages.getString("StageMaker.891")) //$NON-NLS-1$
+															.append(errlo[8]).append(Messages.getString("StageMaker.892")).toString(), //$NON-NLS-1$
+													Messages.getString("StageMaker.893"), 1); //$NON-NLS-1$
 									bool = true;
 								}
 								if (i_135_ == 4) {
 									JOptionPane.showMessageDialog(null,
 											new StringBuilder()
-													.append("Unable to publish stage.\nReason:\nStage name used (")
-													.append(stagename).append(").\nThe name '").append(stagename)
-													.append("' is already used by another published stage.\nPlease rename your stage.\n\n")
+													.append(Messages.getString("StageMaker.894")) //$NON-NLS-1$
+													.append(stagename).append(Messages.getString("StageMaker.895")).append(stagename) //$NON-NLS-1$
+													.append(Messages.getString("StageMaker.896")) //$NON-NLS-1$
 													.toString(),
-											"Stage Maker", 1);
+											Messages.getString("StageMaker.897"), 1); //$NON-NLS-1$
 									bool = true;
 								}
 								if (i_135_ == 5) {
 									JOptionPane.showMessageDialog(null,
-											"Unable to create stage online!  Unknown Error.  Please try again later.",
-											"Stage Maker", 1);
+											Messages.getString("StageMaker.898"), //$NON-NLS-1$
+											Messages.getString("StageMaker.899"), 1); //$NON-NLS-1$
 									bool = true;
 								}
 								if (i_135_ > 5) {
 									JOptionPane.showMessageDialog(null,
-											"Unable to publish stage fully!  Unknown Error.  Please try again later.",
-											"Stage Maker", 1);
+											Messages.getString("StageMaker.900"), //$NON-NLS-1$
+											Messages.getString("StageMaker.901"), 1); //$NON-NLS-1$
 									bool = true;
 								}
 								if (i_135_ == -4) {
 									logged = 1;
 									JOptionPane.showMessageDialog(null,
-											"Unable to upload sound track!\nReason:\nAnother MOD Track is already uploaded with the same name, please rename your Track.\nOpen your 'mystages' folder then open 'mymusic' to find your MOD Track to rename it.\n\n",
-											"Stage Maker", 1);
+											Messages.getString("StageMaker.902"), //$NON-NLS-1$
+											Messages.getString("StageMaker.903"), 1); //$NON-NLS-1$
 									bool = true;
 								}
 								if (i_135_ == -3) {
 									logged = 1;
 									JOptionPane.showMessageDialog(null,
-											"Unable to upload sound track!\nReason:\nYour MOD Track\u2019s file size is too large, Track file size must be less then 250KB to be accepted.\n\n",
-											"Stage Maker", 1);
+											Messages.getString("StageMaker.904"), //$NON-NLS-1$
+											Messages.getString("StageMaker.905"), 1); //$NON-NLS-1$
 									bool = true;
 								}
 								if (i_135_ == -2) {
 									logged = 1;
 									JOptionPane.showMessageDialog(null,
-											"Unable to upload sound track!  Unknown Error.  Please try again later.",
-											"Stage Maker", 1);
+											Messages.getString("StageMaker.906"), //$NON-NLS-1$
+											Messages.getString("StageMaker.907"), 1); //$NON-NLS-1$
 									bool = true;
 								}
 								if (!bool)
-									JOptionPane.showMessageDialog(null, "Unable to publish stage!  Unknown Error.",
-											"Stage Maker", 1);
+									JOptionPane.showMessageDialog(null, Messages.getString("StageMaker.908"), //$NON-NLS-1$
+											Messages.getString("StageMaker.909"), 1); //$NON-NLS-1$
 							}
 						} else
 							JOptionPane.showMessageDialog(null,
 									new StringBuilder()
-											.append("Error!  This stage is not ready for publishing!\nReason:\n")
-											.append(errlo[errd - 1]).append("\n\n").toString(),
-									"Stage Maker", 0);
+											.append(Messages.getString("StageMaker.910")) //$NON-NLS-1$
+											.append(errlo[errd - 1]).append(Messages.getString("StageMaker.911")).toString(), //$NON-NLS-1$
+									Messages.getString("StageMaker.912"), 0); //$NON-NLS-1$
 					}
 				}
 				if (logged == 3)
@@ -4424,7 +4424,7 @@ public class StageMaker extends Applet implements Runnable {
 						if (xm > 11 && xm < 789 && ym > 142 + i * 20 && ym < 160 + i * 20)
 							rd.setColor(new Color(255, 255, 255));
 						rd.fillRect(11, 142 + i * 20, 778, 18);
-						rd.setFont(new Font("Arial", 0, 12));
+						rd.setFont(new Font(Messages.getString("StageMaker.913"), 0, 12)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
 						rd.setColor(new Color(0, 0, 0));
 						rd.drawString(mystages[i], 180 - ftm.stringWidth(mystages[i]) / 2, 156 + i * 20);
@@ -4438,78 +4438,78 @@ public class StageMaker extends Applet implements Runnable {
 							if (maker[i].toLowerCase().equals(tnick.getText().toLowerCase())) {
 								bool = true;
 								rd.setColor(new Color(0, 64, 0));
-								rd.drawString("You", 400 - ftm.stringWidth("You") / 2, 156 + i * 20);
+								rd.drawString(Messages.getString("StageMaker.914"), 400 - ftm.stringWidth(Messages.getString("StageMaker.915")) / 2, 156 + i * 20); //$NON-NLS-1$ //$NON-NLS-2$
 							} else {
 								rd.setColor(new Color(0, 0, 64));
 								rd.drawString(maker[i], 400 - ftm.stringWidth(maker[i]) / 2, 156 + i * 20);
 							}
 							if (nad[i] > 1) {
 								if (ovbutton(
-										new StringBuilder().append("").append(nad[i]).append(" Players").toString(),
+										new StringBuilder().append(Messages.getString("StageMaker.916")).append(nad[i]).append(Messages.getString("StageMaker.917")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 										500, 156 + i * 20)) {
-									String string = new StringBuilder().append("[ ").append(mystages[i])
-											.append(" ]  has been added by the following players to their accounts:     \n\n")
+									String string = new StringBuilder().append(Messages.getString("StageMaker.918")).append(mystages[i]) //$NON-NLS-1$
+											.append(Messages.getString("StageMaker.919")) //$NON-NLS-1$
 											.toString();
 									int i_141_ = 0;
 									for (int i_142_ = 0; i_142_ < nad[i]; i_142_++) {
 										if (++i_141_ == 17) {
-											string = new StringBuilder().append(string).append("\n").toString();
+											string = new StringBuilder().append(string).append(Messages.getString("StageMaker.920")).toString(); //$NON-NLS-1$
 											i_141_ = 1;
 										}
 										string = new StringBuilder().append(string).append(addeda[i][i_142_])
 												.toString();
 										if (i_142_ != nad[i] - 1)
 											if (i_142_ != nad[i] - 2)
-												string = new StringBuilder().append(string).append(", ").toString();
+												string = new StringBuilder().append(string).append(Messages.getString("StageMaker.921")).toString(); //$NON-NLS-1$
 											else if (i_141_ == 16) {
-												string = new StringBuilder().append(string).append("\nand ").toString();
+												string = new StringBuilder().append(string).append(Messages.getString("StageMaker.922")).toString(); //$NON-NLS-1$
 												i_141_ = 0;
 											} else
-												string = new StringBuilder().append(string).append(" and ").toString();
+												string = new StringBuilder().append(string).append(Messages.getString("StageMaker.923")).toString(); //$NON-NLS-1$
 									}
-									string = new StringBuilder().append(string).append("\n \n \n").toString();
-									JOptionPane.showMessageDialog(null, string, "Stage Maker", 1);
+									string = new StringBuilder().append(string).append(Messages.getString("StageMaker.924")).toString(); //$NON-NLS-1$
+									JOptionPane.showMessageDialog(null, string, Messages.getString("StageMaker.925"), 1); //$NON-NLS-1$
 								}
 							} else {
 								rd.setColor(new Color(0, 0, 64));
-								rd.drawString("None", 500 - ftm.stringWidth("None") / 2, 156 + i * 20);
+								rd.drawString(Messages.getString("StageMaker.926"), 500 - ftm.stringWidth(Messages.getString("StageMaker.927")) / 2, 156 + i * 20); //$NON-NLS-1$ //$NON-NLS-2$
 							}
 							if (pubt[i] == 0) {
 								rd.setColor(new Color(0, 0, 64));
-								rd.drawString("Private", 600 - ftm.stringWidth("Private") / 2, 156 + i * 20);
+								rd.drawString(Messages.getString("StageMaker.928"), 600 - ftm.stringWidth(Messages.getString("StageMaker.929")) / 2, 156 + i * 20); //$NON-NLS-1$ //$NON-NLS-2$
 							}
 							if (pubt[i] == 1) {
 								rd.setColor(new Color(0, 0, 64));
-								rd.drawString("Public", 600 - ftm.stringWidth("Public") / 2, 156 + i * 20);
+								rd.drawString(Messages.getString("StageMaker.930"), 600 - ftm.stringWidth(Messages.getString("StageMaker.931")) / 2, 156 + i * 20); //$NON-NLS-1$ //$NON-NLS-2$
 							}
 							if (pubt[i] == 2) {
 								rd.setColor(new Color(0, 64, 0));
-								rd.drawString("Super Public", 600 - ftm.stringWidth("Super Public") / 2, 156 + i * 20);
+								rd.drawString(Messages.getString("StageMaker.932"), 600 - ftm.stringWidth(Messages.getString("StageMaker.933")) / 2, 156 + i * 20); //$NON-NLS-1$ //$NON-NLS-2$
 							}
-							if ((pubt[i] == 2 || bool) && ovbutton("Download", 700, 156 + i * 20)) {
+							if ((pubt[i] == 2 || bool) && ovbutton(Messages.getString("StageMaker.934"), 700, 156 + i * 20)) { //$NON-NLS-1$
 								int i_143_ = 0;
 								for (int i_144_ = 0; i_144_ < slstage.getItemCount(); i_144_++)
 									if (mystages[i].equals(slstage.getItem(i_144_)))
 										i_143_ = JOptionPane.showConfirmDialog(null,
-												new StringBuilder().append("Replace the local ").append(mystages[i])
-														.append(" in your 'mystages' folder with the published online copy?")
+												new StringBuilder().append(Messages.getString("StageMaker.935")).append(mystages[i]) //$NON-NLS-1$
+														.append(Messages.getString("StageMaker.936")) //$NON-NLS-1$
 														.toString(),
-												"Stage Maker", 0);
+												Messages.getString("StageMaker.937"), 0); //$NON-NLS-1$
 								if (i_143_ == 0) {
 									setCursor(new Cursor(3));
-									rd.setFont(new Font("Arial", 1, 13));
+									rd.setFont(new Font(Messages.getString("StageMaker.938"), 1, 13)); //$NON-NLS-1$
 									ftm = rd.getFontMetrics();
 									rd.setColor(new Color(225, 225, 225));
 									rd.fillRect(11, 141, 779, 401);
 									rd.setColor(new Color(0, 0, 0));
-									rd.drawString("Downloading stage, please wait...",
-											400 - ftm.stringWidth("Downloading stage, please wait...") / 2, 250);
+									rd.drawString(Messages.getString("StageMaker.939"), //$NON-NLS-1$
+											400 - ftm.stringWidth(Messages.getString("StageMaker.940")) / 2, 250); //$NON-NLS-1$
 									repaint();
 									try {
 										String string = new StringBuilder()
-												.append("http://multiplayer.needformadness.com/tracks/")
-												.append(mystages[i]).append(".radq?reqlo=")
-												.append((int) (Math.random() * 1000.0)).append("").toString();
+												.append(Messages.getString("StageMaker.941")) //$NON-NLS-1$
+												.append(mystages[i]).append(Messages.getString("StageMaker.942")) //$NON-NLS-1$
+												.append((int) (Math.random() * 1000.0)).append(Messages.getString("StageMaker.943")).toString(); //$NON-NLS-1$
 										string = string.replace(' ', '_');
 										URL url = new URL(string);
 										int i_145_ = url.openConnection().getContentLength();
@@ -4532,7 +4532,7 @@ public class StageMaker extends Applet implements Runnable {
 										}
 										final ZipEntry zipentry = zipinputstream.getNextEntry();
 										if (zipentry != null) {
-											String string_149_ = "";
+											String string_149_ = Messages.getString("StageMaker.944"); //$NON-NLS-1$
 											int i_150_ = Integer.valueOf(zipentry.getName()).intValue();
 											final byte[] is_151_ = new byte[i_150_];
 											int i_152_ = 0;
@@ -4542,66 +4542,66 @@ public class StageMaker extends Applet implements Runnable {
 												i_152_ += i_153_;
 											}
 											String string_154_ = new String(is_151_);
-											string_154_ = new StringBuilder().append(string_154_).append("\n")
+											string_154_ = new StringBuilder().append(string_154_).append(Messages.getString("StageMaker.945")) //$NON-NLS-1$
 													.toString();
-											String string_155_ = "";
+											String string_155_ = Messages.getString("StageMaker.946"); //$NON-NLS-1$
 											int i_156_ = 0;
-											int i_157_ = string_154_.indexOf("\n", 0);
+											int i_157_ = string_154_.indexOf(Messages.getString("StageMaker.947"), 0); //$NON-NLS-1$
 											while (i_157_ != -1 && i_156_ < string_154_.length()) {
 												String string_158_ = string_154_.substring(i_156_, i_157_);
 												string_158_ = string_158_.trim();
 												i_156_ = i_157_ + 1;
-												i_157_ = string_154_.indexOf("\n", i_156_);
-												if (!string_158_.startsWith("stagemaker(")
-														&& !string_158_.startsWith("publish("))
-													string_155_ = new StringBuilder().append(string_155_).append("")
-															.append(string_158_).append("\r\n").toString();
+												i_157_ = string_154_.indexOf(Messages.getString("StageMaker.948"), i_156_); //$NON-NLS-1$
+												if (!string_158_.startsWith(Messages.getString("StageMaker.949")) //$NON-NLS-1$
+														&& !string_158_.startsWith(Messages.getString("StageMaker.950"))) //$NON-NLS-1$
+													string_155_ = new StringBuilder().append(string_155_).append(Messages.getString("StageMaker.951")) //$NON-NLS-1$
+															.append(string_158_).append(Messages.getString("StageMaker.952")).toString(); //$NON-NLS-1$
 												else {
 													string_155_ = string_155_.trim();
-													string_155_ = new StringBuilder().append(string_155_).append("\r\n")
+													string_155_ = new StringBuilder().append(string_155_).append(Messages.getString("StageMaker.953")) //$NON-NLS-1$
 															.toString();
 												}
-												if (string_158_.startsWith("soundtrack"))
-													string_149_ = getstring("soundtrack", string_158_, 0);
+												if (string_158_.startsWith(Messages.getString("StageMaker.954"))) //$NON-NLS-1$
+													string_149_ = getstring(Messages.getString("StageMaker.955"), string_158_, 0); //$NON-NLS-1$
 											}
 											string_155_ = string_155_.trim();
-											string_155_ = new StringBuilder().append(string_155_).append("\r\n\r\n")
+											string_155_ = new StringBuilder().append(string_155_).append(Messages.getString("StageMaker.956")) //$NON-NLS-1$
 													.toString();
-											File file = new File("mystages/");
+											File file = new File(Messages.getString("StageMaker.957")); //$NON-NLS-1$
 											if (!file.exists())
 												file.mkdirs();
-											file = new File(new StringBuilder().append("mystages/").append(mystages[i])
-													.append(".txt").toString());
+											file = new File(new StringBuilder().append(Messages.getString("StageMaker.958")).append(mystages[i]) //$NON-NLS-1$
+													.append(Messages.getString("StageMaker.959")).toString()); //$NON-NLS-1$
 											final BufferedWriter bufferedwriter = new BufferedWriter(
 													new FileWriter(file));
 											bufferedwriter.write(string_155_);
 											bufferedwriter.close();
 											zipinputstream.close();
-											if (!string_149_.equals(""))
+											if (!string_149_.equals(Messages.getString("StageMaker.960"))) //$NON-NLS-1$
 												try {
 													rd.setColor(new Color(0, 0, 0));
-													rd.drawString("Downloading stage's sound track...", 400
-															- ftm.stringWidth("Downloading stage's sound track...") / 2,
+													rd.drawString(Messages.getString("StageMaker.961"), 400 //$NON-NLS-1$
+															- ftm.stringWidth(Messages.getString("StageMaker.962")) / 2, //$NON-NLS-1$
 															280);
 													repaint();
 													string = new StringBuilder()
-															.append("http://multiplayer.needformadness.com/tracks/music/")
-															.append(string_149_).append(".zip").toString();
+															.append(Messages.getString("StageMaker.963")) //$NON-NLS-1$
+															.append(string_149_).append(Messages.getString("StageMaker.964")).toString(); //$NON-NLS-1$
 													string = string.replace(' ', '_');
 													url = new URL(string);
 													i_145_ = url.openConnection().getContentLength();
-													file = new File(new StringBuilder().append("mystages/mymusic/")
-															.append(string_149_).append(".zip").toString());
+													file = new File(new StringBuilder().append(Messages.getString("StageMaker.965")) //$NON-NLS-1$
+															.append(string_149_).append(Messages.getString("StageMaker.966")).toString()); //$NON-NLS-1$
 													if (file.exists())
 														if (file.length() == i_145_)
 															i_143_ = 1;
 														else
 															i_143_ = JOptionPane.showConfirmDialog(null,
-																	new StringBuilder().append("Another track named '")
+																	new StringBuilder().append(Messages.getString("StageMaker.967")) //$NON-NLS-1$
 																			.append(string_149_)
-																			.append("' already exists in your Sound Tracks folder!\nReplace it with the one attached to this stage?")
+																			.append(Messages.getString("StageMaker.968")) //$NON-NLS-1$
 																			.toString(),
-																	"Stage Maker", 0);
+																	Messages.getString("StageMaker.969"), 0); //$NON-NLS-1$
 													if (i_143_ == 0) {
 														datainputstream = new DataInputStream(url.openStream());
 														is = new byte[i_145_];
@@ -4617,39 +4617,39 @@ public class StageMaker extends Applet implements Runnable {
 												}
 											setCursor(new Cursor(0));
 											JOptionPane.showMessageDialog(null,
-													new StringBuilder().append("").append(mystages[i])
-															.append(" has been successfully downloaded!").toString(),
-													"Stage Maker", 1);
+													new StringBuilder().append(Messages.getString("StageMaker.970")).append(mystages[i]) //$NON-NLS-1$
+															.append(Messages.getString("StageMaker.971")).toString(), //$NON-NLS-1$
+													Messages.getString("StageMaker.972"), 1); //$NON-NLS-1$
 										} else
 											JOptionPane.showMessageDialog(null,
-													"Unable to download stage.  Unknown Error!     \nPlease try again later.",
-													"Stage Maker", 1);
+													Messages.getString("StageMaker.973"), //$NON-NLS-1$
+													Messages.getString("StageMaker.974"), 1); //$NON-NLS-1$
 									} catch (final Exception exception) {
 										JOptionPane.showMessageDialog(null,
-												"Unable to download stage.  Unknown Error!     \nPlease try again later.",
-												"Stage Maker", 1);
+												Messages.getString("StageMaker.975"), //$NON-NLS-1$
+												Messages.getString("StageMaker.976"), 1); //$NON-NLS-1$
 									}
 								}
 							}
 						} else
-							rd.drawString("-    Error Loading this stage's info!    -",
-									550 - ftm.stringWidth("-    Error Loading this stage's info!    -") / 2,
+							rd.drawString(Messages.getString("StageMaker.977"), //$NON-NLS-1$
+									550 - ftm.stringWidth(Messages.getString("StageMaker.978")) / 2, //$NON-NLS-1$
 									156 + i * 20);
-						if (ovbutton("X", 765, 156 + i * 20)
+						if (ovbutton(Messages.getString("StageMaker.979"), 765, 156 + i * 20) //$NON-NLS-1$
 								&& JOptionPane
 										.showConfirmDialog(null,
-												new StringBuilder().append("Remove ").append(mystages[i])
-														.append(" from your account?").toString(),
-												"Stage Maker", 0) == 0) {
+												new StringBuilder().append(Messages.getString("StageMaker.980")).append(mystages[i]) //$NON-NLS-1$
+														.append(Messages.getString("StageMaker.981")).toString(), //$NON-NLS-1$
+												Messages.getString("StageMaker.982"), 0) == 0) { //$NON-NLS-1$
 							setCursor(new Cursor(3));
 							int i_160_ = -1;
 							try {
-								final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
+								final Socket socket = new Socket(Messages.getString("StageMaker.983"), 7061); //$NON-NLS-1$
 								final BufferedReader bufferedreader = new BufferedReader(
 										new InputStreamReader(socket.getInputStream()));
 								final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-								printwriter.println(new StringBuilder().append("19|").append(tnick.getText())
-										.append("|").append(tpass.getText()).append("|").append(mystages[i]).append("|")
+								printwriter.println(new StringBuilder().append(Messages.getString("StageMaker.984")).append(tnick.getText()) //$NON-NLS-1$
+										.append(Messages.getString("StageMaker.985")).append(tpass.getText()).append(Messages.getString("StageMaker.986")).append(mystages[i]).append(Messages.getString("StageMaker.987")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 										.toString());
 								final String string = bufferedreader.readLine();
 								if (string != null)
@@ -4663,47 +4663,47 @@ public class StageMaker extends Applet implements Runnable {
 							else {
 								setCursor(new Cursor(0));
 								JOptionPane.showMessageDialog(null,
-										new StringBuilder().append("Failed to remove ").append(mystages[i])
-												.append(" from your account.  Unknown Error!     \nPlease try again later.")
+										new StringBuilder().append(Messages.getString("StageMaker.988")).append(mystages[i]) //$NON-NLS-1$
+												.append(Messages.getString("StageMaker.989")) //$NON-NLS-1$
 												.toString(),
-										"Stage Maker", 1);
+										Messages.getString("StageMaker.990"), 1); //$NON-NLS-1$
 							}
 						}
 					}
 				if (logged == 2) {
 					for (int i = 0; i < nms; i++) {
-						rd.setFont(new Font("Arial", 1, 13));
+						rd.setFont(new Font(Messages.getString("StageMaker.991"), 1, 13)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
 						rd.setColor(new Color(225, 225, 225));
 						rd.fillRect(50, 150, 600, 150);
 						rd.setColor(new Color(0, 0, 0));
 						rd.drawString(
-								new StringBuilder().append("Loading ").append(mystages[i]).append("\u2018s info...")
+								new StringBuilder().append(Messages.getString("StageMaker.992")).append(mystages[i]).append(Messages.getString("StageMaker.993")) //$NON-NLS-1$ //$NON-NLS-2$
 										.toString(),
-								400 - ftm.stringWidth(new StringBuilder().append("Loading ").append(mystages[i])
-										.append("\u2018s info...").toString()) / 2,
+								400 - ftm.stringWidth(new StringBuilder().append(Messages.getString("StageMaker.994")).append(mystages[i]) //$NON-NLS-1$
+										.append(Messages.getString("StageMaker.995")).toString()) / 2, //$NON-NLS-1$
 								220);
 						repaint();
-						maker[i] = "Unkown";
+						maker[i] = Messages.getString("StageMaker.996"); //$NON-NLS-1$
 						pubt[i] = -1;
 						nad[i] = 0;
-						String string = "";
+						String string = Messages.getString("StageMaker.997"); //$NON-NLS-1$
 						try {
 							String string_161_ = new StringBuilder()
-									.append("http://multiplayer.needformadness.com/tracks/").append(mystages[i])
-									.append(".txt?reqlo=").append((int) (Math.random() * 1000.0)).append("").toString();
+									.append(Messages.getString("StageMaker.998")).append(mystages[i]) //$NON-NLS-1$
+									.append(Messages.getString("StageMaker.999")).append((int) (Math.random() * 1000.0)).append(Messages.getString("StageMaker.1000")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 							string_161_ = string_161_.replace(' ', '_');
 							final URL url = new URL(string_161_);
 							final DataInputStream datainputstream = new DataInputStream(url.openStream());
 							while ((string = datainputstream.readLine()) != null) {
-								string = new StringBuilder().append("").append(string.trim()).toString();
-								if (string.startsWith("details")) {
-									maker[i] = getSvalue("details", string, 0);
-									pubt[i] = getvalue("details", string, 1);
+								string = new StringBuilder().append(Messages.getString("StageMaker.1001")).append(string.trim()).toString(); //$NON-NLS-1$
+								if (string.startsWith(Messages.getString("StageMaker.1002"))) { //$NON-NLS-1$
+									maker[i] = getSvalue(Messages.getString("StageMaker.1003"), string, 0); //$NON-NLS-1$
+									pubt[i] = getvalue(Messages.getString("StageMaker.1004"), string, 1); //$NON-NLS-1$
 									boolean bool = false;
 									while (!bool) {
-										addeda[i][nad[i]] = getSvalue("details", string, 2 + nad[i]);
-										if (addeda[i][nad[i]].equals(""))
+										addeda[i][nad[i]] = getSvalue(Messages.getString("StageMaker.1005"), string, 2 + nad[i]); //$NON-NLS-1$
+										if (addeda[i][nad[i]].equals(Messages.getString("StageMaker.1006"))) //$NON-NLS-1$
 											bool = true;
 										else
 											nad[i]++;
@@ -4718,43 +4718,43 @@ public class StageMaker extends Applet implements Runnable {
 					logged = 3;
 				}
 				if (logged == -1) {
-					rd.setFont(new Font("Arial", 1, 13));
+					rd.setFont(new Font(Messages.getString("StageMaker.1007"), 1, 13)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Account empty, no published stages found.",
-							400 - ftm.stringWidth("Account empty, no published stages found.") / 2, 220);
-					rd.drawString("Click \u2018Publish\u2019 above to begin.",
-							400 - ftm.stringWidth("Click \u2018Publish\u2019 above to begin.") / 2, 280);
-					rd.setFont(new Font("Arial", 0, 12));
+					rd.drawString(Messages.getString("StageMaker.1008"), //$NON-NLS-1$
+							400 - ftm.stringWidth(Messages.getString("StageMaker.1009")) / 2, 220); //$NON-NLS-1$
+					rd.drawString(Messages.getString("StageMaker.1010"), //$NON-NLS-1$
+							400 - ftm.stringWidth(Messages.getString("StageMaker.1011")) / 2, 280); //$NON-NLS-1$
+					rd.setFont(new Font(Messages.getString("StageMaker.1012"), 0, 12)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
-					rd.drawString("The maximum number of stages your account can have at once is 20 stages.",
+					rd.drawString(Messages.getString("StageMaker.1013"), //$NON-NLS-1$
 							400 - ftm.stringWidth(
-									"The maximum number of stages your account can have at once is 20 stages.") / 2,
+									Messages.getString("StageMaker.1014")) / 2, //$NON-NLS-1$
 							320);
 				}
 				if (logged == 1) {
 					rd.setColor(new Color(225, 225, 225));
 					rd.fillRect(11, 141, 779, 401);
-					rd.setFont(new Font("Arial", 1, 13));
+					rd.setFont(new Font(Messages.getString("StageMaker.1015"), 1, 13)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Loading your account's stage list...",
-							400 - ftm.stringWidth("Loading your account's stage list...") / 2, 220);
+					rd.drawString(Messages.getString("StageMaker.1016"), //$NON-NLS-1$
+							400 - ftm.stringWidth(Messages.getString("StageMaker.1017")) / 2, 220); //$NON-NLS-1$
 					repaint();
 					nms = 0;
-					String string = "";
+					String string = Messages.getString("StageMaker.1018"); //$NON-NLS-1$
 					try {
 						final URL url = new URL(new StringBuilder()
-								.append("http://multiplayer.needformadness.com/tracks/lists/").append(tnick.getText())
-								.append(".txt?reqlo=").append((int) (Math.random() * 1000.0)).append("").toString());
+								.append(Messages.getString("StageMaker.1019")).append(tnick.getText()) //$NON-NLS-1$
+								.append(Messages.getString("StageMaker.1020")).append((int) (Math.random() * 1000.0)).append(Messages.getString("StageMaker.1021")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 						final DataInputStream datainputstream = new DataInputStream(url.openStream());
 						while ((string = datainputstream.readLine()) != null) {
-							string = new StringBuilder().append("").append(string.trim()).toString();
-							if (string.startsWith("mystages")) {
+							string = new StringBuilder().append(Messages.getString("StageMaker.1022")).append(string.trim()).toString(); //$NON-NLS-1$
+							if (string.startsWith(Messages.getString("StageMaker.1023"))) { //$NON-NLS-1$
 								boolean bool = true;
 								while (bool && nms < 20) {
-									mystages[nms] = getSvalue("mystages", string, nms);
-									if (mystages[nms].equals(""))
+									mystages[nms] = getSvalue(Messages.getString("StageMaker.1024"), string, nms); //$NON-NLS-1$
+									if (mystages[nms].equals(Messages.getString("StageMaker.1025"))) //$NON-NLS-1$
 										bool = false;
 									else
 										nms++;
@@ -4769,47 +4769,47 @@ public class StageMaker extends Applet implements Runnable {
 						}
 						datainputstream.close();
 					} catch (final Exception exception) {
-						final String string_162_ = new StringBuilder().append("").append(exception).toString();
-						if (string_162_.indexOf("FileNotFound") != -1) {
+						final String string_162_ = new StringBuilder().append(Messages.getString("StageMaker.1026")).append(exception).toString(); //$NON-NLS-1$
+						if (string_162_.indexOf(Messages.getString("StageMaker.1027")) != -1) { //$NON-NLS-1$
 							setCursor(new Cursor(0));
 							logged = -1;
 						} else {
 							logged = 0;
 							JOptionPane.showMessageDialog(null,
-									"Unable to connect to server at this moment, please try again later.",
-									"Stage Maker", 1);
+									Messages.getString("StageMaker.1028"), //$NON-NLS-1$
+									Messages.getString("StageMaker.1029"), 1); //$NON-NLS-1$
 						}
 					}
 				}
 				if (logged == 0) {
-					rd.setFont(new Font("Arial", 0, 12));
+					rd.setFont(new Font(Messages.getString("StageMaker.1030"), 0, 12)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
-					rd.drawString("The maximum number of stages your account can have at once is 20 stages.",
+					rd.drawString(Messages.getString("StageMaker.1031"), //$NON-NLS-1$
 							400 - ftm.stringWidth(
-									"The maximum number of stages your account can have at once is 20 stages.") / 2,
+									Messages.getString("StageMaker.1032")) / 2, //$NON-NLS-1$
 							180);
-					rd.setFont(new Font("Arial", 1, 13));
+					rd.setFont(new Font(Messages.getString("StageMaker.1033"), 1, 13)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
-					rd.drawString("Login to Retrieve your Account Stages",
-							400 - ftm.stringWidth("Login to Retrieve your Account Stages") / 2, 220);
-					rd.drawString("Nickname:", 376 - ftm.stringWidth("Nickname:") - 14, 266);
+					rd.drawString(Messages.getString("StageMaker.1034"), //$NON-NLS-1$
+							400 - ftm.stringWidth(Messages.getString("StageMaker.1035")) / 2, 220); //$NON-NLS-1$
+					rd.drawString(Messages.getString("StageMaker.1036"), 376 - ftm.stringWidth(Messages.getString("StageMaker.1037")) - 14, 266); //$NON-NLS-1$ //$NON-NLS-2$
 					if (!tnick.isShowing())
 						tnick.setVisible(true);
 					movefield(tnick, 376, 250, 129, 23);
-					rd.drawString("Password:", 376 - ftm.stringWidth("Password:") - 14, 296);
+					rd.drawString(Messages.getString("StageMaker.1038"), 376 - ftm.stringWidth(Messages.getString("StageMaker.1039")) - 14, 296); //$NON-NLS-1$ //$NON-NLS-2$
 					if (!tpass.isShowing())
 						tpass.setVisible(true);
 					movefield(tpass, 376, 280, 129, 23);
-					if (button("       Login       ", 400, 340, 0, true)) {
+					if (button(Messages.getString("StageMaker.1040"), 400, 340, 0, true)) { //$NON-NLS-1$
 						setCursor(new Cursor(3));
 						int i = -1;
 						try {
-							final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
+							final Socket socket = new Socket(Messages.getString("StageMaker.1041"), 7061); //$NON-NLS-1$
 							final BufferedReader bufferedreader = new BufferedReader(
 									new InputStreamReader(socket.getInputStream()));
 							final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-							printwriter.println(new StringBuilder().append("1|").append(tnick.getText().toLowerCase())
-									.append("|").append(tpass.getText()).append("|").toString());
+							printwriter.println(new StringBuilder().append(Messages.getString("StageMaker.1042")).append(tnick.getText().toLowerCase()) //$NON-NLS-1$
+									.append(Messages.getString("StageMaker.1043")).append(tpass.getText()).append(Messages.getString("StageMaker.1044")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 							final String string = bufferedreader.readLine();
 							if (string != null)
 								i = servervalue(string, 0);
@@ -4825,31 +4825,31 @@ public class StageMaker extends Applet implements Runnable {
 						}
 						if (i == 1 || i == 2) {
 							setCursor(new Cursor(0));
-							JOptionPane.showMessageDialog(null, "Sorry.  Incorrect Nickname or Password!",
-									"Stage Maker", 0);
+							JOptionPane.showMessageDialog(null, Messages.getString("StageMaker.1045"), //$NON-NLS-1$
+									Messages.getString("StageMaker.1046"), 0); //$NON-NLS-1$
 						}
 						if (i == -167) {
 							setCursor(new Cursor(0));
 							JOptionPane.showMessageDialog(null,
-									"Sorry.  Trial accounts are not allowed to publish cars & stages, please register a full account!",
-									"Stage Maker", 0);
+									Messages.getString("StageMaker.1047"), //$NON-NLS-1$
+									Messages.getString("StageMaker.1048"), 0); //$NON-NLS-1$
 						}
 						if (i == -1) {
 							setCursor(new Cursor(0));
 							JOptionPane.showMessageDialog(null,
-									"Unable to connect to server at this moment, please try again later.",
-									"Stage Maker", 1);
+									Messages.getString("StageMaker.1049"), //$NON-NLS-1$
+									Messages.getString("StageMaker.1050"), 1); //$NON-NLS-1$
 						}
 					}
-					rd.setFont(new Font("Arial", 1, 13));
+					rd.setFont(new Font(Messages.getString("StageMaker.1051"), 1, 13)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
-					rd.drawString("Not registered yet?", 400 - ftm.stringWidth("Not registered yet?") / 2, 450);
-					if (button("   Register Now!   ", 400, 480, 0, true))
-						Madness.openurl("http://multiplayer.needformadness.com/register.html");
-					rd.setFont(new Font("Arial", 0, 12));
+					rd.drawString(Messages.getString("StageMaker.1052"), 400 - ftm.stringWidth(Messages.getString("StageMaker.1053")) / 2, 450); //$NON-NLS-1$ //$NON-NLS-2$
+					if (button(Messages.getString("StageMaker.1054"), 400, 480, 0, true)) //$NON-NLS-1$
+						Madness.openurl(Messages.getString("StageMaker.1055")); //$NON-NLS-1$
+					rd.setFont(new Font(Messages.getString("StageMaker.1056"), 0, 12)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
-					rd.drawString("Register to publish your stages to the multiplayer game!",
-							400 - ftm.stringWidth("Register to publish your stages to the multiplayer game!") / 2, 505);
+					rd.drawString(Messages.getString("StageMaker.1057"), //$NON-NLS-1$
+							400 - ftm.stringWidth(Messages.getString("StageMaker.1058")) / 2, 505); //$NON-NLS-1$
 				}
 			}
 			if (tabed != tab)
@@ -4863,13 +4863,13 @@ public class StageMaker extends Applet implements Runnable {
 				rd.drawImage(btgame[0], 620, 0, null);
 			else
 				rd.drawImage(btgame[1], 620, 0, null);
-			rd.setFont(new Font("Arial", 1, 13));
+			rd.setFont(new Font(Messages.getString("StageMaker.1059"), 1, 13)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
-			final String[] strings = { "Stage", "Build", "View & Edit", "Publish" };
+			final String[] strings = { Messages.getString("StageMaker.1060"), Messages.getString("StageMaker.1061"), Messages.getString("StageMaker.1062"), Messages.getString("StageMaker.1063") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 			final int[] is = { 0, 0, 100, 90 };
 			final int[] is_163_ = { 0, 25, 25, 0 };
 			int i = 4;
-			if (stagename.equals("") || sfase != 0) {
+			if (stagename.equals(Messages.getString("StageMaker.1064")) || sfase != 0) { //$NON-NLS-1$
 				tab = 0;
 				i = 1;
 			}
@@ -4909,33 +4909,33 @@ public class StageMaker extends Applet implements Runnable {
 
 	public void savefile() {
 		try {
-			File file = new File("mystages/");
+			File file = new File(Messages.getString("StageMaker.1065")); //$NON-NLS-1$
 			if (!file.exists())
 				file.mkdirs();
-			file = new File(new StringBuilder().append("mystages/").append(stagename).append(".txt").toString());
+			file = new File(new StringBuilder().append(Messages.getString("StageMaker.1066")).append(stagename).append(Messages.getString("StageMaker.1067")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 			final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
 			bufferedwriter.write(tstage);
 			bufferedwriter.write(bstage);
 			bufferedwriter.close();
 		} catch (final Exception exception) {
 			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Unable to save file! Error Deatials:\n").append(exception).toString(),
-					"Stage Maker", 1);
+					new StringBuilder().append(Messages.getString("StageMaker.1068")).append(exception).toString(), //$NON-NLS-1$
+					Messages.getString("StageMaker.1069"), 1); //$NON-NLS-1$
 		}
 		savesettings();
 	}
 
 	public void savesettings() {
 		if (!sstage.equals(stagename) || !suser.equals(tnick.getText())) {
-			final String string = new StringBuilder().append("").append(stagename).append("\n").append(tnick.getText())
-					.append("\n\n").toString();
+			final String string = new StringBuilder().append(Messages.getString("StageMaker.1070")).append(stagename).append(Messages.getString("StageMaker.1071")).append(tnick.getText()) //$NON-NLS-1$ //$NON-NLS-2$
+					.append(Messages.getString("StageMaker.1072")).toString(); //$NON-NLS-1$
 			sstage = stagename;
 			suser = tnick.getText();
 			try {
-				File file = new File("mystages/");
+				File file = new File(Messages.getString("StageMaker.1073")); //$NON-NLS-1$
 				if (!file.exists())
 					file.mkdirs();
-				file = new File("mystages/settings.data");
+				file = new File(Messages.getString("StageMaker.1074")); //$NON-NLS-1$
 				final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
 				bufferedwriter.write(string);
 				bufferedwriter.close();
@@ -4946,16 +4946,16 @@ public class StageMaker extends Applet implements Runnable {
 	}
 
 	public String serverSvalue(final String string, final int i) {
-		String string_365_ = "";
+		String string_365_ = Messages.getString("StageMaker.1075"); //$NON-NLS-1$
 		try {
 			int i_366_ = 0;
 			int i_367_ = 0;
 			int i_368_ = 0;
-			String string_369_ = "";
-			String string_370_ = "";
+			String string_369_ = Messages.getString("StageMaker.1076"); //$NON-NLS-1$
+			String string_370_ = Messages.getString("StageMaker.1077"); //$NON-NLS-1$
 			for (/**/; i_366_ < string.length() && i_368_ != 2; i_366_++) {
-				string_369_ = new StringBuilder().append("").append(string.charAt(i_366_)).toString();
-				if (string_369_.equals("|")) {
+				string_369_ = new StringBuilder().append(Messages.getString("StageMaker.1078")).append(string.charAt(i_366_)).toString(); //$NON-NLS-1$
+				if (string_369_.equals(Messages.getString("StageMaker.1079"))) { //$NON-NLS-1$
 					i_367_++;
 					if (i_368_ == 1 || i_367_ > i)
 						i_368_ = 2;
@@ -4977,11 +4977,11 @@ public class StageMaker extends Applet implements Runnable {
 			int i_360_ = 0;
 			int i_361_ = 0;
 			int i_362_ = 0;
-			String string_363_ = "";
-			String string_364_ = "";
+			String string_363_ = Messages.getString("StageMaker.1080"); //$NON-NLS-1$
+			String string_364_ = Messages.getString("StageMaker.1081"); //$NON-NLS-1$
 			for (/**/; i_360_ < string.length() && i_362_ != 2; i_360_++) {
-				string_363_ = new StringBuilder().append("").append(string.charAt(i_360_)).toString();
-				if (string_363_.equals("|")) {
+				string_363_ = new StringBuilder().append(Messages.getString("StageMaker.1082")).append(string.charAt(i_360_)).toString(); //$NON-NLS-1$
+				if (string_363_.equals(Messages.getString("StageMaker.1083"))) { //$NON-NLS-1$
 					i_361_++;
 					if (i_362_ == 1 || i_361_ > i)
 						i_362_ = 2;
@@ -4990,8 +4990,8 @@ public class StageMaker extends Applet implements Runnable {
 					i_362_ = 1;
 				}
 			}
-			if (string_364_.equals(""))
-				string_364_ = "-1";
+			if (string_364_.equals(Messages.getString("StageMaker.1084"))) //$NON-NLS-1$
+				string_364_ = Messages.getString("StageMaker.1085"); //$NON-NLS-1$
 			i_359_ = Integer.valueOf(string_364_).intValue();
 		} catch (final Exception exception) {
 			/* empty */
@@ -5000,21 +5000,21 @@ public class StageMaker extends Applet implements Runnable {
 	}
 
 	public void sortop() {
-		tstage = new StringBuilder().append("snap(").append(m.snap[0]).append(",").append(m.snap[1]).append(",")
-				.append(m.snap[2]).append(")\r\nsky(").append(csky[0]).append(",").append(csky[1]).append(",")
-				.append(csky[2]).append(")\r\nfog(").append(cfade[0]).append(",").append(cfade[1]).append(",")
-				.append(cfade[2]).append(")\r\nclouds(").append(cldd[0]).append(",").append(cldd[1]).append(",")
-				.append(cldd[2]).append(",").append(cldd[3]).append(",").append(cldd[4]).append(")\r\nground(")
-				.append(cgrnd[0]).append(",").append(cgrnd[1]).append(",").append(cgrnd[2]).append(")\r\ntexture(")
-				.append(texture[0]).append(",").append(texture[1]).append(",").append(texture[2]).append(",")
-				.append(texture[3]).append(")\r\nfadefrom(").append(origfade).append(")\r\ndensity(")
-				.append((m.fogd + 1) / 2 - 1).append(")\r\nmountains(").append(m.mgen).append(")\r\nnlaps(")
-				.append(cp.nlaps).append(")\r\n").toString();
-		if (!trackname.equals("")) {
+		tstage = new StringBuilder().append(Messages.getString("StageMaker.1086")).append(m.snap[0]).append(Messages.getString("StageMaker.1087")).append(m.snap[1]).append(Messages.getString("StageMaker.1088")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				.append(m.snap[2]).append(Messages.getString("StageMaker.1089")).append(csky[0]).append(Messages.getString("StageMaker.1090")).append(csky[1]).append(Messages.getString("StageMaker.1091")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				.append(csky[2]).append(Messages.getString("StageMaker.1092")).append(cfade[0]).append(Messages.getString("StageMaker.1093")).append(cfade[1]).append(Messages.getString("StageMaker.1094")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				.append(cfade[2]).append(Messages.getString("StageMaker.1095")).append(cldd[0]).append(Messages.getString("StageMaker.1096")).append(cldd[1]).append(Messages.getString("StageMaker.1097")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				.append(cldd[2]).append(Messages.getString("StageMaker.1098")).append(cldd[3]).append(Messages.getString("StageMaker.1099")).append(cldd[4]).append(Messages.getString("StageMaker.1100")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				.append(cgrnd[0]).append(Messages.getString("StageMaker.1101")).append(cgrnd[1]).append(Messages.getString("StageMaker.1102")).append(cgrnd[2]).append(Messages.getString("StageMaker.1103")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				.append(texture[0]).append(Messages.getString("StageMaker.1104")).append(texture[1]).append(Messages.getString("StageMaker.1105")).append(texture[2]).append(Messages.getString("StageMaker.1106")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				.append(texture[3]).append(Messages.getString("StageMaker.1107")).append(origfade).append(Messages.getString("StageMaker.1108")) //$NON-NLS-1$ //$NON-NLS-2$
+				.append((m.fogd + 1) / 2 - 1).append(Messages.getString("StageMaker.1109")).append(m.mgen).append(Messages.getString("StageMaker.1110")) //$NON-NLS-1$ //$NON-NLS-2$
+				.append(cp.nlaps).append(Messages.getString("StageMaker.1111")).toString(); //$NON-NLS-1$
+		if (!trackname.equals(Messages.getString("StageMaker.1112"))) { //$NON-NLS-1$
 			final StringBuilder stringbuilder = new StringBuilder();
 			final StageMaker stagemaker_239_ = this;
-			stagemaker_239_.tstage = stringbuilder.append(stagemaker_239_.tstage).append("soundtrack(")
-					.append(trackname).append(",").append(trackvol).append(",").append(tracksize).append(")\r\n")
+			stagemaker_239_.tstage = stringbuilder.append(stagemaker_239_.tstage).append(Messages.getString("StageMaker.1113")) //$NON-NLS-1$
+					.append(trackname).append(Messages.getString("StageMaker.1114")).append(trackvol).append(Messages.getString("StageMaker.1115")).append(tracksize).append(Messages.getString("StageMaker.1116")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 					.toString();
 		}
 		for (int i = 0; i < 3; i++)
@@ -5022,11 +5022,11 @@ public class StageMaker extends Applet implements Runnable {
 		if (snap[0] + snap[1] + snap[2] <= 110) {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final StageMaker stagemaker_240_ = this;
-			stagemaker_240_.tstage = stringbuilder.append(stagemaker_240_.tstage).append("lightson()\r\n").toString();
+			stagemaker_240_.tstage = stringbuilder.append(stagemaker_240_.tstage).append(Messages.getString("StageMaker.1117")).toString(); //$NON-NLS-1$
 		}
 		final StringBuilder stringbuilder = new StringBuilder();
 		final StageMaker stagemaker_241_ = this;
-		stagemaker_241_.tstage = stringbuilder.append(stagemaker_241_.tstage).append("\r\n").toString();
+		stagemaker_241_.tstage = stringbuilder.append(stagemaker_241_.tstage).append(Messages.getString("StageMaker.1118")).toString(); //$NON-NLS-1$
 	}
 
 	public void sortstage() {
@@ -5435,71 +5435,71 @@ public class StageMaker extends Applet implements Runnable {
 		int i_310_ = 0;
 		int i_311_ = 0;
 		int i_312_ = 0;
-		bstage = "";
+		bstage = Messages.getString("StageMaker.1119"); //$NON-NLS-1$
 		for (int i_313_ = 0; i_313_ < i_243_; i_313_++) {
 			if (co[is_242_[i_313_]].colok != 30 && co[is_242_[i_313_]].colok != 31 && co[is_242_[i_313_]].colok != 32
 					&& co[is_242_[i_313_]].colok != 54 && co[is_242_[i_313_]].colok != 66) {
-				String string = "";
+				String string = Messages.getString("StageMaker.1120"); //$NON-NLS-1$
 				if (is[is_242_[i_313_]] == 1)
-					string = "p";
+					string = Messages.getString("StageMaker.1121"); //$NON-NLS-1$
 				if (is[is_242_[i_313_]] == 2)
-					string = "pt";
+					string = Messages.getString("StageMaker.1122"); //$NON-NLS-1$
 				if (is[is_242_[i_313_]] == 3)
-					string = "pr";
+					string = Messages.getString("StageMaker.1123"); //$NON-NLS-1$
 				if (is[is_242_[i_313_]] == 4)
-					string = "ph";
+					string = Messages.getString("StageMaker.1124"); //$NON-NLS-1$
 				if (is[is_242_[i_313_]] == 5)
-					string = "pl";
+					string = Messages.getString("StageMaker.1125"); //$NON-NLS-1$
 				if (is[is_242_[i_313_]] == 6)
-					string = "pr";
+					string = Messages.getString("StageMaker.1126"); //$NON-NLS-1$
 				final StringBuilder stringbuilder = new StringBuilder();
 				final StageMaker stagemaker_314_ = this;
-				stagemaker_314_.bstage = stringbuilder.append(stagemaker_314_.bstage).append("set(")
-						.append(co[is_242_[i_313_]].colok + 10).append(",").append(co[is_242_[i_313_]].x).append(",")
-						.append(co[is_242_[i_313_]].z).append(",").append(co[is_242_[i_313_]].roofat).append(")")
-						.append(string).append("\r\n").toString();
+				stagemaker_314_.bstage = stringbuilder.append(stagemaker_314_.bstage).append(Messages.getString("StageMaker.1127")) //$NON-NLS-1$
+						.append(co[is_242_[i_313_]].colok + 10).append(Messages.getString("StageMaker.1128")).append(co[is_242_[i_313_]].x).append(Messages.getString("StageMaker.1129")) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(co[is_242_[i_313_]].z).append(Messages.getString("StageMaker.1130")).append(co[is_242_[i_313_]].roofat).append(Messages.getString("StageMaker.1131")) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(string).append(Messages.getString("StageMaker.1132")).toString(); //$NON-NLS-1$
 			}
 			if (co[is_242_[i_313_]].colok == 30 || co[is_242_[i_313_]].colok == 32) {
 				if (co[is_242_[i_313_]].roofat == 180)
 					co[is_242_[i_313_]].roofat = 0;
-				String string = "";
+				String string = Messages.getString("StageMaker.1133"); //$NON-NLS-1$
 				if (co[is_242_[i_313_]].wh != 0)
-					string = "r";
+					string = Messages.getString("StageMaker.1134"); //$NON-NLS-1$
 				final StringBuilder stringbuilder = new StringBuilder();
 				final StageMaker stagemaker_315_ = this;
-				stagemaker_315_.bstage = stringbuilder.append(stagemaker_315_.bstage).append("chk(")
-						.append(co[is_242_[i_313_]].colok + 10).append(",").append(co[is_242_[i_313_]].x).append(",")
-						.append(co[is_242_[i_313_]].z).append(",").append(co[is_242_[i_313_]].roofat).append(")")
-						.append(string).append("\r\n").toString();
+				stagemaker_315_.bstage = stringbuilder.append(stagemaker_315_.bstage).append(Messages.getString("StageMaker.1135")) //$NON-NLS-1$
+						.append(co[is_242_[i_313_]].colok + 10).append(Messages.getString("StageMaker.1136")).append(co[is_242_[i_313_]].x).append(Messages.getString("StageMaker.1137")) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(co[is_242_[i_313_]].z).append(Messages.getString("StageMaker.1138")).append(co[is_242_[i_313_]].roofat).append(Messages.getString("StageMaker.1139")) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(string).append(Messages.getString("StageMaker.1140")).toString(); //$NON-NLS-1$
 			}
 			if (co[is_242_[i_313_]].colok == 54) {
 				if (co[is_242_[i_313_]].roofat == 180)
 					co[is_242_[i_313_]].roofat = 0;
-				String string = "";
+				String string = Messages.getString("StageMaker.1141"); //$NON-NLS-1$
 				if (co[is_242_[i_313_]].wh != 0)
-					string = "r";
+					string = Messages.getString("StageMaker.1142"); //$NON-NLS-1$
 				final StringBuilder stringbuilder = new StringBuilder();
 				final StageMaker stagemaker_316_ = this;
-				stagemaker_316_.bstage = stringbuilder.append(stagemaker_316_.bstage).append("chk(")
-						.append(co[is_242_[i_313_]].colok + 10).append(",").append(co[is_242_[i_313_]].x).append(",")
-						.append(co[is_242_[i_313_]].z).append(",").append(co[is_242_[i_313_]].roofat).append(",")
-						.append(co[is_242_[i_313_]].y).append(")").append(string).append("\r\n").toString();
+				stagemaker_316_.bstage = stringbuilder.append(stagemaker_316_.bstage).append(Messages.getString("StageMaker.1143")) //$NON-NLS-1$
+						.append(co[is_242_[i_313_]].colok + 10).append(Messages.getString("StageMaker.1144")).append(co[is_242_[i_313_]].x).append(Messages.getString("StageMaker.1145")) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(co[is_242_[i_313_]].z).append(Messages.getString("StageMaker.1146")).append(co[is_242_[i_313_]].roofat).append(Messages.getString("StageMaker.1147")) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(co[is_242_[i_313_]].y).append(Messages.getString("StageMaker.1148")).append(string).append(Messages.getString("StageMaker.1149")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 			}
 			if (co[is_242_[i_313_]].colok == 31) {
 				final StringBuilder stringbuilder = new StringBuilder();
 				final StageMaker stagemaker_317_ = this;
-				stagemaker_317_.bstage = stringbuilder.append(stagemaker_317_.bstage).append("fix(")
-						.append(co[is_242_[i_313_]].colok + 10).append(",").append(co[is_242_[i_313_]].x).append(",")
-						.append(co[is_242_[i_313_]].z).append(",").append(co[is_242_[i_313_]].y).append(",")
-						.append(co[is_242_[i_313_]].roofat).append(")\r\n").toString();
+				stagemaker_317_.bstage = stringbuilder.append(stagemaker_317_.bstage).append(Messages.getString("StageMaker.1150")) //$NON-NLS-1$
+						.append(co[is_242_[i_313_]].colok + 10).append(Messages.getString("StageMaker.1151")).append(co[is_242_[i_313_]].x).append(Messages.getString("StageMaker.1152")) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(co[is_242_[i_313_]].z).append(Messages.getString("StageMaker.1153")).append(co[is_242_[i_313_]].y).append(Messages.getString("StageMaker.1154")) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(co[is_242_[i_313_]].roofat).append(Messages.getString("StageMaker.1155")).toString(); //$NON-NLS-1$
 			}
 			if (co[is_242_[i_313_]].colok == 66) {
 				final StringBuilder stringbuilder = new StringBuilder();
 				final StageMaker stagemaker_318_ = this;
-				stagemaker_318_.bstage = stringbuilder.append(stagemaker_318_.bstage).append("pile(")
-						.append(co[is_242_[i_313_]].srz).append(",").append(co[is_242_[i_313_]].srx).append(",")
-						.append(co[is_242_[i_313_]].sry).append(",").append(co[is_242_[i_313_]].x).append(",")
-						.append(co[is_242_[i_313_]].z).append(")\r\n").toString();
+				stagemaker_318_.bstage = stringbuilder.append(stagemaker_318_.bstage).append(Messages.getString("StageMaker.1156")) //$NON-NLS-1$
+						.append(co[is_242_[i_313_]].srz).append(Messages.getString("StageMaker.1157")).append(co[is_242_[i_313_]].srx).append(Messages.getString("StageMaker.1158")) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(co[is_242_[i_313_]].sry).append(Messages.getString("StageMaker.1159")).append(co[is_242_[i_313_]].x).append(Messages.getString("StageMaker.1160")) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(co[is_242_[i_313_]].z).append(Messages.getString("StageMaker.1161")).toString(); //$NON-NLS-1$
 			}
 			if (co[is_242_[i_313_]].x + co[is_242_[i_313_]].maxR > i_309_)
 				i_309_ = co[is_242_[i_313_]].x + co[is_242_[i_313_]].maxR;
@@ -5526,11 +5526,11 @@ public class StageMaker extends Applet implements Runnable {
 		final int i_327_ = i_324_ + 2400;
 		final StringBuilder stringbuilder = new StringBuilder();
 		final StageMaker stagemaker_328_ = this;
-		stagemaker_328_.bstage = stringbuilder.append(stagemaker_328_.bstage).append("\r\nmaxl(").append(i_326_)
-				.append(",").append(i_319_).append(",").append(i_327_).append(")\r\nmaxb(").append(i_321_).append(",")
-				.append(i_324_).append(",").append(i_323_).append(")\r\nmaxr(").append(i_326_).append(",")
-				.append(i_320_).append(",").append(i_327_).append(")\r\nmaxt(").append(i_321_).append(",")
-				.append(i_325_).append(",").append(i_323_).append(")\r\n").toString();
+		stagemaker_328_.bstage = stringbuilder.append(stagemaker_328_.bstage).append(Messages.getString("StageMaker.1162")).append(i_326_) //$NON-NLS-1$
+				.append(Messages.getString("StageMaker.1163")).append(i_319_).append(Messages.getString("StageMaker.1164")).append(i_327_).append(Messages.getString("StageMaker.1165")).append(i_321_).append(Messages.getString("StageMaker.1166")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+				.append(i_324_).append(Messages.getString("StageMaker.1167")).append(i_323_).append(Messages.getString("StageMaker.1168")).append(i_326_).append(Messages.getString("StageMaker.1169")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				.append(i_320_).append(Messages.getString("StageMaker.1170")).append(i_327_).append(Messages.getString("StageMaker.1171")).append(i_321_).append(Messages.getString("StageMaker.1172")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				.append(i_325_).append(Messages.getString("StageMaker.1173")).append(i_323_).append(Messages.getString("StageMaker.1174")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	@Override

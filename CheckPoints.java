@@ -12,9 +12,9 @@ public class CheckPoints {
 	int[] fz = new int[5];
 	boolean haltall = false;
 	float[] magperc = { 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F };
-	String maker = "";
+	String maker = Messages.getString("CheckPoints.0"); //$NON-NLS-1$
 	int n = 0;
-	String name = "hogan rewish";
+	String name = Messages.getString("CheckPoints.1"); //$NON-NLS-1$
 	int nfix = 0;
 	int nlaps = 0;
 	boolean notb = false;
@@ -34,7 +34,7 @@ public class CheckPoints {
 	boolean[] special = new boolean[5];
 	int stage = (int) (Math.random() * 27.0) + 1;
 	int top20 = 0;
-	String trackname = "";
+	String trackname = Messages.getString("CheckPoints.2"); //$NON-NLS-1$
 	int trackvol = 200;
 	int[] typ = new int[10000];
 	int wasted = 0;

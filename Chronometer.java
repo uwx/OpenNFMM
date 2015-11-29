@@ -45,7 +45,7 @@ public class Chronometer {
 	xtGraphics xt;
 
 	public Chronometer(final xtGraphics pxt) {
-		System.out.println("Chronometer ready");
+		System.out.println(Messages.getString("Chronometer.0")); //$NON-NLS-1$
 		xt = pxt;
 		rd = xt.rd;
 		start = 0L;
@@ -60,7 +60,7 @@ public class Chronometer {
 		running = false;
 		ready = false;
 		paused = false;
-		dc = new DecimalFormat("00");
+		dc = new DecimalFormat(Messages.getString("Chronometer.1")); //$NON-NLS-1$
 	}
 
 	public long bestLapTimeMillis() {
@@ -113,7 +113,7 @@ public class Chronometer {
 		final long cent = time % 1000L / 10L;
 		final int secs = (int) (time / 1000L % 60L);
 		final int mins = (int) (time / 1000L / 60L);
-		return new StringBuilder().append(dc.format(mins)).append(":").append(dc.format(secs)).append(".")
+		return new StringBuilder().append(dc.format(mins)).append(Messages.getString("Chronometer.2")).append(dc.format(secs)).append(Messages.getString("Chronometer.3")) //$NON-NLS-1$ //$NON-NLS-2$
 				.append(dc.format(cent)).toString();
 	}
 
@@ -147,14 +147,14 @@ public class Chronometer {
 			colorSnap(r, g, b);
 		if (style != 3)
 			rd.drawRoundRect(x, y, 177, h, 7, 7);
-		useFont(new Font("Arial", 1, 11));
-		rd.drawString("# Lap", x + 22 - ftm.stringWidth("# Lap") / 2, y + 15);
-		rd.drawString("Lap Time", x + 44 + 33 - ftm.stringWidth("Lap Time") / 2, y + 15);
-		rd.drawString("Split Time", x + 44 + 67 + 34 - ftm.stringWidth("Split Time") / 2, y + 15);
+		useFont(new Font(Messages.getString("Chronometer.4"), 1, 11)); //$NON-NLS-1$
+		rd.drawString(Messages.getString("Chronometer.5"), x + 22 - ftm.stringWidth(Messages.getString("Chronometer.6")) / 2, y + 15); //$NON-NLS-1$ //$NON-NLS-2$
+		rd.drawString(Messages.getString("Chronometer.7"), x + 44 + 33 - ftm.stringWidth(Messages.getString("Chronometer.8")) / 2, y + 15); //$NON-NLS-1$ //$NON-NLS-2$
+		rd.drawString(Messages.getString("Chronometer.9"), x + 44 + 67 + 34 - ftm.stringWidth(Messages.getString("Chronometer.10")) / 2, y + 15); //$NON-NLS-1$ //$NON-NLS-2$
 		rd.drawLine(x + 43, y, x + 43, y + h - 1);
 		rd.drawLine(x + 44 + 67, y, x + 44 + 67, y + h - 1);
 		if (style >= 3) {
-			rd.setFont(new Font("Arial", 1, 12));
+			rd.setFont(new Font(Messages.getString("Chronometer.11"), 1, 12)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
 		}
 		for (int i = sti; i < current && i < laps; i++) {
@@ -170,8 +170,8 @@ public class Chronometer {
 					colorSet(250, 250, 250, 220);
 				else
 					colorSnap(250, 250, 250);
-			rd.drawString(new StringBuilder().append("").append(i + 1).toString(),
-					x + 22 - ftm.stringWidth(new StringBuilder().append("").append(i + 1).toString()) / 2,
+			rd.drawString(new StringBuilder().append(Messages.getString("Chronometer.12")).append(i + 1).toString(), //$NON-NLS-1$
+					x + 22 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Chronometer.13")).append(i + 1).toString()) / 2, //$NON-NLS-1$
 					y + 20 * pos + 15);
 			String currentTime;
 			String lapTime;

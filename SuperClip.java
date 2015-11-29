@@ -69,7 +69,7 @@ public class SuperClip
             }
             catch(Exception exception1)
             {
-                System.out.println((new StringBuilder()).append("Play error: ").append(exception1).toString());
+                System.out.println((new StringBuilder()).append(Messages.getString("SuperClip.0")).append(exception1).toString()); //$NON-NLS-1$
                 stoped = 1;
             }
             try

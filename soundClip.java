@@ -26,7 +26,7 @@ public class soundClip {
 			clip = AudioSystem.getClip();
 			loaded = true;
 		} catch (final Exception exception) {
-			System.out.println(new StringBuilder().append("Loading Clip error: ").append(exception).toString());
+			System.out.println(new StringBuilder().append(Messages.getString("soundClip.0")).append(exception).toString()); //$NON-NLS-1$
 			loaded = false;
 		}
 	}

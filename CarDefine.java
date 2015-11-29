@@ -30,7 +30,7 @@ public class CarDefine implements Runnable {
 			{ 0.0F, 0.0F, 0.0F }, { 0.0F, 0.0F, 0.0F }, { 0.0F, 0.0F, 0.0F }, { 0.0F, 0.0F, 0.0F },
 			{ 0.0F, 0.0F, 0.0F }, { 0.0F, 0.0F, 0.0F }, { 0.0F, 0.0F, 0.0F }, { 0.0F, 0.0F, 0.0F },
 			{ 0.0F, 0.0F, 0.0F }, { 0.0F, 0.0F, 0.0F }, { 0.0F, 0.0F, 0.0F }, { 0.0F, 0.0F, 0.0F } };
-	String acname = "Radical One";
+	String acname = Messages.getString("CarDefine.0"); //$NON-NLS-1$
 	int action = 0;
 	Thread actionloader;
 	int[] adds = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -67,7 +67,7 @@ public class CarDefine implements Runnable {
 			0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F };
 	int[] enginsignature = { 0, 1, 2, 1, 0, 3, 2, 2, 1, 0, 3, 4, 1, 4, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-	String fails = "";
+	String fails = Messages.getString("CarDefine.1"); //$NON-NLS-1$
 	int[] flipy = { -50, -60, -92, -44, -60, -57, -54, -60, -77, -57, -82, -85, -28, -100, -63, -127, 0, 0, 0, 0, 0, 0,
 			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 	float[] grip = { 20.0F, 27.0F, 18.0F, 22.0F, 19.0F, 20.0F, 25.0F, 20.0F, 19.0F, 24.0F, 22.5F, 25.0F, 30.0F, 27.0F,
@@ -80,7 +80,7 @@ public class CarDefine implements Runnable {
 			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 	boolean[] include = new boolean[40];
 	int inslot = -1;
-	String lastcar = "";
+	String lastcar = Messages.getString("CarDefine.2"); //$NON-NLS-1$
 	int lastload = 0;
 	int[] lcardate = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 	int[] lift = { 0, 30, 0, 20, 0, 30, 0, 0, 20, 0, 0, 0, 10, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -98,15 +98,15 @@ public class CarDefine implements Runnable {
 	int msloaded = 0;
 	int[] msquash = { 7, 4, 7, 2, 8, 4, 6, 4, 3, 8, 4, 10, 3, 20, 3, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-	String[] names = { "Tornado Shark", "Formula 7", "Wow Caninaro", "La Vita Crab", "Nimi", "MAX Revenge",
-			"Lead Oxide", "Kool Kat", "Drifter X", "Sword of Justice", "High Rider", "EL KING", "Mighty Eight",
-			"M A S H E E N", "Radical One", "DR Monstaa", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-			"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
+	String[] names = { Messages.getString("CarDefine.3"), Messages.getString("CarDefine.4"), Messages.getString("CarDefine.5"), Messages.getString("CarDefine.6"), Messages.getString("CarDefine.7"), Messages.getString("CarDefine.8"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$
+			Messages.getString("CarDefine.9"), Messages.getString("CarDefine.10"), Messages.getString("CarDefine.11"), Messages.getString("CarDefine.12"), Messages.getString("CarDefine.13"), Messages.getString("CarDefine.14"), Messages.getString("CarDefine.15"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
+			Messages.getString("CarDefine.16"), Messages.getString("CarDefine.17"), Messages.getString("CarDefine.18"), Messages.getString("CarDefine.19"), Messages.getString("CarDefine.20"), Messages.getString("CarDefine.21"), Messages.getString("CarDefine.22"), Messages.getString("CarDefine.23"), Messages.getString("CarDefine.24"), Messages.getString("CarDefine.25"), Messages.getString("CarDefine.26"), Messages.getString("CarDefine.27"), Messages.getString("CarDefine.28"), Messages.getString("CarDefine.29"), Messages.getString("CarDefine.30"), Messages.getString("CarDefine.31"), Messages.getString("CarDefine.32"), Messages.getString("CarDefine.33"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$ //$NON-NLS-10$ //$NON-NLS-11$ //$NON-NLS-12$ //$NON-NLS-13$ //$NON-NLS-14$ //$NON-NLS-15$ //$NON-NLS-16$ //$NON-NLS-17$ //$NON-NLS-18$
+			Messages.getString("CarDefine.34"), Messages.getString("CarDefine.35"), Messages.getString("CarDefine.36"), Messages.getString("CarDefine.37"), Messages.getString("CarDefine.38"), Messages.getString("CarDefine.39"), Messages.getString("CarDefine.40"), Messages.getString("CarDefine.41"), Messages.getString("CarDefine.42"), Messages.getString("CarDefine.43"), Messages.getString("CarDefine.44"), Messages.getString("CarDefine.45"), Messages.getString("CarDefine.46"), Messages.getString("CarDefine.47"), Messages.getString("CarDefine.48"), Messages.getString("CarDefine.49"), Messages.getString("CarDefine.50"), Messages.getString("CarDefine.51"), Messages.getString("CarDefine.52"), Messages.getString("CarDefine.53"), Messages.getString("CarDefine.54"), Messages.getString("CarDefine.55"), Messages.getString("CarDefine.56"), Messages.getString("CarDefine.57"), Messages.getString("CarDefine.58") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$ //$NON-NLS-10$ //$NON-NLS-11$ //$NON-NLS-12$ //$NON-NLS-13$ //$NON-NLS-14$ //$NON-NLS-15$ //$NON-NLS-16$ //$NON-NLS-17$ //$NON-NLS-18$ //$NON-NLS-19$ //$NON-NLS-20$ //$NON-NLS-21$ //$NON-NLS-22$ //$NON-NLS-23$ //$NON-NLS-24$ //$NON-NLS-25$
 	int nl = 0;
 	int nlcars = 0;
 	int nlocars = 0;
 	int onloadingcar = 0;
-	String onstage = "";
+	String onstage = Messages.getString("CarDefine.59"); //$NON-NLS-1$
 	float[] outdam = { 0.68F, 0.35F, 0.8F, 0.5F, 0.42F, 0.76F, 0.82F, 0.76F, 0.72F, 0.62F, 0.79F, 0.95F, 0.77F, 1.0F,
 			0.85F, 1.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
 			0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
@@ -138,13 +138,13 @@ public class CarDefine implements Runnable {
 			{ 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 },
 			{ 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
 	Trackers t;
-	String tclan = "";
-	String tclankey = "";
-	String tnickey = "";
+	String tclan = Messages.getString("CarDefine.60"); //$NON-NLS-1$
+	String tclankey = Messages.getString("CarDefine.61"); //$NON-NLS-1$
+	String tnickey = Messages.getString("CarDefine.62"); //$NON-NLS-1$
 	int[] top20adds = new int[20];
 	int[] turn = { 6, 9, 5, 7, 8, 7, 5, 5, 9, 7, 7, 4, 6, 5, 7, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-	String viewname = "";
+	String viewname = Messages.getString("CarDefine.63"); //$NON-NLS-1$
 	int xnlocars = 0;
 
 	public CarDefine(final ContO[] contos, final Medium medium, final Trackers trackers,
@@ -156,11 +156,11 @@ public class CarDefine implements Runnable {
 	}
 
 	public String getSvalue(final String string, final String string_26_, final int i) {
-		String string_27_ = "";
+		String string_27_ = Messages.getString("CarDefine.64"); //$NON-NLS-1$
 		int i_28_ = 0;
 		for (int i_29_ = string.length() + 1; i_29_ < string_26_.length() && i_28_ <= i; i_29_++) {
-			final String string_30_ = new StringBuilder().append("").append(string_26_.charAt(i_29_)).toString();
-			if (string_30_.equals(",") || string_30_.equals(")"))
+			final String string_30_ = new StringBuilder().append(Messages.getString("CarDefine.65")).append(string_26_.charAt(i_29_)).toString(); //$NON-NLS-1$
+			if (string_30_.equals(Messages.getString("CarDefine.66")) || string_30_.equals(Messages.getString("CarDefine.67"))) //$NON-NLS-1$ //$NON-NLS-2$
 				i_28_++;
 			else if (i_28_ == i)
 				string_27_ = new StringBuilder().append(string_27_).append(string_30_).toString();
@@ -170,10 +170,10 @@ public class CarDefine implements Runnable {
 
 	public int getvalue(final String string, final String string_21_, final int i) {
 		int i_22_ = 0;
-		String string_23_ = "";
+		String string_23_ = Messages.getString("CarDefine.68"); //$NON-NLS-1$
 		for (int i_24_ = string.length() + 1; i_24_ < string_21_.length(); i_24_++) {
-			final String string_25_ = new StringBuilder().append("").append(string_21_.charAt(i_24_)).toString();
-			if (string_25_.equals(",") || string_25_.equals(")")) {
+			final String string_25_ = new StringBuilder().append(Messages.getString("CarDefine.69")).append(string_21_.charAt(i_24_)).toString(); //$NON-NLS-1$
+			if (string_25_.equals(Messages.getString("CarDefine.70")) || string_25_.equals(Messages.getString("CarDefine.71"))) { //$NON-NLS-1$ //$NON-NLS-2$
 				i_22_++;
 				i_24_++;
 			}
@@ -185,14 +185,14 @@ public class CarDefine implements Runnable {
 
 	public int loadcar(final String string, int i) {
 		try {
-			final File file = new File(new StringBuilder().append("").append(Madness.fpath).append("mycars/")
-					.append(string).append(".rad").toString());
+			final File file = new File(new StringBuilder().append(Messages.getString("CarDefine.72")).append(Madness.fpath).append(Messages.getString("CarDefine.73")) //$NON-NLS-1$ //$NON-NLS-2$
+					.append(string).append(Messages.getString("CarDefine.74")).toString()); //$NON-NLS-1$
 			if (file.exists()) {
-				String string_73_ = "";
+				String string_73_ = Messages.getString("CarDefine.75"); //$NON-NLS-1$
 				final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
 				String string_74_;
 				while ((string_74_ = bufferedreader.readLine()) != null && !Thread.currentThread().isInterrupted())
-					string_73_ = new StringBuilder().append(string_73_).append("").append(string_74_).append("\n")
+					string_73_ = new StringBuilder().append(string_73_).append(Messages.getString("CarDefine.76")).append(string_74_).append(Messages.getString("CarDefine.77")) //$NON-NLS-1$ //$NON-NLS-2$
 							.toString();
 				bufferedreader.close();
 				m.loadnew = true;
@@ -221,7 +221,7 @@ public class CarDefine implements Runnable {
 				}
 				if (i != -1) {
 					loadstat(string_73_.getBytes(), string, bco[i].maxR, bco[i].roofat, bco[i].wh, i);
-					if (names[i].equals(""))
+					if (names[i].equals(Messages.getString("CarDefine.78"))) //$NON-NLS-1$
 						i = -1;
 				}
 				m.loadnew = false;
@@ -229,7 +229,7 @@ public class CarDefine implements Runnable {
 				i = -1;
 		} catch (final Exception exception) {
 			i = -1;
-			System.out.println(new StringBuilder().append("Error Loading Car: ").append(exception).toString());
+			System.out.println(new StringBuilder().append(Messages.getString("CarDefine.79")).append(exception).toString()); //$NON-NLS-1$
 		}
 		System.gc();
 		return i;
@@ -248,12 +248,12 @@ public class CarDefine implements Runnable {
 		for (int i = 0; i < 40; i++)
 			include[i] = false;
 		nlcars = 16;
-		final File file = new File(new StringBuilder().append("").append(Madness.fpath).append("mycars/").toString());
+		final File file = new File(new StringBuilder().append(Messages.getString("CarDefine.80")).append(Madness.fpath).append(Messages.getString("CarDefine.81")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 		if (file.exists()) {
 			final String[] strings = new File(
-					new StringBuilder().append("").append(Madness.fpath).append("mycars/").toString()).list();
+					new StringBuilder().append(Messages.getString("CarDefine.82")).append(Madness.fpath).append(Messages.getString("CarDefine.83")).toString()).list(); //$NON-NLS-1$ //$NON-NLS-2$
 			for (int i = 0; i < strings.length; i++)
-				if (strings[i].toLowerCase().endsWith(".rad") && nlcars < 56
+				if (strings[i].toLowerCase().endsWith(Messages.getString("CarDefine.84")) && nlcars < 56 //$NON-NLS-1$
 						&& loadcar(strings[i].substring(0, strings[i].length() - 4), nlcars) == nlcars)
 					nlcars++;
 		}
@@ -263,13 +263,13 @@ public class CarDefine implements Runnable {
 	}
 
 	public void loadclanstages(final String string) {
-		if (!string.equals("")) {
+		if (!string.equals(Messages.getString("CarDefine.85"))) { //$NON-NLS-1$
 			final String[] strings = new String[700];
 			int i = 0;
-			String string_69_ = "";
+			String string_69_ = Messages.getString("CarDefine.86"); //$NON-NLS-1$
 			try {
-				final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/clans/")
-						.append(string).append("/stages.txt").toString());
+				final URL url = new URL(new StringBuilder().append(Messages.getString("CarDefine.87")) //$NON-NLS-1$
+						.append(string).append(Messages.getString("CarDefine.88")).toString()); //$NON-NLS-1$
 				DataInputStream datainputstream;
 				for (datainputstream = new DataInputStream(
 						url.openStream()); (string_69_ = datainputstream.readLine()) != null && i < 700; i++)
@@ -280,8 +280,8 @@ public class CarDefine implements Runnable {
 					msloaded = -2;
 				datainputstream.close();
 			} catch (final Exception exception) {
-				final String string_70_ = new StringBuilder().append("").append(exception).toString();
-				if (string_70_.indexOf("FileNotFound") != -1)
+				final String string_70_ = new StringBuilder().append(Messages.getString("CarDefine.89")).append(exception).toString(); //$NON-NLS-1$
+				if (string_70_.indexOf(Messages.getString("CarDefine.90")) != -1) //$NON-NLS-1$
 					msloaded = -2;
 				else
 					msloaded = -1;
@@ -289,7 +289,7 @@ public class CarDefine implements Runnable {
 			if (msloaded == 7) {
 				gs.mstgs.setVisible(false);
 				gs.mstgs.removeAll();
-				gs.mstgs.add(gs.rd, "Select Stage");
+				gs.mstgs.add(gs.rd, Messages.getString("CarDefine.91")); //$NON-NLS-1$
 				for (int i_71_ = 0; i_71_ < i; i_71_++)
 					gs.mstgs.add(gs.rd, strings[i_71_]);
 				gs.mstgs.select(0);
@@ -298,14 +298,14 @@ public class CarDefine implements Runnable {
 			if (msloaded == -1) {
 				gs.mstgs.setVisible(false);
 				gs.mstgs.removeAll();
-				gs.mstgs.add(gs.rd, "Failed to load clan stages, please try again later.");
+				gs.mstgs.add(gs.rd, Messages.getString("CarDefine.92")); //$NON-NLS-1$
 				gs.mstgs.select(0);
 				gs.mstgs.setVisible(true);
 			}
 			if (msloaded == -2) {
 				gs.mstgs.setVisible(false);
 				gs.mstgs.removeAll();
-				gs.mstgs.add(gs.rd, "No stages have been added to your clan yet.");
+				gs.mstgs.add(gs.rd, Messages.getString("CarDefine.93")); //$NON-NLS-1$
 				gs.mstgs.select(0);
 				gs.mstgs.setVisible(true);
 			}
@@ -314,7 +314,7 @@ public class CarDefine implements Runnable {
 			msloaded = -2;
 			gs.mstgs.setVisible(false);
 			gs.mstgs.removeAll();
-			gs.mstgs.add(gs.rd, "You are not a member of any clan yet.");
+			gs.mstgs.add(gs.rd, Messages.getString("CarDefine.94")); //$NON-NLS-1$
 			gs.mstgs.select(0);
 			gs.mstgs.setVisible(true);
 		}
@@ -323,19 +323,19 @@ public class CarDefine implements Runnable {
 	public void loadmystages(final CheckPoints checkpoints) {
 		final String[] strings = new String[700];
 		int i = 0;
-		String string = "";
+		String string = Messages.getString("CarDefine.95"); //$NON-NLS-1$
 		try {
-			final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/tracks/lists/")
-					.append(gs.tnick.getText()).append(".txt?reqlo=").append((int) (Math.random() * 1000.0)).append("")
+			final URL url = new URL(new StringBuilder().append(Messages.getString("CarDefine.96")) //$NON-NLS-1$
+					.append(gs.tnick.getText()).append(Messages.getString("CarDefine.97")).append((int) (Math.random() * 1000.0)).append(Messages.getString("CarDefine.98")) //$NON-NLS-1$ //$NON-NLS-2$
 					.toString());
 			final DataInputStream datainputstream = new DataInputStream(url.openStream());
 			while ((string = datainputstream.readLine()) != null && !Thread.currentThread().isInterrupted()) {
-				string = new StringBuilder().append("").append(string.trim()).toString();
-				if (string.startsWith("mystages")) {
+				string = new StringBuilder().append(Messages.getString("CarDefine.99")).append(string.trim()).toString(); //$NON-NLS-1$
+				if (string.startsWith(Messages.getString("CarDefine.100"))) { //$NON-NLS-1$
 					boolean bool = true;
 					while (bool && i < 700 && !Thread.currentThread().isInterrupted()) {
-						strings[i] = getSvalue("mystages", string, i);
-						if (strings[i].equals(""))
+						strings[i] = getSvalue(Messages.getString("CarDefine.101"), string, i); //$NON-NLS-1$
+						if (strings[i].equals(Messages.getString("CarDefine.102"))) //$NON-NLS-1$
 							bool = false;
 						else
 							i++;
@@ -348,8 +348,8 @@ public class CarDefine implements Runnable {
 				msloaded = -2;
 			datainputstream.close();
 		} catch (final Exception exception) {
-			final String string_61_ = new StringBuilder().append("").append(exception).toString();
-			if (string_61_.indexOf("FileNotFound") != -1)
+			final String string_61_ = new StringBuilder().append(Messages.getString("CarDefine.103")).append(exception).toString(); //$NON-NLS-1$
+			if (string_61_.indexOf(Messages.getString("CarDefine.104")) != -1) //$NON-NLS-1$
 				msloaded = -2;
 			else
 				msloaded = -1;
@@ -357,7 +357,7 @@ public class CarDefine implements Runnable {
 		if (msloaded == 1) {
 			gs.mstgs.setVisible(false);
 			gs.mstgs.removeAll();
-			gs.mstgs.add(gs.rd, "Select Stage");
+			gs.mstgs.add(gs.rd, Messages.getString("CarDefine.105")); //$NON-NLS-1$
 			int i_62_ = 0;
 			for (int i_63_ = 0; i_63_ < i; i_63_++) {
 				gs.mstgs.add(gs.rd, strings[i_63_]);
@@ -372,14 +372,14 @@ public class CarDefine implements Runnable {
 		if (msloaded == -2) {
 			gs.mstgs.setVisible(false);
 			gs.mstgs.removeAll();
-			gs.mstgs.add(gs.rd, "You have not published or added any stages...");
+			gs.mstgs.add(gs.rd, Messages.getString("CarDefine.106")); //$NON-NLS-1$
 			gs.mstgs.select(0);
 			gs.mstgs.setVisible(true);
 		}
 		if (msloaded == -1) {
 			gs.mstgs.setVisible(false);
 			gs.mstgs.removeAll();
-			gs.mstgs.add(gs.rd, "Failed to load stages, please try again later.");
+			gs.mstgs.add(gs.rd, Messages.getString("CarDefine.107")); //$NON-NLS-1$
 			gs.mstgs.select(0);
 			gs.mstgs.setVisible(true);
 		}
@@ -388,8 +388,8 @@ public class CarDefine implements Runnable {
 
 	public int loadonlinecar(final String string, int i) {
 		try {
-			String string_52_ = new StringBuilder().append("http://multiplayer.needformadness.com/cars/").append(string)
-					.append(".radq").toString();
+			String string_52_ = new StringBuilder().append(Messages.getString("CarDefine.108")).append(string) //$NON-NLS-1$
+					.append(Messages.getString("CarDefine.109")).toString(); //$NON-NLS-1$
 			string_52_ = string_52_.replace(' ', '_');
 			final URL url = new URL(string_52_);
 			final int i_53_ = url.openConnection().getContentLength();
@@ -445,7 +445,7 @@ public class CarDefine implements Runnable {
 				}
 				if (i != -1) {
 					loadstat(is_58_, string, bco[i].maxR, bco[i].roofat, bco[i].wh, i);
-					if (names[i].equals(""))
+					if (names[i].equals(Messages.getString("CarDefine.110"))) //$NON-NLS-1$
 						i = -1;
 				}
 				m.loadnew = false;
@@ -470,9 +470,9 @@ public class CarDefine implements Runnable {
 		m.snap[0] = 0;
 		m.snap[1] = 0;
 		m.snap[2] = 0;
-		fails = "";
+		fails = Messages.getString("CarDefine.111"); //$NON-NLS-1$
 		for (int i = 0; i < 20; i++)
-			loadnames[i] = "";
+			loadnames[i] = Messages.getString("CarDefine.112"); //$NON-NLS-1$
 		nl = 0;
 		action = 0;
 	}
@@ -480,14 +480,14 @@ public class CarDefine implements Runnable {
 	public void loadstagemaker() {
 		gs.mstgs.setVisible(false);
 		gs.mstgs.removeAll();
-		gs.mstgs.add(gs.rd, "Select Stage");
+		gs.mstgs.add(gs.rd, Messages.getString("CarDefine.113")); //$NON-NLS-1$
 		int i = 0;
-		final File file = new File(new StringBuilder().append("").append(Madness.fpath).append("mystages/").toString());
+		final File file = new File(new StringBuilder().append(Messages.getString("CarDefine.114")).append(Madness.fpath).append(Messages.getString("CarDefine.115")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 		if (file.exists()) {
 			final String[] strings = new File(
-					new StringBuilder().append("").append(Madness.fpath).append("mystages/").toString()).list();
+					new StringBuilder().append(Messages.getString("CarDefine.116")).append(Madness.fpath).append(Messages.getString("CarDefine.117")).toString()).list(); //$NON-NLS-1$ //$NON-NLS-2$
 			for (int i_72_ = 0; i_72_ < strings.length; i_72_++)
-				if (strings[i_72_].toLowerCase().endsWith(".txt") && i < 200) {
+				if (strings[i_72_].toLowerCase().endsWith(Messages.getString("CarDefine.118")) && i < 200) { //$NON-NLS-1$
 					gs.mstgs.add(gs.rd, strings[i_72_].substring(0, strings[i_72_].length() - 4));
 					i++;
 				}
@@ -495,7 +495,7 @@ public class CarDefine implements Runnable {
 		if (i != 0)
 			msloaded = 2;
 		else {
-			gs.mstgs.add(gs.rd, "No stages where found in your 'mystages' folder.");
+			gs.mstgs.add(gs.rd, Messages.getString("CarDefine.119")); //$NON-NLS-1$
 			msloaded = -1;
 		}
 		gs.mstgs.select(0);
@@ -507,7 +507,7 @@ public class CarDefine implements Runnable {
 		names[i_2_] = string;
 		boolean bool = false;
 		boolean bool_3_ = false;
-		String string_4_ = "";
+		String string_4_ = Messages.getString("CarDefine.120"); //$NON-NLS-1$
 		final int[] is_5_ = { 128, 128, 128, 128, 128 };
 		int i_6_ = 640;
 		final int[] is_7_ = { 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50 };
@@ -515,16 +515,16 @@ public class CarDefine implements Runnable {
 		enginsignature[i_2_] = 0;
 		float f = 0.0F;
 		publish[i_2_ - 16] = 0;
-		createdby[i_2_ - 16] = "Unkown User";
+		createdby[i_2_ - 16] = Messages.getString("CarDefine.121"); //$NON-NLS-1$
 		try {
 			final DataInputStream datainputstream = new DataInputStream(new ByteArrayInputStream(is));
 			while ((string_4_ = datainputstream.readLine()) != null && !Thread.currentThread().isInterrupted()) {
 				string_4_ = string_4_.trim();
-				if (string_4_.startsWith("stat("))
+				if (string_4_.startsWith(Messages.getString("CarDefine.122"))) //$NON-NLS-1$
 					try {
 						i_6_ = 0;
 						for (int i_9_ = 0; i_9_ < 5; i_9_++)
-							is_5_[i_9_] = getvalue("stat", string_4_, i_9_);
+							is_5_[i_9_] = getvalue(Messages.getString("CarDefine.123"), string_4_, i_9_); //$NON-NLS-1$
 						// if (is_5_[i_9_] > 200)
 						// is_5_[i_9_] = 200;
 						// if (is_5_[i_9_] < 16)
@@ -534,34 +534,34 @@ public class CarDefine implements Runnable {
 					} catch (final Exception exception) {
 						bool = false;
 					}
-				if (string_4_.startsWith("physics("))
+				if (string_4_.startsWith(Messages.getString("CarDefine.124"))) //$NON-NLS-1$
 					try {
 						for (int i_10_ = 0; i_10_ < 11; i_10_++)
-							is_7_[i_10_] = getvalue("physics", string_4_, i_10_);
+							is_7_[i_10_] = getvalue(Messages.getString("CarDefine.125"), string_4_, i_10_); //$NON-NLS-1$
 						// if (is_7_[i_10_] > 100)
 						// is_7_[i_10_] = 100;
 						// if (is_7_[i_10_] < 0)
 						// is_7_[i_10_] = 0;
 						for (int i_11_ = 0; i_11_ < 3; i_11_++)
-							is_8_[i_11_] = getvalue("physics", string_4_, i_11_ + 11);
+							is_8_[i_11_] = getvalue(Messages.getString("CarDefine.126"), string_4_, i_11_ + 11); //$NON-NLS-1$
 						// if (i_11_ != 0 && is_8_[i_11_] > 100)
 						// is_8_[i_11_] = 100;
 						// if (is_8_[i_11_] < 0)
 						// is_8_[i_11_] = 0;
-						enginsignature[i_2_] = getvalue("physics", string_4_, 14);
+						enginsignature[i_2_] = getvalue(Messages.getString("CarDefine.127"), string_4_, 14); //$NON-NLS-1$
 						if (enginsignature[i_2_] > 4)
 							enginsignature[i_2_] = 0;
 						if (enginsignature[i_2_] < 0)
 							enginsignature[i_2_] = 0;
-						f = getvalue("physics", string_4_, 15);
+						f = getvalue(Messages.getString("CarDefine.128"), string_4_, 15); //$NON-NLS-1$
 						if (f > 0.0F)
 							bool_3_ = true;
 					} catch (final Exception exception) {
 						bool_3_ = false;
 					}
-				if (string_4_.startsWith("handling("))
+				if (string_4_.startsWith(Messages.getString("CarDefine.129"))) //$NON-NLS-1$
 					try {
-						final int i_12_ = getvalue("handling", string_4_, 0);
+						final int i_12_ = getvalue(Messages.getString("CarDefine.130"), string_4_, 0); //$NON-NLS-1$
 						// if (i_12_ > 200)
 						// i_12_ = 200;
 						// if (i_12_ < 50)
@@ -570,14 +570,14 @@ public class CarDefine implements Runnable {
 					} catch (final Exception exception) {
 						/* empty */
 					}
-				if (string_4_.startsWith("carmaker("))
-					createdby[i_2_ - 16] = getSvalue("carmaker", string_4_, 0);
-				if (string_4_.startsWith("publish("))
-					publish[i_2_ - 16] = getvalue("publish", string_4_, 0);
+				if (string_4_.startsWith(Messages.getString("CarDefine.131"))) //$NON-NLS-1$
+					createdby[i_2_ - 16] = getSvalue(Messages.getString("CarDefine.132"), string_4_, 0); //$NON-NLS-1$
+				if (string_4_.startsWith(Messages.getString("CarDefine.133"))) //$NON-NLS-1$
+					publish[i_2_ - 16] = getvalue(Messages.getString("CarDefine.134"), string_4_, 0); //$NON-NLS-1$
 			}
 			datainputstream.close();
 		} catch (final Exception exception) {
-			System.out.println(new StringBuilder().append("Error Loading Car Stat: ").append(exception).toString());
+			System.out.println(new StringBuilder().append(Messages.getString("CarDefine.135")).append(exception).toString()); //$NON-NLS-1$
 		}
 		if (bool && bool_3_) {
 			int i_13_ = 0;
@@ -846,37 +846,37 @@ public class CarDefine implements Runnable {
 				comprad[i_2_] = 0.4F;
 			simag[i_2_] = (i_1_ - 17) * 0.0167F + 0.85F;
 		} else
-			names[i_2_] = "";
+			names[i_2_] = Messages.getString("CarDefine.136"); //$NON-NLS-1$
 	}
 
 	public void loadtop20(final int i) {
 		final String[] strings = new String[20];
 		int i_64_ = 0;
-		String string = "";
+		String string = Messages.getString("CarDefine.137"); //$NON-NLS-1$
 		try {
-			String string_65_ = "A";
+			String string_65_ = Messages.getString("CarDefine.138"); //$NON-NLS-1$
 			if (i == 3)
-				string_65_ = "W";
+				string_65_ = Messages.getString("CarDefine.139"); //$NON-NLS-1$
 			if (i == 4)
-				string_65_ = "M";
-			final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/tracks/top20/")
-					.append(string_65_).append(".txt").toString());
+				string_65_ = Messages.getString("CarDefine.140"); //$NON-NLS-1$
+			final URL url = new URL(new StringBuilder().append(Messages.getString("CarDefine.141")) //$NON-NLS-1$
+					.append(string_65_).append(Messages.getString("CarDefine.142")).toString()); //$NON-NLS-1$
 			final DataInputStream datainputstream = new DataInputStream(url.openStream());
 			while ((string = datainputstream.readLine()) != null && !Thread.currentThread().isInterrupted()) {
-				string = new StringBuilder().append("").append(string.trim()).toString();
-				if (string.startsWith("stages")) {
+				string = new StringBuilder().append(Messages.getString("CarDefine.143")).append(string.trim()).toString(); //$NON-NLS-1$
+				if (string.startsWith(Messages.getString("CarDefine.144"))) { //$NON-NLS-1$
 					boolean bool = true;
 					while (bool && i_64_ < 20 && !Thread.currentThread().isInterrupted()) {
-						strings[i_64_] = getSvalue("stages", string, i_64_);
-						if (strings[i_64_].equals(""))
+						strings[i_64_] = getSvalue(Messages.getString("CarDefine.145"), string, i_64_); //$NON-NLS-1$
+						if (strings[i_64_].equals(Messages.getString("CarDefine.146"))) //$NON-NLS-1$
 							bool = false;
 						else
 							i_64_++;
 					}
 				}
-				if (string.startsWith("adds"))
+				if (string.startsWith(Messages.getString("CarDefine.147"))) //$NON-NLS-1$
 					for (int i_66_ = 0; i_66_ < i_64_; i_66_++)
-						top20adds[i_66_] = getvalue("adds", string, i_66_);
+						top20adds[i_66_] = getvalue(Messages.getString("CarDefine.148"), string, i_66_); //$NON-NLS-1$
 			}
 			if (i_64_ > 0)
 				msloaded = i;
@@ -884,8 +884,8 @@ public class CarDefine implements Runnable {
 				msloaded = -2;
 			datainputstream.close();
 		} catch (final Exception exception) {
-			final String string_67_ = new StringBuilder().append("").append(exception).toString();
-			if (string_67_.indexOf("FileNotFound") != -1)
+			final String string_67_ = new StringBuilder().append(Messages.getString("CarDefine.149")).append(exception).toString(); //$NON-NLS-1$
+			if (string_67_.indexOf(Messages.getString("CarDefine.150")) != -1) //$NON-NLS-1$
 				msloaded = -2;
 			else
 				msloaded = -1;
@@ -893,9 +893,9 @@ public class CarDefine implements Runnable {
 		if (msloaded == i) {
 			gs.mstgs.setVisible(false);
 			gs.mstgs.removeAll();
-			gs.mstgs.add(gs.rd, "Select Stage");
+			gs.mstgs.add(gs.rd, Messages.getString("CarDefine.151")); //$NON-NLS-1$
 			for (int i_68_ = 0; i_68_ < i_64_; i_68_++)
-				gs.mstgs.add(gs.rd, new StringBuilder().append("N#").append(i_68_ + 1).append(" ")
+				gs.mstgs.add(gs.rd, new StringBuilder().append(Messages.getString("CarDefine.152")).append(i_68_ + 1).append(Messages.getString("CarDefine.153")) //$NON-NLS-1$ //$NON-NLS-2$
 						.append(strings[i_68_]).toString());
 			gs.mstgs.select(0);
 			gs.mstgs.setVisible(true);
@@ -903,7 +903,7 @@ public class CarDefine implements Runnable {
 		if (msloaded == -1 || msloaded == -2) {
 			gs.mstgs.setVisible(false);
 			gs.mstgs.removeAll();
-			gs.mstgs.add(gs.rd, "Failed to load Top20 list, please try again later.");
+			gs.mstgs.add(gs.rd, Messages.getString("CarDefine.154")); //$NON-NLS-1$
 			gs.mstgs.select(0);
 			gs.mstgs.setVisible(true);
 		}
@@ -916,12 +916,12 @@ public class CarDefine implements Runnable {
 			if (action == 10) {
 				int i = -1;
 				try {
-					final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
+					final Socket socket = new Socket(Messages.getString("CarDefine.155"), 7061); //$NON-NLS-1$
 					final BufferedReader bufferedreader = new BufferedReader(
 							new InputStreamReader(socket.getInputStream()));
 					final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-					printwriter.println(new StringBuilder().append("9|").append(gs.tnick.getText()).append("|")
-							.append(gs.tpass.getText()).append("|").append(names[ac]).append("|").toString());
+					printwriter.println(new StringBuilder().append(Messages.getString("CarDefine.156")).append(gs.tnick.getText()).append(Messages.getString("CarDefine.157")) //$NON-NLS-1$ //$NON-NLS-2$
+							.append(gs.tpass.getText()).append(Messages.getString("CarDefine.158")).append(names[ac]).append(Messages.getString("CarDefine.159")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 					final String string = bufferedreader.readLine();
 					if (string != null)
 						i = servervalue(string, 0);
@@ -940,12 +940,12 @@ public class CarDefine implements Runnable {
 			if (action == 1) {
 				reco = -1;
 				try {
-					final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
+					final Socket socket = new Socket(Messages.getString("CarDefine.160"), 7061); //$NON-NLS-1$
 					final BufferedReader bufferedreader = new BufferedReader(
 							new InputStreamReader(socket.getInputStream()));
 					final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-					printwriter.println(new StringBuilder().append("1|").append(gs.tnick.getText()).append("|")
-							.append(gs.tpass.getText()).append("|").toString());
+					printwriter.println(new StringBuilder().append(Messages.getString("CarDefine.161")).append(gs.tnick.getText()).append(Messages.getString("CarDefine.162")) //$NON-NLS-1$ //$NON-NLS-2$
+							.append(gs.tpass.getText()).append(Messages.getString("CarDefine.163")).toString()); //$NON-NLS-1$
 					final String string = bufferedreader.readLine();
 					if (string != null) {
 						reco = servervalue(string, 0);
@@ -955,8 +955,8 @@ public class CarDefine implements Runnable {
 								tclan = serverSvalue(string, 2);
 								tclankey = serverSvalue(string, 3);
 							} else {
-								tclan = "";
-								tclankey = "";
+								tclan = Messages.getString("CarDefine.164"); //$NON-NLS-1$
+								tclankey = Messages.getString("CarDefine.165"); //$NON-NLS-1$
 							}
 						}
 					}
@@ -978,19 +978,19 @@ public class CarDefine implements Runnable {
 			if (action == 3) {
 				final String[] strings = new String[700];
 				nl = 0;
-				String string = "";
+				String string = Messages.getString("CarDefine.166"); //$NON-NLS-1$
 				try {
 					final URL url = new URL(new StringBuilder()
-							.append("http://multiplayer.needformadness.com/cars/lists/").append(gs.tnick.getText())
-							.append(".txt?reqlo=").append((int) (Math.random() * 1000.0)).append("").toString());
+							.append(Messages.getString("CarDefine.167")).append(gs.tnick.getText()) //$NON-NLS-1$
+							.append(Messages.getString("CarDefine.168")).append((int) (Math.random() * 1000.0)).append(Messages.getString("CarDefine.169")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 					final DataInputStream datainputstream = new DataInputStream(url.openStream());
 					while ((string = datainputstream.readLine()) != null && !Thread.currentThread().isInterrupted()) {
-						string = new StringBuilder().append("").append(string.trim()).toString();
-						if (string.startsWith("mycars")) {
+						string = new StringBuilder().append(Messages.getString("CarDefine.170")).append(string.trim()).toString(); //$NON-NLS-1$
+						if (string.startsWith(Messages.getString("CarDefine.171"))) { //$NON-NLS-1$
 							boolean bool = true;
 							while (bool && nl < 700 && !Thread.currentThread().isInterrupted()) {
-								strings[nl] = getSvalue("mycars", string, nl);
-								if (strings[nl].equals(""))
+								strings[nl] = getSvalue(Messages.getString("CarDefine.172"), string, nl); //$NON-NLS-1$
+								if (strings[nl].equals(Messages.getString("CarDefine.173"))) //$NON-NLS-1$
 									bool = false;
 								else
 									nl++;
@@ -1003,8 +1003,8 @@ public class CarDefine implements Runnable {
 						action = -1;
 					datainputstream.close();
 				} catch (final Exception exception) {
-					final String string_43_ = new StringBuilder().append("").append(exception).toString();
-					if (string_43_.indexOf("FileNotFound") != -1)
+					final String string_43_ = new StringBuilder().append(Messages.getString("CarDefine.174")).append(exception).toString(); //$NON-NLS-1$
+					if (string_43_.indexOf(Messages.getString("CarDefine.175")) != -1) //$NON-NLS-1$
 						action = -1;
 					else
 						action = -2;
@@ -1014,11 +1014,11 @@ public class CarDefine implements Runnable {
 					gs.mcars.removeAll();
 					for (int i = 0; i < nl; i++)
 						gs.mcars.add(gs.rd, strings[i]);
-					if (lastcar.equals(""))
+					if (lastcar.equals(Messages.getString("CarDefine.176"))) //$NON-NLS-1$
 						gs.mcars.select(0);
 					else {
 						gs.mcars.select(lastcar);
-						lastcar = "";
+						lastcar = Messages.getString("CarDefine.177"); //$NON-NLS-1$
 					}
 					for (int i = 0; i < 40; i++)
 						include[i] = false;
@@ -1057,12 +1057,12 @@ public class CarDefine implements Runnable {
 				try {
 					if (ac != -1)
 						acname = names[ac];
-					final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
+					final Socket socket = new Socket(Messages.getString("CarDefine.178"), 7061); //$NON-NLS-1$
 					final BufferedReader bufferedreader = new BufferedReader(
 							new InputStreamReader(socket.getInputStream()));
 					final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-					printwriter.println(new StringBuilder().append("8|").append(gs.tnick.getText()).append("|")
-							.append(gs.tpass.getText()).append("|").append(acname).append("|").toString());
+					printwriter.println(new StringBuilder().append(Messages.getString("CarDefine.179")).append(gs.tnick.getText()).append(Messages.getString("CarDefine.180")) //$NON-NLS-1$ //$NON-NLS-2$
+							.append(gs.tpass.getText()).append(Messages.getString("CarDefine.181")).append(acname).append(Messages.getString("CarDefine.182")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 					final String string = bufferedreader.readLine();
 					if (string != null)
 						i = servervalue(string, 0);
@@ -1089,76 +1089,76 @@ public class CarDefine implements Runnable {
 			}
 			if (action == 11) {
 				nl = 0;
-				String string = "";
+				String string = Messages.getString("CarDefine.183"); //$NON-NLS-1$
 				try {
-					String string_44_ = "all";
+					String string_44_ = Messages.getString("CarDefine.184"); //$NON-NLS-1$
 					if (loadlist == 1)
-						string_44_ = "Wall";
+						string_44_ = Messages.getString("CarDefine.185"); //$NON-NLS-1$
 					if (loadlist == 2)
-						string_44_ = "WA";
+						string_44_ = Messages.getString("CarDefine.186"); //$NON-NLS-1$
 					if (loadlist == 3)
-						string_44_ = "WAB";
+						string_44_ = Messages.getString("CarDefine.187"); //$NON-NLS-1$
 					if (loadlist == 4)
-						string_44_ = "WB";
+						string_44_ = Messages.getString("CarDefine.188"); //$NON-NLS-1$
 					if (loadlist == 5)
-						string_44_ = "WBC";
+						string_44_ = Messages.getString("CarDefine.189"); //$NON-NLS-1$
 					if (loadlist == 6)
-						string_44_ = "WC";
+						string_44_ = Messages.getString("CarDefine.190"); //$NON-NLS-1$
 					if (loadlist == 7)
-						string_44_ = "Mall";
+						string_44_ = Messages.getString("CarDefine.191"); //$NON-NLS-1$
 					if (loadlist == 8)
-						string_44_ = "MA";
+						string_44_ = Messages.getString("CarDefine.192"); //$NON-NLS-1$
 					if (loadlist == 9)
-						string_44_ = "MAB";
+						string_44_ = Messages.getString("CarDefine.193"); //$NON-NLS-1$
 					if (loadlist == 10)
-						string_44_ = "MB";
+						string_44_ = Messages.getString("CarDefine.194"); //$NON-NLS-1$
 					if (loadlist == 11)
-						string_44_ = "MBC";
+						string_44_ = Messages.getString("CarDefine.195"); //$NON-NLS-1$
 					if (loadlist == 12)
-						string_44_ = "MC";
+						string_44_ = Messages.getString("CarDefine.196"); //$NON-NLS-1$
 					if (loadlist == 13)
-						string_44_ = "Sall";
+						string_44_ = Messages.getString("CarDefine.197"); //$NON-NLS-1$
 					if (loadlist == 14)
-						string_44_ = "SA";
+						string_44_ = Messages.getString("CarDefine.198"); //$NON-NLS-1$
 					if (loadlist == 15)
-						string_44_ = "SAB";
+						string_44_ = Messages.getString("CarDefine.199"); //$NON-NLS-1$
 					if (loadlist == 16)
-						string_44_ = "SB";
+						string_44_ = Messages.getString("CarDefine.200"); //$NON-NLS-1$
 					if (loadlist == 17)
-						string_44_ = "SBC";
+						string_44_ = Messages.getString("CarDefine.201"); //$NON-NLS-1$
 					if (loadlist == 18)
-						string_44_ = "SC";
+						string_44_ = Messages.getString("CarDefine.202"); //$NON-NLS-1$
 					if (loadlist == 19)
-						string_44_ = "Aall";
+						string_44_ = Messages.getString("CarDefine.203"); //$NON-NLS-1$
 					if (loadlist == 20)
-						string_44_ = "AA";
+						string_44_ = Messages.getString("CarDefine.204"); //$NON-NLS-1$
 					if (loadlist == 21)
-						string_44_ = "AAB";
+						string_44_ = Messages.getString("CarDefine.205"); //$NON-NLS-1$
 					if (loadlist == 22)
-						string_44_ = "AB";
+						string_44_ = Messages.getString("CarDefine.206"); //$NON-NLS-1$
 					if (loadlist == 23)
-						string_44_ = "ABC";
+						string_44_ = Messages.getString("CarDefine.207"); //$NON-NLS-1$
 					if (loadlist == 24)
-						string_44_ = "AC";
+						string_44_ = Messages.getString("CarDefine.208"); //$NON-NLS-1$
 					final URL url = new URL(
-							new StringBuilder().append("http://multiplayer.needformadness.com/cars/top20/")
-									.append(string_44_).append(".txt").toString());
+							new StringBuilder().append(Messages.getString("CarDefine.209")) //$NON-NLS-1$
+									.append(string_44_).append(Messages.getString("CarDefine.210")).toString()); //$NON-NLS-1$
 					final DataInputStream datainputstream = new DataInputStream(url.openStream());
 					while ((string = datainputstream.readLine()) != null && !Thread.currentThread().isInterrupted()) {
-						string = new StringBuilder().append("").append(string.trim()).toString();
-						if (string.startsWith("cars")) {
+						string = new StringBuilder().append(Messages.getString("CarDefine.211")).append(string.trim()).toString(); //$NON-NLS-1$
+						if (string.startsWith(Messages.getString("CarDefine.212"))) { //$NON-NLS-1$
 							boolean bool = true;
 							while (bool && nl < 20 && !Thread.currentThread().isInterrupted()) {
-								loadnames[nl] = getSvalue("cars", string, nl);
-								if (loadnames[nl].equals(""))
+								loadnames[nl] = getSvalue(Messages.getString("CarDefine.213"), string, nl); //$NON-NLS-1$
+								if (loadnames[nl].equals(Messages.getString("CarDefine.214"))) //$NON-NLS-1$
 									bool = false;
 								else
 									nl++;
 							}
 						}
-						if (string.startsWith("adds"))
+						if (string.startsWith(Messages.getString("CarDefine.215"))) //$NON-NLS-1$
 							for (int i = 0; i < nl; i++)
-								adds[i] = getvalue("adds", string, i);
+								adds[i] = getvalue(Messages.getString("CarDefine.216"), string, i); //$NON-NLS-1$
 					}
 					if (nl > 0)
 						action = 12;
@@ -1194,19 +1194,19 @@ public class CarDefine implements Runnable {
 			}
 			if (action == 101) {
 				nl = 0;
-				String string = "";
+				String string = Messages.getString("CarDefine.217"); //$NON-NLS-1$
 				try {
 					final URL url = new URL(new StringBuilder()
-							.append("http://multiplayer.needformadness.com/cars/lists/").append(viewname)
-							.append(".txt?reqlo=").append((int) (Math.random() * 1000.0)).append("").toString());
+							.append(Messages.getString("CarDefine.218")).append(viewname) //$NON-NLS-1$
+							.append(Messages.getString("CarDefine.219")).append((int) (Math.random() * 1000.0)).append(Messages.getString("CarDefine.220")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 					final DataInputStream datainputstream = new DataInputStream(url.openStream());
 					while ((string = datainputstream.readLine()) != null && !Thread.currentThread().isInterrupted()) {
-						string = new StringBuilder().append("").append(string.trim()).toString();
-						if (string.startsWith("mycars")) {
+						string = new StringBuilder().append(Messages.getString("CarDefine.221")).append(string.trim()).toString(); //$NON-NLS-1$
+						if (string.startsWith(Messages.getString("CarDefine.222"))) { //$NON-NLS-1$
 							boolean bool = true;
 							while (bool && nl < 20 && !Thread.currentThread().isInterrupted()) {
-								loadnames[nl] = getSvalue("mycars", string, nl);
-								if (loadnames[nl].equals(""))
+								loadnames[nl] = getSvalue(Messages.getString("CarDefine.223"), string, nl); //$NON-NLS-1$
+								if (loadnames[nl].equals(Messages.getString("CarDefine.224"))) //$NON-NLS-1$
 									bool = false;
 								else
 									nl++;
@@ -1219,8 +1219,8 @@ public class CarDefine implements Runnable {
 						action = -2;
 					datainputstream.close();
 				} catch (final Exception exception) {
-					final String string_45_ = new StringBuilder().append("").append(exception).toString();
-					if (string_45_.indexOf("FileNotFound") != -1)
+					final String string_45_ = new StringBuilder().append(Messages.getString("CarDefine.225")).append(exception).toString(); //$NON-NLS-1$
+					if (string_45_.indexOf(Messages.getString("CarDefine.226")) != -1) //$NON-NLS-1$
 						action = -2;
 					else
 						action = -1;
@@ -1260,7 +1260,7 @@ public class CarDefine implements Runnable {
 					if (loadnames[nl - 1].equals(names[i_46_]))
 						i = -1;
 				if (fails.indexOf(
-						new StringBuilder().append("|").append(loadnames[nl - 1]).append("|").toString()) != -1)
+						new StringBuilder().append(Messages.getString("CarDefine.227")).append(loadnames[nl - 1]).append(Messages.getString("CarDefine.228")).toString()) != -1) //$NON-NLS-1$ //$NON-NLS-2$
 					i = -1;
 				if (i != -1) {
 					int i_47_ = lcardate[0];
@@ -1279,8 +1279,8 @@ public class CarDefine implements Runnable {
 					if (loadonlinecar(loadnames[nl - 1], i) == -1) {
 						final StringBuilder stringbuilder = new StringBuilder();
 						final CarDefine cardefine_50_ = this;
-						cardefine_50_.fails = stringbuilder.append(cardefine_50_.fails).append("|")
-								.append(loadnames[nl - 1]).append("|").toString();
+						cardefine_50_.fails = stringbuilder.append(cardefine_50_.fails).append(Messages.getString("CarDefine.229")) //$NON-NLS-1$
+								.append(loadnames[nl - 1]).append(Messages.getString("CarDefine.230")).toString(); //$NON-NLS-1$
 					} else
 						lcardate[i - 36]++;
 					onloadingcar = 0;
@@ -1302,12 +1302,12 @@ public class CarDefine implements Runnable {
 			if (staction == 1) {
 				int i = -1;
 				try {
-					final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
+					final Socket socket = new Socket(Messages.getString("CarDefine.231"), 7061); //$NON-NLS-1$
 					final BufferedReader bufferedreader = new BufferedReader(
 							new InputStreamReader(socket.getInputStream()));
 					final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-					printwriter.println(new StringBuilder().append("19|").append(gs.tnick.getText()).append("|")
-							.append(gs.tpass.getText()).append("|").append(onstage).append("|").toString());
+					printwriter.println(new StringBuilder().append(Messages.getString("CarDefine.232")).append(gs.tnick.getText()).append(Messages.getString("CarDefine.233")) //$NON-NLS-1$ //$NON-NLS-2$
+							.append(gs.tpass.getText()).append(Messages.getString("CarDefine.234")).append(onstage).append(Messages.getString("CarDefine.235")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 					final String string = bufferedreader.readLine();
 					if (string != null)
 						i = servervalue(string, 0);
@@ -1331,12 +1331,12 @@ public class CarDefine implements Runnable {
 			if (staction == 4) {
 				reco = -1;
 				try {
-					final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
+					final Socket socket = new Socket(Messages.getString("CarDefine.236"), 7061); //$NON-NLS-1$
 					final BufferedReader bufferedreader = new BufferedReader(
 							new InputStreamReader(socket.getInputStream()));
 					final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-					printwriter.println(new StringBuilder().append("1|").append(gs.tnick.getText()).append("|")
-							.append(gs.tpass.getText()).append("|").toString());
+					printwriter.println(new StringBuilder().append(Messages.getString("CarDefine.237")).append(gs.tnick.getText()).append(Messages.getString("CarDefine.238")) //$NON-NLS-1$ //$NON-NLS-2$
+							.append(gs.tpass.getText()).append(Messages.getString("CarDefine.239")).toString()); //$NON-NLS-1$
 					final String string = bufferedreader.readLine();
 					if (string != null) {
 						reco = servervalue(string, 0);
@@ -1346,8 +1346,8 @@ public class CarDefine implements Runnable {
 								tclan = serverSvalue(string, 2);
 								tclankey = serverSvalue(string, 3);
 							} else {
-								tclan = "";
-								tclankey = "";
+								tclan = Messages.getString("CarDefine.240"); //$NON-NLS-1$
+								tclankey = Messages.getString("CarDefine.241"); //$NON-NLS-1$
 							}
 						}
 					}
@@ -1374,12 +1374,12 @@ public class CarDefine implements Runnable {
 							i = 3;
 				if (i == -1)
 					try {
-						final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
+						final Socket socket = new Socket(Messages.getString("CarDefine.242"), 7061); //$NON-NLS-1$
 						final BufferedReader bufferedreader = new BufferedReader(
 								new InputStreamReader(socket.getInputStream()));
 						final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-						printwriter.println(new StringBuilder().append("18|").append(gs.tnick.getText()).append("|")
-								.append(gs.tpass.getText()).append("|").append(onstage).append("|").toString());
+						printwriter.println(new StringBuilder().append(Messages.getString("CarDefine.243")).append(gs.tnick.getText()).append(Messages.getString("CarDefine.244")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(gs.tpass.getText()).append(Messages.getString("CarDefine.245")).append(onstage).append(Messages.getString("CarDefine.246")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 						final String string = bufferedreader.readLine();
 						if (string != null)
 							i = servervalue(string, 0);
@@ -1405,16 +1405,16 @@ public class CarDefine implements Runnable {
 	}
 
 	public String serverSvalue(final String string, final int i) {
-		String string_37_ = "";
+		String string_37_ = Messages.getString("CarDefine.247"); //$NON-NLS-1$
 		try {
 			int i_38_ = 0;
 			int i_39_ = 0;
 			int i_40_ = 0;
-			String string_41_ = "";
-			String string_42_ = "";
+			String string_41_ = Messages.getString("CarDefine.248"); //$NON-NLS-1$
+			String string_42_ = Messages.getString("CarDefine.249"); //$NON-NLS-1$
 			for (/**/; i_38_ < string.length() && i_40_ != 2; i_38_++) {
-				string_41_ = new StringBuilder().append("").append(string.charAt(i_38_)).toString();
-				if (string_41_.equals("|")) {
+				string_41_ = new StringBuilder().append(Messages.getString("CarDefine.250")).append(string.charAt(i_38_)).toString(); //$NON-NLS-1$
+				if (string_41_.equals(Messages.getString("CarDefine.251"))) { //$NON-NLS-1$
 					i_39_++;
 					if (i_40_ == 1 || i_39_ > i)
 						i_40_ = 2;
@@ -1436,11 +1436,11 @@ public class CarDefine implements Runnable {
 			int i_32_ = 0;
 			int i_33_ = 0;
 			int i_34_ = 0;
-			String string_35_ = "";
-			String string_36_ = "";
+			String string_35_ = Messages.getString("CarDefine.252"); //$NON-NLS-1$
+			String string_36_ = Messages.getString("CarDefine.253"); //$NON-NLS-1$
 			for (/**/; i_32_ < string.length() && i_34_ != 2; i_32_++) {
-				string_35_ = new StringBuilder().append("").append(string.charAt(i_32_)).toString();
-				if (string_35_.equals("|")) {
+				string_35_ = new StringBuilder().append(Messages.getString("CarDefine.254")).append(string.charAt(i_32_)).toString(); //$NON-NLS-1$
+				if (string_35_.equals(Messages.getString("CarDefine.255"))) { //$NON-NLS-1$
 					i_33_++;
 					if (i_34_ == 1 || i_33_ > i)
 						i_34_ = 2;
@@ -1449,8 +1449,8 @@ public class CarDefine implements Runnable {
 					i_34_ = 1;
 				}
 			}
-			if (string_36_.equals(""))
-				string_36_ = "-1";
+			if (string_36_.equals(Messages.getString("CarDefine.256"))) //$NON-NLS-1$
+				string_36_ = Messages.getString("CarDefine.257"); //$NON-NLS-1$
 			i_31_ = Integer.valueOf(string_36_).intValue();
 		} catch (final Exception exception) {
 			/* empty */

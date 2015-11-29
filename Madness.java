@@ -31,7 +31,7 @@ public class Madness extends Panel {
 	static CarMaker cm;
 	static DisplayMode defdisp;
 	static int endadv = 0;
-	static String fpath = "";
+	static String fpath = Messages.getString("Madness.0"); //$NON-NLS-1$
 	static Frame frame;
 	static DisplayMode fulldisp;
 	static boolean fullscreen = false;
@@ -42,24 +42,24 @@ public class Madness extends Panel {
 	 */
 	private static final long serialVersionUID = 8881840450218558380L;
 	static StageMaker sm;
-	static String testcar = "";
+	static String testcar = Messages.getString("Madness.1"); //$NON-NLS-1$
 	static int testdrive = 0;
 	static int textid = 0;
 	static int updateon = 0;
-	static String upfile = "";
+	static String upfile = Messages.getString("Madness.2"); //$NON-NLS-1$
 
 	public static void advopen() {
 		try {
 			final File file = new File(
-					new StringBuilder().append("").append(fpath).append("data/user.data").toString());
+					new StringBuilder().append(Messages.getString("Madness.3")).append(fpath).append(Messages.getString("Madness.4")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 			if (file.exists()) {
 				final Date date = new Date();
 				final long l = date.getTime();
 				if (advtime == 0L || l - advtime > 120000L) {
-					final String string = System.getProperty("os.name").toLowerCase();
-					if (string.indexOf("win") != -1) {
+					final String string = System.getProperty(Messages.getString("Madness.5")).toLowerCase(); //$NON-NLS-1$
+					if (string.indexOf(Messages.getString("Madness.6")) != -1) { //$NON-NLS-1$
 						final File file_26_ = new File(
-								new StringBuilder().append("").append(fpath).append("data/adv.bat").toString());
+								new StringBuilder().append(Messages.getString("Madness.7")).append(fpath).append(Messages.getString("Madness.8")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 						boolean bool = false;
 						if (!file_26_.exists())
 							bool = true;
@@ -67,9 +67,9 @@ public class Madness extends Panel {
 							bool = true;
 						if (bool) {
 							final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file_26_));
-							bufferedwriter.write("cd %programfiles%\\Internet Explorer");
+							bufferedwriter.write(Messages.getString("Madness.9")); //$NON-NLS-1$
 							bufferedwriter.newLine();
-							bufferedwriter.write("iexplore -k http://www.needformadness.com/");
+							bufferedwriter.write(Messages.getString("Madness.10")); //$NON-NLS-1$
 							bufferedwriter.newLine();
 							bufferedwriter.close();
 						}
@@ -79,7 +79,7 @@ public class Madness extends Panel {
 							/* empty */
 						}
 					} else
-						openurl("http://www.needformadness.com/");
+						openurl(Messages.getString("Madness.11")); //$NON-NLS-1$
 					advtime = l;
 					endadv = 1;
 				}
@@ -140,7 +140,7 @@ public class Madness extends Panel {
 			/* empty */
 		}
 		cm = new CarMaker();
-		frame.add("Center", cm);
+		frame.add(Messages.getString("Madness.12"), cm); //$NON-NLS-1$
 		frame.setVisible(true);
 		cm.init();
 		cm.start();
@@ -151,18 +151,18 @@ public class Madness extends Panel {
 
 	public static void exitfullscreen() {
 		frame.dispose();
-		frame = new Frame("Need for Madness");
+		frame = new Frame(Messages.getString("Madness.13")); //$NON-NLS-1$
 		frame.setBackground(new Color(0, 0, 0));
 		frame.setIgnoreRepaint(true);
 		frame.setIconImage(Toolkit.getDefaultToolkit()
-				.createImage(new StringBuilder().append("").append(fpath).append("data/icon.gif").toString()));
+				.createImage(new StringBuilder().append(Messages.getString("Madness.14")).append(fpath).append(Messages.getString("Madness.15")).toString())); //$NON-NLS-1$ //$NON-NLS-2$
 		frame.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(final WindowEvent windowevent) {
 				exitsequance();
 			}
 		});
-		frame.add("Center", applet);
+		frame.add(Messages.getString("Madness.16"), applet); //$NON-NLS-1$
 		frame.setVisible(true);
 		if (myDevice.isFullScreenSupported()) {
 			try {
@@ -286,18 +286,18 @@ public class Madness extends Panel {
 			/* empty */
 		}
 		applet = new GameSparker();
-		frame.add("Center", applet);
+		frame.add(Messages.getString("Madness.17"), applet); //$NON-NLS-1$
 		frame.setVisible(true);
 		//applet.init();
 		//applet.start();
 	}
 
 	public static String getfuncSvalue(final String string, final String string_28_, final int i) {
-		String string_29_ = "";
+		String string_29_ = Messages.getString("Madness.18"); //$NON-NLS-1$
 		int i_30_ = 0;
 		for (int i_31_ = string.length() + 1; i_31_ < string_28_.length() && i_30_ <= i; i_31_++) {
-			final String string_32_ = new StringBuilder().append("").append(string_28_.charAt(i_31_)).toString();
-			if (string_32_.equals(",") || string_32_.equals(")"))
+			final String string_32_ = new StringBuilder().append(Messages.getString("Madness.19")).append(string_28_.charAt(i_31_)).toString(); //$NON-NLS-1$
+			if (string_32_.equals(Messages.getString("Madness.20")) || string_32_.equals(Messages.getString("Madness.21"))) //$NON-NLS-1$ //$NON-NLS-2$
 				i_30_++;
 			else if (i_30_ == i)
 				string_29_ = new StringBuilder().append(string_29_).append(string_32_).toString();
@@ -323,10 +323,10 @@ public class Madness extends Panel {
 						f_2_ = f_5_;
 					}
 				}
-				strings[i_3_] = new StringBuilder().append("").append(displaymodes[i_4_].getWidth()).append(" x ")
-						.append(displaymodes[i_4_].getHeight()).append(" Resolution   -   ")
-						.append(displaymodes[i_4_].getBitDepth()).append(" Bits   -   ")
-						.append(displaymodes[i_4_].getRefreshRate()).append(" Refresh Rate").toString();
+				strings[i_3_] = new StringBuilder().append(Messages.getString("Madness.22")).append(displaymodes[i_4_].getWidth()).append(Messages.getString("Madness.23")) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(displaymodes[i_4_].getHeight()).append(Messages.getString("Madness.24")) //$NON-NLS-1$
+						.append(displaymodes[i_4_].getBitDepth()).append(Messages.getString("Madness.25")) //$NON-NLS-1$
+						.append(displaymodes[i_4_].getRefreshRate()).append(Messages.getString("Madness.26")).toString(); //$NON-NLS-1$
 				is[i_3_] = i_4_;
 				i_3_++;
 			}
@@ -334,11 +334,11 @@ public class Madness extends Panel {
 			final StringBuilder stringbuilder = new StringBuilder();
 			final String[] strings_6_ = strings;
 			final int i_7_ = i;
-			strings_6_[i_7_] = stringbuilder.append(strings_6_[i_7_]).append("     <  Recommended").toString();
+			strings_6_[i_7_] = stringbuilder.append(strings_6_[i_7_]).append(Messages.getString("Madness.27")).toString(); //$NON-NLS-1$
 		}
 		try {
 			final File file = new File(
-					new StringBuilder().append("").append(fpath).append("data/full_screen.data").toString());
+					new StringBuilder().append(Messages.getString("Madness.28")).append(fpath).append(Messages.getString("Madness.29")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 			if (file.exists()) {
 				final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
 				String string;
@@ -366,8 +366,8 @@ public class Madness extends Panel {
 			strings_10_[i_11_] = strings[i_11_];
 		final String[] strings_12_ = strings_10_;
 		final Object object = JOptionPane.showInputDialog(null,
-				"Choose a screen resolution setting below and click OK to try it.\nExit Fullscreen by pressing [Esc].\n\nIMPORTANT: If the game does not display properly in Fullscreen press [Esc]      \nand try a different resolution setting below,",
-				"Fullscreen Options", 1, null, strings_12_, strings_12_[i]);
+				Messages.getString("Madness.30"), //$NON-NLS-1$
+				Messages.getString("Madness.31"), 1, null, strings_12_, strings_12_[i]); //$NON-NLS-1$
 		int i_13_ = -1;
 		if (object != null)
 			for (int i_14_ = 0; i_14_ < i_3_; i_14_++)
@@ -379,9 +379,9 @@ public class Madness extends Panel {
 		if (i_13_ != -1) {
 			try {
 				final File file = new File(
-						new StringBuilder().append("").append(fpath).append("data/full_screen.data").toString());
+						new StringBuilder().append(Messages.getString("Madness.32")).append(fpath).append(Messages.getString("Madness.33")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 				final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
-				bufferedwriter.write(new StringBuilder().append("").append(i).append("").toString());
+				bufferedwriter.write(new StringBuilder().append(Messages.getString("Madness.34")).append(i).append(Messages.getString("Madness.35")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 				bufferedwriter.newLine();
 				bufferedwriter.close();
 			} catch (final Exception exception) {
@@ -389,13 +389,13 @@ public class Madness extends Panel {
 			}
 			fullscreen = true;
 			frame.dispose();
-			frame = new Frame("Fullscreen Need for Madness");
+			frame = new Frame(Messages.getString("Madness.36")); //$NON-NLS-1$
 			frame.setBackground(new Color(0, 0, 0));
 			frame.setUndecorated(true);
 			frame.setResizable(false);
 			frame.setExtendedState(6);
 			frame.setIgnoreRepaint(true);
-			frame.add("Center", applet);
+			frame.add(Messages.getString("Madness.37"), applet); //$NON-NLS-1$
 			frame.setVisible(true);
 			if (myDevice.isFullScreenSupported()) {
 				try {
@@ -416,10 +416,10 @@ public class Madness extends Panel {
 
 	public static void main(final String[] strings) {
 		System.runFinalizersOnExit(true);
-		frame = new Frame("Need for Madness");
+		frame = new Frame(Messages.getString("Madness.38")); //$NON-NLS-1$
 		frame.setBackground(new Color(0, 0, 0));
 		frame.setIgnoreRepaint(true);
-		fpath = "";
+		fpath = Messages.getString("Madness.39"); //$NON-NLS-1$
 		boolean bool = false;
 		final String[] strings_0_ = strings;
 		final int i = strings_0_.length;
@@ -429,17 +429,17 @@ public class Madness extends Panel {
 				fpath = new StringBuilder().append(fpath).append(string).toString();
 				bool = true;
 			} else
-				fpath = new StringBuilder().append(fpath).append(" ").append(string).toString();
+				fpath = new StringBuilder().append(fpath).append(Messages.getString("Madness.40")).append(string).toString(); //$NON-NLS-1$
 		}
-		if (!fpath.equals(""))
-			if (fpath.equals("manar")) {
-				fpath = "";
+		if (!fpath.equals(Messages.getString("Madness.41"))) //$NON-NLS-1$
+			if (fpath.equals(Messages.getString("Madness.42"))) { //$NON-NLS-1$
+				fpath = Messages.getString("Madness.43"); //$NON-NLS-1$
 				try {
-					final File file = new File("data/manar.ok");
+					final File file = new File(Messages.getString("Madness.44")); //$NON-NLS-1$
 					if (!file.exists()) {
 						final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
-						bufferedwriter.write(new StringBuilder().append("").append((int) (Math.random() * 1000.0))
-								.append("").toString());
+						bufferedwriter.write(new StringBuilder().append(Messages.getString("Madness.45")).append((int) (Math.random() * 1000.0)) //$NON-NLS-1$
+								.append(Messages.getString("Madness.46")).toString()); //$NON-NLS-1$
 						bufferedwriter.newLine();
 						bufferedwriter.close();
 					}
@@ -448,12 +448,12 @@ public class Madness extends Panel {
 				}
 			} else {
 				final File file = new File(
-						new StringBuilder().append("").append(fpath).append("data/models.zip").toString());
+						new StringBuilder().append(Messages.getString("Madness.47")).append(fpath).append(Messages.getString("Madness.48")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 				if (!file.exists())
-					fpath = "";
+					fpath = Messages.getString("Madness.49"); //$NON-NLS-1$
 			}
 		frame.setIconImage(Toolkit.getDefaultToolkit()
-				.createImage(new StringBuilder().append("").append(fpath).append("data/icon.png").toString()));
+				.createImage(new StringBuilder().append(Messages.getString("Madness.50")).append(fpath).append(Messages.getString("Madness.51")).toString())); //$NON-NLS-1$ //$NON-NLS-2$
 		applet = new GameSparker();
 		frame.addWindowListener(new WindowAdapter() {
 			@Override
@@ -461,7 +461,7 @@ public class Madness extends Panel {
 				exitsequance();
 			}
 		});
-		frame.add("Center", applet);
+		frame.add(Messages.getString("Madness.52"), applet); //$NON-NLS-1$
 		frame.setVisible(true);
 		frame.setMinimumSize(new Dimension(930, 586));
 		frame.setSize(930, 586);
@@ -487,8 +487,8 @@ public class Madness extends Panel {
 			}
 		else
 			try {
-				Runtime.getRuntime().exec(new StringBuilder().append("").append(urlopen()).append(" ").append(string)
-						.append("").toString());
+				Runtime.getRuntime().exec(new StringBuilder().append(Messages.getString("Madness.53")).append(urlopen()).append(Messages.getString("Madness.54")).append(string) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(Messages.getString("Madness.55")).toString()); //$NON-NLS-1$
 			} catch (final Exception exception) {
 				/* empty */
 			}
@@ -545,19 +545,19 @@ public class Madness extends Panel {
 			/* empty */
 		}
 		sm = new StageMaker();
-		frame.add("Center", sm);
+		frame.add(Messages.getString("Madness.56"), sm); //$NON-NLS-1$
 		frame.setVisible(true);
 		sm.init();
 		sm.start();
 	}
 
 	public static String urlopen() {
-		String string = "explorer";
-		final String string_27_ = System.getProperty("os.name").toLowerCase();
-		if (string_27_.indexOf("linux") != -1 || string_27_.indexOf("unix") != -1 || string_27_.equals("aix"))
-			string = "xdg-open";
-		if (string_27_.indexOf("mac") != -1)
-			string = "open";
+		String string = Messages.getString("Madness.57"); //$NON-NLS-1$
+		final String string_27_ = System.getProperty(Messages.getString("Madness.58")).toLowerCase(); //$NON-NLS-1$
+		if (string_27_.indexOf(Messages.getString("Madness.59")) != -1 || string_27_.indexOf(Messages.getString("Madness.60")) != -1 || string_27_.equals(Messages.getString("Madness.61"))) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			string = Messages.getString("Madness.62"); //$NON-NLS-1$
+		if (string_27_.indexOf(Messages.getString("Madness.63")) != -1) //$NON-NLS-1$
+			string = Messages.getString("Madness.64"); //$NON-NLS-1$
 		return string;
 	}
 

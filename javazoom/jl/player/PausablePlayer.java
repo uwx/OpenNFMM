@@ -130,7 +130,7 @@ public class PausablePlayer {
 	// demo how to use
 	public static void test(final String[] argv) {
 		try {
-			final FileInputStream input = new FileInputStream("myfile.mp3");
+			final FileInputStream input = new FileInputStream(Messages.getString("PausablePlayer.0")); //$NON-NLS-1$
 			final PausablePlayer player = new PausablePlayer(input);
 
 			// start playing

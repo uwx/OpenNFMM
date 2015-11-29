@@ -15,7 +15,7 @@ public class Smenu {
 	boolean dis = false;
 	Color fcol = new Color(0, 0, 0);
 	boolean flksel = false;
-	Font font = new Font("Arial", 1, 13);
+	Font font = new Font(Messages.getString("Smenu.0"), 1, 13); //$NON-NLS-1$
 	FontMetrics ftm;
 	int h = 0;
 	int[] iroom;
@@ -60,7 +60,7 @@ public class Smenu {
 			}
 			if (i != string.length()) {
 				string = string.substring(0, i - 3);
-				string = new StringBuilder().append(string).append("...").toString();
+				string = new StringBuilder().append(string).append(Messages.getString("Smenu.1")).toString(); //$NON-NLS-1$
 			}
 		}
 		sopts[no] = string;
@@ -190,16 +190,16 @@ public class Smenu {
 										ftm.getHeight() + 2);
 								graphics2d.setColor(bcol);
 								if (bool_8_) {
-									if (!rooms || !opts[i_15_].equals("full")) {
+									if (!rooms || !opts[i_15_].equals(Messages.getString("Smenu.2"))) { //$NON-NLS-1$
 										sel = i_15_;
 										if (rooms && i_15_ != 0)
-											sopts[i_15_] = " ";
+											sopts[i_15_] = Messages.getString("Smenu.3"); //$NON-NLS-1$
 									} else
 										kmoused = 20;
 									open = false;
 								}
 							}
-							if (rooms && sopts[i_15_].indexOf("10 / 10") != -1)
+							if (rooms && sopts[i_15_].indexOf(Messages.getString("Smenu.4")) != -1) //$NON-NLS-1$
 								graphics2d.setColor(new Color(255, 0, 0));
 							graphics2d.drawString(sopts[i_15_], x + 4, y + 38 + scro + i_15_ * (ftm.getHeight() + 2));
 						}
@@ -370,7 +370,7 @@ public class Smenu {
 	}
 
 	public String getItem(final int i) {
-		String string = "";
+		String string = Messages.getString("Smenu.5"); //$NON-NLS-1$
 		if (i >= 0 && i < no)
 			string = opts[i];
 		return string;

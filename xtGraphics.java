@@ -41,9 +41,9 @@ public class xtGraphics extends Panel implements Runnable {
 	 */
 	static final int nCars = 16;
 	int acexp = 0;
-	String[][] adj = { { "Cool", "Alright", "Nice" }, { "Wicked", "Amazing", "Super" },
-			{ "Awesome", "Ripping", "Radical" }, { "What the...?", "You're a super star!!!!", "Who are you again...?" },
-			{ "surf style", "off the lip", "bounce back" } };
+	String[][] adj = { { Messages.getString("xtGraphics.0"), Messages.getString("xtGraphics.1"), Messages.getString("xtGraphics.2") }, { Messages.getString("xtGraphics.3"), Messages.getString("xtGraphics.4"), Messages.getString("xtGraphics.5") }, //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$
+			{ Messages.getString("xtGraphics.6"), Messages.getString("xtGraphics.7"), Messages.getString("xtGraphics.8") }, { Messages.getString("xtGraphics.9"), Messages.getString("xtGraphics.10"), Messages.getString("xtGraphics.11") }, //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$
+			{ Messages.getString("xtGraphics.12"), Messages.getString("xtGraphics.13"), Messages.getString("xtGraphics.14") } }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 	boolean aflk = false;
 	soundClip[] air = new soundClip[6];
 	boolean aird = false;
@@ -55,13 +55,13 @@ public class xtGraphics extends Panel implements Runnable {
 	float[] arnp = { 0.5F, 0.0F, 0.0F, 1.0F, 0.5F, 0.0F };
 	boolean arrace = false;
 	Image arrows;
-	String asay = "";
+	String asay = Messages.getString("xtGraphics.15"); //$NON-NLS-1$
 	Image asd;
 	Image asu;
 	int auscnt = 45;
 	boolean autolog = false;
 	Image[] back = new Image[2];
-	String backlog = "";
+	String backlog = Messages.getString("xtGraphics.16"); //$NON-NLS-1$
 	boolean badmac = false;
 	int basefase = 0;
 	Image[] bc = new Image[2];
@@ -105,13 +105,13 @@ public class xtGraphics extends Panel implements Runnable {
 	Image chil;
 	Chronometer chrono;
 	boolean chronostart;
-	String clan = "";
+	String clan = Messages.getString("xtGraphics.17"); //$NON-NLS-1$
 	boolean clanchat = false;
 	int clangame = 0;
-	String clankey = "";
+	String clankey = Messages.getString("xtGraphics.18"); //$NON-NLS-1$
 	int clear = 0;
 	Image cmc;
-	String[][] cnames = { { "", "", "", "", "", "", "Game Chat  " }, { "", "", "", "", "", "", "Your Clan's Chat  " } };
+	String[][] cnames = { { Messages.getString("xtGraphics.19"), Messages.getString("xtGraphics.20"), Messages.getString("xtGraphics.21"), Messages.getString("xtGraphics.22"), Messages.getString("xtGraphics.23"), Messages.getString("xtGraphics.24"), Messages.getString("xtGraphics.25") }, { Messages.getString("xtGraphics.26"), Messages.getString("xtGraphics.27"), Messages.getString("xtGraphics.28"), Messages.getString("xtGraphics.29"), Messages.getString("xtGraphics.30"), Messages.getString("xtGraphics.31"), Messages.getString("xtGraphics.32") } }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$ //$NON-NLS-10$ //$NON-NLS-11$ //$NON-NLS-12$ //$NON-NLS-13$ //$NON-NLS-14$
 	Image cnmc;
 	int cntan = 0;
 	int[] cntchatp = { 0, 0 };
@@ -147,7 +147,7 @@ public class xtGraphics extends Panel implements Runnable {
 	Image exit;
 	Image exitgame;
 	int exitm = 0;
-	String[] exlm = { "!", "!!", "!!!" };
+	String[] exlm = { Messages.getString("xtGraphics.33"), Messages.getString("xtGraphics.34"), Messages.getString("xtGraphics.35") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 	int fase = 111;
 	int fastestlap = 0;
 	soundClip firewasted;
@@ -168,7 +168,7 @@ public class xtGraphics extends Panel implements Runnable {
 	int forstart = 0;
 	FontMetrics ftm;
 	Image gac;
-	String gaclan = "";
+	String gaclan = Messages.getString("xtGraphics.36"); //$NON-NLS-1$
 	Image gamefinished;
 	Image gameh;
 	Image gameov;
@@ -209,14 +209,14 @@ public class xtGraphics extends Panel implements Runnable {
 	int lcarx = 0;
 	int lcary = 0;
 	int lcarz = 0;
-	String[] lcmsg = { "", "" };
+	String[] lcmsg = { Messages.getString("xtGraphics.37"), Messages.getString("xtGraphics.38") }; //$NON-NLS-1$ //$NON-NLS-2$
 	int lcn = 0;
 	int lfrom = 0;
 	int lmode = 0;
 	Image loadbar;
 	boolean loadedt = false;
 	Image loadingmusic;
-	String localserver = "";
+	String localserver = Messages.getString("xtGraphics.39"); //$NON-NLS-1$
 	int lockcnt = 0;
 	boolean logged = false;
 	Image login;
@@ -224,7 +224,7 @@ public class xtGraphics extends Panel implements Runnable {
 	Image logomadbg;
 	Image logomadnes;
 	Image logout;
-	String loop = "";
+	String loop = Messages.getString("xtGraphics.40"); //$NON-NLS-1$
 	int looped = 1;
 	soundClip[] lowcrash = new soundClip[3];
 	int lsc = -1;
@@ -257,8 +257,8 @@ public class xtGraphics extends Panel implements Runnable {
 	Image nfmcoms;
 	int nfmtab = 0;
 	int nfreeplays = 0;
-	String nickey = "";
-	String nickname = "";
+	String nickey = Messages.getString("xtGraphics.41"); //$NON-NLS-1$
+	String nickname = Messages.getString("xtGraphics.42"); //$NON-NLS-1$
 	boolean noclass = false;
 	boolean nofull = false;
 	int nplayers = 7;
@@ -305,7 +305,7 @@ public class xtGraphics extends Panel implements Runnable {
 	Image oyouwon;
 	Image paused;
 	int pback = 0;
-	String[] pclan = { "", "", "", "", "", "", "", "" };
+	String[] pclan = { Messages.getString("xtGraphics.43"), Messages.getString("xtGraphics.44"), Messages.getString("xtGraphics.45"), Messages.getString("xtGraphics.46"), Messages.getString("xtGraphics.47"), Messages.getString("xtGraphics.48"), Messages.getString("xtGraphics.49"), Messages.getString("xtGraphics.50") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
 	int pcontin = 0;
 	boolean[] pengs = new boolean[5];
 	int[] pgady = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -318,7 +318,7 @@ public class xtGraphics extends Panel implements Runnable {
 	Image players;
 	int playingame = -1;
 	Image pln;
-	String[] plnames = { "", "", "", "", "", "", "", "" };
+	String[] plnames = { Messages.getString("xtGraphics.51"), Messages.getString("xtGraphics.52"), Messages.getString("xtGraphics.53"), Messages.getString("xtGraphics.54"), Messages.getString("xtGraphics.55"), Messages.getString("xtGraphics.56"), Messages.getString("xtGraphics.57"), Messages.getString("xtGraphics.58") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
 	Image pls;
 	Image plus;
 	int pnext = 0;
@@ -347,7 +347,7 @@ public class xtGraphics extends Panel implements Runnable {
 	Thread runner;
 	int runtyp = 0;
 	Image sarrow;
-	String say = "";
+	String say = Messages.getString("xtGraphics.59"); //$NON-NLS-1$
 	int[] sc = { 0, 0, 0, 0, 0, 0, 0, 0 };
 	int scm = 0;
 	soundClip[] scrape = new soundClip[4];
@@ -355,9 +355,9 @@ public class xtGraphics extends Panel implements Runnable {
 	Image select;
 	Image selectcar;
 	int sendstat = 0;
-	String[][] sentn = { { "", "", "", "", "", "", "" }, { "", "", "", "", "", "", "" } };
-	String server = "multiplayer.needformadness.com";
-	String servername = "Madness";
+	String[][] sentn = { { Messages.getString("xtGraphics.60"), Messages.getString("xtGraphics.61"), Messages.getString("xtGraphics.62"), Messages.getString("xtGraphics.63"), Messages.getString("xtGraphics.64"), Messages.getString("xtGraphics.65"), Messages.getString("xtGraphics.66") }, { Messages.getString("xtGraphics.67"), Messages.getString("xtGraphics.68"), Messages.getString("xtGraphics.69"), Messages.getString("xtGraphics.70"), Messages.getString("xtGraphics.71"), Messages.getString("xtGraphics.72"), Messages.getString("xtGraphics.73") } }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$ //$NON-NLS-10$ //$NON-NLS-11$ //$NON-NLS-12$ //$NON-NLS-13$ //$NON-NLS-14$
+	String server = Messages.getString("xtGraphics.74"); //$NON-NLS-1$
+	String servername = Messages.getString("xtGraphics.75"); //$NON-NLS-1$
 	int servport = 7071;
 	boolean shaded = false;
 	float shload = 0.0F;
@@ -372,7 +372,7 @@ public class xtGraphics extends Panel implements Runnable {
 	Socket socket;
 	Image space;
 	Image sped;
-	String spin = "";
+	String spin = Messages.getString("xtGraphics.76"); //$NON-NLS-1$
 	Image[] star = new Image[3];
 	int starcnt = 0;
 	Image statb;
@@ -422,19 +422,19 @@ public class xtGraphics extends Panel implements Runnable {
 		cd = cardefine;
 		app = gamesparker;
 		rd = graphics2d;
-		hello = getImage("data/hello.gif");
-		sign = getImage("data/sign.gif");
-		loadbar = getImage("data/loadbar.gif");
+		hello = getImage(Messages.getString("xtGraphics.77")); //$NON-NLS-1$
+		sign = getImage(Messages.getString("xtGraphics.78")); //$NON-NLS-1$
+		loadbar = getImage(Messages.getString("xtGraphics.79")); //$NON-NLS-1$
 		for (int i = 0; i < 5; i++)
 			pengs[i] = false;
 		nofull = false;
 		final SecurityManager securitymanager = System.getSecurityManager();
 		if (securitymanager != null)
 			try {
-				securitymanager.checkConnect("needformadness.com", -1);
+				securitymanager.checkConnect(Messages.getString("xtGraphics.80"), -1); //$NON-NLS-1$
 			} catch (final Exception exception) {
-				final String string = new StringBuilder().append("").append(exception).toString();
-				if (string.indexOf("access denied") != -1)
+				final String string = new StringBuilder().append(Messages.getString("xtGraphics.81")).append(exception).toString(); //$NON-NLS-1$
+				if (string.indexOf(Messages.getString("xtGraphics.82")) != -1) //$NON-NLS-1$
 					nofull = true;
 			}
 		badmac = false;
@@ -496,17 +496,17 @@ public class xtGraphics extends Panel implements Runnable {
 			i_224_ = (int) (90 + i_230_ + Math.atan((double) (checkpoints.opz[i_226_] - checkpoints.opz[im])
 					/ (double) (checkpoints.opx[i_226_] - checkpoints.opx[im])) / 0.017453292519943295);
 			if (multion == 0) {
-				drawcs(13, "[                                ]", 76, 67, 240, 0);
+				drawcs(13, Messages.getString("xtGraphics.83"), 76, 67, 240, 0); //$NON-NLS-1$
 				drawcs(13, cd.names[sc[i_226_]], 0, 0, 0, 0);
 			} else {
-				rd.setFont(new Font("Arial", 1, 12));
+				rd.setFont(new Font(Messages.getString("xtGraphics.84"), 1, 12)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
-				drawcs(17, "[                                ]", 76, 67, 240, 0);
+				drawcs(17, Messages.getString("xtGraphics.85"), 76, 67, 240, 0); //$NON-NLS-1$
 				drawcs(12, plnames[i_226_], 0, 0, 0, 0);
-				rd.setFont(new Font("Arial", 0, 10));
+				rd.setFont(new Font(Messages.getString("xtGraphics.86"), 0, 10)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
 				drawcs(24, cd.names[sc[i_226_]], 0, 0, 0, 0);
-				rd.setFont(new Font("Arial", 1, 11));
+				rd.setFont(new Font(Messages.getString("xtGraphics.87"), 1, 11)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
 			}
 		}
@@ -701,20 +701,20 @@ public class xtGraphics extends Panel implements Runnable {
 		trackbg(false);
 		rd.drawImage(br, 65, 25, null);
 		rd.drawImage(select, 338, 35, null);
-		rd.setFont(new Font("Arial", 1, 13));
+		rd.setFont(new Font(Messages.getString("xtGraphics.88"), 1, 13)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
-		drawcs(130, new StringBuilder().append("This stage will be unlocked when stage ").append(unlocked)
-				.append(" is complete!").toString(), 177, 177, 177, 3);
+		drawcs(130, new StringBuilder().append(Messages.getString("xtGraphics.89")).append(unlocked) //$NON-NLS-1$
+				.append(Messages.getString("xtGraphics.90")).toString(), 177, 177, 177, 3); //$NON-NLS-1$
 		for (int i = 0; i < 9; i++)
 			rd.drawImage(pgate, 277 + i * 30, 215, null);
-		rd.setFont(new Font("Arial", 1, 12));
+		rd.setFont(new Font(Messages.getString("xtGraphics.91"), 1, 12)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
 		if (aflk) {
-			drawcs(185, new StringBuilder().append("[ Stage ").append(unlocked + 1).append(" Locked ]")
+			drawcs(185, new StringBuilder().append(Messages.getString("xtGraphics.92")).append(unlocked + 1).append(Messages.getString("xtGraphics.93")) //$NON-NLS-1$ //$NON-NLS-2$
 					.toString(), 255, 128, 0, 3);
 			aflk = false;
 		} else {
-			drawcs(185, new StringBuilder().append("[ Stage ").append(unlocked + 1).append(" Locked ]")
+			drawcs(185, new StringBuilder().append(Messages.getString("xtGraphics.94")).append(unlocked + 1).append(Messages.getString("xtGraphics.95")) //$NON-NLS-1$ //$NON-NLS-2$
 					.toString(), 255, 0, 0, 3);
 			aflk = true;
 		}
@@ -733,7 +733,7 @@ public class xtGraphics extends Panel implements Runnable {
 		rd.fillRoundRect(200, 73, 400, 23, 7, 20);
 		rd.setColor(new Color(0, 89, 223));
 		rd.drawRoundRect(200, 73, 400, 23, 7, 20);
-		drawcs(89, "Sorry not enough replay data to play available, please try again later.", 255, 255, 255, 1);
+		drawcs(89, Messages.getString("xtGraphics.96"), 255, 255, 255, 1); //$NON-NLS-1$
 	}
 
 	public void carsbginflex() {
@@ -890,7 +890,7 @@ public class xtGraphics extends Panel implements Runnable {
 		int i_113_ = 0;
 		boolean bool_114_ = false;
 		if (flipo == 0) {
-			rd.setFont(new Font("Arial", 1, 13));
+			rd.setFont(new Font(Messages.getString("xtGraphics.97"), 1, 13)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
 			int i_115_ = 0;
 			if (flatrstart < 6)
@@ -911,9 +911,9 @@ public class xtGraphics extends Panel implements Runnable {
 					}
 				} else {
 					app.mcars.show = false;
-					String string = "";
+					String string = Messages.getString("xtGraphics.98"); //$NON-NLS-1$
 					if (cfase == 11)
-						string = new StringBuilder().append("N#").append(sc[0] - 35).append("  ").toString();
+						string = new StringBuilder().append(Messages.getString("xtGraphics.99")).append(sc[0] - 35).append(Messages.getString("xtGraphics.100")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 					if (aflk) {
 						drawcs(95 + i_115_, new StringBuilder().append(string).append(cd.names[sc[0]]).toString(), 240,
 								240, 240, 3);
@@ -988,9 +988,9 @@ public class xtGraphics extends Panel implements Runnable {
 				if (gatey != 0)
 					gatey -= 100;
 				if (flatrstart == 6) {
-					drawcs(355, "[ Car Locked ]", 210, 210, 210, 3);
-					drawcs(375, new StringBuilder().append("This car unlocks when stage ").append(i_113_)
-							.append(" is completed...").toString(), 255, 96, 0, 3);
+					drawcs(355, Messages.getString("xtGraphics.101"), 210, 210, 210, 3); //$NON-NLS-1$
+					drawcs(375, new StringBuilder().append(Messages.getString("xtGraphics.102")).append(i_113_) //$NON-NLS-1$
+							.append(Messages.getString("xtGraphics.103")).toString(), 255, 96, 0, 3); //$NON-NLS-1$
 				}
 			} else {
 				if (flatrstart == 6) {
@@ -1650,20 +1650,20 @@ public class xtGraphics extends Panel implements Runnable {
 						if (drawcarb(true, null, "   OK   ", 371, 275, i, i_104_, bool))
 							cfase = 2;
 					}*/
-					rd.setFont(new Font("Arial", 1, 11));
+					rd.setFont(new Font(Messages.getString("xtGraphics.104"), 1, 11)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
 					rd.setColor(new Color(181, 120, 40));
-					rd.drawString("Top Speed:", 98, 343);
+					rd.drawString(Messages.getString("xtGraphics.105"), 98, 343); //$NON-NLS-1$
 					rd.drawImage(statb, 162, 337, null);
-					rd.drawString("Acceleration:", 88, 358);
+					rd.drawString(Messages.getString("xtGraphics.106"), 88, 358); //$NON-NLS-1$
 					rd.drawImage(statb, 162, 352, null);
-					rd.drawString("Handling:", 110, 373);
+					rd.drawString(Messages.getString("xtGraphics.107"), 110, 373); //$NON-NLS-1$
 					rd.drawImage(statb, 162, 367, null);
-					rd.drawString("Stunts:", 495, 343);
+					rd.drawString(Messages.getString("xtGraphics.108"), 495, 343); //$NON-NLS-1$
 					rd.drawImage(statb, 536, 337, null);
-					rd.drawString("Strength:", 483, 358);
+					rd.drawString(Messages.getString("xtGraphics.109"), 483, 358); //$NON-NLS-1$
 					rd.drawImage(statb, 536, 352, null);
-					rd.drawString("Endurance:", 473, 373);
+					rd.drawString(Messages.getString("xtGraphics.110"), 473, 373); //$NON-NLS-1$
 					rd.drawImage(statb, 536, 367, null);
 					rd.setColor(new Color(0, 0, 0));
 					float f = (cd.swits[sc[0]][2] - 220) / 90.0F;
@@ -1694,17 +1694,17 @@ public class xtGraphics extends Panel implements Runnable {
 					rd.drawImage(statbo, 536, 352, null);
 					rd.drawImage(statbo, 536, 367, null);
 					if (multion != 0 || testdrive == 1 || testdrive == 2) {
-						rd.setFont(new Font("Arial", 1, 13));
+						rd.setFont(new Font(Messages.getString("xtGraphics.111"), 1, 13)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
-						String string = "Class C";
+						String string = Messages.getString("xtGraphics.112"); //$NON-NLS-1$
 						if (cd.cclass[sc[0]] == 1)
-							string = "Class B & C";
+							string = Messages.getString("xtGraphics.113"); //$NON-NLS-1$
 						if (cd.cclass[sc[0]] == 2)
-							string = "Class B";
+							string = Messages.getString("xtGraphics.114"); //$NON-NLS-1$
 						if (cd.cclass[sc[0]] == 3)
-							string = "Class A & B";
+							string = Messages.getString("xtGraphics.115"); //$NON-NLS-1$
 						if (cd.cclass[sc[0]] == 4)
-							string = "Class A";
+							string = Messages.getString("xtGraphics.116"); //$NON-NLS-1$
 						if (kbload < 7) {
 							rd.setColor(new Color(0, 0, 0));
 							kbload++;
@@ -1714,21 +1714,21 @@ public class xtGraphics extends Panel implements Runnable {
 						}
 						if (cfase != 10 || cd.action != 0 && cd.action < 14)
 							rd.drawString(string, 549 - ftm.stringWidth(string) / 2, 95);
-						rd.setFont(new Font("Arial", 1, 12));
+						rd.setFont(new Font(Messages.getString("xtGraphics.117"), 1, 12)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
 						rd.setColor(new Color(0, 0, 0));
-						rd.drawString("1st Color", 100, 55);
-						rd.drawString("2nd Color", 649, 55);
-						rd.setFont(new Font("Arial", 1, 10));
+						rd.drawString(Messages.getString("xtGraphics.118"), 100, 55); //$NON-NLS-1$
+						rd.drawString(Messages.getString("xtGraphics.119"), 649, 55); //$NON-NLS-1$
+						rd.setFont(new Font(Messages.getString("xtGraphics.120"), 1, 10)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
-						rd.drawString("Hue  | ", 97, 70);
+						rd.drawString(Messages.getString("xtGraphics.121"), 97, 70); //$NON-NLS-1$
 						rd.drawImage(brt, 137, 63, null);
-						rd.drawString("Hue  | ", 647, 70);
+						rd.drawString(Messages.getString("xtGraphics.122"), 647, 70); //$NON-NLS-1$
 						rd.drawImage(brt, 687, 63, null);
-						rd.drawString("Intensity", 121, 219);
-						rd.drawString("Intensity", 671, 219);
-						rd.drawString("Reset", 110, 257);
-						rd.drawString("Reset", 660, 257);
+						rd.drawString(Messages.getString("xtGraphics.123"), 121, 219); //$NON-NLS-1$
+						rd.drawString(Messages.getString("xtGraphics.124"), 671, 219); //$NON-NLS-1$
+						rd.drawString(Messages.getString("xtGraphics.125"), 110, 257); //$NON-NLS-1$
+						rd.drawString(Messages.getString("xtGraphics.126"), 660, 257); //$NON-NLS-1$
 						for (int i_128_ = 0; i_128_ < 161; i_128_++) {
 							rd.setColor(Color.getHSBColor((float) (i_128_ * 0.00625), 1.0F, 1.0F));
 							rd.drawLine(102, 75 + i_128_, 110, 75 + i_128_);
@@ -2008,16 +2008,16 @@ public class xtGraphics extends Panel implements Runnable {
 			}
 			if (cfase == 5 && cd.action == 0 && control.enter) {
 				tcnt = 0;
-				if (!app.tnick.getText().equals("") && !app.tpass.getText().equals("")) {
+				if (!app.tnick.getText().equals(Messages.getString("xtGraphics.127")) && !app.tpass.getText().equals(Messages.getString("xtGraphics.128"))) { //$NON-NLS-1$ //$NON-NLS-2$
 					app.tnick.setVisible(false);
 					app.tpass.setVisible(false);
 					app.requestFocus();
 					cd.action = 1;
 					cd.sparkactionloader();
 				} else {
-					if (app.tpass.getText().equals(""))
+					if (app.tpass.getText().equals(Messages.getString("xtGraphics.129"))) //$NON-NLS-1$
 						cd.reco = -4;
-					if (app.tnick.getText().equals(""))
+					if (app.tnick.getText().equals(Messages.getString("xtGraphics.130"))) //$NON-NLS-1$
 						cd.reco = -3;
 				}
 				control.enter = false;
@@ -2054,20 +2054,20 @@ public class xtGraphics extends Panel implements Runnable {
 		rd.setColor(new Color(128, 167, 255));
 		rd.drawRoundRect(250, 340, 300, 80, 30, 70);
 		if (aflk) {
-			drawcs(380, "Click here to Start", 0, 0, 0, 3);
+			drawcs(380, Messages.getString("xtGraphics.131"), 0, 0, 0, 3); //$NON-NLS-1$
 			aflk = false;
 		} else {
-			drawcs(380, "Click here to Start", 0, 67, 200, 3);
+			drawcs(380, Messages.getString("xtGraphics.132"), 0, 67, 200, 3); //$NON-NLS-1$
 			aflk = true;
 		}
 	}
 
 	public boolean clink(final String string, final int i, final int i_134_, final boolean bool) {
 		boolean bool_135_ = false;
-		rd.drawString(new StringBuilder().append("Created by :  ").append(string).append("").toString(), 241, 160);
+		rd.drawString(new StringBuilder().append(Messages.getString("xtGraphics.133")).append(string).append(Messages.getString("xtGraphics.134")).toString(), 241, 160); //$NON-NLS-1$ //$NON-NLS-2$
 		final int i_136_ = ftm.stringWidth(string);
 		final int i_137_ = 241
-				+ ftm.stringWidth(new StringBuilder().append("Created by :  ").append(string).append("").toString())
+				+ ftm.stringWidth(new StringBuilder().append(Messages.getString("xtGraphics.135")).append(string).append(Messages.getString("xtGraphics.136")).toString()) //$NON-NLS-1$ //$NON-NLS-2$
 				- i_136_;
 		rd.drawLine(i_137_, 162, i_137_ + i_136_ - 2, 162);
 		if (i > i_137_ - 2 && i < i_137_ + i_136_ && i_134_ > 147 && i_134_ < 164) {
@@ -2110,7 +2110,7 @@ public class xtGraphics extends Panel implements Runnable {
 	}
 
 	public void colorCar(final ContO conto, final int i) {
-		if (plnames[i].indexOf("MadBot") == -1)
+		if (plnames[i].indexOf(Messages.getString("xtGraphics.137")) == -1) //$NON-NLS-1$
 			for (int i_132_ = 0; i_132_ < conto.npl; i_132_++) {
 				if (conto.p[i_132_].colnum == 1) {
 					final Color color = Color.getHSBColor(allrnp[i][0], allrnp[i][1], 1.0F - allrnp[i][2]);
@@ -2230,40 +2230,40 @@ public class xtGraphics extends Panel implements Runnable {
 		if (flipo == 101) {
 			mainbg(-1);
 			rd.drawImage(mdness, 283, 32, null);
-			rd.setFont(new Font("Arial", 1, 13));
+			rd.setFont(new Font(Messages.getString("xtGraphics.138"), 1, 13)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
-			drawcs(90, "At Radicalplay.com", 0, 0, 0, 3);
-			drawcs(165, "Cartoon 3D Engine, Game Programming, 3D Models, Graphics and Sound Effects", 0, 0, 0, 3);
-			drawcs(185, "By Omar Waly", 40, 60, 0, 3);
-			rd.setFont(new Font("Arial", 1, 13));
+			drawcs(90, Messages.getString("xtGraphics.139"), 0, 0, 0, 3); //$NON-NLS-1$
+			drawcs(165, Messages.getString("xtGraphics.140"), 0, 0, 0, 3); //$NON-NLS-1$
+			drawcs(185, Messages.getString("xtGraphics.141"), 40, 60, 0, 3); //$NON-NLS-1$
+			rd.setFont(new Font(Messages.getString("xtGraphics.142"), 1, 13)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
-			drawcs(225, "Special Thanks!", 0, 0, 0, 3);
-			rd.setFont(new Font("Arial", 1, 11));
+			drawcs(225, Messages.getString("xtGraphics.143"), 0, 0, 0, 3); //$NON-NLS-1$
+			rd.setFont(new Font(Messages.getString("xtGraphics.144"), 1, 11)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
 			drawcs(245,
-					"Thanks to Dany Fernandez Diaz (DragShot) for imporving the game\u2019s music player to play more mod formats & effects!",
+					Messages.getString("xtGraphics.145"), //$NON-NLS-1$
 					66, 98, 0, 3);
-			drawcs(260, "Thanks to Badie El Zaman (Kingofspeed) for helping make the trees & cactus 3D models.", 66, 98,
+			drawcs(260, Messages.getString("xtGraphics.146"), 66, 98, //$NON-NLS-1$
 					0, 3);
 			drawcs(275,
-					"Thanks to Timothy Audrain Hardin (Legnak) for making hazard designs on stage parts & the new fence 3D model.",
+					Messages.getString("xtGraphics.147"), //$NON-NLS-1$
 					66, 98, 0, 3);
 			drawcs(290,
-					"Thanks to Alex Miles (A-Mile) & Jaroslav Beleren (Phyrexian) for making trailer videos for the game.",
+					Messages.getString("xtGraphics.148"), //$NON-NLS-1$
 					66, 98, 0, 3);
 			drawcs(305,
-					"A big thank you to everyone playing the game for sending their feedback, supporting the game and helping it improve!",
+					Messages.getString("xtGraphics.149"), //$NON-NLS-1$
 					66, 98, 0, 3);
-			rd.setFont(new Font("Arial", 1, 13));
+			rd.setFont(new Font(Messages.getString("xtGraphics.150"), 1, 13)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
-			drawcs(345, "Music from ModArchive.org", 0, 0, 0, 3);
-			rd.setFont(new Font("Arial", 1, 11));
+			drawcs(345, Messages.getString("xtGraphics.151"), 0, 0, 0, 3); //$NON-NLS-1$
+			rd.setFont(new Font(Messages.getString("xtGraphics.152"), 1, 11)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
-			drawcs(365, "Most of the tracks where remixed by Omar Waly to match the game.", 66, 98, 0, 3);
-			drawcs(380, "More details about the tracks and their original composers at:", 66, 98, 0, 3);
-			drawcs(395, "http://multiplayer.needformadness.com/music.html", 33, 49, 0, 3);
-			rd.drawLine(400 - ftm.stringWidth("http://multiplayer.needformadness.com/music.html") / 2, 396,
-					ftm.stringWidth("http://multiplayer.needformadness.com/music.html") / 2 + 400, 396);
+			drawcs(365, Messages.getString("xtGraphics.153"), 66, 98, 0, 3); //$NON-NLS-1$
+			drawcs(380, Messages.getString("xtGraphics.154"), 66, 98, 0, 3); //$NON-NLS-1$
+			drawcs(395, Messages.getString("xtGraphics.155"), 33, 49, 0, 3); //$NON-NLS-1$
+			rd.drawLine(400 - ftm.stringWidth(Messages.getString("xtGraphics.156")) / 2, 396, //$NON-NLS-1$
+					ftm.stringWidth(Messages.getString("xtGraphics.157")) / 2 + 400, 396); //$NON-NLS-1$
 			if (i > 258 && i < 542 && i_23_ > 385 && i_23_ < 399) {
 				app.setCursor(new Cursor(12));
 				if (i_24_ == 2)
@@ -2274,34 +2274,34 @@ public class xtGraphics extends Panel implements Runnable {
 		if (flipo == 102) {
 			mainbg(-1);
 			rd.drawImage(onfmm, 283, 32, null);
-			rd.setFont(new Font("Arial", 1, 13));
+			rd.setFont(new Font(Messages.getString("xtGraphics.158"), 1, 13)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
-			drawcs(165, "Decompiled and fixed by", 0, 0, 0, 3);
-			drawcs(185, "rafa1231518 aka chrishansen69", 40, 60, 0, 3);
-			rd.setFont(new Font("Arial", 1, 13));
+			drawcs(165, Messages.getString("xtGraphics.159"), 0, 0, 0, 3); //$NON-NLS-1$
+			drawcs(185, Messages.getString("xtGraphics.160"), 40, 60, 0, 3); //$NON-NLS-1$
+			rd.setFont(new Font(Messages.getString("xtGraphics.161"), 1, 13)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
-			drawcs(225, "~~~~~~ Special Thanks ~~~~~~", 0, 0, 0, 3);
-			rd.setFont(new Font("Arial", 1, 11));
+			drawcs(225, Messages.getString("xtGraphics.162"), 0, 0, 0, 3); //$NON-NLS-1$
+			rd.setFont(new Font(Messages.getString("xtGraphics.163"), 1, 11)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
-			drawcs(245, "Dany Fernandez Diaz (DragShot) for some code I stole-uh, I mean borrowed!", 66, 98, 0, 3);
-			drawcs(260, "Thanks to Kaffeinated, Ten Graves & everyone else for their awesome work in NFM2!", 66, 98, 0,
+			drawcs(245, Messages.getString("xtGraphics.164"), 66, 98, 0, 3); //$NON-NLS-1$
+			drawcs(260, Messages.getString("xtGraphics.165"), 66, 98, 0, //$NON-NLS-1$
 					3);
-			drawcs(275, "Thanks to Emmanuel Dupuy for JD-GUI, Pavel Kouznetsov for JAD and Jochen Hoenicke for JODE.",
+			drawcs(275, Messages.getString("xtGraphics.166"), //$NON-NLS-1$
 					66, 98, 0, 3);
-			drawcs(290, "Thanks to Allan for being a glorious bastard and please add credits.", 66, 98, 0, 3);
-			drawcs(305, "Thanks to the Eclipse Foundation for this laggy piece of shit-uh, I mean great IDE!", 66, 98,
+			drawcs(290, Messages.getString("xtGraphics.167"), 66, 98, 0, 3); //$NON-NLS-1$
+			drawcs(305, Messages.getString("xtGraphics.168"), 66, 98, //$NON-NLS-1$
 					0, 3);
-			rd.setFont(new Font("Arial", 1, 13));
+			rd.setFont(new Font(Messages.getString("xtGraphics.169"), 1, 13)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
-			drawcs(345, "~~~~~~ License ~~~~~~", 0, 0, 0, 3);
-			rd.setFont(new Font("Arial", 1, 11));
+			drawcs(345, Messages.getString("xtGraphics.170"), 0, 0, 0, 3); //$NON-NLS-1$
+			rd.setFont(new Font(Messages.getString("xtGraphics.171"), 1, 11)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
-			drawcs(365, "All code is licensed under the BSD license, unless noted otherwise.", 66, 98, 0, 3);
+			drawcs(365, Messages.getString("xtGraphics.172"), 66, 98, 0, 3); //$NON-NLS-1$
 			drawcs(380,
-					"Need for Madness Multiplayer created by Omar Waly, copyright (c) Radical Play 2005-2015. All rights reserved.",
+					Messages.getString("xtGraphics.173"), //$NON-NLS-1$
 					66, 98, 0, 3);
-			drawcs(395, "OpenNFMM copyright (c) C. Hansen 2015. Some rights reserved.", 66, 98, 0, 3);
-			drawcs(410, "Dual Mod Engine copyright (c) Dany Fernandez Diaz (DragShot) 2015. Some rights reserved.", 66,
+			drawcs(395, Messages.getString("xtGraphics.174"), 66, 98, 0, 3); //$NON-NLS-1$
+			drawcs(410, Messages.getString("xtGraphics.175"), 66, //$NON-NLS-1$
 					98, 0, 3);
 
 			if (i_23_ > 354 && i_23_ < 410 && i < 665) {
@@ -2597,12 +2597,12 @@ public class xtGraphics extends Panel implements Runnable {
 	public boolean drawcarb(final boolean bool, final Image image, final String string, final int i, int i_429_,
 			final int i_430_, final int i_431_, final boolean bool_432_) {
 		boolean bool_433_ = false;
-		rd.setFont(new Font("Arial", 1, 13));
+		rd.setFont(new Font(Messages.getString("xtGraphics.176"), 1, 13)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
 		int i_435_;
 		if (bool) {
 			i_435_ = ftm.stringWidth(string);
-			if (string.startsWith("Class"))
+			if (string.startsWith(Messages.getString("xtGraphics.177"))) //$NON-NLS-1$
 				i_435_ = 112;
 		} else
 			i_435_ = image.getWidth(ob);
@@ -2618,11 +2618,11 @@ public class xtGraphics extends Panel implements Runnable {
 		if (!bool && i_435_ == 73)
 			i_429_--;
 		if (bool) {
-			if (string.equals("X") && i_436_ == 1)
+			if (string.equals(Messages.getString("xtGraphics.178")) && i_436_ == 1) //$NON-NLS-1$
 				rd.setColor(new Color(255, 0, 0));
 			else
 				rd.setColor(new Color(0, 0, 0));
-			if (string.startsWith("Class"))
+			if (string.startsWith(Messages.getString("xtGraphics.179"))) //$NON-NLS-1$
 				rd.drawString(string, 400 - ftm.stringWidth(string) / 2, i_429_ + 19);
 			else
 				rd.drawString(string, i + 7, i_429_ + 19);
@@ -2893,18 +2893,18 @@ public class xtGraphics extends Panel implements Runnable {
 	public void drawWarning() {
 		rd.setColor(new Color(0, 0, 0));
 		rd.fillRect(0, 0, 800, 450);
-		rd.setFont(new Font("Arial", 1, 22));
+		rd.setFont(new Font(Messages.getString("xtGraphics.180"), 1, 22)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
-		drawcs(100, "Warning!", 255, 0, 0, 3);
-		rd.setFont(new Font("Arial", 1, 18));
+		drawcs(100, Messages.getString("xtGraphics.181"), 255, 0, 0, 3); //$NON-NLS-1$
+		rd.setFont(new Font(Messages.getString("xtGraphics.182"), 1, 18)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
-		drawcs(150, "Bad language and flooding is strictly prohibited in this game!", 255, 255, 255, 3);
-		rd.setFont(new Font("Arial", 1, 13));
+		drawcs(150, Messages.getString("xtGraphics.183"), 255, 255, 255, 3); //$NON-NLS-1$
+		rd.setFont(new Font(Messages.getString("xtGraphics.184"), 1, 13)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
 		if (warning < 210)
-			drawcs(200, "If you continue typing bad language or flooding your game will shut down.", 200, 200, 200, 3);
+			drawcs(200, Messages.getString("xtGraphics.185"), 200, 200, 200, 3); //$NON-NLS-1$
 		if (warning > 210)
-			drawcs(200, "Sorry. This was your second warring your game has shut down.", 200, 200, 200, 3);
+			drawcs(200, Messages.getString("xtGraphics.186"), 200, 200, 200, 3); //$NON-NLS-1$
 		if (warning > 250) {
 			stopallnow();
 			runtyp = 0;
@@ -2928,48 +2928,48 @@ public class xtGraphics extends Panel implements Runnable {
 			rd.fillRect(0, 0, 800, 450);
 			rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
 		}
-		rd.setFont(new Font("Arial", 1, 11));
+		rd.setFont(new Font(Messages.getString("xtGraphics.187"), 1, 11)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
 		int i_142_ = 0;
-		String string = ":";
+		String string = Messages.getString("xtGraphics.188"); //$NON-NLS-1$
 		if (checkpoints.stage > 0) {
 			int i_143_ = checkpoints.stage;
 			//if (i_143_ > 10)
 			//	i_143_ -= 10;
-			string = new StringBuilder().append(" ").append(i_143_).append("!").toString();
+			string = new StringBuilder().append(Messages.getString("xtGraphics.189")).append(i_143_).append(Messages.getString("xtGraphics.190")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 		if (multion < 3) {
 			if (winner) {
 				rd.drawImage(congrd, 265, 87, null);
-				drawcs(137, new StringBuilder().append("You Won!  At Stage").append(string).append("").toString(), 255,
+				drawcs(137, new StringBuilder().append(Messages.getString("xtGraphics.191")).append(string).append(Messages.getString("xtGraphics.192")).toString(), 255, //$NON-NLS-1$ //$NON-NLS-2$
 						161, 85, 3);
-				drawcs(154, new StringBuilder().append("").append(checkpoints.name).append("").toString(), 255, 115, 0,
+				drawcs(154, new StringBuilder().append(Messages.getString("xtGraphics.193")).append(checkpoints.name).append(Messages.getString("xtGraphics.194")).toString(), 255, 115, 0, //$NON-NLS-1$ //$NON-NLS-2$
 						3);
 				i_142_ = 154;
 			} else {
 				rd.drawImage(gameov, 315, 117, null);
 				if (multion != 0 && (forstart == 700 || discon == 240)) {
-					drawcs(167, "Sorry, You where Disconnected from Game!", 255, 161, 85, 3);
-					drawcs(184, "Please check your connection!", 255, 115, 0, 3);
+					drawcs(167, Messages.getString("xtGraphics.195"), 255, 161, 85, 3); //$NON-NLS-1$
+					drawcs(184, Messages.getString("xtGraphics.196"), 255, 115, 0, 3); //$NON-NLS-1$
 				} else {
-					drawcs(167, new StringBuilder().append("You Lost!  At Stage").append(string).append("").toString(),
+					drawcs(167, new StringBuilder().append(Messages.getString("xtGraphics.197")).append(string).append(Messages.getString("xtGraphics.198")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 							255, 161, 85, 3);
-					drawcs(184, new StringBuilder().append("").append(checkpoints.name).append("").toString(), 255, 115,
+					drawcs(184, new StringBuilder().append(Messages.getString("xtGraphics.199")).append(checkpoints.name).append(Messages.getString("xtGraphics.200")).toString(), 255, 115, //$NON-NLS-1$ //$NON-NLS-2$
 							0, 3);
 					i_142_ = 184;
 				}
 			}
 			rd.setColor(new Color(193, 106, 0));
-			rd.drawString(new StringBuilder().append("Your time: ").append(chrono.getTotalTime()).toString(), 380 - ftm
-					.stringWidth(new StringBuilder().append("Your time: ").append(chrono.getTotalTime()).toString()),
+			rd.drawString(new StringBuilder().append(Messages.getString("xtGraphics.201")).append(chrono.getTotalTime()).toString(), 380 - ftm //$NON-NLS-1$
+					.stringWidth(new StringBuilder().append(Messages.getString("xtGraphics.202")).append(chrono.getTotalTime()).toString()), //$NON-NLS-1$
 					200);
-			rd.drawString(new StringBuilder().append("Best lap: ").append(chrono.getBestLapTime()).toString(), 420,
+			rd.drawString(new StringBuilder().append(Messages.getString("xtGraphics.203")).append(chrono.getBestLapTime()).toString(), 420, //$NON-NLS-1$
 					200);
 		} else {
 			rd.drawImage(gameov, 315, 117, null);
-			drawcs(167, new StringBuilder().append("Finished Watching Game!  At Stage").append(string).append("")
+			drawcs(167, new StringBuilder().append(Messages.getString("xtGraphics.204")).append(string).append(Messages.getString("xtGraphics.205")) //$NON-NLS-1$ //$NON-NLS-2$
 					.toString(), 255, 161, 85, 3);
-			drawcs(184, new StringBuilder().append("").append(checkpoints.name).append("").toString(), 255, 115, 0, 3);
+			drawcs(184, new StringBuilder().append(Messages.getString("xtGraphics.206")).append(checkpoints.name).append(Messages.getString("xtGraphics.207")).toString(), 255, 115, 0, 3); //$NON-NLS-1$ //$NON-NLS-2$
 			i_142_ = 184;
 		}
 		if (winner && multion == 0 && gmode != 0
@@ -3060,21 +3060,21 @@ public class xtGraphics extends Panel implements Runnable {
 				}
 			}
 			if (checkpoints.stage != nTracks) {
-				rd.setFont(new Font("Arial", 1, 13));
+				rd.setFont(new Font(Messages.getString("xtGraphics.208"), 1, 13)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
 				if (aflk)
-					drawcs(200 + pin, new StringBuilder().append("Stage ")
-							.append(checkpoints.stage + 1).append(" is now unlocked!").toString(),
+					drawcs(200 + pin, new StringBuilder().append(Messages.getString("xtGraphics.209")) //$NON-NLS-1$
+							.append(checkpoints.stage + 1).append(Messages.getString("xtGraphics.210")).toString(), //$NON-NLS-1$
 							196, 176, 0, 3);
 				else
-					drawcs(200 + pin, new StringBuilder().append("Stage ")
-							.append(checkpoints.stage + 1).append(" is now unlocked!").toString(),
+					drawcs(200 + pin, new StringBuilder().append(Messages.getString("xtGraphics.211")) //$NON-NLS-1$
+							.append(checkpoints.stage + 1).append(Messages.getString("xtGraphics.212")).toString(), //$NON-NLS-1$
 							255, 247, 165, 3);
 				if (i_144_ != 0) {
 					if (aflk)
-						drawcs(200, "And:", 196, 176, 0, 3);
+						drawcs(200, Messages.getString("xtGraphics.213"), 196, 176, 0, 3); //$NON-NLS-1$
 					else
-						drawcs(200, "And:", 255, 247, 165, 3);
+						drawcs(200, Messages.getString("xtGraphics.214"), 255, 247, 165, 3); //$NON-NLS-1$
 					rd.setColor(new Color(236, 226, 202));
 					if (Math.random() > 0.5) {
 						rd.setComposite(AlphaComposite.getInstance(3, 0.5F));
@@ -3109,41 +3109,41 @@ public class xtGraphics extends Panel implements Runnable {
 							rd.drawLine(230, 215 + 4 * i_146_, 569, 215 + 4 * i_146_);
 						rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
 					}
-					String string_147_ = "";
+					String string_147_ = Messages.getString("xtGraphics.215"); //$NON-NLS-1$
 					if (i_144_ == 13)
-						string_147_ = " ";
+						string_147_ = Messages.getString("xtGraphics.216"); //$NON-NLS-1$
 					if (aflk)
-						drawcs(320, new StringBuilder().append("").append(cd.names[i_144_]).append("")
-								.append(string_147_).append(" has been unlocked!").toString(), 196, 176, 0, 3);
+						drawcs(320, new StringBuilder().append(Messages.getString("xtGraphics.217")).append(cd.names[i_144_]).append(Messages.getString("xtGraphics.218")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(string_147_).append(Messages.getString("xtGraphics.219")).toString(), 196, 176, 0, 3); //$NON-NLS-1$
 					else
-						drawcs(320, new StringBuilder().append("").append(cd.names[i_144_]).append("")
-								.append(string_147_).append(" has been unlocked!").toString(), 255, 247, 165, 3);
+						drawcs(320, new StringBuilder().append(Messages.getString("xtGraphics.220")).append(cd.names[i_144_]).append(Messages.getString("xtGraphics.221")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(string_147_).append(Messages.getString("xtGraphics.222")).toString(), 255, 247, 165, 3); //$NON-NLS-1$
 					pin = 140;
 				}
-				rd.setFont(new Font("Arial", 1, 11));
+				rd.setFont(new Font(Messages.getString("xtGraphics.223"), 1, 11)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
-				drawcs(220 + pin, "GAME SAVED", 230, 167, 0, 3);
+				drawcs(220 + pin, Messages.getString("xtGraphics.224"), 230, 167, 0, 3); //$NON-NLS-1$
 				if (pin == 60)
 					pin = 30;
 				else
 					pin = 0;
 			} else {
-				rd.setFont(new Font("Arial", 1, 13));
+				rd.setFont(new Font(Messages.getString("xtGraphics.225"), 1, 13)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
 				if (aflk)
-					drawcs(180, new StringBuilder().append("Woohoooo you finished NFM").append(gmode).append(" !!!")
+					drawcs(180, new StringBuilder().append(Messages.getString("xtGraphics.226")).append(gmode).append(Messages.getString("xtGraphics.227")) //$NON-NLS-1$ //$NON-NLS-2$
 							.toString(), 144, 167, 255, 3);
 				else
-					drawcs(180, new StringBuilder().append("Woohoooo you finished NFM").append(gmode).append(" !!!")
+					drawcs(180, new StringBuilder().append(Messages.getString("xtGraphics.228")).append(gmode).append(Messages.getString("xtGraphics.229")) //$NON-NLS-1$ //$NON-NLS-2$
 							.toString(), 228, 240, 255, 3);
 				if (aflk)
-					drawcs(210, "You're Awesome!", 144, 167, 255, 3);
+					drawcs(210, Messages.getString("xtGraphics.230"), 144, 167, 255, 3); //$NON-NLS-1$
 				else
-					drawcs(212, "You're Awesome!", 228, 240, 255, 3);
+					drawcs(212, Messages.getString("xtGraphics.231"), 228, 240, 255, 3); //$NON-NLS-1$
 				if (aflk)
-					drawcs(240, "You're truly a RADICAL GAMER!", 144, 167, 255, 3);
+					drawcs(240, Messages.getString("xtGraphics.232"), 144, 167, 255, 3); //$NON-NLS-1$
 				else
-					drawcs(240, "You're truly a RADICAL GAMER!", 255, 100, 100, 3);
+					drawcs(240, Messages.getString("xtGraphics.233"), 255, 100, 100, 3); //$NON-NLS-1$
 				rd.setColor(new Color(0, 0, 0));
 				rd.fillRect(0, 255, 800, 62);
 				rd.drawImage(radicalplay, radpx + (int) (8.0 * Math.random() - 4.0), 255, null);
@@ -3158,17 +3158,17 @@ public class xtGraphics extends Panel implements Runnable {
 				if (flipo == 70)
 					flipo = 0;
 				if (radpx == 212) {
-					rd.setFont(new Font("Arial", 1, 11));
+					rd.setFont(new Font(Messages.getString("xtGraphics.234"), 1, 11)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
 					if (aflk)
-						drawcs(309, "A Game by Radicalplay.com", 144, 167, 255, 3);
+						drawcs(309, Messages.getString("xtGraphics.235"), 144, 167, 255, 3); //$NON-NLS-1$
 					else
-						drawcs(309, "A Game by Radicalplay.com", 228, 240, 255, 3);
+						drawcs(309, Messages.getString("xtGraphics.236"), 228, 240, 255, 3); //$NON-NLS-1$
 				}
 				if (aflk)
-					drawcs(350, "Now get up and dance!", 144, 167, 255, 3);
+					drawcs(350, Messages.getString("xtGraphics.237"), 144, 167, 255, 3); //$NON-NLS-1$
 				else
-					drawcs(350, "Now get up and dance!", 228, 240, 255, 3);
+					drawcs(350, Messages.getString("xtGraphics.238"), 228, 240, 255, 3); //$NON-NLS-1$
 				pin = 0;
 			}
 			if (aflk)
@@ -3178,14 +3178,14 @@ public class xtGraphics extends Panel implements Runnable {
 		}
 		if (multion != 0 && checkpoints.stage == -2 && i_142_ != 0) {
 			drawcs(i_142_ + 17,
-					new StringBuilder().append("Created by: ").append(checkpoints.maker).append("").toString(), 255,
+					new StringBuilder().append(Messages.getString("xtGraphics.239")).append(checkpoints.maker).append(Messages.getString("xtGraphics.240")).toString(), 255, //$NON-NLS-1$ //$NON-NLS-2$
 					161, 85, 3);
 			if (checkpoints.pubt > 0) {
 				if (checkpoints.pubt == 2)
-					drawcs(310, "Super Public Stage", 41, 177, 255, 3);
+					drawcs(310, Messages.getString("xtGraphics.241"), 41, 177, 255, 3); //$NON-NLS-1$
 				else
-					drawcs(310, "Public Stage", 41, 177, 255, 3);
-				if (dnload == 0 && drawcarb(true, null, " Add to My Stages ", 334, 317, i, i_141_, bool))
+					drawcs(310, Messages.getString("xtGraphics.242"), 41, 177, 255, 3); //$NON-NLS-1$
+				if (dnload == 0 && drawcarb(true, null, Messages.getString("xtGraphics.243"), 334, 317, i, i_141_, bool)) //$NON-NLS-1$
 					if (logged) {
 						cd.onstage = checkpoints.name;
 						cd.staction = 2;
@@ -3197,7 +3197,7 @@ public class xtGraphics extends Panel implements Runnable {
 					}
 				if (dnload == 1) {
 					rd.setColor(new Color(193, 106, 0));
-					final String string_148_ = "Upgrade to a full account to add custom stages!";
+					final String string_148_ = Messages.getString("xtGraphics.244"); //$NON-NLS-1$
 					final int i_149_ = 400 - ftm.stringWidth(string_148_) / 2;
 					final int i_150_ = i_149_ + ftm.stringWidth(string_148_);
 					rd.drawString(string_148_, i_149_, 332);
@@ -3216,7 +3216,7 @@ public class xtGraphics extends Panel implements Runnable {
 						waitlink--;
 				}
 				if (dnload == 2) {
-					drawcs(332, "Adding stage please wait...", 193, 106, 0, 3);
+					drawcs(332, Messages.getString("xtGraphics.245"), 193, 106, 0, 3); //$NON-NLS-1$
 					if (cd.staction == 0)
 						dnload = 3;
 					if (cd.staction == -2)
@@ -3227,15 +3227,15 @@ public class xtGraphics extends Panel implements Runnable {
 						dnload = 6;
 				}
 				if (dnload == 3)
-					drawcs(332, "Stager has been successfully added to your stages!", 193, 106, 0, 3);
+					drawcs(332, Messages.getString("xtGraphics.246"), 193, 106, 0, 3); //$NON-NLS-1$
 				if (dnload == 4)
-					drawcs(332, "You already have this stage!", 193, 106, 0, 3);
+					drawcs(332, Messages.getString("xtGraphics.247"), 193, 106, 0, 3); //$NON-NLS-1$
 				if (dnload == 5)
-					drawcs(332, "Cannot add more then 20 stages to your account!", 193, 106, 0, 3);
+					drawcs(332, Messages.getString("xtGraphics.248"), 193, 106, 0, 3); //$NON-NLS-1$
 				if (dnload == 6)
-					drawcs(332, "Failed to add stage, unknown error, please try again later.", 193, 106, 0, 3);
+					drawcs(332, Messages.getString("xtGraphics.249"), 193, 106, 0, 3); //$NON-NLS-1$
 			} else
-				drawcs(342, "Private Stage", 193, 106, 0, 3);
+				drawcs(342, Messages.getString("xtGraphics.250"), 193, 106, 0, 3); //$NON-NLS-1$
 		}
 		rd.drawImage(contin[pcontin], 355, 380, null);
 		if (control.enter || control.handb) {
@@ -3343,7 +3343,7 @@ public class xtGraphics extends Panel implements Runnable {
 
 	public Image getImage(final String string) {
 		final Image image = Toolkit.getDefaultToolkit().createImage(
-				new StringBuilder().append("").append(Madness.fpath).append("").append(string).append("").toString());
+				new StringBuilder().append(Messages.getString("xtGraphics.251")).append(Madness.fpath).append(Messages.getString("xtGraphics.252")).append(string).append(Messages.getString("xtGraphics.253")).toString()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		final MediaTracker mediatracker = new MediaTracker(app);
 		mediatracker.addImage(image, 0);
 		try {
@@ -3355,16 +3355,16 @@ public class xtGraphics extends Panel implements Runnable {
 	}
 
 	public String getSvalue(final String string, final int i) {
-		String string_443_ = "";
+		String string_443_ = Messages.getString("xtGraphics.254"); //$NON-NLS-1$
 		try {
 			int i_444_ = 0;
 			int i_445_ = 0;
 			int i_446_ = 0;
-			String string_447_ = "";
-			String string_448_ = "";
+			String string_447_ = Messages.getString("xtGraphics.255"); //$NON-NLS-1$
+			String string_448_ = Messages.getString("xtGraphics.256"); //$NON-NLS-1$
 			for ( /**/ ; i_444_ < string.length() && i_446_ != 2; i_444_++) {
-				string_447_ = new StringBuilder().append("").append(string.charAt(i_444_)).toString();
-				if (string_447_.equals("|")) {
+				string_447_ = new StringBuilder().append(Messages.getString("xtGraphics.257")).append(string.charAt(i_444_)).toString(); //$NON-NLS-1$
+				if (string_447_.equals(Messages.getString("xtGraphics.258"))) { //$NON-NLS-1$
 					i_445_++;
 					if (i_446_ == 1 || i_445_ > i)
 						i_446_ = 2;
@@ -3386,11 +3386,11 @@ public class xtGraphics extends Panel implements Runnable {
 			int i_438_ = 0;
 			int i_439_ = 0;
 			int i_440_ = 0;
-			String string_441_ = "";
-			String string_442_ = "";
+			String string_441_ = Messages.getString("xtGraphics.259"); //$NON-NLS-1$
+			String string_442_ = Messages.getString("xtGraphics.260"); //$NON-NLS-1$
 			for ( /**/ ; i_438_ < string.length() && i_440_ != 2; i_438_++) {
-				string_441_ = new StringBuilder().append("").append(string.charAt(i_438_)).toString();
-				if (string_441_.equals("|")) {
+				string_441_ = new StringBuilder().append(Messages.getString("xtGraphics.261")).append(string.charAt(i_438_)).toString(); //$NON-NLS-1$
+				if (string_441_.equals(Messages.getString("xtGraphics.262"))) { //$NON-NLS-1$
 					i_439_++;
 					if (i_440_ == 1 || i_439_ > i)
 						i_440_ = 2;
@@ -3399,8 +3399,8 @@ public class xtGraphics extends Panel implements Runnable {
 					i_440_ = 1;
 				}
 			}
-			if (string_442_.equals(""))
-				string_442_ = "-1";
+			if (string_442_.equals(Messages.getString("xtGraphics.263"))) //$NON-NLS-1$
+				string_442_ = Messages.getString("xtGraphics.264"); //$NON-NLS-1$
 			i_437_ = Integer.valueOf(string_442_).intValue();
 		} catch (final Exception exception) {
 			/* empty */
@@ -3465,7 +3465,7 @@ public class xtGraphics extends Panel implements Runnable {
 		rd.fillRect(735, 0, 65, 450);
 		rd.fillRect(65, 0, 670, 25);
 		rd.fillRect(65, 425, 670, 25);
-		rd.setFont(new Font("Arial", 1, 13));
+		rd.setFont(new Font(Messages.getString("xtGraphics.265"), 1, 13)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
 		drawcs(50, asay, 0, 0, 0, 3);
 		int i_49_ = -90;
@@ -3513,22 +3513,22 @@ public class xtGraphics extends Panel implements Runnable {
 			if (i_48_ < 0)
 				i_48_ = 0;
 			rd.setColor(new Color(i_46_, i_47_, i_48_));
-			rd.setFont(new Font("Arial", 1, 13));
+			rd.setFont(new Font(Messages.getString("xtGraphics.266"), 1, 13)); //$NON-NLS-1$
 			if (multion != 0) {
 				if (ransay == 1 && i != 10)
-					rd.drawString("Multiplayer Tip:  Press [ C ] to access chat quickly during the game!", 262, 92);
+					rd.drawString(Messages.getString("xtGraphics.267"), 262, 92); //$NON-NLS-1$
 				if (ransay == 2 && i != 10) {
-					rd.drawString("Multiplayer Tip:  Press [ A ] to make Guidance Arrow point to cars and", 262, 92);
-					rd.drawString("click any of the players listed on the right to lock the Arrow on!", 262, 112);
+					rd.drawString(Messages.getString("xtGraphics.268"), 262, 92); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.269"), 262, 112); //$NON-NLS-1$
 				}
 				if (ransay == 3 && i != 10) {
-					rd.drawString("Multiplayer Tip:  When wasting in multiplayer it's better to aim slightly", 262, 92);
-					rd.drawString("ahead of the other player's car to compensate for internet delay.", 262, 112);
+					rd.drawString(Messages.getString("xtGraphics.270"), 262, 92); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.271"), 262, 112); //$NON-NLS-1$
 				}
 				if (ransay == 4) {
-					rd.drawString("When watching a game, click any player listed on the right of the", 262, 92);
-					rd.drawString("screen to follow and watch.", 262, 112);
-					rd.drawString("Press [ V ] to change the viewing mode!", 262, 132);
+					rd.drawString(Messages.getString("xtGraphics.272"), 262, 92); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.273"), 262, 112); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.274"), 262, 132); //$NON-NLS-1$
 				}
 				if (i == 10 && ransay != 4) {
 					if (tflk) {
@@ -3536,89 +3536,89 @@ public class xtGraphics extends Panel implements Runnable {
 						tflk = false;
 					} else
 						tflk = true;
-					rd.drawString("NOTE: Guidance Arrow and opponent status is disabled in this stage!", 262, 92);
+					rd.drawString(Messages.getString("xtGraphics.275"), 262, 92); //$NON-NLS-1$
 				}
 			} else {
 				if (i < 0 && nplayers != 1 && newparts) {
-					rd.drawString("Please note, the computer car's AI has not yet been trained to handle", 262, 92);
-					rd.drawString("some of the new stage parts such as the 'Rollercoaster Road' and the", 262, 112);
-					rd.drawString("'Tunnel Side Ramp'.", 262, 132);
-					rd.drawString("(Those new parts where mostly designed for the multiplayer game.)", 262, 152);
-					rd.drawString("The AI will be trained and ready in the future releases of the game!", 262, 172);
+					rd.drawString(Messages.getString("xtGraphics.276"), 262, 92); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.277"), 262, 112); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.278"), 262, 132); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.279"), 262, 152); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.280"), 262, 172); //$NON-NLS-1$
 				}
 				if (i == 1 || i == 11) {
-					rd.drawString("Hey!  Don't forget, to complete a lap you must pass through", 262, 92);
-					rd.drawString("all checkpoints in the track!", 262, 112);
+					rd.drawString(Messages.getString("xtGraphics.281"), 262, 92); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.282"), 262, 112); //$NON-NLS-1$
 				}
 				if (i == 2 || i == 12)
-					rd.drawString("Remember, the more power you have the faster your car will be!", 262, 92);
+					rd.drawString(Messages.getString("xtGraphics.283"), 262, 92); //$NON-NLS-1$
 				if (i == 3) {
-					rd.drawString("> Hint: its easier to waste the other cars then to race in this stage!", 262, 92);
-					rd.drawString("Press [ A ] to make the guidance arrow point to cars instead of to", 262, 112);
-					rd.drawString("the track.", 262, 132);
+					rd.drawString(Messages.getString("xtGraphics.284"), 262, 92); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.285"), 262, 112); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.286"), 262, 132); //$NON-NLS-1$
 				}
 				if (i == 4)
-					rd.drawString("Remember, the better the stunt you perform the more power you get!", 262, 92);
+					rd.drawString(Messages.getString("xtGraphics.287"), 262, 92); //$NON-NLS-1$
 				if (i == 5)
-					rd.drawString("Remember, the more power you have the stronger your car is!", 262, 92);
+					rd.drawString(Messages.getString("xtGraphics.288"), 262, 92); //$NON-NLS-1$
 				if (i == 10) {
 					if (tflk) {
 						rd.setColor(new Color(200, i_47_, i_48_));
 						tflk = false;
 					} else
 						tflk = true;
-					rd.drawString("NOTE: Guidance Arrow is disabled in this stage!", 262, 92);
+					rd.drawString(Messages.getString("xtGraphics.289"), 262, 92); //$NON-NLS-1$
 				}
 				if (i == 13) {
-					rd.drawString("Watch out!  Look out!  The policeman might be out to get you!", 262, 92);
-					rd.drawString("Don't upset him or you'll be arrested!", 262, 112);
-					rd.drawString("Better run, run, run.", 262, 152);
+					rd.drawString(Messages.getString("xtGraphics.290"), 262, 92); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.291"), 262, 112); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.292"), 262, 152); //$NON-NLS-1$
 				}
 				if (i == 14) {
-					rd.drawString("Don't waste your time.  Waste them instead!", 262, 92);
-					rd.drawString("Try a taste of sweet revenge here (if you can)!", 262, 112);
-					rd.drawString("Press [ A ] to make the guidance arrow point to cars instead of to", 262, 152);
-					rd.drawString("the track.", 262, 172);
+					rd.drawString(Messages.getString("xtGraphics.293"), 262, 92); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.294"), 262, 112); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.295"), 262, 152); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.296"), 262, 172); //$NON-NLS-1$
 				}
 				if (i == 17) {
-					rd.drawString("Welcome to the realm of the king...", 262, 92);
-					rd.drawString("The key word here is 'POWER'.  The more you have of it the faster", 262, 132);
-					rd.drawString("and STRONGER you car will be!", 262, 152);
+					rd.drawString(Messages.getString("xtGraphics.297"), 262, 92); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.298"), 262, 132); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.299"), 262, 152); //$NON-NLS-1$
 				}
 				if (i == 18) {
-					rd.drawString("Watch out, EL KING is out to get you now!", 262, 92);
-					rd.drawString("He seems to be seeking revenge?", 262, 112);
-					rd.drawString("(To fly longer distances in the air try drifting your car on the ramp", 262, 152);
-					rd.drawString("before take off).", 262, 172);
+					rd.drawString(Messages.getString("xtGraphics.300"), 262, 92); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.301"), 262, 112); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.302"), 262, 152); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.303"), 262, 172); //$NON-NLS-1$
 				}
 				if (i == 19)
-					rd.drawString("It\u2019s good to be the king!", 262, 92);
+					rd.drawString(Messages.getString("xtGraphics.304"), 262, 92); //$NON-NLS-1$
 				if (i == 20) {
-					rd.drawString("Remember, forward loops give your car a push forwards in the air", 262, 92);
-					rd.drawString("and help in racing.", 262, 112);
-					rd.drawString("(You may need to do more forward loops here.  Also try keeping", 262, 152);
-					rd.drawString("your power at maximum at all times.  Try not to miss a ramp).", 262, 172);
+					rd.drawString(Messages.getString("xtGraphics.305"), 262, 92); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.306"), 262, 112); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.307"), 262, 152); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.308"), 262, 172); //$NON-NLS-1$
 				}
 				if (i == 22) {
-					rd.drawString("Watch out!  Beware!  Take care!", 262, 92);
-					rd.drawString("MASHEEN is hiding out there some where, don't get mashed now!", 262, 112);
+					rd.drawString(Messages.getString("xtGraphics.309"), 262, 92); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.310"), 262, 112); //$NON-NLS-1$
 				}
 				if (i == 23) {
-					rd.drawString("Anyone for a game of Digger?!", 262, 92);
-					rd.drawString("You can have fun using MASHEEN here!", 262, 112);
+					rd.drawString(Messages.getString("xtGraphics.311"), 262, 92); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.312"), 262, 112); //$NON-NLS-1$
 				}
 				if (i == 26) {
-					rd.drawString("This is it!  This is the toughest stage in the game!", 262, 92);
-					rd.drawString("This track is actually a 4D object projected onto the 3D world.", 262, 132);
-					rd.drawString("It's been broken down, separated and, in many ways, it is also a", 262, 152);
-					rd.drawString("maze!  GOOD LUCK!", 262, 172);
+					rd.drawString(Messages.getString("xtGraphics.313"), 262, 92); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.314"), 262, 132); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.315"), 262, 152); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.316"), 262, 172); //$NON-NLS-1$
 				}
 			}
 		}
 		rd.setComposite(AlphaComposite.getInstance(3, 0.8F));
 		rd.drawImage(loadingmusic, 289, 205 + i_49_, null);
 		rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
-		rd.setFont(new Font("Arial", 1, 11));
+		rd.setFont(new Font(Messages.getString("xtGraphics.317"), 1, 11)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
 		int i_50_ = i - 1;
 		if (i_50_ < 0)
@@ -3627,9 +3627,9 @@ public class xtGraphics extends Panel implements Runnable {
 			//unnecessary
 			//drawcs(340 + i_49_, new StringBuilder().append("").append(sndsize[i_50_]).append(" KB").toString(), 0, 0, 0,
 			//		3);
-			drawcs(375 + i_49_, " Please Wait...", 0, 0, 0, 3);
+			drawcs(375 + i_49_, Messages.getString("xtGraphics.318"), 0, 0, 0, 3); //$NON-NLS-1$
 		} else {
-			drawcs(365 + i_49_, "Loading complete!  Press Start to begin...", 0, 0, 0, 3);
+			drawcs(365 + i_49_, Messages.getString("xtGraphics.319"), 0, 0, 0, 3); //$NON-NLS-1$
 			rd.setComposite(AlphaComposite.getInstance(3, 0.5F));
 			rd.drawImage(star[pstar], 359, 385 + i_49_, null);
 			rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
@@ -3639,7 +3639,7 @@ public class xtGraphics extends Panel implements Runnable {
 				else
 					pstar = 0;
 			if (multion != 0)
-				drawcs(380 + i_49_, new StringBuilder().append("").append(forstart / 20).toString(), 0, 0, 0, 3);
+				drawcs(380 + i_49_, new StringBuilder().append(Messages.getString("xtGraphics.320")).append(forstart / 20).toString(), 0, 0, 0, 3); //$NON-NLS-1$
 		}
 	}
 
@@ -3800,7 +3800,7 @@ public class xtGraphics extends Panel implements Runnable {
 		lsc = -1;
 		mouson = -1;
 		if (multion == 0) {
-			app.mycar.setLabel(" Include in this game.");
+			app.mycar.setLabel(Messages.getString("xtGraphics.321")); //$NON-NLS-1$
 			app.mycar.setBackground(new Color(198, 179, 129));
 			app.mycar.setForeground(new Color(0, 0, 0));
 			int i = 16;
@@ -3894,12 +3894,12 @@ public class xtGraphics extends Panel implements Runnable {
 		app.gmode.setBackground(new Color(49, 49, 0));
 		app.gmode.setForeground(new Color(148, 167, 0));
 		app.sgame.removeAll();
-		app.sgame.add(rd, " NFM 1     ");
-		app.sgame.add(rd, " NFM 2     ");
-		app.sgame.add(rd, " My Stages ");
-		app.sgame.add(rd, " Weekly Top20 ");
-		app.sgame.add(rd, " Monthly Top20 ");
-		app.sgame.add(rd, " Stage Maker ");
+		app.sgame.add(rd, Messages.getString("xtGraphics.322")); //$NON-NLS-1$
+		app.sgame.add(rd, Messages.getString("xtGraphics.323")); //$NON-NLS-1$
+		app.sgame.add(rd, Messages.getString("xtGraphics.324")); //$NON-NLS-1$
+		app.sgame.add(rd, Messages.getString("xtGraphics.325")); //$NON-NLS-1$
+		app.sgame.add(rd, Messages.getString("xtGraphics.326")); //$NON-NLS-1$
+		app.sgame.add(rd, Messages.getString("xtGraphics.327")); //$NON-NLS-1$
 		if (checkpoints.stage > 0 && checkpoints.stage <= 10) {
 			app.sgame.select(0);
 			nfmtab = 0;
@@ -3980,164 +3980,164 @@ public class xtGraphics extends Panel implements Runnable {
 			rd.drawImage(oflaot, 192, 42, null);
 		}
 		rd.setColor(new Color(0, 64, 128));
-		rd.setFont(new Font("Arial", 1, 13));
+		rd.setFont(new Font(Messages.getString("xtGraphics.328"), 1, 13)); //$NON-NLS-1$
 		if (flipo == 3 || flipo == 5) {
 			if (flipo == 3) {
-				rd.drawString("Hello!  Welcome to the world of", 262, 67);
-				rd.drawString("!", 657, 67);
+				rd.drawString(Messages.getString("xtGraphics.329"), 262, 67); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.330"), 657, 67); //$NON-NLS-1$
 				rd.drawImage(nfm, 469, 55, null);
-				rd.drawString("In this game there are two ways to complete a stage.", 262, 107);
-				rd.drawString("One is by racing and finishing in first place, the other is by", 262, 127);
-				rd.drawString("wasting and crashing all the other cars in the stage!", 262, 147);
+				rd.drawString(Messages.getString("xtGraphics.331"), 262, 107); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.332"), 262, 127); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.333"), 262, 147); //$NON-NLS-1$
 			} else {
 				rd.setColor(new Color(0, 128, 255));
-				rd.drawString("While racing, you will need to focus on going fast and passing", 262, 67);
-				rd.drawString("through all the checkpoints in the track. To complete a lap, you", 262, 87);
-				rd.drawString("must not miss a checkpoint.", 262, 107);
-				rd.drawString("While wasting, you will just need to chase the other cars and", 262, 127);
-				rd.drawString("crash into them (without worrying about track and checkpoints).", 262, 147);
+				rd.drawString(Messages.getString("xtGraphics.334"), 262, 67); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.335"), 262, 87); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.336"), 262, 107); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.337"), 262, 127); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.338"), 262, 147); //$NON-NLS-1$
 			}
 			rd.setColor(new Color(0, 0, 0));
 			rd.drawImage(racing, 165, 185, null);
 			rd.drawImage(ory, 429, 235, null);
 			rd.drawImage(wasting, 492, 185, null);
-			rd.setFont(new Font("Arial", 1, 11));
-			rd.drawString("Checkpoint", 392, 189);
-			rd.setFont(new Font("Arial", 1, 13));
-			rd.drawString("Drive your car using the Arrow Keys and Spacebar", 125, 320);
+			rd.setFont(new Font(Messages.getString("xtGraphics.339"), 1, 11)); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.340"), 392, 189); //$NON-NLS-1$
+			rd.setFont(new Font(Messages.getString("xtGraphics.341"), 1, 13)); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.342"), 125, 320); //$NON-NLS-1$
 			rd.drawImage(space, 171, 355, null);
 			rd.drawImage(arrows, 505, 323, null);
-			rd.setFont(new Font("Arial", 1, 11));
-			rd.drawString("(When your car is on the ground Spacebar is for Handbrake)", 125, 341);
-			rd.drawString("Accelerate", 515, 319);
-			rd.drawString("Brake/Reverse", 506, 397);
-			rd.drawString("Turn left", 454, 375);
-			rd.drawString("Turn right", 590, 375);
-			rd.drawString("Handbrake", 247, 374);
+			rd.setFont(new Font(Messages.getString("xtGraphics.343"), 1, 11)); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.344"), 125, 341); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.345"), 515, 319); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.346"), 506, 397); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.347"), 454, 375); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.348"), 590, 375); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.349"), 247, 374); //$NON-NLS-1$
 		}
 		if (flipo == 7 || flipo == 9) {
 			if (flipo == 7) {
-				rd.drawString("Whether you are racing or wasting the other cars you will need", 262, 67);
-				rd.drawString("to power up your car.", 262, 87);
-				rd.drawString("=> More 'Power' makes your car become faster and stronger!", 262, 107);
-				rd.drawString("To power up your car (and keep it powered up) you will need to", 262, 127);
-				rd.drawString("perform stunts!", 262, 147);
+				rd.drawString(Messages.getString("xtGraphics.350"), 262, 67); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.351"), 262, 87); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.352"), 262, 107); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.353"), 262, 127); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.354"), 262, 147); //$NON-NLS-1$
 				rd.drawImage(chil, 167, 295, null);
 			} else {
-				rd.drawString("The better the stunt the more power you get!", 262, 67);
+				rd.drawString(Messages.getString("xtGraphics.355"), 262, 67); //$NON-NLS-1$
 				rd.setColor(new Color(0, 128, 255));
-				rd.drawString("Forward looping pushes your car forwards in the air and helps", 262, 87);
-				rd.drawString("when racing. Backward looping pushes your car upwards giving it", 262, 107);
-				rd.drawString("more hang time in the air making it easier to control its landing.", 262, 127);
-				rd.drawString("Left and right rolls shift your car in the air left and right slightly.", 262, 147);
+				rd.drawString(Messages.getString("xtGraphics.356"), 262, 87); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.357"), 262, 107); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.358"), 262, 127); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.359"), 262, 147); //$NON-NLS-1$
 				if (aflk || dudo < 150)
 					rd.drawImage(chil, 167, 295, null);
 			}
 			rd.setColor(new Color(0, 0, 0));
 			rd.drawImage(stunts, 105, 175, null);
 			rd.drawImage(opwr, 540, 253, null);
-			rd.setFont(new Font("Arial", 1, 13));
-			rd.drawString("To perform stunts. When your car is in the AIR:", 125, 310);
-			rd.drawString("Press combo Spacebar + Arrow Keys", 125, 330);
+			rd.setFont(new Font(Messages.getString("xtGraphics.360"), 1, 13)); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.361"), 125, 310); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.362"), 125, 330); //$NON-NLS-1$
 			rd.drawImage(space, 185, 355, null);
 			rd.drawImage(plus, 405, 358, null);
 			rd.drawImage(arrows, 491, 323, null);
-			rd.setFont(new Font("Arial", 1, 11));
+			rd.setFont(new Font(Messages.getString("xtGraphics.363"), 1, 11)); //$NON-NLS-1$
 			rd.setColor(new Color(0, 0, 0));
-			rd.drawString("Forward Loop", 492, 319);
-			rd.drawString("Backward Loop", 490, 397);
-			rd.drawString("Left Roll", 443, 375);
-			rd.drawString("Right Roll", 576, 375);
-			rd.drawString("Spacebar", 266, 374);
+			rd.drawString(Messages.getString("xtGraphics.364"), 492, 319); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.365"), 490, 397); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.366"), 443, 375); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.367"), 576, 375); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.368"), 266, 374); //$NON-NLS-1$
 			rd.setColor(new Color(140, 243, 244));
 			rd.fillRect(602, 257, 76, 9);
 		}
 		if (flipo == 11 || flipo == 13) {
 			if (flipo == 11) {
-				rd.drawString("When wasting cars, to help you find the other cars in the stage,", 262, 67);
-				rd.drawString("press [ A ] to toggle the guidance arrow from pointing to the track", 262, 87);
-				rd.drawString("to pointing to the cars.", 262, 107);
-				rd.drawString("When your car is damaged. You fix it (and reset its 'Damage') by", 262, 127);
-				rd.drawString("jumping through the electrified hoop.", 262, 147);
+				rd.drawString(Messages.getString("xtGraphics.369"), 262, 67); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.370"), 262, 87); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.371"), 262, 107); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.372"), 262, 127); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.373"), 262, 147); //$NON-NLS-1$
 			} else {
 				rd.setColor(new Color(0, 128, 255));
-				rd.drawString("You will find that in some stages it's easier to waste the other cars", 262, 67);
-				rd.drawString("and in some others it's easier to race and finish in first place.", 262, 87);
-				rd.drawString("It is up to you to decide when to waste and when to race.", 262, 107);
-				rd.drawString("And remember, 'Power' is an important factor in the game. You", 262, 127);
-				rd.drawString("will need it whether you are racing or wasting!", 262, 147);
+				rd.drawString(Messages.getString("xtGraphics.374"), 262, 67); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.375"), 262, 87); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.376"), 262, 107); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.377"), 262, 127); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.378"), 262, 147); //$NON-NLS-1$
 			}
 			rd.setColor(new Color(0, 0, 0));
 			rd.drawImage(fixhoop, 185, 218, null);
 			rd.drawImage(sarrow, 385, 228, null);
-			rd.setFont(new Font("Arial", 1, 11));
-			rd.drawString("The Electrified Hoop", 192, 216);
-			rd.drawString("Jumping through it fixes your car.", 158, 338);
-			rd.drawString("Make guidance arrow point to cars.", 385, 216);
+			rd.setFont(new Font(Messages.getString("xtGraphics.379"), 1, 11)); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.380"), 192, 216); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.381"), 158, 338); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.382"), 385, 216); //$NON-NLS-1$
 		}
 		if (flipo == 15) {
-			rd.drawString("And if you don\u2019t know who I am,", 262, 67);
-			rd.drawString("I am Coach Insano, I am the coach and narrator of this game!", 262, 87);
-			rd.drawString("I recommended starting with NFM 1 if it\u2019s your first time to play.", 262, 127);
-			rd.drawString("Good Luck & Have Fun!", 262, 147);
+			rd.drawString(Messages.getString("xtGraphics.383"), 262, 67); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.384"), 262, 87); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.385"), 262, 127); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.386"), 262, 147); //$NON-NLS-1$
 			rd.setColor(new Color(0, 0, 0));
-			rd.drawString("Other Controls :", 155, 205);
-			rd.setFont(new Font("Arial", 1, 11));
+			rd.drawString(Messages.getString("xtGraphics.387"), 155, 205); //$NON-NLS-1$
+			rd.setFont(new Font(Messages.getString("xtGraphics.388"), 1, 11)); //$NON-NLS-1$
 			rd.drawImage(kz, 169, 229, null);
-			rd.drawString("OR", 206, 251);
+			rd.drawString(Messages.getString("xtGraphics.389"), 206, 251); //$NON-NLS-1$
 			rd.drawImage(kx, 229, 229, null);
-			rd.drawString("To look behind you while driving.", 267, 251);
+			rd.drawString(Messages.getString("xtGraphics.390"), 267, 251); //$NON-NLS-1$
 			rd.drawImage(kv, 169, 279, null);
-			rd.drawString("Change Views", 207, 301);
+			rd.drawString(Messages.getString("xtGraphics.391"), 207, 301); //$NON-NLS-1$
 			rd.drawImage(kenter, 169, 329, null);
-			rd.drawString("Navigate & Pause Game", 275, 351);
+			rd.drawString(Messages.getString("xtGraphics.392"), 275, 351); //$NON-NLS-1$
 			rd.drawImage(km, 489, 229, null);
-			rd.drawString("Mute Music", 527, 251);
+			rd.drawString(Messages.getString("xtGraphics.393"), 527, 251); //$NON-NLS-1$
 			rd.drawImage(kn, 489, 279, null);
-			rd.drawString("Mute Sound Effects", 527, 301);
+			rd.drawString(Messages.getString("xtGraphics.394"), 527, 301); //$NON-NLS-1$
 			rd.drawImage(ks, 489, 329, null);
-			rd.drawString("Toggle radar / map", 527, 351);
+			rd.drawString(Messages.getString("xtGraphics.395"), 527, 351); //$NON-NLS-1$
 		}
 		if (flipo == 1 || flipo == 16) {
-			rd.setFont(new Font("Arial", 1, 13));
+			rd.setFont(new Font(Messages.getString("xtGraphics.396"), 1, 13)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
 			rd.setColor(new Color(0, 0, 0));
 			if (flipo == 16)
-				rd.drawString("M A I N    C O N T R O L S   -   once again!",
-						400 - ftm.stringWidth("M A I N    C O N T R O L S   -   once again!") / 2, 49);
+				rd.drawString(Messages.getString("xtGraphics.397"), //$NON-NLS-1$
+						400 - ftm.stringWidth(Messages.getString("xtGraphics.398")) / 2, 49); //$NON-NLS-1$
 			else
-				rd.drawString("M A I N    C O N T R O L S", 400 - ftm.stringWidth("M A I N    C O N T R O L S") / 2,
+				rd.drawString(Messages.getString("xtGraphics.399"), 400 - ftm.stringWidth(Messages.getString("xtGraphics.400")) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 						49);
-			rd.drawString("Drive your car using the Arrow Keys:", 125, 80);
-			rd.drawString("On the GROUND Spacebar is for Handbrake", 125, 101);
+			rd.drawString(Messages.getString("xtGraphics.401"), 125, 80); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.402"), 125, 101); //$NON-NLS-1$
 			rd.drawImage(space, 171, 115, null);
 			rd.drawImage(arrows, 505, 83, null);
-			rd.setFont(new Font("Arial", 1, 11));
+			rd.setFont(new Font(Messages.getString("xtGraphics.403"), 1, 11)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
-			rd.drawString("Accelerate", 515, 79);
-			rd.drawString("Brake/Reverse", 506, 157);
-			rd.drawString("Turn left", 454, 135);
-			rd.drawString("Turn right", 590, 135);
-			rd.drawString("Handbrake", 247, 134);
+			rd.drawString(Messages.getString("xtGraphics.404"), 515, 79); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.405"), 506, 157); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.406"), 454, 135); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.407"), 590, 135); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.408"), 247, 134); //$NON-NLS-1$
 			drawcs(175,
-					"----------------------------------------------------------------------------------------------------------------------------------------------------",
+					Messages.getString("xtGraphics.409"), //$NON-NLS-1$
 					0, 64, 128, 3);
 			rd.setColor(new Color(0, 0, 0));
-			rd.setFont(new Font("Arial", 1, 13));
+			rd.setFont(new Font(Messages.getString("xtGraphics.410"), 1, 13)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
-			rd.drawString("To perform STUNTS:", 125, 200);
-			rd.drawString("In the AIR press combo Spacebar + Arrow Keys", 125, 220);
+			rd.drawString(Messages.getString("xtGraphics.411"), 125, 200); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.412"), 125, 220); //$NON-NLS-1$
 			rd.drawImage(space, 185, 245, null);
 			rd.drawImage(plus, 405, 248, null);
 			rd.drawImage(arrows, 491, 213, null);
-			rd.setFont(new Font("Arial", 1, 11));
+			rd.setFont(new Font(Messages.getString("xtGraphics.413"), 1, 11)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
 			rd.setColor(new Color(0, 0, 0));
-			rd.drawString("Forward Loop", 492, 209);
-			rd.drawString("Backward Loop", 490, 287);
-			rd.drawString("Left Roll", 443, 265);
-			rd.drawString("Right Roll", 576, 265);
-			rd.drawString("Spacebar", 266, 264);
+			rd.drawString(Messages.getString("xtGraphics.414"), 492, 209); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.415"), 490, 287); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.416"), 443, 265); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.417"), 576, 265); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.418"), 266, 264); //$NON-NLS-1$
 			rd.drawImage(stunts, 125, 285, null);
 		}
 		if (flipo >= 1 && flipo <= 15)
@@ -4150,7 +4150,7 @@ public class xtGraphics extends Panel implements Runnable {
 			if (control.enter && flipo == 16) {
 				flipo = 0;
 				fase = oldfase;
-				rd.setFont(new Font("Arial", 1, 11));
+				rd.setFont(new Font(Messages.getString("xtGraphics.419"), 1, 11)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
 			}
 			control.enter = false;
@@ -4230,21 +4230,21 @@ public class xtGraphics extends Panel implements Runnable {
 				aflk = true;
 		if (i != im) {
 			if (i_92_ == 0)
-				drawcs(60, "You Wasted 'em!", i_95_, i_96_, i_97_, 0);
+				drawcs(60, Messages.getString("xtGraphics.420"), i_95_, i_96_, i_97_, 0); //$NON-NLS-1$
 			else if (i_92_ == 1)
-				drawcs(60, "Close Finish!", i_95_, i_96_, i_97_, 0);
+				drawcs(60, Messages.getString("xtGraphics.421"), i_95_, i_96_, i_97_, 0); //$NON-NLS-1$
 			else
-				drawcs(60, "Close Finish!  Almost got it!", i_95_, i_96_, i_97_, 0);
+				drawcs(60, Messages.getString("xtGraphics.422"), i_95_, i_96_, i_97_, 0); //$NON-NLS-1$
 		} else if (i_91_ == 229) {
 			if (discon != 240)
-				drawcs(60, "Wasted!", i_95_, i_96_, i_97_, 0);
+				drawcs(60, Messages.getString("xtGraphics.423"), i_95_, i_96_, i_97_, 0); //$NON-NLS-1$
 			else
-				drawcs(60, "Disconnected!", i_95_, i_96_, i_97_, 0);
+				drawcs(60, Messages.getString("xtGraphics.424"), i_95_, i_96_, i_97_, 0); //$NON-NLS-1$
 		} else if (i_94_ > 2 || i_94_ < 0)
-			drawcs(60, "Stunts!", i_95_, i_96_, i_97_, 0);
+			drawcs(60, Messages.getString("xtGraphics.425"), i_95_, i_96_, i_97_, 0); //$NON-NLS-1$
 		else
-			drawcs(60, "Best Stunt!", i_95_, i_96_, i_97_, 0);
-		drawcs(380, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
+			drawcs(60, Messages.getString("xtGraphics.426"), i_95_, i_96_, i_97_, 0); //$NON-NLS-1$
+		drawcs(380, Messages.getString("xtGraphics.427"), 0, 0, 0, 0); //$NON-NLS-1$
 	}
 
 	private Image loadBimage(final byte[] is, final MediaTracker mediatracker, final Toolkit toolkit, final int i) {
@@ -4308,7 +4308,7 @@ public class xtGraphics extends Panel implements Runnable {
 		runner = new Thread(this);
 		runner.start();
 		loadimages();
-		intertrack = new RadicalMod("music/interface.zip");
+		intertrack = new RadicalMod(Messages.getString("xtGraphics.428")); //$NON-NLS-1$
 		dnload += 44;
 		loadsounds();
 	}
@@ -4332,7 +4332,7 @@ public class xtGraphics extends Panel implements Runnable {
 		dnload += 8;
 		try {
 			final File file = new File(
-					new StringBuilder().append("").append(Madness.fpath).append("data/images.zip").toString());
+					new StringBuilder().append(Messages.getString("xtGraphics.429")).append(Madness.fpath).append(Messages.getString("xtGraphics.430")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 			final FileInputStream fileinputstream = new FileInputStream(file);
 			final ZipInputStream zipinputstream = new ZipInputStream(fileinputstream);
 			for (ZipEntry zipentry = zipinputstream.getNextEntry(); zipentry != null; zipentry = zipinputstream
@@ -4346,294 +4346,294 @@ public class xtGraphics extends Panel implements Runnable {
 					i_12_ = zipinputstream.read(is, i_11_, i);
 					i_11_ += i_12_;
 				}
-				if (string.equals("cars.gif"))
+				if (string.equals(Messages.getString("xtGraphics.431"))) //$NON-NLS-1$
 					carsbg = loadBimage(is, mediatracker, toolkit, 1);
-				if (string.equals("color.gif"))
+				if (string.equals(Messages.getString("xtGraphics.432"))) //$NON-NLS-1$
 					image = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("class.gif"))
+				if (string.equals(Messages.getString("xtGraphics.433"))) //$NON-NLS-1$
 					image_10_ = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("smokey.gif"))
+				if (string.equals(Messages.getString("xtGraphics.434"))) //$NON-NLS-1$
 					smokeypix(is, mediatracker, toolkit);
-				if (string.equals("1.gif"))
+				if (string.equals(Messages.getString("xtGraphics.435"))) //$NON-NLS-1$
 					orank[0] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("gameh.gif"))
+				if (string.equals(Messages.getString("xtGraphics.436"))) //$NON-NLS-1$
 					ogameh = loadimage(is, mediatracker, toolkit);
-				if (string.equals("wgame.gif"))
+				if (string.equals(Messages.getString("xtGraphics.437"))) //$NON-NLS-1$
 					owgame = loadimage(is, mediatracker, toolkit);
-				if (string.equals("gameov.gif"))
+				if (string.equals(Messages.getString("xtGraphics.438"))) //$NON-NLS-1$
 					gameov = loadimage(is, mediatracker, toolkit);
-				if (string.equals("lap.gif"))
+				if (string.equals(Messages.getString("xtGraphics.439"))) //$NON-NLS-1$
 					olap = loadimage(is, mediatracker, toolkit);
-				if (string.equals("paused.gif"))
+				if (string.equals(Messages.getString("xtGraphics.440"))) //$NON-NLS-1$
 					paused = loadimage(is, mediatracker, toolkit);
-				if (string.equals("select.gif"))
+				if (string.equals(Messages.getString("xtGraphics.441"))) //$NON-NLS-1$
 					select = loadimage(is, mediatracker, toolkit);
-				if (string.equals("yourwasted.gif"))
+				if (string.equals(Messages.getString("xtGraphics.442"))) //$NON-NLS-1$
 					oyourwasted = loadimage(is, mediatracker, toolkit);
-				if (string.equals("disco.gif"))
+				if (string.equals(Messages.getString("xtGraphics.443"))) //$NON-NLS-1$
 					odisco = loadimage(is, mediatracker, toolkit);
-				if (string.equals("youwastedem.gif"))
+				if (string.equals(Messages.getString("xtGraphics.444"))) //$NON-NLS-1$
 					oyouwastedem = loadimage(is, mediatracker, toolkit);
-				if (string.equals("gamefinished.gif"))
+				if (string.equals(Messages.getString("xtGraphics.445"))) //$NON-NLS-1$
 					ogamefinished = loadimage(is, mediatracker, toolkit);
-				if (string.equals("exitgame.gif"))
+				if (string.equals(Messages.getString("xtGraphics.446"))) //$NON-NLS-1$
 					oexitgame = loadimage(is, mediatracker, toolkit);
-				if (string.equals("pgate.gif"))
+				if (string.equals(Messages.getString("xtGraphics.447"))) //$NON-NLS-1$
 					pgate = loadimage(is, mediatracker, toolkit);
-				if (string.equals("d1.png"))
+				if (string.equals(Messages.getString("xtGraphics.448"))) //$NON-NLS-1$
 					dude[0] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("d2.png"))
+				if (string.equals(Messages.getString("xtGraphics.449"))) //$NON-NLS-1$
 					dude[1] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("d3.png"))
+				if (string.equals(Messages.getString("xtGraphics.450"))) //$NON-NLS-1$
 					dude[2] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("float.gif"))
+				if (string.equals(Messages.getString("xtGraphics.451"))) //$NON-NLS-1$
 					oflaot = loadimage(is, mediatracker, toolkit);
-				if (string.equals("1c.gif"))
+				if (string.equals(Messages.getString("xtGraphics.452"))) //$NON-NLS-1$
 					ocntdn[1] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("2c.gif"))
+				if (string.equals(Messages.getString("xtGraphics.453"))) //$NON-NLS-1$
 					ocntdn[2] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("3c.gif"))
+				if (string.equals(Messages.getString("xtGraphics.454"))) //$NON-NLS-1$
 					ocntdn[3] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("2.gif"))
+				if (string.equals(Messages.getString("xtGraphics.455"))) //$NON-NLS-1$
 					orank[1] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("3.gif"))
+				if (string.equals(Messages.getString("xtGraphics.456"))) //$NON-NLS-1$
 					orank[2] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("4.gif"))
+				if (string.equals(Messages.getString("xtGraphics.457"))) //$NON-NLS-1$
 					orank[3] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("5.gif"))
+				if (string.equals(Messages.getString("xtGraphics.458"))) //$NON-NLS-1$
 					orank[4] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("6.gif"))
+				if (string.equals(Messages.getString("xtGraphics.459"))) //$NON-NLS-1$
 					orank[5] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("7.gif"))
+				if (string.equals(Messages.getString("xtGraphics.460"))) //$NON-NLS-1$
 					orank[6] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("8.gif"))
+				if (string.equals(Messages.getString("xtGraphics.461"))) //$NON-NLS-1$
 					orank[7] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("bgmain.jpg"))
+				if (string.equals(Messages.getString("xtGraphics.462"))) //$NON-NLS-1$
 					bgmain = loadBimage(is, mediatracker, toolkit, 2);
-				if (string.equals("br.png"))
+				if (string.equals(Messages.getString("xtGraphics.463"))) //$NON-NLS-1$
 					br = loadimage(is, mediatracker, toolkit);
-				if (string.equals("loadingmusic.gif"))
+				if (string.equals(Messages.getString("xtGraphics.464"))) //$NON-NLS-1$
 					oloadingmusic = loadimage(is, mediatracker, toolkit);
-				if (string.equals("radicalplay.gif"))
+				if (string.equals(Messages.getString("xtGraphics.465"))) //$NON-NLS-1$
 					radicalplay = loadimage(is, mediatracker, toolkit);
-				if (string.equals("back.gif")) {
+				if (string.equals(Messages.getString("xtGraphics.466"))) { //$NON-NLS-1$
 					back[0] = loadimage(is, mediatracker, toolkit);
 					back[1] = bressed(back[0]);
 				}
-				if (string.equals("continue.gif")) {
+				if (string.equals(Messages.getString("xtGraphics.467"))) { //$NON-NLS-1$
 					contin[0] = loadimage(is, mediatracker, toolkit);
 					contin[1] = bressed(contin[0]);
 				}
-				if (string.equals("next.gif")) {
+				if (string.equals(Messages.getString("xtGraphics.468"))) { //$NON-NLS-1$
 					next[0] = loadimage(is, mediatracker, toolkit);
 					next[1] = bressed(next[0]);
 				}
-				if (string.equals("rpro.gif"))
+				if (string.equals(Messages.getString("xtGraphics.469"))) //$NON-NLS-1$
 					rpro = loadimage(is, mediatracker, toolkit);
-				if (string.equals("selectcar.gif"))
+				if (string.equals(Messages.getString("xtGraphics.470"))) //$NON-NLS-1$
 					selectcar = loadimage(is, mediatracker, toolkit);
-				if (string.equals("track.jpg")) {
+				if (string.equals(Messages.getString("xtGraphics.471"))) { //$NON-NLS-1$
 					trackbg[0] = loadBimage(is, mediatracker, toolkit, 3);
 					trackbg[1] = dodgen(trackbg[0]);
 				}
-				if (string.equals("youlost.gif"))
+				if (string.equals(Messages.getString("xtGraphics.472"))) //$NON-NLS-1$
 					oyoulost = loadimage(is, mediatracker, toolkit);
-				if (string.equals("youwon.gif"))
+				if (string.equals(Messages.getString("xtGraphics.473"))) //$NON-NLS-1$
 					oyouwon = loadimage(is, mediatracker, toolkit);
-				if (string.equals("0c.gif"))
+				if (string.equals(Messages.getString("xtGraphics.474"))) //$NON-NLS-1$
 					ocntdn[0] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("damage.gif"))
+				if (string.equals(Messages.getString("xtGraphics.475"))) //$NON-NLS-1$
 					odmg = loadimage(is, mediatracker, toolkit);
-				if (string.equals("power.gif"))
+				if (string.equals(Messages.getString("xtGraphics.476"))) //$NON-NLS-1$
 					opwr = loadimage(is, mediatracker, toolkit);
-				if (string.equals("position.gif"))
+				if (string.equals(Messages.getString("xtGraphics.477"))) //$NON-NLS-1$
 					opos = loadimage(is, mediatracker, toolkit);
-				if (string.equals("speed.gif"))
+				if (string.equals(Messages.getString("xtGraphics.478"))) //$NON-NLS-1$
 					osped = loadimage(is, mediatracker, toolkit);
-				if (string.equals("wasted.gif"))
+				if (string.equals(Messages.getString("xtGraphics.479"))) //$NON-NLS-1$
 					owas = loadimage(is, mediatracker, toolkit);
-				if (string.equals("start1.gif"))
+				if (string.equals(Messages.getString("xtGraphics.480"))) //$NON-NLS-1$
 					ostar[0] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("start2.gif")) {
+				if (string.equals(Messages.getString("xtGraphics.481"))) { //$NON-NLS-1$
 					ostar[1] = loadimage(is, mediatracker, toolkit);
 					star[2] = pressed(ostar[1]);
 				}
-				if (string.equals("congrad.gif"))
+				if (string.equals(Messages.getString("xtGraphics.482"))) //$NON-NLS-1$
 					congrd = loadimage(is, mediatracker, toolkit);
-				if (string.equals("statb.gif"))
+				if (string.equals(Messages.getString("xtGraphics.483"))) //$NON-NLS-1$
 					statb = loadimage(is, mediatracker, toolkit);
-				if (string.equals("statbo.gif"))
+				if (string.equals(Messages.getString("xtGraphics.484"))) //$NON-NLS-1$
 					statbo = loadimage(is, mediatracker, toolkit);
-				if (string.equals("madness.gif"))
+				if (string.equals(Messages.getString("xtGraphics.485"))) //$NON-NLS-1$
 					mdness = loadude(is, mediatracker, toolkit);
-				if (string.equals("onfmm.gif"))
+				if (string.equals(Messages.getString("xtGraphics.486"))) //$NON-NLS-1$
 					onfmm = loadude(is, mediatracker, toolkit);
-				if (string.equals("fixhoop.png"))
+				if (string.equals(Messages.getString("xtGraphics.487"))) //$NON-NLS-1$
 					fixhoop = loadimage(is, mediatracker, toolkit);
-				if (string.equals("arrow.gif"))
+				if (string.equals(Messages.getString("xtGraphics.488"))) //$NON-NLS-1$
 					sarrow = loadimage(is, mediatracker, toolkit);
-				if (string.equals("stunts.png"))
+				if (string.equals(Messages.getString("xtGraphics.489"))) //$NON-NLS-1$
 					stunts = loadimage(is, mediatracker, toolkit);
-				if (string.equals("racing.gif"))
+				if (string.equals(Messages.getString("xtGraphics.490"))) //$NON-NLS-1$
 					racing = loadimage(is, mediatracker, toolkit);
-				if (string.equals("wasting.gif"))
+				if (string.equals(Messages.getString("xtGraphics.491"))) //$NON-NLS-1$
 					wasting = loadimage(is, mediatracker, toolkit);
-				if (string.equals("plus.gif"))
+				if (string.equals(Messages.getString("xtGraphics.492"))) //$NON-NLS-1$
 					plus = loadimage(is, mediatracker, toolkit);
-				if (string.equals("space.gif"))
+				if (string.equals(Messages.getString("xtGraphics.493"))) //$NON-NLS-1$
 					space = loadimage(is, mediatracker, toolkit);
-				if (string.equals("arrows.gif"))
+				if (string.equals(Messages.getString("xtGraphics.494"))) //$NON-NLS-1$
 					arrows = loadimage(is, mediatracker, toolkit);
-				if (string.equals("chil.gif"))
+				if (string.equals(Messages.getString("xtGraphics.495"))) //$NON-NLS-1$
 					chil = loadimage(is, mediatracker, toolkit);
-				if (string.equals("ory.gif"))
+				if (string.equals(Messages.getString("xtGraphics.496"))) //$NON-NLS-1$
 					ory = loadimage(is, mediatracker, toolkit);
-				if (string.equals("kz.gif"))
+				if (string.equals(Messages.getString("xtGraphics.497"))) //$NON-NLS-1$
 					kz = loadimage(is, mediatracker, toolkit);
-				if (string.equals("kx.gif"))
+				if (string.equals(Messages.getString("xtGraphics.498"))) //$NON-NLS-1$
 					kx = loadimage(is, mediatracker, toolkit);
-				if (string.equals("kv.gif"))
+				if (string.equals(Messages.getString("xtGraphics.499"))) //$NON-NLS-1$
 					kv = loadimage(is, mediatracker, toolkit);
-				if (string.equals("km.gif"))
+				if (string.equals(Messages.getString("xtGraphics.500"))) //$NON-NLS-1$
 					km = loadimage(is, mediatracker, toolkit);
-				if (string.equals("kn.gif"))
+				if (string.equals(Messages.getString("xtGraphics.501"))) //$NON-NLS-1$
 					kn = loadimage(is, mediatracker, toolkit);
-				if (string.equals("ks.gif"))
+				if (string.equals(Messages.getString("xtGraphics.502"))) //$NON-NLS-1$
 					ks = loadimage(is, mediatracker, toolkit);
-				if (string.equals("kenter.gif"))
+				if (string.equals(Messages.getString("xtGraphics.503"))) //$NON-NLS-1$
 					kenter = loadimage(is, mediatracker, toolkit);
-				if (string.equals("nfm.gif"))
+				if (string.equals(Messages.getString("xtGraphics.504"))) //$NON-NLS-1$
 					nfm = loadimage(is, mediatracker, toolkit);
-				if (string.equals("options.png"))
+				if (string.equals(Messages.getString("xtGraphics.505"))) //$NON-NLS-1$
 					opti = loadimage(is, mediatracker, toolkit);
-				if (string.equals("options2.png"))
+				if (string.equals(Messages.getString("xtGraphics.506"))) //$NON-NLS-1$
 					opti2 = loadimage(is, mediatracker, toolkit);
-				if (string.equals("opback.png"))
+				if (string.equals(Messages.getString("xtGraphics.507"))) //$NON-NLS-1$
 					opback = loadimage(is, mediatracker, toolkit);
-				if (string.equals("logocars.png"))
+				if (string.equals(Messages.getString("xtGraphics.508"))) //$NON-NLS-1$
 					logocars = loadimage(is, mediatracker, toolkit);
-				if (string.equals("logomad.png"))
+				if (string.equals(Messages.getString("xtGraphics.509"))) //$NON-NLS-1$
 					logomadnes = loadimage(is, mediatracker, toolkit);
-				if (string.equals("logomadbg.jpg"))
+				if (string.equals(Messages.getString("xtGraphics.510"))) //$NON-NLS-1$
 					logomadbg = loadimage(is, mediatracker, toolkit);
-				if (string.equals("byrd.png"))
+				if (string.equals(Messages.getString("xtGraphics.511"))) //$NON-NLS-1$
 					byrd = loadimage(is, mediatracker, toolkit);
-				if (string.equals("bggo.jpg"))
+				if (string.equals(Messages.getString("xtGraphics.512"))) //$NON-NLS-1$
 					bggo = loadimage(is, mediatracker, toolkit);
-				if (string.equals("nfmcoms.png"))
+				if (string.equals(Messages.getString("xtGraphics.513"))) //$NON-NLS-1$
 					nfmcoms = loadimage(is, mediatracker, toolkit);
-				if (string.equals("nfmcom.gif"))
+				if (string.equals(Messages.getString("xtGraphics.514"))) //$NON-NLS-1$
 					nfmcom = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("brit.gif"))
+				if (string.equals(Messages.getString("xtGraphics.515"))) //$NON-NLS-1$
 					brt = loadimage(is, mediatracker, toolkit);
-				if (string.equals("arn.gif"))
+				if (string.equals(Messages.getString("xtGraphics.516"))) //$NON-NLS-1$
 					arn = loadimage(is, mediatracker, toolkit);
-				if (string.equals("mload.gif"))
+				if (string.equals(Messages.getString("xtGraphics.517"))) //$NON-NLS-1$
 					mload = loadimage(is, mediatracker, toolkit);
-				if (string.equals("login.gif"))
+				if (string.equals(Messages.getString("xtGraphics.518"))) //$NON-NLS-1$
 					login = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("play.gif"))
+				if (string.equals(Messages.getString("xtGraphics.519"))) //$NON-NLS-1$
 					play = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("cancel.gif"))
+				if (string.equals(Messages.getString("xtGraphics.520"))) //$NON-NLS-1$
 					cancel = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("register.gif"))
+				if (string.equals(Messages.getString("xtGraphics.521"))) //$NON-NLS-1$
 					register = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("upgrade.gif"))
+				if (string.equals(Messages.getString("xtGraphics.522"))) //$NON-NLS-1$
 					upgrade = loadimage(is, mediatracker, toolkit);
-				if (string.equals("sdets.gif"))
+				if (string.equals(Messages.getString("xtGraphics.523"))) //$NON-NLS-1$
 					sdets = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("bob.gif"))
+				if (string.equals(Messages.getString("xtGraphics.524"))) //$NON-NLS-1$
 					bob = loadBimage(is, mediatracker, toolkit, 1);
-				if (string.equals("bot.gif"))
+				if (string.equals(Messages.getString("xtGraphics.525"))) //$NON-NLS-1$
 					bot = loadBimage(is, mediatracker, toolkit, 1);
-				if (string.equals("bol.gif"))
+				if (string.equals(Messages.getString("xtGraphics.526"))) //$NON-NLS-1$
 					bol = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("bolp.gif"))
+				if (string.equals(Messages.getString("xtGraphics.527"))) //$NON-NLS-1$
 					bolp = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("bor.gif"))
+				if (string.equals(Messages.getString("xtGraphics.528"))) //$NON-NLS-1$
 					bor = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("borp.gif"))
+				if (string.equals(Messages.getString("xtGraphics.529"))) //$NON-NLS-1$
 					borp = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("logout.gif"))
+				if (string.equals(Messages.getString("xtGraphics.530"))) //$NON-NLS-1$
 					logout = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("change.gif"))
+				if (string.equals(Messages.getString("xtGraphics.531"))) //$NON-NLS-1$
 					change = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("pln.gif"))
+				if (string.equals(Messages.getString("xtGraphics.532"))) //$NON-NLS-1$
 					pln = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("bols.gif"))
+				if (string.equals(Messages.getString("xtGraphics.533"))) //$NON-NLS-1$
 					bols = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("bolps.gif"))
+				if (string.equals(Messages.getString("xtGraphics.534"))) //$NON-NLS-1$
 					bolps = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("bors.gif"))
+				if (string.equals(Messages.getString("xtGraphics.535"))) //$NON-NLS-1$
 					bors = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("borps.gif"))
+				if (string.equals(Messages.getString("xtGraphics.536"))) //$NON-NLS-1$
 					borps = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("games.gif"))
+				if (string.equals(Messages.getString("xtGraphics.537"))) //$NON-NLS-1$
 					games = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("exit.gif"))
+				if (string.equals(Messages.getString("xtGraphics.538"))) //$NON-NLS-1$
 					exit = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("chat.gif"))
+				if (string.equals(Messages.getString("xtGraphics.539"))) //$NON-NLS-1$
 					chat = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("players.gif"))
+				if (string.equals(Messages.getString("xtGraphics.540"))) //$NON-NLS-1$
 					players = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("roomp.gif"))
+				if (string.equals(Messages.getString("xtGraphics.541"))) //$NON-NLS-1$
 					roomp = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("cnmc.gif"))
+				if (string.equals(Messages.getString("xtGraphics.542"))) //$NON-NLS-1$
 					cnmc = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("ready.gif"))
+				if (string.equals(Messages.getString("xtGraphics.543"))) //$NON-NLS-1$
 					redy = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("notreg.gif"))
+				if (string.equals(Messages.getString("xtGraphics.544"))) //$NON-NLS-1$
 					ntrg = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("cgame.gif"))
+				if (string.equals(Messages.getString("xtGraphics.545"))) //$NON-NLS-1$
 					cgame = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("ccar.gif"))
+				if (string.equals(Messages.getString("xtGraphics.546"))) //$NON-NLS-1$
 					ccar = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("lanm.gif"))
+				if (string.equals(Messages.getString("xtGraphics.547"))) //$NON-NLS-1$
 					lanm = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("asu.gif"))
+				if (string.equals(Messages.getString("xtGraphics.548"))) //$NON-NLS-1$
 					asu = loadimage(is, mediatracker, toolkit);
-				if (string.equals("asd.gif"))
+				if (string.equals(Messages.getString("xtGraphics.549"))) //$NON-NLS-1$
 					asd = loadimage(is, mediatracker, toolkit);
-				if (string.equals("pls.gif"))
+				if (string.equals(Messages.getString("xtGraphics.550"))) //$NON-NLS-1$
 					pls = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("sts.gif"))
+				if (string.equals(Messages.getString("xtGraphics.551"))) //$NON-NLS-1$
 					sts = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("gmc.gif"))
+				if (string.equals(Messages.getString("xtGraphics.552"))) //$NON-NLS-1$
 					gmc = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("stg.gif"))
+				if (string.equals(Messages.getString("xtGraphics.553"))) //$NON-NLS-1$
 					stg = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("crd.gif"))
+				if (string.equals(Messages.getString("xtGraphics.554"))) //$NON-NLS-1$
 					crd = loadBimage(is, mediatracker, toolkit, 0);
-				if (string.equals("bcl.gif"))
+				if (string.equals(Messages.getString("xtGraphics.555"))) //$NON-NLS-1$
 					bcl[0] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("bcr.gif"))
+				if (string.equals(Messages.getString("xtGraphics.556"))) //$NON-NLS-1$
 					bcr[0] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("bc.gif"))
+				if (string.equals(Messages.getString("xtGraphics.557"))) //$NON-NLS-1$
 					bc[0] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("pbcl.gif"))
+				if (string.equals(Messages.getString("xtGraphics.558"))) //$NON-NLS-1$
 					bcl[1] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("pbcr.gif"))
+				if (string.equals(Messages.getString("xtGraphics.559"))) //$NON-NLS-1$
 					bcr[1] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("pbc.gif"))
+				if (string.equals(Messages.getString("xtGraphics.560"))) //$NON-NLS-1$
 					bc[1] = loadimage(is, mediatracker, toolkit);
-				if (string.equals("cmc.gif"))
+				if (string.equals(Messages.getString("xtGraphics.561"))) //$NON-NLS-1$
 					cmc = loadimage(is, mediatracker, toolkit);
-				if (string.equals("myc.gif"))
+				if (string.equals(Messages.getString("xtGraphics.562"))) //$NON-NLS-1$
 					myc = loadimage(is, mediatracker, toolkit);
-				if (string.equals("gac.gif"))
+				if (string.equals(Messages.getString("xtGraphics.563"))) //$NON-NLS-1$
 					gac = loadimage(is, mediatracker, toolkit);
-				if (string.equals("yac.gif"))
+				if (string.equals(Messages.getString("xtGraphics.564"))) //$NON-NLS-1$
 					yac = loadimage(is, mediatracker, toolkit);
-				if (string.equals("ycmc.gif"))
+				if (string.equals(Messages.getString("xtGraphics.565"))) //$NON-NLS-1$
 					ycmc = loadimage(is, mediatracker, toolkit);
-				if (string.equals("top20s.gif"))
+				if (string.equals(Messages.getString("xtGraphics.566"))) //$NON-NLS-1$
 					top20s = loadimage(is, mediatracker, toolkit);
 				dnload += 2;
 			}
 			fileinputstream.close();
 			zipinputstream.close();
 		} catch (final Exception exception) {
-			System.out.println(new StringBuilder().append("Error Loading Images: ").append(exception).toString());
+			System.out.println(new StringBuilder().append(Messages.getString("xtGraphics.567")).append(exception).toString()); //$NON-NLS-1$
 		}
 		makecarsbgc(image, image_10_);
 		System.gc();
@@ -4649,9 +4649,9 @@ public class xtGraphics extends Panel implements Runnable {
 		rd.setColor(new Color(128, 167, 255));
 		rd.drawRoundRect(250, 340, 300, 80, 30, 70);
 		rd.drawImage(loadbar, 281, 365, this);
-		rd.setFont(new Font("Arial", 1, 11));
+		rd.setFont(new Font(Messages.getString("xtGraphics.568"), 1, 11)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
-		drawcs(358, "Loading game, please wait.", 0, 0, 0, 3);
+		drawcs(358, Messages.getString("xtGraphics.569"), 0, 0, 0, 3); //$NON-NLS-1$
 		rd.setColor(new Color(255, 255, 255));
 		rd.fillRect(295, 398, 210, 17);
 		shload += (dnload + 10.0F - shload) / 100.0F;
@@ -4660,8 +4660,8 @@ public class xtGraphics extends Panel implements Runnable {
 		if (dnload == kbload)
 			shload = kbload;
 		drawcs(410,
-				new StringBuilder().append("").append((int) ((26.0F + shload / kbload * 200.0F) / 226.0F * 100.0F))
-						.append(" % loaded    |    ").append(kbload - (int) shload).append(" KB remaining").toString(),
+				new StringBuilder().append(Messages.getString("xtGraphics.570")).append((int) ((26.0F + shload / kbload * 200.0F) / 226.0F * 100.0F)) //$NON-NLS-1$
+						.append(Messages.getString("xtGraphics.571")).append(kbload - (int) shload).append(Messages.getString("xtGraphics.572")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 				32, 64, 128, 3);
 		rd.setColor(new Color(32, 64, 128));
 		rd.fillRect(287, 371, 26 + (int) (shload / this.kbload * 200.0F), 10);
@@ -4675,9 +4675,9 @@ public class xtGraphics extends Panel implements Runnable {
 		rd.fillRoundRect(265, 201, 270, 26, 20, 40);
 		rd.setColor(new Color(57, 64, 8));
 		rd.drawRoundRect(265, 201, 270, 26, 20, 40);
-		rd.setFont(new Font("Arial", 1, 12));
+		rd.setFont(new Font(Messages.getString("xtGraphics.573"), 1, 12)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
-		drawcs(219, "Loading, please wait...", 58, 61, 17, 3);
+		drawcs(219, Messages.getString("xtGraphics.574"), 58, 61, 17, 3); //$NON-NLS-1$
 		if (bool)
 			rd.drawImage(select, 338, 35, null);
 		//app.repaint();
@@ -4856,7 +4856,7 @@ public class xtGraphics extends Panel implements Runnable {
 		dnload += 3;
 		try {
 			final File file = new File(
-					new StringBuilder().append("").append(Madness.fpath).append("data/sounds.zip").toString());
+					new StringBuilder().append(Messages.getString("xtGraphics.575")).append(Madness.fpath).append(Messages.getString("xtGraphics.576")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 			final FileInputStream fileinputstream = new FileInputStream(file);
 			final ZipInputStream zipinputstream = new ZipInputStream(fileinputstream);
 			for (ZipEntry zipentry = zipinputstream.getNextEntry(); zipentry != null; zipentry = zipinputstream
@@ -4872,175 +4872,175 @@ public class xtGraphics extends Panel implements Runnable {
 				}
 				for (int i_2_ = 0; i_2_ < 5; i_2_++)
 					for (int i_3_ = 0; i_3_ < 5; i_3_++)
-						if (string.equals(new StringBuilder().append("").append(i_3_).append("").append(i_2_)
-								.append(".wav").toString()))
+						if (string.equals(new StringBuilder().append(Messages.getString("xtGraphics.577")).append(i_3_).append(Messages.getString("xtGraphics.578")).append(i_2_) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(Messages.getString("xtGraphics.579")).toString())) //$NON-NLS-1$
 							engs[i_3_][i_2_] = new soundClip(is);
 				for (int i_4_ = 0; i_4_ < 6; i_4_++)
-					if (string.equals(new StringBuilder().append("air").append(i_4_).append(".wav").toString()))
+					if (string.equals(new StringBuilder().append(Messages.getString("xtGraphics.580")).append(i_4_).append(Messages.getString("xtGraphics.581")).toString())) //$NON-NLS-1$ //$NON-NLS-2$
 						air[i_4_] = new soundClip(is);
 				for (int i_5_ = 0; i_5_ < 3; i_5_++)
-					if (string.equals(new StringBuilder().append("crash").append(i_5_ + 1).append(".wav").toString()))
+					if (string.equals(new StringBuilder().append(Messages.getString("xtGraphics.582")).append(i_5_ + 1).append(Messages.getString("xtGraphics.583")).toString())) //$NON-NLS-1$ //$NON-NLS-2$
 						crash[i_5_] = new soundClip(is);
 				for (int i_6_ = 0; i_6_ < 3; i_6_++)
 					if (string
-							.equals(new StringBuilder().append("lowcrash").append(i_6_ + 1).append(".wav").toString()))
+							.equals(new StringBuilder().append(Messages.getString("xtGraphics.584")).append(i_6_ + 1).append(Messages.getString("xtGraphics.585")).toString())) //$NON-NLS-1$ //$NON-NLS-2$
 						lowcrash[i_6_] = new soundClip(is);
 				for (int i_7_ = 0; i_7_ < 3; i_7_++)
-					if (string.equals(new StringBuilder().append("skid").append(i_7_ + 1).append(".wav").toString()))
+					if (string.equals(new StringBuilder().append(Messages.getString("xtGraphics.586")).append(i_7_ + 1).append(Messages.getString("xtGraphics.587")).toString())) //$NON-NLS-1$ //$NON-NLS-2$
 						skid[i_7_] = new soundClip(is);
 				for (int i_8_ = 0; i_8_ < 3; i_8_++)
 					if (string
-							.equals(new StringBuilder().append("dustskid").append(i_8_ + 1).append(".wav").toString()))
+							.equals(new StringBuilder().append(Messages.getString("xtGraphics.588")).append(i_8_ + 1).append(Messages.getString("xtGraphics.589")).toString())) //$NON-NLS-1$ //$NON-NLS-2$
 						dustskid[i_8_] = new soundClip(is);
 				for (int i_9_ = 0; i_9_ < 3; i_9_++)
 					if (string
-							.equals(new StringBuilder().append("scrape").append(i_9_ + 1).append(".wav").toString())) {
+							.equals(new StringBuilder().append(Messages.getString("xtGraphics.590")).append(i_9_ + 1).append(Messages.getString("xtGraphics.591")).toString())) { //$NON-NLS-1$ //$NON-NLS-2$
 						scrape[i_9_] = new soundClip(is);
 						if (i_9_ == 2)
 							scrape[3] = new soundClip(is);
 					}
-				if (string.equals("powerup.wav"))
+				if (string.equals(Messages.getString("xtGraphics.592"))) //$NON-NLS-1$
 					powerup = new soundClip(is);
-				if (string.equals("tires.wav"))
+				if (string.equals(Messages.getString("xtGraphics.593"))) //$NON-NLS-1$
 					tires = new soundClip(is);
-				if (string.equals("checkpoint.wav"))
+				if (string.equals(Messages.getString("xtGraphics.594"))) //$NON-NLS-1$
 					checkpoint = new soundClip(is);
-				if (string.equals("carfixed.wav"))
+				if (string.equals(Messages.getString("xtGraphics.595"))) //$NON-NLS-1$
 					carfixed = new soundClip(is);
-				if (string.equals("three.wav"))
+				if (string.equals(Messages.getString("xtGraphics.596"))) //$NON-NLS-1$
 					three = new soundClip(is);
-				if (string.equals("two.wav"))
+				if (string.equals(Messages.getString("xtGraphics.597"))) //$NON-NLS-1$
 					two = new soundClip(is);
-				if (string.equals("one.wav"))
+				if (string.equals(Messages.getString("xtGraphics.598"))) //$NON-NLS-1$
 					one = new soundClip(is);
-				if (string.equals("go.wav"))
+				if (string.equals(Messages.getString("xtGraphics.599"))) //$NON-NLS-1$
 					go = new soundClip(is);
-				if (string.equals("wasted.wav"))
+				if (string.equals(Messages.getString("xtGraphics.600"))) //$NON-NLS-1$
 					wastd = new soundClip(is);
-				if (string.equals("firewasted.wav"))
+				if (string.equals(Messages.getString("xtGraphics.601"))) //$NON-NLS-1$
 					firewasted = new soundClip(is);
 				dnload += 5;
 			}
 			fileinputstream.close();
 			zipinputstream.close();
 		} catch (final Exception exception) {
-			System.out.println(new StringBuilder().append("Error Loading Sounds: ").append(exception).toString());
+			System.out.println(new StringBuilder().append(Messages.getString("xtGraphics.602")).append(exception).toString()); //$NON-NLS-1$
 		}
 		System.gc();
 	}
 
 	public void loadstrack(final int i, final String string, final int i_52_) {
-		if (new File("music/stage" + i + ".mid").exists())
-			strack = new RadicalMidi("music/stage" + i + ".mid");
-		else if (new File("music/stage" + i + ".mp3").exists())
-			strack = new RadicalMp3("music/stage" + i + ".mp3");
-		else if (new File("music/stage" + i + ".ogg").exists())
-			strack = new RadicalOgg("music/stage" + i + ".ogg");
+		if (new File(Messages.getString("xtGraphics.603") + i + Messages.getString("xtGraphics.604")).exists()) //$NON-NLS-1$ //$NON-NLS-2$
+			strack = new RadicalMidi(Messages.getString("xtGraphics.605") + i + Messages.getString("xtGraphics.606")); //$NON-NLS-1$ //$NON-NLS-2$
+		else if (new File(Messages.getString("xtGraphics.607") + i + Messages.getString("xtGraphics.608")).exists()) //$NON-NLS-1$ //$NON-NLS-2$
+			strack = new RadicalMp3(Messages.getString("xtGraphics.609") + i + Messages.getString("xtGraphics.610")); //$NON-NLS-1$ //$NON-NLS-2$
+		else if (new File(Messages.getString("xtGraphics.611") + i + Messages.getString("xtGraphics.612")).exists()) //$NON-NLS-1$ //$NON-NLS-2$
+			strack = new RadicalOgg(Messages.getString("xtGraphics.613") + i + Messages.getString("xtGraphics.614")); //$NON-NLS-1$ //$NON-NLS-2$
 		else {
 			if (i == 1)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.615")).append(i).append(Messages.getString("xtGraphics.616")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						240, 8400, 135, false, false);
 			if (i == 2)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.617")).append(i).append(Messages.getString("xtGraphics.618")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						190, 9000, 145, false, false);
 			if (i == 3)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.619")).append(i).append(Messages.getString("xtGraphics.620")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						170, 8500, 145, false, false);
 			if (i == 4)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.621")).append(i).append(Messages.getString("xtGraphics.622")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						205, 7500, 125, false, false);
 			if (i == 5)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.623")).append(i).append(Messages.getString("xtGraphics.624")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						170, 7900, 125, false, false);
 			if (i == 6)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.625")).append(i).append(Messages.getString("xtGraphics.626")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						370, 7900, 125, false, false);
 			if (i == 7)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.627")).append(i).append(Messages.getString("xtGraphics.628")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						205, 7500, 125, false, false);
 			if (i == 8)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.629")).append(i).append(Messages.getString("xtGraphics.630")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						230, 7900, 125, false, false);
 			if (i == 9)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.631")).append(i).append(Messages.getString("xtGraphics.632")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						180, 7900, 125, false, false);
 			if (i == 10)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.633")).append(i).append(Messages.getString("xtGraphics.634")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						280, 8100, 145, false, false);
 			if (i == 11)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.635")).append(i).append(Messages.getString("xtGraphics.636")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						120, 8000, 125, false, false);
 			if (i == 12)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.637")).append(i).append(Messages.getString("xtGraphics.638")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						260, 7200, 125, false, false);
 			if (i == 13)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.639")).append(i).append(Messages.getString("xtGraphics.640")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						270, 8000, 125, false, false);
 			if (i == 14)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.641")).append(i).append(Messages.getString("xtGraphics.642")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						190, 8000, 125, false, false);
 			if (i == 15)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.643")).append(i).append(Messages.getString("xtGraphics.644")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						162, 7800, 125, false, false);
 			if (i == 16)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.645")).append(i).append(Messages.getString("xtGraphics.646")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						220, 7600, 125, false, false);
 			if (i == 17)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.647")).append(i).append(Messages.getString("xtGraphics.648")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						300, 7500, 125, false, false);
 			if (i == 18)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.649")).append(i).append(Messages.getString("xtGraphics.650")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						200, 7900, 125, false, false);
 			if (i == 19)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.651")).append(i).append(Messages.getString("xtGraphics.652")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						200, 7900, 125, false, false);
 			if (i == 20)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.653")).append(i).append(Messages.getString("xtGraphics.654")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						232, 7300, 125, false, false);
 			if (i == 21)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.655")).append(i).append(Messages.getString("xtGraphics.656")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						370, 7900, 125, false, false);
 			if (i == 22)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.657")).append(i).append(Messages.getString("xtGraphics.658")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						290, 7900, 125, false, false);
 			if (i == 23)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.659")).append(i).append(Messages.getString("xtGraphics.660")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						222, 7600, 125, false, false);
 			if (i == 24)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.661")).append(i).append(Messages.getString("xtGraphics.662")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						230, 8000, 125, false, false);
 			if (i == 25)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.663")).append(i).append(Messages.getString("xtGraphics.664")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						220, 8000, 125, false, false);
 			if (i == 26)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.665")).append(i).append(Messages.getString("xtGraphics.666")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						261, 8000, 125, false, false);
 			if (i == 27)
-				strack = new RadicalMod("music/party.zip", 400, 7600, 125, false, false);
+				strack = new RadicalMod(Messages.getString("xtGraphics.667"), 400, 7600, 125, false, false); //$NON-NLS-1$
 			if (i == 28)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.668")).append(i).append(Messages.getString("xtGraphics.669")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						182, 8000, 125, false, false);
 			if (i == 29)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.670")).append(i).append(Messages.getString("xtGraphics.671")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						220, 8000, 125, false, false);
 			if (i == 30)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.672")).append(i).append(Messages.getString("xtGraphics.673")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						200, 8000, 125, false, false);
 			if (i == 31)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.674")).append(i).append(Messages.getString("xtGraphics.675")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						350, 7900, 125, false, false);
 			if (i == 32)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.676")).append(i).append(Messages.getString("xtGraphics.677")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						310, 8000, 125, false, false);
 			if (i > 32)
-				strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(),
+				strack = new RadicalMod(new StringBuilder().append(Messages.getString("xtGraphics.678")).append(i).append(Messages.getString("xtGraphics.679")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						550, 8000, 125, false, false);
 		}
 		if (i < 0)
-			if (!string.equals("")) {
+			if (!string.equals(Messages.getString("xtGraphics.680"))) { //$NON-NLS-1$
 				if (i != -2)
 					strack = new RadicalMod(
-							new StringBuilder().append("mystages/mymusic/").append(string).append(".zip").toString(),
+							new StringBuilder().append(Messages.getString("xtGraphics.681")).append(string).append(Messages.getString("xtGraphics.682")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 							i_52_, 8000, 125, false, false);
 				else
 					strack = new RadicalMod(string, i_52_, 8000, 125, false, true);
@@ -5680,112 +5680,112 @@ public class xtGraphics extends Panel implements Runnable {
 	public boolean msgcheck(String string) {
 		boolean bool = false;
 		string = string.toLowerCase();
-		final String[] strings = { "fu ", " rape", "slut ", "screw ", "redtube", "fuck", "fuk", "f*ck", "fu*k", "f**k",
-				"ass hole", "asshole", "dick", "dik", "cock", "cok ", "shit", "damn", "sex", "anal", "whore", "bitch",
-				"biatch", "bich", " ass", "bastard", "cunt", "dildo", "fag", "homo", "mothaf", "motherf", "negro",
-				"nigga", "nigger", "pussy", "gay", "homo", "you punk", "i will kill you" };
+		final String[] strings = { Messages.getString("xtGraphics.683"), Messages.getString("xtGraphics.684"), Messages.getString("xtGraphics.685"), Messages.getString("xtGraphics.686"), Messages.getString("xtGraphics.687"), Messages.getString("xtGraphics.688"), Messages.getString("xtGraphics.689"), Messages.getString("xtGraphics.690"), Messages.getString("xtGraphics.691"), Messages.getString("xtGraphics.692"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$ //$NON-NLS-10$
+				Messages.getString("xtGraphics.693"), Messages.getString("xtGraphics.694"), Messages.getString("xtGraphics.695"), Messages.getString("xtGraphics.696"), Messages.getString("xtGraphics.697"), Messages.getString("xtGraphics.698"), Messages.getString("xtGraphics.699"), Messages.getString("xtGraphics.700"), Messages.getString("xtGraphics.701"), Messages.getString("xtGraphics.702"), Messages.getString("xtGraphics.703"), Messages.getString("xtGraphics.704"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$ //$NON-NLS-10$ //$NON-NLS-11$ //$NON-NLS-12$
+				Messages.getString("xtGraphics.705"), Messages.getString("xtGraphics.706"), Messages.getString("xtGraphics.707"), Messages.getString("xtGraphics.708"), Messages.getString("xtGraphics.709"), Messages.getString("xtGraphics.710"), Messages.getString("xtGraphics.711"), Messages.getString("xtGraphics.712"), Messages.getString("xtGraphics.713"), Messages.getString("xtGraphics.714"), Messages.getString("xtGraphics.715"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$ //$NON-NLS-10$ //$NON-NLS-11$
+				Messages.getString("xtGraphics.716"), Messages.getString("xtGraphics.717"), Messages.getString("xtGraphics.718"), Messages.getString("xtGraphics.719"), Messages.getString("xtGraphics.720"), Messages.getString("xtGraphics.721"), Messages.getString("xtGraphics.722") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
 		for (int i = 0; i < strings.length; i++)
 			if (string.indexOf(strings[i]) != -1)
 				bool = true;
-		if (string.startsWith("ass "))
+		if (string.startsWith(Messages.getString("xtGraphics.723"))) //$NON-NLS-1$
 			bool = true;
-		if (string.equals("ass"))
+		if (string.equals(Messages.getString("xtGraphics.724"))) //$NON-NLS-1$
 			bool = true;
-		if (string.equals("rape"))
+		if (string.equals(Messages.getString("xtGraphics.725"))) //$NON-NLS-1$
 			bool = true;
-		if (string.equals("fu"))
+		if (string.equals(Messages.getString("xtGraphics.726"))) //$NON-NLS-1$
 			bool = true;
-		String string_419_ = "";
-		String string_420_ = "";
+		String string_419_ = Messages.getString("xtGraphics.727"); //$NON-NLS-1$
+		String string_420_ = Messages.getString("xtGraphics.728"); //$NON-NLS-1$
 		int i = 0;
 		boolean bool_421_ = false;
 		boolean bool_422_;
 		for (bool_422_ = false; i < string.length() && !bool_422_; i++)
 			if (!bool_421_) {
-				string_419_ = new StringBuilder().append(string_419_).append("").append(string.charAt(i)).toString();
+				string_419_ = new StringBuilder().append(string_419_).append(Messages.getString("xtGraphics.729")).append(string.charAt(i)).toString(); //$NON-NLS-1$
 				bool_421_ = true;
 			} else {
 				bool_421_ = false;
-				if (!string_420_.equals("")
-						&& !string_420_.equals(new StringBuilder().append("").append(string.charAt(i)).toString()))
+				if (!string_420_.equals(Messages.getString("xtGraphics.730")) //$NON-NLS-1$
+						&& !string_420_.equals(new StringBuilder().append(Messages.getString("xtGraphics.731")).append(string.charAt(i)).toString())) //$NON-NLS-1$
 					bool_422_ = true;
-				string_420_ = new StringBuilder().append("").append(string.charAt(i)).toString();
+				string_420_ = new StringBuilder().append(Messages.getString("xtGraphics.732")).append(string.charAt(i)).toString(); //$NON-NLS-1$
 			}
 		if (!bool_422_)
 			for (int i_423_ = 0; i_423_ < strings.length; i_423_++)
 				if (string_419_.indexOf(strings[i_423_]) != -1)
 					bool = true;
-		string_419_ = "";
-		string_420_ = "";
+		string_419_ = Messages.getString("xtGraphics.733"); //$NON-NLS-1$
+		string_420_ = Messages.getString("xtGraphics.734"); //$NON-NLS-1$
 		i = 0;
 		bool_421_ = true;
 		for (bool_422_ = false; i < string.length() && !bool_422_; i++)
 			if (!bool_421_) {
-				string_419_ = new StringBuilder().append(string_419_).append("").append(string.charAt(i)).toString();
+				string_419_ = new StringBuilder().append(string_419_).append(Messages.getString("xtGraphics.735")).append(string.charAt(i)).toString(); //$NON-NLS-1$
 				bool_421_ = true;
 			} else {
 				bool_421_ = false;
-				if (!string_420_.equals("")
-						&& !string_420_.equals(new StringBuilder().append("").append(string.charAt(i)).toString()))
+				if (!string_420_.equals(Messages.getString("xtGraphics.736")) //$NON-NLS-1$
+						&& !string_420_.equals(new StringBuilder().append(Messages.getString("xtGraphics.737")).append(string.charAt(i)).toString())) //$NON-NLS-1$
 					bool_422_ = true;
-				string_420_ = new StringBuilder().append("").append(string.charAt(i)).toString();
+				string_420_ = new StringBuilder().append(Messages.getString("xtGraphics.738")).append(string.charAt(i)).toString(); //$NON-NLS-1$
 			}
 		if (!bool_422_)
 			for (int i_424_ = 0; i_424_ < strings.length; i_424_++)
 				if (string_419_.indexOf(strings[i_424_]) != -1)
 					bool = true;
-		string_419_ = "";
-		string_420_ = "";
+		string_419_ = Messages.getString("xtGraphics.739"); //$NON-NLS-1$
+		string_420_ = Messages.getString("xtGraphics.740"); //$NON-NLS-1$
 		i = 0;
 		int i_425_ = 0;
 		for (bool_422_ = false; i < string.length() && !bool_422_; i++)
 			if (i_425_ == 0) {
-				string_419_ = new StringBuilder().append(string_419_).append("").append(string.charAt(i)).toString();
+				string_419_ = new StringBuilder().append(string_419_).append(Messages.getString("xtGraphics.741")).append(string.charAt(i)).toString(); //$NON-NLS-1$
 				i_425_ = 2;
 			} else {
 				i_425_--;
-				if (!string_420_.equals("")
-						&& !string_420_.equals(new StringBuilder().append("").append(string.charAt(i)).toString()))
+				if (!string_420_.equals(Messages.getString("xtGraphics.742")) //$NON-NLS-1$
+						&& !string_420_.equals(new StringBuilder().append(Messages.getString("xtGraphics.743")).append(string.charAt(i)).toString())) //$NON-NLS-1$
 					bool_422_ = true;
-				string_420_ = new StringBuilder().append("").append(string.charAt(i)).toString();
+				string_420_ = new StringBuilder().append(Messages.getString("xtGraphics.744")).append(string.charAt(i)).toString(); //$NON-NLS-1$
 			}
 		if (!bool_422_)
 			for (int i_426_ = 0; i_426_ < strings.length; i_426_++)
 				if (string_419_.indexOf(strings[i_426_]) != -1)
 					bool = true;
-		string_419_ = "";
-		string_420_ = "";
+		string_419_ = Messages.getString("xtGraphics.745"); //$NON-NLS-1$
+		string_420_ = Messages.getString("xtGraphics.746"); //$NON-NLS-1$
 		i = 0;
 		i_425_ = 1;
 		for (bool_422_ = false; i < string.length() && !bool_422_; i++)
 			if (i_425_ == 0) {
-				string_419_ = new StringBuilder().append(string_419_).append("").append(string.charAt(i)).toString();
+				string_419_ = new StringBuilder().append(string_419_).append(Messages.getString("xtGraphics.747")).append(string.charAt(i)).toString(); //$NON-NLS-1$
 				i_425_ = 2;
 			} else {
 				i_425_--;
-				if (!string_420_.equals("")
-						&& !string_420_.equals(new StringBuilder().append("").append(string.charAt(i)).toString()))
+				if (!string_420_.equals(Messages.getString("xtGraphics.748")) //$NON-NLS-1$
+						&& !string_420_.equals(new StringBuilder().append(Messages.getString("xtGraphics.749")).append(string.charAt(i)).toString())) //$NON-NLS-1$
 					bool_422_ = true;
-				string_420_ = new StringBuilder().append("").append(string.charAt(i)).toString();
+				string_420_ = new StringBuilder().append(Messages.getString("xtGraphics.750")).append(string.charAt(i)).toString(); //$NON-NLS-1$
 			}
 		if (!bool_422_)
 			for (int i_427_ = 0; i_427_ < strings.length; i_427_++)
 				if (string_419_.indexOf(strings[i_427_]) != -1)
 					bool = true;
-		string_419_ = "";
-		string_420_ = "";
+		string_419_ = Messages.getString("xtGraphics.751"); //$NON-NLS-1$
+		string_420_ = Messages.getString("xtGraphics.752"); //$NON-NLS-1$
 		i = 0;
 		i_425_ = 2;
 		for (bool_422_ = false; i < string.length() && !bool_422_; i++)
 			if (i_425_ == 0) {
-				string_419_ = new StringBuilder().append(string_419_).append("").append(string.charAt(i)).toString();
+				string_419_ = new StringBuilder().append(string_419_).append(Messages.getString("xtGraphics.753")).append(string.charAt(i)).toString(); //$NON-NLS-1$
 				i_425_ = 2;
 			} else {
 				i_425_--;
-				if (!string_420_.equals("")
-						&& !string_420_.equals(new StringBuilder().append("").append(string.charAt(i)).toString()))
+				if (!string_420_.equals(Messages.getString("xtGraphics.754")) //$NON-NLS-1$
+						&& !string_420_.equals(new StringBuilder().append(Messages.getString("xtGraphics.755")).append(string.charAt(i)).toString())) //$NON-NLS-1$
 					bool_422_ = true;
-				string_420_ = new StringBuilder().append("").append(string.charAt(i)).toString();
+				string_420_ = new StringBuilder().append(Messages.getString("xtGraphics.756")).append(string.charAt(i)).toString(); //$NON-NLS-1$
 			}
 		if (!bool_422_)
 			for (int i_428_ = 0; i_428_ < strings.length; i_428_++)
@@ -5845,21 +5845,21 @@ public class xtGraphics extends Panel implements Runnable {
 						rd.fillRect(403, 162, 39, 17);
 					}
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Yes", 366, 175);
-					rd.drawString("No", 416, 175);
+					rd.drawString(Messages.getString("xtGraphics.757"), 366, 175); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.758"), 416, 175); //$NON-NLS-1$
 					rd.setColor(new Color(m.csky[0] / 2, m.csky[1] / 2, m.csky[2] / 2));
 					rd.drawRect(403, 162, 39, 17);
 					rd.drawRect(357, 162, 39, 17);
 				} else {
-					rd.setFont(new Font("Arial", 1, 13));
+					rd.setFont(new Font(Messages.getString("xtGraphics.759"), 1, 13)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
-					drawcs(125, "You cannot exit game.  Your computer is the LAN server!", 0, 0, 0, 0);
+					drawcs(125, Messages.getString("xtGraphics.760"), 0, 0, 0, 0); //$NON-NLS-1$
 					msgflk[0]++;
 					if (msgflk[0] == 67 || bool) {
 						msgflk[0] = 0;
 						exitm = 0;
 					}
-					rd.setFont(new Font("Arial", 1, 11));
+					rd.setFont(new Font(Messages.getString("xtGraphics.761"), 1, 11)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
 				}
 			} else if (exitm == 4) {
@@ -5902,11 +5902,11 @@ public class xtGraphics extends Panel implements Runnable {
 				if (!lan || im != 0)
 					rd.fillRect(403, 362, 39, 7);
 				rd.setColor(new Color(0, 0, 0));
-				rd.setFont(new Font("Arial", 1, 13));
+				rd.setFont(new Font(Messages.getString("xtGraphics.762"), 1, 13)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
 				if (lan && im == 0)
-					drawcs(140, "(You cannot exit game.  Your computer is the LAN server... )", 0, 0, 0, 0);
-				rd.drawString("Continue watching this game?", 155, 375);
+					drawcs(140, Messages.getString("xtGraphics.763"), 0, 0, 0, 0); //$NON-NLS-1$
+				rd.drawString(Messages.getString("xtGraphics.764"), 155, 375); //$NON-NLS-1$
 				if (i > 357 && i < 396 && i_53_ > 362 && i_53_ < 379) {
 					rd.setColor(new Color(m.csky[0], m.csky[1], m.csky[2]));
 					rd.fillRect(357, 362, 39, 17);
@@ -5915,12 +5915,12 @@ public class xtGraphics extends Panel implements Runnable {
 					rd.setColor(new Color(m.csky[0], m.csky[1], m.csky[2]));
 					rd.fillRect(403, 362, 39, 17);
 				}
-				rd.setFont(new Font("Arial", 1, 11));
+				rd.setFont(new Font(Messages.getString("xtGraphics.765"), 1, 11)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
 				rd.setColor(new Color(0, 0, 0));
-				rd.drawString("Yes", 366, 375);
+				rd.drawString(Messages.getString("xtGraphics.766"), 366, 375); //$NON-NLS-1$
 				if (!lan || im != 0)
-					rd.drawString("No", 416, 375);
+					rd.drawString(Messages.getString("xtGraphics.767"), 416, 375); //$NON-NLS-1$
 				rd.setColor(new Color(m.csky[0] / 2, m.csky[1] / 2, m.csky[2] / 2));
 				if (!lan || im != 0)
 					rd.drawRoundRect(147, 357, 301, 27, 7, 20);
@@ -5986,27 +5986,27 @@ public class xtGraphics extends Panel implements Runnable {
 						} else if (i_57_ == 0 && mouson != 0)
 							mouson = 0;
 						if (bool_59_) {
-							String string = "";
+							String string = Messages.getString("xtGraphics.768"); //$NON-NLS-1$
 							int i_60_ = 0;
 							int i_61_ = 1;
 							for ( /**/ ; i_60_ < lcmsg[i_57_].length(); i_60_++) {
-								final String string_62_ = new StringBuilder().append("")
+								final String string_62_ = new StringBuilder().append(Messages.getString("xtGraphics.769")) //$NON-NLS-1$
 										.append(lcmsg[i_57_].charAt(i_60_)).toString();
-								if (string_62_.equals(" "))
+								if (string_62_.equals(Messages.getString("xtGraphics.770"))) //$NON-NLS-1$
 									i_61_++;
 								else
 									i_61_ = 0;
 								if (i_61_ < 2)
 									string = new StringBuilder().append(string).append(string_62_).toString();
 							}
-							if (!string.equals("")) {
+							if (!string.equals(Messages.getString("xtGraphics.771"))) { //$NON-NLS-1$
 								string = string.replace('|', ':');
 								if (string.toLowerCase().indexOf(app.tpass.getText().toLowerCase()) != -1)
-									string = " ";
+									string = Messages.getString("xtGraphics.772"); //$NON-NLS-1$
 								if (!msgcheck(string) && updatec[i_57_] > -12) {
-									if (cnames[i_57_][6].equals("Game Chat  ") || cnames[i_57_][6].equals(
-											new StringBuilder().append("").append(clan).append("'s Chat  ").toString()))
-										cnames[i_57_][6] = "";
+									if (cnames[i_57_][6].equals(Messages.getString("xtGraphics.773")) || cnames[i_57_][6].equals( //$NON-NLS-1$
+											new StringBuilder().append(Messages.getString("xtGraphics.774")).append(clan).append(Messages.getString("xtGraphics.775")).toString())) //$NON-NLS-1$ //$NON-NLS-2$
+										cnames[i_57_][6] = Messages.getString("xtGraphics.776"); //$NON-NLS-1$
 									for (int i_63_ = 0; i_63_ < 6; i_63_++) {
 										sentn[i_57_][i_63_] = sentn[i_57_][i_63_ + 1];
 										cnames[i_57_][i_63_] = cnames[i_57_][i_63_ + 1];
@@ -6070,24 +6070,24 @@ public class xtGraphics extends Panel implements Runnable {
 										}
 									if (pointc[i_57_] >= i_67_) {
 										rd.setColor(new Color(0, i_65_, i_66_));
-										rd.setFont(new Font("Tahoma", 1, 11));
+										rd.setFont(new Font(Messages.getString("xtGraphics.777"), 1, 11)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
-										rd.drawString(new StringBuilder().append(cnames[i_57_][i_67_]).append(": ")
+										rd.drawString(new StringBuilder().append(cnames[i_57_][i_67_]).append(Messages.getString("xtGraphics.778")) //$NON-NLS-1$
 												.toString(), 39 + i_64_ + movepos[i_57_], 439 + i_56_);
 										i_64_ += ftm.stringWidth(new StringBuilder().append(cnames[i_57_][i_67_])
-												.append(": ").toString());
+												.append(Messages.getString("xtGraphics.779")).toString()); //$NON-NLS-1$
 										rd.setColor(new Color(0, 0, 0));
-										rd.setFont(new Font("Tahoma", 0, 11));
+										rd.setFont(new Font(Messages.getString("xtGraphics.780"), 0, 11)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
-										rd.drawString(new StringBuilder().append(sentn[i_57_][i_67_]).append("   ")
+										rd.drawString(new StringBuilder().append(sentn[i_57_][i_67_]).append(Messages.getString("xtGraphics.781")) //$NON-NLS-1$
 												.toString(), 39 + i_64_ + movepos[i_57_], 439 + i_56_);
 										i_64_ += ftm.stringWidth(new StringBuilder().append(sentn[i_57_][i_67_])
-												.append("   ").toString());
+												.append(Messages.getString("xtGraphics.782")).toString()); //$NON-NLS-1$
 									} else {
 										i_64_ += ftm.stringWidth(new StringBuilder().append(cnames[i_57_][i_67_])
-												.append(": ").toString());
+												.append(Messages.getString("xtGraphics.783")).toString()); //$NON-NLS-1$
 										i_64_ += ftm.stringWidth(new StringBuilder().append(sentn[i_57_][i_67_])
-												.append("   ").toString());
+												.append(Messages.getString("xtGraphics.784")).toString()); //$NON-NLS-1$
 									}
 								}
 								rd.setColor(new Color(0, 0, 0));
@@ -6098,43 +6098,43 @@ public class xtGraphics extends Panel implements Runnable {
 									if (i_68_ == 6 && msgflk[i_57_] != 0)
 										msgflk[i_57_]--;
 									rd.setColor(new Color(0, i_65_, i_66_));
-									rd.setFont(new Font("Tahoma", 1, 11));
+									rd.setFont(new Font(Messages.getString("xtGraphics.785"), 1, 11)); //$NON-NLS-1$
 									ftm = rd.getFontMetrics();
 									if (ftm.stringWidth(
-											new StringBuilder().append(cnames[i_57_][i_68_]).append(": ").toString())
+											new StringBuilder().append(cnames[i_57_][i_68_]).append(Messages.getString("xtGraphics.786")).toString()) //$NON-NLS-1$
 											+ 39 + i_64_ < 775) {
 										if (i_68_ != 6 || msgflk[i_57_] < 67 || msgflk[i_57_] % 3 != 0)
-											rd.drawString(new StringBuilder().append(cnames[i_57_][i_68_]).append(": ")
+											rd.drawString(new StringBuilder().append(cnames[i_57_][i_68_]).append(Messages.getString("xtGraphics.787")) //$NON-NLS-1$
 													.toString(), 39 + i_64_, 439 + i_56_);
 										i_64_ += ftm.stringWidth(new StringBuilder().append(cnames[i_57_][i_68_])
-												.append(": ").toString());
+												.append(Messages.getString("xtGraphics.788")).toString()); //$NON-NLS-1$
 									} else {
-										String string = "";
+										String string = Messages.getString("xtGraphics.789"); //$NON-NLS-1$
 										for (int i_69_ = 0; ftm.stringWidth(string) + 39 + i_64_ < 775
 												&& i_69_ < cnames[i_57_][i_68_].length(); i_69_++)
 											string = new StringBuilder().append(string)
 													.append(cnames[i_57_][i_68_].charAt(i_69_)).toString();
-										string = new StringBuilder().append(string).append("...").toString();
+										string = new StringBuilder().append(string).append(Messages.getString("xtGraphics.790")).toString(); //$NON-NLS-1$
 										if (i_68_ != 6 || msgflk[i_57_] < 67 || msgflk[i_57_] % 3 != 0)
 											rd.drawString(string, 39 + i_64_, 439 + i_56_);
 										break;
 									}
 									rd.setColor(new Color(0, 0, 0));
-									rd.setFont(new Font("Tahoma", 0, 11));
+									rd.setFont(new Font(Messages.getString("xtGraphics.791"), 0, 11)); //$NON-NLS-1$
 									ftm = rd.getFontMetrics();
 									if (ftm.stringWidth(sentn[i_57_][i_68_]) + 39 + i_64_ < 775) {
 										if (i_68_ != 6 || msgflk[i_57_] < 67 || msgflk[i_57_] % 3 != 0)
-											rd.drawString(new StringBuilder().append(sentn[i_57_][i_68_]).append("   ")
+											rd.drawString(new StringBuilder().append(sentn[i_57_][i_68_]).append(Messages.getString("xtGraphics.792")) //$NON-NLS-1$
 													.toString(), 39 + i_64_, 439 + i_56_);
 										i_64_ += ftm.stringWidth(new StringBuilder().append(sentn[i_57_][i_68_])
-												.append("   ").toString());
+												.append(Messages.getString("xtGraphics.793")).toString()); //$NON-NLS-1$
 									} else {
-										String string = "";
+										String string = Messages.getString("xtGraphics.794"); //$NON-NLS-1$
 										for (int i_70_ = 0; ftm.stringWidth(string) + 39 + i_64_ < 775
 												&& i_70_ < sentn[i_57_][i_68_].length(); i_70_++)
 											string = new StringBuilder().append(string)
 													.append(sentn[i_57_][i_68_].charAt(i_70_)).toString();
-										string = new StringBuilder().append(string).append("...").toString();
+										string = new StringBuilder().append(string).append(Messages.getString("xtGraphics.795")).toString(); //$NON-NLS-1$
 										if (i_68_ != 6 || msgflk[i_57_] < 67 || msgflk[i_57_] % 3 != 0)
 											rd.drawString(string, 39 + i_64_, 439 + i_56_);
 										break;
@@ -6161,8 +6161,8 @@ public class xtGraphics extends Panel implements Runnable {
 						else
 							rd.setColor(new Color((int) (m.cgrnd[0] / 2.0F), (int) (m.cgrnd[1] / 2.0F),
 									(int) (m.cgrnd[2] / 2.0F)));
-						rd.setFont(new Font("Tahoma", 1, 11));
-						rd.drawString("<<", 10, 439 + i_56_);
+						rd.setFont(new Font(Messages.getString("xtGraphics.796"), 1, 11)); //$NON-NLS-1$
+						rd.drawString(Messages.getString("xtGraphics.797"), 10, 439 + i_56_); //$NON-NLS-1$
 						rd.setColor(new Color(0, 0, 0));
 						rd.drawRect(5, 423 + i_56_, 789, 23);
 						rd.drawLine(33, 423 + i_56_, 33, 446 + i_56_);
@@ -6190,8 +6190,8 @@ public class xtGraphics extends Panel implements Runnable {
 							}
 						}
 					}
-					rd.setFont(new Font("Arial", 1, 12));
-					rd.drawString("x", 782, 420 - i_55_ * 23);
+					rd.setFont(new Font(Messages.getString("xtGraphics.798"), 1, 12)); //$NON-NLS-1$
+					rd.drawString(Messages.getString("xtGraphics.799"), 782, 420 - i_55_ * 23); //$NON-NLS-1$
 				} else {
 					drawWarning();
 					if (app.cmsg.isShowing()) {
@@ -6200,7 +6200,7 @@ public class xtGraphics extends Panel implements Runnable {
 					}
 					warning++;
 				}
-				rd.setFont(new Font("Arial", 1, 11));
+				rd.setFont(new Font(Messages.getString("xtGraphics.800"), 1, 11)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
 			} else if (control.chatup != 0) {
 				control.chatup = 0;
@@ -6247,7 +6247,7 @@ public class xtGraphics extends Panel implements Runnable {
 					if (lan) {
 						boolean bool_72_ = true;
 						for (int i_73_ = 0; i_73_ < nplayers; i_73_++)
-							if (dested[i_73_] == 0 && plnames[i_73_].indexOf("MadBot") == -1)
+							if (dested[i_73_] == 0 && plnames[i_73_].indexOf(Messages.getString("xtGraphics.801")) == -1) //$NON-NLS-1$
 								bool_72_ = false;
 						if (bool_72_)
 							exitm = 2;
@@ -6265,13 +6265,13 @@ public class xtGraphics extends Panel implements Runnable {
 								i_81_ = 0;
 							rd.setColor(new Color(0, 0, i_81_));
 							if (i_75_ == 0)
-								rd.drawString("1st", 673, 76 + 30 * i_75_);
+								rd.drawString(Messages.getString("xtGraphics.802"), 673, 76 + 30 * i_75_); //$NON-NLS-1$
 							if (i_75_ == 1)
-								rd.drawString("2nd", 671, 76 + 30 * i_75_);
+								rd.drawString(Messages.getString("xtGraphics.803"), 671, 76 + 30 * i_75_); //$NON-NLS-1$
 							if (i_75_ == 2)
-								rd.drawString("3rd", 671, 76 + 30 * i_75_);
+								rd.drawString(Messages.getString("xtGraphics.804"), 671, 76 + 30 * i_75_); //$NON-NLS-1$
 							if (i_75_ >= 3)
-								rd.drawString(new StringBuilder().append("").append(i_75_ + 1).append("th").toString(),
+								rd.drawString(new StringBuilder().append(Messages.getString("xtGraphics.805")).append(i_75_ + 1).append(Messages.getString("xtGraphics.806")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 										671, 76 + 30 * i_75_);
 							if (clangame != 0) {
 								int i_82_;
@@ -6440,15 +6440,15 @@ public class xtGraphics extends Panel implements Runnable {
 			rd.setColor(color);
 			rd.fillRect(676, 426 - i_54_ * 23, 109, 7);
 			rd.setColor(new Color(0, 0, 0));
-			rd.setFont(new Font("Tahoma", 1, 11));
-			rd.drawString("Send Message  >", 684, 439 - i_54_ * 23);
+			rd.setFont(new Font(Messages.getString("xtGraphics.807"), 1, 11)); //$NON-NLS-1$
+			rd.drawString(Messages.getString("xtGraphics.808"), 684, 439 - i_54_ * 23); //$NON-NLS-1$
 			rd.setColor(new Color((int) (m.cgrnd[0] / 1.2F), (int) (m.cgrnd[1] / 1.2F), (int) (m.cgrnd[2] / 1.2F)));
 			rd.drawRect(676, 426 - i_54_ * 23, 109, 17);
 			if (!app.cmsg.isShowing()) {
 				app.cmsg.setVisible(true);
 				app.cmsg.requestFocus();
-				lcmsg[i_54_] = "";
-				app.cmsg.setText("");
+				lcmsg[i_54_] = Messages.getString("xtGraphics.809"); //$NON-NLS-1$
+				app.cmsg.setText(Messages.getString("xtGraphics.810")); //$NON-NLS-1$
 				app.cmsg.setBackground(color);
 			}
 			app.movefield(app.cmsg, 34, 424 - i_54_ * 23, 633, 22);
@@ -6456,14 +6456,14 @@ public class xtGraphics extends Panel implements Runnable {
 				cntchatp[i_54_]++;
 			else
 				cntchatp[i_54_] = -200;
-			lcmsg[i_54_] = new StringBuilder().append("").append(app.cmsg.getText()).toString();
+			lcmsg[i_54_] = new StringBuilder().append(Messages.getString("xtGraphics.811")).append(app.cmsg.getText()).toString(); //$NON-NLS-1$
 			if (cntchatp[i_54_] == 67)
 				control.chatup = 0;
 			if (app.cmsg.getText().length() > 100) {
 				app.cmsg.setText(app.cmsg.getText().substring(0, 100));
 				app.cmsg.select(100, 100);
 			}
-			rd.setFont(new Font("Arial", 1, 11));
+			rd.setFont(new Font(Messages.getString("xtGraphics.812"), 1, 11)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
 		}
 	}
@@ -6525,10 +6525,10 @@ public class xtGraphics extends Panel implements Runnable {
 		rd.drawRect(20, 20, 760, 410);
 		rd.setColor(new Color(0, 0, 0));
 		rd.drawRect(22, 22, 756, 406);
-		rd.setFont(new Font("Arial", 1, 11));
+		rd.setFont(new Font(Messages.getString("xtGraphics.813"), 1, 11)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
-		drawcs(14, "Game lost its focus.   Click screen with mouse to continue.", 100, 100, 100, 3);
-		drawcs(445, "Game lost its focus.   Click screen with mouse to continue.", 100, 100, 100, 3);
+		drawcs(14, Messages.getString("xtGraphics.814"), 100, 100, 100, 3); //$NON-NLS-1$
+		drawcs(445, Messages.getString("xtGraphics.815"), 100, 100, 100, 3); //$NON-NLS-1$
 	}
 
 	public boolean over(final Image image, final int i, final int i_294_, final int i_295_, final int i_296_) {
@@ -6698,8 +6698,8 @@ public class xtGraphics extends Panel implements Runnable {
 	public void pingstat() {
 		final int i = (int) (100.0 * Math.random());
 		try {
-			final URL url = new URL(new StringBuilder().append("http://c.statcounter.com/9994681/0/14bb645e/1/?reco=")
-					.append(i).append("").toString());
+			final URL url = new URL(new StringBuilder().append(Messages.getString("xtGraphics.816")) //$NON-NLS-1$
+					.append(i).append(Messages.getString("xtGraphics.817")).toString()); //$NON-NLS-1$
 			url.openConnection().setConnectTimeout(5000);
 			final Image image = Toolkit.getDefaultToolkit().createImage(url);
 			final MediaTracker mediatracker = new MediaTracker(app);
@@ -6909,17 +6909,17 @@ public class xtGraphics extends Panel implements Runnable {
 			pin = 7;
 		}
 		if (radpx == 212) {
-			rd.setFont(new Font("Arial", 1, 11));
+			rd.setFont(new Font(Messages.getString("xtGraphics.818"), 1, 11)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
-			drawcs(185 + (int) (5.0F * m.random()), "Radicalplay.com", 112, 120, 143, 3);
+			drawcs(185 + (int) (5.0F * m.random()), Messages.getString("xtGraphics.819"), 112, 120, 143, 3); //$NON-NLS-1$
 		}
-		rd.setFont(new Font("Arial", 1, 11));
+		rd.setFont(new Font(Messages.getString("xtGraphics.820"), 1, 11)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
 		if (aflk) {
-			drawcs(215, "And we are never going to find the new unless we get a little crazy...", 112, 120, 143, 3);
+			drawcs(215, Messages.getString("xtGraphics.821"), 112, 120, 143, 3); //$NON-NLS-1$
 			aflk = false;
 		} else {
-			drawcs(217, "And we are never going to find the new unless we get a little crazy...", 150, 150, 150, 3);
+			drawcs(217, Messages.getString("xtGraphics.822"), 150, 150, 150, 3); //$NON-NLS-1$
 			aflk = true;
 		}
 		rd.drawImage(rpro, 275, 265, null);
@@ -7076,16 +7076,16 @@ public class xtGraphics extends Panel implements Runnable {
 		final float f_255_ = f * 1.4F * 21.0F * 60.0F * 60.0F / 100000.0F;
 		final float f_256_ = f_255_ * 0.621371F;
 		rd.setColor(new Color(0, 0, 100));
-		rd.drawString(new StringBuilder().append("").append((int) f_255_).toString(), 62, 245);
-		rd.drawString(new StringBuilder().append("").append((int) f_256_).toString(), 132, 245);
+		rd.drawString(new StringBuilder().append(Messages.getString("xtGraphics.823")).append((int) f_255_).toString(), 62, 245); //$NON-NLS-1$
+		rd.drawString(new StringBuilder().append(Messages.getString("xtGraphics.824")).append((int) f_256_).toString(), 132, 245); //$NON-NLS-1$
 	}
 
 	public void replyn() {
 		if (aflk) {
-			drawcs(30, "Replay  > ", 0, 0, 0, 0);
+			drawcs(30, Messages.getString("xtGraphics.825"), 0, 0, 0, 0); //$NON-NLS-1$
 			aflk = false;
 		} else {
-			drawcs(30, "Replay  >>", 0, 128, 255, 0);
+			drawcs(30, Messages.getString("xtGraphics.826"), 0, 128, 255, 0); //$NON-NLS-1$
 			aflk = true;
 		}
 	}
@@ -7139,20 +7139,20 @@ public class xtGraphics extends Panel implements Runnable {
 		if (fase == 22) {
 			for (int i_21_ = 0; i_21_ < 2; i_21_++) {
 				for (int i_22_ = 0; i_22_ < 7; i_22_++) {
-					cnames[i_21_][i_22_] = "";
-					sentn[i_21_][i_22_] = "";
+					cnames[i_21_][i_22_] = Messages.getString("xtGraphics.827"); //$NON-NLS-1$
+					sentn[i_21_][i_22_] = Messages.getString("xtGraphics.828"); //$NON-NLS-1$
 				}
 				if (i_21_ == 0)
-					cnames[i_21_][6] = "Game Chat  ";
+					cnames[i_21_][6] = Messages.getString("xtGraphics.829"); //$NON-NLS-1$
 				else
-					cnames[i_21_][6] = new StringBuilder().append("").append(clan).append("'s Chat  ").toString();
+					cnames[i_21_][6] = new StringBuilder().append(Messages.getString("xtGraphics.830")).append(clan).append(Messages.getString("xtGraphics.831")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 				updatec[i_21_] = -1;
 				movepos[i_21_] = 0;
 				pointc[i_21_] = 6;
 				floater[i_21_] = 0;
 				cntchatp[i_21_] = 0;
 				msgflk[i_21_] = 0;
-				lcmsg[i_21_] = "";
+				lcmsg[i_21_] = Messages.getString("xtGraphics.832"); //$NON-NLS-1$
 			}
 			if (multion == 3)
 				ransay = 4;
@@ -7204,35 +7204,35 @@ public class xtGraphics extends Panel implements Runnable {
 			}
 			final boolean[] bools = { true, true };
 			while ((runtyp == -101 || sendstat == 1) && !lan && !Thread.currentThread().isInterrupted()) {
-				String string = new StringBuilder().append("3|").append(playingame).append("|").append(updatec[0])
-						.append("|").toString();
+				String string = new StringBuilder().append(Messages.getString("xtGraphics.833")).append(playingame).append(Messages.getString("xtGraphics.834")).append(updatec[0]) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(Messages.getString("xtGraphics.835")).toString(); //$NON-NLS-1$
 				if (clanchat)
-					string = new StringBuilder().append(string).append("").append(updatec[1]).append("|").append(clan)
-							.append("|").append(clankey).append("|").toString();
+					string = new StringBuilder().append(string).append(Messages.getString("xtGraphics.836")).append(updatec[1]).append(Messages.getString("xtGraphics.837")).append(clan) //$NON-NLS-1$ //$NON-NLS-2$
+							.append(Messages.getString("xtGraphics.838")).append(clankey).append(Messages.getString("xtGraphics.839")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 				else
-					string = new StringBuilder().append(string).append("0|||").toString();
+					string = new StringBuilder().append(string).append(Messages.getString("xtGraphics.840")).toString(); //$NON-NLS-1$
 				if (updatec[0] <= -11) {
 					for (int i = 0; i < -updatec[0] - 10; i++)
-						string = new StringBuilder().append(string).append("").append(cnames[0][6 - i]).append("|")
-								.append(sentn[0][6 - i]).append("|").toString();
+						string = new StringBuilder().append(string).append(Messages.getString("xtGraphics.841")).append(cnames[0][6 - i]).append(Messages.getString("xtGraphics.842")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(sentn[0][6 - i]).append(Messages.getString("xtGraphics.843")).toString(); //$NON-NLS-1$
 					updatec[0] = -2;
 				}
 				if (clanchat && updatec[1] <= -11) {
 					for (int i = 0; i < -updatec[1] - 10; i++)
-						string = new StringBuilder().append(string).append("").append(cnames[1][6 - i]).append("|")
-								.append(sentn[1][6 - i]).append("|").toString();
+						string = new StringBuilder().append(string).append(Messages.getString("xtGraphics.844")).append(cnames[1][6 - i]).append(Messages.getString("xtGraphics.845")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(sentn[1][6 - i]).append(Messages.getString("xtGraphics.846")).toString(); //$NON-NLS-1$
 					updatec[1] = -2;
 				}
 				if (sendstat == 1) {
-					string = new StringBuilder().append("5|").append(playingame).append("|").append(im).append("|")
-							.append(beststunt).append("|").append(fastestlap).append("|").toString();
+					string = new StringBuilder().append(Messages.getString("xtGraphics.847")).append(playingame).append(Messages.getString("xtGraphics.848")).append(im).append(Messages.getString("xtGraphics.849")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+							.append(beststunt).append(Messages.getString("xtGraphics.850")).append(fastestlap).append(Messages.getString("xtGraphics.851")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 					for (int i = 0; i < nplayers; i++)
-						string = new StringBuilder().append(string).append("").append(dcrashes[i]).append("|")
+						string = new StringBuilder().append(string).append(Messages.getString("xtGraphics.852")).append(dcrashes[i]).append(Messages.getString("xtGraphics.853")) //$NON-NLS-1$ //$NON-NLS-2$
 								.toString();
 					sendstat = 2;
 				}
 				boolean bool_13_ = false;
-				String string_14_ = "";
+				String string_14_ = Messages.getString("xtGraphics.854"); //$NON-NLS-1$
 				try {
 					dout.println(string);
 					string_14_ = din.readLine();
@@ -7293,11 +7293,11 @@ public class xtGraphics extends Panel implements Runnable {
 								sentn[i_16_][i_18_] = getSvalue(string_14_, i);
 								i++;
 							}
-							if (cnames[i_16_][6].equals(""))
+							if (cnames[i_16_][6].equals(Messages.getString("xtGraphics.855"))) //$NON-NLS-1$
 								if (i_16_ == 0)
-									cnames[i_16_][6] = "Game Chat  ";
+									cnames[i_16_][6] = Messages.getString("xtGraphics.856"); //$NON-NLS-1$
 								else
-									cnames[i_16_][6] = new StringBuilder().append("").append(clan).append("'s Chat  ")
+									cnames[i_16_][6] = new StringBuilder().append(Messages.getString("xtGraphics.857")).append(clan).append(Messages.getString("xtGraphics.858")) //$NON-NLS-1$ //$NON-NLS-2$
 											.toString();
 							if (updatec[i_16_] != -2) {
 								floater[i_16_] = 1;
@@ -7323,11 +7323,11 @@ public class xtGraphics extends Panel implements Runnable {
 			}
 			if (runtyp == -167 || runtyp == -168) {
 				try {
-					socket = new Socket("multiplayer.needformadness.com", 7061);
+					socket = new Socket(Messages.getString("xtGraphics.859"), 7061); //$NON-NLS-1$
 					din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 					dout = new PrintWriter(socket.getOutputStream(), true);
-					dout.println(new StringBuilder().append("101|").append(runtyp + 174).append("|")
-							.append(app.tnick.getText()).append("|").append(app.tpass.getText()).append("|")
+					dout.println(new StringBuilder().append(Messages.getString("xtGraphics.860")).append(runtyp + 174).append(Messages.getString("xtGraphics.861")) //$NON-NLS-1$ //$NON-NLS-2$
+							.append(app.tnick.getText()).append(Messages.getString("xtGraphics.862")).append(app.tpass.getText()).append(Messages.getString("xtGraphics.863")) //$NON-NLS-1$ //$NON-NLS-2$
 							.toString());
 					din.readLine();
 					socket.close();
@@ -7388,7 +7388,7 @@ public class xtGraphics extends Panel implements Runnable {
 
 	public void setbots(final boolean[] bools, final int[][] is) {
 		for (int i = 0; i < nplayers; i++)
-			if (plnames[i].indexOf("MadBot") != -1) {
+			if (plnames[i].indexOf(Messages.getString("xtGraphics.864")) != -1) { //$NON-NLS-1$
 				bools[i] = true;
 				isbot[i] = true;
 			}
@@ -7772,13 +7772,13 @@ public class xtGraphics extends Panel implements Runnable {
 						if (logged) {
 							if (cd.msloaded != 1) {
 								app.mstgs.removeAll();
-								app.mstgs.add(rd, "Loading your stages now, please wait...");
+								app.mstgs.add(rd, Messages.getString("xtGraphics.865")); //$NON-NLS-1$
 								app.mstgs.select(0);
 								i_41_ = 1;
 							}
 						} else {
 							app.mstgs.removeAll();
-							app.mstgs.add(rd, "Please login first to load your stages...");
+							app.mstgs.add(rd, Messages.getString("xtGraphics.866")); //$NON-NLS-1$
 							app.mstgs.select(0);
 							cd.msloaded = 0;
 							lfrom = 0;
@@ -7794,7 +7794,7 @@ public class xtGraphics extends Panel implements Runnable {
 					app.mstgs.setSize(338, 22);
 					if (bool_40_ && cd.msloaded != 3) {
 						app.mstgs.removeAll();
-						app.mstgs.add(rd, "Loading Top20 list, please wait...");
+						app.mstgs.add(rd, Messages.getString("xtGraphics.867")); //$NON-NLS-1$
 						app.mstgs.select(0);
 						i_41_ = 3;
 					}
@@ -7804,7 +7804,7 @@ public class xtGraphics extends Panel implements Runnable {
 					app.mstgs.setSize(338, 22);
 					if (bool_40_ && cd.msloaded != 4) {
 						app.mstgs.removeAll();
-						app.mstgs.add(rd, "Loading Top20 list, please wait...");
+						app.mstgs.add(rd, Messages.getString("xtGraphics.868")); //$NON-NLS-1$
 						app.mstgs.select(0);
 						i_41_ = 4;
 					}
@@ -7819,7 +7819,7 @@ public class xtGraphics extends Panel implements Runnable {
 					app.mstgs.setSize(338, 22);
 					if (bool_40_ && cd.msloaded != 2) {
 						app.mstgs.removeAll();
-						app.mstgs.add(rd, "Loading Stage Maker stages, please wait...");
+						app.mstgs.add(rd, Messages.getString("xtGraphics.869")); //$NON-NLS-1$
 						app.mstgs.select(0);
 						i_41_ = 2;
 					}
@@ -7865,13 +7865,13 @@ public class xtGraphics extends Panel implements Runnable {
 					if (app.snfm2.isShowing())
 						app.snfm2.setVisible(false);
 				}*/
-				rd.setFont(new Font("Arial", 1, 13));
+				rd.setFont(new Font(Messages.getString("xtGraphics.870"), 1, 13)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
 				if (cd.staction == 0 || cd.staction == 6)
 					if (checkpoints.stage != -3) {
-						String string = "";
+						String string = Messages.getString("xtGraphics.871"); //$NON-NLS-1$
 						if (checkpoints.top20 >= 3)
-							string = new StringBuilder().append("N#").append(checkpoints.nto).append("  ").toString();
+							string = new StringBuilder().append(Messages.getString("xtGraphics.872")).append(checkpoints.nto).append(Messages.getString("xtGraphics.873")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 						if (aflk) {
 							drawcs(132, new StringBuilder().append(string).append(checkpoints.name).toString(), 240,
 									240, 240, 3);
@@ -7882,33 +7882,33 @@ public class xtGraphics extends Panel implements Runnable {
 							aflk = true;
 						}
 						if (checkpoints.stage == -2 && cd.staction == 0) {
-							rd.setFont(new Font("Arial", 1, 11));
+							rd.setFont(new Font(Messages.getString("xtGraphics.874"), 1, 11)); //$NON-NLS-1$
 							ftm = rd.getFontMetrics();
 							rd.setColor(new Color(255, 176, 85));
 							if (checkpoints.maker.equals(nickname))
-								rd.drawString("Created by You", 70, 115);
+								rd.drawString(Messages.getString("xtGraphics.875"), 70, 115); //$NON-NLS-1$
 							else
-								rd.drawString(new StringBuilder().append("Created by :  ").append(checkpoints.maker)
-										.append("").toString(), 70, 115);
+								rd.drawString(new StringBuilder().append(Messages.getString("xtGraphics.876")).append(checkpoints.maker) //$NON-NLS-1$
+										.append(Messages.getString("xtGraphics.877")).toString(), 70, 115); //$NON-NLS-1$
 							if (checkpoints.top20 >= 3)
-								rd.drawString(new StringBuilder().append("Added by :  ")
-										.append(cd.top20adds[checkpoints.nto - 1]).append(" Players").toString(), 70,
+								rd.drawString(new StringBuilder().append(Messages.getString("xtGraphics.878")) //$NON-NLS-1$
+										.append(cd.top20adds[checkpoints.nto - 1]).append(Messages.getString("xtGraphics.879")).toString(), 70, //$NON-NLS-1$
 										135);
 						}
 					} else if (removeds != 1) {
-						rd.setFont(new Font("Arial", 1, 13));
+						rd.setFont(new Font(Messages.getString("xtGraphics.880"), 1, 13)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
-						drawcs(132, "Failed to load stage...", 255, 138, 0, 3);
-						rd.setFont(new Font("Arial", 1, 11));
+						drawcs(132, Messages.getString("xtGraphics.881"), 255, 138, 0, 3); //$NON-NLS-1$
+						rd.setFont(new Font(Messages.getString("xtGraphics.882"), 1, 11)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
 						if (nfmtab == 5)
 							drawcs(155,
-									"Please Test Drive this stage in the Stage Maker to make sure it can be loaded!",
+									Messages.getString("xtGraphics.883"), //$NON-NLS-1$
 									255, 138, 0, 3);
 						if (nfmtab == 2 || nfmtab == 3 || nfmtab == 4)
-							drawcs(155, "It could be a connection error, please try again later.", 255, 138, 0, 3);
+							drawcs(155, Messages.getString("xtGraphics.884"), 255, 138, 0, 3); //$NON-NLS-1$
 						if (nfmtab == 1 || nfmtab == 0) {
-							drawcs(155, "Will try to load another stage...", 255, 138, 0, 3);
+							drawcs(155, Messages.getString("xtGraphics.885"), 255, 138, 0, 3); //$NON-NLS-1$
 							//app.repaint();
 							try {
 								Thread.sleep(5000L);
@@ -7925,27 +7925,27 @@ public class xtGraphics extends Panel implements Runnable {
 					drawdprom(145, 170);
 					if (cd.reco == -2)
 						if (lfrom == 0)
-							drawcs(171, "Login to Retrieve your Account Stages", 0, 0, 0, 3);
+							drawcs(171, Messages.getString("xtGraphics.886"), 0, 0, 0, 3); //$NON-NLS-1$
 						else
-							drawcs(171, "Login to add this stage to your account.", 0, 0, 0, 3);
+							drawcs(171, Messages.getString("xtGraphics.887"), 0, 0, 0, 3); //$NON-NLS-1$
 					if (cd.reco == -1)
-						drawcs(171, "Unable to connect to server, try again later!", 0, 8, 0, 3);
+						drawcs(171, Messages.getString("xtGraphics.888"), 0, 8, 0, 3); //$NON-NLS-1$
 					if (cd.reco == 1)
-						drawcs(171, "Sorry.  The Nickname you have entered is incorrect.", 0, 0, 0, 3);
+						drawcs(171, Messages.getString("xtGraphics.889"), 0, 0, 0, 3); //$NON-NLS-1$
 					if (cd.reco == 2)
-						drawcs(171, "Sorry.  The Password you have entered is incorrect.", 0, 0, 0, 3);
+						drawcs(171, Messages.getString("xtGraphics.890"), 0, 0, 0, 3); //$NON-NLS-1$
 					if (cd.reco == -167 || cd.reco == -177) {
 						if (cd.reco == -167) {
 							nickname = app.tnick.getText();
 							backlog = nickname;
 							cd.reco = -177;
 						}
-						drawcs(171, "You are currently using a trial account.", 0, 0, 0, 3);
+						drawcs(171, Messages.getString("xtGraphics.891"), 0, 0, 0, 3); //$NON-NLS-1$
 					}
 					if (cd.reco == -3 && (tcnt % 3 != 0 || tcnt > 20))
-						drawcs(171, "Please enter your Nickname!", 0, 0, 0, 3);
+						drawcs(171, Messages.getString("xtGraphics.892"), 0, 0, 0, 3); //$NON-NLS-1$
 					if (cd.reco == -4 && (tcnt % 3 != 0 || tcnt > 20))
-						drawcs(171, "Please enter your Password!", 0, 0, 0, 3);
+						drawcs(171, Messages.getString("xtGraphics.893"), 0, 0, 0, 3); //$NON-NLS-1$
 					if (!showtf) {
 						app.tnick.setBackground(new Color(206, 237, 255));
 						if (cd.reco != 1) {
@@ -7958,32 +7958,32 @@ public class xtGraphics extends Panel implements Runnable {
 						app.tpass.setBackground(new Color(206, 237, 255));
 						if (cd.reco != 2) {
 							if (!autolog)
-								app.tpass.setText("");
+								app.tpass.setText(Messages.getString("xtGraphics.894")); //$NON-NLS-1$
 							app.tpass.setForeground(new Color(0, 0, 0));
 						} else
 							app.tpass.setForeground(new Color(255, 0, 0));
-						if (!app.tnick.getText().equals("") && cd.reco != 1)
+						if (!app.tnick.getText().equals(Messages.getString("xtGraphics.895")) && cd.reco != 1) //$NON-NLS-1$
 							app.tpass.requestFocus();
 						showtf = true;
 					}
-					rd.drawString("Nickname:", 376 - ftm.stringWidth("Nickname:") - 14, 201);
-					rd.drawString("Password:", 376 - ftm.stringWidth("Password:") - 14, 231);
+					rd.drawString(Messages.getString("xtGraphics.896"), 376 - ftm.stringWidth(Messages.getString("xtGraphics.897")) - 14, 201); //$NON-NLS-1$ //$NON-NLS-2$
+					rd.drawString(Messages.getString("xtGraphics.898"), 376 - ftm.stringWidth(Messages.getString("xtGraphics.899")) - 14, 231); //$NON-NLS-1$ //$NON-NLS-2$
 					app.movefieldd(app.tnick, 376, 185, 129, 23, true);
 					app.movefieldd(app.tpass, 376, 215, 129, 23, true);
 					if (tcnt < 30) {
 						tcnt++;
 						if (tcnt == 30) {
 							if (cd.reco == 2)
-								app.tpass.setText("");
+								app.tpass.setText(Messages.getString("xtGraphics.900")); //$NON-NLS-1$
 							app.tnick.setForeground(new Color(0, 0, 0));
 							app.tpass.setForeground(new Color(0, 0, 0));
 						}
 					}
 					if (cd.reco != -177) {
-						if ((drawcarb(true, null, "       Login       ", 347, 247, i, i_39_, bool) || control.handb
+						if ((drawcarb(true, null, Messages.getString("xtGraphics.901"), 347, 247, i, i_39_, bool) || control.handb //$NON-NLS-1$
 								|| control.enter) && tcnt > 5) {
 							tcnt = 0;
-							if (!app.tnick.getText().equals("") && !app.tpass.getText().equals("")) {
+							if (!app.tnick.getText().equals(Messages.getString("xtGraphics.902")) && !app.tpass.getText().equals(Messages.getString("xtGraphics.903"))) { //$NON-NLS-1$ //$NON-NLS-2$
 								autolog = false;
 								app.tnick.setVisible(false);
 								app.tpass.setVisible(false);
@@ -7991,24 +7991,24 @@ public class xtGraphics extends Panel implements Runnable {
 								cd.staction = 4;
 								cd.sparkstageaction();
 							} else {
-								if (app.tpass.getText().equals(""))
+								if (app.tpass.getText().equals(Messages.getString("xtGraphics.904"))) //$NON-NLS-1$
 									cd.reco = -4;
-								if (app.tnick.getText().equals(""))
+								if (app.tnick.getText().equals(Messages.getString("xtGraphics.905"))) //$NON-NLS-1$
 									cd.reco = -3;
 							}
 						}
-					} else if (drawcarb(true, null, "  Upgrade to have your own stages!  ", 277, 247, i, i_39_, bool)
+					} else if (drawcarb(true, null, Messages.getString("xtGraphics.906"), 277, 247, i, i_39_, bool) //$NON-NLS-1$
 							&& cntflock == 0) {
 						app.editlink(nickname, true);
 						cntflock = 100;
 					}
-					if (drawcarb(true, null, "  Cancel  ", 409, 282, i, i_39_, bool)) {
+					if (drawcarb(true, null, Messages.getString("xtGraphics.907"), 409, 282, i, i_39_, bool)) { //$NON-NLS-1$
 						app.tnick.setVisible(false);
 						app.tpass.setVisible(false);
 						app.requestFocus();
 						cd.staction = 0;
 					}
-					if (drawcarb(true, null, "  Register!  ", 316, 282, i, i_39_, bool)) {
+					if (drawcarb(true, null, Messages.getString("xtGraphics.908"), 316, 282, i, i_39_, bool)) { //$NON-NLS-1$
 						if (cntflock == 0) {
 							app.reglink();
 							cntflock = 100;
@@ -8018,32 +8018,32 @@ public class xtGraphics extends Panel implements Runnable {
 				}
 				if (cd.staction == 4) {
 					drawdprom(145, 170);
-					drawcs(195, "Logging in to your account...", 0, 0, 0, 3);
+					drawcs(195, Messages.getString("xtGraphics.909"), 0, 0, 0, 3); //$NON-NLS-1$
 				}
 				if (checkpoints.stage == -2 && cd.msloaded == 1 && checkpoints.top20 < 3 && !app.openm
-						&& drawcarb(true, null, "X", 609, 113, i, i_39_, bool))
+						&& drawcarb(true, null, Messages.getString("xtGraphics.910"), 609, 113, i, i_39_, bool)) //$NON-NLS-1$
 					cd.staction = 6;
 				if (cd.staction == -1 && checkpoints.top20 < 3) {
 					removeds = 0;
 					drawdprom(145, 95);
-					drawcs(175, "Failed to remove stage from your account, try again later.", 0, 0, 0, 3);
-					if (drawcarb(true, null, " OK ", 379, 195, i, i_39_, bool))
+					drawcs(175, Messages.getString("xtGraphics.911"), 0, 0, 0, 3); //$NON-NLS-1$
+					if (drawcarb(true, null, Messages.getString("xtGraphics.912"), 379, 195, i, i_39_, bool)) //$NON-NLS-1$
 						cd.staction = 0;
 				}
 				if (cd.staction == 1) {
 					drawdprom(145, 95);
-					drawcs(195, "Removing stage from your account...", 0, 0, 0, 3);
+					drawcs(195, Messages.getString("xtGraphics.913"), 0, 0, 0, 3); //$NON-NLS-1$
 					removeds = 1;
 				}
 				if (cd.staction == 6) {
 					drawdprom(145, 95);
-					drawcs(175, "Remove this stage from your account?", 0, 0, 0, 3);
-					if (drawcarb(true, null, " Yes ", 354, 195, i, i_39_, bool)) {
+					drawcs(175, Messages.getString("xtGraphics.914"), 0, 0, 0, 3); //$NON-NLS-1$
+					if (drawcarb(true, null, Messages.getString("xtGraphics.915"), 354, 195, i, i_39_, bool)) { //$NON-NLS-1$
 						cd.onstage = app.mstgs.getSelectedItem();
 						cd.staction = 1;
 						cd.sparkstageaction();
 					}
-					if (drawcarb(true, null, " No ", 408, 195, i, i_39_, bool))
+					if (drawcarb(true, null, Messages.getString("xtGraphics.916"), 408, 195, i, i_39_, bool)) //$NON-NLS-1$
 						cd.staction = 0;
 				}
 				if (i_41_ == 1) {
@@ -8066,9 +8066,9 @@ public class xtGraphics extends Panel implements Runnable {
 				else
 					pcontin = 0;
 				if (checkpoints.top20 >= 3 && cd.staction != 3 && cd.staction != 4) {
-					rd.setFont(new Font("Arial", 1, 11));
+					rd.setFont(new Font(Messages.getString("xtGraphics.917"), 1, 11)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
-					if (dnload == 0 && drawcarb(true, null, " Add to My Stages ", 334, 355, i, i_39_, bool))
+					if (dnload == 0 && drawcarb(true, null, Messages.getString("xtGraphics.918"), 334, 355, i, i_39_, bool)) //$NON-NLS-1$
 						if (logged) {
 							cd.onstage = checkpoints.name;
 							cd.staction = 2;
@@ -8083,7 +8083,7 @@ public class xtGraphics extends Panel implements Runnable {
 							cd.reco = -2;
 						}
 					if (dnload == 2) {
-						drawcs(370, "Adding stage please wait...", 193, 106, 0, 3);
+						drawcs(370, Messages.getString("xtGraphics.919"), 193, 106, 0, 3); //$NON-NLS-1$
 						if (cd.staction == 0)
 							dnload = 3;
 						if (cd.staction == -2)
@@ -8096,13 +8096,13 @@ public class xtGraphics extends Panel implements Runnable {
 							cd.staction = 0;
 					}
 					if (dnload == 3)
-						drawcs(370, "Stage has been successfully added to your stages!", 193, 106, 0, 3);
+						drawcs(370, Messages.getString("xtGraphics.920"), 193, 106, 0, 3); //$NON-NLS-1$
 					if (dnload == 4)
-						drawcs(370, "You already have this stage!", 193, 106, 0, 3);
+						drawcs(370, Messages.getString("xtGraphics.921"), 193, 106, 0, 3); //$NON-NLS-1$
 					if (dnload == 5)
-						drawcs(370, "Cannot add more then 20 stages to your account!", 193, 106, 0, 3);
+						drawcs(370, Messages.getString("xtGraphics.922"), 193, 106, 0, 3); //$NON-NLS-1$
 					if (dnload == 6)
-						drawcs(370, "Failed to add stage, unknown error, please try again later.", 193, 106, 0, 3);
+						drawcs(370, Messages.getString("xtGraphics.923"), 193, 106, 0, 3); //$NON-NLS-1$
 				}
 				if (testdrive == 0 && checkpoints.top20 < 3) {
 					if (!app.gmode.isShowing()) {
@@ -8154,11 +8154,11 @@ public class xtGraphics extends Panel implements Runnable {
 					app.requestFocus();
 				}
 				if (nfmtab == 3 || nfmtab == 4) {
-					String string = "";
-					final int i_43_ = app.mstgs.getSelectedItem().indexOf(" ") + 1;
+					String string = Messages.getString("xtGraphics.924"); //$NON-NLS-1$
+					final int i_43_ = app.mstgs.getSelectedItem().indexOf(Messages.getString("xtGraphics.925")) + 1; //$NON-NLS-1$
 					if (i_43_ > 0)
 						string = app.mstgs.getSelectedItem().substring(i_43_);
-					if (!string.equals("") && !string.equals(checkpoints.name) && app.mstgs.getSelectedIndex() != 0) {
+					if (!string.equals(Messages.getString("xtGraphics.926")) && !string.equals(checkpoints.name) && app.mstgs.getSelectedIndex() != 0) { //$NON-NLS-1$
 						checkpoints.stage = -2;
 						checkpoints.name = string;
 						checkpoints.top20 = -cd.msloaded;
@@ -8169,22 +8169,22 @@ public class xtGraphics extends Panel implements Runnable {
 					}
 				}
 			} else {
-				rd.setFont(new Font("SansSerif", 1, 13));
+				rd.setFont(new Font(Messages.getString("xtGraphics.927"), 1, 13)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
 				if (checkpoints.stage != nTracks) {
 					int i_44_ = checkpoints.stage;
 					//if (i_44_ > 10)
 					//	i_44_ -= 10;
-					drawcs(80, new StringBuilder().append("Stage ").append(i_44_).append("  >").toString(), 255, 128, 0,
+					drawcs(80, new StringBuilder().append(Messages.getString("xtGraphics.928")).append(i_44_).append(Messages.getString("xtGraphics.929")).toString(), 255, 128, 0, //$NON-NLS-1$ //$NON-NLS-2$
 							3);
 				} else
-					drawcs(80, "Final Party Stage  >", 255, 128, 0, 3);
+					drawcs(80, Messages.getString("xtGraphics.930"), 255, 128, 0, 3); //$NON-NLS-1$
 				if (aflk) {
-					drawcs(100, new StringBuilder().append("| ").append(checkpoints.name).append(" |").toString(), 240,
+					drawcs(100, new StringBuilder().append(Messages.getString("xtGraphics.931")).append(checkpoints.name).append(Messages.getString("xtGraphics.932")).toString(), 240, //$NON-NLS-1$ //$NON-NLS-2$
 							240, 240, 3);
 					aflk = false;
 				} else {
-					drawcs(100, new StringBuilder().append("| ").append(checkpoints.name).append(" |").toString(), 176,
+					drawcs(100, new StringBuilder().append(Messages.getString("xtGraphics.933")).append(checkpoints.name).append(Messages.getString("xtGraphics.934")).toString(), 176, //$NON-NLS-1$ //$NON-NLS-2$
 							176, 176, 3);
 					aflk = true;
 				}
@@ -8263,7 +8263,7 @@ public class xtGraphics extends Panel implements Runnable {
 				intertrack.unload();
 			}
 		}
-		if (drawcarb(true, null, " Exit X ", 670, 30, i, i_39_, bool)) {
+		if (drawcarb(true, null, Messages.getString("xtGraphics.935"), 670, 30, i, i_39_, bool)) { //$NON-NLS-1$
 			fase = 103;
 			//fase = 102;
 			if (gmode == 0)
@@ -8336,13 +8336,13 @@ public class xtGraphics extends Panel implements Runnable {
 			if (checkpoints.haltall)
 				checkpoints.haltall = false;
 			boolean bool_184_ = false;
-			String string = "";
-			String string_185_ = "";
+			String string = Messages.getString("xtGraphics.936"); //$NON-NLS-1$
+			String string_185_ = Messages.getString("xtGraphics.937"); //$NON-NLS-1$
 			if (clangame != 0 && (!mad.dest || multion >= 2)) {
 				bool_184_ = true;
 				for (int i = 0; i < nplayers; i++)
 					if (checkpoints.dested[i] == 0)
-						if (string.equals(""))
+						if (string.equals(Messages.getString("xtGraphics.938"))) //$NON-NLS-1$
 							string = pclan[i];
 						else if (!string.toLowerCase().equals(pclan[i].toLowerCase())) {
 							bool_184_ = false;
@@ -8351,7 +8351,7 @@ public class xtGraphics extends Panel implements Runnable {
 			}
 			if (clangame > 1) {
 				boolean bool_186_ = false;
-				String string_187_ = "";
+				String string_187_ = Messages.getString("xtGraphics.939"); //$NON-NLS-1$
 				if (bool_184_) {
 					for (int i = 0; i < nplayers; i++)
 						if (!string.toLowerCase().equals(pclan[i].toLowerCase())) {
@@ -8360,42 +8360,42 @@ public class xtGraphics extends Panel implements Runnable {
 						}
 					if (clangame == 2) {
 						bool_186_ = true;
-						string_187_ = new StringBuilder().append("Clan ").append(string_185_)
-								.append(" wasted, nobody won becuase this is a racing only game!").toString();
+						string_187_ = new StringBuilder().append(Messages.getString("xtGraphics.940")).append(string_185_) //$NON-NLS-1$
+								.append(Messages.getString("xtGraphics.941")).toString(); //$NON-NLS-1$
 					}
 					if (clangame == 4 && !string.toLowerCase().equals(gaclan.toLowerCase())) {
 						bool_186_ = true;
-						string_187_ = new StringBuilder().append("Clan ").append(string_185_)
-								.append(" wasted, nobody won becuase ").append(string)
-								.append(" should have raced in this racing vs wasting game!").toString();
+						string_187_ = new StringBuilder().append(Messages.getString("xtGraphics.942")).append(string_185_) //$NON-NLS-1$
+								.append(Messages.getString("xtGraphics.943")).append(string) //$NON-NLS-1$
+								.append(Messages.getString("xtGraphics.944")).toString(); //$NON-NLS-1$
 					}
 					if (clangame == 5 && string.toLowerCase().equals(gaclan.toLowerCase())) {
 						bool_186_ = true;
-						string_187_ = new StringBuilder().append("Clan ").append(string_185_)
-								.append(" wasted, nobody won becuase ").append(string)
-								.append(" should have raced in this racing vs wasting game!").toString();
+						string_187_ = new StringBuilder().append(Messages.getString("xtGraphics.945")).append(string_185_) //$NON-NLS-1$
+								.append(Messages.getString("xtGraphics.946")).append(string) //$NON-NLS-1$
+								.append(Messages.getString("xtGraphics.947")).toString(); //$NON-NLS-1$
 					}
 				}
 				for (int i = 0; i < nplayers; i++)
 					if (checkpoints.clear[i] == checkpoints.nlaps * checkpoints.nsp && checkpoints.pos[i] == 0) {
 						if (clangame == 3) {
 							bool_186_ = true;
-							string_187_ = new StringBuilder().append("").append(plnames[i]).append(" of clan ")
+							string_187_ = new StringBuilder().append(Messages.getString("xtGraphics.948")).append(plnames[i]).append(Messages.getString("xtGraphics.949")) //$NON-NLS-1$ //$NON-NLS-2$
 									.append(pclan[i])
-									.append(" finished first, nobody won becuase this is a wasting only game!")
+									.append(Messages.getString("xtGraphics.950")) //$NON-NLS-1$
 									.toString();
 						}
 						if (clangame == 4 && pclan[i].toLowerCase().equals(gaclan.toLowerCase())) {
 							bool_186_ = true;
-							string_187_ = new StringBuilder().append("").append(plnames[i]).append(" of clan ")
-									.append(pclan[i]).append(" finished first, nobody won becuase ").append(pclan[i])
-									.append(" should have wasted in this racing vs wasting game!").toString();
+							string_187_ = new StringBuilder().append(Messages.getString("xtGraphics.951")).append(plnames[i]).append(Messages.getString("xtGraphics.952")) //$NON-NLS-1$ //$NON-NLS-2$
+									.append(pclan[i]).append(Messages.getString("xtGraphics.953")).append(pclan[i]) //$NON-NLS-1$
+									.append(Messages.getString("xtGraphics.954")).toString(); //$NON-NLS-1$
 						}
 						if (clangame == 5 && !pclan[i].toLowerCase().equals(gaclan.toLowerCase())) {
 							bool_186_ = true;
-							string_187_ = new StringBuilder().append("").append(plnames[i]).append(" of clan ")
-									.append(pclan[i]).append(" finished first, nobody won becuase ").append(pclan[i])
-									.append(" should have wasted in this racing vs wasting game!").toString();
+							string_187_ = new StringBuilder().append(Messages.getString("xtGraphics.955")).append(plnames[i]).append(Messages.getString("xtGraphics.956")) //$NON-NLS-1$ //$NON-NLS-2$
+									.append(pclan[i]).append(Messages.getString("xtGraphics.957")).append(pclan[i]) //$NON-NLS-1$
+									.append(Messages.getString("xtGraphics.958")).toString(); //$NON-NLS-1$
 						}
 					}
 				if (bool_186_) {
@@ -8407,7 +8407,7 @@ public class xtGraphics extends Panel implements Runnable {
 						drawcs(120, string_187_, 0, 128, 255, 0);
 						aflk = true;
 					}
-					drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
+					drawcs(350, Messages.getString("xtGraphics.959"), 0, 0, 0, 0); //$NON-NLS-1$
 					checkpoints.haltall = true;
 					holdit = true;
 					winner = false;
@@ -8418,22 +8418,22 @@ public class xtGraphics extends Panel implements Runnable {
 					drawhi(youwastedem, 70);
 					if (!bool_184_) {
 						if (aflk) {
-							drawcs(120, "You Won, all cars have been wasted!", 0, 0, 0, 0);
+							drawcs(120, Messages.getString("xtGraphics.960"), 0, 0, 0, 0); //$NON-NLS-1$
 							aflk = false;
 						} else {
-							drawcs(120, "You Won, all cars have been wasted!", 0, 128, 255, 0);
+							drawcs(120, Messages.getString("xtGraphics.961"), 0, 128, 255, 0); //$NON-NLS-1$
 							aflk = true;
 						}
 					} else if (aflk) {
-						drawcs(120, new StringBuilder().append("Your clan ").append(string)
-								.append(" has wasted all the cars!").toString(), 0, 0, 0, 0);
+						drawcs(120, new StringBuilder().append(Messages.getString("xtGraphics.962")).append(string) //$NON-NLS-1$
+								.append(Messages.getString("xtGraphics.963")).toString(), 0, 0, 0, 0); //$NON-NLS-1$
 						aflk = false;
 					} else {
-						drawcs(120, new StringBuilder().append("Your clan ").append(string)
-								.append(" has wasted all the cars!").toString(), 0, 128, 255, 0);
+						drawcs(120, new StringBuilder().append(Messages.getString("xtGraphics.964")).append(string) //$NON-NLS-1$
+								.append(Messages.getString("xtGraphics.965")).toString(), 0, 128, 255, 0); //$NON-NLS-1$
 						aflk = true;
 					}
-					drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
+					drawcs(350, Messages.getString("xtGraphics.966"), 0, 0, 0, 0); //$NON-NLS-1$
 					checkpoints.haltall = true;
 					holdit = true;
 					winner = true;
@@ -8449,7 +8449,7 @@ public class xtGraphics extends Panel implements Runnable {
 					if (lan) {
 						bool_188_ = true;
 						for (int i = 0; i < nplayers; i++)
-							if (i != im && dested[i] == 0 && plnames[i].indexOf("MadBot") == -1)
+							if (i != im && dested[i] == 0 && plnames[i].indexOf(Messages.getString("xtGraphics.967")) == -1) //$NON-NLS-1$
 								bool_188_ = false;
 					}
 					if (fase == 7001 && nplayers - (checkpoints.wasted + 1) >= 2 && discon != 240 && !bool_188_)
@@ -8457,7 +8457,7 @@ public class xtGraphics extends Panel implements Runnable {
 					else {
 						if (exitm == 4)
 							exitm = 0;
-						drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
+						drawcs(350, Messages.getString("xtGraphics.968"), 0, 0, 0, 0); //$NON-NLS-1$
 					}
 					holdit = true;
 					winner = false;
@@ -8472,10 +8472,10 @@ public class xtGraphics extends Panel implements Runnable {
 								if (i == im) {
 									drawhi(youwon, 70);
 									if (aflk) {
-										drawcs(120, "You finished first, nice job!", 0, 0, 0, 0);
+										drawcs(120, Messages.getString("xtGraphics.969"), 0, 0, 0, 0); //$NON-NLS-1$
 										aflk = false;
 									} else {
-										drawcs(120, "You finished first, nice job!", 0, 128, 255, 0);
+										drawcs(120, Messages.getString("xtGraphics.970"), 0, 128, 255, 0); //$NON-NLS-1$
 										aflk = true;
 									}
 									winner = true;
@@ -8484,25 +8484,25 @@ public class xtGraphics extends Panel implements Runnable {
 									if (fase != 7001) {
 										if (aflk) {
 											drawcs(120,
-													new StringBuilder().append("").append(cd.names[sc[i]])
-															.append(" finished first, race over!").toString(),
+													new StringBuilder().append(Messages.getString("xtGraphics.971")).append(cd.names[sc[i]]) //$NON-NLS-1$
+															.append(Messages.getString("xtGraphics.972")).toString(), //$NON-NLS-1$
 													0, 0, 0, 0);
 											aflk = false;
 										} else {
 											drawcs(120,
-													new StringBuilder().append("").append(cd.names[sc[i]])
-															.append(" finished first, race over!").toString(),
+													new StringBuilder().append(Messages.getString("xtGraphics.973")).append(cd.names[sc[i]]) //$NON-NLS-1$
+															.append(Messages.getString("xtGraphics.974")).toString(), //$NON-NLS-1$
 													0, 128, 255, 0);
 											aflk = true;
 										}
 									} else if (aflk) {
-										drawcs(120, new StringBuilder().append("").append(plnames[i])
-												.append(" finished first, race over!").toString(), 0, 0, 0, 0);
+										drawcs(120, new StringBuilder().append(Messages.getString("xtGraphics.975")).append(plnames[i]) //$NON-NLS-1$
+												.append(Messages.getString("xtGraphics.976")).toString(), 0, 0, 0, 0); //$NON-NLS-1$
 										aflk = false;
 									} else {
 										drawcs(120,
-												new StringBuilder().append("").append(plnames[i])
-														.append(" finished first, race over!").toString(),
+												new StringBuilder().append(Messages.getString("xtGraphics.977")).append(plnames[i]) //$NON-NLS-1$
+														.append(Messages.getString("xtGraphics.978")).toString(), //$NON-NLS-1$
 												0, 128, 255, 0);
 										aflk = true;
 									}
@@ -8511,12 +8511,12 @@ public class xtGraphics extends Panel implements Runnable {
 							} else if (pclan[i].toLowerCase().equals(pclan[im].toLowerCase())) {
 								drawhi(youwon, 70);
 								if (aflk) {
-									drawcs(120, new StringBuilder().append("Your clan ").append(pclan[im])
-											.append(" finished first, nice job!").toString(), 0, 0, 0, 0);
+									drawcs(120, new StringBuilder().append(Messages.getString("xtGraphics.979")).append(pclan[im]) //$NON-NLS-1$
+											.append(Messages.getString("xtGraphics.980")).toString(), 0, 0, 0, 0); //$NON-NLS-1$
 									aflk = false;
 								} else {
-									drawcs(120, new StringBuilder().append("Your clan ").append(pclan[im])
-											.append(" finished first, nice job!").toString(), 0, 128, 255, 0);
+									drawcs(120, new StringBuilder().append(Messages.getString("xtGraphics.981")).append(pclan[im]) //$NON-NLS-1$
+											.append(Messages.getString("xtGraphics.982")).toString(), 0, 128, 255, 0); //$NON-NLS-1$
 									aflk = true;
 								}
 								winner = true;
@@ -8524,43 +8524,43 @@ public class xtGraphics extends Panel implements Runnable {
 								drawhi(youlost, 70);
 								if (aflk) {
 									drawcs(120,
-											new StringBuilder().append("").append(plnames[i]).append(" of clan ")
-													.append(pclan[i]).append(" finished first, race over!").toString(),
+											new StringBuilder().append(Messages.getString("xtGraphics.983")).append(plnames[i]).append(Messages.getString("xtGraphics.984")) //$NON-NLS-1$ //$NON-NLS-2$
+													.append(pclan[i]).append(Messages.getString("xtGraphics.985")).toString(), //$NON-NLS-1$
 											0, 0, 0, 0);
 									aflk = false;
 								} else {
 									drawcs(120,
-											new StringBuilder().append("").append(plnames[i]).append(" of clan ")
-													.append(pclan[i]).append(" finished first, race over!").toString(),
+											new StringBuilder().append(Messages.getString("xtGraphics.986")).append(plnames[i]).append(Messages.getString("xtGraphics.987")) //$NON-NLS-1$ //$NON-NLS-2$
+													.append(pclan[i]).append(Messages.getString("xtGraphics.988")).toString(), //$NON-NLS-1$
 											0, 128, 255, 0);
 									aflk = true;
 								}
 								winner = false;
 							}
-							drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
+							drawcs(350, Messages.getString("xtGraphics.989"), 0, 0, 0, 0); //$NON-NLS-1$
 							checkpoints.haltall = true;
 							holdit = true;
 						}
 			} else {
 				if (!holdit && (checkpoints.wasted >= nplayers - 1 || bool_184_)) {
-					String string_189_ = "Someone";
+					String string_189_ = Messages.getString("xtGraphics.990"); //$NON-NLS-1$
 					if (!bool_184_) {
 						for (int i = 0; i < nplayers; i++)
 							if (checkpoints.dested[i] == 0)
 								string_189_ = plnames[i];
 					} else
-						string_189_ = new StringBuilder().append("Clan ").append(string).append("").toString();
+						string_189_ = new StringBuilder().append(Messages.getString("xtGraphics.991")).append(string).append(Messages.getString("xtGraphics.992")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 					drawhi(gamefinished, 70);
 					if (aflk) {
-						drawcs(120, new StringBuilder().append("").append(string_189_)
-								.append(" has wasted all the cars!").toString(), 0, 0, 0, 0);
+						drawcs(120, new StringBuilder().append(Messages.getString("xtGraphics.993")).append(string_189_) //$NON-NLS-1$
+								.append(Messages.getString("xtGraphics.994")).toString(), 0, 0, 0, 0); //$NON-NLS-1$
 						aflk = false;
 					} else {
-						drawcs(120, new StringBuilder().append("").append(string_189_)
-								.append(" has wasted all the cars!").toString(), 0, 128, 255, 0);
+						drawcs(120, new StringBuilder().append(Messages.getString("xtGraphics.995")).append(string_189_) //$NON-NLS-1$
+								.append(Messages.getString("xtGraphics.996")).toString(), 0, 128, 255, 0); //$NON-NLS-1$
 						aflk = true;
 					}
-					drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
+					drawcs(350, Messages.getString("xtGraphics.997"), 0, 0, 0, 0); //$NON-NLS-1$
 					checkpoints.haltall = true;
 					holdit = true;
 					winner = false;
@@ -8571,24 +8571,24 @@ public class xtGraphics extends Panel implements Runnable {
 							drawhi(gamefinished, 70);
 							if (clangame == 0) {
 								if (aflk) {
-									drawcs(120, new StringBuilder().append("").append(plnames[i])
-											.append(" finished first, race over!").toString(), 0, 0, 0, 0);
+									drawcs(120, new StringBuilder().append(Messages.getString("xtGraphics.998")).append(plnames[i]) //$NON-NLS-1$
+											.append(Messages.getString("xtGraphics.999")).toString(), 0, 0, 0, 0); //$NON-NLS-1$
 									aflk = false;
 								} else {
-									drawcs(120, new StringBuilder().append("").append(plnames[i])
-											.append(" finished first, race over!").toString(), 0, 128, 255, 0);
+									drawcs(120, new StringBuilder().append(Messages.getString("xtGraphics.1000")).append(plnames[i]) //$NON-NLS-1$
+											.append(Messages.getString("xtGraphics.1001")).toString(), 0, 128, 255, 0); //$NON-NLS-1$
 									aflk = true;
 								}
 							} else if (aflk) {
-								drawcs(120, new StringBuilder().append("Clan ").append(pclan[i])
-										.append(" finished first, race over!").toString(), 0, 0, 0, 0);
+								drawcs(120, new StringBuilder().append(Messages.getString("xtGraphics.1002")).append(pclan[i]) //$NON-NLS-1$
+										.append(Messages.getString("xtGraphics.1003")).toString(), 0, 0, 0, 0); //$NON-NLS-1$
 								aflk = false;
 							} else {
-								drawcs(120, new StringBuilder().append("Clan ").append(pclan[i])
-										.append(" finished first, race over!").toString(), 0, 128, 255, 0);
+								drawcs(120, new StringBuilder().append(Messages.getString("xtGraphics.1004")).append(pclan[i]) //$NON-NLS-1$
+										.append(Messages.getString("xtGraphics.1005")).toString(), 0, 128, 255, 0); //$NON-NLS-1$
 								aflk = true;
 							}
-							drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
+							drawcs(350, Messages.getString("xtGraphics.1006"), 0, 0, 0, 0); //$NON-NLS-1$
 							checkpoints.haltall = true;
 							holdit = true;
 							winner = false;
@@ -8596,13 +8596,13 @@ public class xtGraphics extends Panel implements Runnable {
 				if (!holdit && discon == 240) {
 					drawhi(gamefinished, 70);
 					if (aflk) {
-						drawcs(120, "Game got disconnected!", 0, 0, 0, 0);
+						drawcs(120, Messages.getString("xtGraphics.1007"), 0, 0, 0, 0); //$NON-NLS-1$
 						aflk = false;
 					} else {
-						drawcs(120, "Game got disconnected!", 0, 128, 255, 0);
+						drawcs(120, Messages.getString("xtGraphics.1008"), 0, 128, 255, 0); //$NON-NLS-1$
 						aflk = true;
 					}
-					drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
+					drawcs(350, Messages.getString("xtGraphics.1009"), 0, 0, 0, 0); //$NON-NLS-1$
 					checkpoints.haltall = true;
 					holdit = true;
 					winner = false;
@@ -8610,11 +8610,11 @@ public class xtGraphics extends Panel implements Runnable {
 				if (!holdit) {
 					rd.drawImage(wgame, 311, 20, null);
 					if (!clanchat) {
-						drawcs(397, "Click any player on the right to follow!", 0, 0, 0, 0);
+						drawcs(397, Messages.getString("xtGraphics.1010"), 0, 0, 0, 0); //$NON-NLS-1$
 						if (!lan)
-							drawcs(412, "Press [V] to change view.  Press [Enter] to exit.", 0, 0, 0, 0);
+							drawcs(412, Messages.getString("xtGraphics.1011"), 0, 0, 0, 0); //$NON-NLS-1$
 						else
-							drawcs(412, "Press [V] to change view.", 0, 0, 0, 0);
+							drawcs(412, Messages.getString("xtGraphics.1012"), 0, 0, 0, 0); //$NON-NLS-1$
 					}
 				}
 			}
@@ -8625,21 +8625,21 @@ public class xtGraphics extends Panel implements Runnable {
 						control.radar = true;
 					if (arrace) {
 						wasay = true;
-						say = " Arrow now pointing at >  CARS";
+						say = Messages.getString("xtGraphics.1013"); //$NON-NLS-1$
 						if (multion == 1) {
 							final StringBuilder stringbuilder = new StringBuilder();
 							say = stringbuilder.append(say)
-									.append("    Press [S] to toggle Radar!").toString();
+									.append(Messages.getString("xtGraphics.1014")).toString(); //$NON-NLS-1$
 						}
 						tcnt = -5;
 					}
 					if (!arrace) {
 						wasay = false;
-						say = " Arrow now pointing at >  TRACK";
+						say = Messages.getString("xtGraphics.1015"); //$NON-NLS-1$
 						if (multion == 1) {
 							final StringBuilder stringbuilder = new StringBuilder();
 							say = stringbuilder.append(say)
-									.append("    Press [S] to toggle Radar!").toString();
+									.append(Messages.getString("xtGraphics.1016")).toString(); //$NON-NLS-1$
 						}
 						tcnt = -5;
 						cntan = 20;
@@ -8654,9 +8654,9 @@ public class xtGraphics extends Panel implements Runnable {
 							if (mad.missedcp > 0) {
 								if (mad.missedcp > 15 && mad.missedcp < 50)
 									if (flk)
-										drawcs(70, "Checkpoint Missed!", 255, 0, 0, 0);
+										drawcs(70, Messages.getString("xtGraphics.1017"), 255, 0, 0, 0); //$NON-NLS-1$
 									else
-										drawcs(70, "Checkpoint Missed!", 255, 150, 0, 2);
+										drawcs(70, Messages.getString("xtGraphics.1018"), 255, 150, 0, 2); //$NON-NLS-1$
 								mad.missedcp++;
 								if (mad.missedcp == 70)
 									mad.missedcp = -2;
@@ -8669,10 +8669,10 @@ public class xtGraphics extends Panel implements Runnable {
 									cntovn++;
 									cntan = 40;
 									if (flk) {
-										drawcs(70, "Wrong Way!", 255, 150, 0, 0);
+										drawcs(70, Messages.getString("xtGraphics.1019"), 255, 150, 0, 0); //$NON-NLS-1$
 										flk = false;
 									} else {
-										drawcs(70, "Wrong Way!", 255, 0, 0, 2);
+										drawcs(70, Messages.getString("xtGraphics.1020"), 255, 0, 0, 2); //$NON-NLS-1$
 										flk = true;
 									}
 								}
@@ -8680,12 +8680,12 @@ public class xtGraphics extends Panel implements Runnable {
 					} else if (alocked != lalocked) {
 						if (alocked != -1) {
 							wasay = true;
-							say = new StringBuilder().append(" Arrow Locked on >  ").append(plnames[alocked]).append("")
+							say = new StringBuilder().append(Messages.getString("xtGraphics.1021")).append(plnames[alocked]).append(Messages.getString("xtGraphics.1022")) //$NON-NLS-1$ //$NON-NLS-2$
 									.toString();
 							tcnt = -5;
 						} else {
 							wasay = true;
-							say = "Arrow Unlocked!";
+							say = Messages.getString("xtGraphics.1023"); //$NON-NLS-1$
 							tcnt = 10;
 						}
 						lalocked = alocked;
@@ -8719,12 +8719,12 @@ public class xtGraphics extends Panel implements Runnable {
 				rd.drawImage(pwr, 600, 27, null);
 				rd.drawImage(lap, 19, 7, null);
 				rd.setColor(new Color(0, 0, 100));
-				rd.drawString(new StringBuilder().append("").append(mad.nlaps + 1).append(" / ")
-						.append(checkpoints.nlaps).append("").toString(), 51, 18);
+				rd.drawString(new StringBuilder().append(Messages.getString("xtGraphics.1024")).append(mad.nlaps + 1).append(Messages.getString("xtGraphics.1025")) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(checkpoints.nlaps).append(Messages.getString("xtGraphics.1026")).toString(), 51, 18); //$NON-NLS-1$
 				rd.drawImage(was, 92, 7, null);
 				rd.setColor(new Color(0, 0, 100));
-				rd.drawString(new StringBuilder().append("").append(checkpoints.wasted).append(" / ")
-						.append(nplayers - 1).append("").toString(), 150, 18);
+				rd.drawString(new StringBuilder().append(Messages.getString("xtGraphics.1027")).append(checkpoints.wasted).append(Messages.getString("xtGraphics.1028")) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(nplayers - 1).append(Messages.getString("xtGraphics.1029")).toString(), 150, 18); //$NON-NLS-1$
 				rd.drawImage(pos, 42, 27, null);
 				rd.drawImage(rank[checkpoints.pos[mad.im]], 110, 28, null);
 				drawstat(cd.maxmag[mad.cn], mad.hitmag, mad.newcar, mad.power);
@@ -8776,23 +8776,23 @@ public class xtGraphics extends Panel implements Runnable {
 						if (looped != 2) {
 							if (pwcnt < 70 || pwcnt < 100 && looped != 0)
 								if (pwflk) {
-									drawcs(110, "Power low, perform stunt!", 0, 0, 200, 0);
+									drawcs(110, Messages.getString("xtGraphics.1030"), 0, 0, 200, 0); //$NON-NLS-1$
 									pwflk = false;
 								} else {
-									drawcs(110, "Power low, perform stunt!", 255, 100, 0, 0);
+									drawcs(110, Messages.getString("xtGraphics.1031"), 255, 100, 0, 0); //$NON-NLS-1$
 									pwflk = true;
 								}
 						} else if (pwcnt < 100) {
-							String string_192_ = "";
+							String string_192_ = Messages.getString("xtGraphics.1032"); //$NON-NLS-1$
 							if (multion == 0)
-								string_192_ = "  (Press Enter)";
+								string_192_ = Messages.getString("xtGraphics.1033"); //$NON-NLS-1$
 							if (pwflk) {
-								drawcs(110, new StringBuilder().append("Please read the Game Instructions!")
-										.append(string_192_).append("").toString(), 0, 0, 200, 0);
+								drawcs(110, new StringBuilder().append(Messages.getString("xtGraphics.1034")) //$NON-NLS-1$
+										.append(string_192_).append(Messages.getString("xtGraphics.1035")).toString(), 0, 0, 200, 0); //$NON-NLS-1$
 								pwflk = false;
 							} else {
-								drawcs(110, new StringBuilder().append("Please read the Game Instructions!")
-										.append(string_192_).append("").toString(), 255, 100, 0, 0);
+								drawcs(110, new StringBuilder().append(Messages.getString("xtGraphics.1036")) //$NON-NLS-1$
+										.append(string_192_).append(Messages.getString("xtGraphics.1037")).toString(), 255, 100, 0, 0); //$NON-NLS-1$
 								pwflk = true;
 							}
 						}
@@ -8840,16 +8840,16 @@ public class xtGraphics extends Panel implements Runnable {
 					}
 				} else if (exitm == 0)
 					if (tflk) {
-						drawcs(110, "Bad Landing!", 0, 0, 200, 0);
+						drawcs(110, Messages.getString("xtGraphics.1038"), 0, 0, 200, 0); //$NON-NLS-1$
 						tflk = false;
 					} else {
-						drawcs(110, "Bad Landing!", 255, 100, 0, 0);
+						drawcs(110, Messages.getString("xtGraphics.1039"), 255, 100, 0, 0); //$NON-NLS-1$
 						tflk = true;
 					}
 				if (mad.trcnt == 10) {
-					loop = "";
-					spin = "";
-					asay = "";
+					loop = Messages.getString("xtGraphics.1040"); //$NON-NLS-1$
+					spin = Messages.getString("xtGraphics.1041"); //$NON-NLS-1$
+					asay = Messages.getString("xtGraphics.1042"); //$NON-NLS-1$
 					int i = 0;
 					while (mad.travzy > 225 && !Thread.currentThread().isInterrupted()) {
 						mad.travzy -= 360;
@@ -8860,34 +8860,34 @@ public class xtGraphics extends Panel implements Runnable {
 						i--;
 					}
 					if (i == 1)
-						loop = "Forward loop";
+						loop = Messages.getString("xtGraphics.1043"); //$NON-NLS-1$
 					if (i == 2)
-						loop = "double Forward";
+						loop = Messages.getString("xtGraphics.1044"); //$NON-NLS-1$
 					if (i == 3)
-						loop = "triple Forward";
+						loop = Messages.getString("xtGraphics.1045"); //$NON-NLS-1$
 					if (i >= 4)
-						loop = "massive Forward looping";
+						loop = Messages.getString("xtGraphics.1046"); //$NON-NLS-1$
 					if (i == -1)
-						loop = "Backloop";
+						loop = Messages.getString("xtGraphics.1047"); //$NON-NLS-1$
 					if (i == -2)
-						loop = "double Back";
+						loop = Messages.getString("xtGraphics.1048"); //$NON-NLS-1$
 					if (i == -3)
-						loop = "triple Back";
+						loop = Messages.getString("xtGraphics.1049"); //$NON-NLS-1$
 					if (i <= -4)
-						loop = "massive Back looping";
+						loop = Messages.getString("xtGraphics.1050"); //$NON-NLS-1$
 					if (i == 0)
 						if (mad.ftab && mad.btab)
-							loop = "Tabletop and reversed Tabletop";
+							loop = Messages.getString("xtGraphics.1051"); //$NON-NLS-1$
 						else if (mad.ftab || mad.btab)
-							loop = "Tabletop";
+							loop = Messages.getString("xtGraphics.1052"); //$NON-NLS-1$
 					if (i > 0 && mad.btab)
-						loop = new StringBuilder().append("Hanged ").append(loop).toString();
+						loop = new StringBuilder().append(Messages.getString("xtGraphics.1053")).append(loop).toString(); //$NON-NLS-1$
 					if (i < 0 && mad.ftab)
-						loop = new StringBuilder().append("Hanged ").append(loop).toString();
-					if (loop != "") {
+						loop = new StringBuilder().append(Messages.getString("xtGraphics.1054")).append(loop).toString(); //$NON-NLS-1$
+					if (loop != Messages.getString("xtGraphics.1055")) { //$NON-NLS-1$
 						final StringBuilder stringbuilder = new StringBuilder();
 						final xtGraphics var_xtGraphics_193_ = this;
-						var_xtGraphics_193_.asay = stringbuilder.append(var_xtGraphics_193_.asay).append(" ")
+						var_xtGraphics_193_.asay = stringbuilder.append(var_xtGraphics_193_.asay).append(Messages.getString("xtGraphics.1056")) //$NON-NLS-1$
 								.append(loop).toString();
 					}
 					i = 0;
@@ -8897,18 +8897,18 @@ public class xtGraphics extends Panel implements Runnable {
 						i++;
 					}
 					if (i == 0 && mad.rtab)
-						if (loop == "")
-							spin = "Tabletop";
+						if (loop == Messages.getString("xtGraphics.1057")) //$NON-NLS-1$
+							spin = Messages.getString("xtGraphics.1058"); //$NON-NLS-1$
 						else
-							spin = "Flipside";
+							spin = Messages.getString("xtGraphics.1059"); //$NON-NLS-1$
 					if (i == 1)
-						spin = "Rollspin";
+						spin = Messages.getString("xtGraphics.1060"); //$NON-NLS-1$
 					if (i == 2)
-						spin = "double Rollspin";
+						spin = Messages.getString("xtGraphics.1061"); //$NON-NLS-1$
 					if (i == 3)
-						spin = "triple Rollspin";
+						spin = Messages.getString("xtGraphics.1062"); //$NON-NLS-1$
 					if (i >= 4)
-						spin = "massive Roll spinning";
+						spin = Messages.getString("xtGraphics.1063"); //$NON-NLS-1$
 					i = 0;
 					boolean bool_194_ = false;
 					mad.travxz = Math.abs(mad.travxz);
@@ -8921,58 +8921,58 @@ public class xtGraphics extends Panel implements Runnable {
 						}
 					}
 					if (i != 0) {
-						if (loop == "" && spin == "") {
+						if (loop == Messages.getString("xtGraphics.1064") && spin == Messages.getString("xtGraphics.1065")) { //$NON-NLS-1$ //$NON-NLS-2$
 							final StringBuilder stringbuilder = new StringBuilder();
 							final xtGraphics var_xtGraphics_195_ = this;
-							var_xtGraphics_195_.asay = stringbuilder.append(var_xtGraphics_195_.asay).append(" ")
+							var_xtGraphics_195_.asay = stringbuilder.append(var_xtGraphics_195_.asay).append(Messages.getString("xtGraphics.1066")) //$NON-NLS-1$
 									.append(i).toString();
 							if (bool_194_) {
 								final StringBuilder stringbuilder_196_ = new StringBuilder();
 								final xtGraphics var_xtGraphics_197_ = this;
 								var_xtGraphics_197_.asay = stringbuilder_196_.append(var_xtGraphics_197_.asay)
-										.append(" and beyond").toString();
+										.append(Messages.getString("xtGraphics.1067")).toString(); //$NON-NLS-1$
 							}
 						} else {
-							if (spin != "")
-								if (loop == "") {
+							if (spin != Messages.getString("xtGraphics.1068")) //$NON-NLS-1$
+								if (loop == Messages.getString("xtGraphics.1069")) { //$NON-NLS-1$
 									final StringBuilder stringbuilder = new StringBuilder();
 									final xtGraphics var_xtGraphics_198_ = this;
 									var_xtGraphics_198_.asay = stringbuilder.append(var_xtGraphics_198_.asay)
-											.append(" ").append(spin).toString();
+											.append(Messages.getString("xtGraphics.1070")).append(spin).toString(); //$NON-NLS-1$
 								} else {
 									final StringBuilder stringbuilder = new StringBuilder();
 									final xtGraphics var_xtGraphics_199_ = this;
 									var_xtGraphics_199_.asay = stringbuilder.append(var_xtGraphics_199_.asay)
-											.append(" with ").append(spin).toString();
+											.append(Messages.getString("xtGraphics.1071")).append(spin).toString(); //$NON-NLS-1$
 								}
 							final StringBuilder stringbuilder = new StringBuilder();
 							final xtGraphics var_xtGraphics_200_ = this;
-							var_xtGraphics_200_.asay = stringbuilder.append(var_xtGraphics_200_.asay).append(" by ")
+							var_xtGraphics_200_.asay = stringbuilder.append(var_xtGraphics_200_.asay).append(Messages.getString("xtGraphics.1072")) //$NON-NLS-1$
 									.append(i).toString();
 							if (bool_194_) {
 								final StringBuilder stringbuilder_201_ = new StringBuilder();
 								final xtGraphics var_xtGraphics_202_ = this;
 								var_xtGraphics_202_.asay = stringbuilder_201_.append(var_xtGraphics_202_.asay)
-										.append(" and beyond").toString();
+										.append(Messages.getString("xtGraphics.1073")).toString(); //$NON-NLS-1$
 							}
 						}
-					} else if (spin != "")
-						if (loop == "") {
+					} else if (spin != Messages.getString("xtGraphics.1074")) //$NON-NLS-1$
+						if (loop == Messages.getString("xtGraphics.1075")) { //$NON-NLS-1$
 							final StringBuilder stringbuilder = new StringBuilder();
 							final xtGraphics var_xtGraphics_203_ = this;
-							var_xtGraphics_203_.asay = stringbuilder.append(var_xtGraphics_203_.asay).append(" ")
+							var_xtGraphics_203_.asay = stringbuilder.append(var_xtGraphics_203_.asay).append(Messages.getString("xtGraphics.1076")) //$NON-NLS-1$
 									.append(spin).toString();
 						} else {
 							final StringBuilder stringbuilder = new StringBuilder();
 							final xtGraphics var_xtGraphics_204_ = this;
-							var_xtGraphics_204_.asay = stringbuilder.append(var_xtGraphics_204_.asay).append(" by ")
+							var_xtGraphics_204_.asay = stringbuilder.append(var_xtGraphics_204_.asay).append(Messages.getString("xtGraphics.1077")) //$NON-NLS-1$
 									.append(spin).toString();
 						}
-					if (asay != "")
+					if (asay != Messages.getString("xtGraphics.1078")) //$NON-NLS-1$
 						auscnt -= 15;
-					if (loop != "")
+					if (loop != Messages.getString("xtGraphics.1079")) //$NON-NLS-1$
 						auscnt -= 25;
-					if (spin != "")
+					if (spin != Messages.getString("xtGraphics.1080")) //$NON-NLS-1$
 						auscnt -= 25;
 					if (i != 0)
 						auscnt -= 25;
@@ -8989,7 +8989,7 @@ public class xtGraphics extends Panel implements Runnable {
 						if (mad.powerup > 150.0F)
 							i_205_ = 3;
 						if (mad.surfer)
-							asay = new StringBuilder().append(" ").append(adj[4][(int) (m.random() * 3.0F)])
+							asay = new StringBuilder().append(Messages.getString("xtGraphics.1081")).append(adj[4][(int) (m.random() * 3.0F)]) //$NON-NLS-1$
 									.append(asay).toString();
 						if (i_205_ != 3)
 							asay = new StringBuilder().append(adj[i_205_][(int) (m.random() * 3.0F)]).append(asay)
@@ -8999,10 +8999,10 @@ public class xtGraphics extends Panel implements Runnable {
 						if (!wasay) {
 							tcnt = auscnt;
 							if (mad.power != 98.0F)
-								say = new StringBuilder().append("Power Up ")
-										.append((int) (100.0F * mad.powerup / 98.0F)).append("%").toString();
+								say = new StringBuilder().append(Messages.getString("xtGraphics.1082")) //$NON-NLS-1$
+										.append((int) (100.0F * mad.powerup / 98.0F)).append(Messages.getString("xtGraphics.1083")).toString(); //$NON-NLS-1$
 							else
-								say = "Power To The MAX";
+								say = Messages.getString("xtGraphics.1084"); //$NON-NLS-1$
 							if (skidup)
 								skidup = false;
 							else
@@ -9012,7 +9012,7 @@ public class xtGraphics extends Panel implements Runnable {
 				}
 				if (mad.newcar) {
 					if (!wasay) {
-						say = "Car Fixed";
+						say = Messages.getString("xtGraphics.1085"); //$NON-NLS-1$
 						tcnt = 0;
 					}
 					if (crashup)
@@ -9026,37 +9026,37 @@ public class xtGraphics extends Panel implements Runnable {
 						if (fase != 7001) {
 							if (dested[i] == 1) {
 								wasay = true;
-								say = new StringBuilder().append("").append(cd.names[sc[i]]).append(" has been wasted!")
+								say = new StringBuilder().append(Messages.getString("xtGraphics.1086")).append(cd.names[sc[i]]).append(Messages.getString("xtGraphics.1087")) //$NON-NLS-1$ //$NON-NLS-2$
 										.toString();
 								tcnt = -15;
 							}
 							if (dested[i] == 2) {
 								wasay = true;
-								say = new StringBuilder().append("You wasted ").append(cd.names[sc[i]]).append("!")
+								say = new StringBuilder().append(Messages.getString("xtGraphics.1088")).append(cd.names[sc[i]]).append(Messages.getString("xtGraphics.1089")) //$NON-NLS-1$ //$NON-NLS-2$
 										.toString();
 								tcnt = -15;
 							}
 						} else {
 							if (dested[i] == 1) {
 								wasay = true;
-								say = new StringBuilder().append("").append(plnames[i]).append(" has been wasted!")
+								say = new StringBuilder().append(Messages.getString("xtGraphics.1090")).append(plnames[i]).append(Messages.getString("xtGraphics.1091")) //$NON-NLS-1$ //$NON-NLS-2$
 										.toString();
 								tcnt = -15;
 							}
 							if (dested[i] == 2) {
 								wasay = true;
 								if (multion < 2)
-									say = new StringBuilder().append("You wasted ").append(plnames[i]).append("!")
+									say = new StringBuilder().append(Messages.getString("xtGraphics.1092")).append(plnames[i]).append(Messages.getString("xtGraphics.1093")) //$NON-NLS-1$ //$NON-NLS-2$
 											.toString();
 								else
-									say = new StringBuilder().append("").append(plnames[im]).append(" wasted ")
-											.append(plnames[i]).append("!").toString();
+									say = new StringBuilder().append(Messages.getString("xtGraphics.1094")).append(plnames[im]).append(Messages.getString("xtGraphics.1095")) //$NON-NLS-1$ //$NON-NLS-2$
+											.append(plnames[i]).append(Messages.getString("xtGraphics.1096")).toString(); //$NON-NLS-1$
 								tcnt = -15;
 							}
 							if (dested[i] == 3) {
 								wasay = true;
-								say = new StringBuilder().append("").append(plnames[i])
-										.append(" has been wasted! (Disconnected)").toString();
+								say = new StringBuilder().append(Messages.getString("xtGraphics.1097")).append(plnames[i]) //$NON-NLS-1$
+										.append(Messages.getString("xtGraphics.1098")).toString(); //$NON-NLS-1$
 								tcnt = -15;
 							}
 						}
@@ -9064,7 +9064,7 @@ public class xtGraphics extends Panel implements Runnable {
 				if (multion >= 2 && alocked != lalocked) {
 					if (alocked != -1) {
 						wasay = false;
-						say = new StringBuilder().append("Now following ").append(plnames[alocked]).append("!")
+						say = new StringBuilder().append(Messages.getString("xtGraphics.1099")).append(plnames[alocked]).append(Messages.getString("xtGraphics.1100")) //$NON-NLS-1$ //$NON-NLS-2$
 								.toString();
 						tcnt = -15;
 					}
@@ -9073,7 +9073,7 @@ public class xtGraphics extends Panel implements Runnable {
 				}
 				if (clear != mad.clear && mad.clear != 0) {
 					if (!wasay) {
-						say = "Checkpoint!";
+						say = Messages.getString("xtGraphics.1101"); //$NON-NLS-1$
 						tcnt = 15;
 					}
 					clear = mad.clear;
@@ -9179,21 +9179,21 @@ public class xtGraphics extends Panel implements Runnable {
 
 	public void waitenter() {
 		if (forstart < 690) {
-			rd.setFont(new Font("Arial", 1, 13));
+			rd.setFont(new Font(Messages.getString("xtGraphics.1102"), 1, 13)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
-			drawcs(70, "Waiting for all players to finish loading!", 0, 0, 0, 0);
+			drawcs(70, Messages.getString("xtGraphics.1103"), 0, 0, 0, 0); //$NON-NLS-1$
 			if (forstart <= 640)
-				drawcs(90, new StringBuilder().append("").append((640 - forstart) / 32).append("").toString(), 0, 0, 0,
+				drawcs(90, new StringBuilder().append(Messages.getString("xtGraphics.1104")).append((640 - forstart) / 32).append(Messages.getString("xtGraphics.1105")).toString(), 0, 0, 0, //$NON-NLS-1$ //$NON-NLS-2$
 						0);
 			else
-				drawcs(90, "Your connection to game may have been lost...", 0, 0, 0, 0);
-			rd.setFont(new Font("Arial", 1, 11));
+				drawcs(90, Messages.getString("xtGraphics.1106"), 0, 0, 0, 0); //$NON-NLS-1$
+			rd.setFont(new Font(Messages.getString("xtGraphics.1107"), 1, 11)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
 			if (tflk) {
-				drawcs(125, "Get Ready!", 0, 0, 0, 0);
+				drawcs(125, Messages.getString("xtGraphics.1108"), 0, 0, 0, 0); //$NON-NLS-1$
 				tflk = false;
 			} else {
-				drawcs(125, "Get Ready!", 0, 128, 255, 0);
+				drawcs(125, Messages.getString("xtGraphics.1109"), 0, 128, 255, 0); //$NON-NLS-1$
 				tflk = true;
 			}
 		}

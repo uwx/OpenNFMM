@@ -34,7 +34,7 @@ class RadicalMidi implements RadicalMusic {
 		try {
 			fi = new FileInputStream(new File(fn));
 		} catch (final FileNotFoundException ex) {
-			System.out.println("Midi file \"" + fn + "\" not found!");
+			System.out.println(Messages.getString("RadicalMidi.0") + fn + Messages.getString("RadicalMidi.1")); //$NON-NLS-1$ //$NON-NLS-2$
 			ex.printStackTrace();
 		}
 		try {
@@ -46,7 +46,7 @@ class RadicalMidi implements RadicalMusic {
 			sequencer.open();
 
 		} catch (final Exception ex) {
-			System.out.println("Error loading Midi file \"" + fn + "\":");
+			System.out.println(Messages.getString("RadicalMidi.2") + fn + Messages.getString("RadicalMidi.3")); //$NON-NLS-1$ //$NON-NLS-2$
 			ex.printStackTrace();
 		}
 		try {
@@ -54,7 +54,7 @@ class RadicalMidi implements RadicalMusic {
 			is = new BufferedInputStream(fi);
 
 		} catch (final Exception ex) {
-			System.out.println("Error buffering Midi file \"" + fn + "\":");
+			System.out.println(Messages.getString("RadicalMidi.4") + fn + Messages.getString("RadicalMidi.5")); //$NON-NLS-1$ //$NON-NLS-2$
 			ex.printStackTrace();
 		}
 
@@ -70,10 +70,10 @@ class RadicalMidi implements RadicalMusic {
 			fi = new FileInputStream(new File(s));
 			is = new BufferedInputStream(fi);
 		} catch (final IOException ex) {
-			System.out.println("Midi file not found!");
+			System.out.println(Messages.getString("RadicalMidi.6")); //$NON-NLS-1$
 			ex.printStackTrace();
 		} catch (final Exception ex) {
-			System.out.println("Error buffering Midi file:");
+			System.out.println(Messages.getString("RadicalMidi.7")); //$NON-NLS-1$
 			ex.printStackTrace();
 		}
 		play();
@@ -97,14 +97,14 @@ class RadicalMidi implements RadicalMusic {
 			// sequence.
 			sequencer.start();
 		} catch (final IllegalArgumentException ex) {
-			System.out.println("There is a mistake in your Midi code,");
-			System.out.println("please re-check!");
+			System.out.println(Messages.getString("RadicalMidi.8")); //$NON-NLS-1$
+			System.out.println(Messages.getString("RadicalMidi.9")); //$NON-NLS-1$
 			ex.printStackTrace();
 		} catch (final java.lang.IllegalStateException ex) {
-			System.out.println("Error playing Midi file " + s + ", check if the file exists!");
+			System.out.println(Messages.getString("RadicalMidi.10") + s + Messages.getString("RadicalMidi.11")); //$NON-NLS-1$ //$NON-NLS-2$
 			ex.printStackTrace();
 		} catch (final Exception ex) {
-			System.out.println("Error playing Midi file:");
+			System.out.println(Messages.getString("RadicalMidi.12")); //$NON-NLS-1$
 			ex.printStackTrace();
 		}
 	}
@@ -137,11 +137,11 @@ class RadicalMidi implements RadicalMusic {
 	@Override
 	@Deprecated
 	public void stop() {
-		System.out.println("Stopping Midi file...");
+		System.out.println(Messages.getString("RadicalMidi.13")); //$NON-NLS-1$
 		try {
 			sequencer.stop();
 		} catch (final Exception ex) {
-			System.out.println("Error stopping Midi file:");
+			System.out.println(Messages.getString("RadicalMidi.14")); //$NON-NLS-1$
 			ex.printStackTrace();
 		}
 	}
@@ -151,18 +151,18 @@ class RadicalMidi implements RadicalMusic {
 	 */
 	@Override
 	public void unload() {
-		System.out.println("Stopping Midi file...");
+		System.out.println(Messages.getString("RadicalMidi.15")); //$NON-NLS-1$
 		try {
 			sequencer.stop();
 		} catch (final Exception ex) {
-			System.out.println("Error stopping Midi file:");
+			System.out.println(Messages.getString("RadicalMidi.16")); //$NON-NLS-1$
 			ex.printStackTrace();
 		}
-		System.out.println("Unloading Midi file...");
+		System.out.println(Messages.getString("RadicalMidi.17")); //$NON-NLS-1$
 		try {
 			is.close();
 		} catch (final Exception ex) {
-			System.out.println("Error unloading Midi file:");
+			System.out.println(Messages.getString("RadicalMidi.18")); //$NON-NLS-1$
 			ex.printStackTrace();
 		}
 		System.gc();

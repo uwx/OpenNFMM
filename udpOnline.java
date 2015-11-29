@@ -28,7 +28,7 @@ public class udpOnline implements Runnable {
 			IPAddress = InetAddress.getByName(string);
 		} catch (final Exception exception) {
 			System.out.println(
-					new StringBuilder().append("Error preparing for UDP Connection: ").append(exception).toString());
+					new StringBuilder().append(Messages.getString("udpOnline.0")).append(exception).toString()); //$NON-NLS-1$
 		}
 	}
 
@@ -48,16 +48,16 @@ public class udpOnline implements Runnable {
 	}
 
 	public String getSvalue(final String string, final int i) {
-		String string_18_ = "";
+		String string_18_ = Messages.getString("udpOnline.1"); //$NON-NLS-1$
 		try {
 			int i_19_ = 0;
 			int i_20_ = 0;
 			int i_21_ = 0;
-			String string_22_ = "";
-			String string_23_ = "";
+			String string_22_ = Messages.getString("udpOnline.2"); //$NON-NLS-1$
+			String string_23_ = Messages.getString("udpOnline.3"); //$NON-NLS-1$
 			for (/**/; i_19_ < string.length() && i_21_ != 2; i_19_++) {
-				string_22_ = new StringBuilder().append("").append(string.charAt(i_19_)).toString();
-				if (string_22_.equals("|")) {
+				string_22_ = new StringBuilder().append(Messages.getString("udpOnline.4")).append(string.charAt(i_19_)).toString(); //$NON-NLS-1$
+				if (string_22_.equals(Messages.getString("udpOnline.5"))) { //$NON-NLS-1$
 					i_20_++;
 					if (i_21_ == 1 || i_20_ > i)
 						i_21_ = 2;
@@ -79,11 +79,11 @@ public class udpOnline implements Runnable {
 			int i_13_ = 0;
 			int i_14_ = 0;
 			int i_15_ = 0;
-			String string_16_ = "";
-			String string_17_ = "";
+			String string_16_ = Messages.getString("udpOnline.6"); //$NON-NLS-1$
+			String string_17_ = Messages.getString("udpOnline.7"); //$NON-NLS-1$
 			for (/**/; i_13_ < string.length() && i_15_ != 2; i_13_++) {
-				string_16_ = new StringBuilder().append("").append(string.charAt(i_13_)).toString();
-				if (string_16_.equals("|")) {
+				string_16_ = new StringBuilder().append(Messages.getString("udpOnline.8")).append(string.charAt(i_13_)).toString(); //$NON-NLS-1$
+				if (string_16_.equals(Messages.getString("udpOnline.9"))) { //$NON-NLS-1$
 					i_14_++;
 					if (i_15_ == 1 || i_14_ > i)
 						i_15_ = 2;
@@ -92,8 +92,8 @@ public class udpOnline implements Runnable {
 					i_15_ = 1;
 				}
 			}
-			if (string_17_.equals(""))
-				string_17_ = "-1";
+			if (string_17_.equals(Messages.getString("udpOnline.10"))) //$NON-NLS-1$
+				string_17_ = Messages.getString("udpOnline.11"); //$NON-NLS-1$
 			i_12_ = Integer.valueOf(string_17_).intValue();
 		} catch (final Exception exception) {
 			/* empty */
@@ -106,12 +106,12 @@ public class udpOnline implements Runnable {
 		started = true;
 		Date date = new Date();
 		sendat = date.getTime();
-		String string = "";
+		String string = Messages.getString("udpOnline.12"); //$NON-NLS-1$
 		if (!um.go)
-			string = "MAGNITUDE";
+			string = Messages.getString("udpOnline.13"); //$NON-NLS-1$
 		if (nu == 0 && um.diledelay == 0) {
 			um.sendat = sendat;
-			string = new StringBuilder().append("").append(sendat).toString();
+			string = new StringBuilder().append(Messages.getString("udpOnline.14")).append(sendat).toString(); //$NON-NLS-1$
 			string = string.substring(string.length() - 3, string.length());
 			um.sendcheck = string;
 			um.diledelay = 100;
@@ -119,8 +119,8 @@ public class udpOnline implements Runnable {
 		try {
 			final byte[] is = new byte[4];
 			final DatagramPacket datagrampacket = new DatagramPacket(is, is.length, IPAddress, gameport);
-			final String string_2_ = new StringBuilder().append("").append(string).append("|").append(um.im).append("|")
-					.append(um.frame[um.im][0]).append("|").append(um.info[um.im][0]).append("|").toString();
+			final String string_2_ = new StringBuilder().append(Messages.getString("udpOnline.15")).append(string).append(Messages.getString("udpOnline.16")).append(um.im).append(Messages.getString("udpOnline.17")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					.append(um.frame[um.im][0]).append(Messages.getString("udpOnline.18")).append(um.info[um.im][0]).append(Messages.getString("udpOnline.19")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 			final byte[] is_3_ = string_2_.getBytes();
 			datagrampacket.setData(is_3_);
 			dSocket.send(datagrampacket);
@@ -129,7 +129,7 @@ public class udpOnline implements Runnable {
 				final String string_4_ = new String(datagrampacket.getData());
 				if ((nu == 0 || !um.go) && i == 0) {
 					string = getSvalue(string_4_, 0);
-					if (!um.go && string.equals("1111111"))
+					if (!um.go && string.equals(Messages.getString("udpOnline.20"))) //$NON-NLS-1$
 						um.go = true;
 				}
 				final int i_5_ = getvalue(string_4_, 1);

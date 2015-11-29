@@ -31,17 +31,17 @@ public class Lobby implements Runnable {
 	int[] cay = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 	CarDefine cd;
 	int cflk = 0;
-	String chalby = "";
+	String chalby = Messages.getString("Lobby.0"); //$NON-NLS-1$
 	int chalngd = -1;
 	int clicked = -1;
 	int cmonp = -1;
-	String[] cnames = { "", "", "", "", "", "", "" };
+	String[] cnames = { Messages.getString("Lobby.1"), Messages.getString("Lobby.2"), Messages.getString("Lobby.3"), Messages.getString("Lobby.4"), Messages.getString("Lobby.5"), Messages.getString("Lobby.6"), Messages.getString("Lobby.7") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
 	int cntchkn = 0;
 	Thread connector;
 	int conon = 0;
 	int ctime = 0;
 	BufferedReader din;
-	String[] dinvi = { "", "", "", "", "", "", "", "" };
+	String[] dinvi = { Messages.getString("Lobby.8"), Messages.getString("Lobby.9"), Messages.getString("Lobby.10"), Messages.getString("Lobby.11"), Messages.getString("Lobby.12"), Messages.getString("Lobby.13"), Messages.getString("Lobby.14"), Messages.getString("Lobby.15") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
 	int dispcar = -1;
 	ContO dispco = null;
 	PrintWriter dout;
@@ -67,13 +67,13 @@ public class Lobby implements Runnable {
 	int gnpls = 8;
 	int[] gntb = new int[500];
 	int[] gnum = new int[500];
-	String gplayers = "";
+	String gplayers = Messages.getString("Lobby.16"); //$NON-NLS-1$
 	String[] gplyrs = new String[500];
 	boolean grprsd = false;
 	GameSparker gs;
 	int gstage = 0;
 	int gstagelaps = 0;
-	String gstagename = "";
+	String gstagename = Messages.getString("Lobby.17"); //$NON-NLS-1$
 	String[] gstages = new String[500];
 	int[] gstgn = new int[500];
 	String[] gvclan = new String[500];
@@ -84,16 +84,16 @@ public class Lobby implements Runnable {
 	int[] gwtyp = new int[500];
 	int im = 0;
 	boolean invo = false;
-	String[] invos = { "", "", "", "", "", "", "", "" };
+	String[] invos = { Messages.getString("Lobby.18"), Messages.getString("Lobby.19"), Messages.getString("Lobby.20"), Messages.getString("Lobby.21"), Messages.getString("Lobby.22"), Messages.getString("Lobby.23"), Messages.getString("Lobby.24"), Messages.getString("Lobby.25") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
 	boolean inwab = false;
 	boolean jflexo = false;
 	int join = -1;
 	boolean lanlogged = true;
 	int laps = 3;
-	String lapsname = "";
+	String lapsname = Messages.getString("Lobby.26"); //$NON-NLS-1$
 	Login lg;
 	boolean lloaded = false;
-	String lmsg = "| Searching/Waiting for other LAN Players |";
+	String lmsg = Messages.getString("Lobby.27"); //$NON-NLS-1$
 	int loadstage = 0;
 	boolean loadwarb = false;
 	int longame = -1;
@@ -111,7 +111,7 @@ public class Lobby implements Runnable {
 	int mscro = 125;
 	int mscro2 = 145;
 	int mscro3 = 345;
-	String msg = "";
+	String msg = Messages.getString("Lobby.28"); //$NON-NLS-1$
 	int msload = 0;
 	int ncnt = 0;
 	int nfix = 0;
@@ -148,14 +148,14 @@ public class Lobby implements Runnable {
 	boolean pre2 = false;
 	int prereq = 0;
 	int prevloaded = -1;
-	String[] prnames = { "", "", "", "", "", "", "", "" };
+	String[] prnames = { Messages.getString("Lobby.29"), Messages.getString("Lobby.30"), Messages.getString("Lobby.31"), Messages.getString("Lobby.32"), Messages.getString("Lobby.33"), Messages.getString("Lobby.34"), Messages.getString("Lobby.35"), Messages.getString("Lobby.36") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
 	int prnpo = 0;
 	long ptime = 0L;
 	Graphics2D rd;
 	boolean regnow = false;
 	int remstage = 0;
 	int rerr = 0;
-	String[] sentn = { "", "", "", "", "", "", "" };
+	String[] sentn = { Messages.getString("Lobby.37"), Messages.getString("Lobby.38"), Messages.getString("Lobby.39"), Messages.getString("Lobby.40"), Messages.getString("Lobby.41"), Messages.getString("Lobby.42"), Messages.getString("Lobby.43") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
 	int sflk = 0;
 	int sgflag = 0;
 	Socket socket;
@@ -163,13 +163,13 @@ public class Lobby implements Runnable {
 	int spos2 = 0;
 	int spos3 = 28;
 	int stage = 0;
-	String stagename = "";
-	String stuntname = "";
+	String stagename = Messages.getString("Lobby.44"); //$NON-NLS-1$
+	String stuntname = Messages.getString("Lobby.45"); //$NON-NLS-1$
 	int updatec = -1;
 	int[] wait = new int[500];
 	int waitlink = 0;
 	int warbsel = 0;
-	String wastename = "";
+	String wastename = Messages.getString("Lobby.46"); //$NON-NLS-1$
 	xtGraphics xt;
 	boolean zeromsw = false;
 
@@ -284,7 +284,7 @@ public class Lobby implements Runnable {
 						if (i_308_ == 0 && chalngd == -1) {
 							i_308_ = -1;
 							join = ongame;
-							msg = "| Joining Game |";
+							msg = Messages.getString("Lobby.47"); //$NON-NLS-1$
 							spos = 0;
 							m.trk = 0;
 							if (xt.loadedt)
@@ -324,7 +324,7 @@ public class Lobby implements Runnable {
 											gcars = 0;
 											gfix = 0;
 											gnotp = 0;
-											gplayers = "";
+											gplayers = Messages.getString("Lobby.48"); //$NON-NLS-1$
 											gs.wgame.select(0);
 											chalngd = -2;
 										} else
@@ -334,10 +334,10 @@ public class Lobby implements Runnable {
 									if (invo)
 										invo = false;
 									for (int i_311_ = 0; i_311_ < 7; i_311_++) {
-										if (!invos[i_311_].equals(""))
-											invos[i_311_] = "";
-										if (!dinvi[i_311_].equals(""))
-											dinvi[i_311_] = "";
+										if (!invos[i_311_].equals(Messages.getString("Lobby.49"))) //$NON-NLS-1$
+											invos[i_311_] = Messages.getString("Lobby.50"); //$NON-NLS-1$
+										if (!dinvi[i_311_].equals(Messages.getString("Lobby.51"))) //$NON-NLS-1$
+											dinvi[i_311_] = Messages.getString("Lobby.52"); //$NON-NLS-1$
 									}
 									gs.swait.setVisible(false);
 									gs.snpls.setVisible(false);
@@ -387,7 +387,7 @@ public class Lobby implements Runnable {
 								if (i_308_ == 4) {
 									ongame = chalngd;
 									join = chalngd;
-									msg = "| Joining Game |";
+									msg = Messages.getString("Lobby.53"); //$NON-NLS-1$
 									chalngd = -1;
 									longame = -1;
 								}
@@ -402,10 +402,10 @@ public class Lobby implements Runnable {
 									if (invo)
 										invo = false;
 									for (int i_313_ = 0; i_313_ < 7; i_313_++) {
-										if (!invos[i_313_].equals(""))
-											invos[i_313_] = "";
-										if (!dinvi[i_313_].equals(""))
-											dinvi[i_313_] = "";
+										if (!invos[i_313_].equals(Messages.getString("Lobby.54"))) //$NON-NLS-1$
+											invos[i_313_] = Messages.getString("Lobby.55"); //$NON-NLS-1$
+										if (!dinvi[i_313_].equals(Messages.getString("Lobby.56"))) //$NON-NLS-1$
+											dinvi[i_313_] = Messages.getString("Lobby.57"); //$NON-NLS-1$
 									}
 									gs.swait.setVisible(false);
 									gs.snpls.setVisible(false);
@@ -496,7 +496,7 @@ public class Lobby implements Runnable {
 												i_312_ = 6;
 											}
 										}
-									} else if (!xt.clan.equals("")) {
+									} else if (!xt.clan.equals(Messages.getString("Lobby.58"))) { //$NON-NLS-1$
 										int i_314_ = 4;
 										if (gs.warb.sel != 0 && gb.loadwbgames == 2) {
 											if (gs.wgame.getSelectedIndex() == 1 && gs.vnpls.sel != 0
@@ -504,13 +504,13 @@ public class Lobby implements Runnable {
 												if (i_308_ == 4) {
 													if (invo)
 														invo = false;
-													msg = "| Creating Game |";
-													gplayers = new StringBuilder().append("#warb#").append(gb.warb)
-															.append("#").append(gb.warbnum).append("#")
-															.append(gb.gameturn + 1).append("#").append(xt.clan)
-															.append("#").append(gb.vclan).append("#").append(gb.ascore)
-															.append("#").append(gb.vscore).append("#")
-															.append(this.gs.vtyp.sel + 1).append("#").toString();
+													msg = Messages.getString("Lobby.59"); //$NON-NLS-1$
+													gplayers = new StringBuilder().append(Messages.getString("Lobby.60")).append(gb.warb) //$NON-NLS-1$
+															.append(Messages.getString("Lobby.61")).append(gb.warbnum).append(Messages.getString("Lobby.62")) //$NON-NLS-1$ //$NON-NLS-2$
+															.append(gb.gameturn + 1).append(Messages.getString("Lobby.63")).append(xt.clan) //$NON-NLS-1$
+															.append(Messages.getString("Lobby.64")).append(gb.vclan).append(Messages.getString("Lobby.65")).append(gb.ascore) //$NON-NLS-1$ //$NON-NLS-2$
+															.append(Messages.getString("Lobby.66")).append(gb.vscore).append(Messages.getString("Lobby.67")) //$NON-NLS-1$ //$NON-NLS-2$
+															.append(this.gs.vtyp.sel + 1).append(Messages.getString("Lobby.68")).toString(); //$NON-NLS-1$
 													gstage = gb.wbstage[gb.gameturn];
 													gstagelaps = gb.wblaps[gb.gameturn];
 													gcars = gb.wbcars[gb.gameturn] - 1;
@@ -536,7 +536,7 @@ public class Lobby implements Runnable {
 											if (gs.wgame.getSelectedIndex() == 2 && gs.pgame.sel != 0 && i_308_ == 4) {
 												if (invo)
 													invo = false;
-												msg = "| Creating Game |";
+												msg = Messages.getString("Lobby.69"); //$NON-NLS-1$
 												gstage = gb.wbstage[gs.pgame.sel - 1];
 												gstagelaps = gb.wblaps[gs.pgame.sel - 1];
 												gcars = gb.wbcars[gs.pgame.sel - 1] - 1;
@@ -545,7 +545,7 @@ public class Lobby implements Runnable {
 												gnpls = 8;
 												gwait = 120;
 												gnotp = 0;
-												gplayers = "";
+												gplayers = Messages.getString("Lobby.70"); //$NON-NLS-1$
 												gs.wgame.setVisible(false);
 												gs.pgame.setVisible(false);
 												gs.vnpls.setVisible(false);
@@ -561,8 +561,8 @@ public class Lobby implements Runnable {
 										gb.tab = 3;
 										gb.cfase = 2;
 										gb.em = 1;
-										gb.msg = "Clan Search";
-										gb.smsg = "Listing clans with recent activity...";
+										gb.msg = Messages.getString("Lobby.71"); //$NON-NLS-1$
+										gb.smsg = Messages.getString("Lobby.72"); //$NON-NLS-1$
 										gb.nclns = 0;
 										gb.spos5 = 0;
 										gb.lspos5 = 0;
@@ -582,10 +582,10 @@ public class Lobby implements Runnable {
 										if (gnpls != 0 && gs.snpls.getSelectedIndex() != 0) {
 											chalngd = -4;
 											for (int i_315_ = 0; i_315_ < 7; i_315_++) {
-												if (!invos[i_315_].equals(""))
-													invos[i_315_] = "";
-												if (!dinvi[i_315_].equals(""))
-													dinvi[i_315_] = "";
+												if (!invos[i_315_].equals(Messages.getString("Lobby.73"))) //$NON-NLS-1$
+													invos[i_315_] = Messages.getString("Lobby.74"); //$NON-NLS-1$
+												if (!dinvi[i_315_].equals(Messages.getString("Lobby.75"))) //$NON-NLS-1$
+													dinvi[i_315_] = Messages.getString("Lobby.76"); //$NON-NLS-1$
 											}
 											i_308_ = -1;
 											gs.snpls.setVisible(false);
@@ -600,7 +600,7 @@ public class Lobby implements Runnable {
 									i_312_ = 7;
 									int i_316_ = 0;
 									for (int i_317_ = 0; i_317_ < 7; i_317_++)
-										if (!invos[i_317_].equals(""))
+										if (!invos[i_317_].equals(Messages.getString("Lobby.77"))) //$NON-NLS-1$
 											i_316_++;
 									if (i_316_ < gnpls - 1) {
 										if (i_308_ == 4)
@@ -621,7 +621,7 @@ public class Lobby implements Runnable {
 											gnotp = 1;
 										else
 											gnotp = 0;
-										gplayers = "";
+										gplayers = Messages.getString("Lobby.78"); //$NON-NLS-1$
 										gs.sclass.setVisible(false);
 										gs.scars.setVisible(false);
 										gs.sfix.setVisible(false);
@@ -633,7 +633,7 @@ public class Lobby implements Runnable {
 									if (i_308_ == i_312_ - 1) {
 										if (invo)
 											invo = false;
-										msg = "| Creating Game |";
+										msg = Messages.getString("Lobby.79"); //$NON-NLS-1$
 										if (gs.mycar.getState() && xt.sc[0] < 16) {
 											gclass = -(xt.sc[0] + 2);
 											gcars = 0;
@@ -644,16 +644,16 @@ public class Lobby implements Runnable {
 											gnotp = 1;
 										else
 											gnotp = 0;
-										gplayers = "";
+										gplayers = Messages.getString("Lobby.80"); //$NON-NLS-1$
 										if (i_316_ != 0) {
 											gnpls = i_316_ + 1;
-											gplayers = new StringBuilder().append("").append(pnames[im]).append("#")
+											gplayers = new StringBuilder().append(Messages.getString("Lobby.81")).append(pnames[im]).append(Messages.getString("Lobby.82")) //$NON-NLS-1$ //$NON-NLS-2$
 													.toString();
 											for (int i_318_ = 0; i_318_ < i_316_; i_318_++) {
 												final StringBuilder stringbuilder = new StringBuilder();
 												final Lobby lobby_319_ = this;
 												lobby_319_.gplayers = stringbuilder.append(lobby_319_.gplayers)
-														.append(invos[i_318_]).append("#").toString();
+														.append(invos[i_318_]).append(Messages.getString("Lobby.83")).toString(); //$NON-NLS-1$
 											}
 										}
 										gs.sclass.setVisible(false);
@@ -666,11 +666,11 @@ public class Lobby implements Runnable {
 									}
 								}
 							}
-							if (i_308_ == i_312_ && !xt.lan && !gs.cmsg.getText().equals("Type here...")
-									&& !gs.cmsg.getText().equals("")) {
+							if (i_308_ == i_312_ && !xt.lan && !gs.cmsg.getText().equals(Messages.getString("Lobby.84")) //$NON-NLS-1$
+									&& !gs.cmsg.getText().equals(Messages.getString("Lobby.85"))) { //$NON-NLS-1$
 								String string = gs.cmsg.getText().replace('|', ':');
 								if (string.toLowerCase().indexOf(gs.tpass.getText().toLowerCase()) != -1)
-									string = " ";
+									string = Messages.getString("Lobby.86"); //$NON-NLS-1$
 								if (!xt.msgcheck(string) && updatec > -12) {
 									for (int i_320_ = 0; i_320_ < 6; i_320_++) {
 										sentn[i_320_] = sentn[i_320_ + 1];
@@ -685,7 +685,7 @@ public class Lobby implements Runnable {
 									spos3 = 28;
 								} else
 									xt.warning++;
-								gs.cmsg.setText("");
+								gs.cmsg.setText(Messages.getString("Lobby.87")); //$NON-NLS-1$
 							}
 						} else if (dispcar == -1) {
 							int i_321_ = 0;
@@ -694,14 +694,14 @@ public class Lobby implements Runnable {
 									i_321_ = i_322_;
 							boolean bool = false;
 							if (gwarb[i_321_] == 0) {
-								if (!gplyrs[i_321_].equals("") && gplyrs[i_321_].indexOf(pnames[im]) == -1)
+								if (!gplyrs[i_321_].equals(Messages.getString("Lobby.88")) && gplyrs[i_321_].indexOf(pnames[im]) == -1) //$NON-NLS-1$
 									bool = true;
 							} else if (!xt.clan.toLowerCase().equals(gaclan[i_321_].toLowerCase())
 									&& !xt.clan.toLowerCase().equals(gvclan[i_321_].toLowerCase()))
 								bool = true;
 							if (control.enter && wait[i_321_] > 0 && pgames[im] == -1 && !bool) {
 								join = ongame;
-								msg = "| Joining Game |";
+								msg = Messages.getString("Lobby.89"); //$NON-NLS-1$
 								spos = 0;
 								if (pbtn == 0)
 									pessd[1] = true;
@@ -720,7 +720,7 @@ public class Lobby implements Runnable {
 									chalngd = -1;
 								} else {
 									join = -2;
-									msg = "| Leaving Game |";
+									msg = Messages.getString("Lobby.90"); //$NON-NLS-1$
 									longame = -1;
 								}
 							if (pbtn == 0) {
@@ -728,7 +728,7 @@ public class Lobby implements Runnable {
 									if (wait[i_321_] > 0) {
 										if (pgames[im] == -1) {
 											join = ongame;
-											msg = "| Joining Game |";
+											msg = Messages.getString("Lobby.91"); //$NON-NLS-1$
 											spos = 0;
 										} else if (gmaker[i_321_].equals(pnames[im]) && npls[i_321_] > 1)
 											fstart = true;
@@ -761,11 +761,11 @@ public class Lobby implements Runnable {
 											conon = 3;
 										}
 									}
-								if (i_308_ == 2 && !xt.lan && !gs.cmsg.getText().equals("Type here...")
-										&& !gs.cmsg.getText().equals("")) {
+								if (i_308_ == 2 && !xt.lan && !gs.cmsg.getText().equals(Messages.getString("Lobby.92")) //$NON-NLS-1$
+										&& !gs.cmsg.getText().equals(Messages.getString("Lobby.93"))) { //$NON-NLS-1$
 									String string = gs.cmsg.getText().replace('|', ':');
 									if (string.toLowerCase().indexOf(gs.tpass.getText().toLowerCase()) != -1)
-										string = " ";
+										string = Messages.getString("Lobby.94"); //$NON-NLS-1$
 									if (!xt.msgcheck(string) && updatec > -12) {
 										for (int i_323_ = 0; i_323_ < 6; i_323_++) {
 											sentn[i_323_] = sentn[i_323_ + 1];
@@ -779,13 +779,13 @@ public class Lobby implements Runnable {
 											updatec--;
 									} else
 										xt.warning++;
-									gs.cmsg.setText("");
+									gs.cmsg.setText(Messages.getString("Lobby.95")); //$NON-NLS-1$
 								}
 							}
 							if (pbtn == 1 && i_308_ == 1)
 								if (pgames[im] == -1) {
 									join = ongame;
-									msg = "| Joining Game |";
+									msg = Messages.getString("Lobby.96"); //$NON-NLS-1$
 									spos = 0;
 								} else if (!invo)
 									invo = true;
@@ -816,13 +816,13 @@ public class Lobby implements Runnable {
 									chalngd = -1;
 								} else {
 									join = -2;
-									msg = "| Leaving Game |";
+									msg = Messages.getString("Lobby.97"); //$NON-NLS-1$
 									longame = -1;
 								}
 							if (pbtn == 1 && i_308_ == 1)
 								if (pgames[im] == -1) {
 									join = ongame;
-									msg = "| Joining Game |";
+									msg = Messages.getString("Lobby.98"); //$NON-NLS-1$
 									spos = 0;
 								} else if (!invo)
 									invo = true;
@@ -895,16 +895,16 @@ public class Lobby implements Runnable {
 	}
 
 	public String getHSvalue(final String string, final int i) {
-		String string_347_ = "";
+		String string_347_ = Messages.getString("Lobby.99"); //$NON-NLS-1$
 		try {
 			int i_348_ = 0;
 			int i_349_ = 0;
 			int i_350_ = 0;
-			String string_351_ = "";
-			String string_352_ = "";
+			String string_351_ = Messages.getString("Lobby.100"); //$NON-NLS-1$
+			String string_352_ = Messages.getString("Lobby.101"); //$NON-NLS-1$
 			for (/**/ ; i_348_ < string.length() && i_350_ != 2; i_348_++) {
-				string_351_ = new StringBuilder().append("").append(string.charAt(i_348_)).toString();
-				if (string_351_.equals("#")) {
+				string_351_ = new StringBuilder().append(Messages.getString("Lobby.102")).append(string.charAt(i_348_)).toString(); //$NON-NLS-1$
+				if (string_351_.equals(Messages.getString("Lobby.103"))) { //$NON-NLS-1$
 					i_349_++;
 					if (i_350_ == 1 || i_349_ > i)
 						i_350_ = 2;
@@ -926,11 +926,11 @@ public class Lobby implements Runnable {
 			int i_342_ = 0;
 			int i_343_ = 0;
 			int i_344_ = 0;
-			String string_345_ = "";
-			String string_346_ = "";
+			String string_345_ = Messages.getString("Lobby.104"); //$NON-NLS-1$
+			String string_346_ = Messages.getString("Lobby.105"); //$NON-NLS-1$
 			for (/**/ ; i_342_ < string.length() && i_344_ != 2; i_342_++) {
-				string_345_ = new StringBuilder().append("").append(string.charAt(i_342_)).toString();
-				if (string_345_.equals("#")) {
+				string_345_ = new StringBuilder().append(Messages.getString("Lobby.106")).append(string.charAt(i_342_)).toString(); //$NON-NLS-1$
+				if (string_345_.equals(Messages.getString("Lobby.107"))) { //$NON-NLS-1$
 					i_343_++;
 					if (i_344_ == 1 || i_343_ > i)
 						i_344_ = 2;
@@ -939,8 +939,8 @@ public class Lobby implements Runnable {
 					i_344_ = 1;
 				}
 			}
-			if (string_346_.equals(""))
-				string_346_ = "-1";
+			if (string_346_.equals(Messages.getString("Lobby.108"))) //$NON-NLS-1$
+				string_346_ = Messages.getString("Lobby.109"); //$NON-NLS-1$
 			i_341_ = Integer.valueOf(string_346_).intValue();
 		} catch (final Exception exception) {
 			/* empty */
@@ -949,17 +949,17 @@ public class Lobby implements Runnable {
 	}
 
 	public String getSevervalue(final String string, final int i) {
-		String string_353_ = "";
-		if (!string.equals(""))
+		String string_353_ = Messages.getString("Lobby.110"); //$NON-NLS-1$
+		if (!string.equals(Messages.getString("Lobby.111"))) //$NON-NLS-1$
 			try {
 				int i_354_ = 0;
 				int i_355_ = 0;
 				int i_356_ = 0;
-				String string_357_ = "";
-				String string_358_ = "";
+				String string_357_ = Messages.getString("Lobby.112"); //$NON-NLS-1$
+				String string_358_ = Messages.getString("Lobby.113"); //$NON-NLS-1$
 				for (/**/ ; i_354_ < string.length() && i_356_ != 2; i_354_++) {
-					string_357_ = new StringBuilder().append("").append(string.charAt(i_354_)).toString();
-					if (string_357_.equals("|")) {
+					string_357_ = new StringBuilder().append(Messages.getString("Lobby.114")).append(string.charAt(i_354_)).toString(); //$NON-NLS-1$
+					if (string_357_.equals(Messages.getString("Lobby.115"))) { //$NON-NLS-1$
 						i_355_++;
 						if (i_356_ == 1 || i_355_ > i)
 							i_356_ = 2;
@@ -970,22 +970,22 @@ public class Lobby implements Runnable {
 				}
 				string_353_ = string_358_;
 			} catch (final Exception exception) {
-				string_353_ = "";
+				string_353_ = Messages.getString("Lobby.116"); //$NON-NLS-1$
 			}
 		return string_353_;
 	}
 
 	public String getSvalue(final String string, final int i) {
-		String string_335_ = "";
+		String string_335_ = Messages.getString("Lobby.117"); //$NON-NLS-1$
 		try {
 			int i_336_ = 0;
 			int i_337_ = 0;
 			int i_338_ = 0;
-			String string_339_ = "";
-			String string_340_ = "";
+			String string_339_ = Messages.getString("Lobby.118"); //$NON-NLS-1$
+			String string_340_ = Messages.getString("Lobby.119"); //$NON-NLS-1$
 			for (/**/ ; i_336_ < string.length() && i_338_ != 2; i_336_++) {
-				string_339_ = new StringBuilder().append("").append(string.charAt(i_336_)).toString();
-				if (string_339_.equals("|")) {
+				string_339_ = new StringBuilder().append(Messages.getString("Lobby.120")).append(string.charAt(i_336_)).toString(); //$NON-NLS-1$
+				if (string_339_.equals(Messages.getString("Lobby.121"))) { //$NON-NLS-1$
 					i_337_++;
 					if (i_338_ == 1 || i_337_ > i)
 						i_338_ = 2;
@@ -1007,11 +1007,11 @@ public class Lobby implements Runnable {
 			int i_330_ = 0;
 			int i_331_ = 0;
 			int i_332_ = 0;
-			String string_333_ = "";
-			String string_334_ = "";
+			String string_333_ = Messages.getString("Lobby.122"); //$NON-NLS-1$
+			String string_334_ = Messages.getString("Lobby.123"); //$NON-NLS-1$
 			for (/**/ ; i_330_ < string.length() && i_332_ != 2; i_330_++) {
-				string_333_ = new StringBuilder().append("").append(string.charAt(i_330_)).toString();
-				if (string_333_.equals("|")) {
+				string_333_ = new StringBuilder().append(Messages.getString("Lobby.124")).append(string.charAt(i_330_)).toString(); //$NON-NLS-1$
+				if (string_333_.equals(Messages.getString("Lobby.125"))) { //$NON-NLS-1$
 					i_331_++;
 					if (i_332_ == 1 || i_331_ > i)
 						i_332_ = 2;
@@ -1020,8 +1020,8 @@ public class Lobby implements Runnable {
 					i_332_ = 1;
 				}
 			}
-			if (string_334_.equals(""))
-				string_334_ = "-1";
+			if (string_334_.equals(Messages.getString("Lobby.126"))) //$NON-NLS-1$
+				string_334_ = Messages.getString("Lobby.127"); //$NON-NLS-1$
 			i_329_ = Integer.valueOf(string_334_).intValue();
 		} catch (final Exception exception) {
 			/* empty */
@@ -1062,41 +1062,41 @@ public class Lobby implements Runnable {
 		gs.mycar.setBackground(color2k(255, 255, 255));
 		gs.mycar.setForeground(new Color(0, 0, 0));
 		gs.rooms.removeAll();
-		gs.rooms.add(rd, new StringBuilder().append("").append(xt.servername).append(" :: ").append(xt.servport - 7070)
-				.append("").toString());
+		gs.rooms.add(rd, new StringBuilder().append(Messages.getString("Lobby.128")).append(xt.servername).append(Messages.getString("Lobby.129")).append(xt.servport - 7070) //$NON-NLS-1$ //$NON-NLS-2$
+				.append(Messages.getString("Lobby.130")).toString()); //$NON-NLS-1$
 		gs.rooms.select(0);
 		gs.requestFocus();
 		cd.loadready();
 		for (int i = 0; i < 500; i++) {
 			gnum[i] = -2;
 			gstgn[i] = 0;
-			gstages[i] = "";
+			gstages[i] = Messages.getString("Lobby.131"); //$NON-NLS-1$
 			gnlaps[i] = 0;
 			mnpls[i] = 0;
 			mnbts[i] = 0;
 			wait[i] = 0;
-			gmaker[i] = "";
+			gmaker[i] = Messages.getString("Lobby.132"); //$NON-NLS-1$
 			gcrs[i] = 0;
 			gclss[i] = 0;
 			gfx[i] = 0;
 			gntb[i] = 0;
-			gplyrs[i] = "";
+			gplyrs[i] = Messages.getString("Lobby.133"); //$NON-NLS-1$
 			npls[i] = 0;
 			gwarb[i] = 0;
-			gwarbnum[i] = "";
+			gwarbnum[i] = Messages.getString("Lobby.134"); //$NON-NLS-1$
 			gameturn[i] = 0;
-			gaclan[i] = "";
-			gvclan[i] = "";
+			gaclan[i] = Messages.getString("Lobby.135"); //$NON-NLS-1$
+			gvclan[i] = Messages.getString("Lobby.136"); //$NON-NLS-1$
 			gascore[i] = 0;
 			gvscore[i] = 0;
 			gwtyp[i] = 0;
 		}
 		for (int i = 0; i < 200; i++) {
-			pnames[i] = "";
+			pnames[i] = Messages.getString("Lobby.137"); //$NON-NLS-1$
 			pcars[i] = 0;
-			pcarnames[i] = "";
+			pcarnames[i] = Messages.getString("Lobby.138"); //$NON-NLS-1$
 			pgames[i] = -1;
-			pclan[i] = "";
+			pclan[i] = Messages.getString("Lobby.139"); //$NON-NLS-1$
 			for (int i_0_ = 0; i_0_ < 6; i_0_++)
 				pcols[i][i_0_] = 0.0F;
 		}
@@ -1106,7 +1106,7 @@ public class Lobby implements Runnable {
 		chalngd = -1;
 		dispcar = -1;
 		forcar = -1;
-		chalby = "";
+		chalby = Messages.getString("Lobby.140"); //$NON-NLS-1$
 		im = 0;
 		fstart = false;
 		updatec = -1;
@@ -1200,7 +1200,7 @@ public class Lobby implements Runnable {
 												bool_112_ = true;
 												if (control.handb) {
 													gs.cmsg.setText(new StringBuilder().append(gs.cmsg.getText())
-															.append("").append(pnames[i_109_]).toString());
+															.append(Messages.getString("Lobby.141")).append(pnames[i_109_]).toString()); //$NON-NLS-1$
 													control.handb = false;
 												}
 											}
@@ -1211,11 +1211,11 @@ public class Lobby implements Runnable {
 											final boolean bool_113_ = gb.drawl(rd, pnames[i_109_], 68,
 													53 + 30 * i_106_ - i_105_, bool_112_);
 											if (!bool_112_ || !bool_113_) {
-												rd.setFont(new Font("Arial", 1, 12));
+												rd.setFont(new Font(Messages.getString("Lobby.142"), 1, 12)); //$NON-NLS-1$
 												ftm = rd.getFontMetrics();
 												rd.drawString(pnames[i_109_], 127 - ftm.stringWidth(pnames[i_109_]) / 2,
 														66 + 30 * i_106_ - i_105_);
-												rd.setFont(new Font("Arial", 0, 10));
+												rd.setFont(new Font(Messages.getString("Lobby.143"), 0, 10)); //$NON-NLS-1$
 												ftm = rd.getFontMetrics();
 												rd.drawString(pcarnames[i_109_],
 														127 - ftm.stringWidth(pcarnames[i_109_]) / 2,
@@ -1233,17 +1233,17 @@ public class Lobby implements Runnable {
 								if (gwarb[i_115_] != 0 && pgames[im] == gnum[i_115_])
 									i_114_ = i_115_;
 							rd.setColor(new Color(0, 0, 0));
-							rd.setFont(new Font("Arial", 1, 12));
+							rd.setFont(new Font(Messages.getString("Lobby.144"), 1, 12)); //$NON-NLS-1$
 							ftm = rd.getFontMetrics();
 							if (i_114_ == -1)
-								rd.drawString("Free Players", 127 - ftm.stringWidth("Free Players") / 2, 75 - i_105_);
+								rd.drawString(Messages.getString("Lobby.145"), 127 - ftm.stringWidth(Messages.getString("Lobby.146")) / 2, 75 - i_105_); //$NON-NLS-1$ //$NON-NLS-2$
 							else
-								rd.drawString("Members of Clans", 127 - ftm.stringWidth("Members of Clans") / 2,
+								rd.drawString(Messages.getString("Lobby.147"), 127 - ftm.stringWidth(Messages.getString("Lobby.148")) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 										75 - i_105_);
-							rd.setFont(new Font("Arial", 0, 10));
+							rd.setFont(new Font(Messages.getString("Lobby.149"), 0, 10)); //$NON-NLS-1$
 							ftm = rd.getFontMetrics();
-							rd.drawString("Click a player to invite:",
-									127 - ftm.stringWidth("Click a player to invite:") / 2, 92 - i_105_);
+							rd.drawString(Messages.getString("Lobby.150"), //$NON-NLS-1$
+									127 - ftm.stringWidth(Messages.getString("Lobby.151")) / 2, 92 - i_105_); //$NON-NLS-1$
 							rd.setColor(color2k(150, 150, 150));
 							rd.drawLine(70, 112 - i_105_, 185, 112 - i_105_);
 							i_106_ += 2;
@@ -1274,7 +1274,7 @@ public class Lobby implements Runnable {
 												if (mousonp == i_116_) {
 													int i_120_ = 0;
 													for (boolean bool_121_ = false; i_120_ < 7 && !bool_121_; i_120_++)
-														if (invos[i_120_].equals("")) {
+														if (invos[i_120_].equals(Messages.getString("Lobby.152"))) { //$NON-NLS-1$
 															invos[i_120_] = this.pnames[i_116_];
 															bool_121_ = true;
 														}
@@ -1298,7 +1298,7 @@ public class Lobby implements Runnable {
 										}
 										bool_119_ = true;
 										if (control.handb) {
-											gs.cmsg.setText(new StringBuilder().append(gs.cmsg.getText()).append("")
+											gs.cmsg.setText(new StringBuilder().append(gs.cmsg.getText()).append(Messages.getString("Lobby.153")) //$NON-NLS-1$
 													.append(pnames[i_116_]).toString());
 											control.handb = false;
 										}
@@ -1310,11 +1310,11 @@ public class Lobby implements Runnable {
 									final boolean bool_122_ = gb.drawl(rd, pnames[i_116_], 68,
 											53 + 30 * i_106_ - i_105_, bool_119_);
 									if (!bool_119_ || !bool_122_) {
-										rd.setFont(new Font("Arial", 1, 12));
+										rd.setFont(new Font(Messages.getString("Lobby.154"), 1, 12)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
 										rd.drawString(pnames[i_116_], 127 - ftm.stringWidth(pnames[i_116_]) / 2,
 												66 + 30 * i_106_ - i_105_);
-										rd.setFont(new Font("Arial", 0, 10));
+										rd.setFont(new Font(Messages.getString("Lobby.155"), 0, 10)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
 										rd.drawString(pcarnames[i_116_], 127 - ftm.stringWidth(pcarnames[i_116_]) / 2,
 												78 + 30 * i_106_ - i_105_);
@@ -1375,7 +1375,7 @@ public class Lobby implements Runnable {
 													bool_129_ = true;
 													if (control.handb) {
 														gs.cmsg.setText(new StringBuilder()
-																.append(this.gs.cmsg.getText()).append("")
+																.append(this.gs.cmsg.getText()).append(Messages.getString("Lobby.156")) //$NON-NLS-1$
 																.append(this.pnames[i_123_]).toString());
 														control.handb = false;
 													}
@@ -1392,12 +1392,12 @@ public class Lobby implements Runnable {
 												final boolean bool_130_ = gb.drawl(rd, pnames[i_123_], 68,
 														53 + 30 * i_106_ - i_105_, bool_129_);
 												if (!bool_129_ || !bool_130_) {
-													rd.setFont(new Font("Arial", 1, 12));
+													rd.setFont(new Font(Messages.getString("Lobby.157"), 1, 12)); //$NON-NLS-1$
 													ftm = rd.getFontMetrics();
 													rd.drawString(pnames[i_123_],
 															127 - ftm.stringWidth(pnames[i_123_]) / 2,
 															66 + 30 * i_106_ - i_105_);
-													rd.setFont(new Font("Arial", 0, 10));
+													rd.setFont(new Font(Messages.getString("Lobby.158"), 0, 10)); //$NON-NLS-1$
 													ftm = rd.getFontMetrics();
 													rd.drawString(pcarnames[i_123_],
 															127 - ftm.stringWidth(pcarnames[i_123_]) / 2,
@@ -1418,9 +1418,9 @@ public class Lobby implements Runnable {
 					}
 					if (npo == 0) {
 						rd.setColor(new Color(0, 0, 0));
-						rd.setFont(new Font("Arial", 1, 12));
+						rd.setFont(new Font(Messages.getString("Lobby.159"), 1, 12)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
-						rd.drawString("|  Loading Players  |", 127 - ftm.stringWidth("|  Loading Players  |") / 2, 95);
+						rd.drawString(Messages.getString("Lobby.160"), 127 - ftm.stringWidth(Messages.getString("Lobby.161")) / 2, 95); //$NON-NLS-1$ //$NON-NLS-2$
 					}
 					rd.setColor(color2k(205, 205, 205));
 					rd.fillRect(65, 25, 145, 28);
@@ -1565,10 +1565,10 @@ public class Lobby implements Runnable {
 							if (invo)
 								invo = false;
 							for (int i_133_ = 0; i_133_ < 7; i_133_++) {
-								if (!invos[i_133_].equals(""))
-									invos[i_133_] = "";
-								if (!dinvi[i_133_].equals(""))
-									dinvi[i_133_] = "";
+								if (!invos[i_133_].equals(Messages.getString("Lobby.162"))) //$NON-NLS-1$
+									invos[i_133_] = Messages.getString("Lobby.163"); //$NON-NLS-1$
+								if (!dinvi[i_133_].equals(Messages.getString("Lobby.164"))) //$NON-NLS-1$
+									dinvi[i_133_] = Messages.getString("Lobby.165"); //$NON-NLS-1$
 							}
 							if (fstart)
 								fstart = false;
@@ -1581,7 +1581,7 @@ public class Lobby implements Runnable {
 							if (!xt.lan) {
 								drawSbutton(xt.cgame, 292, 42);
 								drawSbutton(xt.ccar, 442, 42);
-								rd.setFont(new Font("Arial", 1, 13));
+								rd.setFont(new Font(Messages.getString("Lobby.166"), 1, 13)); //$NON-NLS-1$
 								ftm = rd.getFontMetrics();
 								rd.setColor(color2k(60, 60, 60));
 								if (!gs.rooms.isShowing())
@@ -1617,25 +1617,25 @@ public class Lobby implements Runnable {
 									rd.setColor(new Color(0, 0, 0));
 									if (ncnt == 0)
 										rd.setColor(new Color(188, 111, 0));
-									rd.setFont(new Font("Arial", 1, 13));
+									rd.setFont(new Font(Messages.getString("Lobby.167"), 1, 13)); //$NON-NLS-1$
 									ftm = rd.getFontMetrics();
 									rd.drawString(lmsg, 472 - ftm.stringWidth(lmsg) / 2, 295);
-									if (lmsg.equals(". . . | Searching/Waiting for other LAN Players | . . .")
+									if (lmsg.equals(Messages.getString("Lobby.168")) //$NON-NLS-1$
 											&& ncnt == 0) {
-										lmsg = "| Searching/Waiting for other LAN Players |";
+										lmsg = Messages.getString("Lobby.169"); //$NON-NLS-1$
 										ncnt = 5;
 									}
-									if (lmsg.equals(". . | Searching/Waiting for other LAN Players | . .")
+									if (lmsg.equals(Messages.getString("Lobby.170")) //$NON-NLS-1$
 											&& ncnt == 0) {
-										lmsg = ". . . | Searching/Waiting for other LAN Players | . . .";
+										lmsg = Messages.getString("Lobby.171"); //$NON-NLS-1$
 										ncnt = 5;
 									}
-									if (lmsg.equals(". | Searching/Waiting for other LAN Players | .") && ncnt == 0) {
-										lmsg = ". . | Searching/Waiting for other LAN Players | . .";
+									if (lmsg.equals(Messages.getString("Lobby.172")) && ncnt == 0) { //$NON-NLS-1$
+										lmsg = Messages.getString("Lobby.173"); //$NON-NLS-1$
 										ncnt = 5;
 									}
-									if (lmsg.equals("| Searching/Waiting for other LAN Players |") && ncnt == 0) {
-										lmsg = ". | Searching/Waiting for other LAN Players | .";
+									if (lmsg.equals(Messages.getString("Lobby.174")) && ncnt == 0) { //$NON-NLS-1$
+										lmsg = Messages.getString("Lobby.175"); //$NON-NLS-1$
 										ncnt = 5;
 									}
 									if (ncnt != 0)
@@ -1661,21 +1661,21 @@ public class Lobby implements Runnable {
 									 * drawSbutton(( xt).register, 472, 395); }
 									 */ else {
 									rd.setColor(color2k(90, 90, 90));
-									rd.setFont(new Font("Arial", 1, 12));
+									rd.setFont(new Font(Messages.getString("Lobby.176"), 1, 12)); //$NON-NLS-1$
 									ftm = rd.getFontMetrics();
 									rd.drawString(
-											new StringBuilder().append("[  ").append(i_106_)
-													.append(" Players Connected  ]").toString(),
-											472 - ftm.stringWidth(new StringBuilder().append("[  ").append(i_106_)
-													.append(" Players Connected  ]").toString()) / 2,
+											new StringBuilder().append(Messages.getString("Lobby.177")).append(i_106_) //$NON-NLS-1$
+													.append(Messages.getString("Lobby.178")).toString(), //$NON-NLS-1$
+											472 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.179")).append(i_106_) //$NON-NLS-1$
+													.append(Messages.getString("Lobby.180")).toString()) / 2, //$NON-NLS-1$
 											295);
 									drawSbutton(xt.cgame, 472, 325);
 								}
 								drawSbutton(xt.ccar, 442, -1000);
 							}
 							drawSbutton(xt.exit, 690, 42);
-							if (control.enter && !gs.cmsg.getText().equals("Type here...")
-									&& !gs.cmsg.getText().equals("")) {
+							if (control.enter && !gs.cmsg.getText().equals(Messages.getString("Lobby.181")) //$NON-NLS-1$
+									&& !gs.cmsg.getText().equals(Messages.getString("Lobby.182"))) { //$NON-NLS-1$
 								if (chalngd == -1)
 									pessd[2] = true;
 								else
@@ -1683,7 +1683,7 @@ public class Lobby implements Runnable {
 								control.enter = false;
 								String string = gs.cmsg.getText().replace('|', ':');
 								if (string.toLowerCase().indexOf(gs.tpass.getText().toLowerCase()) != -1)
-									string = " ";
+									string = Messages.getString("Lobby.183"); //$NON-NLS-1$
 								if (!xt.msgcheck(string) && updatec > -12) {
 									for (int i_136_ = 0; i_136_ < 6; i_136_++) {
 										sentn[i_136_] = sentn[i_136_ + 1];
@@ -1698,7 +1698,7 @@ public class Lobby implements Runnable {
 									spos3 = 28;
 								} else
 									xt.warning++;
-								gs.cmsg.setText("");
+								gs.cmsg.setText(Messages.getString("Lobby.184")); //$NON-NLS-1$
 							}
 							if (chalngd == -1) {
 								rd.setColor(color2k(230, 230, 230));
@@ -1827,7 +1827,7 @@ public class Lobby implements Runnable {
 																&& wait[is_137_[i_149_]] > 0) {
 															boolean bool_152_ = false;
 															if (gwarb[is_137_[i_149_]] == 0) {
-																if (this.gplyrs[is_137_[i_149_]].equals("")
+																if (this.gplyrs[is_137_[i_149_]].equals(Messages.getString("Lobby.185")) //$NON-NLS-1$
 																		|| this.gplyrs[is_137_[i_149_]]
 																				.indexOf(this.pnames[this.im]) != -1)
 																	bool_152_ = true;
@@ -1838,7 +1838,7 @@ public class Lobby implements Runnable {
 																bool_152_ = true;
 															if (bool_152_) {
 																join = this.gnum[is_137_[i_149_]];
-																msg = "| Joining Game |";
+																msg = Messages.getString("Lobby.186"); //$NON-NLS-1$
 																spos = 0;
 															}
 														}
@@ -1869,24 +1869,24 @@ public class Lobby implements Runnable {
 											}
 										}
 										rd.setColor(new Color(0, 0, 0));
-										rd.setFont(new Font("Arial", 1, 12));
+										rd.setFont(new Font(Messages.getString("Lobby.187"), 1, 12)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
 										rd.drawString(gstages[is_137_[i_149_]],
 												382 - ftm.stringWidth(gstages[is_137_[i_149_]]) / 2,
 												105 + 24 * i_149_ - i_105_);
-										rd.drawString("|", 525, 105 + 24 * i_149_ - i_105_);
-										rd.drawString("|", 584, 105 + 24 * i_149_ - i_105_);
+										rd.drawString(Messages.getString("Lobby.188"), 525, 105 + 24 * i_149_ - i_105_); //$NON-NLS-1$
+										rd.drawString(Messages.getString("Lobby.189"), 584, 105 + 24 * i_149_ - i_105_); //$NON-NLS-1$
 										if (wait[is_137_[i_149_]] > 0) {
-											rd.drawString(new StringBuilder().append("").append(npls[is_137_[i_149_]])
-													.append(" / ").append(mnpls[is_137_[i_149_]]).append("").toString(),
-													556 - ftm.stringWidth(new StringBuilder().append("")
-															.append(npls[is_137_[i_149_]]).append(" / ")
-															.append(mnpls[is_137_[i_149_]]).append("").toString()) / 2,
+											rd.drawString(new StringBuilder().append(Messages.getString("Lobby.190")).append(npls[is_137_[i_149_]]) //$NON-NLS-1$
+													.append(Messages.getString("Lobby.191")).append(mnpls[is_137_[i_149_]]).append(Messages.getString("Lobby.192")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
+													556 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.193")) //$NON-NLS-1$
+															.append(npls[is_137_[i_149_]]).append(Messages.getString("Lobby.194")) //$NON-NLS-1$
+															.append(mnpls[is_137_[i_149_]]).append(Messages.getString("Lobby.195")).toString()) / 2, //$NON-NLS-1$
 													105 + 24 * i_149_ - i_105_);
-											rd.setFont(new Font("Arial", 0, 12));
+											rd.setFont(new Font(Messages.getString("Lobby.196"), 0, 12)); //$NON-NLS-1$
 											rd.setColor(new Color(80, 128, 0));
-											rd.drawString("Waiting", 593, 105 + 24 * i_149_ - i_105_);
-											rd.setFont(new Font("Arial", 1, 12));
+											rd.drawString(Messages.getString("Lobby.197"), 593, 105 + 24 * i_149_ - i_105_); //$NON-NLS-1$
+											rd.setFont(new Font(Messages.getString("Lobby.198"), 1, 12)); //$NON-NLS-1$
 											ftm = rd.getFontMetrics();
 											if (!bool_151_) {
 												rd.setColor(color2k(230, 230, 230));
@@ -1899,7 +1899,7 @@ public class Lobby implements Runnable {
 											rd.setColor(new Color(0, 0, 0));
 											boolean bool_153_ = false;
 											if (gwarb[is_137_[i_149_]] == 0) {
-												if (gplyrs[is_137_[i_149_]].equals("")
+												if (gplyrs[is_137_[i_149_]].equals(Messages.getString("Lobby.199")) //$NON-NLS-1$
 														|| gplyrs[is_137_[i_149_]].indexOf(pnames[im]) != -1)
 													bool_153_ = true;
 											} else
@@ -1908,28 +1908,28 @@ public class Lobby implements Runnable {
 																.equals(gvclan[is_137_[i_149_]].toLowerCase()))
 												bool_153_ = true;
 											if (bool_153_)
-												rd.drawString("Join", 665 - ftm.stringWidth("Join") / 2,
+												rd.drawString(Messages.getString("Lobby.200"), 665 - ftm.stringWidth(Messages.getString("Lobby.201")) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 														105 + 24 * i_149_ - i_105_);
 											else
-												rd.drawString("View", 665 - ftm.stringWidth("View") / 2,
+												rd.drawString(Messages.getString("Lobby.202"), 665 - ftm.stringWidth(Messages.getString("Lobby.203")) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 														105 + 24 * i_149_ - i_105_);
 										} else {
 											rd.drawString(
-													new StringBuilder().append("").append(npls[is_137_[i_149_]])
-															.append("").toString(),
-													556 - ftm.stringWidth(new StringBuilder().append("")
-															.append(npls[is_137_[i_149_]]).append("").toString()) / 2,
+													new StringBuilder().append(Messages.getString("Lobby.204")).append(npls[is_137_[i_149_]]) //$NON-NLS-1$
+															.append(Messages.getString("Lobby.205")).toString(), //$NON-NLS-1$
+													556 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.206")) //$NON-NLS-1$
+															.append(npls[is_137_[i_149_]]).append(Messages.getString("Lobby.207")).toString()) / 2, //$NON-NLS-1$
 													105 + 24 * i_149_ - i_105_);
-											rd.setFont(new Font("Arial", 0, 12));
+											rd.setFont(new Font(Messages.getString("Lobby.208"), 0, 12)); //$NON-NLS-1$
 											ftm = rd.getFontMetrics();
 											if (wait[is_137_[i_149_]] == 0) {
 												rd.setColor(new Color(128, 73, 0));
-												rd.drawString("Started", 594, 105 + 24 * i_149_ - i_105_);
+												rd.drawString(Messages.getString("Lobby.209"), 594, 105 + 24 * i_149_ - i_105_); //$NON-NLS-1$
 											} else {
 												rd.setColor(color2k(100, 100, 100));
-												rd.drawString("Finished", 590, 105 + 24 * i_149_ - i_105_);
+												rd.drawString(Messages.getString("Lobby.210"), 590, 105 + 24 * i_149_ - i_105_); //$NON-NLS-1$
 											}
-											rd.setFont(new Font("Arial", 1, 12));
+											rd.setFont(new Font(Messages.getString("Lobby.211"), 1, 12)); //$NON-NLS-1$
 											ftm = rd.getFontMetrics();
 											if (!bool_151_) {
 												rd.setColor(color2k(230, 230, 230));
@@ -1939,7 +1939,7 @@ public class Lobby implements Runnable {
 												rd.fillRect(641, 92 + 24 * i_149_ - i_105_, 48, 18);
 											}
 											rd.setColor(new Color(0, 0, 0));
-											rd.drawString("View", 665 - ftm.stringWidth("View") / 2,
+											rd.drawString(Messages.getString("Lobby.212"), 665 - ftm.stringWidth(Messages.getString("Lobby.213")) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 													105 + 24 * i_149_ - i_105_);
 										}
 									} else {
@@ -1954,24 +1954,24 @@ public class Lobby implements Runnable {
 								if (i_148_ == ngm && clicked != -1)
 									clicked = -1;
 								rd.setColor(new Color(0, 0, 0));
-								rd.setFont(new Font("Arial", 1, 12));
+								rd.setFont(new Font(Messages.getString("Lobby.214"), 1, 12)); //$NON-NLS-1$
 								ftm = rd.getFontMetrics();
 								if (ngm == 0)
 									if (!lloaded)
-										rd.drawString("|  Loading Games  |",
-												472 - ftm.stringWidth("|  Loading Games  |") / 2, 165);
+										rd.drawString(Messages.getString("Lobby.215"), //$NON-NLS-1$
+												472 - ftm.stringWidth(Messages.getString("Lobby.216")) / 2, 165); //$NON-NLS-1$
 									else if (!xt.lan)
-										rd.drawString("No Games Created", 472 - ftm.stringWidth("No Games Created") / 2,
+										rd.drawString(Messages.getString("Lobby.217"), 472 - ftm.stringWidth(Messages.getString("Lobby.218")) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 												165);
 								rd.setColor(color2k(205, 205, 205));
 								rd.fillRect(235, 65, 480, 25);
 								rd.drawImage(xt.games, 241, 69, null);
 								rd.setColor(color2k(70, 70, 70));
-								rd.drawString("Stage Name", 382 - ftm.stringWidth("Stage Name") / 2, 81);
-								rd.drawString("|", 525, 81);
-								rd.drawString("Players", 556 - ftm.stringWidth("Players") / 2, 81);
-								rd.drawString("|", 584, 81);
-								rd.drawString("Status", 641 - ftm.stringWidth("Status") / 2, 81);
+								rd.drawString(Messages.getString("Lobby.219"), 382 - ftm.stringWidth(Messages.getString("Lobby.220")) / 2, 81); //$NON-NLS-1$ //$NON-NLS-2$
+								rd.drawString(Messages.getString("Lobby.221"), 525, 81); //$NON-NLS-1$
+								rd.drawString(Messages.getString("Lobby.222"), 556 - ftm.stringWidth(Messages.getString("Lobby.223")) / 2, 81); //$NON-NLS-1$ //$NON-NLS-2$
+								rd.drawString(Messages.getString("Lobby.224"), 584, 81); //$NON-NLS-1$
+								rd.drawString(Messages.getString("Lobby.225"), 641 - ftm.stringWidth(Messages.getString("Lobby.226")) / 2, 81); //$NON-NLS-1$ //$NON-NLS-2$
 								rd.setColor(color2k(150, 150, 150));
 								rd.drawLine(235, 87, 696, 87);
 								rd.setColor(color2k(205, 205, 205));
@@ -2107,62 +2107,62 @@ public class Lobby implements Runnable {
 											i_158_ = i_159_;
 									if (cflk % 4 != 0 || cflk == 0) {
 										rd.setColor(new Color(0, 0, 0));
-										rd.setFont(new Font("Arial", 1, 13));
+										rd.setFont(new Font(Messages.getString("Lobby.227"), 1, 13)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
 										rd.drawString(
-												new StringBuilder().append("You have been invited by ").append(chalby)
-														.append(" to join a game!").toString(),
+												new StringBuilder().append(Messages.getString("Lobby.228")).append(chalby) //$NON-NLS-1$
+														.append(Messages.getString("Lobby.229")).toString(), //$NON-NLS-1$
 												472 - ftm.stringWidth(
-														new StringBuilder().append("You have been invited by ")
-																.append(chalby).append(" to join a game!").toString())
+														new StringBuilder().append(Messages.getString("Lobby.230")) //$NON-NLS-1$
+																.append(chalby).append(Messages.getString("Lobby.231")).toString()) //$NON-NLS-1$
 														/ 2,
 												95);
 										rd.setColor(new Color(117, 67, 0));
 										rd.drawString(
 												chalby, 472
 														- ftm.stringWidth(new StringBuilder()
-																.append("You have been invited by ").append(chalby)
-																.append(" to join a game!").toString()) / 2
-												+ ftm.stringWidth("You have been invited by "), 95);
+																.append(Messages.getString("Lobby.232")).append(chalby) //$NON-NLS-1$
+																.append(Messages.getString("Lobby.233")).toString()) / 2 //$NON-NLS-1$
+												+ ftm.stringWidth(Messages.getString("Lobby.234")), 95); //$NON-NLS-1$
 									}
 									if (cflk != 0)
 										cflk--;
 									rd.setColor(new Color(0, 0, 0));
-									rd.setFont(new Font("Arial", 1, 12));
+									rd.setFont(new Font(Messages.getString("Lobby.235"), 1, 12)); //$NON-NLS-1$
 									ftm = rd.getFontMetrics();
 									rd.drawString(
-											new StringBuilder().append("Stage:  ").append(gstages[i_158_])
-													.append(" ,  Laps: ").append(gnlaps[i_158_]).append("").toString(),
-											472 - ftm.stringWidth(new StringBuilder().append("Stage:  ")
-													.append(gstages[i_158_]).append(" ,  Laps: ").append(gnlaps[i_158_])
-													.append("").toString()) / 2,
+											new StringBuilder().append(Messages.getString("Lobby.236")).append(gstages[i_158_]) //$NON-NLS-1$
+													.append(Messages.getString("Lobby.237")).append(gnlaps[i_158_]).append(Messages.getString("Lobby.238")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
+											472 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.239")) //$NON-NLS-1$
+													.append(gstages[i_158_]).append(Messages.getString("Lobby.240")).append(gnlaps[i_158_]) //$NON-NLS-1$
+													.append(Messages.getString("Lobby.241")).toString()) / 2, //$NON-NLS-1$
 											130);
 									rd.setColor(new Color(62, 98, 0));
 									rd.drawString(gstages[i_158_], 472 - ftm
-											.stringWidth(new StringBuilder().append("Stage:  ").append(gstages[i_158_])
-													.append(" ,  Laps: ").append(gnlaps[i_158_]).append("").toString())
-											/ 2 + ftm.stringWidth("Stage:  "), 130);
+											.stringWidth(new StringBuilder().append(Messages.getString("Lobby.242")).append(gstages[i_158_]) //$NON-NLS-1$
+													.append(Messages.getString("Lobby.243")).append(gnlaps[i_158_]).append(Messages.getString("Lobby.244")).toString()) //$NON-NLS-1$ //$NON-NLS-2$
+											/ 2 + ftm.stringWidth(Messages.getString("Lobby.245")), 130); //$NON-NLS-1$
 									rd.drawString(
-											new StringBuilder().append("").append(gnlaps[i_158_]).append("").toString(),
-											472 - ftm.stringWidth(new StringBuilder().append("Stage:  ")
-													.append(gstages[i_158_]).append(" ,  Laps: ").append(gnlaps[i_158_])
-													.append("").toString()) / 2
-													+ ftm.stringWidth(new StringBuilder().append("Stage:  ")
-															.append(gstages[i_158_]).append(" ,  Laps: ").toString()),
+											new StringBuilder().append(Messages.getString("Lobby.246")).append(gnlaps[i_158_]).append(Messages.getString("Lobby.247")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
+											472 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.248")) //$NON-NLS-1$
+													.append(gstages[i_158_]).append(Messages.getString("Lobby.249")).append(gnlaps[i_158_]) //$NON-NLS-1$
+													.append(Messages.getString("Lobby.250")).toString()) / 2 //$NON-NLS-1$
+													+ ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.251")) //$NON-NLS-1$
+															.append(gstages[i_158_]).append(Messages.getString("Lobby.252")).toString()), //$NON-NLS-1$
 											130);
 									rd.setColor(new Color(0, 0, 0));
 									rd.drawString(
-											new StringBuilder().append("Players:  ").append(mnpls[i_158_]).append("")
+											new StringBuilder().append(Messages.getString("Lobby.253")).append(mnpls[i_158_]).append(Messages.getString("Lobby.254")) //$NON-NLS-1$ //$NON-NLS-2$
 													.toString(),
-											472 - ftm.stringWidth(new StringBuilder().append("Players:  ")
-													.append(mnpls[i_158_]).append("").toString()) / 2,
+											472 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.255")) //$NON-NLS-1$
+													.append(mnpls[i_158_]).append(Messages.getString("Lobby.256")).toString()) / 2, //$NON-NLS-1$
 											150);
 									rd.setColor(new Color(62, 98, 0));
 									rd.drawString(
-											new StringBuilder().append("").append(mnpls[i_158_]).append("").toString(),
-											472 - ftm.stringWidth(new StringBuilder().append("Players:  ")
-													.append(mnpls[i_158_]).append("").toString()) / 2
-													+ ftm.stringWidth("Players:  "),
+											new StringBuilder().append(Messages.getString("Lobby.257")).append(mnpls[i_158_]).append(Messages.getString("Lobby.258")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
+											472 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.259")) //$NON-NLS-1$
+													.append(mnpls[i_158_]).append(Messages.getString("Lobby.260")).toString()) / 2 //$NON-NLS-1$
+													+ ftm.stringWidth(Messages.getString("Lobby.261")), //$NON-NLS-1$
 											150);
 									final Date date = new Date();
 									final long l = date.getTime();
@@ -2172,35 +2172,35 @@ public class Lobby implements Runnable {
 										ptime = l;
 									}
 									rd.setColor(new Color(0, 0, 0));
-									rd.setFont(new Font("Arial", 0, 12));
+									rd.setFont(new Font(Messages.getString("Lobby.262"), 0, 12)); //$NON-NLS-1$
 									ftm = rd.getFontMetrics();
-									rd.drawString(new StringBuilder().append("(").append(ctime).append(" )").toString(),
-											472 - ftm.stringWidth(new StringBuilder().append("(").append(ctime)
-													.append(" )").toString()) / 2,
+									rd.drawString(new StringBuilder().append(Messages.getString("Lobby.263")).append(ctime).append(Messages.getString("Lobby.264")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
+											472 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.265")).append(ctime) //$NON-NLS-1$
+													.append(Messages.getString("Lobby.266")).toString()) / 2, //$NON-NLS-1$
 											170);
 									if (ctime == 0) {
 										ongame = longame;
 										chalngd = -1;
 										longame = -1;
 									}
-									stringbutton("   View Game   ", 352, 215, 2);
-									stringbutton("   Join Game   ", 462, 215, 2);
-									stringbutton("   Decline X   ", 599, 215, 2);
+									stringbutton(Messages.getString("Lobby.267"), 352, 215, 2); //$NON-NLS-1$
+									stringbutton(Messages.getString("Lobby.268"), 462, 215, 2); //$NON-NLS-1$
+									stringbutton(Messages.getString("Lobby.269"), 599, 215, 2); //$NON-NLS-1$
 								} else {
 									if (chalngd != -5)
-										stringbutton(" Cancel X ", 669, 85, 2);
+										stringbutton(Messages.getString("Lobby.270"), 669, 85, 2); //$NON-NLS-1$
 									if (chalngd == -6) {
 										rd.setColor(new Color(0, 0, 0));
-										rd.setFont(new Font("Arial", 1, 13));
-										rd.drawString("This room already has a game that has started.", 288, 120);
-										rd.drawString("Please switch to another room to create a new game.", 288, 140);
-										rd.drawString("Or wait for the game to finish.", 288, 160);
-										rd.drawString("Use the dropdown menu above to change room or server.", 288,
+										rd.setFont(new Font(Messages.getString("Lobby.271"), 1, 13)); //$NON-NLS-1$
+										rd.drawString(Messages.getString("Lobby.272"), 288, 120); //$NON-NLS-1$
+										rd.drawString(Messages.getString("Lobby.273"), 288, 140); //$NON-NLS-1$
+										rd.drawString(Messages.getString("Lobby.274"), 288, 160); //$NON-NLS-1$
+										rd.drawString(Messages.getString("Lobby.275"), 288, //$NON-NLS-1$
 												180);
 										final int[] is = { 580, 569, 576, 576, 584, 584, 591 };
 										final int[] is_160_ = { 66, 77, 77, 102, 102, 77, 77 };
 										rd.fillPolygon(is, is_160_, 7);
-										stringbutton("     OK     ", 472, 215, 1);
+										stringbutton(Messages.getString("Lobby.276"), 472, 215, 1); //$NON-NLS-1$
 									}
 									if (chalngd == -2) {
 										boolean bool_161_ = false;
@@ -2215,10 +2215,10 @@ public class Lobby implements Runnable {
 												loadstage = 0;
 											}
 											rd.setColor(new Color(0, 0, 0));
-											rd.setFont(new Font("Arial", 1, 13));
+											rd.setFont(new Font(Messages.getString("Lobby.277"), 1, 13)); //$NON-NLS-1$
 											ftm = rd.getFontMetrics();
 											if (sflk % 4 != 0 || sflk == 0)
-												rd.drawString("Select Stage", 472 - ftm.stringWidth("Select Stage") / 2,
+												rd.drawString(Messages.getString("Lobby.278"), 472 - ftm.stringWidth(Messages.getString("Lobby.279")) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 														85);
 											if (sflk != 0)
 												sflk--;
@@ -2446,10 +2446,10 @@ public class Lobby implements Runnable {
 											}*/
 											if (loadstage > 0 && remstage == 0) {
 												rd.setColor(new Color(0, 0, 0));
-												rd.setFont(new Font("Arial", 1, 12));
+												rd.setFont(new Font(Messages.getString("Lobby.280"), 1, 12)); //$NON-NLS-1$
 												ftm = rd.getFontMetrics();
-												rd.drawString("Loading stage, please wait...",
-														472 - ftm.stringWidth("Loading Stage, please wait...") / 2,
+												rd.drawString(Messages.getString("Lobby.281"), //$NON-NLS-1$
+														472 - ftm.stringWidth(Messages.getString("Lobby.282")) / 2, //$NON-NLS-1$
 														165);
 											}
 											/*if (gs.sgame.getSelectedIndex() >= 3 && !xt.logged) {
@@ -2474,29 +2474,29 @@ public class Lobby implements Runnable {
 											} else *///{
 												if (loadstage < 0 && remstage == 0) {
 													rd.setColor(new Color(0, 0, 0));
-													rd.setFont(new Font("Arial", 1, 12));
+													rd.setFont(new Font(Messages.getString("Lobby.283"), 1, 12)); //$NON-NLS-1$
 													ftm = rd.getFontMetrics();
 													rd.drawString(
-															new StringBuilder().append("").append(gstagename)
-																	.append("  -  Laps:              ").toString(),
-															472 - ftm.stringWidth(new StringBuilder().append("")
+															new StringBuilder().append(Messages.getString("Lobby.284")).append(gstagename) //$NON-NLS-1$
+																	.append(Messages.getString("Lobby.285")).toString(), //$NON-NLS-1$
+															472 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.286")) //$NON-NLS-1$
 																	.append(this.gstagename)
-																	.append("  -  Laps:              ").toString()) / 2,
+																	.append(Messages.getString("Lobby.287")).toString()) / 2, //$NON-NLS-1$
 															155);
 													if (!gs.slaps.isShowing()) {
 														gs.slaps.setVisible(true);
 														gs.slaps.select(gstagelaps - 1);
 													}
 													gs.slaps.move(472
-															+ ftm.stringWidth(new StringBuilder().append("")
+															+ ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.288")) //$NON-NLS-1$
 																	.append(this.gstagename)
-																	.append("  -  Laps:              ").toString()) / 2
+																	.append(Messages.getString("Lobby.289")).toString()) / 2 //$NON-NLS-1$
 															- 35, 138);
 													if (gs.slaps.getSelectedIndex() != gstagelaps - 1) {
 														gstagelaps = gs.slaps.getSelectedIndex() + 1;
 														gs.requestFocus();
 													}
-													stringbutton("    Preview Stage    ", 472, 185, 2);
+													stringbutton(Messages.getString("Lobby.290"), 472, 185, 2); //$NON-NLS-1$
 												} else if (gs.slaps.isShowing())
 													gs.slaps.setVisible(false);
 												/*if (remstage == 3) {
@@ -2561,7 +2561,7 @@ public class Lobby implements Runnable {
 														gs.mouses = 0;
 													}
 												}*/
-												stringbutton("   Next >   ", 472, 235, 1);
+												stringbutton(Messages.getString("Lobby.291"), 472, 235, 1); //$NON-NLS-1$
 											/*}*/
 										} else {
 											if (!inwab) {
@@ -2572,15 +2572,15 @@ public class Lobby implements Runnable {
 												gs.snfmm.setVisible(false);
 												//gs.snfm2.setVisible(false);
 											}
-											if (!xt.clan.equals("")) {
+											if (!xt.clan.equals(Messages.getString("Lobby.292"))) { //$NON-NLS-1$
 												if (!inwab) {
 													rd.setColor(new Color(0, 0, 0));
-													rd.setFont(new Font("Arial", 1, 12));
+													rd.setFont(new Font(Messages.getString("Lobby.293"), 1, 12)); //$NON-NLS-1$
 													ftm = rd.getFontMetrics();
 													rd.drawString(
-															"Loading your clan's wars and battles, please wait...",
+															Messages.getString("Lobby.294"), //$NON-NLS-1$
 															472 - ftm.stringWidth(
-																	"Loading your clan's wars and battles, please wait...")
+																	Messages.getString("Lobby.295")) //$NON-NLS-1$
 																	/ 2,
 															155);
 													loadwarb = true;
@@ -2594,11 +2594,11 @@ public class Lobby implements Runnable {
 														if (gs.warb.sel != warbsel) {
 															gb.loadwbgames = 1;
 															rd.setColor(new Color(0, 0, 0));
-															rd.setFont(new Font("Arial", 1, 12));
+															rd.setFont(new Font(Messages.getString("Lobby.296"), 1, 12)); //$NON-NLS-1$
 															ftm = this.rd.getFontMetrics();
-															rd.drawString("Loading scheduled games, please wait...",
+															rd.drawString(Messages.getString("Lobby.297"), //$NON-NLS-1$
 																	472 - this.ftm.stringWidth(
-																			"Loading scheduled games, please wait...")
+																			Messages.getString("Lobby.298")) //$NON-NLS-1$
 																			/ 2,
 																	165);
 															warbsel = this.gs.warb.sel;
@@ -2609,27 +2609,27 @@ public class Lobby implements Runnable {
 														} else {
 															if (this.gb.loadwbgames == 7) {
 																rd.setColor(new Color(0, 0, 0));
-																rd.setFont(new Font("Arial", 1, 12));
+																rd.setFont(new Font(Messages.getString("Lobby.299"), 1, 12)); //$NON-NLS-1$
 																ftm = this.rd.getFontMetrics();
-																rd.drawString("Redoing last game, please wait...",
+																rd.drawString(Messages.getString("Lobby.300"), //$NON-NLS-1$
 																		472 - this.ftm.stringWidth(
-																				"Redoing last game, please wait...")
+																				Messages.getString("Lobby.301")) //$NON-NLS-1$
 																				/ 2,
 																		155);
 															}
 															if (this.gb.loadwbgames == 2) {
 																rd.setColor(new Color(0, 0, 0));
-																rd.setFont(new Font("Arial", 1, 12));
+																rd.setFont(new Font(Messages.getString("Lobby.302"), 1, 12)); //$NON-NLS-1$
 																ftm = this.rd.getFontMetrics();
 																if (this.gs.wgame.getSelectedIndex() == 1) {
 																	this.rd.drawString(
-																			new StringBuilder().append("[ ")
+																			new StringBuilder().append(Messages.getString("Lobby.303")) //$NON-NLS-1$
 																					.append(gb.gameturndisp)
-																					.append(" ]").toString(),
+																					.append(Messages.getString("Lobby.304")).toString(), //$NON-NLS-1$
 																			472 - this.ftm.stringWidth(
-																					new StringBuilder().append("[ ")
+																					new StringBuilder().append(Messages.getString("Lobby.305")) //$NON-NLS-1$
 																							.append(gb.gameturndisp)
-																							.append(" ]").toString())
+																							.append(Messages.getString("Lobby.306")).toString()) //$NON-NLS-1$
 																					/ 2,
 																			155);
 																	bool_162_ = true;
@@ -2656,12 +2656,12 @@ public class Lobby implements Runnable {
 																					cancreate = 1;
 																				}
 																			if (cancreate == 1)
-																				rd.drawString("Loading...", 472
-																						- ftm.stringWidth("Loading...")
+																				rd.drawString(Messages.getString("Lobby.307"), 472 //$NON-NLS-1$
+																						- ftm.stringWidth(Messages.getString("Lobby.308")) //$NON-NLS-1$
 																								/ 2,
 																						235);
 																			if (cancreate == 2)
-																				stringbutton("   Create Game   ", 472,
+																				stringbutton(Messages.getString("Lobby.309"), 472, //$NON-NLS-1$
 																						235, 1);
 																		}
 																	} else {
@@ -2673,21 +2673,21 @@ public class Lobby implements Runnable {
 																		}
 																		this.rd.drawString(
 																				new StringBuilder()
-																						.append("Your clan won the last game.  ")
+																						.append(Messages.getString("Lobby.310")) //$NON-NLS-1$
 																						.append(gb.vclan)
-																						.append(" must create this game!")
+																						.append(Messages.getString("Lobby.311")) //$NON-NLS-1$
 																						.toString(),
 																				472 - ftm
 																						.stringWidth(new StringBuilder()
-																								.append("Your clan won the last game.  ")
+																								.append(Messages.getString("Lobby.312")) //$NON-NLS-1$
 																								.append(gb.vclan)
-																								.append(" must create this game!")
+																								.append(Messages.getString("Lobby.313")) //$NON-NLS-1$
 																								.toString())
 																						/ 2,
 																				211);
 																	}
 																	if (this.gb.canredo)
-																		stringbutton(" Redo last game  < ", 644, 242,
+																		stringbutton(Messages.getString("Lobby.314"), 644, 242, //$NON-NLS-1$
 																				1);
 																}
 																if (this.gs.wgame.getSelectedIndex() == 2) {
@@ -2711,48 +2711,48 @@ public class Lobby implements Runnable {
 																				cancreate = 1;
 																			}
 																		if (this.cancreate == 1)
-																			this.rd.drawString("Loading...", 472
-																					- ftm.stringWidth("Loading...") / 2,
+																			this.rd.drawString(Messages.getString("Lobby.315"), 472 //$NON-NLS-1$
+																					- ftm.stringWidth(Messages.getString("Lobby.316")) / 2, //$NON-NLS-1$
 																					235);
 																		if (this.cancreate == 2)
-																			stringbutton("   Create Practice Game   ",
+																			stringbutton(Messages.getString("Lobby.317"), //$NON-NLS-1$
 																					472, 235, 1);
 																	}
 																}
 															}
 															if (this.gb.loadwbgames == 3)
 																rd.drawString(
-																		"Failed to load scheduled games, please try again later...",
+																		Messages.getString("Lobby.318"), //$NON-NLS-1$
 																		472 - this.ftm.stringWidth(
-																				"Failed to load scheduled games, please try again later...")
+																				Messages.getString("Lobby.319")) //$NON-NLS-1$
 																				/ 2,
 																		165);
 															if (this.gb.loadwbgames == 4)
 																rd.drawString(
-																		"This war or battle was not found, it may have been expired.",
+																		Messages.getString("Lobby.320"), //$NON-NLS-1$
 																		472 - this.ftm.stringWidth(
-																				"This war or battle was not found, it may have been expired.")
+																				Messages.getString("Lobby.321")) //$NON-NLS-1$
 																				/ 2,
 																		165);
 															if (this.gb.loadwbgames == 6)
 																rd.drawString(
-																		"Failed to undo the last game, please try again later...",
+																		Messages.getString("Lobby.322"), //$NON-NLS-1$
 																		472 - this.ftm.stringWidth(
-																				"Failed to undo the last game, please try again later...")
+																				Messages.getString("Lobby.323")) //$NON-NLS-1$
 																				/ 2,
 																		165);
 														}
 												}
 											} else {
 												rd.setColor(new Color(0, 0, 0));
-												rd.setFont(new Font("Arial", 1, 12));
+												rd.setFont(new Font(Messages.getString("Lobby.324"), 1, 12)); //$NON-NLS-1$
 												ftm = rd.getFontMetrics();
-												rd.drawString("You must join a clan first to play wars and battles!",
+												rd.drawString(Messages.getString("Lobby.325"), //$NON-NLS-1$
 														472 - ftm.stringWidth(
-																"You must join a clan first to play wars and battles!")
+																Messages.getString("Lobby.326")) //$NON-NLS-1$
 																/ 2,
 														145);
-												stringbutton("    Find a clan to join    ", 472, 185, 2);
+												stringbutton(Messages.getString("Lobby.327"), 472, 185, 2); //$NON-NLS-1$
 											}
 											if (!inwab)
 												inwab = true;
@@ -2771,17 +2771,17 @@ public class Lobby implements Runnable {
 									}
 									if (chalngd == -3) {
 										rd.setColor(new Color(0, 0, 0));
-										rd.setFont(new Font("Arial", 1, 13));
+										rd.setFont(new Font(Messages.getString("Lobby.328"), 1, 13)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
 										if (sflk % 4 != 0 || sflk == 0)
-											rd.drawString("Select Number of Players",
-													472 - ftm.stringWidth("Select Number of Players") / 2, 85);
+											rd.drawString(Messages.getString("Lobby.329"), //$NON-NLS-1$
+													472 - ftm.stringWidth(Messages.getString("Lobby.330")) / 2, 85); //$NON-NLS-1$
 										if (sflk != 0)
 											sflk--;
 										int i_166_ = 0;
 										if (xt.lan)
 											i_166_ = 59;
-										rd.drawString("Players", 413 - i_166_, 122);
+										rd.drawString(Messages.getString("Lobby.331"), 413 - i_166_, 122); //$NON-NLS-1$
 										if (!gs.snpls.isShowing()) {
 											gs.snpls.setVisible(true);
 											gs.snpls.select(gnpls - 1);
@@ -2795,7 +2795,7 @@ public class Lobby implements Runnable {
 											gs.swait.setVisible(false);
 										}
 										if (xt.lan) {
-											rd.drawString("Bots", 490, 122);
+											rd.drawString(Messages.getString("Lobby.332"), 490, 122); //$NON-NLS-1$
 											if (!gs.snbts.isShowing()) {
 												gs.snbts.setVisible(true);
 												gs.snbts.select(0);
@@ -2809,7 +2809,7 @@ public class Lobby implements Runnable {
 												gs.snbts.select(gnbts);
 											}
 										}
-										rd.drawString("Wait", 414, 162);
+										rd.drawString(Messages.getString("Lobby.333"), 414, 162); //$NON-NLS-1$
 										if (!gs.swait.isShowing()) {
 											gs.swait.setVisible(true);
 											if (gwait == 0)
@@ -2819,21 +2819,21 @@ public class Lobby implements Runnable {
 										if ((gs.swait.getSelectedIndex() + 1) * 60 != gwait)
 											gwait = (gs.swait.getSelectedIndex() + 1) * 60;
 										rd.setColor(color2k(90, 90, 90));
-										rd.setFont(new Font("Arial", 0, 11));
+										rd.setFont(new Font(Messages.getString("Lobby.334"), 0, 11)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
-										rd.drawString("(Maximum time to wait for all players to `join. )", 472
-												- ftm.stringWidth("(Maximum time to wait for all players to join. )")
+										rd.drawString(Messages.getString("Lobby.335"), 472 //$NON-NLS-1$
+												- ftm.stringWidth(Messages.getString("Lobby.336")) //$NON-NLS-1$
 														/ 2,
 												179);
-										stringbutton("   < Back   ", 422, 235, 1);
-										stringbutton("   Next >   ", 522, 235, 1);
+										stringbutton(Messages.getString("Lobby.337"), 422, 235, 1); //$NON-NLS-1$
+										stringbutton(Messages.getString("Lobby.338"), 522, 235, 1); //$NON-NLS-1$
 									}
 									if (chalngd == -4) {
 										rd.setColor(new Color(0, 0, 0));
-										rd.setFont(new Font("Arial", 1, 13));
+										rd.setFont(new Font(Messages.getString("Lobby.339"), 1, 13)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
 										if (sflk % 4 != 0 || sflk == 0)
-											rd.drawString("Game Options", 472 - ftm.stringWidth("Game Options") / 2,
+											rd.drawString(Messages.getString("Lobby.340"), 472 - ftm.stringWidth(Messages.getString("Lobby.341")) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 													85);
 										if (sflk != 0)
 											sflk--;
@@ -2886,8 +2886,8 @@ public class Lobby implements Runnable {
 												gs.movefield(gs.mycar, 410, -2000, 150, 17);
 											if (!gs.mycar.isShowing()) {
 												gs.mycar.setVisible(true);
-												gs.mycar.setLabel(new StringBuilder().append("")
-														.append(cd.names[xt.sc[0]]).append(" Game!").toString());
+												gs.mycar.setLabel(new StringBuilder().append(Messages.getString("Lobby.342")) //$NON-NLS-1$
+														.append(cd.names[xt.sc[0]]).append(Messages.getString("Lobby.343")).toString()); //$NON-NLS-1$
 												if (gclass <= -2)
 													gs.mycar.setState(true);
 												else
@@ -2914,76 +2914,76 @@ public class Lobby implements Runnable {
 										}
 										if (gs.sfix.getSelectedIndex() != gfix)
 											gfix = gs.sfix.getSelectedIndex();
-										String string = "Public Game, anyone can join...";
+										String string = Messages.getString("Lobby.344"); //$NON-NLS-1$
 										int i_169_ = 0;
 										for (int i_170_ = 0; i_170_ < 7; i_170_++)
-											if (!invos[i_170_].equals(""))
+											if (!invos[i_170_].equals(Messages.getString("Lobby.345"))) //$NON-NLS-1$
 												i_169_++;
 										if (i_169_ > 0) {
-											string = "Players Allowed:  ";
+											string = Messages.getString("Lobby.346"); //$NON-NLS-1$
 											int i_171_ = 0;
 											for (int i_172_ = 0; i_172_ < 7; i_172_++)
-												if (!invos[i_172_].equals("")) {
+												if (!invos[i_172_].equals(Messages.getString("Lobby.347"))) { //$NON-NLS-1$
 													string = new StringBuilder().append(string).append(invos[i_172_])
 															.toString();
 													if (++i_171_ != i_169_)
 														if (i_171_ == i_169_ - 1)
-															string = new StringBuilder().append(string).append(" and ")
+															string = new StringBuilder().append(string).append(Messages.getString("Lobby.348")) //$NON-NLS-1$
 																	.toString();
 														else
-															string = new StringBuilder().append(string).append(", ")
+															string = new StringBuilder().append(string).append(Messages.getString("Lobby.349")) //$NON-NLS-1$
 																	.toString();
 												}
 										}
 										rd.setColor(new Color(0, 0, 0));
 										if (i_169_ < gnpls - 1) {
-											rd.setFont(new Font("Arial", 1, 13));
+											rd.setFont(new Font(Messages.getString("Lobby.350"), 1, 13)); //$NON-NLS-1$
 											rd.drawString(new StringBuilder()
-													.append("Private Game, only specific players allowed to join?  ")
-													.append(i_169_).append("/").append(gnpls - 1).append("").toString(),
+													.append(Messages.getString("Lobby.351")) //$NON-NLS-1$
+													.append(i_169_).append(Messages.getString("Lobby.352")).append(gnpls - 1).append(Messages.getString("Lobby.353")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 													330, 180);
-											stringbutton("<   Select   ", 281, 180, 2);
-											rd.setFont(new Font("Tahoma", 0, 11));
+											stringbutton(Messages.getString("Lobby.354"), 281, 180, 2); //$NON-NLS-1$
+											rd.setFont(new Font(Messages.getString("Lobby.355"), 0, 11)); //$NON-NLS-1$
 											ftm = rd.getFontMetrics();
 											rd.drawString(string, 472 - ftm.stringWidth(string) / 2, 203);
 										} else {
-											rd.setFont(new Font("Arial", 1, 13));
+											rd.setFont(new Font(Messages.getString("Lobby.356"), 1, 13)); //$NON-NLS-1$
 											ftm = rd.getFontMetrics();
 											rd.drawString(
-													new StringBuilder().append("").append(i_169_)
-															.append(" Allowed Players Selected").toString(),
+													new StringBuilder().append(Messages.getString("Lobby.357")).append(i_169_) //$NON-NLS-1$
+															.append(Messages.getString("Lobby.358")).toString(), //$NON-NLS-1$
 													472 - ftm
-															.stringWidth(new StringBuilder().append("").append(i_169_)
-																	.append(" Allowed Players Selected").toString())
+															.stringWidth(new StringBuilder().append(Messages.getString("Lobby.359")).append(i_169_) //$NON-NLS-1$
+																	.append(Messages.getString("Lobby.360")).toString()) //$NON-NLS-1$
 															/ 2,
 													180);
-											rd.setFont(new Font("Tahoma", 0, 11));
+											rd.setFont(new Font(Messages.getString("Lobby.361"), 0, 11)); //$NON-NLS-1$
 											ftm = rd.getFontMetrics();
 											rd.drawString(string, 472 - ftm.stringWidth(string) / 2, 203);
 										}
-										stringbutton("   < Back   ", 422, 235, 1);
-										stringbutton("   Finish!   ", 522, 235, 1);
+										stringbutton(Messages.getString("Lobby.362"), 422, 235, 1); //$NON-NLS-1$
+										stringbutton(Messages.getString("Lobby.363"), 522, 235, 1); //$NON-NLS-1$
 									}
 									if (chalngd == -5) {
 										if (fstart)
 											fstart = false;
-										rd.setFont(new Font("Arial", 1, 13));
+										rd.setFont(new Font(Messages.getString("Lobby.364"), 1, 13)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
 										rd.drawString(msg, 472 - ftm.stringWidth(msg) / 2, 145);
-										if (msg.equals(". . . | Creating Game | . . .") && ncnt == 0) {
-											msg = "| Creating Game |";
+										if (msg.equals(Messages.getString("Lobby.365")) && ncnt == 0) { //$NON-NLS-1$
+											msg = Messages.getString("Lobby.366"); //$NON-NLS-1$
 											ncnt = 5;
 										}
-										if (msg.equals(". . | Creating Game | . .") && ncnt == 0) {
-											msg = ". . . | Creating Game | . . .";
+										if (msg.equals(Messages.getString("Lobby.367")) && ncnt == 0) { //$NON-NLS-1$
+											msg = Messages.getString("Lobby.368"); //$NON-NLS-1$
 											ncnt = 5;
 										}
-										if (msg.equals(". | Creating Game | .") && ncnt == 0) {
-											msg = ". . | Creating Game | . .";
+										if (msg.equals(Messages.getString("Lobby.369")) && ncnt == 0) { //$NON-NLS-1$
+											msg = Messages.getString("Lobby.370"); //$NON-NLS-1$
 											ncnt = 5;
 										}
-										if (msg.equals("| Creating Game |") && ncnt == 0) {
-											msg = ". | Creating Game | .";
+										if (msg.equals(Messages.getString("Lobby.371")) && ncnt == 0) { //$NON-NLS-1$
+											msg = Messages.getString("Lobby.372"); //$NON-NLS-1$
 											ncnt = 5;
 										}
 										if (ncnt != 0)
@@ -3035,46 +3035,46 @@ public class Lobby implements Runnable {
 						rd.drawRoundRect(225, 1, 495, 417, 20, 20);
 						if (join > -1 && pgames[im] != join || join == -2) {
 							if (join > -1 && pgames[im] != join) {
-								rd.setFont(new Font("Arial", 1, 13));
+								rd.setFont(new Font(Messages.getString("Lobby.373"), 1, 13)); //$NON-NLS-1$
 								ftm = rd.getFontMetrics();
 								rd.drawString(msg, 472 - ftm.stringWidth(msg) / 2, 195);
-								if (msg.equals(". . . | Joining Game | . . .") && ncnt == 0) {
-									msg = "| Joining Game |";
+								if (msg.equals(Messages.getString("Lobby.374")) && ncnt == 0) { //$NON-NLS-1$
+									msg = Messages.getString("Lobby.375"); //$NON-NLS-1$
 									ncnt = 5;
 								}
-								if (msg.equals(". . | Joining Game | . .") && ncnt == 0) {
-									msg = ". . . | Joining Game | . . .";
+								if (msg.equals(Messages.getString("Lobby.376")) && ncnt == 0) { //$NON-NLS-1$
+									msg = Messages.getString("Lobby.377"); //$NON-NLS-1$
 									ncnt = 5;
 								}
-								if (msg.equals(". | Joining Game | .") && ncnt == 0) {
-									msg = ". . | Joining Game | . .";
+								if (msg.equals(Messages.getString("Lobby.378")) && ncnt == 0) { //$NON-NLS-1$
+									msg = Messages.getString("Lobby.379"); //$NON-NLS-1$
 									ncnt = 5;
 								}
-								if (msg.equals("| Joining Game |") && ncnt == 0) {
-									msg = ". | Joining Game | .";
+								if (msg.equals(Messages.getString("Lobby.380")) && ncnt == 0) { //$NON-NLS-1$
+									msg = Messages.getString("Lobby.381"); //$NON-NLS-1$
 									ncnt = 5;
 								}
 								if (ncnt != 0)
 									ncnt--;
 							}
 							if (join == -2) {
-								rd.setFont(new Font("Arial", 1, 13));
+								rd.setFont(new Font(Messages.getString("Lobby.382"), 1, 13)); //$NON-NLS-1$
 								ftm = rd.getFontMetrics();
 								rd.drawString(msg, 472 - ftm.stringWidth(msg) / 2, 195);
-								if (msg.equals(". . . | Leaving Game | . . .") && ncnt == 0) {
-									msg = "| Leaving Game |";
+								if (msg.equals(Messages.getString("Lobby.383")) && ncnt == 0) { //$NON-NLS-1$
+									msg = Messages.getString("Lobby.384"); //$NON-NLS-1$
 									ncnt = 5;
 								}
-								if (msg.equals(". . | Leaving Game | . .") && ncnt == 0) {
-									msg = ". . . | Leaving Game | . . .";
+								if (msg.equals(Messages.getString("Lobby.385")) && ncnt == 0) { //$NON-NLS-1$
+									msg = Messages.getString("Lobby.386"); //$NON-NLS-1$
 									ncnt = 5;
 								}
-								if (msg.equals(". | Leaving Game | .") && ncnt == 0) {
-									msg = ". . | Leaving Game | . .";
+								if (msg.equals(Messages.getString("Lobby.387")) && ncnt == 0) { //$NON-NLS-1$
+									msg = Messages.getString("Lobby.388"); //$NON-NLS-1$
 									ncnt = 5;
 								}
-								if (msg.equals("| Leaving Game |") && ncnt == 0) {
-									msg = ". | Leaving Game | .";
+								if (msg.equals(Messages.getString("Lobby.389")) && ncnt == 0) { //$NON-NLS-1$
+									msg = Messages.getString("Lobby.390"); //$NON-NLS-1$
 									ncnt = 5;
 								}
 								if (ncnt != 0)
@@ -3089,7 +3089,7 @@ public class Lobby implements Runnable {
 							for (int i_194_ = 0; i_194_ < ngm; i_194_++)
 								if (ongame == gnum[i_194_])
 									i_193_ = i_194_;
-							rd.setFont(new Font("Arial", 1, 11));
+							rd.setFont(new Font(Messages.getString("Lobby.391"), 1, 11)); //$NON-NLS-1$
 							ftm = rd.getFontMetrics();
 							rd.setColor(new Color(0, 0, 0));
 							int i_195_ = 23;
@@ -3097,158 +3097,158 @@ public class Lobby implements Runnable {
 							if (gwarb[i_193_] != 0) {
 								i_195_ = 28;
 								i_196_ = 2;
-								String string = "Clan war";
+								String string = Messages.getString("Lobby.392"); //$NON-NLS-1$
 								if (gwarb[i_193_] == 2)
-									string = "Car battle";
+									string = Messages.getString("Lobby.393"); //$NON-NLS-1$
 								if (gwarb[i_193_] == 3)
-									string = "Stage battle";
-								rd.drawString(new StringBuilder().append("").append(string).append(" between ")
-										.append(gaclan[i_193_]).append(" and ").append(gvclan[i_193_]).append("")
+									string = Messages.getString("Lobby.394"); //$NON-NLS-1$
+								rd.drawString(new StringBuilder().append(Messages.getString("Lobby.395")).append(string).append(Messages.getString("Lobby.396")) //$NON-NLS-1$ //$NON-NLS-2$
+										.append(gaclan[i_193_]).append(Messages.getString("Lobby.397")).append(gvclan[i_193_]).append(Messages.getString("Lobby.398")) //$NON-NLS-1$ //$NON-NLS-2$
 										.toString(), 243, 14);
 							}
-							String string = "";
-							String string_197_ = "";
-							String string_198_ = "";
+							String string = Messages.getString("Lobby.399"); //$NON-NLS-1$
+							String string_197_ = Messages.getString("Lobby.400"); //$NON-NLS-1$
+							String string_198_ = Messages.getString("Lobby.401"); //$NON-NLS-1$
 							if (conon == 1) {
 								if (wait[i_193_] > 0)
 									if (gwarb[i_193_] == 0) {
-										String string_199_ = "";
-										if (gplyrs[i_193_].equals(""))
-											string_199_ = "Public Game";
+										String string_199_ = Messages.getString("Lobby.402"); //$NON-NLS-1$
+										if (gplyrs[i_193_].equals(Messages.getString("Lobby.403"))) //$NON-NLS-1$
+											string_199_ = Messages.getString("Lobby.404"); //$NON-NLS-1$
 										else
-											string_199_ = "Private Game";
+											string_199_ = Messages.getString("Lobby.405"); //$NON-NLS-1$
 										if (gfx[i_193_] == 1)
-											string_199_ = new StringBuilder().append(string_199_).append(" | 4 Fixes")
+											string_199_ = new StringBuilder().append(string_199_).append(Messages.getString("Lobby.406")) //$NON-NLS-1$
 													.toString();
 										if (gfx[i_193_] == 2)
-											string_199_ = new StringBuilder().append(string_199_).append(" | 3 Fixes")
+											string_199_ = new StringBuilder().append(string_199_).append(Messages.getString("Lobby.407")) //$NON-NLS-1$
 													.toString();
 										if (gfx[i_193_] == 3)
-											string_199_ = new StringBuilder().append(string_199_).append(" | 2 Fixes")
+											string_199_ = new StringBuilder().append(string_199_).append(Messages.getString("Lobby.408")) //$NON-NLS-1$
 													.toString();
 										if (gfx[i_193_] == 4)
-											string_199_ = new StringBuilder().append(string_199_).append(" | 1 Fix")
+											string_199_ = new StringBuilder().append(string_199_).append(Messages.getString("Lobby.409")) //$NON-NLS-1$
 													.toString();
 										if (gfx[i_193_] == 5)
-											string_199_ = new StringBuilder().append(string_199_).append(" | No Fixing")
+											string_199_ = new StringBuilder().append(string_199_).append(Messages.getString("Lobby.410")) //$NON-NLS-1$
 													.toString();
-										String string_200_ = "";
+										String string_200_ = Messages.getString("Lobby.411"); //$NON-NLS-1$
 										if (gclss[i_193_] > -2) {
 											if (gcrs[i_193_] == 1)
-												string_200_ = "Custom Cars";
+												string_200_ = Messages.getString("Lobby.412"); //$NON-NLS-1$
 											if (gcrs[i_193_] == 2)
-												string_200_ = "Game Cars";
-											String string_201_ = "";
+												string_200_ = Messages.getString("Lobby.413"); //$NON-NLS-1$
+											String string_201_ = Messages.getString("Lobby.414"); //$NON-NLS-1$
 											if (gclss[i_193_] == 1)
-												string_201_ = "Class C";
+												string_201_ = Messages.getString("Lobby.415"); //$NON-NLS-1$
 											if (gclss[i_193_] == 2)
-												string_201_ = "Class B & C";
+												string_201_ = Messages.getString("Lobby.416"); //$NON-NLS-1$
 											if (gclss[i_193_] == 3)
-												string_201_ = "Class B";
+												string_201_ = Messages.getString("Lobby.417"); //$NON-NLS-1$
 											if (gclss[i_193_] == 4)
-												string_201_ = "Class A & B";
+												string_201_ = Messages.getString("Lobby.418"); //$NON-NLS-1$
 											if (gclss[i_193_] == 5)
-												string_201_ = "Class A";
-											if (!string_200_.equals("") && !string_201_.equals(""))
-												string_200_ = new StringBuilder().append(string_200_).append(" | ")
+												string_201_ = Messages.getString("Lobby.419"); //$NON-NLS-1$
+											if (!string_200_.equals(Messages.getString("Lobby.420")) && !string_201_.equals(Messages.getString("Lobby.421"))) //$NON-NLS-1$ //$NON-NLS-2$
+												string_200_ = new StringBuilder().append(string_200_).append(Messages.getString("Lobby.422")) //$NON-NLS-1$
 														.append(string_201_).toString();
 											else
 												string_200_ = new StringBuilder().append(string_200_)
 														.append(string_201_).toString();
 										} else
-											string_200_ = new StringBuilder().append("")
-													.append(cd.names[Math.abs(this.gclss[i_193_] + 2)]).append("")
+											string_200_ = new StringBuilder().append(Messages.getString("Lobby.423")) //$NON-NLS-1$
+													.append(cd.names[Math.abs(this.gclss[i_193_] + 2)]).append(Messages.getString("Lobby.424")) //$NON-NLS-1$
 													.toString();
-										if (string_200_.equals("")) {
-											rd.drawString("Type:", 243, 23);
+										if (string_200_.equals(Messages.getString("Lobby.425"))) { //$NON-NLS-1$
+											rd.drawString(Messages.getString("Lobby.426"), 243, 23); //$NON-NLS-1$
 											rd.setColor(new Color(80, 128, 0));
 											rd.drawString(string_199_, 279, 23);
 										} else {
-											rd.drawString("Type:", 243, 14);
-											rd.drawString("Cars:", 244, 28);
+											rd.drawString(Messages.getString("Lobby.427"), 243, 14); //$NON-NLS-1$
+											rd.drawString(Messages.getString("Lobby.428"), 244, 28); //$NON-NLS-1$
 											rd.setColor(new Color(80, 128, 0));
 											rd.drawString(string_199_, 279, 14);
 											rd.drawString(string_200_, 279, 28);
 										}
 									} else {
-										String string_202_ = new StringBuilder().append("Game #")
-												.append(gameturn[i_193_]).append("").toString();
+										String string_202_ = new StringBuilder().append(Messages.getString("Lobby.429")) //$NON-NLS-1$
+												.append(gameturn[i_193_]).append(Messages.getString("Lobby.430")).toString(); //$NON-NLS-1$
 										if (gcrs[i_193_] == 1)
-											string_202_ = new StringBuilder().append(string_202_).append(" | Clan Cars")
+											string_202_ = new StringBuilder().append(string_202_).append(Messages.getString("Lobby.431")) //$NON-NLS-1$
 													.toString();
 										if (gcrs[i_193_] == 2)
-											string_202_ = new StringBuilder().append(string_202_).append(" | Game Cars")
+											string_202_ = new StringBuilder().append(string_202_).append(Messages.getString("Lobby.432")) //$NON-NLS-1$
 													.toString();
 										if (gclss[i_193_] == 1)
-											string_202_ = new StringBuilder().append(string_202_).append(" | Class C")
+											string_202_ = new StringBuilder().append(string_202_).append(Messages.getString("Lobby.433")) //$NON-NLS-1$
 													.toString();
 										if (gclss[i_193_] == 2)
 											string_202_ = new StringBuilder().append(string_202_)
-													.append(" | Class B & C").toString();
+													.append(Messages.getString("Lobby.434")).toString(); //$NON-NLS-1$
 										if (gclss[i_193_] == 3)
-											string_202_ = new StringBuilder().append(string_202_).append(" | Class B")
+											string_202_ = new StringBuilder().append(string_202_).append(Messages.getString("Lobby.435")) //$NON-NLS-1$
 													.toString();
 										if (gclss[i_193_] == 4)
 											string_202_ = new StringBuilder().append(string_202_)
-													.append(" | Class A & B").toString();
+													.append(Messages.getString("Lobby.436")).toString(); //$NON-NLS-1$
 										if (gclss[i_193_] == 5)
-											string_202_ = new StringBuilder().append(string_202_).append(" | Class A")
+											string_202_ = new StringBuilder().append(string_202_).append(Messages.getString("Lobby.437")) //$NON-NLS-1$
 													.toString();
 										if (gfx[i_193_] == 1)
-											string_202_ = new StringBuilder().append(string_202_).append(" | 4 Fixes")
+											string_202_ = new StringBuilder().append(string_202_).append(Messages.getString("Lobby.438")) //$NON-NLS-1$
 													.toString();
 										if (gfx[i_193_] == 2)
-											string_202_ = new StringBuilder().append(string_202_).append(" | 3 Fixes")
+											string_202_ = new StringBuilder().append(string_202_).append(Messages.getString("Lobby.439")) //$NON-NLS-1$
 													.toString();
 										if (gfx[i_193_] == 3)
-											string_202_ = new StringBuilder().append(string_202_).append(" | 2 Fixes")
+											string_202_ = new StringBuilder().append(string_202_).append(Messages.getString("Lobby.440")) //$NON-NLS-1$
 													.toString();
 										if (gfx[i_193_] == 4)
-											string_202_ = new StringBuilder().append(string_202_).append(" | 1 Fix")
+											string_202_ = new StringBuilder().append(string_202_).append(Messages.getString("Lobby.441")) //$NON-NLS-1$
 													.toString();
 										if (gfx[i_193_] == 5)
-											string_202_ = new StringBuilder().append(string_202_).append(" | No Fixing")
+											string_202_ = new StringBuilder().append(string_202_).append(Messages.getString("Lobby.442")) //$NON-NLS-1$
 													.toString();
 										rd.setColor(new Color(80, 128, 0));
 										rd.drawString(string_202_, 243, 28);
 									}
 								if (wait[i_193_] == 0) {
-									rd.drawString("Status:", 241 + i_196_, i_195_);
+									rd.drawString(Messages.getString("Lobby.443"), 241 + i_196_, i_195_); //$NON-NLS-1$
 									rd.setColor(new Color(128, 73, 0));
 									if (prevloaded == 0)
-										rd.drawString("Starting...", 286 + i_196_, i_195_);
+										rd.drawString(Messages.getString("Lobby.444"), 286 + i_196_, i_195_); //$NON-NLS-1$
 									else
-										rd.drawString("Started", 286 + i_196_, i_195_);
+										rd.drawString(Messages.getString("Lobby.445"), 286 + i_196_, i_195_); //$NON-NLS-1$
 								}
 								if (wait[i_193_] == -1) {
-									rd.drawString("Status:", 241 + i_196_, i_195_);
+									rd.drawString(Messages.getString("Lobby.446"), 241 + i_196_, i_195_); //$NON-NLS-1$
 									rd.setColor(color2k(100, 100, 100));
-									rd.drawString("Finished", 286 + i_196_, i_195_);
+									rd.drawString(Messages.getString("Lobby.447"), 286 + i_196_, i_195_); //$NON-NLS-1$
 								}
 							} else {
-								rd.drawString("Status:", 241 + i_196_, i_195_);
+								rd.drawString(Messages.getString("Lobby.448"), 241 + i_196_, i_195_); //$NON-NLS-1$
 								rd.setColor(new Color(128, 73, 0));
-								rd.drawString("Starting...", 286 + i_196_, i_195_);
+								rd.drawString(Messages.getString("Lobby.449"), 286 + i_196_, i_195_); //$NON-NLS-1$
 							}
 							if (gwarb[i_193_] == 0) {
 								rd.setColor(new Color(0, 0, 0));
 								if (gmaker[i_193_].equals(pnames[im]))
-									rd.drawString("Created by You", 449, 23);
+									rd.drawString(Messages.getString("Lobby.450"), 449, 23); //$NON-NLS-1$
 								else {
-									rd.drawString("Created by", 449, 23);
-									rd.drawString(":", 511, 23);
+									rd.drawString(Messages.getString("Lobby.451"), 449, 23); //$NON-NLS-1$
+									rd.drawString(Messages.getString("Lobby.452"), 511, 23); //$NON-NLS-1$
 									rd.drawString(this.gmaker[i_193_], 520, 23);
 								}
 							} else if (wait[i_193_] == 0 || wait[i_193_] == -1 || conon != 1) {
 								rd.setColor(color2k(200, 200, 200));
 								rd.drawRect(349, 16, 253, 16);
-								rd.setFont(new Font("Arial", 0, 11));
+								rd.setFont(new Font(Messages.getString("Lobby.453"), 0, 11)); //$NON-NLS-1$
 								ftm = rd.getFontMetrics();
 								rd.setColor(new Color(0, 0, 0));
 								int i_203_ = 0;
 								int i_204_ = 0;
 								if (wait[i_193_] == -1) {
-									final String[] strings = { "", "", "", "", "", "", "", "" };
+									final String[] strings = { Messages.getString("Lobby.454"), Messages.getString("Lobby.455"), Messages.getString("Lobby.456"), Messages.getString("Lobby.457"), Messages.getString("Lobby.458"), Messages.getString("Lobby.459"), Messages.getString("Lobby.460"), Messages.getString("Lobby.461") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
 									for (int i_205_ = 0; i_205_ < prnpo; i_205_++)
 										for (int i_206_ = 0; i_206_ < npo; i_206_++)
 											if (prnames[i_205_].equals(pnames[i_206_])
@@ -3259,7 +3259,7 @@ public class Lobby implements Runnable {
 											string = strings[i_207_];
 											break;
 										}
-									if (!string.equals("")) {
+									if (!string.equals(Messages.getString("Lobby.462"))) { //$NON-NLS-1$
 										if (gwtyp[i_193_] == 2) {
 											boolean bool_208_ = false;
 											for (int i_209_ = 0; i_209_ < prnpo; i_209_++)
@@ -3269,9 +3269,9 @@ public class Lobby implements Runnable {
 													break;
 												}
 											if (!bool_208_) {
-												string_198_ = new StringBuilder().append("").append(string)
-														.append(" should have raced in this game!").toString();
-												string = "";
+												string_198_ = new StringBuilder().append(Messages.getString("Lobby.463")).append(string) //$NON-NLS-1$
+														.append(Messages.getString("Lobby.464")).toString(); //$NON-NLS-1$
+												string = Messages.getString("Lobby.465"); //$NON-NLS-1$
 											}
 										}
 										if (gwtyp[i_193_] == 3) {
@@ -3283,9 +3283,9 @@ public class Lobby implements Runnable {
 													break;
 												}
 											if (!bool_210_) {
-												string_198_ = new StringBuilder().append("").append(string)
-														.append(" should have wasted in this game!").toString();
-												string = "";
+												string_198_ = new StringBuilder().append(Messages.getString("Lobby.466")).append(string) //$NON-NLS-1$
+														.append(Messages.getString("Lobby.467")).toString(); //$NON-NLS-1$
+												string = Messages.getString("Lobby.468"); //$NON-NLS-1$
 											}
 										}
 										if (gwtyp[i_193_] == 4)
@@ -3298,9 +3298,9 @@ public class Lobby implements Runnable {
 														break;
 													}
 												if (!bool_212_) {
-													string_198_ = new StringBuilder().append("").append(string)
-															.append(" should have wasted in this game!").toString();
-													string = "";
+													string_198_ = new StringBuilder().append(Messages.getString("Lobby.469")).append(string) //$NON-NLS-1$
+															.append(Messages.getString("Lobby.470")).toString(); //$NON-NLS-1$
+													string = Messages.getString("Lobby.471"); //$NON-NLS-1$
 												}
 											} else {
 												boolean bool_214_ = false;
@@ -3311,9 +3311,9 @@ public class Lobby implements Runnable {
 														break;
 													}
 												if (!bool_214_) {
-													string_198_ = new StringBuilder().append("").append(string)
-															.append(" should have raced in this game!").toString();
-													string = "";
+													string_198_ = new StringBuilder().append(Messages.getString("Lobby.472")).append(string) //$NON-NLS-1$
+															.append(Messages.getString("Lobby.473")).toString(); //$NON-NLS-1$
+													string = Messages.getString("Lobby.474"); //$NON-NLS-1$
 												}
 											}
 										if (gwtyp[i_193_] == 5)
@@ -3326,9 +3326,9 @@ public class Lobby implements Runnable {
 														break;
 													}
 												if (!bool_216_) {
-													string_198_ = new StringBuilder().append("").append(string)
-															.append(" should have wasted in this game!").toString();
-													string = "";
+													string_198_ = new StringBuilder().append(Messages.getString("Lobby.475")).append(string) //$NON-NLS-1$
+															.append(Messages.getString("Lobby.476")).toString(); //$NON-NLS-1$
+													string = Messages.getString("Lobby.477"); //$NON-NLS-1$
 												}
 											} else {
 												boolean bool_218_ = false;
@@ -3339,40 +3339,40 @@ public class Lobby implements Runnable {
 														break;
 													}
 												if (!bool_218_) {
-													string_198_ = new StringBuilder().append("").append(string)
-															.append(" should have raced in this game!").toString();
-													string = "";
+													string_198_ = new StringBuilder().append(Messages.getString("Lobby.478")).append(string) //$NON-NLS-1$
+															.append(Messages.getString("Lobby.479")).toString(); //$NON-NLS-1$
+													string = Messages.getString("Lobby.480"); //$NON-NLS-1$
 												}
 											}
 									} else
-										string_198_ = "No one finished first - no one survived!";
+										string_198_ = Messages.getString("Lobby.481"); //$NON-NLS-1$
 									if (string.toLowerCase().equals(gaclan[i_193_].toLowerCase()))
 										i_203_ = 1;
 									if (string.toLowerCase().equals(gvclan[i_193_].toLowerCase()))
 										i_204_ = 1;
 								}
-								rd.drawString(new StringBuilder().append("").append(gaclan[i_193_]).append(" : ")
-										.append(gascore[i_193_] + i_203_).append("     |     ").append(gvclan[i_193_])
-										.append(" : ").append(gvscore[i_193_] + i_204_).append("").toString(),
-										474 - ftm.stringWidth(new StringBuilder().append("").append(gaclan[i_193_])
-												.append(" : ").append(gascore[i_193_]).append("     |     ")
-												.append(gvclan[i_193_]).append(" : ").append(gvscore[i_193_]).append("")
+								rd.drawString(new StringBuilder().append(Messages.getString("Lobby.482")).append(gaclan[i_193_]).append(Messages.getString("Lobby.483")) //$NON-NLS-1$ //$NON-NLS-2$
+										.append(gascore[i_193_] + i_203_).append(Messages.getString("Lobby.484")).append(gvclan[i_193_]) //$NON-NLS-1$
+										.append(Messages.getString("Lobby.485")).append(gvscore[i_193_] + i_204_).append(Messages.getString("Lobby.486")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
+										474 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.487")).append(gaclan[i_193_]) //$NON-NLS-1$
+												.append(Messages.getString("Lobby.488")).append(gascore[i_193_]).append(Messages.getString("Lobby.489")) //$NON-NLS-1$ //$NON-NLS-2$
+												.append(gvclan[i_193_]).append(Messages.getString("Lobby.490")).append(gvscore[i_193_]).append(Messages.getString("Lobby.491")) //$NON-NLS-1$ //$NON-NLS-2$
 												.toString()) / 2,
 										28);
 								if (gwarb[i_193_] == 1) {
 									if (gascore[i_193_] + i_203_ >= 5)
-										string_197_ = new StringBuilder().append("").append(gaclan[i_193_])
-												.append(" wins the war!").toString();
+										string_197_ = new StringBuilder().append(Messages.getString("Lobby.492")).append(gaclan[i_193_]) //$NON-NLS-1$
+												.append(Messages.getString("Lobby.493")).toString(); //$NON-NLS-1$
 									if (gvscore[i_193_] + i_204_ >= 5)
-										string_197_ = new StringBuilder().append("").append(gvclan[i_193_])
-												.append(" wins the war!").toString();
+										string_197_ = new StringBuilder().append(Messages.getString("Lobby.494")).append(gvclan[i_193_]) //$NON-NLS-1$
+												.append(Messages.getString("Lobby.495")).toString(); //$NON-NLS-1$
 								} else {
 									if (gascore[i_193_] + i_203_ >= 3)
-										string_197_ = new StringBuilder().append("").append(gaclan[i_193_])
-												.append(" wins the battle!").toString();
+										string_197_ = new StringBuilder().append(Messages.getString("Lobby.496")).append(gaclan[i_193_]) //$NON-NLS-1$
+												.append(Messages.getString("Lobby.497")).toString(); //$NON-NLS-1$
 									if (gvscore[i_193_] + i_204_ >= 3)
-										string_197_ = new StringBuilder().append("").append(gvclan[i_193_])
-												.append(" wins the battle!").toString();
+										string_197_ = new StringBuilder().append(Messages.getString("Lobby.498")).append(gvclan[i_193_]) //$NON-NLS-1$
+												.append(Messages.getString("Lobby.499")).toString(); //$NON-NLS-1$
 								}
 							}
 							rd.setColor(color2k(200, 200, 200));
@@ -3380,9 +3380,9 @@ public class Lobby implements Runnable {
 							rd.drawLine(602, 7, 602, 32);
 							if (conon == 1)
 								if (pgames[im] == ongame)
-									stringbutton("Leave Game X", 660, 26, 0);
+									stringbutton(Messages.getString("Lobby.500"), 660, 26, 0); //$NON-NLS-1$
 								else
-									stringbutton("Close X", 679, 26, 0);
+									stringbutton(Messages.getString("Lobby.501"), 679, 26, 0); //$NON-NLS-1$
 							rd.drawImage(xt.pls, 292, 39, null);
 							if (opengame != 27) {
 								m.crs = true;
@@ -3426,11 +3426,11 @@ public class Lobby implements Runnable {
 												rd.setColor(new Color(0, 0, 0));
 									rd.drawRect(237, 54 + i_220_ * 42, 170, 40);
 									rd.setColor(new Color(0, 0, 0));
-									rd.setFont(new Font("Arial", 1, 12));
+									rd.setFont(new Font(Messages.getString("Lobby.502"), 1, 12)); //$NON-NLS-1$
 									ftm = rd.getFontMetrics();
 									rd.drawString(pnames[i_222_], 282 - ftm.stringWidth(pnames[i_222_]) / 2,
 											72 + i_220_ * 42);
-									rd.setFont(new Font("Arial", 0, 10));
+									rd.setFont(new Font(Messages.getString("Lobby.503"), 0, 10)); //$NON-NLS-1$
 									ftm = rd.getFontMetrics();
 									rd.drawString(pcarnames[i_222_], 282 - ftm.stringWidth(pcarnames[i_222_]) / 2,
 											84 + i_220_ * 42);
@@ -3494,9 +3494,9 @@ public class Lobby implements Runnable {
 										rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 												RenderingHints.VALUE_ANTIALIAS_ON);
 									} else {
-										rd.setFont(new Font("Arial", 1, 11));
+										rd.setFont(new Font(Messages.getString("Lobby.504"), 1, 11)); //$NON-NLS-1$
 										rd.setColor(color2k(80, 80, 80));
-										rd.drawString("Loading...", 339, 77 + i_220_ * 42);
+										rd.drawString(Messages.getString("Lobby.505"), 339, 77 + i_220_ * 42); //$NON-NLS-1$
 									}
 									i_220_++;
 								}
@@ -3534,8 +3534,8 @@ public class Lobby implements Runnable {
 											invos[i_234_] = invos[i_234_ + 1];
 											dinvi[i_234_] = dinvi[i_234_ + 1];
 										}
-										invos[6] = "";
-										dinvi[6] = "";
+										invos[6] = Messages.getString("Lobby.506"); //$NON-NLS-1$
+										dinvi[6] = Messages.getString("Lobby.507"); //$NON-NLS-1$
 									}
 							if (wait[i_193_] > 0) {
 								int i_235_ = 0;
@@ -3544,10 +3544,10 @@ public class Lobby implements Runnable {
 									rd.drawRect(237, 54 + i_236_ * 42, 170, 40);
 									boolean bool_237_ = false;
 									if (pgames[im] == ongame) {
-										if (!gplyrs[i_193_].equals(""))
+										if (!gplyrs[i_193_].equals(Messages.getString("Lobby.508"))) //$NON-NLS-1$
 											bool_237_ = true;
 									} else if (gwarb[i_193_] == 0) {
-										if (!gplyrs[i_193_].equals("") && gplyrs[i_193_].indexOf(pnames[im]) == -1)
+										if (!gplyrs[i_193_].equals(Messages.getString("Lobby.509")) && gplyrs[i_193_].indexOf(pnames[im]) == -1) //$NON-NLS-1$
 											bool_237_ = true;
 									} else if (!xt.clan.toLowerCase().equals(gaclan[i_193_].toLowerCase())
 											&& !xt.clan.toLowerCase().equals(gvclan[i_193_].toLowerCase()))
@@ -3555,34 +3555,34 @@ public class Lobby implements Runnable {
 									if (i > 237 && i < 407 && i_99_ > 54 + i_236_ * 42 && i_99_ < 94 + i_236_ * 42
 											&& !bool_237_) {
 										if (pgames[im] == ongame)
-											stringbutton("<     Invite Player      ", 322, 79 + i_236_ * 42, 0);
+											stringbutton(Messages.getString("Lobby.510"), 322, 79 + i_236_ * 42, 0); //$NON-NLS-1$
 										else
-											stringbutton("    Join Game    ", 322, 79 + i_236_ * 42, 0);
+											stringbutton(Messages.getString("Lobby.511"), 322, 79 + i_236_ * 42, 0); //$NON-NLS-1$
 										pbtn = 1;
-									} else if (invos[i_235_].equals("")) {
+									} else if (invos[i_235_].equals(Messages.getString("Lobby.512"))) { //$NON-NLS-1$
 										rd.setColor(new Color(0, 0, 0));
-										rd.setFont(new Font("Arial", 1, 12));
+										rd.setFont(new Font(Messages.getString("Lobby.513"), 1, 12)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
-										rd.drawString("Empty", 322 - ftm.stringWidth("Empty") / 2, 72 + i_236_ * 42);
-										rd.setFont(new Font("Arial", 0, 10));
+										rd.drawString(Messages.getString("Lobby.514"), 322 - ftm.stringWidth(Messages.getString("Lobby.515")) / 2, 72 + i_236_ * 42); //$NON-NLS-1$ //$NON-NLS-2$
+										rd.setFont(new Font(Messages.getString("Lobby.516"), 0, 10)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
-										rd.drawString("Waiting for player...",
-												322 - ftm.stringWidth("Waiting for player...") / 2, 84 + i_236_ * 42);
+										rd.drawString(Messages.getString("Lobby.517"), //$NON-NLS-1$
+												322 - ftm.stringWidth(Messages.getString("Lobby.518")) / 2, 84 + i_236_ * 42); //$NON-NLS-1$
 									} else if (!dinvi[i_235_].equals(invos[i_235_])) {
 										if (nflk != 0) {
 											rd.setColor(new Color(0, 0, 0));
-											rd.setFont(new Font("Arial", 0, 12));
+											rd.setFont(new Font(Messages.getString("Lobby.519"), 0, 12)); //$NON-NLS-1$
 											ftm = rd.getFontMetrics();
-											rd.drawString("Inviting player...",
-													322 - ftm.stringWidth("Inviting player...") / 2, 79 + i_236_ * 42);
+											rd.drawString(Messages.getString("Lobby.520"), //$NON-NLS-1$
+													322 - ftm.stringWidth(Messages.getString("Lobby.521")) / 2, 79 + i_236_ * 42); //$NON-NLS-1$
 										}
 									} else {
 										rd.setColor(new Color(0, 0, 0));
-										rd.setFont(new Font("Arial", 0, 12));
+										rd.setFont(new Font(Messages.getString("Lobby.522"), 0, 12)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
-										rd.drawString("Player Invited!", 322 - ftm.stringWidth("Player Invited!") / 2,
+										rd.drawString(Messages.getString("Lobby.523"), 322 - ftm.stringWidth(Messages.getString("Lobby.524")) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 												71 + i_236_ * 42);
-										rd.setFont(new Font("Arial", 1, 12));
+										rd.setFont(new Font(Messages.getString("Lobby.525"), 1, 12)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
 										rd.drawString(invos[i_235_], 322 - ftm.stringWidth(invos[i_235_]) / 2,
 												87 + i_236_ * 42);
@@ -3592,13 +3592,13 @@ public class Lobby implements Runnable {
 							}
 							if (xt.lan && mnbts[i_193_] != 0) {
 								rd.setColor(new Color(0, 0, 0));
-								rd.setFont(new Font("Arial", 1, 12));
+								rd.setFont(new Font(Messages.getString("Lobby.526"), 1, 12)); //$NON-NLS-1$
 								ftm = rd.getFontMetrics();
 								rd.drawString(
-										new StringBuilder().append("Plus ").append(mnbts[i_193_]).append(" MadBots!")
+										new StringBuilder().append(Messages.getString("Lobby.527")).append(mnbts[i_193_]).append(Messages.getString("Lobby.528")) //$NON-NLS-1$ //$NON-NLS-2$
 												.toString(),
-										322 - ftm.stringWidth(new StringBuilder().append("Plus ").append(mnbts[i_193_])
-												.append(" MadBots!").toString()) / 2,
+										322 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.529")).append(mnbts[i_193_]) //$NON-NLS-1$
+												.append(Messages.getString("Lobby.530")).toString()) / 2, //$NON-NLS-1$
 										73 + mnpls[i_193_] * 42);
 							}
 							if (dispcar == -1 || conon != 1) {
@@ -3608,32 +3608,32 @@ public class Lobby implements Runnable {
 								if (conon == 1) {
 									if (wait[i_193_] > 0) {
 										rd.setColor(new Color(0, 0, 0));
-										rd.setFont(new Font("Arial", 1, 12));
+										rd.setFont(new Font(Messages.getString("Lobby.531"), 1, 12)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
 										if (gwarb[i_193_] == 0) {
 											if (wait[i_193_] > 30 || npls[i_193_] <= 1) {
-												String string_238_ = "s";
+												String string_238_ = Messages.getString("Lobby.532"); //$NON-NLS-1$
 												if (mnpls[i_193_] - npls[i_193_] == 1)
-													string_238_ = "";
+													string_238_ = Messages.getString("Lobby.533"); //$NON-NLS-1$
 												rd.drawString(
-														new StringBuilder().append("Waiting for ")
+														new StringBuilder().append(Messages.getString("Lobby.534")) //$NON-NLS-1$
 																.append(mnpls[i_193_] - npls[i_193_])
-																.append(" more player").append(string_238_)
-																.append(" to join to start.")
+																.append(Messages.getString("Lobby.535")).append(string_238_) //$NON-NLS-1$
+																.append(Messages.getString("Lobby.536")) //$NON-NLS-1$
 																.toString(),
 														561 - ftm
 																.stringWidth(
-																		new StringBuilder().append("Waiting for ")
+																		new StringBuilder().append(Messages.getString("Lobby.537")) //$NON-NLS-1$
 																				.append(mnpls[i_193_]
 																						- this.npls[i_193_])
-																		.append(" more player").append(string_238_)
-																		.append(" to join to start.").toString())
+																		.append(Messages.getString("Lobby.538")).append(string_238_) //$NON-NLS-1$
+																		.append(Messages.getString("Lobby.539")).toString()) //$NON-NLS-1$
 																/ 2,
 														98);
-												rd.setFont(new Font("Arial", 0, 12));
+												rd.setFont(new Font(Messages.getString("Lobby.540"), 0, 12)); //$NON-NLS-1$
 												ftm = rd.getFontMetrics();
 												int i_239_ = 134;
-												if (!gmaker[i_193_].equals("Coach Insano")
+												if (!gmaker[i_193_].equals(Messages.getString("Lobby.541")) //$NON-NLS-1$
 														&& !gmaker[i_193_].equals(pnames[im])) {
 													boolean bool_240_ = false;
 													for (int i_241_ = 0; i_241_ < npo; i_241_++)
@@ -3642,29 +3642,29 @@ public class Lobby implements Runnable {
 															bool_240_ = true;
 													if (bool_240_) {
 														i_239_ = 144;
-														rd.drawString(new StringBuilder().append("")
+														rd.drawString(new StringBuilder().append(Messages.getString("Lobby.542")) //$NON-NLS-1$
 																.append(this.gmaker[i_193_])
-																.append(" can start this game at anytime.").toString(),
-																561 - ftm.stringWidth(new StringBuilder().append("")
+																.append(Messages.getString("Lobby.543")).toString(), //$NON-NLS-1$
+																561 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.544")) //$NON-NLS-1$
 																		.append(this.gmaker[i_193_])
-																		.append(" can start this game at anytime.")
+																		.append(Messages.getString("Lobby.545")) //$NON-NLS-1$
 																		.toString()) / 2,
 																124);
 													}
 												}
 												if (npls[i_193_] > 1) {
-													String string_242_ = new StringBuilder().append("")
-															.append(wait[i_193_]).append(" seconds").toString();
+													String string_242_ = new StringBuilder().append(Messages.getString("Lobby.546")) //$NON-NLS-1$
+															.append(wait[i_193_]).append(Messages.getString("Lobby.547")).toString(); //$NON-NLS-1$
 													if (wait[i_193_] > 60)
-														string_242_ = new StringBuilder().append("")
+														string_242_ = new StringBuilder().append(Messages.getString("Lobby.548")) //$NON-NLS-1$
 																.append((int) (wait[i_193_] / 60.0F * 100.0F) / 100.0F)
-																.append(" minutes").toString();
+																.append(Messages.getString("Lobby.549")).toString(); //$NON-NLS-1$
 													rd.drawString(
-															new StringBuilder().append("(Waiting ").append(string_242_)
-																	.append(" maximum! )").toString(),
+															new StringBuilder().append(Messages.getString("Lobby.550")).append(string_242_) //$NON-NLS-1$
+																	.append(Messages.getString("Lobby.551")).toString(), //$NON-NLS-1$
 															561 - ftm.stringWidth(new StringBuilder()
-																	.append("(Waiting ").append(string_242_)
-																	.append(" maximum! )").toString()) / 2,
+																	.append(Messages.getString("Lobby.552")).append(string_242_) //$NON-NLS-1$
+																	.append(Messages.getString("Lobby.553")).toString()) / 2, //$NON-NLS-1$
 															i_239_);
 												}
 											} else {
@@ -3679,11 +3679,11 @@ public class Lobby implements Runnable {
 													ptime = l;
 												}
 												if (pgames[im] == ongame || nflk != 0) {
-													rd.drawString(new StringBuilder().append("Game starts in ")
-															.append(wait[i_193_]).append(" seconds!").toString(),
+													rd.drawString(new StringBuilder().append(Messages.getString("Lobby.554")) //$NON-NLS-1$
+															.append(wait[i_193_]).append(Messages.getString("Lobby.555")).toString(), //$NON-NLS-1$
 															561 - ftm.stringWidth(new StringBuilder()
-																	.append("Game starts in ").append(this.wait[i_193_])
-																	.append(" seconds!").toString()) / 2,
+																	.append(Messages.getString("Lobby.556")).append(this.wait[i_193_]) //$NON-NLS-1$
+																	.append(Messages.getString("Lobby.557")).toString()) / 2, //$NON-NLS-1$
 															124);
 													if (pgames[im] != ongame)
 														nflk--;
@@ -3691,54 +3691,54 @@ public class Lobby implements Runnable {
 													nflk = 3;
 											}
 											if (pgames[im] != ongame) {
-												if (gplyrs[i_193_].equals("")
+												if (gplyrs[i_193_].equals(Messages.getString("Lobby.558")) //$NON-NLS-1$
 														|| gplyrs[i_193_].indexOf(pnames[im]) != -1)
-													stringbutton("    Join this Game    ", 561, 182, 0);
+													stringbutton(Messages.getString("Lobby.559"), 561, 182, 0); //$NON-NLS-1$
 												else {
-													rd.setFont(new Font("Arial", 1, 12));
+													rd.setFont(new Font(Messages.getString("Lobby.560"), 1, 12)); //$NON-NLS-1$
 													ftm = rd.getFontMetrics();
 													rd.setColor(new Color(128, 73, 0));
-													rd.drawString("Private Game, only specific players allowed.",
+													rd.drawString(Messages.getString("Lobby.561"), //$NON-NLS-1$
 															561 - ftm.stringWidth(
-																	"Private Game, only specific players allowed.") / 2,
+																	Messages.getString("Lobby.562")) / 2, //$NON-NLS-1$
 															180);
-													stringbutton("    Join this Game    ", 561, -1000, 0);
+													stringbutton(Messages.getString("Lobby.563"), 561, -1000, 0); //$NON-NLS-1$
 												}
 											} else if (gmaker[i_193_].equals(pnames[im])) {
 												if (npls[i_193_] > 1) {
 													if (!fstart)
-														stringbutton("    Start this Game Now!    ", 561, 182, 0);
+														stringbutton(Messages.getString("Lobby.564"), 561, 182, 0); //$NON-NLS-1$
 													else
-														stringbutton("    Starting game now, one moment...    ", 561,
+														stringbutton(Messages.getString("Lobby.565"), 561, //$NON-NLS-1$
 																182, 0);
 												} else {
-													rd.setFont(new Font("Arial", 1, 12));
+													rd.setFont(new Font(Messages.getString("Lobby.566"), 1, 12)); //$NON-NLS-1$
 													ftm = rd.getFontMetrics();
 													rd.setColor(new Color(128, 73, 0));
-													rd.drawString("You have created this game.",
-															561 - ftm.stringWidth("You have created this game.") / 2,
+													rd.drawString(Messages.getString("Lobby.567"), //$NON-NLS-1$
+															561 - ftm.stringWidth(Messages.getString("Lobby.568")) / 2, //$NON-NLS-1$
 															180);
 												}
 											} else {
-												rd.setFont(new Font("Arial", 1, 12));
+												rd.setFont(new Font(Messages.getString("Lobby.569"), 1, 12)); //$NON-NLS-1$
 												ftm = rd.getFontMetrics();
 												rd.setColor(new Color(80, 128, 0));
-												rd.drawString("You have joined this game.",
-														561 - ftm.stringWidth("You have joined this game.") / 2, 180);
+												rd.drawString(Messages.getString("Lobby.570"), //$NON-NLS-1$
+														561 - ftm.stringWidth(Messages.getString("Lobby.571")) / 2, 180); //$NON-NLS-1$
 											}
 										} else {
-											String string_243_ = "s";
+											String string_243_ = Messages.getString("Lobby.572"); //$NON-NLS-1$
 											if (mnpls[i_193_] - npls[i_193_] == 1)
-												string_243_ = "";
+												string_243_ = Messages.getString("Lobby.573"); //$NON-NLS-1$
 											rd.drawString(
-													new StringBuilder().append("Waiting for ")
-															.append(mnpls[i_193_] - npls[i_193_]).append(" clan member")
+													new StringBuilder().append(Messages.getString("Lobby.574")) //$NON-NLS-1$
+															.append(mnpls[i_193_] - npls[i_193_]).append(Messages.getString("Lobby.575")) //$NON-NLS-1$
 															.append(string_243_).append(
-																	" to join to start.")
+																	Messages.getString("Lobby.576")) //$NON-NLS-1$
 															.toString(),
-													561 - ftm.stringWidth(new StringBuilder().append("Waiting for ")
-															.append(mnpls[i_193_] - npls[i_193_]).append(" clan member")
-															.append(string_243_).append(" to join to start.")
+													561 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.577")) //$NON-NLS-1$
+															.append(mnpls[i_193_] - npls[i_193_]).append(Messages.getString("Lobby.578")) //$NON-NLS-1$
+															.append(string_243_).append(Messages.getString("Lobby.579")) //$NON-NLS-1$
 															.toString()) / 2,
 													72);
 											int i_244_ = mnpls[i_193_] / 2;
@@ -3752,46 +3752,46 @@ public class Lobby implements Runnable {
 															&& --i_245_ < 0)
 														i_245_ = 0;
 												}
-											rd.setFont(new Font("Arial", 0, 12));
+											rd.setFont(new Font(Messages.getString("Lobby.580"), 0, 12)); //$NON-NLS-1$
 											ftm = rd.getFontMetrics();
-											rd.drawString(new StringBuilder().append("(").append(i_244_).append(" of ")
-													.append(gaclan[i_193_]).append("  &  ").append(i_245_)
-													.append(" of ").append(gvclan[i_193_]).append(" )").toString(),
+											rd.drawString(new StringBuilder().append(Messages.getString("Lobby.581")).append(i_244_).append(Messages.getString("Lobby.582")) //$NON-NLS-1$ //$NON-NLS-2$
+													.append(gaclan[i_193_]).append(Messages.getString("Lobby.583")).append(i_245_) //$NON-NLS-1$
+													.append(Messages.getString("Lobby.584")).append(gvclan[i_193_]).append(Messages.getString("Lobby.585")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 													561 - ftm
-															.stringWidth(new StringBuilder().append("(").append(i_244_)
-																	.append(" of ").append(gaclan[i_193_])
-																	.append("  &  ").append(i_245_).append(" of ")
-																	.append(gvclan[i_193_]).append(" )").toString())
+															.stringWidth(new StringBuilder().append(Messages.getString("Lobby.586")).append(i_244_) //$NON-NLS-1$
+																	.append(Messages.getString("Lobby.587")).append(gaclan[i_193_]) //$NON-NLS-1$
+																	.append(Messages.getString("Lobby.588")).append(i_245_).append(Messages.getString("Lobby.589")) //$NON-NLS-1$ //$NON-NLS-2$
+																	.append(gvclan[i_193_]).append(Messages.getString("Lobby.590")).toString()) //$NON-NLS-1$
 															/ 2,
 													87);
 											rd.drawString(gaclan[i_193_], 491 - ftm.stringWidth(gaclan[i_193_]) / 2,
 													125);
 											rd.drawString(gvclan[i_193_], 631 - ftm.stringWidth(gvclan[i_193_]) / 2,
 													125);
-											rd.setFont(new Font("Arial", 1, 12));
+											rd.setFont(new Font(Messages.getString("Lobby.591"), 1, 12)); //$NON-NLS-1$
 											ftm = rd.getFontMetrics();
-											String string_247_ = "War";
+											String string_247_ = Messages.getString("Lobby.592"); //$NON-NLS-1$
 											if (gwarb[i_193_] > 1)
-												string_247_ = "Battle";
+												string_247_ = Messages.getString("Lobby.593"); //$NON-NLS-1$
 											rd.drawString(
-													new StringBuilder().append("").append(string_247_).append(" Score")
+													new StringBuilder().append(Messages.getString("Lobby.594")).append(string_247_).append(Messages.getString("Lobby.595")) //$NON-NLS-1$ //$NON-NLS-2$
 															.toString(),
 													561 - ftm
-															.stringWidth(new StringBuilder().append("")
-																	.append(string_247_).append(" Score").toString())
+															.stringWidth(new StringBuilder().append(Messages.getString("Lobby.596")) //$NON-NLS-1$
+																	.append(string_247_).append(Messages.getString("Lobby.597")).toString()) //$NON-NLS-1$
 															/ 2,
 													107);
 											rd.drawString(
-													new StringBuilder().append("").append(gascore[i_193_]).append("")
+													new StringBuilder().append(Messages.getString("Lobby.598")).append(gascore[i_193_]).append(Messages.getString("Lobby.599")) //$NON-NLS-1$ //$NON-NLS-2$
 															.toString(),
-													491 - ftm.stringWidth(new StringBuilder().append("")
-															.append(gascore[i_193_]).append("").toString()) / 2,
+													491 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.600")) //$NON-NLS-1$
+															.append(gascore[i_193_]).append(Messages.getString("Lobby.601")).toString()) / 2, //$NON-NLS-1$
 													139);
 											rd.drawString(
-													new StringBuilder().append("").append(gvscore[i_193_]).append("")
+													new StringBuilder().append(Messages.getString("Lobby.602")).append(gvscore[i_193_]).append(Messages.getString("Lobby.603")) //$NON-NLS-1$ //$NON-NLS-2$
 															.toString(),
-													631 - ftm.stringWidth(new StringBuilder().append("")
-															.append(gascore[i_193_]).append("").toString()) / 2,
+													631 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.604")) //$NON-NLS-1$
+															.append(gascore[i_193_]).append(Messages.getString("Lobby.605")).toString()) / 2, //$NON-NLS-1$
 													139);
 											rd.drawRect(421, 111, 280, 33);
 											rd.drawLine(561, 111, 561, 144);
@@ -3802,32 +3802,32 @@ public class Lobby implements Runnable {
 											if (pgames[im] != ongame) {
 												if (xt.clan.toLowerCase().equals(gaclan[i_193_].toLowerCase())
 														|| xt.clan.toLowerCase().equals(gvclan[i_193_].toLowerCase()))
-													stringbutton("    Join this Game    ", 561, 200, 0);
+													stringbutton(Messages.getString("Lobby.606"), 561, 200, 0); //$NON-NLS-1$
 												else {
 													rd.setColor(new Color(128, 73, 0));
-													rd.drawString("You must be a member of either clan to join.",
+													rd.drawString(Messages.getString("Lobby.607"), //$NON-NLS-1$
 															561 - ftm.stringWidth(
-																	"You must be a member of either clan to join.") / 2,
+																	Messages.getString("Lobby.608")) / 2, //$NON-NLS-1$
 															198);
 												}
 											} else {
 												if (gmaker[i_193_].equals(pnames[im]) && npls[i_193_] > 1)
-													stringbutton("    Start this Game Now!    ", 561, -1000, 0);
+													stringbutton(Messages.getString("Lobby.609"), 561, -1000, 0); //$NON-NLS-1$
 												rd.setColor(new Color(80, 128, 0));
-												rd.drawString("You have joined this game.",
-														561 - ftm.stringWidth("You have joined this game.") / 2, 198);
+												rd.drawString(Messages.getString("Lobby.610"), //$NON-NLS-1$
+														561 - ftm.stringWidth(Messages.getString("Lobby.611")) / 2, 198); //$NON-NLS-1$
 											}
-											rd.setFont(new Font("Arial", 1, 12));
+											rd.setFont(new Font(Messages.getString("Lobby.612"), 1, 12)); //$NON-NLS-1$
 											ftm = rd.getFontMetrics();
 											if (gwtyp[i_193_] == 1) {
 												rd.setColor(new Color(0, 0, 0));
-												rd.drawString("This is a normal clan game.",
-														561 - ftm.stringWidth("This is a normal clan game.") / 2, 161);
-												rd.setFont(new Font("Arial", 0, 12));
+												rd.drawString(Messages.getString("Lobby.613"), //$NON-NLS-1$
+														561 - ftm.stringWidth(Messages.getString("Lobby.614")) / 2, 161); //$NON-NLS-1$
+												rd.setFont(new Font(Messages.getString("Lobby.615"), 0, 12)); //$NON-NLS-1$
 												ftm = rd.getFontMetrics();
 												rd.setColor(new Color(0, 0, 0));
-												rd.drawString("Any clan can win by racing or wasting.", 561
-														- ftm.stringWidth("Any clan can win by racing or wasting.") / 2,
+												rd.drawString(Messages.getString("Lobby.616"), 561 //$NON-NLS-1$
+														- ftm.stringWidth(Messages.getString("Lobby.617")) / 2, //$NON-NLS-1$
 														176);
 											}
 											if (gwtyp[i_193_] == 2) {
@@ -3838,13 +3838,13 @@ public class Lobby implements Runnable {
 													sflk = 3;
 													rd.setColor(new Color(117, 67, 0));
 												}
-												rd.drawString("This is a racing only game!",
-														561 - ftm.stringWidth("This is a racing only game!") / 2, 161);
-												rd.setFont(new Font("Arial", 0, 12));
+												rd.drawString(Messages.getString("Lobby.618"), //$NON-NLS-1$
+														561 - ftm.stringWidth(Messages.getString("Lobby.619")) / 2, 161); //$NON-NLS-1$
+												rd.setFont(new Font(Messages.getString("Lobby.620"), 0, 12)); //$NON-NLS-1$
 												ftm = rd.getFontMetrics();
 												rd.setColor(new Color(0, 0, 0));
-												rd.drawString("A clan can only win by racing.",
-														561 - ftm.stringWidth("A clan can only win by racing.") / 2,
+												rd.drawString(Messages.getString("Lobby.621"), //$NON-NLS-1$
+														561 - ftm.stringWidth(Messages.getString("Lobby.622")) / 2, //$NON-NLS-1$
 														176);
 											}
 											if (gwtyp[i_193_] == 3) {
@@ -3855,13 +3855,13 @@ public class Lobby implements Runnable {
 													sflk = 3;
 													rd.setColor(new Color(117, 67, 0));
 												}
-												rd.drawString("This is a wasting only game!",
-														561 - ftm.stringWidth("This is a wasting only game!") / 2, 161);
-												rd.setFont(new Font("Arial", 0, 12));
+												rd.drawString(Messages.getString("Lobby.623"), //$NON-NLS-1$
+														561 - ftm.stringWidth(Messages.getString("Lobby.624")) / 2, 161); //$NON-NLS-1$
+												rd.setFont(new Font(Messages.getString("Lobby.625"), 0, 12)); //$NON-NLS-1$
 												ftm = rd.getFontMetrics();
 												rd.setColor(new Color(0, 0, 0));
-												rd.drawString("A clan can only win by wasting.",
-														561 - ftm.stringWidth("A clan can only win by wasting.") / 2,
+												rd.drawString(Messages.getString("Lobby.626"), //$NON-NLS-1$
+														561 - ftm.stringWidth(Messages.getString("Lobby.627")) / 2, //$NON-NLS-1$
 														176);
 											}
 											if (gwtyp[i_193_] == 4) {
@@ -3872,16 +3872,16 @@ public class Lobby implements Runnable {
 													sflk = 3;
 													rd.setColor(new Color(117, 67, 0));
 												}
-												rd.drawString("This is Racers VS Wasters game!",
-														561 - ftm.stringWidth("This is Racers VS Wasters game!") / 2,
+												rd.drawString(Messages.getString("Lobby.628"), //$NON-NLS-1$
+														561 - ftm.stringWidth(Messages.getString("Lobby.629")) / 2, //$NON-NLS-1$
 														161);
 												rd.drawString(
-														new StringBuilder().append("").append(gaclan[i_193_])
-																.append(" wastes & ").append(gvclan[i_193_])
-																.append(" races.").toString(),
-														561 - ftm.stringWidth(new StringBuilder().append("")
-																.append(gaclan[i_193_]).append(" wastes & ")
-																.append(gvclan[i_193_]).append(" races.").toString())
+														new StringBuilder().append(Messages.getString("Lobby.630")).append(gaclan[i_193_]) //$NON-NLS-1$
+																.append(Messages.getString("Lobby.631")).append(gvclan[i_193_]) //$NON-NLS-1$
+																.append(Messages.getString("Lobby.632")).toString(), //$NON-NLS-1$
+														561 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.633")) //$NON-NLS-1$
+																.append(gaclan[i_193_]).append(Messages.getString("Lobby.634")) //$NON-NLS-1$
+																.append(gvclan[i_193_]).append(Messages.getString("Lobby.635")).toString()) //$NON-NLS-1$
 																/ 2,
 														176);
 											}
@@ -3893,16 +3893,16 @@ public class Lobby implements Runnable {
 													sflk = 3;
 													rd.setColor(new Color(117, 67, 0));
 												}
-												rd.drawString("This is Racers VS Wasters game!",
-														561 - ftm.stringWidth("This is Racers VS Wasters game!") / 2,
+												rd.drawString(Messages.getString("Lobby.636"), //$NON-NLS-1$
+														561 - ftm.stringWidth(Messages.getString("Lobby.637")) / 2, //$NON-NLS-1$
 														161);
 												rd.drawString(
-														new StringBuilder().append("").append(gaclan[i_193_])
-																.append(" races & ").append(gvclan[i_193_])
-																.append(" wastes.").toString(),
-														561 - ftm.stringWidth(new StringBuilder().append("")
-																.append(gaclan[i_193_]).append(" races & ")
-																.append(gvclan[i_193_]).append(" wastes.").toString())
+														new StringBuilder().append(Messages.getString("Lobby.638")).append(gaclan[i_193_]) //$NON-NLS-1$
+																.append(Messages.getString("Lobby.639")).append(gvclan[i_193_]) //$NON-NLS-1$
+																.append(Messages.getString("Lobby.640")).toString(), //$NON-NLS-1$
+														561 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.641")) //$NON-NLS-1$
+																.append(gaclan[i_193_]).append(Messages.getString("Lobby.642")) //$NON-NLS-1$
+																.append(gvclan[i_193_]).append(Messages.getString("Lobby.643")).toString()) //$NON-NLS-1$
 																/ 2,
 														176);
 											}
@@ -3925,13 +3925,13 @@ public class Lobby implements Runnable {
 											i_250_ = 0;
 										if (wait[i_193_] == 0) {
 											rd.setColor(new Color(i_248_, i_249_, i_250_));
-											rd.setFont(new Font("Arial", 1, 12));
-											rd.drawString("Live Info!", 621, 51);
-											rd.drawString("Live Info!", 451, 51);
+											rd.setFont(new Font(Messages.getString("Lobby.644"), 1, 12)); //$NON-NLS-1$
+											rd.drawString(Messages.getString("Lobby.645"), 621, 51); //$NON-NLS-1$
+											rd.drawString(Messages.getString("Lobby.646"), 451, 51); //$NON-NLS-1$
 										}
 										rd.setColor(new Color(0, 0, 0));
-										rd.setFont(new Font("Tahoma", 1, 11));
-										rd.drawString("Player       Position   Laps      Power        Damage", 439, 69);
+										rd.setFont(new Font(Messages.getString("Lobby.647"), 1, 11)); //$NON-NLS-1$
+										rd.drawString(Messages.getString("Lobby.648"), 439, 69); //$NON-NLS-1$
 										rd.setColor(color2k(200, 200, 200));
 										rd.drawLine(489, 61, 489, 162);
 										rd.drawLine(542, 61, 542, 162);
@@ -3943,7 +3943,7 @@ public class Lobby implements Runnable {
 										for (int i_251_ = 0; i_251_ < prnpo; i_251_++)
 											for (int i_252_ = 0; i_252_ < prnpo; i_252_++)
 												if (ppos[i_252_] == i_251_) {
-													rd.setFont(new Font("Tahoma", 0, 11));
+													rd.setFont(new Font(Messages.getString("Lobby.649"), 0, 11)); //$NON-NLS-1$
 													ftm = rd.getFontMetrics();
 													rd.setColor(new Color(0, 44, 124));
 													rd.drawString(prnames[i_252_],
@@ -3951,34 +3951,34 @@ public class Lobby implements Runnable {
 															83 + 11 * i_220_);
 													if (pdam[i_252_] < 55 && pdam[i_252_] != -17) {
 														rd.setColor(new Color(80, 128, 0));
-														String string_253_ = "th";
+														String string_253_ = Messages.getString("Lobby.650"); //$NON-NLS-1$
 														if (ppos[i_252_] == 0)
-															string_253_ = "st";
+															string_253_ = Messages.getString("Lobby.651"); //$NON-NLS-1$
 														if (ppos[i_252_] == 1)
-															string_253_ = "nd";
+															string_253_ = Messages.getString("Lobby.652"); //$NON-NLS-1$
 														if (ppos[i_252_] == 2)
-															string_253_ = "rd";
+															string_253_ = Messages.getString("Lobby.653"); //$NON-NLS-1$
 														rd.drawString(
-																new StringBuilder().append("")
+																new StringBuilder().append(Messages.getString("Lobby.654")) //$NON-NLS-1$
 																		.append(this.ppos[i_252_] + 1)
-																		.append("").append(
+																		.append(Messages.getString("Lobby.655")).append( //$NON-NLS-1$
 																				string_253_)
 																		.toString(),
-																515 - ftm.stringWidth(new StringBuilder().append("")
-																		.append(this.ppos[i_252_] + 1).append("")
+																515 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.656")) //$NON-NLS-1$
+																		.append(this.ppos[i_252_] + 1).append(Messages.getString("Lobby.657")) //$NON-NLS-1$
 																		.append(string_253_).toString()) / 2,
 																83 + 11 * i_220_);
 														rd.setColor(new Color(128, 73, 0));
 														if (plap[i_252_] > gnlaps[i_193_] - 1)
 															plap[i_252_] = this.gnlaps[i_193_] - 1;
 														rd.drawString(
-																new StringBuilder().append("")
-																		.append(this.plap[i_252_] + 1).append(" / ")
-																		.append(this.gnlaps[i_193_]).append("")
+																new StringBuilder().append(Messages.getString("Lobby.658")) //$NON-NLS-1$
+																		.append(this.plap[i_252_] + 1).append(Messages.getString("Lobby.659")) //$NON-NLS-1$
+																		.append(this.gnlaps[i_193_]).append(Messages.getString("Lobby.660")) //$NON-NLS-1$
 																		.toString(),
-																560 - ftm.stringWidth(new StringBuilder().append("")
-																		.append(this.plap[i_252_] + 1).append(" / ")
-																		.append(this.gnlaps[i_193_]).append("")
+																560 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.661")) //$NON-NLS-1$
+																		.append(this.plap[i_252_] + 1).append(Messages.getString("Lobby.662")) //$NON-NLS-1$
+																		.append(this.gnlaps[i_193_]).append(Messages.getString("Lobby.663")) //$NON-NLS-1$
 																		.toString()) / 2,
 																83 + 11 * i_220_);
 														rd.setColor(new Color(0, 128, 255));
@@ -3999,7 +3999,7 @@ public class Lobby implements Runnable {
 															i_248_ = 0;
 														rd.setColor(color2k(i_248_, i_248_, i_248_));
 														rd.fillRect(490, 75 + 11 * i_220_, 213, 9);
-														rd.setFont(new Font("Tahoma", 1, 11));
+														rd.setFont(new Font(Messages.getString("Lobby.664"), 1, 11)); //$NON-NLS-1$
 														ftm = rd.getFontMetrics();
 														i_248_ = 255 - this.rerr * 2;
 														if (i_248_ > 255)
@@ -4019,47 +4019,47 @@ public class Lobby implements Runnable {
 														rd.setColor(new Color(i_248_, i_249_, i_250_));
 														if (pdam[i_252_] != -17)
 															rd.drawString(
-																	"=   =   =   =    W A S T E D    =   =   =   =",
+																	Messages.getString("Lobby.665"), //$NON-NLS-1$
 																	597 - this.ftm.stringWidth(
-																			"=   =   =   =    W A S T E D    =   =   =   =")
+																			Messages.getString("Lobby.666")) //$NON-NLS-1$
 																			/ 2,
 																	84 + 11 * i_220_);
 														else
-															rd.drawString("=   =   =   DISCONNECTED   =   =   =",
+															rd.drawString(Messages.getString("Lobby.667"), //$NON-NLS-1$
 																	597 - this.ftm.stringWidth(
-																			"=   =   =   DISCONNECTED   =   =   =") / 2,
+																			Messages.getString("Lobby.668")) / 2, //$NON-NLS-1$
 																	84 + 11 * i_220_);
 													}
 													i_220_++;
 												}
 										if (wait[i_193_] == 0)
-											stringbutton("    Watch Live Now!    ", 561, 196, 0);
+											stringbutton(Messages.getString("Lobby.669"), 561, 196, 0); //$NON-NLS-1$
 										else {
 											rd.setColor(new Color(0, 0, 0));
-											rd.setFont(new Font("Arial", 1, 12));
+											rd.setFont(new Font(Messages.getString("Lobby.670"), 1, 12)); //$NON-NLS-1$
 											ftm = rd.getFontMetrics();
 											int i_254_ = 186;
-											if (!lapsname.equals("") && !wastename.equals("") && !stuntname.equals(""))
+											if (!lapsname.equals(Messages.getString("Lobby.671")) && !wastename.equals(Messages.getString("Lobby.672")) && !stuntname.equals(Messages.getString("Lobby.673"))) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 												i_254_ = 183;
 											if (gwarb[i_193_] == 0) {
-												String string_255_ = "";
+												String string_255_ = Messages.getString("Lobby.674"); //$NON-NLS-1$
 												for (int i_256_ = 0; i_256_ < prnpo; i_256_++)
 													if (ppos[i_256_] == 0) {
 														string_255_ = prnames[i_256_];
 														break;
 													}
-												if (string_255_.equals(""))
-													rd.drawString("Game Finished!    Nobody Won!",
-															561 - ftm.stringWidth("Game Finished!    Nobody Won!") / 2,
+												if (string_255_.equals(Messages.getString("Lobby.675"))) //$NON-NLS-1$
+													rd.drawString(Messages.getString("Lobby.676"), //$NON-NLS-1$
+															561 - ftm.stringWidth(Messages.getString("Lobby.677")) / 2, //$NON-NLS-1$
 															i_254_);
 												else {
 													rd.drawString(
-															new StringBuilder().append("Game Finished!    Winner:  ")
-																	.append(string_255_).append("").toString(),
+															new StringBuilder().append(Messages.getString("Lobby.678")) //$NON-NLS-1$
+																	.append(string_255_).append(Messages.getString("Lobby.679")).toString(), //$NON-NLS-1$
 															561 - ftm
 																	.stringWidth(new StringBuilder()
-																			.append("Game Finished!    Winner:  ")
-																			.append(string_255_).append("").toString())
+																			.append(Messages.getString("Lobby.680")) //$NON-NLS-1$
+																			.append(string_255_).append(Messages.getString("Lobby.681")).toString()) //$NON-NLS-1$
 																	/ 2,
 															i_254_);
 													if (nflk == 0) {
@@ -4068,84 +4068,84 @@ public class Lobby implements Runnable {
 													} else
 														nflk--;
 													rd.drawString(
-															new StringBuilder().append("")
+															new StringBuilder().append(Messages.getString("Lobby.682")) //$NON-NLS-1$
 																	.append(string_255_).append(
-																			"")
+																			Messages.getString("Lobby.683")) //$NON-NLS-1$
 															.toString(), 561
 																	- ftm.stringWidth(new StringBuilder()
-																			.append("Game Finished!    Winner:  ")
-																			.append(string_255_).append("").toString())
+																			.append(Messages.getString("Lobby.684")) //$NON-NLS-1$
+																			.append(string_255_).append(Messages.getString("Lobby.685")).toString()) //$NON-NLS-1$
 																	/ 2
-																	+ ftm.stringWidth("Game Finished!    Winner:  "),
+																	+ ftm.stringWidth(Messages.getString("Lobby.686")), //$NON-NLS-1$
 															i_254_);
 												}
 												rd.setColor(new Color(0, 0, 0));
-												rd.setFont(new Font("Arial", 0, 11));
+												rd.setFont(new Font(Messages.getString("Lobby.687"), 0, 11)); //$NON-NLS-1$
 												ftm = rd.getFontMetrics();
-												String string_257_ = "    ";
+												String string_257_ = Messages.getString("Lobby.688"); //$NON-NLS-1$
 												int i_258_ = 0;
-												if (!lapsname.equals("")) {
+												if (!lapsname.equals(Messages.getString("Lobby.689"))) { //$NON-NLS-1$
 													string_257_ = new StringBuilder().append(string_257_)
-															.append("Fastest lap: ").append(lapsname).append("    ")
+															.append(Messages.getString("Lobby.690")).append(lapsname).append(Messages.getString("Lobby.691")) //$NON-NLS-1$ //$NON-NLS-2$
 															.toString();
 													i_258_++;
 												}
-												if (!wastename.equals("")) {
+												if (!wastename.equals(Messages.getString("Lobby.692"))) { //$NON-NLS-1$
 													string_257_ = new StringBuilder().append(string_257_)
-															.append("Deadliest waster: ").append(wastename)
-															.append("    ").toString();
+															.append(Messages.getString("Lobby.693")).append(wastename) //$NON-NLS-1$
+															.append(Messages.getString("Lobby.694")).toString(); //$NON-NLS-1$
 													i_258_++;
 												}
 												if (i_258_ == 2) {
-													if (!stuntname.equals("")) {
+													if (!stuntname.equals(Messages.getString("Lobby.695"))) { //$NON-NLS-1$
 														rd.drawString(string_257_,
 																561 - this.ftm.stringWidth(string_257_) / 2, 199);
 														rd.drawString(
-																new StringBuilder().append("Best stunt: ")
-																		.append(this.stuntname).append("").toString(),
+																new StringBuilder().append(Messages.getString("Lobby.696")) //$NON-NLS-1$
+																		.append(this.stuntname).append(Messages.getString("Lobby.697")).toString(), //$NON-NLS-1$
 																561 - ftm.stringWidth(new StringBuilder()
-																		.append("Best stunt: ").append(this.stuntname)
-																		.append("").toString()) / 2,
+																		.append(Messages.getString("Lobby.698")).append(this.stuntname) //$NON-NLS-1$
+																		.append(Messages.getString("Lobby.699")).toString()) / 2, //$NON-NLS-1$
 																213);
 													} else
 														rd.drawString(string_257_,
 																561 - this.ftm.stringWidth(string_257_) / 2, 206);
 												} else {
-													if (!stuntname.equals(""))
+													if (!stuntname.equals(Messages.getString("Lobby.700"))) //$NON-NLS-1$
 														string_257_ = new StringBuilder().append(string_257_)
-																.append("Best stunt: ").append(this.stuntname)
-																.append("    ").toString();
+																.append(Messages.getString("Lobby.701")).append(this.stuntname) //$NON-NLS-1$
+																.append(Messages.getString("Lobby.702")).toString(); //$NON-NLS-1$
 													rd.drawString(string_257_, 561 - ftm.stringWidth(string_257_) / 2,
 															206);
 												}
-											} else if (string_197_.equals("")) {
-												if (string.equals("")) {
-													rd.drawString("Game Finished!    Nobody Won!",
-															561 - ftm.stringWidth("Game Finished!    Nobody Won!") / 2,
+											} else if (string_197_.equals(Messages.getString("Lobby.703"))) { //$NON-NLS-1$
+												if (string.equals(Messages.getString("Lobby.704"))) { //$NON-NLS-1$
+													rd.drawString(Messages.getString("Lobby.705"), //$NON-NLS-1$
+															561 - ftm.stringWidth(Messages.getString("Lobby.706")) / 2, //$NON-NLS-1$
 															186);
-													rd.setFont(new Font("Arial", 1, 11));
+													rd.setFont(new Font(Messages.getString("Lobby.707"), 1, 11)); //$NON-NLS-1$
 													ftm = rd.getFontMetrics();
 													rd.drawString(string_198_, 561 - ftm.stringWidth(string_198_) / 2,
 															206);
 												} else {
 													rd.drawString(
-															new StringBuilder().append("Game Finished!    ")
-																	.append(string).append("  Wins!").toString(),
+															new StringBuilder().append(Messages.getString("Lobby.708")) //$NON-NLS-1$
+																	.append(string).append(Messages.getString("Lobby.709")).toString(), //$NON-NLS-1$
 															561 - ftm.stringWidth(new StringBuilder()
-																	.append("Game Finished!    ").append(string)
-																	.append("  Wins!").toString()) / 2,
+																	.append(Messages.getString("Lobby.710")).append(string) //$NON-NLS-1$
+																	.append(Messages.getString("Lobby.711")).toString()) / 2, //$NON-NLS-1$
 															196);
 													if (nflk == 0) {
 														rd.setColor(new Color(255, 176, 67));
 														nflk = 3;
 													} else
 														nflk--;
-													rd.drawString(new StringBuilder().append("").append(string)
-															.append("").toString(), 561
+													rd.drawString(new StringBuilder().append(Messages.getString("Lobby.712")).append(string) //$NON-NLS-1$
+															.append(Messages.getString("Lobby.713")).toString(), 561 //$NON-NLS-1$
 																	- ftm.stringWidth(new StringBuilder()
-																			.append("Game Finished!    ").append(string)
-																			.append("  Wins!").toString()) / 2
-																	+ ftm.stringWidth("Game Finished!    "),
+																			.append(Messages.getString("Lobby.714")).append(string) //$NON-NLS-1$
+																			.append(Messages.getString("Lobby.715")).toString()) / 2 //$NON-NLS-1$
+																	+ ftm.stringWidth(Messages.getString("Lobby.716")), //$NON-NLS-1$
 															196);
 												}
 											} else {
@@ -4160,53 +4160,53 @@ public class Lobby implements Runnable {
 										rerr += 3;
 									} else {
 										rd.setColor(new Color(0, 0, 0));
-										rd.setFont(new Font("Arial", 1, 12));
+										rd.setFont(new Font(Messages.getString("Lobby.717"), 1, 12)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
 										if (prevloaded == -1) {
 											if (!xt.lan)
-												rd.drawString("Loading Info...",
-														561 - ftm.stringWidth("Loading Info...") / 2, 134);
+												rd.drawString(Messages.getString("Lobby.718"), //$NON-NLS-1$
+														561 - ftm.stringWidth(Messages.getString("Lobby.719")) / 2, 134); //$NON-NLS-1$
 											else if (pgames[im] == ongame)
-												rd.drawString("About to Start...",
-														561 - ftm.stringWidth("About to Start...") / 2, 134);
+												rd.drawString(Messages.getString("Lobby.720"), //$NON-NLS-1$
+														561 - ftm.stringWidth(Messages.getString("Lobby.721")) / 2, 134); //$NON-NLS-1$
 											else {
-												rd.drawString("Game Started", 561 - ftm.stringWidth("Game Started") / 2,
+												rd.drawString(Messages.getString("Lobby.722"), 561 - ftm.stringWidth(Messages.getString("Lobby.723")) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 														117);
-												stringbutton("    Watch this Game    ", 561, 154, 0);
+												stringbutton(Messages.getString("Lobby.724"), 561, 154, 0); //$NON-NLS-1$
 											}
 										} else
-											rd.drawString("About to Start...",
-													561 - ftm.stringWidth("About to Start...") / 2, 134);
+											rd.drawString(Messages.getString("Lobby.725"), //$NON-NLS-1$
+													561 - ftm.stringWidth(Messages.getString("Lobby.726")) / 2, 134); //$NON-NLS-1$
 									}
 								} else {
 									rd.setColor(new Color(0, 0, 0));
-									rd.setFont(new Font("Arial", 1, 12));
+									rd.setFont(new Font(Messages.getString("Lobby.727"), 1, 12)); //$NON-NLS-1$
 									ftm = rd.getFontMetrics();
 									if (conon == 2)
-										rd.drawString("Starting Game Now!",
-												561 - ftm.stringWidth("Starting Game Now!") / 2, 124);
+										rd.drawString(Messages.getString("Lobby.728"), //$NON-NLS-1$
+												561 - ftm.stringWidth(Messages.getString("Lobby.729")) / 2, 124); //$NON-NLS-1$
 									if (conon == 3)
-										rd.drawString("Opening Game Now!",
-												561 - ftm.stringWidth("Opening Game Now!") / 2, 124);
-									rd.setFont(new Font("Arial", 0, 12));
+										rd.drawString(Messages.getString("Lobby.730"), //$NON-NLS-1$
+												561 - ftm.stringWidth(Messages.getString("Lobby.731")) / 2, 124); //$NON-NLS-1$
+									rd.setFont(new Font(Messages.getString("Lobby.732"), 0, 12)); //$NON-NLS-1$
 									ftm = rd.getFontMetrics();
-									rd.drawString("Please Wait...", 561 - ftm.stringWidth("Please Wait...") / 2, 154);
+									rd.drawString(Messages.getString("Lobby.733"), 561 - ftm.stringWidth(Messages.getString("Lobby.734")) / 2, 154); //$NON-NLS-1$ //$NON-NLS-2$
 								}
 								rd.setColor(color2k(200, 200, 200));
 								rd.drawRect(415, 222, 293, 40);
 								rd.drawImage(xt.stg, 422, 227, null);
 								rd.setColor(new Color(0, 0, 0));
-								rd.setFont(new Font("Arial", 1, 10));
+								rd.setFont(new Font(Messages.getString("Lobby.735"), 1, 10)); //$NON-NLS-1$
 								ftm = rd.getFontMetrics();
-								rd.drawString(new StringBuilder().append("Laps: ").append(gnlaps[i_193_]).append("")
+								rd.drawString(new StringBuilder().append(Messages.getString("Lobby.736")).append(gnlaps[i_193_]).append(Messages.getString("Lobby.737")) //$NON-NLS-1$ //$NON-NLS-2$
 										.toString(), 660, 235);
 								if (i > 415 && i < 708 && i_99_ > 222 && i_99_ < 262
 										&& (wait[i_193_] > 0 || gstgn[i_193_] < 0) && conon == 1) {
-									stringbutton("       Preview Stage       ", 562, 247, 0);
+									stringbutton(Messages.getString("Lobby.738"), 562, 247, 0); //$NON-NLS-1$
 									pbtn = 2;
 								} else {
-									rd.drawString("Stage "+gstgn[i_193_], 562 - ftm.stringWidth("Stage "+gstgn[i_193_]) / 2, 237);
-									rd.setFont(new Font("Arial", 1, 12));
+									rd.drawString(Messages.getString("Lobby.739")+gstgn[i_193_], 562 - ftm.stringWidth(Messages.getString("Lobby.740")+gstgn[i_193_]) / 2, 237); //$NON-NLS-1$ //$NON-NLS-2$
+									rd.setFont(new Font(Messages.getString("Lobby.741"), 1, 12)); //$NON-NLS-1$
 									ftm = rd.getFontMetrics();
 									rd.drawString(gstages[i_193_], 562 - ftm.stringWidth(gstages[i_193_]) / 2, 254);
 								}
@@ -4227,16 +4227,16 @@ public class Lobby implements Runnable {
 									rd.setColor(color2k(240, 240, 240));
 									rd.fillRect(i_261_ + 1, 265, i_262_ - 1, 21);
 									rd.drawImage(xt.gmc, i_261_ + 7, 269, null);
-									rd.setFont(new Font("Tahoma", 0, 11));
+									rd.setFont(new Font(Messages.getString("Lobby.742"), 0, 11)); //$NON-NLS-1$
 									rd.setColor(color2k(110, 110, 110));
-									rd.drawString("(Game Chat )", i_261_ + 57, 278);
+									rd.drawString(Messages.getString("Lobby.743"), i_261_ + 57, 278); //$NON-NLS-1$
 									rd.setColor(new Color(0, 0, 0));
 									if (updatec != -1) {
 										final String[] strings = new String[7];
 										final String[] strings_263_ = new String[7];
 										final boolean[] bools = { false, false, false, false, false, false, false };
 										for (int i_264_ = 0; i_264_ < 7; i_264_++) {
-											strings[i_264_] = "";
+											strings[i_264_] = Messages.getString("Lobby.744"); //$NON-NLS-1$
 											strings_263_[i_264_] = cnames[i_264_];
 											int i_265_ = 0;
 											int i_266_ = 0;
@@ -4244,9 +4244,9 @@ public class Lobby implements Runnable {
 											int i_268_ = 0;
 											int i_269_ = 0;
 											for (/**/ ; i_265_ < sentn[i_264_].length(); i_265_++) {
-												final String string_270_ = new StringBuilder().append("")
+												final String string_270_ = new StringBuilder().append(Messages.getString("Lobby.745")) //$NON-NLS-1$
 														.append(sentn[i_264_].charAt(i_265_)).toString();
-												if (string_270_.equals(" ")) {
+												if (string_270_.equals(Messages.getString("Lobby.746"))) { //$NON-NLS-1$
 													i_266_ = i_267_;
 													i_268_ = i_265_;
 													i_269_++;
@@ -4267,54 +4267,54 @@ public class Lobby implements Runnable {
 																strings_263_[i_273_] = strings_263_[i_273_ + 1];
 																bools[i_273_] = bools[i_273_ + 1];
 															}
-															strings[i_264_] = "";
+															strings[i_264_] = Messages.getString("Lobby.747"); //$NON-NLS-1$
 															bools[i_264_] = true;
 															i_265_ = i_268_;
 															i_267_ = 0;
 															i_266_ = 0;
 														} else {
-															strings[i_264_] = "";
+															strings[i_264_] = Messages.getString("Lobby.748"); //$NON-NLS-1$
 															i_267_ = 0;
 														}
 												}
 											}
 										}
-										String string_274_ = "";
-										rd.setFont(new Font("Tahoma", 1, 11));
+										String string_274_ = Messages.getString("Lobby.749"); //$NON-NLS-1$
+										rd.setFont(new Font(Messages.getString("Lobby.750"), 1, 11)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
 										for (int i_275_ = 0; i_275_ < 7; i_275_++)
 											if (!string_274_.equals(strings_263_[i_275_])) {
 												rd.drawString(
-														new StringBuilder().append(strings_263_[i_275_]).append(":")
+														new StringBuilder().append(strings_263_[i_275_]).append(Messages.getString("Lobby.751")) //$NON-NLS-1$
 																.toString(),
 														i_261_ + 84 - ftm.stringWidth(new StringBuilder()
-																.append(strings_263_[i_275_]).append(":").toString()),
+																.append(strings_263_[i_275_]).append(Messages.getString("Lobby.752")).toString()), //$NON-NLS-1$
 														299 + i_275_ * 14);
 												string_274_ = strings_263_[i_275_];
 											}
-										rd.setFont(new Font("Tahoma", 0, 11));
+										rd.setFont(new Font(Messages.getString("Lobby.753"), 0, 11)); //$NON-NLS-1$
 										for (int i_276_ = 0; i_276_ < 7; i_276_++) {
-											if (bools[i_276_] && i_276_ == 0 && strings[i_276_].indexOf(" ") != -1)
-												strings[i_276_] = new StringBuilder().append("...")
-														.append(strings[i_276_].substring(strings[i_276_].indexOf(" "),
+											if (bools[i_276_] && i_276_ == 0 && strings[i_276_].indexOf(Messages.getString("Lobby.754")) != -1) //$NON-NLS-1$
+												strings[i_276_] = new StringBuilder().append(Messages.getString("Lobby.755")) //$NON-NLS-1$
+														.append(strings[i_276_].substring(strings[i_276_].indexOf(Messages.getString("Lobby.756")), //$NON-NLS-1$
 																strings[i_276_].length()))
-														.append("").toString();
+														.append(Messages.getString("Lobby.757")).toString(); //$NON-NLS-1$
 											rd.drawString(strings[i_276_], i_261_ + 88, 299 + i_276_ * 14);
 										}
 									} else
-										rd.drawString("Loading chat...",
-												i_261_ + i_262_ / 2 - ftm.stringWidth("Loading chat...") / 2, 315);
+										rd.drawString(Messages.getString("Lobby.758"), //$NON-NLS-1$
+												i_261_ + i_262_ / 2 - ftm.stringWidth(Messages.getString("Lobby.759")) / 2, 315); //$NON-NLS-1$
 									if (conon == 1)
 										pre2 = true;
 									else
 										hideinputs();
-									if (control.enter && !gs.cmsg.getText().equals("Type here...")
-											&& !gs.cmsg.getText().equals("")) {
+									if (control.enter && !gs.cmsg.getText().equals(Messages.getString("Lobby.760")) //$NON-NLS-1$
+											&& !gs.cmsg.getText().equals(Messages.getString("Lobby.761"))) { //$NON-NLS-1$
 										pessd[btn] = true;
 										control.enter = false;
 										String string_277_ = gs.cmsg.getText().replace('|', ':');
 										if (string_277_.toLowerCase().indexOf(gs.tpass.getText().toLowerCase()) != -1)
-											string_277_ = " ";
+											string_277_ = Messages.getString("Lobby.762"); //$NON-NLS-1$
 										if (!xt.msgcheck(string_277_) && updatec > -12) {
 											for (int i_278_ = 0; i_278_ < 6; i_278_++) {
 												sentn[i_278_] = sentn[i_278_ + 1];
@@ -4328,9 +4328,9 @@ public class Lobby implements Runnable {
 												updatec--;
 										} else
 											xt.warning++;
-										gs.cmsg.setText("");
+										gs.cmsg.setText(Messages.getString("Lobby.763")); //$NON-NLS-1$
 									}
-									stringbutton("Send Message", 655, 405, 3);
+									stringbutton(Messages.getString("Lobby.764"), 655, 405, 3); //$NON-NLS-1$
 								}
 							} else {
 								if (gs.cmsg.isShowing())
@@ -4357,7 +4357,7 @@ public class Lobby implements Runnable {
 									}
 									rd.fillRect(445, 120, 233, 127);
 									rd.setColor(new Color(0, 0, 0));
-									rd.setFont(new Font("Arial", 1, 13));
+									rd.setFont(new Font(Messages.getString("Lobby.765"), 1, 13)); //$NON-NLS-1$
 									ftm = rd.getFontMetrics();
 									rd.drawString(cd.names[forcar], 561 - ftm.stringWidth(cd.names[forcar]) / 2, 117);
 									for (int i_279_ = 0; i_279_ < dispco.npl; i_279_++) {
@@ -4391,13 +4391,13 @@ public class Lobby implements Runnable {
 									rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 											RenderingHints.VALUE_ANTIALIAS_ON);
 									m.cx = 400;
-									rd.setFont(new Font("Arial", 1, 11));
+									rd.setFont(new Font(Messages.getString("Lobby.766"), 1, 11)); //$NON-NLS-1$
 									int i_280_ = 424;
 									int i_281_ = -55;
 									rd.setColor(new Color(0, 63, 128));
-									rd.drawString("Top Speed:", 30 + i_280_, 318 + i_281_);
+									rd.drawString(Messages.getString("Lobby.767"), 30 + i_280_, 318 + i_281_); //$NON-NLS-1$
 									rd.drawImage(xt.statb, 97 + i_280_, 312 + i_281_, null);
-									rd.drawString("Acceleration:", 20 + i_280_, 333 + i_281_);
+									rd.drawString(Messages.getString("Lobby.768"), 20 + i_280_, 333 + i_281_); //$NON-NLS-1$
 									rd.drawImage(xt.statb, 97 + i_280_, 327 + i_281_, null);
 									rd.setColor(color2k(255, 255, 255));
 									float f = (cd.swits[forcar][2] - 220) / 90.0F;
@@ -4416,11 +4416,11 @@ public class Lobby implements Runnable {
 									i_280_ = 50;
 									i_281_ = -25;
 									rd.setColor(new Color(0, 63, 128));
-									rd.drawString("Stunts:", 427 + i_280_, 318 + i_281_);
+									rd.drawString(Messages.getString("Lobby.769"), 427 + i_280_, 318 + i_281_); //$NON-NLS-1$
 									rd.drawImage(xt.statb, 471 + i_280_, 312 + i_281_, null);
-									rd.drawString("Strength:", 415 + i_280_, 333 + i_281_);
+									rd.drawString(Messages.getString("Lobby.770"), 415 + i_280_, 333 + i_281_); //$NON-NLS-1$
 									rd.drawImage(xt.statb, 471 + i_280_, 327 + i_281_, null);
-									rd.drawString("Endurance:", 405 + i_280_, 348 + i_281_);
+									rd.drawString(Messages.getString("Lobby.771"), 405 + i_280_, 348 + i_281_); //$NON-NLS-1$
 									rd.drawImage(xt.statb, 471 + i_280_, 342 + i_281_, null);
 									rd.setColor(color2k(255, 255, 255));
 									f = (cd.airc[forcar] * cd.airs[forcar] * cd.bounce[forcar] + 28.0F) / 139.0F;
@@ -4442,47 +4442,47 @@ public class Lobby implements Runnable {
 									rd.drawImage(xt.statbo, 471 + i_280_, 342 + i_281_, null);
 									rd.setColor(new Color(0, 0, 0));
 									if (forcar < 16) {
-										rd.setFont(new Font("Arial", 1, 12));
+										rd.setFont(new Font(Messages.getString("Lobby.772"), 1, 12)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
-										rd.drawString("Created by Radicalplay.com",
-												561 - ftm.stringWidth("Created by Radicalplay.com") / 2, 347);
-										String string_283_ = "Game Car";
+										rd.drawString(Messages.getString("Lobby.773"), //$NON-NLS-1$
+												561 - ftm.stringWidth(Messages.getString("Lobby.774")) / 2, 347); //$NON-NLS-1$
+										String string_283_ = Messages.getString("Lobby.775"); //$NON-NLS-1$
 										if (cd.cclass[forcar] == 0)
-											string_283_ = "Class C ,  Game Car";
+											string_283_ = Messages.getString("Lobby.776"); //$NON-NLS-1$
 										if (cd.cclass[forcar] == 1)
-											string_283_ = "Class B & C ,  Game Car";
+											string_283_ = Messages.getString("Lobby.777"); //$NON-NLS-1$
 										if (cd.cclass[forcar] == 2)
-											string_283_ = "Class B ,  Game Car";
+											string_283_ = Messages.getString("Lobby.778"); //$NON-NLS-1$
 										if (cd.cclass[forcar] == 3)
-											string_283_ = "Class A & B ,  Game Car";
+											string_283_ = Messages.getString("Lobby.779"); //$NON-NLS-1$
 										if (cd.cclass[forcar] == 4)
-											string_283_ = "Class A ,  Game Car";
+											string_283_ = Messages.getString("Lobby.780"); //$NON-NLS-1$
 										rd.drawString(string_283_, 561 - ftm.stringWidth(string_283_) / 2, 367);
 										rd.setColor(new Color(0, 0, 0));
-										rd.setFont(new Font("Arial", 0, 12));
+										rd.setFont(new Font(Messages.getString("Lobby.781"), 0, 12)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
-										rd.drawString("You already have this car.",
-												561 - ftm.stringWidth("You already have this car.") / 2, 395);
+										rd.drawString(Messages.getString("Lobby.782"), //$NON-NLS-1$
+												561 - ftm.stringWidth(Messages.getString("Lobby.783")) / 2, 395); //$NON-NLS-1$
 									} else {
-										rd.setFont(new Font("Arial", 1, 12));
+										rd.setFont(new Font(Messages.getString("Lobby.784"), 1, 12)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
 										if (!cd.createdby[forcar - 16].equals(xt.nickname)) {
 											rd.drawString(
-													new StringBuilder().append("Created by :  ")
+													new StringBuilder().append(Messages.getString("Lobby.785")) //$NON-NLS-1$
 															.append(cd.createdby[forcar - 16]).append(
-																	"")
+																	Messages.getString("Lobby.786")) //$NON-NLS-1$
 															.toString(),
-													561 - ftm.stringWidth(new StringBuilder().append("Created by :  ")
-															.append(cd.createdby[forcar - 16]).append("").toString())
+													561 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.787")) //$NON-NLS-1$
+															.append(cd.createdby[forcar - 16]).append(Messages.getString("Lobby.788")).toString()) //$NON-NLS-1$
 															/ 2,
 													347);
 											final int i_284_ = ftm.stringWidth(cd.createdby[forcar - 16]);
 											final int i_285_ = 561
-													- ftm.stringWidth(new StringBuilder().append("Created by :  ")
-															.append(cd.createdby[forcar - 16]).append("").toString())
+													- ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.789")) //$NON-NLS-1$
+															.append(cd.createdby[forcar - 16]).append(Messages.getString("Lobby.790")).toString()) //$NON-NLS-1$
 													/ 2
-													+ ftm.stringWidth(new StringBuilder().append("Created by :  ")
-															.append(cd.createdby[forcar - 16]).append("").toString())
+													+ ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.791")) //$NON-NLS-1$
+															.append(cd.createdby[forcar - 16]).append(Messages.getString("Lobby.792")).toString()) //$NON-NLS-1$
 													- i_284_;
 											rd.drawLine(i_285_, 349, i_285_ + i_284_ - 2, 349);
 											if (i > i_285_ - 2 && i < i_285_ + i_284_ && i_99_ > 334 && i_99_ < 351) {
@@ -4498,63 +4498,63 @@ public class Lobby implements Runnable {
 												i_101_ = 12;
 											}
 										} else
-											rd.drawString("Created by You", 561 - ftm.stringWidth("Created by You") / 2,
+											rd.drawString(Messages.getString("Lobby.793"), 561 - ftm.stringWidth(Messages.getString("Lobby.794")) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 													347);
 										rd.setColor(new Color(128, 73, 0));
-										String string_286_ = "";
+										String string_286_ = Messages.getString("Lobby.795"); //$NON-NLS-1$
 										if (cd.cclass[forcar] == 0)
-											string_286_ = "Class C ,  ";
+											string_286_ = Messages.getString("Lobby.796"); //$NON-NLS-1$
 										if (cd.cclass[forcar] == 1)
-											string_286_ = "Class B & C ,  ";
+											string_286_ = Messages.getString("Lobby.797"); //$NON-NLS-1$
 										if (cd.cclass[forcar] == 2)
-											string_286_ = "Class B ,  ";
+											string_286_ = Messages.getString("Lobby.798"); //$NON-NLS-1$
 										if (cd.cclass[forcar] == 3)
-											string_286_ = "Class A & B ,  ";
+											string_286_ = Messages.getString("Lobby.799"); //$NON-NLS-1$
 										if (cd.cclass[forcar] == 4)
-											string_286_ = "Class A ,  ";
+											string_286_ = Messages.getString("Lobby.800"); //$NON-NLS-1$
 										if (cd.publish[forcar - 16] == 0)
-											string_286_ = new StringBuilder().append(string_286_).append("Private Car")
+											string_286_ = new StringBuilder().append(string_286_).append(Messages.getString("Lobby.801")) //$NON-NLS-1$
 													.toString();
 										if (cd.publish[forcar - 16] == 1) {
-											string_286_ = new StringBuilder().append(string_286_).append("Public Car")
+											string_286_ = new StringBuilder().append(string_286_).append(Messages.getString("Lobby.802")) //$NON-NLS-1$
 													.toString();
 											rd.setColor(new Color(0, 64, 128));
 										}
 										if (cd.publish[forcar - 16] == 2) {
 											string_286_ = new StringBuilder().append(string_286_)
-													.append("Super Public Car").toString();
+													.append(Messages.getString("Lobby.803")).toString(); //$NON-NLS-1$
 											rd.setColor(new Color(0, 64, 128));
 										}
 										rd.drawString(string_286_, 561 - ftm.stringWidth(string_286_) / 2, 367);
 										rd.setColor(new Color(0, 0, 0));
-										rd.setFont(new Font("Arial", 0, 12));
+										rd.setFont(new Font(Messages.getString("Lobby.804"), 0, 12)); //$NON-NLS-1$
 										ftm = rd.getFontMetrics();
 										if (cd.publish[forcar - 16] == 1 || cd.publish[forcar - 16] == 2) {
 											if (cd.action == -9)
-												rd.drawString("Failed to add car!  Unknown error!",
-														561 - ftm.stringWidth("Failed to add car!  Unknown error!") / 2,
+												rd.drawString(Messages.getString("Lobby.805"), //$NON-NLS-1$
+														561 - ftm.stringWidth(Messages.getString("Lobby.806")) / 2, //$NON-NLS-1$
 														395);
 											if (cd.action == -8)
-												rd.drawString("Failed!  You already have 20 cars!",
-														561 - ftm.stringWidth("Failed!  You already have 20 cars!") / 2,
+												rd.drawString(Messages.getString("Lobby.807"), //$NON-NLS-1$
+														561 - ftm.stringWidth(Messages.getString("Lobby.808")) / 2, //$NON-NLS-1$
 														395);
 											if (cd.action == 7)
 												rd.drawString(
-														new StringBuilder().append("").append(cd.names[cd.ac])
-																.append(" has been added to your cars!").toString(),
-														561 - ftm.stringWidth(new StringBuilder().append("")
+														new StringBuilder().append(Messages.getString("Lobby.809")).append(cd.names[cd.ac]) //$NON-NLS-1$
+																.append(Messages.getString("Lobby.810")).toString(), //$NON-NLS-1$
+														561 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.811")) //$NON-NLS-1$
 																.append(cd.names[this.cd.ac])
-																.append(" has been added to your cars!").toString())
+																.append(Messages.getString("Lobby.812")).toString()) //$NON-NLS-1$
 																/ 2,
 														395);
 											if (cd.action == -7)
-												rd.drawString("You already have this car.",
-														561 - ftm.stringWidth("You already have this car.") / 2, 395);
+												rd.drawString(Messages.getString("Lobby.813"), //$NON-NLS-1$
+														561 - ftm.stringWidth(Messages.getString("Lobby.814")) / 2, 395); //$NON-NLS-1$
 											if (cd.action == 6)
-												rd.drawString("Adding Car...",
-														561 - ftm.stringWidth("Adding Car...") / 2, 395);
+												rd.drawString(Messages.getString("Lobby.815"), //$NON-NLS-1$
+														561 - ftm.stringWidth(Messages.getString("Lobby.816")) / 2, 395); //$NON-NLS-1$
 											if (cd.action == -6) {
-												final String string_287_ = "Upgrade to a full account to add custom cars!";
+												final String string_287_ = Messages.getString("Lobby.817"); //$NON-NLS-1$
 												final int i_288_ = 561 - ftm.stringWidth(string_287_) / 2;
 												final int i_289_ = i_288_ + ftm.stringWidth(string_287_);
 												rd.drawString(string_287_, i_288_, 395);
@@ -4571,7 +4571,7 @@ public class Lobby implements Runnable {
 												if (waitlink > 0)
 													waitlink--;
 											}
-											if (cd.action == 0 && xt.drawcarb(true, null, " Add to My Cars ", 503, 375,
+											if (cd.action == 0 && xt.drawcarb(true, null, Messages.getString("Lobby.818"), 503, 375, //$NON-NLS-1$
 													i, i_99_, bool))
 												if (xt.logged) {
 													if (cd.lastload != 2 || forcar >= 36) {
@@ -4585,11 +4585,11 @@ public class Lobby implements Runnable {
 													waitlink = 20;
 												}
 										} else
-											rd.drawString("Private Car.  Cannot be added to account.", 561
-													- ftm.stringWidth("Private Car.  Cannot be added to account.") / 2,
+											rd.drawString(Messages.getString("Lobby.819"), 561 //$NON-NLS-1$
+													- ftm.stringWidth(Messages.getString("Lobby.820")) / 2, //$NON-NLS-1$
 													395);
 									}
-									if (xt.drawcarb(true, null, "X", 682, 99, i, i_99_, bool))
+									if (xt.drawcarb(true, null, Messages.getString("Lobby.821"), 682, 99, i, i_99_, bool)) //$NON-NLS-1$
 										dispcar = -1;
 								} else
 									dispcar = -1;
@@ -4611,101 +4611,101 @@ public class Lobby implements Runnable {
 					rd.setColor(new Color(0, 0, 0));
 					rd.drawRoundRect(155, 148, 490, 127, 20, 20);
 					if (ontyp != 76) {
-						String string = "";
+						String string = Messages.getString("Lobby.822"); //$NON-NLS-1$
 						int i_290_ = 0;
 						if (ontyp >= 10) {
 							i_290_ = 10;
-							string = "Custom Cars";
+							string = Messages.getString("Lobby.823"); //$NON-NLS-1$
 							if (ontyp > 10)
-								string = new StringBuilder().append(string).append(", ").toString();
+								string = new StringBuilder().append(string).append(Messages.getString("Lobby.824")).toString(); //$NON-NLS-1$
 						}
 						if (ontyp >= 20) {
 							i_290_ = 20;
-							string = "Game Cars";
+							string = Messages.getString("Lobby.825"); //$NON-NLS-1$
 							if (ontyp > 20)
-								string = new StringBuilder().append(string).append(", ").toString();
+								string = new StringBuilder().append(string).append(Messages.getString("Lobby.826")).toString(); //$NON-NLS-1$
 						}
 						if (ontyp >= 30) {
 							i_290_ = 30;
-							string = "Clan Cars";
+							string = Messages.getString("Lobby.827"); //$NON-NLS-1$
 							if (ontyp > 30)
-								string = new StringBuilder().append(string).append(", ").toString();
+								string = new StringBuilder().append(string).append(Messages.getString("Lobby.828")).toString(); //$NON-NLS-1$
 						}
 						if (ontyp - i_290_ == 1)
-							string = new StringBuilder().append(string).append("Class C").toString();
+							string = new StringBuilder().append(string).append(Messages.getString("Lobby.829")).toString(); //$NON-NLS-1$
 						if (ontyp - i_290_ == 2)
-							string = new StringBuilder().append(string).append("Class B & C").toString();
+							string = new StringBuilder().append(string).append(Messages.getString("Lobby.830")).toString(); //$NON-NLS-1$
 						if (ontyp - i_290_ == 3)
-							string = new StringBuilder().append(string).append("Class B").toString();
+							string = new StringBuilder().append(string).append(Messages.getString("Lobby.831")).toString(); //$NON-NLS-1$
 						if (ontyp - i_290_ == 4)
-							string = new StringBuilder().append(string).append("Class A & B").toString();
+							string = new StringBuilder().append(string).append(Messages.getString("Lobby.832")).toString(); //$NON-NLS-1$
 						if (ontyp - i_290_ == 5)
-							string = new StringBuilder().append(string).append("Class A").toString();
+							string = new StringBuilder().append(string).append(Messages.getString("Lobby.833")).toString(); //$NON-NLS-1$
 						if (ontyp <= -2)
 							if (Math.abs(ontyp + 2) == 13)
-								string = new StringBuilder().append(" ").append(cd.names[Math.abs(ontyp + 2)])
-										.append("  Game").toString();
+								string = new StringBuilder().append(Messages.getString("Lobby.834")).append(cd.names[Math.abs(ontyp + 2)]) //$NON-NLS-1$
+										.append(Messages.getString("Lobby.835")).toString(); //$NON-NLS-1$
 							else
-								string = new StringBuilder().append("").append(cd.names[Math.abs(ontyp + 2)])
-										.append(" Game").toString();
+								string = new StringBuilder().append(Messages.getString("Lobby.836")).append(cd.names[Math.abs(ontyp + 2)]) //$NON-NLS-1$
+										.append(Messages.getString("Lobby.837")).toString(); //$NON-NLS-1$
 						rd.setColor(new Color(0, 0, 0));
-						rd.setFont(new Font("Arial", 1, 13));
+						rd.setFont(new Font(Messages.getString("Lobby.838"), 1, 13)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
-						rd.drawString(new StringBuilder().append(": :   ").append(string).append("   : :").toString(),
+						rd.drawString(new StringBuilder().append(Messages.getString("Lobby.839")).append(string).append(Messages.getString("Lobby.840")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 								400 - ftm.stringWidth(
-										new StringBuilder().append(": :   ").append(string).append("   : :").toString())
+										new StringBuilder().append(Messages.getString("Lobby.841")).append(string).append(Messages.getString("Lobby.842")).toString()) //$NON-NLS-1$ //$NON-NLS-2$
 										/ 2,
 								175);
-						string = "a";
+						string = Messages.getString("Lobby.843"); //$NON-NLS-1$
 						if (ontyp - i_290_ == 1)
-							string = "a class C";
+							string = Messages.getString("Lobby.844"); //$NON-NLS-1$
 						if (ontyp - i_290_ == 2)
-							string = "a class B or C";
+							string = Messages.getString("Lobby.845"); //$NON-NLS-1$
 						if (ontyp - i_290_ == 3)
-							string = "a class B";
+							string = Messages.getString("Lobby.846"); //$NON-NLS-1$
 						if (ontyp - i_290_ == 4)
-							string = "a class A or B";
+							string = Messages.getString("Lobby.847"); //$NON-NLS-1$
 						if (ontyp - i_290_ == 5)
-							string = "a class A";
+							string = Messages.getString("Lobby.848"); //$NON-NLS-1$
 						if (i_290_ == 0)
-							string = new StringBuilder().append(string).append(" car").toString();
+							string = new StringBuilder().append(string).append(Messages.getString("Lobby.849")).toString(); //$NON-NLS-1$
 						if (i_290_ == 10)
-							string = new StringBuilder().append(string).append(" custom car").toString();
+							string = new StringBuilder().append(string).append(Messages.getString("Lobby.850")).toString(); //$NON-NLS-1$
 						if (i_290_ == 20)
-							string = new StringBuilder().append(string).append(" game car").toString();
+							string = new StringBuilder().append(string).append(Messages.getString("Lobby.851")).toString(); //$NON-NLS-1$
 						if (i_290_ == 30)
-							string = new StringBuilder().append(string).append(" clan car").toString();
+							string = new StringBuilder().append(string).append(Messages.getString("Lobby.852")).toString(); //$NON-NLS-1$
 						if (ontyp <= -2)
 							if (Math.abs(ontyp + 2) == 13)
-								string = new StringBuilder().append(" ").append(cd.names[Math.abs(ontyp + 2)])
-										.append(" ").toString();
+								string = new StringBuilder().append(Messages.getString("Lobby.853")).append(cd.names[Math.abs(ontyp + 2)]) //$NON-NLS-1$
+										.append(Messages.getString("Lobby.854")).toString(); //$NON-NLS-1$
 							else
-								string = new StringBuilder().append("").append(cd.names[Math.abs(ontyp + 2)]).append("")
+								string = new StringBuilder().append(Messages.getString("Lobby.855")).append(cd.names[Math.abs(ontyp + 2)]).append(Messages.getString("Lobby.856")) //$NON-NLS-1$ //$NON-NLS-2$
 										.toString();
 						rd.drawString(
-								new StringBuilder().append("To join this game you need to have ").append(string)
-										.append("!").toString(),
-								400 - ftm.stringWidth(new StringBuilder().append("To join this game you need to have ")
-										.append(string).append("!").toString()) / 2,
+								new StringBuilder().append(Messages.getString("Lobby.857")).append(string) //$NON-NLS-1$
+										.append(Messages.getString("Lobby.858")).toString(), //$NON-NLS-1$
+								400 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.859")) //$NON-NLS-1$
+										.append(string).append(Messages.getString("Lobby.860")).toString()) / 2, //$NON-NLS-1$
 								206);
-						stringbutton(new StringBuilder().append("  Get ").append(string).append(" now  ").toString(),
+						stringbutton(new StringBuilder().append(Messages.getString("Lobby.861")).append(string).append(Messages.getString("Lobby.862")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 								400, 247, 0);
-						stringbutton("  Cancel X  ", 593, 259, 2);
+						stringbutton(Messages.getString("Lobby.863"), 593, 259, 2); //$NON-NLS-1$
 						if (gb.open > 0 && gb.upo)
 							onjoin = -1;
 					} else {
 						rd.setColor(new Color(0, 0, 0));
-						rd.setFont(new Font("Arial", 1, 13));
+						rd.setFont(new Font(Messages.getString("Lobby.864"), 1, 13)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
-						rd.drawString(": :   Custom Stage   : :", 400 - ftm.stringWidth(": :   Custom Stage   : :") / 2,
+						rd.drawString(Messages.getString("Lobby.865"), 400 - ftm.stringWidth(Messages.getString("Lobby.866")) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 								175);
-						rd.drawString("You need to upgrade to a full account to join this game!",
-								400 - ftm.stringWidth("You need to upgrade to a full account to join this game!") / 2,
+						rd.drawString(Messages.getString("Lobby.867"), //$NON-NLS-1$
+								400 - ftm.stringWidth(Messages.getString("Lobby.868")) / 2, //$NON-NLS-1$
 								202);
 						rd.setColor(color2k(200, 200, 200));
 						rd.fillRoundRect(310, 215, 180, 50, 20, 20);
 						drawSbutton(xt.upgrade, 400, 240);
-						stringbutton("  Cancel X  ", 593, 259, 2);
+						stringbutton(Messages.getString("Lobby.869"), 593, 259, 2); //$NON-NLS-1$
 					}
 				}
 			} else {
@@ -4744,26 +4744,26 @@ public class Lobby implements Runnable {
 				rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
 				rd.setColor(color2k(90, 90, 90));
 				rd.drawRoundRect(115, 57 + i_291_, 570, 307, 20, 20);
-				rd.setFont(new Font("Arial", 1, 13));
+				rd.setFont(new Font(Messages.getString("Lobby.870"), 1, 13)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
 				rd.setColor(color2k(0, 0, 0));
-				rd.drawString("You are allowed 5 multiplayer turns per day to try the game with your trial account.",
+				rd.drawString(Messages.getString("Lobby.871"), //$NON-NLS-1$
 						135, 85 + i_291_);
-				rd.drawString("Upgrade your account to a full account to purchase and play the multiplayer game.", 135,
+				rd.drawString(Messages.getString("Lobby.872"), 135, //$NON-NLS-1$
 						105 + i_291_);
 				drawSbutton(xt.upgrade, 400, 130 + i_291_);
 				rd.setColor(new Color(30, 70, 110));
-				rd.drawString("You can upgrade your account by just sharing the game & posting about it online!", 135,
+				rd.drawString(Messages.getString("Lobby.873"), 135, //$NON-NLS-1$
 						165 + i_291_);
-				rd.drawString("Click 'Upgrade' for more details.", 135, 185 + i_291_);
-				rd.drawString("Or try the multiplayer again tomorrow.", 135, 205 + i_291_);
+				rd.drawString(Messages.getString("Lobby.874"), 135, 185 + i_291_); //$NON-NLS-1$
+				rd.drawString(Messages.getString("Lobby.875"), 135, 205 + i_291_); //$NON-NLS-1$
 				rd.setColor(color2k(0, 0, 0));
-				rd.drawString("For now to preview and try the multiplayer more, with your trial account you can:", 135,
+				rd.drawString(Messages.getString("Lobby.876"), 135, //$NON-NLS-1$
 						245 + i_291_);
 				rd.setColor(new Color(30, 70, 110));
-				rd.drawString("-  Watch online multiplayer games.", 135, 265 + i_291_);
-				rd.drawString("-  Access the multiplayer dome.", 135, 285 + i_291_);
-				rd.drawString("-  Play LAN multiplayer games (unlimitedly).", 135, 305 + i_291_);
+				rd.drawString(Messages.getString("Lobby.877"), 135, 265 + i_291_); //$NON-NLS-1$
+				rd.drawString(Messages.getString("Lobby.878"), 135, 285 + i_291_); //$NON-NLS-1$
+				rd.drawString(Messages.getString("Lobby.879"), 135, 305 + i_291_); //$NON-NLS-1$
 				drawSbutton(xt.exit, 400, 336 + i_291_);
 			}
 		} else {
@@ -4802,8 +4802,8 @@ public class Lobby implements Runnable {
 			} else if (gs.cmsg.isShowing())
 				gs.cmsg.setVisible(false);
 			gs.movefieldd(gs.cmsg, 235, 390, 360, 22, bool);
-			if (gs.cmsg.getText().equals("Type here...") && i > 234 && i < 603 && i_292_ > 385 && i_292_ < 417)
-				gs.cmsg.setText("");
+			if (gs.cmsg.getText().equals(Messages.getString("Lobby.880")) && i > 234 && i < 603 && i_292_ > 385 && i_292_ < 417) //$NON-NLS-1$
+				gs.cmsg.setText(Messages.getString("Lobby.881")); //$NON-NLS-1$
 		}
 		if (pre2) {
 			boolean bool = false;
@@ -4812,8 +4812,8 @@ public class Lobby implements Runnable {
 			else if (gs.cmsg.isShowing())
 				gs.cmsg.setVisible(false);
 			gs.movefieldd(gs.cmsg, 237, 390, 360, 22, bool);
-			if (gs.cmsg.getText().equals("Type here...") && i > 232 && i < 601 && i_292_ > 385 && i_292_ < 417)
-				gs.cmsg.setText("");
+			if (gs.cmsg.getText().equals(Messages.getString("Lobby.882")) && i > 232 && i < 601 && i_292_ > 385 && i_292_ < 417) //$NON-NLS-1$
+				gs.cmsg.setText(Messages.getString("Lobby.883")); //$NON-NLS-1$
 		}
 		if (pre1 || pre2) {
 			if (gs.cmsg.getText().length() > 100) {
@@ -4921,66 +4921,66 @@ public class Lobby implements Runnable {
 								notb = false;
 						}
 			}
-			String string = new StringBuilder().append("").append(xt.sc[0]).append("").toString();
+			String string = new StringBuilder().append(Messages.getString("Lobby.884")).append(xt.sc[0]).append(Messages.getString("Lobby.885")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 			if (xt.sc[0] >= 16)
-				string = new StringBuilder().append("C").append(cd.names[xt.sc[0]]).append("").toString();
-			String string_4_ = new StringBuilder().append("1|").append(xt.nickname).append(":").append(xt.nickey)
-					.append("|").append(xt.clan).append("|").append(xt.clankey).append("|").append(string).append("|")
-					.append(join).append("|").append((int) (xt.arnp[0] * 100.0F)).append("|")
-					.append((int) (xt.arnp[1] * 100.0F)).append("|").append((int) (xt.arnp[2] * 100.0F)).append("|")
-					.append((int) (xt.arnp[3] * 100.0F)).append("|").append((int) (xt.arnp[4] * 100.0F)).append("|")
-					.append((int) (xt.arnp[5] * 100.0F)).append("|").append(ongame).append("|").toString();
+				string = new StringBuilder().append(Messages.getString("Lobby.886")).append(cd.names[xt.sc[0]]).append(Messages.getString("Lobby.887")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
+			String string_4_ = new StringBuilder().append(Messages.getString("Lobby.888")).append(xt.nickname).append(Messages.getString("Lobby.889")).append(xt.nickey) //$NON-NLS-1$ //$NON-NLS-2$
+					.append(Messages.getString("Lobby.890")).append(xt.clan).append(Messages.getString("Lobby.891")).append(xt.clankey).append(Messages.getString("Lobby.892")).append(string).append(Messages.getString("Lobby.893")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+					.append(join).append(Messages.getString("Lobby.894")).append((int) (xt.arnp[0] * 100.0F)).append(Messages.getString("Lobby.895")) //$NON-NLS-1$ //$NON-NLS-2$
+					.append((int) (xt.arnp[1] * 100.0F)).append(Messages.getString("Lobby.896")).append((int) (xt.arnp[2] * 100.0F)).append(Messages.getString("Lobby.897")) //$NON-NLS-1$ //$NON-NLS-2$
+					.append((int) (xt.arnp[3] * 100.0F)).append(Messages.getString("Lobby.898")).append((int) (xt.arnp[4] * 100.0F)).append(Messages.getString("Lobby.899")) //$NON-NLS-1$ //$NON-NLS-2$
+					.append((int) (xt.arnp[5] * 100.0F)).append(Messages.getString("Lobby.900")).append(ongame).append(Messages.getString("Lobby.901")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 			if (!xt.lan) {
-				string_4_ = new StringBuilder().append(string_4_).append("").append(updatec).append("|").toString();
+				string_4_ = new StringBuilder().append(string_4_).append(Messages.getString("Lobby.902")).append(updatec).append(Messages.getString("Lobby.903")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 				if (updatec <= -11) {
 					for (int i_5_ = 0; i_5_ < -updatec - 10; i_5_++)
-						string_4_ = new StringBuilder().append(string_4_).append("").append(cnames[6 - i_5_])
-								.append("|").append(sentn[6 - i_5_]).append("|").toString();
+						string_4_ = new StringBuilder().append(string_4_).append(Messages.getString("Lobby.904")).append(cnames[6 - i_5_]) //$NON-NLS-1$
+								.append(Messages.getString("Lobby.905")).append(sentn[6 - i_5_]).append(Messages.getString("Lobby.906")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 					updatec = -2;
 				}
 			} else {
-				String string_6_ = "Nonex";
+				String string_6_ = Messages.getString("Lobby.907"); //$NON-NLS-1$
 				try {
 					string_6_ = InetAddress.getLocalHost().getHostName();
-					if (string_6_.indexOf("|") != -1)
+					if (string_6_.indexOf(Messages.getString("Lobby.908")) != -1) //$NON-NLS-1$
 						string_6_ = InetAddress.getLocalHost().getHostAddress();
 				} catch (final Exception exception) {
-					string_6_ = "Nonex";
+					string_6_ = Messages.getString("Lobby.909"); //$NON-NLS-1$
 				}
 				int i_7_ = 0;
 				if (xt.logged)
 					i_7_ = 1;
-				string_4_ = new StringBuilder().append(string_4_).append("").append(string_6_).append("|").append(i_7_)
-						.append("|").toString();
+				string_4_ = new StringBuilder().append(string_4_).append(Messages.getString("Lobby.910")).append(string_6_).append(Messages.getString("Lobby.911")).append(i_7_) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(Messages.getString("Lobby.912")).toString(); //$NON-NLS-1$
 			}
 			if (fstart) {
-				string_4_ = new StringBuilder().append(string_4_).append("3|").toString();
+				string_4_ = new StringBuilder().append(string_4_).append(Messages.getString("Lobby.913")).toString(); //$NON-NLS-1$
 				bool = true;
 			}
 			if (chalngd == -5 && !fstart) {
-				string_4_ = new StringBuilder().append(string_4_).append("11|").append(gstage).append("|")
-						.append(gstagename).append("|").append(gstagelaps).append("|").append(gnpls).append("|")
-						.append(gwait).append("|").append(pnames[im]).append("|").append(gcars).append("|")
-						.append(gclass).append("|").append(gfix).append("|").append(gnotp).append("|").append(gplayers)
-						.append("|").toString();
+				string_4_ = new StringBuilder().append(string_4_).append(Messages.getString("Lobby.914")).append(gstage).append(Messages.getString("Lobby.915")) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(gstagename).append(Messages.getString("Lobby.916")).append(gstagelaps).append(Messages.getString("Lobby.917")).append(gnpls).append(Messages.getString("Lobby.918")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						.append(gwait).append(Messages.getString("Lobby.919")).append(pnames[im]).append(Messages.getString("Lobby.920")).append(gcars).append(Messages.getString("Lobby.921")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						.append(gclass).append(Messages.getString("Lobby.922")).append(gfix).append(Messages.getString("Lobby.923")).append(gnotp).append(Messages.getString("Lobby.924")).append(gplayers) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						.append(Messages.getString("Lobby.925")).toString(); //$NON-NLS-1$
 				if (xt.lan)
-					string_4_ = new StringBuilder().append(string_4_).append("").append(gnbts).append("|").toString();
+					string_4_ = new StringBuilder().append(string_4_).append(Messages.getString("Lobby.926")).append(gnbts).append(Messages.getString("Lobby.927")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 			}
 			if (ongame != -1 && chalngd != -5 && !fstart) {
 				boolean bool_8_ = false;
 				for (int i_9_ = 0; i_9_ < 7; i_9_++)
-					if (!invos[i_9_].equals("") && !dinvi[i_9_].equals(invos[i_9_])) {
+					if (!invos[i_9_].equals(Messages.getString("Lobby.928")) && !dinvi[i_9_].equals(invos[i_9_])) { //$NON-NLS-1$
 						if (!bool_8_) {
-							string_4_ = new StringBuilder().append(string_4_).append("2|").append(ongame).append("|")
+							string_4_ = new StringBuilder().append(string_4_).append(Messages.getString("Lobby.929")).append(ongame).append(Messages.getString("Lobby.930")) //$NON-NLS-1$ //$NON-NLS-2$
 									.toString();
 							bool_8_ = true;
 						}
-						string_4_ = new StringBuilder().append(string_4_).append("").append(invos[i_9_]).append("|")
+						string_4_ = new StringBuilder().append(string_4_).append(Messages.getString("Lobby.931")).append(invos[i_9_]).append(Messages.getString("Lobby.932")) //$NON-NLS-1$ //$NON-NLS-2$
 								.toString();
 						dinvi[i_9_] = invos[i_9_];
 					}
 			}
-			String string_10_ = "";
+			String string_10_ = Messages.getString("Lobby.933"); //$NON-NLS-1$
 			boolean bool_11_ = false;
 			try {
 				dout.println(string_4_);
@@ -5035,12 +5035,12 @@ public class Lobby implements Runnable {
 				im = 0;
 			for (int i_12_ = 0; i_12_ < npo; i_12_++) {
 				pnames[i_12_] = getSvalue(string_10_, 2 + i_12_ * 10);
-				if (pnames[i_12_].equals(""))
-					pnames[i_12_] = "Unknown";
+				if (pnames[i_12_].equals(Messages.getString("Lobby.934"))) //$NON-NLS-1$
+					pnames[i_12_] = Messages.getString("Lobby.935"); //$NON-NLS-1$
 				final String string_13_ = getSvalue(string_10_, 3 + i_12_ * 10);
-				if (string_13_.startsWith("C")) {
+				if (string_13_.startsWith(Messages.getString("Lobby.936"))) { //$NON-NLS-1$
 					pcarnames[i_12_] = string_13_.substring(1);
-					if (!pcarnames[i_12_].equals("")) {
+					if (!pcarnames[i_12_].equals(Messages.getString("Lobby.937"))) { //$NON-NLS-1$
 						int i_14_ = 0;
 						for (int i_15_ = 16; i_15_ < 56; i_15_++)
 							if (pcarnames[i_12_].equals(cd.names[i_15_])) {
@@ -5114,7 +5114,7 @@ public class Lobby implements Runnable {
 				gfx[i_20_] = getvalue(string_10_, i_18_ + 10 + i_20_ * i_19_);
 				gntb[i_20_] = getvalue(string_10_, i_18_ + 11 + i_20_ * i_19_);
 				gplyrs[i_20_] = getSvalue(string_10_, i_18_ + 12 + i_20_ * i_19_);
-				if (gplyrs[i_20_].startsWith("#warb#")) {
+				if (gplyrs[i_20_].startsWith(Messages.getString("Lobby.938"))) { //$NON-NLS-1$
 					gwarb[i_20_] = getHvalue(gplyrs[i_20_], 2);
 					gwarbnum[i_20_] = getHSvalue(gplyrs[i_20_], 3);
 					gameturn[i_20_] = getHvalue(gplyrs[i_20_], 4);
@@ -5125,13 +5125,13 @@ public class Lobby implements Runnable {
 					gwtyp[i_20_] = getHvalue(gplyrs[i_20_], 9);
 					if (gwtyp[i_20_] < 1 || gwtyp[i_20_] > 5)
 						gwtyp[i_20_] = 1;
-					gplyrs[i_20_] = "";
+					gplyrs[i_20_] = Messages.getString("Lobby.939"); //$NON-NLS-1$
 				} else {
 					gwarb[i_20_] = 0;
-					gwarbnum[i_20_] = "";
+					gwarbnum[i_20_] = Messages.getString("Lobby.940"); //$NON-NLS-1$
 					gameturn[i_20_] = 0;
-					gaclan[i_20_] = "";
-					gvclan[i_20_] = "";
+					gaclan[i_20_] = Messages.getString("Lobby.941"); //$NON-NLS-1$
+					gvclan[i_20_] = Messages.getString("Lobby.942"); //$NON-NLS-1$
 					gascore[i_20_] = 0;
 					gvscore[i_20_] = 0;
 					gwtyp[i_20_] = 0;
@@ -5289,18 +5289,18 @@ public class Lobby implements Runnable {
 					if (i_48_ != xt.servport - 7070) {
 						final int i_49_ = getvalue(string_10_, i_18_ + i_48_);
 						if (i_49_ != -1) {
-							gs.rooms.sopts[i_47_] = new StringBuilder().append("Room ").append(i_48_).append("  ::  ")
-									.append(i_49_).append("").toString();
-							gs.rooms.opts[i_47_] = "";
+							gs.rooms.sopts[i_47_] = new StringBuilder().append(Messages.getString("Lobby.943")).append(i_48_).append(Messages.getString("Lobby.944")) //$NON-NLS-1$ //$NON-NLS-2$
+									.append(i_49_).append(Messages.getString("Lobby.945")).toString(); //$NON-NLS-1$
+							gs.rooms.opts[i_47_] = Messages.getString("Lobby.946"); //$NON-NLS-1$
 							gs.rooms.iroom[i_47_] = i_48_;
 							i_47_++;
 						}
 					}
 				for (int i_50_ = 0; i_50_ < lg.nservers; i_50_++)
 					if (!xt.server.equals(lg.servers[i_50_]) && xt.delays[i_50_] < 300) {
-						gs.rooms.sopts[i_47_] = new StringBuilder().append(":: ").append(lg.snames[i_50_]).append("")
+						gs.rooms.sopts[i_47_] = new StringBuilder().append(Messages.getString("Lobby.947")).append(lg.snames[i_50_]).append(Messages.getString("Lobby.948")) //$NON-NLS-1$ //$NON-NLS-2$
 								.toString();
-						gs.rooms.opts[i_47_] = "";
+						gs.rooms.opts[i_47_] = Messages.getString("Lobby.949"); //$NON-NLS-1$
 						gs.rooms.iroom[i_47_] = 1000 + i_50_;
 						i_47_++;
 					}
@@ -5330,7 +5330,7 @@ public class Lobby implements Runnable {
 			if (chalngd == -5 && pgames[im] != -1) {
 				ongame = pgames[im];
 				chalngd = -1;
-				if (!xt.lan && gplayers.equals(""))
+				if (!xt.lan && gplayers.equals(Messages.getString("Lobby.950"))) //$NON-NLS-1$
 					lg.gamealert();
 			}
 			if (fstart && bool)
@@ -5372,8 +5372,8 @@ public class Lobby implements Runnable {
 			int i_57_ = 20;
 			xt.playingame = -1;
 			while (i_57_ != 0) {
-				final String string = new StringBuilder().append("2|").append(i).append("|").toString();
-				String string_58_ = "";
+				final String string = new StringBuilder().append(Messages.getString("Lobby.951")).append(i).append(Messages.getString("Lobby.952")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
+				String string_58_ = Messages.getString("Lobby.953"); //$NON-NLS-1$
 				boolean bool = false;
 				try {
 					dout.println(string);
@@ -5423,7 +5423,7 @@ public class Lobby implements Runnable {
 				else {
 					xt.gameport = -1;
 					xt.localserver = getSevervalue(string_58_, 0);
-					if (!xt.localserver.equals(""))
+					if (!xt.localserver.equals(Messages.getString("Lobby.954"))) //$NON-NLS-1$
 						xt.gameport = 0;
 				}
 				if (xt.gameport != -1) {
@@ -5442,9 +5442,9 @@ public class Lobby implements Runnable {
 					int i_61_ = 2 + xt.nplayers;
 					for (int i_62_ = 0; i_62_ < xt.nplayers; i_62_++) {
 						String string_63_ = getSvalue(string_58_, i_61_ + i_62_);
-						if (string_63_.startsWith("C")) {
+						if (string_63_.startsWith(Messages.getString("Lobby.955"))) { //$NON-NLS-1$
 							string_63_ = string_63_.substring(1);
-							if (!string_63_.equals("")) {
+							if (!string_63_.equals(Messages.getString("Lobby.956"))) { //$NON-NLS-1$
 								int i_64_ = 0;
 								for (int i_65_ = 16; i_65_ < 56; i_65_++)
 									if (string_63_.equals(cd.names[i_65_])) {
@@ -5547,7 +5547,7 @@ public class Lobby implements Runnable {
 						socket = new Socket(lg.servers[0], 7061);
 						din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 						dout = new PrintWriter(socket.getOutputStream(), true);
-						dout.println(new StringBuilder().append("7|").append(xt.nfreeplays).append("|").toString());
+						dout.println(new StringBuilder().append(Messages.getString("Lobby.957")).append(xt.nfreeplays).append(Messages.getString("Lobby.958")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 						final String string = din.readLine();
 						xt.hours = getvalue(string, 0);
 						socket.close();
@@ -5571,8 +5571,8 @@ public class Lobby implements Runnable {
 			int i_78_ = 20;
 			xt.playingame = -1;
 			while (i_78_ != 0) {
-				final String string = new StringBuilder().append("4|").append(ongame).append("|").toString();
-				String string_79_ = "";
+				final String string = new StringBuilder().append(Messages.getString("Lobby.959")).append(ongame).append(Messages.getString("Lobby.960")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
+				String string_79_ = Messages.getString("Lobby.961"); //$NON-NLS-1$
 				boolean bool = false;
 				try {
 					dout.println(string);
@@ -5622,7 +5622,7 @@ public class Lobby implements Runnable {
 				else {
 					xt.gameport = -1;
 					xt.localserver = getSevervalue(string_79_, 0);
-					if (!xt.localserver.equals(""))
+					if (!xt.localserver.equals(Messages.getString("Lobby.962"))) //$NON-NLS-1$
 						xt.gameport = 0;
 				}
 				if (xt.gameport != -1) {
@@ -5638,9 +5638,9 @@ public class Lobby implements Runnable {
 					int i_82_ = 3 + xt.nplayers;
 					for (int i_83_ = 0; i_83_ < xt.nplayers; i_83_++) {
 						String string_84_ = getSvalue(string_79_, i_82_ + i_83_);
-						if (string_84_.startsWith("C")) {
+						if (string_84_.startsWith(Messages.getString("Lobby.963"))) { //$NON-NLS-1$
 							string_84_ = string_84_.substring(1);
-							if (!string_84_.equals("")) {
+							if (!string_84_.equals(Messages.getString("Lobby.964"))) { //$NON-NLS-1$
 								int i_85_ = 0;
 								for (int i_86_ = 16; i_86_ < 56; i_86_++)
 									if (string_84_.equals(cd.names[i_86_])) {
@@ -5774,12 +5774,12 @@ public class Lobby implements Runnable {
 			rd.drawLine(80, 40, 80, 0);
 			rd.drawLine(720, 40, 720, 0);
 			rd.setColor(new Color(193, 106, 0));
-			rd.setFont(new Font("Arial", 1, 12));
+			rd.setFont(new Font(Messages.getString("Lobby.965"), 1, 12)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
 			if (wait[i_295_] > 0) {
 				if (gwarb[i_295_] == 0) {
 					if (wait[i_295_] > 30 || npls[i_295_] <= 1) {
-						String string = "";
+						String string = Messages.getString("Lobby.966"); //$NON-NLS-1$
 						if (npls[i_295_] > 1) {
 							final Date date = new Date();
 							final long l = date.getTime();
@@ -5791,25 +5791,25 @@ public class Lobby implements Runnable {
 								}
 								ptime = l;
 							}
-							string = new StringBuilder().append(" (waiting ").append(wait[i_295_])
-									.append(" seconds maximum)").toString();
+							string = new StringBuilder().append(Messages.getString("Lobby.967")).append(wait[i_295_]) //$NON-NLS-1$
+									.append(Messages.getString("Lobby.968")).toString(); //$NON-NLS-1$
 							if (wait[i_295_] > 60)
-								string = new StringBuilder().append(" (waiting ")
+								string = new StringBuilder().append(Messages.getString("Lobby.969")) //$NON-NLS-1$
 										.append((int) (this.wait[i_295_] / 60.0F * 100.0F) / 100.0F)
-										.append(" minutes maximum)").toString();
+										.append(Messages.getString("Lobby.970")).toString(); //$NON-NLS-1$
 						}
-						rd.drawString(new StringBuilder().append("Waiting for ").append(mnpls[i_295_] - npls[i_295_])
-								.append(" more players to join to start this game").append(string).append("!")
+						rd.drawString(new StringBuilder().append(Messages.getString("Lobby.971")).append(mnpls[i_295_] - npls[i_295_]) //$NON-NLS-1$
+								.append(Messages.getString("Lobby.972")).append(string).append(Messages.getString("Lobby.973")) //$NON-NLS-1$ //$NON-NLS-2$
 								.toString(), 95, 15);
-						rd.setFont(new Font("Arial", 0, 12));
-						if (!gmaker[i_295_].equals("Coach Insano") && !gmaker[i_295_].equals(pnames[im])) {
+						rd.setFont(new Font(Messages.getString("Lobby.974"), 0, 12)); //$NON-NLS-1$
+						if (!gmaker[i_295_].equals(Messages.getString("Lobby.975")) && !gmaker[i_295_].equals(pnames[im])) { //$NON-NLS-1$
 							boolean bool_297_ = false;
 							for (int i_298_ = 0; i_298_ < npo; i_298_++)
 								if (pgames[i_298_] == ongame && gmaker[i_295_].equals(pnames[i_298_]))
 									bool_297_ = true;
 							if (bool_297_)
-								rd.drawString(new StringBuilder().append("").append(gmaker[i_295_])
-										.append(" can start this game at anytime (the game creator)...").toString(), 95,
+								rd.drawString(new StringBuilder().append(Messages.getString("Lobby.976")).append(gmaker[i_295_]) //$NON-NLS-1$
+										.append(Messages.getString("Lobby.977")).toString(), 95, //$NON-NLS-1$
 										31);
 						}
 					} else {
@@ -5825,10 +5825,10 @@ public class Lobby implements Runnable {
 						}
 						if (pgames[im] == ongame || nflk != 0) {
 							rd.drawString(
-									new StringBuilder().append("Game starts in ").append(wait[i_295_])
-											.append(" seconds!").toString(),
-									400 - ftm.stringWidth(new StringBuilder().append("Game starts in ")
-											.append(wait[i_295_]).append(" seconds!").toString()) / 2,
+									new StringBuilder().append(Messages.getString("Lobby.978")).append(wait[i_295_]) //$NON-NLS-1$
+											.append(Messages.getString("Lobby.979")).toString(), //$NON-NLS-1$
+									400 - ftm.stringWidth(new StringBuilder().append(Messages.getString("Lobby.980")) //$NON-NLS-1$
+											.append(wait[i_295_]).append(Messages.getString("Lobby.981")).toString()) / 2, //$NON-NLS-1$
 									23);
 							if (pgames[im] != ongame)
 								nflk--;
@@ -5836,31 +5836,31 @@ public class Lobby implements Runnable {
 							nflk = 3;
 					}
 				} else
-					rd.drawString(new StringBuilder().append("Waiting for ").append(mnpls[i_295_] - npls[i_295_])
-							.append(" clan members to join to start this game!").toString(), 95, 23);
+					rd.drawString(new StringBuilder().append(Messages.getString("Lobby.982")).append(mnpls[i_295_] - npls[i_295_]) //$NON-NLS-1$
+							.append(Messages.getString("Lobby.983")).toString(), 95, 23); //$NON-NLS-1$
 				if (pgames[im] != ongame) {
 					boolean bool_299_ = false;
 					if (gwarb[i_295_] == 0) {
-						if (gplyrs[i_295_].equals("") || gplyrs[i_295_].indexOf(pnames[im]) != -1)
+						if (gplyrs[i_295_].equals(Messages.getString("Lobby.984")) || gplyrs[i_295_].indexOf(pnames[im]) != -1) //$NON-NLS-1$
 							bool_299_ = true;
 					} else if (xt.clan.toLowerCase().equals(gaclan[i_295_].toLowerCase())
 							|| xt.clan.toLowerCase().equals(gvclan[i_295_].toLowerCase()))
 						bool_299_ = true;
 					if (bool_299_)
-						stringbutton(" Join Game ", 660, 23, 2);
+						stringbutton(Messages.getString("Lobby.985"), 660, 23, 2); //$NON-NLS-1$
 				}
 			} else {
 				rd.setColor(color2k(120, 120, 120));
 				if (wait[i_295_] == 0)
-					rd.drawString("Game Started", 400 - ftm.stringWidth("Game Started") / 2, 20);
+					rd.drawString(Messages.getString("Lobby.986"), 400 - ftm.stringWidth(Messages.getString("Lobby.987")) / 2, 20); //$NON-NLS-1$ //$NON-NLS-2$
 				else
-					rd.drawString("Game Finished", 400 - ftm.stringWidth("Game Finished") / 2, 20);
+					rd.drawString(Messages.getString("Lobby.988"), 400 - ftm.stringWidth(Messages.getString("Lobby.989")) / 2, 20); //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
-		rd.setFont(new Font("Arial", 1, 11));
+		rd.setFont(new Font(Messages.getString("Lobby.990"), 1, 11)); //$NON-NLS-1$
 		xt.ftm = rd.getFontMetrics();
 		ftm = rd.getFontMetrics();
-		String string = "";
+		String string = Messages.getString("Lobby.991"); //$NON-NLS-1$
 		/*if (checkpoints.stage < 0)
 			string = "Custom Stage";
 		if (checkpoints.stage > 0 && checkpoints.stage <= 10)
@@ -5868,14 +5868,14 @@ public class Lobby implements Runnable {
 		if (checkpoints.stage > 10 && checkpoints.stage <= 27)
 			string = new StringBuilder().append("Stage ").append(checkpoints.stage - 10).append(" NFM 2").toString();
 		if (checkpoints.stage > 27)*/
-		string = new StringBuilder().append("Stage "+checkpoints.stage).toString();
-		xt.drawcs(85, new StringBuilder().append("Previewing ").append(string).append("  >").toString(), 255, 138, 0,
+		string = new StringBuilder().append(Messages.getString("Lobby.992")+checkpoints.stage).toString(); //$NON-NLS-1$
+		xt.drawcs(85, new StringBuilder().append(Messages.getString("Lobby.993")).append(string).append(Messages.getString("Lobby.994")).toString(), 255, 138, 0, //$NON-NLS-1$ //$NON-NLS-2$
 				5);
-		xt.drawcs(105, new StringBuilder().append("| ").append(checkpoints.name).append(" |").toString(), 255, 176, 85,
+		xt.drawcs(105, new StringBuilder().append(Messages.getString("Lobby.995")).append(checkpoints.name).append(Messages.getString("Lobby.996")).toString(), 255, 176, 85, //$NON-NLS-1$ //$NON-NLS-2$
 				5);
 		rd.drawImage(xt.back[pback], 532, 285, null);
 		if (plsndt == 0) {
-			final String string_300_ = "Play Soundtrack >";
+			final String string_300_ = Messages.getString("Lobby.997"); //$NON-NLS-1$
 			final int i_301_ = 562 - ftm.stringWidth(string_300_) / 2;
 			final int i_302_ = i_301_ + ftm.stringWidth(string_300_);
 			rd.setColor(new Color(0, 0, 0));
@@ -5891,17 +5891,17 @@ public class Lobby implements Runnable {
 			}
 		}
 		if (plsndt == 1)
-			xt.drawcs(190, "Loading Soundtrack, please wait...", 255, 138, 0, 5);
+			xt.drawcs(190, Messages.getString("Lobby.998"), 255, 138, 0, 5); //$NON-NLS-1$
 		if (checkpoints.stage < 0) {
 			rd.setColor(new Color(255, 138, 0));
-			rd.drawString(new StringBuilder().append("Created by: ").append(checkpoints.maker).append("").toString(),
+			rd.drawString(new StringBuilder().append(Messages.getString("Lobby.999")).append(checkpoints.maker).append(Messages.getString("Lobby.1000")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 					85, 413);
 			if (checkpoints.pubt > 0) {
 				if (checkpoints.pubt == 2)
-					xt.drawcs(413, "Super Public Stage", 41, 177, 255, 3);
+					xt.drawcs(413, Messages.getString("Lobby.1001"), 41, 177, 255, 3); //$NON-NLS-1$
 				else
-					xt.drawcs(413, "Public Stage", 41, 177, 255, 3);
-				if (addstage == 0 && xt.drawcarb(true, null, " Add to My Stages ", 334, 420, i, i_293_, bool))
+					xt.drawcs(413, Messages.getString("Lobby.1002"), 41, 177, 255, 3); //$NON-NLS-1$
+				if (addstage == 0 && xt.drawcarb(true, null, Messages.getString("Lobby.1003"), 334, 420, i, i_293_, bool)) //$NON-NLS-1$
 					if (xt.logged) {
 						cd.onstage = checkpoints.name;
 						cd.staction = 2;
@@ -5912,10 +5912,10 @@ public class Lobby implements Runnable {
 						waitlink = 20;
 					}
 				if (addstage == 1) {
-					rd.setFont(new Font("Arial", 1, 11));
+					rd.setFont(new Font(Messages.getString("Lobby.1004"), 1, 11)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
 					rd.setColor(new Color(193, 106, 0));
-					final String string_303_ = "Upgrade to a full account to add custom stages!";
+					final String string_303_ = Messages.getString("Lobby.1005"); //$NON-NLS-1$
 					final int i_304_ = 400 - ftm.stringWidth(string_303_) / 2;
 					final int i_305_ = i_304_ + ftm.stringWidth(string_303_);
 					rd.drawString(string_303_, i_304_, 435);
@@ -5933,7 +5933,7 @@ public class Lobby implements Runnable {
 						waitlink--;
 				}
 				if (addstage == 2) {
-					xt.drawcs(435, "Adding stage please wait...", 193, 106, 0, 3);
+					xt.drawcs(435, Messages.getString("Lobby.1006"), 193, 106, 0, 3); //$NON-NLS-1$
 					if (cd.staction == 0)
 						addstage = 3;
 					if (cd.staction == -2)
@@ -5944,15 +5944,15 @@ public class Lobby implements Runnable {
 						addstage = 6;
 				}
 				if (addstage == 3)
-					xt.drawcs(435, "Stage has been successfully added to your stages!", 193, 106, 0, 3);
+					xt.drawcs(435, Messages.getString("Lobby.1007"), 193, 106, 0, 3); //$NON-NLS-1$
 				if (addstage == 4)
-					xt.drawcs(435, "You already have this stage!", 193, 106, 0, 3);
+					xt.drawcs(435, Messages.getString("Lobby.1008"), 193, 106, 0, 3); //$NON-NLS-1$
 				if (addstage == 5)
-					xt.drawcs(435, "Cannot add more then 20 stages to your account!", 193, 106, 0, 3);
+					xt.drawcs(435, Messages.getString("Lobby.1009"), 193, 106, 0, 3); //$NON-NLS-1$
 				if (addstage == 6)
-					xt.drawcs(435, "Failed to add stage, unknown error, please try again later.", 193, 106, 0, 3);
+					xt.drawcs(435, Messages.getString("Lobby.1010"), 193, 106, 0, 3); //$NON-NLS-1$
 			} else
-				xt.drawcs(435, "Private Stage", 193, 106, 0, 3);
+				xt.drawcs(435, Messages.getString("Lobby.1011"), 193, 106, 0, 3); //$NON-NLS-1$
 		}
 		if (control.enter || conon == 2 || ongame == -1 && chalngd != -2) {
 			m.trk = 0;
@@ -5994,7 +5994,7 @@ public class Lobby implements Runnable {
 	}
 
 	public void stringbutton(final String string, final int i, final int i_325_, final int i_326_) {
-		rd.setFont(new Font("Arial", 1, 12));
+		rd.setFont(new Font(Messages.getString("Lobby.1012"), 1, 12)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
 		bx[btn] = i;
 		by[btn] = i_325_ - 5;

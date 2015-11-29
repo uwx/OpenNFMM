@@ -128,7 +128,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			if (xm > 65 && xm < 735 && ym > 135 && ym < 194 || xm > 275 && xm < 525 && ym > 265 && ym < 284) {
 				setCursor(new Cursor(12));
 				if (mouses == 2)
-					openurl("http://www.radicalplay.com/");
+					openurl(Messages.getString("GameSparker.0")); //$NON-NLS-1$
 			} else
 				setCursor(new Cursor(0));
 	}
@@ -219,19 +219,19 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	}
 
 	public void editlink(final String string, final boolean bool) {
-		String string_208_ = "";
+		String string_208_ = Messages.getString("GameSparker.1"); //$NON-NLS-1$
 		if (bool)
-			string_208_ = "?display=upgrade";
-		openurl(new StringBuilder().append("http://multiplayer.needformadness.com/edit.pl").append(string_208_)
-				.append("#").append(string).append("").toString());
+			string_208_ = Messages.getString("GameSparker.2"); //$NON-NLS-1$
+		openurl(new StringBuilder().append(Messages.getString("GameSparker.3")).append(string_208_) //$NON-NLS-1$
+				.append(Messages.getString("GameSparker.4")).append(string).append(Messages.getString("GameSparker.5")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	public int getint(final String string, final String string_181_, final int i) {
 		int i_182_ = 0;
-		String string_183_ = "";
+		String string_183_ = Messages.getString("GameSparker.6"); //$NON-NLS-1$
 		for (int i_184_ = string.length() + 1; i_184_ < string_181_.length(); i_184_++) {
-			final String string_185_ = new StringBuilder().append("").append(string_181_.charAt(i_184_)).toString();
-			if (string_185_.equals(",") || string_185_.equals(")")) {
+			final String string_185_ = new StringBuilder().append(Messages.getString("GameSparker.7")).append(string_181_.charAt(i_184_)).toString(); //$NON-NLS-1$
+			if (string_185_.equals(Messages.getString("GameSparker.8")) || string_185_.equals(Messages.getString("GameSparker.9"))) { //$NON-NLS-1$ //$NON-NLS-2$
 				i_182_++;
 				i_184_++;
 			}
@@ -243,10 +243,10 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 
 	public String getstring(final String string, final String string_186_, final int i) {
 		int i_187_ = 0;
-		String string_188_ = "";
+		String string_188_ = Messages.getString("GameSparker.10"); //$NON-NLS-1$
 		for (int i_189_ = string.length() + 1; i_189_ < string_186_.length(); i_189_++) {
-			final String string_190_ = new StringBuilder().append("").append(string_186_.charAt(i_189_)).toString();
-			if (string_190_.equals(",") || string_190_.equals(")")) {
+			final String string_190_ = new StringBuilder().append(Messages.getString("GameSparker.11")).append(string_186_.charAt(i_189_)).toString(); //$NON-NLS-1$
+			if (string_190_.equals(Messages.getString("GameSparker.12")) || string_190_.equals(Messages.getString("GameSparker.13"))) { //$NON-NLS-1$ //$NON-NLS-2$
 				i_187_++;
 				i_189_++;
 			}
@@ -309,22 +309,22 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		//if (offImage != null)
 		//	rd = (Graphics2D) offImage.getGraphics();
 		setLayout(null);
-		tnick = new TextField("Nickbname");
-		tnick.setFont(new Font("Arial", 1, 13));
-		tpass = new TextField("");
-		tpass.setFont(new Font("Arial", 1, 13));
+		tnick = new TextField(Messages.getString("GameSparker.14")); //$NON-NLS-1$
+		tnick.setFont(new Font(Messages.getString("GameSparker.15"), 1, 13)); //$NON-NLS-1$
+		tpass = new TextField(Messages.getString("GameSparker.16")); //$NON-NLS-1$
+		tpass.setFont(new Font(Messages.getString("GameSparker.17"), 1, 13)); //$NON-NLS-1$
 		tpass.setEchoChar('*');
-		temail = new TextField("");
-		temail.setFont(new Font("Arial", 1, 13));
-		cmsg = new TextField("");
-		if (System.getProperty("java.vendor").toLowerCase().indexOf("oracle") != -1)
+		temail = new TextField(Messages.getString("GameSparker.18")); //$NON-NLS-1$
+		temail.setFont(new Font(Messages.getString("GameSparker.19"), 1, 13)); //$NON-NLS-1$
+		cmsg = new TextField(Messages.getString("GameSparker.20")); //$NON-NLS-1$
+		if (System.getProperty(Messages.getString("GameSparker.21")).toLowerCase().indexOf(Messages.getString("GameSparker.22")) != -1) //$NON-NLS-1$ //$NON-NLS-2$
 			cmsg.addKeyListener( /* TYPE_ERROR */ new GameSparker$1(this));
-		mmsg = new TextArea("", 200, 20, 3);
-		cmsg.setFont(new Font("Tahoma", 0, 11));
-		mmsg.setFont(new Font("Tahoma", 0, 11));
-		mycar = new Checkbox("Sword of Justice Game!");
-		notp = new Checkbox("No Trees & Piles");
-		keplo = new Checkbox("Stay logged in");
+		mmsg = new TextArea(Messages.getString("GameSparker.23"), 200, 20, 3); //$NON-NLS-1$
+		cmsg.setFont(new Font(Messages.getString("GameSparker.24"), 0, 11)); //$NON-NLS-1$
+		mmsg.setFont(new Font(Messages.getString("GameSparker.25"), 0, 11)); //$NON-NLS-1$
+		mycar = new Checkbox(Messages.getString("GameSparker.26")); //$NON-NLS-1$
+		notp = new Checkbox(Messages.getString("GameSparker.27")); //$NON-NLS-1$
+		keplo = new Checkbox(Messages.getString("GameSparker.28")); //$NON-NLS-1$
 		keplo.setState(true);
 		add(tnick);
 		add(tpass);
@@ -334,59 +334,59 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		add(mycar);
 		add(notp);
 		add(keplo);
-		sgame.setFont(new Font("Arial", 1, 13));
-		wgame.setFont(new Font("Arial", 1, 13));
-		warb.setFont(new Font("Arial", 1, 13));
-		pgame.setFont(new Font("Arial", 1, 12));
-		vnpls.setFont(new Font("Arial", 1, 13));
-		vtyp.setFont(new Font("Arial", 1, 13));
-		snfmm.setFont(new Font("Arial", 1, 13));
+		sgame.setFont(new Font(Messages.getString("GameSparker.29"), 1, 13)); //$NON-NLS-1$
+		wgame.setFont(new Font(Messages.getString("GameSparker.30"), 1, 13)); //$NON-NLS-1$
+		warb.setFont(new Font(Messages.getString("GameSparker.31"), 1, 13)); //$NON-NLS-1$
+		pgame.setFont(new Font(Messages.getString("GameSparker.32"), 1, 12)); //$NON-NLS-1$
+		vnpls.setFont(new Font(Messages.getString("GameSparker.33"), 1, 13)); //$NON-NLS-1$
+		vtyp.setFont(new Font(Messages.getString("GameSparker.34"), 1, 13)); //$NON-NLS-1$
+		snfmm.setFont(new Font(Messages.getString("GameSparker.35"), 1, 13)); //$NON-NLS-1$
 		//snfm1.setFont(new Font("Arial", 1, 13));
 		//snfm2.setFont(new Font("Arial", 1, 13));
-		mstgs.setFont(new Font("Arial", 1, 13));
-		mcars.setFont(new Font("Arial", 1, 13));
-		slaps.setFont(new Font("Arial", 1, 13));
-		snpls.setFont(new Font("Arial", 0, 13));
-		snbts.setFont(new Font("Arial", 0, 13));
-		swait.setFont(new Font("Arial", 0, 12));
-		sclass.setFont(new Font("Arial", 1, 12));
-		scars.setFont(new Font("Arial", 1, 12));
-		sfix.setFont(new Font("Arial", 1, 12));
-		mycar.setFont(new Font("Arial", 1, 12));
-		notp.setFont(new Font("Arial", 1, 12));
-		keplo.setFont(new Font("Arial", 1, 12));
-		gmode.setFont(new Font("Arial", 1, 13));
-		rooms.setFont(new Font("Arial", 1, 13));
-		sendtyp.setFont(new Font("Arial", 1, 12));
-		senditem.setFont(new Font("Arial", 1, 12));
-		datat.setFont(new Font("Arial", 1, 12));
-		clanlev.setFont(new Font("Arial", 1, 12));
-		clcars.setFont(new Font("Arial", 1, 12));
+		mstgs.setFont(new Font(Messages.getString("GameSparker.36"), 1, 13)); //$NON-NLS-1$
+		mcars.setFont(new Font(Messages.getString("GameSparker.37"), 1, 13)); //$NON-NLS-1$
+		slaps.setFont(new Font(Messages.getString("GameSparker.38"), 1, 13)); //$NON-NLS-1$
+		snpls.setFont(new Font(Messages.getString("GameSparker.39"), 0, 13)); //$NON-NLS-1$
+		snbts.setFont(new Font(Messages.getString("GameSparker.40"), 0, 13)); //$NON-NLS-1$
+		swait.setFont(new Font(Messages.getString("GameSparker.41"), 0, 12)); //$NON-NLS-1$
+		sclass.setFont(new Font(Messages.getString("GameSparker.42"), 1, 12)); //$NON-NLS-1$
+		scars.setFont(new Font(Messages.getString("GameSparker.43"), 1, 12)); //$NON-NLS-1$
+		sfix.setFont(new Font(Messages.getString("GameSparker.44"), 1, 12)); //$NON-NLS-1$
+		mycar.setFont(new Font(Messages.getString("GameSparker.45"), 1, 12)); //$NON-NLS-1$
+		notp.setFont(new Font(Messages.getString("GameSparker.46"), 1, 12)); //$NON-NLS-1$
+		keplo.setFont(new Font(Messages.getString("GameSparker.47"), 1, 12)); //$NON-NLS-1$
+		gmode.setFont(new Font(Messages.getString("GameSparker.48"), 1, 13)); //$NON-NLS-1$
+		rooms.setFont(new Font(Messages.getString("GameSparker.49"), 1, 13)); //$NON-NLS-1$
+		sendtyp.setFont(new Font(Messages.getString("GameSparker.50"), 1, 12)); //$NON-NLS-1$
+		senditem.setFont(new Font(Messages.getString("GameSparker.51"), 1, 12)); //$NON-NLS-1$
+		datat.setFont(new Font(Messages.getString("GameSparker.52"), 1, 12)); //$NON-NLS-1$
+		clanlev.setFont(new Font(Messages.getString("GameSparker.53"), 1, 12)); //$NON-NLS-1$
+		clcars.setFont(new Font(Messages.getString("GameSparker.54"), 1, 12)); //$NON-NLS-1$
 		clcars.alphad = true;
-		ilaps.setFont(new Font("Arial", 1, 13));
-		icars.setFont(new Font("Arial", 1, 12));
-		proitem.setFont(new Font("Arial", 1, 12));
+		ilaps.setFont(new Font(Messages.getString("GameSparker.55"), 1, 13)); //$NON-NLS-1$
+		icars.setFont(new Font(Messages.getString("GameSparker.56"), 1, 12)); //$NON-NLS-1$
+		proitem.setFont(new Font(Messages.getString("GameSparker.57"), 1, 12)); //$NON-NLS-1$
 	}
 
 	/**
 	 * List of car .rad files.<br/>
 	 * <strong>ALL CAR MODELS IN THE ZIP FILE SHOULD BE PUT HERE OR THINGS WILL GO WRONG!</strong><br/>
 	 */
-	final String[] carRads = { "2000tornados", "formula7", "canyenaro", "lescrab", "nimi", "maxrevenge",
-			"leadoxide", "koolkat", "drifter", "policecops", "mustang", "king", "audir8", "masheen", "radicalone",
-			"drmonster" };
+	final String[] carRads = { Messages.getString("GameSparker.58"), Messages.getString("GameSparker.59"), Messages.getString("GameSparker.60"), Messages.getString("GameSparker.61"), Messages.getString("GameSparker.62"), Messages.getString("GameSparker.63"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$
+			Messages.getString("GameSparker.64"), Messages.getString("GameSparker.65"), Messages.getString("GameSparker.66"), Messages.getString("GameSparker.67"), Messages.getString("GameSparker.68"), Messages.getString("GameSparker.69"), Messages.getString("GameSparker.70"), Messages.getString("GameSparker.71"), Messages.getString("GameSparker.72"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$
+			Messages.getString("GameSparker.73") }; //$NON-NLS-1$
 	/**
 	 * List of track part .rad files.<br/>
 	 * <strong>ALL NON-CAR MODELS IN THE ZIP FILE SHOULD BE PUT HERE OR THINGS WILL GO WRONG!</strong><br/>
 	 */
-	final String[] stageRads = { "road", "froad", "twister2", "twister1", "turn", "offroad", "bumproad",
-			"offturn", "nroad", "nturn", "roblend", "noblend", "rnblend", "roadend", "offroadend", "hpground",
-			"ramp30", "cramp35", "dramp15", "dhilo15", "slide10", "takeoff", "sramp22", "offbump", "offramp",
-			"sofframp", "halfpipe", "spikes", "rail", "thewall", "checkpoint", "fixpoint", "offcheckpoint",
-			"sideoff", "bsideoff", "uprise", "riseroad", "sroad", "soffroad", "tside", "launchpad", "thenet",
-			"speedramp", "offhill", "slider", "uphill", "roll1", "roll2", "roll3", "roll4", "roll5", "roll6",
-			"opile1", "opile2", "aircheckpoint", "tree1", "tree2", "tree3", "tree4", "tree5", "tree6", "tree7",
-			"tree8", "cac1", "cac2", "cac3", "8sroad", "8soffroad" };
+	final String[] stageRads = { Messages.getString("GameSparker.74"), Messages.getString("GameSparker.75"), Messages.getString("GameSparker.76"), Messages.getString("GameSparker.77"), Messages.getString("GameSparker.78"), Messages.getString("GameSparker.79"), Messages.getString("GameSparker.80"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
+			Messages.getString("GameSparker.81"), Messages.getString("GameSparker.82"), Messages.getString("GameSparker.83"), Messages.getString("GameSparker.84"), Messages.getString("GameSparker.85"), Messages.getString("GameSparker.86"), Messages.getString("GameSparker.87"), Messages.getString("GameSparker.88"), Messages.getString("GameSparker.89"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$
+			Messages.getString("GameSparker.90"), Messages.getString("GameSparker.91"), Messages.getString("GameSparker.92"), Messages.getString("GameSparker.93"), Messages.getString("GameSparker.94"), Messages.getString("GameSparker.95"), Messages.getString("GameSparker.96"), Messages.getString("GameSparker.97"), Messages.getString("GameSparker.98"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$
+			Messages.getString("GameSparker.99"), Messages.getString("GameSparker.100"), Messages.getString("GameSparker.101"), Messages.getString("GameSparker.102"), Messages.getString("GameSparker.103"), Messages.getString("GameSparker.104"), Messages.getString("GameSparker.105"), Messages.getString("GameSparker.106"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
+			Messages.getString("GameSparker.107"), Messages.getString("GameSparker.108"), Messages.getString("GameSparker.109"), Messages.getString("GameSparker.110"), Messages.getString("GameSparker.111"), Messages.getString("GameSparker.112"), Messages.getString("GameSparker.113"), Messages.getString("GameSparker.114"), Messages.getString("GameSparker.115"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$
+			Messages.getString("GameSparker.116"), Messages.getString("GameSparker.117"), Messages.getString("GameSparker.118"), Messages.getString("GameSparker.119"), Messages.getString("GameSparker.120"), Messages.getString("GameSparker.121"), Messages.getString("GameSparker.122"), Messages.getString("GameSparker.123"), Messages.getString("GameSparker.124"), Messages.getString("GameSparker.125"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$ //$NON-NLS-10$
+			Messages.getString("GameSparker.126"), Messages.getString("GameSparker.127"), Messages.getString("GameSparker.128"), Messages.getString("GameSparker.129"), Messages.getString("GameSparker.130"), Messages.getString("GameSparker.131"), Messages.getString("GameSparker.132"), Messages.getString("GameSparker.133"), Messages.getString("GameSparker.134"), Messages.getString("GameSparker.135"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$ //$NON-NLS-10$
+			Messages.getString("GameSparker.136"), Messages.getString("GameSparker.137"), Messages.getString("GameSparker.138"), Messages.getString("GameSparker.139"), Messages.getString("GameSparker.140"), Messages.getString("GameSparker.141") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$
 	/**
 	 * The ContO index which track parts start at. Raise this number if you want to have 99 cars or more.
 	 */
@@ -395,17 +395,17 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	public void loadbase(final ContO[] contos, final Medium medium, final Trackers trackers,
 			final xtGraphics var_xtGraphics, final boolean bool) {
 		if (carRads.length < xtGraphics.nCars)
-			throw new RuntimeException("too many cars and not enough rad files!");
+			throw new RuntimeException(Messages.getString("GameSparker.142")); //$NON-NLS-1$
 		int i = 0;
 		var_xtGraphics.dnload += 6;
 		try {
 			ZipInputStream zipinputstream;
 			if (!bool) {
 				final File file = new File(
-						new StringBuilder().append("").append(Madness.fpath).append("data/models.zip").toString());
+						new StringBuilder().append(Messages.getString("GameSparker.143")).append(Madness.fpath).append(Messages.getString("GameSparker.144")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 				zipinputstream = new ZipInputStream(new FileInputStream(file));
 			} else {
-				final URL url = new URL("http://multiplayer.needformadness.com/data/models.zip");
+				final URL url = new URL(Messages.getString("GameSparker.145")); //$NON-NLS-1$
 				zipinputstream = new ZipInputStream(url.openStream());
 			}
 			ZipEntry zipentry = zipinputstream.getNextEntry();
@@ -431,7 +431,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			}
 			zipinputstream.close();
 		} catch (final Exception exception) {
-			System.out.println(new StringBuilder().append("Error Reading Models: ").append(exception).toString());
+			System.out.println(new StringBuilder().append(Messages.getString("GameSparker.146")).append(exception).toString()); //$NON-NLS-1$
 		}
 		System.gc();
 		if (mload != -1 && i != 615671)
@@ -453,7 +453,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		checkpoints.n = 0;
 		checkpoints.nsp = 0;
 		checkpoints.fn = 0;
-		checkpoints.trackname = "";
+		checkpoints.trackname = Messages.getString("GameSparker.147"); //$NON-NLS-1$
 		checkpoints.haltall = false;
 		checkpoints.wasted = 0;
 		checkpoints.catchfin = 0;
@@ -469,25 +469,25 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		int i_110_ = 0;
 		int i_111_ = 100;
 		var_xtGraphics.newparts = false;
-		String string = "";
+		String string = Messages.getString("GameSparker.148"); //$NON-NLS-1$
 		try {
 			DataInputStream datainputstream;
 			if (var_xtGraphics.multion == 0 && checkpoints.stage != -2) {
-				String string_112_ = new StringBuilder().append("stages/").append(checkpoints.stage).append("")
+				String string_112_ = new StringBuilder().append(Messages.getString("GameSparker.149")).append(checkpoints.stage).append(Messages.getString("GameSparker.150")) //$NON-NLS-1$ //$NON-NLS-2$
 						.toString();
 				if (checkpoints.stage == -1)
-					string_112_ = new StringBuilder().append("mystages/").append(checkpoints.name).append("")
+					string_112_ = new StringBuilder().append(Messages.getString("GameSparker.151")).append(checkpoints.name).append(Messages.getString("GameSparker.152")) //$NON-NLS-1$ //$NON-NLS-2$
 							.toString();
-				final File file = new File(new StringBuilder().append("").append(Madness.fpath).append("")
-						.append(string_112_).append(".txt").toString());
+				final File file = new File(new StringBuilder().append(Messages.getString("GameSparker.153")).append(Madness.fpath).append(Messages.getString("GameSparker.154")) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(string_112_).append(Messages.getString("GameSparker.155")).toString()); //$NON-NLS-1$
 				datainputstream = new DataInputStream(new FileInputStream(file));
 			} else if (checkpoints.stage > 0) {
-				final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/stages/")
-						.append(checkpoints.stage).append(".txt").toString());
+				final URL url = new URL(new StringBuilder().append(Messages.getString("GameSparker.156")) //$NON-NLS-1$
+						.append(checkpoints.stage).append(Messages.getString("GameSparker.157")).toString()); //$NON-NLS-1$
 				datainputstream = new DataInputStream(url.openStream());
 			} else {
-				String string_113_ = new StringBuilder().append("http://multiplayer.needformadness.com/tracks/")
-						.append(checkpoints.name).append(".radq").toString();
+				String string_113_ = new StringBuilder().append(Messages.getString("GameSparker.158")) //$NON-NLS-1$
+						.append(checkpoints.name).append(Messages.getString("GameSparker.159")).toString(); //$NON-NLS-1$
 				string_113_ = string_113_.replace(' ', '_');
 				final URL url = new URL(string_113_);
 				final int i_114_ = url.openConnection().getContentLength();
@@ -522,41 +522,41 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			}
 			String string_123_;
 			while ((string_123_ = datainputstream.readLine()) != null) {
-				string = new StringBuilder().append("").append(string_123_.trim()).toString();
-				if (string.startsWith("snap"))
-					medium.setsnap(getint("snap", string, 0), getint("snap", string, 1), getint("snap", string, 2));
-				if (string.startsWith("sky")) {
-					medium.setsky(getint("sky", string, 0), getint("sky", string, 1), getint("sky", string, 2));
+				string = new StringBuilder().append(Messages.getString("GameSparker.160")).append(string_123_.trim()).toString(); //$NON-NLS-1$
+				if (string.startsWith(Messages.getString("GameSparker.161"))) //$NON-NLS-1$
+					medium.setsnap(getint(Messages.getString("GameSparker.162"), string, 0), getint(Messages.getString("GameSparker.163"), string, 1), getint(Messages.getString("GameSparker.164"), string, 2)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				if (string.startsWith(Messages.getString("GameSparker.165"))) { //$NON-NLS-1$
+					medium.setsky(getint(Messages.getString("GameSparker.166"), string, 0), getint(Messages.getString("GameSparker.167"), string, 1), getint(Messages.getString("GameSparker.168"), string, 2)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 					var_xtGraphics.snap(checkpoints.stage);
 				}
-				if (string.startsWith("ground"))
-					medium.setgrnd(getint("ground", string, 0), getint("ground", string, 1),
-							getint("ground", string, 2));
-				if (string.startsWith("polys"))
-					medium.setpolys(getint("polys", string, 0), getint("polys", string, 1), getint("polys", string, 2));
-				if (string.startsWith("fog"))
-					medium.setfade(getint("fog", string, 0), getint("fog", string, 1), getint("fog", string, 2));
-				if (string.startsWith("texture"))
-					medium.setexture(getint("texture", string, 0), getint("texture", string, 1),
-							getint("texture", string, 2), getint("texture", string, 3));
-				if (string.startsWith("clouds"))
-					medium.setcloads(getint("clouds", string, 0), getint("clouds", string, 1),
-							getint("clouds", string, 2), getint("clouds", string, 3), getint("clouds", string, 4));
-				if (string.startsWith("density")) {
-					medium.fogd = (getint("density", string, 0) + 1) * 2 - 1;
+				if (string.startsWith(Messages.getString("GameSparker.169"))) //$NON-NLS-1$
+					medium.setgrnd(getint(Messages.getString("GameSparker.170"), string, 0), getint(Messages.getString("GameSparker.171"), string, 1), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("GameSparker.172"), string, 2)); //$NON-NLS-1$
+				if (string.startsWith(Messages.getString("GameSparker.173"))) //$NON-NLS-1$
+					medium.setpolys(getint(Messages.getString("GameSparker.174"), string, 0), getint(Messages.getString("GameSparker.175"), string, 1), getint(Messages.getString("GameSparker.176"), string, 2)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				if (string.startsWith(Messages.getString("GameSparker.177"))) //$NON-NLS-1$
+					medium.setfade(getint(Messages.getString("GameSparker.178"), string, 0), getint(Messages.getString("GameSparker.179"), string, 1), getint(Messages.getString("GameSparker.180"), string, 2)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				if (string.startsWith(Messages.getString("GameSparker.181"))) //$NON-NLS-1$
+					medium.setexture(getint(Messages.getString("GameSparker.182"), string, 0), getint(Messages.getString("GameSparker.183"), string, 1), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("GameSparker.184"), string, 2), getint(Messages.getString("GameSparker.185"), string, 3)); //$NON-NLS-1$ //$NON-NLS-2$
+				if (string.startsWith(Messages.getString("GameSparker.186"))) //$NON-NLS-1$
+					medium.setcloads(getint(Messages.getString("GameSparker.187"), string, 0), getint(Messages.getString("GameSparker.188"), string, 1), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("GameSparker.189"), string, 2), getint(Messages.getString("GameSparker.190"), string, 3), getint(Messages.getString("GameSparker.191"), string, 4)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				if (string.startsWith(Messages.getString("GameSparker.192"))) { //$NON-NLS-1$
+					medium.fogd = (getint(Messages.getString("GameSparker.193"), string, 0) + 1) * 2 - 1; //$NON-NLS-1$
 					if (medium.fogd < 1)
 						medium.fogd = 1;
 					if (medium.fogd > 30)
 						medium.fogd = 30;
 				}
-				if (string.startsWith("fadefrom"))
-					medium.fadfrom(getint("fadefrom", string, 0));
-				if (string.startsWith("lightson"))
+				if (string.startsWith(Messages.getString("GameSparker.194"))) //$NON-NLS-1$
+					medium.fadfrom(getint(Messages.getString("GameSparker.195"), string, 0)); //$NON-NLS-1$
+				if (string.startsWith(Messages.getString("GameSparker.196"))) //$NON-NLS-1$
 					medium.lightson = true;
-				if (string.startsWith("mountains"))
-					medium.mgen = getint("mountains", string, 0);
-				if (string.startsWith("set")) {
-					int i_124_ = getint("set", string, 0);
+				if (string.startsWith(Messages.getString("GameSparker.197"))) //$NON-NLS-1$
+					medium.mgen = getint(Messages.getString("GameSparker.198"), string, 0); //$NON-NLS-1$
+				if (string.startsWith(Messages.getString("GameSparker.199"))) { //$NON-NLS-1$
+					int i_124_ = getint(Messages.getString("GameSparker.200"), string, 0); //$NON-NLS-1$
 					if (var_xtGraphics.nplayers == 8) {
 						if (i_124_ == 47)
 							i_124_ = 76;
@@ -572,25 +572,25 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 						if ((checkpoints.stage < 0 || checkpoints.stage >= 28) && i_124_ >= 10 && i_124_ <= 25)
 							medium.loadnew = true;
 						i_124_ += partskips - 10;
-						contos[nob] = new ContO(contos_108_[i_124_], getint("set", string, 1),
-								medium.ground - contos_108_[i_124_].grat, getint("set", string, 2),
-								getint("set", string, 3));
-						if (string.indexOf(")p") != -1) {
-							checkpoints.x[checkpoints.n] = getint("set", string, 1);
-							checkpoints.z[checkpoints.n] = getint("set", string, 2);
+						contos[nob] = new ContO(contos_108_[i_124_], getint(Messages.getString("GameSparker.201"), string, 1), //$NON-NLS-1$
+								medium.ground - contos_108_[i_124_].grat, getint(Messages.getString("GameSparker.202"), string, 2), //$NON-NLS-1$
+								getint(Messages.getString("GameSparker.203"), string, 3)); //$NON-NLS-1$
+						if (string.indexOf(Messages.getString("GameSparker.204")) != -1) { //$NON-NLS-1$
+							checkpoints.x[checkpoints.n] = getint(Messages.getString("GameSparker.205"), string, 1); //$NON-NLS-1$
+							checkpoints.z[checkpoints.n] = getint(Messages.getString("GameSparker.206"), string, 2); //$NON-NLS-1$
 							checkpoints.y[checkpoints.n] = 0;
 							checkpoints.typ[checkpoints.n] = 0;
-							if (string.indexOf(")pt") != -1)
+							if (string.indexOf(Messages.getString("GameSparker.207")) != -1) //$NON-NLS-1$
 								checkpoints.typ[checkpoints.n] = -1;
-							if (string.indexOf(")pr") != -1)
+							if (string.indexOf(Messages.getString("GameSparker.208")) != -1) //$NON-NLS-1$
 								checkpoints.typ[checkpoints.n] = -2;
-							if (string.indexOf(")po") != -1)
+							if (string.indexOf(Messages.getString("GameSparker.209")) != -1) //$NON-NLS-1$
 								checkpoints.typ[checkpoints.n] = -3;
-							if (string.indexOf(")ph") != -1)
+							if (string.indexOf(Messages.getString("GameSparker.210")) != -1) //$NON-NLS-1$
 								checkpoints.typ[checkpoints.n] = -4;
-							if (string.indexOf("out") != -1)
+							if (string.indexOf(Messages.getString("GameSparker.211")) != -1) //$NON-NLS-1$
 								System.out
-										.println(new StringBuilder().append("out: ").append(checkpoints.n).toString());
+										.println(new StringBuilder().append(Messages.getString("GameSparker.212")).append(checkpoints.n).toString()); //$NON-NLS-1$
 							checkpoints.n++;
 							notb = nob + 1;
 						}
@@ -599,18 +599,18 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 							medium.loadnew = false;
 					}
 				}
-				if (string.startsWith("chk")) {
-					int i_125_ = getint("chk", string, 0);
+				if (string.startsWith(Messages.getString("GameSparker.213"))) { //$NON-NLS-1$
+					int i_125_ = getint(Messages.getString("GameSparker.214"), string, 0); //$NON-NLS-1$
 					i_125_ += partskips - 10;
 					int i_126_ = medium.ground - contos_108_[i_125_].grat;
 					if (i_125_ == 110)
-						i_126_ = getint("chk", string, 4);
-					contos[nob] = new ContO(contos_108_[i_125_], getint("chk", string, 1), i_126_,
-							getint("chk", string, 2), getint("chk", string, 3));
-					checkpoints.x[checkpoints.n] = getint("chk", string, 1);
-					checkpoints.z[checkpoints.n] = getint("chk", string, 2);
+						i_126_ = getint(Messages.getString("GameSparker.215"), string, 4); //$NON-NLS-1$
+					contos[nob] = new ContO(contos_108_[i_125_], getint(Messages.getString("GameSparker.216"), string, 1), i_126_, //$NON-NLS-1$
+							getint(Messages.getString("GameSparker.217"), string, 2), getint(Messages.getString("GameSparker.218"), string, 3)); //$NON-NLS-1$ //$NON-NLS-2$
+					checkpoints.x[checkpoints.n] = getint(Messages.getString("GameSparker.219"), string, 1); //$NON-NLS-1$
+					checkpoints.z[checkpoints.n] = getint(Messages.getString("GameSparker.220"), string, 2); //$NON-NLS-1$
 					checkpoints.y[checkpoints.n] = i_126_;
-					if (getint("chk", string, 3) == 0)
+					if (getint(Messages.getString("GameSparker.221"), string, 3) == 0) //$NON-NLS-1$
 						checkpoints.typ[checkpoints.n] = 1;
 					else
 						checkpoints.typ[checkpoints.n] = 2;
@@ -621,21 +621,21 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					nob++;
 					notb = nob;
 				}
-				if (checkpoints.nfix != 5 && string.startsWith("fix")) {
-					int i_127_ = getint("fix", string, 0);
+				if (checkpoints.nfix != 5 && string.startsWith(Messages.getString("GameSparker.222"))) { //$NON-NLS-1$
+					int i_127_ = getint(Messages.getString("GameSparker.223"), string, 0); //$NON-NLS-1$
 					i_127_ += partskips - 10;
-					contos[nob] = new ContO(contos_108_[i_127_], getint("fix", string, 1), getint("fix", string, 3),
-							getint("fix", string, 2), getint("fix", string, 4));
-					checkpoints.fx[checkpoints.fn] = getint("fix", string, 1);
-					checkpoints.fz[checkpoints.fn] = getint("fix", string, 2);
-					checkpoints.fy[checkpoints.fn] = getint("fix", string, 3);
+					contos[nob] = new ContO(contos_108_[i_127_], getint(Messages.getString("GameSparker.224"), string, 1), getint(Messages.getString("GameSparker.225"), string, 3), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("GameSparker.226"), string, 2), getint(Messages.getString("GameSparker.227"), string, 4)); //$NON-NLS-1$ //$NON-NLS-2$
+					checkpoints.fx[checkpoints.fn] = getint(Messages.getString("GameSparker.228"), string, 1); //$NON-NLS-1$
+					checkpoints.fz[checkpoints.fn] = getint(Messages.getString("GameSparker.229"), string, 2); //$NON-NLS-1$
+					checkpoints.fy[checkpoints.fn] = getint(Messages.getString("GameSparker.230"), string, 3); //$NON-NLS-1$
 					contos[nob].elec = true;
-					if (getint("fix", string, 4) != 0) {
+					if (getint(Messages.getString("GameSparker.231"), string, 4) != 0) { //$NON-NLS-1$
 						checkpoints.roted[checkpoints.fn] = true;
 						contos[nob].roted = true;
 					} else
 						checkpoints.roted[checkpoints.fn] = false;
-					if (string.indexOf(")s") != -1)
+					if (string.indexOf(Messages.getString("GameSparker.232")) != -1) //$NON-NLS-1$
 						checkpoints.special[checkpoints.fn] = true;
 					else
 						checkpoints.special[checkpoints.fn] = false;
@@ -643,39 +643,39 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					nob++;
 					notb = nob;
 				}
-				if (!checkpoints.notb && string.startsWith("pile")) {
-					contos[nob] = new ContO(getint("pile", string, 0), getint("pile", string, 1),
-							getint("pile", string, 2), medium, trackers, getint("pile", string, 3),
-							getint("pile", string, 4), medium.ground);
+				if (!checkpoints.notb && string.startsWith(Messages.getString("GameSparker.233"))) { //$NON-NLS-1$
+					contos[nob] = new ContO(getint(Messages.getString("GameSparker.234"), string, 0), getint(Messages.getString("GameSparker.235"), string, 1), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("GameSparker.236"), string, 2), medium, trackers, getint(Messages.getString("GameSparker.237"), string, 3), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("GameSparker.238"), string, 4), medium.ground); //$NON-NLS-1$
 					nob++;
 				}
-				if (var_xtGraphics.multion == 0 && string.startsWith("nlaps")) {
-					checkpoints.nlaps = getint("nlaps", string, 0);
+				if (var_xtGraphics.multion == 0 && string.startsWith(Messages.getString("GameSparker.239"))) { //$NON-NLS-1$
+					checkpoints.nlaps = getint(Messages.getString("GameSparker.240"), string, 0); //$NON-NLS-1$
 					//if (checkpoints.nlaps < 1)
 					//	checkpoints.nlaps = 1;
 					//if (checkpoints.nlaps > 15)
 					//	checkpoints.nlaps = 15;
 				}
-				if (checkpoints.stage > 0 && string.startsWith("name"))
-					checkpoints.name = getstring("name", string, 0).replace('|', ',');
-				if (string.startsWith("stagemaker"))
-					checkpoints.maker = getstring("stagemaker", string, 0);
-				if (string.startsWith("publish"))
-					checkpoints.pubt = getint("publish", string, 0);
-				if (string.startsWith("soundtrack")) {
-					checkpoints.trackname = getstring("soundtrack", string, 0);
-					checkpoints.trackvol = getint("soundtrack", string, 1);
+				if (checkpoints.stage > 0 && string.startsWith(Messages.getString("GameSparker.241"))) //$NON-NLS-1$
+					checkpoints.name = getstring(Messages.getString("GameSparker.242"), string, 0).replace('|', ','); //$NON-NLS-1$
+				if (string.startsWith(Messages.getString("GameSparker.243"))) //$NON-NLS-1$
+					checkpoints.maker = getstring(Messages.getString("GameSparker.244"), string, 0); //$NON-NLS-1$
+				if (string.startsWith(Messages.getString("GameSparker.245"))) //$NON-NLS-1$
+					checkpoints.pubt = getint(Messages.getString("GameSparker.246"), string, 0); //$NON-NLS-1$
+				if (string.startsWith(Messages.getString("GameSparker.247"))) { //$NON-NLS-1$
+					checkpoints.trackname = getstring(Messages.getString("GameSparker.248"), string, 0); //$NON-NLS-1$
+					checkpoints.trackvol = getint(Messages.getString("GameSparker.249"), string, 1); //$NON-NLS-1$
 					if (checkpoints.trackvol < 50)
 						checkpoints.trackvol = 50;
 					if (checkpoints.trackvol > 300)
 						checkpoints.trackvol = 300;
-					var_xtGraphics.sndsize[32] = getint("soundtrack", string, 2);
+					var_xtGraphics.sndsize[32] = getint(Messages.getString("GameSparker.250"), string, 2); //$NON-NLS-1$
 				}
-				if (string.startsWith("maxr")) {
-					final int i_128_ = getint("maxr", string, 0);
-					final int i_129_ = getint("maxr", string, 1);
+				if (string.startsWith(Messages.getString("GameSparker.251"))) { //$NON-NLS-1$
+					final int i_128_ = getint(Messages.getString("GameSparker.252"), string, 0); //$NON-NLS-1$
+					final int i_129_ = getint(Messages.getString("GameSparker.253"), string, 1); //$NON-NLS-1$
 					i = i_129_;
-					final int i_130_ = getint("maxr", string, 2);
+					final int i_130_ = getint(Messages.getString("GameSparker.254"), string, 2); //$NON-NLS-1$
 					for (int i_131_ = 0; i_131_ < i_128_; i_131_++) {
 						contos[nob] = new ContO(contos_108_[29 + partskips], i_129_, medium.ground - contos_108_[29 + partskips].grat, //29 may need to be 85 or xtgraphics.nCars - 16
 								i_131_ * 4800 + i_130_, 0);
@@ -694,11 +694,11 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					trackers.skd[trackers.nt] = 0;
 					trackers.nt++;
 				}
-				if (string.startsWith("maxl")) {
-					final int i_132_ = getint("maxl", string, 0);
-					final int i_133_ = getint("maxl", string, 1);
+				if (string.startsWith(Messages.getString("GameSparker.255"))) { //$NON-NLS-1$
+					final int i_132_ = getint(Messages.getString("GameSparker.256"), string, 0); //$NON-NLS-1$
+					final int i_133_ = getint(Messages.getString("GameSparker.257"), string, 1); //$NON-NLS-1$
 					i_109_ = i_133_;
-					final int i_134_ = getint("maxl", string, 2);
+					final int i_134_ = getint(Messages.getString("GameSparker.258"), string, 2); //$NON-NLS-1$
 					for (int i_135_ = 0; i_135_ < i_132_; i_135_++) {
 						contos[nob] = new ContO(contos_108_[29 + partskips], i_133_, medium.ground - contos_108_[29 + partskips].grat,
 								i_135_ * 4800 + i_134_, 180);
@@ -717,11 +717,11 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					trackers.skd[trackers.nt] = 0;
 					trackers.nt++;
 				}
-				if (string.startsWith("maxt")) {
-					final int i_136_ = getint("maxt", string, 0);
-					final int i_137_ = getint("maxt", string, 1);
+				if (string.startsWith(Messages.getString("GameSparker.259"))) { //$NON-NLS-1$
+					final int i_136_ = getint(Messages.getString("GameSparker.260"), string, 0); //$NON-NLS-1$
+					final int i_137_ = getint(Messages.getString("GameSparker.261"), string, 1); //$NON-NLS-1$
 					i_110_ = i_137_;
-					final int i_138_ = getint("maxt", string, 2);
+					final int i_138_ = getint(Messages.getString("GameSparker.262"), string, 2); //$NON-NLS-1$
 					for (int i_139_ = 0; i_139_ < i_136_; i_139_++) {
 						contos[nob] = new ContO(contos_108_[29 + partskips], i_139_ * 4800 + i_138_,
 								medium.ground - contos_108_[29 + partskips].grat, i_137_, 90);
@@ -740,11 +740,11 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					trackers.skd[trackers.nt] = 0;
 					trackers.nt++;
 				}
-				if (string.startsWith("maxb")) {
-					final int i_140_ = getint("maxb", string, 0);
-					final int i_141_ = getint("maxb", string, 1);
+				if (string.startsWith(Messages.getString("GameSparker.263"))) { //$NON-NLS-1$
+					final int i_140_ = getint(Messages.getString("GameSparker.264"), string, 0); //$NON-NLS-1$
+					final int i_141_ = getint(Messages.getString("GameSparker.265"), string, 1); //$NON-NLS-1$
 					i_111_ = i_141_;
-					final int i_142_ = getint("maxb", string, 2);
+					final int i_142_ = getint(Messages.getString("GameSparker.266"), string, 2); //$NON-NLS-1$
 					for (int i_143_ = 0; i_143_ < i_140_; i_143_++) {
 						contos[nob] = new ContO(contos_108_[29 + partskips], i_143_ * 4800 + i_142_,
 								medium.ground - contos_108_[29 + partskips].grat, i_141_, -90);
@@ -772,9 +772,9 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			trackers.devidetrackers(i_109_, i - i_109_, i_111_, i_110_ - i_111_);
 		} catch (final Exception exception) {
 			checkpoints.stage = -3;
-			System.out.println(new StringBuilder().append("Error in stage ").append(checkpoints.stage).toString());
-			System.out.println(new StringBuilder().append("").append(exception).toString());
-			System.out.println(new StringBuilder().append("At line: ").append(string).toString());
+			System.out.println(new StringBuilder().append(Messages.getString("GameSparker.267")).append(checkpoints.stage).toString()); //$NON-NLS-1$
+			System.out.println(new StringBuilder().append(Messages.getString("GameSparker.268")).append(exception).toString()); //$NON-NLS-1$
+			System.out.println(new StringBuilder().append(Messages.getString("GameSparker.269")).append(string).toString()); //$NON-NLS-1$
 		}
 		if (checkpoints.nsp < 2)
 			checkpoints.stage = -3;
@@ -827,10 +827,10 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					i_146_ -= 27;
 				else if (i_146_ > 10)
 					i_146_ -= 10;
-				var_xtGraphics.asay = new StringBuilder().append("Stage ").append(i_146_).append(":  ")
-						.append(checkpoints.name).append(" ").toString();
+				var_xtGraphics.asay = new StringBuilder().append(Messages.getString("GameSparker.270")).append(i_146_).append(Messages.getString("GameSparker.271")) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(checkpoints.name).append(Messages.getString("GameSparker.272")).toString(); //$NON-NLS-1$
 			} else
-				var_xtGraphics.asay = new StringBuilder().append("Custom Stage:  ").append(checkpoints.name).append(" ")
+				var_xtGraphics.asay = new StringBuilder().append(Messages.getString("GameSparker.273")).append(checkpoints.name).append(Messages.getString("GameSparker.274")) //$NON-NLS-1$ //$NON-NLS-2$
 						.toString();
 			record.reset(contos);
 		} else if (var_xtGraphics.fase == 2)
@@ -850,7 +850,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			if (sgame.getSelectedIndex() == 3 || sgame.getSelectedIndex() == 4)
 				checkpoints.name = mstgs.getSelectedItem();
 			else {
-				final int i_148_ = mstgs.getSelectedItem().indexOf(" ") + 1;
+				final int i_148_ = mstgs.getSelectedItem().indexOf(Messages.getString("GameSparker.275")) + 1; //$NON-NLS-1$
 				if (i_148_ > 0)
 					checkpoints.name = mstgs.getSelectedItem().substring(i_148_);
 			}
@@ -870,16 +870,16 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		int i_150_ = 100;
 		int i_151_ = 0;
 		int i_152_ = 100;
-		String string_153_ = "";
+		String string_153_ = Messages.getString("GameSparker.276"); //$NON-NLS-1$
 		try {
 			DataInputStream datainputstream;
 			if (checkpoints.stage > 0) {
-				final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/stages/")
-						.append(checkpoints.stage).append(".txt").toString());
+				final URL url = new URL(new StringBuilder().append(Messages.getString("GameSparker.277")) //$NON-NLS-1$
+						.append(checkpoints.stage).append(Messages.getString("GameSparker.278")).toString()); //$NON-NLS-1$
 				datainputstream = new DataInputStream(url.openStream());
 			} else {
-				String string_154_ = new StringBuilder().append("http://multiplayer.needformadness.com/tracks/")
-						.append(checkpoints.name).append(".radq").toString();
+				String string_154_ = new StringBuilder().append(Messages.getString("GameSparker.279")) //$NON-NLS-1$
+						.append(checkpoints.name).append(Messages.getString("GameSparker.280")).toString(); //$NON-NLS-1$
 				string_154_ = string_154_.replace(' ', '_');
 				final URL url = new URL(string_154_);
 				final int i_155_ = url.openConnection().getContentLength();
@@ -914,88 +914,88 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			}
 			String string_164_;
 			while ((string_164_ = datainputstream.readLine()) != null) {
-				string_153_ = new StringBuilder().append("").append(string_164_.trim()).toString();
-				if (string_153_.startsWith("snap"))
-					medium.setsnap(getint("snap", string_153_, 0), getint("snap", string_153_, 1),
-							getint("snap", string_153_, 2));
-				if (string_153_.startsWith("sky"))
-					medium.setsky(getint("sky", string_153_, 0), getint("sky", string_153_, 1),
-							getint("sky", string_153_, 2));
-				if (string_153_.startsWith("ground"))
-					medium.setgrnd(getint("ground", string_153_, 0), getint("ground", string_153_, 1),
-							getint("ground", string_153_, 2));
-				if (string_153_.startsWith("polys"))
-					medium.setpolys(getint("polys", string_153_, 0), getint("polys", string_153_, 1),
-							getint("polys", string_153_, 2));
-				if (string_153_.startsWith("fog"))
-					medium.setfade(getint("fog", string_153_, 0), getint("fog", string_153_, 1),
-							getint("fog", string_153_, 2));
-				if (string_153_.startsWith("texture"))
-					medium.setexture(getint("texture", string_153_, 0), getint("texture", string_153_, 1),
-							getint("texture", string_153_, 2), getint("texture", string_153_, 3));
-				if (string_153_.startsWith("clouds"))
-					medium.setcloads(getint("clouds", string_153_, 0), getint("clouds", string_153_, 1),
-							getint("clouds", string_153_, 2), getint("clouds", string_153_, 3),
-							getint("clouds", string_153_, 4));
-				if (string_153_.startsWith("density")) {
-					medium.fogd = (getint("density", string_153_, 0) + 1) * 2 - 1;
+				string_153_ = new StringBuilder().append(Messages.getString("GameSparker.281")).append(string_164_.trim()).toString(); //$NON-NLS-1$
+				if (string_153_.startsWith(Messages.getString("GameSparker.282"))) //$NON-NLS-1$
+					medium.setsnap(getint(Messages.getString("GameSparker.283"), string_153_, 0), getint(Messages.getString("GameSparker.284"), string_153_, 1), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("GameSparker.285"), string_153_, 2)); //$NON-NLS-1$
+				if (string_153_.startsWith(Messages.getString("GameSparker.286"))) //$NON-NLS-1$
+					medium.setsky(getint(Messages.getString("GameSparker.287"), string_153_, 0), getint(Messages.getString("GameSparker.288"), string_153_, 1), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("GameSparker.289"), string_153_, 2)); //$NON-NLS-1$
+				if (string_153_.startsWith(Messages.getString("GameSparker.290"))) //$NON-NLS-1$
+					medium.setgrnd(getint(Messages.getString("GameSparker.291"), string_153_, 0), getint(Messages.getString("GameSparker.292"), string_153_, 1), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("GameSparker.293"), string_153_, 2)); //$NON-NLS-1$
+				if (string_153_.startsWith(Messages.getString("GameSparker.294"))) //$NON-NLS-1$
+					medium.setpolys(getint(Messages.getString("GameSparker.295"), string_153_, 0), getint(Messages.getString("GameSparker.296"), string_153_, 1), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("GameSparker.297"), string_153_, 2)); //$NON-NLS-1$
+				if (string_153_.startsWith(Messages.getString("GameSparker.298"))) //$NON-NLS-1$
+					medium.setfade(getint(Messages.getString("GameSparker.299"), string_153_, 0), getint(Messages.getString("GameSparker.300"), string_153_, 1), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("GameSparker.301"), string_153_, 2)); //$NON-NLS-1$
+				if (string_153_.startsWith(Messages.getString("GameSparker.302"))) //$NON-NLS-1$
+					medium.setexture(getint(Messages.getString("GameSparker.303"), string_153_, 0), getint(Messages.getString("GameSparker.304"), string_153_, 1), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("GameSparker.305"), string_153_, 2), getint(Messages.getString("GameSparker.306"), string_153_, 3)); //$NON-NLS-1$ //$NON-NLS-2$
+				if (string_153_.startsWith(Messages.getString("GameSparker.307"))) //$NON-NLS-1$
+					medium.setcloads(getint(Messages.getString("GameSparker.308"), string_153_, 0), getint(Messages.getString("GameSparker.309"), string_153_, 1), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("GameSparker.310"), string_153_, 2), getint(Messages.getString("GameSparker.311"), string_153_, 3), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("GameSparker.312"), string_153_, 4)); //$NON-NLS-1$
+				if (string_153_.startsWith(Messages.getString("GameSparker.313"))) { //$NON-NLS-1$
+					medium.fogd = (getint(Messages.getString("GameSparker.314"), string_153_, 0) + 1) * 2 - 1; //$NON-NLS-1$
 					if (medium.fogd < 1)
 						medium.fogd = 1;
 					if (medium.fogd > 30)
 						medium.fogd = 30;
 				}
-				if (string_153_.startsWith("fadefrom"))
-					medium.fadfrom(getint("fadefrom", string_153_, 0));
-				if (string_153_.startsWith("lightson"))
+				if (string_153_.startsWith(Messages.getString("GameSparker.315"))) //$NON-NLS-1$
+					medium.fadfrom(getint(Messages.getString("GameSparker.316"), string_153_, 0)); //$NON-NLS-1$
+				if (string_153_.startsWith(Messages.getString("GameSparker.317"))) //$NON-NLS-1$
 					medium.lightson = true;
-				if (string_153_.startsWith("mountains"))
-					medium.mgen = getint("mountains", string_153_, 0);
-				if (string_153_.startsWith("soundtrack")) {
-					checkpoints.trackname = getstring("soundtrack", string_153_, 0);
-					checkpoints.trackvol = getint("soundtrack", string_153_, 1);
+				if (string_153_.startsWith(Messages.getString("GameSparker.318"))) //$NON-NLS-1$
+					medium.mgen = getint(Messages.getString("GameSparker.319"), string_153_, 0); //$NON-NLS-1$
+				if (string_153_.startsWith(Messages.getString("GameSparker.320"))) { //$NON-NLS-1$
+					checkpoints.trackname = getstring(Messages.getString("GameSparker.321"), string_153_, 0); //$NON-NLS-1$
+					checkpoints.trackvol = getint(Messages.getString("GameSparker.322"), string_153_, 1); //$NON-NLS-1$
 					if (checkpoints.trackvol < 50)
 						checkpoints.trackvol = 50;
 					if (checkpoints.trackvol > 300)
 						checkpoints.trackvol = 300;
 				}
-				if (string_153_.startsWith("set")) {
-					int i_165_ = getint("set", string_153_, 0);
+				if (string_153_.startsWith(Messages.getString("GameSparker.323"))) { //$NON-NLS-1$
+					int i_165_ = getint(Messages.getString("GameSparker.324"), string_153_, 0); //$NON-NLS-1$
 					i_165_ += partskips - 10;
-					contos[nob] = new ContO(contos_147_[i_165_], getint("set", string_153_, 1),
-							medium.ground - contos_147_[i_165_].grat, getint("set", string_153_, 2),
-							getint("set", string_153_, 3));
+					contos[nob] = new ContO(contos_147_[i_165_], getint(Messages.getString("GameSparker.325"), string_153_, 1), //$NON-NLS-1$
+							medium.ground - contos_147_[i_165_].grat, getint(Messages.getString("GameSparker.326"), string_153_, 2), //$NON-NLS-1$
+							getint(Messages.getString("GameSparker.327"), string_153_, 3)); //$NON-NLS-1$
 					contos[nob].t.nt = 0;
-					if (string_153_.indexOf(")p") != -1) {
-						checkpoints.x[checkpoints.n] = getint("chk", string_153_, 1);
-						checkpoints.z[checkpoints.n] = getint("chk", string_153_, 2);
+					if (string_153_.indexOf(Messages.getString("GameSparker.328")) != -1) { //$NON-NLS-1$
+						checkpoints.x[checkpoints.n] = getint(Messages.getString("GameSparker.329"), string_153_, 1); //$NON-NLS-1$
+						checkpoints.z[checkpoints.n] = getint(Messages.getString("GameSparker.330"), string_153_, 2); //$NON-NLS-1$
 						checkpoints.y[checkpoints.n] = 0;
 						checkpoints.typ[checkpoints.n] = 0;
-						if (string_153_.indexOf(")pt") != -1)
+						if (string_153_.indexOf(Messages.getString("GameSparker.331")) != -1) //$NON-NLS-1$
 							checkpoints.typ[checkpoints.n] = -1;
-						if (string_153_.indexOf(")pr") != -1)
+						if (string_153_.indexOf(Messages.getString("GameSparker.332")) != -1) //$NON-NLS-1$
 							checkpoints.typ[checkpoints.n] = -2;
-						if (string_153_.indexOf(")po") != -1)
+						if (string_153_.indexOf(Messages.getString("GameSparker.333")) != -1) //$NON-NLS-1$
 							checkpoints.typ[checkpoints.n] = -3;
-						if (string_153_.indexOf(")ph") != -1)
+						if (string_153_.indexOf(Messages.getString("GameSparker.334")) != -1) //$NON-NLS-1$
 							checkpoints.typ[checkpoints.n] = -4;
-						if (string_153_.indexOf("out") != -1)
-							System.out.println(new StringBuilder().append("out: ").append(checkpoints.n).toString());
+						if (string_153_.indexOf(Messages.getString("GameSparker.335")) != -1) //$NON-NLS-1$
+							System.out.println(new StringBuilder().append(Messages.getString("GameSparker.336")).append(checkpoints.n).toString()); //$NON-NLS-1$
 						checkpoints.n++;
 					}
 					nob++;
 				}
-				if (string_153_.startsWith("chk")) {
-					int i_166_ = getint("chk", string_153_, 0);
+				if (string_153_.startsWith(Messages.getString("GameSparker.337"))) { //$NON-NLS-1$
+					int i_166_ = getint(Messages.getString("GameSparker.338"), string_153_, 0); //$NON-NLS-1$
 					i_166_ += partskips - 10;
 					int i_167_ = medium.ground - contos_147_[i_166_].grat;
 					if (i_166_ == 110)
-						i_167_ = getint("chk", string_153_, 4);
-					contos[nob] = new ContO(contos_147_[i_166_], getint("chk", string_153_, 1), i_167_,
-							getint("chk", string_153_, 2), getint("chk", string_153_, 3));
-					checkpoints.x[checkpoints.n] = getint("chk", string_153_, 1);
-					checkpoints.z[checkpoints.n] = getint("chk", string_153_, 2);
+						i_167_ = getint(Messages.getString("GameSparker.339"), string_153_, 4); //$NON-NLS-1$
+					contos[nob] = new ContO(contos_147_[i_166_], getint(Messages.getString("GameSparker.340"), string_153_, 1), i_167_, //$NON-NLS-1$
+							getint(Messages.getString("GameSparker.341"), string_153_, 2), getint(Messages.getString("GameSparker.342"), string_153_, 3)); //$NON-NLS-1$ //$NON-NLS-2$
+					checkpoints.x[checkpoints.n] = getint(Messages.getString("GameSparker.343"), string_153_, 1); //$NON-NLS-1$
+					checkpoints.z[checkpoints.n] = getint(Messages.getString("GameSparker.344"), string_153_, 2); //$NON-NLS-1$
 					checkpoints.y[checkpoints.n] = i_167_;
-					if (getint("chk", string_153_, 3) == 0)
+					if (getint(Messages.getString("GameSparker.345"), string_153_, 3) == 0) //$NON-NLS-1$
 						checkpoints.typ[checkpoints.n] = 1;
 					else
 						checkpoints.typ[checkpoints.n] = 2;
@@ -1005,55 +1005,55 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					checkpoints.nsp++;
 					nob++;
 				}
-				if (string_153_.startsWith("fix")) {
-					int i_168_ = getint("fix", string_153_, 0);
+				if (string_153_.startsWith(Messages.getString("GameSparker.346"))) { //$NON-NLS-1$
+					int i_168_ = getint(Messages.getString("GameSparker.347"), string_153_, 0); //$NON-NLS-1$
 					i_168_ += partskips - 10;
-					contos[nob] = new ContO(contos_147_[i_168_], getint("fix", string_153_, 1),
-							getint("fix", string_153_, 3), getint("fix", string_153_, 2),
-							getint("fix", string_153_, 4));
-					checkpoints.fx[checkpoints.fn] = getint("fix", string_153_, 1);
-					checkpoints.fz[checkpoints.fn] = getint("fix", string_153_, 2);
-					checkpoints.fy[checkpoints.fn] = getint("fix", string_153_, 3);
+					contos[nob] = new ContO(contos_147_[i_168_], getint(Messages.getString("GameSparker.348"), string_153_, 1), //$NON-NLS-1$
+							getint(Messages.getString("GameSparker.349"), string_153_, 3), getint(Messages.getString("GameSparker.350"), string_153_, 2), //$NON-NLS-1$ //$NON-NLS-2$
+							getint(Messages.getString("GameSparker.351"), string_153_, 4)); //$NON-NLS-1$
+					checkpoints.fx[checkpoints.fn] = getint(Messages.getString("GameSparker.352"), string_153_, 1); //$NON-NLS-1$
+					checkpoints.fz[checkpoints.fn] = getint(Messages.getString("GameSparker.353"), string_153_, 2); //$NON-NLS-1$
+					checkpoints.fy[checkpoints.fn] = getint(Messages.getString("GameSparker.354"), string_153_, 3); //$NON-NLS-1$
 					contos[nob].elec = true;
-					if (getint("fix", string_153_, 4) != 0) {
+					if (getint(Messages.getString("GameSparker.355"), string_153_, 4) != 0) { //$NON-NLS-1$
 						checkpoints.roted[checkpoints.fn] = true;
 						contos[nob].roted = true;
 					} else
 						checkpoints.roted[checkpoints.fn] = false;
-					if (string_153_.indexOf(")s") != -1)
+					if (string_153_.indexOf(Messages.getString("GameSparker.356")) != -1) //$NON-NLS-1$
 						checkpoints.special[checkpoints.fn] = true;
 					else
 						checkpoints.special[checkpoints.fn] = false;
 					checkpoints.fn++;
 					nob++;
 				}
-				if (string_153_.startsWith("nlaps")) {
-					checkpoints.nlaps = getint("nlaps", string_153_, 0);
+				if (string_153_.startsWith(Messages.getString("GameSparker.357"))) { //$NON-NLS-1$
+					checkpoints.nlaps = getint(Messages.getString("GameSparker.358"), string_153_, 0); //$NON-NLS-1$
 					if (checkpoints.nlaps < 1)
 						checkpoints.nlaps = 1;
 					if (checkpoints.nlaps > 15)
 						checkpoints.nlaps = 15;
 				}
-				if (checkpoints.stage > 0 && string_153_.startsWith("name"))
-					checkpoints.name = getstring("name", string_153_, 0).replace('|', ',');
-				if (string_153_.startsWith("stagemaker"))
-					checkpoints.maker = getstring("stagemaker", string_153_, 0);
-				if (string_153_.startsWith("publish"))
-					checkpoints.pubt = getint("publish", string_153_, 0);
-				if (string_153_.startsWith("maxr")) {
-					i_149_ = getint("maxr", string_153_, 1);
+				if (checkpoints.stage > 0 && string_153_.startsWith(Messages.getString("GameSparker.359"))) //$NON-NLS-1$
+					checkpoints.name = getstring(Messages.getString("GameSparker.360"), string_153_, 0).replace('|', ','); //$NON-NLS-1$
+				if (string_153_.startsWith(Messages.getString("GameSparker.361"))) //$NON-NLS-1$
+					checkpoints.maker = getstring(Messages.getString("GameSparker.362"), string_153_, 0); //$NON-NLS-1$
+				if (string_153_.startsWith(Messages.getString("GameSparker.363"))) //$NON-NLS-1$
+					checkpoints.pubt = getint(Messages.getString("GameSparker.364"), string_153_, 0); //$NON-NLS-1$
+				if (string_153_.startsWith(Messages.getString("GameSparker.365"))) { //$NON-NLS-1$
+					i_149_ = getint(Messages.getString("GameSparker.366"), string_153_, 1); //$NON-NLS-1$
 					//i_149_ = i_169_;
 				}
-				if (string_153_.startsWith("maxl")) {
-					i_150_ = getint("maxl", string_153_, 1);
+				if (string_153_.startsWith(Messages.getString("GameSparker.367"))) { //$NON-NLS-1$
+					i_150_ = getint(Messages.getString("GameSparker.368"), string_153_, 1); //$NON-NLS-1$
 					//i_150_ = i_170_;
 				}
-				if (string_153_.startsWith("maxt")) {
-					i_151_ = getint("maxt", string_153_, 1);
+				if (string_153_.startsWith(Messages.getString("GameSparker.369"))) { //$NON-NLS-1$
+					i_151_ = getint(Messages.getString("GameSparker.370"), string_153_, 1); //$NON-NLS-1$
 					//i_151_ = i_171_;
 				}
-				if (string_153_.startsWith("maxb")) {
-					i_152_ = getint("maxb", string_153_, 1);
+				if (string_153_.startsWith(Messages.getString("GameSparker.371"))) { //$NON-NLS-1$
+					i_152_ = getint(Messages.getString("GameSparker.372"), string_153_, 1); //$NON-NLS-1$
 					//i_152_ = i_172_;
 				}
 			}
@@ -1064,9 +1064,9 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			medium.newstars();
 		} catch (final Exception exception) {
 			bool = false;
-			System.out.println(new StringBuilder().append("Error in stage ").append(checkpoints.stage).toString());
-			System.out.println(new StringBuilder().append("").append(exception).toString());
-			System.out.println(new StringBuilder().append("At line: ").append(string_153_).toString());
+			System.out.println(new StringBuilder().append(Messages.getString("GameSparker.373")).append(checkpoints.stage).toString()); //$NON-NLS-1$
+			System.out.println(new StringBuilder().append(Messages.getString("GameSparker.374")).append(exception).toString()); //$NON-NLS-1$
+			System.out.println(new StringBuilder().append(Messages.getString("GameSparker.375")).append(string_153_).toString()); //$NON-NLS-1$
 		}
 		if (checkpoints.nsp < 2)
 			bool = false;
@@ -1095,7 +1095,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	}
 
 	public void madlink() {
-		openurl("http://www.needformadness.com/");
+		openurl(Messages.getString("GameSparker.376")); //$NON-NLS-1$
 	}
 
 	public void mouseW(final int i) {
@@ -1117,7 +1117,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 
 	public void movefielda(final TextArea textarea, int i, int i_105_, final int i_106_, final int i_107_) {
 		if (applejava) {
-			if (xm > i && xm < i + i_106_ && ym > i_105_ && ym < i_105_ + i_107_ || !textarea.getText().equals(" ")) {
+			if (xm > i && xm < i + i_106_ && ym > i_105_ && ym < i_105_ + i_107_ || !textarea.getText().equals(Messages.getString("GameSparker.377"))) { //$NON-NLS-1$
 				if (!textarea.isShowing()) {
 					textarea.setVisible(true);
 					textarea.requestFocus();
@@ -1153,7 +1153,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		if (applejava) {
 			if (bool)
 				if (xm > i && xm < i + i_103_ && ym > i_102_ && ym < i_102_ + i_104_
-						|| !textfield.getText().equals("")) {
+						|| !textfield.getText().equals(Messages.getString("GameSparker.378"))) { //$NON-NLS-1$
 					if (!textfield.isShowing()) {
 						textfield.setVisible(true);
 						textfield.requestFocus();
@@ -1185,15 +1185,15 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	}
 
 	public void multlink() {
-		openurl("http://multiplayer.needformadness.com/");
+		openurl(Messages.getString("GameSparker.379")); //$NON-NLS-1$
 	}
 
 	public void musiclink() {
-		openurl("http://multiplayer.needformadness.com/music.html");
+		openurl(Messages.getString("GameSparker.380")); //$NON-NLS-1$
 	}
 
 	public void onfmmlink() {
-		openurl("https://github.com/chrishansen69/OpenNFMM");
+		openurl(Messages.getString("GameSparker.381")); //$NON-NLS-1$
 	}
 
 	public void openurl(final String string) {
@@ -1205,8 +1205,8 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			}
 		else
 			try {
-				Runtime.getRuntime().exec(new StringBuilder().append("").append(Madness.urlopen()).append(" ")
-						.append(string).append("").toString());
+				Runtime.getRuntime().exec(new StringBuilder().append(Messages.getString("GameSparker.382")).append(Madness.urlopen()).append(Messages.getString("GameSparker.383")) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(string).append(Messages.getString("GameSparker.384")).toString()); //$NON-NLS-1$
 			} catch (final Exception exception) {
 				/* empty */
 			}
@@ -1259,25 +1259,25 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				graphics2d.drawImage(sizebar, getWidth() / 2 - 230, 23, this);
 				graphics2d.drawImage(blb, (int) (getWidth() / 2 - 222 + 141.0F * reqmult), 23, this);
 				graphics2d.drawImage(chkbx[smooth], getWidth() / 2 - 53, 23, this);
-				graphics2d.setFont(new Font("Arial", 1, 11));
+				graphics2d.setFont(new Font(Messages.getString("GameSparker.385"), 1, 11)); //$NON-NLS-1$
 				graphics2d.setColor(new Color(74, 99, 125));
-				graphics2d.drawString("Screen Size:", getWidth() / 2 - 224, 17);
-				graphics2d.drawString("Smooth", getWidth() / 2 - 36, 34);
+				graphics2d.drawString(Messages.getString("GameSparker.386"), getWidth() / 2 - 224, 17); //$NON-NLS-1$
+				graphics2d.drawString(Messages.getString("GameSparker.387"), getWidth() / 2 - 36, 34); //$NON-NLS-1$
 				graphics2d.drawImage(fulls, getWidth() / 2 + 27, 15, this);
 				graphics2d.setColor(new Color(94, 126, 159));
-				graphics2d.drawString("Fullscreen", getWidth() / 2 + 63, 30);
+				graphics2d.drawString(Messages.getString("GameSparker.388"), getWidth() / 2 + 63, 30); //$NON-NLS-1$
 				graphics2d.drawImage(chkbx[Madness.anti], getWidth() / 2 + 135, 9, this);
-				graphics2d.drawString("Antialiasing", getWidth() / 2 + 152, 20);
+				graphics2d.drawString(Messages.getString("GameSparker.389"), getWidth() / 2 + 152, 20); //$NON-NLS-1$
 				graphics2d.drawImage(chkbx[moto], getWidth() / 2 + 135, 26, this);
-				graphics2d.drawString("Motion Effects", getWidth() / 2 + 152, 37);
+				graphics2d.drawString(Messages.getString("GameSparker.390"), getWidth() / 2 + 152, 37); //$NON-NLS-1$
 				graphics2d.setColor(new Color(0, 0, 0));
 				graphics2d.fillRect(getWidth() / 2 - 153, 5, 80, 16);
 				graphics2d.setColor(new Color(121, 135, 152));
-				String string = new StringBuilder().append("").append((int) (apmult * 100.0F)).append("%").toString();
+				String string = new StringBuilder().append(Messages.getString("GameSparker.391")).append((int) (apmult * 100.0F)).append(Messages.getString("GameSparker.392")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 				if (reqmult == 0.0F)
-					string = "Original";
+					string = Messages.getString("GameSparker.393"); //$NON-NLS-1$
 				if (reqmult == 1.0F)
-					string = "Maximum";
+					string = Messages.getString("GameSparker.394"); //$NON-NLS-1$
 				graphics2d.drawString(string, getWidth() / 2 - 150, 17);
 				if (!oncarm && !onstgm)
 					showsize--;
@@ -1333,11 +1333,11 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	}
 
 	public void readcookies(final xtGraphics var_xtGraphics, final CarDefine cardefine, final ContO[] contos) {
-		var_xtGraphics.nickname = "";
+		var_xtGraphics.nickname = Messages.getString("GameSparker.395"); //$NON-NLS-1$
 		try {
 			final File file = new File(
-					new StringBuilder().append("").append(Madness.fpath).append("data/user.data").toString());
-			final String[] strings = { "", "", "", "", "" };
+					new StringBuilder().append(Messages.getString("GameSparker.396")).append(Madness.fpath).append(Messages.getString("GameSparker.397")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+			final String[] strings = { Messages.getString("GameSparker.398"), Messages.getString("GameSparker.399"), Messages.getString("GameSparker.400"), Messages.getString("GameSparker.401"), Messages.getString("GameSparker.402") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
 			if (file.exists()) {
 				final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
 				String string;
@@ -1345,29 +1345,29 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					strings[i] = string;
 				bufferedreader.close();
 			}
-			if (strings[0].startsWith("lastuser")) {
-				var_xtGraphics.nickname = getstring("lastuser", strings[0], 0);
-				if (!var_xtGraphics.nickname.equals(""))
+			if (strings[0].startsWith(Messages.getString("GameSparker.403"))) { //$NON-NLS-1$
+				var_xtGraphics.nickname = getstring(Messages.getString("GameSparker.404"), strings[0], 0); //$NON-NLS-1$
+				if (!var_xtGraphics.nickname.equals(Messages.getString("GameSparker.405"))) //$NON-NLS-1$
 					var_xtGraphics.opselect = 1;
-				String string = "";
+				String string = Messages.getString("GameSparker.406"); //$NON-NLS-1$
 				try {
-					string = getstring("lastuser", strings[0], 1);
+					string = getstring(Messages.getString("GameSparker.407"), strings[0], 1); //$NON-NLS-1$
 				} catch (final Exception exception) {
-					string = "";
+					string = Messages.getString("GameSparker.408"); //$NON-NLS-1$
 				}
-				if (!string.equals("")) {
+				if (!string.equals(Messages.getString("GameSparker.409"))) { //$NON-NLS-1$
 					tnick.setText(var_xtGraphics.nickname);
 					tpass.setText(string);
 					var_xtGraphics.autolog = true;
 				}
 			}
-			if (strings[2].startsWith("saved")) {
-				int i = getint("saved", strings[2], 0);
+			if (strings[2].startsWith(Messages.getString("GameSparker.410"))) { //$NON-NLS-1$
+				int i = getint(Messages.getString("GameSparker.411"), strings[2], 0); //$NON-NLS-1$
 				if (i >= 0 && i < xtGraphics.nCars) {
 					var_xtGraphics.scm = i;
 					var_xtGraphics.firstime = false;
 				}
-				i = getint("saved", strings[2], 1);
+				i = getint(Messages.getString("GameSparker.412"), strings[2], 1); //$NON-NLS-1$
 				if (i >= 1 && i <= xtGraphics.nTracks)
 					var_xtGraphics.unlocked = i;
 			}
@@ -1379,24 +1379,24 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				}
 				i = getint("NFM2", strings[3], 1);
 			}*/
-			if (strings[4].startsWith("graphics")) {
-				int i = getint("graphics", strings[4], 0);
+			if (strings[4].startsWith(Messages.getString("GameSparker.413"))) { //$NON-NLS-1$
+				int i = getint(Messages.getString("GameSparker.414"), strings[4], 0); //$NON-NLS-1$
 				if (i >= 0 && i <= 1)
 					moto = i;
-				i = getint("graphics", strings[4], 1);
+				i = getint(Messages.getString("GameSparker.415"), strings[4], 1); //$NON-NLS-1$
 				if (i >= 0 && i <= 1)
 					Madness.anti = i;
 			}
-			if (strings[1].startsWith("lastcar")) {
-				int i = getint("lastcar", strings[1], 0);
-				cardefine.lastcar = getstring("lastcar", strings[1], 7);
+			if (strings[1].startsWith(Messages.getString("GameSparker.416"))) { //$NON-NLS-1$
+				int i = getint(Messages.getString("GameSparker.417"), strings[1], 0); //$NON-NLS-1$
+				cardefine.lastcar = getstring(Messages.getString("GameSparker.418"), strings[1], 7); //$NON-NLS-1$
 				if (i >= 0 && i < 36) {
 					var_xtGraphics.osc = i;
 					var_xtGraphics.firstime = false;
 				}
 				int i_198_ = 0;
 				for (int i_199_ = 0; i_199_ < 6; i_199_++) {
-					i = getint("lastcar", strings[1], i_199_ + 1);
+					i = getint(Messages.getString("GameSparker.419"), strings[1], i_199_ + 1); //$NON-NLS-1$
 					if (i >= 0 && i <= 100) {
 						var_xtGraphics.arnp[i_199_] = i / 100.0F;
 						i_198_++;
@@ -1427,11 +1427,11 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	}
 
 	public void reglink() {
-		openurl("http://multiplayer.needformadness.com/register.html?ref=game");
+		openurl(Messages.getString("GameSparker.420")); //$NON-NLS-1$
 	}
 
 	public void regnew() {
-		openurl("http://multiplayer.needformadness.com/registernew.pl");
+		openurl(Messages.getString("GameSparker.421")); //$NON-NLS-1$
 	}
 
 	public void regprom() {
@@ -1441,85 +1441,85 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	public void makeMenus() {
 		rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		sgame.add(rd, " NFM 1     ");
-		sgame.add(rd, " NFM 2     ");
-		sgame.add(rd, " My Stages ");
-		sgame.add(rd, " Weekly Top20 ");
-		sgame.add(rd, " Monthly Top20 ");
-		sgame.add(rd, " All Time Top20 ");
-		sgame.add(rd, " Stage Maker ");
-		wgame.add(rd, " Normal Game");
-		wgame.add(rd, " War / Battle");
-		wgame.add(rd, " War / Battle - Practice");
-		warb.add(rd, " Loading your clan's wars and battles, please wait...");
-		pgame.add(rd, " Select the game you want to practice");
-		vnpls.add(rd, "Players");
-		vnpls.add(rd, " 2 VS 2");
-		vnpls.add(rd, " 3 VS 3");
-		vnpls.add(rd, " 4 VS 4");
-		vtyp.add(rd, "Normal clan game");
-		vtyp.add(rd, "Racing only");
-		vtyp.add(rd, "Wasting only");
-		vtyp.add(rd, "Racers VS Wasters - my clan wastes");
-		vtyp.add(rd, "Racers VS Wasters - my clan races");
-		snfmm.add(rd, "Select Stage");
+		sgame.add(rd, Messages.getString("GameSparker.422")); //$NON-NLS-1$
+		sgame.add(rd, Messages.getString("GameSparker.423")); //$NON-NLS-1$
+		sgame.add(rd, Messages.getString("GameSparker.424")); //$NON-NLS-1$
+		sgame.add(rd, Messages.getString("GameSparker.425")); //$NON-NLS-1$
+		sgame.add(rd, Messages.getString("GameSparker.426")); //$NON-NLS-1$
+		sgame.add(rd, Messages.getString("GameSparker.427")); //$NON-NLS-1$
+		sgame.add(rd, Messages.getString("GameSparker.428")); //$NON-NLS-1$
+		wgame.add(rd, Messages.getString("GameSparker.429")); //$NON-NLS-1$
+		wgame.add(rd, Messages.getString("GameSparker.430")); //$NON-NLS-1$
+		wgame.add(rd, Messages.getString("GameSparker.431")); //$NON-NLS-1$
+		warb.add(rd, Messages.getString("GameSparker.432")); //$NON-NLS-1$
+		pgame.add(rd, Messages.getString("GameSparker.433")); //$NON-NLS-1$
+		vnpls.add(rd, Messages.getString("GameSparker.434")); //$NON-NLS-1$
+		vnpls.add(rd, Messages.getString("GameSparker.435")); //$NON-NLS-1$
+		vnpls.add(rd, Messages.getString("GameSparker.436")); //$NON-NLS-1$
+		vnpls.add(rd, Messages.getString("GameSparker.437")); //$NON-NLS-1$
+		vtyp.add(rd, Messages.getString("GameSparker.438")); //$NON-NLS-1$
+		vtyp.add(rd, Messages.getString("GameSparker.439")); //$NON-NLS-1$
+		vtyp.add(rd, Messages.getString("GameSparker.440")); //$NON-NLS-1$
+		vtyp.add(rd, Messages.getString("GameSparker.441")); //$NON-NLS-1$
+		vtyp.add(rd, Messages.getString("GameSparker.442")); //$NON-NLS-1$
+		snfmm.add(rd, Messages.getString("GameSparker.443")); //$NON-NLS-1$
 		//snfm1.add(rd, "Select Stage");
 		//snfm2.add(rd, "Select Stage");
-		mstgs.add(rd, "Suddenly the King becomes Santa's Little Helper");
-		mcars.add(rd, "Sword of Justice");
-		snpls.add(rd, "Select");
-		swait.add(rd, "1 Minute");
-		ilaps.add(rd, "Laps");
-		ilaps.add(rd, "1 Lap");
+		mstgs.add(rd, Messages.getString("GameSparker.444")); //$NON-NLS-1$
+		mcars.add(rd, Messages.getString("GameSparker.445")); //$NON-NLS-1$
+		snpls.add(rd, Messages.getString("GameSparker.446")); //$NON-NLS-1$
+		swait.add(rd, Messages.getString("GameSparker.447")); //$NON-NLS-1$
+		ilaps.add(rd, Messages.getString("GameSparker.448")); //$NON-NLS-1$
+		ilaps.add(rd, Messages.getString("GameSparker.449")); //$NON-NLS-1$
 		for (int i = 0; i < xtGraphics.nTracks; i++)
-			snfmm.add(rd, new StringBuilder().append(" Stage ").append(i + 1).append("").toString());
+			snfmm.add(rd, new StringBuilder().append(Messages.getString("GameSparker.450")).append(i + 1).append(Messages.getString("GameSparker.451")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 		/*for (int i = 0; i < 10; i++)
 			snfm1.add(rd, new StringBuilder().append(" Stage ").append(i + 1).append("").toString());
 		for (int i = 0; i < 17; i++)
 			snfm2.add(rd, new StringBuilder().append(" Stage ").append(i + 1).append("").toString());*/
 		for (int i = 0; i < 7; i++)
-			snpls.add(rd, new StringBuilder().append("    ").append(i + 2).append("").toString());
+			snpls.add(rd, new StringBuilder().append(Messages.getString("GameSparker.452")).append(i + 2).append(Messages.getString("GameSparker.453")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 		for (int i = 0; i < 7; i++)
-			snbts.add(rd, new StringBuilder().append("    ").append(i).append("    ").toString());
+			snbts.add(rd, new StringBuilder().append(Messages.getString("GameSparker.454")).append(i).append(Messages.getString("GameSparker.455")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 		for (int i = 0; i < 2; i++)
-			swait.add(rd, new StringBuilder().append("").append(i + 2).append(" Minutes").toString());
+			swait.add(rd, new StringBuilder().append(Messages.getString("GameSparker.456")).append(i + 2).append(Messages.getString("GameSparker.457")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 		for (int i = 0; i < 15; i++)
-			slaps.add(rd, new StringBuilder().append("").append(i + 1).append("").toString());
+			slaps.add(rd, new StringBuilder().append(Messages.getString("GameSparker.458")).append(i + 1).append(Messages.getString("GameSparker.459")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 		for (int i = 0; i < 14; i++)
-			ilaps.add(rd, new StringBuilder().append("").append(i + 2).append(" Laps").toString());
-		sclass.add(rd, "All Classes");
-		sclass.add(rd, "Class C Cars");
-		sclass.add(rd, "Class B & C Cars");
-		sclass.add(rd, "Class B Cars");
-		sclass.add(rd, "Class A & B Cars");
-		sclass.add(rd, "Class A Cars");
-		scars.add(rd, "All Cars");
-		scars.add(rd, "Custom Cars");
-		scars.add(rd, "Game Cars");
-		sfix.add(rd, "Unlimited Fixing");
-		sfix.add(rd, "4 Fixes");
-		sfix.add(rd, "3 Fixes");
-		sfix.add(rd, "2 Fixes");
-		sfix.add(rd, "1 Fix");
-		sfix.add(rd, "No Fixing");
-		icars.add(rd, "Type of Cars");
-		icars.add(rd, "All Cars");
-		icars.add(rd, "Clan Cars");
-		icars.add(rd, "Game Cars");
+			ilaps.add(rd, new StringBuilder().append(Messages.getString("GameSparker.460")).append(i + 2).append(Messages.getString("GameSparker.461")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+		sclass.add(rd, Messages.getString("GameSparker.462")); //$NON-NLS-1$
+		sclass.add(rd, Messages.getString("GameSparker.463")); //$NON-NLS-1$
+		sclass.add(rd, Messages.getString("GameSparker.464")); //$NON-NLS-1$
+		sclass.add(rd, Messages.getString("GameSparker.465")); //$NON-NLS-1$
+		sclass.add(rd, Messages.getString("GameSparker.466")); //$NON-NLS-1$
+		sclass.add(rd, Messages.getString("GameSparker.467")); //$NON-NLS-1$
+		scars.add(rd, Messages.getString("GameSparker.468")); //$NON-NLS-1$
+		scars.add(rd, Messages.getString("GameSparker.469")); //$NON-NLS-1$
+		scars.add(rd, Messages.getString("GameSparker.470")); //$NON-NLS-1$
+		sfix.add(rd, Messages.getString("GameSparker.471")); //$NON-NLS-1$
+		sfix.add(rd, Messages.getString("GameSparker.472")); //$NON-NLS-1$
+		sfix.add(rd, Messages.getString("GameSparker.473")); //$NON-NLS-1$
+		sfix.add(rd, Messages.getString("GameSparker.474")); //$NON-NLS-1$
+		sfix.add(rd, Messages.getString("GameSparker.475")); //$NON-NLS-1$
+		sfix.add(rd, Messages.getString("GameSparker.476")); //$NON-NLS-1$
+		icars.add(rd, Messages.getString("GameSparker.477")); //$NON-NLS-1$
+		icars.add(rd, Messages.getString("GameSparker.478")); //$NON-NLS-1$
+		icars.add(rd, Messages.getString("GameSparker.479")); //$NON-NLS-1$
+		icars.add(rd, Messages.getString("GameSparker.480")); //$NON-NLS-1$
 		icars.w = 140;
-		gmode.add(rd, " Normal Game ");
-		gmode.add(rd, " Practice Game ");
+		gmode.add(rd, Messages.getString("GameSparker.481")); //$NON-NLS-1$
+		gmode.add(rd, Messages.getString("GameSparker.482")); //$NON-NLS-1$
 		rooms.rooms = true;
-		rooms.add(rd, "Ghostrider :: 1");
-		sendtyp.add(rd, "Write a Message");
-		sendtyp.add(rd, "Share a Custom Car");
-		sendtyp.add(rd, "Share a Custom Stage");
-		sendtyp.add(rd, "Send a Clan Invitation");
-		sendtyp.add(rd, "Share a Relative Date");
-		senditem.add(rd, "Suddenly the King becomes Santa's Little Helper");
+		rooms.add(rd, Messages.getString("GameSparker.483")); //$NON-NLS-1$
+		sendtyp.add(rd, Messages.getString("GameSparker.484")); //$NON-NLS-1$
+		sendtyp.add(rd, Messages.getString("GameSparker.485")); //$NON-NLS-1$
+		sendtyp.add(rd, Messages.getString("GameSparker.486")); //$NON-NLS-1$
+		sendtyp.add(rd, Messages.getString("GameSparker.487")); //$NON-NLS-1$
+		sendtyp.add(rd, Messages.getString("GameSparker.488")); //$NON-NLS-1$
+		senditem.add(rd, Messages.getString("GameSparker.489")); //$NON-NLS-1$
 		for (int i = 0; i < 6; i++)
-			clanlev.add(rd, new StringBuilder().append("").append(i + 1).append("").toString());
-		clanlev.add(rd, "7 - Admin");
+			clanlev.add(rd, new StringBuilder().append(Messages.getString("GameSparker.490")).append(i + 1).append(Messages.getString("GameSparker.491")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+		clanlev.add(rd, Messages.getString("GameSparker.492")); //$NON-NLS-1$
 		hidefields();
 	}
 
@@ -1596,7 +1596,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		rd.fillRect(0, 0, 800, 450);
 		repaint();
 		requestFocus();
-		if (System.getProperty("java.vendor").toLowerCase().indexOf("apple") != -1)
+		if (System.getProperty(Messages.getString("GameSparker.493")).toLowerCase().indexOf(Messages.getString("GameSparker.494")) != -1) //$NON-NLS-1$ //$NON-NLS-2$
 			applejava = true;
 		medium = new Medium();
 		trackers = new Trackers();
@@ -1604,15 +1604,15 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		contos = new ContO[carRads.length + partskips + stageRads.length];
 		cardefine = new CarDefine(contos, medium, trackers, this);
 		var_xtGraphics = new xtGraphics(medium, cardefine, rd, this);
-		sizebar = var_xtGraphics.getImage("data/sizebar.gif");
-		blb = var_xtGraphics.getImage("data/b.gif");
-		fulls = var_xtGraphics.getImage("data/fullscreen.gif");
-		chkbx[0] = var_xtGraphics.getImage("data/checkbox1.gif");
-		chkbx[1] = var_xtGraphics.getImage("data/checkbox2.gif");
-		carmaker[0] = var_xtGraphics.getImage("data/carmaker1.gif");
-		carmaker[1] = var_xtGraphics.getImage("data/carmaker2.gif");
-		stagemaker[0] = var_xtGraphics.getImage("data/stagemaker1.gif");
-		stagemaker[1] = var_xtGraphics.getImage("data/stagemaker2.gif");
+		sizebar = var_xtGraphics.getImage(Messages.getString("GameSparker.495")); //$NON-NLS-1$
+		blb = var_xtGraphics.getImage(Messages.getString("GameSparker.496")); //$NON-NLS-1$
+		fulls = var_xtGraphics.getImage(Messages.getString("GameSparker.497")); //$NON-NLS-1$
+		chkbx[0] = var_xtGraphics.getImage(Messages.getString("GameSparker.498")); //$NON-NLS-1$
+		chkbx[1] = var_xtGraphics.getImage(Messages.getString("GameSparker.499")); //$NON-NLS-1$
+		carmaker[0] = var_xtGraphics.getImage(Messages.getString("GameSparker.500")); //$NON-NLS-1$
+		carmaker[1] = var_xtGraphics.getImage(Messages.getString("GameSparker.501")); //$NON-NLS-1$
+		stagemaker[0] = var_xtGraphics.getImage(Messages.getString("GameSparker.502")); //$NON-NLS-1$
+		stagemaker[1] = var_xtGraphics.getImage(Messages.getString("GameSparker.503")); //$NON-NLS-1$
 		var_xtGraphics.loaddata();
 		//login = null;
 		//lobby = null;
@@ -1636,7 +1636,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				if (var_xtGraphics.sc[0] != -1)
 					var_xtGraphics.fase = -9;
 				else {
-					Madness.testcar = "Failx12";
+					Madness.testcar = Messages.getString("GameSparker.504"); //$NON-NLS-1$
 					Madness.carmaker();
 				}
 			} else {
@@ -1797,7 +1797,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				checkpoints.stage = -1;
 				loadstage(contos_0_, contos, medium, trackers, checkpoints, var_xtGraphics, mads, record);
 				if (checkpoints.stage == -3) {
-					Madness.testcar = "Failx12";
+					Madness.testcar = Messages.getString("GameSparker.505"); //$NON-NLS-1$
 					Madness.stagemaker();
 				}
 			}
@@ -1955,7 +1955,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 						globe.dome(0, xm, ym, moused, u[0]);
 					}
 					if (login.justlog) {
-						if (!var_xtGraphics.clan.equals(""))
+						if (!var_xtGraphics.clan.equals(Messages.getString("GameSparker.506"))) //$NON-NLS-1$
 							globe.itab = 2;
 						login.justlog = false;
 					}
@@ -1997,13 +1997,13 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 							drawms();
 							//repaint();
 							trackers.nt = 0;
-							if (loadstagePreview(lobby.loadstage, "", contos_0_, contos, medium, checkpoints)) {
+							if (loadstagePreview(lobby.loadstage, Messages.getString("GameSparker.507"), contos_0_, contos, medium, checkpoints)) { //$NON-NLS-1$
 								lobby.gstagename = checkpoints.name;
 								lobby.gstagelaps = checkpoints.nlaps;
 								lobby.loadstage = -lobby.loadstage;
 							} else {
 								lobby.loadstage = 0;
-								checkpoints.name = "";
+								checkpoints.name = Messages.getString("GameSparker.508"); //$NON-NLS-1$
 							}
 							setCursor(new Cursor(0));
 						}
@@ -2104,7 +2104,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 								lobby.addstage = 0;
 							} else {
 								lobby.loadstage = 0;
-								checkpoints.name = "";
+								checkpoints.name = Messages.getString("GameSparker.509"); //$NON-NLS-1$
 								lobby.fase = 3;
 							}
 						}
@@ -2600,7 +2600,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					var_xtGraphics.stopchat();
 					if (cmsg.isShowing())
 						cmsg.setVisible(false);
-					cmsg.setText("");
+					cmsg.setText(Messages.getString("GameSparker.510")); //$NON-NLS-1$
 					requestFocus();
 				}
 				if (record.hcaught) {
@@ -2935,8 +2935,8 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			final boolean bool) {
 		try {
 			final File file = new File(
-					new StringBuilder().append("").append(Madness.fpath).append("data/user.data").toString());
-			final String[] strings = { "", "", "", "", "" };
+					new StringBuilder().append(Messages.getString("GameSparker.511")).append(Madness.fpath).append(Messages.getString("GameSparker.512")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+			final String[] strings = { Messages.getString("GameSparker.513"), Messages.getString("GameSparker.514"), Messages.getString("GameSparker.515"), Messages.getString("GameSparker.516"), Messages.getString("GameSparker.517") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
 			if (file.exists()) {
 				final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
 				String string_192_;
@@ -2945,18 +2945,18 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				bufferedreader.close();
 			}
 			if (i_191_ == 0)
-				strings[1] = new StringBuilder().append("lastcar(").append(i).append(",").append((int) (fs[0] * 100.0F))
-						.append(",").append((int) (fs[1] * 100.0F)).append(",").append((int) (fs[2] * 100.0F))
-						.append(",").append((int) (fs[3] * 100.0F)).append(",").append((int) (fs[4] * 100.0F))
-						.append(",").append((int) (fs[5] * 100.0F)).append(",").append(string).append(")").toString();
+				strings[1] = new StringBuilder().append(Messages.getString("GameSparker.518")).append(i).append(Messages.getString("GameSparker.519")).append((int) (fs[0] * 100.0F)) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(Messages.getString("GameSparker.520")).append((int) (fs[1] * 100.0F)).append(Messages.getString("GameSparker.521")).append((int) (fs[2] * 100.0F)) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(Messages.getString("GameSparker.522")).append((int) (fs[3] * 100.0F)).append(Messages.getString("GameSparker.523")).append((int) (fs[4] * 100.0F)) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(Messages.getString("GameSparker.524")).append((int) (fs[5] * 100.0F)).append(Messages.getString("GameSparker.525")).append(string).append(Messages.getString("GameSparker.526")).toString(); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			if (i_191_ == 1 || i_191_ == 2)
-				strings[2] = new StringBuilder().append("saved(").append(i).append(",").append(is).append(")")
+				strings[2] = new StringBuilder().append(Messages.getString("GameSparker.527")).append(i).append(Messages.getString("GameSparker.528")).append(is).append(Messages.getString("GameSparker.529")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 						.toString();
 			//if (i_191_ == 2)
 			//	strings[3] = new StringBuilder().append("NFM2(").append(i).append(")")
 			//			.toString();
-			strings[4] = new StringBuilder().append("graphics(").append(moto).append(",").append(Madness.anti)
-					.append(")").toString();
+			strings[4] = new StringBuilder().append(Messages.getString("GameSparker.530")).append(moto).append(Messages.getString("GameSparker.531")).append(Madness.anti) //$NON-NLS-1$ //$NON-NLS-2$
+					.append(Messages.getString("GameSparker.532")).toString(); //$NON-NLS-1$
 			final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
 			for (int i_195_ = 0; i_195_ < 5; i_195_++) {
 				bufferedwriter.write(strings[i_195_]);
@@ -2971,8 +2971,8 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	public void setloggedcookie() {
 		try {
 			final File file = new File(
-					new StringBuilder().append("").append(Madness.fpath).append("data/user.data").toString());
-			final String[] strings = { "", "", "", "", "" };
+					new StringBuilder().append(Messages.getString("GameSparker.533")).append(Madness.fpath).append(Messages.getString("GameSparker.534")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+			final String[] strings = { Messages.getString("GameSparker.535"), Messages.getString("GameSparker.536"), Messages.getString("GameSparker.537"), Messages.getString("GameSparker.538"), Messages.getString("GameSparker.539") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
 			if (file.exists()) {
 				final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
 				String string;
@@ -2981,10 +2981,10 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				bufferedreader.close();
 			}
 			if (keplo.getState())
-				strings[0] = new StringBuilder().append("lastuser(").append(tnick.getText()).append(",")
-						.append(tpass.getText()).append(")").toString();
+				strings[0] = new StringBuilder().append(Messages.getString("GameSparker.540")).append(tnick.getText()).append(Messages.getString("GameSparker.541")) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(tpass.getText()).append(Messages.getString("GameSparker.542")).toString(); //$NON-NLS-1$
 			else
-				strings[0] = new StringBuilder().append("lastuser(").append(tnick.getText()).append(")").toString();
+				strings[0] = new StringBuilder().append(Messages.getString("GameSparker.543")).append(tnick.getText()).append(Messages.getString("GameSparker.544")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 			final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
 			for (int i = 0; i < 5; i++) {
 				bufferedwriter.write(strings[i]);
@@ -3000,7 +3000,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		Madness.inisetup = true;
 		try {
 			final File file = new File(
-					new StringBuilder().append("").append(Madness.fpath).append("Madness.ini").toString());
+					new StringBuilder().append(Messages.getString("GameSparker.545")).append(Madness.fpath).append(Messages.getString("GameSparker.546")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 			if (file.exists()) {
 				final String[] strings = new String[40];
 				int i = 0;
@@ -3008,13 +3008,13 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				String string;
 				for ( /**/ ; (string = bufferedreader.readLine()) != null && i < 40; i++) {
 					strings[i] = string;
-					if (strings[i].startsWith("Class Path"))
-						if (strings[i].indexOf("madapps.jar") != -1)
-							strings[i] = "Class Path=\\data\\madapps.jar;";
+					if (strings[i].startsWith(Messages.getString("GameSparker.547"))) //$NON-NLS-1$
+						if (strings[i].indexOf(Messages.getString("GameSparker.548")) != -1) //$NON-NLS-1$
+							strings[i] = Messages.getString("GameSparker.549"); //$NON-NLS-1$
 						else
-							strings[i] = "Class Path=\\data\\madapp.jar;";
-					if (strings[i].startsWith("JRE Path"))
-						strings[i] = "JRE Path=data\\jre\\";
+							strings[i] = Messages.getString("GameSparker.550"); //$NON-NLS-1$
+					if (strings[i].startsWith(Messages.getString("GameSparker.551"))) //$NON-NLS-1$
+						strings[i] = Messages.getString("GameSparker.552"); //$NON-NLS-1$
 				}
 				bufferedreader.close();
 				final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));

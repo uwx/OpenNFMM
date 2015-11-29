@@ -23,14 +23,14 @@ public class Globe implements Runnable {
 	boolean bgup = false;
 	int[] bgx = { 0, 670, 1340 };
 	int blockb = 0;
-	String blockname = "";
+	String blockname = Messages.getString("Globe.0"); //$NON-NLS-1$
 	int blocknote = 0;
 	int cadmin = 0;
 	boolean canredo = false;
 	CarDefine cd;
 	int cfase = 0;
 	int champ = -1;
-	String claname = "EvilOnes";
+	String claname = Messages.getString("Globe.1"); //$NON-NLS-1$
 	Image clanbg;
 	boolean clanbgl = false;
 	String[] clanlo = new String[20];
@@ -54,7 +54,7 @@ public class Globe implements Runnable {
 	int cur = 0;
 	int curs = 0;
 	boolean darker = false;
-	String dgcar = "";
+	String dgcar = Messages.getString("Globe.2"); //$NON-NLS-1$
 	BufferedReader din;
 	int dispi = 0;
 	int doi = 0;
@@ -67,15 +67,15 @@ public class Globe implements Runnable {
 	PrintWriter dout;
 	boolean doweb1 = false;
 	boolean doweb2 = false;
-	String dtcar = "";
-	String dwarn = "";
+	String dtcar = Messages.getString("Globe.3"); //$NON-NLS-1$
+	String dwarn = Messages.getString("Globe.4"); //$NON-NLS-1$
 	int edit = 0;
 	int editc = 0;
 	int em = 0;
 	int eng = -1;
 	int engo = 0;
 	int fase = 0;
-	String filename = "";
+	String filename = Messages.getString("Globe.5"); //$NON-NLS-1$
 	boolean flg = false;
 	int flk = 0;
 	int flkn = 0;
@@ -83,14 +83,14 @@ public class Globe implements Runnable {
 	String[] fname = new String[900];
 	boolean forcsel = false;
 	int freq = 0;
-	String freqname = "";
+	String freqname = Messages.getString("Globe.6"); //$NON-NLS-1$
 	boolean frkl = false;
 	FontMetrics ftm;
 	int gameturn = -1;
-	String gameturndisp = "";
+	String gameturndisp = Messages.getString("Globe.7"); //$NON-NLS-1$
 	Image gImage;
 	GameSparker gs;
-	String hasmsgs = "";
+	String hasmsgs = Messages.getString("Globe.8"); //$NON-NLS-1$
 	String[] icheck = new String[200];
 	boolean ichlng = false;
 	String[] iclan = new String[200];
@@ -100,31 +100,31 @@ public class Globe implements Runnable {
 	int ifas = 0;
 	int iflk = 0;
 	String[] igcar = new String[200];
-	String igive = "";
+	String igive = Messages.getString("Globe.9"); //$NON-NLS-1$
 	int il = 0;
 	String[] iline = new String[1000];
 	int[] ilinetyp = new int[1000];
-	String imsg = "";
+	String imsg = Messages.getString("Globe.10"); //$NON-NLS-1$
 	boolean inishsel = false;
-	String intclan = "";
+	String intclan = Messages.getString("Globe.11"); //$NON-NLS-1$
 	Image intclanbg = null;
 	boolean intclanbgloaded = false;
-	String intclanlo = "";
+	String intclanlo = Messages.getString("Globe.12"); //$NON-NLS-1$
 	int intsel = 0;
 	int isel = 0;
 	String[] istat = new String[200];
 	String[] isub = new String[200];
 	int itab = 0;
-	String itake = "";
+	String itake = Messages.getString("Globe.13"); //$NON-NLS-1$
 	String[] itcar = new String[200];
 	int itemsel = 0;
 	String[] itime = new String[200];
 	String[] itimes = new String[1000];
 	String[] iwarn = new String[200];
-	String lastint = "";
-	String lastsub = "";
-	String lccnam = "";
-	String ldes = "";
+	String lastint = Messages.getString("Globe.14"); //$NON-NLS-1$
+	String lastsub = Messages.getString("Globe.15"); //$NON-NLS-1$
+	String lccnam = Messages.getString("Globe.16"); //$NON-NLS-1$
+	String ldes = Messages.getString("Globe.17"); //$NON-NLS-1$
 	int leader = -1;
 	int leadsby = 0;
 	Login lg;
@@ -145,7 +145,7 @@ public class Globe implements Runnable {
 	int loaditem = 0;
 	int loadmsgs = -1;
 	int loadpst = 0;
-	String loadpstage = "";
+	String loadpstage = Messages.getString("Globe.18"); //$NON-NLS-1$
 	int loadwbgames = 0;
 	int loadwstat = 0;
 	Image[] logoi = new Image[200];
@@ -159,9 +159,9 @@ public class Globe implements Runnable {
 	int lspos5 = 0;
 	int lspos6 = 0;
 	int lspos6w = 0;
-	String ltit = "";
-	String lurl = "";
-	String lwbwinner = "";
+	String ltit = Messages.getString("Globe.19"); //$NON-NLS-1$
+	String lurl = Messages.getString("Globe.20"); //$NON-NLS-1$
+	String lwbwinner = Messages.getString("Globe.21"); //$NON-NLS-1$
 	Medium m;
 	int maxclans = 1000;
 	String[] mconvo = new String[200];
@@ -172,8 +172,8 @@ public class Globe implements Runnable {
 	String[] mline = new String[1000];
 	int[] mlinetyp = new int[1000];
 	String[] mname = new String[200];
-	String[] month = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
-			"November", "December" };
+	String[] month = { Messages.getString("Globe.22"), Messages.getString("Globe.23"), Messages.getString("Globe.24"), Messages.getString("Globe.25"), Messages.getString("Globe.26"), Messages.getString("Globe.27"), Messages.getString("Globe.28"), Messages.getString("Globe.29"), Messages.getString("Globe.30"), Messages.getString("Globe.31"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$ //$NON-NLS-10$
+			Messages.getString("Globe.32"), Messages.getString("Globe.33") }; //$NON-NLS-1$ //$NON-NLS-2$
 	int mouson = -1;
 	String[] mrank = new String[20];
 	int mrot = 0;
@@ -182,7 +182,7 @@ public class Globe implements Runnable {
 	int mscro3 = 825;
 	int mscro4 = 825;
 	int mscro5 = 825;
-	String msg = "";
+	String msg = Messages.getString("Globe.34"); //$NON-NLS-1$
 	String[] msub = new String[200];
 	MediaTracker mt;
 	String[] mtime = new String[200];
@@ -195,7 +195,7 @@ public class Globe implements Runnable {
 	int nclns = 0;
 	int ncnf = 0;
 	long[] nctime = new long[21];
-	String[] newplayers = { "", "", "", "", "" };
+	String[] newplayers = { Messages.getString("Globe.35"), Messages.getString("Globe.36"), Messages.getString("Globe.37"), Messages.getString("Globe.38"), Messages.getString("Globe.39") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
 	int ni = 0;
 	int nil = 0;
 	String[] nlclan = new String[5];
@@ -226,17 +226,17 @@ public class Globe implements Runnable {
 	int openc = 0;
 	int openi = 0;
 	int oph = 0;
-	String opname = "";
+	String opname = Messages.getString("Globe.40"); //$NON-NLS-1$
 	int opy = 0;
 	int[] ord;
 	int overit = 0;
 	int perc = 0;
-	String perry = "";
+	String perry = Messages.getString("Globe.41"); //$NON-NLS-1$
 	int playt = 0;
 	String[] pname = new String[900];
 	int[][] points;
-	String proclan = "";
-	String proname = "";
+	String proclan = Messages.getString("Globe.42"); //$NON-NLS-1$
+	String proname = Messages.getString("Globe.43"); //$NON-NLS-1$
 	int[] proom = new int[900];
 	int protab = 0;
 	int[] pserver = new int[900];
@@ -253,21 +253,21 @@ public class Globe implements Runnable {
 	int[][] roomf = new int[3][5];
 	int scro = 0;
 	int sdist = 0;
-	String selcar = "";
-	String selstage = "";
+	String selcar = Messages.getString("Globe.44"); //$NON-NLS-1$
+	String selstage = Messages.getString("Globe.45"); //$NON-NLS-1$
 	int sendcmsg = 0;
 	int sendint = 0;
 	int sendmsg = 0;
-	String sendwar = "";
+	String sendwar = Messages.getString("Globe.46"); //$NON-NLS-1$
 	boolean sendwarnum = false;
-	String sentance = "";
+	String sentance = Messages.getString("Globe.47"); //$NON-NLS-1$
 	int sentchange = 0;
 	String[] sentn = new String[21];
 	int sfreq = 0;
-	String sfreqname = "";
+	String sfreqname = Messages.getString("Globe.48"); //$NON-NLS-1$
 	boolean showreqs = false;
-	String sltit = "";
-	String smsg = "";
+	String sltit = Messages.getString("Globe.49"); //$NON-NLS-1$
+	String smsg = Messages.getString("Globe.50"); //$NON-NLS-1$
 	Socket socket;
 	int spos = 0;
 	int spos2 = 0;
@@ -277,23 +277,23 @@ public class Globe implements Runnable {
 	int spos6 = 0;
 	int tab = 3;
 	String[] text = new String[300];
-	String themesong = "";
+	String themesong = Messages.getString("Globe.51"); //$NON-NLS-1$
 	int[] totp;
-	String trackname = "";
+	String trackname = Messages.getString("Globe.52"); //$NON-NLS-1$
 	int trackvol = 0;
-	String unblockname = "";
+	String unblockname = Messages.getString("Globe.53"); //$NON-NLS-1$
 	int underc = 0;
 	int updatec = -1;
 	int upload = 0;
 	int uploadt = 0;
 	boolean upo = false;
-	String vclan = "";
+	String vclan = Messages.getString("Globe.54"); //$NON-NLS-1$
 	String[][] verclan;
-	String viewcar = "";
+	String viewcar = Messages.getString("Globe.55"); //$NON-NLS-1$
 	int viewgame1 = 0;
 	int viewgame2 = 0;
-	String viewwar1 = "";
-	String viewwar2 = "";
+	String viewwar1 = Messages.getString("Globe.56"); //$NON-NLS-1$
+	String viewwar2 = Messages.getString("Globe.57"); //$NON-NLS-1$
 	int vscore = 0;
 	int[] vwcars1 = new int[10];
 	int[] vwcars2 = new int[10];
@@ -311,8 +311,8 @@ public class Globe implements Runnable {
 	int wag = 0;
 	int waitlink = 0;
 	int warb = 0;
-	String warbnum = "";
-	String warnum = "";
+	String warbnum = Messages.getString("Globe.58"); //$NON-NLS-1$
+	String warnum = Messages.getString("Globe.59"); //$NON-NLS-1$
 	int wasting = 150;
 	int[] wbcars = new int[10];
 	int[] wbclass = new int[10];
@@ -322,11 +322,11 @@ public class Globe implements Runnable {
 	String[] wbstages = new String[10];
 	int[] wcars = new int[5];
 	int[] wclass = new int[5];
-	String[] wday = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+	String[] wday = { Messages.getString("Globe.60"), Messages.getString("Globe.61"), Messages.getString("Globe.62"), Messages.getString("Globe.63"), Messages.getString("Globe.64"), Messages.getString("Globe.65"), Messages.getString("Globe.66") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
 	int[] wfix = new int[5];
 	int[] wlaps = new int[5];
 	String[] wstages = new String[5];
-	String xclan = "";
+	String xclan = Messages.getString("Globe.67"); //$NON-NLS-1$
 	xtGraphics xt;
 
 	public Globe(final Graphics2D graphics2d, final xtGraphics var_xtGraphics, final Medium medium, final Login login,
@@ -352,7 +352,7 @@ public class Globe implements Runnable {
 	}
 
 	public String contime(final long l) {
-		return "";
+		return Messages.getString("Globe.68"); //$NON-NLS-1$
 	}
 
 	public void dome(final int i, final int i_1_, final int i_2_, final boolean bool, final Control control) {
@@ -378,7 +378,7 @@ public class Globe implements Runnable {
 	}
 
 	public String getfuncSvalue(final String string, final String string_766_, final int i) {
-		return "";
+		return Messages.getString("Globe.69"); //$NON-NLS-1$
 	}
 
 	public int getfuncvalue(final String string, final String string_761_, final int i) {
@@ -390,7 +390,7 @@ public class Globe implements Runnable {
 	}
 
 	public String getSvalue(final String string, final int i) {
-		return "";
+		return Messages.getString("Globe.70"); //$NON-NLS-1$
 	}
 
 	public int getvalue(final String string, final int i) {

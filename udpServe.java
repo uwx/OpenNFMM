@@ -23,16 +23,16 @@ public class udpServe implements Runnable {
 	}
 
 	public String getSvalue(final String string, final int i) {
-		String string_24_ = "";
+		String string_24_ = Messages.getString("udpServe.0"); //$NON-NLS-1$
 		try {
 			int i_25_ = 0;
 			int i_26_ = 0;
 			int i_27_ = 0;
-			String string_28_ = "";
-			String string_29_ = "";
+			String string_28_ = Messages.getString("udpServe.1"); //$NON-NLS-1$
+			String string_29_ = Messages.getString("udpServe.2"); //$NON-NLS-1$
 			for (/**/; i_25_ < string.length() && i_27_ != 2; i_25_++) {
-				string_28_ = new StringBuilder().append("").append(string.charAt(i_25_)).toString();
-				if (string_28_.equals("|")) {
+				string_28_ = new StringBuilder().append(Messages.getString("udpServe.3")).append(string.charAt(i_25_)).toString(); //$NON-NLS-1$
+				if (string_28_.equals(Messages.getString("udpServe.4"))) { //$NON-NLS-1$
 					i_26_++;
 					if (i_27_ == 1 || i_26_ > i)
 						i_27_ = 2;
@@ -54,11 +54,11 @@ public class udpServe implements Runnable {
 			int i_19_ = 0;
 			int i_20_ = 0;
 			int i_21_ = 0;
-			String string_22_ = "";
-			String string_23_ = "";
+			String string_22_ = Messages.getString("udpServe.5"); //$NON-NLS-1$
+			String string_23_ = Messages.getString("udpServe.6"); //$NON-NLS-1$
 			for (/**/; i_19_ < string.length() && i_21_ != 2; i_19_++) {
-				string_22_ = new StringBuilder().append("").append(string.charAt(i_19_)).toString();
-				if (string_22_.equals("|")) {
+				string_22_ = new StringBuilder().append(Messages.getString("udpServe.7")).append(string.charAt(i_19_)).toString(); //$NON-NLS-1$
+				if (string_22_.equals(Messages.getString("udpServe.8"))) { //$NON-NLS-1$
 					i_20_++;
 					if (i_21_ == 1 || i_20_ > i)
 						i_21_ = 2;
@@ -67,8 +67,8 @@ public class udpServe implements Runnable {
 					i_21_ = 1;
 				}
 			}
-			if (string_23_.equals(""))
-				string_23_ = "-1";
+			if (string_23_.equals(Messages.getString("udpServe.9"))) //$NON-NLS-1$
+				string_23_ = Messages.getString("udpServe.10"); //$NON-NLS-1$
 			i_18_ = Integer.valueOf(string_23_).intValue();
 		} catch (final Exception exception) {
 			/* empty */
@@ -110,7 +110,7 @@ public class udpServe implements Runnable {
 							if (um.frame[i_7_][0] >= 0)
 								i_6_++;
 						if (i_6_ == um.nplayers) {
-							string_0_ = "1111111";
+							string_0_ = Messages.getString("udpServe.11"); //$NON-NLS-1$
 							um.gocnt[i]--;
 						}
 					}
@@ -140,9 +140,9 @@ public class udpServe implements Runnable {
 						if (i_12_ == -1)
 							i_12_ = 0;
 						lsframe[i_11_] = um.frame[i_11_][i_12_];
-						final String string_15_ = new StringBuilder().append("").append(string_0_).append("|")
-								.append(i_11_).append("|").append(um.frame[i_11_][i_12_]).append("|")
-								.append(um.info[i_11_][i_12_]).append("|").toString();
+						final String string_15_ = new StringBuilder().append(Messages.getString("udpServe.12")).append(string_0_).append(Messages.getString("udpServe.13")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(i_11_).append(Messages.getString("udpServe.14")).append(um.frame[i_11_][i_12_]).append(Messages.getString("udpServe.15")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(um.info[i_11_][i_12_]).append(Messages.getString("udpServe.16")).toString(); //$NON-NLS-1$
 						final byte[] is_16_ = string_15_.getBytes();
 						final DatagramPacket datagrampacket_17_ = new DatagramPacket(is_16_, is_16_.length, inetaddress,
 								i_10_);

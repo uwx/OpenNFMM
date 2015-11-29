@@ -37,7 +37,7 @@ class RadicalMp3 implements RadicalMusic {
 			fi = new FileInputStream(fl);
 			player = new PausablePlayer(fi);
 		} catch (JavaLayerException | FileNotFoundException ex) {
-			System.out.println("Error loading Mp3!");
+			System.out.println(Messages.getString("RadicalMp3.0")); //$NON-NLS-1$
 			ex.printStackTrace();
 		}
 	}

@@ -53,8 +53,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 	int actmag = 0;
 	String[][] addeda = new String[20][5000];
 	int[] adna = { 276, 276, 276, 276, 276, 276 };
-	String aply1 = "";
-	String aply2 = "";
+	String aply1 = Messages.getString("CarMaker.0"); //$NON-NLS-1$
+	String aply2 = Messages.getString("CarMaker.1"); //$NON-NLS-1$
 	boolean aplyd1 = false;
 	boolean aplyd2 = false;
 	int apx = 0;
@@ -66,14 +66,14 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 	int[] bw = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 	int[] bx = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 	int[] by = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-	String carname = "";
+	String carname = Messages.getString("CarMaker.2"); //$NON-NLS-1$
 	int carsel = 0;
 	int[][] carstat = { { 110, 81, 131, 98, 100 }, { 200, 200, 88, 16, 16 }, { 108, 80, 93, 114, 125 },
 			{ 146, 119, 100, 83, 72 }, { 109, 85, 141, 96, 93 }, { 128, 98, 102, 109, 123 }, { 115, 139, 96, 117, 133 },
 			{ 120, 81, 145, 126, 128 }, { 140, 122, 101, 113, 124 }, { 110, 144, 100, 154, 92 },
 			{ 133, 122, 144, 115, 126 }, { 107, 96, 96, 192, 189 }, { 192, 200, 106, 92, 90 },
 			{ 88, 104, 88, 200, 200 }, { 148, 150, 197, 95, 90 }, { 112, 128, 120, 192, 128 } };
-	String cfont = "Monospaced";
+	String cfont = Messages.getString("CarMaker.3"); //$NON-NLS-1$
 	boolean changed = false;
 	boolean changed2 = false;
 	int[] clas = new int[20];
@@ -105,7 +105,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 	soundClip[][] engs = new soundClip[5][5];
 	int engsel = 0;
 	boolean exwist = false;
-	String fcol = "";
+	String fcol = Messages.getString("CarMaker.4"); //$NON-NLS-1$
 	float[] fhsb = { 0.5F, 0.5F, 0.5F };
 	int flk = 0;
 	boolean focuson = true;
@@ -115,7 +115,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 	int handling = 140;
 	int hitmag = 0;
 	boolean in = false;
-	String lastedo = "";
+	String lastedo = Messages.getString("CarMaker.5"); //$NON-NLS-1$
 	boolean left = false;
 	boolean loadedfile = false;
 	int logged = 0;
@@ -135,12 +135,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 	int npolys = 0;
 	ContO o;
 	boolean objfacend = false;
-	String ofcol = "";
+	String ofcol = Messages.getString("CarMaker.6"); //$NON-NLS-1$
 	Image offImage;
 	boolean onbtgame = false;
 	boolean openm = false;
 	int[] oscale = { 100, 100, 100 };
-	String oscol = "";
+	String oscol = Messages.getString("CarMaker.7"); //$NON-NLS-1$
 	boolean out = false;
 	int ox = 335;
 	int oxy = 0;
@@ -154,8 +154,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 	boolean pflk = false;
 	int[] phys = { 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50 };
 	boolean plus = false;
-	String[] pname = { "Handbrake", "Turning Sensitivity", "Tire Grip", "Bouncing", "Empty", "Lifts Others",
-			"Gets Lifted", "Pushes Others", "Gets Pushed", "Aerial Rotation Speed", "Aerial Control/Gliding" };
+	String[] pname = { Messages.getString("CarMaker.8"), Messages.getString("CarMaker.9"), Messages.getString("CarMaker.10"), Messages.getString("CarMaker.11"), Messages.getString("CarMaker.12"), Messages.getString("CarMaker.13"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$
+			Messages.getString("CarMaker.14"), Messages.getString("CarMaker.15"), Messages.getString("CarMaker.16"), Messages.getString("CarMaker.17"), Messages.getString("CarMaker.18") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
 	int[] pnx = { 62, 20, 76, 71, 60, 38, 44, 20, 33, 320, 324 };
 	int polynum = -1;
 	PopupMenu popupMenu;
@@ -170,50 +170,50 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 	boolean rotl = false;
 	boolean rotr = false;
 	int[] rphys = { 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50 };
-	TextField rplc = new TextField("", 15);
+	TextField rplc = new TextField(Messages.getString("CarMaker.19"), 15); //$NON-NLS-1$
 	int[] rstat = { 0, 0, 0, 0, 0 };
 	int[] scale = { 100, 100, 100 };
-	String scar = "";
-	String scol = "";
+	String scar = Messages.getString("CarMaker.20"); //$NON-NLS-1$
+	String scol = Messages.getString("CarMaker.21"); //$NON-NLS-1$
 	int sfase = 0;
-	String sfont = "Monospaced";
+	String sfont = Messages.getString("CarMaker.22"); //$NON-NLS-1$
 	float[] shsb = { 0.5F, 0.5F, 0.5F };
 	Smenu simcar = new Smenu(40);
 	Smenu slcar = new Smenu(2000);
 	int sle = -1;
 	int sls = -1;
 	int squash = 0;
-	TextField srch = new TextField("", 15);
+	TextField srch = new TextField(Messages.getString("CarMaker.23"), 15); //$NON-NLS-1$
 	int[] stat = { 100, 100, 100, 100, 100 };
 	boolean statdef = false;
 	int sthm = 0;
-	String suser = "Horaks";
+	String suser = Messages.getString("CarMaker.24"); //$NON-NLS-1$
 	Trackers t = new Trackers();
 	int tab = 0;
 	int tabed = -1;
 	boolean tested = false;
 	Thread thredo;
-	TextField tnick = new TextField("", 15);
+	TextField tnick = new TextField(Messages.getString("CarMaker.25"), 15); //$NON-NLS-1$
 	boolean tomany = false;
-	TextField tpass = new TextField("", 15);
+	TextField tpass = new TextField(Messages.getString("CarMaker.26"), 15); //$NON-NLS-1$
 	boolean tutok = false;
 	boolean up = false;
 	String[] usage = {
-			"Handbrake:\nThis defines the hand braking power of the car.\nThe more handbrake the car has the faster it brakes when you press Spacebar while driving.\nBut also the lesser the Handbrake the more the car can drift when you press Spacebar.\n\n",
-			"Turning Sensitivity:\nThis defines how fast the car turns (or how fast the wheels respond to turning).\nThe more turning sensitive the faster the car turns and responds.\n\nWhen designing a fast car that is more racing oriented high turning sensitivity is     \nrecommended for the car to be able to take sharp and quick turns.\nHowever too much turning sensitivity can make the car hard to drive!\n\nWhen designing a slower and bigger car (like El King) lower turning sensitivity is\nrecommended for a more realistic effect.\n\n",
-			"Tires Grip:\nThis defines the griping power of the car\u2019s wheels on the ground.\n\nThe more griping the more the cars sticks to track.\nThe less gripping the more the car drifts in the turns.\n\nSome drifting can be helpful as it makes the car drive smoother while less drifting can\nmake the car more irritable, it depends on how you like to drive the car and how it\nfeels for you.\n\n",
-			"Bouncing:\nThis defines how the car bounces back when it hits the ground or obstacles.\n\nBouncing can help when performing stunts as when you land up side down\nif the car bounces it can be filliped over before landing again to avoid a 'bad landing'.\n\nHowever bouncing is not helpful in controlling the car and in racing.\n\n",
-			"If you can read this then you are decompiling the code! Please don\u2019t bother trying to allow the car maker to give you max stats, the stats get check on the server before the car can be accepted. Just to save you sometime.",
-			"Lifts Others:\nThis defines if the car lifts up other cars when it collides with them from the front and\nhow high it can lift them.\n\nDoes the car have a pointy nose like MAX Revenge, Radical One or La Vita Crab, a\npointy nose/front part that can go under the wheels of other cars and lift them?\nIf so then give it some Lifts Others.\n\nIf it has a nose/front part that is a block like most cars then give it 0 Lifts Others.\n\n",
-			"Gets Lifted:\nThis defines if the car can get lifted over other cars when it collides with them and how\nhigh it can get lifted.\n\nIs the car higher off the ground like Wow Caninaro or has big wheels like Dr Monstaa,\nshould its jump over cars when it collides with them?\nIf so then give it some Gets Lifted depending on how high it should go.\n\nIf the car is lower to the ground like most cars then it should have 0 Gets Lifted\n\n",
-			"Pushes Others:\nThis defines if the car pushes other cars away when it collides with them and how far it\ncan push them.\n\nIs the car a heavy car with a strong body like MASHEEN or El King, where when it\ncollides with other cars it pushes them away?\nOr does the car have special bumpers or body parts for pushing cars away like Sword of\nJustice has?\nIf so then give it some Pushes Others depending how strong you think it can push cars.\n\nIf it is a car like any other car, with an average weight and body strength then you should\ngive it 0 Pushes Others.\n\n",
-			"Gets Pushed:\nThis defines if the car gets pushed away when it collides with other cars and how far it\ngets pushed away.\n\nIf the car is lighter then most cars, then it should get pushed away when it collides with\nothers cars.\nGetting pushed can be helpful if the car is week because it gets it away from the danger\n(from the car that hit it) faster, making it take lesser hits and escape better.\nHowever getting pushed is not helpful when racing.\n\n",
-			"Aerial Rotation Speed:\nThis adjusts how fast the car can rotate and flip in the air when its performing a stunt.\n\nThis variable also depends on how much the \u2018Stunts\u2019 stat of the car is, if the car has a\nhigh Stunts stat then this variable will have a much bigger effect, if it has low Stunts stat\nthe variable will have a lower effect.\n\nIf you think the car is rotating too fast or too slow in the air when performing a stunt use\nthis variable to adjust that.\n\nIf the aerial rotation is too fast it can make the car hard to control in the air as it flips and\nhard to land upright.\n\nIf the car is a big and heavy car like MASHHEN or El King then it should have low\naerial rotation for a realistic effect.\n\n",
-			"Aerial Control/Gliding:\nThis adjusts the cars ability to push itself in the air and glide when performing stunts!\n\nIf you don\u2019t know, in the game:\nBackward looping pushes the car upwards. \nForward looping pushes the car forwards. \nLeft and right rolling pushes the car left and right. \n\nThis variable adjust the power if this aerial push.\n\nThe variable also depends on how much the \u2018Stunts\u2019 stat of the car is, if the car has a\nhigh Stunts stat then this variable will have a much bigger effect, if it has low Stunts stat\nthe variable will have a lower effect.\n\nIf the car has some kind of wings or fins like Radical One or Kool Kat have then it should\nhave higher aerial control and gliding ability.\n\n",
-			"Crash Look Test!\nThis defines how the car will look when it gets damaged.\nOr in other words what the car will look like as it gets damaged until it becomes wasted!\n\nIMPORTANT:\nYou need to perform a 'Normal Crash' test with a 'Roof Crash' test until the car gets totally destroyed (gets wasted and burns).\nYou need to also try a 'Normal Crash' test alone (without the roof crash) until the car gets wasted!\nA 'Roof Crash' happens significantly more when the car falls on its roof from a high jumps.\nA 'Normal Crash' is what happens as the car crashes normally with other cars and obstacles.\n\nClick any of adjustment variable names \u2018Radius\u2019, \u2018Magnitude\u2019 and \u2018Roof Destruction\u2019 to learn about their effect.\n\n>  You must perform the crash test more then once in order to make sure that this is how your want the car to look as it gets damaged\nuntil total destruction.",
-			"Crash Radius:\nThe radius around the crash at which the polygons/pieces that lay inside it get\naffected.\n\nOr basically in other words the number of pieces that get affected on collision (the pieces\naround the crash location).\n\nIncreasing the radius will result in more pieces/polygons around the point of collision\ngetting crashed and distorted.\nDecreasing the radius means less pieces/polygons around the collision point getting\ndistorted and crashed.\n\n",
-			"Crash Magnitude:\nThe magnitude of the distortion and indentation to occur on the effected pieces/polygons.\n\nOr basically in other words the amount of destruction that happens to each piece when\ncrashed.\n\nHigher magnitude means the piece gets more destructed from an amount of damage,\nlower magnitude means the piece gets less destructed from that same amount of damage.\n\n",
-			"Roof Destruction:\nThe amount of destruction to occur on the car\u2019s top.\nThe length of indentation and destruction to happen from above.\n\nTo really see this variable's effect try crashing the roof alone (without a normal crash),\ntry more then once while fixing the car and changing the variable\u2019s value to see the\ndifference.\n\nThe roof crash normally happens in the game when the car lands upside down from a\njump or when a big car like Dr Monstaa steps on it.\n\n" };
+			Messages.getString("CarMaker.27"), //$NON-NLS-1$
+			Messages.getString("CarMaker.28"), //$NON-NLS-1$
+			Messages.getString("CarMaker.29"), //$NON-NLS-1$
+			Messages.getString("CarMaker.30"), //$NON-NLS-1$
+			Messages.getString("CarMaker.31"), //$NON-NLS-1$
+			Messages.getString("CarMaker.32"), //$NON-NLS-1$
+			Messages.getString("CarMaker.33"), //$NON-NLS-1$
+			Messages.getString("CarMaker.34"), //$NON-NLS-1$
+			Messages.getString("CarMaker.35"), //$NON-NLS-1$
+			Messages.getString("CarMaker.36"), //$NON-NLS-1$
+			Messages.getString("CarMaker.37"), //$NON-NLS-1$
+			Messages.getString("CarMaker.38"), //$NON-NLS-1$
+			Messages.getString("CarMaker.39"), //$NON-NLS-1$
+			Messages.getString("CarMaker.40"), //$NON-NLS-1$
+			Messages.getString("CarMaker.41") }; //$NON-NLS-1$
 	boolean waso = false;
 	Smenu witho = new Smenu(40);
 	TextField[] wv = new TextField[16];
@@ -232,11 +232,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 		if (Madness.textid == 18)
 			textcomponent = editor;
 		final String string = actionevent.getActionCommand();
-		if (string.equals("Cut")) {
+		if (string.equals(Messages.getString("CarMaker.42"))) { //$NON-NLS-1$
 			final StringSelection stringselection = new StringSelection(textcomponent.getSelectedText());
 			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringselection, null);
 			if (Madness.textid == 18)
-				editor.replaceText("", editor.getSelectionStart(), editor.getSelectionEnd());
+				editor.replaceText(Messages.getString("CarMaker.43"), editor.getSelectionStart(), editor.getSelectionEnd()); //$NON-NLS-1$
 			else
 				textcomponent.setText(new StringBuilder()
 						.append(textcomponent.getText().substring(0, textcomponent.getSelectionStart()))
@@ -244,11 +244,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 								textcomponent.getText().length()))
 						.toString());
 		}
-		if (string.equals("Copy")) {
+		if (string.equals(Messages.getString("CarMaker.44"))) { //$NON-NLS-1$
 			final StringSelection stringselection = new StringSelection(textcomponent.getSelectedText());
 			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringselection, null);
 		}
-		if (string.equals("Paste"))
+		if (string.equals(Messages.getString("CarMaker.45"))) //$NON-NLS-1$
 			try {
 				final String string_399_ = (String) Toolkit.getDefaultToolkit().getSystemClipboard()
 						.getData(DataFlavor.stringFlavor);
@@ -263,7 +263,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			} catch (final Exception exception) {
 				/* empty */
 			}
-		if (string.equals("Select All"))
+		if (string.equals(Messages.getString("CarMaker.46"))) //$NON-NLS-1$
 			textcomponent.selectAll();
 	}
 
@@ -272,10 +272,10 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 		setupo();
 		if (o.colok < 2) {
 			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Car is not ready for ").append(string)
-							.append("!\nReason:\nFirst and Second colors not defined yet!\nPlease go to the 'Color Edit' tab to define the colors.\n")
+					new StringBuilder().append(Messages.getString("CarMaker.47")).append(string) //$NON-NLS-1$
+							.append(Messages.getString("CarMaker.48")) //$NON-NLS-1$
 							.toString(),
-					"Car Maker", 1);
+					Messages.getString("CarMaker.49"), 1); //$NON-NLS-1$
 			return false;
 		}
 		/*
@@ -290,39 +290,39 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 		 */
 		if (o.npl <= 0) {
 			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Car is not ready for ").append(string)
-							.append("!\nReason:\nNo car seems to be designed!\nYou have not built a car yet please go to the \u2018Car\u2019 tab to find the tutorial on how to build a car.\n")
+					new StringBuilder().append(Messages.getString("CarMaker.50")).append(string) //$NON-NLS-1$
+							.append(Messages.getString("CarMaker.51")) //$NON-NLS-1$
 							.toString(),
-					"Car Maker", 1);
+					Messages.getString("CarMaker.52"), 1); //$NON-NLS-1$
 			return false;
 		}
 		if (o.npl > 10000) {
 			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Car is not ready for ").append(string)
-							.append("!\nReason:\nCar contains too many polygons (pieces).\nNumber of polygons used need to be less then 10000.\nPlease use the counter in the \u2018Code Edit\u2019 to decrease the number of polygons (pieces).\n")
+					new StringBuilder().append(Messages.getString("CarMaker.53")).append(string) //$NON-NLS-1$
+							.append(Messages.getString("CarMaker.54")) //$NON-NLS-1$
 							.toString(),
-					"Car Maker", 1);
+					Messages.getString("CarMaker.55"), 1); //$NON-NLS-1$
 			return false;
 		}
 		if (o.maxR > 40000) {
 			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Car is not ready for ").append(string)
-							.append("!\nReason:\nCar scale size is too large!\nPlease use the \u2018Scale All\u2019 option in the \u2018Scale & Align\u2019 tab to resize your car to suitable size.       \nCompare it to other NFM cars using the \u2018Compare Car...\u2019 option.\nCurrently you car needs to be scaled down by ")
-							.append((int) ((o.maxR / 400.0F - 1.0F) * 100.0F)).append("%.\n").toString(),
-					"Car Maker", 1);
+					new StringBuilder().append(Messages.getString("CarMaker.56")).append(string) //$NON-NLS-1$
+							.append(Messages.getString("CarMaker.57")) //$NON-NLS-1$
+							.append((int) ((o.maxR / 400.0F - 1.0F) * 100.0F)).append(Messages.getString("CarMaker.58")).toString(), //$NON-NLS-1$
+					Messages.getString("CarMaker.59"), 1); //$NON-NLS-1$
 			return false;
 		}
 		if (o.maxR < 2) {
 			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Car is not ready for ").append(string)
-							.append("!\nReason:\nCar scale size is too small!\nPlease use the \u2018Scale All\u2019 option in the \u2018Scale & Align\u2019 tab to resize your car to suitable size.       \nCompare it to other NFM cars using the \u2018Compare Car...\u2019 option.\nCurrently you car needs to be scaled up by ")
-							.append((int) ((120.0F / o.maxR - 1.0F) * 100.0F)).append("%.\n").toString(),
-					"Car Maker", 1);
+					new StringBuilder().append(Messages.getString("CarMaker.60")).append(string) //$NON-NLS-1$
+							.append(Messages.getString("CarMaker.61")) //$NON-NLS-1$
+							.append((int) ((120.0F / o.maxR - 1.0F) * 100.0F)).append(Messages.getString("CarMaker.62")).toString(), //$NON-NLS-1$
+					Messages.getString("CarMaker.63"), 1); //$NON-NLS-1$
 			return false;
 		}
-		final String string_304_ = new StringBuilder().append("").append(editor.getText()).append("\n").toString();
+		final String string_304_ = new StringBuilder().append(Messages.getString("CarMaker.64")).append(editor.getText()).append(Messages.getString("CarMaker.65")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 		int i = 0;
-		int i_305_ = string_304_.indexOf("\n", 0);
+		int i_305_ = string_304_.indexOf(Messages.getString("CarMaker.66"), 0); //$NON-NLS-1$
 		boolean bool_306_ = false;
 		boolean bool_307_ = false;
 		boolean bool_308_ = false;
@@ -330,13 +330,13 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			String string_309_ = string_304_.substring(i, i_305_);
 			string_309_ = string_309_.trim();
 			i = i_305_ + 1;
-			i_305_ = string_304_.indexOf("\n", i);
-			if (string_309_.startsWith("stat(")) {
+			i_305_ = string_304_.indexOf(Messages.getString("CarMaker.67"), i); //$NON-NLS-1$
+			if (string_309_.startsWith(Messages.getString("CarMaker.68"))) { //$NON-NLS-1$
 				bool_306_ = true;
 				try {
 					int i_310_ = 0;
 					for (int i_311_ = 0; i_311_ < 5; i_311_++) {
-						stat[i_311_] = getvalue("stat", string_309_, i_311_);
+						stat[i_311_] = getvalue(Messages.getString("CarMaker.69"), string_309_, i_311_); //$NON-NLS-1$
 						if (stat[i_311_] > 200)
 							bool_306_ = false;
 						if (stat[i_311_] < 16)
@@ -349,22 +349,22 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					bool_306_ = false;
 				}
 			}
-			if (string_309_.startsWith("physics(")) {
+			if (string_309_.startsWith(Messages.getString("CarMaker.70"))) { //$NON-NLS-1$
 				bool_307_ = true;
 				try {
 					for (int i_312_ = 0; i_312_ < 11; i_312_++)
-						phys[i_312_] = getvalue("physics", string_309_, i_312_);
+						phys[i_312_] = getvalue(Messages.getString("CarMaker.71"), string_309_, i_312_); //$NON-NLS-1$
 					// if (phys[i_312_] > 100)
 					// bool_307_ = false;
 					// if (phys[i_312_] < 0)
 					// bool_307_ = false;
 					for (int i_313_ = 0; i_313_ < 3; i_313_++)
-						crash[i_313_] = getvalue("physics", string_309_, i_313_ + 11);
+						crash[i_313_] = getvalue(Messages.getString("CarMaker.72"), string_309_, i_313_ + 11); //$NON-NLS-1$
 					// if (i_313_ != 0 && crash[i_313_] > 100)
 					// bool_307_ = false;
 					// if (crash[i_313_] < 0)
 					// bool_307_ = false;
-					engsel = getvalue("physics", string_309_, 14);
+					engsel = getvalue(Messages.getString("CarMaker.73"), string_309_, 14); //$NON-NLS-1$
 					if (engsel > 4)
 						bool_307_ = false;
 					if (engsel < 0)
@@ -373,10 +373,10 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					bool_307_ = false;
 				}
 			}
-			if (string_309_.startsWith("handling(")) {
+			if (string_309_.startsWith(Messages.getString("CarMaker.74"))) { //$NON-NLS-1$
 				bool_308_ = true;
 				try {
-					getvalue("handling", string_309_, 0);
+					getvalue(Messages.getString("CarMaker.75"), string_309_, 0); //$NON-NLS-1$
 				} catch (final Exception exception) {
 					bool_308_ = false;
 				}
@@ -384,26 +384,26 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 		}
 		if (!bool_306_) {
 			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Car is not ready for ").append(string)
-							.append("!\nReason:\nCar Stats & Class not defined correctly!\nPlease go to the 'Stats & Class' tab to define stats and don't forget to press  [ Save ]  when finished.\n")
+					new StringBuilder().append(Messages.getString("CarMaker.76")).append(string) //$NON-NLS-1$
+							.append(Messages.getString("CarMaker.77")) //$NON-NLS-1$
 							.toString(),
-					"Car Maker", 1);
+					Messages.getString("CarMaker.78"), 1); //$NON-NLS-1$
 			return false;
 		}
 		if (!bool_307_) {
 			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Car is not ready for ").append(string)
-							.append("!\nReason:\nCar Physics not defined correctly!\nPlease go to the 'Physics' tab and complete the car physics definition until it is saved.\n")
+					new StringBuilder().append(Messages.getString("CarMaker.79")).append(string) //$NON-NLS-1$
+							.append(Messages.getString("CarMaker.80")) //$NON-NLS-1$
 							.toString(),
-					"Car Maker", 1);
+					Messages.getString("CarMaker.81"), 1); //$NON-NLS-1$
 			return false;
 		}
-		if (!bool_308_ && string.equals("Publishing")) {
+		if (!bool_308_ && string.equals(Messages.getString("CarMaker.82"))) { //$NON-NLS-1$
 			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Car is not ready for ").append(string)
-							.append("!\nReason:\nCar Handling not rated.\nPlease Test Drive your car to rate its handling before publishing!\n")
+					new StringBuilder().append(Messages.getString("CarMaker.83")).append(string) //$NON-NLS-1$
+							.append(Messages.getString("CarMaker.84")) //$NON-NLS-1$
 							.toString(),
-					"Car Maker", 1);
+					Messages.getString("CarMaker.85"), 1); //$NON-NLS-1$
 			return false;
 		}
 		return true;
@@ -450,13 +450,13 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					hidefields();
 				}
 				if (i == 1)
-					if (!carname.equals("")) {
+					if (!carname.equals(Messages.getString("CarMaker.86"))) { //$NON-NLS-1$
 						srch.setText(carname);
 						sfase = 2;
 						i = -1;
 						hidefields();
 					} else
-						JOptionPane.showMessageDialog(null, "Please Select a Car to Rename!\n", "Car Maker", 1);
+						JOptionPane.showMessageDialog(null, Messages.getString("CarMaker.87"), Messages.getString("CarMaker.88"), 1); //$NON-NLS-1$ //$NON-NLS-2$
 				if (i == 2)
 					delcar(carname);
 				if (i == 3) {
@@ -471,7 +471,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					i = -1;
 				}
 				if (i == 1) {
-					srch.setText("");
+					srch.setText(Messages.getString("CarMaker.89")); //$NON-NLS-1$
 					sfase = 0;
 					i = -1;
 					hidefields();
@@ -483,7 +483,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					i = -1;
 				}
 				if (i == 1) {
-					srch.setText("");
+					srch.setText(Messages.getString("CarMaker.90")); //$NON-NLS-1$
 					sfase = 0;
 					i = -1;
 					hidefields();
@@ -492,14 +492,14 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			if (sfase == 3) {
 				if (i == 0) {
 					File file = null;
-					final FileDialog filedialog = new FileDialog(new Frame(), "Car Maker - Wavefront OBJ Import");
-					filedialog.setFile("*.obj");
+					final FileDialog filedialog = new FileDialog(new Frame(), Messages.getString("CarMaker.91")); //$NON-NLS-1$
+					filedialog.setFile(Messages.getString("CarMaker.92")); //$NON-NLS-1$
 					filedialog.setMode(0);
 					filedialog.setVisible(true);
 					try {
 						if (filedialog.getFile() != null)
-							file = new File(new StringBuilder().append("").append(filedialog.getDirectory()).append("")
-									.append(filedialog.getFile()).append("").toString());
+							file = new File(new StringBuilder().append(Messages.getString("CarMaker.93")).append(filedialog.getDirectory()).append(Messages.getString("CarMaker.94")) //$NON-NLS-1$ //$NON-NLS-2$
+									.append(filedialog.getFile()).append(Messages.getString("CarMaker.95")).toString()); //$NON-NLS-1$
 					} catch (final Exception exception) {
 						/* empty */
 					}
@@ -511,13 +511,13 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						rd.setColor(new Color(225, 225, 225));
 						rd.fillRect(116, 246 + i_175_, 468, 50);
 						rd.setColor(new Color(0, 0, 0));
-						rd.setFont(new Font("Arial", 1, 13));
+						rd.setFont(new Font(Messages.getString("CarMaker.96"), 1, 13)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
 						rd.drawString(
-								new StringBuilder().append("Reading ").append(file.getName()).append(", please wait...")
+								new StringBuilder().append(Messages.getString("CarMaker.97")).append(file.getName()).append(Messages.getString("CarMaker.98")) //$NON-NLS-1$ //$NON-NLS-2$
 										.toString(),
-								350 - ftm.stringWidth(new StringBuilder().append("Reading ").append(file.getName())
-										.append(", please wait...").toString()) / 2,
+								350 - ftm.stringWidth(new StringBuilder().append(Messages.getString("CarMaker.99")).append(file.getName()) //$NON-NLS-1$
+										.append(Messages.getString("CarMaker.100")).toString()) / 2, //$NON-NLS-1$
 								276 + i_175_);
 						repaint();
 						final int[] is = new int[6000];
@@ -534,7 +534,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 								boolean bool_182_ = false;
 								String string;
 								while ((string = bufferedreader.readLine()) != null) {
-									if (string.startsWith("v "))
+									if (string.startsWith(Messages.getString("CarMaker.101"))) //$NON-NLS-1$
 										if (i_178_ < 6000) {
 											multf10 = true;
 											is[i_178_] = objvalue(string, 0);
@@ -543,7 +543,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 											i_178_++;
 										} else
 											bool = true;
-									if (string.startsWith("f "))
+									if (string.startsWith(Messages.getString("CarMaker.102"))) //$NON-NLS-1$
 										if (i_181_ < 600) {
 											multf10 = false;
 											objfacend = false;
@@ -556,66 +556,66 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 								}
 								if (bool)
 									JOptionPane.showMessageDialog(null,
-											new StringBuilder().append("Warning!\nThe number of Vertices in file ")
+											new StringBuilder().append(Messages.getString("CarMaker.103")) //$NON-NLS-1$
 													.append(file.getName())
-													.append(" exceeded the maximum of 6000 that the Car Maker can read!     \n\nPlease choose a simpler model to import.\n \n")
+													.append(Messages.getString("CarMaker.104")) //$NON-NLS-1$
 													.toString(),
-											"Car Maker", 0);
+											Messages.getString("CarMaker.105"), 0); //$NON-NLS-1$
 								if (bool_182_)
 									JOptionPane.showMessageDialog(null,
-											new StringBuilder().append("Warning!\nThe number of Faces in file ")
+											new StringBuilder().append(Messages.getString("CarMaker.106")) //$NON-NLS-1$
 													.append(file.getName())
-													.append(" exceeded the maximum of 600 that the Car Maker can read!     \n\nPlease choose a simpler model to import.\n \n")
+													.append(Messages.getString("CarMaker.107")) //$NON-NLS-1$
 													.toString(),
-											"Car Maker", 0);
+											Messages.getString("CarMaker.108"), 0); //$NON-NLS-1$
 								bufferedreader.close();
 							} catch (final Exception exception) {
 								JOptionPane.showMessageDialog(null, new StringBuilder()
-										.append("Unable to load file! Error Deatials:\n").append(exception).toString(),
-										"Car Maker", 1);
+										.append(Messages.getString("CarMaker.109")).append(exception).toString(), //$NON-NLS-1$
+										Messages.getString("CarMaker.110"), 1); //$NON-NLS-1$
 							}
 							rd.setColor(new Color(225, 225, 225));
 							rd.fillRect(116, 246 + i_175_, 468, 50);
 							rd.setColor(new Color(0, 0, 0));
-							rd.setFont(new Font("Arial", 1, 13));
+							rd.setFont(new Font(Messages.getString("CarMaker.111"), 1, 13)); //$NON-NLS-1$
 							ftm = rd.getFontMetrics();
 							rd.drawString(
-									new StringBuilder().append("Importing ").append(file.getName())
-											.append(", please wait...").toString(),
-									350 - ftm.stringWidth(new StringBuilder().append("Importing ")
-											.append(file.getName()).append(", please wait...").toString()) / 2,
+									new StringBuilder().append(Messages.getString("CarMaker.112")).append(file.getName()) //$NON-NLS-1$
+											.append(Messages.getString("CarMaker.113")).toString(), //$NON-NLS-1$
+									350 - ftm.stringWidth(new StringBuilder().append(Messages.getString("CarMaker.114")) //$NON-NLS-1$
+											.append(file.getName()).append(Messages.getString("CarMaker.115")).toString()) / 2, //$NON-NLS-1$
 									276 + i_175_);
 							repaint();
 							carname = file.getName();
-							if (carname.endsWith(".obj"))
+							if (carname.endsWith(Messages.getString("CarMaker.116"))) //$NON-NLS-1$
 								carname = carname.substring(0, carname.length() - 4);
-							String string = new StringBuilder().append("\n// imported car: ").append(carname)
-									.append("\n---------------------\n\n// Please read the helpful information about importing cars found at:\n// http://www.needformadness.com/developer/extras.html\n\n\n")
+							String string = new StringBuilder().append(Messages.getString("CarMaker.117")).append(carname) //$NON-NLS-1$
+									.append(Messages.getString("CarMaker.118")) //$NON-NLS-1$
 									.toString();
 							for (int i_184_ = 0; i_184_ < i_181_; i_184_++) {
-								string = new StringBuilder().append(string).append("<p>\nc(200,200,220)\n\n")
+								string = new StringBuilder().append(string).append(Messages.getString("CarMaker.119")) //$NON-NLS-1$
 										.toString();
 								for (int i_185_ = 0; i_185_ < is_180_[i_184_]; i_185_++)
 									if (is_179_[i_184_][i_185_] < 6000) {
 										final int i_186_ = is_179_[i_184_][i_185_];
-										string = new StringBuilder().append(string).append("p(").append(is[i_186_])
-												.append(",").append(-is_176_[i_186_]).append(",")
-												.append(is_177_[i_186_]).append(")\n").toString();
+										string = new StringBuilder().append(string).append(Messages.getString("CarMaker.120")).append(is[i_186_]) //$NON-NLS-1$
+												.append(Messages.getString("CarMaker.121")).append(-is_176_[i_186_]).append(Messages.getString("CarMaker.122")) //$NON-NLS-1$ //$NON-NLS-2$
+												.append(is_177_[i_186_]).append(Messages.getString("CarMaker.123")).toString(); //$NON-NLS-1$
 									}
-								string = new StringBuilder().append(string).append("</p>\n\n").toString();
+								string = new StringBuilder().append(string).append(Messages.getString("CarMaker.124")).toString(); //$NON-NLS-1$
 							}
-							string = new StringBuilder().append(string).append("\n\n\n\n").toString();
-							file = new File("mycars/");
+							string = new StringBuilder().append(string).append(Messages.getString("CarMaker.125")).toString(); //$NON-NLS-1$
+							file = new File(Messages.getString("CarMaker.126")); //$NON-NLS-1$
 							if (!file.exists())
 								file.mkdirs();
 							file = new File(
-									new StringBuilder().append("mycars/").append(carname).append(".rad").toString());
+									new StringBuilder().append(Messages.getString("CarMaker.127")).append(carname).append(Messages.getString("CarMaker.128")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 							int i_187_ = 0;
 							if (file.exists())
 								i_187_ = JOptionPane.showConfirmDialog(null,
-										new StringBuilder().append("Another car with the name '").append(carname)
-												.append("' already exists, replace it?      \n").toString(),
-										"Car Maker", 0);
+										new StringBuilder().append(Messages.getString("CarMaker.129")).append(carname) //$NON-NLS-1$
+												.append(Messages.getString("CarMaker.130")).toString(), //$NON-NLS-1$
+										Messages.getString("CarMaker.131"), 0); //$NON-NLS-1$
 							if (i_187_ == 0)
 								try {
 									final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
@@ -626,20 +626,20 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 										hidefields();
 										tabed = -1;
 									} else {
-										carname = "";
-										JOptionPane.showMessageDialog(null, "Failed to create car, unknown reason!\n",
-												"Car Maker", 1);
+										carname = Messages.getString("CarMaker.132"); //$NON-NLS-1$
+										JOptionPane.showMessageDialog(null, Messages.getString("CarMaker.133"), //$NON-NLS-1$
+												Messages.getString("CarMaker.134"), 1); //$NON-NLS-1$
 									}
 								} catch (final Exception exception) {
-									carname = "";
+									carname = Messages.getString("CarMaker.135"); //$NON-NLS-1$
 									JOptionPane.showMessageDialog(null,
-											new StringBuilder().append("Unable to create file! Error Deatials:\n")
+											new StringBuilder().append(Messages.getString("CarMaker.136")) //$NON-NLS-1$
 													.append(exception).toString(),
-											"Car Maker", 1);
+											Messages.getString("CarMaker.137"), 1); //$NON-NLS-1$
 								}
 						} else
-							JOptionPane.showMessageDialog(null, new StringBuilder().append("Error, ")
-									.append(file.getName()).append(" was not found!").toString(), "Car Maker", 1);
+							JOptionPane.showMessageDialog(null, new StringBuilder().append(Messages.getString("CarMaker.138")) //$NON-NLS-1$
+									.append(file.getName()).append(Messages.getString("CarMaker.139")).toString(), Messages.getString("CarMaker.140"), 1); //$NON-NLS-1$ //$NON-NLS-2$
 						setCursor(new Cursor(0));
 					}
 				}
@@ -655,14 +655,14 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			if (sfase == 4) {
 				if (i == 0) {
 					File file = null;
-					final FileDialog filedialog = new FileDialog(new Frame(), "Car Maker - Wavefront OBJ Import");
-					filedialog.setFile(new StringBuilder().append("").append(carname).append(".obj").toString());
+					final FileDialog filedialog = new FileDialog(new Frame(), Messages.getString("CarMaker.141")); //$NON-NLS-1$
+					filedialog.setFile(new StringBuilder().append(Messages.getString("CarMaker.142")).append(carname).append(Messages.getString("CarMaker.143")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 					filedialog.setMode(1);
 					filedialog.setVisible(true);
 					try {
 						if (filedialog.getFile() != null)
-							file = new File(new StringBuilder().append("").append(filedialog.getDirectory()).append("")
-									.append(filedialog.getFile()).append("").toString());
+							file = new File(new StringBuilder().append(Messages.getString("CarMaker.144")).append(filedialog.getDirectory()).append(Messages.getString("CarMaker.145")) //$NON-NLS-1$ //$NON-NLS-2$
+									.append(filedialog.getFile()).append(Messages.getString("CarMaker.146")).toString()); //$NON-NLS-1$
 					} catch (final Exception exception) {
 						/* empty */
 					}
@@ -671,9 +671,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						if (file.exists())
 							i_188_ = JOptionPane
 									.showConfirmDialog(null,
-											new StringBuilder().append("File ").append(file.getName())
-													.append(" already exists, replace it?      \n").toString(),
-											"Car Maker", 0);
+											new StringBuilder().append(Messages.getString("CarMaker.147")).append(file.getName()) //$NON-NLS-1$
+													.append(Messages.getString("CarMaker.148")).toString(), //$NON-NLS-1$
+											Messages.getString("CarMaker.149"), 0); //$NON-NLS-1$
 						if (i_188_ == 0) {
 							setCursor(new Cursor(3));
 							setupo();
@@ -681,7 +681,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							final int[] is_189_ = new int[6000];
 							final int[] is_190_ = new int[6000];
 							int i_191_ = 0;
-							String string = "";
+							String string = Messages.getString("CarMaker.150"); //$NON-NLS-1$
 							for (int i_192_ = 0; i_192_ < o.npl; i_192_++)
 								for (int i_193_ = 0; i_193_ < o.p[i_192_].n; i_193_++) {
 									boolean bool = false;
@@ -698,22 +698,22 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 									}
 								}
 							for (int i_195_ = 0; i_195_ < i_191_; i_195_++)
-								string = new StringBuilder().append(string).append("v ").append(is[i_195_] / 10.0F)
-										.append(" ").append(-is_189_[i_195_] / 10.0F).append(" ")
-										.append(is_190_[i_195_] / 10.0F).append("\n").toString();
+								string = new StringBuilder().append(string).append(Messages.getString("CarMaker.151")).append(is[i_195_] / 10.0F) //$NON-NLS-1$
+										.append(Messages.getString("CarMaker.152")).append(-is_189_[i_195_] / 10.0F).append(Messages.getString("CarMaker.153")) //$NON-NLS-1$ //$NON-NLS-2$
+										.append(is_190_[i_195_] / 10.0F).append(Messages.getString("CarMaker.154")).toString(); //$NON-NLS-1$
 							for (int i_196_ = 0; i_196_ < o.npl; i_196_++)
 								if (o.p[i_196_].wz == 0) {
-									string = new StringBuilder().append(string).append("f").toString();
+									string = new StringBuilder().append(string).append(Messages.getString("CarMaker.155")).toString(); //$NON-NLS-1$
 									for (int i_197_ = 0; i_197_ < o.p[i_196_].n; i_197_++) {
-										string = new StringBuilder().append(string).append(" ").toString();
+										string = new StringBuilder().append(string).append(Messages.getString("CarMaker.156")).toString(); //$NON-NLS-1$
 										for (int i_198_ = 0; i_198_ < i_191_; i_198_++)
 											if (is[i_198_] == o.p[i_196_].ox[i_197_]
 													&& is_189_[i_198_] == o.p[i_196_].oy[i_197_]
 													&& is_190_[i_198_] == o.p[i_196_].oz[i_197_])
-												string = new StringBuilder().append(string).append("")
+												string = new StringBuilder().append(string).append(Messages.getString("CarMaker.157")) //$NON-NLS-1$
 														.append(i_198_ + 1).toString();
 									}
-									string = new StringBuilder().append(string).append("\n").toString();
+									string = new StringBuilder().append(string).append(Messages.getString("CarMaker.158")).toString(); //$NON-NLS-1$
 								}
 							try {
 								final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
@@ -721,21 +721,21 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 								bufferedwriter.close();
 								if (file.exists()) {
 									JOptionPane.showMessageDialog(null,
-											new StringBuilder().append("Car has been successfully exported to:\n")
-													.append(file.getAbsolutePath()).append("          \n \n")
+											new StringBuilder().append(Messages.getString("CarMaker.159")) //$NON-NLS-1$
+													.append(file.getAbsolutePath()).append(Messages.getString("CarMaker.160")) //$NON-NLS-1$
 													.toString(),
-											"Car Maker", 1);
+											Messages.getString("CarMaker.161"), 1); //$NON-NLS-1$
 									sfase = 0;
 									hidefields();
 									tabed = -1;
 								} else
-									JOptionPane.showMessageDialog(null, "Failed to export car, unknown reason!\n",
-											"Car Maker", 1);
+									JOptionPane.showMessageDialog(null, Messages.getString("CarMaker.162"), //$NON-NLS-1$
+											Messages.getString("CarMaker.163"), 1); //$NON-NLS-1$
 							} catch (final Exception exception) {
 								JOptionPane.showMessageDialog(null,
-										new StringBuilder().append("Unable to create exported file! Error Deatials:\n")
+										new StringBuilder().append(Messages.getString("CarMaker.164")) //$NON-NLS-1$
 												.append(exception).toString(),
-										"Car Maker", 1);
+										Messages.getString("CarMaker.165"), 1); //$NON-NLS-1$
 							}
 							setCursor(new Cursor(0));
 						}
@@ -777,103 +777,103 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					}
 					i = 3;
 				}
-				if (i == 3 && !srch.getText().equals("")) {
+				if (i == 3 && !srch.getText().equals(Messages.getString("CarMaker.166"))) { //$NON-NLS-1$
 					editor.requestFocus();
 					sls = editor.getText().indexOf(srch.getText(), editor.getSelectionEnd());
 					if (sls != -1) {
 						sle = sls + srch.getText().length();
 						editor.select(sls, sle);
 					} else if (!bool)
-						JOptionPane.showMessageDialog(null, new StringBuilder().append("Cannot find  '")
-								.append(srch.getText()).append("'  from Cursor position    ").toString(), "Car Maker",
+						JOptionPane.showMessageDialog(null, new StringBuilder().append(Messages.getString("CarMaker.167")) //$NON-NLS-1$
+								.append(srch.getText()).append(Messages.getString("CarMaker.168")).toString(), Messages.getString("CarMaker.169"), //$NON-NLS-1$ //$NON-NLS-2$
 								1);
 				}
 			} else {
 				if (i == 3 || i == 4 || i == 5) {
-					final String string = new StringBuilder().append("").append(editor.getSelectedText()).append("\n")
+					final String string = new StringBuilder().append(Messages.getString("CarMaker.170")).append(editor.getSelectedText()).append(Messages.getString("CarMaker.171")) //$NON-NLS-1$ //$NON-NLS-2$
 							.toString();
-					String string_199_ = "\n\n";
+					String string_199_ = Messages.getString("CarMaker.172"); //$NON-NLS-1$
 					if (cntpls == 1)
 						string_199_ = new StringBuilder().append(string_199_)
-								.append("// Mirror of the polygon above along the ").toString();
+								.append(Messages.getString("CarMaker.173")).toString(); //$NON-NLS-1$
 					else
-						string_199_ = new StringBuilder().append(string_199_).append("// Mirror of the ").append(cntpls)
-								.append(" polygons above along the ").toString();
+						string_199_ = new StringBuilder().append(string_199_).append(Messages.getString("CarMaker.174")).append(cntpls) //$NON-NLS-1$
+								.append(Messages.getString("CarMaker.175")).toString(); //$NON-NLS-1$
 					if (i == 3)
-						string_199_ = new StringBuilder().append(string_199_).append("X axis:").toString();
+						string_199_ = new StringBuilder().append(string_199_).append(Messages.getString("CarMaker.176")).toString(); //$NON-NLS-1$
 					if (i == 4)
-						string_199_ = new StringBuilder().append(string_199_).append("Y axis:").toString();
+						string_199_ = new StringBuilder().append(string_199_).append(Messages.getString("CarMaker.177")).toString(); //$NON-NLS-1$
 					if (i == 5)
-						string_199_ = new StringBuilder().append(string_199_).append("Z axis:").toString();
-					string_199_ = new StringBuilder().append(string_199_).append("\n\n").toString();
+						string_199_ = new StringBuilder().append(string_199_).append(Messages.getString("CarMaker.178")).toString(); //$NON-NLS-1$
+					string_199_ = new StringBuilder().append(string_199_).append(Messages.getString("CarMaker.179")).toString(); //$NON-NLS-1$
 					int i_200_ = 0;
-					int i_201_ = string.indexOf("\n", 0);
+					int i_201_ = string.indexOf(Messages.getString("CarMaker.180"), 0); //$NON-NLS-1$
 					while (i_201_ != -1 && i_200_ < string.length()) {
 						String string_202_ = string.substring(i_200_, i_201_);
 						string_202_ = string_202_.trim();
 						i_200_ = i_201_ + 1;
-						i_201_ = string.indexOf("\n", i_200_);
-						if (string_202_.startsWith("fs(-"))
-							string_202_ = new StringBuilder().append("fs(")
-									.append(string_202_.substring(4, string_202_.length())).append("").toString();
-						else if (string_202_.startsWith("fs("))
-							string_202_ = new StringBuilder().append("fs(-")
-									.append(string_202_.substring(3, string_202_.length())).append("").toString();
+						i_201_ = string.indexOf(Messages.getString("CarMaker.181"), i_200_); //$NON-NLS-1$
+						if (string_202_.startsWith(Messages.getString("CarMaker.182"))) //$NON-NLS-1$
+							string_202_ = new StringBuilder().append(Messages.getString("CarMaker.183")) //$NON-NLS-1$
+									.append(string_202_.substring(4, string_202_.length())).append(Messages.getString("CarMaker.184")).toString(); //$NON-NLS-1$
+						else if (string_202_.startsWith(Messages.getString("CarMaker.185"))) //$NON-NLS-1$
+							string_202_ = new StringBuilder().append(Messages.getString("CarMaker.186")) //$NON-NLS-1$
+									.append(string_202_.substring(3, string_202_.length())).append(Messages.getString("CarMaker.187")).toString(); //$NON-NLS-1$
 						if (i == 3)
-							if (string_202_.startsWith("p(-"))
-								string_202_ = new StringBuilder().append("p(")
-										.append(string_202_.substring(3, string_202_.length())).append("").toString();
-							else if (string_202_.startsWith("p("))
-								string_202_ = new StringBuilder().append("p(-")
-										.append(string_202_.substring(2, string_202_.length())).append("").toString();
-						if (i == 4 && string_202_.startsWith("p(")) {
-							final int i_203_ = string_202_.indexOf(",", 0);
+							if (string_202_.startsWith(Messages.getString("CarMaker.188"))) //$NON-NLS-1$
+								string_202_ = new StringBuilder().append(Messages.getString("CarMaker.189")) //$NON-NLS-1$
+										.append(string_202_.substring(3, string_202_.length())).append(Messages.getString("CarMaker.190")).toString(); //$NON-NLS-1$
+							else if (string_202_.startsWith(Messages.getString("CarMaker.191"))) //$NON-NLS-1$
+								string_202_ = new StringBuilder().append(Messages.getString("CarMaker.192")) //$NON-NLS-1$
+										.append(string_202_.substring(2, string_202_.length())).append(Messages.getString("CarMaker.193")).toString(); //$NON-NLS-1$
+						if (i == 4 && string_202_.startsWith(Messages.getString("CarMaker.194"))) { //$NON-NLS-1$
+							final int i_203_ = string_202_.indexOf(Messages.getString("CarMaker.195"), 0); //$NON-NLS-1$
 							if (i_203_ >= 0)
-								if (string_202_.startsWith(",-", i_203_))
-									string_202_ = new StringBuilder().append("")
-											.append(string_202_.substring(0, i_203_)).append(",")
-											.append(string_202_.substring(i_203_ + 2, string_202_.length())).append("")
+								if (string_202_.startsWith(Messages.getString("CarMaker.196"), i_203_)) //$NON-NLS-1$
+									string_202_ = new StringBuilder().append(Messages.getString("CarMaker.197")) //$NON-NLS-1$
+											.append(string_202_.substring(0, i_203_)).append(Messages.getString("CarMaker.198")) //$NON-NLS-1$
+											.append(string_202_.substring(i_203_ + 2, string_202_.length())).append(Messages.getString("CarMaker.199")) //$NON-NLS-1$
 											.toString();
-								else if (string_202_.startsWith(",", i_203_))
-									string_202_ = new StringBuilder().append("")
-											.append(string_202_.substring(0, i_203_)).append(",-")
-											.append(string_202_.substring(i_203_ + 1, string_202_.length())).append("")
+								else if (string_202_.startsWith(Messages.getString("CarMaker.200"), i_203_)) //$NON-NLS-1$
+									string_202_ = new StringBuilder().append(Messages.getString("CarMaker.201")) //$NON-NLS-1$
+											.append(string_202_.substring(0, i_203_)).append(Messages.getString("CarMaker.202")) //$NON-NLS-1$
+											.append(string_202_.substring(i_203_ + 1, string_202_.length())).append(Messages.getString("CarMaker.203")) //$NON-NLS-1$
 											.toString();
 						}
-						if (i == 5 && string_202_.startsWith("p(")) {
-							int i_204_ = string_202_.indexOf(",", 0);
-							i_204_ = string_202_.indexOf(",", i_204_ + 1);
+						if (i == 5 && string_202_.startsWith(Messages.getString("CarMaker.204"))) { //$NON-NLS-1$
+							int i_204_ = string_202_.indexOf(Messages.getString("CarMaker.205"), 0); //$NON-NLS-1$
+							i_204_ = string_202_.indexOf(Messages.getString("CarMaker.206"), i_204_ + 1); //$NON-NLS-1$
 							if (i_204_ >= 0)
-								if (string_202_.startsWith(",-", i_204_))
-									string_202_ = new StringBuilder().append("")
-											.append(string_202_.substring(0, i_204_)).append(",")
-											.append(string_202_.substring(i_204_ + 2, string_202_.length())).append("")
+								if (string_202_.startsWith(Messages.getString("CarMaker.207"), i_204_)) //$NON-NLS-1$
+									string_202_ = new StringBuilder().append(Messages.getString("CarMaker.208")) //$NON-NLS-1$
+											.append(string_202_.substring(0, i_204_)).append(Messages.getString("CarMaker.209")) //$NON-NLS-1$
+											.append(string_202_.substring(i_204_ + 2, string_202_.length())).append(Messages.getString("CarMaker.210")) //$NON-NLS-1$
 											.toString();
-								else if (string_202_.startsWith(",", i_204_))
-									string_202_ = new StringBuilder().append("")
-											.append(string_202_.substring(0, i_204_)).append(",-")
-											.append(string_202_.substring(i_204_ + 1, string_202_.length())).append("")
+								else if (string_202_.startsWith(Messages.getString("CarMaker.211"), i_204_)) //$NON-NLS-1$
+									string_202_ = new StringBuilder().append(Messages.getString("CarMaker.212")) //$NON-NLS-1$
+											.append(string_202_.substring(0, i_204_)).append(Messages.getString("CarMaker.213")) //$NON-NLS-1$
+											.append(string_202_.substring(i_204_ + 1, string_202_.length())).append(Messages.getString("CarMaker.214")) //$NON-NLS-1$
 											.toString();
 						}
-						string_199_ = new StringBuilder().append(string_199_).append("").append(string_202_)
-								.append("\n").toString();
+						string_199_ = new StringBuilder().append(string_199_).append(Messages.getString("CarMaker.215")).append(string_202_) //$NON-NLS-1$
+								.append(Messages.getString("CarMaker.216")).toString(); //$NON-NLS-1$
 					}
-					string_199_ = new StringBuilder().append(string_199_).append("\n// End of mirror").toString();
+					string_199_ = new StringBuilder().append(string_199_).append(Messages.getString("CarMaker.217")).toString(); //$NON-NLS-1$
 					editor.insertText(string_199_, editor.getSelectionEnd());
 				}
 				if (i == 6) {
 					polynum = 0;
-					int i_205_ = editor.getText().lastIndexOf("</p>", editor.getSelectionStart());
+					int i_205_ = editor.getText().lastIndexOf(Messages.getString("CarMaker.218"), editor.getSelectionStart()); //$NON-NLS-1$
 					boolean bool = false;
 					for (/**/; i_205_ >= 0; i_205_--)
 						if (!bool) {
-							i_205_ = editor.getText().lastIndexOf("<p>", i_205_);
+							i_205_ = editor.getText().lastIndexOf(Messages.getString("CarMaker.219"), i_205_); //$NON-NLS-1$
 							if (i_205_ != -1) {
 								bool = true;
 								polynum++;
 							}
 						} else {
-							i_205_ = editor.getText().lastIndexOf("</p>", i_205_);
+							i_205_ = editor.getText().lastIndexOf(Messages.getString("CarMaker.220"), i_205_); //$NON-NLS-1$
 							if (i_205_ != -1)
 								bool = false;
 						}
@@ -889,45 +889,45 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 				if (o.colok != 2) {
 					if (i == 0) {
 						JOptionPane.showMessageDialog(null,
-								"Car Maker will attempt now to find the first and second colors automatically.\nPlease make sure that they are the correct colors!\n\nPlease note that these are also the colors that will be editable in the multiplayer game.      ",
-								"Car Maker", 1);
-						final String string = new StringBuilder().append("").append(editor.getText()).append("\n")
+								Messages.getString("CarMaker.221"), //$NON-NLS-1$
+								Messages.getString("CarMaker.222"), 1); //$NON-NLS-1$
+						final String string = new StringBuilder().append(Messages.getString("CarMaker.223")).append(editor.getText()).append(Messages.getString("CarMaker.224")) //$NON-NLS-1$ //$NON-NLS-2$
 								.toString();
 						int i_207_ = 0;
-						int i_208_ = string.indexOf("\n", 0);
+						int i_208_ = string.indexOf(Messages.getString("CarMaker.225"), 0); //$NON-NLS-1$
 						int i_209_ = 0;
-						String string_210_ = "";
-						String string_211_ = "";
+						String string_210_ = Messages.getString("CarMaker.226"); //$NON-NLS-1$
+						String string_211_ = Messages.getString("CarMaker.227"); //$NON-NLS-1$
 						while (i_208_ != -1 && i_207_ < string.length() && i_209_ != 2) {
 							String string_212_ = string.substring(i_207_, i_208_);
 							string_212_ = string_212_.trim();
 							i_207_ = i_208_ + 1;
-							i_208_ = string.indexOf("\n", i_207_);
-							if (string_212_.startsWith("c(")) {
-								final String string_213_ = string_212_.substring(1, string_212_.indexOf(")") + 1);
+							i_208_ = string.indexOf(Messages.getString("CarMaker.228"), i_207_); //$NON-NLS-1$
+							if (string_212_.startsWith(Messages.getString("CarMaker.229"))) { //$NON-NLS-1$
+								final String string_213_ = string_212_.substring(1, string_212_.indexOf(Messages.getString("CarMaker.230")) + 1); //$NON-NLS-1$
 								if (i_209_ == 1 && !string_213_.equals(string_211_)) {
-									string_210_ = new StringBuilder().append(string_210_).append("2ndColor")
-											.append(string_213_).append("\n\n\n").toString();
+									string_210_ = new StringBuilder().append(string_210_).append(Messages.getString("CarMaker.231")) //$NON-NLS-1$
+											.append(string_213_).append(Messages.getString("CarMaker.232")).toString(); //$NON-NLS-1$
 									i_209_ = 2;
 								}
 								if (i_209_ == 0) {
 									string_211_ = string_213_;
-									string_210_ = new StringBuilder().append("1stColor").append(string_213_)
-											.append("\n").toString();
+									string_210_ = new StringBuilder().append(Messages.getString("CarMaker.233")).append(string_213_) //$NON-NLS-1$
+											.append(Messages.getString("CarMaker.234")).toString(); //$NON-NLS-1$
 									i_209_ = 1;
 								}
 							}
 						}
 						if (i_209_ == 0) {
-							string_210_ = "1stColor(255,0,0)\n2ndColor(0,0,255)\n\n\n";
+							string_210_ = Messages.getString("CarMaker.235"); //$NON-NLS-1$
 							i_209_ = 2;
 						}
 						if (i_209_ == 1) {
-							string_210_ = new StringBuilder().append(string_210_).append("2ndColor(0,0,255)\n\n\n")
+							string_210_ = new StringBuilder().append(string_210_).append(Messages.getString("CarMaker.236")) //$NON-NLS-1$
 									.toString();
 							i_209_ = 2;
 						}
-						final int i_214_ = editor.getText().indexOf("<p>", 0);
+						final int i_214_ = editor.getText().indexOf(Messages.getString("CarMaker.237"), 0); //$NON-NLS-1$
 						editor.insertText(string_210_, i_214_);
 						editor.select(i_214_, i_214_ + string_210_.length() - 2);
 						breakbond = true;
@@ -936,8 +936,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					i_206_ = 1;
 				} else {
 					if (i == 0) {
-						ofcol = new StringBuilder().append("(").append(o.fcol[0]).append(",").append(o.fcol[1])
-								.append(",").append(o.fcol[2]).append(")").toString();
+						ofcol = new StringBuilder().append(Messages.getString("CarMaker.238")).append(o.fcol[0]).append(Messages.getString("CarMaker.239")).append(o.fcol[1]) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(Messages.getString("CarMaker.240")).append(o.fcol[2]).append(Messages.getString("CarMaker.241")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 						int i_215_ = editor.getText().indexOf(ofcol, 0);
 						final int i_216_ = i_215_;
 						for (/**/; i_215_ != -1; i_215_ = editor.getText().indexOf(ofcol, i_215_ + 1))
@@ -950,8 +950,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						o.fcol[2] = Color.getHSBColor(fhsb[0], fhsb[2], fhsb[1]).getBlue();
 					}
 					if (i == 1) {
-						oscol = new StringBuilder().append("(").append(o.scol[0]).append(",").append(o.scol[1])
-								.append(",").append(o.scol[2]).append(")").toString();
+						oscol = new StringBuilder().append(Messages.getString("CarMaker.242")).append(o.scol[0]).append(Messages.getString("CarMaker.243")).append(o.scol[1]) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(Messages.getString("CarMaker.244")).append(o.scol[2]).append(Messages.getString("CarMaker.245")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 						int i_217_ = editor.getText().indexOf(oscol, 0);
 						final int i_218_ = i_217_;
 						for (/**/; i_217_ != -1; i_217_ = editor.getText().indexOf(oscol, i_217_ + 1))
@@ -978,29 +978,29 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						scale[0] += 5;
 					if (scale[0] < 0)
 						scale[0] = 0;
-					int i_219_ = editor.getText().indexOf("\nScaleX(", 0);
+					int i_219_ = editor.getText().indexOf(Messages.getString("CarMaker.246"), 0); //$NON-NLS-1$
 					if (i_219_ != -1) {
 						i_219_++;
-						final int i_220_ = editor.getText().indexOf(")", i_219_);
-						final int i_221_ = editor.getText().indexOf("\n", i_219_);
+						final int i_220_ = editor.getText().indexOf(Messages.getString("CarMaker.247"), i_219_); //$NON-NLS-1$
+						final int i_221_ = editor.getText().indexOf(Messages.getString("CarMaker.248"), i_219_); //$NON-NLS-1$
 						if (i_221_ > i_220_)
 							editor.replaceText(
-									new StringBuilder().append("ScaleX(").append(scale[0]).append(")").toString(),
+									new StringBuilder().append(Messages.getString("CarMaker.249")).append(scale[0]).append(Messages.getString("CarMaker.250")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 									i_219_, i_220_ + 1);
 						else
 							editor.replaceText(
-									new StringBuilder().append("ScaleX(").append(scale[0]).append(")").toString(),
+									new StringBuilder().append(Messages.getString("CarMaker.251")).append(scale[0]).append(Messages.getString("CarMaker.252")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 									i_219_, i_221_);
 					} else {
-						final int i_222_ = editor.getText().indexOf("<p>", 0);
-						final int i_223_ = editor.getText().indexOf("\nScale", 0);
+						final int i_222_ = editor.getText().indexOf(Messages.getString("CarMaker.253"), 0); //$NON-NLS-1$
+						final int i_223_ = editor.getText().indexOf(Messages.getString("CarMaker.254"), 0); //$NON-NLS-1$
 						if (i_223_ < i_222_ && i_223_ != -1)
 							editor.insertText(
-									new StringBuilder().append("\nScaleX(").append(scale[0]).append(")").toString(),
+									new StringBuilder().append(Messages.getString("CarMaker.255")).append(scale[0]).append(Messages.getString("CarMaker.256")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 									i_223_);
 						else
 							editor.insertText(
-									new StringBuilder().append("ScaleX(").append(scale[0]).append(")\n\n\n").toString(),
+									new StringBuilder().append(Messages.getString("CarMaker.257")).append(scale[0]).append(Messages.getString("CarMaker.258")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 									i_222_);
 					}
 				}
@@ -1011,29 +1011,29 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						scale[1] += 5;
 					if (scale[1] < 0)
 						scale[1] = 0;
-					int i_224_ = editor.getText().indexOf("\nScaleY(", 0);
+					int i_224_ = editor.getText().indexOf(Messages.getString("CarMaker.259"), 0); //$NON-NLS-1$
 					if (i_224_ != -1) {
 						i_224_++;
-						final int i_225_ = editor.getText().indexOf(")", i_224_);
-						final int i_226_ = editor.getText().indexOf("\n", i_224_);
+						final int i_225_ = editor.getText().indexOf(Messages.getString("CarMaker.260"), i_224_); //$NON-NLS-1$
+						final int i_226_ = editor.getText().indexOf(Messages.getString("CarMaker.261"), i_224_); //$NON-NLS-1$
 						if (i_226_ > i_225_)
 							editor.replaceText(
-									new StringBuilder().append("ScaleY(").append(scale[1]).append(")").toString(),
+									new StringBuilder().append(Messages.getString("CarMaker.262")).append(scale[1]).append(Messages.getString("CarMaker.263")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 									i_224_, i_225_ + 1);
 						else
 							editor.replaceText(
-									new StringBuilder().append("ScaleY(").append(scale[1]).append(")").toString(),
+									new StringBuilder().append(Messages.getString("CarMaker.264")).append(scale[1]).append(Messages.getString("CarMaker.265")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 									i_224_, i_226_);
 					} else {
-						final int i_227_ = editor.getText().indexOf("<p>", 0);
-						final int i_228_ = editor.getText().indexOf("\nScale", 0);
+						final int i_227_ = editor.getText().indexOf(Messages.getString("CarMaker.266"), 0); //$NON-NLS-1$
+						final int i_228_ = editor.getText().indexOf(Messages.getString("CarMaker.267"), 0); //$NON-NLS-1$
 						if (i_228_ < i_227_ && i_228_ != -1)
 							editor.insertText(
-									new StringBuilder().append("\nScaleY(").append(scale[1]).append(")").toString(),
+									new StringBuilder().append(Messages.getString("CarMaker.268")).append(scale[1]).append(Messages.getString("CarMaker.269")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 									i_228_);
 						else
 							editor.insertText(
-									new StringBuilder().append("ScaleY(").append(scale[1]).append(")\n\n\n").toString(),
+									new StringBuilder().append(Messages.getString("CarMaker.270")).append(scale[1]).append(Messages.getString("CarMaker.271")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 									i_227_);
 					}
 				}
@@ -1044,29 +1044,29 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						scale[2] += 5;
 					if (scale[2] < 0)
 						scale[2] = 0;
-					int i_229_ = editor.getText().indexOf("\nScaleZ(", 0);
+					int i_229_ = editor.getText().indexOf(Messages.getString("CarMaker.272"), 0); //$NON-NLS-1$
 					if (i_229_ != -1) {
 						i_229_++;
-						final int i_230_ = editor.getText().indexOf(")", i_229_);
-						final int i_231_ = editor.getText().indexOf("\n", i_229_);
+						final int i_230_ = editor.getText().indexOf(Messages.getString("CarMaker.273"), i_229_); //$NON-NLS-1$
+						final int i_231_ = editor.getText().indexOf(Messages.getString("CarMaker.274"), i_229_); //$NON-NLS-1$
 						if (i_231_ > i_230_)
 							editor.replaceText(
-									new StringBuilder().append("ScaleZ(").append(scale[2]).append(")").toString(),
+									new StringBuilder().append(Messages.getString("CarMaker.275")).append(scale[2]).append(Messages.getString("CarMaker.276")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 									i_229_, i_230_ + 1);
 						else
 							editor.replaceText(
-									new StringBuilder().append("ScaleZ(").append(scale[2]).append(")").toString(),
+									new StringBuilder().append(Messages.getString("CarMaker.277")).append(scale[2]).append(Messages.getString("CarMaker.278")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 									i_229_, i_231_);
 					} else {
-						final int i_232_ = editor.getText().indexOf("<p>", 0);
-						final int i_233_ = editor.getText().indexOf("\nScale", 0);
+						final int i_232_ = editor.getText().indexOf(Messages.getString("CarMaker.279"), 0); //$NON-NLS-1$
+						final int i_233_ = editor.getText().indexOf(Messages.getString("CarMaker.280"), 0); //$NON-NLS-1$
 						if (i_233_ < i_232_ && i_233_ != -1)
 							editor.insertText(
-									new StringBuilder().append("\nScaleZ(").append(scale[2]).append(")").toString(),
+									new StringBuilder().append(Messages.getString("CarMaker.281")).append(scale[2]).append(Messages.getString("CarMaker.282")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 									i_233_);
 						else
 							editor.insertText(
-									new StringBuilder().append("ScaleZ(").append(scale[2]).append(")\n\n\n").toString(),
+									new StringBuilder().append(Messages.getString("CarMaker.283")).append(scale[2]).append(Messages.getString("CarMaker.284")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 									i_232_);
 					}
 				}
@@ -1080,20 +1080,20 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 				}
 				if (i == 10 || i == 11 || i == 12 || i == 13 || i == 14 || i == 15 || i == 16 || i == 17 || i == 18)
 					try {
-						final String string = new StringBuilder().append("").append(editor.getText()).append("\n")
+						final String string = new StringBuilder().append(Messages.getString("CarMaker.285")).append(editor.getText()).append(Messages.getString("CarMaker.286")) //$NON-NLS-1$ //$NON-NLS-2$
 								.toString();
-						String string_234_ = "";
+						String string_234_ = Messages.getString("CarMaker.287"); //$NON-NLS-1$
 						int i_235_ = 0;
-						int i_236_ = string.indexOf("\n", 0);
+						int i_236_ = string.indexOf(Messages.getString("CarMaker.288"), 0); //$NON-NLS-1$
 						while (i_236_ != -1 && i_235_ < string.length()) {
 							String string_237_ = string.substring(i_235_, i_236_);
 							string_237_ = string_237_.trim();
 							i_235_ = i_236_ + 1;
-							i_236_ = string.indexOf("\n", i_235_);
-							if (string_237_.startsWith("p(")) {
-								final int i_238_ = string_237_.indexOf(",", 0);
-								final int i_239_ = string_237_.indexOf(",", i_238_ + 1);
-								final int i_240_ = string_237_.indexOf(")", i_239_ + 1);
+							i_236_ = string.indexOf(Messages.getString("CarMaker.289"), i_235_); //$NON-NLS-1$
+							if (string_237_.startsWith(Messages.getString("CarMaker.290"))) { //$NON-NLS-1$
+								final int i_238_ = string_237_.indexOf(Messages.getString("CarMaker.291"), 0); //$NON-NLS-1$
+								final int i_239_ = string_237_.indexOf(Messages.getString("CarMaker.292"), i_238_ + 1); //$NON-NLS-1$
+								final int i_240_ = string_237_.indexOf(Messages.getString("CarMaker.293"), i_239_ + 1); //$NON-NLS-1$
 								if (i_238_ != -1 && i_239_ != -1 && i_240_ != -1) {
 									int i_241_ = Float.valueOf(string_237_.substring(2, i_238_)).intValue();
 									int i_242_ = Float.valueOf(string_237_.substring(i_238_ + 1, i_239_)).intValue();
@@ -1125,16 +1125,16 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 										i_243_ += 10;
 									if (i == 18)
 										i_243_ -= 10;
-									string_234_ = new StringBuilder().append(string_234_).append("p(").append(i_241_)
-											.append(",").append(i_242_).append(",").append(i_243_).append(")")
+									string_234_ = new StringBuilder().append(string_234_).append(Messages.getString("CarMaker.294")).append(i_241_) //$NON-NLS-1$
+											.append(Messages.getString("CarMaker.295")).append(i_242_).append(Messages.getString("CarMaker.296")).append(i_243_).append(Messages.getString("CarMaker.297")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 											.append(string_237_.substring(i_240_ + 1, string_237_.length()))
-											.append("\n").toString();
+											.append(Messages.getString("CarMaker.298")).toString(); //$NON-NLS-1$
 								} else
-									string_234_ = new StringBuilder().append(string_234_).append("").append(string_237_)
-											.append("\n").toString();
+									string_234_ = new StringBuilder().append(string_234_).append(Messages.getString("CarMaker.299")).append(string_237_) //$NON-NLS-1$
+											.append(Messages.getString("CarMaker.300")).toString(); //$NON-NLS-1$
 							} else
-								string_234_ = new StringBuilder().append(string_234_).append("").append(string_237_)
-										.append("\n").toString();
+								string_234_ = new StringBuilder().append(string_234_).append(Messages.getString("CarMaker.301")).append(string_237_) //$NON-NLS-1$
+										.append(Messages.getString("CarMaker.302")).toString(); //$NON-NLS-1$
 						}
 						editor.setText(string_234_);
 						setupo();
@@ -1149,11 +1149,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 				}
 				if (i == 20 && changed2) {
 					final int i_247_ = JOptionPane.showConfirmDialog(null,
-							"Saving now will permanently change the point locations & numbers entered in the code!      \n\nContinue?",
-							"Car Maker", 0);
+							Messages.getString("CarMaker.303"), //$NON-NLS-1$
+							Messages.getString("CarMaker.304"), 0); //$NON-NLS-1$
 					if (i_247_ == 0) {
 						editor.setText(
-								new StringBuilder().append(editor.getText().trim()).append("\n\n\n\n").toString());
+								new StringBuilder().append(editor.getText().trim()).append(Messages.getString("CarMaker.305")).toString()); //$NON-NLS-1$
 						savefile();
 						changed2 = false;
 					}
@@ -1166,8 +1166,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						defnow = false;
 						repaint();
 						JOptionPane.showMessageDialog(null,
-								"Car Maker will setup default Front and Back Wheels positions and adjustments.\n\nEnter the desired positions and adjustments then press ' Apply ' to view!\nDon't forget to press ' Save ' when finished!",
-								"Car Maker", 1);
+								Messages.getString("CarMaker.306"), //$NON-NLS-1$
+								Messages.getString("CarMaker.307"), 1); //$NON-NLS-1$
 					}
 					int i_248_ = 0;
 					try {
@@ -1185,114 +1185,114 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							i_248_ = 4;
 						i_249_ = Float.valueOf(wv[15].getText()).intValue();
 						if (i_249_ > 40)
-							wv[15].setText("40");
+							wv[15].setText(Messages.getString("CarMaker.308")); //$NON-NLS-1$
 						if (i_249_ < -40)
-							wv[15].setText("-40");
+							wv[15].setText(Messages.getString("CarMaker.309")); //$NON-NLS-1$
 						i_249_ = Float.valueOf(wv[7].getText()).intValue();
 						if (i_249_ > 40)
-							wv[7].setText("40");
+							wv[7].setText(Messages.getString("CarMaker.310")); //$NON-NLS-1$
 						if (i_249_ < -40)
-							wv[7].setText("-40");
+							wv[7].setText(Messages.getString("CarMaker.311")); //$NON-NLS-1$
 					} catch (final Exception exception) {
 						/* empty */
 					}
 					if (i_248_ == 1)
 						JOptionPane.showMessageDialog(null,
 								new StringBuilder()
-										.append("ERROR:\nThe Z location value of the FRONT Wheels must be greater then zero! (it should have a +ve value)\nZ :  '")
+										.append(Messages.getString("CarMaker.312")) //$NON-NLS-1$
 										.append(wv[10].getText())
-										.append("'  is less or equal to zero, where it should have +ve value!")
+										.append(Messages.getString("CarMaker.313")) //$NON-NLS-1$
 										.toString(),
-								"Car Maker", 1);
+								Messages.getString("CarMaker.314"), 1); //$NON-NLS-1$
 					if (i_248_ == 2)
 						JOptionPane.showMessageDialog(null,
 								new StringBuilder()
-										.append("ERROR:\nThe Z location value of the BACK Wheels must be smaller then zero! (it should have a -ve value)\nZ :  '")
+										.append(Messages.getString("CarMaker.315")) //$NON-NLS-1$
 										.append(wv[2].getText())
-										.append("'  is bigger or equal to zero, where it should have -ve value!")
+										.append(Messages.getString("CarMaker.316")) //$NON-NLS-1$
 										.toString(),
-								"Car Maker", 1);
+								Messages.getString("CarMaker.317"), 1); //$NON-NLS-1$
 					if (i_248_ == 3)
 						JOptionPane.showMessageDialog(null,
 								new StringBuilder()
-										.append("ERROR:\nThe \u00b1X location value of the FRONT or BACK Wheels must be greater then zero! (it should have a +ve value)\n\u00b1X :  '")
+										.append(Messages.getString("CarMaker.318")) //$NON-NLS-1$
 										.append(wv[8].getText())
-										.append("'  is less or equal to zero, where it should have +ve value!")
+										.append(Messages.getString("CarMaker.319")) //$NON-NLS-1$
 										.toString(),
-								"Car Maker", 1);
+								Messages.getString("CarMaker.320"), 1); //$NON-NLS-1$
 					if (i_248_ == 4)
 						JOptionPane.showMessageDialog(null,
 								new StringBuilder()
-										.append("ERROR:\nThe \u00b1X location value of the FRONT or BACK Wheels must be greater then zero! (it should have a +ve value)\n\u00b1X :  '")
+										.append(Messages.getString("CarMaker.321")) //$NON-NLS-1$
 										.append(wv[0].getText())
-										.append("'  is less or equal to zero, whenr it should have +ve value!")
+										.append(Messages.getString("CarMaker.322")) //$NON-NLS-1$
 										.toString(),
-								"Car Maker", 1);
+								Messages.getString("CarMaker.323"), 1); //$NON-NLS-1$
 					if (i_248_ == 0) {
-						final String string = new StringBuilder().append("").append(editor.getText()).append("\n")
+						final String string = new StringBuilder().append(Messages.getString("CarMaker.324")).append(editor.getText()).append(Messages.getString("CarMaker.325")) //$NON-NLS-1$ //$NON-NLS-2$
 								.toString();
-						String string_250_ = "";
+						String string_250_ = Messages.getString("CarMaker.326"); //$NON-NLS-1$
 						int i_251_ = 0;
-						int i_252_ = string.indexOf("\n", 0);
+						int i_252_ = string.indexOf(Messages.getString("CarMaker.327"), 0); //$NON-NLS-1$
 						while (i_252_ != -1 && i_251_ < string.length()) {
 							String string_253_ = string.substring(i_251_, i_252_);
 							string_253_ = string_253_.trim();
 							i_251_ = i_252_ + 1;
-							i_252_ = string.indexOf("\n", i_251_);
-							if (!string_253_.startsWith("rims(") && !string_253_.startsWith("gwgr(")
-									&& !string_253_.startsWith("w("))
-								string_250_ = new StringBuilder().append(string_250_).append("").append(string_253_)
-										.append("\n").toString();
+							i_252_ = string.indexOf(Messages.getString("CarMaker.328"), i_251_); //$NON-NLS-1$
+							if (!string_253_.startsWith(Messages.getString("CarMaker.329")) && !string_253_.startsWith(Messages.getString("CarMaker.330")) //$NON-NLS-1$ //$NON-NLS-2$
+									&& !string_253_.startsWith(Messages.getString("CarMaker.331"))) //$NON-NLS-1$
+								string_250_ = new StringBuilder().append(string_250_).append(Messages.getString("CarMaker.332")).append(string_253_) //$NON-NLS-1$
+										.append(Messages.getString("CarMaker.333")).toString(); //$NON-NLS-1$
 							else {
 								string_250_ = string_250_.trim();
-								string_250_ = new StringBuilder().append(string_250_).append("\n").toString();
+								string_250_ = new StringBuilder().append(string_250_).append(Messages.getString("CarMaker.334")).toString(); //$NON-NLS-1$
 							}
 						}
 						string_250_ = string_250_.trim();
-						string_250_ = new StringBuilder().append(string_250_).append("\n\n\ngwgr(")
-								.append(wv[15].getText()).append(")\n").toString();
-						String string_254_ = "140,140,140";
-						if (rplc.getText().startsWith("(") && rplc.getText().endsWith(")"))
+						string_250_ = new StringBuilder().append(string_250_).append(Messages.getString("CarMaker.335")) //$NON-NLS-1$
+								.append(wv[15].getText()).append(Messages.getString("CarMaker.336")).toString(); //$NON-NLS-1$
+						String string_254_ = Messages.getString("CarMaker.337"); //$NON-NLS-1$
+						if (rplc.getText().startsWith(Messages.getString("CarMaker.338")) && rplc.getText().endsWith(Messages.getString("CarMaker.339"))) //$NON-NLS-1$ //$NON-NLS-2$
 							string_254_ = rplc.getText().substring(1, rplc.getText().length() - 1);
-						string_250_ = new StringBuilder().append(string_250_).append("rims(").append(string_254_)
-								.append(",").append(wv[13].getText()).append(",").append(wv[14].getText()).append(")\n")
+						string_250_ = new StringBuilder().append(string_250_).append(Messages.getString("CarMaker.340")).append(string_254_) //$NON-NLS-1$
+								.append(Messages.getString("CarMaker.341")).append(wv[13].getText()).append(Messages.getString("CarMaker.342")).append(wv[14].getText()).append(Messages.getString("CarMaker.343")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 								.toString();
-						string_250_ = new StringBuilder().append(string_250_).append("w(-").append(wv[8].getText())
-								.append(",").append(wv[9].getText()).append(",").append(wv[10].getText()).append(",11,")
-								.append(wv[12].getText()).append(",").append(wv[11].getText()).append(")\n").toString();
-						string_250_ = new StringBuilder().append(string_250_).append("w(").append(wv[8].getText())
-								.append(",").append(wv[9].getText()).append(",").append(wv[10].getText())
-								.append(",11,-").append(wv[12].getText()).append(",").append(wv[11].getText())
-								.append(")\n").toString();
-						string_250_ = new StringBuilder().append(string_250_).append("\ngwgr(").append(wv[7].getText())
-								.append(")\n").toString();
-						string_254_ = "140,140,140";
-						if (srch.getText().startsWith("(") && srch.getText().endsWith(")"))
+						string_250_ = new StringBuilder().append(string_250_).append(Messages.getString("CarMaker.344")).append(wv[8].getText()) //$NON-NLS-1$
+								.append(Messages.getString("CarMaker.345")).append(wv[9].getText()).append(Messages.getString("CarMaker.346")).append(wv[10].getText()).append(Messages.getString("CarMaker.347")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+								.append(wv[12].getText()).append(Messages.getString("CarMaker.348")).append(wv[11].getText()).append(Messages.getString("CarMaker.349")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
+						string_250_ = new StringBuilder().append(string_250_).append(Messages.getString("CarMaker.350")).append(wv[8].getText()) //$NON-NLS-1$
+								.append(Messages.getString("CarMaker.351")).append(wv[9].getText()).append(Messages.getString("CarMaker.352")).append(wv[10].getText()) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(Messages.getString("CarMaker.353")).append(wv[12].getText()).append(Messages.getString("CarMaker.354")).append(wv[11].getText()) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(Messages.getString("CarMaker.355")).toString(); //$NON-NLS-1$
+						string_250_ = new StringBuilder().append(string_250_).append(Messages.getString("CarMaker.356")).append(wv[7].getText()) //$NON-NLS-1$
+								.append(Messages.getString("CarMaker.357")).toString(); //$NON-NLS-1$
+						string_254_ = Messages.getString("CarMaker.358"); //$NON-NLS-1$
+						if (srch.getText().startsWith(Messages.getString("CarMaker.359")) && srch.getText().endsWith(Messages.getString("CarMaker.360"))) //$NON-NLS-1$ //$NON-NLS-2$
 							string_254_ = srch.getText().substring(1, srch.getText().length() - 1);
-						string_250_ = new StringBuilder().append(string_250_).append("rims(").append(string_254_)
-								.append(",").append(wv[5].getText()).append(",").append(wv[6].getText()).append(")\n")
+						string_250_ = new StringBuilder().append(string_250_).append(Messages.getString("CarMaker.361")).append(string_254_) //$NON-NLS-1$
+								.append(Messages.getString("CarMaker.362")).append(wv[5].getText()).append(Messages.getString("CarMaker.363")).append(wv[6].getText()).append(Messages.getString("CarMaker.364")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 								.toString();
-						string_250_ = new StringBuilder().append(string_250_).append("w(-").append(wv[0].getText())
-								.append(",").append(wv[1].getText()).append(",").append(wv[2].getText()).append(",0,")
-								.append(wv[4].getText()).append(",").append(wv[3].getText()).append(")\n").toString();
-						string_250_ = new StringBuilder().append(string_250_).append("w(").append(wv[0].getText())
-								.append(",").append(wv[1].getText()).append(",").append(wv[2].getText()).append(",0,-")
-								.append(wv[4].getText()).append(",").append(wv[3].getText()).append(")\n\n\n\n")
+						string_250_ = new StringBuilder().append(string_250_).append(Messages.getString("CarMaker.365")).append(wv[0].getText()) //$NON-NLS-1$
+								.append(Messages.getString("CarMaker.366")).append(wv[1].getText()).append(Messages.getString("CarMaker.367")).append(wv[2].getText()).append(Messages.getString("CarMaker.368")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+								.append(wv[4].getText()).append(Messages.getString("CarMaker.369")).append(wv[3].getText()).append(Messages.getString("CarMaker.370")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
+						string_250_ = new StringBuilder().append(string_250_).append(Messages.getString("CarMaker.371")).append(wv[0].getText()) //$NON-NLS-1$
+								.append(Messages.getString("CarMaker.372")).append(wv[1].getText()).append(Messages.getString("CarMaker.373")).append(wv[2].getText()).append(Messages.getString("CarMaker.374")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+								.append(wv[4].getText()).append(Messages.getString("CarMaker.375")).append(wv[3].getText()).append(Messages.getString("CarMaker.376")) //$NON-NLS-1$ //$NON-NLS-2$
 								.toString();
 						editor.setText(string_250_);
 						forwheels = true;
 						setupo();
 						forwheels = false;
-						aply1 = new StringBuilder().append("").append(wv[0].getText()).append("")
-								.append(wv[1].getText()).append("").append(wv[2].getText()).append("")
-								.append(wv[3].getText()).append("").append(wv[4].getText()).append("")
-								.append(srch.getText()).append("").append(wv[5].getText()).append("")
-								.append(wv[6].getText()).append("").append(wv[7].getText()).append("").toString();
-						aply2 = new StringBuilder().append("").append(wv[8].getText()).append("")
-								.append(wv[9].getText()).append("").append(wv[10].getText()).append("")
-								.append(wv[11].getText()).append("").append(wv[12].getText()).append("")
-								.append(rplc.getText()).append("").append(wv[13].getText()).append("")
-								.append(wv[14].getText()).append("").append(wv[15].getText()).append("").toString();
+						aply1 = new StringBuilder().append(Messages.getString("CarMaker.377")).append(wv[0].getText()).append(Messages.getString("CarMaker.378")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(wv[1].getText()).append(Messages.getString("CarMaker.379")).append(wv[2].getText()).append(Messages.getString("CarMaker.380")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(wv[3].getText()).append(Messages.getString("CarMaker.381")).append(wv[4].getText()).append(Messages.getString("CarMaker.382")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(srch.getText()).append(Messages.getString("CarMaker.383")).append(wv[5].getText()).append(Messages.getString("CarMaker.384")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(wv[6].getText()).append(Messages.getString("CarMaker.385")).append(wv[7].getText()).append(Messages.getString("CarMaker.386")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
+						aply2 = new StringBuilder().append(Messages.getString("CarMaker.387")).append(wv[8].getText()).append(Messages.getString("CarMaker.388")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(wv[9].getText()).append(Messages.getString("CarMaker.389")).append(wv[10].getText()).append(Messages.getString("CarMaker.390")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(wv[11].getText()).append(Messages.getString("CarMaker.391")).append(wv[12].getText()).append(Messages.getString("CarMaker.392")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(rplc.getText()).append(Messages.getString("CarMaker.393")).append(wv[13].getText()).append(Messages.getString("CarMaker.394")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(wv[14].getText()).append(Messages.getString("CarMaker.395")).append(wv[15].getText()).append(Messages.getString("CarMaker.396")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 						aplyd1 = false;
 						aplyd2 = false;
 						changed2 = true;
@@ -1303,8 +1303,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						savefile();
 						changed2 = false;
 					} else
-						JOptionPane.showMessageDialog(null, "Unable to Save, press  [ Apply ]  to find out why!",
-								"Car Maker", 1);
+						JOptionPane.showMessageDialog(null, Messages.getString("CarMaker.397"), //$NON-NLS-1$
+								Messages.getString("CarMaker.398"), 1); //$NON-NLS-1$
 				i_206_ = 4;
 			}
 			if (dtab == 4)
@@ -1320,7 +1320,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						clsel = 4 - (i_255_ - 520) / 40;
 						cls.select(clsel);
 						if (simcar.getItemCount() == 16)
-							simcar.add(rd, "   ");
+							simcar.add(rd, Messages.getString("CarMaker.399")); //$NON-NLS-1$
 						statdef = true;
 						changed2 = true;
 					}
@@ -1368,28 +1368,28 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						cls.select(clsel);
 					}
 					if (i == 11) {
-						final String string = new StringBuilder().append("").append(editor.getText()).append("\n")
+						final String string = new StringBuilder().append(Messages.getString("CarMaker.400")).append(editor.getText()).append(Messages.getString("CarMaker.401")) //$NON-NLS-1$ //$NON-NLS-2$
 								.toString();
-						String string_263_ = "";
+						String string_263_ = Messages.getString("CarMaker.402"); //$NON-NLS-1$
 						int i_264_ = 0;
-						int i_265_ = string.indexOf("\n", 0);
+						int i_265_ = string.indexOf(Messages.getString("CarMaker.403"), 0); //$NON-NLS-1$
 						while (i_265_ != -1 && i_264_ < string.length()) {
 							String string_266_ = string.substring(i_264_, i_265_);
 							string_266_ = string_266_.trim();
 							i_264_ = i_265_ + 1;
-							i_265_ = string.indexOf("\n", i_264_);
-							if (!string_266_.startsWith("stat("))
-								string_263_ = new StringBuilder().append(string_263_).append("").append(string_266_)
-										.append("\n").toString();
+							i_265_ = string.indexOf(Messages.getString("CarMaker.404"), i_264_); //$NON-NLS-1$
+							if (!string_266_.startsWith(Messages.getString("CarMaker.405"))) //$NON-NLS-1$
+								string_263_ = new StringBuilder().append(string_263_).append(Messages.getString("CarMaker.406")).append(string_266_) //$NON-NLS-1$
+										.append(Messages.getString("CarMaker.407")).toString(); //$NON-NLS-1$
 							else {
 								string_263_ = string_263_.trim();
-								string_263_ = new StringBuilder().append(string_263_).append("\n").toString();
+								string_263_ = new StringBuilder().append(string_263_).append(Messages.getString("CarMaker.408")).toString(); //$NON-NLS-1$
 							}
 						}
 						string_263_ = string_263_.trim();
-						string_263_ = new StringBuilder().append(string_263_).append("\n\n\nstat(").append(stat[0])
-								.append(",").append(stat[1]).append(",").append(stat[2]).append(",").append(stat[3])
-								.append(",").append(stat[4]).append(")\n\n\n\n").toString();
+						string_263_ = new StringBuilder().append(string_263_).append(Messages.getString("CarMaker.409")).append(stat[0]) //$NON-NLS-1$
+								.append(Messages.getString("CarMaker.410")).append(stat[1]).append(Messages.getString("CarMaker.411")).append(stat[2]).append(Messages.getString("CarMaker.412")).append(stat[3]) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+								.append(Messages.getString("CarMaker.413")).append(stat[4]).append(Messages.getString("CarMaker.414")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 						editor.setText(string_263_);
 						savefile();
 						for (int i_267_ = 0; i_267_ < 5; i_267_++)
@@ -1584,7 +1584,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			}
 			if (dtab == 6)
 				if (!rateh) {
-					if (i == 0 && checko("Test Drive")) {
+					if (i == 0 && checko(Messages.getString("CarMaker.415"))) { //$NON-NLS-1$
 						Madness.testcar = carname;
 						Madness.testdrive = witho.getSelectedIndex() + 1;
 						Madness.game();
@@ -1617,27 +1617,27 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							handling = 200;
 					}
 					if (i == 2) {
-						final String string = new StringBuilder().append("").append(editor.getText()).append("\n")
+						final String string = new StringBuilder().append(Messages.getString("CarMaker.416")).append(editor.getText()).append(Messages.getString("CarMaker.417")) //$NON-NLS-1$ //$NON-NLS-2$
 								.toString();
-						String string_285_ = "";
+						String string_285_ = Messages.getString("CarMaker.418"); //$NON-NLS-1$
 						int i_286_ = 0;
-						int i_287_ = string.indexOf("\n", 0);
+						int i_287_ = string.indexOf(Messages.getString("CarMaker.419"), 0); //$NON-NLS-1$
 						while (i_287_ != -1 && i_286_ < string.length()) {
 							String string_288_ = string.substring(i_286_, i_287_);
 							string_288_ = string_288_.trim();
 							i_286_ = i_287_ + 1;
-							i_287_ = string.indexOf("\n", i_286_);
-							if (!string_288_.startsWith("handling("))
-								string_285_ = new StringBuilder().append(string_285_).append("").append(string_288_)
-										.append("\n").toString();
+							i_287_ = string.indexOf(Messages.getString("CarMaker.420"), i_286_); //$NON-NLS-1$
+							if (!string_288_.startsWith(Messages.getString("CarMaker.421"))) //$NON-NLS-1$
+								string_285_ = new StringBuilder().append(string_285_).append(Messages.getString("CarMaker.422")).append(string_288_) //$NON-NLS-1$
+										.append(Messages.getString("CarMaker.423")).toString(); //$NON-NLS-1$
 							else {
 								string_285_ = string_285_.trim();
-								string_285_ = new StringBuilder().append(string_285_).append("\n").toString();
+								string_285_ = new StringBuilder().append(string_285_).append(Messages.getString("CarMaker.424")).toString(); //$NON-NLS-1$
 							}
 						}
 						string_285_ = string_285_.trim();
-						string_285_ = new StringBuilder().append(string_285_).append("\n\n\nhandling(").append(handling)
-								.append(")\n\n\n\n").toString();
+						string_285_ = new StringBuilder().append(string_285_).append(Messages.getString("CarMaker.425")).append(handling) //$NON-NLS-1$
+								.append(Messages.getString("CarMaker.426")).toString(); //$NON-NLS-1$
 						editor.setText(string_285_);
 						savefile();
 						rateh = false;
@@ -1660,65 +1660,65 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			if (i == 0) {
 				if (logged == 0)
 					JOptionPane.showMessageDialog(null,
-							"Please login to retrieve your account first before publishing!", "Car Maker", 1);
-				if ((logged == 3 || logged == -1) && checko("Publishing")) {
+							Messages.getString("CarMaker.427"), Messages.getString("CarMaker.428"), 1); //$NON-NLS-1$ //$NON-NLS-2$
+				if ((logged == 3 || logged == -1) && checko(Messages.getString("CarMaker.429"))) { //$NON-NLS-1$
 					int i_290_ = 0;
 					for (int i_291_ = 0; i_291_ < nmc; i_291_++)
 						if (mycars[i_291_].equals(carname) && maker[i_291_].equals(tnick.getText()))
 							i_290_ = JOptionPane
 									.showConfirmDialog(null,
-											new StringBuilder().append("Replace your already online car '")
-													.append(carname).append("' with this one?").toString(),
-											"Car Maker", 0);
+											new StringBuilder().append(Messages.getString("CarMaker.430")) //$NON-NLS-1$
+													.append(carname).append(Messages.getString("CarMaker.431")).toString(), //$NON-NLS-1$
+											Messages.getString("CarMaker.432"), 0); //$NON-NLS-1$
 					if (i_290_ == 0) {
 						setCursor(new Cursor(3));
-						rd.setFont(new Font("Arial", 1, 13));
+						rd.setFont(new Font(Messages.getString("CarMaker.433"), 1, 13)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
 						rd.setColor(new Color(225, 225, 225));
 						rd.fillRect(11, 141, 679, 401);
 						rd.setColor(new Color(0, 0, 0));
-						rd.drawString("Connecting to Server...", 350 - ftm.stringWidth("Connecting to Server...") / 2,
+						rd.drawString(Messages.getString("CarMaker.434"), 350 - ftm.stringWidth(Messages.getString("CarMaker.435")) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 								250);
 						repaint();
 						int i_292_ = 0;
-						String string = new StringBuilder().append("").append(editor.getText()).append("\n").toString();
+						String string = new StringBuilder().append(Messages.getString("CarMaker.436")).append(editor.getText()).append(Messages.getString("CarMaker.437")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 						int i_293_ = 0;
-						int i_294_ = string.indexOf("\n", 0);
+						int i_294_ = string.indexOf(Messages.getString("CarMaker.438"), 0); //$NON-NLS-1$
 						while (i_294_ != -1 && i_293_ < string.length()) {
 							i_293_ = i_294_ + 1;
-							i_294_ = string.indexOf("\n", i_293_);
+							i_294_ = string.indexOf(Messages.getString("CarMaker.439"), i_293_); //$NON-NLS-1$
 							i_292_++;
 						}
 						int i_295_ = -1;
 						try {
-							final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
+							final Socket socket = new Socket(Messages.getString("CarMaker.440"), 7061); //$NON-NLS-1$
 							final BufferedReader bufferedreader = new BufferedReader(
 									new InputStreamReader(socket.getInputStream()));
 							final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-							printwriter.println(new StringBuilder().append("10|").append(tnick.getText()).append("|")
-									.append(tpass.getText()).append("|").append(carname).append("|")
-									.append(pubtyp.getSelectedIndex()).append("|").toString());
+							printwriter.println(new StringBuilder().append(Messages.getString("CarMaker.441")).append(tnick.getText()).append(Messages.getString("CarMaker.442")) //$NON-NLS-1$ //$NON-NLS-2$
+									.append(tpass.getText()).append(Messages.getString("CarMaker.443")).append(carname).append(Messages.getString("CarMaker.444")) //$NON-NLS-1$ //$NON-NLS-2$
+									.append(pubtyp.getSelectedIndex()).append(Messages.getString("CarMaker.445")).toString()); //$NON-NLS-1$
 							String string_296_ = bufferedreader.readLine();
 							if (string_296_ != null)
 								i_295_ = 0;
 							// i_295_ = servervalue(string_296_, 0);
 							if (i_295_ == 0) {
 								int i_297_ = 0;
-								string = new StringBuilder().append("").append(editor.getText()).append("\n")
+								string = new StringBuilder().append(Messages.getString("CarMaker.446")).append(editor.getText()).append(Messages.getString("CarMaker.447")) //$NON-NLS-1$ //$NON-NLS-2$
 										.toString();
 								i_293_ = 0;
-								i_294_ = string.indexOf("\n", 0);
+								i_294_ = string.indexOf(Messages.getString("CarMaker.448"), 0); //$NON-NLS-1$
 								while (i_294_ != -1 && i_293_ < string.length()) {
 									String string_298_ = string.substring(i_293_, i_294_);
 									string_298_ = string_298_.trim();
 									printwriter.println(string_298_);
 									i_293_ = i_294_ + 1;
-									i_294_ = string.indexOf("\n", i_293_);
+									i_294_ = string.indexOf(Messages.getString("CarMaker.449"), i_293_); //$NON-NLS-1$
 									i_297_++;
 									rd.setColor(new Color(225, 225, 225));
 									rd.fillRect(11, 141, 679, 401);
 									rd.setColor(new Color(0, 0, 0));
-									rd.drawString("Publishing Car...", 350 - ftm.stringWidth("Publishing Car...") / 2,
+									rd.drawString(Messages.getString("CarMaker.450"), 350 - ftm.stringWidth(Messages.getString("CarMaker.451")) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 											250);
 									rd.setColor(new Color(119, 147, 191));
 									rd.fillRect(250, 270, (int) ((float) i_297_ / (float) i_292_ * 200.0F), 7);
@@ -1734,14 +1734,14 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 										/* empty */
 									}
 								}
-								printwriter.println("QUITX1111");
+								printwriter.println(Messages.getString("CarMaker.452")); //$NON-NLS-1$
 								rd.setColor(new Color(225, 225, 225));
 								rd.fillRect(11, 141, 679, 401);
 								rd.setColor(new Color(0, 0, 0));
-								rd.drawString("Creating the car online...",
-										350 - ftm.stringWidth("Creating the car online...") / 2, 250);
-								rd.drawString("This may take a couple of minutes, please wait...",
-										350 - ftm.stringWidth("This may take a couple of minutes, please wait...") / 2,
+								rd.drawString(Messages.getString("CarMaker.453"), //$NON-NLS-1$
+										350 - ftm.stringWidth(Messages.getString("CarMaker.454")) / 2, 250); //$NON-NLS-1$
+								rd.drawString(Messages.getString("CarMaker.455"), //$NON-NLS-1$
+										350 - ftm.stringWidth(Messages.getString("CarMaker.456")) / 2, //$NON-NLS-1$
 										280);
 								repaint();
 								string_296_ = bufferedreader.readLine();
@@ -1760,93 +1760,93 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						}
 						if (i_295_ == 3) {
 							JOptionPane.showMessageDialog(null,
-									"Unable to publish car.\nReason:\nCar name is too large.  Please rename your car.  Car name must be less then 15 characters.",
-									"Car Maker", 1);
+									Messages.getString("CarMaker.457"), //$NON-NLS-1$
+									Messages.getString("CarMaker.458"), 1); //$NON-NLS-1$
 							bool = true;
 						}
 						if (i_295_ == 4) {
 							JOptionPane.showMessageDialog(null,
-									new StringBuilder().append("Unable to publish car.\nReason:  Car name used (")
-											.append(carname).append(").\nThe name '").append(carname)
-											.append("' is already used by another published car.  Please rename your car.")
+									new StringBuilder().append(Messages.getString("CarMaker.459")) //$NON-NLS-1$
+											.append(carname).append(Messages.getString("CarMaker.460")).append(carname) //$NON-NLS-1$
+											.append(Messages.getString("CarMaker.461")) //$NON-NLS-1$
 											.toString(),
-									"Car Maker", 1);
+									Messages.getString("CarMaker.462"), 1); //$NON-NLS-1$
 							bool = true;
 						}
 						if (i_295_ == 6) {
 							JOptionPane.showMessageDialog(null,
-									"Error Creating Car!\nReason:\nError loading 3D model!  Format maybe incorrect!",
-									"Car Maker", 1);
+									Messages.getString("CarMaker.463"), //$NON-NLS-1$
+									Messages.getString("CarMaker.464"), 1); //$NON-NLS-1$
 							bool = true;
 						}
 						if (i_295_ == 7) {
 							JOptionPane.showMessageDialog(null,
-									"Error Creating Car!\nReason:\nFirst and Second colors not defined yet!\nPlease go to the 'Color Edit' tab to define the colors.",
-									"Car Maker", 1);
+									Messages.getString("CarMaker.465"), //$NON-NLS-1$
+									Messages.getString("CarMaker.466"), 1); //$NON-NLS-1$
 							bool = true;
 						}
 						if (i_295_ == 8) {
 							JOptionPane.showMessageDialog(null,
-									"Error Creating Car!\nReason:\nCar Wheels not defined or not defined correctly!\nPlease go to the \u2018Wheels\u2019 tab and use  [ Apply ]  and  [ Save ]  to define correctly.",
-									"Car Maker", 1);
+									Messages.getString("CarMaker.467"), //$NON-NLS-1$
+									Messages.getString("CarMaker.468"), 1); //$NON-NLS-1$
 							bool = true;
 						}
 						if (i_295_ == 9) {
 							JOptionPane.showMessageDialog(null,
-									"Error Creating Car!\nReason:\nNo car seems to be designed!\nYou have not built a car yet please go to the \u2018Car\u2019 tab to find the tutorial on how to build a car.",
-									"Car Maker", 1);
+									Messages.getString("CarMaker.469"), //$NON-NLS-1$
+									Messages.getString("CarMaker.470"), 1); //$NON-NLS-1$
 							bool = true;
 						}
 						if (i_295_ == 10) {
 							JOptionPane.showMessageDialog(null,
-									"Error Creating Car!\nReason:\nCar contains too many polygons (pieces).\nNumber of polygons used need to be less then 10000.\nPlease use the counter in the \u2018Code Edit\u2019 to decrease the number of polygons (pieces).",
-									"Car Maker", 1);
+									Messages.getString("CarMaker.471"), //$NON-NLS-1$
+									Messages.getString("CarMaker.472"), 1); //$NON-NLS-1$
 							bool = true;
 						}
 						if (i_295_ == 11) {
 							JOptionPane.showMessageDialog(null,
 									new StringBuilder()
-											.append("Error Creating Car!\nReason:\nCar scale size is too large!\nPlease use the \u2018Scale All\u2019 option in the \u2018Scale & Align\u2019 tab to resize your car to suitable size.       \nCompare it to other NFM cars using the \u2018Compare Car...\u2019 option.\nCurrently you car needs to be scaled down by ")
-											.append((int) ((o.maxR / 400.0F - 1.0F) * 100.0F)).append("%.\n")
+											.append(Messages.getString("CarMaker.473")) //$NON-NLS-1$
+											.append((int) ((o.maxR / 400.0F - 1.0F) * 100.0F)).append(Messages.getString("CarMaker.474")) //$NON-NLS-1$
 											.toString(),
-									"Car Maker", 1);
+									Messages.getString("CarMaker.475"), 1); //$NON-NLS-1$
 							bool = true;
 						}
 						if (i_295_ == 12) {
 							JOptionPane.showMessageDialog(null,
 									new StringBuilder()
-											.append("Error Creating Car!\nReason:\nCar scale size is too small!\nPlease use the \u2018Scale All\u2019 option in the \u2018Scale & Align\u2019 tab to resize your car to suitable size.       \nCompare it to other NFM cars using the \u2018Compare Car...\u2019 option.\nCurrently you car needs to be scaled up by ")
-											.append((int) ((120.0F / o.maxR - 1.0F) * 100.0F)).append("%.\n")
+											.append(Messages.getString("CarMaker.476")) //$NON-NLS-1$
+											.append((int) ((120.0F / o.maxR - 1.0F) * 100.0F)).append(Messages.getString("CarMaker.477")) //$NON-NLS-1$
 											.toString(),
-									"Car Maker", 1);
+									Messages.getString("CarMaker.478"), 1); //$NON-NLS-1$
 							bool = true;
 						}
 						if (i_295_ == 13) {
 							JOptionPane.showMessageDialog(null,
-									"Error Creating Car!\nReason:\nCar Stats & Class not defined correctly!\nPlease go to the 'Stats & Class' tab to define stats and don't forget to press  [ Save ]  when finished.\n",
-									"Car Maker", 1);
+									Messages.getString("CarMaker.479"), //$NON-NLS-1$
+									Messages.getString("CarMaker.480"), 1); //$NON-NLS-1$
 							bool = true;
 						}
 						if (i_295_ == 14) {
 							JOptionPane.showMessageDialog(null,
-									"Error Creating Car!\nReason:\nCar Physics not defined correctly!\nPlease go to the 'Physics' tab and complete the car physics definition until it is saved.\n",
-									"Car Maker", 1);
+									Messages.getString("CarMaker.481"), //$NON-NLS-1$
+									Messages.getString("CarMaker.482"), 1); //$NON-NLS-1$
 							bool = true;
 						}
 						if (i_295_ == 15) {
 							JOptionPane.showMessageDialog(null,
-									"Error Creating Car!\nReason:\nCar Handling not rated.\nPlease Test Drive your car to rate its handling before publishing!\n",
-									"Car Maker", 1);
+									Messages.getString("CarMaker.483"), //$NON-NLS-1$
+									Messages.getString("CarMaker.484"), 1); //$NON-NLS-1$
 							bool = true;
 						}
 						if (i_295_ > 15) {
 							JOptionPane.showMessageDialog(null,
-									"Unable to publish car fully!  Unknown Error.  Please try again later.\n",
-									"Car Maker", 1);
+									Messages.getString("CarMaker.485"), //$NON-NLS-1$
+									Messages.getString("CarMaker.486"), 1); //$NON-NLS-1$
 							bool = true;
 						}
 						if (!bool)
-							JOptionPane.showMessageDialog(null, "Unable to publish car!  Unknown Error.\n", "Car Maker",
+							JOptionPane.showMessageDialog(null, Messages.getString("CarMaker.487"), Messages.getString("CarMaker.488"), //$NON-NLS-1$ //$NON-NLS-2$
 									1);
 					}
 				}
@@ -1856,12 +1856,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					setCursor(new Cursor(3));
 					int i_299_ = -1;
 					try {
-						final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
+						final Socket socket = new Socket(Messages.getString("CarMaker.489"), 7061); //$NON-NLS-1$
 						final BufferedReader bufferedreader = new BufferedReader(
 								new InputStreamReader(socket.getInputStream()));
 						final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-						printwriter.println(new StringBuilder().append("1|").append(tnick.getText().toLowerCase())
-								.append("|").append(tpass.getText()).append("|").toString());
+						printwriter.println(new StringBuilder().append(Messages.getString("CarMaker.490")).append(tnick.getText().toLowerCase()) //$NON-NLS-1$
+								.append(Messages.getString("CarMaker.491")).append(tpass.getText()).append(Messages.getString("CarMaker.492")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 						final String string = bufferedreader.readLine();
 						if (string != null)
 							i_299_ = servervalue(string, 0);
@@ -1877,44 +1877,44 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					}
 					if (i_299_ == 1 || i_299_ == 2) {
 						setCursor(new Cursor(0));
-						JOptionPane.showMessageDialog(null, "Sorry.  Incorrect Nickname or Password!", "Car Maker", 0);
+						JOptionPane.showMessageDialog(null, Messages.getString("CarMaker.493"), Messages.getString("CarMaker.494"), 0); //$NON-NLS-1$ //$NON-NLS-2$
 					}
 					if (i_299_ == -167) {
 						setCursor(new Cursor(0));
 						JOptionPane.showMessageDialog(null,
-								"Sorry.  Trial accounts are not allowed to publish cars & stages, please register a full account!",
-								"Car Maker", 0);
+								Messages.getString("CarMaker.495"), //$NON-NLS-1$
+								Messages.getString("CarMaker.496"), 0); //$NON-NLS-1$
 					}
 					if (i_299_ == -1) {
 						setCursor(new Cursor(0));
 						JOptionPane.showMessageDialog(null,
-								"Unable to connect to server at this moment, please try again later.", "Car Maker", 1);
+								Messages.getString("CarMaker.497"), Messages.getString("CarMaker.498"), 1); //$NON-NLS-1$ //$NON-NLS-2$
 					}
 				}
 				if (i == 2)
-					Madness.openurl("http://multiplayer.needformadness.com/register.html");
+					Madness.openurl(Messages.getString("CarMaker.499")); //$NON-NLS-1$
 			}
 		}
 	}
 
 	public void delcar(final String string) {
-		if (string.equals(""))
-			JOptionPane.showMessageDialog(null, "Please Select a Car to Delete!\n", "Car Maker", 1);
+		if (string.equals(Messages.getString("CarMaker.500"))) //$NON-NLS-1$
+			JOptionPane.showMessageDialog(null, Messages.getString("CarMaker.501"), Messages.getString("CarMaker.502"), 1); //$NON-NLS-1$ //$NON-NLS-2$
 		else {
 			final int i = JOptionPane.showConfirmDialog(null, new StringBuilder()
-					.append("Are you sure you want to delete car :  ").append(string).append(" ?  ").toString(),
-					"Car Maker", 0);
+					.append(Messages.getString("CarMaker.503")).append(string).append(Messages.getString("CarMaker.504")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
+					Messages.getString("CarMaker.505"), 0); //$NON-NLS-1$
 			if (i == 0)
 				try {
 					final File file = new File(
-							new StringBuilder().append("mycars/").append(string).append(".rad").toString());
+							new StringBuilder().append(Messages.getString("CarMaker.506")).append(string).append(Messages.getString("CarMaker.507")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 					file.delete();
 					slcar.remove(string);
 					slcar.select(0);
 				} catch (final Exception exception) {
 					JOptionPane.showMessageDialog(null, new StringBuilder()
-							.append("Unable to delete file! Error Deatials:\n").append(exception).toString(),
-							"Car Maker", 1);
+							.append(Messages.getString("CarMaker.508")).append(exception).toString(), //$NON-NLS-1$
+							Messages.getString("CarMaker.509"), 1); //$NON-NLS-1$
 				}
 		}
 	}
@@ -1948,20 +1948,20 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 	public void fixtext(final TextField textfield) {
 		String string = textfield.getText();
 		string = string.replace('\"', '#');
-		final String string_360_ = "\\";
-		String string_361_ = "";
+		final String string_360_ = Messages.getString("CarMaker.510"); //$NON-NLS-1$
+		String string_361_ = Messages.getString("CarMaker.511"); //$NON-NLS-1$
 		int i = 0;
 		int i_362_ = -1;
 		for (/**/; i < string.length(); i++) {
-			final String string_363_ = new StringBuilder().append("").append(string.charAt(i)).toString();
-			if (string_363_.equals("|") || string_363_.equals(",") || string_363_.equals("(") || string_363_.equals(")")
-					|| string_363_.equals("#") || string_363_.equals(string_360_) || string_363_.equals("!")
-					|| string_363_.equals("?") || string_363_.equals("~") || string_363_.equals(".")
-					|| string_363_.equals("@") || string_363_.equals("$") || string_363_.equals("%")
-					|| string_363_.equals("^") || string_363_.equals("&") || string_363_.equals("*")
-					|| string_363_.equals("+") || string_363_.equals("=") || string_363_.equals(">")
-					|| string_363_.equals("<") || string_363_.equals("/") || string_363_.equals("'")
-					|| string_363_.equals(";") || string_363_.equals(":") || i > 15)
+			final String string_363_ = new StringBuilder().append(Messages.getString("CarMaker.512")).append(string.charAt(i)).toString(); //$NON-NLS-1$
+			if (string_363_.equals(Messages.getString("CarMaker.513")) || string_363_.equals(Messages.getString("CarMaker.514")) || string_363_.equals(Messages.getString("CarMaker.515")) || string_363_.equals(Messages.getString("CarMaker.516")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+					|| string_363_.equals(Messages.getString("CarMaker.517")) || string_363_.equals(string_360_) || string_363_.equals(Messages.getString("CarMaker.518")) //$NON-NLS-1$ //$NON-NLS-2$
+					|| string_363_.equals(Messages.getString("CarMaker.519")) || string_363_.equals(Messages.getString("CarMaker.520")) || string_363_.equals(Messages.getString("CarMaker.521")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					|| string_363_.equals(Messages.getString("CarMaker.522")) || string_363_.equals(Messages.getString("CarMaker.523")) || string_363_.equals(Messages.getString("CarMaker.524")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					|| string_363_.equals(Messages.getString("CarMaker.525")) || string_363_.equals(Messages.getString("CarMaker.526")) || string_363_.equals(Messages.getString("CarMaker.527")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					|| string_363_.equals(Messages.getString("CarMaker.528")) || string_363_.equals(Messages.getString("CarMaker.529")) || string_363_.equals(Messages.getString("CarMaker.530")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					|| string_363_.equals(Messages.getString("CarMaker.531")) || string_363_.equals(Messages.getString("CarMaker.532")) || string_363_.equals(Messages.getString("CarMaker.533")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					|| string_363_.equals(Messages.getString("CarMaker.534")) || string_363_.equals(Messages.getString("CarMaker.535")) || i > 15) //$NON-NLS-1$ //$NON-NLS-2$
 				i_362_ = i;
 			else
 				string_361_ = new StringBuilder().append(string_361_).append(string_363_).toString();
@@ -1985,11 +1985,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 	}
 
 	public String getSvalue(final String string, final String string_369_, final int i) {
-		String string_370_ = "";
+		String string_370_ = Messages.getString("CarMaker.536"); //$NON-NLS-1$
 		int i_371_ = 0;
 		for (int i_372_ = string.length() + 1; i_372_ < string_369_.length() && i_371_ <= i; i_372_++) {
-			final String string_373_ = new StringBuilder().append("").append(string_369_.charAt(i_372_)).toString();
-			if (string_373_.equals(",") || string_373_.equals(")"))
+			final String string_373_ = new StringBuilder().append(Messages.getString("CarMaker.537")).append(string_369_.charAt(i_372_)).toString(); //$NON-NLS-1$
+			if (string_373_.equals(Messages.getString("CarMaker.538")) || string_373_.equals(Messages.getString("CarMaker.539"))) //$NON-NLS-1$ //$NON-NLS-2$
 				i_371_++;
 			else if (i_371_ == i)
 				string_370_ = new StringBuilder().append(string_370_).append(string_373_).toString();
@@ -1999,10 +1999,10 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 
 	public int getvalue(final String string, final String string_364_, final int i) {
 		int i_365_ = 0;
-		String string_366_ = "";
+		String string_366_ = Messages.getString("CarMaker.540"); //$NON-NLS-1$
 		for (int i_367_ = string.length() + 1; i_367_ < string_364_.length(); i_367_++) {
-			final String string_368_ = new StringBuilder().append("").append(string_364_.charAt(i_367_)).toString();
-			if (string_368_.equals(",") || string_368_.equals(")")) {
+			final String string_368_ = new StringBuilder().append(Messages.getString("CarMaker.541")).append(string_364_.charAt(i_367_)).toString(); //$NON-NLS-1$
+			if (string_368_.equals(Messages.getString("CarMaker.542")) || string_368_.equals(Messages.getString("CarMaker.543"))) { //$NON-NLS-1$ //$NON-NLS-2$
 				i_365_++;
 				i_367_++;
 			}
@@ -2045,96 +2045,96 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			rd = (Graphics2D) offImage.getGraphics();
 		rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		setLayout(null);
-		slcar.setFont(new Font("Arial", 1, 13));
-		slcar.add(rd, "Select a Car...         ");
+		slcar.setFont(new Font(Messages.getString("CarMaker.544"), 1, 13)); //$NON-NLS-1$
+		slcar.add(rd, Messages.getString("CarMaker.545")); //$NON-NLS-1$
 		slcar.setForeground(new Color(63, 80, 110));
 		slcar.setBackground(new Color(209, 217, 230));
-		fontsel.setFont(new Font("Arial", 1, 12));
-		fontsel.add(rd, "Arial");
-		fontsel.add(rd, "Dialog");
-		fontsel.add(rd, "DialogInput");
-		fontsel.add(rd, "Monospaced");
-		fontsel.add(rd, "Serif");
-		fontsel.add(rd, "SansSerif");
-		fontsel.add(rd, "Verdana");
+		fontsel.setFont(new Font(Messages.getString("CarMaker.546"), 1, 12)); //$NON-NLS-1$
+		fontsel.add(rd, Messages.getString("CarMaker.547")); //$NON-NLS-1$
+		fontsel.add(rd, Messages.getString("CarMaker.548")); //$NON-NLS-1$
+		fontsel.add(rd, Messages.getString("CarMaker.549")); //$NON-NLS-1$
+		fontsel.add(rd, Messages.getString("CarMaker.550")); //$NON-NLS-1$
+		fontsel.add(rd, Messages.getString("CarMaker.551")); //$NON-NLS-1$
+		fontsel.add(rd, Messages.getString("CarMaker.552")); //$NON-NLS-1$
+		fontsel.add(rd, Messages.getString("CarMaker.553")); //$NON-NLS-1$
 		fontsel.setBackground(new Color(63, 80, 110));
 		fontsel.setForeground(new Color(209, 217, 230));
-		ctheme.setFont(new Font("Arial", 1, 12));
-		ctheme.add(rd, "Default");
-		ctheme.add(rd, "Author");
-		ctheme.add(rd, "Dos");
-		ctheme.add(rd, "Green");
-		ctheme.add(rd, "The Matrix");
-		ctheme.add(rd, "Ice Age");
-		ctheme.add(rd, "Fire");
-		ctheme.add(rd, "Ocean");
+		ctheme.setFont(new Font(Messages.getString("CarMaker.554"), 1, 12)); //$NON-NLS-1$
+		ctheme.add(rd, Messages.getString("CarMaker.555")); //$NON-NLS-1$
+		ctheme.add(rd, Messages.getString("CarMaker.556")); //$NON-NLS-1$
+		ctheme.add(rd, Messages.getString("CarMaker.557")); //$NON-NLS-1$
+		ctheme.add(rd, Messages.getString("CarMaker.558")); //$NON-NLS-1$
+		ctheme.add(rd, Messages.getString("CarMaker.559")); //$NON-NLS-1$
+		ctheme.add(rd, Messages.getString("CarMaker.560")); //$NON-NLS-1$
+		ctheme.add(rd, Messages.getString("CarMaker.561")); //$NON-NLS-1$
+		ctheme.add(rd, Messages.getString("CarMaker.562")); //$NON-NLS-1$
 		ctheme.setBackground(new Color(63, 80, 110));
 		ctheme.setForeground(new Color(209, 217, 230));
-		compcar.setFont(new Font("Arial", 1, 12));
-		compcar.add(rd, "Compare Car...");
-		compcar.add(rd, "Tornado Shark");
-		compcar.add(rd, "Formula 7");
-		compcar.add(rd, "Wow Caninaro");
-		compcar.add(rd, "La Vita Crab");
-		compcar.add(rd, "Nimi");
-		compcar.add(rd, "MAX Revenge");
-		compcar.add(rd, "Lead Oxide");
-		compcar.add(rd, "Kool Kat");
-		compcar.add(rd, "Drifter X");
-		compcar.add(rd, "Sword of Justice");
-		compcar.add(rd, "High Rider");
-		compcar.add(rd, "EL KING");
-		compcar.add(rd, "Mighty Eight");
-		compcar.add(rd, "M A S H E E N");
-		compcar.add(rd, "Radical One");
-		compcar.add(rd, "DR Monstaa");
-		compcar.add(rd, " -  None  - ");
+		compcar.setFont(new Font(Messages.getString("CarMaker.563"), 1, 12)); //$NON-NLS-1$
+		compcar.add(rd, Messages.getString("CarMaker.564")); //$NON-NLS-1$
+		compcar.add(rd, Messages.getString("CarMaker.565")); //$NON-NLS-1$
+		compcar.add(rd, Messages.getString("CarMaker.566")); //$NON-NLS-1$
+		compcar.add(rd, Messages.getString("CarMaker.567")); //$NON-NLS-1$
+		compcar.add(rd, Messages.getString("CarMaker.568")); //$NON-NLS-1$
+		compcar.add(rd, Messages.getString("CarMaker.569")); //$NON-NLS-1$
+		compcar.add(rd, Messages.getString("CarMaker.570")); //$NON-NLS-1$
+		compcar.add(rd, Messages.getString("CarMaker.571")); //$NON-NLS-1$
+		compcar.add(rd, Messages.getString("CarMaker.572")); //$NON-NLS-1$
+		compcar.add(rd, Messages.getString("CarMaker.573")); //$NON-NLS-1$
+		compcar.add(rd, Messages.getString("CarMaker.574")); //$NON-NLS-1$
+		compcar.add(rd, Messages.getString("CarMaker.575")); //$NON-NLS-1$
+		compcar.add(rd, Messages.getString("CarMaker.576")); //$NON-NLS-1$
+		compcar.add(rd, Messages.getString("CarMaker.577")); //$NON-NLS-1$
+		compcar.add(rd, Messages.getString("CarMaker.578")); //$NON-NLS-1$
+		compcar.add(rd, Messages.getString("CarMaker.579")); //$NON-NLS-1$
+		compcar.add(rd, Messages.getString("CarMaker.580")); //$NON-NLS-1$
+		compcar.add(rd, Messages.getString("CarMaker.581")); //$NON-NLS-1$
 		compcar.setBackground(new Color(63, 80, 110));
 		compcar.setForeground(new Color(209, 217, 230));
-		cls.setFont(new Font("Arial", 1, 12));
-		cls.add(rd, "Class A");
-		cls.add(rd, "Class A & B");
-		cls.add(rd, "Class B");
-		cls.add(rd, "Class B & C");
-		cls.add(rd, "Class C");
+		cls.setFont(new Font(Messages.getString("CarMaker.582"), 1, 12)); //$NON-NLS-1$
+		cls.add(rd, Messages.getString("CarMaker.583")); //$NON-NLS-1$
+		cls.add(rd, Messages.getString("CarMaker.584")); //$NON-NLS-1$
+		cls.add(rd, Messages.getString("CarMaker.585")); //$NON-NLS-1$
+		cls.add(rd, Messages.getString("CarMaker.586")); //$NON-NLS-1$
+		cls.add(rd, Messages.getString("CarMaker.587")); //$NON-NLS-1$
 		cls.setBackground(new Color(63, 80, 110));
 		cls.setForeground(new Color(209, 217, 230));
-		simcar.setFont(new Font("Arial", 1, 12));
-		simcar.add(rd, "Tornado Shark");
-		simcar.add(rd, "Formula 7");
-		simcar.add(rd, "Wow Caninaro");
-		simcar.add(rd, "La Vita Crab");
-		simcar.add(rd, "Nimi");
-		simcar.add(rd, "MAX Revenge");
-		simcar.add(rd, "Lead Oxide");
-		simcar.add(rd, "Kool Kat");
-		simcar.add(rd, "Drifter X");
-		simcar.add(rd, "Sword of Justice");
-		simcar.add(rd, "High Rider");
-		simcar.add(rd, "EL KING");
-		simcar.add(rd, "Mighty Eight");
-		simcar.add(rd, "M A S H E E N");
-		simcar.add(rd, "Radical One");
-		simcar.add(rd, "DR Monstaa");
+		simcar.setFont(new Font(Messages.getString("CarMaker.588"), 1, 12)); //$NON-NLS-1$
+		simcar.add(rd, Messages.getString("CarMaker.589")); //$NON-NLS-1$
+		simcar.add(rd, Messages.getString("CarMaker.590")); //$NON-NLS-1$
+		simcar.add(rd, Messages.getString("CarMaker.591")); //$NON-NLS-1$
+		simcar.add(rd, Messages.getString("CarMaker.592")); //$NON-NLS-1$
+		simcar.add(rd, Messages.getString("CarMaker.593")); //$NON-NLS-1$
+		simcar.add(rd, Messages.getString("CarMaker.594")); //$NON-NLS-1$
+		simcar.add(rd, Messages.getString("CarMaker.595")); //$NON-NLS-1$
+		simcar.add(rd, Messages.getString("CarMaker.596")); //$NON-NLS-1$
+		simcar.add(rd, Messages.getString("CarMaker.597")); //$NON-NLS-1$
+		simcar.add(rd, Messages.getString("CarMaker.598")); //$NON-NLS-1$
+		simcar.add(rd, Messages.getString("CarMaker.599")); //$NON-NLS-1$
+		simcar.add(rd, Messages.getString("CarMaker.600")); //$NON-NLS-1$
+		simcar.add(rd, Messages.getString("CarMaker.601")); //$NON-NLS-1$
+		simcar.add(rd, Messages.getString("CarMaker.602")); //$NON-NLS-1$
+		simcar.add(rd, Messages.getString("CarMaker.603")); //$NON-NLS-1$
+		simcar.add(rd, Messages.getString("CarMaker.604")); //$NON-NLS-1$
 		simcar.setBackground(new Color(63, 80, 110));
 		simcar.setForeground(new Color(209, 217, 230));
-		witho.setFont(new Font("Arial", 1, 12));
-		witho.add(rd, "With other cars");
-		witho.add(rd, "Alone");
+		witho.setFont(new Font(Messages.getString("CarMaker.605"), 1, 12)); //$NON-NLS-1$
+		witho.add(rd, Messages.getString("CarMaker.606")); //$NON-NLS-1$
+		witho.add(rd, Messages.getString("CarMaker.607")); //$NON-NLS-1$
 		witho.setBackground(new Color(63, 80, 110));
 		witho.setForeground(new Color(209, 217, 230));
-		engine.setFont(new Font("Arial", 1, 12));
-		engine.add(rd, "Normal Engine");
-		engine.add(rd, "V8 Engine");
-		engine.add(rd, "Retro Engine");
-		engine.add(rd, "Power Engine");
-		engine.add(rd, "Diesel Engine");
+		engine.setFont(new Font(Messages.getString("CarMaker.608"), 1, 12)); //$NON-NLS-1$
+		engine.add(rd, Messages.getString("CarMaker.609")); //$NON-NLS-1$
+		engine.add(rd, Messages.getString("CarMaker.610")); //$NON-NLS-1$
+		engine.add(rd, Messages.getString("CarMaker.611")); //$NON-NLS-1$
+		engine.add(rd, Messages.getString("CarMaker.612")); //$NON-NLS-1$
+		engine.add(rd, Messages.getString("CarMaker.613")); //$NON-NLS-1$
 		engine.setBackground(new Color(63, 80, 110));
 		engine.setForeground(new Color(209, 217, 230));
-		final MenuItem menuitem = new MenuItem("Cut");
-		final MenuItem menuitem_340_ = new MenuItem("Copy");
-		final MenuItem menuitem_341_ = new MenuItem("Paste");
-		final MenuItem menuitem_342_ = new MenuItem("Select All");
+		final MenuItem menuitem = new MenuItem(Messages.getString("CarMaker.614")); //$NON-NLS-1$
+		final MenuItem menuitem_340_ = new MenuItem(Messages.getString("CarMaker.615")); //$NON-NLS-1$
+		final MenuItem menuitem_341_ = new MenuItem(Messages.getString("CarMaker.616")); //$NON-NLS-1$
+		final MenuItem menuitem_342_ = new MenuItem(Messages.getString("CarMaker.617")); //$NON-NLS-1$
 		popupMenu = new PopupMenu();
 		popupMenu.add(menuitem);
 		popupMenu.add(menuitem_340_);
@@ -2146,24 +2146,24 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 		menuitem_342_.addActionListener(this);
 		add(popupMenu);
 		for (int i = 0; i < 16; i++) {
-			wv[i] = new TextField("", 2);
+			wv[i] = new TextField(Messages.getString("CarMaker.618"), 2); //$NON-NLS-1$
 			wv[i].setBackground(new Color(255, 255, 255));
 			wv[i].setForeground(new Color(0, 0, 0));
 			wv[i].setFont(new Font(cfont, 1, 14));
 			wv[i].addMouseListener(new MouseHandler(popupMenu, i));
 			add(wv[i]);
 		}
-		tnick.setFont(new Font("Arial", 1, 13));
+		tnick.setFont(new Font(Messages.getString("CarMaker.619"), 1, 13)); //$NON-NLS-1$
 		tnick.setBackground(new Color(255, 255, 255));
 		tnick.setForeground(new Color(0, 0, 0));
-		tpass.setFont(new Font("Arial", 1, 13));
+		tpass.setFont(new Font(Messages.getString("CarMaker.620"), 1, 13)); //$NON-NLS-1$
 		tpass.setEchoCharacter('*');
 		tpass.setBackground(new Color(255, 255, 255));
 		tpass.setForeground(new Color(0, 0, 0));
-		pubtyp.setFont(new Font("Arial", 1, 13));
-		pubtyp.add(rd, "Private");
-		pubtyp.add(rd, "Public");
-		pubtyp.add(rd, "Super Public");
+		pubtyp.setFont(new Font(Messages.getString("CarMaker.621"), 1, 13)); //$NON-NLS-1$
+		pubtyp.add(rd, Messages.getString("CarMaker.622")); //$NON-NLS-1$
+		pubtyp.add(rd, Messages.getString("CarMaker.623")); //$NON-NLS-1$
+		pubtyp.add(rd, Messages.getString("CarMaker.624")); //$NON-NLS-1$
 		pubtyp.setBackground(new Color(63, 80, 110));
 		pubtyp.setForeground(new Color(209, 217, 230));
 		srch.setBackground(new Color(255, 255, 255));
@@ -2236,11 +2236,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 	}
 
 	public void loadbase() {
-		final String[] strings = { "2000tornados", "formula7", "canyenaro", "lescrab", "nimi", "maxrevenge",
-				"leadoxide", "koolkat", "drifter", "policecops", "mustang", "king", "audir8", "masheen", "radicalone",
-				"drmonster" };
+		final String[] strings = { Messages.getString("CarMaker.625"), Messages.getString("CarMaker.626"), Messages.getString("CarMaker.627"), Messages.getString("CarMaker.628"), Messages.getString("CarMaker.629"), Messages.getString("CarMaker.630"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$
+				Messages.getString("CarMaker.631"), Messages.getString("CarMaker.632"), Messages.getString("CarMaker.633"), Messages.getString("CarMaker.634"), Messages.getString("CarMaker.635"), Messages.getString("CarMaker.636"), Messages.getString("CarMaker.637"), Messages.getString("CarMaker.638"), Messages.getString("CarMaker.639"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$
+				Messages.getString("CarMaker.640") }; //$NON-NLS-1$
 		try {
-			final File file = new File("data/models.zip");
+			final File file = new File(Messages.getString("CarMaker.641")); //$NON-NLS-1$
 			final ZipInputStream zipinputstream = new ZipInputStream(new FileInputStream(file));
 			ZipEntry zipentry = zipinputstream.getNextEntry();
 			for (/**/; zipentry != null; zipentry = zipinputstream.getNextEntry()) {
@@ -2265,39 +2265,39 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			zipinputstream.close();
 		} catch (final Exception exception) {
 			System.out.println(
-					new StringBuilder().append("Error Loading Models from Zip: ").append(exception).toString());
+					new StringBuilder().append(Messages.getString("CarMaker.642")).append(exception).toString()); //$NON-NLS-1$
 		}
 		System.gc();
 	}
 
 	public void loadfile() {
 		loadedfile = false;
-		lastedo = "";
+		lastedo = Messages.getString("CarMaker.643"); //$NON-NLS-1$
 		try {
-			final File file = new File(new StringBuilder().append("mycars/").append(carname).append(".rad").toString());
+			final File file = new File(new StringBuilder().append(Messages.getString("CarMaker.644")).append(carname).append(Messages.getString("CarMaker.645")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 			final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
 			String string;
 			while ((string = bufferedreader.readLine()) != null) {
 				final StringBuilder stringbuilder = new StringBuilder();
 				final CarMaker carmaker_300_ = this;
-				carmaker_300_.lastedo = stringbuilder.append(carmaker_300_.lastedo).append("").append(string)
-						.append("\n").toString();
+				carmaker_300_.lastedo = stringbuilder.append(carmaker_300_.lastedo).append(Messages.getString("CarMaker.646")).append(string) //$NON-NLS-1$
+						.append(Messages.getString("CarMaker.647")).toString(); //$NON-NLS-1$
 			}
 			loadedfile = true;
 			bufferedreader.close();
 		} catch (final Exception exception) {
 			loadedfile = false;
-			lastedo = "";
+			lastedo = Messages.getString("CarMaker.648"); //$NON-NLS-1$
 			JOptionPane.showMessageDialog(null,
-					new StringBuilder().append("Unable to load file! Error Deatials:\n").append(exception).toString(),
-					"Car Maker", 1);
+					new StringBuilder().append(Messages.getString("CarMaker.649")).append(exception).toString(), //$NON-NLS-1$
+					Messages.getString("CarMaker.650"), 1); //$NON-NLS-1$
 		}
 		editor.setText(lastedo);
 	}
 
 	public void loadsettings() {
 		try {
-			final File file = new File("mycars/settings.data");
+			final File file = new File(Messages.getString("CarMaker.651")); //$NON-NLS-1$
 			if (file.exists()) {
 				final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
 				String string = bufferedreader.readLine();
@@ -2308,7 +2308,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 				string = bufferedreader.readLine();
 				if (string != null) {
 					suser = string;
-					if (!suser.equals("Horaks"))
+					if (!suser.equals(Messages.getString("CarMaker.652"))) //$NON-NLS-1$
 						tnick.setText(suser);
 				}
 				string = bufferedreader.readLine();
@@ -2330,7 +2330,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 
 	public void loadsounds() {
 		try {
-			final File file = new File("data/sounds.zip");
+			final File file = new File(Messages.getString("CarMaker.653")); //$NON-NLS-1$
 			final FileInputStream fileinputstream = new FileInputStream(file);
 			final ZipInputStream zipinputstream = new ZipInputStream(fileinputstream);
 			for (ZipEntry zipentry = zipinputstream.getNextEntry(); zipentry != null; zipentry = zipinputstream
@@ -2346,21 +2346,21 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 				}
 				for (int i_352_ = 0; i_352_ < 5; i_352_++)
 					for (int i_353_ = 0; i_353_ < 5; i_353_++)
-						if (string.equals(new StringBuilder().append("").append(i_353_).append("").append(i_352_)
-								.append(".wav").toString()))
+						if (string.equals(new StringBuilder().append(Messages.getString("CarMaker.654")).append(i_353_).append(Messages.getString("CarMaker.655")).append(i_352_) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(Messages.getString("CarMaker.656")).toString())) //$NON-NLS-1$
 							engs[i_353_][i_352_] = new soundClip(is);
 				for (int i_354_ = 0; i_354_ < 3; i_354_++)
-					if (string.equals(new StringBuilder().append("crash").append(i_354_ + 1).append(".wav").toString()))
+					if (string.equals(new StringBuilder().append(Messages.getString("CarMaker.657")).append(i_354_ + 1).append(Messages.getString("CarMaker.658")).toString())) //$NON-NLS-1$ //$NON-NLS-2$
 						crashs[i_354_] = new soundClip(is);
 				for (int i_355_ = 0; i_355_ < 3; i_355_++)
 					if (string.equals(
-							new StringBuilder().append("lowcrash").append(i_355_ + 1).append(".wav").toString()))
+							new StringBuilder().append(Messages.getString("CarMaker.659")).append(i_355_ + 1).append(Messages.getString("CarMaker.660")).toString())) //$NON-NLS-1$ //$NON-NLS-2$
 						lowcrashs[i_355_] = new soundClip(is);
 			}
 			fileinputstream.close();
 			zipinputstream.close();
 		} catch (final Exception exception) {
-			System.out.println(new StringBuilder().append("Error Loading Sounds: ").append(exception).toString());
+			System.out.println(new StringBuilder().append(Messages.getString("CarMaker.661")).append(exception).toString()); //$NON-NLS-1$
 		}
 		System.gc();
 	}
@@ -2429,18 +2429,18 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 	}
 
 	public void newcar(final String string) {
-		if (string.equals(""))
-			JOptionPane.showMessageDialog(null, "Please Enter a Car Name!\n", "Car Maker", 1);
+		if (string.equals(Messages.getString("CarMaker.662"))) //$NON-NLS-1$
+			JOptionPane.showMessageDialog(null, Messages.getString("CarMaker.663"), Messages.getString("CarMaker.664"), 1); //$NON-NLS-1$ //$NON-NLS-2$
 		else {
-			final String string_302_ = new StringBuilder().append("\n// car: ").append(string)
-					.append("\n---------------------\n\n// To start making you car you must start by reading the tutorial at:\n// http://www.needformadness.com/developer/simplecar.html\n\n\n<p>\nc(100,200,100)\n\np(-40,-50,80)\np(-40,-50,-70)\np(40,-50,-70)\np(40,-50,80)\n</p>\n\n<p>\nc(100,150,200)\n\np(-40,-20,-100)\np(-40,-50,-70)\np(40,-50,-70)\np(40,-20,-100)\n</p>\n\n\n\n")
+			final String string_302_ = new StringBuilder().append(Messages.getString("CarMaker.665")).append(string) //$NON-NLS-1$
+					.append(Messages.getString("CarMaker.666")) //$NON-NLS-1$
 					.toString();
 			try {
-				File file = new File("mycars/");
+				File file = new File(Messages.getString("CarMaker.667")); //$NON-NLS-1$
 				if (!file.exists())
 					file.mkdirs();
 				carname = string;
-				file = new File(new StringBuilder().append("mycars/").append(carname).append(".rad").toString());
+				file = new File(new StringBuilder().append(Messages.getString("CarMaker.668")).append(carname).append(Messages.getString("CarMaker.669")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 				if (!file.exists()) {
 					final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
 					bufferedwriter.write(string_302_);
@@ -2450,16 +2450,16 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						hidefields();
 						tabed = -1;
 					} else
-						JOptionPane.showMessageDialog(null, "Failed to create car, unknown reason!\n", "Car Maker", 1);
+						JOptionPane.showMessageDialog(null, Messages.getString("CarMaker.670"), Messages.getString("CarMaker.671"), 1); //$NON-NLS-1$ //$NON-NLS-2$
 				} else
 					JOptionPane.showMessageDialog(null,
-							new StringBuilder().append("A car with the name '").append(carname)
-									.append("' already exists, please choose another name!\n").toString(),
-							"Car Maker", 1);
+							new StringBuilder().append(Messages.getString("CarMaker.672")).append(carname) //$NON-NLS-1$
+									.append(Messages.getString("CarMaker.673")).toString(), //$NON-NLS-1$
+							Messages.getString("CarMaker.674"), 1); //$NON-NLS-1$
 			} catch (final Exception exception) {
-				carname = "";
+				carname = Messages.getString("CarMaker.675"); //$NON-NLS-1$
 				JOptionPane.showMessageDialog(null, new StringBuilder()
-						.append("Unable to create file! Error Deatials:\n").append(exception).toString(), "Car Maker",
+						.append(Messages.getString("CarMaker.676")).append(exception).toString(), Messages.getString("CarMaker.677"), //$NON-NLS-1$ //$NON-NLS-2$
 						1);
 			}
 		}
@@ -2471,12 +2471,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			int i_387_ = 2;
 			int i_388_ = 0;
 			int i_389_ = 0;
-			String string_390_ = "";
-			String string_391_ = "";
+			String string_390_ = Messages.getString("CarMaker.678"); //$NON-NLS-1$
+			String string_391_ = Messages.getString("CarMaker.679"); //$NON-NLS-1$
 			boolean bool = false;
 			for (/**/; i_387_ < string.length() && i_389_ != 2; i_387_++) {
-				string_390_ = new StringBuilder().append("").append(string.charAt(i_387_)).toString();
-				if (string_390_.equals(" ")) {
+				string_390_ = new StringBuilder().append(Messages.getString("CarMaker.680")).append(string.charAt(i_387_)).toString(); //$NON-NLS-1$
+				if (string_390_.equals(Messages.getString("CarMaker.681"))) { //$NON-NLS-1$
 					if (bool) {
 						i_388_++;
 						bool = false;
@@ -2493,12 +2493,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			}
 			if (i_387_ >= string.length())
 				objfacend = true;
-			if (string_391_.equals(""))
-				string_391_ = "0";
+			if (string_391_.equals(Messages.getString("CarMaker.682"))) //$NON-NLS-1$
+				string_391_ = Messages.getString("CarMaker.683"); //$NON-NLS-1$
 			if (multf10)
 				i_386_ = (int) (Float.valueOf(string_391_).floatValue() * 10.0F);
 			else {
-				final int i_392_ = string_391_.indexOf("/", 0);
+				final int i_392_ = string_391_.indexOf(Messages.getString("CarMaker.684"), 0); //$NON-NLS-1$
 				if (i_392_ != -1)
 					string_391_ = string_391_.substring(0, i_392_);
 				i_386_ = Float.valueOf(string_391_).intValue() - 1;
@@ -2512,22 +2512,22 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 	}
 
 	public void openelink() {
-		Madness.openurl("http://www.needformadness.com/developer/extras.html");
+		Madness.openurl(Messages.getString("CarMaker.685")); //$NON-NLS-1$
 	}
 
 	public void openhlink() {
-		Madness.openurl("http://www.needformadness.com/developer/");
+		Madness.openurl(Messages.getString("CarMaker.686")); //$NON-NLS-1$
 	}
 
 	public void openlink() {
-		Madness.openurl("http://www.needformadness.com/developer/simplecar.html");
+		Madness.openurl(Messages.getString("CarMaker.687")); //$NON-NLS-1$
 	}
 
 	public boolean ovbutton(final String string, final int i, final int i_395_) {
-		rd.setFont(new Font("Arial", 0, 12));
+		rd.setFont(new Font(Messages.getString("CarMaker.688"), 0, 12)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
-		if (string.equals("X") || string.equals("Download")) {
-			rd.setFont(new Font("Arial", 1, 12));
+		if (string.equals(Messages.getString("CarMaker.689")) || string.equals(Messages.getString("CarMaker.690"))) { //$NON-NLS-1$ //$NON-NLS-2$
+			rd.setFont(new Font(Messages.getString("CarMaker.691"), 1, 12)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
 		}
 		final int i_396_ = ftm.stringWidth(string);
@@ -2565,9 +2565,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			rd.setColor(new Color(240, 240, 240));
 			rd.drawLine(i - i_396_ / 2 - 12, i_395_ - (16 - i_397_), i - i_396_ / 2 - 12, i_395_ + 6 - i_397_);
 			rd.setColor(new Color(0, 0, 0));
-			if (string.equals("X"))
+			if (string.equals(Messages.getString("CarMaker.692"))) //$NON-NLS-1$
 				rd.setColor(new Color(255, 0, 0));
-			if (string.equals("Download"))
+			if (string.equals(Messages.getString("CarMaker.693"))) //$NON-NLS-1$
 				rd.setColor(new Color(0, 64, 128));
 			rd.drawString(string, i - i_396_ / 2, i_395_);
 		} else {
@@ -2589,9 +2589,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			rd.drawLine(i - i_396_ / 2 - 11, i_395_ - (17 - i_397_), i - i_396_ / 2 - 11, i_395_ + 7 - i_397_);
 			rd.drawLine(i - i_396_ / 2 - 12, i_395_ - (16 - i_397_), i - i_396_ / 2 - 12, i_395_ + 6 - i_397_);
 			rd.setColor(new Color(0, 0, 0));
-			if (string.equals("X"))
+			if (string.equals(Messages.getString("CarMaker.694"))) //$NON-NLS-1$
 				rd.setColor(new Color(255, 0, 0));
-			if (string.equals("Download"))
+			if (string.equals(Messages.getString("CarMaker.695"))) //$NON-NLS-1$
 				rd.setColor(new Color(0, 64, 128));
 			rd.drawString(string, i - i_396_ / 2 + 1, i_395_ + 1);
 		}
@@ -2728,14 +2728,14 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 	}
 
 	public void rencar(final String string) {
-		if (string.equals(""))
-			JOptionPane.showMessageDialog(null, "Please Enter a New Car Name!\n", "Car Maker", 1);
+		if (string.equals(Messages.getString("CarMaker.696"))) //$NON-NLS-1$
+			JOptionPane.showMessageDialog(null, Messages.getString("CarMaker.697"), Messages.getString("CarMaker.698"), 1); //$NON-NLS-1$ //$NON-NLS-2$
 		else
 			try {
 				final File file = new File(
-						new StringBuilder().append("mycars/").append(carname).append(".rad").toString());
+						new StringBuilder().append(Messages.getString("CarMaker.699")).append(carname).append(Messages.getString("CarMaker.700")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 				final File file_303_ = new File(
-						new StringBuilder().append("mycars/").append(string).append(".rad").toString());
+						new StringBuilder().append(Messages.getString("CarMaker.701")).append(string).append(Messages.getString("CarMaker.702")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 				if (file.renameTo(file_303_)) {
 					carname = string;
 					sfase = 0;
@@ -2744,12 +2744,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 				} else
 					JOptionPane
 							.showMessageDialog(null,
-									new StringBuilder().append("Unable to rename car to: '").append(string)
-											.append("', possible reason: Car name already used!\n").toString(),
-									"Car Maker", 1);
+									new StringBuilder().append(Messages.getString("CarMaker.703")).append(string) //$NON-NLS-1$
+											.append(Messages.getString("CarMaker.704")).toString(), //$NON-NLS-1$
+									Messages.getString("CarMaker.705"), 1); //$NON-NLS-1$
 			} catch (final Exception exception) {
 				JOptionPane.showMessageDialog(null, new StringBuilder()
-						.append("Unable to rename file! Error Deatials:\n").append(exception).toString(), "Car Maker",
+						.append(Messages.getString("CarMaker.706")).append(exception).toString(), Messages.getString("CarMaker.707"), //$NON-NLS-1$ //$NON-NLS-2$
 						1);
 			}
 	}
@@ -2823,9 +2823,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 	@Override
 	public void run() {
 		thredo.setPriority(10);
-		btgame[0] = getImage("data/backtogame1.gif");
-		btgame[1] = getImage("data/backtogame2.gif");
-		logo = getImage("data/carmakerlogo.gif");
+		btgame[0] = getImage(Messages.getString("CarMaker.708")); //$NON-NLS-1$
+		btgame[1] = getImage(Messages.getString("CarMaker.709")); //$NON-NLS-1$
+		logo = getImage(Messages.getString("CarMaker.710")); //$NON-NLS-1$
 		m.w = 700;
 		m.cx = 350;
 		m.y = -240;
@@ -2847,9 +2847,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			wv[i].setFont(new Font(cfont, 1, 14));
 		setheme();
 		if (Madness.testdrive != 0) {
-			if (Madness.testcar.equals("Failx12")) {
+			if (Madness.testcar.equals(Messages.getString("CarMaker.711"))) { //$NON-NLS-1$
 				JOptionPane.showMessageDialog(null,
-						"Failed to load car! Please make sure car is saved before Test Drive.", "Car Maker", 1);
+						Messages.getString("CarMaker.712"), Messages.getString("CarMaker.713"), 1); //$NON-NLS-1$ //$NON-NLS-2$
 				thredo.stop();
 			} else {
 				carname = Madness.testcar;
@@ -2861,11 +2861,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					witho.select(Madness.testdrive - 1);
 				}
 			}
-			Madness.testcar = "";
+			Madness.testcar = Messages.getString("CarMaker.714"); //$NON-NLS-1$
 			Madness.testdrive = 0;
 		}
 		boolean bool = false;
-		if (!carname.equals("")) {
+		if (!carname.equals(Messages.getString("CarMaker.715"))) { //$NON-NLS-1$
 			tutok = true;
 			bool = true;
 		}
@@ -2893,13 +2893,13 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 				if (tabed != tab) {
 					slcar.removeAll();
 					slcar.maxl = 200;
-					slcar.add(rd, "Select a Car                      ");
-					final String[] strings = new File("mycars/").list();
+					slcar.add(rd, Messages.getString("CarMaker.716")); //$NON-NLS-1$
+					final String[] strings = new File(Messages.getString("CarMaker.717")).list(); //$NON-NLS-1$
 					if (strings != null)
 						for (int i_0_ = 0; i_0_ < strings.length; i_0_++)
-							if (strings[i_0_].toLowerCase().endsWith(".rad"))
+							if (strings[i_0_].toLowerCase().endsWith(Messages.getString("CarMaker.718"))) //$NON-NLS-1$
 								slcar.add(rd, strings[i_0_].substring(0, strings[i_0_].length() - 4));
-					if (carname.equals(""))
+					if (carname.equals(Messages.getString("CarMaker.719"))) //$NON-NLS-1$
 						slcar.select(0);
 					else {
 						slcar.select(carname);
@@ -2907,10 +2907,10 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							loadfile();
 					}
 					mouseon = -1;
-					srch.setText("");
+					srch.setText(Messages.getString("CarMaker.720")); //$NON-NLS-1$
 					sfase = 0;
 				}
-				rd.setFont(new Font("Arial", 1, 13));
+				rd.setFont(new Font(Messages.getString("CarMaker.721"), 1, 13)); //$NON-NLS-1$
 				rd.setColor(new Color(0, 0, 0));
 				rd.drawImage(logo, 214, 35, null);
 				if (xm > 214 && xm < 485 && ym > 25 && ym < 104 && !openm) {
@@ -2963,10 +2963,10 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					rd.setColor(new Color(0, 64, 128));
 				else
 					rd.setColor(new Color(0, 0, 0));
-				rd.drawString("If this is your first time creating a car please follow the tutorial found at:", 106,
+				rd.drawString(Messages.getString("CarMaker.722"), 106, //$NON-NLS-1$
 						110 + i_1_);
 				rd.setColor(new Color(0, 128, 255));
-				rd.drawString("http://www.needformadness.com/developer/simplecar.html", 106, 130 + i_1_);
+				rd.drawString(Messages.getString("CarMaker.723"), 106, 130 + i_1_); //$NON-NLS-1$
 				if (mouseon == 1)
 					rd.setColor(new Color(0, 128, 255));
 				else
@@ -2976,7 +2976,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					rd.setColor(new Color(0, 64, 128));
 				else
 					rd.setColor(new Color(0, 0, 0));
-				rd.drawString("It is highly recommended that you follow this tutorial before trying anything!", 106,
+				rd.drawString(Messages.getString("CarMaker.724"), 106, //$NON-NLS-1$
 						150 + i_1_);
 				if (mouseon == 1 && mouses == -1) {
 					openlink();
@@ -2996,10 +2996,10 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					rd.setColor(new Color(0, 64, 128));
 				else
 					rd.setColor(new Color(0, 0, 0));
-				rd.drawString("For the Car Maker Homepage, Development Center and Forums :",
-						350 - ftm.stringWidth("For the Car Maker Homepage, Development Center and Forums :") / 2, 480);
+				rd.drawString(Messages.getString("CarMaker.725"), //$NON-NLS-1$
+						350 - ftm.stringWidth(Messages.getString("CarMaker.726")) / 2, 480); //$NON-NLS-1$
 				rd.setColor(new Color(0, 128, 255));
-				String string = "http://www.needformadness.com/developer/";
+				String string = Messages.getString("CarMaker.727"); //$NON-NLS-1$
 				rd.drawString(string, 350 - ftm.stringWidth(string) / 2, 500);
 				if (mouseon == 2)
 					rd.setColor(new Color(0, 128, 255));
@@ -3014,16 +3014,16 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 				rd.setColor(new Color(0, 0, 0));
 				rd.drawRect(177 - i_4_, 202 + i_2_, 346 + i_4_ * 2, 167 + i_4_ / 5);
 				if (sfase == 0) {
-					rd.drawString("Select Car to Edit", 350 - ftm.stringWidth("Select Car to Edit") / 2, 230 + i_2_);
+					rd.drawString(Messages.getString("CarMaker.728"), 350 - ftm.stringWidth(Messages.getString("CarMaker.729")) / 2, 230 + i_2_); //$NON-NLS-1$ //$NON-NLS-2$
 					slcar.move(250, 240 + i_2_);
 					if (slcar.getWidth() != 200)
 						slcar.setSize(200, 21);
 					if (!slcar.isShowing())
 						slcar.setVisible(true);
-					stringbutton("    Make new Car    ", 430, 296 + i_2_, 0, true);
-					stringbutton("     Rename Car     ", 270, 296 + i_2_, 0, false);
-					stringbutton("      Delete Car      ", 270, 336 + i_2_, 0, false);
-					stringbutton("     Import & Export     ", 430, 336 + i_2_, 0, false);
+					stringbutton(Messages.getString("CarMaker.730"), 430, 296 + i_2_, 0, true); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.731"), 270, 296 + i_2_, 0, false); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.732"), 270, 336 + i_2_, 0, false); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.733"), 430, 336 + i_2_, 0, false); //$NON-NLS-1$
 					if (slcar.getSelectedIndex() != 0) {
 						if (!carname.equals(slcar.getSelectedItem())) {
 							tomany = false;
@@ -3034,41 +3034,41 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							requestFocus();
 						}
 					} else
-						carname = "";
+						carname = Messages.getString("CarMaker.734"); //$NON-NLS-1$
 				}
 				if (sfase == 1) {
-					rd.drawString("Make a new Car", 350 - ftm.stringWidth("Make a new Car") / 2, 230 + i_2_);
-					rd.setFont(new Font("Arial", 1, 12));
-					rd.drawString("New car name :", 228, 266 + i_2_);
+					rd.drawString(Messages.getString("CarMaker.735"), 350 - ftm.stringWidth(Messages.getString("CarMaker.736")) / 2, 230 + i_2_); //$NON-NLS-1$ //$NON-NLS-2$
+					rd.setFont(new Font(Messages.getString("CarMaker.737"), 1, 12)); //$NON-NLS-1$
+					rd.drawString(Messages.getString("CarMaker.738"), 228, 266 + i_2_); //$NON-NLS-1$
 					movefield(srch, 335, 250 + i_2_, 129, 22);
 					if (!srch.isShowing()) {
 						srch.setVisible(true);
 						srch.requestFocus();
 					}
 					fixtext(srch);
-					stringbutton("    Make Car    ", 350, 306 + i_2_, 0, true);
-					stringbutton("  Cancel  ", 350, 346 + i_2_, 0, false);
+					stringbutton(Messages.getString("CarMaker.739"), 350, 306 + i_2_, 0, true); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.740"), 350, 346 + i_2_, 0, false); //$NON-NLS-1$
 				}
 				if (sfase == 2) {
-					rd.drawString(new StringBuilder().append("Rename Car :  ").append(carname).append("").toString(),
+					rd.drawString(new StringBuilder().append(Messages.getString("CarMaker.741")).append(carname).append(Messages.getString("CarMaker.742")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 							350 - ftm.stringWidth(
-									new StringBuilder().append("Rename Car :  ").append(carname).append("").toString())
+									new StringBuilder().append(Messages.getString("CarMaker.743")).append(carname).append(Messages.getString("CarMaker.744")).toString()) //$NON-NLS-1$ //$NON-NLS-2$
 									/ 2,
 							230 + i_2_);
-					rd.setFont(new Font("Arial", 1, 12));
-					rd.drawString("New name :", 239, 266 + i_2_);
+					rd.setFont(new Font(Messages.getString("CarMaker.745"), 1, 12)); //$NON-NLS-1$
+					rd.drawString(Messages.getString("CarMaker.746"), 239, 266 + i_2_); //$NON-NLS-1$
 					movefield(srch, 316, 250 + i_2_, 129, 22);
 					if (!srch.isShowing()) {
 						srch.setVisible(true);
 						srch.requestFocus();
 					}
 					fixtext(srch);
-					stringbutton("   Rename Car   ", 350, 306 + i_2_, 0, true);
-					stringbutton("  Cancel  ", 350, 346 + i_2_, 0, false);
+					stringbutton(Messages.getString("CarMaker.747"), 350, 306 + i_2_, 0, true); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.748"), 350, 346 + i_2_, 0, false); //$NON-NLS-1$
 				}
 				if (sfase == 3) {
-					rd.drawString("Import a Wavefront OBJ 3D Model",
-							350 - ftm.stringWidth("Import a Wavefront OBJ 3D Model") / 2, 230 + i_2_);
+					rd.drawString(Messages.getString("CarMaker.749"), //$NON-NLS-1$
+							350 - ftm.stringWidth(Messages.getString("CarMaker.750")) / 2, 230 + i_2_); //$NON-NLS-1$
 					if (xm > 116 && xm < 584 && ym > 246 + i_2_ && ym < 290 + i_2_) {
 						if (mouseon == -1) {
 							mouseon = 3;
@@ -3083,12 +3083,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						rd.setColor(new Color(0, 64, 128));
 					else
 						rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Please read the important information about importing cars found at:",
+					rd.drawString(Messages.getString("CarMaker.751"), //$NON-NLS-1$
 							350 - ftm.stringWidth(
-									"Please read the important information about importing cars, found here :") / 2,
+									Messages.getString("CarMaker.752")) / 2, //$NON-NLS-1$
 							260 + i_2_);
 					rd.setColor(new Color(0, 128, 255));
-					string = "http://www.needformadness.com/developer/extras.html";
+					string = Messages.getString("CarMaker.753"); //$NON-NLS-1$
 					rd.drawString(string, 350 - ftm.stringWidth(string) / 2, 280 + i_2_);
 					if (mouseon == 3)
 						rd.setColor(new Color(0, 128, 255));
@@ -3098,20 +3098,20 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							281 + i_2_);
 					if (mouseon == 3 && mouses == -1)
 						openelink();
-					stringbutton("     Import Car     ", 350, 326 + i_2_, 0, true);
-					stringbutton("  Export >  ", 550, 326 + i_2_, 0, false);
-					stringbutton("  Cancel  ", 350, 366 + i_2_, 0, false);
+					stringbutton(Messages.getString("CarMaker.754"), 350, 326 + i_2_, 0, true); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.755"), 550, 326 + i_2_, 0, false); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.756"), 350, 366 + i_2_, 0, false); //$NON-NLS-1$
 				}
 				if (sfase == 4) {
-					rd.drawString("Select Car to Export", 350 - ftm.stringWidth("Select Car to Export") / 2,
+					rd.drawString(Messages.getString("CarMaker.757"), 350 - ftm.stringWidth(Messages.getString("CarMaker.758")) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 							230 + i_2_);
 					slcar.move(250, 240 + i_2_);
 					if (slcar.getWidth() != 200)
 						slcar.setSize(200, 21);
 					if (!slcar.isShowing())
 						slcar.setVisible(true);
-					stringbutton("     Export Car     ", 350, 306 + i_2_, 0, true);
-					stringbutton("  Cancel  ", 350, 346 + i_2_, 0, false);
+					stringbutton(Messages.getString("CarMaker.759"), 350, 306 + i_2_, 0, true); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.760"), 350, 346 + i_2_, 0, false); //$NON-NLS-1$
 					if (slcar.getSelectedIndex() != 0) {
 						if (!carname.equals(slcar.getSelectedItem())) {
 							tomany = false;
@@ -3122,13 +3122,13 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							requestFocus();
 						}
 					} else
-						carname = "";
+						carname = Messages.getString("CarMaker.761"); //$NON-NLS-1$
 				}
 			}
 			if (tab == 1) {
 				if (tabed != tab) {
-					srch.setText("");
-					rplc.setText("");
+					srch.setText(Messages.getString("CarMaker.762")); //$NON-NLS-1$
+					rplc.setText(Messages.getString("CarMaker.763")); //$NON-NLS-1$
 					cntchk = 1;
 					npolys = 0;
 					prefs = false;
@@ -3141,9 +3141,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					}
 				} else if (editor.isShowing())
 					editor.setVisible(false);
-				rd.setFont(new Font("Arial", 1, 12));
+				rd.setFont(new Font(Messages.getString("CarMaker.764"), 1, 12)); //$NON-NLS-1$
 				if (prefs) {
-					rd.drawString("Code Font:", 10, 446);
+					rd.drawString(Messages.getString("CarMaker.765"), 10, 446); //$NON-NLS-1$
 					fontsel.move(76, 430);
 					if (!fontsel.isShowing()) {
 						fontsel.setVisible(true);
@@ -3159,7 +3159,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							wv[i_5_].setFont(new Font(cfont, 1, 14));
 						editor.requestFocus();
 					}
-					rd.drawString("Code Theme:", 190, 446);
+					rd.drawString(Messages.getString("CarMaker.766"), 190, 446); //$NON-NLS-1$
 					ctheme.move(271, 430);
 					if (!ctheme.isShowing()) {
 						ctheme.setVisible(true);
@@ -3171,12 +3171,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						setheme();
 						editor.requestFocus();
 					}
-					stringbutton("<", 400, 446, 3, false);
+					stringbutton(Messages.getString("CarMaker.767"), 400, 446, 3, false); //$NON-NLS-1$
 					cntprf++;
 					if (cntprf == 200)
 						prefs = false;
 				} else {
-					stringbutton("Preferences", 52, 446, 3, false);
+					stringbutton(Messages.getString("CarMaker.768"), 52, 446, 3, false); //$NON-NLS-1$
 					if (ctheme.isShowing())
 						ctheme.setVisible(false);
 					if (fontsel.isShowing())
@@ -3189,9 +3189,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						boolean bool_7_ = false;
 						while (i_6_ != -1 && mouses != 1) {
 							if (!bool_7_)
-								i_6_ = editor.getText().indexOf("<p>", i_6_);
+								i_6_ = editor.getText().indexOf(Messages.getString("CarMaker.769"), i_6_); //$NON-NLS-1$
 							else
-								i_6_ = editor.getText().indexOf("</p>", i_6_);
+								i_6_ = editor.getText().indexOf(Messages.getString("CarMaker.770"), i_6_); //$NON-NLS-1$
 							if (i_6_ != -1) {
 								if (!bool_7_)
 									bool_7_ = true;
@@ -3210,34 +3210,34 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					if (npolys > 10000)
 						rd.setColor(new Color(255, 0, 0));
 					if (npolys != 0)
-						rd.drawString(new StringBuilder().append("Number of Polygons :  ").append(npolys)
-								.append(" / 10000").toString(), 200, 446);
+						rd.drawString(new StringBuilder().append(Messages.getString("CarMaker.771")).append(npolys) //$NON-NLS-1$
+								.append(Messages.getString("CarMaker.772")).toString(), 200, 446); //$NON-NLS-1$
 				}
 				if (!changed && !editor.getText().equals(lastedo))
 					changed = true;
-				stringbutton("  Save  ", 490, 455, 0, changed);
-				stringbutton("  Save & Preview  >  ", 600, 455, 0, changed);
+				stringbutton(Messages.getString("CarMaker.773"), 490, 455, 0, changed); //$NON-NLS-1$
+				stringbutton(Messages.getString("CarMaker.774"), 600, 455, 0, changed); //$NON-NLS-1$
 				mirror = false;
 				polynum = -1;
 				cntpls = 0;
-				String string = "";
+				String string = Messages.getString("CarMaker.775"); //$NON-NLS-1$
 				try {
 					string = editor.getSelectedText();
 				} catch (final Exception exception) {
 					/* empty */
 				}
-				if (!string.equals("")) {
-					int i_8_ = string.indexOf("<p>", 0);
+				if (!string.equals(Messages.getString("CarMaker.776"))) { //$NON-NLS-1$
+					int i_8_ = string.indexOf(Messages.getString("CarMaker.777"), 0); //$NON-NLS-1$
 					while (i_8_ != -1 && i_8_ + 1 < string.length()) {
 						if (!mirror) {
-							i_8_ = string.indexOf("</p>", i_8_ + 1);
+							i_8_ = string.indexOf(Messages.getString("CarMaker.778"), i_8_ + 1); //$NON-NLS-1$
 							if (i_8_ != -1) {
 								mirror = true;
 								cntpls++;
 							}
 						}
 						if (mirror) {
-							i_8_ = string.indexOf("<p>", i_8_ + 1);
+							i_8_ = string.indexOf(Messages.getString("CarMaker.779"), i_8_ + 1); //$NON-NLS-1$
 							if (i_8_ != -1)
 								mirror = false;
 						}
@@ -3247,22 +3247,22 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					rd.setColor(new Color(170, 170, 170));
 					rd.drawRect(5, 474, 494, 70);
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Text to find:", 18, 500);
+					rd.drawString(Messages.getString("CarMaker.780"), 18, 500); //$NON-NLS-1$
 					movefield(srch, 91, 484, 129, 22);
 					if (!srch.isShowing())
 						srch.setVisible(true);
 					boolean bool_9_ = false;
-					if (!srch.getText().equals(""))
+					if (!srch.getText().equals(Messages.getString("CarMaker.781"))) //$NON-NLS-1$
 						bool_9_ = true;
-					stringbutton(" Find ", 117, 526, 2, bool_9_);
-					rd.drawString("Replace with:", 255, 500);
+					stringbutton(Messages.getString("CarMaker.782"), 117, 526, 2, bool_9_); //$NON-NLS-1$
+					rd.drawString(Messages.getString("CarMaker.783"), 255, 500); //$NON-NLS-1$
 					movefield(rplc, 338, 484, 129, 22);
 					if (!rplc.isShowing())
 						rplc.setVisible(true);
 					bool_9_ = false;
-					if (!srch.getText().equals("") && !rplc.getText().equals(""))
+					if (!srch.getText().equals(Messages.getString("CarMaker.784")) && !rplc.getText().equals(Messages.getString("CarMaker.785"))) //$NON-NLS-1$ //$NON-NLS-2$
 						bool_9_ = true;
-					stringbutton(" Replace ", 376, 526, 2, bool_9_);
+					stringbutton(Messages.getString("CarMaker.786"), 376, 526, 2, bool_9_); //$NON-NLS-1$
 				} else {
 					if (srch.isShowing())
 						srch.setVisible(false);
@@ -3271,21 +3271,21 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					rd.setColor(new Color(170, 170, 170));
 					rd.drawRect(5, 474, 450, 70);
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Mirror [Selected] polygon(s) along:", 18, 490);
-					stringbutton(" Mirror Along X Axis ", 90, 525, 2, true);
-					stringbutton(" Mirror Along Y Axis ", 230, 525, 2, false);
-					stringbutton(" Mirror Along Z Axis ", 370, 525, 2, false);
+					rd.drawString(Messages.getString("CarMaker.787"), 18, 490); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.788"), 90, 525, 2, true); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.789"), 230, 525, 2, false); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.790"), 370, 525, 2, false); //$NON-NLS-1$
 					rd.setColor(new Color(170, 170, 170));
 					rd.drawRect(465, 474, 230, 70);
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Show [Selected] polygon(s):", 478, 490);
-					stringbutton(" Show in 3D  > ", 580, 523, 0, true);
+					rd.drawString(Messages.getString("CarMaker.791"), 478, 490); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.792"), 580, 523, 0, true); //$NON-NLS-1$
 				}
 				if (npolys > 10000 && !tomany) {
 					repaint();
 					JOptionPane.showMessageDialog(null,
-							"Maximum number of polygons (pieces) allowed has been exceeded!\nThe maximum allowed is 10000 polygons, please decrease.\n",
-							"Car Maker", 1);
+							Messages.getString("CarMaker.793"), //$NON-NLS-1$
+							Messages.getString("CarMaker.794"), 1); //$NON-NLS-1$
 					tomany = true;
 				}
 			}
@@ -3329,16 +3329,16 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							is_14_[i_15_] = ys(is_10_[i_15_], is_11_[i_15_]);
 						}
 						rd.setColor(new Color(0, 150, 0));
-						rd.drawString("X+", is_13_[0] - 7, is_14_[0] + 4);
-						rd.drawString("-X", is_13_[1] - 5, is_14_[1] + 4);
+						rd.drawString(Messages.getString("CarMaker.795"), is_13_[0] - 7, is_14_[0] + 4); //$NON-NLS-1$
+						rd.drawString(Messages.getString("CarMaker.796"), is_13_[1] - 5, is_14_[1] + 4); //$NON-NLS-1$
 						rd.drawLine(is_13_[0], is_14_[0], is_13_[1], is_14_[1]);
 						rd.setColor(new Color(150, 0, 0));
-						rd.drawString("Y+", is_13_[2] - 7, is_14_[2] + 4);
-						rd.drawString("-Y", is_13_[3] - 5, is_14_[3] + 4);
+						rd.drawString(Messages.getString("CarMaker.797"), is_13_[2] - 7, is_14_[2] + 4); //$NON-NLS-1$
+						rd.drawString(Messages.getString("CarMaker.798"), is_13_[3] - 5, is_14_[3] + 4); //$NON-NLS-1$
 						rd.drawLine(is_13_[2], is_14_[2], is_13_[3], is_14_[3]);
 						rd.setColor(new Color(0, 0, 150));
-						rd.drawString("Z+", is_13_[4] - 7, is_14_[4] + 4);
-						rd.drawString("-Z", is_13_[5] - 5, is_14_[5] + 4);
+						rd.drawString(Messages.getString("CarMaker.799"), is_13_[4] - 7, is_14_[4] + 4); //$NON-NLS-1$
+						rd.drawString(Messages.getString("CarMaker.800"), is_13_[5] - 5, is_14_[5] + 4); //$NON-NLS-1$
 						rd.drawLine(is_13_[4], is_14_[4], is_13_[5], is_14_[5]);
 						for (int i_16_ = 0; i_16_ < 6; i_16_++) {
 							if (Math.abs(is_14_[i_16_] - 207) * 1.91F > Math.abs(is_13_[i_16_] - 350)) {
@@ -3363,10 +3363,10 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 				rd.fillRect(0, 390, 700, 20);
 				rd.setColor(new Color(225, 225, 225));
 				rd.fillRect(0, 410, 700, 140);
-				rd.setFont(new Font("Arial", 1, 12));
+				rd.setFont(new Font(Messages.getString("CarMaker.801"), 1, 12)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
-				final String[] strings = { "3D Controls", "Color Edit", "Scale & Align", "Wheels", "Stats & Class",
-						"Physics", "Test Drive" };
+				final String[] strings = { Messages.getString("CarMaker.802"), Messages.getString("CarMaker.803"), Messages.getString("CarMaker.804"), Messages.getString("CarMaker.805"), Messages.getString("CarMaker.806"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
+						Messages.getString("CarMaker.807"), Messages.getString("CarMaker.808") }; //$NON-NLS-1$ //$NON-NLS-2$
 				final int[] is = { 0, 0, 100, 90 };
 				final int[] is_17_ = { 390, 410, 410, 390 };
 				for (int i_18_ = 0; i_18_ < 7; i_18_++) {
@@ -3395,34 +3395,34 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 				}
 				rd.setColor(new Color(0, 0, 0));
 				if (dtab == 0) {
-					rd.drawString("Rotate Car around its X & Z Axis using:  [ Keyboard Arrows ] ", 20, 440);
+					rd.drawString(Messages.getString("CarMaker.809"), 20, 440); //$NON-NLS-1$
 					rd.drawString(
-							"Rotate Car fully around the Y Axis using:    [ < ]  &  [ > ]    or    [ A ]  &  [ D ]    or    [ 4 ]  &  [ 6 ]    Keys",
+							Messages.getString("CarMaker.810"), //$NON-NLS-1$
 							20, 465);
-					rd.drawString("Move Car Up and Down using:    [ - ]  &  [ + ]    Keys", 20, 490);
+					rd.drawString(Messages.getString("CarMaker.811"), 20, 490); //$NON-NLS-1$
 					rd.drawString(
-							"Move Car Forwards and Backwards using:    [ W ]  &  [ S ]    or    [ 8 ]  &  [ 2 ]    or    [ Enter ]  &  [ Backspace ]    Keys",
+							Messages.getString("CarMaker.812"), //$NON-NLS-1$
 							20, 515);
 				}
 				if (dtab == 1)
 					if (o.colok != 2) {
-						rd.setFont(new Font("Arial", 1, 13));
+						rd.setFont(new Font(Messages.getString("CarMaker.813"), 1, 13)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
-						rd.drawString("[  First & Second Color not defined yet  ]",
-								350 - ftm.stringWidth("[  First & Second Color not defined yet  ]") / 2, 450);
-						stringbutton(" Define 1st and 2nd Color ", 350, 490, 0, true);
+						rd.drawString(Messages.getString("CarMaker.814"), //$NON-NLS-1$
+								350 - ftm.stringWidth(Messages.getString("CarMaker.815")) / 2, 450); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.816"), 350, 490, 0, true); //$NON-NLS-1$
 					} else {
 						if (dtabed != dtab) {
-							fcol = new StringBuilder().append("(").append(o.fcol[0]).append(",").append(o.fcol[1])
-									.append(",").append(o.fcol[2]).append(")").toString();
+							fcol = new StringBuilder().append(Messages.getString("CarMaker.817")).append(o.fcol[0]).append(Messages.getString("CarMaker.818")).append(o.fcol[1]) //$NON-NLS-1$ //$NON-NLS-2$
+									.append(Messages.getString("CarMaker.819")).append(o.fcol[2]).append(Messages.getString("CarMaker.820")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 							srch.setText(fcol);
 							ofcol = fcol;
 							Color.RGBtoHSB(o.fcol[0], o.fcol[1], o.fcol[2], fhsb);
 							float f = fhsb[1];
 							fhsb[1] = fhsb[2];
 							fhsb[2] = f;
-							scol = new StringBuilder().append("(").append(o.scol[0]).append(",").append(o.scol[1])
-									.append(",").append(o.scol[2]).append(")").toString();
+							scol = new StringBuilder().append(Messages.getString("CarMaker.821")).append(o.scol[0]).append(Messages.getString("CarMaker.822")).append(o.scol[1]) //$NON-NLS-1$ //$NON-NLS-2$
+									.append(Messages.getString("CarMaker.823")).append(o.scol[2]).append(Messages.getString("CarMaker.824")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 							rplc.setText(scol);
 							oscol = scol;
 							Color.RGBtoHSB(o.scol[0], o.scol[1], o.scol[2], shsb);
@@ -3439,11 +3439,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						rd.setColor(new Color(225, 225, 225));
 						rd.fillRect(141, 419, 77, 9);
 						rd.setColor(new Color(0, 0, 0));
-						rd.drawString("First Color", 151, 428);
-						rd.drawString("Hue:", 75, 450);
-						rd.drawString("Brightness:", 35, 470);
-						rd.drawString("Saturation:", 38, 490);
-						rd.drawString("RGB Value:", 38, 520);
+						rd.drawString(Messages.getString("CarMaker.825"), 151, 428); //$NON-NLS-1$
+						rd.drawString(Messages.getString("CarMaker.826"), 75, 450); //$NON-NLS-1$
+						rd.drawString(Messages.getString("CarMaker.827"), 35, 470); //$NON-NLS-1$
+						rd.drawString(Messages.getString("CarMaker.828"), 38, 490); //$NON-NLS-1$
+						rd.drawString(Messages.getString("CarMaker.829"), 38, 520); //$NON-NLS-1$
 						movefield(srch, 106, 504, 129, 22);
 						if (srch.hasFocus())
 							focuson = false;
@@ -3486,17 +3486,17 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 									fhsb[i_23_] = 0.0F;
 							}
 						}
-						stringbutton(" Save ", 300, 520, 0, !fcol.equals(ofcol));
+						stringbutton(Messages.getString("CarMaker.830"), 300, 520, 0, !fcol.equals(ofcol)); //$NON-NLS-1$
 						rd.setColor(new Color(170, 170, 170));
 						rd.drawRect(360, 425, 320, 110);
 						rd.setColor(new Color(225, 225, 225));
 						rd.fillRect(472, 419, 95, 9);
 						rd.setColor(new Color(0, 0, 0));
-						rd.drawString("Second Color", 482, 428);
-						rd.drawString("Hue:", 415, 450);
-						rd.drawString("Brightness:", 375, 470);
-						rd.drawString("Saturation:", 378, 490);
-						rd.drawString("RGB Value:", 378, 520);
+						rd.drawString(Messages.getString("CarMaker.831"), 482, 428); //$NON-NLS-1$
+						rd.drawString(Messages.getString("CarMaker.832"), 415, 450); //$NON-NLS-1$
+						rd.drawString(Messages.getString("CarMaker.833"), 375, 470); //$NON-NLS-1$
+						rd.drawString(Messages.getString("CarMaker.834"), 378, 490); //$NON-NLS-1$
+						rd.drawString(Messages.getString("CarMaker.835"), 378, 520); //$NON-NLS-1$
 						movefield(rplc, 446, 504, 129, 22);
 						if (rplc.hasFocus())
 							focuson = false;
@@ -3539,7 +3539,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 									shsb[i_27_] = 0.0F;
 							}
 						}
-						stringbutton(" Save ", 640, 520, 0, !scol.equals(oscol));
+						stringbutton(Messages.getString("CarMaker.836"), 640, 520, 0, !scol.equals(oscol)); //$NON-NLS-1$
 						if (fhsb[1] < 0.2)
 							fhsb[1] = 0.2F;
 						if (shsb[1] < 0.2)
@@ -3556,18 +3556,18 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 								o.p[i_28_].hsb[2] = shsb[1];
 							}
 						}
-						String string = new StringBuilder().append("(")
-								.append(Color.getHSBColor(fhsb[0], fhsb[2], fhsb[1]).getRed()).append(",")
-								.append(Color.getHSBColor(fhsb[0], fhsb[2], fhsb[1]).getGreen()).append(",")
-								.append(Color.getHSBColor(fhsb[0], fhsb[2], fhsb[1]).getBlue()).append(")").toString();
+						String string = new StringBuilder().append(Messages.getString("CarMaker.837")) //$NON-NLS-1$
+								.append(Color.getHSBColor(fhsb[0], fhsb[2], fhsb[1]).getRed()).append(Messages.getString("CarMaker.838")) //$NON-NLS-1$
+								.append(Color.getHSBColor(fhsb[0], fhsb[2], fhsb[1]).getGreen()).append(Messages.getString("CarMaker.839")) //$NON-NLS-1$
+								.append(Color.getHSBColor(fhsb[0], fhsb[2], fhsb[1]).getBlue()).append(Messages.getString("CarMaker.840")).toString(); //$NON-NLS-1$
 						if (!fcol.equals(string)) {
 							fcol = string;
 							srch.setText(fcol);
 						}
-						string = new StringBuilder().append("(")
-								.append(Color.getHSBColor(shsb[0], shsb[2], shsb[1]).getRed()).append(",")
-								.append(Color.getHSBColor(shsb[0], shsb[2], shsb[1]).getGreen()).append(",")
-								.append(Color.getHSBColor(shsb[0], shsb[2], shsb[1]).getBlue()).append(")").toString();
+						string = new StringBuilder().append(Messages.getString("CarMaker.841")) //$NON-NLS-1$
+								.append(Color.getHSBColor(shsb[0], shsb[2], shsb[1]).getRed()).append(Messages.getString("CarMaker.842")) //$NON-NLS-1$
+								.append(Color.getHSBColor(shsb[0], shsb[2], shsb[1]).getGreen()).append(Messages.getString("CarMaker.843")) //$NON-NLS-1$
+								.append(Color.getHSBColor(shsb[0], shsb[2], shsb[1]).getBlue()).append(Messages.getString("CarMaker.844")).toString(); //$NON-NLS-1$
 						if (!scol.equals(string)) {
 							scol = string;
 							rplc.setText(scol);
@@ -3586,8 +3586,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 								final int[] is_29_ = new int[3];
 								boolean bool_30_ = true;
 								try {
-									final int i_31_ = fcol.indexOf(",", 0);
-									final int i_32_ = fcol.indexOf(",", i_31_ + 1);
+									final int i_31_ = fcol.indexOf(Messages.getString("CarMaker.845"), 0); //$NON-NLS-1$
+									final int i_32_ = fcol.indexOf(Messages.getString("CarMaker.846"), i_31_ + 1); //$NON-NLS-1$
 									is_29_[0] = Integer.valueOf(fcol.substring(1, i_31_)).intValue();
 									if (is_29_[0] < 0)
 										is_29_[0] = 0;
@@ -3619,8 +3619,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 								final int[] is_33_ = new int[3];
 								boolean bool_34_ = true;
 								try {
-									final int i_35_ = scol.indexOf(",", 0);
-									final int i_36_ = scol.indexOf(",", i_35_ + 1);
+									final int i_35_ = scol.indexOf(Messages.getString("CarMaker.847"), 0); //$NON-NLS-1$
+									final int i_36_ = scol.indexOf(Messages.getString("CarMaker.848"), i_35_ + 1); //$NON-NLS-1$
 									is_33_[0] = Integer.valueOf(scol.substring(1, i_35_)).intValue();
 									if (is_33_[0] < 0)
 										is_33_[0] = 0;
@@ -3653,12 +3653,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					if (dtabed != dtab) {
 						lastedo = editor.getText();
 						scale[0] = 100;
-						int i_37_ = editor.getText().indexOf("\nScaleX(", 0);
+						int i_37_ = editor.getText().indexOf(Messages.getString("CarMaker.849"), 0); //$NON-NLS-1$
 						if (i_37_ != -1) {
 							i_37_++;
 							try {
 								scale[0] = Integer.valueOf(
-										editor.getText().substring(i_37_ + 7, editor.getText().indexOf(")", i_37_)))
+										editor.getText().substring(i_37_ + 7, editor.getText().indexOf(Messages.getString("CarMaker.850"), i_37_))) //$NON-NLS-1$
 										.intValue();
 							} catch (final Exception exception) {
 								scale[0] = 100;
@@ -3666,12 +3666,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						}
 						oscale[0] = scale[0];
 						scale[1] = 100;
-						i_37_ = editor.getText().indexOf("\nScaleY(", 0);
+						i_37_ = editor.getText().indexOf(Messages.getString("CarMaker.851"), 0); //$NON-NLS-1$
 						if (i_37_ != -1) {
 							i_37_++;
 							try {
 								scale[1] = Integer.valueOf(
-										editor.getText().substring(i_37_ + 7, editor.getText().indexOf(")", i_37_)))
+										editor.getText().substring(i_37_ + 7, editor.getText().indexOf(Messages.getString("CarMaker.852"), i_37_))) //$NON-NLS-1$
 										.intValue();
 							} catch (final Exception exception) {
 								scale[1] = 100;
@@ -3679,12 +3679,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						}
 						oscale[1] = scale[1];
 						scale[2] = 100;
-						i_37_ = editor.getText().indexOf("\nScaleZ(", 0);
+						i_37_ = editor.getText().indexOf(Messages.getString("CarMaker.853"), 0); //$NON-NLS-1$
 						if (i_37_ != -1) {
 							i_37_++;
 							try {
 								scale[2] = Integer.valueOf(
-										editor.getText().substring(i_37_ + 7, editor.getText().indexOf(")", i_37_)))
+										editor.getText().substring(i_37_ + 7, editor.getText().indexOf(Messages.getString("CarMaker.854"), i_37_))) //$NON-NLS-1$
 										.intValue();
 							} catch (final Exception exception) {
 								scale[2] = 100;
@@ -3701,37 +3701,37 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					rd.setColor(new Color(225, 225, 225));
 					rd.fillRect(119, 419, 51, 9);
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Scale", 129, 428);
+					rd.drawString(Messages.getString("CarMaker.855"), 129, 428); //$NON-NLS-1$
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Scale X", 25, 450);
-					stringbutton(" - ", 92, 450, 4, false);
-					rd.drawString(new StringBuilder().append("").append(scale[0] / 100.0F).append("").toString(),
+					rd.drawString(Messages.getString("CarMaker.856"), 25, 450); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.857"), 92, 450, 4, false); //$NON-NLS-1$
+					rd.drawString(new StringBuilder().append(Messages.getString("CarMaker.858")).append(scale[0] / 100.0F).append(Messages.getString("CarMaker.859")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 							126 - ftm.stringWidth(
-									new StringBuilder().append("").append(scale[0] / 100.0F).append("").toString()) / 2,
+									new StringBuilder().append(Messages.getString("CarMaker.860")).append(scale[0] / 100.0F).append(Messages.getString("CarMaker.861")).toString()) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 							450);
-					stringbutton(" + ", 160, 450, 4, false);
-					rd.drawString("Scale Y", 25, 474);
-					stringbutton(" - ", 92, 474, 4, false);
-					rd.drawString(new StringBuilder().append("").append(scale[1] / 100.0F).append("").toString(),
+					stringbutton(Messages.getString("CarMaker.862"), 160, 450, 4, false); //$NON-NLS-1$
+					rd.drawString(Messages.getString("CarMaker.863"), 25, 474); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.864"), 92, 474, 4, false); //$NON-NLS-1$
+					rd.drawString(new StringBuilder().append(Messages.getString("CarMaker.865")).append(scale[1] / 100.0F).append(Messages.getString("CarMaker.866")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 							126 - ftm.stringWidth(
-									new StringBuilder().append("").append(scale[1] / 100.0F).append("").toString()) / 2,
+									new StringBuilder().append(Messages.getString("CarMaker.867")).append(scale[1] / 100.0F).append(Messages.getString("CarMaker.868")).toString()) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 							474);
-					stringbutton(" + ", 160, 474, 4, false);
-					rd.drawString("Scale Z", 25, 498);
-					stringbutton(" - ", 92, 498, 4, false);
-					rd.drawString(new StringBuilder().append("").append(scale[2] / 100.0F).append("").toString(),
+					stringbutton(Messages.getString("CarMaker.869"), 160, 474, 4, false); //$NON-NLS-1$
+					rd.drawString(Messages.getString("CarMaker.870"), 25, 498); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.871"), 92, 498, 4, false); //$NON-NLS-1$
+					rd.drawString(new StringBuilder().append(Messages.getString("CarMaker.872")).append(scale[2] / 100.0F).append(Messages.getString("CarMaker.873")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 							126 - ftm.stringWidth(
-									new StringBuilder().append("").append(scale[2] / 100.0F).append("").toString()) / 2,
+									new StringBuilder().append(Messages.getString("CarMaker.874")).append(scale[2] / 100.0F).append(Messages.getString("CarMaker.875")).toString()) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 							498);
-					stringbutton(" + ", 160, 498, 4, false);
-					rd.drawString("Scale ALL", 25, 527);
-					stringbutton(" - ", 106, 527, 2, true);
-					stringbutton(" + ", 146, 527, 2, true);
-					stringbutton("   Save   ", 230, 454, 0,
+					stringbutton(Messages.getString("CarMaker.876"), 160, 498, 4, false); //$NON-NLS-1$
+					rd.drawString(Messages.getString("CarMaker.877"), 25, 527); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.878"), 106, 527, 2, true); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.879"), 146, 527, 2, true); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.880"), 230, 454, 0, //$NON-NLS-1$
 							oscale[0] != scale[0] || oscale[1] != scale[1] || oscale[2] != scale[2]);
-					stringbutton(" Reset ", 230, 493, 0, false);
-					rd.drawString("Compare scale and", 296, 440);
-					rd.drawString("alignment with:", 308, 455);
+					stringbutton(Messages.getString("CarMaker.881"), 230, 493, 0, false); //$NON-NLS-1$
+					rd.drawString(Messages.getString("CarMaker.882"), 296, 440); //$NON-NLS-1$
+					rd.drawString(Messages.getString("CarMaker.883"), 308, 455); //$NON-NLS-1$
 					compcar.move(288, 462);
 					if (compcar.hasFocus()) {
 						focuson = false;
@@ -3751,21 +3751,21 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					rd.setColor(new Color(225, 225, 225));
 					rd.fillRect(531, 419, 47, 9);
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Align", 541, 428);
-					rd.drawString("Align in X", 433, 450);
-					stringbutton(" Rotate 90\u00b0 ", 535, 450, 4, false);
-					stringbutton("+10", 607, 450, 4, false);
-					stringbutton("-10", 656, 450, 4, false);
-					rd.drawString("Align in Y", 433, 474);
-					stringbutton(" Rotate 90\u00b0 ", 535, 474, 4, false);
-					stringbutton("+10", 607, 474, 4, false);
-					stringbutton("-10", 656, 474, 4, false);
-					rd.drawString("Align in Z", 433, 498);
-					stringbutton(" Rotate 90\u00b0 ", 535, 498, 4, false);
-					stringbutton("+10", 607, 498, 4, false);
-					stringbutton("-10", 656, 498, 4, false);
-					stringbutton(" Reset ", 490, 527, 0, false);
-					stringbutton("      Save      ", 607, 527, 0, changed2);
+					rd.drawString(Messages.getString("CarMaker.884"), 541, 428); //$NON-NLS-1$
+					rd.drawString(Messages.getString("CarMaker.885"), 433, 450); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.886"), 535, 450, 4, false); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.887"), 607, 450, 4, false); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.888"), 656, 450, 4, false); //$NON-NLS-1$
+					rd.drawString(Messages.getString("CarMaker.889"), 433, 474); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.890"), 535, 474, 4, false); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.891"), 607, 474, 4, false); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.892"), 656, 474, 4, false); //$NON-NLS-1$
+					rd.drawString(Messages.getString("CarMaker.893"), 433, 498); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.894"), 535, 498, 4, false); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.895"), 607, 498, 4, false); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.896"), 656, 498, 4, false); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.897"), 490, 527, 0, false); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.898"), 607, 527, 0, changed2); //$NON-NLS-1$
 				}
 				if (dtab == 3) {
 					if (dtabed != dtab) {
@@ -3785,50 +3785,50 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						int i_51_ = 10;
 						int i_52_ = 0;
 						int i_53_ = 0;
-						String string = "(140,140,140)";
-						String string_54_ = "(140,140,140)";
+						String string = Messages.getString("CarMaker.899"); //$NON-NLS-1$
+						String string_54_ = Messages.getString("CarMaker.900"); //$NON-NLS-1$
 						int i_55_ = 0;
-						final String string_56_ = new StringBuilder().append("").append(editor.getText()).append("\n")
+						final String string_56_ = new StringBuilder().append(Messages.getString("CarMaker.901")).append(editor.getText()).append(Messages.getString("CarMaker.902")) //$NON-NLS-1$ //$NON-NLS-2$
 								.toString();
 						int i_57_ = 0;
-						int i_58_ = string_56_.indexOf("\n", 0);
+						int i_58_ = string_56_.indexOf(Messages.getString("CarMaker.903"), 0); //$NON-NLS-1$
 						int i_59_ = 0;
 						int i_60_ = 15;
 						int i_61_ = 20;
-						String string_62_ = "(140,140,140)";
+						String string_62_ = Messages.getString("CarMaker.904"); //$NON-NLS-1$
 						while (i_58_ != -1 && i_57_ < string_56_.length()) {
 							String string_63_ = string_56_.substring(i_57_, i_58_);
 							string_63_ = string_63_.trim();
 							i_57_ = i_58_ + 1;
-							i_58_ = string_56_.indexOf("\n", i_57_);
+							i_58_ = string_56_.indexOf(Messages.getString("CarMaker.905"), i_57_); //$NON-NLS-1$
 							try {
-								if (string_63_.startsWith("rims(")) {
-									string_62_ = new StringBuilder().append("(").append(getvalue("rims", string_63_, 0))
-											.append(",").append(getvalue("rims", string_63_, 1)).append(",")
-											.append(getvalue("rims", string_63_, 2)).append(")").toString();
-									i_60_ = getvalue("rims", string_63_, 3);
-									i_61_ = getvalue("rims", string_63_, 4);
+								if (string_63_.startsWith(Messages.getString("CarMaker.906"))) { //$NON-NLS-1$
+									string_62_ = new StringBuilder().append(Messages.getString("CarMaker.907")).append(getvalue(Messages.getString("CarMaker.908"), string_63_, 0)) //$NON-NLS-1$ //$NON-NLS-2$
+											.append(Messages.getString("CarMaker.909")).append(getvalue(Messages.getString("CarMaker.910"), string_63_, 1)).append(Messages.getString("CarMaker.911")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+											.append(getvalue(Messages.getString("CarMaker.912"), string_63_, 2)).append(Messages.getString("CarMaker.913")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
+									i_60_ = getvalue(Messages.getString("CarMaker.914"), string_63_, 3); //$NON-NLS-1$
+									i_61_ = getvalue(Messages.getString("CarMaker.915"), string_63_, 4); //$NON-NLS-1$
 								}
-								if (string_63_.startsWith("gwgr("))
-									i_59_ = getvalue("gwgr", string_63_, 0);
-								if (string_63_.startsWith("w(")) {
-									final int i_64_ = getvalue("w", string_63_, 2);
+								if (string_63_.startsWith(Messages.getString("CarMaker.916"))) //$NON-NLS-1$
+									i_59_ = getvalue(Messages.getString("CarMaker.917"), string_63_, 0); //$NON-NLS-1$
+								if (string_63_.startsWith(Messages.getString("CarMaker.918"))) { //$NON-NLS-1$
+									final int i_64_ = getvalue(Messages.getString("CarMaker.919"), string_63_, 2); //$NON-NLS-1$
 									if (i_64_ > 0) {
-										i_38_ = Math.abs(getvalue("w", string_63_, 0));
-										i_40_ = getvalue("w", string_63_, 1);
+										i_38_ = Math.abs(getvalue(Messages.getString("CarMaker.920"), string_63_, 0)); //$NON-NLS-1$
+										i_40_ = getvalue(Messages.getString("CarMaker.921"), string_63_, 1); //$NON-NLS-1$
 										i_42_ = i_64_;
-										i_44_ = Math.abs(getvalue("w", string_63_, 4));
-										i_46_ = Math.abs(getvalue("w", string_63_, 5));
+										i_44_ = Math.abs(getvalue(Messages.getString("CarMaker.922"), string_63_, 4)); //$NON-NLS-1$
+										i_46_ = Math.abs(getvalue(Messages.getString("CarMaker.923"), string_63_, 5)); //$NON-NLS-1$
 										string = string_62_;
 										i_48_ = i_60_;
 										i_50_ = i_61_;
 										i_52_ = i_59_;
 									} else {
-										i_39_ = Math.abs(getvalue("w", string_63_, 0));
-										i_41_ = getvalue("w", string_63_, 1);
+										i_39_ = Math.abs(getvalue(Messages.getString("CarMaker.924"), string_63_, 0)); //$NON-NLS-1$
+										i_41_ = getvalue(Messages.getString("CarMaker.925"), string_63_, 1); //$NON-NLS-1$
 										i_43_ = i_64_;
-										i_45_ = Math.abs(getvalue("w", string_63_, 4));
-										i_47_ = Math.abs(getvalue("w", string_63_, 5));
+										i_45_ = Math.abs(getvalue(Messages.getString("CarMaker.926"), string_63_, 4)); //$NON-NLS-1$
+										i_47_ = Math.abs(getvalue(Messages.getString("CarMaker.927"), string_63_, 5)); //$NON-NLS-1$
 										string_54_ = string_62_;
 										i_49_ = i_60_;
 										i_51_ = i_61_;
@@ -3844,56 +3844,56 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							defnow = true;
 						else
 							defnow = false;
-						wv[0].setText(new StringBuilder().append("").append(i_39_).append("").toString());
-						wv[1].setText(new StringBuilder().append("").append(i_41_).append("").toString());
-						wv[2].setText(new StringBuilder().append("").append(i_43_).append("").toString());
-						wv[3].setText(new StringBuilder().append("").append(i_47_).append("").toString());
-						wv[4].setText(new StringBuilder().append("").append(i_45_).append("").toString());
+						wv[0].setText(new StringBuilder().append(Messages.getString("CarMaker.928")).append(i_39_).append(Messages.getString("CarMaker.929")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+						wv[1].setText(new StringBuilder().append(Messages.getString("CarMaker.930")).append(i_41_).append(Messages.getString("CarMaker.931")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+						wv[2].setText(new StringBuilder().append(Messages.getString("CarMaker.932")).append(i_43_).append(Messages.getString("CarMaker.933")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+						wv[3].setText(new StringBuilder().append(Messages.getString("CarMaker.934")).append(i_47_).append(Messages.getString("CarMaker.935")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+						wv[4].setText(new StringBuilder().append(Messages.getString("CarMaker.936")).append(i_45_).append(Messages.getString("CarMaker.937")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 						srch.setText(string_54_);
-						wv[5].setText(new StringBuilder().append("").append(i_49_).append("").toString());
-						wv[6].setText(new StringBuilder().append("").append(i_51_).append("").toString());
-						wv[7].setText(new StringBuilder().append("").append(i_53_).append("").toString());
-						wv[8].setText(new StringBuilder().append("").append(i_38_).append("").toString());
-						wv[9].setText(new StringBuilder().append("").append(i_40_).append("").toString());
-						wv[10].setText(new StringBuilder().append("").append(i_42_).append("").toString());
-						wv[11].setText(new StringBuilder().append("").append(i_46_).append("").toString());
-						wv[12].setText(new StringBuilder().append("").append(i_44_).append("").toString());
+						wv[5].setText(new StringBuilder().append(Messages.getString("CarMaker.938")).append(i_49_).append(Messages.getString("CarMaker.939")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+						wv[6].setText(new StringBuilder().append(Messages.getString("CarMaker.940")).append(i_51_).append(Messages.getString("CarMaker.941")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+						wv[7].setText(new StringBuilder().append(Messages.getString("CarMaker.942")).append(i_53_).append(Messages.getString("CarMaker.943")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+						wv[8].setText(new StringBuilder().append(Messages.getString("CarMaker.944")).append(i_38_).append(Messages.getString("CarMaker.945")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+						wv[9].setText(new StringBuilder().append(Messages.getString("CarMaker.946")).append(i_40_).append(Messages.getString("CarMaker.947")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+						wv[10].setText(new StringBuilder().append(Messages.getString("CarMaker.948")).append(i_42_).append(Messages.getString("CarMaker.949")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+						wv[11].setText(new StringBuilder().append(Messages.getString("CarMaker.950")).append(i_46_).append(Messages.getString("CarMaker.951")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+						wv[12].setText(new StringBuilder().append(Messages.getString("CarMaker.952")).append(i_44_).append(Messages.getString("CarMaker.953")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 						rplc.setText(string);
-						wv[13].setText(new StringBuilder().append("").append(i_48_).append("").toString());
-						wv[14].setText(new StringBuilder().append("").append(i_50_).append("").toString());
-						wv[15].setText(new StringBuilder().append("").append(i_52_).append("").toString());
-						aply1 = new StringBuilder().append("").append(wv[0].getText()).append("")
-								.append(wv[1].getText()).append("").append(wv[2].getText()).append("")
-								.append(wv[3].getText()).append("").append(wv[4].getText()).append("")
-								.append(srch.getText()).append("").append(wv[5].getText()).append("")
-								.append(wv[6].getText()).append("").append(wv[7].getText()).append("").toString();
-						aply2 = new StringBuilder().append("").append(wv[8].getText()).append("")
-								.append(wv[9].getText()).append("").append(wv[10].getText()).append("")
-								.append(wv[11].getText()).append("").append(wv[12].getText()).append("")
-								.append(rplc.getText()).append("").append(wv[13].getText()).append("")
-								.append(wv[14].getText()).append("").append(wv[15].getText()).append("").toString();
+						wv[13].setText(new StringBuilder().append(Messages.getString("CarMaker.954")).append(i_48_).append(Messages.getString("CarMaker.955")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+						wv[14].setText(new StringBuilder().append(Messages.getString("CarMaker.956")).append(i_50_).append(Messages.getString("CarMaker.957")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+						wv[15].setText(new StringBuilder().append(Messages.getString("CarMaker.958")).append(i_52_).append(Messages.getString("CarMaker.959")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
+						aply1 = new StringBuilder().append(Messages.getString("CarMaker.960")).append(wv[0].getText()).append(Messages.getString("CarMaker.961")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(wv[1].getText()).append(Messages.getString("CarMaker.962")).append(wv[2].getText()).append(Messages.getString("CarMaker.963")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(wv[3].getText()).append(Messages.getString("CarMaker.964")).append(wv[4].getText()).append(Messages.getString("CarMaker.965")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(srch.getText()).append(Messages.getString("CarMaker.966")).append(wv[5].getText()).append(Messages.getString("CarMaker.967")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(wv[6].getText()).append(Messages.getString("CarMaker.968")).append(wv[7].getText()).append(Messages.getString("CarMaker.969")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
+						aply2 = new StringBuilder().append(Messages.getString("CarMaker.970")).append(wv[8].getText()).append(Messages.getString("CarMaker.971")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(wv[9].getText()).append(Messages.getString("CarMaker.972")).append(wv[10].getText()).append(Messages.getString("CarMaker.973")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(wv[11].getText()).append(Messages.getString("CarMaker.974")).append(wv[12].getText()).append(Messages.getString("CarMaker.975")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(rplc.getText()).append(Messages.getString("CarMaker.976")).append(wv[13].getText()).append(Messages.getString("CarMaker.977")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(wv[14].getText()).append(Messages.getString("CarMaker.978")).append(wv[15].getText()).append(Messages.getString("CarMaker.979")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 						aplyd1 = false;
 						aplyd2 = false;
 						changed2 = false;
 						mouseon = -1;
 					}
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("BACK Wheels :", 12, 424);
-					rd.drawString("\u00b1X :", 12, 449);
+					rd.drawString(Messages.getString("CarMaker.980"), 12, 424); //$NON-NLS-1$
+					rd.drawString(Messages.getString("CarMaker.981"), 12, 449); //$NON-NLS-1$
 					movefield(wv[0], 35, 433, 40, 22);
-					rd.drawString("Y :", 86, 449);
+					rd.drawString(Messages.getString("CarMaker.982"), 86, 449); //$NON-NLS-1$
 					movefield(wv[1], 101, 433, 40, 22);
-					rd.drawString("Z :", 151, 449);
+					rd.drawString(Messages.getString("CarMaker.983"), 151, 449); //$NON-NLS-1$
 					movefield(wv[2], 166, 433, 40, 22);
-					rd.drawString("Height :", 12, 479);
+					rd.drawString(Messages.getString("CarMaker.984"), 12, 479); //$NON-NLS-1$
 					movefield(wv[3], 56, 463, 40, 22);
-					rd.drawString("Width :", 107, 479);
+					rd.drawString(Messages.getString("CarMaker.985"), 107, 479); //$NON-NLS-1$
 					movefield(wv[4], 148, 463, 40, 22);
-					rd.drawString("Rims RGB Color :", 12, 509);
+					rd.drawString(Messages.getString("CarMaker.986"), 12, 509); //$NON-NLS-1$
 					movefield(srch, 109, 493, 129, 22);
-					rd.drawString("Rims Size :", 12, 539);
+					rd.drawString(Messages.getString("CarMaker.987"), 12, 539); //$NON-NLS-1$
 					movefield(wv[5], 76, 523, 40, 22);
-					rd.drawString("Rims Depth :", 126, 539);
+					rd.drawString(Messages.getString("CarMaker.988"), 126, 539); //$NON-NLS-1$
 					movefield(wv[6], 199, 523, 40, 22);
 					if (xm > 245 && xm < 336 && ym > 524 && ym < 541) {
 						rd.setColor(new Color(255, 0, 0));
@@ -3907,26 +3907,26 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						mouseon = -1;
 						setCursor(new Cursor(0));
 					}
-					rd.drawString("Hide :                ?", 249, 539);
+					rd.drawString(Messages.getString("CarMaker.989"), 249, 539); //$NON-NLS-1$
 					movefield(wv[7], 282, 523, 40, 22);
-					stringbutton("   Apply   ", 300, 440, 0, aplyd1);
-					stringbutton("   Save   ", 300, 477, 0, changed2);
-					rd.drawString("FRONT Wheels :", 362, 424);
-					rd.drawString("\u00b1X :", 362, 449);
+					stringbutton(Messages.getString("CarMaker.990"), 300, 440, 0, aplyd1); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.991"), 300, 477, 0, changed2); //$NON-NLS-1$
+					rd.drawString(Messages.getString("CarMaker.992"), 362, 424); //$NON-NLS-1$
+					rd.drawString(Messages.getString("CarMaker.993"), 362, 449); //$NON-NLS-1$
 					movefield(wv[8], 385, 433, 40, 22);
-					rd.drawString("Y :", 436, 449);
+					rd.drawString(Messages.getString("CarMaker.994"), 436, 449); //$NON-NLS-1$
 					movefield(wv[9], 451, 433, 40, 22);
-					rd.drawString("Z :", 501, 449);
+					rd.drawString(Messages.getString("CarMaker.995"), 501, 449); //$NON-NLS-1$
 					movefield(wv[10], 516, 433, 40, 22);
-					rd.drawString("Height :", 362, 479);
+					rd.drawString(Messages.getString("CarMaker.996"), 362, 479); //$NON-NLS-1$
 					movefield(wv[11], 406, 463, 40, 22);
-					rd.drawString("Width :", 457, 479);
+					rd.drawString(Messages.getString("CarMaker.997"), 457, 479); //$NON-NLS-1$
 					movefield(wv[12], 498, 463, 40, 22);
-					rd.drawString("Rims RGB Color :", 362, 509);
+					rd.drawString(Messages.getString("CarMaker.998"), 362, 509); //$NON-NLS-1$
 					movefield(rplc, 459, 493, 129, 22);
-					rd.drawString("Rims Size :", 362, 539);
+					rd.drawString(Messages.getString("CarMaker.999"), 362, 539); //$NON-NLS-1$
 					movefield(wv[13], 426, 523, 40, 22);
-					rd.drawString("Rims Depth :", 476, 539);
+					rd.drawString(Messages.getString("CarMaker.1000"), 476, 539); //$NON-NLS-1$
 					movefield(wv[14], 549, 523, 40, 22);
 					if (xm > 595 && xm < 686 && ym > 524 && ym < 541) {
 						rd.setColor(new Color(255, 0, 0));
@@ -3940,14 +3940,14 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						mouseon = -1;
 						setCursor(new Cursor(0));
 					}
-					rd.drawString("Hide :                ?", 599, 539);
+					rd.drawString(Messages.getString("CarMaker.1001"), 599, 539); //$NON-NLS-1$
 					movefield(wv[15], 632, 523, 40, 22);
-					stringbutton("   Apply   ", 650, 440, 0, aplyd2);
-					stringbutton("   Save   ", 650, 477, 0, changed2);
+					stringbutton(Messages.getString("CarMaker.1002"), 650, 440, 0, aplyd2); //$NON-NLS-1$
+					stringbutton(Messages.getString("CarMaker.1003"), 650, 477, 0, changed2); //$NON-NLS-1$
 					if (mouses == -1 && (mouseon == 1 || mouseon == 2))
 						JOptionPane.showMessageDialog(null,
-								"Use this variable to hide the car wheels inside the car if you need to (if they are getting drawn over the car when they\nshould be drawn behind it).\n\nIf you have created a car model with specific places for the wheels go inside them (inside the car), if when you place the\nwheels there they don\u2019t get drawn inside the car (they get drawn over it instead), use this variable to adjust that.\n\nYou can also use this variable to do the opposite, to make the wheels get drawn over the car if they are getting drawn\nbehind it when they shouldn\u2019t.\n\nThe Hide variable takes values from -40 to 40:\nA +ve value from 1 to 40 makes the wheels more hidden, where 40 is the maximum the car wheel can be hidden.\nA -ve value from -1 to -40 does exactly the opposite and makes the wheels more apparent (this if the car wheels appear\ninside the car when they should be outside).\nA 0 value means do nothing.\nMost of the time you will need to use this variable, it will be to enter +ve values from 1-40 for hiding the car wheels.\n\n",
-								"Car Maker", 1);
+								Messages.getString("CarMaker.1004"), //$NON-NLS-1$
+								Messages.getString("CarMaker.1005"), 1); //$NON-NLS-1$
 					for (int i_65_ = 0; i_65_ < 16; i_65_++) {
 						if (wv[i_65_].hasFocus())
 							focuson = false;
@@ -3963,17 +3963,17 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					if (!rplc.isShowing())
 						rplc.setVisible(true);
 					if (!focuson) {
-						if (!aplyd1 && !aply1.equals(new StringBuilder().append("").append(wv[0].getText()).append("")
-								.append(wv[1].getText()).append("").append(wv[2].getText()).append("")
-								.append(wv[3].getText()).append("").append(wv[4].getText()).append("")
-								.append(srch.getText()).append("").append(wv[5].getText()).append("")
-								.append(wv[6].getText()).append("").append(wv[7].getText()).append("").toString()))
+						if (!aplyd1 && !aply1.equals(new StringBuilder().append(Messages.getString("CarMaker.1006")).append(wv[0].getText()).append(Messages.getString("CarMaker.1007")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(wv[1].getText()).append(Messages.getString("CarMaker.1008")).append(wv[2].getText()).append(Messages.getString("CarMaker.1009")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(wv[3].getText()).append(Messages.getString("CarMaker.1010")).append(wv[4].getText()).append(Messages.getString("CarMaker.1011")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(srch.getText()).append(Messages.getString("CarMaker.1012")).append(wv[5].getText()).append(Messages.getString("CarMaker.1013")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(wv[6].getText()).append(Messages.getString("CarMaker.1014")).append(wv[7].getText()).append(Messages.getString("CarMaker.1015")).toString())) //$NON-NLS-1$ //$NON-NLS-2$
 							aplyd1 = true;
-						if (!aplyd2 && !aply2.equals(new StringBuilder().append("").append(wv[8].getText()).append("")
-								.append(wv[9].getText()).append("").append(wv[10].getText()).append("")
-								.append(wv[11].getText()).append("").append(wv[12].getText()).append("")
-								.append(rplc.getText()).append("").append(wv[13].getText()).append("")
-								.append(wv[14].getText()).append("").append(wv[15].getText()).append("").toString()))
+						if (!aplyd2 && !aply2.equals(new StringBuilder().append(Messages.getString("CarMaker.1016")).append(wv[8].getText()).append(Messages.getString("CarMaker.1017")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(wv[9].getText()).append(Messages.getString("CarMaker.1018")).append(wv[10].getText()).append(Messages.getString("CarMaker.1019")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(wv[11].getText()).append(Messages.getString("CarMaker.1020")).append(wv[12].getText()).append(Messages.getString("CarMaker.1021")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(rplc.getText()).append(Messages.getString("CarMaker.1022")).append(wv[13].getText()).append(Messages.getString("CarMaker.1023")) //$NON-NLS-1$ //$NON-NLS-2$
+								.append(wv[14].getText()).append(Messages.getString("CarMaker.1024")).append(wv[15].getText()).append(Messages.getString("CarMaker.1025")).toString())) //$NON-NLS-1$ //$NON-NLS-2$
 							aplyd2 = true;
 					}
 					rd.setColor(new Color(170, 170, 170));
@@ -3984,20 +3984,20 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					if (dtabed != dtab) {
 						changed2 = false;
 						statdef = false;
-						final String string = new StringBuilder().append("").append(editor.getText()).append("\n")
+						final String string = new StringBuilder().append(Messages.getString("CarMaker.1026")).append(editor.getText()).append(Messages.getString("CarMaker.1027")) //$NON-NLS-1$ //$NON-NLS-2$
 								.toString();
 						int i_66_ = 0;
-						int i_67_ = string.indexOf("\n", 0);
+						int i_67_ = string.indexOf(Messages.getString("CarMaker.1028"), 0); //$NON-NLS-1$
 						while (i_67_ != -1 && i_66_ < string.length()) {
 							String string_68_ = string.substring(i_66_, i_67_);
 							string_68_ = string_68_.trim();
 							i_66_ = i_67_ + 1;
-							i_67_ = string.indexOf("\n", i_66_);
+							i_67_ = string.indexOf(Messages.getString("CarMaker.1029"), i_66_); //$NON-NLS-1$
 							try {
-								if (string_68_.startsWith("stat(")) {
+								if (string_68_.startsWith(Messages.getString("CarMaker.1030"))) { //$NON-NLS-1$
 									int i_69_ = 0;
 									for (int i_70_ = 0; i_70_ < 5; i_70_++) {
-										stat[i_70_] = getvalue("stat", string_68_, i_70_);
+										stat[i_70_] = getvalue(Messages.getString("CarMaker.1031"), string_68_, i_70_); //$NON-NLS-1$
 										if (stat[i_70_] > 200)
 											stat[i_70_] = 200;
 										if (stat[i_70_] < 16)
@@ -4050,23 +4050,23 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						}
 						if (statdef) {
 							if (simcar.getItemCount() == 16)
-								simcar.add(rd, "   ");
+								simcar.add(rd, Messages.getString("CarMaker.1032")); //$NON-NLS-1$
 						} else if (simcar.getItemCount() == 17)
-							simcar.remove("   ");
+							simcar.remove(Messages.getString("CarMaker.1033")); //$NON-NLS-1$
 					}
 					rd.setColor(new Color(0, 0, 0));
 					if (!statdef) {
-						rd.setFont(new Font("Arial", 1, 13));
+						rd.setFont(new Font(Messages.getString("CarMaker.1034"), 1, 13)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
-						rd.drawString("To start, please select the most similar NFM car to this car", 350
-								- ftm.stringWidth("To start, please select the most similar NFM car to this car") / 2,
+						rd.drawString(Messages.getString("CarMaker.1035"), 350 //$NON-NLS-1$
+								- ftm.stringWidth(Messages.getString("CarMaker.1036")) / 2, //$NON-NLS-1$
 								450);
 						simcar.move(288, 460);
 						if (!simcar.isShowing())
 							simcar.setVisible(true);
-						stringbutton("   OK   ", 350, 515, 0, true);
+						stringbutton(Messages.getString("CarMaker.1037"), 350, 515, 0, true); //$NON-NLS-1$
 					} else {
-						rd.drawString("Car Class", 54, 435);
+						rd.drawString(Messages.getString("CarMaker.1038"), 54, 435); //$NON-NLS-1$
 						cls.move(34, 440);
 						if (!cls.isShowing())
 							cls.setVisible(true);
@@ -4096,7 +4096,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							clsel = 4 - (i_75_ - 520) / 40;
 							cls.select(clsel);
 						}
-						rd.drawString("Most Similar Car", 36, 490);
+						rd.drawString(Messages.getString("CarMaker.1039"), 36, 490); //$NON-NLS-1$
 						simcar.move(20, 495);
 						if (!simcar.isShowing())
 							simcar.setVisible(true);
@@ -4123,11 +4123,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							if (carsel < simcar.getItemCount())
 								simcar.select(carsel);
 						}
-						rd.drawString("Speed :", 196, 435);
-						rd.drawString("Acceleration :", 160, 459);
-						rd.drawString("Stunts :", 195, 483);
-						rd.drawString("Strength :", 183, 507);
-						rd.drawString("Endurance :", 171, 531);
+						rd.drawString(Messages.getString("CarMaker.1040"), 196, 435); //$NON-NLS-1$
+						rd.drawString(Messages.getString("CarMaker.1041"), 160, 459); //$NON-NLS-1$
+						rd.drawString(Messages.getString("CarMaker.1042"), 195, 483); //$NON-NLS-1$
+						rd.drawString(Messages.getString("CarMaker.1043"), 183, 507); //$NON-NLS-1$
+						rd.drawString(Messages.getString("CarMaker.1044"), 171, 531); //$NON-NLS-1$
 						for (int i_85_ = 0; i_85_ < 5; i_85_++) {
 							for (int i_86_ = 0; i_86_ < stat[i_85_]; i_86_++) {
 								rd.setColor(Color.getHSBColor((float) (i_86_ * 7.0E-4), 1.0F, 1.0F));
@@ -4139,15 +4139,15 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							rd.drawLine(249, 435 + i_85_ * 24, 450, 435 + i_85_ * 24);
 							for (int i_87_ = 0; i_87_ < 7; i_87_++)
 								rd.drawLine(275 + i_87_ * 25, 434 + i_85_ * 24, 275 + i_87_ * 25, 430 + i_85_ * 24);
-							stringbutton(" - ", 480, 435 + i_85_ * 24, 4, false);
-							stringbutton(" + ", 520, 435 + i_85_ * 24, 4, false);
+							stringbutton(Messages.getString("CarMaker.1045"), 480, 435 + i_85_ * 24, 4, false); //$NON-NLS-1$
+							stringbutton(Messages.getString("CarMaker.1046"), 520, 435 + i_85_ * 24, 4, false); //$NON-NLS-1$
 						}
 						if (carsel < 16 && i_80_ != 0)
-							stringbutton(" Reselect ", 80, 534, 4, true);
+							stringbutton(Messages.getString("CarMaker.1047"), 80, 534, 4, true); //$NON-NLS-1$
 						else
-							stringbutton(" Reselect ", 80, -1000, 4, true);
-						stringbutton("      Save      ", 620, 459, 0, bool_74_ || changed2);
-						stringbutton("   Reset   ", 620, 507, 0, false);
+							stringbutton(Messages.getString("CarMaker.1048"), 80, -1000, 4, true); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1049"), 620, 459, 0, bool_74_ || changed2); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1050"), 620, 507, 0, false); //$NON-NLS-1$
 					}
 				}
 				if (dtab == 5) {
@@ -4169,19 +4169,19 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							crashleft = true;
 						engsel = 0;
 						if (pfase == 0) {
-							final String string = new StringBuilder().append("").append(editor.getText()).append("\n")
+							final String string = new StringBuilder().append(Messages.getString("CarMaker.1051")).append(editor.getText()).append(Messages.getString("CarMaker.1052")) //$NON-NLS-1$ //$NON-NLS-2$
 									.toString();
 							int i_88_ = 0;
-							int i_89_ = string.indexOf("\n", 0);
+							int i_89_ = string.indexOf(Messages.getString("CarMaker.1053"), 0); //$NON-NLS-1$
 							while (i_89_ != -1 && i_88_ < string.length()) {
 								String string_90_ = string.substring(i_88_, i_89_);
 								string_90_ = string_90_.trim();
 								i_88_ = i_89_ + 1;
-								i_89_ = string.indexOf("\n", i_88_);
+								i_89_ = string.indexOf(Messages.getString("CarMaker.1054"), i_88_); //$NON-NLS-1$
 								try {
-									if (string_90_.startsWith("physics(")) {
+									if (string_90_.startsWith(Messages.getString("CarMaker.1055"))) { //$NON-NLS-1$
 										for (int i_91_ = 0; i_91_ < 11; i_91_++) {
-											phys[i_91_] = getvalue("physics", string_90_, i_91_);
+											phys[i_91_] = getvalue(Messages.getString("CarMaker.1056"), string_90_, i_91_); //$NON-NLS-1$
 											if (phys[i_91_] > 100)
 												phys[i_91_] = 100;
 											if (phys[i_91_] < 0)
@@ -4190,7 +4190,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 										for (int i_92_ = 0; i_92_ < 11; i_92_++)
 											rphys[i_92_] = phys[i_92_];
 										for (int i_93_ = 0; i_93_ < 3; i_93_++) {
-											crash[i_93_] = getvalue("physics", string_90_, i_93_ + 11);
+											crash[i_93_] = getvalue(Messages.getString("CarMaker.1057"), string_90_, i_93_ + 11); //$NON-NLS-1$
 											if (crash[i_93_] > 100)
 												crash[i_93_] = 100;
 											if (crash[i_93_] < 0)
@@ -4198,7 +4198,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 										}
 										for (int i_94_ = 0; i_94_ < 3; i_94_++)
 											rcrash[i_94_] = crash[i_94_];
-										engsel = getvalue("physics", string_90_, 14);
+										engsel = getvalue(Messages.getString("CarMaker.1058"), string_90_, 14); //$NON-NLS-1$
 										if (engsel > 4)
 											engsel = 0;
 										if (engsel < 0)
@@ -4221,7 +4221,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 								rd.setColor(new Color(176, 64, 0));
 								rd.drawLine(pnx[i_96_], 448 + i_96_ * 24, 128, 448 + i_96_ * 24);
 							}
-							rd.drawString(new StringBuilder().append("").append(pname[i_96_]).append(" :").toString(),
+							rd.drawString(new StringBuilder().append(Messages.getString("CarMaker.1059")).append(pname[i_96_]).append(Messages.getString("CarMaker.1060")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 									pnx[i_96_], 447 + i_96_ * 24);
 							rd.drawLine(140, 443 + i_96_ * 24, 230, 443 + i_96_ * 24);
 							for (int i_97_ = 1; i_97_ < 10; i_97_++)
@@ -4233,14 +4233,14 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 									i_98_ * 2 + 1);
 							rd.setColor(new Color(255, 128, 0));
 							rd.drawRect(139 + (int) (phys[i_96_] / 1.1111F), 434 + i_96_ * 24, 2, 18);
-							stringbutton(" - ", 260, 447 + i_96_ * 24, 4, false);
-							stringbutton(" + ", 300, 447 + i_96_ * 24, 4, false);
+							stringbutton(Messages.getString("CarMaker.1061"), 260, 447 + i_96_ * 24, 4, false); //$NON-NLS-1$
+							stringbutton(Messages.getString("CarMaker.1062"), 300, 447 + i_96_ * 24, 4, false); //$NON-NLS-1$
 						}
 						rd.setColor(new Color(0, 0, 0));
-						rd.drawString("<  Click on any variable name to learn about its function & use!", 333, 447);
-						stringbutton(" Random ", 380, 496, 0, false);
-						stringbutton(" Reset ", 455, 496, 0, false);
-						stringbutton("       Next  >       ", 570, 496, 0, true);
+						rd.drawString(Messages.getString("CarMaker.1063"), 333, 447); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1064"), 380, 496, 0, false); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1065"), 455, 496, 0, false); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1066"), 570, 496, 0, true); //$NON-NLS-1$
 					}
 					if (pfase == 1) {
 						for (int i_99_ = 0; i_99_ < 4; i_99_++) {
@@ -4251,7 +4251,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 								rd.drawLine(pnx[i_99_ + 5], 448 + i_99_ * 24, 109, 448 + i_99_ * 24);
 							}
 							rd.drawString(
-									new StringBuilder().append("").append(pname[i_99_ + 5]).append(" :").toString(),
+									new StringBuilder().append(Messages.getString("CarMaker.1067")).append(pname[i_99_ + 5]).append(Messages.getString("CarMaker.1068")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 									pnx[i_99_ + 5], 447 + i_99_ * 24);
 							rd.drawLine(121, 443 + i_99_ * 24, 211, 443 + i_99_ * 24);
 							for (int i_100_ = 1; i_100_ < 10; i_100_++)
@@ -4263,8 +4263,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 									i_101_ * 2 + 1);
 							rd.setColor(new Color(255, 128, 0));
 							rd.drawRect(120 + (int) (phys[i_99_ + 5] / 1.1111F), 434 + i_99_ * 24, 2, 18);
-							stringbutton(" - ", 241, 447 + i_99_ * 24, 4, false);
-							stringbutton(" + ", 281, 447 + i_99_ * 24, 4, false);
+							stringbutton(Messages.getString("CarMaker.1069"), 241, 447 + i_99_ * 24, 4, false); //$NON-NLS-1$
+							stringbutton(Messages.getString("CarMaker.1070"), 281, 447 + i_99_ * 24, 4, false); //$NON-NLS-1$
 						}
 						for (int i_102_ = 0; i_102_ < 2; i_102_++) {
 							rd.setColor(new Color(0, 0, 0));
@@ -4274,7 +4274,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 								rd.drawLine(pnx[i_102_ + 9], 448 + i_102_ * 24, 446, 448 + i_102_ * 24);
 							}
 							rd.drawString(
-									new StringBuilder().append("").append(pname[i_102_ + 9]).append(" :").toString(),
+									new StringBuilder().append(Messages.getString("CarMaker.1071")).append(pname[i_102_ + 9]).append(Messages.getString("CarMaker.1072")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 									pnx[i_102_ + 9], 447 + i_102_ * 24);
 							rd.drawLine(458, 443 + i_102_ * 24, 548, 443 + i_102_ * 24);
 							for (int i_103_ = 1; i_103_ < 10; i_103_++)
@@ -4286,13 +4286,13 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 									i_104_ * 2 + 1);
 							rd.setColor(new Color(255, 128, 0));
 							rd.drawRect(457 + (int) (phys[i_102_ + 9] / 1.1111F), 434 + i_102_ * 24, 2, 18);
-							stringbutton(" - ", 578, 447 + i_102_ * 24, 4, false);
-							stringbutton(" + ", 618, 447 + i_102_ * 24, 4, false);
+							stringbutton(Messages.getString("CarMaker.1073"), 578, 447 + i_102_ * 24, 4, false); //$NON-NLS-1$
+							stringbutton(Messages.getString("CarMaker.1074"), 618, 447 + i_102_ * 24, 4, false); //$NON-NLS-1$
 						}
-						stringbutton(" Random ", 361, 519, 0, false);
-						stringbutton(" Reset ", 436, 519, 0, false);
-						stringbutton(" <  Back ", 509, 519, 0, false);
-						stringbutton("       Next  >       ", 603, 519, 0, true);
+						stringbutton(Messages.getString("CarMaker.1075"), 361, 519, 0, false); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1076"), 436, 519, 0, false); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1077"), 509, 519, 0, false); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1078"), 603, 519, 0, true); //$NON-NLS-1$
 					}
 					if (pfase == 2) {
 						if (xm > 40 && xm < 670 && ym > 416 && ym < 436) {
@@ -4301,7 +4301,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							rd.drawLine(596, 431, 669, 431);
 						}
 						rd.drawString(
-								"[   Crash Test,  Damage :                                       ]                                                     What is this?",
+								Messages.getString("CarMaker.1079"), //$NON-NLS-1$
 								180, 430);
 						if (hitmag < 0)
 							hitmag = 0;
@@ -4321,8 +4321,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							rd.setColor(new Color(170, 170, 170));
 						else
 							rd.setColor(new Color(176, 64, 0));
-						rd.drawString("Normal Crash", 39, 438);
-						rd.drawString("Roof Crash", 501, 438);
+						rd.drawString(Messages.getString("CarMaker.1080"), 39, 438); //$NON-NLS-1$
+						rd.drawString(Messages.getString("CarMaker.1081"), 501, 438); //$NON-NLS-1$
 						rd.drawLine(125, 426, 179, 426);
 						rd.drawLine(125, 426, 125, 440);
 						rd.drawLine(491, 426, 437, 426);
@@ -4335,7 +4335,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							rd.setColor(new Color(176, 64, 0));
 							rd.drawLine(50, 461, 94, 461);
 						}
-						rd.drawString("Radius :", 50, 460);
+						rd.drawString(Messages.getString("CarMaker.1082"), 50, 460); //$NON-NLS-1$
 						rd.drawLine(105, 456, 195, 456);
 						for (int i_106_ = 1; i_106_ < 10; i_106_++)
 							rd.drawLine(105 + 10 * i_106_, 456 - i_106_, 105 + 10 * i_106_, 456 + i_106_);
@@ -4344,15 +4344,15 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						rd.fillRect(103 + (int) (crash[0] / 1.1111F), 456 - i_107_, 5, i_107_ * 2 + 1);
 						rd.setColor(new Color(255, 128, 0));
 						rd.drawRect(104 + (int) (crash[0] / 1.1111F), 447, 2, 18);
-						stringbutton(" - ", 225, 460, 4, false);
-						stringbutton(" + ", 265, 460, 4, false);
+						stringbutton(Messages.getString("CarMaker.1083"), 225, 460, 4, false); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1084"), 265, 460, 4, false); //$NON-NLS-1$
 						rd.setColor(new Color(0, 0, 0));
 						if (xm > 30 && xm < 195 && ym > 470 && ym < 490) {
 							i_95_ = 13;
 							rd.setColor(new Color(176, 64, 0));
 							rd.drawLine(30, 485, 94, 485);
 						}
-						rd.drawString("Magnitude :", 30, 484);
+						rd.drawString(Messages.getString("CarMaker.1085"), 30, 484); //$NON-NLS-1$
 						rd.drawLine(105, 480, 195, 480);
 						for (int i_108_ = 1; i_108_ < 10; i_108_++)
 							rd.drawLine(105 + 10 * i_108_, 480 - i_108_, 105 + 10 * i_108_, 480 + i_108_);
@@ -4361,15 +4361,15 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						rd.fillRect(103 + (int) (crash[1] / 1.1111F), 480 - i_107_, 5, i_107_ * 2 + 1);
 						rd.setColor(new Color(255, 128, 0));
 						rd.drawRect(104 + (int) (crash[1] / 1.1111F), 471, 2, 18);
-						stringbutton(" - ", 225, 484, 4, false);
-						stringbutton(" + ", 265, 484, 4, false);
+						stringbutton(Messages.getString("CarMaker.1086"), 225, 484, 4, false); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1087"), 265, 484, 4, false); //$NON-NLS-1$
 						rd.setColor(new Color(0, 0, 0));
 						if (xm > 350 && xm < 551 && ym > 446 && ym < 466) {
 							i_95_ = 14;
 							rd.setColor(new Color(176, 64, 0));
 							rd.drawLine(350, 461, 450, 461);
 						}
-						rd.drawString("Roof Destruction :", 350, 460);
+						rd.drawString(Messages.getString("CarMaker.1088"), 350, 460); //$NON-NLS-1$
 						rd.drawLine(461, 456, 551, 456);
 						for (int i_109_ = 1; i_109_ < 10; i_109_++)
 							rd.drawLine(461 + 10 * i_109_, 456 - i_109_, 461 + 10 * i_109_, 456 + i_109_);
@@ -4378,19 +4378,19 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						rd.fillRect(459 + (int) (crash[2] / 1.1111F), 456 - i_107_, 5, i_107_ * 2 + 1);
 						rd.setColor(new Color(255, 128, 0));
 						rd.drawRect(460 + (int) (crash[2] / 1.1111F), 447, 2, 18);
-						stringbutton(" - ", 581, 460, 4, false);
-						stringbutton(" + ", 621, 460, 4, false);
-						stringbutton("    CRASH!    ", 143, 516, 0, true);
-						stringbutton("  Fix  ", 235, 516, 0, false);
-						stringbutton("    CRASH Roof!    ", 484, 492, 0, true);
-						stringbutton("  Fix  ", 591, 492, 0, false);
-						stringbutton(" Reset ", 435, 535, 0, false);
-						stringbutton(" <  Back ", 508, 535, 0, false);
-						stringbutton("       Next  >       ", 602, 535, 0, true);
+						stringbutton(Messages.getString("CarMaker.1089"), 581, 460, 4, false); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1090"), 621, 460, 4, false); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1091"), 143, 516, 0, true); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1092"), 235, 516, 0, false); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1093"), 484, 492, 0, true); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1094"), 591, 492, 0, false); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1095"), 435, 535, 0, false); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1096"), 508, 535, 0, false); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1097"), 602, 535, 0, true); //$NON-NLS-1$
 					}
 					if (pfase == 3) {
 						rd.setColor(new Color(0, 0, 0));
-						rd.drawString("Select the most suitable engine for your car :", 30, 440);
+						rd.drawString(Messages.getString("CarMaker.1098"), 30, 440); //$NON-NLS-1$
 						engine.move(293, 424);
 						if (!engine.isShowing()) {
 							engine.setVisible(true);
@@ -4407,38 +4407,38 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						}
 						if (engsel == 0)
 							rd.drawString(
-									"Normal Engine:  Like Tornado Shark, Sword of Justice or Radical One's engine.", 30,
+									Messages.getString("CarMaker.1099"), 30, //$NON-NLS-1$
 									470);
 						if (engsel == 1)
 							rd.drawString(
-									"V8 Engine:  High speed engine like Formula 7, Drifter X or Might Eight's engine.",
+									Messages.getString("CarMaker.1100"), //$NON-NLS-1$
 									30, 470);
 						if (engsel == 2)
-							rd.drawString("Retro Engine:  Like Wow Caninaro, Lead Oxide or Kool Kat\u2019s engine.", 30,
+							rd.drawString(Messages.getString("CarMaker.1101"), 30, //$NON-NLS-1$
 									470);
 						if (engsel == 3)
 							rd.drawString(
-									"Power Engine:  Turbo/super charged engine like Max Revenge, High Rider or Dr Monstaa\u2019s engine.",
+									Messages.getString("CarMaker.1102"), //$NON-NLS-1$
 									30, 470);
 						if (engsel == 4)
 							rd.drawString(
-									"Diesel Engine:  Big diesel powered engine for big cars like EL King or  M A S H E E N .",
+									Messages.getString("CarMaker.1103"), //$NON-NLS-1$
 									30, 470);
-						rd.drawString("LISTEN :", 30, 500);
-						stringbutton(" Idle ", 108, 500, 0, true);
-						stringbutton(" RPM 1 ", 170, 500, 0, true);
-						stringbutton(" RPM 2 ", 240, 500, 0, true);
-						stringbutton(" RPM 3 ", 310, 500, 0, true);
-						stringbutton(" RPM MAX ", 389, 500, 0, true);
+						rd.drawString(Messages.getString("CarMaker.1104"), 30, 500); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1105"), 108, 500, 0, true); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1106"), 170, 500, 0, true); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1107"), 240, 500, 0, true); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1108"), 310, 500, 0, true); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1109"), 389, 500, 0, true); //$NON-NLS-1$
 						if (engon)
-							stringbutton("          Stop Engine          ", 240, 535, 0, true);
+							stringbutton(Messages.getString("CarMaker.1110"), 240, 535, 0, true); //$NON-NLS-1$
 						else
-							stringbutton("          Stop Engine          ", 240, -2500, 0, true);
-						stringbutton(" <  Back ", 500, 525, 0, false);
-						stringbutton("     Save & Finish!     ", 610, 525, 0, true);
+							stringbutton(Messages.getString("CarMaker.1111"), 240, -2500, 0, true); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1112"), 500, 525, 0, false); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1113"), 610, 525, 0, true); //$NON-NLS-1$
 					}
 					if (pfase == 4) {
-						rd.drawString("Testing & Setting up Physics...", 265, 470);
+						rd.drawString(Messages.getString("CarMaker.1114"), 265, 470); //$NON-NLS-1$
 						repaint();
 						try {
 							if (thredo != null) {
@@ -4578,32 +4578,32 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							}
 						}
 						setupo();
-						final String string = new StringBuilder().append("").append(editor.getText()).append("\n")
+						final String string = new StringBuilder().append(Messages.getString("CarMaker.1115")).append(editor.getText()).append(Messages.getString("CarMaker.1116")) //$NON-NLS-1$ //$NON-NLS-2$
 								.toString();
-						String string_131_ = "";
+						String string_131_ = Messages.getString("CarMaker.1117"); //$NON-NLS-1$
 						int i_132_ = 0;
-						int i_133_ = string.indexOf("\n", 0);
+						int i_133_ = string.indexOf(Messages.getString("CarMaker.1118"), 0); //$NON-NLS-1$
 						while (i_133_ != -1 && i_132_ < string.length()) {
 							String string_134_ = string.substring(i_132_, i_133_);
 							string_134_ = string_134_.trim();
 							i_132_ = i_133_ + 1;
-							i_133_ = string.indexOf("\n", i_132_);
-							if (!string_134_.startsWith("physics("))
-								string_131_ = new StringBuilder().append(string_131_).append("").append(string_134_)
-										.append("\n").toString();
+							i_133_ = string.indexOf(Messages.getString("CarMaker.1119"), i_132_); //$NON-NLS-1$
+							if (!string_134_.startsWith(Messages.getString("CarMaker.1120"))) //$NON-NLS-1$
+								string_131_ = new StringBuilder().append(string_131_).append(Messages.getString("CarMaker.1121")).append(string_134_) //$NON-NLS-1$
+										.append(Messages.getString("CarMaker.1122")).toString(); //$NON-NLS-1$
 							else {
 								string_131_ = string_131_.trim();
-								string_131_ = new StringBuilder().append(string_131_).append("\n").toString();
+								string_131_ = new StringBuilder().append(string_131_).append(Messages.getString("CarMaker.1123")).toString(); //$NON-NLS-1$
 							}
 						}
 						string_131_ = string_131_.trim();
-						string_131_ = new StringBuilder().append(string_131_).append("\n\n\nphysics(").append(phys[0])
-								.append(",").append(phys[1]).append(",").append(phys[2]).append(",").append(phys[3])
-								.append(",").append(phys[4]).append(",").append(phys[5]).append(",").append(phys[6])
-								.append(",").append(phys[7]).append(",").append(phys[8]).append(",").append(phys[9])
-								.append(",").append(phys[10]).append(",").append(crash[0]).append(",").append(crash[1])
-								.append(",").append(crash[2]).append(",").append(engsel).append(",").append(actmag)
-								.append(")\n\n\n\n").toString();
+						string_131_ = new StringBuilder().append(string_131_).append(Messages.getString("CarMaker.1124")).append(phys[0]) //$NON-NLS-1$
+								.append(Messages.getString("CarMaker.1125")).append(phys[1]).append(Messages.getString("CarMaker.1126")).append(phys[2]).append(Messages.getString("CarMaker.1127")).append(phys[3]) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+								.append(Messages.getString("CarMaker.1128")).append(phys[4]).append(Messages.getString("CarMaker.1129")).append(phys[5]).append(Messages.getString("CarMaker.1130")).append(phys[6]) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+								.append(Messages.getString("CarMaker.1131")).append(phys[7]).append(Messages.getString("CarMaker.1132")).append(phys[8]).append(Messages.getString("CarMaker.1133")).append(phys[9]) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+								.append(Messages.getString("CarMaker.1134")).append(phys[10]).append(Messages.getString("CarMaker.1135")).append(crash[0]).append(Messages.getString("CarMaker.1136")).append(crash[1]) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+								.append(Messages.getString("CarMaker.1137")).append(crash[2]).append(Messages.getString("CarMaker.1138")).append(engsel).append(Messages.getString("CarMaker.1139")).append(actmag) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+								.append(Messages.getString("CarMaker.1140")).toString(); //$NON-NLS-1$
 						editor.setText(string_131_);
 						savefile();
 						for (int i_135_ = 0; i_135_ < 11; i_135_++)
@@ -4613,8 +4613,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						pfase = 5;
 					}
 					if (pfase == 5) {
-						rd.drawString("Car physics has been successfully set up!", 231, 450);
-						rd.drawString("Test drive your car to see the results...", 242, 490);
+						rd.drawString(Messages.getString("CarMaker.1141"), 231, 450); //$NON-NLS-1$
+						rd.drawString(Messages.getString("CarMaker.1142"), 242, 490); //$NON-NLS-1$
 					}
 					if (i_95_ != -1) {
 						if (mouseon == -1) {
@@ -4626,22 +4626,22 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						setCursor(new Cursor(0));
 					}
 					if (mouses == -1 && i_95_ != -1)
-						JOptionPane.showMessageDialog(null, usage[i_95_], "Car Maker", 1);
+						JOptionPane.showMessageDialog(null, usage[i_95_], Messages.getString("CarMaker.1143"), 1); //$NON-NLS-1$
 				}
 				if (dtab == 6) {
 					if (dtab != dtabed) {
-						final String string = new StringBuilder().append("").append(editor.getText()).append("\n")
+						final String string = new StringBuilder().append(Messages.getString("CarMaker.1144")).append(editor.getText()).append(Messages.getString("CarMaker.1145")) //$NON-NLS-1$ //$NON-NLS-2$
 								.toString();
 						int i_137_ = 0;
-						int i_138_ = string.indexOf("\n", 0);
+						int i_138_ = string.indexOf(Messages.getString("CarMaker.1146"), 0); //$NON-NLS-1$
 						while (i_138_ != -1 && i_137_ < string.length()) {
 							String string_139_ = string.substring(i_137_, i_138_);
 							string_139_ = string_139_.trim();
 							i_137_ = i_138_ + 1;
-							i_138_ = string.indexOf("\n", i_137_);
-							if (string_139_.startsWith("handling("))
+							i_138_ = string.indexOf(Messages.getString("CarMaker.1147"), i_137_); //$NON-NLS-1$
+							if (string_139_.startsWith(Messages.getString("CarMaker.1148"))) //$NON-NLS-1$
 								try {
-									handling = getvalue("handling", string_139_, 0);
+									handling = getvalue(Messages.getString("CarMaker.1149"), string_139_, 0); //$NON-NLS-1$
 									if (handling > 200)
 										handling = 200;
 									if (handling < 50)
@@ -4653,31 +4653,31 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						rateh = false;
 					}
 					if (!rateh) {
-						rd.setFont(new Font("Arial", 1, 13));
+						rd.setFont(new Font(Messages.getString("CarMaker.1150"), 1, 13)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
-						rd.drawString("Test Drive the Car", 350 - ftm.stringWidth("Test Drive the Car") / 2, 445);
+						rd.drawString(Messages.getString("CarMaker.1151"), 350 - ftm.stringWidth(Messages.getString("CarMaker.1152")) / 2, 445); //$NON-NLS-1$ //$NON-NLS-2$
 						witho.move(292, 455);
 						if (!witho.isShowing())
 							witho.setVisible(true);
-						stringbutton("     TEST DRIVE!     ", 350, 505, 0, true);
+						stringbutton(Messages.getString("CarMaker.1153"), 350, 505, 0, true); //$NON-NLS-1$
 						if (tested) {
-							stringbutton("  Edit Stats & Class  ", 150, 471, 0, false);
-							stringbutton("  Edit Physics  ", 150, 505, 0, false);
-							stringbutton("     Rate Car Handling     ", 550, 471, 0, true);
+							stringbutton(Messages.getString("CarMaker.1154"), 150, 471, 0, false); //$NON-NLS-1$
+							stringbutton(Messages.getString("CarMaker.1155"), 150, 505, 0, false); //$NON-NLS-1$
+							stringbutton(Messages.getString("CarMaker.1156"), 550, 471, 0, true); //$NON-NLS-1$
 						}
 					} else {
-						rd.setFont(new Font("Arial", 1, 13));
+						rd.setFont(new Font(Messages.getString("CarMaker.1157"), 1, 13)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
 						rd.drawString(
-								new StringBuilder().append("Based on you test drive(s), how do your rate ")
-										.append(carname).append("'s handling?").toString(),
+								new StringBuilder().append(Messages.getString("CarMaker.1158")) //$NON-NLS-1$
+										.append(carname).append(Messages.getString("CarMaker.1159")).toString(), //$NON-NLS-1$
 								350 - ftm.stringWidth(
-										new StringBuilder().append("Based on your test drive(s), how do you rate ")
-												.append(carname).append("'s handling?").toString())
+										new StringBuilder().append(Messages.getString("CarMaker.1160")) //$NON-NLS-1$
+												.append(carname).append(Messages.getString("CarMaker.1161")).toString()) //$NON-NLS-1$
 										/ 2,
 								445);
-						rd.setFont(new Font("Arial", 1, 12));
-						rd.drawString("Handling :", 183, 483);
+						rd.setFont(new Font(Messages.getString("CarMaker.1162"), 1, 12)); //$NON-NLS-1$
+						rd.drawString(Messages.getString("CarMaker.1163"), 183, 483); //$NON-NLS-1$
 						for (int i_140_ = 0; i_140_ < handling; i_140_++) {
 							rd.setColor(Color.getHSBColor((float) (i_140_ * 7.0E-4), 1.0F, 1.0F));
 							rd.drawLine(250 + i_140_, 474, 250 + i_140_, 482);
@@ -4688,10 +4688,10 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						rd.drawLine(249, 483, 450, 483);
 						for (int i_141_ = 0; i_141_ < 7; i_141_++)
 							rd.drawLine(275 + i_141_ * 25, 482, 275 + i_141_ * 25, 478);
-						stringbutton(" - ", 480, 483, 4, false);
-						stringbutton(" + ", 520, 483, 4, false);
-						stringbutton("       Save       ", 388, 525, 0, true);
-						stringbutton(" Cancel ", 298, 525, 0, false);
+						stringbutton(Messages.getString("CarMaker.1164"), 480, 483, 4, false); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1165"), 520, 483, 4, false); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1166"), 388, 525, 0, true); //$NON-NLS-1$
+						stringbutton(Messages.getString("CarMaker.1167"), 298, 525, 0, false); //$NON-NLS-1$
 					}
 				}
 				if (polynum >= 0 && cntpls > 0) {
@@ -4715,15 +4715,15 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						pflk = true;
 					if (prflk < 40)
 						prflk++;
-					rd.setFont(new Font("Arial", 1, 12));
+					rd.setFont(new Font(Messages.getString("CarMaker.1168"), 1, 12)); //$NON-NLS-1$
 					rd.setColor(new Color(0, 0, 0));
 					rd.drawString(
-							new StringBuilder().append("[ Showing ").append(cntpls).append(" Polygons Selected ]")
+							new StringBuilder().append(Messages.getString("CarMaker.1169")).append(cntpls).append(Messages.getString("CarMaker.1170")) //$NON-NLS-1$ //$NON-NLS-2$
 									.toString(),
-							350 - ftm.stringWidth(new StringBuilder().append("[ Showing ").append(cntpls)
-									.append(" Polygons Selected ]").toString()) / 2,
+							350 - ftm.stringWidth(new StringBuilder().append(Messages.getString("CarMaker.1171")).append(cntpls) //$NON-NLS-1$
+									.append(Messages.getString("CarMaker.1172")).toString()) / 2, //$NON-NLS-1$
 							45);
-					stringbutton("  Stop  ", 350, 67, 5, false);
+					stringbutton(Messages.getString("CarMaker.1173"), 350, 67, 5, false); //$NON-NLS-1$
 				}
 				i = 50;
 				if (rotr) {
@@ -4777,50 +4777,50 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 				if (dtab == 5 && pfase == -1) {
 					repaint();
 					JOptionPane.showMessageDialog(null,
-							"Car Wheels not defined or not defined correctly.\nBefore defining the car Physics car Wheels must be defined correctly!\nPlease go to the \u2018Wheels\u2019 tab and use  [ Apply ]  and  [ Save ]  to define correctly.\n",
-							"Car Maker", 1);
+							Messages.getString("CarMaker.1174"), //$NON-NLS-1$
+							Messages.getString("CarMaker.1175"), 1); //$NON-NLS-1$
 					dtab = 3;
 				}
 			}
 			if (tab == 3) {
-				rd.setFont(new Font("Arial", 1, 13));
+				rd.setFont(new Font(Messages.getString("CarMaker.1176"), 1, 13)); //$NON-NLS-1$
 				rd.setColor(new Color(0, 0, 0));
-				rd.drawString(new StringBuilder().append("Publish Car :  [ ").append(carname).append(" ]").toString(),
+				rd.drawString(new StringBuilder().append(Messages.getString("CarMaker.1177")).append(carname).append(Messages.getString("CarMaker.1178")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 						30, 50);
-				rd.drawString("Publishing Type :", 30, 80);
+				rd.drawString(Messages.getString("CarMaker.1179"), 30, 80); //$NON-NLS-1$
 				pubtyp.move(150, 63);
 				if (!pubtyp.isShowing()) {
 					pubtyp.setVisible(true);
 					pubtyp.select(1);
 				}
-				stringbutton("       Publish  >       ", 102, 110, 0, true);
+				stringbutton(Messages.getString("CarMaker.1180"), 102, 110, 0, true); //$NON-NLS-1$
 				rd.setColor(new Color(0, 0, 0));
-				rd.setFont(new Font("Arial", 0, 12));
+				rd.setFont(new Font(Messages.getString("CarMaker.1181"), 0, 12)); //$NON-NLS-1$
 				if (pubtyp.getSelectedIndex() == 0) {
-					rd.drawString("Private :  This means only you can use your car and no one else can add", 268, 72);
-					rd.drawString("it to their account to play with it !", 268, 88);
+					rd.drawString(Messages.getString("CarMaker.1182"), 268, 72); //$NON-NLS-1$
+					rd.drawString(Messages.getString("CarMaker.1183"), 268, 88); //$NON-NLS-1$
 				}
 				if (pubtyp.getSelectedIndex() == 1) {
-					rd.drawString("Public :  This means anyone can add this car to their account to play with it,", 268,
+					rd.drawString(Messages.getString("CarMaker.1184"), 268, //$NON-NLS-1$
 							72);
 					rd.drawString(
-							"but only you can download it to your Car Maker (no one else can get it\u2019s code).", 268,
+							Messages.getString("CarMaker.1185"), 268, //$NON-NLS-1$
 							88);
 				}
 				if (pubtyp.getSelectedIndex() == 2) {
-					rd.drawString("Super Public :  This means anyone can add this car to their account to play", 268,
+					rd.drawString(Messages.getString("CarMaker.1186"), 268, //$NON-NLS-1$
 							72);
-					rd.drawString("with it and anyone can also download it to their Car Maker to get its code.", 268,
+					rd.drawString(Messages.getString("CarMaker.1187"), 268, //$NON-NLS-1$
 							88);
 				}
-				rd.setFont(new Font("Arial", 1, 12));
+				rd.setFont(new Font(Messages.getString("CarMaker.1188"), 1, 12)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
-				rd.drawString("Car Name", 80 - ftm.stringWidth("Car Name") / 2, 138);
-				rd.drawString("Car Class", 200 - ftm.stringWidth("Car Class") / 2, 138);
-				rd.drawString("Created By", 300 - ftm.stringWidth("Created By") / 2, 138);
-				rd.drawString("Added By", 400 - ftm.stringWidth("Added By") / 2, 138);
-				rd.drawString("Publish Type", 500 - ftm.stringWidth("Publish Type") / 2, 138);
-				rd.drawString("Options", 620 - ftm.stringWidth("Options") / 2, 138);
+				rd.drawString(Messages.getString("CarMaker.1189"), 80 - ftm.stringWidth(Messages.getString("CarMaker.1190")) / 2, 138); //$NON-NLS-1$ //$NON-NLS-2$
+				rd.drawString(Messages.getString("CarMaker.1191"), 200 - ftm.stringWidth(Messages.getString("CarMaker.1192")) / 2, 138); //$NON-NLS-1$ //$NON-NLS-2$
+				rd.drawString(Messages.getString("CarMaker.1193"), 300 - ftm.stringWidth(Messages.getString("CarMaker.1194")) / 2, 138); //$NON-NLS-1$ //$NON-NLS-2$
+				rd.drawString(Messages.getString("CarMaker.1195"), 400 - ftm.stringWidth(Messages.getString("CarMaker.1196")) / 2, 138); //$NON-NLS-1$ //$NON-NLS-2$
+				rd.drawString(Messages.getString("CarMaker.1197"), 500 - ftm.stringWidth(Messages.getString("CarMaker.1198")) / 2, 138); //$NON-NLS-1$ //$NON-NLS-2$
+				rd.drawString(Messages.getString("CarMaker.1199"), 620 - ftm.stringWidth(Messages.getString("CarMaker.1200")) / 2, 138); //$NON-NLS-1$ //$NON-NLS-2$
 				rd.drawLine(150, 129, 150, 140);
 				rd.drawLine(250, 129, 250, 140);
 				rd.drawLine(350, 129, 350, 140);
@@ -4828,84 +4828,84 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 				rd.drawLine(550, 129, 550, 140);
 				rd.drawRect(10, 140, 680, 402);
 				if (logged == 0) {
-					rd.setFont(new Font("Arial", 0, 12));
+					rd.setFont(new Font(Messages.getString("CarMaker.1201"), 0, 12)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
-					rd.drawString("The maximum number of cars your account can have at once is 20 cars.", 350
-							- ftm.stringWidth("The maximum number of cars your account can have at once is 20 cars.")
+					rd.drawString(Messages.getString("CarMaker.1202"), 350 //$NON-NLS-1$
+							- ftm.stringWidth(Messages.getString("CarMaker.1203")) //$NON-NLS-1$
 									/ 2,
 							180);
-					rd.setFont(new Font("Arial", 1, 13));
+					rd.setFont(new Font(Messages.getString("CarMaker.1204"), 1, 13)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
-					rd.drawString("Login to Retrieve your Account Cars",
-							350 - ftm.stringWidth("Login to Retrieve your Account Cars") / 2, 220);
-					rd.drawString("Nickname:", 326 - ftm.stringWidth("Nickname:") - 14, 266);
+					rd.drawString(Messages.getString("CarMaker.1205"), //$NON-NLS-1$
+							350 - ftm.stringWidth(Messages.getString("CarMaker.1206")) / 2, 220); //$NON-NLS-1$
+					rd.drawString(Messages.getString("CarMaker.1207"), 326 - ftm.stringWidth(Messages.getString("CarMaker.1208")) - 14, 266); //$NON-NLS-1$ //$NON-NLS-2$
 					movefield(tnick, 326, 250, 129, 22);
 					if (!tnick.isShowing())
 						tnick.setVisible(true);
-					rd.drawString("Password:", 326 - ftm.stringWidth("Password:") - 14, 296);
+					rd.drawString(Messages.getString("CarMaker.1209"), 326 - ftm.stringWidth(Messages.getString("CarMaker.1210")) - 14, 296); //$NON-NLS-1$ //$NON-NLS-2$
 					movefield(tpass, 326, 280, 129, 22);
 					if (!tpass.isShowing())
 						tpass.setVisible(true);
-					stringbutton("       Login       ", 350, 340, 0, true);
-					rd.setFont(new Font("Arial", 1, 13));
+					stringbutton(Messages.getString("CarMaker.1211"), 350, 340, 0, true); //$NON-NLS-1$
+					rd.setFont(new Font(Messages.getString("CarMaker.1212"), 1, 13)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
-					rd.drawString("Not registered yet?", 350 - ftm.stringWidth("Not registered yet?") / 2, 450);
-					stringbutton("   Register Now!   ", 350, 480, 0, true);
-					rd.setFont(new Font("Arial", 0, 12));
+					rd.drawString(Messages.getString("CarMaker.1213"), 350 - ftm.stringWidth(Messages.getString("CarMaker.1214")) / 2, 450); //$NON-NLS-1$ //$NON-NLS-2$
+					stringbutton(Messages.getString("CarMaker.1215"), 350, 480, 0, true); //$NON-NLS-1$
+					rd.setFont(new Font(Messages.getString("CarMaker.1216"), 0, 12)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
-					rd.drawString("Register to publish your cars to the multiplayer game!",
-							350 - ftm.stringWidth("Register to publish your cars to the multiplayer game!") / 2, 505);
+					rd.drawString(Messages.getString("CarMaker.1217"), //$NON-NLS-1$
+							350 - ftm.stringWidth(Messages.getString("CarMaker.1218")) / 2, 505); //$NON-NLS-1$
 				}
 				if (logged == -1) {
-					rd.setFont(new Font("Arial", 1, 13));
+					rd.setFont(new Font(Messages.getString("CarMaker.1219"), 1, 13)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
-					rd.drawString("Account empty, no published cars found.",
-							350 - ftm.stringWidth("Account empty, no published cars found.") / 2, 220);
-					rd.drawString("Click \u2018Publish\u2019 above to begin.",
-							350 - ftm.stringWidth("Click \u2018Publish\u2019 above to begin.") / 2, 280);
-					rd.setFont(new Font("Arial", 0, 12));
+					rd.drawString(Messages.getString("CarMaker.1220"), //$NON-NLS-1$
+							350 - ftm.stringWidth(Messages.getString("CarMaker.1221")) / 2, 220); //$NON-NLS-1$
+					rd.drawString(Messages.getString("CarMaker.1222"), //$NON-NLS-1$
+							350 - ftm.stringWidth(Messages.getString("CarMaker.1223")) / 2, 280); //$NON-NLS-1$
+					rd.setFont(new Font(Messages.getString("CarMaker.1224"), 0, 12)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
-					rd.drawString("The maximum number of cars your account can have at once is 20 cars.", 350
-							- ftm.stringWidth("The maximum number of cars your account can have at once is 20 cars.")
+					rd.drawString(Messages.getString("CarMaker.1225"), 350 //$NON-NLS-1$
+							- ftm.stringWidth(Messages.getString("CarMaker.1226")) //$NON-NLS-1$
 									/ 2,
 							320);
 				}
 				if (logged == 2) {
 					for (int i_143_ = 0; i_143_ < nmc; i_143_++) {
-						rd.setFont(new Font("Arial", 1, 13));
+						rd.setFont(new Font(Messages.getString("CarMaker.1227"), 1, 13)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
 						rd.setColor(new Color(225, 225, 225));
 						rd.fillRect(50, 150, 600, 150);
 						rd.setColor(new Color(0, 0, 0));
 						rd.drawString(
-								new StringBuilder().append("Loading ").append(mycars[i_143_]).append("\u2018s info...")
+								new StringBuilder().append(Messages.getString("CarMaker.1228")).append(mycars[i_143_]).append(Messages.getString("CarMaker.1229")) //$NON-NLS-1$ //$NON-NLS-2$
 										.toString(),
-								350 - ftm.stringWidth(new StringBuilder().append("Loading ").append(mycars[i_143_])
-										.append("\u2018s info...").toString()) / 2,
+								350 - ftm.stringWidth(new StringBuilder().append(Messages.getString("CarMaker.1230")).append(mycars[i_143_]) //$NON-NLS-1$
+										.append(Messages.getString("CarMaker.1231")).toString()) / 2, //$NON-NLS-1$
 								220);
 						repaint();
-						maker[i_143_] = "Unkown";
+						maker[i_143_] = Messages.getString("CarMaker.1232"); //$NON-NLS-1$
 						pubt[i_143_] = -1;
 						clas[i_143_] = 0;
 						nad[i_143_] = 0;
-						String string = "";
+						String string = Messages.getString("CarMaker.1233"); //$NON-NLS-1$
 						try {
 							String string_144_ = new StringBuilder()
-									.append("http://multiplayer.needformadness.com/cars/").append(mycars[i_143_])
-									.append(".txt?reqlo=").append((int) (Math.random() * 1000.0)).append("").toString();
+									.append(Messages.getString("CarMaker.1234")).append(mycars[i_143_]) //$NON-NLS-1$
+									.append(Messages.getString("CarMaker.1235")).append((int) (Math.random() * 1000.0)).append(Messages.getString("CarMaker.1236")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 							string_144_ = string_144_.replace(' ', '_');
 							final URL url = new URL(string_144_);
 							final DataInputStream datainputstream = new DataInputStream(url.openStream());
 							while ((string = datainputstream.readLine()) != null) {
-								string = new StringBuilder().append("").append(string.trim()).toString();
-								if (string.startsWith("details")) {
-									maker[i_143_] = getSvalue("details", string, 0);
-									pubt[i_143_] = getvalue("details", string, 1);
-									clas[i_143_] = getvalue("details", string, 2);
+								string = new StringBuilder().append(Messages.getString("CarMaker.1237")).append(string.trim()).toString(); //$NON-NLS-1$
+								if (string.startsWith(Messages.getString("CarMaker.1238"))) { //$NON-NLS-1$
+									maker[i_143_] = getSvalue(Messages.getString("CarMaker.1239"), string, 0); //$NON-NLS-1$
+									pubt[i_143_] = getvalue(Messages.getString("CarMaker.1240"), string, 1); //$NON-NLS-1$
+									clas[i_143_] = getvalue(Messages.getString("CarMaker.1241"), string, 2); //$NON-NLS-1$
 									boolean bool_145_ = false;
 									while (!bool_145_) {
-										addeda[i_143_][nad[i_143_]] = getSvalue("details", string, 3 + nad[i_143_]);
-										if (addeda[i_143_][nad[i_143_]].equals(""))
+										addeda[i_143_][nad[i_143_]] = getSvalue(Messages.getString("CarMaker.1242"), string, 3 + nad[i_143_]); //$NON-NLS-1$
+										if (addeda[i_143_][nad[i_143_]].equals(Messages.getString("CarMaker.1243"))) //$NON-NLS-1$
 											bool_145_ = true;
 										else
 											nad[i_143_]++;
@@ -4920,25 +4920,25 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					logged = 3;
 				}
 				if (logged == 1) {
-					rd.setFont(new Font("Arial", 1, 13));
+					rd.setFont(new Font(Messages.getString("CarMaker.1244"), 1, 13)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
-					rd.drawString("Loading your account car list...",
-							350 - ftm.stringWidth("Loading your account car list...") / 2, 220);
+					rd.drawString(Messages.getString("CarMaker.1245"), //$NON-NLS-1$
+							350 - ftm.stringWidth(Messages.getString("CarMaker.1246")) / 2, 220); //$NON-NLS-1$
 					repaint();
 					nmc = 0;
-					String string = "";
+					String string = Messages.getString("CarMaker.1247"); //$NON-NLS-1$
 					try {
 						final URL url = new URL(new StringBuilder()
-								.append("http://multiplayer.needformadness.com/cars/lists/").append(tnick.getText())
-								.append(".txt?reqlo=").append((int) (Math.random() * 1000.0)).append("").toString());
+								.append(Messages.getString("CarMaker.1248")).append(tnick.getText()) //$NON-NLS-1$
+								.append(Messages.getString("CarMaker.1249")).append((int) (Math.random() * 1000.0)).append(Messages.getString("CarMaker.1250")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 						final DataInputStream datainputstream = new DataInputStream(url.openStream());
 						while ((string = datainputstream.readLine()) != null) {
-							string = new StringBuilder().append("").append(string.trim()).toString();
-							if (string.startsWith("mycars")) {
+							string = new StringBuilder().append(Messages.getString("CarMaker.1251")).append(string.trim()).toString(); //$NON-NLS-1$
+							if (string.startsWith(Messages.getString("CarMaker.1252"))) { //$NON-NLS-1$
 								boolean bool_146_ = true;
 								while (bool_146_ && nmc < 20) {
-									mycars[nmc] = getSvalue("mycars", string, nmc);
-									if (mycars[nmc].equals(""))
+									mycars[nmc] = getSvalue(Messages.getString("CarMaker.1253"), string, nmc); //$NON-NLS-1$
+									if (mycars[nmc].equals(Messages.getString("CarMaker.1254"))) //$NON-NLS-1$
 										bool_146_ = false;
 									else
 										nmc++;
@@ -4953,14 +4953,14 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						}
 						datainputstream.close();
 					} catch (final Exception exception) {
-						final String string_147_ = new StringBuilder().append("").append(exception).toString();
-						if (string_147_.indexOf("FileNotFound") != -1) {
+						final String string_147_ = new StringBuilder().append(Messages.getString("CarMaker.1255")).append(exception).toString(); //$NON-NLS-1$
+						if (string_147_.indexOf(Messages.getString("CarMaker.1256")) != -1) { //$NON-NLS-1$
 							setCursor(new Cursor(0));
 							logged = -1;
 						} else {
 							logged = 0;
 							JOptionPane.showMessageDialog(null,
-									"Unable to connect to server at this moment, please try again later.", "Car Maker",
+									Messages.getString("CarMaker.1257"), Messages.getString("CarMaker.1258"), //$NON-NLS-1$ //$NON-NLS-2$
 									1);
 						}
 					}
@@ -4971,7 +4971,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						if (xm > 11 && xm < 689 && ym > 142 + i_148_ * 20 && ym < 160 + i_148_ * 20)
 							rd.setColor(new Color(255, 255, 255));
 						rd.fillRect(11, 142 + i_148_ * 20, 678, 18);
-						rd.setFont(new Font("Arial", 0, 12));
+						rd.setFont(new Font(Messages.getString("CarMaker.1259"), 0, 12)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
 						rd.setColor(new Color(0, 0, 0));
 						rd.drawString(mycars[i_148_], 80 - ftm.stringWidth(mycars[i_148_]) / 2, 156 + i_148_ * 20);
@@ -4983,38 +4983,38 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							rd.drawLine(450, 145 + i_148_ * 20, 450, 157 + i_148_ * 20);
 							rd.drawLine(550, 145 + i_148_ * 20, 550, 157 + i_148_ * 20);
 							rd.setColor(new Color(0, 0, 64));
-							String string = "C";
+							String string = Messages.getString("CarMaker.1260"); //$NON-NLS-1$
 							if (clas[i_148_] == 1)
-								string = "B & C";
+								string = Messages.getString("CarMaker.1261"); //$NON-NLS-1$
 							if (clas[i_148_] == 2)
-								string = "B";
+								string = Messages.getString("CarMaker.1262"); //$NON-NLS-1$
 							if (clas[i_148_] == 3)
-								string = "A & B";
+								string = Messages.getString("CarMaker.1263"); //$NON-NLS-1$
 							if (clas[i_148_] == 4)
-								string = "A";
-							rd.drawString(new StringBuilder().append("Class ").append(string).append("").toString(),
+								string = Messages.getString("CarMaker.1264"); //$NON-NLS-1$
+							rd.drawString(new StringBuilder().append(Messages.getString("CarMaker.1265")).append(string).append(Messages.getString("CarMaker.1266")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 									200 - ftm.stringWidth(
-											new StringBuilder().append("Class ").append(string).append("").toString())
+											new StringBuilder().append(Messages.getString("CarMaker.1267")).append(string).append(Messages.getString("CarMaker.1268")).toString()) //$NON-NLS-1$ //$NON-NLS-2$
 											/ 2,
 									156 + i_148_ * 20);
 							boolean bool_149_ = false;
 							if (maker[i_148_].toLowerCase().equals(tnick.getText().toLowerCase())) {
 								bool_149_ = true;
 								rd.setColor(new Color(0, 64, 0));
-								rd.drawString("You", 300 - ftm.stringWidth("You") / 2, 156 + i_148_ * 20);
+								rd.drawString(Messages.getString("CarMaker.1269"), 300 - ftm.stringWidth(Messages.getString("CarMaker.1270")) / 2, 156 + i_148_ * 20); //$NON-NLS-1$ //$NON-NLS-2$
 							} else
 								rd.drawString(maker[i_148_], 300 - ftm.stringWidth(maker[i_148_]) / 2,
 										156 + i_148_ * 20);
 							if (nad[i_148_] > 1) {
-								if (ovbutton(new StringBuilder().append("").append(nad[i_148_]).append(" Players")
+								if (ovbutton(new StringBuilder().append(Messages.getString("CarMaker.1271")).append(nad[i_148_]).append(Messages.getString("CarMaker.1272")) //$NON-NLS-1$ //$NON-NLS-2$
 										.toString(), 400, 156 + i_148_ * 20)) {
-									String string_150_ = new StringBuilder().append("[ ").append(mycars[i_148_])
-											.append(" ]  has been added by the following players to their accounts:     \n\n")
+									String string_150_ = new StringBuilder().append(Messages.getString("CarMaker.1273")).append(mycars[i_148_]) //$NON-NLS-1$
+											.append(Messages.getString("CarMaker.1274")) //$NON-NLS-1$
 											.toString();
 									int i_151_ = 0;
 									for (int i_152_ = 0; i_152_ < nad[i_148_]; i_152_++) {
 										if (++i_151_ == 17) {
-											string_150_ = new StringBuilder().append(string_150_).append("\n")
+											string_150_ = new StringBuilder().append(string_150_).append(Messages.getString("CarMaker.1275")) //$NON-NLS-1$
 													.toString();
 											i_151_ = 1;
 										}
@@ -5022,60 +5022,60 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 												.append(addeda[i_148_][i_152_]).toString();
 										if (i_152_ != nad[i_148_] - 1)
 											if (i_152_ != nad[i_148_] - 2)
-												string_150_ = new StringBuilder().append(string_150_).append(", ")
+												string_150_ = new StringBuilder().append(string_150_).append(Messages.getString("CarMaker.1276")) //$NON-NLS-1$
 														.toString();
 											else if (i_151_ == 16) {
-												string_150_ = new StringBuilder().append(string_150_).append("\nand ")
+												string_150_ = new StringBuilder().append(string_150_).append(Messages.getString("CarMaker.1277")) //$NON-NLS-1$
 														.toString();
 												i_151_ = 0;
 											} else
-												string_150_ = new StringBuilder().append(string_150_).append(" and ")
+												string_150_ = new StringBuilder().append(string_150_).append(Messages.getString("CarMaker.1278")) //$NON-NLS-1$
 														.toString();
 									}
-									string_150_ = new StringBuilder().append(string_150_).append("\n \n \n").toString();
-									JOptionPane.showMessageDialog(null, string_150_, "Car Maker", 1);
+									string_150_ = new StringBuilder().append(string_150_).append(Messages.getString("CarMaker.1279")).toString(); //$NON-NLS-1$
+									JOptionPane.showMessageDialog(null, string_150_, Messages.getString("CarMaker.1280"), 1); //$NON-NLS-1$
 								}
 							} else {
 								rd.setColor(new Color(0, 0, 64));
-								rd.drawString("None", 400 - ftm.stringWidth("None") / 2, 156 + i_148_ * 20);
+								rd.drawString(Messages.getString("CarMaker.1281"), 400 - ftm.stringWidth(Messages.getString("CarMaker.1282")) / 2, 156 + i_148_ * 20); //$NON-NLS-1$ //$NON-NLS-2$
 							}
 							if (pubt[i_148_] == 0) {
 								rd.setColor(new Color(0, 0, 64));
-								rd.drawString("Private", 500 - ftm.stringWidth("Private") / 2, 156 + i_148_ * 20);
+								rd.drawString(Messages.getString("CarMaker.1283"), 500 - ftm.stringWidth(Messages.getString("CarMaker.1284")) / 2, 156 + i_148_ * 20); //$NON-NLS-1$ //$NON-NLS-2$
 							}
 							if (pubt[i_148_] == 1) {
 								rd.setColor(new Color(0, 0, 64));
-								rd.drawString("Public", 500 - ftm.stringWidth("Public") / 2, 156 + i_148_ * 20);
+								rd.drawString(Messages.getString("CarMaker.1285"), 500 - ftm.stringWidth(Messages.getString("CarMaker.1286")) / 2, 156 + i_148_ * 20); //$NON-NLS-1$ //$NON-NLS-2$
 							}
 							if (pubt[i_148_] == 2) {
 								rd.setColor(new Color(0, 64, 0));
-								rd.drawString("Super Public", 500 - ftm.stringWidth("Super Public") / 2,
+								rd.drawString(Messages.getString("CarMaker.1287"), 500 - ftm.stringWidth(Messages.getString("CarMaker.1288")) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 										156 + i_148_ * 20);
 							}
-							if ((pubt[i_148_] == 2 || bool_149_) && ovbutton("Download", 600, 156 + i_148_ * 20)) {
+							if ((pubt[i_148_] == 2 || bool_149_) && ovbutton(Messages.getString("CarMaker.1289"), 600, 156 + i_148_ * 20)) { //$NON-NLS-1$
 								int i_153_ = 0;
 								for (int i_154_ = 0; i_154_ < slcar.getItemCount(); i_154_++)
 									if (mycars[i_148_].equals(slcar.getItem(i_154_)))
 										i_153_ = JOptionPane.showConfirmDialog(null,
-												new StringBuilder().append("Replace the local ").append(mycars[i_148_])
-														.append(" in your 'mycars' folder with the published online copy?")
+												new StringBuilder().append(Messages.getString("CarMaker.1290")).append(mycars[i_148_]) //$NON-NLS-1$
+														.append(Messages.getString("CarMaker.1291")) //$NON-NLS-1$
 														.toString(),
-												"Car Maker", 0);
+												Messages.getString("CarMaker.1292"), 0); //$NON-NLS-1$
 								if (i_153_ == 0) {
 									setCursor(new Cursor(3));
-									rd.setFont(new Font("Arial", 1, 13));
+									rd.setFont(new Font(Messages.getString("CarMaker.1293"), 1, 13)); //$NON-NLS-1$
 									ftm = rd.getFontMetrics();
 									rd.setColor(new Color(225, 225, 225));
 									rd.fillRect(11, 141, 679, 401);
 									rd.setColor(new Color(0, 0, 0));
-									rd.drawString("Downloading car, please wait...",
-											350 - ftm.stringWidth("Downloading car, please wait...") / 2, 250);
+									rd.drawString(Messages.getString("CarMaker.1294"), //$NON-NLS-1$
+											350 - ftm.stringWidth(Messages.getString("CarMaker.1295")) / 2, 250); //$NON-NLS-1$
 									repaint();
 									try {
 										String string_155_ = new StringBuilder()
-												.append("http://multiplayer.needformadness.com/cars/")
-												.append(mycars[i_148_]).append(".radq?reqlo=")
-												.append((int) (Math.random() * 1000.0)).append("").toString();
+												.append(Messages.getString("CarMaker.1296")) //$NON-NLS-1$
+												.append(mycars[i_148_]).append(Messages.getString("CarMaker.1297")) //$NON-NLS-1$
+												.append((int) (Math.random() * 1000.0)).append(Messages.getString("CarMaker.1298")).toString(); //$NON-NLS-1$
 										string_155_ = string_155_.replace(' ', '_');
 										final URL url = new URL(string_155_);
 										final int i_156_ = url.openConnection().getContentLength();
@@ -5106,34 +5106,34 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 												i_162_ += i_163_;
 											}
 											String string_164_ = new String(is_161_);
-											string_164_ = new StringBuilder().append(string_164_).append("\n")
+											string_164_ = new StringBuilder().append(string_164_).append(Messages.getString("CarMaker.1299")) //$NON-NLS-1$
 													.toString();
-											String string_165_ = "";
+											String string_165_ = Messages.getString("CarMaker.1300"); //$NON-NLS-1$
 											int i_166_ = 0;
-											int i_167_ = string_164_.indexOf("\n", 0);
+											int i_167_ = string_164_.indexOf(Messages.getString("CarMaker.1301"), 0); //$NON-NLS-1$
 											while (i_167_ != -1 && i_166_ < string_164_.length()) {
 												String string_168_ = string_164_.substring(i_166_, i_167_);
 												string_168_ = string_168_.trim();
 												i_166_ = i_167_ + 1;
-												i_167_ = string_164_.indexOf("\n", i_166_);
-												if (!string_168_.startsWith("carmaker(")
-														&& !string_168_.startsWith("publish("))
-													string_165_ = new StringBuilder().append(string_165_).append("")
-															.append(string_168_).append("\n").toString();
+												i_167_ = string_164_.indexOf(Messages.getString("CarMaker.1302"), i_166_); //$NON-NLS-1$
+												if (!string_168_.startsWith(Messages.getString("CarMaker.1303")) //$NON-NLS-1$
+														&& !string_168_.startsWith(Messages.getString("CarMaker.1304"))) //$NON-NLS-1$
+													string_165_ = new StringBuilder().append(string_165_).append(Messages.getString("CarMaker.1305")) //$NON-NLS-1$
+															.append(string_168_).append(Messages.getString("CarMaker.1306")).toString(); //$NON-NLS-1$
 												else {
 													string_165_ = string_165_.trim();
-													string_165_ = new StringBuilder().append(string_165_).append("\n")
+													string_165_ = new StringBuilder().append(string_165_).append(Messages.getString("CarMaker.1307")) //$NON-NLS-1$
 															.toString();
 												}
 											}
 											string_165_ = string_165_.trim();
-											string_165_ = new StringBuilder().append(string_165_).append("\n\n")
+											string_165_ = new StringBuilder().append(string_165_).append(Messages.getString("CarMaker.1308")) //$NON-NLS-1$
 													.toString();
-											File file = new File("mycars/");
+											File file = new File(Messages.getString("CarMaker.1309")); //$NON-NLS-1$
 											if (!file.exists())
 												file.mkdirs();
-											file = new File(new StringBuilder().append("mycars/").append(mycars[i_148_])
-													.append(".rad").toString());
+											file = new File(new StringBuilder().append(Messages.getString("CarMaker.1310")).append(mycars[i_148_]) //$NON-NLS-1$
+													.append(Messages.getString("CarMaker.1311")).toString()); //$NON-NLS-1$
 											final BufferedWriter bufferedwriter = new BufferedWriter(
 													new FileWriter(file));
 											bufferedwriter.write(string_165_);
@@ -5145,39 +5145,39 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 											}
 											setCursor(new Cursor(0));
 											JOptionPane.showMessageDialog(null,
-													new StringBuilder().append("").append(mycars[i_148_])
-															.append(" has been successfully downloaded!").toString(),
-													"Car Maker", 1);
+													new StringBuilder().append(Messages.getString("CarMaker.1312")).append(mycars[i_148_]) //$NON-NLS-1$
+															.append(Messages.getString("CarMaker.1313")).toString(), //$NON-NLS-1$
+													Messages.getString("CarMaker.1314"), 1); //$NON-NLS-1$
 										} else
 											JOptionPane.showMessageDialog(null,
-													"Unable to download car.  Unknown Error!     \nPlease try again later.",
-													"Car Maker", 1);
+													Messages.getString("CarMaker.1315"), //$NON-NLS-1$
+													Messages.getString("CarMaker.1316"), 1); //$NON-NLS-1$
 									} catch (final Exception exception) {
 										JOptionPane.showMessageDialog(null,
-												"Unable to download car.  Unknown Error!     \nPlease try again later.",
-												"Car Maker", 1);
+												Messages.getString("CarMaker.1317"), //$NON-NLS-1$
+												Messages.getString("CarMaker.1318"), 1); //$NON-NLS-1$
 									}
 								}
 							}
 						} else
-							rd.drawString("-    Error Loading this car's info!    -",
-									350 - ftm.stringWidth("-    Error Loading this car's info!    -") / 2,
+							rd.drawString(Messages.getString("CarMaker.1319"), //$NON-NLS-1$
+									350 - ftm.stringWidth(Messages.getString("CarMaker.1320")) / 2, //$NON-NLS-1$
 									156 + i_148_ * 20);
-						if (ovbutton("X", 665, 156 + i_148_ * 20)
+						if (ovbutton(Messages.getString("CarMaker.1321"), 665, 156 + i_148_ * 20) //$NON-NLS-1$
 								&& JOptionPane
 										.showConfirmDialog(null,
-												new StringBuilder().append("Remove ").append(mycars[i_148_])
-														.append(" from your account?").toString(),
-												"Car Maker", 0) == 0) {
+												new StringBuilder().append(Messages.getString("CarMaker.1322")).append(mycars[i_148_]) //$NON-NLS-1$
+														.append(Messages.getString("CarMaker.1323")).toString(), //$NON-NLS-1$
+												Messages.getString("CarMaker.1324"), 0) == 0) { //$NON-NLS-1$
 							setCursor(new Cursor(3));
 							int i_169_ = -1;
 							try {
-								final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
+								final Socket socket = new Socket(Messages.getString("CarMaker.1325"), 7061); //$NON-NLS-1$
 								final BufferedReader bufferedreader = new BufferedReader(
 										new InputStreamReader(socket.getInputStream()));
 								final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-								printwriter.println(new StringBuilder().append("9|").append(tnick.getText()).append("|")
-										.append(tpass.getText()).append("|").append(mycars[i_148_]).append("|")
+								printwriter.println(new StringBuilder().append(Messages.getString("CarMaker.1326")).append(tnick.getText()).append(Messages.getString("CarMaker.1327")) //$NON-NLS-1$ //$NON-NLS-2$
+										.append(tpass.getText()).append(Messages.getString("CarMaker.1328")).append(mycars[i_148_]).append(Messages.getString("CarMaker.1329")) //$NON-NLS-1$ //$NON-NLS-2$
 										.toString());
 								final String string = bufferedreader.readLine();
 								if (string != null)
@@ -5191,10 +5191,10 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							else {
 								setCursor(new Cursor(0));
 								JOptionPane.showMessageDialog(null,
-										new StringBuilder().append("Failed to remove ").append(mycars[i_148_])
-												.append(" from your account.  Unknown Error!     \nPlease try again later.")
+										new StringBuilder().append(Messages.getString("CarMaker.1330")).append(mycars[i_148_]) //$NON-NLS-1$
+												.append(Messages.getString("CarMaker.1331")) //$NON-NLS-1$
 												.toString(),
-										"Car Maker", 1);
+										Messages.getString("CarMaker.1332"), 1); //$NON-NLS-1$
 							}
 						}
 					}
@@ -5207,13 +5207,13 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 				rd.drawImage(btgame[0], 520, 0, null);
 			else
 				rd.drawImage(btgame[1], 520, 0, null);
-			rd.setFont(new Font("Arial", 1, 13));
+			rd.setFont(new Font(Messages.getString("CarMaker.1333"), 1, 13)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
-			final String[] strings = { "Car", "Code Edit", "3D Edit", "Publish" };
+			final String[] strings = { Messages.getString("CarMaker.1334"), Messages.getString("CarMaker.1335"), Messages.getString("CarMaker.1336"), Messages.getString("CarMaker.1337") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 			final int[] is = { 0, 0, 100, 90 };
 			final int[] is_170_ = { 0, 25, 25, 0 };
 			int i_171_ = 4;
-			if (carname.equals("") || !loadedfile || sfase != 0) {
+			if (carname.equals(Messages.getString("CarMaker.1338")) || !loadedfile || sfase != 0) { //$NON-NLS-1$
 				tab = 0;
 				i_171_ = 1;
 			}
@@ -5252,37 +5252,37 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 	}
 
 	public void savefile() {
-		if (!editor.getText().equals(""))
+		if (!editor.getText().equals(Messages.getString("CarMaker.1339"))) //$NON-NLS-1$
 			try {
-				File file = new File("mycars/");
+				File file = new File(Messages.getString("CarMaker.1340")); //$NON-NLS-1$
 				if (!file.exists())
 					file.mkdirs();
-				file = new File(new StringBuilder().append("mycars/").append(carname).append(".rad").toString());
+				file = new File(new StringBuilder().append(Messages.getString("CarMaker.1341")).append(carname).append(Messages.getString("CarMaker.1342")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 				final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
 				bufferedwriter.write(editor.getText());
 				bufferedwriter.close();
 				changed = false;
 				lastedo = editor.getText();
 			} catch (final Exception exception) {
-				JOptionPane.showMessageDialog(null, new StringBuilder().append("Unable to save file! Error Deatials:\n")
-						.append(exception).toString(), "Car Maker", 1);
+				JOptionPane.showMessageDialog(null, new StringBuilder().append(Messages.getString("CarMaker.1343")) //$NON-NLS-1$
+						.append(exception).toString(), Messages.getString("CarMaker.1344"), 1); //$NON-NLS-1$
 			}
 		savesettings();
 	}
 
 	public void savesettings() {
 		if (!scar.equals(carname) || !suser.equals(tnick.getText()) || !sfont.equals(cfont) || cthm != sthm) {
-			final String string = new StringBuilder().append("").append(carname).append("\n").append(tnick.getText())
-					.append("\n").append(cfont).append("\n").append(cthm).append("\n\n").toString();
+			final String string = new StringBuilder().append(Messages.getString("CarMaker.1345")).append(carname).append(Messages.getString("CarMaker.1346")).append(tnick.getText()) //$NON-NLS-1$ //$NON-NLS-2$
+					.append(Messages.getString("CarMaker.1347")).append(cfont).append(Messages.getString("CarMaker.1348")).append(cthm).append(Messages.getString("CarMaker.1349")).toString(); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			scar = carname;
 			suser = tnick.getText();
 			sfont = cfont;
 			sthm = cthm;
 			try {
-				File file = new File("mycars/");
+				File file = new File(Messages.getString("CarMaker.1350")); //$NON-NLS-1$
 				if (!file.exists())
 					file.mkdirs();
-				file = new File("mycars/settings.data");
+				file = new File(Messages.getString("CarMaker.1351")); //$NON-NLS-1$
 				final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
 				bufferedwriter.write(string);
 				bufferedwriter.close();
@@ -5293,16 +5293,16 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 	}
 
 	public String serverSvalue(final String string, final int i) {
-		String string_380_ = "";
+		String string_380_ = Messages.getString("CarMaker.1352"); //$NON-NLS-1$
 		try {
 			int i_381_ = 0;
 			int i_382_ = 0;
 			int i_383_ = 0;
-			String string_384_ = "";
-			String string_385_ = "";
+			String string_384_ = Messages.getString("CarMaker.1353"); //$NON-NLS-1$
+			String string_385_ = Messages.getString("CarMaker.1354"); //$NON-NLS-1$
 			for (/**/; i_381_ < string.length() && i_383_ != 2; i_381_++) {
-				string_384_ = new StringBuilder().append("").append(string.charAt(i_381_)).toString();
-				if (string_384_.equals("|")) {
+				string_384_ = new StringBuilder().append(Messages.getString("CarMaker.1355")).append(string.charAt(i_381_)).toString(); //$NON-NLS-1$
+				if (string_384_.equals(Messages.getString("CarMaker.1356"))) { //$NON-NLS-1$
 					i_382_++;
 					if (i_383_ == 1 || i_382_ > i)
 						i_383_ = 2;
@@ -5324,11 +5324,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			int i_375_ = 0;
 			int i_376_ = 0;
 			int i_377_ = 0;
-			String string_378_ = "";
-			String string_379_ = "";
+			String string_378_ = Messages.getString("CarMaker.1357"); //$NON-NLS-1$
+			String string_379_ = Messages.getString("CarMaker.1358"); //$NON-NLS-1$
 			for (/**/; i_375_ < string.length() && i_377_ != 2; i_375_++) {
-				string_378_ = new StringBuilder().append("").append(string.charAt(i_375_)).toString();
-				if (string_378_.equals("|")) {
+				string_378_ = new StringBuilder().append(Messages.getString("CarMaker.1359")).append(string.charAt(i_375_)).toString(); //$NON-NLS-1$
+				if (string_378_.equals(Messages.getString("CarMaker.1360"))) { //$NON-NLS-1$
 					i_376_++;
 					if (i_377_ == 1 || i_376_ > i)
 						i_377_ = 2;
@@ -5337,8 +5337,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 					i_377_ = 1;
 				}
 			}
-			if (string_379_.equals(""))
-				string_379_ = "-1";
+			if (string_379_.equals(Messages.getString("CarMaker.1361"))) //$NON-NLS-1$
+				string_379_ = Messages.getString("CarMaker.1362"); //$NON-NLS-1$
 			i_374_ = Integer.valueOf(string_379_).intValue();
 		} catch (final Exception exception) {
 			/* empty */
@@ -5396,8 +5396,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 		o.grounded = 1.0F;
 		o.noline = false;
 		o.decor = false;
-		if (o.errd && (!o.err.startsWith("Wheels Error:") || forwheels))
-			JOptionPane.showMessageDialog(null, o.err, "Car Maker", 0);
+		if (o.errd && (!o.err.startsWith(Messages.getString("CarMaker.1363")) || forwheels)) //$NON-NLS-1$
+			JOptionPane.showMessageDialog(null, o.err, Messages.getString("CarMaker.1364"), 0); //$NON-NLS-1$
 		if (o.maxR == 0)
 			o.maxR = 100;
 		squash = 0;
@@ -5417,10 +5417,10 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 	}
 
 	public void stringbutton(final String string, final int i, final int i_393_, final int i_394_, final boolean bool) {
-		rd.setFont(new Font("Arial", 1, 12));
+		rd.setFont(new Font(Messages.getString("CarMaker.1365"), 1, 12)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
-		if (string.indexOf("Publish") != -1) {
-			rd.setFont(new Font("Arial", 1, 13));
+		if (string.indexOf(Messages.getString("CarMaker.1366")) != -1) { //$NON-NLS-1$
+			rd.setFont(new Font(Messages.getString("CarMaker.1367"), 1, 13)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
 		}
 		bx[btn] = i;

@@ -115,7 +115,7 @@ public class ContO {
 		scol = new int[] { 0, 0, 0 };
 		colok = 0;
 		errd = false;
-		err = "";
+		err = Messages.getString("ContO.0"); //$NON-NLS-1$
 		roofat = 0;
 		wh = 0;
 		m = medium;
@@ -133,7 +133,7 @@ public class ContO {
 				keyz[i] = 0;
 			shadow = true;
 		}
-		String string = "";
+		String string = Messages.getString("ContO.1"); //$NON-NLS-1$
 		boolean bool = false;
 		boolean bool_1_ = false;
 		int i = 0;
@@ -159,9 +159,9 @@ public class ContO {
 			final DataInputStream datainputstream = new DataInputStream(new ByteArrayInputStream(is));
 			String string_17_;
 			while ((string_17_ = datainputstream.readLine()) != null) {
-				string = new StringBuilder().append("").append(string_17_.trim()).toString();
+				string = new StringBuilder().append(Messages.getString("ContO.2")).append(string_17_.trim()).toString(); //$NON-NLS-1$
 				if (npl < 10000 /* 210 */) {
-					if (string.startsWith("<p>")) {
+					if (string.startsWith(Messages.getString("ContO.3"))) { //$NON-NLS-1$
 						bool = true;
 						i = 0;
 						i_10_ = 0;
@@ -172,34 +172,34 @@ public class ContO {
 							bool_15_ = false;
 					}
 					if (bool) {
-						if (string.startsWith("gr("))
-							i_10_ = getvalue("gr", string, 0);
-						if (string.startsWith("fs(")) {
-							i_11_ = getvalue("fs", string, 0);
+						if (string.startsWith(Messages.getString("ContO.4"))) //$NON-NLS-1$
+							i_10_ = getvalue(Messages.getString("ContO.5"), string, 0); //$NON-NLS-1$
+						if (string.startsWith(Messages.getString("ContO.6"))) { //$NON-NLS-1$
+							i_11_ = getvalue(Messages.getString("ContO.7"), string, 0); //$NON-NLS-1$
 							is_0_[npl] = 2;
 						}
-						if (string.startsWith("c(")) {
+						if (string.startsWith(Messages.getString("ContO.8"))) { //$NON-NLS-1$
 							i_14_ = 0;
-							is_6_[0] = getvalue("c", string, 0);
-							is_6_[1] = getvalue("c", string, 1);
-							is_6_[2] = getvalue("c", string, 2);
+							is_6_[0] = getvalue(Messages.getString("ContO.9"), string, 0); //$NON-NLS-1$
+							is_6_[1] = getvalue(Messages.getString("ContO.10"), string, 1); //$NON-NLS-1$
+							is_6_[2] = getvalue(Messages.getString("ContO.11"), string, 2); //$NON-NLS-1$
 						}
-						if (string.startsWith("glass"))
+						if (string.startsWith(Messages.getString("ContO.12"))) //$NON-NLS-1$
 							i_14_ = 1;
-						if (string.startsWith("gshadow"))
+						if (string.startsWith(Messages.getString("ContO.13"))) //$NON-NLS-1$
 							i_14_ = 2;
-						if (string.startsWith("lightF"))
+						if (string.startsWith(Messages.getString("ContO.14"))) //$NON-NLS-1$
 							i_13_ = 1;
-						if (string.startsWith("light"))
+						if (string.startsWith(Messages.getString("ContO.15"))) //$NON-NLS-1$
 							i_13_ = 1;
-						if (string.startsWith("lightB"))
+						if (string.startsWith(Messages.getString("ContO.16"))) //$NON-NLS-1$
 							i_13_ = 2;
-						if (string.startsWith("noOutline"))
+						if (string.startsWith(Messages.getString("ContO.17"))) //$NON-NLS-1$
 							bool_15_ = true;
-						if (string.startsWith("p(")) {
-							is_3_[i] = (int) (getvalue("p", string, 0) * f * f_2_ * fs[0]);
-							is_4_[i] = (int) (getvalue("p", string, 1) * f * fs[1]);
-							is_5_[i] = (int) (getvalue("p", string, 2) * f * fs[2]);
+						if (string.startsWith(Messages.getString("ContO.18"))) { //$NON-NLS-1$
+							is_3_[i] = (int) (getvalue(Messages.getString("ContO.19"), string, 0) * f * f_2_ * fs[0]); //$NON-NLS-1$
+							is_4_[i] = (int) (getvalue(Messages.getString("ContO.20"), string, 1) * f * fs[1]); //$NON-NLS-1$
+							is_5_[i] = (int) (getvalue(Messages.getString("ContO.21"), string, 2) * f * fs[2]); //$NON-NLS-1$
 							final int i_18_ = (int) Math
 									.sqrt(is_3_[i] * is_3_[i] + is_4_[i] * is_4_[i] + is_5_[i] * is_5_[i]);
 							if (i_18_ > maxR)
@@ -207,7 +207,7 @@ public class ContO {
 							i++;
 						}
 					}
-					if (string.startsWith("</p>")) {
+					if (string.startsWith(Messages.getString("ContO.22"))) { //$NON-NLS-1$
 						p[npl] = new Plane(m, t, is_3_, is_5_, is_4_, i, is_6_, i_14_, i_10_, i_11_, 0, 0, 0, disline,
 								0, bool_7_, i_13_, bool_15_);
 						if (is_6_[0] == fcol[0] && is_6_[1] == fcol[1] && is_6_[2] == fcol[2] && i_14_ == 0)
@@ -218,68 +218,68 @@ public class ContO {
 						bool = false;
 					}
 				}
-				if (string.startsWith("rims("))
-					wheels.setrims(getvalue("rims", string, 0), getvalue("rims", string, 1),
-							getvalue("rims", string, 2), getvalue("rims", string, 3), getvalue("rims", string, 4));
-				if (string.startsWith("w(") && i_9_ < 4) {
-					keyx[i_9_] = (int) (getvalue("w", string, 0) * f * fs[0]);
-					keyz[i_9_] = (int) (getvalue("w", string, 2) * f * fs[2]);
-					wheels.make(m, t, p, npl, (int) (getvalue("w", string, 0) * f * f_2_ * fs[0]),
-							(int) (getvalue("w", string, 1) * f * fs[1]), (int) (getvalue("w", string, 2) * f * fs[2]),
-							getvalue("w", string, 3), (int) (getvalue("w", string, 4) * f * f_2_),
-							(int) (getvalue("w", string, 5) * f), i_12_);
+				if (string.startsWith(Messages.getString("ContO.23"))) //$NON-NLS-1$
+					wheels.setrims(getvalue(Messages.getString("ContO.24"), string, 0), getvalue(Messages.getString("ContO.25"), string, 1), //$NON-NLS-1$ //$NON-NLS-2$
+							getvalue(Messages.getString("ContO.26"), string, 2), getvalue(Messages.getString("ContO.27"), string, 3), getvalue(Messages.getString("ContO.28"), string, 4)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				if (string.startsWith(Messages.getString("ContO.29")) && i_9_ < 4) { //$NON-NLS-1$
+					keyx[i_9_] = (int) (getvalue(Messages.getString("ContO.30"), string, 0) * f * fs[0]); //$NON-NLS-1$
+					keyz[i_9_] = (int) (getvalue(Messages.getString("ContO.31"), string, 2) * f * fs[2]); //$NON-NLS-1$
+					wheels.make(m, t, p, npl, (int) (getvalue(Messages.getString("ContO.32"), string, 0) * f * f_2_ * fs[0]), //$NON-NLS-1$
+							(int) (getvalue(Messages.getString("ContO.33"), string, 1) * f * fs[1]), (int) (getvalue(Messages.getString("ContO.34"), string, 2) * f * fs[2]), //$NON-NLS-1$ //$NON-NLS-2$
+							getvalue(Messages.getString("ContO.35"), string, 3), (int) (getvalue(Messages.getString("ContO.36"), string, 4) * f * f_2_), //$NON-NLS-1$ //$NON-NLS-2$
+							(int) (getvalue(Messages.getString("ContO.37"), string, 5) * f), i_12_); //$NON-NLS-1$
 					npl += 19;
 					if (m.loadnew) {
-						wh += (int) (getvalue("w", string, 5) * f);
+						wh += (int) (getvalue(Messages.getString("ContO.38"), string, 5) * f); //$NON-NLS-1$
 						if (wheels.ground > 140) {
-							String string_19_ = "FRONT";
+							String string_19_ = Messages.getString("ContO.39"); //$NON-NLS-1$
 							if (keyz[i_9_] < 0)
-								string_19_ = "BACK";
-							err = new StringBuilder().append("Wheels Error:\n").append(string_19_)
-									.append(" Wheels floor is too far below the center of Y Axis of the car!    \n\nPlease decrease the Y value of the ")
-									.append(string_19_).append(" Wheels or decrease its height.     \n \n").toString();
+								string_19_ = Messages.getString("ContO.40"); //$NON-NLS-1$
+							err = new StringBuilder().append(Messages.getString("ContO.41")).append(string_19_) //$NON-NLS-1$
+									.append(Messages.getString("ContO.42")) //$NON-NLS-1$
+									.append(string_19_).append(Messages.getString("ContO.43")).toString(); //$NON-NLS-1$
 							errd = true;
 							keyz[i_9_] = 0;
 							keyx[i_9_] = 0;
 						}
 						if (wheels.ground < -100) {
-							String string_20_ = "FRONT";
+							String string_20_ = Messages.getString("ContO.44"); //$NON-NLS-1$
 							if (keyz[i_9_] < 0)
-								string_20_ = "BACK";
-							err = new StringBuilder().append("Wheels Error:\n").append(string_20_)
-									.append(" Wheels floor is too far above the center of Y Axis of the car!    \n\nPlease increase the Y value of the ")
-									.append(string_20_).append(" Wheels or increase its height.     \n \n").toString();
+								string_20_ = Messages.getString("ContO.45"); //$NON-NLS-1$
+							err = new StringBuilder().append(Messages.getString("ContO.46")).append(string_20_) //$NON-NLS-1$
+									.append(Messages.getString("ContO.47")) //$NON-NLS-1$
+									.append(string_20_).append(Messages.getString("ContO.48")).toString(); //$NON-NLS-1$
 							errd = true;
 							keyz[i_9_] = 0;
 							keyx[i_9_] = 0;
 						}
 						if (Math.abs(keyx[i_9_]) > 400) {
-							String string_21_ = "FRONT";
+							String string_21_ = Messages.getString("ContO.49"); //$NON-NLS-1$
 							if (keyz[i_9_] < 0)
-								string_21_ = "BACK";
-							err = new StringBuilder().append("Wheels Error:\n").append(string_21_)
-									.append(" Wheels are too far apart!    \n\nPlease decrease the \u00b1X value of the ")
-									.append(string_21_).append(" Wheels.     \n \n").toString();
+								string_21_ = Messages.getString("ContO.50"); //$NON-NLS-1$
+							err = new StringBuilder().append(Messages.getString("ContO.51")).append(string_21_) //$NON-NLS-1$
+									.append(Messages.getString("ContO.52")) //$NON-NLS-1$
+									.append(string_21_).append(Messages.getString("ContO.53")).toString(); //$NON-NLS-1$
 							errd = true;
 							keyz[i_9_] = 0;
 							keyx[i_9_] = 0;
 						}
 						if (Math.abs(keyz[i_9_]) > 700) {
 							if (keyz[i_9_] < 0)
-								err = "Wheels Error:\nBACK Wheels are too far backwards from the center of the Z Axis!    \n\nPlease increase the -Z value of the BACK Wheels.     \n \n";
+								err = Messages.getString("ContO.54"); //$NON-NLS-1$
 							else
-								err = "Wheels Error:\nFRONT Wheels are too far forwards from the center of the Z Axis!    \n\nPlease decrease the +Z value of the FRONT Wheels.     \n \n";
+								err = Messages.getString("ContO.55"); //$NON-NLS-1$
 							errd = true;
 							keyz[i_9_] = 0;
 							keyx[i_9_] = 0;
 						}
-						if ((int) (getvalue("w", string, 4) * f * f_2_) > 300) {
-							String string_22_ = "FRONT";
+						if ((int) (getvalue(Messages.getString("ContO.56"), string, 4) * f * f_2_) > 300) { //$NON-NLS-1$
+							String string_22_ = Messages.getString("ContO.57"); //$NON-NLS-1$
 							if (keyz[i_9_] < 0)
-								string_22_ = "BACK";
-							err = new StringBuilder().append("Wheels Error:\nWidth of the ").append(string_22_)
-									.append(" Wheels is too large!    \n\nPlease decrease the width of the ")
-									.append(string_22_).append(" Wheels.     \n \n").toString();
+								string_22_ = Messages.getString("ContO.58"); //$NON-NLS-1$
+							err = new StringBuilder().append(Messages.getString("ContO.59")).append(string_22_) //$NON-NLS-1$
+									.append(Messages.getString("ContO.60")) //$NON-NLS-1$
+									.append(string_22_).append(Messages.getString("ContO.61")).toString(); //$NON-NLS-1$
 							errd = true;
 							keyz[i_9_] = 0;
 							keyx[i_9_] = 0;
@@ -287,8 +287,8 @@ public class ContO {
 					}
 					i_9_++;
 				}
-				if (string.startsWith("tracks")) {
-					final int i_23_ = getvalue("tracks", string, 0);
+				if (string.startsWith(Messages.getString("ContO.62"))) { //$NON-NLS-1$
+					final int i_23_ = getvalue(Messages.getString("ContO.63"), string, 0); //$NON-NLS-1$
 					txy = new int[i_23_];
 					tzy = new int[i_23_];
 					tc = new int[i_23_][3];
@@ -304,7 +304,7 @@ public class ContO {
 					bool_8_ = true;
 				}
 				if (bool_8_) {
-					if (string.startsWith("<track>")) {
+					if (string.startsWith(Messages.getString("ContO.64"))) { //$NON-NLS-1$
 						bool_1_ = true;
 						notwall[tnt] = false;
 						dam[tnt] = 1;
@@ -322,74 +322,74 @@ public class ContO {
 						tc[tnt][2] = 0;
 					}
 					if (bool_1_) {
-						if (string.startsWith("c")) {
-							tc[tnt][0] = getvalue("c", string, 0);
-							tc[tnt][1] = getvalue("c", string, 1);
-							tc[tnt][2] = getvalue("c", string, 2);
+						if (string.startsWith(Messages.getString("ContO.65"))) { //$NON-NLS-1$
+							tc[tnt][0] = getvalue(Messages.getString("ContO.66"), string, 0); //$NON-NLS-1$
+							tc[tnt][1] = getvalue(Messages.getString("ContO.67"), string, 1); //$NON-NLS-1$
+							tc[tnt][2] = getvalue(Messages.getString("ContO.68"), string, 2); //$NON-NLS-1$
 						}
-						if (string.startsWith("xy"))
-							txy[tnt] = getvalue("xy", string, 0);
-						if (string.startsWith("zy"))
-							tzy[tnt] = getvalue("zy", string, 0);
-						if (string.startsWith("radx"))
-							tradx[tnt] = (int) (getvalue("radx", string, 0) * f);
-						if (string.startsWith("rady"))
-							trady[tnt] = (int) (getvalue("rady", string, 0) * f);
-						if (string.startsWith("radz"))
-							tradz[tnt] = (int) (getvalue("radz", string, 0) * f);
-						if (string.startsWith("ty"))
-							ty[tnt] = (int) (getvalue("ty", string, 0) * f);
-						if (string.startsWith("tx"))
-							tx[tnt] = (int) (getvalue("tx", string, 0) * f);
-						if (string.startsWith("tz"))
-							tz[tnt] = (int) (getvalue("tz", string, 0) * f);
-						if (string.startsWith("skid"))
-							skd[tnt] = getvalue("skid", string, 0);
-						if (string.startsWith("dam"))
+						if (string.startsWith(Messages.getString("ContO.69"))) //$NON-NLS-1$
+							txy[tnt] = getvalue(Messages.getString("ContO.70"), string, 0); //$NON-NLS-1$
+						if (string.startsWith(Messages.getString("ContO.71"))) //$NON-NLS-1$
+							tzy[tnt] = getvalue(Messages.getString("ContO.72"), string, 0); //$NON-NLS-1$
+						if (string.startsWith(Messages.getString("ContO.73"))) //$NON-NLS-1$
+							tradx[tnt] = (int) (getvalue(Messages.getString("ContO.74"), string, 0) * f); //$NON-NLS-1$
+						if (string.startsWith(Messages.getString("ContO.75"))) //$NON-NLS-1$
+							trady[tnt] = (int) (getvalue(Messages.getString("ContO.76"), string, 0) * f); //$NON-NLS-1$
+						if (string.startsWith(Messages.getString("ContO.77"))) //$NON-NLS-1$
+							tradz[tnt] = (int) (getvalue(Messages.getString("ContO.78"), string, 0) * f); //$NON-NLS-1$
+						if (string.startsWith(Messages.getString("ContO.79"))) //$NON-NLS-1$
+							ty[tnt] = (int) (getvalue(Messages.getString("ContO.80"), string, 0) * f); //$NON-NLS-1$
+						if (string.startsWith(Messages.getString("ContO.81"))) //$NON-NLS-1$
+							tx[tnt] = (int) (getvalue(Messages.getString("ContO.82"), string, 0) * f); //$NON-NLS-1$
+						if (string.startsWith(Messages.getString("ContO.83"))) //$NON-NLS-1$
+							tz[tnt] = (int) (getvalue(Messages.getString("ContO.84"), string, 0) * f); //$NON-NLS-1$
+						if (string.startsWith(Messages.getString("ContO.85"))) //$NON-NLS-1$
+							skd[tnt] = getvalue(Messages.getString("ContO.86"), string, 0); //$NON-NLS-1$
+						if (string.startsWith(Messages.getString("ContO.87"))) //$NON-NLS-1$
 							dam[tnt] = 3;
-						if (string.startsWith("notwall"))
+						if (string.startsWith(Messages.getString("ContO.88"))) //$NON-NLS-1$
 							notwall[tnt] = true;
 					}
-					if (string.startsWith("</track>")) {
+					if (string.startsWith(Messages.getString("ContO.89"))) { //$NON-NLS-1$
 						bool_1_ = false;
 						tnt++;
 					}
 				}
-				if (string.startsWith("disp("))
-					disp = getvalue("disp", string, 0);
-				if (string.startsWith("disline("))
-					disline = getvalue("disline", string, 0) * 2;
-				if (string.startsWith("shadow"))
+				if (string.startsWith(Messages.getString("ContO.90"))) //$NON-NLS-1$
+					disp = getvalue(Messages.getString("ContO.91"), string, 0); //$NON-NLS-1$
+				if (string.startsWith(Messages.getString("ContO.92"))) //$NON-NLS-1$
+					disline = getvalue(Messages.getString("ContO.93"), string, 0) * 2; //$NON-NLS-1$
+				if (string.startsWith(Messages.getString("ContO.94"))) //$NON-NLS-1$
 					shadow = true;
-				if (string.startsWith("stonecold"))
+				if (string.startsWith(Messages.getString("ContO.95"))) //$NON-NLS-1$
 					noline = true;
-				if (string.startsWith("newstone")) {
+				if (string.startsWith(Messages.getString("ContO.96"))) { //$NON-NLS-1$
 					noline = true;
 					bool_15_ = true;
 					bool_16_ = true;
 				}
-				if (string.startsWith("decorative"))
+				if (string.startsWith(Messages.getString("ContO.97"))) //$NON-NLS-1$
 					decor = true;
-				if (string.startsWith("road"))
+				if (string.startsWith(Messages.getString("ContO.98"))) //$NON-NLS-1$
 					bool_7_ = true;
-				if (string.startsWith("notroad"))
+				if (string.startsWith(Messages.getString("ContO.99"))) //$NON-NLS-1$
 					bool_7_ = false;
-				if (string.startsWith("grounded("))
-					grounded = getvalue("grounded", string, 0) / 100.0F;
-				if (string.startsWith("div("))
-					f = getvalue("div", string, 0) / 10.0F;
-				if (string.startsWith("idiv("))
-					f = getvalue("idiv", string, 0) / 100.0F;
-				if (string.startsWith("iwid("))
-					f_2_ = getvalue("iwid", string, 0) / 100.0F;
-				if (string.startsWith("ScaleX("))
-					fs[0] = getvalue("ScaleX", string, 0) / 100.0F;
-				if (string.startsWith("ScaleY("))
-					fs[1] = getvalue("ScaleY", string, 0) / 100.0F;
-				if (string.startsWith("ScaleZ("))
-					fs[2] = getvalue("ScaleZ", string, 0) / 100.0F;
-				if (string.startsWith("gwgr(")) {
-					i_12_ = getvalue("gwgr", string, 0);
+				if (string.startsWith(Messages.getString("ContO.100"))) //$NON-NLS-1$
+					grounded = getvalue(Messages.getString("ContO.101"), string, 0) / 100.0F; //$NON-NLS-1$
+				if (string.startsWith(Messages.getString("ContO.102"))) //$NON-NLS-1$
+					f = getvalue(Messages.getString("ContO.103"), string, 0) / 10.0F; //$NON-NLS-1$
+				if (string.startsWith(Messages.getString("ContO.104"))) //$NON-NLS-1$
+					f = getvalue(Messages.getString("ContO.105"), string, 0) / 100.0F; //$NON-NLS-1$
+				if (string.startsWith(Messages.getString("ContO.106"))) //$NON-NLS-1$
+					f_2_ = getvalue(Messages.getString("ContO.107"), string, 0) / 100.0F; //$NON-NLS-1$
+				if (string.startsWith(Messages.getString("ContO.108"))) //$NON-NLS-1$
+					fs[0] = getvalue(Messages.getString("ContO.109"), string, 0) / 100.0F; //$NON-NLS-1$
+				if (string.startsWith(Messages.getString("ContO.110"))) //$NON-NLS-1$
+					fs[1] = getvalue(Messages.getString("ContO.111"), string, 0) / 100.0F; //$NON-NLS-1$
+				if (string.startsWith(Messages.getString("ContO.112"))) //$NON-NLS-1$
+					fs[2] = getvalue(Messages.getString("ContO.113"), string, 0) / 100.0F; //$NON-NLS-1$
+				if (string.startsWith(Messages.getString("ContO.114"))) { //$NON-NLS-1$
+					i_12_ = getvalue(Messages.getString("ContO.115"), string, 0); //$NON-NLS-1$
 					if (m.loadnew) {
 						if (i_12_ > 40)
 							i_12_ = 40;
@@ -399,24 +399,24 @@ public class ContO {
 							i_12_ = -40;
 					}
 				}
-				if (string.startsWith("1stColor(")) {
-					fcol[0] = getvalue("1stColor", string, 0);
-					fcol[1] = getvalue("1stColor", string, 1);
-					fcol[2] = getvalue("1stColor", string, 2);
+				if (string.startsWith(Messages.getString("ContO.116"))) { //$NON-NLS-1$
+					fcol[0] = getvalue(Messages.getString("ContO.117"), string, 0); //$NON-NLS-1$
+					fcol[1] = getvalue(Messages.getString("ContO.118"), string, 1); //$NON-NLS-1$
+					fcol[2] = getvalue(Messages.getString("ContO.119"), string, 2); //$NON-NLS-1$
 					colok++;
 				}
-				if (string.startsWith("2ndColor(")) {
-					scol[0] = getvalue("2ndColor", string, 0);
-					scol[1] = getvalue("2ndColor", string, 1);
-					scol[2] = getvalue("2ndColor", string, 2);
+				if (string.startsWith(Messages.getString("ContO.120"))) { //$NON-NLS-1$
+					scol[0] = getvalue(Messages.getString("ContO.121"), string, 0); //$NON-NLS-1$
+					scol[1] = getvalue(Messages.getString("ContO.122"), string, 1); //$NON-NLS-1$
+					scol[2] = getvalue(Messages.getString("ContO.123"), string, 2); //$NON-NLS-1$
 					colok++;
 				}
 			}
 			datainputstream.close();
 		} catch (final Exception exception) {
 			if (!errd) {
-				err = new StringBuilder().append("Error While Loading 3D Model\n\nLine:     ").append(string)
-						.append("\n\nError Detail:\n").append(exception).append("           \n \n").toString();
+				err = new StringBuilder().append(Messages.getString("ContO.124")).append(string) //$NON-NLS-1$
+						.append(Messages.getString("ContO.125")).append(exception).append(Messages.getString("ContO.126")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 				System.out.println(err);
 				errd = true;
 			}
@@ -779,7 +779,7 @@ public class ContO {
 		scol = new int[] { 0, 0, 0 };
 		colok = 0;
 		errd = false;
-		err = "";
+		err = Messages.getString("ContO.127"); //$NON-NLS-1$
 		roofat = 0;
 		wh = 0;
 		m = conto_78_.m;
@@ -908,7 +908,7 @@ public class ContO {
 		scol = new int[] { 0, 0, 0 };
 		colok = 0;
 		errd = false;
-		err = "";
+		err = Messages.getString("ContO.128"); //$NON-NLS-1$
 		roofat = 0;
 		wh = 0;
 		m = medium;
@@ -1664,10 +1664,10 @@ public class ContO {
 
 	public int getvalue(final String string, final String string_262_, final int i) {
 		int i_263_ = 0;
-		String string_264_ = "";
+		String string_264_ = Messages.getString("ContO.129"); //$NON-NLS-1$
 		for (int i_265_ = string.length() + 1; i_265_ < string_262_.length(); i_265_++) {
-			final String string_266_ = new StringBuilder().append("").append(string_262_.charAt(i_265_)).toString();
-			if (string_266_.equals(",") || string_266_.equals(")")) {
+			final String string_266_ = new StringBuilder().append(Messages.getString("ContO.130")).append(string_262_.charAt(i_265_)).toString(); //$NON-NLS-1$
+			if (string_266_.equals(Messages.getString("ContO.131")) || string_266_.equals(Messages.getString("ContO.132"))) { //$NON-NLS-1$ //$NON-NLS-2$
 				i_263_++;
 				i_265_++;
 			}

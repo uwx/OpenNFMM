@@ -31,7 +31,7 @@ public class Login implements Runnable {
 	int cax = 0;
 	int cay = 0;
 	boolean checknote = false;
-	String clanapv = "";
+	String clanapv = Messages.getString("Login.0"); //$NON-NLS-1$
 	int cntcl = 0;
 	int cntgame = 0;
 	Thread connector;
@@ -46,22 +46,22 @@ public class Login implements Runnable {
 	int fplayer = 0;
 	FontMetrics ftm;
 	int gamec = -1;
-	String gmaker = "";
+	String gmaker = Messages.getString("Login.1"); //$NON-NLS-1$
 	boolean gotcai = false;
 	int groom = 0;
 	GameSparker gs;
-	String gservern = "";
+	String gservern = Messages.getString("Login.2"); //$NON-NLS-1$
 	InetAddress[] IPAddress = new InetAddress[3];
 	boolean jflk = false;
 	boolean justlog = false;
-	String lemail = "";
-	String lnick = "";
-	String lpass = "";
+	String lemail = Messages.getString("Login.3"); //$NON-NLS-1$
+	String lnick = Messages.getString("Login.4"); //$NON-NLS-1$
+	String lpass = Messages.getString("Login.5"); //$NON-NLS-1$
 	int lrgfase = 0;
 	int lxm = 0;
 	int lym = 0;
 	Medium m;
-	String msg = "";
+	String msg = Messages.getString("Login.6"); //$NON-NLS-1$
 	int ncnt = 0;
 	int nconf = 0;
 	int ncreq = 0;
@@ -86,11 +86,11 @@ public class Login implements Runnable {
 	int[] rmps = { 0, 0, 0, 0, 0 };
 	int[] rmwt = { 0, 0, 0, 0, 0 };
 	int[] serverdone = { -1, -1, -1 };
-	String[] servers = { "multiplayer.needformadness.com", "avenger.needformadness.com",
-			"ghostrider.needformadness.com" };
+	String[] servers = { Messages.getString("Login.7"), Messages.getString("Login.8"), //$NON-NLS-1$ //$NON-NLS-2$
+			Messages.getString("Login.9") }; //$NON-NLS-1$
 	long[] servestart = { 0L, 0L, 0L };
 	boolean showtf = false;
-	String[] snames = { "Dominion", "Avenger", "Ghostrider" };
+	String[] snames = { Messages.getString("Login.10"), Messages.getString("Login.11"), Messages.getString("Login.12") }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 	Socket socket;
 	boolean socketson = false;
 	int srvtrn = 0;
@@ -116,7 +116,7 @@ public class Login implements Runnable {
 			socket = new Socket(servers[0], 7061);
 			din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			dout = new PrintWriter(socket.getOutputStream(), true);
-			dout.println("101|21|");
+			dout.println(Messages.getString("Login.13")); //$NON-NLS-1$
 			final String string = din.readLine();
 			if (string != null) {
 				final int i = getvalue(string, 0);
@@ -131,7 +131,7 @@ public class Login implements Runnable {
 					if (bool) {
 						gmaker = getSvalue(string, 1);
 						if (gmaker.equals(xt.nickname))
-							gmaker = "You";
+							gmaker = Messages.getString("Login.14"); //$NON-NLS-1$
 						groom = i_13_;
 						gservern = string_12_;
 						gamec = i;
@@ -222,7 +222,7 @@ public class Login implements Runnable {
 				gs.setloggedcookie();
 				xt.cd.msloaded = 0;
 				xt.cd.lastload = 0;
-				msg = "Login to access the multiplayer madness!";
+				msg = Messages.getString("Login.15"); //$NON-NLS-1$
 				fase = 3;
 			}
 		}
@@ -276,7 +276,7 @@ public class Login implements Runnable {
 						}
 						xt.logged = false;
 						xt.cd.lastload = 0;
-						msg = "Login to access the multiplayer madness!";
+						msg = Messages.getString("Login.16"); //$NON-NLS-1$
 						fase = 3;
 					}
 				}
@@ -293,7 +293,7 @@ public class Login implements Runnable {
 						}
 						xt.logged = false;
 						xt.cd.lastload = 0;
-						msg = "Login to access the multiplayer madness!";
+						msg = Messages.getString("Login.17"); //$NON-NLS-1$
 						fase = 3;
 					}
 				}
@@ -310,7 +310,7 @@ public class Login implements Runnable {
 						}
 						xt.logged = false;
 						xt.cd.lastload = 0;
-						msg = "Login to access the multiplayer madness!";
+						msg = Messages.getString("Login.18"); //$NON-NLS-1$
 						fase = 3;
 					}
 				}
@@ -420,7 +420,7 @@ public class Login implements Runnable {
 				gs.setCursor(new Cursor(0));
 			}
 			if (onf && i_48_ == 11) {
-				msg = "Please enter your Email Address to recover your account details.";
+				msg = Messages.getString("Login.19"); //$NON-NLS-1$
 				gs.tnick.setForeground(new Color(0, 0, 0));
 				gs.tpass.setForeground(new Color(0, 0, 0));
 				gs.tnick.setVisible(false);
@@ -450,29 +450,29 @@ public class Login implements Runnable {
 				pessd[2] = true;
 			}
 			if (i_49_ == 2)
-				if (gs.tnick.getText().equals("Fyre") || gs.tnick.getText().equals("Nickname")
-						|| gs.tnick.getText().equals("")) {
-					msg = "Type in any Nickname to play...";
-					gs.tnick.setText("Nickname");
+				if (gs.tnick.getText().equals(Messages.getString("Login.20")) || gs.tnick.getText().equals(Messages.getString("Login.21")) //$NON-NLS-1$ //$NON-NLS-2$
+						|| gs.tnick.getText().equals(Messages.getString("Login.22"))) { //$NON-NLS-1$
+					msg = Messages.getString("Login.23"); //$NON-NLS-1$
+					gs.tnick.setText(Messages.getString("Login.24")); //$NON-NLS-1$
 					nflk = 30;
 				} else {
-					msg = "| Checking Nickname |";
+					msg = Messages.getString("Login.25"); //$NON-NLS-1$
 					gs.tnick.disable();
 					fase = 2;
 					connector = new Thread(this);
 					connector.start();
 				}
 			if (i_49_ == 3) {
-				if (gs.tnick.getText().equals("Nickname") || msg.startsWith("This"))
-					gs.tnick.setText("");
-				msg = "Login to access the multiplayer madness!";
+				if (gs.tnick.getText().equals(Messages.getString("Login.26")) || msg.startsWith(Messages.getString("Login.27"))) //$NON-NLS-1$ //$NON-NLS-2$
+					gs.tnick.setText(Messages.getString("Login.28")); //$NON-NLS-1$
+				msg = Messages.getString("Login.29"); //$NON-NLS-1$
 				gs.tnick.setForeground(new Color(0, 0, 0));
 				fase = 3;
 				i_49_ = -1;
 			}
 			if (i_49_ == 4) {
-				if (nickero || gs.tnick.getText().equals("Nickname")) {
-					gs.tnick.setText("");
+				if (nickero || gs.tnick.getText().equals(Messages.getString("Login.30"))) { //$NON-NLS-1$
+					gs.tnick.setText(Messages.getString("Login.31")); //$NON-NLS-1$
 					nickero = false;
 				}
 				gs.tnick.setForeground(new Color(0, 0, 0));
@@ -488,14 +488,14 @@ public class Login implements Runnable {
 			if (control.exit)
 				i_49_ = 3;
 			if (i_49_ == 2)
-				if (gs.tnick.getText().equals("")) {
-					msg = "Enter your Nickname!";
+				if (gs.tnick.getText().equals(Messages.getString("Login.32"))) { //$NON-NLS-1$
+					msg = Messages.getString("Login.33"); //$NON-NLS-1$
 					nflk = 30;
-				} else if (gs.tpass.getText().equals("")) {
-					msg = "Enter your Password!";
+				} else if (gs.tpass.getText().equals(Messages.getString("Login.34"))) { //$NON-NLS-1$
+					msg = Messages.getString("Login.35"); //$NON-NLS-1$
 					nflk = 30;
 				} else {
-					msg = "| Logging In |";
+					msg = Messages.getString("Login.36"); //$NON-NLS-1$
 					gs.tnick.disable();
 					gs.tpass.disable();
 					gs.keplo.disable();
@@ -534,8 +534,8 @@ public class Login implements Runnable {
 				i_49_ = 3;
 			if (i_49_ == 2) {
 				nflk = 0;
-				if (gs.temail.getText().equals("")) {
-					msg = "Please type in your Email Address!";
+				if (gs.temail.getText().equals(Messages.getString("Login.37"))) { //$NON-NLS-1$
+					msg = Messages.getString("Login.38"); //$NON-NLS-1$
 					nflk = 30;
 				}
 				if (nflk == 0) {
@@ -543,22 +543,22 @@ public class Login implements Runnable {
 					int i_55_ = 0;
 					int i_56_ = 0;
 					for (/**/ ; i_55_ < string.length(); i_55_++) {
-						final String string_57_ = new StringBuilder().append("").append(string.charAt(i_55_))
+						final String string_57_ = new StringBuilder().append(Messages.getString("Login.39")).append(string.charAt(i_55_)) //$NON-NLS-1$
 								.toString();
-						if (string_57_.equals("@") && i_56_ == 0 && i_55_ != 0)
+						if (string_57_.equals(Messages.getString("Login.40")) && i_56_ == 0 && i_55_ != 0) //$NON-NLS-1$
 							i_56_ = 1;
-						if (string_57_.equals(".") && i_56_ == 1 && i_55_ != string.length() - 1)
+						if (string_57_.equals(Messages.getString("Login.41")) && i_56_ == 1 && i_55_ != string.length() - 1) //$NON-NLS-1$
 							i_56_ = 2;
 					}
 					if (i_56_ != 2) {
-						msg = "Please type in your Email Address correctly!";
+						msg = Messages.getString("Login.42"); //$NON-NLS-1$
 						nflk = 30;
 						errcnt = 40;
 						gs.temail.setForeground(new Color(255, 0, 0));
 					}
 				}
 				if (nflk == 0) {
-					msg = "| Checking Email |";
+					msg = Messages.getString("Login.43"); //$NON-NLS-1$
 					gs.temail.disable();
 					fase = 8;
 					connector = new Thread(this);
@@ -567,8 +567,8 @@ public class Login implements Runnable {
 			}
 			if (i_49_ == 3) {
 				inishmulti();
-				gs.temail.setText("");
-				gs.tpass.setText("");
+				gs.temail.setText(Messages.getString("Login.44")); //$NON-NLS-1$
+				gs.tpass.setText(Messages.getString("Login.45")); //$NON-NLS-1$
 			}
 		}
 		lxm = i;
@@ -670,20 +670,20 @@ public class Login implements Runnable {
 	public void fixtext(final TextField textfield) {
 		String string = textfield.getText();
 		string = string.replace('\"', '#');
-		final String string_64_ = "\\";
-		String string_65_ = "";
+		final String string_64_ = Messages.getString("Login.46"); //$NON-NLS-1$
+		String string_65_ = Messages.getString("Login.47"); //$NON-NLS-1$
 		int i = 0;
 		int i_66_ = -1;
 		for (/**/ ; i < string.length(); i++) {
-			final String string_67_ = new StringBuilder().append("").append(string.charAt(i)).toString();
-			if (string_67_.equals("|") || string_67_.equals(",") || string_67_.equals("(") || string_67_.equals(")")
-					|| string_67_.equals("#") || string_67_.equals(string_64_) || string_67_.equals("!")
-					|| string_67_.equals("?") || string_67_.equals(" ") || string_67_.equals("~")
-					|| string_67_.equals("$") || string_67_.equals("%") || string_67_.equals("^")
-					|| string_67_.equals("&") || string_67_.equals("*") || string_67_.equals("+")
-					|| string_67_.equals("=") || string_67_.equals(">") || string_67_.equals("<")
-					|| string_67_.equals("/") || string_67_.equals("'") || string_67_.equals(";")
-					|| string_67_.equals(":") || string_67_.equals("\u00a0"))
+			final String string_67_ = new StringBuilder().append(Messages.getString("Login.48")).append(string.charAt(i)).toString(); //$NON-NLS-1$
+			if (string_67_.equals(Messages.getString("Login.49")) || string_67_.equals(Messages.getString("Login.50")) || string_67_.equals(Messages.getString("Login.51")) || string_67_.equals(Messages.getString("Login.52")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+					|| string_67_.equals(Messages.getString("Login.53")) || string_67_.equals(string_64_) || string_67_.equals(Messages.getString("Login.54")) //$NON-NLS-1$ //$NON-NLS-2$
+					|| string_67_.equals(Messages.getString("Login.55")) || string_67_.equals(Messages.getString("Login.56")) || string_67_.equals(Messages.getString("Login.57")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					|| string_67_.equals(Messages.getString("Login.58")) || string_67_.equals(Messages.getString("Login.59")) || string_67_.equals(Messages.getString("Login.60")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					|| string_67_.equals(Messages.getString("Login.61")) || string_67_.equals(Messages.getString("Login.62")) || string_67_.equals(Messages.getString("Login.63")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					|| string_67_.equals(Messages.getString("Login.64")) || string_67_.equals(Messages.getString("Login.65")) || string_67_.equals(Messages.getString("Login.66")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					|| string_67_.equals(Messages.getString("Login.67")) || string_67_.equals(Messages.getString("Login.68")) || string_67_.equals(Messages.getString("Login.69")) //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					|| string_67_.equals(Messages.getString("Login.70")) || string_67_.equals(Messages.getString("Login.71"))) //$NON-NLS-1$ //$NON-NLS-2$
 				i_66_ = i;
 			else
 				string_65_ = new StringBuilder().append(string_65_).append(string_67_).toString();
@@ -699,8 +699,8 @@ public class Login implements Runnable {
 			socket = new Socket(servers[0], 7061);
 			din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			dout = new PrintWriter(socket.getOutputStream(), true);
-			dout.println(new StringBuilder().append("101|20|").append(xt.nickname).append("|").append(xt.nickey)
-					.append("|").append(xt.servername).append("|").append(xt.servport - 7070).append("|").toString());
+			dout.println(new StringBuilder().append(Messages.getString("Login.72")).append(xt.nickname).append(Messages.getString("Login.73")).append(xt.nickey) //$NON-NLS-1$ //$NON-NLS-2$
+					.append(Messages.getString("Login.74")).append(xt.servername).append(Messages.getString("Login.75")).append(xt.servport - 7070).append(Messages.getString("Login.76")).toString()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			din.readLine();
 			socket.close();
 			din.close();
@@ -711,16 +711,16 @@ public class Login implements Runnable {
 	}
 
 	public String getSvalue(final String string, final int i) {
-		String string_74_ = "";
+		String string_74_ = Messages.getString("Login.77"); //$NON-NLS-1$
 		try {
 			int i_75_ = 0;
 			int i_76_ = 0;
 			int i_77_ = 0;
-			String string_78_ = "";
-			String string_79_ = "";
+			String string_78_ = Messages.getString("Login.78"); //$NON-NLS-1$
+			String string_79_ = Messages.getString("Login.79"); //$NON-NLS-1$
 			for (/**/ ; i_75_ < string.length() && i_77_ != 2; i_75_++) {
-				string_78_ = new StringBuilder().append("").append(string.charAt(i_75_)).toString();
-				if (string_78_.equals("|")) {
+				string_78_ = new StringBuilder().append(Messages.getString("Login.80")).append(string.charAt(i_75_)).toString(); //$NON-NLS-1$
+				if (string_78_.equals(Messages.getString("Login.81"))) { //$NON-NLS-1$
 					i_76_++;
 					if (i_77_ == 1 || i_76_ > i)
 						i_77_ = 2;
@@ -742,11 +742,11 @@ public class Login implements Runnable {
 			int i_69_ = 0;
 			int i_70_ = 0;
 			int i_71_ = 0;
-			String string_72_ = "";
-			String string_73_ = "";
+			String string_72_ = Messages.getString("Login.82"); //$NON-NLS-1$
+			String string_73_ = Messages.getString("Login.83"); //$NON-NLS-1$
 			for (/**/ ; i_69_ < string.length() && i_71_ != 2; i_69_++) {
-				string_72_ = new StringBuilder().append("").append(string.charAt(i_69_)).toString();
-				if (string_72_.equals("|")) {
+				string_72_ = new StringBuilder().append(Messages.getString("Login.84")).append(string.charAt(i_69_)).toString(); //$NON-NLS-1$
+				if (string_72_.equals(Messages.getString("Login.85"))) { //$NON-NLS-1$
 					i_70_++;
 					if (i_71_ == 1 || i_70_ > i)
 						i_71_ = 2;
@@ -755,8 +755,8 @@ public class Login implements Runnable {
 					i_71_ = 1;
 				}
 			}
-			if (string_73_.equals(""))
-				string_73_ = "-1";
+			if (string_73_.equals(Messages.getString("Login.86"))) //$NON-NLS-1$
+				string_73_ = Messages.getString("Login.87"); //$NON-NLS-1$
 			i_68_ = Integer.valueOf(string_73_).intValue();
 		} catch (final Exception exception) {
 			/* empty */
@@ -782,8 +782,8 @@ public class Login implements Runnable {
 		gs.keplo.setForeground(new Color(0, 0, 0));
 		gs.keplo.setBackground(new Color(193, 181, 142));
 		gs.requestFocus();
-		if (gs.tnick.getText().equals(""))
-			gs.tnick.setText("Nickname");
+		if (gs.tnick.getText().equals(Messages.getString("Login.88"))) //$NON-NLS-1$
+			gs.tnick.setText(Messages.getString("Login.89")); //$NON-NLS-1$
 		for (int i = 0; i < 6; i++)
 			pessd[i] = false;
 		nflk = 0;
@@ -791,7 +791,7 @@ public class Login implements Runnable {
 		errcnt = 0;
 		onf = false;
 		ond = false;
-		msg = "";
+		msg = Messages.getString("Login.90"); //$NON-NLS-1$
 		btroom = false;
 		gotcai = false;
 		m.crs = true;
@@ -816,7 +816,7 @@ public class Login implements Runnable {
 			connector = new Thread(this);
 			connector.start();
 		} else {
-			msg = "Login to access the multiplayer madness!";
+			msg = Messages.getString("Login.91"); //$NON-NLS-1$
 			gs.tnick.setText(xt.nickname);
 			fase = 3;
 		}
@@ -900,23 +900,23 @@ public class Login implements Runnable {
 			if (pend < -10)
 				pendb = false;
 		}
-		rd.setFont(new Font("Arial", 1, 13));
+		rd.setFont(new Font(Messages.getString("Login.92"), 1, 13)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
 		rd.setColor(new Color(0, 0, 0));
 		rd.drawString(xt.nickname, 239 - ftm.stringWidth(xt.nickname) / 2, 105);
 		rd.setColor(color2k(90, 90, 90));
-		rd.drawString(new StringBuilder().append("").append(xt.cd.names[xt.sc[0]]).append("").toString(), 409
-				- ftm.stringWidth(new StringBuilder().append("").append(xt.cd.names[xt.sc[0]]).append("").toString())
+		rd.drawString(new StringBuilder().append(Messages.getString("Login.93")).append(xt.cd.names[xt.sc[0]]).append(Messages.getString("Login.94")).toString(), 409 //$NON-NLS-1$ //$NON-NLS-2$
+				- ftm.stringWidth(new StringBuilder().append(Messages.getString("Login.95")).append(xt.cd.names[xt.sc[0]]).append(Messages.getString("Login.96")).toString()) //$NON-NLS-1$ //$NON-NLS-2$
 						/ 2,
 				81);
-		rd.drawString("Nickname", 239 - ftm.stringWidth("Nickname") / 2, 81);
+		rd.drawString(Messages.getString("Login.97"), 239 - ftm.stringWidth(Messages.getString("Login.98")) / 2, 81); //$NON-NLS-1$ //$NON-NLS-2$
 		drawbutton(xt.change, 570, 98);
 		drawSbutton(xt.logout, 239, 135);
 		rd.setColor(new Color(98, 56, 0));
-		rd.drawString("Edit my Account", 239 - ftm.stringWidth("Edit my Account") / 2, 168);
+		rd.drawString(Messages.getString("Login.99"), 239 - ftm.stringWidth(Messages.getString("Login.100")) / 2, 168); //$NON-NLS-1$ //$NON-NLS-2$
 		if (ond)
-			rd.drawLine(239 - ftm.stringWidth("Edit my Account") / 2, 169,
-					239 - ftm.stringWidth("Edit my Account") / 2 + ftm.stringWidth("Edit my Account"), 169);
+			rd.drawLine(239 - ftm.stringWidth(Messages.getString("Login.101")) / 2, 169, //$NON-NLS-1$
+					239 - ftm.stringWidth(Messages.getString("Login.102")) / 2 + ftm.stringWidth(Messages.getString("Login.103")), 169); //$NON-NLS-1$ //$NON-NLS-2$
 		if (fase == 12 || fase == 13 || fase == 14 || fase == 15) {
 			final int i = srvtrn;
 			if (i < nservers && serverdone[i] != -1) {
@@ -940,7 +940,7 @@ public class Login implements Runnable {
 				rd.fillRoundRect(205, 225, 390, 120, 20, 20);
 				rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
 				rd.setColor(color2k(90, 90, 90));
-				rd.drawString("Multiplayer Mode", 400 - ftm.stringWidth("Multiplayer Mode") / 2, 220);
+				rd.drawString(Messages.getString("Login.104"), 400 - ftm.stringWidth(Messages.getString("Login.105")) / 2, 220); //$NON-NLS-1$ //$NON-NLS-2$
 				rd.drawRoundRect(205, 225, 390, 120, 20, 20);
 				drawbutton(xt.pln, 400, 285 - xt.pln.getHeight(ob) / 2);
 				if (opselect == 1 && !pessd[4]) {
@@ -960,40 +960,40 @@ public class Login implements Runnable {
 				rd.drawRoundRect(165, 219, 470, 135, 20, 20);
 				if (xt.acexp > 0) {
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString(new StringBuilder().append("Dear ").append(xt.nickname).append(",").toString(), 185,
+					rd.drawString(new StringBuilder().append(Messages.getString("Login.106")).append(xt.nickname).append(Messages.getString("Login.107")).toString(), 185, //$NON-NLS-1$ //$NON-NLS-2$
 							245);
-					rd.drawString(new StringBuilder().append("Your account is due to expire in ").append(xt.acexp)
-							.append(" days.").toString(), 185, 265);
-					rd.drawString("Renew your registration soon!", 185, 295);
-					stringbutton("Renew my Account Registration now!", 345, 332, 0);
-					stringbutton("Renew Later", 524, 332, 0);
+					rd.drawString(new StringBuilder().append(Messages.getString("Login.108")).append(xt.acexp) //$NON-NLS-1$
+							.append(Messages.getString("Login.109")).toString(), 185, 265); //$NON-NLS-1$
+					rd.drawString(Messages.getString("Login.110"), 185, 295); //$NON-NLS-1$
+					stringbutton(Messages.getString("Login.111"), 345, 332, 0); //$NON-NLS-1$
+					stringbutton(Messages.getString("Login.112"), 524, 332, 0); //$NON-NLS-1$
 				}
 				if (xt.acexp == -1) {
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString(new StringBuilder().append("Dear ").append(xt.nickname).append(",").toString(), 185,
+					rd.drawString(new StringBuilder().append(Messages.getString("Login.113")).append(xt.nickname).append(Messages.getString("Login.114")).toString(), 185, //$NON-NLS-1$ //$NON-NLS-2$
 							245);
-					rd.drawString("Your Need for Madness account registration has expired.", 185, 265);
-					rd.drawString("Please renew your registration.", 185, 295);
-					stringbutton("Renew my account registration now!", 362, 332, 0);
-					stringbutton("Cancel", 524, 332, 0);
+					rd.drawString(Messages.getString("Login.115"), 185, 265); //$NON-NLS-1$
+					rd.drawString(Messages.getString("Login.116"), 185, 295); //$NON-NLS-1$
+					stringbutton(Messages.getString("Login.117"), 362, 332, 0); //$NON-NLS-1$
+					stringbutton(Messages.getString("Login.118"), 524, 332, 0); //$NON-NLS-1$
 				}
 				if (xt.acexp == -2) {
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString(new StringBuilder().append("Dear ").append(xt.nickname).append(",").toString(), 185,
+					rd.drawString(new StringBuilder().append(Messages.getString("Login.119")).append(xt.nickname).append(Messages.getString("Login.120")).toString(), 185, //$NON-NLS-1$ //$NON-NLS-2$
 							245);
-					rd.drawString("Trial accounts are not allowed to access the downloaded game.", 185, 265);
-					rd.drawString("You can only play the game online using your trial account.", 185, 295);
-					stringbutton("Play the multiplayer online!", 362, 332, 0);
-					stringbutton("Cancel", 524, 332, 0);
+					rd.drawString(Messages.getString("Login.121"), 185, 265); //$NON-NLS-1$
+					rd.drawString(Messages.getString("Login.122"), 185, 295); //$NON-NLS-1$
+					stringbutton(Messages.getString("Login.123"), 362, 332, 0); //$NON-NLS-1$
+					stringbutton(Messages.getString("Login.124"), 524, 332, 0); //$NON-NLS-1$
 				}
 				if (xt.acexp == -3) {
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString("Some one else is already logged in the game with your account.", 185, 245);
-					rd.drawString("If you where just in the game then quitted it suddenly, it could just", 185, 265);
-					rd.drawString("be your 'ghost entry', if so please wait a few minutes and try again.", 185, 285);
-					rd.drawString("Otherwise please consider changing your password.", 185, 305);
-					stringbutton("Change Password", 332, 336, 0);
-					stringbutton("Try Again", 494, 336, 0);
+					rd.drawString(Messages.getString("Login.125"), 185, 245); //$NON-NLS-1$
+					rd.drawString(Messages.getString("Login.126"), 185, 265); //$NON-NLS-1$
+					rd.drawString(Messages.getString("Login.127"), 185, 285); //$NON-NLS-1$
+					rd.drawString(Messages.getString("Login.128"), 185, 305); //$NON-NLS-1$
+					stringbutton(Messages.getString("Login.129"), 332, 336, 0); //$NON-NLS-1$
+					stringbutton(Messages.getString("Login.130"), 494, 336, 0); //$NON-NLS-1$
 				}
 			}
 		if (fase == 15) {
@@ -1006,45 +1006,45 @@ public class Login implements Runnable {
 				rd.fillRoundRect(165, 219, 470, 150, 20, 20);
 				rd.setColor(new Color(0, 0, 0));
 				rd.drawRoundRect(165, 219, 470, 150, 20, 20);
-				rd.setFont(new Font("Arial", 1, 13));
+				rd.setFont(new Font(Messages.getString("Login.131"), 1, 13)); //$NON-NLS-1$
 				ftm = rd.getFontMetrics();
 				if (xt.nofull) {
 					if (nflk % 4 != 0 || nflk == 0) {
-						rd.setFont(new Font("Arial", 1, 13));
+						rd.setFont(new Font(Messages.getString("Login.132"), 1, 13)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
 						rd.setColor(new Color(200, 0, 0));
-						rd.drawString("Sorry. You did not allow the game full permissions when you started it.", 175,
+						rd.drawString(Messages.getString("Login.133"), 175, //$NON-NLS-1$
 								242);
-						rd.setFont(new Font("Arial", 0, 13));
+						rd.setFont(new Font(Messages.getString("Login.134"), 0, 13)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
 						rd.setColor(new Color(0, 0, 0));
-						rd.drawString("(You didn't click 'Run' at the prompt that came up at the start of the game).",
+						rd.drawString(Messages.getString("Login.135"), //$NON-NLS-1$
 								175, 262);
-						rd.drawString("Because of this the game will not be able to create LAN connections!", 175, 288);
-						rd.setFont(new Font("Arial", 1, 13));
+						rd.drawString(Messages.getString("Login.136"), 175, 288); //$NON-NLS-1$
+						rd.setFont(new Font(Messages.getString("Login.137"), 1, 13)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
-						rd.drawString("Please restart the game and allow Java full permissions to be able to", 175,
+						rd.drawString(Messages.getString("Login.138"), 175, //$NON-NLS-1$
 								315);
-						rd.drawString("play LAN games!", 175, 332);
-						rd.setFont(new Font("Arial", 0, 13));
+						rd.drawString(Messages.getString("Login.139"), 175, 332); //$NON-NLS-1$
+						rd.setFont(new Font(Messages.getString("Login.140"), 0, 13)); //$NON-NLS-1$
 						ftm = rd.getFontMetrics();
-						rd.drawString("(Close ALL browser windows including this one then", 295, 332);
-						rd.drawString("start the game again but click 'Run' when asked to 'run this application'. )",
+						rd.drawString(Messages.getString("Login.141"), 295, 332); //$NON-NLS-1$
+						rd.drawString(Messages.getString("Login.142"), //$NON-NLS-1$
 								175, 349);
 					}
 					if (nflk != 0)
 						nflk--;
 				} else {
-					rd.drawString("Play a multiplayer game across your Local Area Network (LAN).", 179, 245);
-					rd.drawString("Experience the game live with zero delay and 100% real-time action!", 179, 262);
-					rd.setFont(new Font("Arial", 0, 13));
+					rd.drawString(Messages.getString("Login.143"), 179, 245); //$NON-NLS-1$
+					rd.drawString(Messages.getString("Login.144"), 179, 262); //$NON-NLS-1$
+					rd.setFont(new Font(Messages.getString("Login.145"), 0, 13)); //$NON-NLS-1$
 					ftm = rd.getFontMetrics();
-					rd.drawString("This is for if there is more then one computer connected to your network or", 179,
+					rd.drawString(Messages.getString("Login.146"), 179, //$NON-NLS-1$
 							292);
-					rd.drawString("if you are in a computer lab or in an internet caf\u00e9.", 179, 309);
-					rd.drawString("You can also invite your friends to come over with their Laptop PCs or Macs", 179,
+					rd.drawString(Messages.getString("Login.147"), 179, 309); //$NON-NLS-1$
+					rd.drawString(Messages.getString("Login.148"), 179, //$NON-NLS-1$
 							335);
-					rd.drawString("to log on to your internet connection/network and play with you!", 179, 352);
+					rd.drawString(Messages.getString("Login.149"), 179, 352); //$NON-NLS-1$
 				}
 				drawbutton(xt.cancel, 583, 395);
 				drawbutton(xt.play, 400, 395);
@@ -1102,7 +1102,7 @@ public class Login implements Runnable {
 		// DO NOT DELETE THE LINE BELOW
 		// drawSbutton((xt).exit, 690, 17);
 		drawSbutton(xt.exit, 690, 17);
-		rd.setFont(new Font("Arial", 1, 13));
+		rd.setFont(new Font(Messages.getString("Login.150"), 1, 13)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
 		if (fase != 5) {
 			rd.setComposite(AlphaComposite.getInstance(3, 0.25F));
@@ -1110,9 +1110,9 @@ public class Login implements Runnable {
 			rd.fillRoundRect(246, 83, 180, 96, 20, 20);
 			rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
 			rd.setColor(color2k(90, 90, 90));
-			rd.drawString(new StringBuilder().append("").append(xt.cd.names[xt.sc[0]]).append("").toString(),
+			rd.drawString(new StringBuilder().append(Messages.getString("Login.151")).append(xt.cd.names[xt.sc[0]]).append(Messages.getString("Login.152")).toString(), //$NON-NLS-1$ //$NON-NLS-2$
 					336 - ftm.stringWidth(
-							new StringBuilder().append("").append(xt.cd.names[xt.sc[0]]).append("").toString()) / 2,
+							new StringBuilder().append(Messages.getString("Login.153")).append(xt.cd.names[xt.sc[0]]).append(Messages.getString("Login.154")).toString()) / 2, //$NON-NLS-1$ //$NON-NLS-2$
 					81);
 			rd.drawRoundRect(246, 83, 180, 96, 20, 20);
 			if (!gotcai) {
@@ -1158,22 +1158,22 @@ public class Login implements Runnable {
 		if (fase == 1 || fase == 2) {
 			rd.setColor(new Color(0, 0, 0));
 			rd.drawString(msg, 400 - ftm.stringWidth(msg) / 2, 205);
-			rd.drawString("Enter a Nickname:", 400 - ftm.stringWidth("Enter a Nickname:") - 14, 241);
+			rd.drawString(Messages.getString("Login.155"), 400 - ftm.stringWidth(Messages.getString("Login.156")) - 14, 241); //$NON-NLS-1$ //$NON-NLS-2$
 			if (fase == 2) {
-				if (msg.equals(". . . | Checking Nickname | . . .") && ncnt == 0) {
-					msg = "| Checking Nickname |";
+				if (msg.equals(Messages.getString("Login.157")) && ncnt == 0) { //$NON-NLS-1$
+					msg = Messages.getString("Login.158"); //$NON-NLS-1$
 					ncnt = 5;
 				}
-				if (msg.equals(". . | Checking Nickname | . .") && ncnt == 0) {
-					msg = ". . . | Checking Nickname | . . .";
+				if (msg.equals(Messages.getString("Login.159")) && ncnt == 0) { //$NON-NLS-1$
+					msg = Messages.getString("Login.160"); //$NON-NLS-1$
 					ncnt = 5;
 				}
-				if (msg.equals(". | Checking Nickname | .") && ncnt == 0) {
-					msg = ". . | Checking Nickname | . .";
+				if (msg.equals(Messages.getString("Login.161")) && ncnt == 0) { //$NON-NLS-1$
+					msg = Messages.getString("Login.162"); //$NON-NLS-1$
 					ncnt = 5;
 				}
-				if (msg.equals("| Checking Nickname |") && ncnt == 0) {
-					msg = ". | Checking Nickname | .";
+				if (msg.equals(Messages.getString("Login.163")) && ncnt == 0) { //$NON-NLS-1$
+					msg = Messages.getString("Login.164"); //$NON-NLS-1$
 					ncnt = 5;
 				}
 				if (ncnt != 0)
@@ -1183,7 +1183,7 @@ public class Login implements Runnable {
 			if (fase == 1 && !gs.tnick.isShowing()) {
 				gs.tnick.setVisible(true);
 				gs.tnick.requestFocus();
-				if (gs.tnick.getText().equals("Nickname"))
+				if (gs.tnick.getText().equals(Messages.getString("Login.165"))) //$NON-NLS-1$
 					gs.tnick.select(8, 8);
 			}
 			if (errcnt != 0) {
@@ -1193,12 +1193,12 @@ public class Login implements Runnable {
 			}
 			drawbutton(xt.play, 400, 285);
 			if (nflk > 0) {
-				if (gs.tnick.getText().equals("")) {
-					gs.tnick.setText("Nickname");
+				if (gs.tnick.getText().equals(Messages.getString("Login.166"))) { //$NON-NLS-1$
+					gs.tnick.setText(Messages.getString("Login.167")); //$NON-NLS-1$
 					if (nflk == 1)
 						gs.tnick.select(8, 8);
 				} else
-					gs.tnick.setText("");
+					gs.tnick.setText(Messages.getString("Login.168")); //$NON-NLS-1$
 				nflk--;
 			}
 			drawbutton(xt.login, 400, 340);
@@ -1213,9 +1213,9 @@ public class Login implements Runnable {
 				lnick = gs.tnick.getText();
 			}
 			if (xt.msgcheck(gs.tnick.getText()))
-				gs.tnick.setText("");
-			if (gs.tnick.getText().toLowerCase().indexOf("madbot") != -1)
-				gs.tnick.setText("");
+				gs.tnick.setText(Messages.getString("Login.169")); //$NON-NLS-1$
+			if (gs.tnick.getText().toLowerCase().indexOf(Messages.getString("Login.170")) != -1) //$NON-NLS-1$
+				gs.tnick.setText(Messages.getString("Login.171")); //$NON-NLS-1$
 		}
 		if (fase == 3 || fase == 4) {
 			rd.drawImage(xt.ntrg, 97, 388, null);
@@ -1230,23 +1230,23 @@ public class Login implements Runnable {
 				rd.drawString(msg, 400 - ftm.stringWidth(msg) / 2, 205);
 			if (nflk != 0)
 				nflk--;
-			rd.drawString("Nickname:", 376 - ftm.stringWidth("Nickname:") - 14, 237);
-			rd.drawString("Password:", 376 - ftm.stringWidth("Password:") - 14, 267);
+			rd.drawString(Messages.getString("Login.172"), 376 - ftm.stringWidth(Messages.getString("Login.173")) - 14, 237); //$NON-NLS-1$ //$NON-NLS-2$
+			rd.drawString(Messages.getString("Login.174"), 376 - ftm.stringWidth(Messages.getString("Login.175")) - 14, 267); //$NON-NLS-1$ //$NON-NLS-2$
 			if (fase == 4) {
-				if (msg.equals(". . . | Logging In | . . .") && ncnt == 0) {
-					msg = "| Logging In |";
+				if (msg.equals(Messages.getString("Login.176")) && ncnt == 0) { //$NON-NLS-1$
+					msg = Messages.getString("Login.177"); //$NON-NLS-1$
 					ncnt = 5;
 				}
-				if (msg.equals(". . | Logging In | . .") && ncnt == 0) {
-					msg = ". . . | Logging In | . . .";
+				if (msg.equals(Messages.getString("Login.178")) && ncnt == 0) { //$NON-NLS-1$
+					msg = Messages.getString("Login.179"); //$NON-NLS-1$
 					ncnt = 5;
 				}
-				if (msg.equals(". | Logging In | .") && ncnt == 0) {
-					msg = ". . | Logging In | . .";
+				if (msg.equals(Messages.getString("Login.180")) && ncnt == 0) { //$NON-NLS-1$
+					msg = Messages.getString("Login.181"); //$NON-NLS-1$
 					ncnt = 5;
 				}
-				if (msg.equals("| Logging In |") && ncnt == 0) {
-					msg = ". | Logging In | .";
+				if (msg.equals(Messages.getString("Login.182")) && ncnt == 0) { //$NON-NLS-1$
+					msg = Messages.getString("Login.183"); //$NON-NLS-1$
 					ncnt = 5;
 				}
 				if (ncnt != 0)
@@ -1258,12 +1258,12 @@ public class Login implements Runnable {
 				if (!gs.applejava) {
 					if (!gs.tpass.isShowing()) {
 						gs.tpass.setVisible(true);
-						if (!gs.tnick.getText().equals(""))
+						if (!gs.tnick.getText().equals(Messages.getString("Login.184"))) //$NON-NLS-1$
 							gs.tpass.requestFocus();
 					}
 					if (!gs.tnick.isShowing()) {
 						gs.tnick.setVisible(true);
-						if (gs.tnick.getText().equals(""))
+						if (gs.tnick.getText().equals(Messages.getString("Login.185"))) //$NON-NLS-1$
 							gs.tnick.requestFocus();
 					}
 				}
@@ -1271,7 +1271,7 @@ public class Login implements Runnable {
 			if (errcnt != 0) {
 				errcnt--;
 				if (errcnt == 0) {
-					gs.tpass.setText("");
+					gs.tpass.setText(Messages.getString("Login.186")); //$NON-NLS-1$
 					gs.tnick.setForeground(new Color(0, 0, 0));
 					gs.tpass.setForeground(new Color(0, 0, 0));
 				}
@@ -1281,14 +1281,14 @@ public class Login implements Runnable {
 				rd.setColor(color2k(0, 72, 255));
 			else
 				rd.setColor(color2k(120, 120, 120));
-			rd.setFont(new Font("Arial", 1, 11));
+			rd.setFont(new Font(Messages.getString("Login.187"), 1, 11)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
-			rd.drawString("Forgot your nickname or password?",
-					400 - ftm.stringWidth("Forgot your nickname or password?") / 2, 345);
+			rd.drawString(Messages.getString("Login.188"), //$NON-NLS-1$
+					400 - ftm.stringWidth(Messages.getString("Login.189")) / 2, 345); //$NON-NLS-1$
 			rd.setColor(new Color(0, 0, 0));
-			rd.setFont(new Font("Arial", 1, 12));
+			rd.setFont(new Font(Messages.getString("Login.190"), 1, 12)); //$NON-NLS-1$
 			ftm = rd.getFontMetrics();
-			final String string = "Register a full account here!";
+			final String string = Messages.getString("Login.191"); //$NON-NLS-1$
 			xrl = 400 - ftm.stringWidth(string) / 2;
 			xrr = xrl + ftm.stringWidth(string);
 			rd.drawString(string, xrl, 371);
@@ -1304,14 +1304,14 @@ public class Login implements Runnable {
 				fixtext(gs.tpass);
 				lpass = gs.tpass.getText();
 			}
-			if (fase == 3 && (!gs.tpass.getText().equals("") && !gs.tnick.getText().equals("") || !gs.applejava)
+			if (fase == 3 && (!gs.tpass.getText().equals(Messages.getString("Login.192")) && !gs.tnick.getText().equals(Messages.getString("Login.193")) || !gs.applejava) //$NON-NLS-1$ //$NON-NLS-2$
 					&& !gs.keplo.isShowing())
 				gs.keplo.setVisible(true);
 			gs.movefield(gs.keplo, 376, 275, 129, 23);
 		}
 		if (fase == 5) {
 			rd.setColor(new Color(0, 0, 0));
-			rd.drawString("Nickname:", 376 - ftm.stringWidth("Nickname:") - 14, 141);
+			rd.drawString(Messages.getString("Login.194"), 376 - ftm.stringWidth(Messages.getString("Login.195")) - 14, 141); //$NON-NLS-1$ //$NON-NLS-2$
 			gs.movefield(gs.tnick, 376, 125, 129, 23);
 			while (ftm.stringWidth(gs.tnick.getText()) > 86) {
 				gs.tnick.setText(gs.tnick.getText().substring(0, gs.tnick.getText().length() - 1));
@@ -1332,22 +1332,22 @@ public class Login implements Runnable {
 				rd.drawString(msg, 400 - ftm.stringWidth(msg) / 2, 205);
 			if (nflk != 0)
 				nflk--;
-			rd.drawString("Your Email:", 344 - ftm.stringWidth("Your Email:") - 14, 241);
+			rd.drawString(Messages.getString("Login.196"), 344 - ftm.stringWidth(Messages.getString("Login.197")) - 14, 241); //$NON-NLS-1$ //$NON-NLS-2$
 			if (fase == 8) {
-				if (msg.equals(". . . | Checking Email | . . .") && ncnt == 0) {
-					msg = "| Checking Email |";
+				if (msg.equals(Messages.getString("Login.198")) && ncnt == 0) { //$NON-NLS-1$
+					msg = Messages.getString("Login.199"); //$NON-NLS-1$
 					ncnt = 5;
 				}
-				if (msg.equals(". . | Checking Email | . .") && ncnt == 0) {
-					msg = ". . . | Checking Email | . . .";
+				if (msg.equals(Messages.getString("Login.200")) && ncnt == 0) { //$NON-NLS-1$
+					msg = Messages.getString("Login.201"); //$NON-NLS-1$
 					ncnt = 5;
 				}
-				if (msg.equals(". | Checking Email | .") && ncnt == 0) {
-					msg = ". . | Checking Email | . .";
+				if (msg.equals(Messages.getString("Login.202")) && ncnt == 0) { //$NON-NLS-1$
+					msg = Messages.getString("Login.203"); //$NON-NLS-1$
 					ncnt = 5;
 				}
-				if (msg.equals("| Checking Email |") && ncnt == 0) {
-					msg = ". | Checking Email | .";
+				if (msg.equals(Messages.getString("Login.204")) && ncnt == 0) { //$NON-NLS-1$
+					msg = Messages.getString("Login.205"); //$NON-NLS-1$
 					ncnt = 5;
 				}
 				if (ncnt != 0)
@@ -1390,7 +1390,7 @@ public class Login implements Runnable {
 				socket = new Socket(servers[0], 7061);
 				din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 				dout = new PrintWriter(socket.getOutputStream(), true);
-				dout.println(new StringBuilder().append("0|").append(gs.tnick.getText()).append("|").toString());
+				dout.println(new StringBuilder().append(Messages.getString("Login.206")).append(gs.tnick.getText()).append(Messages.getString("Login.207")).toString()); //$NON-NLS-1$ //$NON-NLS-2$
 				final String string = din.readLine();
 				if (string != null) {
 					i = getvalue(string, 0);
@@ -1408,7 +1408,7 @@ public class Login implements Runnable {
 			}
 			gs.tnick.enable();
 			if (i == -1) {
-				msg = "Unable to connect to any server at this moment.  Please try again later.";
+				msg = Messages.getString("Login.208"); //$NON-NLS-1$
 				fase = 1;
 			}
 			if (i == 0) {
@@ -1425,7 +1425,7 @@ public class Login implements Runnable {
 				System.gc();
 			}
 			if (i == 1) {
-				msg = "This Nickname is being used by someone else right now.  Please use another.";
+				msg = Messages.getString("Login.209"); //$NON-NLS-1$
 				nickero = true;
 				gs.tnick.setForeground(new Color(255, 0, 0));
 				gs.tnick.requestFocus();
@@ -1433,7 +1433,7 @@ public class Login implements Runnable {
 				fase = 1;
 			}
 			if (i == 2) {
-				msg = "Nickname registerd.  Please use another or click 'Login' bellow to login to this Nickname.";
+				msg = Messages.getString("Login.210"); //$NON-NLS-1$
 				nickero = true;
 				gs.tnick.setForeground(new Color(255, 0, 0));
 				gs.tnick.requestFocus();
@@ -1446,13 +1446,13 @@ public class Login implements Runnable {
 			gs.setCursor(new Cursor(3));
 			int i = -1;
 			int i_16_ = -1;
-			String string = "";
+			String string = Messages.getString("Login.211"); //$NON-NLS-1$
 			try {
 				socket = new Socket(servers[0], 7061);
 				din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 				dout = new PrintWriter(socket.getOutputStream(), true);
-				dout.println(new StringBuilder().append("1|").append(gs.tnick.getText()).append("|")
-						.append(gs.tpass.getText()).append("|").toString());
+				dout.println(new StringBuilder().append(Messages.getString("Login.212")).append(gs.tnick.getText()).append(Messages.getString("Login.213")) //$NON-NLS-1$ //$NON-NLS-2$
+						.append(gs.tpass.getText()).append(Messages.getString("Login.214")).toString()); //$NON-NLS-1$
 				string = din.readLine();
 				if (string != null) {
 					i = getvalue(string, 0);
@@ -1462,8 +1462,8 @@ public class Login implements Runnable {
 							xt.clan = getSvalue(string, 2);
 							xt.clankey = getSvalue(string, 3);
 						} else {
-							xt.clan = "";
-							xt.clankey = "";
+							xt.clan = Messages.getString("Login.215"); //$NON-NLS-1$
+							xt.clankey = Messages.getString("Login.216"); //$NON-NLS-1$
 							i_16_ = getvalue(string, 2);
 							xt.hours = getvalue(string, 3);
 						}
@@ -1479,7 +1479,7 @@ public class Login implements Runnable {
 			gs.tpass.enable();
 			gs.keplo.enable();
 			if (i == -1) {
-				msg = "Unable to connect to server at this moment.  Please try again later.";
+				msg = Messages.getString("Login.217"); //$NON-NLS-1$
 				fase = 3;
 			}
 			if (i == 0 || i == 3 || i > 10 || i == -167 || i == 111) {
@@ -1513,14 +1513,14 @@ public class Login implements Runnable {
 				System.gc();
 			}
 			if (i == 1) {
-				msg = "Sorry.  The Nickname you have entered is incorrect or does not exist.";
+				msg = Messages.getString("Login.218"); //$NON-NLS-1$
 				gs.tnick.setForeground(new Color(255, 0, 0));
 				gs.tnick.requestFocus();
 				errcnt = 40;
 				fase = 3;
 			}
 			if (i == 2) {
-				msg = "Sorry.  The Password you have entered is incorrect.";
+				msg = Messages.getString("Login.219"); //$NON-NLS-1$
 				gs.tpass.setForeground(new Color(255, 0, 0));
 				gs.tpass.requestFocus();
 				errcnt = 40;
@@ -1535,7 +1535,7 @@ public class Login implements Runnable {
 				socket = new Socket(servers[0], 7061);
 				din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 				dout = new PrintWriter(socket.getOutputStream(), true);
-				dout.println(new StringBuilder().append("2|").append(gs.temail.getText().toLowerCase()).append("|")
+				dout.println(new StringBuilder().append(Messages.getString("Login.220")).append(gs.temail.getText().toLowerCase()).append(Messages.getString("Login.221")) //$NON-NLS-1$ //$NON-NLS-2$
 						.toString());
 				final String string = din.readLine();
 				if (string != null)
@@ -1548,21 +1548,21 @@ public class Login implements Runnable {
 			}
 			gs.temail.enable();
 			if (i == -1) {
-				msg = "Unable to connect to server at this moment.  Please try again later.";
+				msg = Messages.getString("Login.222"); //$NON-NLS-1$
 				fase = 7;
 			}
 			if (i == 0) {
 				showtf = false;
 				gs.temail.setVisible(false);
-				msg = new StringBuilder().append("Please check your Email: ").append(gs.temail.getText())
-						.append(" to login.").toString();
-				gs.temail.setText("");
-				gs.tnick.setText("");
-				gs.tpass.setText("");
+				msg = new StringBuilder().append(Messages.getString("Login.223")).append(gs.temail.getText()) //$NON-NLS-1$
+						.append(Messages.getString("Login.224")).toString(); //$NON-NLS-1$
+				gs.temail.setText(Messages.getString("Login.225")); //$NON-NLS-1$
+				gs.tnick.setText(Messages.getString("Login.226")); //$NON-NLS-1$
+				gs.tpass.setText(Messages.getString("Login.227")); //$NON-NLS-1$
 				fase = 3;
 			}
 			if (i == 1) {
-				msg = "Sorry.  This Email Address does not exist in our system!";
+				msg = Messages.getString("Login.228"); //$NON-NLS-1$
 				gs.temail.setForeground(new Color(255, 0, 0));
 				errcnt = 40;
 				fase = 7;
@@ -1592,13 +1592,13 @@ public class Login implements Runnable {
 						final byte[] is = new byte[4];
 						final DatagramPacket datagrampacket = new DatagramPacket(is, is.length, IPAddress[srvtrn],
 								7000);
-						final String string = new StringBuilder().append("").append(xt.nickname).append("|").toString();
+						final String string = new StringBuilder().append(Messages.getString("Login.229")).append(xt.nickname).append(Messages.getString("Login.230")).toString(); //$NON-NLS-1$ //$NON-NLS-2$
 						final byte[] is_17_ = string.getBytes();
 						datagrampacket.setData(is_17_);
 						dSocket[srvtrn].send(datagrampacket);
 						dSocket[srvtrn].receive(datagrampacket);
 						final String string_18_ = new String(datagrampacket.getData());
-						if (string_18_.startsWith("OK")) {
+						if (string_18_.startsWith(Messages.getString("Login.231"))) { //$NON-NLS-1$
 							date = new Date();
 							if (date.getTime() - servestart[srvtrn] < xt.delays[srvtrn])
 								xt.delays[srvtrn] = (int) (date.getTime() - servestart[srvtrn]);
@@ -1642,10 +1642,10 @@ public class Login implements Runnable {
 				/* empty */
 			}
 			while ((fase == 16 || fase == 17) && i != 3) {
-				String string = "";
+				String string = Messages.getString("Login.232"); //$NON-NLS-1$
 				if (!bool) {
 					try {
-						dout.println("10|");
+						dout.println(Messages.getString("Login.233")); //$NON-NLS-1$
 						final String string_21_ = din.readLine();
 						if (string_21_ == null)
 							bool = true;
@@ -1669,7 +1669,7 @@ public class Login implements Runnable {
 							socket = new Socket(xt.server, 7067);
 							din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 							dout = new PrintWriter(socket.getOutputStream(), true);
-							dout.println("10|");
+							dout.println(Messages.getString("Login.234")); //$NON-NLS-1$
 							final String string_22_ = din.readLine();
 							if (string_22_ != null)
 								bool = false;
@@ -1705,7 +1705,7 @@ public class Login implements Runnable {
 					if (fase == 16)
 						fase = 17;
 				} else {
-					msg = "Failed to connect to this Server!";
+					msg = Messages.getString("Login.235"); //$NON-NLS-1$
 					i++;
 				}
 				if (i != 3)
@@ -1742,7 +1742,7 @@ public class Login implements Runnable {
 	}
 
 	public void stringbutton(final String string, final int i, final int i_60_, final int i_61_) {
-		rd.setFont(new Font("Arial", 1, 12));
+		rd.setFont(new Font(Messages.getString("Login.236"), 1, 12)); //$NON-NLS-1$
 		ftm = rd.getFontMetrics();
 		bx[btn] = i;
 		by[btn] = i_60_ - 5;

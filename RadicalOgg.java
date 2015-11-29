@@ -28,7 +28,7 @@ class RadicalOgg implements RadicalMusic {
 		try {
 			ogg = new OggClip(fn);
 		} catch (final IOException e) {
-			System.out.println("Error loading Ogg!");
+			System.out.println(Messages.getString("RadicalOgg.0")); //$NON-NLS-1$
 			e.printStackTrace();
 		}
 	}
