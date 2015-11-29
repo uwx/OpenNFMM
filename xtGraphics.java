@@ -395,7 +395,7 @@ public class xtGraphics extends Panel implements Runnable {
 	int trklim = (int) (Math.random() * 40.0);
 	int[] trkx = { 65, 735 };
 	soundClip two;
-	int[] unlocked = { 1, 1 };
+	int unlocked = 1;
 	int[] updatec = { -1, -1 };
 	Image upgrade;
 	int waitlink = 0;
@@ -703,18 +703,18 @@ public class xtGraphics extends Panel implements Runnable {
 		rd.drawImage(select, 338, 35, null);
 		rd.setFont(new Font("Arial", 1, 13));
 		ftm = rd.getFontMetrics();
-		drawcs(130, new StringBuilder().append("This stage will be unlocked when stage ").append(unlocked[gmode - 1])
+		drawcs(130, new StringBuilder().append("This stage will be unlocked when stage ").append(unlocked)
 				.append(" is complete!").toString(), 177, 177, 177, 3);
 		for (int i = 0; i < 9; i++)
 			rd.drawImage(pgate, 277 + i * 30, 215, null);
 		rd.setFont(new Font("Arial", 1, 12));
 		ftm = rd.getFontMetrics();
 		if (aflk) {
-			drawcs(185, new StringBuilder().append("[ Stage ").append(unlocked[gmode - 1] + 1).append(" Locked ]")
+			drawcs(185, new StringBuilder().append("[ Stage ").append(unlocked + 1).append(" Locked ]")
 					.toString(), 255, 128, 0, 3);
 			aflk = false;
 		} else {
-			drawcs(185, new StringBuilder().append("[ Stage ").append(unlocked[gmode - 1] + 1).append(" Locked ]")
+			drawcs(185, new StringBuilder().append("[ Stage ").append(unlocked + 1).append(" Locked ]")
 					.toString(), 255, 0, 0, 3);
 			aflk = true;
 		}
@@ -959,7 +959,7 @@ public class xtGraphics extends Panel implements Runnable {
 				if (sc[0] == 15 && unlocked[0] <= 10)
 					i_113_ = 10;
 			}*/
-			if (gmode == 2 && sc[0] >= 8 && unlocked[1] <= (sc[0] - 7) * 2)
+			if (gmode == 2 && sc[0] >= 8 && unlocked <= (sc[0] - 7) * 2)
 				i_113_ = (sc[0] - 7) * 2;
 			if (i_113_ != 0) {
 				if (gatey == 300) {
@@ -2973,7 +2973,7 @@ public class xtGraphics extends Panel implements Runnable {
 			i_142_ = 184;
 		}
 		if (winner && multion == 0 && gmode != 0
-				&& (checkpoints.stage == unlocked[gmode - 1] /*+ (gmode - 1) * 10*/ || checkpoints.stage == nTracks)) {
+				&& (checkpoints.stage == unlocked /*+ (gmode - 1) * 10*/ || checkpoints.stage == nTracks)) {
 			int i_144_ = 0;
 			int i_145_ = 0;
 			pin = 60;
