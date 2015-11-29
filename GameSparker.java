@@ -1556,7 +1556,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		// 40 - 25 fps
         // 33 - 30 fps
 		// 25 - 40 fps
-        Timer timer = new Timer(25, this);
+        Timer timer = new Timer(40, this);
         timer.start();
         /*Timer counter = new Timer(1, count);
         counter.start();*/
