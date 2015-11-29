@@ -2342,7 +2342,7 @@ public class Lobby implements Runnable {
 													if (loadstage == 0)
 														gs.snfmm.select(0);
 												}
-												gs.snfmm.move(300, 105);
+												gs.snfmm.move(420, 105); //blaze it
 												//if (gs.snfm1.isShowing())
 												//	gs.snfm1.setVisible(false);
 												//if (gs.snfm2.isShowing())

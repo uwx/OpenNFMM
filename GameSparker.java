@@ -107,7 +107,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	Smenu snbts = new Smenu(8);
 	//Smenu snfm1 = new Smenu(12);
 	//Smenu snfm2 = new Smenu(19);
-	Smenu snfmm = new Smenu(xtGraphics.nTracks);
+	Smenu snfmm = new Smenu(xtGraphics.nTracks + 2);
 	Smenu snpls = new Smenu(9);
 	Image[] stagemaker = new Image[2];
 	Smenu swait = new Smenu(6);
