@@ -3254,9 +3254,9 @@ public class xtGraphics extends Panel implements Runnable {
 				}*/
 				if (gmode == 2) {
 					opselect = 1;
-					if (winner && checkpoints.stage == unlocked[gmode - 1]/* + (gmode - 1) * 10*/
+					if (winner && checkpoints.stage == unlocked/* + (gmode - 1) * 10*/
 							&& checkpoints.stage != nTracks) {
-						unlocked[gmode - 1]++;
+						unlocked++;
 						justwon2 = true;
 					} else
 						justwon2 = false;
@@ -3879,8 +3879,8 @@ public class xtGraphics extends Panel implements Runnable {
 				checkpoints.stage = 27;
 		}*/
 		if (gmode == 2)
-			if (unlocked[0] != nTracks || justwon2)
-				checkpoints.stage = unlocked[1]/* + 10*/;
+			if (unlocked != nTracks || justwon2)
+				checkpoints.stage = unlocked/* + 10*/;
 			else if (winner/* || checkpoints.stage < 11*/)
 				checkpoints.stage = (int) (Math.random() * 27.0)/* + 11*/;
 		app.sgame.setBackground(new Color(0, 0, 0));
@@ -7560,9 +7560,9 @@ public class xtGraphics extends Panel implements Runnable {
 							bools[i_157_] = false;
 					}*/
 					if (gmode == 2) {
-						if ((sc[i_157_] - 7) * 2 > unlocked[1])
+						if ((sc[i_157_] - 7) * 2 > unlocked)
 							bools[i_157_] = false;
-						if (i == 16 && unlocked[1] == 16 && sc[i_157_] < 9)
+						if (i == nTracks - 1 && unlocked == nTracks - 1 && sc[i_157_] < 9)
 							bools[i_157_] = false;
 					}
 				}
@@ -8207,7 +8207,7 @@ public class xtGraphics extends Panel implements Runnable {
 				if (checkpoints.stage > 0) {
 					if (control.right) {
 						if (gmode == 0 /*|| gmode == 1 && checkpoints.stage != unlocked[0]*/
-								|| gmode == 2 && checkpoints.stage != unlocked[1]/* + 10*/ || checkpoints.stage == nTracks) {
+								|| gmode == 2 && checkpoints.stage != unlocked/* + 10*/ || checkpoints.stage == nTracks) {
 							if (checkpoints.stage != nTracks) {
 								hidos();
 								checkpoints.stage++;

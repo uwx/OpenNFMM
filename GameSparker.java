@@ -1368,8 +1368,8 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					var_xtGraphics.firstime = false;
 				}
 				i = getint("NFM1", strings[2], 1);
-				if (i >= 1 && i <= 11)
-					var_xtGraphics.unlocked[0] = i;
+				if (i >= 1 && i <= xtGraphics.nTracks)
+					var_xtGraphics.unlocked = i;
 			}
 			if (strings[3].startsWith("NFM2")) {
 				int i = getint("NFM2", strings[3], 0);
@@ -1378,8 +1378,6 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					var_xtGraphics.firstime = false;
 				}
 				i = getint("NFM2", strings[3], 1);
-				if (i >= 1 && i <= 17)
-					var_xtGraphics.unlocked[1] = i;
 			}
 			if (strings[4].startsWith("graphics")) {
 				int i = getint("graphics", strings[4], 0);
@@ -2809,12 +2807,12 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					var_xtGraphics.sendwin(checkpoints);
 					if (var_xtGraphics.winner && var_xtGraphics.multion == 0 && var_xtGraphics.gmode != 0
 							&& checkpoints.stage != xtGraphics.nTracks
-							&& checkpoints.stage == var_xtGraphics.unlocked[var_xtGraphics.gmode - 1]
+							&& checkpoints.stage == var_xtGraphics.unlocked
 									+ (var_xtGraphics.gmode - 1) * 10) {
-						var_xtGraphics.unlocked[var_xtGraphics.gmode - 1]++;
+						var_xtGraphics.unlocked++;
 						setcarcookie(var_xtGraphics.sc[0], cardefine.names[var_xtGraphics.sc[0]],
 								var_xtGraphics.arnp, var_xtGraphics.gmode, var_xtGraphics.unlocked, false);
-						var_xtGraphics.unlocked[var_xtGraphics.gmode - 1]--;
+						var_xtGraphics.unlocked--;
 					}
 				}
 				if (i_6_ <= 0) {
