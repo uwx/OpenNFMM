@@ -368,19 +368,34 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		proitem.setFont(new Font("Arial", 1, 12));
 	}
 
+	/**
+	 * List of car .rad files.<br/>
+	 * <strong>ALL CAR MODELS IN THE ZIP FILE SHOULD BE PUT HERE OR THINGS WILL GO WRONG!</strong><br/>
+	 */
+	final String[] carRads = { "2000tornados", "formula7", "canyenaro", "lescrab", "nimi", "maxrevenge",
+			"leadoxide", "koolkat", "drifter", "policecops", "mustang", "king", "audir8", "masheen", "radicalone",
+			"drmonster" };
+	/**
+	 * List of track part .rad files.<br/>
+	 * <strong>ALL NON-CAR MODELS IN THE ZIP FILE SHOULD BE PUT HERE OR THINGS WILL GO WRONG!</strong><br/>
+	 */
+	final String[] stageRads = { "road", "froad", "twister2", "twister1", "turn", "offroad", "bumproad",
+			"offturn", "nroad", "nturn", "roblend", "noblend", "rnblend", "roadend", "offroadend", "hpground",
+			"ramp30", "cramp35", "dramp15", "dhilo15", "slide10", "takeoff", "sramp22", "offbump", "offramp",
+			"sofframp", "halfpipe", "spikes", "rail", "thewall", "checkpoint", "fixpoint", "offcheckpoint",
+			"sideoff", "bsideoff", "uprise", "riseroad", "sroad", "soffroad", "tside", "launchpad", "thenet",
+			"speedramp", "offhill", "slider", "uphill", "roll1", "roll2", "roll3", "roll4", "roll5", "roll6",
+			"opile1", "opile2", "aircheckpoint", "tree1", "tree2", "tree3", "tree4", "tree5", "tree6", "tree7",
+			"tree8", "cac1", "cac2", "cac3", "8sroad", "8soffroad" };
+	/**
+	 * The ContO index which track parts start at. Raise this number if you want to have 99 cars or more.
+	 */
+	static private final int partskips = 100;//was 56
+
 	public void loadbase(final ContO[] contos, final Medium medium, final Trackers trackers,
 			final xtGraphics var_xtGraphics, final boolean bool) {
-		final String[] strings = { "2000tornados", "formula7", "canyenaro", "lescrab", "nimi", "maxrevenge",
-				"leadoxide", "koolkat", "drifter", "policecops", "mustang", "king", "audir8", "masheen", "radicalone",
-				"drmonster" };
-		final String[] strings_173_ = { "road", "froad", "twister2", "twister1", "turn", "offroad", "bumproad",
-				"offturn", "nroad", "nturn", "roblend", "noblend", "rnblend", "roadend", "offroadend", "hpground",
-				"ramp30", "cramp35", "dramp15", "dhilo15", "slide10", "takeoff", "sramp22", "offbump", "offramp",
-				"sofframp", "halfpipe", "spikes", "rail", "thewall", "checkpoint", "fixpoint", "offcheckpoint",
-				"sideoff", "bsideoff", "uprise", "riseroad", "sroad", "soffroad", "tside", "launchpad", "thenet",
-				"speedramp", "offhill", "slider", "uphill", "roll1", "roll2", "roll3", "roll4", "roll5", "roll6",
-				"opile1", "opile2", "aircheckpoint", "tree1", "tree2", "tree3", "tree4", "tree5", "tree6", "tree7",
-				"tree8", "cac1", "cac2", "cac3", "8sroad", "8soffroad" };
+		if (carRads.length < xtGraphics.nCars)
+			throw new RuntimeException("too many cars and not enough rad files!");
 		int i = 0;
 		var_xtGraphics.dnload += 6;
 		try {
@@ -396,12 +411,12 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			ZipEntry zipentry = zipinputstream.getNextEntry();
 			for ( /**/ ; zipentry != null; zipentry = zipinputstream.getNextEntry()) {
 				int i_175_ = 0;
-				for (int i_176_ = 0; i_176_ < 16; i_176_++)
-					if (zipentry.getName().startsWith(strings[i_176_]))
+				for (int i_176_ = 0; i_176_ < carRads.length; i_176_++)
+					if (zipentry.getName().startsWith(carRads[i_176_]))
 						i_175_ = i_176_;
-				for (int i_177_ = 0; i_177_ < 68; i_177_++)
-					if (zipentry.getName().startsWith(strings_173_[i_177_]))
-						i_175_ = i_177_ + 56;
+				for (int i_177_ = 0; i_177_ < stageRads.length; i_177_++)
+					if (zipentry.getName().startsWith(stageRads[i_177_]))
+						i_175_ = i_177_ + partskips;
 				int i_178_ = (int) zipentry.getSize();
 				i += i_178_;
 				final byte[] is = new byte[i_178_];
@@ -556,7 +571,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 							var_xtGraphics.newparts = true;
 						if ((checkpoints.stage < 0 || checkpoints.stage >= 28) && i_124_ >= 10 && i_124_ <= 25)
 							medium.loadnew = true;
-						i_124_ += 46;
+						i_124_ += partskips - 10;
 						contos[nob] = new ContO(contos_108_[i_124_], getint("set", string, 1),
 								medium.ground - contos_108_[i_124_].grat, getint("set", string, 2),
 								getint("set", string, 3));
@@ -586,7 +601,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				}
 				if (string.startsWith("chk")) {
 					int i_125_ = getint("chk", string, 0);
-					i_125_ += 46;
+					i_125_ += partskips - 10;
 					int i_126_ = medium.ground - contos_108_[i_125_].grat;
 					if (i_125_ == 110)
 						i_126_ = getint("chk", string, 4);
@@ -608,7 +623,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				}
 				if (checkpoints.nfix != 5 && string.startsWith("fix")) {
 					int i_127_ = getint("fix", string, 0);
-					i_127_ += 46;
+					i_127_ += partskips - 10;
 					contos[nob] = new ContO(contos_108_[i_127_], getint("fix", string, 1), getint("fix", string, 3),
 							getint("fix", string, 2), getint("fix", string, 4));
 					checkpoints.fx[checkpoints.fn] = getint("fix", string, 1);
@@ -662,7 +677,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					i = i_129_;
 					final int i_130_ = getint("maxr", string, 2);
 					for (int i_131_ = 0; i_131_ < i_128_; i_131_++) {
-						contos[nob] = new ContO(contos_108_[85], i_129_, medium.ground - contos_108_[85].grat,
+						contos[nob] = new ContO(contos_108_[29 + partskips], i_129_, medium.ground - contos_108_[29 + partskips].grat, //29 may need to be 85 or xtgraphics.nCars - 16
 								i_131_ * 4800 + i_130_, 0);
 						nob++;
 					}
@@ -685,7 +700,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					i_109_ = i_133_;
 					final int i_134_ = getint("maxl", string, 2);
 					for (int i_135_ = 0; i_135_ < i_132_; i_135_++) {
-						contos[nob] = new ContO(contos_108_[85], i_133_, medium.ground - contos_108_[85].grat,
+						contos[nob] = new ContO(contos_108_[29 + partskips], i_133_, medium.ground - contos_108_[29 + partskips].grat,
 								i_135_ * 4800 + i_134_, 180);
 						nob++;
 					}
@@ -708,8 +723,8 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					i_110_ = i_137_;
 					final int i_138_ = getint("maxt", string, 2);
 					for (int i_139_ = 0; i_139_ < i_136_; i_139_++) {
-						contos[nob] = new ContO(contos_108_[85], i_139_ * 4800 + i_138_,
-								medium.ground - contos_108_[85].grat, i_137_, 90);
+						contos[nob] = new ContO(contos_108_[29 + partskips], i_139_ * 4800 + i_138_,
+								medium.ground - contos_108_[29 + partskips].grat, i_137_, 90);
 						nob++;
 					}
 					trackers.y[trackers.nt] = -5000;
@@ -731,8 +746,8 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					i_111_ = i_141_;
 					final int i_142_ = getint("maxb", string, 2);
 					for (int i_143_ = 0; i_143_ < i_140_; i_143_++) {
-						contos[nob] = new ContO(contos_108_[85], i_143_ * 4800 + i_142_,
-								medium.ground - contos_108_[85].grat, i_141_, -90);
+						contos[nob] = new ContO(contos_108_[29 + partskips], i_143_ * 4800 + i_142_,
+								medium.ground - contos_108_[29 + partskips].grat, i_141_, -90);
 						nob++;
 					}
 					trackers.y[trackers.nt] = -5000;
@@ -945,7 +960,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				}
 				if (string_153_.startsWith("set")) {
 					int i_165_ = getint("set", string_153_, 0);
-					i_165_ += 46;
+					i_165_ += partskips - 10;
 					contos[nob] = new ContO(contos_147_[i_165_], getint("set", string_153_, 1),
 							medium.ground - contos_147_[i_165_].grat, getint("set", string_153_, 2),
 							getint("set", string_153_, 3));
@@ -971,7 +986,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				}
 				if (string_153_.startsWith("chk")) {
 					int i_166_ = getint("chk", string_153_, 0);
-					i_166_ += 46;
+					i_166_ += partskips - 10;
 					int i_167_ = medium.ground - contos_147_[i_166_].grat;
 					if (i_166_ == 110)
 						i_167_ = getint("chk", string_153_, 4);
@@ -992,7 +1007,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				}
 				if (string_153_.startsWith("fix")) {
 					int i_168_ = getint("fix", string_153_, 0);
-					i_168_ += 46;
+					i_168_ += partskips - 10;
 					contos[nob] = new ContO(contos_147_[i_168_], getint("fix", string_153_, 1),
 							getint("fix", string_153_, 3), getint("fix", string_153_, 2),
 							getint("fix", string_153_, 4));
@@ -1026,20 +1041,20 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				if (string_153_.startsWith("publish"))
 					checkpoints.pubt = getint("publish", string_153_, 0);
 				if (string_153_.startsWith("maxr")) {
-					final int i_169_ = getint("maxr", string_153_, 1);
-					i_149_ = i_169_;
+					i_149_ = getint("maxr", string_153_, 1);
+					//i_149_ = i_169_;
 				}
 				if (string_153_.startsWith("maxl")) {
-					final int i_170_ = getint("maxl", string_153_, 1);
-					i_150_ = i_170_;
+					i_150_ = getint("maxl", string_153_, 1);
+					//i_150_ = i_170_;
 				}
 				if (string_153_.startsWith("maxt")) {
-					final int i_171_ = getint("maxt", string_153_, 1);
-					i_151_ = i_171_;
+					i_151_ = getint("maxt", string_153_, 1);
+					//i_151_ = i_171_;
 				}
 				if (string_153_.startsWith("maxb")) {
-					final int i_172_ = getint("maxb", string_153_, 1);
-					i_152_ = i_172_;
+					i_152_ = getint("maxb", string_153_, 1);
+					//i_152_ = i_172_;
 				}
 			}
 			datainputstream.close();
@@ -1588,7 +1603,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		medium = new Medium();
 		trackers = new Trackers();
 		checkpoints = new CheckPoints();
-		contos = new ContO[124];
+		contos = new ContO[carRads.length + partskips + stageRads.length];
 		cardefine = new CarDefine(contos, medium, trackers, this);
 		var_xtGraphics = new xtGraphics(medium, cardefine, rd, this);
 		sizebar = var_xtGraphics.getImage("data/sizebar.gif");
@@ -1724,6 +1739,31 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				mvect = 100;
 				var_xtGraphics.maini(u[0]);
 				var_xtGraphics.ctachm(xm, ym, mouses, u[0]);
+				if (mouses == 2)
+					mouses = 0;
+				if (mouses == 1)
+					mouses = 2;
+			}
+			if (var_xtGraphics.fase == 103) {
+				mvect = 100;
+				if (var_xtGraphics.loadedt) {
+					rd.setColor(new Color(0, 0, 0));
+					rd.fillRect(0, 0, 800, 450);
+					//repaint();
+					checkmemory(var_xtGraphics);
+					var_xtGraphics.strack.unload();
+					var_xtGraphics.strack = null;
+					var_xtGraphics.flexpix = null;
+					var_xtGraphics.fleximg = null;
+					System.gc();
+					var_xtGraphics.loadedt = false;
+				}
+				if (var_xtGraphics.testdrive == 1 || var_xtGraphics.testdrive == 2)
+					Madness.carmaker();
+				if (var_xtGraphics.testdrive == 3 || var_xtGraphics.testdrive == 4)
+					Madness.stagemaker();
+				var_xtGraphics.maini(u[0]);
+				var_xtGraphics.fase = 10;
 				if (mouses == 2)
 					mouses = 0;
 				if (mouses == 1)
@@ -2768,7 +2808,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				if (i_6_ == 0) {
 					var_xtGraphics.sendwin(checkpoints);
 					if (var_xtGraphics.winner && var_xtGraphics.multion == 0 && var_xtGraphics.gmode != 0
-							&& checkpoints.stage != 27
+							&& checkpoints.stage != xtGraphics.nTracks
 							&& checkpoints.stage == var_xtGraphics.unlocked[var_xtGraphics.gmode - 1]
 									+ (var_xtGraphics.gmode - 1) * 10) {
 						var_xtGraphics.unlocked[var_xtGraphics.gmode - 1]++;
