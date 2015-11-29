@@ -243,16 +243,16 @@ public class Lobby implements Runnable {
 		return Color.getHSBColor(fs[0], fs[1], fs[2]);
 	}
 
-	public void ctachm(final int i, final int i_306_, final int i_307_, final Control control) {
+	public void ctachm(final int xm, final int ym, final int i_307_, final Control control) {
 		int i_308_ = -1;
 		if (fase == 1 || fase == 4)
 			for (int i_309_ = 0; i_309_ < btn; i_309_++) {
-				if (Math.abs(i - bx[i_309_]) < bw[i_309_] / 2 + 12 && Math.abs(i_306_ - by[i_309_]) < 14
+				if (Math.abs(xm - bx[i_309_]) < bw[i_309_] / 2 + 12 && Math.abs(ym - by[i_309_]) < 14
 						&& (i_307_ == 1 || i_307_ == 11))
 					pessd[i_309_] = true;
 				else
 					pessd[i_309_] = false;
-				if (Math.abs(i - bx[i_309_]) < bw[i_309_] / 2 + 12 && Math.abs(i_306_ - by[i_309_]) < 14
+				if (Math.abs(xm - bx[i_309_]) < bw[i_309_] / 2 + 12 && Math.abs(ym - by[i_309_]) < 14
 						&& i_307_ <= -1) {
 					i_308_ = i_309_;
 					gs.mouses = 0;
@@ -262,11 +262,11 @@ public class Lobby implements Runnable {
 			if (!regnow) {
 				if (onjoin == -1) {
 					if (fase == 4) {
-						if (i > 532 && i < 592 && i_306_ > 285 && i_306_ < 306 && (i_307_ == 1 || i_307_ == 11))
+						if (xm > 532 && xm < 592 && ym > 285 && ym < 306 && (i_307_ == 1 || i_307_ == 11))
 							pback = 1;
 						else
 							pback = 0;
-						if (i > 532 && i < 592 && i_306_ > 285 && i_306_ < 306 && i_307_ <= -1) {
+						if (xm > 532 && xm < 592 && ym > 285 && ym < 306 && i_307_ <= -1) {
 							gs.mouses = 0;
 							m.trk = 0;
 							if (xt.loadedt)
@@ -868,8 +868,8 @@ public class Lobby implements Runnable {
 				if (i_308_ == 1)
 					regnow = false;
 			}
-		lxm = i;
-		lym = i_306_;
+		lxm = xm;
+		lym = ym;
 		control.enter = false;
 		control.exit = false;
 	}
