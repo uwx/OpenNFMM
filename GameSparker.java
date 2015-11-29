@@ -105,9 +105,9 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	Smenu slaps = new Smenu(17);
 	int smooth = 1;
 	Smenu snbts = new Smenu(8);
-	Smenu snfm1 = new Smenu(12);
-	Smenu snfm2 = new Smenu(19);
-	Smenu snfmm = new Smenu(12);
+	//Smenu snfm1 = new Smenu(12);
+	//Smenu snfm2 = new Smenu(19);
+	Smenu snfmm = new Smenu(xtGraphics.nTracks);
 	Smenu snpls = new Smenu(9);
 	Image[] stagemaker = new Image[2];
 	Smenu swait = new Smenu(6);
@@ -174,10 +174,10 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			openm = true;
 		if (sgame.draw(rd, xm, ym, moused, 450, false))
 			openm = true;
-		if (snfm1.draw(rd, xm, ym, moused, 450, false))
-			openm = true;
-		if (snfm2.draw(rd, xm, ym, moused, 450, false))
-			openm = true;
+		//if (snfm1.draw(rd, xm, ym, moused, 450, false))
+		//	openm = true;
+		//if (snfm2.draw(rd, xm, ym, moused, 450, false))
+		//	openm = true;
 		if (snfmm.draw(rd, xm, ym, moused, 450, false))
 			openm = true;
 		if (mstgs.draw(rd, xm, ym, moused, 450, false))
@@ -294,9 +294,9 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		vtyp.setVisible(false);
 		warb.setVisible(false);
 		slaps.setVisible(false);
-		snfm1.setVisible(false);
+		//snfm1.setVisible(false);
 		snfmm.setVisible(false);
-		snfm2.setVisible(false);
+		//snfm2.setVisible(false);
 		snpls.setVisible(false);
 		snbts.setVisible(false);
 		swait.setVisible(false);
@@ -341,8 +341,8 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		vnpls.setFont(new Font("Arial", 1, 13));
 		vtyp.setFont(new Font("Arial", 1, 13));
 		snfmm.setFont(new Font("Arial", 1, 13));
-		snfm1.setFont(new Font("Arial", 1, 13));
-		snfm2.setFont(new Font("Arial", 1, 13));
+		//snfm1.setFont(new Font("Arial", 1, 13));
+		//snfm2.setFont(new Font("Arial", 1, 13));
 		mstgs.setFont(new Font("Arial", 1, 13));
 		mcars.setFont(new Font("Arial", 1, 13));
 		slaps.setFont(new Font("Arial", 1, 13));
@@ -1465,20 +1465,20 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		vtyp.add(rd, "Racers VS Wasters - my clan wastes");
 		vtyp.add(rd, "Racers VS Wasters - my clan races");
 		snfmm.add(rd, "Select Stage");
-		snfm1.add(rd, "Select Stage");
-		snfm2.add(rd, "Select Stage");
+		//snfm1.add(rd, "Select Stage");
+		//snfm2.add(rd, "Select Stage");
 		mstgs.add(rd, "Suddenly the King becomes Santa's Little Helper");
 		mcars.add(rd, "Sword of Justice");
 		snpls.add(rd, "Select");
 		swait.add(rd, "1 Minute");
 		ilaps.add(rd, "Laps");
 		ilaps.add(rd, "1 Lap");
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < xtGraphics.nTracks; i++)
 			snfmm.add(rd, new StringBuilder().append(" Stage ").append(i + 1).append("").toString());
-		for (int i = 0; i < 10; i++)
+		/*for (int i = 0; i < 10; i++)
 			snfm1.add(rd, new StringBuilder().append(" Stage ").append(i + 1).append("").toString());
 		for (int i = 0; i < 17; i++)
-			snfm2.add(rd, new StringBuilder().append(" Stage ").append(i + 1).append("").toString());
+			snfm2.add(rd, new StringBuilder().append(" Stage ").append(i + 1).append("").toString());*/
 		for (int i = 0; i < 7; i++)
 			snpls.add(rd, new StringBuilder().append("    ").append(i + 2).append("").toString());
 		for (int i = 0; i < 7; i++)
@@ -1553,9 +1553,9 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 counted++;
             }
         };*/
-		// 40 - 25 fps
-        // 33 - 30 fps
-		// 25 - 40 fps
+		// 40 - 25 fps (fast)
+        // 33 - 30 fps (faster)
+		// 25 - 40 fps (fastest)
         Timer timer = new Timer(40, this);
         timer.start();
         /*Timer counter = new Timer(1, count);

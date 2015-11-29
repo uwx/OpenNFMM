@@ -186,15 +186,15 @@ public class Lobby implements Runnable {
 		gs.swait.setBackground(color2k(220, 220, 220));
 		gs.snpls.setBackground(color2k(220, 220, 220));
 		gs.snbts.setBackground(color2k(220, 220, 220));
-		gs.sgame.setBackground(color2k(200, 200, 200));
+		//gs.sgame.setBackground(color2k(200, 200, 200));
 		gs.wgame.setBackground(color2k(200, 200, 200));
 		gs.pgame.setBackground(color2k(200, 200, 200));
 		gs.vnpls.setBackground(color2k(200, 200, 200));
 		gs.vtyp.setBackground(color2k(200, 200, 200));
 		gs.warb.setBackground(color2k(200, 200, 200));
 		gs.snfmm.setBackground(color2k(200, 200, 200));
-		gs.snfm1.setBackground(color2k(200, 200, 200));
-		gs.snfm2.setBackground(color2k(200, 200, 200));
+		//gs.snfm1.setBackground(color2k(200, 200, 200));
+		//gs.snfm2.setBackground(color2k(200, 200, 200));
 		gs.mstgs.setBackground(color2k(230, 230, 230));
 		gs.slaps.setBackground(color2k(200, 200, 200));
 		gs.sclass.setBackground(color2k(220, 220, 220));
@@ -206,16 +206,16 @@ public class Lobby implements Runnable {
 		gs.swait.setForeground(new Color(0, 0, 0));
 		gs.snpls.setForeground(new Color(0, 0, 0));
 		gs.snbts.setForeground(new Color(0, 0, 0));
-		gs.sgame.setForeground(new Color(0, 0, 0));
+		//gs.sgame.setForeground(new Color(0, 0, 0));
 		gs.wgame.setForeground(new Color(0, 0, 0));
 		gs.pgame.setForeground(new Color(0, 0, 0));
 		gs.vnpls.setForeground(new Color(0, 0, 0));
 		gs.vtyp.setForeground(new Color(0, 0, 0));
 		gs.warb.setForeground(new Color(0, 0, 0));
 		gs.snfmm.setForeground(new Color(0, 0, 0));
-		gs.snfm1.setForeground(new Color(0, 0, 0));
+		//gs.snfm1.setForeground(new Color(0, 0, 0));
 		gs.slaps.setForeground(new Color(0, 0, 0));
-		gs.snfm2.setForeground(new Color(0, 0, 0));
+		//gs.snfm2.setForeground(new Color(0, 0, 0));
 		gs.mstgs.setForeground(new Color(0, 0, 0));
 		gs.sclass.setForeground(new Color(0, 0, 0));
 		gs.scars.setForeground(new Color(0, 0, 0));
@@ -224,13 +224,14 @@ public class Lobby implements Runnable {
 		gs.notp.setForeground(new Color(0, 0, 0));
 		gs.rooms.setForeground(new Color(0, 0, 0));
 		gs.sgame.removeAll();
-		gs.sgame.add(rd, " NFM Multiplayer ");
-		gs.sgame.add(rd, " NFM 2     ");
+		gs.sgame.setVisible(false);
+		//gs.sgame.add(rd, "");
+		/*gs.sgame.add(rd, " NFM 2     ");
 		gs.sgame.add(rd, " NFM 1     ");
 		gs.sgame.add(rd, " My Stages ");
 		gs.sgame.add(rd, " My Clan Stages ");
 		gs.sgame.add(rd, " Weekly Top 20 ");
-		gs.sgame.add(rd, " Monthly Top 20 ");
+		gs.sgame.add(rd, " Monthly Top 20 ");*/
 	}
 
 	public Color color2k(final int i, final int i_327_, final int i_328_) {
@@ -341,7 +342,7 @@ public class Lobby implements Runnable {
 									gs.swait.setVisible(false);
 									gs.snpls.setVisible(false);
 									gs.snbts.setVisible(false);
-									gs.sgame.setVisible(false);
+									//gs.sgame.setVisible(false);
 									gs.wgame.setVisible(false);
 									gs.pgame.setVisible(false);
 									gs.vnpls.setVisible(false);
@@ -349,9 +350,9 @@ public class Lobby implements Runnable {
 									gs.warb.setVisible(false);
 									gs.mstgs.setVisible(false);
 									gs.slaps.setVisible(false);
-									gs.snfm1.setVisible(false);
+									//gs.snfm1.setVisible(false);
 									gs.snfmm.setVisible(false);
-									gs.snfm2.setVisible(false);
+									//gs.snfm2.setVisible(false);
 									gs.sclass.setVisible(false);
 									gs.scars.setVisible(false);
 									gs.sfix.setVisible(false);
@@ -409,7 +410,7 @@ public class Lobby implements Runnable {
 									gs.swait.setVisible(false);
 									gs.snpls.setVisible(false);
 									gs.snbts.setVisible(false);
-									gs.sgame.setVisible(false);
+									//gs.sgame.setVisible(false);
 									gs.wgame.setVisible(false);
 									gs.pgame.setVisible(false);
 									gs.vnpls.setVisible(false);
@@ -417,9 +418,9 @@ public class Lobby implements Runnable {
 									gs.warb.setVisible(false);
 									gs.mstgs.setVisible(false);
 									gs.slaps.setVisible(false);
-									gs.snfm1.setVisible(false);
+									//gs.snfm1.setVisible(false);
 									gs.snfmm.setVisible(false);
-									gs.snfm2.setVisible(false);
+									//gs.snfm2.setVisible(false);
 									gs.sclass.setVisible(false);
 									gs.scars.setVisible(false);
 									gs.sfix.setVisible(false);
@@ -432,11 +433,11 @@ public class Lobby implements Runnable {
 									chalngd = -1;
 								if (chalngd == -2)
 									if (gs.wgame.getSelectedIndex() == 0) {
-										if (gs.sgame.getSelectedIndex() >= 3 && !xt.logged) {
+										/*if (gs.sgame.getSelectedIndex() >= 3 && !xt.logged) {
 											if (i_308_ == 4)
 												gs.editlink(xt.nickname, true);
 											i_312_ = 5;
-										} else {
+										} else */{
 											if (i_308_ == 4)
 												if (loadstage < 0) {
 													rd.setColor(new Color(0, 0, 0));
@@ -444,7 +445,7 @@ public class Lobby implements Runnable {
 													gs.repaint();
 													gs.rooms.setVisible(false);
 													gs.cmsg.setVisible(false);
-													gs.sgame.setVisible(false);
+													//gs.sgame.setVisible(false);
 													gs.wgame.setVisible(false);
 													gs.warb.setVisible(false);
 													gs.pgame.setVisible(false);
@@ -452,9 +453,9 @@ public class Lobby implements Runnable {
 													gs.vtyp.setVisible(false);
 													gs.mstgs.setVisible(false);
 													gs.slaps.setVisible(false);
-													gs.snfm1.setVisible(false);
+													//gs.snfm1.setVisible(false);
 													gs.snfmm.setVisible(false);
-													gs.snfm2.setVisible(false);
+													//gs.snfm2.setVisible(false);
 													gs.requestFocus();
 													m.ptr = 0;
 													m.ptcnt = -10;
@@ -476,7 +477,7 @@ public class Lobby implements Runnable {
 											else {
 												if (i_308_ == 5)
 													if (gstage != 0) {
-														gs.sgame.setVisible(false);
+														//gs.sgame.setVisible(false);
 														gs.wgame.setVisible(false);
 														gs.pgame.setVisible(false);
 														gs.vnpls.setVisible(false);
@@ -484,9 +485,9 @@ public class Lobby implements Runnable {
 														gs.warb.setVisible(false);
 														gs.mstgs.setVisible(false);
 														gs.slaps.setVisible(false);
-														gs.snfm1.setVisible(false);
+														//gs.snfm1.setVisible(false);
 														gs.snfmm.setVisible(false);
-														gs.snfm2.setVisible(false);
+														//gs.snfm2.setVisible(false);
 														gs.requestFocus();
 														chalngd = -3;
 														i_308_ = -1;
@@ -1033,17 +1034,17 @@ public class Lobby implements Runnable {
 		gs.swait.setVisible(false);
 		gs.snpls.setVisible(false);
 		gs.snbts.setVisible(false);
-		gs.sgame.setVisible(false);
+		//gs.sgame.setVisible(false);
 		gs.wgame.setVisible(false);
 		gs.pgame.setVisible(false);
 		gs.vnpls.setVisible(false);
 		gs.vtyp.setVisible(false);
 		gs.warb.setVisible(false);
 		gs.mstgs.setVisible(false);
-		gs.snfm1.setVisible(false);
+		//gs.snfm1.setVisible(false);
 		gs.snfmm.setVisible(false);
 		gs.slaps.setVisible(false);
-		gs.snfm2.setVisible(false);
+		//gs.snfm2.setVisible(false);
 		gs.sclass.setVisible(false);
 		gs.scars.setVisible(false);
 		gs.sfix.setVisible(false);
@@ -2221,13 +2222,13 @@ public class Lobby implements Runnable {
 														85);
 											if (sflk != 0)
 												sflk--;
-											int i_163_ = 0;
-											gs.sgame.setSize(139, 22);
-											if (gs.sgame.getSelectedIndex() == 0) {
-												i_163_ = 472 - (gs.sgame.getWidth() + 6 + gs.snfmm.getWidth()) / 2;
-												sgflag = 0;
-											}
-											if (gs.sgame.getSelectedIndex() == 1) {
+											//int i_163_ = 0;
+											//gs.sgame.setSize(139, 22);
+											//if (gs.sgame.getSelectedIndex() == 0) {
+											//i_163_ = 472 - (gs.sgame.getWidth() + 6 + gs.snfmm.getWidth()) / 2;
+											sgflag = 0;
+											//}
+											/*if (gs.sgame.getSelectedIndex() == 1) {
 												i_163_ = 472 - (gs.sgame.getWidth() + 6 + gs.snfm1.getWidth()) / 2;
 												sgflag = 1;
 											}
@@ -2256,8 +2257,8 @@ public class Lobby implements Runnable {
 													sgflag = 3;
 												}
 												i_163_ = 472 - (gs.sgame.getWidth() + 6 + gs.mstgs.getWidth()) / 2;
-											}
-											if (gs.sgame.getSelectedIndex() == 4) {
+											}*/
+											/*if (gs.sgame.getSelectedIndex() == 4) {
 												gs.mstgs.setSize(338, 22);
 												if (sgflag != 4) {
 													gstage = 0;
@@ -2278,8 +2279,8 @@ public class Lobby implements Runnable {
 													sgflag = 4;
 												}
 												i_163_ = 472 - (gs.sgame.getWidth() + 6 + gs.mstgs.getWidth()) / 2;
-											}
-											if (gs.sgame.getSelectedIndex() == 5) {
+											}*/
+											/*if (gs.sgame.getSelectedIndex() == 5) {
 												gs.mstgs.setSize(338, 22);
 												if (sgflag != 5) {
 													gstage = 0;
@@ -2300,8 +2301,8 @@ public class Lobby implements Runnable {
 													sgflag = 5;
 												}
 												i_163_ = 472 - (gs.sgame.getWidth() + 6 + gs.mstgs.getWidth()) / 2;
-											}
-											if (gs.sgame.getSelectedIndex() == 6) {
+											}*/
+											/*if (gs.sgame.getSelectedIndex() == 6) {
 												gs.mstgs.setSize(338, 22);
 												if (sgflag != 6) {
 													gstage = 0;
@@ -2322,8 +2323,8 @@ public class Lobby implements Runnable {
 													sgflag = 6;
 												}
 												i_163_ = 472 - (gs.sgame.getWidth() + 6 + gs.mstgs.getWidth()) / 2;
-											}
-											if (!gs.sgame.isShowing()) {
+											}*/
+											/*if (!gs.sgame.isShowing()) {
 												gs.sgame.setVisible(true);
 												remstage = 0;
 												if (loadstage == 0) {
@@ -2332,30 +2333,30 @@ public class Lobby implements Runnable {
 														i_164_ = 2;
 													gs.sgame.select(i_164_);
 												}
-											}
-											gs.sgame.move(i_163_, 105);
-											i_163_ += gs.sgame.getWidth() + 6;
-											if (gs.sgame.getSelectedIndex() == 0) {
+											}*/
+											//gs.sgame.move(i_163_, 105);
+											//i_163_ += gs.sgame.getWidth() + 6;
+											//if (true) {
 												if (!gs.snfmm.isShowing()) {
 													gs.snfmm.setVisible(true);
 													if (loadstage == 0)
 														gs.snfmm.select(0);
 												}
-												gs.snfmm.move(i_163_, 105);
-												if (gs.snfm1.isShowing())
-													gs.snfm1.setVisible(false);
-												if (gs.snfm2.isShowing())
-													gs.snfm2.setVisible(false);
+												gs.snfmm.move(300, 105);
+												//if (gs.snfm1.isShowing())
+												//	gs.snfm1.setVisible(false);
+												//if (gs.snfm2.isShowing())
+												//	gs.snfm2.setVisible(false);
 												if (gs.mstgs.isShowing())
 													gs.mstgs.setVisible(false);
-											}
-											if (gs.sgame.getSelectedIndex() == 0 && gs.snfmm.getSelectedIndex() != 0
-													&& gstage != gs.snfmm.getSelectedIndex() + 27) {
-												loadstage = gs.snfmm.getSelectedIndex() + 27;
+											//}
+											if (/*gs.sgame.getSelectedIndex() == 0 && */gs.snfmm.getSelectedIndex() != 0
+													&& gstage != gs.snfmm.getSelectedIndex()) {
+												loadstage = gs.snfmm.getSelectedIndex();
 												gstage = loadstage;
 												gs.requestFocus();
 											}
-											if (gs.sgame.getSelectedIndex() == 1) {
+											/*if (gs.sgame.getSelectedIndex() == 1) {
 												if (!gs.snfm2.isShowing()) {
 													gs.snfm2.setVisible(true);
 													if (loadstage == 0)
@@ -2408,8 +2409,8 @@ public class Lobby implements Runnable {
 													gs.snfm1.setVisible(false);
 												if (gs.snfm2.isShowing())
 													gs.snfm2.setVisible(false);
-											}
-											if (remstage != 2)
+											}*/
+											/*if (remstage != 2)
 												if (gs.sgame.getSelectedIndex() == 3
 														&& gs.mstgs.getSelectedIndex() != 0) {
 													if (gstage != gs.mstgs.getSelectedIndex() + 100) {
@@ -2436,13 +2437,13 @@ public class Lobby implements Runnable {
 													gs.snfm1.setVisible(false);
 												if (gs.snfm2.isShowing())
 													gs.snfm2.setVisible(false);
-											}
-											if (gs.sgame.getSelectedIndex() >= 4 && gs.mstgs.getSelectedIndex() != 0
+											}*/
+											/*if (gs.sgame.getSelectedIndex() >= 4 && gs.mstgs.getSelectedIndex() != 0
 													&& gstage != gs.mstgs.getSelectedIndex() + 100) {
 												loadstage = gs.mstgs.getSelectedIndex() + 100;
 												gstage = loadstage;
 												gs.requestFocus();
-											}
+											}*/
 											if (loadstage > 0 && remstage == 0) {
 												rd.setColor(new Color(0, 0, 0));
 												rd.setFont(new Font("Arial", 1, 12));
@@ -2451,7 +2452,7 @@ public class Lobby implements Runnable {
 														472 - ftm.stringWidth("Loading Stage, please wait...") / 2,
 														165);
 											}
-											if (gs.sgame.getSelectedIndex() >= 3 && !xt.logged) {
+											/*if (gs.sgame.getSelectedIndex() >= 3 && !xt.logged) {
 												rd.setColor(new Color(0, 0, 0));
 												rd.setFont(new Font("Arial", 1, 12));
 												ftm = rd.getFontMetrics();
@@ -2470,7 +2471,7 @@ public class Lobby implements Runnable {
 												drawSbutton(xt.upgrade, 472, 210);
 												if (gs.slaps.isShowing())
 													gs.slaps.setVisible(false);
-											} else {
+											} else *///{
 												if (loadstage < 0 && remstage == 0) {
 													rd.setColor(new Color(0, 0, 0));
 													rd.setFont(new Font("Arial", 1, 12));
@@ -2498,7 +2499,7 @@ public class Lobby implements Runnable {
 													stringbutton("    Preview Stage    ", 472, 185, 2);
 												} else if (gs.slaps.isShowing())
 													gs.slaps.setVisible(false);
-												if (remstage == 3) {
+												/*if (remstage == 3) {
 													if (loadstage < 0)
 														stringbutton("    Preview Stage    ", 472, -160, 2);
 													rd.setColor(new Color(0, 0, 0));
@@ -2559,17 +2560,17 @@ public class Lobby implements Runnable {
 														remstage = 0;
 														gs.mouses = 0;
 													}
-												}
+												}*/
 												stringbutton("   Next >   ", 472, 235, 1);
-											}
+											/*}*/
 										} else {
 											if (!inwab) {
-												gs.sgame.setVisible(false);
+												//gs.sgame.setVisible(false);
 												gs.mstgs.setVisible(false);
 												gs.slaps.setVisible(false);
-												gs.snfm1.setVisible(false);
+												//gs.snfm1.setVisible(false);
 												gs.snfmm.setVisible(false);
-												gs.snfm2.setVisible(false);
+												//gs.snfm2.setVisible(false);
 											}
 											if (!xt.clan.equals("")) {
 												if (!inwab) {
@@ -2990,279 +2991,7 @@ public class Lobby implements Runnable {
 									}
 								}
 							}
-							if (!xt.lan) {
-								rd.setColor(color2k(230, 230, 230));
-								rd.fillRoundRect(225, 263, 495, 157, 20, 20);
-								rd.setColor(new Color(0, 0, 0));
-								rd.drawRoundRect(225, 263, 495, 157, 20, 20);
-								final String[] strings = new String[14];
-								final String[] strings_173_ = new String[14];
-								final boolean[] bools = new boolean[14];
-								for (int i_174_ = 0; i_174_ < 14; i_174_++) {
-									strings[i_174_] = "";
-									strings_173_[i_174_] = "";
-									bools[i_174_] = false;
-								}
-								int i_175_ = 0;
-								rd.setFont(new Font("Tahoma", 0, 11));
-								ftm = rd.getFontMetrics();
-								if (updatec != -1) {
-									for (int i_176_ = 0; i_176_ < 7; i_176_++) {
-										strings[i_175_] = "";
-										strings_173_[i_175_] = cnames[i_176_];
-										int i_177_ = 0;
-										int i_178_ = 0;
-										int i_179_ = 0;
-										int i_180_ = 0;
-										int i_181_ = 0;
-										for (/**/ ; i_177_ < sentn[i_176_].length(); i_177_++) {
-											final String string = new StringBuilder().append("")
-													.append(sentn[i_176_].charAt(i_177_)).toString();
-											if (string.equals(" ")) {
-												i_178_ = i_179_;
-												i_180_ = i_177_;
-												i_181_++;
-											} else
-												i_181_ = 0;
-											if (i_181_ <= 1) {
-												final StringBuilder stringbuilder = new StringBuilder();
-												final String[] strings_182_ = strings;
-												final int i_183_ = i_175_;
-												strings_182_[i_183_] = stringbuilder.append(strings_182_[i_183_])
-														.append(string).toString();
-												i_179_++;
-												if (ftm.stringWidth(strings[i_175_]) > 367)
-													if (i_178_ != 0) {
-														strings[i_175_] = strings[i_175_].substring(0, i_178_);
-														if (i_175_ == 13) {
-															for (int i_184_ = 0; i_184_ < 13; i_184_++) {
-																strings[i_184_] = strings[i_184_ + 1];
-																strings_173_[i_184_] = strings_173_[i_184_ + 1];
-																bools[i_184_] = bools[i_184_ + 1];
-															}
-															strings[i_175_] = "";
-															bools[i_175_] = true;
-														} else {
-															i_175_++;
-															strings_173_[i_175_] = this.cnames[i_176_];
-														}
-														i_177_ = i_180_;
-														i_179_ = 0;
-														i_178_ = 0;
-													} else {
-														strings[i_175_] = "";
-														i_179_ = 0;
-													}
-											}
-										}
-										if (i_175_ == 13 && i_176_ != 6)
-											for (int i_185_ = 0; i_185_ < 13; i_185_++) {
-												strings[i_185_] = strings[i_185_ + 1];
-												strings_173_[i_185_] = strings_173_[i_185_ + 1];
-												bools[i_185_] = bools[i_185_ + 1];
-											}
-										else
-											i_175_++;
-									}
-									i_104_ = (i_175_ - 6) * 15;
-									if (i_104_ < 0)
-										i_104_ = 0;
-									i_105_ = (int) (spos3 / 28.0F * i_104_);
-									String string = "";
-									rd.setFont(new Font("Tahoma", 1, 11));
-									ftm = rd.getFontMetrics();
-									for (int i_186_ = 0; i_186_ < i_175_; i_186_++)
-										if (!string.equals(strings_173_[i_186_])) {
-											if (280 + i_186_ * 15 - i_105_ > 266 && 280 + i_186_ * 15 - i_105_ < 370)
-												rd.drawString(
-														new StringBuilder().append(strings_173_[i_186_]).append(":")
-																.toString(),
-														320 - ftm.stringWidth(new StringBuilder()
-																.append(strings_173_[i_186_]).append(":").toString()),
-														305 + i_186_ * 15 - i_105_);
-											string = strings_173_[i_186_];
-										}
-									rd.setFont(new Font("Tahoma", 0, 11));
-									for (int i_187_ = 0; i_187_ < i_175_; i_187_++) {
-										if (bools[i_187_] && i_187_ == 0 && strings[i_187_].indexOf(" ") != -1)
-											strings[i_187_] = new StringBuilder().append("...").append(strings[i_187_]
-													.substring(strings[i_187_].indexOf(" "), strings[i_187_].length()))
-													.append("").toString();
-										if (280 + i_187_ * 15 - i_105_ > 266 && 280 + i_187_ * 15 - i_105_ < 370)
-											rd.drawString(strings[i_187_], 325, 305 + i_187_ * 15 - i_105_);
-									}
-								} else {
-									i_104_ = 0;
-									rd.drawString("Loading chat...", 465 - ftm.stringWidth("Loading chat...") / 2, 325);
-								}
-								rd.setColor(color2k(205, 205, 205));
-								rd.fillRect(235, 269, 480, 25);
-								rd.drawImage(xt.chat, 241, 273, null);
-								rd.setFont(new Font("Arial", 1, 12));
-								rd.setColor(color2k(120, 120, 120));
-								rd.drawString("(Room Chat )", 299, 285);
-								rd.setColor(color2k(150, 150, 150));
-								rd.drawLine(235, 291, 696, 291);
-								rd.setColor(color2k(205, 205, 205));
-								rd.fillRect(235, 387, 480, 28);
-								rd.setColor(color2k(150, 150, 150));
-								rd.drawLine(235, 389, 696, 389);
-								rd.setColor(color2k(205, 205, 205));
-								rd.fillRect(698, 311, 17, 59);
-								rd.setColor(color2k(205, 205, 205));
-								rd.fillRect(231, 269, 4, 146);
-								if (mscro3 == 351 || i_104_ == 0) {
-									if (i_104_ == 0)
-										rd.setColor(color2k(205, 205, 205));
-									else
-										rd.setColor(color2k(215, 215, 215));
-									rd.fillRect(698, 294, 17, 17);
-								} else {
-									rd.setColor(color2k(220, 220, 220));
-									rd.fill3DRect(698, 294, 17, 17, true);
-								}
-								if (i_104_ != 0)
-									rd.drawImage(xt.asu, 703, 300, null);
-								if (mscro3 == 352 || i_104_ == 0) {
-									if (i_104_ == 0)
-										rd.setColor(color2k(205, 205, 205));
-									else
-										rd.setColor(color2k(215, 215, 215));
-									rd.fillRect(698, 370, 17, 17);
-								} else {
-									rd.setColor(color2k(220, 220, 220));
-									rd.fill3DRect(698, 370, 17, 17, true);
-								}
-								if (i_104_ != 0)
-									rd.drawImage(xt.asd, 703, 376, null);
-								if (i_104_ != 0) {
-									if (lspos3 != spos3) {
-										rd.setColor(color2k(215, 215, 215));
-										rd.fillRect(698, 311 + spos3, 17, 31);
-									} else {
-										if (mscro3 == 141)
-											rd.setColor(color2k(215, 215, 215));
-										rd.fill3DRect(698, 311 + spos3, 17, 31, true);
-									}
-									rd.setColor(color2k(150, 150, 150));
-									rd.drawLine(703, 324 + spos3, 709, 324 + spos3);
-									rd.drawLine(703, 326 + spos3, 709, 326 + spos3);
-									rd.drawLine(703, 328 + spos3, 709, 328 + spos3);
-									if (mscro3 > 342 && lspos3 != spos3)
-										lspos3 = spos3;
-									if (bool) {
-										if (mscro3 == 345 && i > 698 && i < 715 && i_99_ > 311 + spos3
-												&& i_99_ < spos3 + 342)
-											mscro3 = i_99_ - spos3;
-										if (mscro3 == 345 && i > 696 && i < 717 && i_99_ > 292 && i_99_ < 313)
-											mscro3 = 351;
-										if (mscro3 == 345 && i > 696 && i < 717 && i_99_ > 368 && i_99_ < 389)
-											mscro3 = 352;
-										if (mscro3 == 345 && i > 698 && i < 715 && i_99_ > 311 && i_99_ < 370) {
-											mscro3 = 326;
-											spos3 = i_99_ - mscro3;
-										}
-										int i_189_ = 100 / i_104_;
-										if (i_189_ < 1)
-											i_189_ = 1;
-										if (mscro3 == 351) {
-											spos3 -= i_189_;
-											if (spos3 > 28)
-												spos3 = 28;
-											if (spos3 < 0)
-												spos3 = 0;
-											lspos3 = spos3;
-										}
-										if (mscro3 == 352) {
-											spos3 += i_189_;
-											if (spos3 > 28)
-												spos3 = 28;
-											if (spos3 < 0)
-												spos3 = 0;
-											lspos3 = spos3;
-										}
-										if (mscro3 <= 342) {
-											spos3 = i_99_ - mscro3;
-											if (spos3 > 28)
-												spos3 = 28;
-											if (spos3 < 0)
-												spos3 = 0;
-										}
-										if (mscro3 == 345)
-											mscro3 = 425;
-									} else if (mscro3 != 345)
-										mscro3 = 345;
-									if (i_100_ != 0 && i > 235 && i < 698 && i_99_ > 291 && i_99_ < 389) {
-										spos3 -= i_100_ / 2;
-										zeromsw = true;
-										if (spos3 > 28) {
-											spos3 = 28;
-											zeromsw = false;
-										}
-										if (spos3 < 0) {
-											spos3 = 0;
-											zeromsw = false;
-										}
-										lspos3 = spos3;
-									}
-								}
-								pre1 = true;
-								stringbutton("Send Message", 657, 406, 3);
-							}
-							if ((chalngd == -1 || chalngd == -6) && lg.gamec != -1) {
-								if (lg.cntgame >= 0 && lg.cntgame < 10)
-									rd.setComposite(AlphaComposite.getInstance(3, lg.cntgame / 10.0F));
-								if (lg.cntgame > 390 && lg.cntgame < 400)
-									rd.setComposite(AlphaComposite.getInstance(3, (400 - lg.cntgame) / 10.0F));
-								rd.setColor(color2k(245, 245, 245));
-								rd.fillRoundRect(383, 242, 337, 46, 20, 20);
-								rd.setColor(new Color(0, 0, 0));
-								rd.drawRoundRect(383, 242, 337, 46, 20, 20);
-								rd.setFont(new Font("Arial", 1, 12));
-								ftm = rd.getFontMetrics();
-								rd.drawString(
-										new StringBuilder().append("").append(lg.gmaker).append(" created a game in ")
-												.append(lg.gservern).append(" :: Room ").append(lg.groom).append("")
-												.toString(),
-										551 - ftm
-												.stringWidth(new StringBuilder().append("").append(lg.gmaker)
-														.append(" created a game in ").append(lg.gservern)
-														.append(" :: Room ").append(lg.groom).append("").toString())
-												/ 2,
-										260);
-								if (i > 488 && i < 614 && i_99_ > 264 && i_99_ < 287) {
-									if (bool)
-										grprsd = true;
-									else if (grprsd) {
-										for (int i_190_ = 0; i_190_ < lg.nservers; i_190_++)
-											if (lg.gservern.equals(lg.snames[i_190_])) {
-												stopallnow();
-												xt.server = lg.servers[i_190_];
-												xt.servername = lg.snames[i_190_];
-												xt.servport = 7070 + lg.groom;
-												inishlobby();
-												break;
-											}
-										grprsd = false;
-									}
-								} else if (grprsd)
-									grprsd = false;
-								if (!grprsd) {
-									rd.setColor(color2k(230, 230, 230));
-									rd.fill3DRect(490, 266, 122, 19, true);
-									rd.setColor(new Color(0, 0, 0));
-								} else {
-									rd.setColor(color2k(230, 230, 230));
-									rd.fillRect(490, 266, 122, 19);
-									rd.setColor(color2k(60, 60, 60));
-								}
-								rd.drawString("View / Join Game", 551 - ftm.stringWidth("View / Join Game") / 2, 280);
-								if (lg.cntgame >= 0 && lg.cntgame < 10 || lg.cntgame > 390 && lg.cntgame < 400)
-									rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
-								lg.cntgame++;
-								if (lg.cntgame == 400)
-									lg.gamec = -1;
-							}
+							//if ((chalngd == -1 || chalngd == -6) && lg.gamec != -1) {}
 						}
 					} else if (opengame < 26) {
 						int i_191_ = 229 + opengame;
@@ -4476,25 +4205,7 @@ public class Lobby implements Runnable {
 									stringbutton("       Preview Stage       ", 562, 247, 0);
 									pbtn = 2;
 								} else {
-									if (gstgn[i_193_] > 0) {
-										String string_259_ = "NFM 1";
-										int i_260_ = gstgn[i_193_];
-										if (gstgn[i_193_] > 10) {
-											string_259_ = "NFM 2";
-											i_260_ = gstgn[i_193_] - 10;
-										}
-										if (gstgn[i_193_] > 27) {
-											string_259_ = "Multiplayer";
-											i_260_ = gstgn[i_193_] - 27;
-										}
-										rd.drawString(
-												new StringBuilder().append("").append(string_259_).append(" - Stage ")
-														.append(i_260_).append("").toString(),
-												562 - ftm.stringWidth(new StringBuilder().append("").append(string_259_)
-														.append(" - Stage ").append(i_260_).append("").toString()) / 2,
-												237);
-									} else
-										rd.drawString("Custom Stage", 562 - ftm.stringWidth("Custom Stage") / 2, 237);
+									rd.drawString("Stage "+gstgn[i_193_], 562 - ftm.stringWidth("Stage "+gstgn[i_193_]) / 2, 237);
 									rd.setFont(new Font("Arial", 1, 12));
 									ftm = rd.getFontMetrics();
 									rd.drawString(gstages[i_193_], 562 - ftm.stringWidth(gstages[i_193_]) / 2, 254);
@@ -6150,15 +5861,14 @@ public class Lobby implements Runnable {
 		xt.ftm = rd.getFontMetrics();
 		ftm = rd.getFontMetrics();
 		String string = "";
-		if (checkpoints.stage < 0)
+		/*if (checkpoints.stage < 0)
 			string = "Custom Stage";
 		if (checkpoints.stage > 0 && checkpoints.stage <= 10)
 			string = new StringBuilder().append("Stage ").append(checkpoints.stage).append(" NFM 1").toString();
 		if (checkpoints.stage > 10 && checkpoints.stage <= 27)
 			string = new StringBuilder().append("Stage ").append(checkpoints.stage - 10).append(" NFM 2").toString();
-		if (checkpoints.stage > 27)
-			string = new StringBuilder().append("Multiplayer Stage ").append(checkpoints.stage - 27).append("")
-					.toString();
+		if (checkpoints.stage > 27)*/
+		string = new StringBuilder().append("Stage "+checkpoints.stage).toString();
 		xt.drawcs(85, new StringBuilder().append("Previewing ").append(string).append("  >").toString(), 255, 138, 0,
 				5);
 		xt.drawcs(105, new StringBuilder().append("| ").append(checkpoints.name).append(" |").toString(), 255, 176, 85,

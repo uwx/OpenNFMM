@@ -3429,8 +3429,8 @@ public class xtGraphics extends Panel implements Runnable {
 
 	public void hidos() {
 		app.sgame.setVisible(false);
-		app.snfm1.setVisible(false);
-		app.snfm2.setVisible(false);
+		//app.snfm1.setVisible(false);
+		//app.snfm2.setVisible(false);
 		app.mstgs.setVisible(false);
 	}
 
@@ -3885,10 +3885,10 @@ public class xtGraphics extends Panel implements Runnable {
 				checkpoints.stage = (int) (Math.random() * 27.0)/* + 11*/;
 		app.sgame.setBackground(new Color(0, 0, 0));
 		app.sgame.setForeground(new Color(47, 179, 255));
-		app.snfm1.setBackground(new Color(0, 0, 0));
-		app.snfm1.setForeground(new Color(47, 179, 255));
-		app.snfm2.setBackground(new Color(0, 0, 0));
-		app.snfm2.setForeground(new Color(47, 179, 255));
+		//app.snfm1.setBackground(new Color(0, 0, 0));
+		//app.snfm1.setForeground(new Color(47, 179, 255));
+		//app.snfm2.setBackground(new Color(0, 0, 0));
+		//app.snfm2.setForeground(new Color(47, 179, 255));
 		app.mstgs.setBackground(new Color(0, 0, 0));
 		app.mstgs.setForeground(new Color(47, 179, 255));
 		app.gmode.setBackground(new Color(49, 49, 0));
@@ -7717,8 +7717,8 @@ public class xtGraphics extends Panel implements Runnable {
 				int i_41_ = 0;
 				if (nfmtab != app.sgame.getSelectedIndex()) {
 					nfmtab = app.sgame.getSelectedIndex();
-					app.snfm1.select(0);
-					app.snfm2.select(0);
+					//app.snfm1.select(0);
+					//app.snfm2.select(0);
 					app.mstgs.select(0);
 					app.requestFocus();
 					bool_40_ = true;
@@ -7762,10 +7762,10 @@ public class xtGraphics extends Panel implements Runnable {
 				}
 				int i_42_ = 0;
 				app.sgame.setSize(131, 22);
-				if (app.sgame.getSelectedIndex() == 0)
-					i_42_ = 400 - (app.sgame.getWidth() + 6 + app.snfm1.getWidth()) / 2;
-				if (app.sgame.getSelectedIndex() == 1)
-					i_42_ = 400 - (app.sgame.getWidth() + 6 + app.snfm2.getWidth()) / 2;
+				//if (app.sgame.getSelectedIndex() == 0)
+				//	i_42_ = 400 - (app.sgame.getWidth() + 6 + app.snfm1.getWidth()) / 2;
+				//if (app.sgame.getSelectedIndex() == 1)
+				//	i_42_ = 400 - (app.sgame.getWidth() + 6 + app.snfm2.getWidth()) / 2;
 				if (app.sgame.getSelectedIndex() == 2) {
 					app.mstgs.setSize(338, 22);
 					if (bool_40_)
@@ -7829,7 +7829,7 @@ public class xtGraphics extends Panel implements Runnable {
 					app.sgame.setVisible(true);
 				app.sgame.move(i_42_, 62);
 				i_42_ += app.sgame.getWidth() + 6;
-				if (nfmtab == 0) {
+				/*if (nfmtab == 0) {
 					if (!app.snfm1.isShowing()) {
 						app.snfm1.setVisible(true);
 						if (!bool_40_ && checkpoints.stage > 0)
@@ -7840,9 +7840,9 @@ public class xtGraphics extends Panel implements Runnable {
 						app.snfm2.setVisible(false);
 					if (app.mstgs.isShowing())
 						app.mstgs.setVisible(false);
-				}
-				if (nfmtab == 1) {
-					if (!app.snfm2.isShowing()) {
+				}*/
+				//if (nfmtab == 1) {
+					/*if (!app.snfm2.isShowing()) {
 						app.snfm2.setVisible(true);
 						if (!bool_40_ && checkpoints.stage > 10)
 							app.snfm2.select(checkpoints.stage - 10);
@@ -7851,9 +7851,9 @@ public class xtGraphics extends Panel implements Runnable {
 					if (app.snfm1.isShowing())
 						app.snfm1.setVisible(false);
 					if (app.mstgs.isShowing())
-						app.mstgs.setVisible(false);
-				}
-				if (nfmtab == 2 || nfmtab == 3 || nfmtab == 4 || nfmtab == 5) {
+						app.mstgs.setVisible(false);*/
+				//}
+				/*if (nfmtab == 2 || nfmtab == 3 || nfmtab == 4 || nfmtab == 5) {
 					if (!app.mstgs.isShowing()) {
 						app.mstgs.setVisible(true);
 						if (!bool_40_)
@@ -7864,7 +7864,7 @@ public class xtGraphics extends Panel implements Runnable {
 						app.snfm1.setVisible(false);
 					if (app.snfm2.isShowing())
 						app.snfm2.setVisible(false);
-				}
+				}*/
 				rd.setFont(new Font("Arial", 1, 13));
 				ftm = rd.getFontMetrics();
 				if (cd.staction == 0 || cd.staction == 6)
@@ -7915,10 +7915,10 @@ public class xtGraphics extends Panel implements Runnable {
 							} catch (final InterruptedException interruptedexception) {
 								/* empty */
 							}
-							if (nfmtab == 0)
-								app.snfm1.select(1 + (int) (Math.random() * 10.0));
-							if (nfmtab == 1)
-								app.snfm2.select(1 + (int) (Math.random() * 17.0));
+							//if (nfmtab == 0)
+							//	app.snfm1.select(1 + (int) (Math.random() * 10.0));
+							//if (nfmtab == 1)
+							//	app.snfm2.select(1 + (int) (Math.random() * 17.0));
 						}
 					}
 				if (cd.staction == 3) {
@@ -8122,7 +8122,7 @@ public class xtGraphics extends Panel implements Runnable {
 					}
 				} else if (app.gmode.isShowing())
 					app.gmode.setVisible(false);
-				if (nfmtab == 0 && app.snfm1.getSelectedIndex() != checkpoints.stage
+				/*if (nfmtab == 0 && app.snfm1.getSelectedIndex() != checkpoints.stage
 						&& app.snfm1.getSelectedIndex() != 0) {
 					checkpoints.stage = app.snfm1.getSelectedIndex();
 					checkpoints.top20 = 0;
@@ -8139,7 +8139,7 @@ public class xtGraphics extends Panel implements Runnable {
 					hidos();
 					fase = 2;
 					app.requestFocus();
-				}
+				}*/
 				if ((nfmtab == 2 || nfmtab == 5) && !app.mstgs.getSelectedItem().equals(checkpoints.name)
 						&& app.mstgs.getSelectedIndex() != 0) {
 					if (nfmtab == 2)
