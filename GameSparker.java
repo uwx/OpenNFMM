@@ -1361,24 +1361,24 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					var_xtGraphics.autolog = true;
 				}
 			}
-			if (strings[2].startsWith("NFM1")) {
-				int i = getint("NFM1", strings[2], 0);
-				if (i >= 0 && i < 16) {
-					var_xtGraphics.scm[0] = i;
+			if (strings[2].startsWith("saved")) {
+				int i = getint("saved", strings[2], 0);
+				if (i >= 0 && i < xtGraphics.nCars) {
+					var_xtGraphics.scm = i;
 					var_xtGraphics.firstime = false;
 				}
-				i = getint("NFM1", strings[2], 1);
+				i = getint("saved", strings[2], 1);
 				if (i >= 1 && i <= xtGraphics.nTracks)
 					var_xtGraphics.unlocked = i;
 			}
-			if (strings[3].startsWith("NFM2")) {
+			/*if (strings[3].startsWith("NFM2")) {
 				int i = getint("NFM2", strings[3], 0);
 				if (i >= 0 && i < 16) {
 					var_xtGraphics.scm[1] = i;
 					var_xtGraphics.firstime = false;
 				}
 				i = getint("NFM2", strings[3], 1);
-			}
+			}*/
 			if (strings[4].startsWith("graphics")) {
 				int i = getint("graphics", strings[4], 0);
 				if (i >= 0 && i <= 1)
@@ -2931,7 +2931,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 
 	}
 
-	public void setcarcookie(final int i, final String string, final float[] fs, final int i_191_, final int[] is,
+	public void setcarcookie(final int i, final String string, final float[] fs, final int i_191_, final int is,
 			final boolean bool) {
 		try {
 			final File file = new File(
@@ -2949,12 +2949,12 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 						.append(",").append((int) (fs[1] * 100.0F)).append(",").append((int) (fs[2] * 100.0F))
 						.append(",").append((int) (fs[3] * 100.0F)).append(",").append((int) (fs[4] * 100.0F))
 						.append(",").append((int) (fs[5] * 100.0F)).append(",").append(string).append(")").toString();
-			if (i_191_ == 1)
-				strings[2] = new StringBuilder().append("NFM1(").append(i).append(",").append(is[0]).append(")")
+			if (i_191_ == 1 || i_191_ == 2)
+				strings[2] = new StringBuilder().append("saved(").append(i).append(",").append(is).append(")")
 						.toString();
-			if (i_191_ == 2)
-				strings[3] = new StringBuilder().append("NFM2(").append(i).append(",").append(is[1]).append(")")
-						.toString();
+			//if (i_191_ == 2)
+			//	strings[3] = new StringBuilder().append("NFM2(").append(i).append(")")
+			//			.toString();
 			strings[4] = new StringBuilder().append("graphics(").append(moto).append(",").append(Madness.anti)
 					.append(")").toString();
 			final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));

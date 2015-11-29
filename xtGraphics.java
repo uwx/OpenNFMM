@@ -349,7 +349,7 @@ public class xtGraphics extends Panel implements Runnable {
 	Image sarrow;
 	String say = "";
 	int[] sc = { 0, 0, 0, 0, 0, 0, 0, 0 };
-	int[] scm = { 0, 0 };
+	int scm = 0;
 	soundClip[] scrape = new soundClip[4];
 	Image sdets;
 	Image select;
@@ -1989,7 +1989,7 @@ public class xtGraphics extends Panel implements Runnable {
 				//if (gmode == 1)
 				//	scm[0] = sc[0];
 				if (gmode == 2)
-					scm[1] = sc[0];
+					scm = sc[0];
 				if (app.mycar.isShowing())
 					app.mycar.setVisible(false);
 				flexpix = null;
@@ -3014,49 +3014,49 @@ public class xtGraphics extends Panel implements Runnable {
 					i_144_ = 8;
 					i_145_ = 365;
 					pin = -20;
-					scm[1] = 8;
+					scm = 8;
 				}
 				if (checkpoints.stage == 4) {
 					i_144_ = 9;
 					i_145_ = 320;
 					pin = -20;
-					scm[1] = 9;
+					scm = 9;
 				}
 				if (checkpoints.stage == 6) {
 					i_144_ = 10;
 					i_145_ = 370;
 					pin = -20;
-					scm[1] = 10;
+					scm = 10;
 				}
 				if (checkpoints.stage == 8) {
 					i_144_ = 11;
 					i_145_ = 326;
 					pin = -20;
-					scm[1] = 11;
+					scm = 11;
 				}
 				if (checkpoints.stage == 10) {
 					i_144_ = 12;
 					i_145_ = 310;
 					pin = -20;
-					scm[1] = 12;
+					scm = 12;
 				}
 				if (checkpoints.stage == 12) {
 					i_144_ = 13;
 					i_145_ = 310;
 					pin = -20;
-					scm[1] = 13;
+					scm = 13;
 				}
 				if (checkpoints.stage == 14) {
 					i_144_ = 14;
 					i_145_ = 350;
 					pin = -20;
-					scm[1] = 14;
+					scm = 14;
 				}
 				if (checkpoints.stage == 16) {
 					i_144_ = 15;
 					i_145_ = 370;
 					pin = -20;
-					scm[1] = 15;
+					scm = 15;
 				}
 			}
 			if (checkpoints.stage != nTracks) {
@@ -3667,7 +3667,7 @@ public class xtGraphics extends Panel implements Runnable {
 		if (testdrive != 1 && testdrive != 2) {
 			if (gmode != 0) {
 				cfase = 0;
-				sc[0] = scm[gmode - 1];
+				sc[0] = scm;
 			}
 			if (gmode == 0)
 				sc[0] = osc;
