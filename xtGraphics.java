@@ -3064,11 +3064,11 @@ public class xtGraphics extends Panel implements Runnable {
 				ftm = rd.getFontMetrics();
 				if (aflk)
 					drawcs(200 + pin, new StringBuilder().append("Stage ")
-							.append(checkpoints.stage + 1 - (gmode - 1) * 10).append(" is now unlocked!").toString(),
+							.append(checkpoints.stage + 1).append(" is now unlocked!").toString(),
 							196, 176, 0, 3);
 				else
 					drawcs(200 + pin, new StringBuilder().append("Stage ")
-							.append(checkpoints.stage + 1 - (gmode - 1) * 10).append(" is now unlocked!").toString(),
+							.append(checkpoints.stage + 1).append(" is now unlocked!").toString(),
 							255, 247, 165, 3);
 				if (i_144_ != 0) {
 					if (aflk)
