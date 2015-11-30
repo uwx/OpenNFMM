@@ -3114,7 +3114,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					u[0].radar = true;
 			if (e.getKeyCode() == KeyEvent.VK_V) {
 				view++;
-				if (view == 8)
+				if (view == 3)
 					view = 0;
 			}
 		}
