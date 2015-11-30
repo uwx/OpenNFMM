@@ -833,7 +833,7 @@ public class xtGraphics extends Panel implements Runnable {
 				} else
 					cfase = 9;
 		}*/
-		if ((multion != 0 || testdrive == 1 || testdrive == 2) && lsc != sc[0]) {
+		if (/*(multion != 0 || testdrive == 1 || testdrive == 2) && */lsc != sc[0]) {
 			if (contos[sc[0]].xy != 0)
 				contos[sc[0]].xy = 0;
 			boolean bool_107_ = false;
@@ -1693,7 +1693,7 @@ public class xtGraphics extends Panel implements Runnable {
 					rd.drawImage(statbo, 536, 337, null);
 					rd.drawImage(statbo, 536, 352, null);
 					rd.drawImage(statbo, 536, 367, null);
-					if (multion != 0 || testdrive == 1 || testdrive == 2) {
+					{
 						rd.setFont(new Font("Arial", 1, 13));
 						ftm = rd.getFontMetrics();
 						String string = "Class C";
@@ -2138,6 +2138,44 @@ public class xtGraphics extends Panel implements Runnable {
 					conto.p[i_133_].oc[2] = conto.scol[2];
 				}
 			}
+	}
+	
+	public void colorCarSP(final ContO conto, final int i) {
+		if (i == 0) //player
+			for (int i_132_ = 0; i_132_ < conto.npl; i_132_++) {
+				if (conto.p[i_132_].colnum == 1) {
+					final Color color = Color.getHSBColor(arnp[0], arnp[1], 1.0F - arnp[2]);
+					conto.p[i_132_].oc[0] = color.getRed();
+					conto.p[i_132_].oc[1] = color.getGreen();
+					conto.p[i_132_].oc[2] = color.getBlue();
+				}
+				if (conto.p[i_132_].colnum == 2) {
+					final Color color = Color.getHSBColor(arnp[3], arnp[4], 1.0F - arnp[5]);
+					conto.p[i_132_].oc[0] = color.getRed();
+					conto.p[i_132_].oc[1] = color.getGreen();
+					conto.p[i_132_].oc[2] = color.getBlue();
+				}
+			}
+		else {//bot
+			final int colr = (int) Math.round(Math.random() * 255);
+			final int colg = (int) Math.round(Math.random() * 255);
+			final int colb = (int) Math.round(Math.random() * 255);
+			final int scolr = (int) Math.round(Math.random() * 255);
+			final int scolg = (int) Math.round(Math.random() * 255);
+			final int scolb = (int) Math.round(Math.random() * 255);
+			for (int i_133_ = 0; i_133_ < conto.npl; i_133_++) {
+				if (conto.p[i_133_].colnum == 1) {
+					conto.p[i_133_].oc[0] = colr;
+					conto.p[i_133_].oc[1] = colg;
+					conto.p[i_133_].oc[2] = colb;
+				}
+				if (conto.p[i_133_].colnum == 2) {
+					conto.p[i_133_].oc[0] = scolr;
+					conto.p[i_133_].oc[1] = scolg;
+					conto.p[i_133_].oc[2] = scolb;
+				}
+			}
+		}
 	}
 
 	protected Color colorSnap(final int r, final int g, final int b) {

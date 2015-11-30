@@ -799,6 +799,8 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			for (int i_145_ = 0; i_145_ < var_xtGraphics.nplayers; i_145_++) {
 				if (var_xtGraphics.fase == 22)
 					var_xtGraphics.colorCar(contos_108_[var_xtGraphics.sc[i_145_]], i_145_);
+				else
+					var_xtGraphics.colorCarSP(contos_108_[var_xtGraphics.sc[i_145_]], i_145_);
 				contos[i_145_] = new ContO(contos_108_[var_xtGraphics.sc[i_145_]], var_xtGraphics.xstart[i_145_],
 						250 - contos_108_[var_xtGraphics.sc[i_145_]].grat, var_xtGraphics.zstart[i_145_], 0);
 				mads[i_145_].reseto(var_xtGraphics.sc[i_145_], contos[i_145_], checkpoints);
