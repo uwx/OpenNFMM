@@ -2814,7 +2814,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					if (var_xtGraphics.winner && var_xtGraphics.multion == 0 && var_xtGraphics.gmode != 0
 							&& checkpoints.stage != xtGraphics.nTracks
 							&& checkpoints.stage == var_xtGraphics.unlocked
-									+ (var_xtGraphics.gmode - 1) * 10) {
+									) {
 						var_xtGraphics.unlocked++;
 						setcarcookie(var_xtGraphics.sc[0], cardefine.names[var_xtGraphics.sc[0]],
 								var_xtGraphics.arnp, var_xtGraphics.gmode, var_xtGraphics.unlocked, false);
