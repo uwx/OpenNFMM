@@ -384,7 +384,7 @@ public class Record {
 			lastcheck[299] = conto.m.lastcheck;
 		}
 		for (int i_25_ = 0; i_25_ < 20; i_25_++) {
-			if (conto.stg[i_25_] == 1) {
+			if (conto.stg != null && conto.stg[i_25_] == 1) {
 				sspark[i][i_25_][ns[i][i_25_]] = 300;
 				sx[i][i_25_][ns[i][i_25_]] = conto.sx[i_25_];
 				sy[i][i_25_][ns[i][i_25_]] = conto.sy[i_25_];
