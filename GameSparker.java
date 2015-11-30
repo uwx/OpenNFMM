@@ -371,6 +371,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	/**
 	 * List of car .rad files.<br/>
 	 * <strong>ALL CAR MODELS IN THE ZIP FILE SHOULD BE PUT HERE OR THINGS WILL GO WRONG!</strong><br/>
+	 * (Additional info: when a .rad file is found and it has no index here or in stageRads it will be assigned to index 0 - Tornado Shark)<br/>
 	 */
 	final String[] carRads = { "2000tornados", "formula7", "canyenaro", "lescrab", "nimi", "maxrevenge",
 			"leadoxide", "koolkat", "drifter", "policecops", "mustang", "king", "audir8", "masheen", "radicalone",
@@ -378,6 +379,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	/**
 	 * List of track part .rad files.<br/>
 	 * <strong>ALL NON-CAR MODELS IN THE ZIP FILE SHOULD BE PUT HERE OR THINGS WILL GO WRONG!</strong><br/>
+	 * (Additional info: when a .rad file is found and it has no index here or in carRads it will be assigned to index 0 - Tornado Shark)<br/>
 	 */
 	final String[] stageRads = { "road", "froad", "twister2", "twister1", "turn", "offroad", "bumproad",
 			"offturn", "nroad", "nturn", "roblend", "noblend", "rnblend", "roadend", "offroadend", "hpground",
