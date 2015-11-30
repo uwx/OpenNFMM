@@ -1576,7 +1576,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	private CarDefine cardefine;
 	private Login login = null;
 	private Lobby lobby = null;
-	private Globe globe = null;
+	//private Globe globe = null;
 	private UDPMistro udpmistro = new UDPMistro();
 	private boolean bool = false;
 	Record record;
@@ -1936,9 +1936,9 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					}
 					System.gc();
 					login = new Login(medium, rd, var_xtGraphics, this);
-					globe = new Globe(rd, var_xtGraphics, medium, login, cardefine, checkpoints, contos, contos_0_,
-							this);
-					lobby = new Lobby(medium, rd, login, globe, var_xtGraphics, cardefine, this);
+					//globe = new Globe(rd, var_xtGraphics, medium, login, cardefine, checkpoints, contos, contos_0_,
+					//		this);
+					lobby = new Lobby(medium, rd, login, var_xtGraphics, cardefine, this);
 					bool = true;
 				}
 				if (login.fase != 18) {
@@ -1948,15 +1948,15 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					if (login.fase >= 1 && login.fase <= 11)
 						login.multistart(contos, xm, ym, moused);
 					if (login.fase >= 12 && login.fase <= 17) {
-						if (globe.open != 452)
+						//if (globe.open != 452)
 							login.multimode(contos);
-						else
-							bool_20_ = true;
-						globe.dome(0, xm, ym, moused, u[0]);
+						//else
+						//	bool_20_ = true;
+						//globe.dome(0, xm, ym, moused, u[0]);
 					}
 					if (login.justlog) {
-						if (!var_xtGraphics.clan.equals(""))
-							globe.itab = 2;
+						//if (!var_xtGraphics.clan.equals(""))
+						//	globe.itab = 2;
 						login.justlog = false;
 					}
 					if (!bool_20_) {
@@ -1985,13 +1985,13 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 						mvect = 100;
 					}
 					if (lobby.fase == 1) {
-						if (globe.open >= 2 && globe.open < 452)
+						/*if (globe.open >= 2 && globe.open < 452)
 							openm = true;
-						if (globe.open != 452)
+						if (globe.open != 452)*/
 							lobby.lobby(xm, ym, moused, mousew, checkpoints, u[0], contos);
-						else
+						/*else
 							bool_21_ = true;
-						globe.dome(lobby.conon, xm, ym, moused, u[0]);
+						globe.dome(lobby.conon, xm, ym, moused, u[0]);*/
 						if (lobby.loadstage > 0) {
 							setCursor(new Cursor(3));
 							drawms();
@@ -2118,13 +2118,17 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 						var_xtGraphics.fase = 21;
 						u[0].multion = var_xtGraphics.multion;
 					}
-					if (globe.loadwbgames == 7) {
+					/*if (globe.loadwbgames == 7) {
 						//repaint();
 						globe.redogame();
-					}
+					}*/
 					if (!openm) {
 						if (!bool_21_)
 							lobby.ctachm(xm, ym, mouses, u[0]);
+						/*if (mouses == 2)
+							mouses = 0;
+						if (mouses == 1)
+							mouses = 2;*/
 					} else
 						mouses = 0;
 					drawms();
@@ -2132,13 +2136,13 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 						lobby.preforma(xm, ym);
 					if (lobby.loadwarb) {
 						//repaint();
-						globe.loadwarb();
+						//globe.loadwarb();
 						lobby.loadwarb = false;
 					}
-					if (globe.loadwbgames == 1) {
+					/*if (globe.loadwbgames == 1) {
 						//repaint();
 						globe.loadwgames();
-					}
+					}*/
 					if (mouses == 1)
 						mouses = 11;
 					if (mouses <= -1) {
@@ -2160,7 +2164,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				login.endcons();
 				login = null;
 				lobby = null;
-				globe = null;
+				//globe = null;
 				bool = false;
 				System.gc();
 				System.runFinalization();
@@ -2177,10 +2181,10 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					var_xtGraphics.playingame = -101;
 				login.stopallnow();
 				lobby.stopallnow();
-				globe.stopallnow();
+				//globe.stopallnow();
 				login = null;
 				lobby = null;
-				globe = null;
+				//globe = null;
 				hidefields();
 				bool = false;
 				System.gc();
@@ -2202,7 +2206,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				login.endcons();
 				login = null;
 				lobby = null;
-				globe = null;
+				//globe = null;
 				bool = false;
 				System.gc();
 				System.runFinalization();
@@ -2922,7 +2926,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				if (bool) {
 					lobby.stopallnow();
 					login.stopallnow();
-					globe.stopallnow();
+					//globe.stopallnow();
 				}
 				System.gc();
 				if (Madness.endadv == 2)
