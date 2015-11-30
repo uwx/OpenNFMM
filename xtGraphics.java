@@ -760,10 +760,10 @@ public class xtGraphics extends Panel implements Runnable {
 		rd.fillRect(65, 0, 670, 25);
 		rd.fillRect(65, 425, 670, 25);
 		if (flatrstart == 6) {
-			if (multion != 0 || testdrive == 1 || testdrive == 2)
-				rd.drawImage(carsbgc, 65, 25, null);
-			else
-				rd.drawImage(carsbg, 65, 25, null);
+			//if (multion != 0 || testdrive == 1 || testdrive == 2)
+			rd.drawImage(carsbgc, 65, 25, null);
+			//else
+			//	rd.drawImage(carsbg, 65, 25, null);
 		} else if (flatrstart <= 1)
 			drawSmokeCarsbg();
 		else {
