@@ -2,6 +2,7 @@
 /* Plane - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -53,10 +54,27 @@ public class Plane {
 	int wy = 0;
 	int wz = 0;
 
+    boolean customstroke;
+    int strokewidth;
+    int strokecap;
+    int strokejoin;
+    int strokemtlimit;
+    boolean randomcolor;
+    boolean randoutline;
+
 	public Plane(final Medium medium, final Trackers trackers, final int[] is, final int[] is_0_, final int[] is_1_,
 			final int i, final int[] is_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_,
 			final int i_7_, final int i_8_, final int i_9_, final int i_10_, final boolean bool, final int i_11_,
-			final boolean bool_12_) {
+			final boolean bool_12_, boolean randomcolor, boolean randoutline,
+			boolean customstroke, int strokewidth, int strokecap, int strokejoin, int strokemtlimit) {
+    	this.randoutline = randoutline;
+    	this.randomcolor = randomcolor;
+    	//stroke
+        this.customstroke = customstroke;
+        this.strokewidth = strokewidth;
+        this.strokecap = strokecap;
+        this.strokejoin = strokejoin;
+        this.strokemtlimit = strokemtlimit;
 		m = medium;
 		t = trackers;
 		n = i;
@@ -694,6 +712,11 @@ public class Plane {
 			int i_114_ = color.getRed();
 			int i_115_ = color.getGreen();
 			int i_116_ = color.getBlue();
+			if (randomcolor) { //before the dim
+				i_114_ = (int)(Math.random()*255);
+				i_115_ = (int)(Math.random()*255);
+				i_116_ = (int)(Math.random()*255);
+			}
 			if (m.lightson && (light != 0 || (gr == -11 || gr == -12) && i_36_ == -1)) {
 				i_114_ = oc[0];
 				if (i_114_ > 255)
@@ -728,6 +751,11 @@ public class Plane {
 						i_114_ = 0;
 						i_115_ = 0;
 						i_116_ = 0;
+						if (randoutline) {
+							i_114_ = (int)(Math.random()*255);
+							i_115_ = (int)(Math.random()*255);
+							i_116_ = (int)(Math.random()*255);
+ 						}
 						if (m.lightson && light != 0) {
 							i_114_ = oc[0] / 2;
 							if (i_114_ > 255)
@@ -749,7 +777,11 @@ public class Plane {
 							graphics2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 									RenderingHints.VALUE_ANTIALIAS_ON);
 						graphics2d.setColor(new Color(i_114_, i_115_, i_116_));
-						graphics2d.drawPolygon(is_85_, is_86_, n);
+						if (customstroke)
+			            	graphics2d.setStroke(new BasicStroke(strokewidth, strokecap, strokejoin,  strokemtlimit));
+			            graphics2d.drawPolygon(is_85_, is_86_, n);
+			            if (customstroke) //this is important or else it will glitch chronometer and maybe radar
+		            		graphics2d.setStroke(new BasicStroke());
 						if (Madness.anti == 1)
 							graphics2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 									RenderingHints.VALUE_ANTIALIAS_OFF);
