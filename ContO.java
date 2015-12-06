@@ -3,6 +3,7 @@
  * Visit http://jode.sourceforge.net/
  */
 import java.awt.AlphaComposite;
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.io.ByteArrayInputStream;
@@ -155,6 +156,17 @@ public class ContO {
 		int i_14_ = 0;
 		boolean bool_15_ = false;
 		boolean bool_16_ = false;
+
+
+		boolean randomcolor = false;
+        boolean randoutline = false;
+
+        boolean customstroke = false;
+        int strokewidth = 1;
+        int strokecap = BasicStroke.CAP_BUTT;
+        int strokejoin = BasicStroke.JOIN_MITER;
+        int strokemtlimit = 10;
+
 		try {
 			final DataInputStream datainputstream = new DataInputStream(new ByteArrayInputStream(is));
 			String string_17_;
@@ -170,6 +182,14 @@ public class ContO {
 						is_0_[npl] = 1;
 						if (!bool_16_)
 							bool_15_ = false;
+
+						randomcolor = false;
+						randoutline = false;
+				        customstroke = false;
+				        strokewidth = 1;
+				        strokecap = BasicStroke.CAP_BUTT;
+				        strokejoin = BasicStroke.JOIN_MITER;
+				        strokemtlimit = 10;
 					}
 					if (bool) {
 						if (string.startsWith("gr("))
@@ -196,6 +216,32 @@ public class ContO {
 							i_13_ = 2;
 						if (string.startsWith("noOutline"))
 							bool_15_ = true;
+						if(string.startsWith("random()") || string.startsWith("rainbow()"))
+							randomcolor = true;
+	                    if(string.startsWith("randoutline()"))
+							randoutline = true;
+		                if(string.startsWith("customOutline"))
+		                	customstroke = true;
+		                if(string.startsWith("$outlineW("))
+		                	strokewidth = getvalue("$outlineW", string, 0);
+		                if(string.startsWith("$outlineCap(")) {
+			                if(string.startsWith("$outlineCap(butt)"))
+			                	strokecap = BasicStroke.CAP_BUTT;
+			                if(string.startsWith("$outlineCap(round)"))
+			                	strokecap = BasicStroke.CAP_ROUND;
+			                if(string.startsWith("$outlineCap(square)"))
+			                	strokecap = BasicStroke.CAP_SQUARE;
+		                }
+		                if(string.startsWith("$outlineJoin(")) {
+			                if(string.startsWith("$outlineJoin(bevel)"))
+			                	strokejoin = BasicStroke.JOIN_BEVEL;
+			                if(string.startsWith("$outlineJoin(miter)"))
+			                	strokejoin = BasicStroke.JOIN_MITER;
+			                if(string.startsWith("$outlineJoin(round)"))
+			                	strokejoin = BasicStroke.JOIN_ROUND;
+		                }
+		                if(string.startsWith("$outlineMtlimit("))
+		                	strokemtlimit = getvalue("$outlineMtlimit", string, 0);
 						if (string.startsWith("p(")) {
 							is_3_[i] = (int) (getvalue("p", string, 0) * f * f_2_ * fs[0]);
 							is_4_[i] = (int) (getvalue("p", string, 1) * f * fs[1]);
@@ -209,7 +255,7 @@ public class ContO {
 					}
 					if (string.startsWith("</p>")) {
 						p[npl] = new Plane(m, t, is_3_, is_5_, is_4_, i, is_6_, i_14_, i_10_, i_11_, 0, 0, 0, disline,
-								0, bool_7_, i_13_, bool_15_);
+								0, bool_7_, i_13_, bool_15_, randomcolor, randoutline, customstroke, strokewidth, strokecap, strokejoin, strokemtlimit);
 						if (is_6_[0] == fcol[0] && is_6_[1] == fcol[1] && is_6_[2] == fcol[2] && i_14_ == 0)
 							p[npl].colnum = 1;
 						if (is_6_[0] == scol[0] && is_6_[1] == scol[1] && is_6_[2] == scol[2] && i_14_ == 0)
@@ -804,7 +850,7 @@ public class ContO {
 					conto_78_.p[i_82_].n, conto_78_.p[i_82_].oc, conto_78_.p[i_82_].glass, conto_78_.p[i_82_].gr,
 					conto_78_.p[i_82_].fs, conto_78_.p[i_82_].wx, conto_78_.p[i_82_].wy, conto_78_.p[i_82_].wz,
 					conto_78_.disline, conto_78_.p[i_82_].bfase, conto_78_.p[i_82_].road, conto_78_.p[i_82_].light,
-					conto_78_.p[i_82_].solo);
+					conto_78_.p[i_82_].solo, conto_78_.p[i_82_].randomcolor, conto_78_.p[i_82_].randoutline, conto_78_.p[i_82_].customstroke, conto_78_.p[i_82_].strokewidth, conto_78_.p[i_82_].strokecap, conto_78_.p[i_82_].strokejoin, conto_78_.p[i_82_].strokemtlimit);
 		}
 		x = i;
 		y = i_79_;
@@ -1042,7 +1088,7 @@ public class ContO {
 				else
 					is_106_[i_115_] = (int) ((m.cpol[i_115_] + m.cgrnd[i_115_]) / (2.2F + f_100_ - f_108_));
 			p[i_109_] = new Plane(m, t, is_112_, is_114_, is_113_, 6, is_106_, 3, -8, 0, 0, 0, 0, disline, 0, true, 0,
-					false);
+					false, false, false, false, 1, 0, 0, 10);
 		}
 		f_100_ = (float) (0.02 * random.nextDouble());
 		for (int i_116_ = 0; i_116_ < 3; i_116_++)
@@ -1050,7 +1096,7 @@ public class ContO {
 				is_106_[i_116_] = (int) (390.0F / (2.15F + f_100_));
 			else
 				is_106_[i_116_] = (int) ((m.cpol[i_116_] + m.cgrnd[i_116_]) / (2.15F + f_100_));
-		p[4] = new Plane(m, t, is_96_, is_97_, is_98_, 8, is_106_, 3, -8, 0, 0, 0, 0, disline, 0, true, 0, false);
+		p[4] = new Plane(m, t, is_96_, is_97_, is_98_, 8, is_106_, 3, -8, 0, 0, 0, 0, disline, 0, true, 0, false, false, false, false, 1, 0, 0, 10);
 		final int[] is_117_ = new int[2];
 		final int[] is_118_ = new int[2];
 		for (int i_119_ = 0; i_119_ < 4; i_119_++) {
