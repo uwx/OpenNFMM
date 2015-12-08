@@ -188,7 +188,7 @@ public class Madness extends Panel {
 		if (updateon == 0 || updateon == 3) {
 			if (endadv == 1)
 				endadv = 2;
-			if (updateon != 3)
+			//if (updateon != 3)
 				/*try {
 					applet.stop();
 				} catch (final Exception ex) {
