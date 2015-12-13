@@ -1596,7 +1596,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	public void initialize() {
 		rd.setColor(new Color(0, 0, 0));
 		rd.fillRect(0, 0, 800, 450);
-		repaint();
+		//repaint();
 		requestFocus();
 		if (System.getProperty("java.vendor").toLowerCase().indexOf("apple") != -1)
 			applejava = true;
