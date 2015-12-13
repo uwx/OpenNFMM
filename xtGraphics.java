@@ -5574,7 +5574,7 @@ public class xtGraphics extends Panel implements Runnable {
 			fase = 10;
 		}
 		if (shaded) {
-			app.repaint();
+			//app.repaint();
 			try {
 				Thread.sleep(200L);
 			} catch (final InterruptedException interruptedexception) {

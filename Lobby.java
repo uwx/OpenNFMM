@@ -442,7 +442,7 @@ public class Lobby implements Runnable {
 												if (loadstage < 0) {
 													rd.setColor(new Color(0, 0, 0));
 													rd.fillRect(0, 0, 670, 400);
-													gs.repaint();
+													//gs.repaint();
 													gs.rooms.setVisible(false);
 													gs.cmsg.setVisible(false);
 													//gs.sgame.setVisible(false);
