@@ -1,0 +1,10 @@
+language: java
+
+jdk:
+  - oraclejdk8
+  - oraclejdk7
+  - openjdk6
+  
+script:
+  - javac -classpath "libraries/dragshotMod.jar:libraries/easyogg.jar:libraries/jl1.0.1.jar:libraries/jogg-0.0.7.jar:libraries/jorbis-0.0.15.jar" *.java -Xlint:deprecation
+  - java -classpath "./" RunApp
