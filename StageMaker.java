@@ -43,14 +43,20 @@ public class StageMaker extends Applet implements Runnable {
     CheckPoints cp = new CheckPoints();
     Trackers t = new Trackers();
     //////////////// ------------ REMEMBER NEW PARTS ARE ALWAYS -10 INDEXES SINCE YOU CAN'T SELECT CARS IN THE STAGEMAKER
-    //////////////// ------------ REMEMBER ALL PARTS INDEX 55 AND UP ARE CUSTOM PARTS
+    //////////////// ------------ REMEMBER ALL PARTS INDEX 67 AND UP ARE CUSTOM PARTS
     //////////////// ------------ IF THEY'RE NOT IN THE TREES MENU THEY SHOULD BE COMMENTED OUT
     /**
      *
      */
     private static final long serialVersionUID = 2444709970063151411L;
-    private final int maxpart = 65; //originally 65 ------ INCREMENT THIS WHEN YOU WANT A NEW PART
-    private final int bumppart = maxpart + 1; // bumps aren't even in the version this is just to avoid crashes
+    /**
+     * originally 65 ------ INCREMENT THIS WHEN YOU WANT A NEW PART
+     */
+    private final int maxpart = 65;
+    /**
+     * just here to avoid crashes
+     */
+    private final int bumppart = maxpart + 1;
 
     private final static byte PART_ROADS = 0;
     private final static byte PART_RAMPS = 1;
@@ -61,7 +67,10 @@ public class StageMaker extends Applet implements Runnable {
     private final static byte PART_BUMP = 6;
     private final static byte PART_CUSTOM = 7;
 
-    boolean floats = false; // set to false for regular nfmm, set to true for skyline
+    /**
+     * leave at false unless you really know what you're doing!!!
+     */
+    boolean floats = false;
 
     /*if (sptyp == 0) // PART ROADS
     	partroads();
@@ -86,9 +95,11 @@ public class StageMaker extends Applet implements Runnable {
     			"halfpipe", "spikes", "rail", "thewall", "checkpoint", "fixpoint", "offcheckpoint",
      * */
 
-    // ------------------ ATTACH POINTS
-    // ------------------ INCREMENT THIS THING WHEN YOU WANT A NEW PART
-    // Attach points are: x1, z1, x2, z2
+    /**
+     * ----------------- ATTACH POINTS <br/>
+     * ------------------ INCREMENT THIS WHEN YOU WANT A NEW PART<br/>
+     * Attach points are: x1, z1, x2, z2<br/>
+     */
     int[][] atp = { { 0, 2800, 0, -2800 }, { 0, 2800, 0, -2800 }, { 1520, 2830, -1520, -2830 },
             { -1520, 2830, 1520, -2830 }, { 0, -1750, 1750, 0 }, { 0, 2800, 0, -2800 }, { 0, 2800, 0, -2800 },
             { 0, -1750, 1750, 0 }, { 0, 2800, 0, -2800 }, { 0, -1750, 1750, 0 }, { 0, 2800, 0, -2800 },
@@ -131,8 +142,10 @@ public class StageMaker extends Applet implements Runnable {
             170, 220, 255
     };
 
-    // ------------------ PART DESCRIPTIONS, INCREMENT WHEN YOU WANT A NEW PART
-    // ------------------ OR IT WILL CRASH WHEN YOU READ PART DESCRIPTION
+    /**
+     * ------------------ PART DESCRIPTIONS, INCREMENT WHEN YOU WANT A NEW PART<br/>
+     * ------------------ OR THE GAME WILL CRASH WHEN YOU READ THEM
+     */
     private final String[] discp = {
             "NormalRoad :  Basic asphalt road.\nAttaches correctly to the following other parts :\n\n'NormalRoad Turn',  'NormalRoad End',  'NormalRoad TwistedLeft',  'NormalRoad TwistedRight',  'NormalRoad Edged',\n'NormalRoad-Raised Ramp',  'Normal-Off-Road Blend'  and  'Halfpipe-Normal-Road Blend'\n\n",
             "NormalRoad Edged :  Asphalt road with edged side blocks (a destructive road).\nAttaches correctly to the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad TwistedLeft',  'NormalRoad TwistedRight',\n'NormalRoad-Raised Ramp',  'Normal-Off-Road Blend'  and  'Halfpipe-Normal-Road Blend'\n\n",
@@ -699,8 +712,7 @@ public class StageMaker extends Applet implements Runnable {
             selectedMenuPart = 11;
         }
 
-        // ------------------ INCREMENT HERE FOR NEW PARTS
-        // -----------------------------NO NEED TO INCREMENT ANYMORE I FIXED IT
+        // ------------------ NEW PARTS
 
         if (selectedPart > 66) {
             selectedPartType = 7;
@@ -1312,11 +1324,13 @@ public class StageMaker extends Applet implements Runnable {
 		part.add(rd, "Cactus 3");
     }
 
+    /**
+     * ------------------ ADD NEW PARTS HERE<br/>
+     * ------------------ THE NAMES IN QUOTES ARE THE NAMES THAT ARE DISPLAYED
+     */
     public void partcustom() {
         part.removeAll();
         part.add(rd, "--- CUSTOM PARTS ---");
-        // ------------------ ADD NEW PARTS HERE
-        // ------------------ THE NAME IN QUOTES IS THE NAME THAT APPEARS
     }
 
 
