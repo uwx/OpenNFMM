@@ -49,7 +49,7 @@ public class StageMaker extends Applet implements Runnable {
      *
      */
     private static final long serialVersionUID = 2444709970063151411L;
-    private final int maxpart = 65; //originally 65 ------ INCREMENT THIS WHEN YOU WANT A NEW PART
+    private final int maxpart = 66; //originally 65 ------ INCREMENT THIS WHEN YOU WANT A NEW PART
     private final int bumppart = maxpart + 1; // bumps aren't even in the version this is just to avoid crashes
 
     private final static byte PART_ROADS = 0;
@@ -101,7 +101,8 @@ public class StageMaker extends Applet implements Runnable {
             { 0, 0, 0, 0 }, { 0, -2198, 0, 1482 }, { 0, -1319, 0, 1391 }, { 0, -1894, 0, 2271 }, { 0, -826, 0, 839 },
             { 0, -1400, 0, 1400 }, { 0, -1400, 0, 1400 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 },
             { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 },
-            { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } };
+            { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 },
+            { 0, 0, 0, 0 }};
     private int avon = 0;
     private final ContO[] bco = new ContO[maxpart + 5];
     private String bstage = "\r\nmaxr(11,28500,-5600)\r\nmaxb(9,-8000,-12300)\r\nmaxl(11,-14700,-5600)\r\nmaxt(9,44800,-12300)\r\n";
@@ -1025,7 +1026,7 @@ public class StageMaker extends Applet implements Runnable {
                 "bsideoff", "uprise", "riseroad", "sroad", "soffroad", "tside", "launchpad", "thenet", "speedramp",
                 "offhill", "slider", "uphill", "roll1", "roll2", "roll3", "roll4", "roll5", "roll6", "opile1", "opile2",
                 "aircheckpoint", "tree1", "tree2", "tree3", "tree4", "tree5", "tree6", "tree7", "tree8", "cac1", "cac2",
-                "cac3"//, "housetest"
+                "cac3", "house0"
         };
         try {
             final File file = new File("data/models.zip");
@@ -1303,6 +1304,7 @@ public class StageMaker extends Applet implements Runnable {
 		part.add(rd, "Cactus 1");
 		part.add(rd, "Cactus 2");
 		part.add(rd, "Cactus 3");
+        part.add(rd, "Part Test");
         // ------------------ INCREMENT HERE FOR NEW PARTS
         // ------------------ THE NAME IN QUOTES IS THE NAME THAT APPEARS
     }
