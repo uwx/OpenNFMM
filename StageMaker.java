@@ -83,20 +83,6 @@ public class StageMaker extends Applet implements Runnable {
     			"nroad", "nturn", "roblend", "noblend", "rnblend", "roadend", "offroadend", "hpground", "ramp30",
     			"cramp35", "dramp15", "dhilo15", "slide10", "takeoff", "sramp22", "offbump", "offramp", "sofframp",
     			"halfpipe", "spikes", "rail", "thewall", "checkpoint", "fixpoint", "offcheckpoint",
-     *
-     *
-     *
-     *
-     * "tjunction", "xjunction", "highwaystraight", "highwayturn", "drawbridge",
-                "tollbooth1", "tollbooth2", "highwayescape", "carrierjump", "dockstraight", "dockjump1", "dockjump2", "dockinside", "dockoutside",
-                "canyonstraight", "canyonroadend1", "canyonbridge", "canyonedgeinside", "canyonedgeoutside", "canyontop", "canyoncheckpt",
-                "canyonntrance1", "tunnelstraight", "tunnelturn", "buildingstraight", "buildingoverpass", "supeshop", "turbo", "understraight",
-                "underturn", "underntrance", "subwaystraight", "subwaytrain", "subwayturn", "substation", "subarea2", "subarea3", "subentrance",
-                "subarea1", "subtrain", "subtrain2", "house0", "house1", "house2", "condo1", "condo2", "skyscraper1", "skyscraper2", "skyscraper3",
-                "warehouse1", "citywall1", "chainfence", "desertwall", "desertwallturn","waterroute", "sewerjump", "tree", "streetlamp", "hatchback",
-                "sedan", "sports", "coupe", "super", "dapigs", "rdblkpigs", "supapigs", "Rdblkgate1", "rdblkbarrier1", "spikestrip", "suspensionbridge", "roofjump",
-                "urbanramp", "urbanstraight", "urbanX", "canyonroadend2", "large dumpstaa", "urbanT", "urbanTurn", "urbanEnd", "tunnelramp", "grandstand", "canyonntrance2",
-                "rocktotunnel", "dirtWaterX", "docksTurban"
      * */
 
     // ------------------ ATTACH POINTS
@@ -179,7 +165,7 @@ public class StageMaker extends Applet implements Runnable {
             "Checkpoint :  The checkpoint part that ultimately decides how you stage is raced, place carefully with thought.\n(Any stage must have at least two checkpoints to work).\nMounts correctly over the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft',\n'NormalRoad TwistedRight',  'OffRoad',  'OffRoad Turn',  'OffRoad End',  'OffRoad BumpyGreen',\n'OffRoad-BumpySides Start',  'OffRoad-BumpySides',  'Rollercoaster Start/End'  and  'Rollercoaster Road 2,3,4 and 5'\n\n",
             "Fixing Hoop :  The fixing hoop that fixes a car when it flies through it! You can add a max of 5 fixing hoops per stage.\nPlace it anywhere in the stage at an height your choose, the only important thing is that it needs to be reachable by the cars.",
             "Checkpoint :  The checkpoint part that ultimately decides how you stage is raced, place carefully with thought.\n(Any stage must have at least two checkpoints to work).\nMounts correctly over the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft',\n'NormalRoad TwistedRight',  'OffRoad',  'OffRoad Turn',  'OffRoad End',  'OffRoad BumpyGreen',\n'OffRoad-BumpySides Start',  'OffRoad-BumpySides',  'Rollercoaster Start/End'  and  'Rollercoaster Road 2,3,4 and 5'\n\n",
-            /*"OffRoad BumpySides :  Off-road dirt track with bumpy sandbar sides.\nAttaches correctly to the following other parts :\n\n'OffRoad-BumpySides Start'\n\n",
+            "OffRoad BumpySides :  Off-road dirt track with bumpy sandbar sides.\nAttaches correctly to the following other parts :\n\n'OffRoad-BumpySides Start'\n\n",
             "OffRoad-BumpySides Start: The start of the off-road dirt track with bumpy sandbar sides.\nAttaches correctly to the following other parts :\n\n'OffRoad',  'OffRoad Turn',  'OffRoad End',  'OffRoad BumpyGreen',  'OffRoad-BumpySides',\n'Off-Halfpipe-Road Blend'  and  'Normal-Off-Road Blend'\n\n",
             "NormalRoad-Raised Ramp:  The start of the raised above the ground road (NormalRoad Raised).\nAttaches correctly to the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad Edged',  'NormalRoad TwistedLeft',\n'NormalRoad TwistedRight'  and  'NormalRoad Raised'\n\n",
             "NormalRoad Raised :  Normal road raised above the ground, cars must avoid falling off it when driving on it.\nAttaches correctly to the following other parts :\n\n'NormalRoad-Raised Ramp'\n\n",
@@ -210,14 +196,7 @@ public class StageMaker extends Applet implements Runnable {
             "Trees/Cactus are decorative stage parts that should be placed outside the race track on the ground and NEVER on any road part or ramp!\nTrees/Cactus are not to be used as obstacles of the race course!\nThey are to be used as out of path ground decoration only.\n\n",
             "Trees/Cactus are decorative stage parts that should be placed outside the race track on the ground and NEVER on any road part or ramp!\nTrees/Cactus are not to be used as obstacles of the race course!\nThey are to be used as out of path ground decoration only.\n\n",
             "Trees/Cactus are decorative stage parts that should be placed outside the race track on the ground and NEVER on any road part or ramp!\nTrees/Cactus are not to be used as obstacles of the race course!\nThey are to be used as out of path ground decoration only.\n\n",
-            "Trees/Cactus are decorative stage parts that should be placed outside the race track on the ground and NEVER on any road part or ramp!\nTrees/Cactus are not to be used as obstacles of the race course!\nThey are to be used as out of path ground decoration only.\n\n",*/
-            "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A",
-            "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A",
-            "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A",
-            "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A",
-            "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A",
-            "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A",
-            "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A", "INFO N/A",
+            "Trees/Cactus are decorative stage parts that should be placed outside the race track on the ground and NEVER on any road part or ramp!\nTrees/Cactus are not to be used as obstacles of the race course!\nThey are to be used as out of path ground decoration only.\n\n",
 
             "Ground Piles are to be paced outside the race track on the ground and NEVER on any road part or ramp!\nThey are to be used as ground decoration and out of race course obstacles (ground obstacles)!\n\n"
     };
@@ -1447,7 +1426,7 @@ public class StageMaker extends Applet implements Runnable {
         ptyp.add(rd, "Obstacles");
         ptyp.add(rd, "Checkpoint");
         ptyp.add(rd, "Fixing Hoop");
-        ptyp.add(rd, "Skyline");
+        ptyp.add(rd, "Trees");
         ptyp.add(rd, "Ground Pile");
         ptyp.setBackground(new Color(63, 80, 110));
         ptyp.setForeground(new Color(209, 217, 230));
