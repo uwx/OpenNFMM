@@ -49,7 +49,7 @@ public class StageMaker extends Applet implements Runnable {
      *
      */
     private static final long serialVersionUID = 2444709970063151411L;
-    private final int maxpart = 118; //originally 65 ------ INCREMENT THIS FUCKING THING WHEN YOU WANT A NEW FUCKING PART
+    private final int maxpart = 65; //originally 65 ------ INCREMENT THIS FUCKING THING WHEN YOU WANT A NEW FUCKING PART
     private final int bumppart = maxpart + 1; // bumps aren't even in the version this is just to avoid crashes
 
     private final static byte PART_ROADS = 0;
@@ -2045,13 +2045,13 @@ public class StageMaker extends Applet implements Runnable {
                     if (i_201_ >= 10 && i_201_ <= 25)
                         m.loadnew = true;
                     i_201_ -= 10;
-                    co[nob] = new ContO(bco[i_201_], getint("set", string_186_, 1), getint("set", string_186_, 3),
-                            getint("set", string_186_, 2), getint("set", string_186_, 4));
-                    co[nob].roofat = getint("set", string_186_, 4);
+                    co[nob] = new ContO(bco[i_201_], getint("set", string_186_, 1), m.ground - bco[i_201_].grat,
+                            getint("set", string_186_, 2), getint("set", string_186_, 3));
+                    co[nob].roofat = getint("set", string_186_, 3);
                     co[nob].colok = i_201_;
                     if (string_186_.indexOf(")p") != -1) {
-                        cp.x[cp.n] = getint("set", string_186_, 1);
-                        cp.z[cp.n] = getint("set", string_186_, 2);
+                        cp.x[cp.n] = getint("chk", string_186_, 1);
+                        cp.z[cp.n] = getint("chk", string_186_, 2);
                         cp.y[cp.n] = 0;
                         cp.typ[cp.n] = 0;
                         if (string_186_.indexOf(")pt") != -1)
@@ -2085,16 +2085,16 @@ public class StageMaker extends Applet implements Runnable {
                 if (string_186_.startsWith("chk")) {
                     int i_204_ = getint("chk", string_186_, 0);
                     i_204_ -= 10;
-                    //int i_205_ = m.ground - bco[i_204_].grat;
-                    //if (i_204_ == 54)
-                    //	i_205_ = getint("chk", string_186_, 4);
-                    co[nob] = new ContO(bco[i_204_], getint("chk", string_186_, 1), getint("chk", string_186_, 3),
-                            getint("set", string_186_, 2), getint("chk", string_186_, 4));
-                    co[nob].roofat = getint("chk", string_186_, 4);
+                    int i_205_ = m.ground - bco[i_204_].grat;
+                    if (i_204_ == 54)
+                        i_205_ = getint("chk", string_186_, 4);
+                    co[nob] = new ContO(bco[i_204_], getint("chk", string_186_, 1), i_205_,
+                            getint("chk", string_186_, 2), getint("chk", string_186_, 3));
+                    co[nob].roofat = getint("chk", string_186_, 3);
                     co[nob].colok = i_204_;
                     cp.x[cp.n] = getint("chk", string_186_, 1);
                     cp.z[cp.n] = getint("chk", string_186_, 2);
-                    cp.y[cp.n] = getint("chk", string_186_, 3);
+                    cp.y[cp.n] = i_205_;
                     if (getint("chk", string_186_, 3) == 0)
                         cp.typ[cp.n] = 1;
                     else
@@ -2131,7 +2131,7 @@ public class StageMaker extends Applet implements Runnable {
                     cp.fx[cp.fn] = getint("fix", string_186_, 1);
                     cp.fz[cp.fn] = getint("fix", string_186_, 2);
                     cp.fy[cp.fn] = getint("fix", string_186_, 3);
-                    //co[nob].elec = true;
+                    co[nob].elec = true;
                     if (getint("fix", string_186_, 4) != 0) {
                         cp.roted[cp.fn] = true;
                         co[nob].roted = true;
@@ -2813,7 +2813,7 @@ public class StageMaker extends Applet implements Runnable {
                 if (selectedPartType == PART_FIXHOOPS)
                     selectedPart = 31;
                 if (selectedPartType == PART_TREES) {
-                    /*if (selectedMenuPart == 0)
+                    if (selectedMenuPart == 0)
                     	selectedPart = 55;
                     if (selectedMenuPart == 1)
                     	selectedPart = 56;
@@ -2836,211 +2836,9 @@ public class StageMaker extends Applet implements Runnable {
                     if (selectedMenuPart == 10)
                     	selectedPart = 65;
                     if (selectedMenuPart == 11)
-                    	selectedPart = 66;*/
-                    if (selectedMenuPart == 0)
-                        selectedPart = 33;
-                    if (selectedMenuPart == 1)
-                        selectedPart = 34;
-                    if (selectedMenuPart == 2)
-                        selectedPart = 35;
-                    if (selectedMenuPart == 3)
-                        selectedPart = 36;
-                    if (selectedMenuPart == 4)
-                        selectedPart = 37;
-                    if (selectedMenuPart == 5)
-                        selectedPart = 38;
-                    if (selectedMenuPart == 6)
-                        selectedPart = 39;
-                    if (selectedMenuPart == 7)
-                        selectedPart = 40;
-                    if (selectedMenuPart == 8)
-                        selectedPart = 41;
-                    if (selectedMenuPart == 9)
-                        selectedPart = 42;
-                    if (selectedMenuPart == 10)
-                        selectedPart = 43;
-                    if (selectedMenuPart == 11)
-                        selectedPart = 44;
-                    if (selectedMenuPart == 12)
-                        selectedPart = 45;
-                    if (selectedMenuPart == 13)
-                        selectedPart = 46;
-                    if (selectedMenuPart == 14)
-                        selectedPart = 47;
-                    if (selectedMenuPart == 15)
-                        selectedPart = 48;
-                    if (selectedMenuPart == 16)
-                        selectedPart = 49;
-                    if (selectedMenuPart == 17)
-                        selectedPart = 50;
-                    if (selectedMenuPart == 18)
-                        selectedPart = 51;
-                    if (selectedMenuPart == 19)
-                        selectedPart = 52;
-                    if (selectedMenuPart == 20)
-                        selectedPart = 53;
-                    if (selectedMenuPart == 21)
-                        selectedPart = 54;
-                    if (selectedMenuPart == 22)
-                        selectedPart = 55;
-                    if (selectedMenuPart == 23)
-                        selectedPart = 56;
-                    if (selectedMenuPart == 24)
-                        selectedPart = 57;
-                    if (selectedMenuPart == 25)
-                        selectedPart = 58;
-                    if (selectedMenuPart == 26)
-                        selectedPart = 59;
-                    if (selectedMenuPart == 27)
-                        selectedPart = 60;
-                    if (selectedMenuPart == 28)
-                        selectedPart = 61;
-                    if (selectedMenuPart == 29)
-                        selectedPart = 62;
-                    if (selectedMenuPart == 30)
-                        selectedPart = 63;
-                    if (selectedMenuPart == 31)
-                        selectedPart = 64;
-                    if (selectedMenuPart == 32)
-                        selectedPart = 65;
-                    if (selectedMenuPart == 33)
-                        selectedPart = 66;
-                    if (selectedMenuPart == 34)
-                        selectedPart = 67;
-                    if (selectedMenuPart == 35)
-                        selectedPart = 68;
-                    if (selectedMenuPart == 36)
-                        selectedPart = 69;
-                    if (selectedMenuPart == 37)
-                        selectedPart = 70;
-                    if (selectedMenuPart == 38)
-                        selectedPart = 71;
-                    if (selectedMenuPart == 39)
-                        selectedPart = 72;
-                    if (selectedMenuPart == 40)
-                        selectedPart = 73;
-                    if (selectedMenuPart == 41)
-                        selectedPart = 74;
-                    if (selectedMenuPart == 42)
-                        selectedPart = 75;
-                    if (selectedMenuPart == 43)
-                        selectedPart = 76;
-                    if (selectedMenuPart == 44)
-                        selectedPart = 77;
-                    if (selectedMenuPart == 45)
-                        selectedPart = 78;
-                    if (selectedMenuPart == 46)
-                        selectedPart = 79;
-                    if (selectedMenuPart == 47)
-                        selectedPart = 80;
-                    if (selectedMenuPart == 48)
-                        selectedPart = 81;
-                    if (selectedMenuPart == 49)
-                        selectedPart = 82;
-                    if (selectedMenuPart == 50)
-                        selectedPart = 83;
-                    if (selectedMenuPart == 51)
-                        selectedPart = 84;
-                    if (selectedMenuPart == 52)
-                        selectedPart = 85;
-                    if (selectedMenuPart == 53)
-                        selectedPart = 86;
-                    if (selectedMenuPart == 54)
-                        selectedPart = 87;
-                    if (selectedMenuPart == 55)
-                        selectedPart = 88;
-                    if (selectedMenuPart == 56)
-                        selectedPart = 89;
-                    if (selectedMenuPart == 57)
-                        selectedPart = 90;
-                    if (selectedMenuPart == 58)
-                        selectedPart = 91;
-                    if (selectedMenuPart == 59)
-                        selectedPart = 92;
-                    if (selectedMenuPart == 60)
-                        selectedPart = 93;
-                    if (selectedMenuPart == 61)
-                        selectedPart = 94;
-                    if (selectedMenuPart == 62)
-                        selectedPart = 95;
-                    if (selectedMenuPart == 63)
-                        selectedPart = 96;
-                    if (selectedMenuPart == 64)
-                        selectedPart = 97;
-                    if (selectedMenuPart == 65)
-                        selectedPart = 98;
-                    if (selectedMenuPart == 66)
-                        selectedPart = 99;
-                    if (selectedMenuPart == 67)
-                        selectedPart = 100;
-                    if (selectedMenuPart == 68)
-                        selectedPart = 101;
-                    if (selectedMenuPart == 69)
-                        selectedPart = 102;
-                    if (selectedMenuPart == 70)
-                        selectedPart = 103;
-                    if (selectedMenuPart == 71)
-                        selectedPart = 104;
-                    if (selectedMenuPart == 72)
-                        selectedPart = 105;
-                    if (selectedMenuPart == 73)
-                        selectedPart = 106;
-                    if (selectedMenuPart == 74)
-                        selectedPart = 107;
-                    if (selectedMenuPart == 75)
-                        selectedPart = 108;
-                    if (selectedMenuPart == 76)
-                        selectedPart = 109;
-                    if (selectedMenuPart == 77)
-                        selectedPart = 110;
-                    if (selectedMenuPart == 78)
-                        selectedPart = 111;
-                    if (selectedMenuPart == 79)
-                        selectedPart = 112;
-                    if (selectedMenuPart == 80)
-                        selectedPart = 113;
-                    if (selectedMenuPart == 81)
-                        selectedPart = 114;
-                    if (selectedMenuPart == 82)
-                        selectedPart = 115;
-                    if (selectedMenuPart == 83)
-                        selectedPart = 116;
-                    if (selectedMenuPart == 84)
-                        selectedPart = 117;
-                    if (selectedMenuPart == 85)
-                        selectedPart = 118;
-                    if (selectedMenuPart == 86)
-                        selectedPart = 119;
-                    if (selectedMenuPart == 87)
-                        selectedPart = 120;
-                    if (selectedMenuPart == 88)
-                        selectedPart = 121;
-                    if (selectedMenuPart == 89)
-                        selectedPart = 122;
-                    if (selectedMenuPart == 90)
-                        selectedPart = 123;
-                    if (selectedMenuPart == 91)
-                        selectedPart = 124;
-                    if (selectedMenuPart == 92)
-                        selectedPart = 125;
-                    if (selectedMenuPart == 93)
-                        selectedPart = 126;
-                    if (selectedMenuPart == 94)
-                        selectedPart = 127;
-                    if (selectedMenuPart == 95)
-                        selectedPart = 128;
-                    if (selectedMenuPart == 96)
-                        selectedPart = 129;
-                    if (selectedMenuPart == 97)
-                        selectedPart = 130;
-                    if (selectedMenuPart == 98)
-                        selectedPart = 131;
-                    if (selectedMenuPart == 99)
-                        selectedPart = 132;
-                    if (selectedMenuPart == 100)
-                        selectedPart = 133;
-                    if (selectedMenuPart > 100)
-                        selectedPart = selectedMenuPart + 33;
+                    	selectedPart = 66;
+                    if (selectedMenuPart > 11)
+                        selectedPart = selectedMenuPart + 55;
                     // ------------------ INCREMENT HERE FOR NEW PARTS
                     // -----------------------------NO NEED TO INCREMENT ANYMORE I FIXED IT
                 }
