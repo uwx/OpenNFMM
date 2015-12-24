@@ -1652,9 +1652,9 @@ public class StageMaker extends Applet implements Runnable {
                         .append("snap(0,0,0)\r\nsky(191,215,255)\r\nclouds(255,255,255,5,-1000)\r\nfog(195,207,230)\r\nground(192,194,202)\r\ntexture(0,0,0,50)\r\nfadefrom(5000)\r\ndensity(5)\r\nmountains(")
                         .append((int) (Math.random() * 100000.0)).append(")\r\nnlaps(5)\r\n\r\n").toString();
                 if (strtyp.getSelectedIndex() == 1)
-                	bstage = "set(48,0,0,250,0)\r\n";
+                	bstage = "set(48,0,0,0)\r\n";
                 else
-                	bstage = "set(47,0,0,250,0)\r\n";
+                	bstage = "set(47,0,0,0)\r\n";
                 final StringBuilder stringbuilder = new StringBuilder();
                 final StageMaker stagemaker_238_ = this;
                 stagemaker_238_.bstage = stringbuilder.append(stagemaker_238_.bstage)
@@ -2310,10 +2310,10 @@ public class StageMaker extends Applet implements Runnable {
             errd = 3;
         if (xnob >= 10000)
             errd = 4;
-        if (i == 3 && bstage.indexOf("set(47,0,0,250,0)") == -1 && bstage.indexOf("set(48,0,0,250,0)") == -1) {
+        if (i == 3 && bstage.indexOf("set(47,0,0,0)") == -1 && bstage.indexOf("set(48,0,0,0)") == -1) {
         	final StringBuilder stringbuilder = new StringBuilder();
         	final StageMaker stagemaker_237_ = this;
-        	stagemaker_237_.bstage = stringbuilder.append(stagemaker_237_.bstage).append("set(47,0,0,250,0)\r\n")
+        	stagemaker_237_.bstage = stringbuilder.append(stagemaker_237_.bstage).append("set(47,0,0,0)\r\n")
         			.toString();
         }
     }
