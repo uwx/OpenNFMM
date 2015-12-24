@@ -262,7 +262,7 @@ public class StageMaker extends Applet implements Runnable {
     private Image offImage;
     private boolean onbtgame = false;
     // Removed unused code found by UCDetector
-    // 	private boolean onfly = false;
+    private boolean onfly = false;
     private boolean onoff = false;
     private int origfade = 5000;
     private boolean overcan = false;
@@ -2502,7 +2502,7 @@ public class StageMaker extends Applet implements Runnable {
                         };
                         rot(is_22_, is_23_, bco[selectedPart].x, bco[selectedPart].z, rot, 2);
                         int i_24_ = 0;
-                        //onfly = false;
+                        onfly = false;
                         int i_25_ = 500;
                         for (int i_26_ = 0; i_26_ < nob; i_26_++) {
                             final int[] is_27_ = {
@@ -2618,7 +2618,7 @@ public class StageMaker extends Applet implements Runnable {
                                                 i_20_ = co[i_26_].x - bco[selectedPart].x;
                                                 i_21_ = co[i_26_].z + co[i_26_].p[i_34_].oz[i_35_]
                                                         - bco[selectedPart].z;
-                                                //onfly = true;
+                                                onfly = true;
                                             }
                                 if (Math.abs(co[i_26_].roofat) == 90 && rot == 90
                                         && Math.abs(bco[selectedPart].z - co[i_26_].z) < 500
@@ -2633,7 +2633,7 @@ public class StageMaker extends Applet implements Runnable {
                                                 i_21_ = co[i_26_].z - bco[selectedPart].z;
                                                 i_20_ = co[i_26_].x + co[i_26_].p[i_36_].ox[i_37_]
                                                         - bco[selectedPart].x;
-                                                //onfly = true;
+                                                onfly = true;
                                             }
                             }
                         }
