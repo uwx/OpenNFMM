@@ -59,6 +59,7 @@ public class StageMaker extends Applet implements Runnable {
     private final static byte PART_FIXHOOPS = 4;
     private final static byte PART_TREES = 5;
     private final static byte PART_BUMP = 6;
+    private final static byte PART_CUSTOM = 7;
 
     boolean floats = false; // set to false for regular nfmm, set to true for skyline
 
@@ -130,7 +131,8 @@ public class StageMaker extends Applet implements Runnable {
             170, 220, 255
     };
 
-    // ------------------ PART DESCRIPTIONS, LEAVE THESE AS INFO N/A
+    // ------------------ PART DESCRIPTIONS, INCREMENT WHEN YOU WANT A NEW PART
+    // ------------------ OR IT WILL CRASH WHEN YOU READ PART DESCRIPTION
     private final String[] discp = {
             "NormalRoad :  Basic asphalt road.\nAttaches correctly to the following other parts :\n\n'NormalRoad Turn',  'NormalRoad End',  'NormalRoad TwistedLeft',  'NormalRoad TwistedRight',  'NormalRoad Edged',\n'NormalRoad-Raised Ramp',  'Normal-Off-Road Blend'  and  'Halfpipe-Normal-Road Blend'\n\n",
             "NormalRoad Edged :  Asphalt road with edged side blocks (a destructive road).\nAttaches correctly to the following other parts :\n\n'NormalRoad',  'NormalRoad Turn',  'NormalRoad End',  'NormalRoad TwistedLeft',  'NormalRoad TwistedRight',\n'NormalRoad-Raised Ramp',  'Normal-Off-Road Blend'  and  'Halfpipe-Normal-Road Blend'\n\n",
@@ -701,7 +703,7 @@ public class StageMaker extends Applet implements Runnable {
         // -----------------------------NO NEED TO INCREMENT ANYMORE I FIXED IT
 
         if (selectedPart > 66) {
-            selectedPartType = 5;
+            selectedPartType = 7;
             selectedMenuPart = selectedPart - 55;
         }
 
@@ -730,6 +732,10 @@ public class StageMaker extends Applet implements Runnable {
         }
         if (selectedPartType == PART_TREES) {
             partrees();
+            part.setVisible(true);
+        }
+        if (selectedPartType == PART_CUSTOM) {
+            partcustom();
             part.setVisible(true);
         }
         ptyp.select(selectedPartType);
@@ -926,6 +932,7 @@ public class StageMaker extends Applet implements Runnable {
         ptyp.add(rd, "Fixing Hoop");
         ptyp.add(rd, "Trees");
         ptyp.add(rd, "Ground Pile");
+        ptyp.add(rd, "Custom Parts");
         ptyp.setBackground(new Color(63, 80, 110));
         ptyp.setForeground(new Color(209, 217, 230));
         part.setFont(new Font("Arial", 1, 12));
@@ -1303,9 +1310,15 @@ public class StageMaker extends Applet implements Runnable {
 		part.add(rd, "Cactus 1");
 		part.add(rd, "Cactus 2");
 		part.add(rd, "Cactus 3");
-        // ------------------ INCREMENT HERE FOR NEW PARTS
+    }
+
+    public void partcustom() {
+        part.removeAll();
+        part.add(rd, "--- CUSTOM PARTS ---");
+        // ------------------ ADD NEW PARTS HERE
         // ------------------ THE NAME IN QUOTES IS THE NAME THAT APPEARS
     }
+
 
     public void partroads() {
         part.removeAll();
@@ -2186,6 +2199,8 @@ public class StageMaker extends Applet implements Runnable {
                         partobst();
                     if (selectedPartType == PART_TREES) // PART TREES
                         partrees();
+                    if (selectedPartType == PART_CUSTOM)
+                        partcustom();
                     onoff = false;
                     setCursor(new Cursor(0));
                     setcur = false;
@@ -2337,10 +2352,11 @@ public class StageMaker extends Applet implements Runnable {
                     if (selectedMenuPart == 11)
                     	selectedPart = 66;
 
-                    if (selectedMenuPart > 11)
-                        selectedPart = selectedMenuPart + 55;
-                    // ------------------ INCREMENT HERE FOR NEW PARTS
-                    // -----------------------------NO NEED TO INCREMENT ANYMORE I FIXED IT
+                }
+                if (selectedPartType == PART_CUSTOM) { // --------------- NEW PARTS
+                    selectedPart = selectedMenuPart + 67;
+                    if (selectedMenuPart == 0)
+                        selectedPart = 0;
                 }
                 if (selectedPartType == PART_BUMP) {
                     if (!pgen) {
@@ -3054,6 +3070,10 @@ public class StageMaker extends Applet implements Runnable {
                         partrees();
                         part.setVisible(true);
                     }
+                    if (selectedPartType == PART_CUSTOM) {
+                        partcustom();
+                        part.setVisible(true);
+                    }
                     selectedMenuPart = 0;
                     part.select(selectedMenuPart);
                     requestFocus();
@@ -3063,7 +3083,7 @@ public class StageMaker extends Applet implements Runnable {
                 part.move(10, 80);
                 part.setSize(200, 21);
                 if (selectedPartType == PART_ROADS || selectedPartType == PART_RAMPS
-                        || selectedPartType == PART_OBSTACLES || selectedPartType == PART_TREES) {
+                        || selectedPartType == PART_OBSTACLES || selectedPartType == PART_TREES || selectedPartType == PART_CUSTOM) {
                     if (!part.isShowing()) {
                         part.setVisible(true);
                         part.select(selectedMenuPart);
@@ -3216,7 +3236,7 @@ public class StageMaker extends Applet implements Runnable {
                 bco[selectedPart].xz = rot + adrot;
                 bco[selectedPart].d(rd);
                 int i_62_ = 1;
-                if (selectedPartType == PART_ROADS || selectedPartType == PART_RAMPS) {
+                if (selectedPartType == PART_ROADS || selectedPartType == PART_RAMPS || selectedPartType == PART_CUSTOM) {
                     if (selectedPart != 26 && selectedPart != 20) {
                         if (rot == -90 || rot == 0)
                             i_62_ = -1;
@@ -3326,7 +3346,7 @@ public class StageMaker extends Applet implements Runnable {
                     phd = 2L + Math.round(Math.random() * 4.0);
                 }
                 if (button(">", 191, 348, 3, true) && (selectedPartType == PART_ROADS || selectedPartType == PART_RAMPS
-                        || selectedPartType == PART_OBSTACLES || selectedPartType == PART_TREES)) {
+                        || selectedPartType == PART_OBSTACLES || selectedPartType == PART_TREES || selectedPartType == PART_CUSTOM)) {
                     selectedMenuPart++;
                     if (selectedMenuPart == part.getItemCount())
                         selectedMenuPart = 0;
@@ -3335,7 +3355,7 @@ public class StageMaker extends Applet implements Runnable {
                     arrng = false;
                 }
                 if (button("<", 28, 348, 3, true) && (selectedPartType == PART_ROADS || selectedPartType == PART_RAMPS
-                        || selectedPartType == PART_OBSTACLES || selectedPartType == PART_TREES)) {
+                        || selectedPartType == PART_OBSTACLES || selectedPartType == PART_TREES || selectedPartType == PART_CUSTOM)) {
                     selectedMenuPart--;
                     if (selectedMenuPart == -1)
                         selectedMenuPart = part.getItemCount() - 1;
