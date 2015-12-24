@@ -43,13 +43,13 @@ public class StageMaker extends Applet implements Runnable {
     CheckPoints cp = new CheckPoints();
     Trackers t = new Trackers();
     //////////////// ------------ REMEMBER NEW PARTS ARE ALWAYS -10 INDEXES SINCE YOU CAN'T SELECT CARS IN THE STAGEMAKER
-    //////////////// ------------ REMEMBER ALL PARTS INDEX 33 AND UP ARE SKYLINE PARTS
-    //////////////// ------------ IF THEY'RE NOT IN THE TREES/SKYLINE MENU THEY SHOULD BE COMMENTED OUT
+    //////////////// ------------ REMEMBER ALL PARTS INDEX 55 AND UP ARE CUSTOM PARTS
+    //////////////// ------------ IF THEY'RE NOT IN THE TREES MENU THEY SHOULD BE COMMENTED OUT
     /**
      *
      */
     private static final long serialVersionUID = 2444709970063151411L;
-    private final int maxpart = 65; //originally 65 ------ INCREMENT THIS FUCKING THING WHEN YOU WANT A NEW FUCKING PART
+    private final int maxpart = 65; //originally 65 ------ INCREMENT THIS WHEN YOU WANT A NEW PART
     private final int bumppart = maxpart + 1; // bumps aren't even in the version this is just to avoid crashes
 
     private final static byte PART_ROADS = 0;
@@ -86,7 +86,7 @@ public class StageMaker extends Applet implements Runnable {
      * */
 
     // ------------------ ATTACH POINTS
-    // ------------------ INCREMENT THIS FUCKING THING WHEN YOU WANT A NEW FUCKING PART
+    // ------------------ INCREMENT THIS THING WHEN YOU WANT A NEW PART
     // Attach points are: x1, z1, x2, z2
     int[][] atp = { { 0, 2800, 0, -2800 }, { 0, 2800, 0, -2800 }, { 1520, 2830, -1520, -2830 },
             { -1520, 2830, 1520, -2830 }, { 0, -1750, 1750, 0 }, { 0, 2800, 0, -2800 }, { 0, 2800, 0, -2800 },
@@ -262,7 +262,7 @@ public class StageMaker extends Applet implements Runnable {
     private Image offImage;
     private boolean onbtgame = false;
     // Removed unused code found by UCDetector
-    // 	private boolean onfly = false;
+    private boolean onfly = false;
     private boolean onoff = false;
     private int origfade = 5000;
     private boolean overcan = false;
@@ -471,14 +471,14 @@ public class StageMaker extends Applet implements Runnable {
             selectedPartType = 0;
             selectedMenuPart = 5;
         }
-        /*if (selectedPart == 35) {
+        if (selectedPart == 35) {
         	selectedPartType = 0;
         	selectedMenuPart = 6;
         }
         if (selectedPart == 36) {
         	selectedPartType = 0;
         	selectedMenuPart = 7;
-        }*/
+        }
         if (selectedPart == 10) {
             selectedPartType = 0;
             selectedMenuPart = 8;
@@ -499,14 +499,14 @@ public class StageMaker extends Applet implements Runnable {
             selectedPartType = 0;
             selectedMenuPart = 12;
         }
-        /*if (selectedPart == 34) {
+        if (selectedPart == 34) {
         	selectedPartType = 0;
         	selectedMenuPart = 13;
         }
         if (selectedPart == 33) {
         	selectedPartType = 0;
         	selectedMenuPart = 14;
-        }*/
+        }
         if (selectedPart == 11) {
             selectedPartType = 0;
             selectedMenuPart = 15;
@@ -527,7 +527,7 @@ public class StageMaker extends Applet implements Runnable {
             selectedPartType = 0;
             selectedMenuPart = 19;
         }
-        /*if (selectedPart == 46) {
+        if (selectedPart == 46) {
         	selectedPartType = 0;
         	selectedMenuPart = 20;
         }
@@ -542,15 +542,15 @@ public class StageMaker extends Applet implements Runnable {
         if (selectedPart == 49) {
         	selectedPartType = 0;
         	selectedMenuPart = 24;
-        }*/
-        /*if (selectedPart == 50) {
+        }
+        if (selectedPart == 50) {
         	selectedPartType = 0;
         	selectedMenuPart = 22;
         }
         if (selectedPart == 51) {
         	selectedPartType = 0;
         	selectedMenuPart = 25;
-        }*/
+        }
         if (selectedPart == 16) {
             selectedPartType = 1;
             selectedMenuPart = 0;
@@ -579,18 +579,18 @@ public class StageMaker extends Applet implements Runnable {
             selectedPartType = 1;
             selectedMenuPart = 6;
         }
-        /*if (selectedPart == 39) {
+        if (selectedPart == 39) {
         	selectedPartType = 1;
         	selectedMenuPart = 7;
         }
         if (selectedPart == 42) {
         	selectedPartType = 1;
         	selectedMenuPart = 8;
-        }*/
-        /*if (selectedPart == 40) {
+        }
+        if (selectedPart == 40) {
         	selectedPartType = 1;
         	selectedMenuPart = 9;
-        }*/
+        }
         if (selectedPart == 23) {
             selectedPartType = 1;
             selectedMenuPart = 10;
@@ -603,14 +603,14 @@ public class StageMaker extends Applet implements Runnable {
             selectedPartType = 1;
             selectedMenuPart = 12;
         }
-        /*if (selectedPart == 43) {
+        if (selectedPart == 43) {
         	selectedPartType = 1;
         	selectedMenuPart = 13;
         }
         if (selectedPart == 45) {
         	selectedPartType = 1;
         	selectedMenuPart = 14;
-        }*/
+        }
         if (selectedPart == 26) {
             selectedPartType = 1;
             selectedMenuPart = 15;
@@ -623,11 +623,11 @@ public class StageMaker extends Applet implements Runnable {
             selectedPartType = 2;
             selectedMenuPart = 1;
         }
-        /*if (selectedPart == 41) {
+        if (selectedPart == 41) {
         	selectedPartType = 2;
         	selectedMenuPart = 2;
-        }*/
-        /*if (selectedPart == 44) {
+        }
+        if (selectedPart == 44) {
         	selectedPartType = 2;
         	selectedMenuPart = 3;
         }
@@ -638,8 +638,8 @@ public class StageMaker extends Applet implements Runnable {
         if (selectedPart == 53) {
         	selectedPartType = 2;
         	selectedMenuPart = 5;
-        }*/
-        if (selectedPart == 30 || selectedPart == 32/* || selectedPart == 54*/) {
+        }
+        if (selectedPart == 30 || selectedPart == 32 || selectedPart == 54) {
             selectedPartType = 3;
             selectedMenuPart = 0;
         }
@@ -647,567 +647,65 @@ public class StageMaker extends Applet implements Runnable {
             selectedPartType = 4;
             selectedMenuPart = 0;
         }
-        if (selectedPart == 33) {
-            selectedPartType = 5;
-            selectedMenuPart = 0;
-        }
-
-        if (selectedPart == 34) {
-            selectedPartType = 5;
-            selectedMenuPart = 1;
-        }
-
-        if (selectedPart == 35) {
-            selectedPartType = 5;
-            selectedMenuPart = 2;
-        }
-
-        if (selectedPart == 36) {
-            selectedPartType = 5;
-            selectedMenuPart = 3;
-        }
-
-        if (selectedPart == 37) {
-            selectedPartType = 5;
-            selectedMenuPart = 4;
-        }
-
-        if (selectedPart == 38) {
-            selectedPartType = 5;
-            selectedMenuPart = 5;
-        }
-
-        if (selectedPart == 39) {
-            selectedPartType = 5;
-            selectedMenuPart = 6;
-        }
-
-        if (selectedPart == 40) {
-            selectedPartType = 5;
-            selectedMenuPart = 7;
-        }
-
-        if (selectedPart == 41) {
-            selectedPartType = 5;
-            selectedMenuPart = 8;
-        }
-
-        if (selectedPart == 42) {
-            selectedPartType = 5;
-            selectedMenuPart = 9;
-        }
-
-        if (selectedPart == 43) {
-            selectedPartType = 5;
-            selectedMenuPart = 10;
-        }
-
-        if (selectedPart == 44) {
-            selectedPartType = 5;
-            selectedMenuPart = 11;
-        }
-
-        if (selectedPart == 45) {
-            selectedPartType = 5;
-            selectedMenuPart = 12;
-        }
-
-        if (selectedPart == 46) {
-            selectedPartType = 5;
-            selectedMenuPart = 13;
-        }
-
-        if (selectedPart == 47) {
-            selectedPartType = 5;
-            selectedMenuPart = 14;
-        }
-
-        if (selectedPart == 48) {
-            selectedPartType = 5;
-            selectedMenuPart = 15;
-        }
-
-        if (selectedPart == 49) {
-            selectedPartType = 5;
-            selectedMenuPart = 16;
-        }
-
-        if (selectedPart == 50) {
-            selectedPartType = 5;
-            selectedMenuPart = 17;
-        }
-
-        if (selectedPart == 51) {
-            selectedPartType = 5;
-            selectedMenuPart = 18;
-        }
-
-        if (selectedPart == 52) {
-            selectedPartType = 5;
-            selectedMenuPart = 19;
-        }
-
-        if (selectedPart == 53) {
-            selectedPartType = 5;
-            selectedMenuPart = 20;
-        }
-
-        if (selectedPart == 54) {
-            selectedPartType = 5;
-            selectedMenuPart = 21;
-        }
 
         if (selectedPart == 55) {
             selectedPartType = 5;
-            selectedMenuPart = 22;
+            selectedMenuPart = 0;
         }
-
         if (selectedPart == 56) {
             selectedPartType = 5;
-            selectedMenuPart = 23;
+            selectedMenuPart = 1;
         }
-
         if (selectedPart == 57) {
             selectedPartType = 5;
-            selectedMenuPart = 24;
+            selectedMenuPart = 2;
         }
-
         if (selectedPart == 58) {
             selectedPartType = 5;
-            selectedMenuPart = 25;
+            selectedMenuPart = 3;
         }
-
         if (selectedPart == 59) {
             selectedPartType = 5;
-            selectedMenuPart = 26;
+            selectedMenuPart = 4;
         }
-
         if (selectedPart == 60) {
             selectedPartType = 5;
-            selectedMenuPart = 27;
+            selectedMenuPart = 5;
         }
-
         if (selectedPart == 61) {
             selectedPartType = 5;
-            selectedMenuPart = 28;
+            selectedMenuPart = 6;
         }
-
         if (selectedPart == 62) {
             selectedPartType = 5;
-            selectedMenuPart = 29;
+            selectedMenuPart = 7;
         }
-
         if (selectedPart == 63) {
             selectedPartType = 5;
-            selectedMenuPart = 30;
+            selectedMenuPart = 8;
         }
-
         if (selectedPart == 64) {
             selectedPartType = 5;
-            selectedMenuPart = 31;
+            selectedMenuPart = 9;
         }
-
         if (selectedPart == 65) {
             selectedPartType = 5;
-            selectedMenuPart = 32;
+            selectedMenuPart = 10;
         }
-
         if (selectedPart == 66) {
             selectedPartType = 5;
-            selectedMenuPart = 33;
-        }
-
-        if (selectedPart == 67) {
-            selectedPartType = 5;
-            selectedMenuPart = 34;
-        }
-
-        if (selectedPart == 68) {
-            selectedPartType = 5;
-            selectedMenuPart = 35;
-        }
-
-        if (selectedPart == 69) {
-            selectedPartType = 5;
-            selectedMenuPart = 36;
-        }
-
-        if (selectedPart == 70) {
-            selectedPartType = 5;
-            selectedMenuPart = 37;
-        }
-
-        if (selectedPart == 71) {
-            selectedPartType = 5;
-            selectedMenuPart = 38;
-        }
-
-        if (selectedPart == 72) {
-            selectedPartType = 5;
-            selectedMenuPart = 39;
-        }
-
-        if (selectedPart == 73) {
-            selectedPartType = 5;
-            selectedMenuPart = 40;
-        }
-
-        if (selectedPart == 74) {
-            selectedPartType = 5;
-            selectedMenuPart = 41;
-        }
-
-        if (selectedPart == 75) {
-            selectedPartType = 5;
-            selectedMenuPart = 42;
-        }
-
-        if (selectedPart == 76) {
-            selectedPartType = 5;
-            selectedMenuPart = 43;
-        }
-
-        if (selectedPart == 77) {
-            selectedPartType = 5;
-            selectedMenuPart = 44;
-        }
-
-        if (selectedPart == 78) {
-            selectedPartType = 5;
-            selectedMenuPart = 45;
-        }
-
-        if (selectedPart == 79) {
-            selectedPartType = 5;
-            selectedMenuPart = 46;
-        }
-
-        if (selectedPart == 80) {
-            selectedPartType = 5;
-            selectedMenuPart = 47;
-        }
-
-        if (selectedPart == 81) {
-            selectedPartType = 5;
-            selectedMenuPart = 48;
-        }
-
-        if (selectedPart == 82) {
-            selectedPartType = 5;
-            selectedMenuPart = 49;
-        }
-
-        if (selectedPart == 83) {
-            selectedPartType = 5;
-            selectedMenuPart = 50;
-        }
-
-        if (selectedPart == 84) {
-            selectedPartType = 5;
-            selectedMenuPart = 51;
-        }
-
-        if (selectedPart == 85) {
-            selectedPartType = 5;
-            selectedMenuPart = 52;
-        }
-
-        if (selectedPart == 86) {
-            selectedPartType = 5;
-            selectedMenuPart = 53;
-        }
-
-        if (selectedPart == 87) {
-            selectedPartType = 5;
-            selectedMenuPart = 54;
-        }
-
-        if (selectedPart == 88) {
-            selectedPartType = 5;
-            selectedMenuPart = 55;
-        }
-
-        if (selectedPart == 89) {
-            selectedPartType = 5;
-            selectedMenuPart = 56;
-        }
-
-        if (selectedPart == 90) {
-            selectedPartType = 5;
-            selectedMenuPart = 57;
-        }
-
-        if (selectedPart == 91) {
-            selectedPartType = 5;
-            selectedMenuPart = 58;
-        }
-
-        if (selectedPart == 92) {
-            selectedPartType = 5;
-            selectedMenuPart = 59;
-        }
-
-        if (selectedPart == 93) {
-            selectedPartType = 5;
-            selectedMenuPart = 60;
-        }
-
-        if (selectedPart == 94) {
-            selectedPartType = 5;
-            selectedMenuPart = 61;
-        }
-
-        if (selectedPart == 95) {
-            selectedPartType = 5;
-            selectedMenuPart = 62;
-        }
-
-        if (selectedPart == 96) {
-            selectedPartType = 5;
-            selectedMenuPart = 63;
-        }
-
-        if (selectedPart == 97) {
-            selectedPartType = 5;
-            selectedMenuPart = 64;
-        }
-
-        if (selectedPart == 98) {
-            selectedPartType = 5;
-            selectedMenuPart = 65;
-        }
-
-        if (selectedPart == 99) {
-            selectedPartType = 5;
-            selectedMenuPart = 66;
-        }
-
-        if (selectedPart == 100) {
-            selectedPartType = 5;
-            selectedMenuPart = 67;
-        }
-
-        if (selectedPart == 101) {
-            selectedPartType = 5;
-            selectedMenuPart = 68;
-        }
-
-        if (selectedPart == 102) {
-            selectedPartType = 5;
-            selectedMenuPart = 69;
-        }
-
-        if (selectedPart == 103) {
-            selectedPartType = 5;
-            selectedMenuPart = 70;
-        }
-
-        if (selectedPart == 104) {
-            selectedPartType = 5;
-            selectedMenuPart = 71;
-        }
-
-        if (selectedPart == 105) {
-            selectedPartType = 5;
-            selectedMenuPart = 72;
-        }
-
-        if (selectedPart == 106) {
-            selectedPartType = 5;
-            selectedMenuPart = 73;
-        }
-
-        if (selectedPart == 107) {
-            selectedPartType = 5;
-            selectedMenuPart = 74;
-        }
-
-        if (selectedPart == 108) {
-            selectedPartType = 5;
-            selectedMenuPart = 75;
-        }
-
-        if (selectedPart == 109) {
-            selectedPartType = 5;
-            selectedMenuPart = 76;
-        }
-
-        if (selectedPart == 110) {
-            selectedPartType = 5;
-            selectedMenuPart = 77;
-        }
-
-        if (selectedPart == 111) {
-            selectedPartType = 5;
-            selectedMenuPart = 78;
-        }
-
-        if (selectedPart == 112) {
-            selectedPartType = 5;
-            selectedMenuPart = 79;
-        }
-
-        if (selectedPart == 113) {
-            selectedPartType = 5;
-            selectedMenuPart = 80;
-        }
-
-        if (selectedPart == 114) {
-            selectedPartType = 5;
-            selectedMenuPart = 81;
-        }
-
-        if (selectedPart == 115) {
-            selectedPartType = 5;
-            selectedMenuPart = 82;
-        }
-
-        if (selectedPart == 116) {
-            selectedPartType = 5;
-            selectedMenuPart = 83;
-        }
-
-        if (selectedPart == 117) {
-            selectedPartType = 5;
-            selectedMenuPart = 84;
-        }
-
-        if (selectedPart == 118) {
-            selectedPartType = 5;
-            selectedMenuPart = 85;
-        }
-
-        if (selectedPart == 119) {
-            selectedPartType = 5;
-            selectedMenuPart = 86;
-        }
-
-        if (selectedPart == 120) {
-            selectedPartType = 5;
-            selectedMenuPart = 87;
-        }
-
-        if (selectedPart == 121) {
-            selectedPartType = 5;
-            selectedMenuPart = 88;
-        }
-
-        if (selectedPart == 122) {
-            selectedPartType = 5;
-            selectedMenuPart = 89;
-        }
-
-        if (selectedPart == 123) {
-            selectedPartType = 5;
-            selectedMenuPart = 90;
-        }
-
-        if (selectedPart == 124) {
-            selectedPartType = 5;
-            selectedMenuPart = 91;
-        }
-
-        if (selectedPart == 125) {
-            selectedPartType = 5;
-            selectedMenuPart = 92;
-        }
-
-        if (selectedPart == 126) {
-            selectedPartType = 5;
-            selectedMenuPart = 93;
-        }
-
-        if (selectedPart == 127) {
-            selectedPartType = 5;
-            selectedMenuPart = 94;
-        }
-
-        if (selectedPart == 128) {
-            selectedPartType = 5;
-            selectedMenuPart = 95;
-        }
-
-        if (selectedPart == 129) {
-            selectedPartType = 5;
-            selectedMenuPart = 96;
-        }
-
-        if (selectedPart == 130) {
-            selectedPartType = 5;
-            selectedMenuPart = 97;
-        }
-
-        if (selectedPart == 131) {
-            selectedPartType = 5;
-            selectedMenuPart = 98;
-        }
-
-        if (selectedPart == 132) {
-            selectedPartType = 5;
-            selectedMenuPart = 99;
-        }
-
-        if (selectedPart == 133) {
-            selectedPartType = 5;
-            selectedMenuPart = 100;
+            selectedMenuPart = 11;
         }
 
         // ------------------ INCREMENT HERE FOR NEW PARTS
         // -----------------------------NO NEED TO INCREMENT ANYMORE I FIXED IT
 
-        if (selectedPart > 133) {
+        if (selectedPart > 66) {
             selectedPartType = 5;
-            selectedMenuPart = selectedPart - 33;
+            selectedMenuPart = selectedPart - 55;
         }
 
-        /*if (selectedPart == 55) {
-        	selectedPartType = 5;
-        	selectedMenuPart = 0;
-        }
-        if (selectedPart == 56) {
-        	selectedPartType = 5;
-        	selectedMenuPart = 1;
-        }
-        if (selectedPart == 57) {
-        	selectedPartType = 5;
-        	selectedMenuPart = 2;
-        }
-        if (selectedPart == 58) {
-        	selectedPartType = 5;
-        	selectedMenuPart = 3;
-        }
-        if (selectedPart == 59) {
-        	selectedPartType = 5;
-        	selectedMenuPart = 4;
-        }
-        if (selectedPart == 60) {
-        	selectedPartType = 5;
-        	selectedMenuPart = 5;
-        }
-        if (selectedPart == 61) {
-        	selectedPartType = 5;
-        	selectedMenuPart = 6;
-        }
-        if (selectedPart == 62) {
-        	selectedPartType = 5;
-        	selectedMenuPart = 7;
-        }
-        if (selectedPart == 63) {
-        	selectedPartType = 5;
-        	selectedMenuPart = 8;
-        }
-        if (selectedPart == 64) {
-        	selectedPartType = 5;
-        	selectedMenuPart = 9;
-        }
-        if (selectedPart == 65) {
-        	selectedPartType = 5;
-        	selectedMenuPart = 10;
-        }
-        if (selectedPart == 66) {
-        	selectedPartType = 5;
-        	selectedMenuPart = 11;
-        }*/
+
         if (selectedPart == bumppart) {
             if (bool)
                 fgen = co[esp].srz;
@@ -2743,7 +2241,7 @@ public class StageMaker extends Applet implements Runnable {
                         selectedPart = 15;
                     if (selectedMenuPart == 19)
                         selectedPart = 12;
-                    /*if (selectedMenuPart == 20)
+                    if (selectedMenuPart == 20)
                     	selectedPart = 46;
                     if (selectedMenuPart == 21)
                     	selectedPart = 47;
@@ -2754,7 +2252,7 @@ public class StageMaker extends Applet implements Runnable {
                     if (selectedMenuPart == 24)
                     	selectedPart = 49;
                     if (selectedMenuPart == 25)
-                    	selectedPart = 51;*/
+                    	selectedPart = 51;
                 }
                 if (selectedPartType == PART_RAMPS) {
                     if (selectedMenuPart == 0)
@@ -2783,10 +2281,10 @@ public class StageMaker extends Applet implements Runnable {
                         selectedPart = 25;
                     if (selectedMenuPart == 12)
                         selectedPart = 24;
-                    /*if (selectedMenuPart == 13)
+                    if (selectedMenuPart == 13)
                     	selectedPart = 43;
                     if (selectedMenuPart == 14)
-                    	selectedPart = 45;*/
+                    	selectedPart = 45;
                     if (selectedMenuPart == 15)
                         selectedPart = 26;
                 }
@@ -2797,16 +2295,17 @@ public class StageMaker extends Applet implements Runnable {
                         selectedPart = 28;
                     if (selectedMenuPart == 2)
                         selectedPart = 41;
-                    /*if (selectedMenuPart == 3)
-                    	selectedPart = 44;*/
-                    /*if (selectedMenuPart == 4)
+                    if (selectedMenuPart == 3)
+                    	selectedPart = 44;
+                    if (selectedMenuPart == 4)
                     	selectedPart = 52;
                     if (selectedMenuPart == 5)
-                    	selectedPart = 53;*/
+                    	selectedPart = 53;
                 }
-                if (selectedPartType == PART_CHECKPOINTS) /*if (onfly)
-                                                          	selectedPart = 54;
-                                                          else*/ if (!onoff)
+                if (selectedPartType == PART_CHECKPOINTS)
+                    if (onfly)
+                      	selectedPart = 54;
+                    else if (!onoff)
                         selectedPart = 30;
                     else
                         selectedPart = 32;
@@ -2837,6 +2336,7 @@ public class StageMaker extends Applet implements Runnable {
                     	selectedPart = 65;
                     if (selectedMenuPart == 11)
                     	selectedPart = 66;
+
                     if (selectedMenuPart > 11)
                         selectedPart = selectedMenuPart + 55;
                     // ------------------ INCREMENT HERE FOR NEW PARTS
@@ -3002,7 +2502,7 @@ public class StageMaker extends Applet implements Runnable {
                         };
                         rot(is_22_, is_23_, bco[selectedPart].x, bco[selectedPart].z, rot, 2);
                         int i_24_ = 0;
-                        //onfly = false;
+                        onfly = false;
                         int i_25_ = 500;
                         for (int i_26_ = 0; i_26_ < nob; i_26_++) {
                             final int[] is_27_ = {
@@ -3118,7 +2618,7 @@ public class StageMaker extends Applet implements Runnable {
                                                 i_20_ = co[i_26_].x - bco[selectedPart].x;
                                                 i_21_ = co[i_26_].z + co[i_26_].p[i_34_].oz[i_35_]
                                                         - bco[selectedPart].z;
-                                                //onfly = true;
+                                                onfly = true;
                                             }
                                 if (Math.abs(co[i_26_].roofat) == 90 && rot == 90
                                         && Math.abs(bco[selectedPart].z - co[i_26_].z) < 500
@@ -3133,7 +2633,7 @@ public class StageMaker extends Applet implements Runnable {
                                                 i_21_ = co[i_26_].z - bco[selectedPart].z;
                                                 i_20_ = co[i_26_].x + co[i_26_].p[i_36_].ox[i_37_]
                                                         - bco[selectedPart].x;
-                                                //onfly = true;
+                                                onfly = true;
                                             }
                             }
                         }
