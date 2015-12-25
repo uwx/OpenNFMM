@@ -22,7 +22,10 @@ import java.io.FileWriter;
 import java.net.URI;
 import java.util.Date;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
+import org.jogamp.glg2d.GLG2DCanvas;
 
 public class Madness extends Panel {
 	static long advtime = 0L;
@@ -32,7 +35,7 @@ public class Madness extends Panel {
 	static DisplayMode defdisp;
 	static int endadv = 0;
 	static String fpath = "";
-	static Frame frame;
+	static JFrame frame;
 	static DisplayMode fulldisp;
 	static boolean fullscreen = false;
 	static boolean inisetup = false;
@@ -151,7 +154,7 @@ public class Madness extends Panel {
 
 	public static void exitfullscreen() {
 		frame.dispose();
-		frame = new Frame("Need for Madness");
+		frame = new JFrame("Need for Madness");
 		frame.setBackground(new Color(0, 0, 0));
 		frame.setIgnoreRepaint(true);
 		frame.setIconImage(Toolkit.getDefaultToolkit()
@@ -389,7 +392,7 @@ public class Madness extends Panel {
 			}
 			fullscreen = true;
 			frame.dispose();
-			frame = new Frame("Fullscreen Need for Madness");
+			frame = new JFrame("Fullscreen Need for Madness");
 			frame.setBackground(new Color(0, 0, 0));
 			frame.setUndecorated(true);
 			frame.setResizable(false);
@@ -416,7 +419,7 @@ public class Madness extends Panel {
 
 	public static void main(final String[] strings) {
 		System.runFinalizersOnExit(true);
-		frame = new Frame("Need for Madness");
+		frame = new JFrame("Need for Madness");
 		frame.setBackground(new Color(0, 0, 0));
 		frame.setIgnoreRepaint(true);
 		fpath = "";
@@ -461,7 +464,8 @@ public class Madness extends Panel {
 				exitsequance();
 			}
 		});
-		frame.add("Center", applet);
+		frame.setContentPane(new GLG2DCanvas(applet));
+		//frame.add("Center", applet);
 		frame.setVisible(true);
 		frame.setMinimumSize(new Dimension(930, 586));
 		frame.setSize(930, 586);

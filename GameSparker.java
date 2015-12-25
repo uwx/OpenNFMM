@@ -3,7 +3,6 @@
  * Visit http://jode.sourceforge.net/
  */
 import java.awt.AlphaComposite;
-import java.awt.Checkbox;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
@@ -14,8 +13,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
-import java.awt.TextArea;
-import java.awt.TextField;
+import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -39,7 +37,10 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import javax.swing.BorderFactory;
+import javax.swing.JCheckBox;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
 import javax.swing.Timer;
 
 public class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMotionListener, ActionListener {
@@ -56,7 +57,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	Image[] chkbx = new Image[2];
 	Smenu clanlev = new Smenu(8);
 	Smenu clcars = new Smenu(707);
-	TextField cmsg;
+	JTextField cmsg;
 	Smenu datat = new Smenu(26);
 	boolean exwist = false;
 	int fcscnt = 0;
@@ -64,24 +65,24 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	Smenu gmode = new Smenu(3);
 	Smenu icars = new Smenu(5);
 	Smenu ilaps = new Smenu(18);
-	Checkbox keplo;
+	JCheckBox keplo;
 	int lasth = 0;
 	int lastw = 0;
 	int lmxz = 0;
 	boolean lostfcs = false;
 	Smenu mcars = new Smenu(707);
 	int mload = 1;
-	TextArea mmsg;
+	JTextArea mmsg;
 	int moto = 1;
 	boolean moused = false;
 	int mouses = 0;
 	int mousew = 0;
 	Smenu mstgs = new Smenu(707);
 	int mvect = 100;
-	Checkbox mycar;
+	JCheckBox mycar;
 	int nob = 0;
 	int notb = 0;
-	Checkbox notp;
+	JCheckBox notp;
 	BufferedImage offImage;
 	boolean onbar = false;
 	boolean oncarm = false;
@@ -111,9 +112,9 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	Smenu snpls = new Smenu(9);
 	Image[] stagemaker = new Image[2];
 	Smenu swait = new Smenu(6);
-	TextField temail;
-	TextField tnick;
-	TextField tpass;
+	JTextField temail;
+	JTextField tnick;
+	JPasswordField tpass;
 	Control[] u = new Control[8];
 	int view = 0;
 	Smenu vnpls = new Smenu(5);
@@ -309,23 +310,24 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		//if (offImage != null)
 		//	rd = (Graphics2D) offImage.getGraphics();
 		setLayout(null);
-		tnick = new TextField("Nickbname");
+		tnick = new JTextField("Nickbname");
 		tnick.setFont(new Font("Arial", 1, 13));
-		tpass = new TextField("");
+		tpass = new JPasswordField("");
 		tpass.setFont(new Font("Arial", 1, 13));
 		tpass.setEchoChar('*');
-		temail = new TextField("");
+		temail = new JTextField("");
 		temail.setFont(new Font("Arial", 1, 13));
-		cmsg = new TextField("");
+		cmsg = new JTextField("");
 		if (System.getProperty("java.vendor").toLowerCase().indexOf("oracle") != -1)
 			cmsg.addKeyListener( /* TYPE_ERROR */ new GameSparker$1(this));
-		mmsg = new TextArea("", 200, 20, 3);
+		mmsg = new JTextArea("", 200, 20);
+
 		cmsg.setFont(new Font("Tahoma", 0, 11));
 		mmsg.setFont(new Font("Tahoma", 0, 11));
-		mycar = new Checkbox("Sword of Justice Game!");
-		notp = new Checkbox("No Trees & Piles");
-		keplo = new Checkbox("Stay logged in");
-		keplo.setState(true);
+		mycar = new JCheckBox("Sword of Justice Game!");
+		notp = new JCheckBox("No Trees & Piles");
+		keplo = new JCheckBox("Stay logged in");
+		keplo.setSelected(true);
 		add(tnick);
 		add(tpass);
 		add(temail);
@@ -1117,7 +1119,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			component.setBounds(i, i_99_, i_100_, i_101_);
 	}
 
-	public void movefielda(final TextArea textarea, int i, int i_105_, final int i_106_, final int i_107_) {
+	public void movefielda(final JTextArea textarea, int i, int i_105_, final int i_106_, final int i_107_) {
 		if (applejava) {
 			if (xm > i && xm < i + i_106_ && ym > i_105_ && ym < i_105_ + i_107_ || !textarea.getText().equals(" ")) {
 				if (!textarea.isShowing()) {
@@ -1150,39 +1152,39 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		}
 	}
 
-	public void movefieldd(final TextField textfield, int i, int i_102_, final int i_103_, final int i_104_,
+	public void movefieldd(final JTextField JTextField, int i, int i_102_, final int i_103_, final int i_104_,
 			final boolean bool) {
 		if (applejava) {
 			if (bool)
 				if (xm > i && xm < i + i_103_ && ym > i_102_ && ym < i_102_ + i_104_
-						|| !textfield.getText().equals("")) {
-					if (!textfield.isShowing()) {
-						textfield.setVisible(true);
-						textfield.requestFocus();
+						|| !JTextField.getText().equals("")) {
+					if (!JTextField.isShowing()) {
+						JTextField.setVisible(true);
+						JTextField.requestFocus();
 					}
 					if (i_103_ == 360 || i_103_ == 576) {
-						i = (int) (i * apmult + apx + textfield.getWidth() / 2 * (apmult - 1.0F));
+						i = (int) (i * apmult + apx + JTextField.getWidth() / 2 * (apmult - 1.0F));
 						i_102_ = (int) (i_102_ * apmult + apy + 12.0F * (apmult - 1.0F));
 					} else {
 						i = (int) (i * apmult + apx);
 						i_102_ = (int) (i_102_ * apmult + apy + 12.0F * (apmult - 1.0F));
 					}
-					if (textfield.getX() != i || textfield.getY() != i_102_)
-						textfield.setBounds(i, i_102_, i_103_, i_104_);
+					if (JTextField.getX() != i || JTextField.getY() != i_102_)
+						JTextField.setBounds(i, i_102_, i_103_, i_104_);
 				} else {
-					if (textfield.isShowing()) {
-						textfield.setVisible(false);
+					if (JTextField.isShowing()) {
+						JTextField.setVisible(false);
 						requestFocus();
 					}
-					rd.setColor(textfield.getBackground());
+					rd.setColor(JTextField.getBackground());
 					rd.fillRect(i, i_102_, i_103_ - 1, i_104_ - 1);
-					rd.setColor(textfield.getBackground().darker());
+					rd.setColor(JTextField.getBackground().darker());
 					rd.drawRect(i, i_102_, i_103_ - 1, i_104_ - 1);
 				}
 		} else {
-			if (bool && !textfield.isShowing())
-				textfield.setVisible(true);
-			movefield(textfield, i, i_102_, i_103_, i_104_);
+			if (bool && !JTextField.isShowing())
+				JTextField.setVisible(true);
+			movefield(JTextField, i, i_102_, i_103_, i_104_);
 		}
 	}
 
@@ -2986,7 +2988,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					strings[i] = string;
 				bufferedreader.close();
 			}
-			if (keplo.getState())
+			if (keplo.isSelected())
 				strings[0] = new StringBuilder().append("lastuser(").append(tnick.getText()).append(",")
 						.append(tpass.getText()).append(")").toString();
 			else

@@ -10,7 +10,7 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
-import java.awt.TextField;
+import javax.swing.JTextField;
 import java.awt.image.ImageObserver;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -218,7 +218,7 @@ public class Login implements Runnable {
 				}
 				xt.logged = false;
 				xt.gotlog = false;
-				gs.keplo.setState(false);
+				gs.keplo.setSelected(false);
 				gs.setloggedcookie();
 				xt.cd.msloaded = 0;
 				xt.cd.lastload = 0;
@@ -667,8 +667,8 @@ public class Login implements Runnable {
 		connector.start();
 	}
 
-	public void fixtext(final TextField textfield) {
-		String string = textfield.getText();
+	public void fixtext(final JTextField JTextField) {
+		String string = JTextField.getText();
 		string = string.replace('\"', '#');
 		final String string_64_ = "\\";
 		String string_65_ = "";
@@ -689,8 +689,8 @@ public class Login implements Runnable {
 				string_65_ = new StringBuilder().append(string_65_).append(string_67_).toString();
 		}
 		if (i_66_ != -1) {
-			textfield.setText(string_65_);
-			textfield.select(i_66_, i_66_);
+			JTextField.setText(string_65_);
+			JTextField.select(i_66_, i_66_);
 		}
 	}
 

@@ -613,11 +613,11 @@ public class Lobby implements Runnable {
 									if (i_308_ == i_312_ - 2) {
 										if (invo)
 											invo = false;
-										if (gs.mycar.getState() && xt.sc[0] < 16) {
+										if (gs.mycar.isSelected() && xt.sc[0] < 16) {
 											gclass = -(xt.sc[0] + 2);
 											gcars = 0;
 										}
-										if (gs.notp.getState())
+										if (gs.notp.isSelected())
 											gnotp = 1;
 										else
 											gnotp = 0;
@@ -634,13 +634,13 @@ public class Lobby implements Runnable {
 										if (invo)
 											invo = false;
 										msg = "| Creating Game |";
-										if (gs.mycar.getState() && xt.sc[0] < 16) {
+										if (gs.mycar.isSelected() && xt.sc[0] < 16) {
 											gclass = -(xt.sc[0] + 2);
 											gcars = 0;
 										}
 										if (gclass != 0)
 											gwait = 120;
-										if (gs.notp.getState())
+										if (gs.notp.isSelected())
 											gnotp = 1;
 										else
 											gnotp = 0;
@@ -2703,9 +2703,9 @@ public class Lobby implements Runnable {
 										if (!gs.notp.isShowing()) {
 											gs.notp.setVisible(true);
 											if (gnotp == 0)
-												gs.notp.setState(false);
+												gs.notp.setSelected(false);
 											else
-												gs.notp.setState(true);
+												gs.notp.setSelected(true);
 										}
 										if (xt.sc[0] < 16) {
 											if (!gs.openm)
@@ -2718,13 +2718,13 @@ public class Lobby implements Runnable {
 												gs.mycar.setLabel(new StringBuilder().append("")
 														.append(cd.names[xt.sc[0]]).append(" Game!").toString());
 												if (gclass <= -2)
-													gs.mycar.setState(true);
+													gs.mycar.setSelected(true);
 												else
-													gs.mycar.setState(false);
+													gs.mycar.setSelected(false);
 											}
-										} else if (gs.mycar.getState())
-											gs.mycar.setState(false);
-										if (gs.mycar.getState()) {
+										} else if (gs.mycar.isSelected())
+											gs.mycar.setSelected(false);
+										if (gs.mycar.isSelected()) {
 											if (gs.sclass.isEnabled())
 												gs.sclass.disable();
 											if (gs.scars.isEnabled())
