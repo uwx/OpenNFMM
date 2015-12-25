@@ -13,6 +13,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
+import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -35,25 +36,14 @@ import java.util.Date;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import javax.media.opengl.GLAutoDrawable;
-import javax.media.opengl.GLCapabilities;
-import javax.media.opengl.GLDrawableFactory;
-import javax.media.opengl.GLEventListener;
-import javax.media.opengl.GLProfile;
 import javax.swing.BorderFactory;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.Timer;
 
-import org.jogamp.glg2d.GLG2DCanvas;
-import org.jogamp.glg2d.GLG2DHeadlessListener;
-import org.jogamp.glg2d.GLG2DSimpleEventListener;
-import org.jogamp.glg2d.event.AWTMouseEventTranslator;
-
-public class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMotionListener, ActionListener, GLEventListener {
+public class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMotionListener, ActionListener {
 	/**
 	 *
 	 */
@@ -1232,7 +1222,6 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		graphics.setColor(Color.BLACK);
 		graphics.fillRect(0, 0, getWidth(), getHeight());
 		gameTick();
-		System.out.println("done ticking");
 		if (lastw != getWidth() || lasth != getHeight()) {
 			lastw = getWidth();
 			lasth = getHeight();
@@ -1538,31 +1527,6 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		hidefields();
 	}
 
-	private void makeImage() {
-
-        GLCapabilities caps = GLG2DCanvas.getDefaultCapabalities();
-        caps.setFBO(true);
-        caps.setOnscreen(false);
-        GLAutoDrawable offscreen = GLDrawableFactory.getFactory(GLProfile.getGL2ES1()).createOffscreenAutoDrawable(null, caps, null, 800, 450, null);
-
-
-        offscreen.addGLEventListener(new GLG2DSimpleEventListener(this));
-        offscreen.addGLEventListener(new GLG2DHeadlessListener(this));
-        offscreen.addGLEventListener(this);
-
-        offImage = new BufferedImage(800, 450, BufferedImage.TYPE_INT_ARGB);
-        if (offImage != null)
-            rd = offImage.createGraphics();
-
-
-        final AWTMouseEventTranslator translator = new AWTMouseEventTranslator(this);
-
-        addMouseListener(translator);
-        addMouseMotionListener(translator);
-        addMouseWheelListener(translator);
-
-	}
-
 	public GameSparker() {
 		initApplet();
         setBorder(BorderFactory.createLineBorder(Color.black));
@@ -1575,9 +1539,9 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		//dr = new DebugRunner();
 		//dr.start();
 
-
-
-
+		offImage = new BufferedImage(800, 450, BufferedImage.TYPE_INT_ARGB);
+		if (offImage != null)
+			rd = offImage.createGraphics();
 		makeMenus();
 		initialize();
 		addKeyListener(this);
@@ -1595,7 +1559,6 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
         // 33 - 30 fps (faster)
 		// 25 - 40 fps (fastest)
         Timer timer = new Timer(40, this);
-        timer.setRepeats(true);
         timer.start();
         /*Timer counter = new Timer(1, count);
         counter.start();*/
@@ -3309,28 +3272,4 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	public void actionPerformed(ActionEvent e) {
 		repaint();
 	}
-
-    @Override
-    public void display(GLAutoDrawable arg0) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void dispose(GLAutoDrawable arg0) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void init(GLAutoDrawable arg0) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void reshape(GLAutoDrawable arg0, int arg1, int arg2, int arg3, int arg4) {
-        // TODO Auto-generated method stub
-
-    }
 }
