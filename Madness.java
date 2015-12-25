@@ -6,7 +6,6 @@ import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.DisplayMode;
-import java.awt.Frame;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Panel;
@@ -22,6 +21,10 @@ import java.io.FileWriter;
 import java.net.URI;
 import java.util.Date;
 
+import javax.media.opengl.GLAutoDrawable;
+import javax.media.opengl.GLCapabilities;
+import javax.media.opengl.GLDrawableFactory;
+import javax.media.opengl.GLProfile;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -464,6 +467,8 @@ public class Madness extends Panel {
 				exitsequance();
 			}
 		});
+		
+		
 		frame.setContentPane(new GLG2DCanvas(applet));
 		//frame.add("Center", applet);
 		frame.setVisible(true);
