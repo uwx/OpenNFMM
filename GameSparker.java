@@ -310,7 +310,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		//if (offImage != null)
 		//	rd = (Graphics2D) offImage.getGraphics();
 		setLayout(null);
-		tnick = new JTextField("Nickbname");
+		tnick = new JTextField("Nickname");
 		tnick.setFont(new Font("Arial", 1, 13));
 		tpass = new JPasswordField("");
 		tpass.setFont(new Font("Arial", 1, 13));
@@ -1687,6 +1687,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			}
 			if (var_xtGraphics.fase == 9)
 				if (i_7_ < 76) {
+				    System.out.println("fase 9");
 					var_xtGraphics.rad(i_7_);
 					catchlink();
 					if (mouses == 2)
