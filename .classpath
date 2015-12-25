@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="data/|libraries/|music/|mystages/|stages/" kind="src" path=""/>
+	<classpathentry excluding=".settings/|bin/|data/|libraries/|music/|mystages/|stages/" kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="libraries/dragshotMod.jar" sourcepath="libraries/dragshotMod.zip"/>
+	<classpathentry kind="lib" path="libraries/dragshotMod.jar"/>
 	<classpathentry kind="lib" path="libraries/easyogg.jar"/>
 	<classpathentry kind="lib" path="libraries/jl1.0.1.jar"/>
 	<classpathentry kind="lib" path="libraries/jogg-0.0.7.jar"/>
