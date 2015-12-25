@@ -2329,6 +2329,9 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 						rd.fillRect(0, 0, 800, 450);
 					}
 				}
+
+				var_xtGraphics.checkmouse(checkpoints, mouses, xm, ym);
+                var_xtGraphics.opponentStatus(700, 30, checkpoints, u[0]);
 			}
 			if (var_xtGraphics.fase == 7001) {
 				for (int i_51_ = 0; i_51_ < var_xtGraphics.nplayers; i_51_++)

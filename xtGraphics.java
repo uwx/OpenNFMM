@@ -5794,6 +5794,159 @@ public class xtGraphics extends Panel implements Runnable {
 		return bool;
 	}
 
+	boolean[] mouseOverCarStatus = {
+            false, false, false, false, false, false, false, false
+    };
+
+    public void checkmouse(CheckPoints checkpoints, int mousepress, int mousex, int mousey) {
+        for(int aCar = 0; aCar < 7; aCar++)
+        {
+            boolean golock = false;
+            for(int bCar = 0; bCar < 7; bCar++)
+            {
+                if(checkpoints.pos[bCar] != aCar || checkpoints.dested[bCar] != 0 || golock)
+                    continue;
+                if(mousepress == 0)
+                {
+                    for(int k2 = 0; k2 < 7; k2++)
+                        if((overon(529, 77 + 30 * aCar, 114, 25, mousex, mousey) || overon(9, 157 + 30 * aCar, 114, 25, mousex, mousey)) && bCar != 0)
+                            mouseOverCarStatus[bCar] = true;
+                        else
+                            mouseOverCarStatus[bCar] = false;
+
+                }
+                if(mousepress == 2)
+                    if((overon(529, 77 + 30 * aCar, 114, 25, mousex, mousey) || overon(9, 157 + 30 * aCar, 114, 25, mousex, mousey)) && bCar != 0)
+                    {
+                        if(!onlock)
+                            if(alocked != bCar)
+                                alocked = bCar;
+                            else
+                                alocked = -1;
+                        onlock = true;
+                    } else
+                    if(onlock)
+                        onlock = false;
+                golock = true;
+            }
+
+        }
+    }
+
+    public void opponentStatus(int xOffset, int yOffset, CheckPoints checkpoints, Control control) {
+        for(int i_63_ = 0; i_63_ < nplayers && xOffset > -30; i_63_++)
+        {
+            boolean bool_64_ = false;
+            for(int i_65_ = 0; i_65_ < nplayers; i_65_++)
+            {
+                if(checkpoints.pos[i_65_] != i_63_ || checkpoints.dested[i_65_] != 0 || bool_64_)
+                    continue;
+                rd.setColor(new Color(0, 0, 100));
+                if(i_63_ == 0)
+                    rd.drawString("1st", -79 + xOffset, 176 + yOffset * i_63_);
+                if(i_63_ == 1)
+                    rd.drawString("2nd", -79 + xOffset, 176 + yOffset * i_63_);
+                if(i_63_ == 2)
+                    rd.drawString("3rd", -79 + xOffset, 176 + yOffset * i_63_);
+                if(i_63_ >= 3)
+                    rd.drawString((new StringBuilder()).append(i_63_ + 1).append("th").toString(), -79 + xOffset, 176 + yOffset * i_63_);
+                rd.setColor(new Color(0, 0, 0));
+                rd.drawString(cd.names[sc[i_65_]], (-20 + xOffset) - ftm.stringWidth(cd.names[sc[i_65_]]) / 2, 170 + yOffset * i_63_);
+                int i_66_ = (int)(60F * checkpoints.magperc[i_65_]);
+                int i_67_ = 244;
+                int i_68_ = 244;
+                int i_69_ = 11;
+                if(i_66_ > 20)
+                    i_68_ = (int)(244F - 233F * ((float)(i_66_ - 20) / 40F));
+                i_67_ = (int)((float)i_67_ + (float)i_67_ * ((float)m.snap[0] / 100F));
+                if(i_67_ > 255)
+                    i_67_ = 255;
+                if(i_67_ < 0)
+                    i_67_ = 0;
+                i_68_ = (int)((float)i_68_ + (float)i_68_ * ((float)m.snap[1] / 100F));
+                if(i_68_ > 255)
+                    i_68_ = 255;
+                if(i_68_ < 0)
+                    i_68_ = 0;
+                i_69_ = (int)((float)i_69_ + (float)i_69_ * ((float)m.snap[2] / 100F));
+                if(i_69_ > 255)
+                    i_69_ = 255;
+                if(i_69_ < 0)
+                    i_69_ = 0;
+                rd.setColor(new Color(i_67_, i_68_, i_69_));
+                rd.fillRect(-50 + xOffset, 174 + yOffset * i_63_, i_66_, 5);
+                rd.setColor(new Color(0, 0, 0));
+                rd.drawRect(-50 + xOffset, 174 + yOffset * i_63_, 60, 5);
+                if(alocked == i_65_)
+                {
+                    int i5 = (int)(159F + 159F * ((float)m.snap[0] / 100F));
+                    if(i5 > 255)
+                        i5 = 255;
+                    if(i5 < 0)
+                        i5 = 0;
+                    int l5 = (int)(207F + 207F * ((float)m.snap[1] / 100F));
+                    if(l5 > 255)
+                        l5 = 255;
+                    if(l5 < 0)
+                        l5 = 0;
+                    int i7 = (int)(255F + 255F * ((float)m.snap[2] / 100F));
+                    if(i7 > 255)
+                        i7 = 255;
+                    if(i7 < 0)
+                        i7 = 0;
+                    rd.setColor(new Color(i5, l5, i7));
+                    rd.drawRect(-89 + xOffset, 158 + yOffset * i_63_, 114, 25);
+                    rd.drawRect(-88 + xOffset, 159 + yOffset * i_63_, 112, 23);
+                }
+                if(mouseOverCarStatus[i_65_] && !onlock)
+                {
+                    int j5;
+                    int i6;
+                    int j7;
+                    if(alocked == i_65_)
+                    {
+                        j5 = (int)(120F + 120F * ((float)m.snap[0] / 100F));
+                        if(j5 > 255)
+                            j5 = 255;
+                        if(j5 < 0)
+                            j5 = 0;
+                        i6 = (int)(114F + 114F * ((float)m.snap[1] / 100F));
+                        if(i6 > 255)
+                            i6 = 255;
+                        if(i6 < 0)
+                            i6 = 0;
+                        j7 = (int)(255F + 255F * ((float)m.snap[2] / 100F));
+                        if(j7 > 255)
+                            j7 = 255;
+                        if(j7 < 0)
+                            j7 = 0;
+                    } else
+                    {
+                        j5 = (int)(140F + 140F * ((float)m.snap[0] / 100F));
+                        if(j5 > 255)
+                            j5 = 255;
+                        if(j5 < 0)
+                            j5 = 0;
+                        i6 = (int)(160F + 160F * ((float)m.snap[1] / 100F));
+                        if(i6 > 255)
+                            i6 = 255;
+                        if(i6 < 0)
+                            i6 = 0;
+                        j7 = (int)(255F + 255F * ((float)m.snap[2] / 100F));
+                        if(j7 > 255)
+                            j7 = 255;
+                        if(j7 < 0)
+                            j7 = 0;
+                    }
+                    rd.setColor(new Color(j5, i6, j7));
+                    rd.drawRect(-90 + xOffset, 157 + yOffset * i_63_, 116, 27);
+                }
+                bool_64_ = true;
+            }
+
+        }
+    }
+
 	public void multistat(final Control control, final CheckPoints checkpoints, final int i, final int i_53_,
 			final boolean bool, final UDPMistro udpmistro) {
 		int i_54_ = -1;
