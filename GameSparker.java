@@ -318,7 +318,22 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		temail.setFont(new Font("Arial", 1, 13));
 		cmsg = new TextField("");
 		if (System.getProperty("java.vendor").toLowerCase().indexOf("oracle") != -1)
-			cmsg.addKeyListener( /* TYPE_ERROR */ new GameSparker$1(this));
+			cmsg.addKeyListener(new KeyListener() {
+
+                @Override
+                public void keyPressed(KeyEvent arg0) {
+                }
+
+                @Override
+                public void keyReleased(KeyEvent arg0) {
+                    if(arg0.getKeyCode() == 10 && u[0] != null)
+                        u[0].enter = true;
+                }
+
+                @Override
+                public void keyTyped(KeyEvent arg0) {
+                }
+			});
 		mmsg = new TextArea("", 200, 20, 3);
 		cmsg.setFont(new Font("Tahoma", 0, 11));
 		mmsg.setFont(new Font("Tahoma", 0, 11));
