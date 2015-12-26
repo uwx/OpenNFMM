@@ -1229,12 +1229,32 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			}
 	}
 
+	private void trash() {
+        rd.dispose();
+        var_xtGraphics.stopallnow();
+        //cardefine.stopallnow();
+        //udpmistro.UDPquit();
+        System.gc();
+        if (Madness.endadv == 2)
+            Madness.advopen();
+        //if (gamer != null)
+        //  gamer.interrupt();
+        //gamer = null;
+    }
+
 	@Override
 	public void paintComponent(final Graphics graphics) {
 		final Graphics2D graphics2d = (Graphics2D) graphics;
 		graphics.setColor(Color.BLACK);
 		graphics.fillRect(0, 0, getWidth(), getHeight());
-		gameTick();
+		try {
+            gameTick();
+        } catch (Exception e) {
+            e.printStackTrace();
+            exwist = true;
+            trash();
+            System.exit(3);
+        }
 		if (lastw != getWidth() || lasth != getHeight()) {
 			lastw = getWidth();
 			lasth = getHeight();
@@ -2936,18 +2956,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					i_5_++;
 			}
 			if (exwist) {
-				rd.dispose();
-				var_xtGraphics.stopallnow();
-				cardefine.stopallnow();
-				udpmistro.UDPquit();
-				if (bool) {
-					lobby.stopallnow();
-					login.stopallnow();
-					//globe.stopallnow();
-				}
-				System.gc();
-				if (Madness.endadv == 2)
-					Madness.advopen();
+			    trash();
 			}
 
 	}
