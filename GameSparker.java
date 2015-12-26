@@ -322,12 +322,12 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 
                 @Override
                 public void keyPressed(KeyEvent arg0) {
+                    if(arg0.getKeyCode() == 10 && u[0] != null)
+                        u[0].enter = true;
                 }
 
                 @Override
                 public void keyReleased(KeyEvent arg0) {
-                    if(arg0.getKeyCode() == 10 && u[0] != null)
-                        u[0].enter = true;
                 }
 
                 @Override
