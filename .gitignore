@@ -16,6 +16,10 @@ mystages/*.data
 mystages/mymusic/*.zip
 mystages/*.txt
 mycars/*.rad
+/mystages/
+/mycars/
+
+/target/
 
 #################
 ## Java
@@ -298,4 +302,3 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
-/target/
