@@ -1,5 +1,4 @@
 
-
 public class Utility {
 
     /**
@@ -70,7 +69,7 @@ public class Utility {
      *            The 3D Y point
      * @return The 2D X coordinate.
      */
-    public static int xs(final int i, int i_338_, Medium m) {
+    public static int xs(final int i, int i_338_, final Medium m) {
         if (i_338_ < m.cz)
             i_338_ = m.cz;
         return (i_338_ - m.focus_point) * (m.cx - i) / i_338_ + i;
@@ -85,7 +84,7 @@ public class Utility {
      *            The 3D Y point
      * @return The 2D Y coordinate.
      */
-    public static int ys(final int i, int i_339_, Medium m) {
+    public static int ys(final int i, int i_339_, final Medium m) {
         if (i_339_ < m.cz)
             i_339_ = m.cz;
         return (i_339_ - m.focus_point) * (m.cy - i) / i_339_ + i;
@@ -93,13 +92,13 @@ public class Utility {
 
     // alt
 
-    public static int altXs(final int i, int i_260_, Medium m) {
+    public static int altXs(final int i, int i_260_, final Medium m) {
         if (i_260_ < 50)
             i_260_ = 50;
         return (i_260_ - m.focus_point) * (m.cx - i) / i_260_ + i;
     }
 
-    public static int altYs(final int i, int i_261_, Medium m) {
+    public static int altYs(final int i, int i_261_, final Medium m) {
         if (i_261_ < 50)
             i_261_ = 50;
         return (i_261_ - m.focus_point) * (m.cy - i) / i_261_ + i;
@@ -113,7 +112,7 @@ public class Utility {
     	return (i_272_ - m.focus_point) * (m.cx - i) / i_272_ + i;
     }*/
 
-    static public int mediumYs(final int i, int i_273_, Medium m) {
+    static public int mediumYs(final int i, int i_273_, final Medium m) {
         if (i_273_ < 10)
             i_273_ = 10;
         return (i_273_ - m.focus_point) * (m.cy - i) / i_273_ + i;

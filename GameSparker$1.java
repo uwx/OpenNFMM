@@ -9,18 +9,18 @@ import java.awt.event.KeyEvent;
 
 class GameSparker$1 extends KeyAdapter {
 
-	GameSparker$1(final GameSparker paramGameSparker) {
-	}
+    GameSparker$1(final GameSparker paramGameSparker) {
+    }
 
-	@Override
-	public void keyPressed(final KeyEvent keyevent) {
-	}
+    @Override
+    public void keyPressed(final KeyEvent keyevent) {
+    }
 
-	@Override
-	public void keyReleased(final KeyEvent keyevent) {
-	}
+    @Override
+    public void keyReleased(final KeyEvent keyevent) {
+    }
 
-	@Override
-	public void keyTyped(final KeyEvent keyevent) {
-	}
+    @Override
+    public void keyTyped(final KeyEvent keyevent) {
+    }
 }
