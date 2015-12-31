@@ -67,7 +67,6 @@ public class SuperClip implements Runnable {
                 stoped = 1;
             }
             try {
-                final Thread _tmp = cliper;
                 Thread.sleep(200L);
             } catch (final InterruptedException interruptedexception) {
             }
