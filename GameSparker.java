@@ -3060,7 +3060,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
     		gamer = new Thread(this);
     	gamer.start();
     }
-    
+
     @Override
     public void stop() {
     	if (exwist && gamer != null) {
