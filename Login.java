@@ -478,7 +478,7 @@ public class Login implements Runnable {
                     nflk = 30;
                 } else {
                     msg = "| Checking Nickname |";
-                    gs.tnick.disable();
+                    gs.tnick.setEnabled(false);
                     fase = 2;
                     connector = new Thread(this);
                     connector.start();
@@ -517,9 +517,9 @@ public class Login implements Runnable {
                     nflk = 30;
                 } else {
                     msg = "| Logging In |";
-                    gs.tnick.disable();
-                    gs.tpass.disable();
-                    gs.keplo.disable();
+                    gs.tnick.setEnabled(false);
+                    gs.tpass.setEnabled(false);
+                    gs.keplo.setEnabled(false);
                     fase = 4;
                     connector = new Thread(this);
                     connector.start();
@@ -580,7 +580,7 @@ public class Login implements Runnable {
                 }
                 if (nflk == 0) {
                     msg = "| Checking Email |";
-                    gs.temail.disable();
+                    gs.temail.setEnabled(false);
                     fase = 8;
                     connector = new Thread(this);
                     connector.start();
@@ -787,19 +787,19 @@ public class Login implements Runnable {
 
     public void inishmulti() {
         gs.tnick.setVisible(false);
-        gs.tnick.enable();
+        gs.tnick.setEnabled(true);
         gs.tnick.setForeground(new Color(0, 0, 0));
         gs.tnick.setBackground(color2k(240, 240, 240));
         gs.tpass.setVisible(false);
-        gs.tpass.enable();
+        gs.tpass.setEnabled(true);
         gs.tpass.setForeground(new Color(0, 0, 0));
         gs.tpass.setBackground(color2k(240, 240, 240));
         gs.temail.setVisible(false);
-        gs.temail.enable();
+        gs.temail.setEnabled(true);
         gs.temail.setForeground(new Color(0, 0, 0));
         gs.temail.setBackground(color2k(240, 240, 240));
         gs.keplo.setVisible(false);
-        gs.keplo.enable();
+        gs.keplo.setEnabled(true);
         gs.keplo.setForeground(new Color(0, 0, 0));
         gs.keplo.setBackground(new Color(193, 181, 142));
         gs.requestFocus();
@@ -1427,7 +1427,7 @@ public class Login implements Runnable {
             } catch (final Exception exception) {
                 /* empty */
             }
-            gs.tnick.enable();
+            gs.tnick.setEnabled(true);
             if (i == -1) {
                 msg = "Unable to connect to any server at this moment.  Please try again later.";
                 fase = 1;
@@ -1496,9 +1496,9 @@ public class Login implements Runnable {
             } catch (final Exception exception) {
                 /* empty */
             }
-            gs.tnick.enable();
-            gs.tpass.enable();
-            gs.keplo.enable();
+            gs.tnick.setEnabled(true);
+            gs.tpass.setEnabled(true);
+            gs.keplo.setEnabled(true);
             if (i == -1) {
                 msg = "Unable to connect to server at this moment.  Please try again later.";
                 fase = 3;
@@ -1567,7 +1567,7 @@ public class Login implements Runnable {
             } catch (final Exception exception) {
                 /* empty */
             }
-            gs.temail.enable();
+            gs.temail.setEnabled(true);
             if (i == -1) {
                 msg = "Unable to connect to server at this moment.  Please try again later.";
                 fase = 7;

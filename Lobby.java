@@ -2763,14 +2763,14 @@ public class Lobby implements Runnable {
                                             gs.mycar.setState(false);
                                         if (gs.mycar.getState()) {
                                             if (gs.sclass.isEnabled())
-                                                gs.sclass.disable();
+                                                gs.sclass.setEnabled(false);
                                             if (gs.scars.isEnabled())
-                                                gs.scars.disable();
+                                                gs.scars.setEnabled(false);
                                         } else {
                                             if (!gs.sclass.isEnabled())
-                                                gs.sclass.enable();
+                                                gs.sclass.setEnabled(true);
                                             if (!gs.scars.isEnabled())
-                                                gs.scars.enable();
+                                                gs.scars.setEnabled(true);
                                             if (gs.sclass.getSelectedIndex() != gclass) {
                                                 gclass = gs.sclass.getSelectedIndex();
                                                 gs.mycar.setVisible(false);
