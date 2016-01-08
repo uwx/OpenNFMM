@@ -2941,9 +2941,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             if (tab != tabed) {
                 hidefields();
                 if (tab == 1)
-                    editor.enable();
+                    editor.setEnabled(true);
                 else
-                    editor.disable();
+                    editor.setEnabled(false);
                 if (tabed == 2)
                     if (!breakbond) {
                         if (!editor.getText().equals(lastedo))

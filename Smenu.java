@@ -1,4 +1,5 @@
 
+
 /* Smenu - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -90,6 +91,7 @@ public class Smenu {
             no++;
     }
 
+    @Deprecated
     public void disable() {
         dis = true;
     }
@@ -357,6 +359,7 @@ public class Smenu {
         return bool_7_;
     }
 
+    @Deprecated
     public void enable() {
         dis = false;
     }
@@ -482,5 +485,9 @@ public class Smenu {
     @Deprecated
     public void show() {
         show = true;
+    }
+
+    public void setEnabled(boolean b) {
+        dis = b;
     }
 }
