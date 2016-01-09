@@ -15,19 +15,17 @@ public class UDPMistro implements Runnable {
     int diledelay = 0;
     BufferedReader din;
     PrintWriter dout;
-    int[] force = new int[7];
-    int[][] frame = new int[10][3];
+    //int[] force = new int[7];
     float freg = 0.0F;
     boolean go = false;
-    int[] gocnt = new int[7];
+    //int[] gocnt = new int[7];
     int im = 0;
-    String[][] info = new String[10][3];
-    boolean[] isbot = new boolean[7];
-    int[] lcframe = new int[7];
+    //boolean[] isbot = new boolean[7];
+    //int[] lcframe = new int[7];
     int[] ldelays = new int[5];
-    int[] lframe = new int[7];
+    //int[] lframe = new int[7];
     int nplayers = 0;
-    int[] out = new int[7];
+    //int[] out = new int[7];
     int pgame = 0;
     int porturn = 0;
     int rate = 30;
@@ -37,10 +35,21 @@ public class UDPMistro implements Runnable {
     String sendcheck = "";
     Socket socket;
     udpOnline[] udpc = new udpOnline[20];
-    udpServe[] usrv = new udpServe[9];
     int wx = 0;
     String xtserver = "";
     int xtservport = 0;
+
+    //fixed for 8 player games
+    udpServe[] usrv = new udpServe[13];
+
+    String[][] info = new String[14][3];
+    int[][] frame = new int[14][3];
+    int[] lframe = new int[8];
+    int[] force = new int[8];
+    int[] lcframe = new int[8];
+    boolean[] isbot = new boolean[8];
+    int[] gocnt = new int[8];
+    int[] out = new int[8];
 
     public int getncoms(final String string) {
         int i = 0;
