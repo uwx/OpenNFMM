@@ -3263,6 +3263,10 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
             }
             if (onfulls)
                 Madness.gofullscreen();
+            if (oncarm)
+                Madness.carmaker();
+            if (onstgm)
+                Madness.stagemaker();
             onbar = false;
         }
     }
