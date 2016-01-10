@@ -18,13 +18,13 @@ public class Mod {
     static final int voice_28ch = FOURCC("28CH");
     static final int voice_6chn = FOURCC("6CHN");
     static final int voice_8chn = FOURCC("8CHN");
-    static final int voice_flt4 = FOURCC("FLT4");
-    static final int voice_flt8 = FOURCC("FLT8");
-    static final int voice_mk = FOURCC("M.K.");
-    static final int voice_mk2 = FOURCC("M!K!");
-    static final int voice_mk3 = FOURCC("M&K!");
-    static final int[] voice_31_list = {
-            voice_mk, voice_mk2, voice_mk3, voice_flt4, voice_flt8, voice_8chn, voice_6chn, voice_28ch
+    static final int voiceFlt4 = FOURCC("FLT4");
+    static final int voiceFlt8 = FOURCC("FLT8");
+    static final int voiceMk = FOURCC("M.K.");
+    static final int voiceMk2 = FOURCC("M!K!");
+    static final int voiceMk3 = FOURCC("M&K!");
+    static final int[] voice_31List = {
+            voiceMk, voiceMk2, voiceMk3, voiceFlt4, voiceFlt8, voice_8chn, voice_6chn, voice_28ch
     };
 
     static final int FOURCC(final String string) {
@@ -35,25 +35,25 @@ public class Mod {
     static ModInstrument readInstrument(final DataInputStream datainputstream) throws IOException {
         final ModInstrument modinstrument = new ModInstrument();
         modinstrument.name = readText(datainputstream, 22);
-        modinstrument.sample_length = readu16(datainputstream) << 1;
-        modinstrument.samples = new byte[modinstrument.sample_length + 8];
-        modinstrument.finetune_value = (byte) (readu8(datainputstream) << 4);
+        modinstrument.sampleLength = readu16(datainputstream) << 1;
+        modinstrument.samples = new byte[modinstrument.sampleLength + 8];
+        modinstrument.finetuneValue = (byte) (readu8(datainputstream) << 4);
         modinstrument.volume = readu8(datainputstream);
-        modinstrument.repeat_point = readu16(datainputstream) << 1;
-        modinstrument.repeat_length = readu16(datainputstream) << 1;
-        if (modinstrument.repeat_point > modinstrument.sample_length)
-            modinstrument.repeat_point = modinstrument.sample_length;
-        if (modinstrument.repeat_point + modinstrument.repeat_length > modinstrument.sample_length)
-            modinstrument.repeat_length = modinstrument.sample_length - modinstrument.repeat_point;
+        modinstrument.repeatPoint = readu16(datainputstream) << 1;
+        modinstrument.repeatLength = readu16(datainputstream) << 1;
+        if (modinstrument.repeatPoint > modinstrument.sampleLength)
+            modinstrument.repeatPoint = modinstrument.sampleLength;
+        if (modinstrument.repeatPoint + modinstrument.repeatLength > modinstrument.sampleLength)
+            modinstrument.repeatLength = modinstrument.sampleLength - modinstrument.repeatPoint;
         return modinstrument;
     }
 
     static void readSampleData(final DataInputStream datainputstream, final ModInstrument modinstrument)
             throws IOException {
-        datainputstream.readFully(modinstrument.samples, 0, modinstrument.sample_length);
-        if (modinstrument.repeat_length > 3)
-            System.arraycopy(modinstrument.samples, modinstrument.repeat_point, modinstrument.samples,
-                    modinstrument.sample_length, 8);
+        datainputstream.readFully(modinstrument.samples, 0, modinstrument.sampleLength);
+        if (modinstrument.repeatLength > 3)
+            System.arraycopy(modinstrument.samples, modinstrument.repeatPoint, modinstrument.samples,
+                    modinstrument.sampleLength, 8);
     }
 
     static final String readText(final DataInputStream datainputstream, final int i) throws IOException {
@@ -85,11 +85,11 @@ public class Mod {
 
     boolean s3m;
 
-    int song_length_patterns;
+    int songLengthPatterns;
 
-    int song_repeat_patterns;
+    int songRepeatPatterns;
 
-    int track_shift;
+    int trackShift;
 
     public Mod(final byte[] is) {
         try {
@@ -172,8 +172,8 @@ public class Mod {
         datainputstream.skip(1060L);
         final int i_7_ = datainputstream.readInt();
         datainputstream.reset();
-        for (int i_8_ = 0; i_8_ < voice_31_list.length; i_8_++)
-            if (i_7_ == voice_31_list[i_8_]) {
+        for (int i_8_ = 0; i_8_ < voice_31List.length; i_8_++)
+            if (i_7_ == voice_31List[i_8_]) {
                 i = 31;
                 break;
             }
@@ -211,11 +211,11 @@ public class Mod {
 
     void readSequence(final DataInputStream datainputstream) throws IOException {
         positions = new byte[128];
-        song_length_patterns = readu8(datainputstream);
-        song_repeat_patterns = readu8(datainputstream);
+        songLengthPatterns = readu8(datainputstream);
+        songRepeatPatterns = readu8(datainputstream);
         datainputstream.readFully(positions, 0, 128);
-        if (song_repeat_patterns > song_length_patterns)
-            song_repeat_patterns = song_length_patterns;
+        if (songRepeatPatterns > songLengthPatterns)
+            songRepeatPatterns = songLengthPatterns;
         numpatterns = 0;
         for (int i = 0; i < positions.length; i++)
             if (positions[i] > numpatterns)

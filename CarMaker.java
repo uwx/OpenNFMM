@@ -2899,7 +2899,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         m.y = -240;
         m.z = -400;
         m.zy = 4;
-        m.focus_point = 800;
+        m.focusPoint = 800;
         m.fadfrom(8000);
         m.cfade[0] = 187;
         m.cfade[1] = 210;
@@ -5577,12 +5577,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
     public int xs(final int i, int i_338_) {
         if (i_338_ < m.cz)
             i_338_ = m.cz;
-        return (i_338_ - m.focus_point) * (m.cx - i) / i_338_ + i;
+        return (i_338_ - m.focusPoint) * (m.cx - i) / i_338_ + i;
     }
 
     public int ys(final int i, int i_339_) {
         if (i_339_ < m.cz)
             i_339_ = m.cz;
-        return (i_339_ - m.focus_point) * (m.cy - i) / i_339_ + i;
+        return (i_339_ - m.focusPoint) * (m.cy - i) / i_339_ + i;
     }
 }

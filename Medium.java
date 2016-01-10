@@ -60,7 +60,7 @@ public class Medium {
     };
     int fallen = 0;
     float fo = 1.0F;
-    int focus_point = 400;
+    int focusPoint = 400;
     int fogd = 7;
     int fvect = 200;
     float gofo = (float) (0.33000001311302185 + Math.random() * 1.34);
@@ -233,7 +233,7 @@ public class Medium {
                 zy = 67;
                 atrx = (checkpoints.x[0] - trx) / 116L;
                 atrz = (checkpoints.z[0] - trz) / 116L;
-                focus_point = 400;
+                focusPoint = 400;
             }
             if (hit == 20000) {
                 fallen = 500;
@@ -241,7 +241,7 @@ public class Medium {
                 zy = 67;
                 atrx = (checkpoints.x[0] - trx) / 116L;
                 atrz = (checkpoints.z[0] - trz) / 116L;
-                focus_point = 400;
+                focusPoint = 400;
             }
             hit -= fallen;
             fallen += 7;
@@ -257,7 +257,7 @@ public class Medium {
             }
             vxz += 3;
         } else {
-            focus_point = (int) (400.0F * fo);
+            focusPoint = (int) (400.0F * fo);
             if (Math.abs(fo - gofo) > 0.005) {
                 if (fo < gofo)
                     fo += 0.005F;
@@ -1839,12 +1839,12 @@ public class Medium {
     public int xs(final int i, int i_272_) {
         if (i_272_ < cz)
             i_272_ = cz;
-        return (i_272_ - focus_point) * (cx - i) / i_272_ + i;
+        return (i_272_ - focusPoint) * (cx - i) / i_272_ + i;
     }
 
     public int ys(final int i, int i_273_) {
         if (i_273_ < 10)
             i_273_ = 10;
-        return (i_273_ - focus_point) * (cy - i) / i_273_ + i;
+        return (i_273_ - focusPoint) * (cy - i) / i_273_ + i;
     }
 }

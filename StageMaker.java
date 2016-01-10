@@ -2114,8 +2114,8 @@ public class StageMaker extends Applet implements Runnable {
             @Override
             public void run() {
                 while (true) {
-                    System.out.println("x: " + ((xm - 505) * (Math.abs(sy) / m.focus_point) + sx));
-                    System.out.println("z: " + ((290 - ym) * (Math.abs(sy) / m.focus_point) + sz));
+                    System.out.println("x: " + ((xm - 505) * (Math.abs(sy) / m.focusPoint) + sx));
+                    System.out.println("z: " + ((290 - ym) * (Math.abs(sy) / m.focusPoint) + sz));
                     System.out.println("y: " + (m.ground - bco[selectedPart].grat));
                     System.out.println("rot: " + (rot + adrot));
                     try {
@@ -2628,8 +2628,8 @@ public class StageMaker extends Applet implements Runnable {
                         }
                 if (xm > 248 && xm < 762 && ym > 63 && ym < 517) {
                     if (!epart && !arrng) {
-                        bco[selectedPart].x = (xm - 505) * (Math.abs(sy) / m.focus_point) + sx;
-                        bco[selectedPart].z = (290 - ym) * (Math.abs(sy) / m.focus_point) + sz;
+                        bco[selectedPart].x = (xm - 505) * (Math.abs(sy) / m.focusPoint) + sx;
+                        bco[selectedPart].z = (290 - ym) * (Math.abs(sy) / m.focusPoint) + sz;
                         bco[selectedPart].y = m.ground - bco[selectedPart].grat;
                         bco[selectedPart].xz = rot + adrot;
                         int i_19_ = 200;
