@@ -3,7 +3,7 @@
  */
 
 public final class UlawUtils {
-    public static final byte[] s2u_lut = {
+    public static final byte[] s2uLut = {
             -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17, -17, -18, -18, -19, -19, -20,
             -20, -21, -21, -22, -22, -23, -23, -24, -24, -25, -25, -26, -26, -27, -27, -28, -28, -29, -29, -30, -30,
             -31, -31, -32, -32, -33, -33, -33, -33, -34, -34, -34, -34, -35, -35, -35, -35, -36, -36, -36, -36, -37,
@@ -366,11 +366,11 @@ public final class UlawUtils {
     };
 
     public static final byte linear2ulaw(final byte i) {
-        return s2u_lut[((i & 0xff) << 5) + 15];
+        return s2uLut[((i & 0xff) << 5) + 15];
     }
 
     public static final byte linear2ulaw(final int i) {
-        return s2u_lut[i >> 3];
+        return s2uLut[i >> 3];
     }
 
     public static final byte linear2ulawclip(int i) {
@@ -378,6 +378,6 @@ public final class UlawUtils {
             i = -32767;
         if (i > 32767)
             i = 32767;
-        return s2u_lut[i >> 3 & 0x1fff];
+        return s2uLut[i >> 3 & 0x1fff];
     }
 }

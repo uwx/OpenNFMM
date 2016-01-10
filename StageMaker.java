@@ -478,23 +478,23 @@ public class StageMaker extends Applet implements Runnable {
     private boolean zoomi = false;
     private boolean zoomo = false;
 
-    public boolean button(final String string, final int i, final int i_381_, final int i_382_, final boolean bool) {
+    public boolean button(final String string, final int i, final int i381, final int i382, final boolean bool) {
         rd.setFont(new Font("Arial", 1, 12));
         ftm = rd.getFontMetrics();
-        final int i_383_ = ftm.stringWidth(string);
-        boolean bool_384_ = false;
-        boolean bool_385_ = false;
-        if (string.equals(" Cancel ") && epart && Math.abs(xm - i) < i_383_ / 2 + 12 && Math.abs(ym - i_381_ + 5) < 10)
+        final int i383 = ftm.stringWidth(string);
+        boolean bool384 = false;
+        boolean bool385 = false;
+        if (string.equals(" Cancel ") && epart && Math.abs(xm - i) < i383 / 2 + 12 && Math.abs(ym - i381 + 5) < 10)
             overcan = true;
-        if (Math.abs(xm - i) < i_383_ / 2 + 12 && Math.abs(ym - i_381_ + 5) < 10 && mousePressed == 1)
-            bool_384_ = true;
+        if (Math.abs(xm - i) < i383 / 2 + 12 && Math.abs(ym - i381 + 5) < 10 && mousePressed == 1)
+            bool384 = true;
         else
-            bool_384_ = false;
-        if (Math.abs(xm - i) < i_383_ / 2 + 12 && Math.abs(ym - i_381_ + 5) < 10 && mousePressed == -1) {
+            bool384 = false;
+        if (Math.abs(xm - i) < i383 / 2 + 12 && Math.abs(ym - i381 + 5) < 10 && mousePressed == -1) {
             mousePressed = 0;
-            bool_385_ = true;
+            bool385 = true;
         }
-        boolean bool_386_ = false;
+        boolean bool386 = false;
         if (bool) {
             if (tab == 0)
                 rd.setColor(new Color(207, 207, 207));
@@ -503,74 +503,74 @@ public class StageMaker extends Applet implements Runnable {
             if (tab == 2)
                 rd.setColor(new Color(170, 170, 170));
             if (tab != 3) {
-                rd.drawRect(i - i_383_ / 2 - 15, i_381_ - (22 - i_382_), i_383_ + 29, 34 - i_382_ * 2);
-                if (i_382_ == 2 && tab == 1) {
+                rd.drawRect(i - i383 / 2 - 15, i381 - (22 - i382), i383 + 29, 34 - i382 * 2);
+                if (i382 == 2 && tab == 1) {
                     rd.setColor(new Color(220, 220, 220));
-                    rd.fillRect(i - i_383_ / 2 - 15, i_381_ - (22 - i_382_), i_383_ + 29, 34 - i_382_ * 2);
+                    rd.fillRect(i - i383 / 2 - 15, i381 - (22 - i382), i383 + 29, 34 - i382 * 2);
                 }
             } else
-                bool_386_ = true;
+                bool386 = true;
         }
-        if (!bool_384_) {
+        if (!bool384) {
             rd.setColor(new Color(220, 220, 220));
-            if (bool_386_)
+            if (bool386)
                 rd.setColor(new Color(230, 230, 230));
-            rd.fillRect(i - i_383_ / 2 - 10, i_381_ - (17 - i_382_), i_383_ + 20, 25 - i_382_ * 2);
+            rd.fillRect(i - i383 / 2 - 10, i381 - (17 - i382), i383 + 20, 25 - i382 * 2);
             rd.setColor(new Color(240, 240, 240));
-            if (bool_386_)
+            if (bool386)
                 rd.setColor(new Color(255, 255, 255));
-            rd.drawLine(i - i_383_ / 2 - 10, i_381_ - (17 - i_382_), i + i_383_ / 2 + 10, i_381_ - (17 - i_382_));
-            rd.drawLine(i - i_383_ / 2 - 10, i_381_ - (18 - i_382_), i + i_383_ / 2 + 10, i_381_ - (18 - i_382_));
+            rd.drawLine(i - i383 / 2 - 10, i381 - (17 - i382), i + i383 / 2 + 10, i381 - (17 - i382));
+            rd.drawLine(i - i383 / 2 - 10, i381 - (18 - i382), i + i383 / 2 + 10, i381 - (18 - i382));
             rd.setColor(new Color(240, 240, 240));
-            rd.drawLine(i - i_383_ / 2 - 9, i_381_ - (19 - i_382_), i + i_383_ / 2 + 9, i_381_ - (19 - i_382_));
+            rd.drawLine(i - i383 / 2 - 9, i381 - (19 - i382), i + i383 / 2 + 9, i381 - (19 - i382));
             rd.setColor(new Color(200, 200, 200));
-            if (bool_386_)
+            if (bool386)
                 rd.setColor(new Color(192, 192, 192));
-            rd.drawLine(i + i_383_ / 2 + 10, i_381_ - (17 - i_382_), i + i_383_ / 2 + 10, i_381_ + 7 - i_382_);
-            rd.drawLine(i + i_383_ / 2 + 11, i_381_ - (17 - i_382_), i + i_383_ / 2 + 11, i_381_ + 7 - i_382_);
+            rd.drawLine(i + i383 / 2 + 10, i381 - (17 - i382), i + i383 / 2 + 10, i381 + 7 - i382);
+            rd.drawLine(i + i383 / 2 + 11, i381 - (17 - i382), i + i383 / 2 + 11, i381 + 7 - i382);
             rd.setColor(new Color(200, 200, 200));
-            if (bool_386_)
+            if (bool386)
                 rd.setColor(new Color(192, 192, 192));
-            rd.drawLine(i + i_383_ / 2 + 12, i_381_ - (16 - i_382_), i + i_383_ / 2 + 12, i_381_ + 6 - i_382_);
-            rd.drawLine(i - i_383_ / 2 - 10, i_381_ + 7 - i_382_, i + i_383_ / 2 + 10, i_381_ + 7 - i_382_);
-            rd.drawLine(i - i_383_ / 2 - 10, i_381_ + 8 - i_382_, i + i_383_ / 2 + 10, i_381_ + 8 - i_382_);
+            rd.drawLine(i + i383 / 2 + 12, i381 - (16 - i382), i + i383 / 2 + 12, i381 + 6 - i382);
+            rd.drawLine(i - i383 / 2 - 10, i381 + 7 - i382, i + i383 / 2 + 10, i381 + 7 - i382);
+            rd.drawLine(i - i383 / 2 - 10, i381 + 8 - i382, i + i383 / 2 + 10, i381 + 8 - i382);
             rd.setColor(new Color(200, 200, 200));
-            rd.drawLine(i - i_383_ / 2 - 9, i_381_ + 9 - i_382_, i + i_383_ / 2 + 9, i_381_ + 9 - i_382_);
+            rd.drawLine(i - i383 / 2 - 9, i381 + 9 - i382, i + i383 / 2 + 9, i381 + 9 - i382);
             rd.setColor(new Color(240, 240, 240));
-            if (bool_386_)
+            if (bool386)
                 rd.setColor(new Color(255, 255, 255));
-            rd.drawLine(i - i_383_ / 2 - 10, i_381_ - (17 - i_382_), i - i_383_ / 2 - 10, i_381_ + 7 - i_382_);
-            rd.drawLine(i - i_383_ / 2 - 11, i_381_ - (17 - i_382_), i - i_383_ / 2 - 11, i_381_ + 7 - i_382_);
+            rd.drawLine(i - i383 / 2 - 10, i381 - (17 - i382), i - i383 / 2 - 10, i381 + 7 - i382);
+            rd.drawLine(i - i383 / 2 - 11, i381 - (17 - i382), i - i383 / 2 - 11, i381 + 7 - i382);
             rd.setColor(new Color(240, 240, 240));
-            rd.drawLine(i - i_383_ / 2 - 12, i_381_ - (16 - i_382_), i - i_383_ / 2 - 12, i_381_ + 6 - i_382_);
+            rd.drawLine(i - i383 / 2 - 12, i381 - (16 - i382), i - i383 / 2 - 12, i381 + 6 - i382);
             rd.setColor(new Color(0, 0, 0));
             if (string.equals("  Keyboard Controls  "))
                 rd.setColor(new Color(100, 100, 100));
-            rd.drawString(string, i - i_383_ / 2, i_381_);
+            rd.drawString(string, i - i383 / 2, i381);
         } else {
             rd.setColor(new Color(220, 220, 220));
-            rd.fillRect(i - i_383_ / 2 - 10, i_381_ - (17 - i_382_), i_383_ + 20, 25 - i_382_ * 2);
+            rd.fillRect(i - i383 / 2 - 10, i381 - (17 - i382), i383 + 20, 25 - i382 * 2);
             rd.setColor(new Color(192, 192, 192));
-            rd.drawLine(i - i_383_ / 2 - 10, i_381_ - (17 - i_382_), i + i_383_ / 2 + 10, i_381_ - (17 - i_382_));
-            rd.drawLine(i - i_383_ / 2 - 10, i_381_ - (18 - i_382_), i + i_383_ / 2 + 10, i_381_ - (18 - i_382_));
-            rd.drawLine(i - i_383_ / 2 - 9, i_381_ - (19 - i_382_), i + i_383_ / 2 + 9, i_381_ - (19 - i_382_));
+            rd.drawLine(i - i383 / 2 - 10, i381 - (17 - i382), i + i383 / 2 + 10, i381 - (17 - i382));
+            rd.drawLine(i - i383 / 2 - 10, i381 - (18 - i382), i + i383 / 2 + 10, i381 - (18 - i382));
+            rd.drawLine(i - i383 / 2 - 9, i381 - (19 - i382), i + i383 / 2 + 9, i381 - (19 - i382));
             rd.setColor(new Color(247, 247, 247));
-            rd.drawLine(i + i_383_ / 2 + 10, i_381_ - (17 - i_382_), i + i_383_ / 2 + 10, i_381_ + 7 - i_382_);
-            rd.drawLine(i + i_383_ / 2 + 11, i_381_ - (17 - i_382_), i + i_383_ / 2 + 11, i_381_ + 7 - i_382_);
-            rd.drawLine(i + i_383_ / 2 + 12, i_381_ - (16 - i_382_), i + i_383_ / 2 + 12, i_381_ + 6 - i_382_);
-            rd.drawLine(i - i_383_ / 2 - 10, i_381_ + 7 - i_382_, i + i_383_ / 2 + 10, i_381_ + 7 - i_382_);
-            rd.drawLine(i - i_383_ / 2 - 10, i_381_ + 8 - i_382_, i + i_383_ / 2 + 10, i_381_ + 8 - i_382_);
-            rd.drawLine(i - i_383_ / 2 - 9, i_381_ + 9 - i_382_, i + i_383_ / 2 + 9, i_381_ + 9 - i_382_);
+            rd.drawLine(i + i383 / 2 + 10, i381 - (17 - i382), i + i383 / 2 + 10, i381 + 7 - i382);
+            rd.drawLine(i + i383 / 2 + 11, i381 - (17 - i382), i + i383 / 2 + 11, i381 + 7 - i382);
+            rd.drawLine(i + i383 / 2 + 12, i381 - (16 - i382), i + i383 / 2 + 12, i381 + 6 - i382);
+            rd.drawLine(i - i383 / 2 - 10, i381 + 7 - i382, i + i383 / 2 + 10, i381 + 7 - i382);
+            rd.drawLine(i - i383 / 2 - 10, i381 + 8 - i382, i + i383 / 2 + 10, i381 + 8 - i382);
+            rd.drawLine(i - i383 / 2 - 9, i381 + 9 - i382, i + i383 / 2 + 9, i381 + 9 - i382);
             rd.setColor(new Color(192, 192, 192));
-            rd.drawLine(i - i_383_ / 2 - 10, i_381_ - (17 - i_382_), i - i_383_ / 2 - 10, i_381_ + 7 - i_382_);
-            rd.drawLine(i - i_383_ / 2 - 11, i_381_ - (17 - i_382_), i - i_383_ / 2 - 11, i_381_ + 7 - i_382_);
-            rd.drawLine(i - i_383_ / 2 - 12, i_381_ - (16 - i_382_), i - i_383_ / 2 - 12, i_381_ + 6 - i_382_);
+            rd.drawLine(i - i383 / 2 - 10, i381 - (17 - i382), i - i383 / 2 - 10, i381 + 7 - i382);
+            rd.drawLine(i - i383 / 2 - 11, i381 - (17 - i382), i - i383 / 2 - 11, i381 + 7 - i382);
+            rd.drawLine(i - i383 / 2 - 12, i381 - (16 - i382), i - i383 / 2 - 12, i381 + 6 - i382);
             rd.setColor(new Color(0, 0, 0));
             if (string.equals("  Keyboard Controls  "))
                 rd.setColor(new Color(100, 100, 100));
-            rd.drawString(string, i - i_383_ / 2 + 1, i_381_ + 1);
+            rd.drawString(string, i - i383 / 2 + 1, i381 + 1);
         }
-        return bool_385_;
+        return bool385;
     }
 
     public void copyesp(final boolean bool) {
@@ -941,29 +941,29 @@ public class StageMaker extends Applet implements Runnable {
     public void fixtext(final TextField textfield) {
         String string = textfield.getText();
         string = string.replace('\"', '#');
-        final String string_330_ = "\\";
-        String string_331_ = "";
+        final String string330 = "\\";
+        String string331 = "";
         int i = 0;
-        int i_332_ = -1;
+        int i332 = -1;
         rd.setFont(new Font("Arial", 1, 12));
         ftm = rd.getFontMetrics();
         for (/**/; i < string.length(); i++) {
-            final String string_333_ = new StringBuilder().append("").append(string.charAt(i)).toString();
-            if (string_333_.equals("|") || string_333_.equals(",") || string_333_.equals("(") || string_333_.equals(")")
-                    || string_333_.equals("#") || string_333_.equals(string_330_) || string_333_.equals("!")
-                    || string_333_.equals("?") || string_333_.equals("~") || string_333_.equals(".")
-                    || string_333_.equals("@") || string_333_.equals("$") || string_333_.equals("%")
-                    || string_333_.equals("^") || string_333_.equals("&") || string_333_.equals("*")
-                    || string_333_.equals("+") || string_333_.equals("=") || string_333_.equals(">")
-                    || string_333_.equals("<") || string_333_.equals("/") || string_333_.equals(";")
-                    || string_333_.equals(":") || ftm.stringWidth(string_331_) > 274)
-                i_332_ = i;
+            final String string333 = new StringBuilder().append("").append(string.charAt(i)).toString();
+            if (string333.equals("|") || string333.equals(",") || string333.equals("(") || string333.equals(")")
+                    || string333.equals("#") || string333.equals(string330) || string333.equals("!")
+                    || string333.equals("?") || string333.equals("~") || string333.equals(".")
+                    || string333.equals("@") || string333.equals("$") || string333.equals("%")
+                    || string333.equals("^") || string333.equals("&") || string333.equals("*")
+                    || string333.equals("+") || string333.equals("=") || string333.equals(">")
+                    || string333.equals("<") || string333.equals("/") || string333.equals(";")
+                    || string333.equals(":") || ftm.stringWidth(string331) > 274)
+                i332 = i;
             else
-                string_331_ = new StringBuilder().append(string_331_).append(string_333_).toString();
+                string331 = new StringBuilder().append(string331).append(string333).toString();
         }
-        if (i_332_ != -1) {
-            textfield.setText(string_331_);
-            textfield.select(i_332_, i_332_);
+        if (i332 != -1) {
+            textfield.setText(string331);
+            textfield.select(i332, i332);
         }
     }
 
@@ -979,47 +979,47 @@ public class StageMaker extends Applet implements Runnable {
         return image;
     }
 
-    public int getint(final String string, final String string_354_, final int i) {
-        int i_355_ = 0;
-        String string_356_ = "";
-        for (int i_357_ = string.length() + 1; i_357_ < string_354_.length(); i_357_++) {
-            final String string_358_ = new StringBuilder().append("").append(string_354_.charAt(i_357_)).toString();
-            if (string_358_.equals(",") || string_358_.equals(")")) {
-                i_355_++;
-                i_357_++;
+    public int getint(final String string, final String string354, final int i) {
+        int i355 = 0;
+        String string356 = "";
+        for (int i357 = string.length() + 1; i357 < string354.length(); i357++) {
+            final String string358 = new StringBuilder().append("").append(string354.charAt(i357)).toString();
+            if (string358.equals(",") || string358.equals(")")) {
+                i355++;
+                i357++;
             }
-            if (i_355_ == i)
-                string_356_ = new StringBuilder().append(string_356_).append(string_354_.charAt(i_357_)).toString();
+            if (i355 == i)
+                string356 = new StringBuilder().append(string356).append(string354.charAt(i357)).toString();
         }
-        return Integer.valueOf(string_356_).intValue();
+        return Integer.valueOf(string356).intValue();
     }
 
-    public String getstring(final String string, final String string_349_, final int i) {
-        int i_350_ = 0;
-        String string_351_ = "";
-        for (int i_352_ = string.length() + 1; i_352_ < string_349_.length(); i_352_++) {
-            final String string_353_ = new StringBuilder().append("").append(string_349_.charAt(i_352_)).toString();
-            if (string_353_.equals(",") || string_353_.equals(")")) {
-                i_350_++;
-                i_352_++;
+    public String getstring(final String string, final String string349, final int i) {
+        int i350 = 0;
+        String string351 = "";
+        for (int i352 = string.length() + 1; i352 < string349.length(); i352++) {
+            final String string353 = new StringBuilder().append("").append(string349.charAt(i352)).toString();
+            if (string353.equals(",") || string353.equals(")")) {
+                i350++;
+                i352++;
             }
-            if (i_350_ == i)
-                string_351_ = new StringBuilder().append(string_351_).append(string_349_.charAt(i_352_)).toString();
+            if (i350 == i)
+                string351 = new StringBuilder().append(string351).append(string349.charAt(i352)).toString();
         }
-        return string_351_;
+        return string351;
     }
 
-    public String getSvalue(final String string, final String string_376_, final int i) {
-        String string_377_ = "";
-        int i_378_ = 0;
-        for (int i_379_ = string.length() + 1; i_379_ < string_376_.length() && i_378_ <= i; i_379_++) {
-            final String string_380_ = new StringBuilder().append("").append(string_376_.charAt(i_379_)).toString();
-            if (string_380_.equals(",") || string_380_.equals(")"))
-                i_378_++;
-            else if (i_378_ == i)
-                string_377_ = new StringBuilder().append(string_377_).append(string_380_).toString();
+    public String getSvalue(final String string, final String string376, final int i) {
+        String string377 = "";
+        int i378 = 0;
+        for (int i379 = string.length() + 1; i379 < string376.length() && i378 <= i; i379++) {
+            final String string380 = new StringBuilder().append("").append(string376.charAt(i379)).toString();
+            if (string380.equals(",") || string380.equals(")"))
+                i378++;
+            else if (i378 == i)
+                string377 = new StringBuilder().append(string377).append(string380).toString();
         }
-        return string_377_;
+        return string377;
     }
 
     public void hidefields() {
@@ -1173,21 +1173,21 @@ public class StageMaker extends Applet implements Runnable {
             ZipEntry zipentry = zipinputstream.getNextEntry();
             for (/**/; zipentry != null; zipentry = zipinputstream.getNextEntry()) {
                 int i = -1;
-                for (int i_176_ = 0; i_176_ < strings.length; i_176_++)
-                    if (zipentry.getName().startsWith(strings[i_176_]))
-                        i = i_176_;
+                for (int i176 = 0; i176 < strings.length; i176++)
+                    if (zipentry.getName().startsWith(strings[i176]))
+                        i = i176;
                 if (i != -1) {
-                    int i_177_ = (int) zipentry.getSize();
-                    final byte[] is = new byte[i_177_];
-                    int i_178_ = 0;
-                    int i_179_;
-                    for (/**/; i_177_ > 0; i_177_ -= i_179_) {
-                        i_179_ = zipinputstream.read(is, i_178_, i_177_);
-                        i_178_ += i_179_;
+                    int i177 = (int) zipentry.getSize();
+                    final byte[] is = new byte[i177];
+                    int i178 = 0;
+                    int i179;
+                    for (/**/; i177 > 0; i177 -= i179) {
+                        i179 = zipinputstream.read(is, i178, i177);
+                        i178 += i179;
                     }
                     bco[i] = new ContO(is, m, t);
-                    for (int i_180_ = 0; i_180_ < bco[i].npl; i_180_++)
-                        bco[i].p[i_180_].loadprojf();
+                    for (int i180 = 0; i180 < bco[i].npl; i180++)
+                        bco[i].p[i180].loadprojf();
                     //if (i == 31)
                     //	bco[i].elec = true;
                 }
@@ -1261,10 +1261,10 @@ public class StageMaker extends Applet implements Runnable {
     }
 
     @Override
-    public boolean mouseUp(final Event event, final int i, final int i_172_) {
+    public boolean mouseUp(final Event event, final int i, final int i172) {
         mousdr = false;
         xm = i - apx;
-        ym = i_172_ - apy;
+        ym = i172 - apy;
         if (mousePressed == 1)
             mousePressed = -1;
         if (onbtgame)
@@ -1272,12 +1272,12 @@ public class StageMaker extends Applet implements Runnable {
         return false;
     }
 
-    public void movefield(final Component component, int i, int i_169_, final int i_170_, final int i_171_) {
+    public void movefield(final Component component, int i, int i169, final int i170, final int i171) {
         i += apx;
-        i_169_ += apy;
-        if (component.getX() != i || component.getY() != i_169_ || component.getWidth() != i_170_
-                || component.getHeight() != i_171_)
-            component.setBounds(i, i_169_, i_170_, i_171_);
+        i169 += apy;
+        if (component.getX() != i || component.getY() != i169 || component.getWidth() != i170
+                || component.getHeight() != i171)
+            component.setBounds(i, i169, i170, i171);
     }
 
     public void newstage() {
@@ -1294,8 +1294,8 @@ public class StageMaker extends Applet implements Runnable {
                 else
                     bstage = "set(47,0,0,0)\r\n";
                 final StringBuilder stringbuilder = new StringBuilder();
-                final StageMaker stagemaker_238_ = this;
-                stagemaker_238_.bstage = stringbuilder.append(stagemaker_238_.bstage)
+                final StageMaker stagemaker238 = this;
+                stagemaker238.bstage = stringbuilder.append(stagemaker238.bstage)
                         .append("\r\nmaxl(3,-7200,-4800)\r\nmaxb(3,-7200,-4800)\r\nmaxr(3,7200,-4800)\r\nmaxt(3,7200,-4800)\r\n")
                         .toString();
                 savefile();
@@ -1318,79 +1318,79 @@ public class StageMaker extends Applet implements Runnable {
         Madness.openurl("http://www.needformadness.com/developer/help.html");
     }
 
-    public boolean ovbutton(final String string, final int i, final int i_387_) {
+    public boolean ovbutton(final String string, final int i, final int i387) {
         rd.setFont(new Font("Arial", 0, 12));
         ftm = rd.getFontMetrics();
         if (string.equals("X") || string.equals("Download")) {
             rd.setFont(new Font("Arial", 1, 12));
             ftm = rd.getFontMetrics();
         }
-        final int i_388_ = ftm.stringWidth(string);
-        final int i_389_ = 4;
+        final int i388 = ftm.stringWidth(string);
+        final int i389 = 4;
         boolean bool = false;
-        boolean bool_390_ = false;
-        if (Math.abs(xm - i) < i_388_ / 2 + 12 && Math.abs(ym - i_387_ + 5) < 10 && mousePressed == 1)
+        boolean bool390 = false;
+        if (Math.abs(xm - i) < i388 / 2 + 12 && Math.abs(ym - i387 + 5) < 10 && mousePressed == 1)
             bool = true;
         else
             bool = false;
-        if (Math.abs(xm - i) < i_388_ / 2 + 12 && Math.abs(ym - i_387_ + 5) < 10 && mousePressed == -1) {
+        if (Math.abs(xm - i) < i388 / 2 + 12 && Math.abs(ym - i387 + 5) < 10 && mousePressed == -1) {
             mousePressed = 0;
-            bool_390_ = true;
+            bool390 = true;
         }
         if (!bool) {
             rd.setColor(new Color(220, 220, 220));
-            rd.fillRect(i - i_388_ / 2 - 10, i_387_ - (17 - i_389_), i_388_ + 20, 25 - i_389_ * 2);
+            rd.fillRect(i - i388 / 2 - 10, i387 - (17 - i389), i388 + 20, 25 - i389 * 2);
             rd.setColor(new Color(240, 240, 240));
-            rd.drawLine(i - i_388_ / 2 - 10, i_387_ - (17 - i_389_), i + i_388_ / 2 + 10, i_387_ - (17 - i_389_));
-            rd.drawLine(i - i_388_ / 2 - 10, i_387_ - (18 - i_389_), i + i_388_ / 2 + 10, i_387_ - (18 - i_389_));
+            rd.drawLine(i - i388 / 2 - 10, i387 - (17 - i389), i + i388 / 2 + 10, i387 - (17 - i389));
+            rd.drawLine(i - i388 / 2 - 10, i387 - (18 - i389), i + i388 / 2 + 10, i387 - (18 - i389));
             rd.setColor(new Color(240, 240, 240));
-            rd.drawLine(i - i_388_ / 2 - 9, i_387_ - (19 - i_389_), i + i_388_ / 2 + 9, i_387_ - (19 - i_389_));
+            rd.drawLine(i - i388 / 2 - 9, i387 - (19 - i389), i + i388 / 2 + 9, i387 - (19 - i389));
             rd.setColor(new Color(200, 200, 200));
-            rd.drawLine(i + i_388_ / 2 + 10, i_387_ - (17 - i_389_), i + i_388_ / 2 + 10, i_387_ + 7 - i_389_);
-            rd.drawLine(i + i_388_ / 2 + 11, i_387_ - (17 - i_389_), i + i_388_ / 2 + 11, i_387_ + 7 - i_389_);
+            rd.drawLine(i + i388 / 2 + 10, i387 - (17 - i389), i + i388 / 2 + 10, i387 + 7 - i389);
+            rd.drawLine(i + i388 / 2 + 11, i387 - (17 - i389), i + i388 / 2 + 11, i387 + 7 - i389);
             rd.setColor(new Color(200, 200, 200));
-            rd.drawLine(i + i_388_ / 2 + 12, i_387_ - (16 - i_389_), i + i_388_ / 2 + 12, i_387_ + 6 - i_389_);
-            rd.drawLine(i - i_388_ / 2 - 10, i_387_ + 7 - i_389_, i + i_388_ / 2 + 10, i_387_ + 7 - i_389_);
-            rd.drawLine(i - i_388_ / 2 - 10, i_387_ + 8 - i_389_, i + i_388_ / 2 + 10, i_387_ + 8 - i_389_);
+            rd.drawLine(i + i388 / 2 + 12, i387 - (16 - i389), i + i388 / 2 + 12, i387 + 6 - i389);
+            rd.drawLine(i - i388 / 2 - 10, i387 + 7 - i389, i + i388 / 2 + 10, i387 + 7 - i389);
+            rd.drawLine(i - i388 / 2 - 10, i387 + 8 - i389, i + i388 / 2 + 10, i387 + 8 - i389);
             rd.setColor(new Color(200, 200, 200));
-            rd.drawLine(i - i_388_ / 2 - 9, i_387_ + 9 - i_389_, i + i_388_ / 2 + 9, i_387_ + 9 - i_389_);
+            rd.drawLine(i - i388 / 2 - 9, i387 + 9 - i389, i + i388 / 2 + 9, i387 + 9 - i389);
             rd.setColor(new Color(240, 240, 240));
-            rd.drawLine(i - i_388_ / 2 - 10, i_387_ - (17 - i_389_), i - i_388_ / 2 - 10, i_387_ + 7 - i_389_);
-            rd.drawLine(i - i_388_ / 2 - 11, i_387_ - (17 - i_389_), i - i_388_ / 2 - 11, i_387_ + 7 - i_389_);
+            rd.drawLine(i - i388 / 2 - 10, i387 - (17 - i389), i - i388 / 2 - 10, i387 + 7 - i389);
+            rd.drawLine(i - i388 / 2 - 11, i387 - (17 - i389), i - i388 / 2 - 11, i387 + 7 - i389);
             rd.setColor(new Color(240, 240, 240));
-            rd.drawLine(i - i_388_ / 2 - 12, i_387_ - (16 - i_389_), i - i_388_ / 2 - 12, i_387_ + 6 - i_389_);
+            rd.drawLine(i - i388 / 2 - 12, i387 - (16 - i389), i - i388 / 2 - 12, i387 + 6 - i389);
             rd.setColor(new Color(0, 0, 0));
             if (string.equals("X"))
                 rd.setColor(new Color(255, 0, 0));
             if (string.equals("Download"))
                 rd.setColor(new Color(0, 64, 128));
-            rd.drawString(string, i - i_388_ / 2, i_387_);
+            rd.drawString(string, i - i388 / 2, i387);
         } else {
             rd.setColor(new Color(220, 220, 220));
-            rd.fillRect(i - i_388_ / 2 - 10, i_387_ - (17 - i_389_), i_388_ + 20, 25 - i_389_ * 2);
+            rd.fillRect(i - i388 / 2 - 10, i387 - (17 - i389), i388 + 20, 25 - i389 * 2);
             rd.setColor(new Color(192, 192, 192));
-            rd.drawLine(i - i_388_ / 2 - 10, i_387_ - (17 - i_389_), i + i_388_ / 2 + 10, i_387_ - (17 - i_389_));
-            rd.drawLine(i - i_388_ / 2 - 10, i_387_ - (18 - i_389_), i + i_388_ / 2 + 10, i_387_ - (18 - i_389_));
-            rd.drawLine(i - i_388_ / 2 - 9, i_387_ - (19 - i_389_), i + i_388_ / 2 + 9, i_387_ - (19 - i_389_));
+            rd.drawLine(i - i388 / 2 - 10, i387 - (17 - i389), i + i388 / 2 + 10, i387 - (17 - i389));
+            rd.drawLine(i - i388 / 2 - 10, i387 - (18 - i389), i + i388 / 2 + 10, i387 - (18 - i389));
+            rd.drawLine(i - i388 / 2 - 9, i387 - (19 - i389), i + i388 / 2 + 9, i387 - (19 - i389));
             rd.setColor(new Color(247, 247, 247));
-            rd.drawLine(i + i_388_ / 2 + 10, i_387_ - (17 - i_389_), i + i_388_ / 2 + 10, i_387_ + 7 - i_389_);
-            rd.drawLine(i + i_388_ / 2 + 11, i_387_ - (17 - i_389_), i + i_388_ / 2 + 11, i_387_ + 7 - i_389_);
-            rd.drawLine(i + i_388_ / 2 + 12, i_387_ - (16 - i_389_), i + i_388_ / 2 + 12, i_387_ + 6 - i_389_);
-            rd.drawLine(i - i_388_ / 2 - 10, i_387_ + 7 - i_389_, i + i_388_ / 2 + 10, i_387_ + 7 - i_389_);
-            rd.drawLine(i - i_388_ / 2 - 10, i_387_ + 8 - i_389_, i + i_388_ / 2 + 10, i_387_ + 8 - i_389_);
-            rd.drawLine(i - i_388_ / 2 - 9, i_387_ + 9 - i_389_, i + i_388_ / 2 + 9, i_387_ + 9 - i_389_);
+            rd.drawLine(i + i388 / 2 + 10, i387 - (17 - i389), i + i388 / 2 + 10, i387 + 7 - i389);
+            rd.drawLine(i + i388 / 2 + 11, i387 - (17 - i389), i + i388 / 2 + 11, i387 + 7 - i389);
+            rd.drawLine(i + i388 / 2 + 12, i387 - (16 - i389), i + i388 / 2 + 12, i387 + 6 - i389);
+            rd.drawLine(i - i388 / 2 - 10, i387 + 7 - i389, i + i388 / 2 + 10, i387 + 7 - i389);
+            rd.drawLine(i - i388 / 2 - 10, i387 + 8 - i389, i + i388 / 2 + 10, i387 + 8 - i389);
+            rd.drawLine(i - i388 / 2 - 9, i387 + 9 - i389, i + i388 / 2 + 9, i387 + 9 - i389);
             rd.setColor(new Color(192, 192, 192));
-            rd.drawLine(i - i_388_ / 2 - 10, i_387_ - (17 - i_389_), i - i_388_ / 2 - 10, i_387_ + 7 - i_389_);
-            rd.drawLine(i - i_388_ / 2 - 11, i_387_ - (17 - i_389_), i - i_388_ / 2 - 11, i_387_ + 7 - i_389_);
-            rd.drawLine(i - i_388_ / 2 - 12, i_387_ - (16 - i_389_), i - i_388_ / 2 - 12, i_387_ + 6 - i_389_);
+            rd.drawLine(i - i388 / 2 - 10, i387 - (17 - i389), i - i388 / 2 - 10, i387 + 7 - i389);
+            rd.drawLine(i - i388 / 2 - 11, i387 - (17 - i389), i - i388 / 2 - 11, i387 + 7 - i389);
+            rd.drawLine(i - i388 / 2 - 12, i387 - (16 - i389), i - i388 / 2 - 12, i387 + 6 - i389);
             rd.setColor(new Color(0, 0, 0));
             if (string.equals("X"))
                 rd.setColor(new Color(255, 0, 0));
             if (string.equals("Download"))
                 rd.setColor(new Color(0, 64, 128));
-            rd.drawString(string, i - i_388_ / 2 + 1, i_387_ + 1);
+            rd.drawString(string, i - i388 / 2 + 1, i387 + 1);
         }
-        return bool_390_;
+        return bool390;
     }
 
     @Override
@@ -1484,12 +1484,12 @@ public class StageMaker extends Applet implements Runnable {
         part.add(rd, "Rollercoaster Road5");
     }
 
-    public int py(final int i, final int i_343_, final int i_344_, final int i_345_) {
-        return (int) Math.sqrt((i - i_343_) * (i - i_343_) + (i_344_ - i_345_) * (i_344_ - i_345_));
+    public int py(final int i, final int i343, final int i344, final int i345) {
+        return (int) Math.sqrt((i - i343) * (i - i343) + (i344 - i345) * (i344 - i345));
     }
 
-    public int pyn(final int i, final int i_346_, final int i_347_, final int i_348_) {
-        return (i - i_346_) / 100 * ((i - i_346_) / 100) + (i_347_ - i_348_) / 100 * ((i_347_ - i_348_) / 100);
+    public int pyn(final int i, final int i346, final int i347, final int i348) {
+        return (i - i346) / 100 * ((i - i346) / 100) + (i347 - i348) / 100 * ((i347 - i348) / 100);
     }
 
     public void readstage(final int i) {
@@ -1518,13 +1518,13 @@ public class StageMaker extends Applet implements Runnable {
         String string = bstage;
         if (i == 1 || i == 2)
             string = new StringBuilder().append("").append(tstage).append("\r\n").append(bstage).append("").toString();
-        int i_181_ = 0;
-        int i_182_ = 100;
-        int i_183_ = 0;
-        int i_184_ = 100;
+        int i181 = 0;
+        int i182 = 100;
+        int i183 = 0;
+        int i184 = 100;
         boolean bool = true;
-        boolean bool_185_ = true;
-        String string_186_ = "";
+        boolean bool185 = true;
+        String string186 = "";
         try {
             DataInputStream datainputstream;
             if (i == 3) {
@@ -1534,255 +1534,255 @@ public class StageMaker extends Applet implements Runnable {
                 nundo = 0;
             } else
                 datainputstream = new DataInputStream(new ByteArrayInputStream(string.getBytes()));
-            String string_187_;
-            while ((string_187_ = datainputstream.readLine()) != null) {
-                string_186_ = new StringBuilder().append("").append(string_187_.trim()).toString();
-                if (string_186_.startsWith("sky")) {
-                    csky[0] = getint("sky", string_186_, 0);
-                    csky[1] = getint("sky", string_186_, 1);
-                    csky[2] = getint("sky", string_186_, 2);
+            String string187;
+            while ((string187 = datainputstream.readLine()) != null) {
+                string186 = new StringBuilder().append("").append(string187.trim()).toString();
+                if (string186.startsWith("sky")) {
+                    csky[0] = getint("sky", string186, 0);
+                    csky[1] = getint("sky", string186, 1);
+                    csky[2] = getint("sky", string186, 2);
                     m.setsky(csky[0], csky[1], csky[2]);
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_188_ = this;
-                        stagemaker_188_.tstage = stringbuilder.append(stagemaker_188_.tstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker188 = this;
+                        stagemaker188.tstage = stringbuilder.append(stagemaker188.tstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
-                if (string_186_.startsWith("ground")) {
-                    cgrnd[0] = getint("ground", string_186_, 0);
-                    cgrnd[1] = getint("ground", string_186_, 1);
-                    cgrnd[2] = getint("ground", string_186_, 2);
+                if (string186.startsWith("ground")) {
+                    cgrnd[0] = getint("ground", string186, 0);
+                    cgrnd[1] = getint("ground", string186, 1);
+                    cgrnd[2] = getint("ground", string186, 2);
                     m.setgrnd(cgrnd[0], cgrnd[1], cgrnd[2]);
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_189_ = this;
-                        stagemaker_189_.tstage = stringbuilder.append(stagemaker_189_.tstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker189 = this;
+                        stagemaker189.tstage = stringbuilder.append(stagemaker189.tstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
-                if (string_186_.startsWith("polys")) {
-                    m.setpolys(getint("polys", string_186_, 0), getint("polys", string_186_, 1),
-                            getint("polys", string_186_, 2));
+                if (string186.startsWith("polys")) {
+                    m.setpolys(getint("polys", string186, 0), getint("polys", string186, 1),
+                            getint("polys", string186, 2));
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_190_ = this;
-                        stagemaker_190_.tstage = stringbuilder.append(stagemaker_190_.tstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker190 = this;
+                        stagemaker190.tstage = stringbuilder.append(stagemaker190.tstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
-                if (string_186_.startsWith("fog")) {
-                    cfade[0] = getint("fog", string_186_, 0);
-                    cfade[1] = getint("fog", string_186_, 1);
-                    cfade[2] = getint("fog", string_186_, 2);
+                if (string186.startsWith("fog")) {
+                    cfade[0] = getint("fog", string186, 0);
+                    cfade[1] = getint("fog", string186, 1);
+                    cfade[2] = getint("fog", string186, 2);
                     m.setfade(cfade[0], cfade[1], cfade[2]);
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_191_ = this;
-                        stagemaker_191_.tstage = stringbuilder.append(stagemaker_191_.tstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker191 = this;
+                        stagemaker191.tstage = stringbuilder.append(stagemaker191.tstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
-                if (string_186_.startsWith("texture")) {
-                    texture[0] = getint("texture", string_186_, 0);
-                    texture[1] = getint("texture", string_186_, 1);
-                    texture[2] = getint("texture", string_186_, 2);
-                    texture[3] = getint("texture", string_186_, 3);
+                if (string186.startsWith("texture")) {
+                    texture[0] = getint("texture", string186, 0);
+                    texture[1] = getint("texture", string186, 1);
+                    texture[2] = getint("texture", string186, 2);
+                    texture[3] = getint("texture", string186, 3);
                     m.setexture(texture[0], texture[1], texture[2], texture[3]);
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_192_ = this;
-                        stagemaker_192_.tstage = stringbuilder.append(stagemaker_192_.tstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker192 = this;
+                        stagemaker192.tstage = stringbuilder.append(stagemaker192.tstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
-                if (string_186_.startsWith("clouds")) {
-                    cldd[0] = getint("clouds", string_186_, 0);
-                    cldd[1] = getint("clouds", string_186_, 1);
-                    cldd[2] = getint("clouds", string_186_, 2);
-                    cldd[3] = getint("clouds", string_186_, 3);
-                    cldd[4] = getint("clouds", string_186_, 4);
+                if (string186.startsWith("clouds")) {
+                    cldd[0] = getint("clouds", string186, 0);
+                    cldd[1] = getint("clouds", string186, 1);
+                    cldd[2] = getint("clouds", string186, 2);
+                    cldd[3] = getint("clouds", string186, 3);
+                    cldd[4] = getint("clouds", string186, 4);
                     m.setcloads(cldd[0], cldd[1], cldd[2], cldd[3], cldd[4]);
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_193_ = this;
-                        stagemaker_193_.tstage = stringbuilder.append(stagemaker_193_.tstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker193 = this;
+                        stagemaker193.tstage = stringbuilder.append(stagemaker193.tstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
-                if (i != 2 && string_186_.startsWith("snap")) {
-                    m.setsnap(getint("snap", string_186_, 0), getint("snap", string_186_, 1),
-                            getint("snap", string_186_, 2));
+                if (i != 2 && string186.startsWith("snap")) {
+                    m.setsnap(getint("snap", string186, 0), getint("snap", string186, 1),
+                            getint("snap", string186, 2));
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_194_ = this;
-                        stagemaker_194_.tstage = stringbuilder.append(stagemaker_194_.tstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker194 = this;
+                        stagemaker194.tstage = stringbuilder.append(stagemaker194.tstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
-                if (string_186_.startsWith("density")) {
-                    m.fogd = (getint("density", string_186_, 0) + 1) * 2 - 1;
+                if (string186.startsWith("density")) {
+                    m.fogd = (getint("density", string186, 0) + 1) * 2 - 1;
                     if (m.fogd < 1)
                         m.fogd = 1;
                     if (m.fogd > 30)
                         m.fogd = 30;
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_195_ = this;
-                        stagemaker_195_.tstage = stringbuilder.append(stagemaker_195_.tstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker195 = this;
+                        stagemaker195.tstage = stringbuilder.append(stagemaker195.tstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
-                if (string_186_.startsWith("mountains")) {
-                    m.mgen = getint("mountains", string_186_, 0);
+                if (string186.startsWith("mountains")) {
+                    m.mgen = getint("mountains", string186, 0);
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_196_ = this;
-                        stagemaker_196_.tstage = stringbuilder.append(stagemaker_196_.tstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker196 = this;
+                        stagemaker196.tstage = stringbuilder.append(stagemaker196.tstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
-                if (string_186_.startsWith("fadefrom")) {
-                    m.fadfrom(getint("fadefrom", string_186_, 0));
+                if (string186.startsWith("fadefrom")) {
+                    m.fadfrom(getint("fadefrom", string186, 0));
                     origfade = m.fade[0];
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_197_ = this;
-                        stagemaker_197_.tstage = stringbuilder.append(stagemaker_197_.tstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker197 = this;
+                        stagemaker197.tstage = stringbuilder.append(stagemaker197.tstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
-                if (string_186_.startsWith("lightson")) {
+                if (string186.startsWith("lightson")) {
                     m.lightson = true;
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_198_ = this;
-                        stagemaker_198_.tstage = stringbuilder.append(stagemaker_198_.tstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker198 = this;
+                        stagemaker198.tstage = stringbuilder.append(stagemaker198.tstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
-                if (string_186_.startsWith("nlaps")) {
-                    cp.nlaps = getint("nlaps", string_186_, 0);
+                if (string186.startsWith("nlaps")) {
+                    cp.nlaps = getint("nlaps", string186, 0);
                     if (cp.nlaps < 1)
                         cp.nlaps = 1;
                     if (cp.nlaps > 15)
                         cp.nlaps = 15;
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_199_ = this;
-                        stagemaker_199_.tstage = stringbuilder.append(stagemaker_199_.tstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker199 = this;
+                        stagemaker199.tstage = stringbuilder.append(stagemaker199.tstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
-                if (string_186_.startsWith("soundtrack")) {
-                    trackname = getstring("soundtrack", string_186_, 0);
-                    trackvol = getint("soundtrack", string_186_, 1);
-                    tracksize = getint("soundtrack", string_186_, 2);
+                if (string186.startsWith("soundtrack")) {
+                    trackname = getstring("soundtrack", string186, 0);
+                    trackvol = getint("soundtrack", string186, 1);
+                    tracksize = getint("soundtrack", string186, 2);
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_200_ = this;
-                        stagemaker_200_.tstage = stringbuilder.append(stagemaker_200_.tstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker200 = this;
+                        stagemaker200.tstage = stringbuilder.append(stagemaker200.tstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
-                if (string_186_.startsWith("set")) {
-                    int i_201_ = getint("set", string_186_, 0);
-                    if (i_201_ >= 10 && i_201_ <= 25)
+                if (string186.startsWith("set")) {
+                    int i201 = getint("set", string186, 0);
+                    if (i201 >= 10 && i201 <= 25)
                         m.loadnew = true;
-                    i_201_ -= 10;
-                    co[nob] = new ContO(bco[i_201_], getint("set", string_186_, 1), m.ground - bco[i_201_].grat,
-                            getint("set", string_186_, 2), getint("set", string_186_, 3));
-                    co[nob].roofat = getint("set", string_186_, 3);
-                    co[nob].colok = i_201_;
-                    if (string_186_.indexOf(")p") != -1) {
-                        cp.x[cp.n] = getint("chk", string_186_, 1);
-                        cp.z[cp.n] = getint("chk", string_186_, 2);
+                    i201 -= 10;
+                    co[nob] = new ContO(bco[i201], getint("set", string186, 1), m.ground - bco[i201].grat,
+                            getint("set", string186, 2), getint("set", string186, 3));
+                    co[nob].roofat = getint("set", string186, 3);
+                    co[nob].colok = i201;
+                    if (string186.indexOf(")p") != -1) {
+                        cp.x[cp.n] = getint("chk", string186, 1);
+                        cp.z[cp.n] = getint("chk", string186, 2);
                         cp.y[cp.n] = 0;
                         cp.typ[cp.n] = 0;
-                        if (string_186_.indexOf(")pt") != -1)
+                        if (string186.indexOf(")pt") != -1)
                             cp.typ[cp.n] = -1;
-                        if (string_186_.indexOf(")pr") != -1)
+                        if (string186.indexOf(")pr") != -1)
                             cp.typ[cp.n] = -2;
-                        if (string_186_.indexOf(")po") != -1)
+                        if (string186.indexOf(")po") != -1)
                             cp.typ[cp.n] = -3;
-                        if (string_186_.indexOf(")ph") != -1)
+                        if (string186.indexOf(")ph") != -1)
                             cp.typ[cp.n] = -4;
                         cp.n++;
                     }
                     xnob++;
                     nob++;
                     if (i == 3) {
-                        if (bool_185_) {
+                        if (bool185) {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final StageMaker stagemaker_202_ = this;
-                            stagemaker_202_.bstage = stringbuilder.append(stagemaker_202_.bstage).append("\r\n")
+                            final StageMaker stagemaker202 = this;
+                            stagemaker202.bstage = stringbuilder.append(stagemaker202.bstage).append("\r\n")
                                     .toString();
-                            bool_185_ = false;
+                            bool185 = false;
                         }
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_203_ = this;
-                        stagemaker_203_.bstage = stringbuilder.append(stagemaker_203_.bstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker203 = this;
+                        stagemaker203.bstage = stringbuilder.append(stagemaker203.bstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                     if (m.loadnew)
                         m.loadnew = false;
                 }
-                if (string_186_.startsWith("chk")) {
-                    int i_204_ = getint("chk", string_186_, 0);
-                    i_204_ -= 10;
-                    int i_205_ = m.ground - bco[i_204_].grat;
-                    if (i_204_ == 54)
-                        i_205_ = getint("chk", string_186_, 4);
-                    co[nob] = new ContO(bco[i_204_], getint("chk", string_186_, 1), i_205_,
-                            getint("chk", string_186_, 2), getint("chk", string_186_, 3));
-                    co[nob].roofat = getint("chk", string_186_, 3);
-                    co[nob].colok = i_204_;
-                    cp.x[cp.n] = getint("chk", string_186_, 1);
-                    cp.z[cp.n] = getint("chk", string_186_, 2);
-                    cp.y[cp.n] = i_205_;
-                    if (getint("chk", string_186_, 3) == 0)
+                if (string186.startsWith("chk")) {
+                    int i204 = getint("chk", string186, 0);
+                    i204 -= 10;
+                    int i205 = m.ground - bco[i204].grat;
+                    if (i204 == 54)
+                        i205 = getint("chk", string186, 4);
+                    co[nob] = new ContO(bco[i204], getint("chk", string186, 1), i205,
+                            getint("chk", string186, 2), getint("chk", string186, 3));
+                    co[nob].roofat = getint("chk", string186, 3);
+                    co[nob].colok = i204;
+                    cp.x[cp.n] = getint("chk", string186, 1);
+                    cp.z[cp.n] = getint("chk", string186, 2);
+                    cp.y[cp.n] = i205;
+                    if (getint("chk", string186, 3) == 0)
                         cp.typ[cp.n] = 1;
                     else
                         cp.typ[cp.n] = 2;
                     cp.pcs = cp.n;
                     cp.n++;
                     co[nob].checkpoint = cp.nsp + 1;
-                    if (string_186_.indexOf(")r") != -1)
+                    if (string186.indexOf(")r") != -1)
                         co[nob].wh = cp.nsp + 1;
                     cp.nsp++;
                     xnob++;
                     nob++;
                     if (i == 3) {
-                        if (bool_185_) {
+                        if (bool185) {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final StageMaker stagemaker_206_ = this;
-                            stagemaker_206_.bstage = stringbuilder.append(stagemaker_206_.bstage).append("\r\n")
+                            final StageMaker stagemaker206 = this;
+                            stagemaker206.bstage = stringbuilder.append(stagemaker206.bstage).append("\r\n")
                                     .toString();
-                            bool_185_ = false;
+                            bool185 = false;
                         }
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_207_ = this;
-                        stagemaker_207_.bstage = stringbuilder.append(stagemaker_207_.bstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker207 = this;
+                        stagemaker207.bstage = stringbuilder.append(stagemaker207.bstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
-                if (string_186_.startsWith("fix")) {
-                    int i_208_ = getint("fix", string_186_, 0);
-                    i_208_ -= 10;
-                    co[nob] = new ContO(bco[i_208_], getint("fix", string_186_, 1), getint("fix", string_186_, 3),
-                            getint("fix", string_186_, 2), getint("fix", string_186_, 4));
-                    co[nob].roofat = getint("fix", string_186_, 4);
-                    co[nob].colok = i_208_;
-                    cp.fx[cp.fn] = getint("fix", string_186_, 1);
-                    cp.fz[cp.fn] = getint("fix", string_186_, 2);
-                    cp.fy[cp.fn] = getint("fix", string_186_, 3);
+                if (string186.startsWith("fix")) {
+                    int i208 = getint("fix", string186, 0);
+                    i208 -= 10;
+                    co[nob] = new ContO(bco[i208], getint("fix", string186, 1), getint("fix", string186, 3),
+                            getint("fix", string186, 2), getint("fix", string186, 4));
+                    co[nob].roofat = getint("fix", string186, 4);
+                    co[nob].colok = i208;
+                    cp.fx[cp.fn] = getint("fix", string186, 1);
+                    cp.fz[cp.fn] = getint("fix", string186, 2);
+                    cp.fy[cp.fn] = getint("fix", string186, 3);
                     co[nob].elec = true;
-                    if (getint("fix", string_186_, 4) != 0) {
+                    if (getint("fix", string186, 4) != 0) {
                         cp.roted[cp.fn] = true;
                         co[nob].roted = true;
                     } else
                         cp.roted[cp.fn] = false;
-                    if (string_186_.indexOf(")s") != -1)
+                    if (string186.indexOf(")s") != -1)
                         cp.special[cp.fn] = true;
                     else
                         cp.special[cp.fn] = false;
@@ -1790,50 +1790,50 @@ public class StageMaker extends Applet implements Runnable {
                     xnob++;
                     nob++;
                     if (i == 3) {
-                        if (bool_185_) {
+                        if (bool185) {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final StageMaker stagemaker_209_ = this;
-                            stagemaker_209_.bstage = stringbuilder.append(stagemaker_209_.bstage).append("\r\n")
+                            final StageMaker stagemaker209 = this;
+                            stagemaker209.bstage = stringbuilder.append(stagemaker209.bstage).append("\r\n")
                                     .toString();
-                            bool_185_ = false;
+                            bool185 = false;
                         }
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_210_ = this;
-                        stagemaker_210_.bstage = stringbuilder.append(stagemaker_210_.bstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker210 = this;
+                        stagemaker210.bstage = stringbuilder.append(stagemaker210.bstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
-                if (string_186_.startsWith("pile")) {
-                    co[nob] = new ContO(getint("pile", string_186_, 0), getint("pile", string_186_, 1),
-                            getint("pile", string_186_, 2), m, t, getint("pile", string_186_, 3),
-                            getint("pile", string_186_, 4), m.ground);
-                    co[nob].srz = getint("pile", string_186_, 0);
-                    co[nob].srx = getint("pile", string_186_, 1);
-                    co[nob].sry = getint("pile", string_186_, 2);
+                if (string186.startsWith("pile")) {
+                    co[nob] = new ContO(getint("pile", string186, 0), getint("pile", string186, 1),
+                            getint("pile", string186, 2), m, t, getint("pile", string186, 3),
+                            getint("pile", string186, 4), m.ground);
+                    co[nob].srz = getint("pile", string186, 0);
+                    co[nob].srx = getint("pile", string186, 1);
+                    co[nob].sry = getint("pile", string186, 2);
                     co[nob].colok = bumppart;
                     xnob++;
                     nob++;
                     if (i == 3) {
-                        if (bool_185_) {
+                        if (bool185) {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final StageMaker stagemaker_211_ = this;
-                            stagemaker_211_.bstage = stringbuilder.append(stagemaker_211_.bstage).append("\r\n")
+                            final StageMaker stagemaker211 = this;
+                            stagemaker211.bstage = stringbuilder.append(stagemaker211.bstage).append("\r\n")
                                     .toString();
-                            bool_185_ = false;
+                            bool185 = false;
                         }
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_212_ = this;
-                        stagemaker_212_.bstage = stringbuilder.append(stagemaker_212_.bstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker212 = this;
+                        stagemaker212.bstage = stringbuilder.append(stagemaker212.bstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
-                if (string_186_.startsWith("maxr")) {
-                    final int i_213_ = getint("maxr", string_186_, 0);
-                    final int i_214_ = getint("maxr", string_186_, 1);
-                    i_181_ = i_214_;
-                    final int i_215_ = getint("maxr", string_186_, 2);
-                    for (int i_216_ = 0; i_216_ < i_213_; i_216_++) {
-                        co[nob] = new ContO(bco[29], i_214_, m.ground - bco[29].grat, i_216_ * 4800 + i_215_, 0);
+                if (string186.startsWith("maxr")) {
+                    final int i213 = getint("maxr", string186, 0);
+                    final int i214 = getint("maxr", string186, 1);
+                    i181 = i214;
+                    final int i215 = getint("maxr", string186, 2);
+                    for (int i216 = 0; i216 < i213; i216++) {
+                        co[nob] = new ContO(bco[29], i214, m.ground - bco[29].grat, i216 * 4800 + i215, 0);
                         if (i == 0)
                             xnob++;
                         else
@@ -1842,24 +1842,24 @@ public class StageMaker extends Applet implements Runnable {
                     if (i == 3) {
                         if (bool) {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final StageMaker stagemaker_217_ = this;
-                            stagemaker_217_.bstage = stringbuilder.append(stagemaker_217_.bstage).append("\r\n")
+                            final StageMaker stagemaker217 = this;
+                            stagemaker217.bstage = stringbuilder.append(stagemaker217.bstage).append("\r\n")
                                     .toString();
                             bool = false;
                         }
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_218_ = this;
-                        stagemaker_218_.bstage = stringbuilder.append(stagemaker_218_.bstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker218 = this;
+                        stagemaker218.bstage = stringbuilder.append(stagemaker218.bstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
-                if (string_186_.startsWith("maxl")) {
-                    final int i_219_ = getint("maxl", string_186_, 0);
-                    final int i_220_ = getint("maxl", string_186_, 1);
-                    i_182_ = i_220_;
-                    final int i_221_ = getint("maxl", string_186_, 2);
-                    for (int i_222_ = 0; i_222_ < i_219_; i_222_++) {
-                        co[nob] = new ContO(bco[29], i_220_, m.ground - bco[29].grat, i_222_ * 4800 + i_221_, 180);
+                if (string186.startsWith("maxl")) {
+                    final int i219 = getint("maxl", string186, 0);
+                    final int i220 = getint("maxl", string186, 1);
+                    i182 = i220;
+                    final int i221 = getint("maxl", string186, 2);
+                    for (int i222 = 0; i222 < i219; i222++) {
+                        co[nob] = new ContO(bco[29], i220, m.ground - bco[29].grat, i222 * 4800 + i221, 180);
                         if (i == 0)
                             xnob++;
                         else
@@ -1868,24 +1868,24 @@ public class StageMaker extends Applet implements Runnable {
                     if (i == 3) {
                         if (bool) {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final StageMaker stagemaker_223_ = this;
-                            stagemaker_223_.bstage = stringbuilder.append(stagemaker_223_.bstage).append("\r\n")
+                            final StageMaker stagemaker223 = this;
+                            stagemaker223.bstage = stringbuilder.append(stagemaker223.bstage).append("\r\n")
                                     .toString();
                             bool = false;
                         }
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_224_ = this;
-                        stagemaker_224_.bstage = stringbuilder.append(stagemaker_224_.bstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker224 = this;
+                        stagemaker224.bstage = stringbuilder.append(stagemaker224.bstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
-                if (string_186_.startsWith("maxt")) {
-                    final int i_225_ = getint("maxt", string_186_, 0);
-                    final int i_226_ = getint("maxt", string_186_, 1);
-                    i_183_ = i_226_;
-                    final int i_227_ = getint("maxt", string_186_, 2);
-                    for (int i_228_ = 0; i_228_ < i_225_; i_228_++) {
-                        co[nob] = new ContO(bco[29], i_228_ * 4800 + i_227_, m.ground - bco[29].grat, i_226_, 90);
+                if (string186.startsWith("maxt")) {
+                    final int i225 = getint("maxt", string186, 0);
+                    final int i226 = getint("maxt", string186, 1);
+                    i183 = i226;
+                    final int i227 = getint("maxt", string186, 2);
+                    for (int i228 = 0; i228 < i225; i228++) {
+                        co[nob] = new ContO(bco[29], i228 * 4800 + i227, m.ground - bco[29].grat, i226, 90);
                         if (i == 0)
                             xnob++;
                         else
@@ -1894,24 +1894,24 @@ public class StageMaker extends Applet implements Runnable {
                     if (i == 3) {
                         if (bool) {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final StageMaker stagemaker_229_ = this;
-                            stagemaker_229_.bstage = stringbuilder.append(stagemaker_229_.bstage).append("\r\n")
+                            final StageMaker stagemaker229 = this;
+                            stagemaker229.bstage = stringbuilder.append(stagemaker229.bstage).append("\r\n")
                                     .toString();
                             bool = false;
                         }
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_230_ = this;
-                        stagemaker_230_.bstage = stringbuilder.append(stagemaker_230_.bstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker230 = this;
+                        stagemaker230.bstage = stringbuilder.append(stagemaker230.bstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
-                if (string_186_.startsWith("maxb")) {
-                    final int i_231_ = getint("maxb", string_186_, 0);
-                    final int i_232_ = getint("maxb", string_186_, 1);
-                    i_184_ = i_232_;
-                    final int i_233_ = getint("maxb", string_186_, 2);
-                    for (int i_234_ = 0; i_234_ < i_231_; i_234_++) {
-                        co[nob] = new ContO(bco[29], i_234_ * 4800 + i_233_, m.ground - bco[29].grat, i_232_, -90);
+                if (string186.startsWith("maxb")) {
+                    final int i231 = getint("maxb", string186, 0);
+                    final int i232 = getint("maxb", string186, 1);
+                    i184 = i232;
+                    final int i233 = getint("maxb", string186, 2);
+                    for (int i234 = 0; i234 < i231; i234++) {
+                        co[nob] = new ContO(bco[29], i234 * 4800 + i233, m.ground - bco[29].grat, i232, -90);
                         if (i == 0)
                             xnob++;
                         else
@@ -1920,27 +1920,27 @@ public class StageMaker extends Applet implements Runnable {
                     if (i == 3) {
                         if (bool) {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final StageMaker stagemaker_235_ = this;
-                            stagemaker_235_.bstage = stringbuilder.append(stagemaker_235_.bstage).append("\r\n")
+                            final StageMaker stagemaker235 = this;
+                            stagemaker235.bstage = stringbuilder.append(stagemaker235.bstage).append("\r\n")
                                     .toString();
                             bool = false;
                         }
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker_236_ = this;
-                        stagemaker_236_.bstage = stringbuilder.append(stagemaker_236_.bstage).append("")
-                                .append(string_186_).append("\r\n").toString();
+                        final StageMaker stagemaker236 = this;
+                        stagemaker236.bstage = stringbuilder.append(stagemaker236.bstage).append("")
+                                .append(string186).append("\r\n").toString();
                     }
                 }
             }
             datainputstream.close();
-            m.newpolys(i_182_, i_181_ - i_182_, i_184_, i_183_ - i_184_, t, nob);
-            m.newclouds(i_182_, i_181_, i_184_, i_183_);
-            m.newmountains(i_182_, i_181_, i_184_, i_183_);
+            m.newpolys(i182, i181 - i182, i184, i183 - i184, t, nob);
+            m.newclouds(i182, i181, i184, i183);
+            m.newmountains(i182, i181, i184, i183);
             m.newstars();
         } catch (final Exception exception) {
             System.out.println(new StringBuilder().append("Error in stage ").append(stagename).toString());
             System.out.println(new StringBuilder().append("").append(exception).toString());
-            System.out.println(new StringBuilder().append("At line: ").append(string_186_).toString());
+            System.out.println(new StringBuilder().append("At line: ").append(string186).toString());
             errd = 6;
             if (cp.fn >= 5) // file name size????
                 errd = 5;
@@ -1957,8 +1957,8 @@ public class StageMaker extends Applet implements Runnable {
             errd = 4;
         if (i == 3 && bstage.indexOf("set(47,0,0,0)") == -1 && bstage.indexOf("set(48,0,0,0)") == -1) {
             final StringBuilder stringbuilder = new StringBuilder();
-            final StageMaker stagemaker_237_ = this;
-            stagemaker_237_.bstage = stringbuilder.append(stagemaker_237_.bstage).append("set(47,0,0,0)\r\n")
+            final StageMaker stagemaker237 = this;
+            stagemaker237.bstage = stringbuilder.append(stagemaker237.bstage).append("set(47,0,0,0)\r\n")
                     .toString();
         }
     }
@@ -2012,27 +2012,27 @@ public class StageMaker extends Applet implements Runnable {
                         .append(")").toString();
         }
         final int i = bstage.indexOf(string);
-        int i_166_ = i + string.length();
-        int i_167_ = -1;
-        int i_168_ = bstage.indexOf("set", i_166_);
-        if (i_168_ != -1)
-            i_167_ = i_168_;
-        i_168_ = bstage.indexOf("chk", i_166_);
-        if (i_168_ != -1 && i_168_ < i_167_)
-            i_167_ = i_168_;
-        i_168_ = bstage.indexOf("fix", i_166_);
-        if (i_168_ != -1 && i_168_ < i_167_)
-            i_167_ = i_168_;
-        if (i_167_ == -1) {
-            i_167_ = bstage.indexOf("\r\n", i_166_);
-            if (i_167_ != -1)
-                i_167_++;
+        int i166 = i + string.length();
+        int i167 = -1;
+        int i168 = bstage.indexOf("set", i166);
+        if (i168 != -1)
+            i167 = i168;
+        i168 = bstage.indexOf("chk", i166);
+        if (i168 != -1 && i168 < i167)
+            i167 = i168;
+        i168 = bstage.indexOf("fix", i166);
+        if (i168 != -1 && i168 < i167)
+            i167 = i168;
+        if (i167 == -1) {
+            i167 = bstage.indexOf("\r\n", i166);
+            if (i167 != -1)
+                i167++;
         }
-        if (i_167_ != -1)
-            i_166_ = i_167_;
+        if (i167 != -1)
+            i166 = i167;
         if (i != -1)
             bstage = new StringBuilder().append("").append(bstage.substring(0, i)).append("")
-                    .append(bstage.substring(i_166_, bstage.length())).append("").toString();
+                    .append(bstage.substring(i166, bstage.length())).append("").toString();
         readstage(0);
     }
 
@@ -2043,9 +2043,9 @@ public class StageMaker extends Applet implements Runnable {
             try {
                 final File file = new File(
                         new StringBuilder().append("mystages/").append(stagename).append(".txt").toString());
-                final File file_329_ = new File(
+                final File file329 = new File(
                         new StringBuilder().append("mystages/").append(string).append(".txt").toString());
-                if (file.renameTo(file_329_)) {
+                if (file.renameTo(file329)) {
                     stagename = string;
                     sfase = 0;
                     hidefields();
@@ -2062,14 +2062,14 @@ public class StageMaker extends Applet implements Runnable {
             }
     }
 
-    public void rot(final int[] is, final int[] is_334_, final int i, final int i_335_, final int i_336_,
-            final int i_337_) {
-        if (i_336_ != 0)
-            for (int i_338_ = 0; i_338_ < i_337_; i_338_++) {
-                final int i_339_ = is[i_338_];
-                final int i_340_ = is_334_[i_338_];
-                is[i_338_] = i + (int) ((i_339_ - i) * m.cos(i_336_) - (i_340_ - i_335_) * m.sin(i_336_));
-                is_334_[i_338_] = i_335_ + (int) ((i_339_ - i) * m.sin(i_336_) + (i_340_ - i_335_) * m.cos(i_336_));
+    public void rot(final int[] is, final int[] is334, final int i, final int i335, final int i336,
+            final int i337) {
+        if (i336 != 0)
+            for (int i338 = 0; i338 < i337; i338++) {
+                final int i339 = is[i338];
+                final int i340 = is334[i338];
+                is[i338] = i + (int) ((i339 - i) * m.cos(i336) - (i340 - i335) * m.sin(i336));
+                is334[i338] = i335 + (int) ((i339 - i) * m.sin(i336) + (i340 - i335) * m.cos(i336));
             }
     }
 
@@ -2114,8 +2114,8 @@ public class StageMaker extends Applet implements Runnable {
             @Override
             public void run() {
                 while (true) {
-                    System.out.println("x: " + ((xm - 505) * (Math.abs(sy) / m.focus_point) + sx));
-                    System.out.println("z: " + ((290 - ym) * (Math.abs(sy) / m.focus_point) + sz));
+                    System.out.println("x: " + ((xm - 505) * (Math.abs(sy) / m.focusPoint) + sx));
+                    System.out.println("z: " + ((290 - ym) * (Math.abs(sy) / m.focusPoint) + sz));
                     System.out.println("y: " + (m.ground - bco[selectedPart].grat));
                     System.out.println("rot: " + (rot + adrot));
                     try {
@@ -2228,24 +2228,24 @@ public class StageMaker extends Applet implements Runnable {
                 rd.drawLine(400 - ftm.stringWidth(string) / 2, 501 + i, 400 + ftm.stringWidth(string) / 2, 501 + i);
                 if (mouseon == 1 && mousePressed == -1)
                     openlink();
-                final int i_0_ = -60;
-                final int i_1_ = 70;
+                final int i0 = -60;
+                final int i1 = 70;
                 rd.setColor(new Color(0, 0, 0));
-                rd.drawRect(227 - i_1_, 194 + i_0_, 346 + i_1_ * 2, 167 + i_1_ / 5);
+                rd.drawRect(227 - i1, 194 + i0, 346 + i1 * 2, 167 + i1 / 5);
                 if (sfase == 0) {
                     rd.drawString("Select Stage to Edit", 400 - ftm.stringWidth("Select Stage to Edit") / 2,
-                            230 + i_0_);
-                    slstage.move(220, 240 + i_0_);
+                            230 + i0);
+                    slstage.move(220, 240 + i0);
                     if (slstage.getWidth() != 360)
                         slstage.setSize(360, 21);
                     if (!slstage.isShowing())
                         slstage.setVisible(true);
-                    if (button("    Make new Stage    ", 400, 296 + i_0_, 0, true)) {
+                    if (button("    Make new Stage    ", 400, 296 + i0, 0, true)) {
                         srch.setText("");
                         slstage.setVisible(false);
                         sfase = 1;
                     }
-                    if (button("     Rename Stage     ", 325, 336 + i_0_, 0, false))
+                    if (button("     Rename Stage     ", 325, 336 + i0, 0, false))
                         if (!stagename.equals("")) {
                             slstage.setVisible(false);
                             srch.setText(stagename);
@@ -2253,7 +2253,7 @@ public class StageMaker extends Applet implements Runnable {
                         } else
                             JOptionPane.showMessageDialog(null, "Please select a stage to rename first.", "Stage Maker",
                                     1);
-                    if (button("      Delete Stage      ", 475, 336 + i_0_, 0, false))
+                    if (button("      Delete Stage      ", 475, 336 + i0, 0, false))
                         if (!stagename.equals("")) {
                             if (JOptionPane.showConfirmDialog(null,
                                     new StringBuilder()
@@ -2277,22 +2277,22 @@ public class StageMaker extends Applet implements Runnable {
                         stagename = "";
                 }
                 if (sfase == 1) {
-                    rd.drawString("Make a new Stage", 400 - ftm.stringWidth("Make a new Stage") / 2, 220 + i_0_);
+                    rd.drawString("Make a new Stage", 400 - ftm.stringWidth("Make a new Stage") / 2, 220 + i0);
                     rd.setFont(new Font("Arial", 1, 12));
-                    rd.drawString("New stage name :", 200, 246 + i_0_);
-                    movefield(srch, 310, 231 + i_0_, 290, 23);
+                    rd.drawString("New stage name :", 200, 246 + i0);
+                    movefield(srch, 310, 231 + i0, 290, 23);
                     if (!srch.isShowing()) {
                         srch.setVisible(true);
                         srch.requestFocus();
                     }
                     fixtext(srch);
-                    rd.drawString("Starting line type :", 293, 272 + i_0_);
-                    strtyp.move(408, 256 + i_0_);
+                    rd.drawString("Starting line type :", 293, 272 + i0);
+                    strtyp.move(408, 256 + i0);
                     if (!strtyp.isShowing())
                         strtyp.setVisible(true);
-                    if (button("    Make Stage    ", 400, 311 + i_0_, 0, true))
+                    if (button("    Make Stage    ", 400, 311 + i0, 0, true))
                         newstage();
-                    if (button("  Cancel  ", 400, 351 + i_0_, 0, false)) {
+                    if (button("  Cancel  ", 400, 351 + i0, 0, false)) {
                         strtyp.setVisible(false);
                         srch.setVisible(false);
                         sfase = 0;
@@ -2303,18 +2303,18 @@ public class StageMaker extends Applet implements Runnable {
                             new StringBuilder().append("Rename Stage :  ").append(stagename).append("").toString(),
                             400 - ftm.stringWidth(new StringBuilder().append("Rename Stage :  ").append(stagename)
                                     .append("").toString()) / 2,
-                            230 + i_0_);
+                            230 + i0);
                     rd.setFont(new Font("Arial", 1, 12));
-                    rd.drawString("New name :", 218, 266 + i_0_);
+                    rd.drawString("New name :", 218, 266 + i0);
                     if (!srch.isShowing()) {
                         srch.setVisible(true);
                         srch.requestFocus();
                     }
-                    movefield(srch, 292, 251 + i_0_, 290, 23);
+                    movefield(srch, 292, 251 + i0, 290, 23);
                     fixtext(srch);
-                    if (button("    Rename Stage    ", 400, 306 + i_0_, 0, true))
+                    if (button("    Rename Stage    ", 400, 306 + i0, 0, true))
                         renstage(srch.getText());
-                    if (button("  Cancel  ", 400, 346 + i_0_, 0, false)) {
+                    if (button("  Cancel  ", 400, 346 + i0, 0, false)) {
                         srch.setVisible(false);
                         sfase = 0;
                     }
@@ -2545,173 +2545,173 @@ public class StageMaker extends Applet implements Runnable {
                 m.y = sy;
                 int i = 0;
                 final int[] is = new int[10000]; // stageselect limit
-                for (int i_2_ = 0; i_2_ < nob; i_2_++)
-                    if (co[i_2_].dist != 0) {
-                        is[i] = i_2_;
+                for (int i2 = 0; i2 < nob; i2++)
+                    if (co[i2].dist != 0) {
+                        is[i] = i2;
                         i++;
                     } else
-                        co[i_2_].d(rd);
-                final int[] is_3_ = new int[i];
-                for (int i_4_ = 0; i_4_ < i; i_4_++)
-                    is_3_[i_4_] = 0;
-                for (int i_5_ = 0; i_5_ < i; i_5_++)
-                    for (int i_6_ = i_5_ + 1; i_6_ < i; i_6_++)
-                        if (co[is[i_5_]].dist != co[is[i_6_]].dist) {
-                            if (co[is[i_5_]].dist < co[is[i_6_]].dist)
-                                is_3_[i_5_]++;
+                        co[i2].d(rd);
+                final int[] is3 = new int[i];
+                for (int i4 = 0; i4 < i; i4++)
+                    is3[i4] = 0;
+                for (int i5 = 0; i5 < i; i5++)
+                    for (int i6 = i5 + 1; i6 < i; i6++)
+                        if (co[is[i5]].dist != co[is[i6]].dist) {
+                            if (co[is[i5]].dist < co[is[i6]].dist)
+                                is3[i5]++;
                             else
-                                is_3_[i_6_]++;
-                        } else if (i_6_ > i_5_)
-                            is_3_[i_5_]++;
+                                is3[i6]++;
+                        } else if (i6 > i5)
+                            is3[i5]++;
                         else
-                            is_3_[i_6_]++;
-                for (int i_7_ = 0; i_7_ < i; i_7_++)
-                    for (int i_8_ = 0; i_8_ < i; i_8_++)
-                        if (is_3_[i_8_] == i_7_) {
-                            if (is[i_8_] == hi)
+                            is3[i6]++;
+                for (int i7 = 0; i7 < i; i7++)
+                    for (int i8 = 0; i8 < i; i8++)
+                        if (is3[i8] == i7) {
+                            if (is[i8] == hi)
                                 m.trk = 3;
-                            if (is[i_8_] == chi && !co[is[i_8_]].errd) {
-                                final int i_9_ = m.cx + (int) ((co[is[i_8_]].x - m.x - m.cx) * m.cos(m.xz)
-                                        - (co[is[i_8_]].z - m.z - m.cz) * m.sin(m.xz));
-                                final int i_10_ = m.cz + (int) ((co[is[i_8_]].x - m.x - m.cx) * m.sin(m.xz)
-                                        + (co[is[i_8_]].z - m.z - m.cz) * m.cos(m.xz));
-                                final int i_11_ = m.cy + (int) ((co[is[i_8_]].y - m.y - m.cy) * m.cos(m.zy)
-                                        - (i_10_ - m.cz) * m.sin(m.zy));
-                                final int i_12_ = m.cz + (int) ((co[is[i_8_]].y - m.y - m.cy) * m.sin(m.zy)
-                                        + (i_10_ - m.cz) * m.cos(m.zy));
-                                final int i_13_ = 1000000 / Math.abs(sy);
+                            if (is[i8] == chi && !co[is[i8]].errd) {
+                                final int i9 = m.cx + (int) ((co[is[i8]].x - m.x - m.cx) * m.cos(m.xz)
+                                        - (co[is[i8]].z - m.z - m.cz) * m.sin(m.xz));
+                                final int i10 = m.cz + (int) ((co[is[i8]].x - m.x - m.cx) * m.sin(m.xz)
+                                        + (co[is[i8]].z - m.z - m.cz) * m.cos(m.xz));
+                                final int i11 = m.cy + (int) ((co[is[i8]].y - m.y - m.cy) * m.cos(m.zy)
+                                        - (i10 - m.cz) * m.sin(m.zy));
+                                final int i12 = m.cz + (int) ((co[is[i8]].y - m.y - m.cy) * m.sin(m.zy)
+                                        + (i10 - m.cz) * m.cos(m.zy));
+                                final int i13 = 1000000 / Math.abs(sy);
                                 final Graphics2D graphics2d = rd;
                                 graphics2d.setComposite(AlphaComposite.getInstance(3, 0.7F));
                                 rd.setColor(new Color(0, 164, 255));
-                                rd.fillOval(Utility.xs(i_9_, i_12_, m) - i_13_ / 2,
-                                        Utility.ys(i_11_, i_12_, m) - i_13_ / 2, i_13_, i_13_);
+                                rd.fillOval(Utility.xs(i9, i12, m) - i13 / 2,
+                                        Utility.ys(i11, i12, m) - i13 / 2, i13, i13);
                                 graphics2d.setComposite(AlphaComposite.getInstance(3, 1.0F));
                                 rd.setColor(new Color(0, 0, 0));
                                 rd.setFont(new Font("Arial", 1, 12));
                                 ftm = rd.getFontMetrics();
                                 rd.drawString(
                                         new StringBuilder().append("NO# ").append(arrcnt + 1).append("").toString(),
-                                        Utility.xs(i_9_, i_12_, m) - ftm.stringWidth(new StringBuilder().append("NO# ")
+                                        Utility.xs(i9, i12, m) - ftm.stringWidth(new StringBuilder().append("NO# ")
                                                 .append(arrcnt + 1).append("").toString()) / 2,
-                                        Utility.ys(i_11_, i_12_, m) - i_13_ / 2);
+                                        Utility.ys(i11, i12, m) - i13 / 2);
                             }
-                            if (arrng && (co[is[i_8_]].colok == 30 || co[is[i_8_]].colok == 32
-                                    || co[is[i_8_]].colok == 54) && co[is[i_8_]].errd) {
-                                final int i_14_ = m.cx + (int) ((co[is[i_8_]].x - m.x - m.cx) * m.cos(m.xz)
-                                        - (co[is[i_8_]].z - m.z - m.cz) * m.sin(m.xz));
-                                final int i_15_ = m.cz + (int) ((co[is[i_8_]].x - m.x - m.cx) * m.sin(m.xz)
-                                        + (co[is[i_8_]].z - m.z - m.cz) * m.cos(m.xz));
-                                final int i_16_ = m.cy + (int) ((co[is[i_8_]].y - m.y - m.cy) * m.cos(m.zy)
-                                        - (i_15_ - m.cz) * m.sin(m.zy));
-                                final int i_17_ = m.cz + (int) ((co[is[i_8_]].y - m.y - m.cy) * m.sin(m.zy)
-                                        + (i_15_ - m.cz) * m.cos(m.zy));
-                                final int i_18_ = 1000000 / Math.abs(sy);
+                            if (arrng && (co[is[i8]].colok == 30 || co[is[i8]].colok == 32
+                                    || co[is[i8]].colok == 54) && co[is[i8]].errd) {
+                                final int i14 = m.cx + (int) ((co[is[i8]].x - m.x - m.cx) * m.cos(m.xz)
+                                        - (co[is[i8]].z - m.z - m.cz) * m.sin(m.xz));
+                                final int i15 = m.cz + (int) ((co[is[i8]].x - m.x - m.cx) * m.sin(m.xz)
+                                        + (co[is[i8]].z - m.z - m.cz) * m.cos(m.xz));
+                                final int i16 = m.cy + (int) ((co[is[i8]].y - m.y - m.cy) * m.cos(m.zy)
+                                        - (i15 - m.cz) * m.sin(m.zy));
+                                final int i17 = m.cz + (int) ((co[is[i8]].y - m.y - m.cy) * m.sin(m.zy)
+                                        + (i15 - m.cz) * m.cos(m.zy));
+                                final int i18 = 1000000 / Math.abs(sy);
                                 final Graphics2D graphics2d = rd;
                                 graphics2d.setComposite(AlphaComposite.getInstance(3, 0.5F));
                                 rd.setColor(new Color(255, 128, 0));
-                                rd.fillOval(Utility.xs(i_14_, i_17_, m) - i_18_ / 2,
-                                        Utility.ys(i_16_, i_17_, m) - i_18_ / 2, i_18_, i_18_);
+                                rd.fillOval(Utility.xs(i14, i17, m) - i18 / 2,
+                                        Utility.ys(i16, i17, m) - i18 / 2, i18, i18);
                                 graphics2d.setComposite(AlphaComposite.getInstance(3, 1.0F));
                                 rd.setColor(new Color(0, 0, 0));
                                 rd.setFont(new Font("Arial", 1, 12));
                                 ftm = rd.getFontMetrics();
                                 rd.drawString(
-                                        new StringBuilder().append("NO# ").append(co[is[i_8_]].wh).append("")
+                                        new StringBuilder().append("NO# ").append(co[is[i8]].wh).append("")
                                                 .toString(),
-                                        Utility.xs(i_14_, i_17_, m) - ftm.stringWidth(new StringBuilder().append("NO# ")
-                                                .append(co[is[i_8_]].wh).append("").toString()) / 2,
-                                        Utility.ys(i_16_, i_17_, m) - i_18_ / 2);
+                                        Utility.xs(i14, i17, m) - ftm.stringWidth(new StringBuilder().append("NO# ")
+                                                .append(co[is[i8]].wh).append("").toString()) / 2,
+                                        Utility.ys(i16, i17, m) - i18 / 2);
                             }
-                            co[is[i_8_]].d(rd);
+                            co[is[i8]].d(rd);
                             if (m.trk == 3)
                                 m.trk = 2;
                         }
                 if (xm > 248 && xm < 762 && ym > 63 && ym < 517) {
                     if (!epart && !arrng) {
-                        bco[selectedPart].x = (xm - 505) * (Math.abs(sy) / m.focus_point) + sx;
-                        bco[selectedPart].z = (290 - ym) * (Math.abs(sy) / m.focus_point) + sz;
+                        bco[selectedPart].x = (xm - 505) * (Math.abs(sy) / m.focusPoint) + sx;
+                        bco[selectedPart].z = (290 - ym) * (Math.abs(sy) / m.focusPoint) + sz;
                         bco[selectedPart].y = m.ground - bco[selectedPart].grat;
                         bco[selectedPart].xz = rot + adrot;
-                        int i_19_ = 200;
-                        int i_20_ = 0;
-                        int i_21_ = 0;
-                        final int[] is_22_ = {
+                        int i19 = 200;
+                        int i20 = 0;
+                        int i21 = 0;
+                        final int[] is22 = {
                                 bco[selectedPart].x + atp[selectedPart][0], bco[selectedPart].x + atp[selectedPart][2]
                         };
-                        final int[] is_23_ = {
+                        final int[] is23 = {
                                 bco[selectedPart].z + atp[selectedPart][1], bco[selectedPart].z + atp[selectedPart][3]
                         };
-                        rot(is_22_, is_23_, bco[selectedPart].x, bco[selectedPart].z, rot, 2);
-                        int i_24_ = 0;
+                        rot(is22, is23, bco[selectedPart].x, bco[selectedPart].z, rot, 2);
+                        int i24 = 0;
                         onfly = false;
-                        int i_25_ = 500;
-                        for (int i_26_ = 0; i_26_ < nob; i_26_++) {
-                            final int[] is_27_ = {
-                                    co[i_26_].x + atp[co[i_26_].colok][0], co[i_26_].x + atp[co[i_26_].colok][2]
+                        int i25 = 500;
+                        for (int i26 = 0; i26 < nob; i26++) {
+                            final int[] is27 = {
+                                    co[i26].x + atp[co[i26].colok][0], co[i26].x + atp[co[i26].colok][2]
                             };
-                            final int[] is_28_ = {
-                                    co[i_26_].z + atp[co[i_26_].colok][1], co[i_26_].z + atp[co[i_26_].colok][3]
+                            final int[] is28 = {
+                                    co[i26].z + atp[co[i26].colok][1], co[i26].z + atp[co[i26].colok][3]
                             };
-                            int i_29_ = co[i_26_].roofat;
-                            if (co[i_26_].colok == 2)
-                                i_29_ += 30;
-                            if (co[i_26_].colok == 3)
-                                i_29_ -= 30;
-                            if (co[i_26_].colok == 15)
-                                i_29_ -= 90;
-                            if (co[i_26_].colok == 20)
-                                i_29_ -= 180;
-                            if (co[i_26_].colok == 26)
-                                i_29_ -= 90;
-                            rot(is_27_, is_28_, co[i_26_].x, co[i_26_].z, i_29_, 2);
+                            int i29 = co[i26].roofat;
+                            if (co[i26].colok == 2)
+                                i29 += 30;
+                            if (co[i26].colok == 3)
+                                i29 -= 30;
+                            if (co[i26].colok == 15)
+                                i29 -= 90;
+                            if (co[i26].colok == 20)
+                                i29 -= 180;
+                            if (co[i26].colok == 26)
+                                i29 -= 90;
+                            rot(is27, is28, co[i26].x, co[i26].z, i29, 2);
                             if (selectedPart <= 54) {
-                                int i_30_ = py(is_27_[0], is_22_[0], is_28_[0], is_23_[0]);
-                                if (i_30_ < i_19_ && i_30_ != 0) {
-                                    i_19_ = i_30_;
-                                    i_20_ = is_27_[0] - is_22_[0];
-                                    i_21_ = is_28_[0] - is_23_[0];
+                                int i30 = py(is27[0], is22[0], is28[0], is23[0]);
+                                if (i30 < i19 && i30 != 0) {
+                                    i19 = i30;
+                                    i20 = is27[0] - is22[0];
+                                    i21 = is28[0] - is23[0];
                                 }
-                                i_30_ = py(is_27_[1], is_22_[0], is_28_[1], is_23_[0]);
-                                if (i_30_ < i_19_ && i_30_ != 0) {
-                                    i_19_ = i_30_;
-                                    i_20_ = is_27_[1] - is_22_[0];
-                                    i_21_ = is_28_[1] - is_23_[0];
+                                i30 = py(is27[1], is22[0], is28[1], is23[0]);
+                                if (i30 < i19 && i30 != 0) {
+                                    i19 = i30;
+                                    i20 = is27[1] - is22[0];
+                                    i21 = is28[1] - is23[0];
                                 }
-                                i_30_ = py(is_27_[1], is_22_[1], is_28_[1], is_23_[1]);
-                                if (i_30_ < i_19_ && i_30_ != 0) {
-                                    i_19_ = i_30_;
-                                    i_20_ = is_27_[1] - is_22_[1];
-                                    i_21_ = is_28_[1] - is_23_[1];
+                                i30 = py(is27[1], is22[1], is28[1], is23[1]);
+                                if (i30 < i19 && i30 != 0) {
+                                    i19 = i30;
+                                    i20 = is27[1] - is22[1];
+                                    i21 = is28[1] - is23[1];
                                 }
-                                i_30_ = py(is_27_[0], is_22_[1], is_28_[0], is_23_[1]);
-                                if (i_30_ < i_19_ && i_30_ != 0) {
-                                    i_19_ = i_30_;
-                                    i_20_ = is_27_[0] - is_22_[1];
-                                    i_21_ = is_28_[0] - is_23_[1];
+                                i30 = py(is27[0], is22[1], is28[0], is23[1]);
+                                if (i30 < i19 && i30 != 0) {
+                                    i19 = i30;
+                                    i20 = is27[0] - is22[1];
+                                    i21 = is28[0] - is23[1];
                                 }
                             }
                             if (selectedPartType == PART_CHECKPOINTS
-                                    && py(is_27_[0], is_22_[0], is_28_[0], is_23_[0]) != 0
-                                    && py(is_27_[1], is_22_[0], is_28_[1], is_23_[0]) != 0) {
-                                for (int i_31_ = 0; i_31_ < rcheckp.length; i_31_++)
-                                    if (co[i_26_].colok == rcheckp[i_31_]) {
-                                        if (py(is_27_[0], is_22_[0], is_28_[0], is_23_[0]) <= i_24_ || i_24_ == 0) {
-                                            i_24_ = py(is_27_[0], is_22_[0], is_28_[0], is_23_[0]);
+                                    && py(is27[0], is22[0], is28[0], is23[0]) != 0
+                                    && py(is27[1], is22[0], is28[1], is23[0]) != 0) {
+                                for (int i31 = 0; i31 < rcheckp.length; i31++)
+                                    if (co[i26].colok == rcheckp[i31]) {
+                                        if (py(is27[0], is22[0], is28[0], is23[0]) <= i24 || i24 == 0) {
+                                            i24 = py(is27[0], is22[0], is28[0], is23[0]);
                                             onoff = false;
                                         }
-                                        if (py(is_27_[1], is_22_[0], is_28_[1], is_23_[0]) <= i_24_) {
-                                            i_24_ = py(is_27_[1], is_22_[0], is_28_[1], is_23_[0]);
+                                        if (py(is27[1], is22[0], is28[1], is23[0]) <= i24) {
+                                            i24 = py(is27[1], is22[0], is28[1], is23[0]);
                                             onoff = false;
                                         }
                                     }
-                                for (int i_32_ = 0; i_32_ < ocheckp.length; i_32_++)
-                                    if (co[i_26_].colok == ocheckp[i_32_]) {
-                                        if (py(is_27_[0], is_22_[0], is_28_[0], is_23_[0]) <= i_24_ || i_24_ == 0) {
-                                            i_24_ = py(is_27_[0], is_22_[0], is_28_[0], is_23_[0]);
+                                for (int i32 = 0; i32 < ocheckp.length; i32++)
+                                    if (co[i26].colok == ocheckp[i32]) {
+                                        if (py(is27[0], is22[0], is28[0], is23[0]) <= i24 || i24 == 0) {
+                                            i24 = py(is27[0], is22[0], is28[0], is23[0]);
                                             onoff = true;
                                         }
-                                        if (py(is_27_[1], is_22_[0], is_28_[1], is_23_[0]) <= i_24_) {
-                                            i_24_ = py(is_27_[1], is_22_[0], is_28_[1], is_23_[0]);
+                                        if (py(is27[1], is22[0], is28[1], is23[0]) <= i24) {
+                                            i24 = py(is27[1], is22[0], is28[1], is23[0]);
                                             onoff = true;
                                         }
                                     }
@@ -2719,69 +2719,69 @@ public class StageMaker extends Applet implements Runnable {
                             if (selectedPart > 12 && selectedPart < 33 || selectedPart == 35 || selectedPart == 36
                                     || selectedPart >= 39 && selectedPart <= 54) {
                                 if ((rot == 0 || rot == 180 || selectedPart == 26 || selectedPart == 15)
-                                        && (i_29_ == 0 || i_29_ == 180 || selectedPart == 26 || selectedPart == 15)) {
-                                    if (Math.abs(is_27_[0] - is_22_[0]) < 200)
-                                        i_20_ = is_27_[0] - is_22_[0];
-                                    if (Math.abs(is_27_[0] - is_22_[1]) < 200)
-                                        i_20_ = is_27_[0] - is_22_[1];
-                                    if (Math.abs(is_27_[1] - is_22_[1]) < 200)
-                                        i_20_ = is_27_[1] - is_22_[1];
-                                    if (Math.abs(is_27_[1] - is_22_[0]) < 200)
-                                        i_20_ = is_27_[1] - is_22_[0];
+                                        && (i29 == 0 || i29 == 180 || selectedPart == 26 || selectedPart == 15)) {
+                                    if (Math.abs(is27[0] - is22[0]) < 200)
+                                        i20 = is27[0] - is22[0];
+                                    if (Math.abs(is27[0] - is22[1]) < 200)
+                                        i20 = is27[0] - is22[1];
+                                    if (Math.abs(is27[1] - is22[1]) < 200)
+                                        i20 = is27[1] - is22[1];
+                                    if (Math.abs(is27[1] - is22[0]) < 200)
+                                        i20 = is27[1] - is22[0];
                                 }
                                 if ((rot == 90 || rot == -90 || selectedPart == 26 || selectedPart == 15)
-                                        && (i_29_ == 90 || i_29_ == -90 || selectedPart == 26 || selectedPart == 15)) {
-                                    if (Math.abs(is_28_[0] - is_23_[0]) < 200)
-                                        i_21_ = is_28_[0] - is_23_[0];
-                                    if (Math.abs(is_28_[0] - is_23_[1]) < 200)
-                                        i_21_ = is_28_[0] - is_23_[1];
-                                    if (Math.abs(is_28_[1] - is_23_[1]) < 200)
-                                        i_21_ = is_28_[1] - is_23_[1];
-                                    if (Math.abs(is_28_[1] - is_23_[0]) < 200)
-                                        i_21_ = is_28_[1] - is_23_[0];
+                                        && (i29 == 90 || i29 == -90 || selectedPart == 26 || selectedPart == 15)) {
+                                    if (Math.abs(is28[0] - is23[0]) < 200)
+                                        i21 = is28[0] - is23[0];
+                                    if (Math.abs(is28[0] - is23[1]) < 200)
+                                        i21 = is28[0] - is23[1];
+                                    if (Math.abs(is28[1] - is23[1]) < 200)
+                                        i21 = is28[1] - is23[1];
+                                    if (Math.abs(is28[1] - is23[0]) < 200)
+                                        i21 = is28[1] - is23[0];
                                 }
                             }
-                            if (selectedPartType == PART_CHECKPOINTS && co[i_26_].colok >= 46
-                                    && co[i_26_].colok <= 51) {
-                                final int[] is_33_ = {
+                            if (selectedPartType == PART_CHECKPOINTS && co[i26].colok >= 46
+                                    && co[i26].colok <= 51) {
+                                final int[] is33 = {
                                         2, 3, 5, 2, 3, 3
                                 };
-                                if ((Math.abs(co[i_26_].roofat) == 180 || co[i_26_].roofat == 0) && rot == 0
-                                        && Math.abs(bco[selectedPart].x - co[i_26_].x) < 500
-                                        && Math.abs(bco[selectedPart].z - co[i_26_].z) < 3000)
-                                    for (int i_34_ = 0; i_34_ < is_33_[co[i_26_].colok - 46]; i_34_++)
-                                        for (int i_35_ = 0; i_35_ < co[i_26_].p[i_34_].n; i_35_++)
-                                            if (py(bco[selectedPart].x, co[i_26_].x, bco[selectedPart].z,
-                                                    co[i_26_].z + co[i_26_].p[i_34_].oz[i_35_]) < i_25_) {
-                                                i_25_ = py(bco[selectedPart].x, co[i_26_].x, bco[selectedPart].z,
-                                                        co[i_26_].z + co[i_26_].p[i_34_].oz[i_35_]);
-                                                flyh = co[i_26_].p[i_34_].oy[i_35_] - 28 + m.ground;
-                                                i_20_ = co[i_26_].x - bco[selectedPart].x;
-                                                i_21_ = co[i_26_].z + co[i_26_].p[i_34_].oz[i_35_]
+                                if ((Math.abs(co[i26].roofat) == 180 || co[i26].roofat == 0) && rot == 0
+                                        && Math.abs(bco[selectedPart].x - co[i26].x) < 500
+                                        && Math.abs(bco[selectedPart].z - co[i26].z) < 3000)
+                                    for (int i34 = 0; i34 < is33[co[i26].colok - 46]; i34++)
+                                        for (int i35 = 0; i35 < co[i26].p[i34].n; i35++)
+                                            if (py(bco[selectedPart].x, co[i26].x, bco[selectedPart].z,
+                                                    co[i26].z + co[i26].p[i34].oz[i35]) < i25) {
+                                                i25 = py(bco[selectedPart].x, co[i26].x, bco[selectedPart].z,
+                                                        co[i26].z + co[i26].p[i34].oz[i35]);
+                                                flyh = co[i26].p[i34].oy[i35] - 28 + m.ground;
+                                                i20 = co[i26].x - bco[selectedPart].x;
+                                                i21 = co[i26].z + co[i26].p[i34].oz[i35]
                                                         - bco[selectedPart].z;
                                                 onfly = true;
                                             }
-                                if (Math.abs(co[i_26_].roofat) == 90 && rot == 90
-                                        && Math.abs(bco[selectedPart].z - co[i_26_].z) < 500
-                                        && Math.abs(bco[selectedPart].x - co[i_26_].x) < 3000)
-                                    for (int i_36_ = 0; i_36_ < is_33_[co[i_26_].colok - 46]; i_36_++)
-                                        for (int i_37_ = 0; i_37_ < co[i_26_].p[i_36_].n; i_37_++)
-                                            if (py(bco[selectedPart].z, co[i_26_].z, bco[selectedPart].x,
-                                                    co[i_26_].x + co[i_26_].p[i_36_].ox[i_37_]) < i_25_) {
-                                                i_25_ = py(bco[selectedPart].z, co[i_26_].z, bco[selectedPart].x,
-                                                        co[i_26_].x + co[i_26_].p[i_36_].ox[i_37_]);
-                                                flyh = co[i_26_].p[i_36_].oy[i_37_] - 28 + m.ground;
-                                                i_21_ = co[i_26_].z - bco[selectedPart].z;
-                                                i_20_ = co[i_26_].x + co[i_26_].p[i_36_].ox[i_37_]
+                                if (Math.abs(co[i26].roofat) == 90 && rot == 90
+                                        && Math.abs(bco[selectedPart].z - co[i26].z) < 500
+                                        && Math.abs(bco[selectedPart].x - co[i26].x) < 3000)
+                                    for (int i36 = 0; i36 < is33[co[i26].colok - 46]; i36++)
+                                        for (int i37 = 0; i37 < co[i26].p[i36].n; i37++)
+                                            if (py(bco[selectedPart].z, co[i26].z, bco[selectedPart].x,
+                                                    co[i26].x + co[i26].p[i36].ox[i37]) < i25) {
+                                                i25 = py(bco[selectedPart].z, co[i26].z, bco[selectedPart].x,
+                                                        co[i26].x + co[i26].p[i36].ox[i37]);
+                                                flyh = co[i26].p[i36].oy[i37] - 28 + m.ground;
+                                                i21 = co[i26].z - bco[selectedPart].z;
+                                                i20 = co[i26].x + co[i26].p[i36].ox[i37]
                                                         - bco[selectedPart].x;
                                                 onfly = true;
                                             }
                             }
                         }
-                        bco[selectedPart].x += i_20_;
-                        bco[selectedPart].z += i_21_;
-                        final int i_38_ = bco[selectedPart].xy;
-                        final int i_39_ = bco[selectedPart].zy;
+                        bco[selectedPart].x += i20;
+                        bco[selectedPart].z += i21;
+                        final int i38 = bco[selectedPart].xy;
+                        final int i39 = bco[selectedPart].zy;
                         if (selectedPart == 31) {
                             bco[selectedPart].y = -hf;
                             if (bco[selectedPart].y > -500)
@@ -2868,22 +2868,22 @@ public class StageMaker extends Applet implements Runnable {
                                             seq = 3;
                                             bco[selectedPart].xy = 0;
                                             bco[selectedPart].zy = 0;
-                                            boolean bool_40_ = false;
-                                            if (rot == 0 && !bool_40_) {
+                                            boolean bool40 = false;
+                                            if (rot == 0 && !bool40) {
                                                 rot = 90;
-                                                bool_40_ = true;
+                                                bool40 = true;
                                             }
-                                            if (rot == 90 && !bool_40_) {
+                                            if (rot == 90 && !bool40) {
                                                 rot = 180;
-                                                bool_40_ = true;
+                                                bool40 = true;
                                             }
-                                            if (rot == 180 && !bool_40_) {
+                                            if (rot == 180 && !bool40) {
                                                 rot = -90;
-                                                bool_40_ = true;
+                                                bool40 = true;
                                             }
-                                            if (rot == -90 && !bool_40_) {
+                                            if (rot == -90 && !bool40) {
                                                 rot = 0;
-                                                bool_40_ = true;
+                                                bool40 = true;
                                             }
                                         }
                                     }
@@ -2911,36 +2911,36 @@ public class StageMaker extends Applet implements Runnable {
                                 setcur = false;
                             }
                         }
-                        bco[selectedPart].xy = i_38_;
-                        bco[selectedPart].zy = i_39_;
+                        bco[selectedPart].xy = i38;
+                        bco[selectedPart].zy = i39;
                     } else {
                         if (epart)
                             if (esp == -1 && !overcan) {
                                 hi = -1;
-                                int i_41_ = 0;
-                                for (int i_42_ = 0; i_42_ < nob; i_42_++) {
-                                    final int i_43_ = m.cx + (int) ((co[i_42_].x - m.x - m.cx) * m.cos(m.xz)
-                                            - (co[i_42_].z - m.z - m.cz) * m.sin(m.xz));
-                                    final int i_44_ = m.cz + (int) ((co[i_42_].x - m.x - m.cx) * m.sin(m.xz)
-                                            + (co[i_42_].z - m.z - m.cz) * m.cos(m.xz));
-                                    final int i_45_ = m.cy + (int) ((co[i_42_].y - m.y - m.cy) * m.cos(m.zy)
-                                            - (i_44_ - m.cz) * m.sin(m.zy));
-                                    final int i_46_ = m.cz + (int) ((co[i_42_].y - m.y - m.cy) * m.sin(m.zy)
-                                            + (i_44_ - m.cz) * m.cos(m.zy));
-                                    if (xm > Utility.xs(i_43_ - co[i_42_].maxR, i_46_, m)
-                                            && xm < Utility.xs(i_43_ + co[i_42_].maxR, i_46_, m)
-                                            && ym > Utility.ys(i_45_ - co[i_42_].maxR, i_46_, m)
-                                            && ym < Utility.ys(i_45_ + co[i_42_].maxR, i_46_, m)
-                                            && co[i_42_].colok != 37 && co[i_42_].colok != 38)
+                                int i41 = 0;
+                                for (int i42 = 0; i42 < nob; i42++) {
+                                    final int i43 = m.cx + (int) ((co[i42].x - m.x - m.cx) * m.cos(m.xz)
+                                            - (co[i42].z - m.z - m.cz) * m.sin(m.xz));
+                                    final int i44 = m.cz + (int) ((co[i42].x - m.x - m.cx) * m.sin(m.xz)
+                                            + (co[i42].z - m.z - m.cz) * m.cos(m.xz));
+                                    final int i45 = m.cy + (int) ((co[i42].y - m.y - m.cy) * m.cos(m.zy)
+                                            - (i44 - m.cz) * m.sin(m.zy));
+                                    final int i46 = m.cz + (int) ((co[i42].y - m.y - m.cy) * m.sin(m.zy)
+                                            + (i44 - m.cz) * m.cos(m.zy));
+                                    if (xm > Utility.xs(i43 - co[i42].maxR, i46, m)
+                                            && xm < Utility.xs(i43 + co[i42].maxR, i46, m)
+                                            && ym > Utility.ys(i45 - co[i42].maxR, i46, m)
+                                            && ym < Utility.ys(i45 + co[i42].maxR, i46, m)
+                                            && co[i42].colok != 37 && co[i42].colok != 38)
                                         if (hi == -1) {
-                                            hi = i_42_;
-                                            i_41_ = py(xm, Utility.xs(i_43_, i_46_, m), ym,
-                                                    Utility.ys(i_45_, i_46_, m));
-                                        } else if (py(xm, Utility.xs(i_43_, i_46_, m), ym,
-                                                Utility.ys(i_45_, i_46_, m)) <= i_41_) {
-                                            hi = i_42_;
-                                            i_41_ = py(xm, Utility.xs(i_43_, i_46_, m), ym,
-                                                    Utility.ys(i_45_, i_46_, m));
+                                            hi = i42;
+                                            i41 = py(xm, Utility.xs(i43, i46, m), ym,
+                                                    Utility.ys(i45, i46, m));
+                                        } else if (py(xm, Utility.xs(i43, i46, m), ym,
+                                                Utility.ys(i45, i46, m)) <= i41) {
+                                            hi = i42;
+                                            i41 = py(xm, Utility.xs(i43, i46, m), ym,
+                                                    Utility.ys(i45, i46, m));
                                         }
                                 }
                                 if (hi != -1) {
@@ -2962,26 +2962,26 @@ public class StageMaker extends Applet implements Runnable {
                             }
                         if (arrng) {
                             chi = -1;
-                            int i_47_ = 5000;
-                            for (int i_48_ = 0; i_48_ < nob; i_48_++)
-                                if ((co[i_48_].colok == 30 || co[i_48_].colok == 32 || co[i_48_].colok == 54)
-                                        && !co[i_48_].errd) {
-                                    final int i_49_ = m.cx + (int) ((co[i_48_].x - m.x - m.cx) * m.cos(m.xz)
-                                            - (co[i_48_].z - m.z - m.cz) * m.sin(m.xz));
-                                    final int i_50_ = m.cz + (int) ((co[i_48_].x - m.x - m.cx) * m.sin(m.xz)
-                                            + (co[i_48_].z - m.z - m.cz) * m.cos(m.xz));
-                                    final int i_51_ = m.cy + (int) ((co[i_48_].y - m.y - m.cy) * m.cos(m.zy)
-                                            - (i_50_ - m.cz) * m.sin(m.zy));
-                                    final int i_52_ = m.cz + (int) ((co[i_48_].y - m.y - m.cy) * m.sin(m.zy)
-                                            + (i_50_ - m.cz) * m.cos(m.zy));
-                                    if (xm > Utility.xs(i_49_ - co[i_48_].maxR, i_52_, m)
-                                            && xm < Utility.xs(i_49_ + co[i_48_].maxR, i_52_, m)
-                                            && ym > Utility.ys(i_51_ - co[i_48_].maxR, i_52_, m)
-                                            && ym < Utility.ys(i_51_ + co[i_48_].maxR, i_52_, m)
-                                            && py(xm, Utility.xs(i_49_, i_52_, m), ym,
-                                                    Utility.ys(i_51_, i_52_, m)) <= i_47_) {
-                                        chi = i_48_;
-                                        i_47_ = py(xm, Utility.xs(i_49_, i_52_, m), ym, Utility.ys(i_51_, i_52_, m));
+                            int i47 = 5000;
+                            for (int i48 = 0; i48 < nob; i48++)
+                                if ((co[i48].colok == 30 || co[i48].colok == 32 || co[i48].colok == 54)
+                                        && !co[i48].errd) {
+                                    final int i49 = m.cx + (int) ((co[i48].x - m.x - m.cx) * m.cos(m.xz)
+                                            - (co[i48].z - m.z - m.cz) * m.sin(m.xz));
+                                    final int i50 = m.cz + (int) ((co[i48].x - m.x - m.cx) * m.sin(m.xz)
+                                            + (co[i48].z - m.z - m.cz) * m.cos(m.xz));
+                                    final int i51 = m.cy + (int) ((co[i48].y - m.y - m.cy) * m.cos(m.zy)
+                                            - (i50 - m.cz) * m.sin(m.zy));
+                                    final int i52 = m.cz + (int) ((co[i48].y - m.y - m.cy) * m.sin(m.zy)
+                                            + (i50 - m.cz) * m.cos(m.zy));
+                                    if (xm > Utility.xs(i49 - co[i48].maxR, i52, m)
+                                            && xm < Utility.xs(i49 + co[i48].maxR, i52, m)
+                                            && ym > Utility.ys(i51 - co[i48].maxR, i52, m)
+                                            && ym < Utility.ys(i51 + co[i48].maxR, i52, m)
+                                            && py(xm, Utility.xs(i49, i52, m), ym,
+                                                    Utility.ys(i51, i52, m)) <= i47) {
+                                        chi = i48;
+                                        i47 = py(xm, Utility.xs(i49, i52, m), ym, Utility.ys(i51, i52, m));
                                     }
                                 }
                             if (chi != -1) {
@@ -3013,21 +3013,21 @@ public class StageMaker extends Applet implements Runnable {
                         m.x = sx - m.cx;
                         m.z = sz - m.cz;
                         m.y = sy;
-                        final int i_53_ = m.cx + (int) ((co[esp].x - m.x - m.cx) * m.cos(m.xz)
+                        final int i53 = m.cx + (int) ((co[esp].x - m.x - m.cx) * m.cos(m.xz)
                                 - (co[esp].z - m.z - m.cz) * m.sin(m.xz));
-                        final int i_54_ = m.cz + (int) ((co[esp].x - m.x - m.cx) * m.sin(m.xz)
+                        final int i54 = m.cz + (int) ((co[esp].x - m.x - m.cx) * m.sin(m.xz)
                                 + (co[esp].z - m.z - m.cz) * m.cos(m.xz));
-                        final int i_55_ = m.cy
-                                + (int) ((co[esp].y - m.y - m.cy) * m.cos(m.zy) - (i_54_ - m.cz) * m.sin(m.zy));
-                        final int i_56_ = m.cz
-                                + (int) ((co[esp].y - m.y - m.cy) * m.sin(m.zy) + (i_54_ - m.cz) * m.cos(m.zy));
-                        final int i_57_ = Utility.xs(i_53_, i_56_, m);
-                        final int i_58_ = Utility.ys(i_55_, i_56_, m);
+                        final int i55 = m.cy
+                                + (int) ((co[esp].y - m.y - m.cy) * m.cos(m.zy) - (i54 - m.cz) * m.sin(m.zy));
+                        final int i56 = m.cz
+                                + (int) ((co[esp].y - m.y - m.cy) * m.sin(m.zy) + (i54 - m.cz) * m.cos(m.zy));
+                        final int i57 = Utility.xs(i53, i56, m);
+                        final int i58 = Utility.ys(i55, i56, m);
                         rd.setColor(new Color(225, 225, 225));
-                        rd.fillRect(i_57_, i_58_, 90, 88);
+                        rd.fillRect(i57, i58, 90, 88);
                         rd.setColor(new Color(138, 147, 160));
-                        rd.drawRect(i_57_, i_58_, 90, 88);
-                        if (button("   Edit   ", i_57_ + 45, i_58_ + 22, 3, false)) {
+                        rd.drawRect(i57, i58, 90, 88);
+                        if (button("   Edit   ", i57 + 45, i58 + 22, 3, false)) {
                             copyesp(true);
                             removesp();
                             lxm = 0;
@@ -3035,12 +3035,12 @@ public class StageMaker extends Applet implements Runnable {
                             cntout = 2;
                             epart = false;
                         }
-                        if (button(" Remove ", i_57_ + 45, i_58_ + 49, 3, false)) {
+                        if (button(" Remove ", i57 + 45, i58 + 49, 3, false)) {
                             removesp();
                             esp = -1;
                             mousePressed = 0;
                         }
-                        if (button("  Copy  ", i_57_ + 45, i_58_ + 76, 3, false)) {
+                        if (button("  Copy  ", i57 + 45, i58 + 76, 3, false)) {
                             copyesp(false);
                             lxm = 0;
                             //lym = 0;
@@ -3048,9 +3048,9 @@ public class StageMaker extends Applet implements Runnable {
                             epart = false;
                         }
                         rd.setColor(new Color(255, 0, 0));
-                        rd.drawString("x", i_57_ + 82, i_58_ - 2);
+                        rd.drawString("x", i57 + 82, i58 - 2);
                         if (xm > 248 && xm < 762 && ym > 63 && ym < 517 && mousePressed == 1
-                                && (xm < i_57_ || xm > i_57_ + 90 || ym < i_58_ || ym > i_58_ + 88)) {
+                                && (xm < i57 || xm > i57 + 90 || ym < i58 || ym > i58 + 88)) {
                             esp = -1;
                             mousePressed = 0;
                         }
@@ -3083,11 +3083,11 @@ public class StageMaker extends Applet implements Runnable {
                             pwd = 6.0F;
                     }
                     rd.drawRect((int) (57.0F + (pwd - 2.0F) * 36.75F), 90, 2, 8);
-                    boolean bool_59_ = false;
+                    boolean bool59 = false;
                     if (xm > 57 && xm < 204 && ym > 110 && ym < 119)
-                        bool_59_ = true;
+                        bool59 = true;
                     rd.setColor(new Color(136, 148, 170));
-                    if (bool_59_ || mouseon == 2) {
+                    if (bool59 || mouseon == 2) {
                         rd.drawRect(57, 110, 147, 8);
                         rd.setColor(new Color(0, 0, 0));
                     }
@@ -3103,7 +3103,7 @@ public class StageMaker extends Applet implements Runnable {
                     if (mousePressed == 1) {
                         if (bool)
                             mouseon = 1;
-                        if (bool_59_)
+                        if (bool59)
                             mouseon = 2;
                     } else {
                         if (mouseon == 1 || mouseon == 2)
@@ -3111,54 +3111,54 @@ public class StageMaker extends Applet implements Runnable {
                         mouseon = -1;
                     }
                 }
-                int i_60_ = 0;
+                int i60 = 0;
                 if (xm > 482 && xm < 529 && ym > 35 && ym < 61 || up) {
-                    i_60_ = 1;
+                    i60 = 1;
                     if (mousePressed == 1 || up)
                         sz += 500;
                 }
-                rd.drawImage(su[i_60_], 482, 35, null);
-                i_60_ = 0;
+                rd.drawImage(su[i60], 482, 35, null);
+                i60 = 0;
                 if (xm > 482 && xm < 529 && ym > 519 && ym < 545 || down) {
-                    i_60_ = 1;
+                    i60 = 1;
                     if (mousePressed == 1 || down)
                         sz -= 500;
                 }
-                rd.drawImage(sd[i_60_], 482, 519, null);
-                i_60_ = 0;
+                rd.drawImage(sd[i60], 482, 519, null);
+                i60 = 0;
                 if (xm > 220 && xm < 246 && ym > 264 && ym < 311 || left) {
-                    i_60_ = 1;
+                    i60 = 1;
                     if (mousePressed == 1 || left)
                         sx -= 500;
                 }
-                rd.drawImage(sl[i_60_], 220, 264, null);
-                i_60_ = 0;
+                rd.drawImage(sl[i60], 220, 264, null);
+                i60 = 0;
                 if (xm > 764 && xm < 790 && ym > 264 && ym < 311 || right) {
-                    i_60_ = 1;
+                    i60 = 1;
                     if (mousePressed == 1 || right)
                         sx += 500;
                 }
-                rd.drawImage(sr[i_60_], 764, 264, null);
-                i_60_ = 0;
+                rd.drawImage(sr[i60], 764, 264, null);
+                i60 = 0;
                 if (xm > 616 && xm < 677 && ym > 30 && ym < 61 || zoomi) {
-                    i_60_ = 1;
+                    i60 = 1;
                     if (mousePressed == 1 || zoomi) {
                         sy += 500;
                         if (sy > -2500)
                             sy = -2500;
                     }
                 }
-                rd.drawImage(zi[i_60_], 616, 30, null);
-                i_60_ = 0;
+                rd.drawImage(zi[i60], 616, 30, null);
+                i60 = 0;
                 if (xm > 690 && xm < 751 && ym > 30 && ym < 61 || zoomo) {
-                    i_60_ = 1;
+                    i60 = 1;
                     if (mousePressed == 1 || zoomo) {
                         sy -= 500;
                         if (sy < -55000)
                             sy = -55000;
                     }
                 }
-                rd.drawImage(zo[i_60_], 690, 30, null);
+                rd.drawImage(zo[i60], 690, 30, null);
                 if ((epart || arrng) && sy < -36000)
                     sy = -36000;
                 rd.setFont(new Font("Arial", 1, 11));
@@ -3248,9 +3248,9 @@ public class StageMaker extends Applet implements Runnable {
                     epart = false;
                     if (!arrng) {
                         arrcnt = 0;
-                        for (int i_61_ = 0; i_61_ < nob; i_61_++)
-                            if (co[i_61_].colok == 30 || co[i_61_].colok == 32 || co[i_61_].colok == 54)
-                                co[i_61_].errd = false;
+                        for (int i61 = 0; i61 < nob; i61++)
+                            if (co[i61].colok == 30 || co[i61].colok == 32 || co[i61].colok == 54)
+                                co[i61].errd = false;
                         arrng = true;
                     } else
                         arrng = false;
@@ -3356,51 +3356,51 @@ public class StageMaker extends Applet implements Runnable {
                 bco[selectedPart].z = 0;
                 bco[selectedPart].xz = rot + adrot;
                 bco[selectedPart].d(rd);
-                int i_62_ = 1;
+                int i62 = 1;
                 if (selectedPartType == PART_ROADS || selectedPartType == PART_RAMPS
                         || selectedPartType == PART_CUSTOM) {
                     if (selectedPart != 26 && selectedPart != 20) {
                         if (rot == -90 || rot == 0)
-                            i_62_ = -1;
+                            i62 = -1;
                     } else {
                         if (selectedPart == 26 && (rot == -90 || rot == 180))
-                            i_62_ = -1;
+                            i62 = -1;
                         if (selectedPart == 20 && (rot == 90 || rot == 180))
-                            i_62_ = -1;
+                            i62 = -1;
                     }
                     if (seq == 2) {
-                        bco[selectedPart].xy -= 5 * i_62_;
+                        bco[selectedPart].xy -= 5 * i62;
                         if (bco[selectedPart].xy == 0)
                             seq = 3;
                     }
                     if (seq == 1)
                         seq = 2;
                     if (seq == 0) {
-                        bco[selectedPart].xy += 5 * i_62_;
-                        if (bco[selectedPart].xy == 85 * i_62_)
+                        bco[selectedPart].xy += 5 * i62;
+                        if (bco[selectedPart].xy == 85 * i62)
                             seq = 1;
                     }
                 }
                 if (selectedPartType == PART_OBSTACLES || selectedPartType == PART_CHECKPOINTS
                         || selectedPartType == PART_FIXHOOPS || selectedPartType == PART_BUMP) {
                     if (rot == -90 || rot == 180)
-                        i_62_ = -1;
+                        i62 = -1;
                     if (seq == 2) {
-                        bco[selectedPart].zy += 5 * i_62_;
+                        bco[selectedPart].zy += 5 * i62;
                         if (bco[selectedPart].zy == 0)
                             seq = 3;
                     }
                     if (seq == 1)
                         seq = 2;
                     if (seq == 0) {
-                        bco[selectedPart].zy -= 5 * i_62_;
-                        if (bco[selectedPart].zy == -(85 * i_62_))
+                        bco[selectedPart].zy -= 5 * i62;
+                        if (bco[selectedPart].zy == -(85 * i62))
                             seq = 1;
                     }
                 }
                 if (selectedPartType == PART_TREES) {
                     if (rot == -90 || rot == 180)
-                        i_62_ = -1;
+                        i62 = -1;
                     boolean bool = false;
                     if (rot == -90 || rot == 90)
                         bool = true;
@@ -3410,11 +3410,11 @@ public class StageMaker extends Applet implements Runnable {
                         bco[selectedPart].zy = 0;
                     if (seq == 2)
                         if (!bool) {
-                            bco[selectedPart].zy += 5 * i_62_;
+                            bco[selectedPart].zy += 5 * i62;
                             if (bco[selectedPart].zy == 0)
                                 seq = 3;
                         } else {
-                            bco[selectedPart].xy -= 5 * i_62_;
+                            bco[selectedPart].xy -= 5 * i62;
                             if (bco[selectedPart].xy == 0)
                                 seq = 3;
                         }
@@ -3422,12 +3422,12 @@ public class StageMaker extends Applet implements Runnable {
                         seq = 2;
                     if (seq == 0)
                         if (!bool) {
-                            bco[selectedPart].zy -= 5 * i_62_;
-                            if (bco[selectedPart].zy == -(85 * i_62_))
+                            bco[selectedPart].zy -= 5 * i62;
+                            if (bco[selectedPart].zy == -(85 * i62))
                                 seq = 1;
                         } else {
-                            bco[selectedPart].xy += 5 * i_62_;
-                            if (bco[selectedPart].xy == 85 * i_62_)
+                            bco[selectedPart].xy += 5 * i62;
+                            if (bco[selectedPart].xy == 85 * i62)
                                 seq = 1;
                         }
                 }
@@ -3529,48 +3529,48 @@ public class StageMaker extends Applet implements Runnable {
                 rd.setFont(new Font("Arial", 1, 12));
                 ftm = rd.getFontMetrics();
                 rd.setColor(new Color(0, 0, 0));
-                int i_63_ = 0;
-                final int i_64_ = (int) (xnob / 10000.0F * 200.0F); // limits
-                int i_65_ = i_64_;
-                final int i_66_ = (int) (t.nt / 670000.0F * 200.0F); // limits
-                if (i_66_ > i_65_) {
-                    i_65_ = i_66_;
-                    i_63_ = 1;
+                int i63 = 0;
+                final int i64 = (int) (xnob / 10000.0F * 200.0F); // limits
+                int i65 = i64;
+                final int i66 = (int) (t.nt / 670000.0F * 200.0F); // limits
+                if (i66 > i65) {
+                    i65 = i66;
+                    i63 = 1;
                 }
-                final int i_67_ = (int) (cp.n / 10000.0F * 200.0F); // limits
-                if (i_67_ > i_65_) {
-                    i_65_ = i_67_;
-                    i_63_ = 2;
+                final int i67 = (int) (cp.n / 10000.0F * 200.0F); // limits
+                if (i67 > i65) {
+                    i65 = i67;
+                    i63 = 2;
                 }
-                final int i_68_ = (int) (m.nrw * m.ncl / 9999999.0F * 200.0F); // medium
+                final int i68 = (int) (m.nrw * m.ncl / 9999999.0F * 200.0F); // medium
                 // limit...does
                 // it
                 // exist?
-                if (i_68_ > i_65_) {
-                    i_65_ = i_68_;
-                    i_63_ = 3;
+                if (i68 > i65) {
+                    i65 = i68;
+                    i63 = 3;
                 }
-                if (i_65_ > 200) // may be a limit
-                    i_65_ = 200;
-                if (i_65_ <= 100)
-                    rd.setColor(new Color(100 + i_65_, 225, 30));
+                if (i65 > 200) // may be a limit
+                    i65 = 200;
+                if (i65 <= 100)
+                    rd.setColor(new Color(100 + i65, 225, 30));
                 else
-                    rd.setColor(new Color(200, 325 - i_65_, 30));
-                rd.fillRect(167, 531, i_65_, 9);
+                    rd.setColor(new Color(200, 325 - i65, 30));
+                rd.fillRect(167, 531, i65, 9);
                 if (button("Memory Consumption :", 85, 540, 3, false))
                     JOptionPane.showMessageDialog(null,
                             new StringBuilder().append("Memory Consumption Details\n\nNumber of Parts:  ")
-                                    .append(i_64_ / 2).append(" %\nPart's Details:  ").append(i_66_ / 2)
-                                    .append(" %\nRoad Points:  ").append(i_67_ / 2).append(" %\nStage Area:  ")
-                                    .append(i_68_ / 2).append(" %\n \n").toString(),
+                                    .append(i64 / 2).append(" %\nPart's Details:  ").append(i66 / 2)
+                                    .append(" %\nRoad Points:  ").append(i67 / 2).append(" %\nStage Area:  ")
+                                    .append(i68 / 2).append(" %\n \n").toString(),
                             "Stage Maker", 1);
                 rd.setColor(new Color(0, 0, 0));
                 rd.drawRect(167, 531, 200, 9);
                 final String[] strings = {
                         "Number of Parts", "Part's Details", "Road Points", "Stage Area"
                 };
-                rd.drawString(strings[i_63_], 267 - ftm.stringWidth(strings[i_63_]) / 2, 540);
-                rd.drawString(new StringBuilder().append("").append(i_65_ / 2).append(" %  used").toString(), 375, 540);
+                rd.drawString(strings[i63], 267 - ftm.stringWidth(strings[i63]) / 2, 540);
+                rd.drawString(new StringBuilder().append("").append(i65 / 2).append(" %  used").toString(), 375, 540);
                 if (overcan)
                     overcan = false;
                 if (epart) {
@@ -3629,32 +3629,32 @@ public class StageMaker extends Applet implements Runnable {
                 m.d(rd);
                 int i = 0;
                 final int[] is = new int[10000]; // stageselect limit
-                for (int i_69_ = 0; i_69_ < nob; i_69_++)
-                    if (co[i_69_].dist != 0) {
-                        is[i] = i_69_;
+                for (int i69 = 0; i69 < nob; i69++)
+                    if (co[i69].dist != 0) {
+                        is[i] = i69;
                         i++;
                     } else
-                        co[i_69_].d(rd);
-                final int[] is_70_ = new int[i];
-                for (int i_71_ = 0; i_71_ < i; i_71_++)
-                    is_70_[i_71_] = 0;
-                for (int i_72_ = 0; i_72_ < i; i_72_++)
-                    for (int i_73_ = i_72_ + 1; i_73_ < i; i_73_++)
-                        if (co[is[i_72_]].dist != co[is[i_73_]].dist) {
-                            if (co[is[i_72_]].dist < co[is[i_73_]].dist)
-                                is_70_[i_72_]++;
+                        co[i69].d(rd);
+                final int[] is70 = new int[i];
+                for (int i71 = 0; i71 < i; i71++)
+                    is70[i71] = 0;
+                for (int i72 = 0; i72 < i; i72++)
+                    for (int i73 = i72 + 1; i73 < i; i73++)
+                        if (co[is[i72]].dist != co[is[i73]].dist) {
+                            if (co[is[i72]].dist < co[is[i73]].dist)
+                                is70[i72]++;
                             else
-                                is_70_[i_73_]++;
-                        } else if (i_73_ > i_72_)
-                            is_70_[i_72_]++;
+                                is70[i73]++;
+                        } else if (i73 > i72)
+                            is70[i72]++;
                         else
-                            is_70_[i_73_]++;
-                for (int i_74_ = 0; i_74_ < i; i_74_++)
-                    for (int i_75_ = 0; i_75_ < i; i_75_++)
-                        if (is_70_[i_75_] == i_74_) {
-                            if (is[i_75_] == hi)
+                            is70[i73]++;
+                for (int i74 = 0; i74 < i; i74++)
+                    for (int i75 = 0; i75 < i; i75++)
+                        if (is70[i75] == i74) {
+                            if (is[i75] == hi)
                                 m.trk = 3;
-                            co[is[i_75_]].d(rd);
+                            co[is[i75]].d(rd);
                             if (m.trk == 3)
                                 m.trk = 2;
                         }
@@ -3690,25 +3690,25 @@ public class StageMaker extends Applet implements Runnable {
                 final String[] strings = {
                         "Controls", "Atmosphere", "Colors", "Scenery", "Laps", "Sound Track", "Test Drive"
                 };
-                final int[] is_76_ = {
+                final int[] is76 = {
                         10, 10, 121, 111
                 };
-                final int[] is_77_ = {
+                final int[] is77 = {
                         425, 445, 445, 425
                 };
-                for (int i_78_ = 0; i_78_ < 7; i_78_++) {
+                for (int i78 = 0; i78 < 7; i78++) {
                     rd.setColor(new Color(170, 170, 170));
-                    if (xm > is_76_[0] && xm < is_76_[3] && ym > 425 && ym < 445)
+                    if (xm > is76[0] && xm < is76[3] && ym > 425 && ym < 445)
                         rd.setColor(new Color(190, 190, 190));
-                    if (dtab == i_78_)
+                    if (dtab == i78)
                         rd.setColor(new Color(225, 225, 225));
-                    rd.fillPolygon(is_76_, is_77_, 4);
+                    rd.fillPolygon(is76, is77, 4);
                     rd.setColor(new Color(0, 0, 0));
-                    rd.drawString(strings[i_78_], i_78_ * 111 + 62 - ftm.stringWidth(strings[i_78_]) / 2, 439);
-                    if (xm > is_76_[0] && xm < is_76_[3] && ym > 425 && ym < 445 && mousePressed == -1 && mouseon == -1)
-                        dtab = i_78_;
-                    for (int i_79_ = 0; i_79_ < 4; i_79_++)
-                        is_76_[i_79_] += 111;
+                    rd.drawString(strings[i78], i78 * 111 + 62 - ftm.stringWidth(strings[i78]) / 2, 439);
+                    if (xm > is76[0] && xm < is76[3] && ym > 425 && ym < 445 && mousePressed == -1 && mouseon == -1)
+                        dtab = i78;
+                    for (int i79 = 0; i79 < 4; i79++)
+                        is76[i79] += 111;
                 }
                 if (tabed == tab && dtab != dtabed) {
                     if (!ttstage.equals("")) {
@@ -3733,10 +3733,10 @@ public class StageMaker extends Applet implements Runnable {
                         Color.RGBtoHSB(csky[0], csky[1], csky[2], hsb[0]);
                         Color.RGBtoHSB(cfade[0], cfade[1], cfade[2], hsb[1]);
                         Color.RGBtoHSB(cgrnd[0], cgrnd[1], cgrnd[2], hsb[2]);
-                        for (int i_80_ = 0; i_80_ < 3; i_80_++) {
-                            final float f = hsb[i_80_][1];
-                            hsb[i_80_][1] = hsb[i_80_][2];
-                            hsb[i_80_][2] = f;
+                        for (int i80 = 0; i80 < 3; i80++) {
+                            final float f = hsb[i80][1];
+                            hsb[i80][1] = hsb[i80][2];
+                            hsb[i80][2] = f;
                         }
                         if (hsb[1][1] == (hsb[0][1] + hsb[2][1]) / 2.0F && hsb[1][0] == hsb[2][0]
                                 && hsb[1][2] == hsb[2][2])
@@ -3755,77 +3755,77 @@ public class StageMaker extends Applet implements Runnable {
                         }
                         mouseon = -1;
                     }
-                    final String[] strings_81_ = {
+                    final String[] strings81 = {
                             "Sky", "Dust / Fog", "Ground"
                     };
-                    for (int i_82_ = 0; i_82_ < 3; i_82_++) {
+                    for (int i82 = 0; i82 < 3; i82++) {
                         rd.setColor(new Color(0, 0, 0));
-                        rd.drawString(strings_81_[i_82_], 107 + 195 * i_82_ - ftm.stringWidth(strings_81_[i_82_]) / 2,
+                        rd.drawString(strings81[i82], 107 + 195 * i82 - ftm.stringWidth(strings81[i82]) / 2,
                                 461);
-                        for (int i_83_ = 0; i_83_ < 150; i_83_++) {
-                            rd.setColor(Color.getHSBColor((float) (i_83_ * 0.006667), 1.0F, 1.0F));
-                            rd.drawLine(32 + i_83_ + 195 * i_82_, 467, 32 + i_83_ + 195 * i_82_, 474);
+                        for (int i83 = 0; i83 < 150; i83++) {
+                            rd.setColor(Color.getHSBColor((float) (i83 * 0.006667), 1.0F, 1.0F));
+                            rd.drawLine(32 + i83 + 195 * i82, 467, 32 + i83 + 195 * i82, 474);
                         }
-                        for (int i_84_ = 0; i_84_ < 150; i_84_++) {
-                            rd.setColor(Color.getHSBColor(0.0F, 0.0F, 0.5F + i_84_ * 0.00333F));
-                            rd.drawLine(32 + i_84_ + 195 * i_82_, 483, 32 + i_84_ + 195 * i_82_, 490);
+                        for (int i84 = 0; i84 < 150; i84++) {
+                            rd.setColor(Color.getHSBColor(0.0F, 0.0F, 0.5F + i84 * 0.00333F));
+                            rd.drawLine(32 + i84 + 195 * i82, 483, 32 + i84 + 195 * i82, 490);
                         }
-                        for (int i_85_ = 0; i_85_ < 150; i_85_++) {
+                        for (int i85 = 0; i85 < 150; i85++) {
                             rd.setColor(
-                                    Color.getHSBColor(hsb[i_82_][0], 0.0F + (float) (i_85_ * 0.001667), hsb[i_82_][1]));
-                            rd.drawLine(32 + i_85_ + 195 * i_82_, 499, 32 + i_85_ + 195 * i_82_, 506);
+                                    Color.getHSBColor(hsb[i82][0], 0.0F + (float) (i85 * 0.001667), hsb[i82][1]));
+                            rd.drawLine(32 + i85 + 195 * i82, 499, 32 + i85 + 195 * i82, 506);
                         }
-                        for (int i_86_ = 0; i_86_ < 3; i_86_++) {
+                        for (int i86 = 0; i86 < 3; i86++) {
                             rd.setColor(new Color(0, 0, 0));
-                            float f = hsb[i_82_][i_86_] * 150.0F;
-                            if (i_86_ == 1) {
-                                float f_87_ = 0.75F;
-                                if (i_82_ == 0)
-                                    f_87_ = 0.85F;
-                                if (i_82_ == 1)
-                                    f_87_ = 0.8F;
-                                f = (hsb[i_82_][i_86_] - f_87_) / 0.001F;
+                            float f = hsb[i82][i86] * 150.0F;
+                            if (i86 == 1) {
+                                float f87 = 0.75F;
+                                if (i82 == 0)
+                                    f87 = 0.85F;
+                                if (i82 == 1)
+                                    f87 = 0.8F;
+                                f = (hsb[i82][i86] - f87) / 0.001F;
                             }
-                            if (i_86_ == 2)
-                                f = hsb[i_82_][i_86_] * 600.0F;
+                            if (i86 == 2)
+                                f = hsb[i82][i86] * 600.0F;
                             if (f < 0.0F)
                                 f = 0.0F;
                             if (f > 150.0F)
                                 f = 150.0F;
-                            rd.drawLine((int) (32 + 195 * i_82_ + f), 467 + i_86_ * 16, (int) (32 + 195 * i_82_ + f),
-                                    474 + i_86_ * 16);
-                            rd.drawLine((int) (33 + 195 * i_82_ + f), 467 + i_86_ * 16, (int) (33 + 195 * i_82_ + f),
-                                    474 + i_86_ * 16);
-                            rd.fillRect((int) (31 + 195 * i_82_ + f), 475 + i_86_ * 16, 4, 2);
-                            rd.drawLine((int) (30 + 195 * i_82_ + f), 477 + i_86_ * 16, (int) (35 + 195 * i_82_ + f),
-                                    477 + i_86_ * 16);
-                            if (xm > 29 + 195 * i_82_ && xm < 185 + 195 * i_82_ && ym > 468 + i_86_ * 16
-                                    && ym < 477 + i_86_ * 16 && mousePressed == 1 && mouseon == -1)
-                                mouseon = i_86_ + i_82_ * 3;
-                            if (mouseon == i_86_ + i_82_ * 3) {
-                                if (i_86_ == 0)
-                                    hsb[i_82_][i_86_] = (xm - (32 + 195 * i_82_)) / 150.0F;
-                                if (i_86_ == 1) {
-                                    float f_88_ = 0.75F;
-                                    if (i_82_ == 0)
-                                        f_88_ = 0.85F;
-                                    if (i_82_ == 1)
-                                        f_88_ = 0.8F;
-                                    hsb[i_82_][i_86_] = f_88_ + (xm - (32 + 195 * i_82_)) * 0.001F;
-                                    if (hsb[i_82_][i_86_] < f_88_)
-                                        hsb[i_82_][i_86_] = f_88_;
-                                    if (hsb[i_82_][i_86_] > f_88_ + 0.15F)
-                                        hsb[i_82_][i_86_] = f_88_ + 0.15F;
+                            rd.drawLine((int) (32 + 195 * i82 + f), 467 + i86 * 16, (int) (32 + 195 * i82 + f),
+                                    474 + i86 * 16);
+                            rd.drawLine((int) (33 + 195 * i82 + f), 467 + i86 * 16, (int) (33 + 195 * i82 + f),
+                                    474 + i86 * 16);
+                            rd.fillRect((int) (31 + 195 * i82 + f), 475 + i86 * 16, 4, 2);
+                            rd.drawLine((int) (30 + 195 * i82 + f), 477 + i86 * 16, (int) (35 + 195 * i82 + f),
+                                    477 + i86 * 16);
+                            if (xm > 29 + 195 * i82 && xm < 185 + 195 * i82 && ym > 468 + i86 * 16
+                                    && ym < 477 + i86 * 16 && mousePressed == 1 && mouseon == -1)
+                                mouseon = i86 + i82 * 3;
+                            if (mouseon == i86 + i82 * 3) {
+                                if (i86 == 0)
+                                    hsb[i82][i86] = (xm - (32 + 195 * i82)) / 150.0F;
+                                if (i86 == 1) {
+                                    float f88 = 0.75F;
+                                    if (i82 == 0)
+                                        f88 = 0.85F;
+                                    if (i82 == 1)
+                                        f88 = 0.8F;
+                                    hsb[i82][i86] = f88 + (xm - (32 + 195 * i82)) * 0.001F;
+                                    if (hsb[i82][i86] < f88)
+                                        hsb[i82][i86] = f88;
+                                    if (hsb[i82][i86] > f88 + 0.15F)
+                                        hsb[i82][i86] = f88 + 0.15F;
                                 }
-                                if (i_86_ == 2) {
-                                    hsb[i_82_][i_86_] = (xm - (32 + 195 * i_82_)) / 600.0F;
-                                    if (hsb[i_82_][i_86_] > 0.25)
-                                        hsb[i_82_][i_86_] = 0.25F;
+                                if (i86 == 2) {
+                                    hsb[i82][i86] = (xm - (32 + 195 * i82)) / 600.0F;
+                                    if (hsb[i82][i86] > 0.25)
+                                        hsb[i82][i86] = 0.25F;
                                 }
-                                if (hsb[i_82_][i_86_] > 1.0F)
-                                    hsb[i_82_][i_86_] = 1.0F;
-                                if (hsb[i_82_][i_86_] < 0.0F)
-                                    hsb[i_82_][i_86_] = 0.0F;
+                                if (hsb[i82][i86] > 1.0F)
+                                    hsb[i82][i86] = 1.0F;
+                                if (hsb[i82][i86] < 0.0F)
+                                    hsb[i82][i86] = 0.0F;
                             }
                         }
                     }
@@ -3891,17 +3891,17 @@ public class StageMaker extends Applet implements Runnable {
                     ftm = rd.getFontMetrics();
                     rd.setColor(new Color(0, 0, 0));
                     rd.drawString("Clouds", 32, 461);
-                    for (int i_89_ = 0; i_89_ < 150; i_89_++) {
-                        rd.setColor(Color.getHSBColor(i_89_ * 0.006667F, 1.0F, 1.0F));
-                        rd.drawLine(32 + i_89_ + 0, 467, 32 + i_89_ + 0, 474);
+                    for (int i89 = 0; i89 < 150; i89++) {
+                        rd.setColor(Color.getHSBColor(i89 * 0.006667F, 1.0F, 1.0F));
+                        rd.drawLine(32 + i89 + 0, 467, 32 + i89 + 0, 474);
                     }
-                    for (int i_90_ = 0; i_90_ < 150; i_90_++) {
-                        rd.setColor(Color.getHSBColor(0.0F, 0.0F, 0.75F + i_90_ * 0.001667F));
-                        rd.drawLine(32 + i_90_ + 0, 483, 32 + i_90_ + 0, 490);
+                    for (int i90 = 0; i90 < 150; i90++) {
+                        rd.setColor(Color.getHSBColor(0.0F, 0.0F, 0.75F + i90 * 0.001667F));
+                        rd.drawLine(32 + i90 + 0, 483, 32 + i90 + 0, 490);
                     }
-                    for (int i_91_ = 0; i_91_ < 150; i_91_++) {
-                        rd.setColor(Color.getHSBColor(hsb[0][0], i_91_ * 0.003333F, hsb[0][2]));
-                        rd.drawLine(32 + i_91_ + 0, 499, 32 + i_91_ + 0, 506);
+                    for (int i91 = 0; i91 < 150; i91++) {
+                        rd.setColor(Color.getHSBColor(hsb[0][0], i91 * 0.003333F, hsb[0][2]));
+                        rd.drawLine(32 + i91 + 0, 499, 32 + i91 + 0, 506);
                     }
                     rd.setFont(new Font("Arial", 0, 11));
                     ftm = rd.getFontMetrics();
@@ -3911,33 +3911,33 @@ public class StageMaker extends Applet implements Runnable {
                     rd.fillRect(70, 522, 112, 2);
                     rd.fillRect(70, 528, 112, 2);
                     float f = 0.0F;
-                    int i_92_ = 255;
-                    for (int i_93_ = 0; i_93_ < 112; i_93_++) {
-                        i_92_ = (int) (255.0F / (f + 1.0F));
-                        if (i_92_ > 255)
-                            i_92_ = 255;
-                        if (i_92_ < 0)
-                            i_92_ = 0;
+                    int i92 = 255;
+                    for (int i93 = 0; i93 < 112; i93++) {
+                        i92 = (int) (255.0F / (f + 1.0F));
+                        if (i92 > 255)
+                            i92 = 255;
+                        if (i92 < 0)
+                            i92 = 0;
                         f += 0.02F;
-                        rd.setColor(new Color(i_92_, i_92_, i_92_));
-                        rd.drawLine(70 + i_93_, 524, 70 + i_93_, 527);
+                        rd.setColor(new Color(i92, i92, i92));
+                        rd.drawLine(70 + i93, 524, 70 + i93, 527);
                     }
                     rd.setColor(new Color(0, 0, 0));
                     rd.drawString("Height", 202 - ftm.stringWidth("Height") / 2, 461);
                     rd.drawLine(202, 467, 202, 530);
-                    for (int i_94_ = 0; i_94_ < 8; i_94_++)
-                        rd.drawLine(202, 466 + i_94_ * 8, 202 + 8 - i_94_, 466 + i_94_ * 8);
+                    for (int i94 = 0; i94 < 8; i94++)
+                        rd.drawLine(202, 466 + i94 * 8, 202 + 8 - i94, 466 + i94 * 8);
                     rd.setFont(new Font("Arial", 1, 12));
                     ftm = rd.getFontMetrics();
                     rd.setColor(new Color(0, 0, 0));
                     rd.drawString("Ground Texture", 257, 471);
-                    for (int i_95_ = 0; i_95_ < 150; i_95_++) {
-                        rd.setColor(Color.getHSBColor(i_95_ * 0.006667F, 1.0F, 1.0F));
-                        rd.drawLine(32 + i_95_ + 225, 477, 32 + i_95_ + 225, 484);
+                    for (int i95 = 0; i95 < 150; i95++) {
+                        rd.setColor(Color.getHSBColor(i95 * 0.006667F, 1.0F, 1.0F));
+                        rd.drawLine(32 + i95 + 225, 477, 32 + i95 + 225, 484);
                     }
-                    for (int i_96_ = 0; i_96_ < 150; i_96_++) {
-                        rd.setColor(Color.getHSBColor(hsb[1][0], i_96_ * 0.006667F, i_96_ * 0.006667F));
-                        rd.drawLine(32 + i_96_ + 225, 493, 32 + i_96_ + 225, 500);
+                    for (int i96 = 0; i96 < 150; i96++) {
+                        rd.setColor(Color.getHSBColor(hsb[1][0], i96 * 0.006667F, i96 * 0.006667F));
+                        rd.drawLine(32 + i96 + 225, 493, 32 + i96 + 225, 500);
                     }
                     rd.setFont(new Font("Arial", 0, 11));
                     ftm = rd.getFontMetrics();
@@ -3947,93 +3947,93 @@ public class StageMaker extends Applet implements Runnable {
                     rd.fillRect(295, 516, 112, 2);
                     rd.fillRect(295, 522, 112, 2);
                     f = 0.0F;
-                    i_92_ = 255;
-                    for (int i_97_ = 0; i_97_ < 112; i_97_++) {
-                        i_92_ = (int) (255.0F / (f + 1.0F));
-                        if (i_92_ > 255)
-                            i_92_ = 255;
-                        if (i_92_ < 0)
-                            i_92_ = 0;
+                    i92 = 255;
+                    for (int i97 = 0; i97 < 112; i97++) {
+                        i92 = (int) (255.0F / (f + 1.0F));
+                        if (i92 > 255)
+                            i92 = 255;
+                        if (i92 < 0)
+                            i92 = 0;
                         f += 0.02F;
-                        rd.setColor(new Color(i_92_, i_92_, i_92_));
-                        rd.drawLine(70 + i_97_ + 225, 518, 70 + i_97_ + 225, 521);
+                        rd.setColor(new Color(i92, i92, i92));
+                        rd.drawLine(70 + i97 + 225, 518, 70 + i97 + 225, 521);
                     }
-                    for (int i_98_ = 0; i_98_ < 2; i_98_++) {
-                        int i_99_ = 3;
-                        if (i_98_ == 1)
-                            i_99_ = 2;
-                        for (int i_100_ = 0; i_100_ < i_99_; i_100_++) {
-                            int i_101_ = i_100_;
-                            if (i_100_ == 1)
-                                i_101_ = 2;
-                            if (i_100_ == 2)
-                                i_101_ = 1;
+                    for (int i98 = 0; i98 < 2; i98++) {
+                        int i99 = 3;
+                        if (i98 == 1)
+                            i99 = 2;
+                        for (int i100 = 0; i100 < i99; i100++) {
+                            int i101 = i100;
+                            if (i100 == 1)
+                                i101 = 2;
+                            if (i100 == 2)
+                                i101 = 1;
                             rd.setColor(new Color(0, 0, 0));
-                            float f_102_ = hsb[i_98_][i_101_] * 150.0F;
-                            if (i_100_ == 1 && i_98_ == 0) {
-                                final float f_103_ = 0.75F;
-                                f_102_ = (hsb[i_98_][i_101_] - f_103_) / 0.001667F;
+                            float f102 = hsb[i98][i101] * 150.0F;
+                            if (i100 == 1 && i98 == 0) {
+                                final float f103 = 0.75F;
+                                f102 = (hsb[i98][i101] - f103) / 0.001667F;
                             }
-                            if (i_100_ == 2 && i_98_ == 0)
-                                f_102_ = hsb[i_98_][i_101_] / 0.003333F;
-                            if (f_102_ < 0.0F)
-                                f_102_ = 0.0F;
-                            if (f_102_ > 150.0F)
-                                f_102_ = 150.0F;
-                            rd.drawLine((int) (32 + 225 * i_98_ + f_102_), 467 + i_100_ * 16 + 10 * i_98_,
-                                    (int) (32 + 225 * i_98_ + f_102_), 474 + i_100_ * 16 + 10 * i_98_);
-                            rd.drawLine((int) (33 + 225 * i_98_ + f_102_), 467 + i_100_ * 16 + 10 * i_98_,
-                                    (int) (33 + 225 * i_98_ + f_102_), 474 + i_100_ * 16 + 10 * i_98_);
-                            rd.fillRect((int) (31 + 225 * i_98_ + f_102_), 475 + i_100_ * 16 + 10 * i_98_, 4, 2);
-                            rd.drawLine((int) (30 + 225 * i_98_ + f_102_), 477 + i_100_ * 16 + 10 * i_98_,
-                                    (int) (35 + 225 * i_98_ + f_102_), 477 + i_100_ * 16 + 10 * i_98_);
-                            if (xm > 29 + 225 * i_98_ && xm < 185 + 225 * i_98_ && ym > 468 + i_100_ * 16 + 10 * i_98_
-                                    && ym < 477 + i_100_ * 16 + 10 * i_98_ && mousePressed == 1 && mouseon == -1)
-                                mouseon = i_100_ + i_98_ * 3;
-                            if (mouseon == i_100_ + i_98_ * 3) {
-                                hsb[i_98_][i_101_] = (xm - (32 + 225 * i_98_)) * 0.006667F;
-                                if (i_100_ == 1 && i_98_ == 1) {
-                                    hsb[i_98_][1] = (xm - (32 + 225 * i_98_)) * 0.006667F;
-                                    if (hsb[i_98_][1] > 1.0F)
-                                        hsb[i_98_][1] = 1.0F;
-                                    if (hsb[i_98_][1] < 0.0F)
-                                        hsb[i_98_][1] = 0.0F;
+                            if (i100 == 2 && i98 == 0)
+                                f102 = hsb[i98][i101] / 0.003333F;
+                            if (f102 < 0.0F)
+                                f102 = 0.0F;
+                            if (f102 > 150.0F)
+                                f102 = 150.0F;
+                            rd.drawLine((int) (32 + 225 * i98 + f102), 467 + i100 * 16 + 10 * i98,
+                                    (int) (32 + 225 * i98 + f102), 474 + i100 * 16 + 10 * i98);
+                            rd.drawLine((int) (33 + 225 * i98 + f102), 467 + i100 * 16 + 10 * i98,
+                                    (int) (33 + 225 * i98 + f102), 474 + i100 * 16 + 10 * i98);
+                            rd.fillRect((int) (31 + 225 * i98 + f102), 475 + i100 * 16 + 10 * i98, 4, 2);
+                            rd.drawLine((int) (30 + 225 * i98 + f102), 477 + i100 * 16 + 10 * i98,
+                                    (int) (35 + 225 * i98 + f102), 477 + i100 * 16 + 10 * i98);
+                            if (xm > 29 + 225 * i98 && xm < 185 + 225 * i98 && ym > 468 + i100 * 16 + 10 * i98
+                                    && ym < 477 + i100 * 16 + 10 * i98 && mousePressed == 1 && mouseon == -1)
+                                mouseon = i100 + i98 * 3;
+                            if (mouseon == i100 + i98 * 3) {
+                                hsb[i98][i101] = (xm - (32 + 225 * i98)) * 0.006667F;
+                                if (i100 == 1 && i98 == 1) {
+                                    hsb[i98][1] = (xm - (32 + 225 * i98)) * 0.006667F;
+                                    if (hsb[i98][1] > 1.0F)
+                                        hsb[i98][1] = 1.0F;
+                                    if (hsb[i98][1] < 0.0F)
+                                        hsb[i98][1] = 0.0F;
                                 }
-                                if (i_100_ == 1 && i_98_ == 0) {
-                                    final float f_104_ = 0.75F;
-                                    hsb[i_98_][i_101_] = f_104_ + (xm - (32 + 225 * i_98_)) * 0.001667F;
-                                    if (hsb[i_98_][i_101_] < f_104_)
-                                        hsb[i_98_][i_101_] = f_104_;
+                                if (i100 == 1 && i98 == 0) {
+                                    final float f104 = 0.75F;
+                                    hsb[i98][i101] = f104 + (xm - (32 + 225 * i98)) * 0.001667F;
+                                    if (hsb[i98][i101] < f104)
+                                        hsb[i98][i101] = f104;
                                 }
-                                if (i_100_ == 2 && i_98_ == 0) {
-                                    hsb[i_98_][i_101_] = (xm - (32 + 225 * i_98_)) * 0.003333F;
-                                    if (hsb[i_98_][i_101_] > 0.5)
-                                        hsb[i_98_][i_101_] = 0.5F;
+                                if (i100 == 2 && i98 == 0) {
+                                    hsb[i98][i101] = (xm - (32 + 225 * i98)) * 0.003333F;
+                                    if (hsb[i98][i101] > 0.5)
+                                        hsb[i98][i101] = 0.5F;
                                 }
-                                if (hsb[i_98_][i_101_] > 1.0F)
-                                    hsb[i_98_][i_101_] = 1.0F;
-                                if (hsb[i_98_][i_101_] < 0.0F)
-                                    hsb[i_98_][i_101_] = 0.0F;
+                                if (hsb[i98][i101] > 1.0F)
+                                    hsb[i98][i101] = 1.0F;
+                                if (hsb[i98][i101] < 0.0F)
+                                    hsb[i98][i101] = 0.0F;
                             }
                         }
                         rd.setColor(new Color(0, 0, 0));
-                        float f_105_ = (texture[3] - 20) * 2.8F;
-                        if (i_98_ == 0)
-                            f_105_ = cldd[3] * 11.2F;
-                        if (f_105_ < 0.0F)
-                            f_105_ = 0.0F;
-                        if (f_105_ > 112.0F)
-                            f_105_ = 112.0F;
-                        rd.drawLine((int) (70 + 225 * i_98_ + f_105_), 522 - 6 * i_98_,
-                                (int) (70 + 225 * i_98_ + f_105_), 529 - 6 * i_98_);
-                        rd.drawLine((int) (71 + 225 * i_98_ + f_105_), 522 - 6 * i_98_,
-                                (int) (71 + 225 * i_98_ + f_105_), 529 - 6 * i_98_);
-                        rd.fillRect((int) (69 + 225 * i_98_ + f_105_), 530 - 6 * i_98_, 4, 2);
-                        rd.drawLine((int) (68 + 225 * i_98_ + f_105_), 532 - 6 * i_98_,
-                                (int) (73 + 225 * i_98_ + f_105_), 532 - 6 * i_98_);
-                        if (xm > 67 + 225 * i_98_ && xm < 185 + 225 * i_98_ && ym > 522 - 6 * i_98_
-                                && ym < 532 - 6 * i_98_ && mousePressed == 1 && mouseon == -1)
-                            mouseon = 6 + i_98_;
+                        float f105 = (texture[3] - 20) * 2.8F;
+                        if (i98 == 0)
+                            f105 = cldd[3] * 11.2F;
+                        if (f105 < 0.0F)
+                            f105 = 0.0F;
+                        if (f105 > 112.0F)
+                            f105 = 112.0F;
+                        rd.drawLine((int) (70 + 225 * i98 + f105), 522 - 6 * i98,
+                                (int) (70 + 225 * i98 + f105), 529 - 6 * i98);
+                        rd.drawLine((int) (71 + 225 * i98 + f105), 522 - 6 * i98,
+                                (int) (71 + 225 * i98 + f105), 529 - 6 * i98);
+                        rd.fillRect((int) (69 + 225 * i98 + f105), 530 - 6 * i98, 4, 2);
+                        rd.drawLine((int) (68 + 225 * i98 + f105), 532 - 6 * i98,
+                                (int) (73 + 225 * i98 + f105), 532 - 6 * i98);
+                        if (xm > 67 + 225 * i98 && xm < 185 + 225 * i98 && ym > 522 - 6 * i98
+                                && ym < 532 - 6 * i98 && mousePressed == 1 && mouseon == -1)
+                            mouseon = 6 + i98;
                     }
                     if (mouseon == 6) {
                         cldd[3] = (int) ((xm - 70) / 11.2F);
@@ -4050,12 +4050,12 @@ public class StageMaker extends Applet implements Runnable {
                             texture[3] = 60;
                     }
                     rd.setColor(new Color(0, 128, 255));
-                    float f_106_ = (1500 - Math.abs(cldd[4])) / 15.625F;
-                    if (f_106_ > 64.0F)
-                        f_106_ = 64.0F;
-                    if (f_106_ < 0.0F)
-                        f_106_ = 0.0F;
-                    rd.drawRect(199, (int) (465.0F + f_106_), 12, 2);
+                    float f106 = (1500 - Math.abs(cldd[4])) / 15.625F;
+                    if (f106 > 64.0F)
+                        f106 = 64.0F;
+                    if (f106 < 0.0F)
+                        f106 = 0.0F;
+                    rd.drawRect(199, (int) (465.0F + f106), 12, 2);
                     if (xm > 197 && xm < 213 && ym > 463 && ym < 533 && mousePressed == 1 && mouseon == -1)
                         mouseon = 8;
                     if (mouseon == 8) {
@@ -4095,8 +4095,8 @@ public class StageMaker extends Applet implements Runnable {
                     }
                     if (!mgen.getText().equals(new StringBuilder().append("").append(m.mgen).append("").toString()))
                         try {
-                            final int i_107_ = Integer.valueOf(mgen.getText()).intValue();
-                            m.mgen = i_107_;
+                            final int i107 = Integer.valueOf(mgen.getText()).intValue();
+                            m.mgen = i107;
                             if (ttstage.equals(""))
                                 ttstage = tstage;
                             sortop();
@@ -4120,8 +4120,8 @@ public class StageMaker extends Applet implements Runnable {
                 }
                 if (dtab == 1) {
                     if (dtabed != dtab) {
-                        for (int i_108_ = 0; i_108_ < 3; i_108_++)
-                            snap[i_108_] = (int) (m.snap[i_108_] / 1.2F + 50.0F);
+                        for (int i108 = 0; i108 < 3; i108++)
+                            snap[i108] = (int) (m.snap[i108] / 1.2F + 50.0F);
                         fogn[0] = (8 - ((m.fogd + 1) / 2 - 1)) * 20;
                         fogn[1] = (m.fade[0] - 5000) / 30;
                     }
@@ -4135,51 +4135,51 @@ public class StageMaker extends Applet implements Runnable {
                     rd.drawLine(260, 527, 360, 527);
                     rd.drawLine(10, 546, 360, 546);
                     rd.drawLine(360, 527, 360, 546);
-                    final String[] strings_109_ = {
+                    final String[] strings109 = {
                             "Red", "Green", "Blue"
                     };
-                    final int[] is_110_ = {
+                    final int[] is110 = {
                             32, 20, 29
                     };
-                    int i_111_ = 38;
-                    int i_112_ = -70;
-                    for (int i_113_ = 0; i_113_ < 3; i_113_++) {
+                    int i111 = 38;
+                    int i112 = -70;
+                    for (int i113 = 0; i113 < 3; i113++) {
                         rd.setColor(new Color(0, 0, 0));
                         rd.drawString(
-                                new StringBuilder().append("").append(strings_109_[i_113_]).append(" :").toString(),
-                                is_110_[i_113_], 447 + i_113_ * 24 + i_111_);
-                        rd.drawLine(140 + i_112_, 443 + i_113_ * 24 + i_111_, 230 + i_112_, 443 + i_113_ * 24 + i_111_);
-                        for (int i_114_ = 1; i_114_ < 10; i_114_++)
-                            rd.drawLine(140 + 10 * i_114_ + i_112_, 443 - i_114_ + i_113_ * 24 + i_111_,
-                                    140 + 10 * i_114_ + i_112_, 443 + i_114_ + i_113_ * 24 + i_111_);
+                                new StringBuilder().append("").append(strings109[i113]).append(" :").toString(),
+                                is110[i113], 447 + i113 * 24 + i111);
+                        rd.drawLine(140 + i112, 443 + i113 * 24 + i111, 230 + i112, 443 + i113 * 24 + i111);
+                        for (int i114 = 1; i114 < 10; i114++)
+                            rd.drawLine(140 + 10 * i114 + i112, 443 - i114 + i113 * 24 + i111,
+                                    140 + 10 * i114 + i112, 443 + i114 + i113 * 24 + i111);
                         rd.setColor(new Color(255, 0, 0));
-                        final int i_115_ = (int) (snap[i_113_] / 1.1111F / 10.0F);
-                        rd.fillRect(138 + (int) (snap[i_113_] / 1.1111F) + i_112_, 443 - i_115_ + i_113_ * 24 + i_111_,
-                                5, i_115_ * 2 + 1);
+                        final int i115 = (int) (snap[i113] / 1.1111F / 10.0F);
+                        rd.fillRect(138 + (int) (snap[i113] / 1.1111F) + i112, 443 - i115 + i113 * 24 + i111,
+                                5, i115 * 2 + 1);
                         rd.setColor(new Color(255, 128, 0));
-                        rd.drawRect(139 + (int) (snap[i_113_] / 1.1111F) + i_112_, 434 + i_113_ * 24 + i_111_, 2, 18);
-                        if (button(" - ", 260 + i_112_, 447 + i_113_ * 24 + i_111_, 4, false)) {
-                            snap[i_113_] -= 2;
-                            if (snap[i_113_] < 0)
-                                snap[i_113_] = 0;
+                        rd.drawRect(139 + (int) (snap[i113] / 1.1111F) + i112, 434 + i113 * 24 + i111, 2, 18);
+                        if (button(" - ", 260 + i112, 447 + i113 * 24 + i111, 4, false)) {
+                            snap[i113] -= 2;
+                            if (snap[i113] < 0)
+                                snap[i113] = 0;
                         }
-                        if (button(" + ", 300 + i_112_, 447 + i_113_ * 24 + i_111_, 4, false)) {
+                        if (button(" + ", 300 + i112, 447 + i113 * 24 + i111, 4, false)) {
                             if (snap[0] + snap[1] + snap[2] > 200)
-                                for (int i_116_ = 0; i_116_ < 3; i_116_++)
-                                    if (i_116_ != i_113_) {
-                                        snap[i_116_]--;
-                                        if (snap[i_116_] < 0)
-                                            snap[i_116_] = 0;
+                                for (int i116 = 0; i116 < 3; i116++)
+                                    if (i116 != i113) {
+                                        snap[i116]--;
+                                        if (snap[i116] < 0)
+                                            snap[i116] = 0;
                                     }
-                            snap[i_113_] += 2;
-                            if (snap[i_113_] > 100)
-                                snap[i_113_] = 100;
+                            snap[i113] += 2;
+                            if (snap[i113] > 100)
+                                snap[i113] = 100;
                         }
                     }
                     if (m.snap[0] != (int) (snap[0] * 1.2F - 60.0F) || m.snap[1] != (int) (snap[1] * 1.2F - 60.0F)
                             || m.snap[2] != (int) (snap[2] * 1.2F - 60.0F)) {
-                        for (int i_117_ = 0; i_117_ < 3; i_117_++)
-                            m.snap[i_117_] = (int) (snap[i_117_] * 1.2F - 60.0F);
+                        for (int i117 = 0; i117 < 3; i117++)
+                            m.snap[i117] = (int) (snap[i117] * 1.2F - 60.0F);
                         readstage(2);
                     }
                     rd.setColor(new Color(0, 0, 0));
@@ -4192,50 +4192,50 @@ public class StageMaker extends Applet implements Runnable {
                         rd.drawString("On", 335, 541);
                         m.lightson = true;
                     }
-                    final int i_118_ = 33;
+                    final int i118 = 33;
                     rd.setColor(new Color(0, 0, 0));
-                    rd.drawString("Dust/Fog Properties", 280 + i_118_, 461);
+                    rd.drawString("Dust/Fog Properties", 280 + i118, 461);
                     rd.setColor(new Color(128, 128, 128));
-                    rd.drawLine(270 + i_118_, 457, 277 + i_118_, 457);
-                    rd.drawLine(540 + i_118_, 457, 393 + i_118_, 457);
-                    rd.drawLine(270 + i_118_, 457, 270 + i_118_, 522);
-                    rd.drawLine(540 + i_118_, 457, 540 + i_118_, 522);
-                    rd.drawLine(270 + i_118_, 522, 540 + i_118_, 522);
-                    final String[] strings_119_ = {
+                    rd.drawLine(270 + i118, 457, 277 + i118, 457);
+                    rd.drawLine(540 + i118, 457, 393 + i118, 457);
+                    rd.drawLine(270 + i118, 457, 270 + i118, 522);
+                    rd.drawLine(540 + i118, 457, 540 + i118, 522);
+                    rd.drawLine(270 + i118, 522, 540 + i118, 522);
+                    final String[] strings119 = {
                             "Density", "Near / Far"
                     };
-                    final int[] is_120_ = {
-                            292 + i_118_, 280 + i_118_
+                    final int[] is120 = {
+                            292 + i118, 280 + i118
                     };
-                    final int[] is_121_ = {
+                    final int[] is121 = {
                             20, 10
                     };
-                    i_111_ = 38;
-                    i_112_ = 210 + i_118_;
-                    for (int i_122_ = 0; i_122_ < 2; i_122_++) {
+                    i111 = 38;
+                    i112 = 210 + i118;
+                    for (int i122 = 0; i122 < 2; i122++) {
                         rd.setColor(new Color(0, 0, 0));
                         rd.drawString(
-                                new StringBuilder().append("").append(strings_119_[i_122_]).append(" :").toString(),
-                                is_120_[i_122_], 447 + i_122_ * 24 + i_111_);
-                        rd.drawLine(140 + i_112_, 443 + i_122_ * 24 + i_111_, 230 + i_112_, 443 + i_122_ * 24 + i_111_);
-                        for (int i_123_ = 1; i_123_ < 10; i_123_++)
-                            rd.drawLine(140 + 10 * i_123_ + i_112_, 443 - i_123_ + i_122_ * 24 + i_111_,
-                                    140 + 10 * i_123_ + i_112_, 443 + i_123_ + i_122_ * 24 + i_111_);
+                                new StringBuilder().append("").append(strings119[i122]).append(" :").toString(),
+                                is120[i122], 447 + i122 * 24 + i111);
+                        rd.drawLine(140 + i112, 443 + i122 * 24 + i111, 230 + i112, 443 + i122 * 24 + i111);
+                        for (int i123 = 1; i123 < 10; i123++)
+                            rd.drawLine(140 + 10 * i123 + i112, 443 - i123 + i122 * 24 + i111,
+                                    140 + 10 * i123 + i112, 443 + i123 + i122 * 24 + i111);
                         rd.setColor(new Color(255, 0, 0));
-                        final int i_124_ = (int) (fogn[i_122_] / 1.1111F / 10.0F);
-                        rd.fillRect(138 + (int) (fogn[i_122_] / 1.1111F) + i_112_, 443 - i_124_ + i_122_ * 24 + i_111_,
-                                5, i_124_ * 2 + 1);
+                        final int i124 = (int) (fogn[i122] / 1.1111F / 10.0F);
+                        rd.fillRect(138 + (int) (fogn[i122] / 1.1111F) + i112, 443 - i124 + i122 * 24 + i111,
+                                5, i124 * 2 + 1);
                         rd.setColor(new Color(255, 128, 0));
-                        rd.drawRect(139 + (int) (fogn[i_122_] / 1.1111F) + i_112_, 434 + i_122_ * 24 + i_111_, 2, 18);
-                        if (button(" - ", 260 + i_112_, 447 + i_122_ * 24 + i_111_, 4, false)) {
-                            fogn[i_122_] -= is_121_[i_122_];
-                            if (fogn[i_122_] < 0)
-                                fogn[i_122_] = 0;
+                        rd.drawRect(139 + (int) (fogn[i122] / 1.1111F) + i112, 434 + i122 * 24 + i111, 2, 18);
+                        if (button(" - ", 260 + i112, 447 + i122 * 24 + i111, 4, false)) {
+                            fogn[i122] -= is121[i122];
+                            if (fogn[i122] < 0)
+                                fogn[i122] = 0;
                         }
-                        if (button(" + ", 300 + i_112_, 447 + i_122_ * 24 + i_111_, 4, false)) {
-                            fogn[i_122_] += is_121_[i_122_];
-                            if (fogn[i_122_] > 100)
-                                fogn[i_122_] = 100;
+                        if (button(" + ", 300 + i112, 447 + i122 * 24 + i111, 4, false)) {
+                            fogn[i122] += is121[i122];
+                            if (fogn[i122] > 100)
+                                fogn[i122] = 100;
                         }
                     }
                     m.fogd = (8 - fogn[0] / 20 + 1) * 2 - 1;
@@ -4272,12 +4272,12 @@ public class StageMaker extends Applet implements Runnable {
                         tracks.removeAll();
                         tracks.maxl = 200;
                         tracks.add(rd, "The Play List  -  MOD Tracks");
-                        final String[] strings_125_ = new File("mystages/mymusic/").list();
-                        if (strings_125_ != null)
-                            for (int i_126_ = 0; i_126_ < strings_125_.length; i_126_++)
-                                if (strings_125_[i_126_].toLowerCase().endsWith(".zip"))
+                        final String[] strings125 = new File("mystages/mymusic/").list();
+                        if (strings125 != null)
+                            for (int i126 = 0; i126 < strings125.length; i126++)
+                                if (strings125[i126].toLowerCase().endsWith(".zip"))
                                     tracks.add(rd,
-                                            strings_125_[i_126_].substring(0, strings_125_[i_126_].length() - 4));
+                                            strings125[i126].substring(0, strings125[i126].length() - 4));
                         if (ltrackname.equals("")) {
                             if (trackname.equals(""))
                                 tracks.select(0);
@@ -4312,24 +4312,24 @@ public class StageMaker extends Applet implements Runnable {
                         rd.drawLine(10, 526, 210, 526);
                         rd.setColor(new Color(255, 255, 255));
                         rd.drawLine(10, 527, 210, 527);
-                        int i_127_ = (int) ((1.0F - (float) track.sClip.stream.available() / (float) avon) * 200.0F);
+                        int i127 = (int) ((1.0F - (float) track.sClip.stream.available() / (float) avon) * 200.0F);
                         if (mouseon == 1) {
-                            i_127_ = xm - 10;
-                            if (i_127_ < 0)
-                                i_127_ = 0;
-                            if (i_127_ > 200)
-                                i_127_ = 200;
+                            i127 = xm - 10;
+                            if (i127 < 0)
+                                i127 = 0;
+                            if (i127 > 200)
+                                i127 = 200;
                             if (mousePressed != 1) {
                                 track.sClip.stream.reset();
-                                track.sClip.stream.skip((long) (i_127_ / 200.0F * avon));
+                                track.sClip.stream.skip((long) (i127 / 200.0F * avon));
                                 mouseon = -1;
                             }
                         }
                         rd.setColor(new Color(0, 0, 0));
-                        rd.drawRect(8 + i_127_, 516, 4, 18);
+                        rd.drawRect(8 + i127, 516, 4, 18);
                         rd.setColor(new Color(0, 164, 242));
-                        rd.drawLine(10 + i_127_, 520, 10 + i_127_, 518);
-                        rd.drawLine(10 + i_127_, 530, 10 + i_127_, 532);
+                        rd.drawLine(10 + i127, 520, 10 + i127, 518);
+                        rd.drawLine(10 + i127, 530, 10 + i127, 532);
                     } else if (tracks.getSelectedIndex() != 0 && button("      Play  >      ", 110, 495, 2, false)) {
                         if (!ltrackname.equals(tracks.getSelectedItem())) {
                             track.unload();
@@ -4417,27 +4417,27 @@ public class StageMaker extends Applet implements Runnable {
                         if (file != null)
                             try {
                                 if (file.length() / 1024L < 250L) {
-                                    File file_128_ = new File("mystages/mymusic/");
-                                    if (!file_128_.exists())
-                                        file_128_.mkdirs();
-                                    file_128_ = new File(new StringBuilder().append("mystages/mymusic/")
+                                    File file128 = new File("mystages/mymusic/");
+                                    if (!file128.exists())
+                                        file128.mkdirs();
+                                    file128 = new File(new StringBuilder().append("mystages/mymusic/")
                                             .append(file.getName()).append("").toString());
                                     final FileInputStream fileinputstream = new FileInputStream(file);
-                                    final FileOutputStream fileoutputstream = new FileOutputStream(file_128_);
-                                    final byte[] is_129_ = new byte[1024];
-                                    int i_130_;
-                                    while ((i_130_ = fileinputstream.read(is_129_)) > 0)
-                                        fileoutputstream.write(is_129_, 0, i_130_);
+                                    final FileOutputStream fileoutputstream = new FileOutputStream(file128);
+                                    final byte[] is129 = new byte[1024];
+                                    int i130;
+                                    while ((i130 = fileinputstream.read(is129)) > 0)
+                                        fileoutputstream.write(is129, 0, i130);
                                     fileinputstream.close();
                                     fileoutputstream.close();
                                     tracks.removeAll();
                                     tracks.add(rd, "Select MOD Track                      ");
-                                    final String[] strings_131_ = new File("mystages/mymusic/").list();
-                                    if (strings_131_ != null)
-                                        for (int i_132_ = 0; i_132_ < strings_131_.length; i_132_++)
-                                            if (strings_131_[i_132_].toLowerCase().endsWith(".zip"))
-                                                tracks.add(rd, strings_131_[i_132_].substring(0,
-                                                        strings_131_[i_132_].length() - 4));
+                                    final String[] strings131 = new File("mystages/mymusic/").list();
+                                    if (strings131 != null)
+                                        for (int i132 = 0; i132 < strings131.length; i132++)
+                                            if (strings131[i132].toLowerCase().endsWith(".zip"))
+                                                tracks.add(rd, strings131[i132].substring(0,
+                                                        strings131[i132].length() - 4));
                                     tracks.select(file.getName().substring(0, file.getName().length() - 4));
                                 } else
                                     JOptionPane.showMessageDialog(null,
@@ -4449,9 +4449,9 @@ public class StageMaker extends Applet implements Runnable {
                                         "Stage Maker", 1);
                             }
                     }
-                    final int i_133_ = 200;
+                    final int i133 = 200;
                     rd.setColor(new Color(0, 0, 0));
-                    rd.drawString("Sound Track", 280 + i_133_, 461);
+                    rd.drawString("Sound Track", 280 + i133, 461);
                     String string = trackname;
                     if (string.equals(""))
                         string = "No Sound Track set.";
@@ -4459,11 +4459,11 @@ public class StageMaker extends Applet implements Runnable {
                         trackname = "";
                     rd.drawString(string, 629 - ftm.stringWidth(string) / 2, 482);
                     rd.setColor(new Color(128, 128, 128));
-                    rd.drawLine(270 + i_133_, 457, 277 + i_133_, 457);
-                    rd.drawLine(589 + i_133_, 457, 353 + i_133_, 457);
-                    rd.drawLine(270 + i_133_, 457, 270 + i_133_, 497);
-                    rd.drawLine(589 + i_133_, 457, 589 + i_133_, 497);
-                    rd.drawLine(270 + i_133_, 497, 589 + i_133_, 497);
+                    rd.drawLine(270 + i133, 457, 277 + i133, 457);
+                    rd.drawLine(589 + i133, 457, 353 + i133, 457);
+                    rd.drawLine(270 + i133, 457, 270 + i133, 497);
+                    rd.drawLine(589 + i133, 457, 589 + i133, 497);
+                    rd.drawLine(270 + i133, 497, 589 + i133, 497);
                     if (button(" Reset ", 576, 530, 0, true)) {
                         ltrackname = "";
                         dtabed = -2;
@@ -4566,9 +4566,9 @@ public class StageMaker extends Applet implements Runnable {
                             errd = 8;
                         if (errd == 0) {
                             int i = 0;
-                            for (int i_134_ = 0; i_134_ < nms; i_134_++)
-                                if (mystages[i_134_].equals(stagename)
-                                        && maker[i_134_].toLowerCase().equals(tnick.getText().toLowerCase()))
+                            for (int i134 = 0; i134 < nms; i134++)
+                                if (mystages[i134].equals(stagename)
+                                        && maker[i134].toLowerCase().equals(tnick.getText().toLowerCase()))
                                     i = JOptionPane.showConfirmDialog(null,
                                             new StringBuilder().append("Replace your already online stage '")
                                                     .append(stagename).append("' with this one?").toString(),
@@ -4583,7 +4583,7 @@ public class StageMaker extends Applet implements Runnable {
                                 rd.drawString("Connecting to Server...",
                                         400 - ftm.stringWidth("Connecting to Server...") / 2, 250);
                                 repaint();
-                                int i_135_ = -1;
+                                int i135 = -1;
                                 try {
                                     final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                                     final BufferedReader bufferedreader = new BufferedReader(
@@ -4594,26 +4594,26 @@ public class StageMaker extends Applet implements Runnable {
                                             .append("|").append(pubtyp.getSelectedIndex()).append("|").toString());
                                     String string = bufferedreader.readLine();
                                     if (string != null)
-                                        i_135_ = servervalue(string, 0);
-                                    if (i_135_ == 0) {
-                                        String string_136_ = " Publishing Stage ";
-                                        final String string_137_ = new StringBuilder().append("").append(tstage)
+                                        i135 = servervalue(string, 0);
+                                    if (i135 == 0) {
+                                        String string136 = " Publishing Stage ";
+                                        final String string137 = new StringBuilder().append("").append(tstage)
                                                 .append("\r\n").append(bstage).append("").toString();
                                         final DataInputStream datainputstream = new DataInputStream(
-                                                new ByteArrayInputStream(string_137_.getBytes()));
-                                        String string_139_;
-                                        while ((string_139_ = datainputstream.readLine()) != null) {
-                                            string_139_ = string_139_.trim();
-                                            printwriter.println(string_139_);
+                                                new ByteArrayInputStream(string137.getBytes()));
+                                        String string139;
+                                        while ((string139 = datainputstream.readLine()) != null) {
+                                            string139 = string139.trim();
+                                            printwriter.println(string139);
                                             rd.setColor(new Color(225, 225, 225));
                                             rd.fillRect(11, 141, 779, 401);
                                             rd.setColor(new Color(0, 0, 0));
-                                            rd.drawString(string_136_, 400 - ftm.stringWidth(string_136_) / 2, 250);
-                                            string_136_ = new StringBuilder().append("| ").append(string_136_)
+                                            rd.drawString(string136, 400 - ftm.stringWidth(string136) / 2, 250);
+                                            string136 = new StringBuilder().append("| ").append(string136)
                                                     .append(" |").toString();
-                                            if (string_136_.equals(
+                                            if (string136.equals(
                                                     "| | | | | | | | | | | | | | | | | | | | | | | |  Publishing Stage  | | | | | | | | | | | | | | | | | | | | | | | |"))
-                                                string_136_ = " Publishing Stage ";
+                                                string136 = " Publishing Stage ";
                                             repaint();
                                             try {
                                                 if (thredo != null) {
@@ -4637,10 +4637,10 @@ public class StageMaker extends Applet implements Runnable {
                                         repaint();
                                         string = bufferedreader.readLine();
                                         if (string != null)
-                                            i_135_ = servervalue(string, 0);
+                                            i135 = servervalue(string, 0);
                                         else
-                                            i_135_ = -1;
-                                        if (i_135_ == 0) {
+                                            i135 = -1;
+                                        if (i135 == 0) {
                                             rd.setColor(new Color(225, 225, 225));
                                             rd.fillRect(11, 141, 779, 401);
                                             rd.setColor(new Color(0, 0, 0));
@@ -4654,31 +4654,31 @@ public class StageMaker extends Applet implements Runnable {
                                             final File file = new File(new StringBuilder().append("mystages/mymusic/")
                                                     .append(trackname).append(".zip").toString());
                                             if (!trackname.equals("") && file.exists()) {
-                                                final int i_140_ = (int) file.length();
+                                                final int i140 = (int) file.length();
                                                 printwriter
                                                         .println(new StringBuilder().append("track|").append(trackname)
-                                                                .append("|").append(i_140_).append("|").toString());
+                                                                .append("|").append(i140).append("|").toString());
                                                 string = bufferedreader.readLine();
                                                 if (string != null)
-                                                    i_135_ = servervalue(string, 0);
+                                                    i135 = servervalue(string, 0);
                                                 else
-                                                    i_135_ = -2;
-                                                if (i_135_ == 0) {
+                                                    i135 = -2;
+                                                if (i135 == 0) {
                                                     final FileInputStream fileinputstream = new FileInputStream(file);
-                                                    final byte[] is = new byte[i_140_];
+                                                    final byte[] is = new byte[i140];
                                                     fileinputstream.read(is);
                                                     fileinputstream.close();
                                                     final DataOutputStream dataoutputstream = new DataOutputStream(
                                                             socket.getOutputStream());
-                                                    dataoutputstream.write(is, 0, i_140_);
+                                                    dataoutputstream.write(is, 0, i140);
                                                     string = bufferedreader.readLine();
                                                     if (string != null)
-                                                        i_135_ = servervalue(string, 0);
+                                                        i135 = servervalue(string, 0);
                                                     else
-                                                        i_135_ = -2;
+                                                        i135 = -2;
                                                 }
-                                                if (i_135_ == -67)
-                                                    i_135_ = 0;
+                                                if (i135 == -67)
+                                                    i135 = 0;
                                             } else {
                                                 printwriter.println("END");
                                                 string = bufferedreader.readLine();
@@ -4687,15 +4687,15 @@ public class StageMaker extends Applet implements Runnable {
                                     }
                                     socket.close();
                                 } catch (final Exception exception) {
-                                    i_135_ = -1;
+                                    i135 = -1;
                                 }
                                 setCursor(new Cursor(0));
                                 boolean bool = false;
-                                if (i_135_ == 0) {
+                                if (i135 == 0) {
                                     logged = 1;
                                     bool = true;
                                 }
-                                if (i_135_ == 3) {
+                                if (i135 == 3) {
                                     JOptionPane
                                             .showMessageDialog(null,
                                                     new StringBuilder().append("Unable to publish stage.\nReason:\n")
@@ -4703,7 +4703,7 @@ public class StageMaker extends Applet implements Runnable {
                                                     "Stage Maker", 1);
                                     bool = true;
                                 }
-                                if (i_135_ == 4) {
+                                if (i135 == 4) {
                                     JOptionPane.showMessageDialog(null,
                                             new StringBuilder()
                                                     .append("Unable to publish stage.\nReason:\nStage name used (")
@@ -4713,33 +4713,33 @@ public class StageMaker extends Applet implements Runnable {
                                             "Stage Maker", 1);
                                     bool = true;
                                 }
-                                if (i_135_ == 5) {
+                                if (i135 == 5) {
                                     JOptionPane.showMessageDialog(null,
                                             "Unable to create stage online!  Unknown Error.  Please try again later.",
                                             "Stage Maker", 1);
                                     bool = true;
                                 }
-                                if (i_135_ > 5) {
+                                if (i135 > 5) {
                                     JOptionPane.showMessageDialog(null,
                                             "Unable to publish stage fully!  Unknown Error.  Please try again later.",
                                             "Stage Maker", 1);
                                     bool = true;
                                 }
-                                if (i_135_ == -4) {
+                                if (i135 == -4) {
                                     logged = 1;
                                     JOptionPane.showMessageDialog(null,
                                             "Unable to upload sound track!\nReason:\nAnother MOD Track is already uploaded with the same name, please rename your Track.\nOpen your 'mystages' folder then open 'mymusic' to find your MOD Track to rename it.\n\n",
                                             "Stage Maker", 1);
                                     bool = true;
                                 }
-                                if (i_135_ == -3) {
+                                if (i135 == -3) {
                                     logged = 1;
                                     JOptionPane.showMessageDialog(null,
                                             "Unable to upload sound track!\nReason:\nYour MOD Track\u2019s file size is too large, Track file size must be less then 250KB to be accepted.\n\n",
                                             "Stage Maker", 1);
                                     bool = true;
                                 }
-                                if (i_135_ == -2) {
+                                if (i135 == -2) {
                                     logged = 1;
                                     JOptionPane.showMessageDialog(null,
                                             "Unable to upload sound track!  Unknown Error.  Please try again later.",
@@ -4790,20 +4790,20 @@ public class StageMaker extends Applet implements Runnable {
                                     String string = new StringBuilder().append("[ ").append(mystages[i])
                                             .append(" ]  has been added by the following players to their accounts:     \n\n")
                                             .toString();
-                                    int i_141_ = 0;
-                                    for (int i_142_ = 0; i_142_ < nad[i]; i_142_++) {
-                                        if (++i_141_ == 17) {
+                                    int i141 = 0;
+                                    for (int i142 = 0; i142 < nad[i]; i142++) {
+                                        if (++i141 == 17) {
                                             string = new StringBuilder().append(string).append("\n").toString();
-                                            i_141_ = 1;
+                                            i141 = 1;
                                         }
-                                        string = new StringBuilder().append(string).append(addeda[i][i_142_])
+                                        string = new StringBuilder().append(string).append(addeda[i][i142])
                                                 .toString();
-                                        if (i_142_ != nad[i] - 1)
-                                            if (i_142_ != nad[i] - 2)
+                                        if (i142 != nad[i] - 1)
+                                            if (i142 != nad[i] - 2)
                                                 string = new StringBuilder().append(string).append(", ").toString();
-                                            else if (i_141_ == 16) {
+                                            else if (i141 == 16) {
                                                 string = new StringBuilder().append(string).append("\nand ").toString();
-                                                i_141_ = 0;
+                                                i141 = 0;
                                             } else
                                                 string = new StringBuilder().append(string).append(" and ").toString();
                                     }
@@ -4827,15 +4827,15 @@ public class StageMaker extends Applet implements Runnable {
                                 rd.drawString("Super Public", 600 - ftm.stringWidth("Super Public") / 2, 156 + i * 20);
                             }
                             if ((pubt[i] == 2 || bool) && ovbutton("Download", 700, 156 + i * 20)) {
-                                int i_143_ = 0;
-                                for (int i_144_ = 0; i_144_ < slstage.getItemCount(); i_144_++)
-                                    if (mystages[i].equals(slstage.getItem(i_144_)))
-                                        i_143_ = JOptionPane.showConfirmDialog(null,
+                                int i143 = 0;
+                                for (int i144 = 0; i144 < slstage.getItemCount(); i144++)
+                                    if (mystages[i].equals(slstage.getItem(i144)))
+                                        i143 = JOptionPane.showConfirmDialog(null,
                                                 new StringBuilder().append("Replace the local ").append(mystages[i])
                                                         .append(" in your 'mystages' folder with the published online copy?")
                                                         .toString(),
                                                 "Stage Maker", 0);
-                                if (i_143_ == 0) {
+                                if (i143 == 0) {
                                     setCursor(new Cursor(3));
                                     rd.setFont(new Font("Arial", 1, 13));
                                     ftm = rd.getFontMetrics();
@@ -4852,60 +4852,60 @@ public class StageMaker extends Applet implements Runnable {
                                                 .append((int) (Math.random() * 1000.0)).append("").toString();
                                         string = string.replace(' ', '_');
                                         URL url = new URL(string);
-                                        int i_145_ = url.openConnection().getContentLength();
+                                        int i145 = url.openConnection().getContentLength();
                                         DataInputStream datainputstream = new DataInputStream(url.openStream());
-                                        byte[] is = new byte[i_145_];
+                                        byte[] is = new byte[i145];
                                         datainputstream.readFully(is);
                                         datainputstream.close();
                                         ZipInputStream zipinputstream;
                                         if (is[0] == 80 && is[1] == 75 && is[2] == 3)
                                             zipinputstream = new ZipInputStream(new ByteArrayInputStream(is));
                                         else {
-                                            final byte[] is_146_ = new byte[i_145_ - 40];
-                                            for (int i_147_ = 0; i_147_ < i_145_ - 40; i_147_++) {
-                                                int i_148_ = 20;
-                                                if (i_147_ >= 500)
-                                                    i_148_ = 40;
-                                                is_146_[i_147_] = is[i_147_ + i_148_];
+                                            final byte[] is146 = new byte[i145 - 40];
+                                            for (int i147 = 0; i147 < i145 - 40; i147++) {
+                                                int i148 = 20;
+                                                if (i147 >= 500)
+                                                    i148 = 40;
+                                                is146[i147] = is[i147 + i148];
                                             }
-                                            zipinputstream = new ZipInputStream(new ByteArrayInputStream(is_146_));
+                                            zipinputstream = new ZipInputStream(new ByteArrayInputStream(is146));
                                         }
                                         final ZipEntry zipentry = zipinputstream.getNextEntry();
                                         if (zipentry != null) {
-                                            String string_149_ = "";
-                                            int i_150_ = Integer.valueOf(zipentry.getName()).intValue();
-                                            final byte[] is_151_ = new byte[i_150_];
-                                            int i_152_ = 0;
-                                            int i_153_;
-                                            for (/**/; i_150_ > 0; i_150_ -= i_153_) {
-                                                i_153_ = zipinputstream.read(is_151_, i_152_, i_150_);
-                                                i_152_ += i_153_;
+                                            String string149 = "";
+                                            int i150 = Integer.valueOf(zipentry.getName()).intValue();
+                                            final byte[] is151 = new byte[i150];
+                                            int i152 = 0;
+                                            int i153;
+                                            for (/**/; i150 > 0; i150 -= i153) {
+                                                i153 = zipinputstream.read(is151, i152, i150);
+                                                i152 += i153;
                                             }
-                                            String string_154_ = new String(is_151_);
-                                            string_154_ = new StringBuilder().append(string_154_).append("\n")
+                                            String string154 = new String(is151);
+                                            string154 = new StringBuilder().append(string154).append("\n")
                                                     .toString();
-                                            String string_155_ = "";
-                                            int i_156_ = 0;
-                                            int i_157_ = string_154_.indexOf("\n", 0);
-                                            while (i_157_ != -1 && i_156_ < string_154_.length()) {
-                                                String string_158_ = string_154_.substring(i_156_, i_157_);
-                                                string_158_ = string_158_.trim();
-                                                i_156_ = i_157_ + 1;
-                                                i_157_ = string_154_.indexOf("\n", i_156_);
-                                                if (!string_158_.startsWith("stagemaker(")
-                                                        && !string_158_.startsWith("publish("))
-                                                    string_155_ = new StringBuilder().append(string_155_).append("")
-                                                            .append(string_158_).append("\r\n").toString();
+                                            String string155 = "";
+                                            int i156 = 0;
+                                            int i157 = string154.indexOf("\n", 0);
+                                            while (i157 != -1 && i156 < string154.length()) {
+                                                String string158 = string154.substring(i156, i157);
+                                                string158 = string158.trim();
+                                                i156 = i157 + 1;
+                                                i157 = string154.indexOf("\n", i156);
+                                                if (!string158.startsWith("stagemaker(")
+                                                        && !string158.startsWith("publish("))
+                                                    string155 = new StringBuilder().append(string155).append("")
+                                                            .append(string158).append("\r\n").toString();
                                                 else {
-                                                    string_155_ = string_155_.trim();
-                                                    string_155_ = new StringBuilder().append(string_155_).append("\r\n")
+                                                    string155 = string155.trim();
+                                                    string155 = new StringBuilder().append(string155).append("\r\n")
                                                             .toString();
                                                 }
-                                                if (string_158_.startsWith("soundtrack"))
-                                                    string_149_ = getstring("soundtrack", string_158_, 0);
+                                                if (string158.startsWith("soundtrack"))
+                                                    string149 = getstring("soundtrack", string158, 0);
                                             }
-                                            string_155_ = string_155_.trim();
-                                            string_155_ = new StringBuilder().append(string_155_).append("\r\n\r\n")
+                                            string155 = string155.trim();
+                                            string155 = new StringBuilder().append(string155).append("\r\n\r\n")
                                                     .toString();
                                             File file = new File("mystages/");
                                             if (!file.exists())
@@ -4914,10 +4914,10 @@ public class StageMaker extends Applet implements Runnable {
                                                     .append(".txt").toString());
                                             final BufferedWriter bufferedwriter = new BufferedWriter(
                                                     new FileWriter(file));
-                                            bufferedwriter.write(string_155_);
+                                            bufferedwriter.write(string155);
                                             bufferedwriter.close();
                                             zipinputstream.close();
-                                            if (!string_149_.equals(""))
+                                            if (!string149.equals(""))
                                                 try {
                                                     rd.setColor(new Color(0, 0, 0));
                                                     rd.drawString("Downloading stage's sound track...", 400
@@ -4926,25 +4926,25 @@ public class StageMaker extends Applet implements Runnable {
                                                     repaint();
                                                     string = new StringBuilder()
                                                             .append("http://multiplayer.needformadness.com/tracks/music/")
-                                                            .append(string_149_).append(".zip").toString();
+                                                            .append(string149).append(".zip").toString();
                                                     string = string.replace(' ', '_');
                                                     url = new URL(string);
-                                                    i_145_ = url.openConnection().getContentLength();
+                                                    i145 = url.openConnection().getContentLength();
                                                     file = new File(new StringBuilder().append("mystages/mymusic/")
-                                                            .append(string_149_).append(".zip").toString());
+                                                            .append(string149).append(".zip").toString());
                                                     if (file.exists())
-                                                        if (file.length() == i_145_)
-                                                            i_143_ = 1;
+                                                        if (file.length() == i145)
+                                                            i143 = 1;
                                                         else
-                                                            i_143_ = JOptionPane.showConfirmDialog(null,
+                                                            i143 = JOptionPane.showConfirmDialog(null,
                                                                     new StringBuilder().append("Another track named '")
-                                                                            .append(string_149_)
+                                                                            .append(string149)
                                                                             .append("' already exists in your Sound Tracks folder!\nReplace it with the one attached to this stage?")
                                                                             .toString(),
                                                                     "Stage Maker", 0);
-                                                    if (i_143_ == 0) {
+                                                    if (i143 == 0) {
                                                         datainputstream = new DataInputStream(url.openStream());
-                                                        is = new byte[i_145_];
+                                                        is = new byte[i145];
                                                         datainputstream.readFully(is);
                                                         datainputstream.close();
                                                         final FileOutputStream fileoutputstream = new FileOutputStream(
@@ -4982,7 +4982,7 @@ public class StageMaker extends Applet implements Runnable {
                                                         .append(" from your account?").toString(),
                                                 "Stage Maker", 0) == 0) {
                             setCursor(new Cursor(3));
-                            int i_160_ = -1;
+                            int i160 = -1;
                             try {
                                 final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                                 final BufferedReader bufferedreader = new BufferedReader(
@@ -4993,12 +4993,12 @@ public class StageMaker extends Applet implements Runnable {
                                         .toString());
                                 final String string = bufferedreader.readLine();
                                 if (string != null)
-                                    i_160_ = servervalue(string, 0);
+                                    i160 = servervalue(string, 0);
                                 socket.close();
                             } catch (final Exception exception) {
-                                i_160_ = -1;
+                                i160 = -1;
                             }
-                            if (i_160_ == 0)
+                            if (i160 == 0)
                                 logged = 1;
                             else {
                                 setCursor(new Cursor(0));
@@ -5029,11 +5029,11 @@ public class StageMaker extends Applet implements Runnable {
                         nad[i] = 0;
                         String string = "";
                         try {
-                            String string_161_ = new StringBuilder()
+                            String string161 = new StringBuilder()
                                     .append("http://multiplayer.needformadness.com/tracks/").append(mystages[i])
                                     .append(".txt?reqlo=").append((int) (Math.random() * 1000.0)).append("").toString();
-                            string_161_ = string_161_.replace(' ', '_');
-                            final URL url = new URL(string_161_);
+                            string161 = string161.replace(' ', '_');
+                            final URL url = new URL(string161);
                             final DataInputStream datainputstream = new DataInputStream(url.openStream());
                             while ((string = datainputstream.readLine()) != null) {
                                 string = new StringBuilder().append("").append(string.trim()).toString();
@@ -5109,8 +5109,8 @@ public class StageMaker extends Applet implements Runnable {
                         }
                         datainputstream.close();
                     } catch (final Exception exception) {
-                        final String string_162_ = new StringBuilder().append("").append(exception).toString();
-                        if (string_162_.indexOf("FileNotFound") != -1) {
+                        final String string162 = new StringBuilder().append("").append(exception).toString();
+                        if (string162.indexOf("FileNotFound") != -1) {
                             setCursor(new Cursor(0));
                             logged = -1;
                         } else {
@@ -5211,7 +5211,7 @@ public class StageMaker extends Applet implements Runnable {
             final int[] is = {
                     0, 0, 100, 90
             };
-            final int[] is_163_ = {
+            final int[] is163 = {
                     0, 25, 25, 0
             };
             int i = 4;
@@ -5219,19 +5219,19 @@ public class StageMaker extends Applet implements Runnable {
                 tab = 0;
                 i = 1;
             }
-            for (int i_164_ = 0; i_164_ < i; i_164_++) {
+            for (int i164 = 0; i164 < i; i164++) {
                 rd.setColor(new Color(170, 170, 170));
                 if (xm > is[0] && xm < is[3] && ym > 0 && ym < 25)
                     rd.setColor(new Color(200, 200, 200));
-                if (tab == i_164_)
+                if (tab == i164)
                     rd.setColor(new Color(225, 225, 225));
-                rd.fillPolygon(is, is_163_, 4);
+                rd.fillPolygon(is, is163, 4);
                 rd.setColor(new Color(0, 0, 0));
-                rd.drawString(strings[i_164_], i_164_ * 100 + 45 - ftm.stringWidth(strings[i_164_]) / 2, 17);
+                rd.drawString(strings[i164], i164 * 100 + 45 - ftm.stringWidth(strings[i164]) / 2, 17);
                 if (xm > is[0] && xm < is[3] && ym > 0 && ym < 25 && mousePressed == -1)
-                    tab = i_164_;
-                for (int i_165_ = 0; i_165_ < 4; i_165_++)
-                    is[i_165_] += 100;
+                    tab = i164;
+                for (int i165 = 0; i165 < 4; i165++)
+                    is[i165] += 100;
             }
             if (mousePressed == -1)
                 mousePressed = 0;
@@ -5297,57 +5297,57 @@ public class StageMaker extends Applet implements Runnable {
 
     // Removed unused code found by UCDetector
     // 	public String serverSvalue(final String string, final int i) {
-    // 		String string_365_ = "";
+    // 		String string365 = "";
     // 		try {
-    // 			int i_366_ = 0;
-    // 			int i_367_ = 0;
-    // 			int i_368_ = 0;
-    // 			String string_369_ = "";
-    // 			String string_370_ = "";
-    // 			for (/**/; i_366_ < string.length() && i_368_ != 2; i_366_++) {
-    // 				string_369_ = new StringBuilder().append("").append(string.charAt(i_366_)).toString();
-    // 				if (string_369_.equals("|")) {
-    // 					i_367_++;
-    // 					if (i_368_ == 1 || i_367_ > i)
-    // 						i_368_ = 2;
-    // 				} else if (i_367_ == i) {
-    // 					string_370_ = new StringBuilder().append(string_370_).append(string_369_).toString();
-    // 					i_368_ = 1;
+    // 			int i366 = 0;
+    // 			int i367 = 0;
+    // 			int i368 = 0;
+    // 			String string369 = "";
+    // 			String string370 = "";
+    // 			for (/**/; i366 < string.length() && i368 != 2; i366++) {
+    // 				string369 = new StringBuilder().append("").append(string.charAt(i366)).toString();
+    // 				if (string369.equals("|")) {
+    // 					i367++;
+    // 					if (i368 == 1 || i367 > i)
+    // 						i368 = 2;
+    // 				} else if (i367 == i) {
+    // 					string370 = new StringBuilder().append(string370).append(string369).toString();
+    // 					i368 = 1;
     // 				}
     // 			}
-    // 			string_365_ = string_370_;
+    // 			string365 = string370;
     // 		} catch (final Exception exception) {
     // 			/* empty */
     // 		}
-    // 		return string_365_;
+    // 		return string365;
     // 	}
 
     public int servervalue(final String string, final int i) {
-        int i_359_ = -1;
+        int i359 = -1;
         try {
-            int i_360_ = 0;
-            int i_361_ = 0;
-            int i_362_ = 0;
-            String string_363_ = "";
-            String string_364_ = "";
-            for (/**/; i_360_ < string.length() && i_362_ != 2; i_360_++) {
-                string_363_ = new StringBuilder().append("").append(string.charAt(i_360_)).toString();
-                if (string_363_.equals("|")) {
-                    i_361_++;
-                    if (i_362_ == 1 || i_361_ > i)
-                        i_362_ = 2;
-                } else if (i_361_ == i) {
-                    string_364_ = new StringBuilder().append(string_364_).append(string_363_).toString();
-                    i_362_ = 1;
+            int i360 = 0;
+            int i361 = 0;
+            int i362 = 0;
+            String string363 = "";
+            String string364 = "";
+            for (/**/; i360 < string.length() && i362 != 2; i360++) {
+                string363 = new StringBuilder().append("").append(string.charAt(i360)).toString();
+                if (string363.equals("|")) {
+                    i361++;
+                    if (i362 == 1 || i361 > i)
+                        i362 = 2;
+                } else if (i361 == i) {
+                    string364 = new StringBuilder().append(string364).append(string363).toString();
+                    i362 = 1;
                 }
             }
-            if (string_364_.equals(""))
-                string_364_ = "-1";
-            i_359_ = Integer.valueOf(string_364_).intValue();
+            if (string364.equals(""))
+                string364 = "-1";
+            i359 = Integer.valueOf(string364).intValue();
         } catch (final Exception exception) {
             /* empty */
         }
-        return i_359_;
+        return i359;
     }
 
     public void sortop() {
@@ -5363,8 +5363,8 @@ public class StageMaker extends Applet implements Runnable {
                 .append(cp.nlaps).append(")\r\n").toString();
         if (!trackname.equals("")) {
             final StringBuilder stringbuilder = new StringBuilder();
-            final StageMaker stagemaker_239_ = this;
-            stagemaker_239_.tstage = stringbuilder.append(stagemaker_239_.tstage).append("soundtrack(")
+            final StageMaker stagemaker239 = this;
+            stagemaker239.tstage = stringbuilder.append(stagemaker239.tstage).append("soundtrack(")
                     .append(trackname).append(",").append(trackvol).append(",").append(tracksize).append(")\r\n")
                     .toString();
         }
@@ -5372,554 +5372,554 @@ public class StageMaker extends Applet implements Runnable {
             snap[i] = (int) (m.snap[i] / 1.2F + 50.0F);
         if (snap[0] + snap[1] + snap[2] <= 110) {
             final StringBuilder stringbuilder = new StringBuilder();
-            final StageMaker stagemaker_240_ = this;
-            stagemaker_240_.tstage = stringbuilder.append(stagemaker_240_.tstage).append("lightson()\r\n").toString();
+            final StageMaker stagemaker240 = this;
+            stagemaker240.tstage = stringbuilder.append(stagemaker240.tstage).append("lightson()\r\n").toString();
         }
         final StringBuilder stringbuilder = new StringBuilder();
-        final StageMaker stagemaker_241_ = this;
-        stagemaker_241_.tstage = stringbuilder.append(stagemaker_241_.tstage).append("\r\n").toString();
+        final StageMaker stagemaker241 = this;
+        stagemaker241.tstage = stringbuilder.append(stagemaker241.tstage).append("\r\n").toString();
     }
 
     public void sortstage() {
         final int[] is = new int[nob * 2];
-        final int[] is_242_ = new int[nob * 2];
+        final int[] is242 = new int[nob * 2];
         for (int i = 0; i < nob; i++)
             is[i] = 0;
         int i = 0;
-        int i_243_ = 0;
-        is_242_[i_243_] = 0;
-        i_243_++;
+        int i243 = 0;
+        is242[i243] = 0;
+        i243++;
         boolean bool = false;
-        int i_244_ = 0;
+        int i244 = 0;
         while (!bool) {
-            final int[] is_245_ = {
+            final int[] is245 = {
                     co[i].x + atp[co[i].colok][0], co[i].x + atp[co[i].colok][2]
             };
-            final int[] is_246_ = {
+            final int[] is246 = {
                     co[i].z + atp[co[i].colok][1], co[i].z + atp[co[i].colok][3]
             };
-            int i_247_ = co[i].roofat;
+            int i247 = co[i].roofat;
             if (co[i].colok == 2)
-                i_247_ += 30;
+                i247 += 30;
             if (co[i].colok == 3)
-                i_247_ -= 30;
+                i247 -= 30;
             if (co[i].colok == 15)
-                i_247_ -= 90;
+                i247 -= 90;
             if (co[i].colok == 20)
-                i_247_ -= 180;
+                i247 -= 180;
             if (co[i].colok == 26)
-                i_247_ -= 90;
-            rot(is_245_, is_246_, co[i].x, co[i].z, i_247_, 2);
-            int i_248_ = -1;
-            int i_249_ = -1;
-            if (i_244_ != 0)
-                for (int i_250_ = 0; i_250_ < nob; i_250_++) {
-                    boolean bool_251_ = false;
-                    if (i_243_ == 2 && i_250_ == 0)
-                        bool_251_ = true;
-                    if (i != i_250_ && !bool_251_ && is[i_250_] == 0
-                            && (co[i_250_].colok <= 14 || co[i_250_].colok >= 33)
-                            && (co[i_250_].colok < 39 || co[i_250_].colok >= 46) && co[i_250_].colok < 52) {
-                        int i_252_ = 0;
-                        if (co[i_250_].colok != 2 && co[i_250_].colok != 3 && co[i_250_].colok != 4
-                                && co[i_250_].colok != 7 && co[i_250_].colok != 9) {
-                            if (i_244_ == 1 && co[i_250_].z > co[i].z && Math.abs(co[i_250_].x - co[i].x) < 1000
-                                    && (co[i_250_].roofat == 180 || co[i_250_].roofat == 0))
-                                i_252_ = 1;
-                            if (i_244_ == 2 && co[i_250_].z < co[i].z && Math.abs(co[i_250_].x - co[i].x) < 1000
-                                    && (co[i_250_].roofat == 180 || co[i_250_].roofat == 0))
-                                i_252_ = 1;
-                            if (i_244_ == 3 && co[i_250_].x > co[i].x && Math.abs(co[i_250_].z - co[i].z) < 1000
-                                    && (co[i_250_].roofat == 90 || co[i_250_].roofat == -90))
-                                i_252_ = 1;
-                            if (i_244_ == 4 && co[i_250_].x < co[i].x && Math.abs(co[i_250_].z - co[i].z) < 1000
-                                    && (co[i_250_].roofat == 90 || co[i_250_].roofat == -90))
-                                i_252_ = 1;
+                i247 -= 90;
+            rot(is245, is246, co[i].x, co[i].z, i247, 2);
+            int i248 = -1;
+            int i249 = -1;
+            if (i244 != 0)
+                for (int i250 = 0; i250 < nob; i250++) {
+                    boolean bool251 = false;
+                    if (i243 == 2 && i250 == 0)
+                        bool251 = true;
+                    if (i != i250 && !bool251 && is[i250] == 0
+                            && (co[i250].colok <= 14 || co[i250].colok >= 33)
+                            && (co[i250].colok < 39 || co[i250].colok >= 46) && co[i250].colok < 52) {
+                        int i252 = 0;
+                        if (co[i250].colok != 2 && co[i250].colok != 3 && co[i250].colok != 4
+                                && co[i250].colok != 7 && co[i250].colok != 9) {
+                            if (i244 == 1 && co[i250].z > co[i].z && Math.abs(co[i250].x - co[i].x) < 1000
+                                    && (co[i250].roofat == 180 || co[i250].roofat == 0))
+                                i252 = 1;
+                            if (i244 == 2 && co[i250].z < co[i].z && Math.abs(co[i250].x - co[i].x) < 1000
+                                    && (co[i250].roofat == 180 || co[i250].roofat == 0))
+                                i252 = 1;
+                            if (i244 == 3 && co[i250].x > co[i].x && Math.abs(co[i250].z - co[i].z) < 1000
+                                    && (co[i250].roofat == 90 || co[i250].roofat == -90))
+                                i252 = 1;
+                            if (i244 == 4 && co[i250].x < co[i].x && Math.abs(co[i250].z - co[i].z) < 1000
+                                    && (co[i250].roofat == 90 || co[i250].roofat == -90))
+                                i252 = 1;
                         } else
-                            i_252_ = 2;
-                        if (i_252_ != 0) {
-                            final int[] is_253_ = {
-                                    co[i_250_].x + atp[co[i_250_].colok][0], co[i_250_].x + atp[co[i_250_].colok][2]
+                            i252 = 2;
+                        if (i252 != 0) {
+                            final int[] is253 = {
+                                    co[i250].x + atp[co[i250].colok][0], co[i250].x + atp[co[i250].colok][2]
                             };
-                            final int[] is_254_ = {
-                                    co[i_250_].z + atp[co[i_250_].colok][1], co[i_250_].z + atp[co[i_250_].colok][3]
+                            final int[] is254 = {
+                                    co[i250].z + atp[co[i250].colok][1], co[i250].z + atp[co[i250].colok][3]
                             };
-                            i_247_ = co[i_250_].roofat;
-                            if (co[i_250_].colok == 2)
-                                i_247_ += 30;
-                            if (co[i_250_].colok == 3)
-                                i_247_ -= 30;
-                            if (co[i_250_].colok == 15)
-                                i_247_ -= 90;
-                            if (co[i_250_].colok == 20)
-                                i_247_ -= 180;
-                            if (co[i_250_].colok == 26)
-                                i_247_ -= 90;
-                            rot(is_253_, is_254_, co[i_250_].x, co[i_250_].z, i_247_, 2);
-                            if (i_250_ != 0) {
-                                final int i_256_ = pyn(is_253_[0], is_245_[0], is_254_[0], is_246_[0]);
-                                if (i_256_ >= 0 && (i_256_ < 100 || i_252_ != 2) && (i_256_ < i_248_ || i_248_ == -1)) {
-                                    i_248_ = i_256_;
-                                    i_249_ = i_250_;
+                            i247 = co[i250].roofat;
+                            if (co[i250].colok == 2)
+                                i247 += 30;
+                            if (co[i250].colok == 3)
+                                i247 -= 30;
+                            if (co[i250].colok == 15)
+                                i247 -= 90;
+                            if (co[i250].colok == 20)
+                                i247 -= 180;
+                            if (co[i250].colok == 26)
+                                i247 -= 90;
+                            rot(is253, is254, co[i250].x, co[i250].z, i247, 2);
+                            if (i250 != 0) {
+                                final int i256 = pyn(is253[0], is245[0], is254[0], is246[0]);
+                                if (i256 >= 0 && (i256 < 100 || i252 != 2) && (i256 < i248 || i248 == -1)) {
+                                    i248 = i256;
+                                    i249 = i250;
                                 }
                             }
-                            int i_257_ = pyn(is_253_[1], is_245_[0], is_254_[1], is_246_[0]);
-                            if (i_257_ >= 0 && (i_257_ < 100 || i_252_ != 2) && (i_257_ < i_248_ || i_248_ == -1)) {
-                                i_248_ = i_257_;
-                                i_249_ = i_250_;
+                            int i257 = pyn(is253[1], is245[0], is254[1], is246[0]);
+                            if (i257 >= 0 && (i257 < 100 || i252 != 2) && (i257 < i248 || i248 == -1)) {
+                                i248 = i257;
+                                i249 = i250;
                             }
                             if (i != 0) {
-                                if (i_250_ != 0) {
-                                    i_257_ = pyn(is_253_[0], is_245_[1], is_254_[0], is_246_[1]);
-                                    if (i_257_ >= 0 && (i_257_ < 100 || i_252_ != 2) && i_257_ < i_248_) {
-                                        i_248_ = i_257_;
-                                        i_249_ = i_250_;
+                                if (i250 != 0) {
+                                    i257 = pyn(is253[0], is245[1], is254[0], is246[1]);
+                                    if (i257 >= 0 && (i257 < 100 || i252 != 2) && i257 < i248) {
+                                        i248 = i257;
+                                        i249 = i250;
                                     }
                                 }
-                                i_257_ = pyn(is_253_[1], is_245_[1], is_254_[1], is_246_[1]);
-                                if (i_257_ >= 0 && (i_257_ < 100 || i_252_ != 2) && i_257_ < i_248_) {
-                                    i_248_ = i_257_;
-                                    i_249_ = i_250_;
+                                i257 = pyn(is253[1], is245[1], is254[1], is246[1]);
+                                if (i257 >= 0 && (i257 < 100 || i252 != 2) && i257 < i248) {
+                                    i248 = i257;
+                                    i249 = i250;
                                 }
                             }
                         }
                     }
                 }
-            if (i_249_ == -1)
-                for (int i_258_ = 0; i_258_ < nob; i_258_++) {
-                    boolean bool_259_ = false;
-                    if (i_243_ == 2 && i_258_ == 0)
-                        bool_259_ = true;
-                    if (i != i_258_ && !bool_259_ && is[i_258_] == 0
-                            && (co[i_258_].colok <= 14 || co[i_258_].colok >= 33)
-                            && (co[i_258_].colok < 39 || co[i_258_].colok >= 46) && co[i_258_].colok < 52) {
-                        final int[] is_260_ = {
-                                co[i_258_].x + atp[co[i_258_].colok][0], co[i_258_].x + atp[co[i_258_].colok][2]
+            if (i249 == -1)
+                for (int i258 = 0; i258 < nob; i258++) {
+                    boolean bool259 = false;
+                    if (i243 == 2 && i258 == 0)
+                        bool259 = true;
+                    if (i != i258 && !bool259 && is[i258] == 0
+                            && (co[i258].colok <= 14 || co[i258].colok >= 33)
+                            && (co[i258].colok < 39 || co[i258].colok >= 46) && co[i258].colok < 52) {
+                        final int[] is260 = {
+                                co[i258].x + atp[co[i258].colok][0], co[i258].x + atp[co[i258].colok][2]
                         };
-                        final int[] is_261_ = {
-                                co[i_258_].z + atp[co[i_258_].colok][1], co[i_258_].z + atp[co[i_258_].colok][3]
+                        final int[] is261 = {
+                                co[i258].z + atp[co[i258].colok][1], co[i258].z + atp[co[i258].colok][3]
                         };
-                        i_247_ = co[i_258_].roofat;
-                        if (co[i_258_].colok == 2)
-                            i_247_ += 30;
-                        if (co[i_258_].colok == 3)
-                            i_247_ -= 30;
-                        if (co[i_258_].colok == 15)
-                            i_247_ -= 90;
-                        if (co[i_258_].colok == 20)
-                            i_247_ -= 180;
-                        if (co[i_258_].colok == 26)
-                            i_247_ -= 90;
-                        rot(is_260_, is_261_, co[i_258_].x, co[i_258_].z, i_247_, 2);
-                        if (i_258_ != 0) {
-                            final int i_263_ = pyn(is_260_[0], is_245_[0], is_261_[0], is_246_[0]);
-                            if (i_263_ >= 0 && (i_263_ < i_248_ || i_248_ == -1)) {
-                                i_248_ = i_263_;
-                                i_249_ = i_258_;
+                        i247 = co[i258].roofat;
+                        if (co[i258].colok == 2)
+                            i247 += 30;
+                        if (co[i258].colok == 3)
+                            i247 -= 30;
+                        if (co[i258].colok == 15)
+                            i247 -= 90;
+                        if (co[i258].colok == 20)
+                            i247 -= 180;
+                        if (co[i258].colok == 26)
+                            i247 -= 90;
+                        rot(is260, is261, co[i258].x, co[i258].z, i247, 2);
+                        if (i258 != 0) {
+                            final int i263 = pyn(is260[0], is245[0], is261[0], is246[0]);
+                            if (i263 >= 0 && (i263 < i248 || i248 == -1)) {
+                                i248 = i263;
+                                i249 = i258;
                             }
                         }
-                        int i_264_ = pyn(is_260_[1], is_245_[0], is_261_[1], is_246_[0]);
-                        if (i_264_ >= 0 && (i_264_ < i_248_ || i_248_ == -1)) {
-                            i_248_ = i_264_;
-                            i_249_ = i_258_;
+                        int i264 = pyn(is260[1], is245[0], is261[1], is246[0]);
+                        if (i264 >= 0 && (i264 < i248 || i248 == -1)) {
+                            i248 = i264;
+                            i249 = i258;
                         }
                         if (i != 0) {
-                            if (i_258_ != 0) {
-                                i_264_ = pyn(is_260_[0], is_245_[1], is_261_[0], is_246_[1]);
-                                if (i_264_ >= 0 && i_264_ < i_248_) {
-                                    i_248_ = i_264_;
-                                    i_249_ = i_258_;
+                            if (i258 != 0) {
+                                i264 = pyn(is260[0], is245[1], is261[0], is246[1]);
+                                if (i264 >= 0 && i264 < i248) {
+                                    i248 = i264;
+                                    i249 = i258;
                                 }
                             }
-                            i_264_ = pyn(is_260_[1], is_245_[1], is_261_[1], is_246_[1]);
-                            if (i_264_ >= 0 && i_264_ < i_248_) {
-                                i_248_ = i_264_;
-                                i_249_ = i_258_;
+                            i264 = pyn(is260[1], is245[1], is261[1], is246[1]);
+                            if (i264 >= 0 && i264 < i248) {
+                                i248 = i264;
+                                i249 = i258;
                             }
                         }
                     }
                 }
-            if (i_249_ != -1) {
-                i_244_ = 0;
-                if (co[i_249_].colok != 2 && co[i_249_].colok != 3 && co[i_249_].colok != 4 && co[i_249_].colok != 7
-                        && co[i_249_].colok != 9) {
-                    if ((co[i_249_].roofat == 180 || co[i_249_].roofat == 0) && co[i_249_].z > co[i].z)
-                        i_244_ = 1;
-                    if ((co[i_249_].roofat == 180 || co[i_249_].roofat == 0) && co[i_249_].z < co[i].z)
-                        i_244_ = 2;
-                    if ((co[i_249_].roofat == 90 || co[i_249_].roofat == -90) && co[i_249_].x > co[i].x)
-                        i_244_ = 3;
-                    if ((co[i_249_].roofat == 90 || co[i_249_].roofat == -90) && co[i_249_].x < co[i].x)
-                        i_244_ = 4;
+            if (i249 != -1) {
+                i244 = 0;
+                if (co[i249].colok != 2 && co[i249].colok != 3 && co[i249].colok != 4 && co[i249].colok != 7
+                        && co[i249].colok != 9) {
+                    if ((co[i249].roofat == 180 || co[i249].roofat == 0) && co[i249].z > co[i].z)
+                        i244 = 1;
+                    if ((co[i249].roofat == 180 || co[i249].roofat == 0) && co[i249].z < co[i].z)
+                        i244 = 2;
+                    if ((co[i249].roofat == 90 || co[i249].roofat == -90) && co[i249].x > co[i].x)
+                        i244 = 3;
+                    if ((co[i249].roofat == 90 || co[i249].roofat == -90) && co[i249].x < co[i].x)
+                        i244 = 4;
                 }
-                if (co[i_249_].colok == 4 || co[i_249_].colok == 7 || co[i_249_].colok == 9)
-                    is[i_249_] = 2;
+                if (co[i249].colok == 4 || co[i249].colok == 7 || co[i249].colok == 9)
+                    is[i249] = 2;
                 else
-                    is[i_249_] = 1;
-                if (co[i_249_].colok >= 46 && co[i_249_].colok <= 51)
-                    is[i_249_] = 6;
-                i = i_249_;
-                if (i_249_ == 0) {
+                    is[i249] = 1;
+                if (co[i249].colok >= 46 && co[i249].colok <= 51)
+                    is[i249] = 6;
+                i = i249;
+                if (i249 == 0) {
                     is[0] = 1;
                     bool = true;
                 } else {
-                    is_242_[i_243_] = i_249_;
-                    i_243_++;
+                    is242[i243] = i249;
+                    i243++;
                 }
             } else {
                 is[0] = 1;
                 bool = true;
             }
         }
-        for (int i_265_ = 0; i_265_ < nob; i_265_++)
-            if (is[i_265_] == 0 && (co[i_265_].colok <= 14 || co[i_265_].colok >= 33)
-                    && (co[i_265_].colok < 39 || co[i_265_].colok >= 46) && co[i_265_].colok < 52) {
-                is_242_[i_243_] = i_265_;
-                i_243_++;
+        for (int i265 = 0; i265 < nob; i265++)
+            if (is[i265] == 0 && (co[i265].colok <= 14 || co[i265].colok >= 33)
+                    && (co[i265].colok < 39 || co[i265].colok >= 46) && co[i265].colok < 52) {
+                is242[i243] = i265;
+                i243++;
             }
-        for (int i_266_ = 0; i_266_ < i_243_; i_266_++)
-            if (co[is_242_[i_266_]].colok >= 46 && co[is_242_[i_266_]].colok <= 51)
-                for (int i_267_ = i_266_ + 1; i_267_ < i_243_; i_267_++) {
-                    final int i_268_ = pyn(co[is_242_[i_266_]].x, co[is_242_[i_267_]].x, co[is_242_[i_266_]].z,
-                            co[is_242_[i_267_]].z);
-                    if (i_268_ >= 0 && (co[is_242_[i_267_]].colok < 46 || co[is_242_[i_266_]].colok > 51)
-                            && i_268_ < (co[is_242_[i_266_]].maxR + co[is_242_[i_267_]].maxR) / 100
-                                    * ((co[is_242_[i_266_]].maxR + co[is_242_[i_267_]].maxR) / 100)) {
-                        final int i_269_ = is_242_[i_267_];
-                        for (int i_270_ = i_267_; i_270_ > i_266_; i_270_--)
-                            is_242_[i_270_] = is_242_[i_270_ - 1];
-                        is_242_[i_266_] = i_269_;
-                        is[is_242_[i_266_]] = 0;
-                        i_266_++;
+        for (int i266 = 0; i266 < i243; i266++)
+            if (co[is242[i266]].colok >= 46 && co[is242[i266]].colok <= 51)
+                for (int i267 = i266 + 1; i267 < i243; i267++) {
+                    final int i268 = pyn(co[is242[i266]].x, co[is242[i267]].x, co[is242[i266]].z,
+                            co[is242[i267]].z);
+                    if (i268 >= 0 && (co[is242[i267]].colok < 46 || co[is242[i266]].colok > 51)
+                            && i268 < (co[is242[i266]].maxR + co[is242[i267]].maxR) / 100
+                                    * ((co[is242[i266]].maxR + co[is242[i267]].maxR) / 100)) {
+                        final int i269 = is242[i267];
+                        for (int i270 = i267; i270 > i266; i270--)
+                            is242[i270] = is242[i270 - 1];
+                        is242[i266] = i269;
+                        is[is242[i266]] = 0;
+                        i266++;
                     }
                 }
-        int i_271_ = 1;
-        for (int i_272_ = 0; i_272_ < cp.nsp; i_272_++)
-            for (int i_273_ = 0; i_273_ < nob; i_273_++)
-                if (co[i_273_].wh == i_272_ + 1
-                        && (co[i_273_].colok == 30 || co[i_273_].colok == 32 || co[i_273_].colok == 54)) {
-                    int i_274_ = -1;
-                    int i_275_ = -1;
-                    for (int i_276_ = i_271_; i_276_ < i_243_; i_276_++)
-                        if (co[is_242_[i_276_]].colok != 30 && co[is_242_[i_276_]].colok != 32
-                                && co[is_242_[i_276_]].colok != 54) {
-                            final int i_277_ = pyn(co[i_273_].x, co[is_242_[i_276_]].x, co[i_273_].z,
-                                    co[is_242_[i_276_]].z);
-                            if (i_277_ >= 0 && (i_277_ < i_274_ || i_274_ == -1)) {
-                                i_274_ = i_277_;
-                                i_275_ = i_276_;
+        int i271 = 1;
+        for (int i272 = 0; i272 < cp.nsp; i272++)
+            for (int i273 = 0; i273 < nob; i273++)
+                if (co[i273].wh == i272 + 1
+                        && (co[i273].colok == 30 || co[i273].colok == 32 || co[i273].colok == 54)) {
+                    int i274 = -1;
+                    int i275 = -1;
+                    for (int i276 = i271; i276 < i243; i276++)
+                        if (co[is242[i276]].colok != 30 && co[is242[i276]].colok != 32
+                                && co[is242[i276]].colok != 54) {
+                            final int i277 = pyn(co[i273].x, co[is242[i276]].x, co[i273].z,
+                                    co[is242[i276]].z);
+                            if (i277 >= 0 && (i277 < i274 || i274 == -1)) {
+                                i274 = i277;
+                                i275 = i276;
                             }
                         }
-                    if (i_275_ != -1) {
-                        is[is_242_[i_275_]] = 0;
-                        for (int i_278_ = i_243_; i_278_ > i_275_; i_278_--)
-                            is_242_[i_278_] = is_242_[i_278_ - 1];
-                        is_242_[i_275_ + 1] = i_273_;
-                        i_271_ = i_275_ + 1;
-                        i_243_++;
+                    if (i275 != -1) {
+                        is[is242[i275]] = 0;
+                        for (int i278 = i243; i278 > i275; i278--)
+                            is242[i278] = is242[i278 - 1];
+                        is242[i275 + 1] = i273;
+                        i271 = i275 + 1;
+                        i243++;
                     } else {
-                        is_242_[i_243_] = i_273_;
-                        i_271_ = i_243_;
-                        i_243_++;
+                        is242[i243] = i273;
+                        i271 = i243;
+                        i243++;
                     }
                 }
-        for (int i_279_ = 0; i_279_ < nob; i_279_++)
-            if (co[i_279_].wh == 0 && (co[i_279_].colok == 30 || co[i_279_].colok == 32 || co[i_279_].colok == 54)) {
-                int i_280_ = -1;
-                int i_281_ = -1;
-                for (int i_282_ = i_271_; i_282_ < i_243_; i_282_++)
-                    if (co[is_242_[i_282_]].colok != 30 && co[is_242_[i_282_]].colok != 32
-                            && co[is_242_[i_282_]].colok != 54) {
-                        final int i_283_ = pyn(co[i_279_].x, co[is_242_[i_282_]].x, co[i_279_].z,
-                                co[is_242_[i_282_]].z);
-                        if (i_283_ >= 0 && (i_283_ < i_280_ || i_280_ == -1)) {
-                            i_280_ = i_283_;
-                            i_281_ = i_282_;
+        for (int i279 = 0; i279 < nob; i279++)
+            if (co[i279].wh == 0 && (co[i279].colok == 30 || co[i279].colok == 32 || co[i279].colok == 54)) {
+                int i280 = -1;
+                int i281 = -1;
+                for (int i282 = i271; i282 < i243; i282++)
+                    if (co[is242[i282]].colok != 30 && co[is242[i282]].colok != 32
+                            && co[is242[i282]].colok != 54) {
+                        final int i283 = pyn(co[i279].x, co[is242[i282]].x, co[i279].z,
+                                co[is242[i282]].z);
+                        if (i283 >= 0 && (i283 < i280 || i280 == -1)) {
+                            i280 = i283;
+                            i281 = i282;
                         }
                     }
-                if (i_281_ != -1) {
-                    is[is_242_[i_281_]] = 0;
-                    for (int i_284_ = i_243_; i_284_ > i_281_; i_284_--)
-                        is_242_[i_284_] = is_242_[i_284_ - 1];
-                    is_242_[i_281_ + 1] = i_279_;
-                    i_243_++;
+                if (i281 != -1) {
+                    is[is242[i281]] = 0;
+                    for (int i284 = i243; i284 > i281; i284--)
+                        is242[i284] = is242[i284 - 1];
+                    is242[i281 + 1] = i279;
+                    i243++;
                 } else {
-                    is_242_[i_243_] = i_279_;
-                    i_243_++;
+                    is242[i243] = i279;
+                    i243++;
                 }
             }
-        for (int i_285_ = 0; i_285_ < nob; i_285_++)
-            if (co[i_285_].colok == 31) {
-                int i_286_ = -1;
-                int i_287_ = -1;
-                for (int i_288_ = 0; i_288_ < i_243_; i_288_++) {
-                    final int i_289_ = pyn(co[i_285_].x, co[is_242_[i_288_]].x, co[i_285_].z, co[is_242_[i_288_]].z);
-                    if (i_289_ >= 0 && (i_289_ < i_286_ || i_286_ == -1)) {
-                        i_286_ = i_289_;
-                        i_287_ = i_288_;
+        for (int i285 = 0; i285 < nob; i285++)
+            if (co[i285].colok == 31) {
+                int i286 = -1;
+                int i287 = -1;
+                for (int i288 = 0; i288 < i243; i288++) {
+                    final int i289 = pyn(co[i285].x, co[is242[i288]].x, co[i285].z, co[is242[i288]].z);
+                    if (i289 >= 0 && (i289 < i286 || i286 == -1)) {
+                        i286 = i289;
+                        i287 = i288;
                     }
                 }
-                if (i_287_ != -1) {
-                    for (int i_290_ = i_243_; i_290_ > i_287_; i_290_--)
-                        is_242_[i_290_] = is_242_[i_290_ - 1];
-                    is_242_[i_287_] = i_285_;
-                    i_243_++;
+                if (i287 != -1) {
+                    for (int i290 = i243; i290 > i287; i290--)
+                        is242[i290] = is242[i290 - 1];
+                    is242[i287] = i285;
+                    i243++;
                 } else {
-                    is_242_[i_243_] = i_285_;
-                    i_243_++;
+                    is242[i243] = i285;
+                    i243++;
                 }
             }
-        for (int i_291_ = 0; i_291_ < nob; i_291_++)
-            if (co[i_291_].colok == 15 || co[i_291_].colok == 27 || co[i_291_].colok == 28 || co[i_291_].colok == 41
-                    || co[i_291_].colok == 44 || co[i_291_].colok == 52 || co[i_291_].colok == 53) {
-                int i_292_ = -1;
-                for (int i_293_ = 0; i_293_ < i_243_; i_293_++)
-                    if ((co[is_242_[i_293_]].colok <= 14 || co[is_242_[i_293_]].colok >= 33)
-                            && co[is_242_[i_293_]].colok < 39) {
-                        final int i_294_ = pyn(co[i_291_].x, co[is_242_[i_293_]].x, co[i_291_].z,
-                                co[is_242_[i_293_]].z);
-                        if (i_294_ >= 0 && i_294_ < (co[i_291_].maxR + co[is_242_[i_293_]].maxR) / 100
-                                * ((co[i_291_].maxR + co[is_242_[i_293_]].maxR) / 100))
-                            i_292_ = i_293_;
+        for (int i291 = 0; i291 < nob; i291++)
+            if (co[i291].colok == 15 || co[i291].colok == 27 || co[i291].colok == 28 || co[i291].colok == 41
+                    || co[i291].colok == 44 || co[i291].colok == 52 || co[i291].colok == 53) {
+                int i292 = -1;
+                for (int i293 = 0; i293 < i243; i293++)
+                    if ((co[is242[i293]].colok <= 14 || co[is242[i293]].colok >= 33)
+                            && co[is242[i293]].colok < 39) {
+                        final int i294 = pyn(co[i291].x, co[is242[i293]].x, co[i291].z,
+                                co[is242[i293]].z);
+                        if (i294 >= 0 && i294 < (co[i291].maxR + co[is242[i293]].maxR) / 100
+                                * ((co[i291].maxR + co[is242[i293]].maxR) / 100))
+                            i292 = i293;
                     }
-                if (i_292_ != -1) {
-                    for (int i_295_ = i_243_; i_295_ > i_292_; i_295_--)
-                        is_242_[i_295_] = is_242_[i_295_ - 1];
-                    is_242_[i_292_ + 1] = i_291_;
-                    i_243_++;
+                if (i292 != -1) {
+                    for (int i295 = i243; i295 > i292; i295--)
+                        is242[i295] = is242[i295 - 1];
+                    is242[i292 + 1] = i291;
+                    i243++;
                 } else {
-                    is_242_[i_243_] = i_291_;
-                    i_243_++;
+                    is242[i243] = i291;
+                    i243++;
                 }
             }
-        for (int i_296_ = 0; i_296_ < nob; i_296_++)
-            if (co[i_296_].colok >= 16 && co[i_296_].colok <= 25 || co[i_296_].colok == 40 || co[i_296_].colok == 42
-                    || co[i_296_].colok == 43 || co[i_296_].colok == 45) {
-                int i_297_ = -1;
-                for (int i_298_ = 0; i_298_ < i_243_; i_298_++)
-                    if ((co[is_242_[i_298_]].colok <= 14 || co[is_242_[i_298_]].colok >= 33)
-                            && co[is_242_[i_298_]].colok < 39) {
-                        final int i_299_ = pyn(co[i_296_].x, co[is_242_[i_298_]].x, co[i_296_].z,
-                                co[is_242_[i_298_]].z);
-                        if (i_299_ >= 0 && i_299_ < (co[i_296_].maxR + co[is_242_[i_298_]].maxR) / 100
-                                * ((co[i_296_].maxR + co[is_242_[i_298_]].maxR) / 100)) {
-                            if (is[is_242_[i_298_]] != 0) {
-                                is[is_242_[i_298_]] = 0;
-                                if (co[i_296_].colok != 20)
-                                    is[i_296_] = 3;
+        for (int i296 = 0; i296 < nob; i296++)
+            if (co[i296].colok >= 16 && co[i296].colok <= 25 || co[i296].colok == 40 || co[i296].colok == 42
+                    || co[i296].colok == 43 || co[i296].colok == 45) {
+                int i297 = -1;
+                for (int i298 = 0; i298 < i243; i298++)
+                    if ((co[is242[i298]].colok <= 14 || co[is242[i298]].colok >= 33)
+                            && co[is242[i298]].colok < 39) {
+                        final int i299 = pyn(co[i296].x, co[is242[i298]].x, co[i296].z,
+                                co[is242[i298]].z);
+                        if (i299 >= 0 && i299 < (co[i296].maxR + co[is242[i298]].maxR) / 100
+                                * ((co[i296].maxR + co[is242[i298]].maxR) / 100)) {
+                            if (is[is242[i298]] != 0) {
+                                is[is242[i298]] = 0;
+                                if (co[i296].colok != 20)
+                                    is[i296] = 3;
                                 else
-                                    is[i_296_] = 5;
+                                    is[i296] = 5;
                             }
-                            i_297_ = i_298_;
+                            i297 = i298;
                         }
                     }
-                if (i_297_ != -1) {
+                if (i297 != -1) {
                     /* empty */
                 }
-                if (i_297_ != -1) {
-                    for (int i_300_ = i_243_; i_300_ > i_297_; i_300_--)
-                        is_242_[i_300_] = is_242_[i_300_ - 1];
-                    is_242_[i_297_ + 1] = i_296_;
-                    i_243_++;
+                if (i297 != -1) {
+                    for (int i300 = i243; i300 > i297; i300--)
+                        is242[i300] = is242[i300 - 1];
+                    is242[i297 + 1] = i296;
+                    i243++;
                 } else {
-                    is_242_[i_243_] = i_296_;
-                    i_243_++;
+                    is242[i243] = i296;
+                    i243++;
                 }
             }
-        for (int i_301_ = 0; i_301_ < nob; i_301_++)
-            if (co[i_301_].colok == 26 || co[i_301_].colok == 39) {
-                boolean bool_302_ = false;
+        for (int i301 = 0; i301 < nob; i301++)
+            if (co[i301].colok == 26 || co[i301].colok == 39) {
+                boolean bool302 = false;
                 if (Math.random() > Math.random()) {
-                    bool_302_ = true;
-                    if (co[i_301_].colok == 39)
+                    bool302 = true;
+                    if (co[i301].colok == 39)
                         if (Math.random() > Math.random())
-                            bool_302_ = false;
+                            bool302 = false;
                         else if (Math.random() > Math.random())
-                            bool_302_ = false;
+                            bool302 = false;
                 }
-                int i_303_ = -1;
-                for (int i_304_ = 0; i_304_ < i_243_; i_304_++)
-                    if ((co[is_242_[i_304_]].colok <= 14 || co[is_242_[i_304_]].colok >= 33)
-                            && co[is_242_[i_304_]].colok < 39) {
-                        final int i_305_ = pyn(co[i_301_].x, co[is_242_[i_304_]].x, co[i_301_].z,
-                                co[is_242_[i_304_]].z);
-                        if (i_305_ >= 0 && i_305_ < (co[i_301_].maxR + co[is_242_[i_304_]].maxR) / 100
-                                * ((co[i_301_].maxR + co[is_242_[i_304_]].maxR) / 100)) {
-                            boolean bool_306_ = false;
-                            if (co[i_301_].colok == 26) {
-                                if (co[i_301_].roofat == 90 && co[is_242_[i_304_]].x > co[i_301_].x)
-                                    bool_306_ = true;
-                                if (co[i_301_].roofat == -90 && co[is_242_[i_304_]].x < co[i_301_].x)
-                                    bool_306_ = true;
-                                if (co[i_301_].roofat == 0 && co[is_242_[i_304_]].z < co[i_301_].z)
-                                    bool_306_ = true;
-                                if (co[i_301_].roofat == 180 && co[is_242_[i_304_]].z > co[i_301_].z)
-                                    bool_306_ = true;
+                int i303 = -1;
+                for (int i304 = 0; i304 < i243; i304++)
+                    if ((co[is242[i304]].colok <= 14 || co[is242[i304]].colok >= 33)
+                            && co[is242[i304]].colok < 39) {
+                        final int i305 = pyn(co[i301].x, co[is242[i304]].x, co[i301].z,
+                                co[is242[i304]].z);
+                        if (i305 >= 0 && i305 < (co[i301].maxR + co[is242[i304]].maxR) / 100
+                                * ((co[i301].maxR + co[is242[i304]].maxR) / 100)) {
+                            boolean bool306 = false;
+                            if (co[i301].colok == 26) {
+                                if (co[i301].roofat == 90 && co[is242[i304]].x > co[i301].x)
+                                    bool306 = true;
+                                if (co[i301].roofat == -90 && co[is242[i304]].x < co[i301].x)
+                                    bool306 = true;
+                                if (co[i301].roofat == 0 && co[is242[i304]].z < co[i301].z)
+                                    bool306 = true;
+                                if (co[i301].roofat == 180 && co[is242[i304]].z > co[i301].z)
+                                    bool306 = true;
                             }
-                            if (co[i_301_].colok == 39) {
-                                if (co[i_301_].roofat == 90 && co[is_242_[i_304_]].z > co[i_301_].z)
-                                    bool_306_ = true;
-                                if (co[i_301_].roofat == -90 && co[is_242_[i_304_]].z < co[i_301_].z)
-                                    bool_306_ = true;
-                                if (co[i_301_].roofat == 0 && co[is_242_[i_304_]].x > co[i_301_].x)
-                                    bool_306_ = true;
-                                if (co[i_301_].roofat == 180 && co[is_242_[i_304_]].x < co[i_301_].x)
-                                    bool_306_ = true;
+                            if (co[i301].colok == 39) {
+                                if (co[i301].roofat == 90 && co[is242[i304]].z > co[i301].z)
+                                    bool306 = true;
+                                if (co[i301].roofat == -90 && co[is242[i304]].z < co[i301].z)
+                                    bool306 = true;
+                                if (co[i301].roofat == 0 && co[is242[i304]].x > co[i301].x)
+                                    bool306 = true;
+                                if (co[i301].roofat == 180 && co[is242[i304]].x < co[i301].x)
+                                    bool306 = true;
                             }
-                            if (bool_306_) {
-                                if (is[is_242_[i_304_]] == 1 && bool_302_) {
-                                    is[is_242_[i_304_]] = 0;
-                                    is[i_301_] = 4;
+                            if (bool306) {
+                                if (is[is242[i304]] == 1 && bool302) {
+                                    is[is242[i304]] = 0;
+                                    is[i301] = 4;
                                 }
-                                i_303_ = i_304_;
+                                i303 = i304;
                             }
                         }
                     }
-                if (i_303_ != -1) {
-                    for (int i_307_ = i_243_; i_307_ > i_303_; i_307_--)
-                        is_242_[i_307_] = is_242_[i_307_ - 1];
-                    is_242_[i_303_ + 1] = i_301_;
-                    i_243_++;
+                if (i303 != -1) {
+                    for (int i307 = i243; i307 > i303; i307--)
+                        is242[i307] = is242[i307 - 1];
+                    is242[i303 + 1] = i301;
+                    i243++;
                 } else {
-                    is_242_[i_243_] = i_301_;
-                    i_243_++;
+                    is242[i243] = i301;
+                    i243++;
                 }
             }
-        for (int i_308_ = 0; i_308_ < nob; i_308_++)
-            if (co[i_308_].colok >= 55 && co[i_308_].colok <= maxpart || co[i_308_].colok == bumppart) {
-                is_242_[i_243_] = i_308_;
-                i_243_++;
+        for (int i308 = 0; i308 < nob; i308++)
+            if (co[i308].colok >= 55 && co[i308].colok <= maxpart || co[i308].colok == bumppart) {
+                is242[i243] = i308;
+                i243++;
             }
-        int i_309_ = 0;
-        int i_310_ = 0;
-        int i_311_ = 0;
-        int i_312_ = 0;
+        int i309 = 0;
+        int i310 = 0;
+        int i311 = 0;
+        int i312 = 0;
         bstage = "";
-        for (int i_313_ = 0; i_313_ < i_243_; i_313_++) {
-            if (co[is_242_[i_313_]].colok != 30 && co[is_242_[i_313_]].colok != 31 && co[is_242_[i_313_]].colok != 32
-                    && co[is_242_[i_313_]].colok != 54 && co[is_242_[i_313_]].colok != bumppart) {
+        for (int i313 = 0; i313 < i243; i313++) {
+            if (co[is242[i313]].colok != 30 && co[is242[i313]].colok != 31 && co[is242[i313]].colok != 32
+                    && co[is242[i313]].colok != 54 && co[is242[i313]].colok != bumppart) {
                 String string = "";
-                if (is[is_242_[i_313_]] == 1)
+                if (is[is242[i313]] == 1)
                     string = "p";
-                if (is[is_242_[i_313_]] == 2)
+                if (is[is242[i313]] == 2)
                     string = "pt";
-                if (is[is_242_[i_313_]] == 3)
+                if (is[is242[i313]] == 3)
                     string = "pr";
-                if (is[is_242_[i_313_]] == 4)
+                if (is[is242[i313]] == 4)
                     string = "ph";
-                if (is[is_242_[i_313_]] == 5)
+                if (is[is242[i313]] == 5)
                     string = "pl";
-                if (is[is_242_[i_313_]] == 6)
+                if (is[is242[i313]] == 6)
                     string = "pr";
                 final StringBuilder stringbuilder = new StringBuilder();
-                final StageMaker stagemaker_314_ = this;
+                final StageMaker stagemaker314 = this;
                 System.out.println("placing");
-                System.out.println("roof2: " + co[is_242_[i_313_]].roofat);
-                if (co[is_242_[i_313_]].roofat == 250) {
+                System.out.println("roof2: " + co[is242[i313]].roofat);
+                if (co[is242[i313]].roofat == 250) {
 
                 }
                 if (!floats)
-                    stagemaker_314_.bstage = stringbuilder.append(stagemaker_314_.bstage).append("set(")
-                            .append(co[is_242_[i_313_]].colok + 10).append(",").append(co[is_242_[i_313_]].x)
-                            .append(",").append(co[is_242_[i_313_]].z).append(",").append(co[is_242_[i_313_]].roofat)
+                    stagemaker314.bstage = stringbuilder.append(stagemaker314.bstage).append("set(")
+                            .append(co[is242[i313]].colok + 10).append(",").append(co[is242[i313]].x)
+                            .append(",").append(co[is242[i313]].z).append(",").append(co[is242[i313]].roofat)
                             .append(")").append(string).append("\r\n").toString();
                 else
-                    stagemaker_314_.bstage = stringbuilder.append(stagemaker_314_.bstage).append("set(")
-                            .append(co[is_242_[i_313_]].colok + 10).append(",").append(co[is_242_[i_313_]].x)
-                            .append(",").append(co[is_242_[i_313_]].z).append(",").append(co[is_242_[i_313_]].y)
-                            .append(",").append(co[is_242_[i_313_]].roofat).append(")").append(string).append("\r\n")
+                    stagemaker314.bstage = stringbuilder.append(stagemaker314.bstage).append("set(")
+                            .append(co[is242[i313]].colok + 10).append(",").append(co[is242[i313]].x)
+                            .append(",").append(co[is242[i313]].z).append(",").append(co[is242[i313]].y)
+                            .append(",").append(co[is242[i313]].roofat).append(")").append(string).append("\r\n")
                             .toString();
             }
-            if (co[is_242_[i_313_]].colok == 30 || co[is_242_[i_313_]].colok == 32) {
-                if (co[is_242_[i_313_]].roofat == 180)
-                    co[is_242_[i_313_]].roofat = 0;
+            if (co[is242[i313]].colok == 30 || co[is242[i313]].colok == 32) {
+                if (co[is242[i313]].roofat == 180)
+                    co[is242[i313]].roofat = 0;
                 String string = "";
-                if (co[is_242_[i_313_]].wh != 0)
+                if (co[is242[i313]].wh != 0)
                     string = "r";
                 final StringBuilder stringbuilder = new StringBuilder();
-                final StageMaker stagemaker_315_ = this;
+                final StageMaker stagemaker315 = this;
                 if (floats)
-                    stagemaker_315_.bstage = stringbuilder.append(stagemaker_315_.bstage).append("chk(")
-                            .append(co[is_242_[i_313_]].colok + 10).append(",").append(co[is_242_[i_313_]].x)
-                            .append(",").append(co[is_242_[i_313_]].z).append(",").append(co[is_242_[i_313_]].y)
-                            .append(",").append(co[is_242_[i_313_]].roofat).append(")").append(string).append("\r\n")
+                    stagemaker315.bstage = stringbuilder.append(stagemaker315.bstage).append("chk(")
+                            .append(co[is242[i313]].colok + 10).append(",").append(co[is242[i313]].x)
+                            .append(",").append(co[is242[i313]].z).append(",").append(co[is242[i313]].y)
+                            .append(",").append(co[is242[i313]].roofat).append(")").append(string).append("\r\n")
                             .toString();
                 else
-                    stagemaker_315_.bstage = stringbuilder.append(stagemaker_315_.bstage).append("chk(")
-                            .append(co[is_242_[i_313_]].colok + 10).append(",").append(co[is_242_[i_313_]].x)
-                            .append(",").append(co[is_242_[i_313_]].z).append(",").append(co[is_242_[i_313_]].roofat)
+                    stagemaker315.bstage = stringbuilder.append(stagemaker315.bstage).append("chk(")
+                            .append(co[is242[i313]].colok + 10).append(",").append(co[is242[i313]].x)
+                            .append(",").append(co[is242[i313]].z).append(",").append(co[is242[i313]].roofat)
                             .append(")").append(string).append("\r\n").toString();
             }
-            if (co[is_242_[i_313_]].colok == 54) {
-                if (co[is_242_[i_313_]].roofat == 180)
-                    co[is_242_[i_313_]].roofat = 0;
+            if (co[is242[i313]].colok == 54) {
+                if (co[is242[i313]].roofat == 180)
+                    co[is242[i313]].roofat = 0;
                 String string = "";
-                if (co[is_242_[i_313_]].wh != 0)
+                if (co[is242[i313]].wh != 0)
                     string = "r";
                 final StringBuilder stringbuilder = new StringBuilder();
-                final StageMaker stagemaker_316_ = this;
-                //   stagemaker_316_.bstage = stringbuilder.append(stagemaker_316_.bstage).append("chk(")
-                //		.append(co[is_242_[i_313_]].colok + 10).append(",").append(co[is_242_[i_313_]].x).append(",")
-                //		.append(co[is_242_[i_313_]].z).append(",").append(co[is_242_[i_313_]].y).append(",").append(co[is_242_[i_313_]].roofat)
+                final StageMaker stagemaker316 = this;
+                //   stagemaker316.bstage = stringbuilder.append(stagemaker316.bstage).append("chk(")
+                //		.append(co[is242[i313]].colok + 10).append(",").append(co[is242[i313]].x).append(",")
+                //		.append(co[is242[i313]].z).append(",").append(co[is242[i313]].y).append(",").append(co[is242[i313]].roofat)
                 //		.append(")").append(string).append("\r\n").toString();
                 if (floats)
-                    stagemaker_316_.bstage = stringbuilder.append(stagemaker_316_.bstage).append("chk(")
-                            .append(co[is_242_[i_313_]].colok + 10).append(",").append(co[is_242_[i_313_]].x)
-                            .append(",").append(co[is_242_[i_313_]].z).append(",").append(co[is_242_[i_313_]].y)
-                            .append(",").append(co[is_242_[i_313_]].roofat).append(")").append(string).append("\r\n")
+                    stagemaker316.bstage = stringbuilder.append(stagemaker316.bstage).append("chk(")
+                            .append(co[is242[i313]].colok + 10).append(",").append(co[is242[i313]].x)
+                            .append(",").append(co[is242[i313]].z).append(",").append(co[is242[i313]].y)
+                            .append(",").append(co[is242[i313]].roofat).append(")").append(string).append("\r\n")
                             .toString();
                 else
-                    stagemaker_316_.bstage = stringbuilder.append(stagemaker_316_.bstage).append("chk(")
-                            .append(co[is_242_[i_313_]].colok + 10).append(",").append(co[is_242_[i_313_]].x)
-                            .append(",").append(co[is_242_[i_313_]].z).append(",").append(co[is_242_[i_313_]].roofat)
+                    stagemaker316.bstage = stringbuilder.append(stagemaker316.bstage).append("chk(")
+                            .append(co[is242[i313]].colok + 10).append(",").append(co[is242[i313]].x)
+                            .append(",").append(co[is242[i313]].z).append(",").append(co[is242[i313]].roofat)
                             .append(")").append(string).append("\r\n").toString();
             }
-            if (co[is_242_[i_313_]].colok == 31) {
+            if (co[is242[i313]].colok == 31) {
                 final StringBuilder stringbuilder = new StringBuilder();
-                final StageMaker stagemaker_317_ = this;
-                stagemaker_317_.bstage = stringbuilder.append(stagemaker_317_.bstage).append("fix(")
-                        .append(co[is_242_[i_313_]].colok + 10).append(",").append(co[is_242_[i_313_]].x).append(",")
-                        .append(co[is_242_[i_313_]].z).append(",").append(co[is_242_[i_313_]].y).append(",")
-                        .append(co[is_242_[i_313_]].roofat).append(")\r\n").toString();
+                final StageMaker stagemaker317 = this;
+                stagemaker317.bstage = stringbuilder.append(stagemaker317.bstage).append("fix(")
+                        .append(co[is242[i313]].colok + 10).append(",").append(co[is242[i313]].x).append(",")
+                        .append(co[is242[i313]].z).append(",").append(co[is242[i313]].y).append(",")
+                        .append(co[is242[i313]].roofat).append(")\r\n").toString();
             }
-            if (co[is_242_[i_313_]].colok == bumppart) {
+            if (co[is242[i313]].colok == bumppart) {
                 final StringBuilder stringbuilder = new StringBuilder();
-                final StageMaker stagemaker_318_ = this;
-                stagemaker_318_.bstage = stringbuilder.append(stagemaker_318_.bstage).append("pile(")
-                        .append(co[is_242_[i_313_]].srz).append(",").append(co[is_242_[i_313_]].srx).append(",")
-                        .append(co[is_242_[i_313_]].sry).append(",").append(co[is_242_[i_313_]].x).append(",")
-                        .append(co[is_242_[i_313_]].z).append(")\r\n").toString();
+                final StageMaker stagemaker318 = this;
+                stagemaker318.bstage = stringbuilder.append(stagemaker318.bstage).append("pile(")
+                        .append(co[is242[i313]].srz).append(",").append(co[is242[i313]].srx).append(",")
+                        .append(co[is242[i313]].sry).append(",").append(co[is242[i313]].x).append(",")
+                        .append(co[is242[i313]].z).append(")\r\n").toString();
             }
-            if (co[is_242_[i_313_]].x + co[is_242_[i_313_]].maxR > i_309_)
-                i_309_ = co[is_242_[i_313_]].x + co[is_242_[i_313_]].maxR;
-            if (co[is_242_[i_313_]].x - co[is_242_[i_313_]].maxR < i_311_)
-                i_311_ = co[is_242_[i_313_]].x - co[is_242_[i_313_]].maxR;
-            if (co[is_242_[i_313_]].z + co[is_242_[i_313_]].maxR > i_310_)
-                i_310_ = co[is_242_[i_313_]].z + co[is_242_[i_313_]].maxR;
-            if (co[is_242_[i_313_]].z - co[is_242_[i_313_]].maxR < i_312_)
-                i_312_ = co[is_242_[i_313_]].z - co[is_242_[i_313_]].maxR;
+            if (co[is242[i313]].x + co[is242[i313]].maxR > i309)
+                i309 = co[is242[i313]].x + co[is242[i313]].maxR;
+            if (co[is242[i313]].x - co[is242[i313]].maxR < i311)
+                i311 = co[is242[i313]].x - co[is242[i313]].maxR;
+            if (co[is242[i313]].z + co[is242[i313]].maxR > i310)
+                i310 = co[is242[i313]].z + co[is242[i313]].maxR;
+            if (co[is242[i313]].z - co[is242[i313]].maxR < i312)
+                i312 = co[is242[i313]].z - co[is242[i313]].maxR;
         }
-        int i_319_ = i_311_ - 0;
-        int i_320_ = i_309_ + 0;
-        final int i_321_ = (int) ((i_320_ - i_319_) / 4800.0F) + 1;
-        int i_322_ = (i_321_ * 4800 - (i_320_ - i_319_)) / 2;
-        i_319_ -= i_322_;
-        i_320_ += i_322_;
-        final int i_323_ = i_319_ + 2400;
-        int i_324_ = i_312_ - 0;
-        int i_325_ = i_310_ + 0;
-        final int i_326_ = (int) ((i_325_ - i_324_) / 4800.0F) + 1;
-        i_322_ = (i_326_ * 4800 - (i_325_ - i_324_)) / 2;
-        i_324_ -= i_322_;
-        i_325_ += i_322_;
-        final int i_327_ = i_324_ + 2400;
+        int i319 = i311 - 0;
+        int i320 = i309 + 0;
+        final int i321 = (int) ((i320 - i319) / 4800.0F) + 1;
+        int i322 = (i321 * 4800 - (i320 - i319)) / 2;
+        i319 -= i322;
+        i320 += i322;
+        final int i323 = i319 + 2400;
+        int i324 = i312 - 0;
+        int i325 = i310 + 0;
+        final int i326 = (int) ((i325 - i324) / 4800.0F) + 1;
+        i322 = (i326 * 4800 - (i325 - i324)) / 2;
+        i324 -= i322;
+        i325 += i322;
+        final int i327 = i324 + 2400;
         final StringBuilder stringbuilder = new StringBuilder();
-        final StageMaker stagemaker_328_ = this;
-        stagemaker_328_.bstage = stringbuilder.append(stagemaker_328_.bstage).append("\r\nmaxl(").append(i_326_)
-                .append(",").append(i_319_).append(",").append(i_327_).append(")\r\nmaxb(").append(i_321_).append(",")
-                .append(i_324_).append(",").append(i_323_).append(")\r\nmaxr(").append(i_326_).append(",")
-                .append(i_320_).append(",").append(i_327_).append(")\r\nmaxt(").append(i_321_).append(",")
-                .append(i_325_).append(",").append(i_323_).append(")\r\n").toString();
+        final StageMaker stagemaker328 = this;
+        stagemaker328.bstage = stringbuilder.append(stagemaker328.bstage).append("\r\nmaxl(").append(i326)
+                .append(",").append(i319).append(",").append(i327).append(")\r\nmaxb(").append(i321).append(",")
+                .append(i324).append(",").append(i323).append(")\r\nmaxr(").append(i326).append(",")
+                .append(i320).append(",").append(i327).append(")\r\nmaxt(").append(i321).append(",")
+                .append(i325).append(",").append(i323).append(")\r\n").toString();
     }
 
     @Override

@@ -23,52 +23,52 @@ public class Trackers {
     int[] z = new int[95000];
     int[] zy = new int[95000];
 
-    public void devidetrackers(final int i, final int i_0_, final int i_1_, final int i_2_) {
+    public void devidetrackers(final int i, final int i0, final int i1, final int i2) {
         sect = null;
         sx = i;
-        sz = i_1_;
-        ncx = i_0_ / 3000;
+        sz = i1;
+        ncx = i0 / 3000;
         if (ncx <= 0)
             ncx = 1;
-        ncz = i_2_ / 3000;
+        ncz = i2 / 3000;
         if (ncz <= 0)
             ncz = 1;
         sect = new int[ncx][ncz][];
-        for (int i_3_ = 0; i_3_ < ncx; i_3_++)
-            for (int i_4_ = 0; i_4_ < ncz; i_4_++) {
-                final int i_5_ = sx + i_3_ * 3000 + 1500;
-                final int i_6_ = sz + i_4_ * 3000 + 1500;
+        for (int i3 = 0; i3 < ncx; i3++)
+            for (int i4 = 0; i4 < ncz; i4++) {
+                final int i5 = sx + i3 * 3000 + 1500;
+                final int i6 = sz + i4 * 3000 + 1500;
                 final int[] is = new int[6700];
-                int i_7_ = 0;
-                for (int i_8_ = 0; i_8_ < nt; i_8_++) {
-                    final int i_9_ = py(i_5_, x[i_8_], i_6_, z[i_8_]);
-                    if (i_9_ < 20250000 && i_9_ > 0 && dam[i_8_] != 167) {
-                        is[i_7_] = i_8_;
-                        i_7_++;
+                int i7 = 0;
+                for (int i8 = 0; i8 < nt; i8++) {
+                    final int i9 = py(i5, x[i8], i6, z[i8]);
+                    if (i9 < 20250000 && i9 > 0 && dam[i8] != 167) {
+                        is[i7] = i8;
+                        i7++;
                     }
                 }
-                if (i_3_ == 0 || i_4_ == 0 || i_3_ == ncx - 1 || i_4_ == ncz - 1)
-                    for (int i_10_ = 0; i_10_ < nt; i_10_++)
-                        if (dam[i_10_] == 167) {
-                            is[i_7_] = i_10_;
-                            i_7_++;
+                if (i3 == 0 || i4 == 0 || i3 == ncx - 1 || i4 == ncz - 1)
+                    for (int i10 = 0; i10 < nt; i10++)
+                        if (dam[i10] == 167) {
+                            is[i7] = i10;
+                            i7++;
                         }
-                if (i_7_ == 0) {
-                    is[i_7_] = 0;
-                    i_7_++;
+                if (i7 == 0) {
+                    is[i7] = 0;
+                    i7++;
                 }
-                sect[i_3_][i_4_] = new int[i_7_];
-                for (int i_11_ = 0; i_11_ < i_7_; i_11_++)
-                    sect[i_3_][i_4_][i_11_] = is[i_11_];
+                sect[i3][i4] = new int[i7];
+                for (int i11 = 0; i11 < i7; i11++)
+                    sect[i3][i4][i11] = is[i11];
             }
-        for (int i_12_ = 0; i_12_ < nt; i_12_++)
-            if (dam[i_12_] == 167)
-                dam[i_12_] = 1;
+        for (int i12 = 0; i12 < nt; i12++)
+            if (dam[i12] == 167)
+                dam[i12] = 1;
         ncx--;
         ncz--;
     }
 
-    public int py(final int i, final int i_13_, final int i_14_, final int i_15_) {
-        return (i - i_13_) * (i - i_13_) + (i_14_ - i_15_) * (i_14_ - i_15_);
+    public int py(final int i, final int i13, final int i14, final int i15) {
+        return (i - i13) * (i - i13) + (i14 - i15) * (i14 - i15);
     }
 }

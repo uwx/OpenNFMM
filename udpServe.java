@@ -26,57 +26,57 @@ public class udpServe implements Runnable {
     }
 
     public String getSvalue(final String string, final int i) {
-        String string_24_ = "";
+        String string24 = "";
         try {
-            int i_25_ = 0;
-            int i_26_ = 0;
-            int i_27_ = 0;
-            String string_28_ = "";
-            String string_29_ = "";
-            for (/**/; i_25_ < string.length() && i_27_ != 2; i_25_++) {
-                string_28_ = new StringBuilder().append("").append(string.charAt(i_25_)).toString();
-                if (string_28_.equals("|")) {
-                    i_26_++;
-                    if (i_27_ == 1 || i_26_ > i)
-                        i_27_ = 2;
-                } else if (i_26_ == i) {
-                    string_29_ = new StringBuilder().append(string_29_).append(string_28_).toString();
-                    i_27_ = 1;
+            int i25 = 0;
+            int i26 = 0;
+            int i27 = 0;
+            String string28 = "";
+            String string29 = "";
+            for (/**/; i25 < string.length() && i27 != 2; i25++) {
+                string28 = new StringBuilder().append("").append(string.charAt(i25)).toString();
+                if (string28.equals("|")) {
+                    i26++;
+                    if (i27 == 1 || i26 > i)
+                        i27 = 2;
+                } else if (i26 == i) {
+                    string29 = new StringBuilder().append(string29).append(string28).toString();
+                    i27 = 1;
                 }
             }
-            string_24_ = string_29_;
+            string24 = string29;
         } catch (final Exception exception) {
             /* empty */
         }
-        return string_24_;
+        return string24;
     }
 
     public int getvalue(final String string, final int i) {
-        int i_18_ = -1;
+        int i18 = -1;
         try {
-            int i_19_ = 0;
-            int i_20_ = 0;
-            int i_21_ = 0;
-            String string_22_ = "";
-            String string_23_ = "";
-            for (/**/; i_19_ < string.length() && i_21_ != 2; i_19_++) {
-                string_22_ = new StringBuilder().append("").append(string.charAt(i_19_)).toString();
-                if (string_22_.equals("|")) {
-                    i_20_++;
-                    if (i_21_ == 1 || i_20_ > i)
-                        i_21_ = 2;
-                } else if (i_20_ == i) {
-                    string_23_ = new StringBuilder().append(string_23_).append(string_22_).toString();
-                    i_21_ = 1;
+            int i19 = 0;
+            int i20 = 0;
+            int i21 = 0;
+            String string22 = "";
+            String string23 = "";
+            for (/**/; i19 < string.length() && i21 != 2; i19++) {
+                string22 = new StringBuilder().append("").append(string.charAt(i19)).toString();
+                if (string22.equals("|")) {
+                    i20++;
+                    if (i21 == 1 || i20 > i)
+                        i21 = 2;
+                } else if (i20 == i) {
+                    string23 = new StringBuilder().append(string23).append(string22).toString();
+                    i21 = 1;
                 }
             }
-            if (string_23_.equals(""))
-                string_23_ = "-1";
-            i_18_ = Integer.valueOf(string_23_).intValue();
+            if (string23.equals(""))
+                string23 = "-1";
+            i18 = Integer.valueOf(string23).intValue();
         } catch (final Exception exception) {
             /* empty */
         }
-        return i_18_;
+        return i18;
     }
 
     @Override
@@ -88,68 +88,68 @@ public class udpServe implements Runnable {
                 final DatagramPacket datagrampacket = new DatagramPacket(is, is.length);
                 dSocket.receive(datagrampacket);
                 final String string = new String(datagrampacket.getData());
-                String string_0_ = getSvalue(string, 0);
+                String string0 = getSvalue(string, 0);
                 final int i = getvalue(string, 1);
                 if (i == im && im < um.nplayers && um.out[i] != 76) {
-                    final int i_1_ = getvalue(string, 2);
-                    int i_2_ = 0;
-                    for (int i_3_ = 0; i_3_ < 3; i_3_++)
-                        if (i_1_ != um.frame[i][i_3_])
-                            i_2_++;
-                    if (i_2_ == 3)
-                        for (int i_4_ = 0; i_4_ < 3; i_4_++)
-                            if (i_1_ > um.frame[i][i_4_]) {
-                                for (int i_5_ = 2; i_5_ >= i_4_ + 1; i_5_--) {
-                                    um.frame[i][i_5_] = um.frame[i][i_5_ - 1];
-                                    um.info[i][i_5_] = um.info[i][i_5_ - 1];
+                    final int i1 = getvalue(string, 2);
+                    int i2 = 0;
+                    for (int i3 = 0; i3 < 3; i3++)
+                        if (i1 != um.frame[i][i3])
+                            i2++;
+                    if (i2 == 3)
+                        for (int i4 = 0; i4 < 3; i4++)
+                            if (i1 > um.frame[i][i4]) {
+                                for (int i5 = 2; i5 >= i4 + 1; i5--) {
+                                    um.frame[i][i5] = um.frame[i][i5 - 1];
+                                    um.info[i][i5] = um.info[i][i5 - 1];
                                 }
-                                um.frame[i][i_4_] = i_1_;
-                                um.info[i][i_4_] = getSvalue(string, 3);
-                                i_4_ = 3;
+                                um.frame[i][i4] = i1;
+                                um.info[i][i4] = getSvalue(string, 3);
+                                i4 = 3;
                             }
                     if (um.gocnt[i] != 0) {
-                        int i_6_ = 0;
-                        for (int i_7_ = 0; i_7_ < um.nplayers; i_7_++)
-                            if (um.frame[i_7_][0] >= 0)
-                                i_6_++;
-                        if (i_6_ == um.nplayers) {
-                            string_0_ = "1111111";
+                        int i6 = 0;
+                        for (int i7 = 0; i7 < um.nplayers; i7++)
+                            if (um.frame[i7][0] >= 0)
+                                i6++;
+                        if (i6 == um.nplayers) {
+                            string0 = "1111111";
                             um.gocnt[i]--;
                         }
                     }
                     if (!um.go) {
-                        int i_8_ = 0;
-                        for (int i_9_ = 0; i_9_ < um.nplayers; i_9_++)
-                            if (um.frame[i_9_][0] >= 0)
-                                i_8_++;
-                        if (i_8_ == um.nplayers)
+                        int i8 = 0;
+                        for (int i9 = 0; i9 < um.nplayers; i9++)
+                            if (um.frame[i9][0] >= 0)
+                                i8++;
+                        if (i8 == um.nplayers)
                             um.gocnt[0]--;
                         if (um.gocnt[0] <= 1)
                             um.go = true;
                     }
                 }
                 final InetAddress inetaddress = datagrampacket.getAddress();
-                final int i_10_ = datagrampacket.getPort();
-                for (int i_11_ = 0; i_11_ < um.nplayers; i_11_++)
-                    if (i_11_ != im) {
-                        int i_12_ = -1;
-                        for (int i_13_ = 0; i_13_ < 3; i_13_++)
-                            if (um.frame[i_11_][i_13_] == lsframe[i_11_] + 1)
-                                i_12_ = i_13_;
-                        if (i_12_ == -1)
-                            for (int i_14_ = 0; i_14_ < 3; i_14_++)
-                                if (um.frame[i_11_][i_14_] > lsframe[i_11_])
-                                    i_12_ = i_14_;
-                        if (i_12_ == -1)
-                            i_12_ = 0;
-                        lsframe[i_11_] = um.frame[i_11_][i_12_];
-                        final String string_15_ = new StringBuilder().append("").append(string_0_).append("|")
-                                .append(i_11_).append("|").append(um.frame[i_11_][i_12_]).append("|")
-                                .append(um.info[i_11_][i_12_]).append("|").toString();
-                        final byte[] is_16_ = string_15_.getBytes();
-                        final DatagramPacket datagrampacket_17_ = new DatagramPacket(is_16_, is_16_.length, inetaddress,
-                                i_10_);
-                        dSocket.send(datagrampacket_17_);
+                final int i10 = datagrampacket.getPort();
+                for (int i11 = 0; i11 < um.nplayers; i11++)
+                    if (i11 != im) {
+                        int i12 = -1;
+                        for (int i13 = 0; i13 < 3; i13++)
+                            if (um.frame[i11][i13] == lsframe[i11] + 1)
+                                i12 = i13;
+                        if (i12 == -1)
+                            for (int i14 = 0; i14 < 3; i14++)
+                                if (um.frame[i11][i14] > lsframe[i11])
+                                    i12 = i14;
+                        if (i12 == -1)
+                            i12 = 0;
+                        lsframe[i11] = um.frame[i11][i12];
+                        final String string15 = new StringBuilder().append("").append(string0).append("|")
+                                .append(i11).append("|").append(um.frame[i11][i12]).append("|")
+                                .append(um.info[i11][i12]).append("|").toString();
+                        final byte[] is16 = string15.getBytes();
+                        final DatagramPacket datagrampacket17 = new DatagramPacket(is16, is16.length, inetaddress,
+                                i10);
+                        dSocket.send(datagrampacket17);
                     }
             }
         } catch (final Exception exception) {
