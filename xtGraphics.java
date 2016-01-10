@@ -3933,6 +3933,7 @@ public class xtGraphics extends Panel implements Runnable {
     }
 
     public void inishstageselect(final CheckPoints checkpoints) {
+        chrono.reset();
         if (checkpoints.stage == -2 && (cd.msloaded != 1 || !logged)) {
             checkpoints.stage = (int) (Math.random() * 27.0) + 1;
             checkpoints.top20 = 0;
