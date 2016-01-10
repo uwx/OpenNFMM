@@ -522,258 +522,258 @@ public class xtGraphics extends Panel implements Runnable {
         chronostart = false;
     }
 
-    public void arrow(final int i, final int i_216_, final CheckPoints checkpoints, final boolean bool) {
+    public void arrow(final int i, final int i216, final CheckPoints checkpoints, final boolean bool) {
         final int[] is = new int[7];
-        final int[] is_217_ = new int[7];
-        final int[] is_218_ = new int[7];
-        final int i_219_ = 400;
-        final int i_220_ = -90;
-        final int i_221_ = 700;
-        for (int i_222_ = 0; i_222_ < 7; i_222_++)
-            is_217_[i_222_] = i_220_;
-        is[0] = i_219_;
-        is_218_[0] = i_221_ + 110;
-        is[1] = i_219_ - 35;
-        is_218_[1] = i_221_ + 50;
-        is[2] = i_219_ - 15;
-        is_218_[2] = i_221_ + 50;
-        is[3] = i_219_ - 15;
-        is_218_[3] = i_221_ - 50;
-        is[4] = i_219_ + 15;
-        is_218_[4] = i_221_ - 50;
-        is[5] = i_219_ + 15;
-        is_218_[5] = i_221_ + 50;
-        is[6] = i_219_ + 35;
-        is_218_[6] = i_221_ + 50;
-        int i_224_;
+        final int[] is217 = new int[7];
+        final int[] is218 = new int[7];
+        final int i219 = 400;
+        final int i220 = -90;
+        final int i221 = 700;
+        for (int i222 = 0; i222 < 7; i222++)
+            is217[i222] = i220;
+        is[0] = i219;
+        is218[0] = i221 + 110;
+        is[1] = i219 - 35;
+        is218[1] = i221 + 50;
+        is[2] = i219 - 15;
+        is218[2] = i221 + 50;
+        is[3] = i219 - 15;
+        is218[3] = i221 - 50;
+        is[4] = i219 + 15;
+        is218[4] = i221 - 50;
+        is[5] = i219 + 15;
+        is218[5] = i221 + 50;
+        is[6] = i219 + 35;
+        is218[6] = i221 + 50;
+        int i224;
         if (!bool) {
-            int i_225_ = 0;
+            int i225 = 0;
             if (checkpoints.x[i] - checkpoints.opx[im] >= 0)
-                i_225_ = 180;
-            i_224_ = (int) (90 + i_225_ + Math.atan((double) (checkpoints.z[i] - checkpoints.opz[im])
+                i225 = 180;
+            i224 = (int) (90 + i225 + Math.atan((double) (checkpoints.z[i] - checkpoints.opz[im])
                     / (double) (checkpoints.x[i] - checkpoints.opx[im])) / 0.017453292519943295);
         } else {
-            int i_226_ = 0;
+            int i226 = 0;
             if (multion == 0 || alocked == -1) {
-                int i_227_ = -1;
-                boolean bool_228_ = false;
-                for (int i_229_ = 0; i_229_ < nplayers; i_229_++)
-                    if (i_229_ != im
-                            && (py(checkpoints.opx[im] / 100, checkpoints.opx[i_229_] / 100, checkpoints.opz[im] / 100,
-                                    checkpoints.opz[i_229_] / 100) < i_227_ || i_227_ == -1)
-                            && (!bool_228_ || checkpoints.onscreen[i_229_] != 0) && checkpoints.dested[i_229_] == 0) {
-                        i_226_ = i_229_;
-                        i_227_ = py(checkpoints.opx[im] / 100, checkpoints.opx[i_229_] / 100, checkpoints.opz[im] / 100,
-                                checkpoints.opz[i_229_] / 100);
-                        if (checkpoints.onscreen[i_229_] != 0)
-                            bool_228_ = true;
+                int i227 = -1;
+                boolean bool228 = false;
+                for (int i229 = 0; i229 < nplayers; i229++)
+                    if (i229 != im
+                            && (py(checkpoints.opx[im] / 100, checkpoints.opx[i229] / 100, checkpoints.opz[im] / 100,
+                                    checkpoints.opz[i229] / 100) < i227 || i227 == -1)
+                            && (!bool228 || checkpoints.onscreen[i229] != 0) && checkpoints.dested[i229] == 0) {
+                        i226 = i229;
+                        i227 = py(checkpoints.opx[im] / 100, checkpoints.opx[i229] / 100, checkpoints.opz[im] / 100,
+                                checkpoints.opz[i229] / 100);
+                        if (checkpoints.onscreen[i229] != 0)
+                            bool228 = true;
                     }
             } else
-                i_226_ = alocked;
-            int i_230_ = 0;
-            if (checkpoints.opx[i_226_] - checkpoints.opx[im] >= 0)
-                i_230_ = 180;
-            i_224_ = (int) (90 + i_230_ + Math.atan((double) (checkpoints.opz[i_226_] - checkpoints.opz[im])
-                    / (double) (checkpoints.opx[i_226_] - checkpoints.opx[im])) / 0.017453292519943295);
+                i226 = alocked;
+            int i230 = 0;
+            if (checkpoints.opx[i226] - checkpoints.opx[im] >= 0)
+                i230 = 180;
+            i224 = (int) (90 + i230 + Math.atan((double) (checkpoints.opz[i226] - checkpoints.opz[im])
+                    / (double) (checkpoints.opx[i226] - checkpoints.opx[im])) / 0.017453292519943295);
             if (multion == 0) {
                 drawcs(13, "[                                ]", 76, 67, 240, 0);
-                drawcs(13, cd.names[sc[i_226_]], 0, 0, 0, 0);
+                drawcs(13, cd.names[sc[i226]], 0, 0, 0, 0);
             } else {
                 rd.setFont(new Font("Arial", 1, 12));
                 ftm = rd.getFontMetrics();
                 drawcs(17, "[                                ]", 76, 67, 240, 0);
-                drawcs(12, plnames[i_226_], 0, 0, 0, 0);
+                drawcs(12, plnames[i226], 0, 0, 0, 0);
                 rd.setFont(new Font("Arial", 0, 10));
                 ftm = rd.getFontMetrics();
-                drawcs(24, cd.names[sc[i_226_]], 0, 0, 0, 0);
+                drawcs(24, cd.names[sc[i226]], 0, 0, 0, 0);
                 rd.setFont(new Font("Arial", 1, 11));
                 ftm = rd.getFontMetrics();
             }
         }
-        for (i_224_ += m.xz; i_224_ < 0; i_224_ += 360) {
+        for (i224 += m.xz; i224 < 0; i224 += 360) {
             /* empty */
         }
-        for ( /**/ ; i_224_ > 180; i_224_ -= 360) {
+        for ( /**/ ; i224 > 180; i224 -= 360) {
             /* empty */
         }
         if (!bool) {
-            if (i_224_ > 130)
-                i_224_ = 130;
-            if (i_224_ < -130)
-                i_224_ = -130;
+            if (i224 > 130)
+                i224 = 130;
+            if (i224 < -130)
+                i224 = -130;
         } else {
-            if (i_224_ > 100)
-                i_224_ = 100;
-            if (i_224_ < -100)
-                i_224_ = -100;
+            if (i224 > 100)
+                i224 = 100;
+            if (i224 < -100)
+                i224 = -100;
         }
-        if (Math.abs(ana - i_224_) < 180) {
-            if (Math.abs(ana - i_224_) < 10)
-                ana = i_224_;
-            else if (ana < i_224_)
+        if (Math.abs(ana - i224) < 180) {
+            if (Math.abs(ana - i224) < 10)
+                ana = i224;
+            else if (ana < i224)
                 ana += 10;
             else
                 ana -= 10;
         } else {
-            if (i_224_ < 0) {
+            if (i224 < 0) {
                 ana += 15;
                 if (ana > 180)
                     ana -= 360;
             }
-            if (i_224_ > 0) {
+            if (i224 > 0) {
                 ana -= 15;
                 if (ana < -180)
                     ana += 360;
             }
         }
-        rot(is, is_218_, i_219_, i_221_, ana, 7);
-        i_224_ = Math.abs(ana);
+        rot(is, is218, i219, i221, ana, 7);
+        i224 = Math.abs(ana);
         rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         if (!bool) {
-            if (i_224_ > 7 || i_216_ > 0 || i_216_ == -2 || cntan != 0) {
-                for (int i_231_ = 0; i_231_ < 7; i_231_++) {
-                    is[i_231_] = xs(is[i_231_], is_218_[i_231_]);
-                    is_217_[i_231_] = ys(is_217_[i_231_], is_218_[i_231_]);
+            if (i224 > 7 || i216 > 0 || i216 == -2 || cntan != 0) {
+                for (int i231 = 0; i231 < 7; i231++) {
+                    is[i231] = xs(is[i231], is218[i231]);
+                    is217[i231] = ys(is217[i231], is218[i231]);
                 }
-                int i_232_ = (int) (190.0F + 190.0F * (m.snap[0] / 100.0F));
-                if (i_232_ > 255)
-                    i_232_ = 255;
-                if (i_232_ < 0)
-                    i_232_ = 0;
-                int i_233_ = (int) (255.0F + 255.0F * (m.snap[1] / 100.0F));
-                if (i_233_ > 255)
-                    i_233_ = 255;
-                if (i_233_ < 0)
-                    i_233_ = 0;
-                int i_234_ = 0;
-                if (i_216_ <= 0) {
-                    if (i_224_ <= 45 && i_216_ != -2 && cntan == 0) {
-                        i_232_ = (i_232_ * i_224_ + m.csky[0] * (45 - i_224_)) / 45;
-                        i_233_ = (i_233_ * i_224_ + m.csky[1] * (45 - i_224_)) / 45;
-                        i_234_ = (i_234_ * i_224_ + m.csky[2] * (45 - i_224_)) / 45;
+                int i232 = (int) (190.0F + 190.0F * (m.snap[0] / 100.0F));
+                if (i232 > 255)
+                    i232 = 255;
+                if (i232 < 0)
+                    i232 = 0;
+                int i233 = (int) (255.0F + 255.0F * (m.snap[1] / 100.0F));
+                if (i233 > 255)
+                    i233 = 255;
+                if (i233 < 0)
+                    i233 = 0;
+                int i234 = 0;
+                if (i216 <= 0) {
+                    if (i224 <= 45 && i216 != -2 && cntan == 0) {
+                        i232 = (i232 * i224 + m.csky[0] * (45 - i224)) / 45;
+                        i233 = (i233 * i224 + m.csky[1] * (45 - i224)) / 45;
+                        i234 = (i234 * i224 + m.csky[2] * (45 - i224)) / 45;
                     }
-                    if (i_224_ >= 90) {
-                        int i_235_ = (int) (255.0F + 255.0F * (m.snap[0] / 100.0F));
-                        if (i_235_ > 255)
-                            i_235_ = 255;
-                        if (i_235_ < 0)
-                            i_235_ = 0;
-                        i_232_ = (i_232_ * (140 - i_224_) + i_235_ * (i_224_ - 90)) / 50;
-                        if (i_232_ > 255)
-                            i_232_ = 255;
+                    if (i224 >= 90) {
+                        int i235 = (int) (255.0F + 255.0F * (m.snap[0] / 100.0F));
+                        if (i235 > 255)
+                            i235 = 255;
+                        if (i235 < 0)
+                            i235 = 0;
+                        i232 = (i232 * (140 - i224) + i235 * (i224 - 90)) / 50;
+                        if (i232 > 255)
+                            i232 = 255;
                     }
                 } else if (flk) {
-                    i_232_ = (int) (255.0F + 255.0F * (m.snap[0] / 100.0F));
-                    if (i_232_ > 255)
-                        i_232_ = 255;
-                    if (i_232_ < 0)
-                        i_232_ = 0;
+                    i232 = (int) (255.0F + 255.0F * (m.snap[0] / 100.0F));
+                    if (i232 > 255)
+                        i232 = 255;
+                    if (i232 < 0)
+                        i232 = 0;
                     flk = false;
                 } else {
-                    i_232_ = (int) (255.0F + 255.0F * (m.snap[0] / 100.0F));
-                    if (i_232_ > 255)
-                        i_232_ = 255;
-                    if (i_232_ < 0)
-                        i_232_ = 0;
-                    i_233_ = (int) (220.0F + 220.0F * (m.snap[1] / 100.0F));
-                    if (i_233_ > 255)
-                        i_233_ = 255;
-                    if (i_233_ < 0)
-                        i_233_ = 0;
+                    i232 = (int) (255.0F + 255.0F * (m.snap[0] / 100.0F));
+                    if (i232 > 255)
+                        i232 = 255;
+                    if (i232 < 0)
+                        i232 = 0;
+                    i233 = (int) (220.0F + 220.0F * (m.snap[1] / 100.0F));
+                    if (i233 > 255)
+                        i233 = 255;
+                    if (i233 < 0)
+                        i233 = 0;
                     flk = true;
                 }
-                rd.setColor(new Color(i_232_, i_233_, i_234_));
-                rd.fillPolygon(is, is_217_, 7);
-                i_232_ = (int) (115.0F + 115.0F * (m.snap[0] / 100.0F));
-                if (i_232_ > 255)
-                    i_232_ = 255;
-                if (i_232_ < 0)
-                    i_232_ = 0;
-                i_233_ = (int) (170.0F + 170.0F * (m.snap[1] / 100.0F));
-                if (i_233_ > 255)
-                    i_233_ = 255;
-                if (i_233_ < 0)
-                    i_233_ = 0;
-                i_234_ = 0;
-                if (i_216_ <= 0) {
-                    if (i_224_ <= 45 && i_216_ != -2 && cntan == 0) {
-                        i_232_ = (i_232_ * i_224_ + m.csky[0] * (45 - i_224_)) / 45;
-                        i_233_ = (i_233_ * i_224_ + m.csky[1] * (45 - i_224_)) / 45;
-                        i_234_ = (i_234_ * i_224_ + m.csky[2] * (45 - i_224_)) / 45;
+                rd.setColor(new Color(i232, i233, i234));
+                rd.fillPolygon(is, is217, 7);
+                i232 = (int) (115.0F + 115.0F * (m.snap[0] / 100.0F));
+                if (i232 > 255)
+                    i232 = 255;
+                if (i232 < 0)
+                    i232 = 0;
+                i233 = (int) (170.0F + 170.0F * (m.snap[1] / 100.0F));
+                if (i233 > 255)
+                    i233 = 255;
+                if (i233 < 0)
+                    i233 = 0;
+                i234 = 0;
+                if (i216 <= 0) {
+                    if (i224 <= 45 && i216 != -2 && cntan == 0) {
+                        i232 = (i232 * i224 + m.csky[0] * (45 - i224)) / 45;
+                        i233 = (i233 * i224 + m.csky[1] * (45 - i224)) / 45;
+                        i234 = (i234 * i224 + m.csky[2] * (45 - i224)) / 45;
                     }
                 } else if (flk) {
-                    i_232_ = (int) (255.0F + 255.0F * (m.snap[0] / 100.0F));
-                    if (i_232_ > 255)
-                        i_232_ = 255;
-                    if (i_232_ < 0)
-                        i_232_ = 0;
-                    i_233_ = 0;
+                    i232 = (int) (255.0F + 255.0F * (m.snap[0] / 100.0F));
+                    if (i232 > 255)
+                        i232 = 255;
+                    if (i232 < 0)
+                        i232 = 0;
+                    i233 = 0;
                 }
-                rd.setColor(new Color(i_232_, i_233_, i_234_));
-                rd.drawPolygon(is, is_217_, 7);
+                rd.setColor(new Color(i232, i233, i234));
+                rd.drawPolygon(is, is217, 7);
             }
         } else {
-            int i_236_ = 0;
+            int i236 = 0;
             if (multion != 0)
-                i_236_ = 8;
-            for (int i_237_ = 0; i_237_ < 7; i_237_++) {
-                is[i_237_] = xs(is[i_237_], is_218_[i_237_]);
-                is_217_[i_237_] = ys(is_217_[i_237_], is_218_[i_237_]) + i_236_;
+                i236 = 8;
+            for (int i237 = 0; i237 < 7; i237++) {
+                is[i237] = xs(is[i237], is218[i237]);
+                is217[i237] = ys(is217[i237], is218[i237]) + i236;
             }
-            int i_238_ = (int) (159.0F + 159.0F * (m.snap[0] / 100.0F));
-            if (i_238_ > 255)
-                i_238_ = 255;
-            if (i_238_ < 0)
-                i_238_ = 0;
-            int i_239_ = (int) (207.0F + 207.0F * (m.snap[1] / 100.0F));
-            if (i_239_ > 255)
-                i_239_ = 255;
-            if (i_239_ < 0)
-                i_239_ = 0;
-            int i_240_ = (int) (255.0F + 255.0F * (m.snap[2] / 100.0F));
-            if (i_240_ > 255)
-                i_240_ = 255;
-            if (i_240_ < 0)
-                i_240_ = 0;
-            rd.setColor(new Color(i_238_, i_239_, i_240_));
-            rd.fillPolygon(is, is_217_, 7);
-            i_238_ = (int) (120.0F + 120.0F * (m.snap[0] / 100.0F));
-            if (i_238_ > 255)
-                i_238_ = 255;
-            if (i_238_ < 0)
-                i_238_ = 0;
-            i_239_ = (int) (114.0F + 114.0F * (m.snap[1] / 100.0F));
-            if (i_239_ > 255)
-                i_239_ = 255;
-            if (i_239_ < 0)
-                i_239_ = 0;
-            i_240_ = (int) (255.0F + 255.0F * (m.snap[2] / 100.0F));
-            if (i_240_ > 255)
-                i_240_ = 255;
-            if (i_240_ < 0)
-                i_240_ = 0;
-            rd.setColor(new Color(i_238_, i_239_, i_240_));
-            rd.drawPolygon(is, is_217_, 7);
+            int i238 = (int) (159.0F + 159.0F * (m.snap[0] / 100.0F));
+            if (i238 > 255)
+                i238 = 255;
+            if (i238 < 0)
+                i238 = 0;
+            int i239 = (int) (207.0F + 207.0F * (m.snap[1] / 100.0F));
+            if (i239 > 255)
+                i239 = 255;
+            if (i239 < 0)
+                i239 = 0;
+            int i240 = (int) (255.0F + 255.0F * (m.snap[2] / 100.0F));
+            if (i240 > 255)
+                i240 = 255;
+            if (i240 < 0)
+                i240 = 0;
+            rd.setColor(new Color(i238, i239, i240));
+            rd.fillPolygon(is, is217, 7);
+            i238 = (int) (120.0F + 120.0F * (m.snap[0] / 100.0F));
+            if (i238 > 255)
+                i238 = 255;
+            if (i238 < 0)
+                i238 = 0;
+            i239 = (int) (114.0F + 114.0F * (m.snap[1] / 100.0F));
+            if (i239 > 255)
+                i239 = 255;
+            if (i239 < 0)
+                i239 = 0;
+            i240 = (int) (255.0F + 255.0F * (m.snap[2] / 100.0F));
+            if (i240 > 255)
+                i240 = 255;
+            if (i240 < 0)
+                i240 = 0;
+            rd.setColor(new Color(i238, i239, i240));
+            rd.drawPolygon(is, is217, 7);
         }
         rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
     }
 
     private Image bressed(final Image image) {
         final int i = image.getHeight(ob);
-        final int i_340_ = image.getWidth(ob);
-        final int[] is = new int[i_340_ * i];
-        final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i_340_, i, is, 0, i_340_);
+        final int i340 = image.getWidth(ob);
+        final int[] is = new int[i340 * i];
+        final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i340, i, is, 0, i340);
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
             /* empty */
         }
         final Color color = new Color(247, 255, 165);
-        for (int i_341_ = 0; i_341_ < i_340_ * i; i_341_++)
-            if (is[i_341_] != is[i_340_ * i - 1])
-                is[i_341_] = color.getRGB();
-        final Image image_342_ = createImage(new MemoryImageSource(i_340_, i, is, 0, i_340_));
-        return image_342_;
+        for (int i341 = 0; i341 < i340 * i; i341++)
+            if (is[i341] != is[i340 * i - 1])
+                is[i341] = color.getRGB();
+        final Image image342 = createImage(new MemoryImageSource(i340, i, is, 0, i340));
+        return image342;
     }
 
     public void cantgo(final Control control) {
@@ -832,7 +832,7 @@ public class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void carselect(final Control control, final ContO[] contos, final Mad mad, final int i, final int i_104_,
+    public void carselect(final Control control, final ContO[] contos, final Mad mad, final int i, final int i104,
             final boolean bool) {
         rd.setColor(new Color(0, 0, 0));
         rd.fillRect(0, 0, 65, 450);
@@ -863,31 +863,31 @@ public class xtGraphics extends Panel implements Runnable {
         	rd.setFont(new Font("Arial", 1, 13));
         	ftm = rd.getFontMetrics();
         	String string = "Top 20 Cars";
-        	int i_105_ = cd.loadlist;
-        	String string_106_ = "Weekly";
-        	while (i_105_ > 6 && !Thread.currentThread().isInterrupted()) {
-        		i_105_ -= 6;
-        		if (string_106_.equals("Semi-Annual"))
-        			string_106_ = "Annual";
-        		if (string_106_.equals("Monthly"))
-        			string_106_ = "Semi-Annual";
-        		if (string_106_.equals("Weekly"))
-        			string_106_ = "Monthly";
+        	int i105 = cd.loadlist;
+        	String string106 = "Weekly";
+        	while (i105 > 6 && !Thread.currentThread().isInterrupted()) {
+        		i105 -= 6;
+        		if (string106.equals("Semi-Annual"))
+        			string106 = "Annual";
+        		if (string106.equals("Monthly"))
+        			string106 = "Semi-Annual";
+        		if (string106.equals("Weekly"))
+        			string106 = "Monthly";
         	}
-        	if (i_105_ == 1)
-        		string = new StringBuilder().append("").append(string_106_).append(" Top 20 Cars").toString();
-        	if (i_105_ == 2)
-        		string = new StringBuilder().append("").append(string_106_).append(" Top 20 Class A Cars").toString();
-        	if (i_105_ == 3)
-        		string = new StringBuilder().append("").append(string_106_).append(" Top 20 Class A & B Cars")
+        	if (i105 == 1)
+        		string = new StringBuilder().append("").append(string106).append(" Top 20 Cars").toString();
+        	if (i105 == 2)
+        		string = new StringBuilder().append("").append(string106).append(" Top 20 Class A Cars").toString();
+        	if (i105 == 3)
+        		string = new StringBuilder().append("").append(string106).append(" Top 20 Class A & B Cars")
         				.toString();
-        	if (i_105_ == 4)
-        		string = new StringBuilder().append("").append(string_106_).append(" Top 20 Class B Cars").toString();
-        	if (i_105_ == 5)
-        		string = new StringBuilder().append("").append(string_106_).append(" Top 20 Class B & C Cars")
+        	if (i105 == 4)
+        		string = new StringBuilder().append("").append(string106).append(" Top 20 Class B Cars").toString();
+        	if (i105 == 5)
+        		string = new StringBuilder().append("").append(string106).append(" Top 20 Class B & C Cars")
         				.toString();
-        	if (i_105_ == 6)
-        		string = new StringBuilder().append("").append(string_106_).append(" Top 20 Class C Cars").toString();
+        	if (i105 == 6)
+        		string = new StringBuilder().append("").append(string106).append(" Top 20 Class C Cars").toString();
         	drawcs(69, string, 120, 176, 255, 3);
         }*/
         /*if (cfase == 101) {
@@ -916,74 +916,74 @@ public class xtGraphics extends Panel implements Runnable {
         if (/*(multion != 0 || testdrive == 1 || testdrive == 2) && */lsc != sc[0]) {
             if (contos[sc[0]].xy != 0)
                 contos[sc[0]].xy = 0;
-            boolean bool_107_ = false;
-            for (int i_108_ = 0; i_108_ < contos[sc[0]].npl && !bool_107_; i_108_++)
-                if (contos[sc[0]].p[i_108_].colnum == 1) {
+            boolean bool107 = false;
+            for (int i108 = 0; i108 < contos[sc[0]].npl && !bool107; i108++)
+                if (contos[sc[0]].p[i108].colnum == 1) {
                     final float[] fs = new float[3];
-                    Color.RGBtoHSB(contos[sc[0]].p[i_108_].c[0], contos[sc[0]].p[i_108_].c[1],
-                            contos[sc[0]].p[i_108_].c[2], fs);
+                    Color.RGBtoHSB(contos[sc[0]].p[i108].c[0], contos[sc[0]].p[i108].c[1],
+                            contos[sc[0]].p[i108].c[2], fs);
                     arnp[0] = fs[0];
                     arnp[1] = fs[1];
                     arnp[2] = 1.0F - fs[2];
-                    bool_107_ = true;
+                    bool107 = true;
                 }
-            bool_107_ = false;
-            for (int i_109_ = 0; i_109_ < contos[sc[0]].npl && !bool_107_; i_109_++)
-                if (contos[sc[0]].p[i_109_].colnum == 2) {
+            bool107 = false;
+            for (int i109 = 0; i109 < contos[sc[0]].npl && !bool107; i109++)
+                if (contos[sc[0]].p[i109].colnum == 2) {
                     final float[] fs = new float[3];
-                    Color.RGBtoHSB(contos[sc[0]].p[i_109_].c[0], contos[sc[0]].p[i_109_].c[1],
-                            contos[sc[0]].p[i_109_].c[2], fs);
+                    Color.RGBtoHSB(contos[sc[0]].p[i109].c[0], contos[sc[0]].p[i109].c[1],
+                            contos[sc[0]].p[i109].c[2], fs);
                     arnp[3] = fs[0];
                     arnp[4] = fs[1];
                     arnp[5] = 1.0F - fs[2];
-                    bool_107_ = true;
+                    bool107 = true;
                 }
             final Color color = Color.getHSBColor(arnp[0], arnp[1], 1.0F - arnp[2]);
-            final Color color_110_ = Color.getHSBColor(arnp[3], arnp[4], 1.0F - arnp[5]);
-            for (int i_111_ = 0; i_111_ < contos[sc[0]].npl; i_111_++) {
-                if (contos[sc[0]].p[i_111_].colnum == 1) {
-                    contos[sc[0]].p[i_111_].hsb[0] = arnp[0];
-                    contos[sc[0]].p[i_111_].hsb[1] = arnp[1];
-                    contos[sc[0]].p[i_111_].hsb[2] = 1.0F - arnp[2];
-                    contos[sc[0]].p[i_111_].c[0] = color.getRed();
-                    contos[sc[0]].p[i_111_].c[1] = color.getGreen();
-                    contos[sc[0]].p[i_111_].c[2] = color.getBlue();
-                    contos[sc[0]].p[i_111_].oc[0] = color.getRed();
-                    contos[sc[0]].p[i_111_].oc[1] = color.getGreen();
-                    contos[sc[0]].p[i_111_].oc[2] = color.getBlue();
+            final Color color110 = Color.getHSBColor(arnp[3], arnp[4], 1.0F - arnp[5]);
+            for (int i111 = 0; i111 < contos[sc[0]].npl; i111++) {
+                if (contos[sc[0]].p[i111].colnum == 1) {
+                    contos[sc[0]].p[i111].hsb[0] = arnp[0];
+                    contos[sc[0]].p[i111].hsb[1] = arnp[1];
+                    contos[sc[0]].p[i111].hsb[2] = 1.0F - arnp[2];
+                    contos[sc[0]].p[i111].c[0] = color.getRed();
+                    contos[sc[0]].p[i111].c[1] = color.getGreen();
+                    contos[sc[0]].p[i111].c[2] = color.getBlue();
+                    contos[sc[0]].p[i111].oc[0] = color.getRed();
+                    contos[sc[0]].p[i111].oc[1] = color.getGreen();
+                    contos[sc[0]].p[i111].oc[2] = color.getBlue();
                 }
-                if (contos[sc[0]].p[i_111_].colnum == 2) {
-                    contos[sc[0]].p[i_111_].hsb[0] = arnp[3];
-                    contos[sc[0]].p[i_111_].hsb[1] = arnp[4];
-                    contos[sc[0]].p[i_111_].hsb[2] = 1.0F - arnp[5];
-                    contos[sc[0]].p[i_111_].c[0] = color_110_.getRed();
-                    contos[sc[0]].p[i_111_].c[1] = color_110_.getGreen();
-                    contos[sc[0]].p[i_111_].c[2] = color_110_.getBlue();
-                    contos[sc[0]].p[i_111_].oc[0] = color_110_.getRed();
-                    contos[sc[0]].p[i_111_].oc[1] = color_110_.getGreen();
-                    contos[sc[0]].p[i_111_].oc[2] = color_110_.getBlue();
+                if (contos[sc[0]].p[i111].colnum == 2) {
+                    contos[sc[0]].p[i111].hsb[0] = arnp[3];
+                    contos[sc[0]].p[i111].hsb[1] = arnp[4];
+                    contos[sc[0]].p[i111].hsb[2] = 1.0F - arnp[5];
+                    contos[sc[0]].p[i111].c[0] = color110.getRed();
+                    contos[sc[0]].p[i111].c[1] = color110.getGreen();
+                    contos[sc[0]].p[i111].c[2] = color110.getBlue();
+                    contos[sc[0]].p[i111].oc[0] = color110.getRed();
+                    contos[sc[0]].p[i111].oc[1] = color110.getGreen();
+                    contos[sc[0]].p[i111].oc[2] = color110.getBlue();
                 }
             }
             lsc = sc[0];
         }
-        int i_112_ = -1;
-        int i_113_ = 0;
-        final boolean bool_114_ = false;
+        int i112 = -1;
+        int i113 = 0;
+        final boolean bool114 = false;
         if (flipo == 0) {
             rd.setFont(new Font("Arial", 1, 13));
             ftm = rd.getFontMetrics();
-            int i_115_ = 0;
+            int i115 = 0;
             if (flatrstart < 6)
-                i_115_ = 2;
+                i115 = 2;
             if (!remi && (cfase != 10 || cd.action != 0 && cd.action < 14)) {
                 if (cfase == 3 && cd.lastload == 2) {
                     app.mcars.move(400 - app.mcars.w / 2, 78);
                     app.mcars.show = true;
                     if (!app.mcars.getSelectedItem().equals(cd.names[sc[0]])) {
-                        for (int i_116_ = 16; i_116_ < cd.nlocars; i_116_++)
-                            if (cd.names[i_116_].equals(app.mcars.getSelectedItem()))
-                                i_112_ = i_116_;
-                        if (i_112_ == -1) {
+                        for (int i116 = 16; i116 < cd.nlocars; i116++)
+                            if (cd.names[i116].equals(app.mcars.getSelectedItem()))
+                                i112 = i116;
+                        if (i112 == -1) {
                             cfase = 5;
                             cd.action = 4;
                             cd.sparkactionloader();
@@ -995,7 +995,7 @@ public class xtGraphics extends Panel implements Runnable {
                     if (cfase == 11)
                         string = new StringBuilder().append("N#").append(sc[0] - 35).append("  ").toString();
                     if (aflk) {
-                        drawcs(95 + i_115_, new StringBuilder().append(string).append(cd.names[sc[0]]).toString(), 240,
+                        drawcs(95 + i115, new StringBuilder().append(string).append(cd.names[sc[0]]).toString(), 240,
                                 240, 240, 3);
                         aflk = false;
                     } else {
@@ -1029,47 +1029,47 @@ public class xtGraphics extends Panel implements Runnable {
             }
             /*if (gmode == 1) {
             	if (sc[0] == 5 && unlocked[0] <= 2)
-            		i_113_ = 2;
+            		i113 = 2;
             	if (sc[0] == 6 && unlocked[0] <= 4)
-            		i_113_ = 4;
+            		i113 = 4;
             	if (sc[0] == 11 && unlocked[0] <= 6)
-            		i_113_ = 6;
+            		i113 = 6;
             	if (sc[0] == 14 && unlocked[0] <= 8)
-            		i_113_ = 8;
+            		i113 = 8;
             	if (sc[0] == 15 && unlocked[0] <= 10)
-            		i_113_ = 10;
+            		i113 = 10;
             }*/
             if (gmode == 2 && sc[0] >= 8 && unlocked <= (sc[0] - 7) * 2)
-                i_113_ = (sc[0] - 7) * 2;
-            if (i_113_ != 0) {
+                i113 = (sc[0] - 7) * 2;
+            if (i113 != 0) {
                 if (gatey == 300) {
-                    for (int i_117_ = 0; i_117_ < 9; i_117_++) {
-                        pgas[i_117_] = false;
-                        pgady[i_117_] = 0;
+                    for (int i117 = 0; i117 < 9; i117++) {
+                        pgas[i117] = false;
+                        pgady[i117] = 0;
                     }
                     pgas[0] = true;
                 }
-                for (int i_118_ = 0; i_118_ < 9; i_118_++) {
-                    rd.drawImage(pgate, pgatx[i_118_], pgaty[i_118_] + pgady[i_118_] - gatey, null);
+                for (int i118 = 0; i118 < 9; i118++) {
+                    rd.drawImage(pgate, pgatx[i118], pgaty[i118] + pgady[i118] - gatey, null);
                     if (flatrstart == 6)
-                        if (pgas[i_118_]) {
-                            pgady[i_118_] -= (80 + 100 / (i_118_ + 1) - Math.abs(pgady[i_118_])) / 3;
-                            if (pgady[i_118_] < -(70 + 100 / (i_118_ + 1))) {
-                                pgas[i_118_] = false;
-                                if (i_118_ != 8)
-                                    pgas[i_118_ + 1] = true;
+                        if (pgas[i118]) {
+                            pgady[i118] -= (80 + 100 / (i118 + 1) - Math.abs(pgady[i118])) / 3;
+                            if (pgady[i118] < -(70 + 100 / (i118 + 1))) {
+                                pgas[i118] = false;
+                                if (i118 != 8)
+                                    pgas[i118 + 1] = true;
                             }
                         } else {
-                            pgady[i_118_] += (80 + 100 / (i_118_ + 1) - Math.abs(pgady[i_118_])) / 3;
-                            if (pgady[i_118_] > 0)
-                                pgady[i_118_] = 0;
+                            pgady[i118] += (80 + 100 / (i118 + 1) - Math.abs(pgady[i118])) / 3;
+                            if (pgady[i118] > 0)
+                                pgady[i118] = 0;
                         }
                 }
                 if (gatey != 0)
                     gatey -= 100;
                 if (flatrstart == 6) {
                     drawcs(355, "[ Car Locked ]", 210, 210, 210, 3);
-                    drawcs(375, new StringBuilder().append("This car unlocks when stage ").append(i_113_)
+                    drawcs(375, new StringBuilder().append("This car unlocks when stage ").append(i113)
                             .append(" is completed...").toString(), 255, 96, 0, 3);
                 }
             } else {
@@ -1078,40 +1078,40 @@ public class xtGraphics extends Panel implements Runnable {
                     	/*if (cd.action == 13) {
                     		minsl = nCars + 20;
                     		maxsl = cd.xnlocars - 1;
-                    		i_112_ = nCars + 20;
+                    		i112 = nCars + 20;
                     		cd.action = 0;
                     		cfase = 11;
                     	}*/
                     /*if (cd.action == 12) {
-                    	int i_119_ = cd.loadlist;
+                    	int i119 = cd.loadlist;
                     	String string = "Top 20 Cars";
-                    	String string_120_ = "Weekly";
-                    	while (i_119_ > 6 && !Thread.currentThread().isInterrupted()) {
-                    		i_119_ -= 6;
-                    		if (string_120_.equals("Semi-Annual"))
-                    			string_120_ = "Annual";
-                    		if (string_120_.equals("Monthly"))
-                    			string_120_ = "Semi-Annual";
-                    		if (string_120_.equals("Weekly"))
-                    			string_120_ = "Monthly";
+                    	String string120 = "Weekly";
+                    	while (i119 > 6 && !Thread.currentThread().isInterrupted()) {
+                    		i119 -= 6;
+                    		if (string120.equals("Semi-Annual"))
+                    			string120 = "Annual";
+                    		if (string120.equals("Monthly"))
+                    			string120 = "Semi-Annual";
+                    		if (string120.equals("Weekly"))
+                    			string120 = "Monthly";
                     	}
-                    	if (i_119_ == 1)
-                    		string = new StringBuilder().append("").append(string_120_).append(" Top 20 Cars")
+                    	if (i119 == 1)
+                    		string = new StringBuilder().append("").append(string120).append(" Top 20 Cars")
                     				.toString();
-                    	if (i_119_ == 2)
-                    		string = new StringBuilder().append("").append(string_120_)
+                    	if (i119 == 2)
+                    		string = new StringBuilder().append("").append(string120)
                     				.append(" Top 20 Class A Cars").toString();
-                    	if (i_119_ == 3)
-                    		string = new StringBuilder().append("").append(string_120_)
+                    	if (i119 == 3)
+                    		string = new StringBuilder().append("").append(string120)
                     				.append(" Top 20 Class A & B Cars").toString();
-                    	if (i_119_ == 4)
-                    		string = new StringBuilder().append("").append(string_120_)
+                    	if (i119 == 4)
+                    		string = new StringBuilder().append("").append(string120)
                     				.append(" Top 20 Class B Cars").toString();
-                    	if (i_119_ == 5)
-                    		string = new StringBuilder().append("").append(string_120_)
+                    	if (i119 == 5)
+                    		string = new StringBuilder().append("").append(string120)
                     				.append(" Top 20 Class B & C Cars").toString();
-                    	if (i_119_ == 6)
-                    		string = new StringBuilder().append("").append(string_120_)
+                    	if (i119 == 6)
+                    		string = new StringBuilder().append("").append(string120)
                     				.append(" Top 20 Class C Cars").toString();
                     	drawprom(145, 170);
                     	drawcs(195,
@@ -1129,7 +1129,7 @@ public class xtGraphics extends Panel implements Runnable {
                     	drawprom(145, 170);
                     	drawcs(195, "Failed to Load List.", 0, 0, 0, 3);
                     	drawcs(225, "Unknown Error.  Please try again later.", 0, 0, 0, 3);
-                    	if (drawcarb(true, null, "   OK   ", 371, 255, i, i_104_, bool)) {
+                    	if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool)) {
                     		cd.action = 0;
                     		cfase = basefase;
                     	}
@@ -1137,7 +1137,7 @@ public class xtGraphics extends Panel implements Runnable {
                     /*if (cd.action == 0 || cd.action == 14 || cd.action == 15 || cd.action == 16
                     		|| cd.action == 17) {
                     	drawprom(65, 250);
-                    	if (drawcarb(true, null, " X ", 557, 70, i, i_104_, bool)) {
+                    	if (drawcarb(true, null, " X ", 557, 70, i, i104, bool)) {
                     		cd.action = 0;
                     		cfase = basefase;
                     	}
@@ -1153,35 +1153,35 @@ public class xtGraphics extends Panel implements Runnable {
                     			drawcs(91, "Semi-Annual Top 20 Cars", 0, 0, 0, 3);
                     		if (cd.action == 17)
                     			drawcs(91, "Annual Top 20 Cars", 0, 0, 0, 3);
-                    		if (drawcarb(true, null, "   All Cars, All Classes   ", 318, 105, i, i_104_, bool)
+                    		if (drawcarb(true, null, "   All Cars, All Classes   ", 318, 105, i, i104, bool)
                     				&& cntflock == 0) {
                     			cd.loadlist = 1 + (cd.action - 14) * 6;
                     			cd.action = 11;
                     			cd.sparkactionloader();
                     		}
-                    		if (drawcarb(true, null, "Class A Cars", 337, 135, i, i_104_, bool) && cntflock == 0) {
+                    		if (drawcarb(true, null, "Class A Cars", 337, 135, i, i104, bool) && cntflock == 0) {
                     			cd.loadlist = 2 + (cd.action - 14) * 6;
                     			cd.action = 11;
                     			cd.sparkactionloader();
                     		}
-                    		if (drawcarb(true, null, "Class A & B Cars", 337, 165, i, i_104_, bool)
+                    		if (drawcarb(true, null, "Class A & B Cars", 337, 165, i, i104, bool)
                     				&& cntflock == 0) {
                     			cd.loadlist = 3 + (cd.action - 14) * 6;
                     			cd.action = 11;
                     			cd.sparkactionloader();
                     		}
-                    		if (drawcarb(true, null, "Class B Cars", 337, 195, i, i_104_, bool) && cntflock == 0) {
+                    		if (drawcarb(true, null, "Class B Cars", 337, 195, i, i104, bool) && cntflock == 0) {
                     			cd.loadlist = 4 + (cd.action - 14) * 6;
                     			cd.action = 11;
                     			cd.sparkactionloader();
                     		}
-                    		if (drawcarb(true, null, "Class B & C Cars", 337, 225, i, i_104_, bool)
+                    		if (drawcarb(true, null, "Class B & C Cars", 337, 225, i, i104, bool)
                     				&& cntflock == 0) {
                     			cd.loadlist = 5 + (cd.action - 14) * 6;
                     			cd.action = 11;
                     			cd.sparkactionloader();
                     		}
-                    		if (drawcarb(true, null, "Class C Cars", 337, 255, i, i_104_, bool) && cntflock == 0) {
+                    		if (drawcarb(true, null, "Class C Cars", 337, 255, i, i104, bool) && cntflock == 0) {
                     			cd.loadlist = 6 + (cd.action - 14) * 6;
                     			cd.action = 11;
                     			cd.sparkactionloader();
@@ -1189,13 +1189,13 @@ public class xtGraphics extends Panel implements Runnable {
                     	}
                     	if (cd.action == 0) {
                     		drawcs(91, "Top 20 Most Added Public Custom Cars", 0, 0, 0, 3);
-                    		if (drawcarb(true, null, "  Weekly Top 20  ", 338, 125, i, i_104_, bool))
+                    		if (drawcarb(true, null, "  Weekly Top 20  ", 338, 125, i, i104, bool))
                     			cd.action = 14;
-                    		if (drawcarb(true, null, "  Monthly Top 20  ", 337, 165, i, i_104_, bool))
+                    		if (drawcarb(true, null, "  Monthly Top 20  ", 337, 165, i, i104, bool))
                     			cd.action = 15;
-                    		if (drawcarb(true, null, "  Semi-Annual Top 20  ", 321, 205, i, i_104_, bool))
+                    		if (drawcarb(true, null, "  Semi-Annual Top 20  ", 321, 205, i, i104, bool))
                     			cd.action = 16;
-                    		if (drawcarb(true, null, "  Annual Top 20  ", 339, 245, i, i_104_, bool))
+                    		if (drawcarb(true, null, "  Annual Top 20  ", 339, 245, i, i104, bool))
                     			cd.action = 17;
                     		if (cntflock != 20)
                     			cntflock = 20;
@@ -1207,7 +1207,7 @@ public class xtGraphics extends Panel implements Runnable {
                     		drawprom(145, 170);
                     		drawcs(195, "Failed to Load List.", 0, 0, 0, 3);
                     		drawcs(225, "Unknown Error.  Please try again later.", 0, 0, 0, 3);
-                    		if (drawcarb(true, null, "   OK   ", 371, 255, i, i_104_, bool))
+                    		if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool))
                     			if (sc[0] >= 16 && cd.lastload == 2 && sc[0] < 36)
                     				cfase = 3;
                     			else
@@ -1220,7 +1220,7 @@ public class xtGraphics extends Panel implements Runnable {
                     				new StringBuilder().append("").append(cd.viewname)
                     						.append(" does not have any published or added cars.").toString(),
                     				0, 0, 0, 3);
-                    		if (drawcarb(true, null, "   OK   ", 371, 255, i, i_104_, bool))
+                    		if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool))
                     			if (sc[0] >= 16 && cd.lastload == 2 && sc[0] < 36)
                     				cfase = 3;
                     			else
@@ -1246,28 +1246,28 @@ public class xtGraphics extends Panel implements Runnable {
                     	if (cd.action == 103) {
                     		minsl = nCars + 20;
                     		maxsl = cd.xnlocars - 1;
-                    		i_112_ = nCars + 20;
+                    		i112 = nCars + 20;
                     		cd.action = 0;
                     		cfase = 101;
                     	}
                     }*/
                     /*if (cfase == 0 && testdrive != 1 && testdrive != 2 && gmode == 0) {
-                    	int i_121_ = 95;
-                    	int i_122_ = 5;
+                    	int i121 = 95;
+                    	int i122 = 5;
                     	if (multion != 0) {
-                    		i_121_ = 185;
-                    		i_122_ = 0;
+                    		i121 = 185;
+                    		i122 = 0;
                     	}
-                    	if (multion == 0 && drawcarb(false, cmc, "", 95, 70, i, i_104_, bool))
+                    	if (multion == 0 && drawcarb(false, cmc, "", 95, 70, i, i104, bool))
                     		if (cd.lastload != 1)
                     			cfase = 1;
                     		else {
                     			minsl = nCars;
                     			maxsl = cd.nlcars - 1;
-                    			i_112_ = nCars;
+                    			i112 = nCars;
                     			cfase = 3;
                     		}
-                    	if (drawcarb(false, myc, "", i_121_, 105 + i_122_, i, i_104_, bool))
+                    	if (drawcarb(false, myc, "", i121, 105 + i122, i, i104, bool))
                     		if (cd.lastload != 2) {
                     			cfase = 5;
                     			showtf = false;
@@ -1284,13 +1284,13 @@ public class xtGraphics extends Panel implements Runnable {
                     			minsl = nCars;
                     			maxsl = cd.nlocars - 1;
                     			if (onmsc >= minsl && onmsc <= maxsl)
-                    				i_112_ = onmsc;
+                    				i112 = onmsc;
                     			else
-                    				i_112_ = nCars;
+                    				i112 = nCars;
                     			cfase = 3;
                     		}
-                    	if ((multion == 0 || onjoin == -1) && drawcarb(false, top20s, "", i_121_,
-                    			(i_121_ - 95) / 7 + 25 + i_122_, i, i_104_, bool)) {
+                    	if ((multion == 0 || onjoin == -1) && drawcarb(false, top20s, "", i121,
+                    			(i121 - 95) / 7 + 25 + i122, i, i104, bool)) {
                     		cd.action = 0;
                     		cfase = 10;
                     	}
@@ -1319,21 +1319,21 @@ public class xtGraphics extends Panel implements Runnable {
                     		minsl = nCars;
                     		maxsl = cd.nlocars - 1;
                     		if (onmsc >= minsl && onmsc <= maxsl)
-                    			i_112_ = onmsc;
+                    			i112 = onmsc;
                     		else
-                    			i_112_ = nCars;
+                    			i112 = nCars;
                     		cfase = 3;
                     	}
                     if (cfase == 9) {
                     	drawprom(145, 95);
                     	drawcs(175, "Failed to remove car.  Unkown Error.  Try again laster.", 0, 0, 0, 3);
-                    	if (drawcarb(true, null, "   OK   ", 371, 195, i, i_104_, bool)) {
+                    	if (drawcarb(true, null, "   OK   ", 371, 195, i, i104, bool)) {
                     		minsl = nCars;
                     		maxsl = cd.nlocars - 1;
                     		if (onmsc >= minsl && onmsc <= maxsl)
-                    			i_112_ = onmsc;
+                    			i112 = onmsc;
                     		else
-                    			i_112_ = nCars;
+                    			i112 = nCars;
                     		cfase = 3;
                     	}
                     }
@@ -1342,34 +1342,34 @@ public class xtGraphics extends Panel implements Runnable {
                     		app.mycar.setVisible(false);
                     	drawprom(145, 95);
                     	drawcs(175, "Remove this car from your account?", 0, 0, 0, 3);
-                    	if (drawcarb(true, null, " Yes ", 354, 195, i, i_104_, bool)) {
+                    	if (drawcarb(true, null, " Yes ", 354, 195, i, i104, bool)) {
                     		remi = true;
                     		minsl = 0;
                     		maxsl = nCars - 1;
-                    		i_112_ = nCars - 1;
+                    		i112 = nCars - 1;
                     		cfase = 8;
                     		onmsc = sc[0];
                     		cd.ac = sc[0];
                     		cd.action = 10;
                     		cd.sparkactionloader();
                     	}
-                    	if (drawcarb(true, null, " No ", 408, 195, i, i_104_, bool))
+                    	if (drawcarb(true, null, " No ", 408, 195, i, i104, bool))
                     		cfase = 3;
                     }*/
-                    /*if (cfase == 3 && i_112_ == -1) {
-                    	int i_123_ = 95;
-                    	int i_124_ = 5;
+                    /*if (cfase == 3 && i112 == -1) {
+                    	int i123 = 95;
+                    	int i124 = 5;
                     	if (multion != 0) {
-                    		i_123_ = 185;
-                    		i_124_ = 0;
+                    		i123 = 185;
+                    		i124 = 0;
                     	}
-                    	if (drawcarb(false, gac, "", i_123_, 105 + i_124_, i, i_104_, bool)) {
+                    	if (drawcarb(false, gac, "", i123, 105 + i124, i, i104, bool)) {
                     		minsl = 0;
                     		maxsl = nCars - 1;
                     		if (onmsc >= minsl && onmsc <= maxsl)
-                    			i_112_ = onmsc;
+                    			i112 = onmsc;
                     		else
-                    			i_112_ = nCars - 1;
+                    			i112 = nCars - 1;
                     		cfase = 0;
                     	}
                     	if (multion == 0) {
@@ -1390,21 +1390,21 @@ public class xtGraphics extends Panel implements Runnable {
                     			app.requestFocus();
                     		}
                     	}
-                    	if ((multion == 0 || onjoin == -1) && drawcarb(false, top20s, "", i_123_,
-                    			(i_123_ - 95) / 7 + 25 + i_124_, i, i_104_, bool)) {
+                    	if ((multion == 0 || onjoin == -1) && drawcarb(false, top20s, "", i123,
+                    			(i123 - 95) / 7 + 25 + i124, i, i104, bool)) {
                     		cd.action = 0;
                     		cfase = 10;
                     		if (app.mycar.isShowing())
                     			app.mycar.setVisible(false);
                     	}
                     	if (cd.lastload == 2) {
-                    		if (drawcarb(true, null, "X", 567, 135, i, i_104_, bool))
+                    		if (drawcarb(true, null, "X", 567, 135, i, i104, bool))
                     			cfase = 7;
                     		rd.setFont(new Font("Arial", 1, 12));
                     		ftm = rd.getFontMetrics();
                     		rd.setColor(new Color(0, 0, 0));
                     		if (!cd.createdby[sc[0] - 16].equals(nickname))
-                    			bool_114_ = clink(cd.createdby[sc[0] - 16], i, i_104_, bool);
+                    			bool114 = clink(cd.createdby[sc[0] - 16], i, i104, bool);
                     		else
                     			rd.drawString("Created by You", 241, 160);
                     	}
@@ -1425,27 +1425,27 @@ public class xtGraphics extends Panel implements Runnable {
                     			string = "Class A";
                     		drawcs(230, new StringBuilder().append("You do not have a ").append(string)
                     				.append(" car in your account cars.").toString(), 0, 0, 0, 3);
-                    		if (drawcarb(true, null, "   OK   ", 371, 250, i, i_104_, bool))
+                    		if (drawcarb(true, null, "   OK   ", 371, 250, i, i104, bool))
                     			noclass = false;
                     	}
                     }*/
-                    /*if ((cfase == 11 || cfase == 101) && i_112_ == -1) {
+                    /*if ((cfase == 11 || cfase == 101) && i112 == -1) {
                     	if (cd.action == -9) {
                     		drawprom(145, 95);
                     		drawcs(175, "Unknown error!  Failed to add car.  Try again later.", 0, 0, 0, 3);
-                    		if (drawcarb(true, null, " OK ", 379, 195, i, i_104_, bool))
+                    		if (drawcarb(true, null, " OK ", 379, 195, i, i104, bool))
                     			cd.action = 0;
                     	}
                     	if (cd.action == -8) {
                     		drawprom(145, 95);
                     		drawcs(175, "Failed.  You already have 20 cars in your account!", 0, 0, 0, 3);
-                    		if (drawcarb(true, null, " OK ", 379, 195, i, i_104_, bool))
+                    		if (drawcarb(true, null, " OK ", 379, 195, i, i104, bool))
                     			cd.action = 0;
                     	}
                     	if (cd.action == -7) {
                     		drawprom(145, 95);
                     		drawcs(175, "You already have this car!", 0, 0, 0, 3);
-                    		if (drawcarb(true, null, " OK ", 379, 195, i, i_104_, bool))
+                    		if (drawcarb(true, null, " OK ", 379, 195, i, i104, bool))
                     			cd.action = 0;
                     	}
                     	if (cd.action == 7) {
@@ -1454,7 +1454,7 @@ public class xtGraphics extends Panel implements Runnable {
                     				new StringBuilder().append("").append(cd.names[cd.ac])
                     						.append(" has been successfully added to your cars!").toString(),
                     				0, 0, 0, 3);
-                    		if (drawcarb(true, null, " OK ", 379, 195, i, i_104_, bool))
+                    		if (drawcarb(true, null, " OK ", 379, 195, i, i104, bool))
                     			cd.action = 0;
                     	}
                     	if (cd.action == 6) {
@@ -1462,14 +1462,14 @@ public class xtGraphics extends Panel implements Runnable {
                     		drawcs(195, new StringBuilder().append("Adding ").append(cd.names[cd.ac])
                     				.append(" to your cars...").toString(), 0, 0, 0, 3);
                     	}
-                    	int i_125_ = 95;
-                    	int i_126_ = 5;
+                    	int i125 = 95;
+                    	int i126 = 5;
                     	if (multion != 0) {
-                    		i_125_ = 185;
-                    		i_126_ = 0;
+                    		i125 = 185;
+                    		i126 = 0;
                     	}
                     	if (onmsc >= 16 && (cd.lastload == 2 || cd.lastload == -2)) {
-                    		if (drawcarb(false, myc, "", i_125_, 105 + i_126_, i, i_104_, bool)) {
+                    		if (drawcarb(false, myc, "", i125, 105 + i126, i, i104, bool)) {
                     			if (cd.lastload != 2) {
                     				cfase = 5;
                     				showtf = false;
@@ -1487,25 +1487,25 @@ public class xtGraphics extends Panel implements Runnable {
                     				minsl = 16;
                     				maxsl = cd.nlocars - 1;
                     				if (onmsc >= minsl && onmsc <= maxsl)
-                    					i_112_ = onmsc;
+                    					i112 = onmsc;
                     				else
-                    					i_112_ = nCars;
+                    					i112 = nCars;
                     				cfase = 3;
                     			}
                     			app.moused = false;
                     		}
-                    	} else if (drawcarb(false, gac, "", i_125_, 105 + i_126_, i, i_104_, bool)) {
+                    	} else if (drawcarb(false, gac, "", i125, 105 + i126, i, i104, bool)) {
                     		cd.action = 0;
                     		minsl = 0;
                     		maxsl = nCars - 1;
                     		if (onmsc >= minsl && onmsc <= maxsl)
-                    			i_112_ = onmsc;
+                    			i112 = onmsc;
                     		else
-                    			i_112_ = nCars - 1;
+                    			i112 = nCars - 1;
                     		cfase = 0;
                     		app.moused = false;
                     	}
-                    	if (drawcarb(false, top20s, "", i_125_, (i_125_ - 95) / 7 + 25 + i_126_, i, i_104_, bool)) {
+                    	if (drawcarb(false, top20s, "", i125, (i125 - 95) / 7 + 25 + i126, i, i104, bool)) {
                     		cd.action = 0;
                     		cfase = 10;
                     	}
@@ -1514,7 +1514,7 @@ public class xtGraphics extends Panel implements Runnable {
                     		ftm = rd.getFontMetrics();
                     		rd.setColor(new Color(0, 0, 0));
                     		if (!cd.createdby[sc[0] - 16].equals(nickname))
-                    			bool_114_ = clink(cd.createdby[sc[0] - 16], i, i_104_, bool);
+                    			bool114 = clink(cd.createdby[sc[0] - 16], i, i104, bool);
                     		else
                     			rd.drawString("Created by You", 241, 160);
                     		if (cfase != 101) {
@@ -1534,9 +1534,9 @@ public class xtGraphics extends Panel implements Runnable {
                     			cd.inslot = -1;
                     		}
                     		if (onmsc >= minsl && onmsc <= maxsl)
-                    			i_112_ = onmsc;
+                    			i112 = onmsc;
                     		else
-                    			i_112_ = nCars;
+                    			i112 = nCars;
                     		cfase = 3;
                     	}
                     	if (cd.action == 4) {
@@ -1547,13 +1547,13 @@ public class xtGraphics extends Panel implements Runnable {
                     	if (cd.action == -2) {
                     		drawcs(195, "Unknown Connection Error", 0, 0, 0, 3);
                     		drawcs(225, "Failed to connect to server, try again later!", 0, 0, 0, 3);
-                    		if (drawcarb(true, null, "   OK   ", 371, 255, i, i_104_, bool))
+                    		if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool))
                     			cfase = 0;
                     	}
                     	if (cd.action == -1) {
                     		drawcs(195, "No published cars found...", 0, 0, 0, 3);
                     		drawcs(225, "You have no added cars to your account yet!", 0, 0, 0, 3);
-                    		if (drawcarb(true, null, "   OK   ", 371, 255, i, i_104_, bool))
+                    		if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool))
                     			cfase = 0;
                     	}
                     	if (cd.action == 2 || cd.action == 3) {
@@ -1651,7 +1651,7 @@ public class xtGraphics extends Panel implements Runnable {
                     			}
                     		}
                     		if (cd.reco != -177) {
-                    			if (drawcarb(true, null, "       Login       ", 347, 247, i, i_104_, bool)
+                    			if (drawcarb(true, null, "       Login       ", 347, 247, i, i104, bool)
                     					&& tcnt > 5) {
                     				tcnt = 0;
                     				if (!app.tnick.getText().equals("") && !app.tpass.getText().equals("")) {
@@ -1668,18 +1668,18 @@ public class xtGraphics extends Panel implements Runnable {
                     						cd.reco = -3;
                     				}
                     			}
-                    		} else if (drawcarb(true, null, "  Upgrade to have your own cars!  ", 284, 247, i, i_104_,
+                    		} else if (drawcarb(true, null, "  Upgrade to have your own cars!  ", 284, 247, i, i104,
                     				bool) && cntflock == 0) {
                     			app.editlink(this.nickname, true);
                     			cntflock = 100;
                     		}
-                    		if (drawcarb(true, null, "  Cancel  ", 409, 282, i, i_104_, bool)) {
+                    		if (drawcarb(true, null, "  Cancel  ", 409, 282, i, i104, bool)) {
                     			app.tnick.setVisible(false);
                     			app.tpass.setVisible(false);
                     			app.requestFocus();
                     			cfase = basefase;
                     		}
-                    		if (drawcarb(true, null, "  Register!  ", 316, 282, i, i_104_, bool)) {
+                    		if (drawcarb(true, null, "  Register!  ", 316, 282, i, i104, bool)) {
                     			if (cntflock == 0) {
                     				app.reglink();
                     				cntflock = 100;
@@ -1700,7 +1700,7 @@ public class xtGraphics extends Panel implements Runnable {
                     	rd.drawString("Failed to find any ready car in your \u2018mycars\u2019 folder!", 215, 175);
                     	rd.drawString("Please \u2018Test Drive\u2019 your cars in the Car Maker to make", 215, 215);
                     	rd.drawString("sure they are ready.", 215, 235);
-                    	if (drawcarb(true, null, "   OK   ", 371, 255, i, i_104_, bool))
+                    	if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool))
                     		cfase = 0;
                     }
                     if (cfase == 2) {
@@ -1711,7 +1711,7 @@ public class xtGraphics extends Panel implements Runnable {
                     	if (cd.nlcars > nCars) {
                     		minsl = nCars;
                     		maxsl = cd.nlcars - 1;
-                    		i_112_ = nCars;
+                    		i112 = nCars;
                     		cfase = 3;
                     	} else
                     		cfase = 4;
@@ -1725,7 +1725,7 @@ public class xtGraphics extends Panel implements Runnable {
                     	rd.drawString("Perform a \u2018Test Drive\u2019 on any car to see if it is ready or not.", 215,
                     			230);
                     	rd.drawString("The maximum number of cars that can be loaded is  40 !", 215, 260);
-                    	if (drawcarb(true, null, "   OK   ", 371, 275, i, i_104_, bool))
+                    	if (drawcarb(true, null, "   OK   ", 371, 275, i, i104, bool))
                     		cfase = 2;
                     }*/
                     rd.setFont(new Font("Arial", 1, 11));
@@ -1758,8 +1758,8 @@ public class xtGraphics extends Panel implements Runnable {
                     if (f > 1.0F)
                         f = 1.0F;
                     rd.fillRect((int) (536.0F + 156.0F * f), 337, (int) (156.0F * (1.0F - f) + 1.0F), 7);
-                    final float f_127_ = 0.5F;
-                    f = (cd.moment[sc[0]] + f_127_) / 2.6F;
+                    final float f127 = 0.5F;
+                    f = (cd.moment[sc[0]] + f127) / 2.6F;
                     if (f > 1.0F)
                         f = 1.0F;
                     rd.fillRect((int) (536.0F + 156.0F * f), 352, (int) (156.0F * (1.0F - f) + 1.0F), 7);
@@ -1807,25 +1807,25 @@ public class xtGraphics extends Panel implements Runnable {
                         rd.drawString("Intensity", 671, 219);
                         rd.drawString("Reset", 110, 257);
                         rd.drawString("Reset", 660, 257);
-                        for (int i_128_ = 0; i_128_ < 161; i_128_++) {
-                            rd.setColor(Color.getHSBColor((float) (i_128_ * 0.00625), 1.0F, 1.0F));
-                            rd.drawLine(102, 75 + i_128_, 110, 75 + i_128_);
-                            if (i_128_ <= 128) {
-                                rd.setColor(Color.getHSBColor(1.0F, 0.0F, (float) (1.0 - i_128_ * 0.00625)));
-                                rd.drawLine(137, 75 + i_128_, 145, 75 + i_128_);
+                        for (int i128 = 0; i128 < 161; i128++) {
+                            rd.setColor(Color.getHSBColor((float) (i128 * 0.00625), 1.0F, 1.0F));
+                            rd.drawLine(102, 75 + i128, 110, 75 + i128);
+                            if (i128 <= 128) {
+                                rd.setColor(Color.getHSBColor(1.0F, 0.0F, (float) (1.0 - i128 * 0.00625)));
+                                rd.drawLine(137, 75 + i128, 145, 75 + i128);
                             }
-                            rd.setColor(Color.getHSBColor((float) (i_128_ * 0.00625), 1.0F, 1.0F));
-                            rd.drawLine(652, 75 + i_128_, 660, 75 + i_128_);
-                            if (i_128_ <= 128) {
-                                rd.setColor(Color.getHSBColor(1.0F, 0.0F, (float) (1.0 - i_128_ * 0.00625)));
-                                rd.drawLine(687, 75 + i_128_, 695, 75 + i_128_);
+                            rd.setColor(Color.getHSBColor((float) (i128 * 0.00625), 1.0F, 1.0F));
+                            rd.drawLine(652, 75 + i128, 660, 75 + i128);
+                            if (i128 <= 128) {
+                                rd.setColor(Color.getHSBColor(1.0F, 0.0F, (float) (1.0 - i128 * 0.00625)));
+                                rd.drawLine(687, 75 + i128, 695, 75 + i128);
                             }
                         }
-                        for (int i_129_ = 0; i_129_ < 40; i_129_++) {
-                            rd.setColor(Color.getHSBColor(arnp[0], (float) (i_129_ * 0.025), 1.0F - arnp[2]));
-                            rd.drawLine(121 + i_129_, 224, 121 + i_129_, 230);
-                            rd.setColor(Color.getHSBColor(arnp[3], (float) (i_129_ * 0.025), 1.0F - arnp[5]));
-                            rd.drawLine(671 + i_129_, 224, 671 + i_129_, 230);
+                        for (int i129 = 0; i129 < 40; i129++) {
+                            rd.setColor(Color.getHSBColor(arnp[0], (float) (i129 * 0.025), 1.0F - arnp[2]));
+                            rd.drawLine(121 + i129, 224, 121 + i129, 230);
+                            rd.setColor(Color.getHSBColor(arnp[3], (float) (i129 * 0.025), 1.0F - arnp[5]));
+                            rd.drawLine(671 + i129, 224, 671 + i129, 230);
                         }
                         rd.drawImage(arn, 110, 71 + (int) (arnp[0] * 160.0F), null);
                         rd.drawImage(arn, 145, 71 + (int) (arnp[2] * 160.0F), null);
@@ -1840,7 +1840,7 @@ public class xtGraphics extends Panel implements Runnable {
                         rd.fillRect(670 + (int) (arnp[4] * 40.0F), 230, 3, 3);
                         if (bool) {
                             if (mouson == -1) {
-                                if (i > 96 && i < 152 && i_104_ > 248 && i_104_ < 258) {
+                                if (i > 96 && i < 152 && i104 > 248 && i104 < 258) {
                                     final float[] fs = new float[3];
                                     Color.RGBtoHSB(contos[sc[0]].fcol[0], contos[sc[0]].fcol[1], contos[sc[0]].fcol[2],
                                             fs);
@@ -1848,7 +1848,7 @@ public class xtGraphics extends Panel implements Runnable {
                                     arnp[1] = fs[1];
                                     arnp[2] = 1.0F - fs[2];
                                 }
-                                if (i > 646 && i < 702 && i_104_ > 248 && i_104_ < 258) {
+                                if (i > 646 && i < 702 && i104 > 248 && i104 < 258) {
                                     final float[] fs = new float[3];
                                     Color.RGBtoHSB(contos[sc[0]].scol[0], contos[sc[0]].scol[1], contos[sc[0]].scol[2],
                                             fs);
@@ -1857,23 +1857,23 @@ public class xtGraphics extends Panel implements Runnable {
                                     arnp[5] = 1.0F - fs[2];
                                 }
                                 mouson = -2;
-                                if (i > 119 && i < 163 && i_104_ > 222 && i_104_ < 232)
+                                if (i > 119 && i < 163 && i104 > 222 && i104 < 232)
                                     mouson = 1;
-                                if (i > 669 && i < 713 && i_104_ > 222 && i_104_ < 232)
+                                if (i > 669 && i < 713 && i104 > 222 && i104 < 232)
                                     mouson = 4;
-                                if (i > 98 && i < 122 && i_104_ > 69 && i_104_ < 241 && mouson == -2)
+                                if (i > 98 && i < 122 && i104 > 69 && i104 < 241 && mouson == -2)
                                     mouson = 0;
-                                if (i > 133 && i < 157 && i_104_ > 69 && i_104_ < 209 && mouson == -2)
+                                if (i > 133 && i < 157 && i104 > 69 && i104 < 209 && mouson == -2)
                                     mouson = 2;
-                                if (i > 648 && i < 672 && i_104_ > 69 && i_104_ < 241 && mouson == -2)
+                                if (i > 648 && i < 672 && i104 > 69 && i104 < 241 && mouson == -2)
                                     mouson = 3;
-                                if (i > 683 && i < 707 && i_104_ > 69 && i_104_ < 209 && mouson == -2)
+                                if (i > 683 && i < 707 && i104 > 69 && i104 < 209 && mouson == -2)
                                     mouson = 5;
                             }
                         } else if (mouson != -1)
                             mouson = -1;
                         if (mouson == 0 || mouson == 2 || mouson == 3 || mouson == 5) {
-                            arnp[mouson] = (float) ((i_104_ - 75.0F) * 0.00625);
+                            arnp[mouson] = (float) ((i104 - 75.0F) * 0.00625);
                             if (mouson == 2 || mouson == 5) {
                                 if (arnp[mouson] > 0.8)
                                     arnp[mouson] = 0.8F;
@@ -1896,31 +1896,31 @@ public class xtGraphics extends Panel implements Runnable {
                             if (arnp[mouson] < 0.0F)
                                 arnp[mouson] = 0.0F;
                         }
-                        if (cfase != 10 && cfase != 5 && i_112_ == -1) {
+                        if (cfase != 10 && cfase != 5 && i112 == -1) {
                             final Color color = Color.getHSBColor(arnp[0], arnp[1], 1.0F - arnp[2]);
-                            final Color color_130_ = Color.getHSBColor(arnp[3], arnp[4], 1.0F - arnp[5]);
-                            for (int i_131_ = 0; i_131_ < contos[sc[0]].npl; i_131_++) {
-                                if (contos[sc[0]].p[i_131_].colnum == 1) {
-                                    contos[sc[0]].p[i_131_].hsb[0] = arnp[0];
-                                    contos[sc[0]].p[i_131_].hsb[1] = arnp[1];
-                                    contos[sc[0]].p[i_131_].hsb[2] = 1.0F - arnp[2];
-                                    contos[sc[0]].p[i_131_].c[0] = color.getRed();
-                                    contos[sc[0]].p[i_131_].c[1] = color.getGreen();
-                                    contos[sc[0]].p[i_131_].c[2] = color.getBlue();
-                                    contos[sc[0]].p[i_131_].oc[0] = color.getRed();
-                                    contos[sc[0]].p[i_131_].oc[1] = color.getGreen();
-                                    contos[sc[0]].p[i_131_].oc[2] = color.getBlue();
+                            final Color color130 = Color.getHSBColor(arnp[3], arnp[4], 1.0F - arnp[5]);
+                            for (int i131 = 0; i131 < contos[sc[0]].npl; i131++) {
+                                if (contos[sc[0]].p[i131].colnum == 1) {
+                                    contos[sc[0]].p[i131].hsb[0] = arnp[0];
+                                    contos[sc[0]].p[i131].hsb[1] = arnp[1];
+                                    contos[sc[0]].p[i131].hsb[2] = 1.0F - arnp[2];
+                                    contos[sc[0]].p[i131].c[0] = color.getRed();
+                                    contos[sc[0]].p[i131].c[1] = color.getGreen();
+                                    contos[sc[0]].p[i131].c[2] = color.getBlue();
+                                    contos[sc[0]].p[i131].oc[0] = color.getRed();
+                                    contos[sc[0]].p[i131].oc[1] = color.getGreen();
+                                    contos[sc[0]].p[i131].oc[2] = color.getBlue();
                                 }
-                                if (contos[sc[0]].p[i_131_].colnum == 2) {
-                                    contos[sc[0]].p[i_131_].hsb[0] = arnp[3];
-                                    contos[sc[0]].p[i_131_].hsb[1] = arnp[4];
-                                    contos[sc[0]].p[i_131_].hsb[2] = 1.0F - arnp[5];
-                                    contos[sc[0]].p[i_131_].c[0] = color_130_.getRed();
-                                    contos[sc[0]].p[i_131_].c[1] = color_130_.getGreen();
-                                    contos[sc[0]].p[i_131_].c[2] = color_130_.getBlue();
-                                    contos[sc[0]].p[i_131_].oc[0] = color_130_.getRed();
-                                    contos[sc[0]].p[i_131_].oc[1] = color_130_.getGreen();
-                                    contos[sc[0]].p[i_131_].oc[2] = color_130_.getBlue();
+                                if (contos[sc[0]].p[i131].colnum == 2) {
+                                    contos[sc[0]].p[i131].hsb[0] = arnp[3];
+                                    contos[sc[0]].p[i131].hsb[1] = arnp[4];
+                                    contos[sc[0]].p[i131].hsb[2] = 1.0F - arnp[5];
+                                    contos[sc[0]].p[i131].c[0] = color130.getRed();
+                                    contos[sc[0]].p[i131].c[1] = color130.getGreen();
+                                    contos[sc[0]].p[i131].c[2] = color130.getBlue();
+                                    contos[sc[0]].p[i131].oc[0] = color130.getRed();
+                                    contos[sc[0]].p[i131].oc[1] = color130.getGreen();
+                                    contos[sc[0]].p[i131].oc[2] = color130.getBlue();
                                 }
                             }
                         }
@@ -1929,7 +1929,7 @@ public class xtGraphics extends Panel implements Runnable {
                 if (!remi/* && cfase != 10 && cfase != 11 && cfase != 100 && cfase != 101*/)
                     rd.drawImage(contin[pcontin], 355, 385, null);
                 /*else {
-                	if (cfase == 11 && drawcarb(true, null, "Add to My Cars", 345, 385, i, i_104_, bool)
+                	if (cfase == 11 && drawcarb(true, null, "Add to My Cars", 345, 385, i, i104, bool)
                 			&& cd.action == 0) {
                 		cd.ac = sc[0];
                 		if (logged) {
@@ -1941,9 +1941,9 @@ public class xtGraphics extends Panel implements Runnable {
                 			showtf = false;
                 		}
                 	}
-                	if (cfase == 101 && i_112_ == -1)
+                	if (cfase == 101 && i112 == -1)
                 		if (cd.publish[sc[0] - 16] == 1 || cd.publish[sc[0] - 16] == 2) {
-                			if (drawcarb(true, null, "Add to My Cars", 345, 385, i, i_104_, bool) && cd.action == 0) {
+                			if (drawcarb(true, null, "Add to My Cars", 345, 385, i, i104, bool) && cd.action == 0) {
                 				cd.ac = sc[0];
                 				if (logged) {
                 					cd.action = 6;
@@ -2020,10 +2020,10 @@ public class xtGraphics extends Panel implements Runnable {
         }
         if (cfase == 0 || cfase == 3 || cfase == 11 || cfase == 101) {
             basefase = cfase;
-            if (i_112_ != -1) {
+            if (i112 != -1) {
                 if (flatrstart > 1)
                     flatrstart = 0;
-                nextc = i_112_ + 20;
+                nextc = i112 + 20;
                 flipo = 20;
             }
             if (control.right) {
@@ -2044,7 +2044,7 @@ public class xtGraphics extends Panel implements Runnable {
                     flipo = 20;
                 }
             }
-            if (cfase != 11 && cfase != 101 && i_113_ == 0 && flipo < 10 && (control.handb || control.enter)) {
+            if (cfase != 11 && cfase != 101 && i113 == 0 && flipo < 10 && (control.handb || control.enter)) {
                 m.crs = false;
                 app.mcars.show = false;
                 if (multion != 0) {
@@ -2078,10 +2078,10 @@ public class xtGraphics extends Panel implements Runnable {
             pback = 0;
             pnext = 0;
             pcontin = 0;
-            if (cfase == 8 && i_112_ != -1) {
+            if (cfase == 8 && i112 != -1) {
                 if (flatrstart > 1)
                     flatrstart = 0;
-                nextc = i_112_ + 20;
+                nextc = i112 + 20;
                 flipo = 20;
             }
             if (cfase == 5 && cd.action == 0 && control.enter) {
@@ -2105,7 +2105,7 @@ public class xtGraphics extends Panel implements Runnable {
             control.handb = false;
             control.enter = false;
         }
-        if (bool_114_) {
+        if (bool114) {
             app.mouses = 0;
             onviewpro = true;
             cd.viewname = cd.createdby[sc[0] - 16];
@@ -2140,17 +2140,17 @@ public class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public boolean clink(final String string, final int i, final int i_134_, final boolean bool) {
-        boolean bool_135_ = false;
+    public boolean clink(final String string, final int i, final int i134, final boolean bool) {
+        boolean bool135 = false;
         rd.drawString(new StringBuilder().append("Created by :  ").append(string).append("").toString(), 241, 160);
-        final int i_136_ = ftm.stringWidth(string);
-        final int i_137_ = 241
+        final int i136 = ftm.stringWidth(string);
+        final int i137 = 241
                 + ftm.stringWidth(new StringBuilder().append("Created by :  ").append(string).append("").toString())
-                - i_136_;
-        rd.drawLine(i_137_, 162, i_137_ + i_136_ - 2, 162);
-        if (i > i_137_ - 2 && i < i_137_ + i_136_ && i_134_ > 147 && i_134_ < 164) {
+                - i136;
+        rd.drawLine(i137, 162, i137 + i136 - 2, 162);
+        if (i > i137 - 2 && i < i137 + i136 && i134 > 147 && i134 < 164) {
             if (bool)
-                bool_135_ = true;
+                bool135 = true;
             if (waitlink != 1) {
                 app.setCursor(new Cursor(12));
                 waitlink = 1;
@@ -2159,13 +2159,13 @@ public class xtGraphics extends Panel implements Runnable {
             app.setCursor(new Cursor(0));
             waitlink = 0;
         }
-        return bool_135_;
+        return bool135;
     }
 
     public void closesounds() {
         for (int i = 0; i < 5; i++)
-            for (int i_271_ = 0; i_271_ < 5; i_271_++)
-                engs[i][i_271_].checkopen();
+            for (int i271 = 0; i271 < 5; i271++)
+                engs[i][i271].checkopen();
         for (int i = 0; i < 6; i++)
             air[i].checkopen();
         tires.checkopen();
@@ -2189,31 +2189,31 @@ public class xtGraphics extends Panel implements Runnable {
 
     public void colorCar(final ContO conto, final int i) {
         if (plnames[i].indexOf("MadBot") == -1)
-            for (int i_132_ = 0; i_132_ < conto.npl; i_132_++) {
-                if (conto.p[i_132_].colnum == 1) {
+            for (int i132 = 0; i132 < conto.npl; i132++) {
+                if (conto.p[i132].colnum == 1) {
                     final Color color = Color.getHSBColor(allrnp[i][0], allrnp[i][1], 1.0F - allrnp[i][2]);
-                    conto.p[i_132_].oc[0] = color.getRed();
-                    conto.p[i_132_].oc[1] = color.getGreen();
-                    conto.p[i_132_].oc[2] = color.getBlue();
+                    conto.p[i132].oc[0] = color.getRed();
+                    conto.p[i132].oc[1] = color.getGreen();
+                    conto.p[i132].oc[2] = color.getBlue();
                 }
-                if (conto.p[i_132_].colnum == 2) {
+                if (conto.p[i132].colnum == 2) {
                     final Color color = Color.getHSBColor(allrnp[i][3], allrnp[i][4], 1.0F - allrnp[i][5]);
-                    conto.p[i_132_].oc[0] = color.getRed();
-                    conto.p[i_132_].oc[1] = color.getGreen();
-                    conto.p[i_132_].oc[2] = color.getBlue();
+                    conto.p[i132].oc[0] = color.getRed();
+                    conto.p[i132].oc[1] = color.getGreen();
+                    conto.p[i132].oc[2] = color.getBlue();
                 }
             }
         else
-            for (int i_133_ = 0; i_133_ < conto.npl; i_133_++) {
-                if (conto.p[i_133_].colnum == 1) {
-                    conto.p[i_133_].oc[0] = conto.fcol[0];
-                    conto.p[i_133_].oc[1] = conto.fcol[1];
-                    conto.p[i_133_].oc[2] = conto.fcol[2];
+            for (int i133 = 0; i133 < conto.npl; i133++) {
+                if (conto.p[i133].colnum == 1) {
+                    conto.p[i133].oc[0] = conto.fcol[0];
+                    conto.p[i133].oc[1] = conto.fcol[1];
+                    conto.p[i133].oc[2] = conto.fcol[2];
                 }
-                if (conto.p[i_133_].colnum == 2) {
-                    conto.p[i_133_].oc[0] = conto.scol[0];
-                    conto.p[i_133_].oc[1] = conto.scol[1];
-                    conto.p[i_133_].oc[2] = conto.scol[2];
+                if (conto.p[i133].colnum == 2) {
+                    conto.p[i133].oc[0] = conto.scol[0];
+                    conto.p[i133].oc[1] = conto.scol[1];
+                    conto.p[i133].oc[2] = conto.scol[2];
                 }
             }
     }
@@ -2294,7 +2294,7 @@ public class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void credits(final Control control, final int i, final int i_23_, final int i_24_) {
+    public void credits(final Control control, final int i, final int i23, final int i24) {
         if (flipo == 0) {
             powerup.play();
             flipo = 1;
@@ -2342,9 +2342,9 @@ public class xtGraphics extends Panel implements Runnable {
             drawcs(395, "http://multiplayer.needformadness.com/music.html", 33, 49, 0, 3);
             rd.drawLine(400 - ftm.stringWidth("http://multiplayer.needformadness.com/music.html") / 2, 396,
                     ftm.stringWidth("http://multiplayer.needformadness.com/music.html") / 2 + 400, 396);
-            if (i > 258 && i < 542 && i_23_ > 385 && i_23_ < 399) {
+            if (i > 258 && i < 542 && i23 > 385 && i23 < 399) {
                 app.setCursor(new Cursor(12));
-                if (i_24_ == 2)
+                if (i24 == 2)
                     app.musiclink();
             } else
                 app.setCursor(new Cursor(0));
@@ -2382,13 +2382,13 @@ public class xtGraphics extends Panel implements Runnable {
             drawcs(410, "Dual Mod Engine copyright (c) Dany Fernandez Diaz (DragShot) 2015. Some rights reserved.", 66,
                     98, 0, 3);
 
-            if (i_23_ > 354 && i_23_ < 410 && i < 665) {
+            if (i23 > 354 && i23 < 410 && i < 665) {
                 app.setCursor(new Cursor(12));
-                if (i_24_ == 2)
+                if (i24 == 2)
                     app.onfmmlink();
-            } else if (i_23_ > 354 && i_23_ < 395 && i > 665) {
+            } else if (i23 > 354 && i23 < 395 && i > 665) {
                 app.setCursor(new Cursor(12));
-                if (i_24_ == 2)
+                if (i24 == 2)
                     app.onfmmlink();
             } else
                 app.setCursor(new Cursor(0));
@@ -2396,9 +2396,9 @@ public class xtGraphics extends Panel implements Runnable {
         if (flipo == 103) {
             mainbg(0);
             rd.drawImage(nfmcom, 190, 195, null);
-            if (i > 190 && i < 609 && i_23_ > 195 && i_23_ < 216) {
+            if (i > 190 && i < 609 && i23 > 195 && i23 < 216) {
                 app.setCursor(new Cursor(12));
-                if (i_24_ == 2)
+                if (i24 == 2)
                     app.madlink();
             } else
                 app.setCursor(new Cursor(0));
@@ -2421,17 +2421,17 @@ public class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void ctachm(final int i, final int i_182_, final int i_183_, final Control control) {
+    public void ctachm(final int i, final int i182, final int i183, final Control control) {
         if (fase == 1) {
-            if (i_183_ == 1) {
-                if (over(next[0], i, i_182_, 625, 135))
+            if (i183 == 1) {
+                if (over(next[0], i, i182, 625, 135))
                     pnext = 1;
-                if (over(back[0], i, i_182_, 115, 135))
+                if (over(back[0], i, i182, 115, 135))
                     pback = 1;
-                if (over(contin[0], i, i_182_, 355, 360))
+                if (over(contin[0], i, i182, 355, 360))
                     pcontin = 1;
             }
-            if (i_183_ == 2) {
+            if (i183 == 2) {
                 if (pnext == 1)
                     control.right = true;
                 if (pback == 1)
@@ -2441,39 +2441,39 @@ public class xtGraphics extends Panel implements Runnable {
             }
         }
         if (fase == 3) {
-            if (i_183_ == 1 && over(contin[0], i, i_182_, 355, 350))
+            if (i183 == 1 && over(contin[0], i, i182, 355, 350))
                 pcontin = 1;
-            if (i_183_ == 2 && pcontin == 1) {
+            if (i183 == 2 && pcontin == 1) {
                 control.enter = true;
                 pcontin = 0;
             }
         }
         if (fase == 4) {
-            if (i_183_ == 1 && over(back[0], i, i_182_, 370, 345))
+            if (i183 == 1 && over(back[0], i, i182, 370, 345))
                 pback = 1;
-            if (i_183_ == 2 && pback == 1) {
+            if (i183 == 2 && pback == 1) {
                 control.enter = true;
                 pback = 0;
             }
         }
         if (fase == 6) {
-            if (i_183_ == 1 && (over(star[0], i, i_182_, 359, 385) || over(star[0], i, i_182_, 359, 295)))
+            if (i183 == 1 && (over(star[0], i, i182, 359, 385) || over(star[0], i, i182, 359, 295)))
                 pstar = 2;
-            if (i_183_ == 2 && pstar == 2) {
+            if (i183 == 2 && pstar == 2) {
                 control.enter = true;
                 pstar = 1;
             }
         }
         if (fase == 7) {
-            if (i_183_ == 1) {
-                if (over(next[0], i, i_182_, 645, 275))
+            if (i183 == 1) {
+                if (over(next[0], i, i182, 645, 275))
                     pnext = 1;
-                if (over(back[0], i, i_182_, 95, 275))
+                if (over(back[0], i, i182, 95, 275))
                     pback = 1;
-                if (over(contin[0], i, i_182_, 355, 385) && !app.openm)
+                if (over(contin[0], i, i182, 355, 385) && !app.openm)
                     pcontin = 1;
             }
-            if (i_183_ == 2) {
+            if (i183 == 2) {
                 if (pnext == 1)
                     control.right = true;
                 if (pback == 1)
@@ -2486,152 +2486,152 @@ public class xtGraphics extends Panel implements Runnable {
         }
         if (fase == -5) {
             lxm = i;
-            lym = i_182_;
-            if (i_183_ == 1 && over(contin[0], i, i_182_, 355, 380))
+            lym = i182;
+            if (i183 == 1 && over(contin[0], i, i182, 355, 380))
                 pcontin = 1;
-            if (i_183_ == 2 && pcontin == 1) {
+            if (i183 == 2 && pcontin == 1) {
                 control.enter = true;
                 pcontin = 0;
             }
         }
         if (fase == -7) {
-            if (i_183_ == 1) {
-                if (overon(329, 45, 137, 22, i, i_182_)) {
+            if (i183 == 1) {
+                if (overon(329, 45, 137, 22, i, i182)) {
                     opselect = 0;
                     shaded = true;
                 }
-                if (overon(320, 73, 155, 22, i, i_182_)) {
+                if (overon(320, 73, 155, 22, i, i182)) {
                     opselect = 1;
                     shaded = true;
                 }
-                if (overon(303, 99, 190, 22, i, i_182_)) {
+                if (overon(303, 99, 190, 22, i, i182)) {
                     opselect = 2;
                     shaded = true;
                 }
-                if (overon(341, 125, 109, 22, i, i_182_)) {
+                if (overon(341, 125, 109, 22, i, i182)) {
                     opselect = 3;
                     shaded = true;
                 }
             }
-            if (i_183_ == 2 && shaded) {
+            if (i183 == 2 && shaded) {
                 control.enter = true;
                 shaded = false;
             }
-            if (i_183_ == 0 && (i != lxm || i_182_ != lym)) {
-                if (overon(329, 45, 137, 22, i, i_182_))
+            if (i183 == 0 && (i != lxm || i182 != lym)) {
+                if (overon(329, 45, 137, 22, i, i182))
                     opselect = 0;
-                if (overon(320, 73, 155, 22, i, i_182_))
+                if (overon(320, 73, 155, 22, i, i182))
                     opselect = 1;
-                if (overon(303, 99, 190, 22, i, i_182_))
+                if (overon(303, 99, 190, 22, i, i182))
                     opselect = 2;
-                if (overon(341, 125, 109, 22, i, i_182_))
+                if (overon(341, 125, 109, 22, i, i182))
                     opselect = 3;
                 lxm = i;
-                lym = i_182_;
+                lym = i182;
             }
         }
         if (fase == 10) {
-            if (i_183_ == 1) {
-                if (overon(343, 261, 110, 22, i, i_182_)) {
+            if (i183 == 1) {
+                if (overon(343, 261, 110, 22, i, i182)) {
                     opselect = 0;
                     shaded = true;
                 }
-                if (overon(288, 291, 221, 22, i, i_182_)) {
+                if (overon(288, 291, 221, 22, i, i182)) {
                     opselect = 1;
                     shaded = true;
                 }
-                if (overon(301, 321, 196, 22, i, i_182_)) {
+                if (overon(301, 321, 196, 22, i, i182)) {
                     opselect = 2;
                     shaded = true;
                 }
-                if (overon(357, 351, 85, 22, i, i_182_)) {
+                if (overon(357, 351, 85, 22, i, i182)) {
                     opselect = 3;
                     shaded = true;
                 }
             }
-            if (i_183_ == 2 && shaded) {
+            if (i183 == 2 && shaded) {
                 control.enter = true;
                 shaded = false;
             }
-            if (i_183_ == 0 && (i != lxm || i_182_ != lym)) {
-                if (overon(343, 261, 110, 22, i, i_182_))
+            if (i183 == 0 && (i != lxm || i182 != lym)) {
+                if (overon(343, 261, 110, 22, i, i182))
                     opselect = 0;
-                if (overon(288, 291, 221, 22, i, i_182_))
+                if (overon(288, 291, 221, 22, i, i182))
                     opselect = 1;
-                if (overon(301, 321, 196, 22, i, i_182_))
+                if (overon(301, 321, 196, 22, i, i182))
                     opselect = 2;
-                if (overon(357, 351, 85, 22, i, i_182_))
+                if (overon(357, 351, 85, 22, i, i182))
                     opselect = 3;
                 lxm = i;
-                lym = i_182_;
+                lym = i182;
             }
         }
         if (fase == 102) {
-            if (i_183_ == 1) {
-                if (overon(358, 262 + dropf, 82, 22, i, i_182_)) {
+            if (i183 == 1) {
+                if (overon(358, 262 + dropf, 82, 22, i, i182)) {
                     opselect = 0;
                     shaded = true;
                 }
-                if (overon(358, 290 + dropf, 82, 22, i, i_182_)) {
+                if (overon(358, 290 + dropf, 82, 22, i, i182)) {
                     opselect = 1;
                     shaded = true;
                 }
-                if (overon(333, 318 + dropf, 132, 22, i, i_182_)) {
+                if (overon(333, 318 + dropf, 132, 22, i, i182)) {
                     opselect = 2;
                     shaded = true;
                 }
-                if (dropf == 0 && overon(348, 346, 102, 22, i, i_182_)) {
+                if (dropf == 0 && overon(348, 346, 102, 22, i, i182)) {
                     opselect = 3;
                     shaded = true;
                 }
             }
-            if (i_183_ == 2 && shaded) {
+            if (i183 == 2 && shaded) {
                 control.enter = true;
                 shaded = false;
             }
-            if (i_183_ == 0 && (i != lxm || i_182_ != lym)) {
-                if (overon(358, 262 + dropf, 82, 22, i, i_182_))
+            if (i183 == 0 && (i != lxm || i182 != lym)) {
+                if (overon(358, 262 + dropf, 82, 22, i, i182))
                     opselect = 0;
-                if (overon(358, 290 + dropf, 82, 22, i, i_182_))
+                if (overon(358, 290 + dropf, 82, 22, i, i182))
                     opselect = 1;
-                if (overon(333, 318 + dropf, 132, 22, i, i_182_))
+                if (overon(333, 318 + dropf, 132, 22, i, i182))
                     opselect = 2;
-                if (dropf == 0 && overon(348, 346, 102, 22, i, i_182_))
+                if (dropf == 0 && overon(348, 346, 102, 22, i, i182))
                     opselect = 3;
                 lxm = i;
-                lym = i_182_;
+                lym = i182;
             }
         }
         if (fase == 11) {
             if (flipo >= 1 && flipo <= 15) {
-                if (i_183_ == 1 && over(next[0], i, i_182_, 665, 395))
+                if (i183 == 1 && over(next[0], i, i182, 665, 395))
                     pnext = 1;
-                if (i_183_ == 2 && pnext == 1) {
+                if (i183 == 2 && pnext == 1) {
                     control.right = true;
                     pnext = 0;
                 }
             }
             if (flipo >= 3 && flipo <= 16) {
-                if (i_183_ == 1 && over(back[0], i, i_182_, 75, 395))
+                if (i183 == 1 && over(back[0], i, i182, 75, 395))
                     pback = 1;
-                if (i_183_ == 2 && pback == 1) {
+                if (i183 == 2 && pback == 1) {
                     control.left = true;
                     pback = 0;
                 }
             }
             if (flipo == 16) {
-                if (i_183_ == 1 && over(contin[0], i, i_182_, 565, 395))
+                if (i183 == 1 && over(contin[0], i, i182, 565, 395))
                     pcontin = 1;
-                if (i_183_ == 2 && pcontin == 1) {
+                if (i183 == 2 && pcontin == 1) {
                     control.enter = true;
                     pcontin = 0;
                 }
             }
         }
         if (fase == 8) {
-            if (i_183_ == 1 && over(next[0], i, i_182_, 665, 395))
+            if (i183 == 1 && over(next[0], i, i182, 665, 395))
                 pnext = 1;
-            if (i_183_ == 2 && pnext == 1) {
+            if (i183 == 2 && pnext == 1) {
                 control.enter = true;
                 pnext = 0;
             }
@@ -2640,145 +2640,145 @@ public class xtGraphics extends Panel implements Runnable {
 
     private Image dodgen(final Image image) {
         final int i = image.getHeight(ob);
-        final int i_378_ = image.getWidth(ob);
-        final int[] is = new int[i_378_ * i];
-        final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i_378_, i, is, 0, i_378_);
+        final int i378 = image.getWidth(ob);
+        final int[] is = new int[i378 * i];
+        final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i378, i, is, 0, i378);
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
             /* empty */
         }
-        for (int i_379_ = 0; i_379_ < i_378_ * i; i_379_++) {
-            final Color color = new Color(is[i_379_]);
-            int i_380_ = color.getRed() * 4 + 90;
-            if (i_380_ > 255)
-                i_380_ = 255;
-            if (i_380_ < 0)
-                i_380_ = 0;
-            int i_381_ = color.getGreen() * 4 + 90;
-            if (i_381_ > 255)
-                i_381_ = 255;
-            if (i_381_ < 0)
-                i_381_ = 0;
-            int i_382_ = color.getBlue() * 4 + 90;
-            if (i_382_ > 255)
-                i_382_ = 255;
-            if (i_382_ < 0)
-                i_382_ = 0;
-            final Color color_383_ = new Color(i_380_, i_381_, i_382_);
-            is[i_379_] = color_383_.getRGB();
+        for (int i379 = 0; i379 < i378 * i; i379++) {
+            final Color color = new Color(is[i379]);
+            int i380 = color.getRed() * 4 + 90;
+            if (i380 > 255)
+                i380 = 255;
+            if (i380 < 0)
+                i380 = 0;
+            int i381 = color.getGreen() * 4 + 90;
+            if (i381 > 255)
+                i381 = 255;
+            if (i381 < 0)
+                i381 = 0;
+            int i382 = color.getBlue() * 4 + 90;
+            if (i382 > 255)
+                i382 = 255;
+            if (i382 < 0)
+                i382 = 0;
+            final Color color383 = new Color(i380, i381, i382);
+            is[i379] = color383.getRGB();
         }
-        final Image image_384_ = createImage(new MemoryImageSource(i_378_, i, is, 0, i_378_));
-        return image_384_;
+        final Image image384 = createImage(new MemoryImageSource(i378, i, is, 0, i378));
+        return image384;
     }
 
-    public boolean drawcarb(final boolean bool, final Image image, final String string, final int i, int i_429_,
-            final int i_430_, final int i_431_, final boolean bool_432_) {
-        boolean bool_433_ = false;
+    public boolean drawcarb(final boolean bool, final Image image, final String string, final int i, int i429,
+            final int i430, final int i431, final boolean bool432) {
+        boolean bool433 = false;
         rd.setFont(new Font("Arial", 1, 13));
         ftm = rd.getFontMetrics();
-        int i_435_;
+        int i435;
         if (bool) {
-            i_435_ = ftm.stringWidth(string);
+            i435 = ftm.stringWidth(string);
             if (string.startsWith("Class"))
-                i_435_ = 112;
+                i435 = 112;
         } else
-            i_435_ = image.getWidth(ob);
-        int i_436_ = 0;
-        if (i_430_ > i && i_430_ < i + i_435_ + 14 && i_431_ > i_429_ && i_431_ < i_429_ + 28) {
-            i_436_ = 1;
-            if (bool_432_)
-                bool_433_ = true;
+            i435 = image.getWidth(ob);
+        int i436 = 0;
+        if (i430 > i && i430 < i + i435 + 14 && i431 > i429 && i431 < i429 + 28) {
+            i436 = 1;
+            if (bool432)
+                bool433 = true;
         }
-        rd.drawImage(bcl[i_436_], i, i_429_, null);
-        rd.drawImage(bc[i_436_], i + 4, i_429_, i_435_ + 6, 28, null);
-        rd.drawImage(bcr[i_436_], i + i_435_ + 10, i_429_, null);
-        if (!bool && i_435_ == 73)
-            i_429_--;
+        rd.drawImage(bcl[i436], i, i429, null);
+        rd.drawImage(bc[i436], i + 4, i429, i435 + 6, 28, null);
+        rd.drawImage(bcr[i436], i + i435 + 10, i429, null);
+        if (!bool && i435 == 73)
+            i429--;
         if (bool) {
-            if (string.equals("X") && i_436_ == 1)
+            if (string.equals("X") && i436 == 1)
                 rd.setColor(new Color(255, 0, 0));
             else
                 rd.setColor(new Color(0, 0, 0));
             if (string.startsWith("Class"))
-                rd.drawString(string, 400 - ftm.stringWidth(string) / 2, i_429_ + 19);
+                rd.drawString(string, 400 - ftm.stringWidth(string) / 2, i429 + 19);
             else
-                rd.drawString(string, i + 7, i_429_ + 19);
+                rd.drawString(string, i + 7, i429 + 19);
         } else
-            rd.drawImage(image, i + 7, i_429_ + 7, null);
-        return bool_433_;
+            rd.drawImage(image, i + 7, i429 + 7, null);
+        return bool433;
     }
 
-    public void drawcs(final int i, final String string, int i_212_, int i_213_, int i_214_, final int i_215_) {
-        if (i_215_ != 3 && i_215_ != 4 && i_215_ != 5) {
-            i_212_ += i_212_ * (m.snap[0] / 100.0F);
-            if (i_212_ > 255)
-                i_212_ = 255;
-            if (i_212_ < 0)
-                i_212_ = 0;
-            i_213_ += i_213_ * (m.snap[1] / 100.0F);
-            if (i_213_ > 255)
-                i_213_ = 255;
-            if (i_213_ < 0)
-                i_213_ = 0;
-            i_214_ += i_214_ * (m.snap[2] / 100.0F);
-            if (i_214_ > 255)
-                i_214_ = 255;
-            if (i_214_ < 0)
-                i_214_ = 0;
+    public void drawcs(final int i, final String string, int i212, int i213, int i214, final int i215) {
+        if (i215 != 3 && i215 != 4 && i215 != 5) {
+            i212 += i212 * (m.snap[0] / 100.0F);
+            if (i212 > 255)
+                i212 = 255;
+            if (i212 < 0)
+                i212 = 0;
+            i213 += i213 * (m.snap[1] / 100.0F);
+            if (i213 > 255)
+                i213 = 255;
+            if (i213 < 0)
+                i213 = 0;
+            i214 += i214 * (m.snap[2] / 100.0F);
+            if (i214 > 255)
+                i214 = 255;
+            if (i214 < 0)
+                i214 = 0;
         }
-        if (i_215_ == 4) {
-            i_212_ -= i_212_ * (m.snap[0] / 100.0F);
-            if (i_212_ > 255)
-                i_212_ = 255;
-            if (i_212_ < 0)
-                i_212_ = 0;
-            i_213_ -= i_213_ * (m.snap[1] / 100.0F);
-            if (i_213_ > 255)
-                i_213_ = 255;
-            if (i_213_ < 0)
-                i_213_ = 0;
-            i_214_ -= i_214_ * (m.snap[2] / 100.0F);
-            if (i_214_ > 255)
-                i_214_ = 255;
-            if (i_214_ < 0)
-                i_214_ = 0;
+        if (i215 == 4) {
+            i212 -= i212 * (m.snap[0] / 100.0F);
+            if (i212 > 255)
+                i212 = 255;
+            if (i212 < 0)
+                i212 = 0;
+            i213 -= i213 * (m.snap[1] / 100.0F);
+            if (i213 > 255)
+                i213 = 255;
+            if (i213 < 0)
+                i213 = 0;
+            i214 -= i214 * (m.snap[2] / 100.0F);
+            if (i214 > 255)
+                i214 = 255;
+            if (i214 < 0)
+                i214 = 0;
         }
-        if (i_215_ == 1) {
+        if (i215 == 1) {
             rd.setColor(new Color(0, 0, 0));
             rd.drawString(string, 400 - ftm.stringWidth(string) / 2 + 1, i + 1);
         }
-        if (i_215_ == 2) {
-            i_212_ = (i_212_ * 2 + m.csky[0] * 1) / 3;
-            if (i_212_ > 255)
-                i_212_ = 255;
-            if (i_212_ < 0)
-                i_212_ = 0;
-            i_213_ = (i_213_ * 2 + m.csky[1] * 1) / 3;
-            if (i_213_ > 255)
-                i_213_ = 255;
-            if (i_213_ < 0)
-                i_213_ = 0;
-            i_214_ = (i_214_ * 2 + m.csky[2] * 1) / 3;
-            if (i_214_ > 255)
-                i_214_ = 255;
-            if (i_214_ < 0)
-                i_214_ = 0;
+        if (i215 == 2) {
+            i212 = (i212 * 2 + m.csky[0] * 1) / 3;
+            if (i212 > 255)
+                i212 = 255;
+            if (i212 < 0)
+                i212 = 0;
+            i213 = (i213 * 2 + m.csky[1] * 1) / 3;
+            if (i213 > 255)
+                i213 = 255;
+            if (i213 < 0)
+                i213 = 0;
+            i214 = (i214 * 2 + m.csky[2] * 1) / 3;
+            if (i214 > 255)
+                i214 = 255;
+            if (i214 < 0)
+                i214 = 0;
         }
-        if (i_215_ == 5) {
+        if (i215 == 5) {
             rd.setColor(new Color(m.csky[0] / 2, m.csky[1] / 2, m.csky[2] / 2));
             rd.drawString(string, 400 - ftm.stringWidth(string) / 2 + 1, i + 1);
         }
-        rd.setColor(new Color(i_212_, i_213_, i_214_));
+        rd.setColor(new Color(i212, i213, i214));
         rd.drawString(string, 400 - ftm.stringWidth(string) / 2, i);
     }
 
-    public void drawdprom(final int i, final int i_139_) {
+    public void drawdprom(final int i, final int i139) {
         rd.setComposite(AlphaComposite.getInstance(3, 0.9F));
         rd.setColor(new Color(129, 203, 237));
-        rd.fillRoundRect(205, i, 390, i_139_, 30, 30);
+        rd.fillRoundRect(205, i, 390, i139, 30, 30);
         rd.setColor(new Color(0, 0, 0));
-        rd.drawRoundRect(205, i, 390, i_139_, 30, 30);
+        rd.drawRoundRect(205, i, 390, i139, 30, 30);
         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
     }
 
@@ -2800,21 +2800,21 @@ public class xtGraphics extends Panel implements Runnable {
         rd.drawImage(image, 400 - image.getWidth(ob) / 2, i, null);
     }
 
-    public void drawlprom(final int i, final int i_140_) {
+    public void drawlprom(final int i, final int i140) {
         rd.setComposite(AlphaComposite.getInstance(3, 0.5F));
         rd.setColor(new Color(129, 203, 237));
-        rd.fillRoundRect(277, i, 390, i_140_, 30, 30);
+        rd.fillRoundRect(277, i, 390, i140, 30, 30);
         rd.setColor(new Color(0, 0, 0));
-        rd.drawRoundRect(277, i, 390, i_140_, 30, 30);
+        rd.drawRoundRect(277, i, 390, i140, 30, 30);
         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
     }
 
-    public void drawprom(final int i, final int i_138_) {
+    public void drawprom(final int i, final int i138) {
         rd.setComposite(AlphaComposite.getInstance(3, 0.76F));
         rd.setColor(new Color(129, 203, 237));
-        rd.fillRoundRect(205, i, 390, i_138_, 30, 30);
+        rd.fillRoundRect(205, i, 390, i138, 30, 30);
         rd.setColor(new Color(0, 0, 0));
-        rd.drawRoundRect(205, i, 390, i_138_, 30, 30);
+        rd.drawRoundRect(205, i, 390, i138, 30, 30);
         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
     }
 
@@ -2839,39 +2839,39 @@ public class xtGraphics extends Panel implements Runnable {
                 flang = 1;
             }
             for (int i = 0; i < 466; i++)
-                for (int i_407_ = 0; i_407_ < 202; i_407_++)
-                    if (smokey[i + i_407_ * 466] != smokey[0]) {
-                        final float f = pys(i, 233, i_407_, flyr);
-                        final int i_408_ = (int) ((i - 233) / f * flatr);
-                        final int i_409_ = (int) ((i_407_ - flyr) / f * flatr);
-                        final int i_410_ = i + i_408_ + 100 + (i_407_ + i_409_ + 110) * 670;
-                        if (i + i_408_ + 100 < 670 && i + i_408_ + 100 > 0 && i_407_ + i_409_ + 110 < 400
-                                && i_407_ + i_409_ + 110 > 0 && i_410_ < 268000 && i_410_ >= 0) {
-                            final Color color = new Color(flexpix[i_410_]);
-                            final Color color_411_ = new Color(smokey[i + i_407_ * 466]);
-                            final float f_412_ = (255.0F - color_411_.getRed()) / 255.0F;
-                            final float f_413_ = (255.0F - color_411_.getGreen()) / 255.0F;
-                            final float f_414_ = (255.0F - color_411_.getBlue()) / 255.0F;
-                            int i_415_ = (int) ((color.getRed() * (flang * f_412_)
-                                    + color_411_.getRed() * (1.0F - f_412_)) / (flang * f_412_ + (1.0F - f_412_)));
-                            int i_416_ = (int) ((color.getGreen() * (flang * f_413_)
-                                    + color_411_.getGreen() * (1.0F - f_413_)) / (flang * f_413_ + (1.0F - f_413_)));
-                            int i_417_ = (int) ((color.getBlue() * (flang * f_414_)
-                                    + color_411_.getBlue() * (1.0F - f_414_)) / (flang * f_414_ + (1.0F - f_414_)));
-                            if (i_415_ > 255)
-                                i_415_ = 255;
-                            if (i_415_ < 0)
-                                i_415_ = 0;
-                            if (i_416_ > 255)
-                                i_416_ = 255;
-                            if (i_416_ < 0)
-                                i_416_ = 0;
-                            if (i_417_ > 255)
-                                i_417_ = 255;
-                            if (i_417_ < 0)
-                                i_417_ = 0;
-                            final Color color_418_ = new Color(i_415_, i_416_, i_417_);
-                            flexpix[i_410_] = color_418_.getRGB();
+                for (int i407 = 0; i407 < 202; i407++)
+                    if (smokey[i + i407 * 466] != smokey[0]) {
+                        final float f = pys(i, 233, i407, flyr);
+                        final int i408 = (int) ((i - 233) / f * flatr);
+                        final int i409 = (int) ((i407 - flyr) / f * flatr);
+                        final int i410 = i + i408 + 100 + (i407 + i409 + 110) * 670;
+                        if (i + i408 + 100 < 670 && i + i408 + 100 > 0 && i407 + i409 + 110 < 400
+                                && i407 + i409 + 110 > 0 && i410 < 268000 && i410 >= 0) {
+                            final Color color = new Color(flexpix[i410]);
+                            final Color color411 = new Color(smokey[i + i407 * 466]);
+                            final float f412 = (255.0F - color411.getRed()) / 255.0F;
+                            final float f413 = (255.0F - color411.getGreen()) / 255.0F;
+                            final float f414 = (255.0F - color411.getBlue()) / 255.0F;
+                            int i415 = (int) ((color.getRed() * (flang * f412)
+                                    + color411.getRed() * (1.0F - f412)) / (flang * f412 + (1.0F - f412)));
+                            int i416 = (int) ((color.getGreen() * (flang * f413)
+                                    + color411.getGreen() * (1.0F - f413)) / (flang * f413 + (1.0F - f413)));
+                            int i417 = (int) ((color.getBlue() * (flang * f414)
+                                    + color411.getBlue() * (1.0F - f414)) / (flang * f414 + (1.0F - f414)));
+                            if (i415 > 255)
+                                i415 = 255;
+                            if (i415 < 0)
+                                i415 = 0;
+                            if (i416 > 255)
+                                i416 = 255;
+                            if (i416 < 0)
+                                i416 = 0;
+                            if (i417 > 255)
+                                i417 = 255;
+                            if (i417 < 0)
+                                i417 = 0;
+                            final Color color418 = new Color(i415, i416, i417);
+                            flexpix[i410] = color418.getRGB();
                         }
                     }
             flang += 2;
@@ -2884,88 +2884,88 @@ public class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void drawstat(final int i, int i_206_, final boolean bool, final float f) {
+    public void drawstat(final int i, int i206, final boolean bool, final float f) {
         final int[] is = new int[4];
-        final int[] is_207_ = new int[4];
-        if (i_206_ > i)
-            i_206_ = i;
-        final int i_208_ = (int) (98.0F * ((float) i_206_ / (float) i));
+        final int[] is207 = new int[4];
+        if (i206 > i)
+            i206 = i;
+        final int i208 = (int) (98.0F * ((float) i206 / (float) i));
         is[0] = 662;
-        is_207_[0] = 11;
+        is207[0] = 11;
         is[1] = 662;
-        is_207_[1] = 20;
-        is[2] = 662 + i_208_;
-        is_207_[2] = 20;
-        is[3] = 662 + i_208_;
-        is_207_[3] = 11;
-        int i_209_ = 244;
-        int i_210_ = 244;
-        int i_211_ = 11;
-        if (i_208_ > 33)
-            i_210_ = (int) (244.0F - 233.0F * ((i_208_ - 33) / 65.0F));
-        if (i_208_ > 70) {
+        is207[1] = 20;
+        is[2] = 662 + i208;
+        is207[2] = 20;
+        is[3] = 662 + i208;
+        is207[3] = 11;
+        int i209 = 244;
+        int i210 = 244;
+        int i211 = 11;
+        if (i208 > 33)
+            i210 = (int) (244.0F - 233.0F * ((i208 - 33) / 65.0F));
+        if (i208 > 70) {
             if (dmcnt < 10)
                 if (dmflk) {
-                    i_210_ = 170;
+                    i210 = 170;
                     dmflk = false;
                 } else
                     dmflk = true;
             dmcnt++;
-            if (dmcnt > 167.0 - i_208_ * 1.5)
+            if (dmcnt > 167.0 - i208 * 1.5)
                 dmcnt = 0;
         }
-        i_209_ += i_209_ * (m.snap[0] / 100.0F);
-        if (i_209_ > 255)
-            i_209_ = 255;
-        if (i_209_ < 0)
-            i_209_ = 0;
-        i_210_ += i_210_ * (m.snap[1] / 100.0F);
-        if (i_210_ > 255)
-            i_210_ = 255;
-        if (i_210_ < 0)
-            i_210_ = 0;
-        i_211_ += i_211_ * (m.snap[2] / 100.0F);
-        if (i_211_ > 255)
-            i_211_ = 255;
-        if (i_211_ < 0)
-            i_211_ = 0;
-        rd.setColor(new Color(i_209_, i_210_, i_211_));
-        rd.fillPolygon(is, is_207_, 4);
+        i209 += i209 * (m.snap[0] / 100.0F);
+        if (i209 > 255)
+            i209 = 255;
+        if (i209 < 0)
+            i209 = 0;
+        i210 += i210 * (m.snap[1] / 100.0F);
+        if (i210 > 255)
+            i210 = 255;
+        if (i210 < 0)
+            i210 = 0;
+        i211 += i211 * (m.snap[2] / 100.0F);
+        if (i211 > 255)
+            i211 = 255;
+        if (i211 < 0)
+            i211 = 0;
+        rd.setColor(new Color(i209, i210, i211));
+        rd.fillPolygon(is, is207, 4);
         is[0] = 662;
-        is_207_[0] = 31;
+        is207[0] = 31;
         is[1] = 662;
-        is_207_[1] = 40;
+        is207[1] = 40;
         is[2] = (int) (662.0F + f);
-        is_207_[2] = 40;
+        is207[2] = 40;
         is[3] = (int) (662.0F + f);
-        is_207_[3] = 31;
-        i_209_ = 128;
+        is207[3] = 31;
+        i209 = 128;
         if (f == 98.0F)
-            i_209_ = 64;
-        i_210_ = (int) (190.0 + f * 0.37);
-        i_211_ = 244;
+            i209 = 64;
+        i210 = (int) (190.0 + f * 0.37);
+        i211 = 244;
         if (auscnt < 45 && aflk) {
-            i_209_ = 128;
-            i_210_ = 244;
-            i_211_ = 244;
+            i209 = 128;
+            i210 = 244;
+            i211 = 244;
         }
-        i_209_ += i_209_ * (m.snap[0] / 100.0F);
-        if (i_209_ > 255)
-            i_209_ = 255;
-        if (i_209_ < 0)
-            i_209_ = 0;
-        i_210_ += i_210_ * (m.snap[1] / 100.0F);
-        if (i_210_ > 255)
-            i_210_ = 255;
-        if (i_210_ < 0)
-            i_210_ = 0;
-        i_211_ += i_211_ * (m.snap[2] / 100.0F);
-        if (i_211_ > 255)
-            i_211_ = 255;
-        if (i_211_ < 0)
-            i_211_ = 0;
-        rd.setColor(new Color(i_209_, i_210_, i_211_));
-        rd.fillPolygon(is, is_207_, 4);
+        i209 += i209 * (m.snap[0] / 100.0F);
+        if (i209 > 255)
+            i209 = 255;
+        if (i209 < 0)
+            i209 = 0;
+        i210 += i210 * (m.snap[1] / 100.0F);
+        if (i210 > 255)
+            i210 = 255;
+        if (i210 < 0)
+            i210 = 0;
+        i211 += i211 * (m.snap[2] / 100.0F);
+        if (i211 > 255)
+            i211 = 255;
+        if (i211 < 0)
+            i211 = 0;
+        rd.setColor(new Color(i209, i210, i211));
+        rd.fillPolygon(is, is207, 4);
     }
 
     public void drawWarning() {
@@ -2993,7 +2993,7 @@ public class xtGraphics extends Panel implements Runnable {
     }
 
     public void finish(final CheckPoints checkpoints, final ContO[] contos, final Control control, final int i,
-            final int i_141_, final boolean bool) {
+            final int i141, final boolean bool) {
         if (chronostart) {
             chrono.stop();
             chronostart = false;
@@ -3008,13 +3008,13 @@ public class xtGraphics extends Panel implements Runnable {
         }
         rd.setFont(new Font("Arial", 1, 11));
         ftm = rd.getFontMetrics();
-        int i_142_ = 0;
+        int i142 = 0;
         String string = ":";
         if (checkpoints.stage > 0) {
-            final int i_143_ = checkpoints.stage;
-            //if (i_143_ > 10)
-            //	i_143_ -= 10;
-            string = new StringBuilder().append(" ").append(i_143_).append("!").toString();
+            final int i143 = checkpoints.stage;
+            //if (i143 > 10)
+            //	i143 -= 10;
+            string = new StringBuilder().append(" ").append(i143).append("!").toString();
         }
         if (multion < 3) {
             if (winner) {
@@ -3023,7 +3023,7 @@ public class xtGraphics extends Panel implements Runnable {
                         161, 85, 3);
                 drawcs(154, new StringBuilder().append("").append(checkpoints.name).append("").toString(), 255, 115, 0,
                         3);
-                i_142_ = 154;
+                i142 = 154;
             } else {
                 rd.drawImage(gameov, 315, 117, null);
                 if (multion != 0 && (forstart == 700 || discon == 240)) {
@@ -3034,7 +3034,7 @@ public class xtGraphics extends Panel implements Runnable {
                             255, 161, 85, 3);
                     drawcs(184, new StringBuilder().append("").append(checkpoints.name).append("").toString(), 255, 115,
                             0, 3);
-                    i_142_ = 184;
+                    i142 = 184;
                 }
             }
             rd.setColor(new Color(193, 106, 0));
@@ -3048,91 +3048,91 @@ public class xtGraphics extends Panel implements Runnable {
             drawcs(167, new StringBuilder().append("Finished Watching Game!  At Stage").append(string).append("")
                     .toString(), 255, 161, 85, 3);
             drawcs(184, new StringBuilder().append("").append(checkpoints.name).append("").toString(), 255, 115, 0, 3);
-            i_142_ = 184;
+            i142 = 184;
         }
         if (winner && multion == 0 && gmode != 0
                 && (checkpoints.stage == unlocked /*+ (gmode - 1) * 10*/ || checkpoints.stage == nTracks)) {
-            int i_144_ = 0;
-            int i_145_ = 0;
+            int i144 = 0;
+            int i145 = 0;
             pin = 60;
             /*if (gmode == 1) {
             	if (checkpoints.stage == 2) {
-            		i_144_ = 5;
-            		i_145_ = 365;
+            		i144 = 5;
+            		i145 = 365;
             		pin = -20;
             		scm[0] = 5;
             	}
             	if (checkpoints.stage == 4) {
-            		i_144_ = 6;
-            		i_145_ = 320;
+            		i144 = 6;
+            		i145 = 320;
             		pin = -20;
             		scm[0] = 6;
             	}
             	if (checkpoints.stage == 6) {
-            		i_144_ = 11;
-            		i_145_ = 326;
+            		i144 = 11;
+            		i145 = 326;
             		pin = -20;
             		scm[0] = 11;
             	}
             	if (checkpoints.stage == 8) {
-            		i_144_ = 14;
-            		i_145_ = 350;
+            		i144 = 14;
+            		i145 = 350;
             		pin = -20;
             		scm[0] = 14;
             	}
             	if (checkpoints.stage == 10) {
-            		i_144_ = 15;
-            		i_145_ = 370;
+            		i144 = 15;
+            		i145 = 370;
             		pin = -20;
             		scm[0] = 15;
             	}
             }*/
             if (gmode == 2) {
                 if (checkpoints.stage == 2) {
-                    i_144_ = 8;
-                    i_145_ = 365;
+                    i144 = 8;
+                    i145 = 365;
                     pin = -20;
                     scm = 8;
                 }
                 if (checkpoints.stage == 4) {
-                    i_144_ = 9;
-                    i_145_ = 320;
+                    i144 = 9;
+                    i145 = 320;
                     pin = -20;
                     scm = 9;
                 }
                 if (checkpoints.stage == 6) {
-                    i_144_ = 10;
-                    i_145_ = 370;
+                    i144 = 10;
+                    i145 = 370;
                     pin = -20;
                     scm = 10;
                 }
                 if (checkpoints.stage == 8) {
-                    i_144_ = 11;
-                    i_145_ = 326;
+                    i144 = 11;
+                    i145 = 326;
                     pin = -20;
                     scm = 11;
                 }
                 if (checkpoints.stage == 10) {
-                    i_144_ = 12;
-                    i_145_ = 310;
+                    i144 = 12;
+                    i145 = 310;
                     pin = -20;
                     scm = 12;
                 }
                 if (checkpoints.stage == 12) {
-                    i_144_ = 13;
-                    i_145_ = 310;
+                    i144 = 13;
+                    i145 = 310;
                     pin = -20;
                     scm = 13;
                 }
                 if (checkpoints.stage == 14) {
-                    i_144_ = 14;
-                    i_145_ = 350;
+                    i144 = 14;
+                    i145 = 350;
                     pin = -20;
                     scm = 14;
                 }
                 if (checkpoints.stage == 16) {
-                    i_144_ = 15;
-                    i_145_ = 370;
+                    i144 = 15;
+                    i145 = 370;
                     pin = -20;
                     scm = 15;
                 }
@@ -3146,7 +3146,7 @@ public class xtGraphics extends Panel implements Runnable {
                 else
                     drawcs(200 + pin, new StringBuilder().append("Stage ").append(checkpoints.stage + 1)
                             .append(" is now unlocked!").toString(), 255, 247, 165, 3);
-                if (i_144_ != 0) {
+                if (i144 != 0) {
                     if (aflk)
                         drawcs(200, "And:", 196, 176, 0, 3);
                     else
@@ -3162,7 +3162,7 @@ public class xtGraphics extends Panel implements Runnable {
                     rd.fillRect(226, 211, 4, 125);
                     rd.fillRect(226, 332, 348, 4);
                     rd.fillRect(570, 211, 4, 125);
-                    contos[i_144_].y = i_145_;
+                    contos[i144].y = i145;
                     m.crs = true;
                     m.x = -400;
                     m.y = 0;
@@ -3170,30 +3170,30 @@ public class xtGraphics extends Panel implements Runnable {
                     m.xz = 0;
                     m.zy = 0;
                     m.ground = 2470;
-                    contos[i_144_].z = 1000;
-                    contos[i_144_].x = 0;
-                    contos[i_144_].xz += 5;
-                    contos[i_144_].zy = 0;
-                    contos[i_144_].wzy -= 10;
+                    contos[i144].z = 1000;
+                    contos[i144].x = 0;
+                    contos[i144].xz += 5;
+                    contos[i144].zy = 0;
+                    contos[i144].wzy -= 10;
                     rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
-                    contos[i_144_].d(rd);
+                    contos[i144].d(rd);
                     rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
                     if (Math.random() < 0.5) {
                         rd.setComposite(AlphaComposite.getInstance(3, 0.4F));
                         rd.setColor(new Color(236, 226, 202));
-                        for (int i_146_ = 0; i_146_ < 30; i_146_++)
-                            rd.drawLine(230, 215 + 4 * i_146_, 569, 215 + 4 * i_146_);
+                        for (int i146 = 0; i146 < 30; i146++)
+                            rd.drawLine(230, 215 + 4 * i146, 569, 215 + 4 * i146);
                         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
                     }
-                    String string_147_ = "";
-                    if (i_144_ == 13)
-                        string_147_ = " ";
+                    String string147 = "";
+                    if (i144 == 13)
+                        string147 = " ";
                     if (aflk)
-                        drawcs(320, new StringBuilder().append("").append(cd.names[i_144_]).append("")
-                                .append(string_147_).append(" has been unlocked!").toString(), 196, 176, 0, 3);
+                        drawcs(320, new StringBuilder().append("").append(cd.names[i144]).append("")
+                                .append(string147).append(" has been unlocked!").toString(), 196, 176, 0, 3);
                     else
-                        drawcs(320, new StringBuilder().append("").append(cd.names[i_144_]).append("")
-                                .append(string_147_).append(" has been unlocked!").toString(), 255, 247, 165, 3);
+                        drawcs(320, new StringBuilder().append("").append(cd.names[i144]).append("")
+                                .append(string147).append(" has been unlocked!").toString(), 255, 247, 165, 3);
                     pin = 140;
                 }
                 rd.setFont(new Font("Arial", 1, 11));
@@ -3252,8 +3252,8 @@ public class xtGraphics extends Panel implements Runnable {
             else
                 aflk = true;
         }
-        if (multion != 0 && checkpoints.stage == -2 && i_142_ != 0) {
-            drawcs(i_142_ + 17,
+        if (multion != 0 && checkpoints.stage == -2 && i142 != 0) {
+            drawcs(i142 + 17,
                     new StringBuilder().append("Created by: ").append(checkpoints.maker).append("").toString(), 255,
                     161, 85, 3);
             if (checkpoints.pubt > 0) {
@@ -3261,7 +3261,7 @@ public class xtGraphics extends Panel implements Runnable {
                     drawcs(310, "Super Public Stage", 41, 177, 255, 3);
                 else
                     drawcs(310, "Public Stage", 41, 177, 255, 3);
-                if (dnload == 0 && drawcarb(true, null, " Add to My Stages ", 334, 317, i, i_141_, bool))
+                if (dnload == 0 && drawcarb(true, null, " Add to My Stages ", 334, 317, i, i141, bool))
                     if (logged) {
                         cd.onstage = checkpoints.name;
                         cd.staction = 2;
@@ -3273,13 +3273,13 @@ public class xtGraphics extends Panel implements Runnable {
                     }
                 if (dnload == 1) {
                     rd.setColor(new Color(193, 106, 0));
-                    final String string_148_ = "Upgrade to a full account to add custom stages!";
-                    final int i_149_ = 400 - ftm.stringWidth(string_148_) / 2;
-                    final int i_150_ = i_149_ + ftm.stringWidth(string_148_);
-                    rd.drawString(string_148_, i_149_, 332);
+                    final String string148 = "Upgrade to a full account to add custom stages!";
+                    final int i149 = 400 - ftm.stringWidth(string148) / 2;
+                    final int i150 = i149 + ftm.stringWidth(string148);
+                    rd.drawString(string148, i149, 332);
                     if (waitlink != -1)
-                        rd.drawLine(i_149_, 334, i_150_, 334);
-                    if (i > i_149_ && i < i_150_ && i_141_ > 321 && i_141_ < 334) {
+                        rd.drawLine(i149, 334, i150, 334);
+                    if (i > i149 && i < i150 && i141 > 321 && i141 < 334) {
                         if (waitlink != -1)
                             app.setCursor(new Cursor(12));
                         if (bool && waitlink == 0) {
@@ -3358,7 +3358,7 @@ public class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void fleximage(final Image image, final int i, final int i_299_) {
+    public void fleximage(final Image image, final int i, final int i299) {
         if (!badmac) {
             if (i == 0) {
                 flexpix = new int[360000];
@@ -3369,43 +3369,43 @@ public class xtGraphics extends Panel implements Runnable {
                     /* empty */
                 }
             }
-            int i_300_ = 0;
-            int i_301_ = 0;
-            int i_302_ = 0;
-            int i_303_ = 0;
-            int i_304_ = (int) (Math.random() * 128.0);
-            int i_305_ = (int) (5.0 + Math.random() * 15.0);
-            for (int i_306_ = 0; i_306_ < 360000; i_306_++) {
-                final Color color = new Color(flexpix[i_306_]);
-                int i_309_;
-                int i_310_;
-                int i_311_;
-                if (i_300_ == 0) {
-                    i_309_ = color.getRed();
-                    i_301_ = i_309_;
-                    i_310_ = color.getGreen();
-                    i_302_ = i_310_;
-                    i_311_ = color.getBlue();
-                    i_303_ = i_311_;
+            int i300 = 0;
+            int i301 = 0;
+            int i302 = 0;
+            int i303 = 0;
+            int i304 = (int) (Math.random() * 128.0);
+            int i305 = (int) (5.0 + Math.random() * 15.0);
+            for (int i306 = 0; i306 < 360000; i306++) {
+                final Color color = new Color(flexpix[i306]);
+                int i309;
+                int i310;
+                int i311;
+                if (i300 == 0) {
+                    i309 = color.getRed();
+                    i301 = i309;
+                    i310 = color.getGreen();
+                    i302 = i310;
+                    i311 = color.getBlue();
+                    i303 = i311;
                 } else {
-                    i_309_ = (int) ((color.getRed() + i_301_ * 0.38F * i) / (1.0F + 0.38F * i));
-                    i_301_ = i_309_;
-                    i_310_ = (int) ((color.getGreen() + i_302_ * 0.38F * i) / (1.0F + 0.38F * i));
-                    i_302_ = i_310_;
-                    i_311_ = (int) ((color.getBlue() + i_303_ * 0.38F * i) / (1.0F + 0.38F * i));
-                    i_303_ = i_311_;
+                    i309 = (int) ((color.getRed() + i301 * 0.38F * i) / (1.0F + 0.38F * i));
+                    i301 = i309;
+                    i310 = (int) ((color.getGreen() + i302 * 0.38F * i) / (1.0F + 0.38F * i));
+                    i302 = i310;
+                    i311 = (int) ((color.getBlue() + i303 * 0.38F * i) / (1.0F + 0.38F * i));
+                    i303 = i311;
                 }
-                if (++i_300_ == 800)
-                    i_300_ = 0;
-                final int i_312_ = (int) ((i_309_ * 17 + i_310_ + i_311_ + i_304_) / 21.0F);
-                final int i_313_ = (int) ((i_310_ * 17 + i_309_ + i_311_ + i_304_) / 22.0F);
-                final int i_314_ = (int) ((i_311_ * 17 + i_309_ + i_310_ + i_304_) / 24.0F);
-                if (--i_305_ == 0) {
-                    i_304_ = (int) (Math.random() * 128.0);
-                    i_305_ = (int) (5.0 + Math.random() * 15.0);
+                if (++i300 == 800)
+                    i300 = 0;
+                final int i312 = (int) ((i309 * 17 + i310 + i311 + i304) / 21.0F);
+                final int i313 = (int) ((i310 * 17 + i309 + i311 + i304) / 22.0F);
+                final int i314 = (int) ((i311 * 17 + i309 + i310 + i304) / 24.0F);
+                if (--i305 == 0) {
+                    i304 = (int) (Math.random() * 128.0);
+                    i305 = (int) (5.0 + Math.random() * 15.0);
                 }
-                final Color color_315_ = new Color(i_312_, i_313_, i_314_);
-                flexpix[i_306_] = color_315_.getRGB();
+                final Color color315 = new Color(i312, i313, i314);
+                flexpix[i306] = color315.getRGB();
             }
             fleximg = createImage(new MemoryImageSource(800, 450, flexpix, 0, 800));
             rd.drawImage(fleximg, 0, 0, null);
@@ -3431,61 +3431,61 @@ public class xtGraphics extends Panel implements Runnable {
     }
 
     public String getSvalue(final String string, final int i) {
-        String string_443_ = "";
+        String string443 = "";
         try {
-            int i_444_ = 0;
-            int i_445_ = 0;
-            int i_446_ = 0;
-            String string_447_ = "";
-            String string_448_ = "";
-            for ( /**/ ; i_444_ < string.length() && i_446_ != 2; i_444_++) {
-                string_447_ = new StringBuilder().append("").append(string.charAt(i_444_)).toString();
-                if (string_447_.equals("|")) {
-                    i_445_++;
-                    if (i_446_ == 1 || i_445_ > i)
-                        i_446_ = 2;
-                } else if (i_445_ == i) {
-                    string_448_ = new StringBuilder().append(string_448_).append(string_447_).toString();
-                    i_446_ = 1;
+            int i444 = 0;
+            int i445 = 0;
+            int i446 = 0;
+            String string447 = "";
+            String string448 = "";
+            for ( /**/ ; i444 < string.length() && i446 != 2; i444++) {
+                string447 = new StringBuilder().append("").append(string.charAt(i444)).toString();
+                if (string447.equals("|")) {
+                    i445++;
+                    if (i446 == 1 || i445 > i)
+                        i446 = 2;
+                } else if (i445 == i) {
+                    string448 = new StringBuilder().append(string448).append(string447).toString();
+                    i446 = 1;
                 }
             }
-            string_443_ = string_448_;
+            string443 = string448;
         } catch (final Exception exception) {
             /* empty */
         }
-        return string_443_;
+        return string443;
     }
 
     public int getvalue(final String string, final int i) {
-        int i_437_ = -1;
+        int i437 = -1;
         try {
-            int i_438_ = 0;
-            int i_439_ = 0;
-            int i_440_ = 0;
-            String string_441_ = "";
-            String string_442_ = "";
-            for ( /**/ ; i_438_ < string.length() && i_440_ != 2; i_438_++) {
-                string_441_ = new StringBuilder().append("").append(string.charAt(i_438_)).toString();
-                if (string_441_.equals("|")) {
-                    i_439_++;
-                    if (i_440_ == 1 || i_439_ > i)
-                        i_440_ = 2;
-                } else if (i_439_ == i) {
-                    string_442_ = new StringBuilder().append(string_442_).append(string_441_).toString();
-                    i_440_ = 1;
+            int i438 = 0;
+            int i439 = 0;
+            int i440 = 0;
+            String string441 = "";
+            String string442 = "";
+            for ( /**/ ; i438 < string.length() && i440 != 2; i438++) {
+                string441 = new StringBuilder().append("").append(string.charAt(i438)).toString();
+                if (string441.equals("|")) {
+                    i439++;
+                    if (i440 == 1 || i439 > i)
+                        i440 = 2;
+                } else if (i439 == i) {
+                    string442 = new StringBuilder().append(string442).append(string441).toString();
+                    i440 = 1;
                 }
             }
-            if (string_442_.equals(""))
-                string_442_ = "-1";
-            i_437_ = Integer.valueOf(string_442_).intValue();
+            if (string442.equals(""))
+                string442 = "-1";
+            i437 = Integer.valueOf(string442).intValue();
         } catch (final Exception exception) {
             /* empty */
         }
-        return i_437_;
+        return i437;
     }
 
-    public void gscrape(final int i, final int i_269_, final int i_270_) {
-        if ((bfsc1 == 0 || bfsc2 == 0) && Math.sqrt(i * i + i_269_ * i_269_ + i_270_ * i_270_) / 10.0 > 15.0)
+    public void gscrape(final int i, final int i269, final int i270) {
+        if ((bfsc1 == 0 || bfsc2 == 0) && Math.sqrt(i * i + i269 * i269 + i270 * i270) / 10.0 > 15.0)
             if (bfsc1 == 0) {
                 if (!mutes) {
                     scrape[2].stop();
@@ -3515,25 +3515,25 @@ public class xtGraphics extends Panel implements Runnable {
                 m.snap[0], m.snap[1], m.snap[2]
         };
         while (is[0] + is[1] + is[2] < -30 && !Thread.currentThread().isInterrupted())
-            for (int i_45_ = 0; i_45_ < 3; i_45_++)
-                if (is[i_45_] < 50)
-                    is[i_45_]++;
-        int i_46_ = (int) (230.0F - 230.0F * (is[0] / 100.0F));
-        if (i_46_ > 255)
-            i_46_ = 255;
-        if (i_46_ < 0)
-            i_46_ = 0;
-        int i_47_ = (int) (230.0F - 230.0F * (is[1] / 100.0F));
-        if (i_47_ > 255)
-            i_47_ = 255;
-        if (i_47_ < 0)
-            i_47_ = 0;
-        int i_48_ = (int) (230.0F - 230.0F * (is[2] / 100.0F));
-        if (i_48_ > 255)
-            i_48_ = 255;
-        if (i_48_ < 0)
-            i_48_ = 0;
-        rd.setColor(new Color(i_46_, i_47_, i_48_));
+            for (int i45 = 0; i45 < 3; i45++)
+                if (is[i45] < 50)
+                    is[i45]++;
+        int i46 = (int) (230.0F - 230.0F * (is[0] / 100.0F));
+        if (i46 > 255)
+            i46 = 255;
+        if (i46 < 0)
+            i46 = 0;
+        int i47 = (int) (230.0F - 230.0F * (is[1] / 100.0F));
+        if (i47 > 255)
+            i47 = 255;
+        if (i47 < 0)
+            i47 = 0;
+        int i48 = (int) (230.0F - 230.0F * (is[2] / 100.0F));
+        if (i48 > 255)
+            i48 = 255;
+        if (i48 < 0)
+            i48 = 0;
+        rd.setColor(new Color(i46, i47, i48));
         rd.fillRect(65, 25, 670, 400);
         rd.setComposite(AlphaComposite.getInstance(3, 0.3F));
         rd.drawImage(bggo, 0, -25, null);
@@ -3546,18 +3546,18 @@ public class xtGraphics extends Panel implements Runnable {
         rd.setFont(new Font("Arial", 1, 13));
         ftm = rd.getFontMetrics();
         drawcs(50, asay, 0, 0, 0, 3);
-        int i_49_ = -90;
+        int i49 = -90;
         if (multion == 0) {
             if (i == 1 || i == 2 || i == 3 || i == 4 || i == 5 || i == 10)
-                i_49_ = 0;
+                i49 = 0;
             if (i == 11 || i == 12 || i == 13 || i == 14 || i == 17 || i == 18 || i == 19 || i == 20 || i == 22
                     || i == 23 || i == 26)
-                i_49_ = 0;
+                i49 = 0;
             if (i < 0 && nplayers != 1 && newparts)
-                i_49_ = 0;
+                i49 = 0;
         } else if (ransay == 1 || ransay == 2 || ransay == 3 || ransay == 4 || i == 10)
-            i_49_ = 0;
-        if (i_49_ == 0) {
+            i49 = 0;
+        if (i49 == 0) {
             if (dudo > 0) {
                 if (aflk) {
                     if (Math.random() > Math.random())
@@ -3575,22 +3575,22 @@ public class xtGraphics extends Panel implements Runnable {
             rd.setComposite(AlphaComposite.getInstance(3, 0.7F));
             rd.drawImage(flaot, 192, 67, null);
             rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
-            i_46_ = (int) (80.0F - 80.0F * (is[0] / 100.0F));
-            if (i_46_ > 255)
-                i_46_ = 255;
-            if (i_46_ < 0)
-                i_46_ = 0;
-            i_47_ = (int) (80.0F - 80.0F * (is[1] / 100.0F));
-            if (i_47_ > 255)
-                i_47_ = 255;
-            if (i_47_ < 0)
-                i_47_ = 0;
-            i_48_ = (int) (80.0F - 80.0F * (is[2] / 100.0F));
-            if (i_48_ > 255)
-                i_48_ = 255;
-            if (i_48_ < 0)
-                i_48_ = 0;
-            rd.setColor(new Color(i_46_, i_47_, i_48_));
+            i46 = (int) (80.0F - 80.0F * (is[0] / 100.0F));
+            if (i46 > 255)
+                i46 = 255;
+            if (i46 < 0)
+                i46 = 0;
+            i47 = (int) (80.0F - 80.0F * (is[1] / 100.0F));
+            if (i47 > 255)
+                i47 = 255;
+            if (i47 < 0)
+                i47 = 0;
+            i48 = (int) (80.0F - 80.0F * (is[2] / 100.0F));
+            if (i48 > 255)
+                i48 = 255;
+            if (i48 < 0)
+                i48 = 0;
+            rd.setColor(new Color(i46, i47, i48));
             rd.setFont(new Font("Arial", 1, 13));
             if (multion != 0) {
                 if (ransay == 1 && i != 10)
@@ -3610,7 +3610,7 @@ public class xtGraphics extends Panel implements Runnable {
                 }
                 if (i == 10 && ransay != 4) {
                     if (tflk) {
-                        rd.setColor(new Color(200, i_47_, i_48_));
+                        rd.setColor(new Color(200, i47, i48));
                         tflk = false;
                     } else
                         tflk = true;
@@ -3641,7 +3641,7 @@ public class xtGraphics extends Panel implements Runnable {
                     rd.drawString("Remember, the more power you have the stronger your car is!", 262, 92);
                 if (i == 10) {
                     if (tflk) {
-                        rd.setColor(new Color(200, i_47_, i_48_));
+                        rd.setColor(new Color(200, i47, i48));
                         tflk = false;
                     } else
                         tflk = true;
@@ -3694,22 +3694,22 @@ public class xtGraphics extends Panel implements Runnable {
             }
         }
         rd.setComposite(AlphaComposite.getInstance(3, 0.8F));
-        rd.drawImage(loadingmusic, 289, 205 + i_49_, null);
+        rd.drawImage(loadingmusic, 289, 205 + i49, null);
         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
         rd.setFont(new Font("Arial", 1, 11));
         ftm = rd.getFontMetrics();
-        int i_50_ = i - 1;
-        if (i_50_ < 0)
-            i_50_ = 32;
+        int i50 = i - 1;
+        if (i50 < 0)
+            i50 = 32;
         if (!bool)
             //unnecessary
-            //drawcs(340 + i_49_, new StringBuilder().append("").append(sndsize[i_50_]).append(" KB").toString(), 0, 0, 0,
+            //drawcs(340 + i49, new StringBuilder().append("").append(sndsize[i50]).append(" KB").toString(), 0, 0, 0,
             //		3);
-            drawcs(375 + i_49_, " Please Wait...", 0, 0, 0, 3);
+            drawcs(375 + i49, " Please Wait...", 0, 0, 0, 3);
         else {
-            drawcs(365 + i_49_, "Loading complete!  Press Start to begin...", 0, 0, 0, 3);
+            drawcs(365 + i49, "Loading complete!  Press Start to begin...", 0, 0, 0, 3);
             rd.setComposite(AlphaComposite.getInstance(3, 0.5F));
-            rd.drawImage(star[pstar], 359, 385 + i_49_, null);
+            rd.drawImage(star[pstar], 359, 385 + i49, null);
             rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
             if (pstar != 2)
                 if (pstar == 0)
@@ -3717,7 +3717,7 @@ public class xtGraphics extends Panel implements Runnable {
                 else
                     pstar = 0;
             if (multion != 0)
-                drawcs(380 + i_49_, new StringBuilder().append("").append(forstart / 20).toString(), 0, 0, 0, 3);
+                drawcs(380 + i49, new StringBuilder().append("").append(forstart / 20).toString(), 0, 0, 0, 3);
         }
     }
 
@@ -3884,32 +3884,32 @@ public class xtGraphics extends Panel implements Runnable {
             int i = 16;
             if (cd.lastload == 2)
                 i = cd.nlocars;
-            for (int i_100_ = 0; i_100_ < i; i_100_++) {
+            for (int i100 = 0; i100 < i; i100++) {
                 final float[] fs = new float[3];
-                Color.RGBtoHSB(contos[i_100_].fcol[0], contos[i_100_].fcol[1], contos[i_100_].fcol[2], fs);
-                for (int i_101_ = 0; i_101_ < contos[i_100_].npl; i_101_++)
-                    if (contos[i_100_].p[i_101_].colnum == 1) {
-                        contos[i_100_].p[i_101_].hsb[0] = fs[0];
-                        contos[i_100_].p[i_101_].hsb[1] = fs[1];
-                        contos[i_100_].p[i_101_].hsb[2] = fs[2];
-                        contos[i_100_].p[i_101_].oc[0] = contos[i_100_].fcol[0];
-                        contos[i_100_].p[i_101_].oc[1] = contos[i_100_].fcol[1];
-                        contos[i_100_].p[i_101_].oc[2] = contos[i_100_].fcol[2];
+                Color.RGBtoHSB(contos[i100].fcol[0], contos[i100].fcol[1], contos[i100].fcol[2], fs);
+                for (int i101 = 0; i101 < contos[i100].npl; i101++)
+                    if (contos[i100].p[i101].colnum == 1) {
+                        contos[i100].p[i101].hsb[0] = fs[0];
+                        contos[i100].p[i101].hsb[1] = fs[1];
+                        contos[i100].p[i101].hsb[2] = fs[2];
+                        contos[i100].p[i101].oc[0] = contos[i100].fcol[0];
+                        contos[i100].p[i101].oc[1] = contos[i100].fcol[1];
+                        contos[i100].p[i101].oc[2] = contos[i100].fcol[2];
                     }
-                Color.RGBtoHSB(contos[i_100_].scol[0], contos[i_100_].scol[1], contos[i_100_].scol[2], fs);
-                for (int i_102_ = 0; i_102_ < contos[i_100_].npl; i_102_++)
-                    if (contos[i_100_].p[i_102_].colnum == 2) {
-                        contos[i_100_].p[i_102_].hsb[0] = fs[0];
-                        contos[i_100_].p[i_102_].hsb[1] = fs[1];
-                        contos[i_100_].p[i_102_].hsb[2] = fs[2];
-                        contos[i_100_].p[i_102_].oc[0] = contos[i_100_].scol[0];
-                        contos[i_100_].p[i_102_].oc[1] = contos[i_100_].scol[1];
-                        contos[i_100_].p[i_102_].oc[2] = contos[i_100_].scol[2];
+                Color.RGBtoHSB(contos[i100].scol[0], contos[i100].scol[1], contos[i100].scol[2], fs);
+                for (int i102 = 0; i102 < contos[i100].npl; i102++)
+                    if (contos[i100].p[i102].colnum == 2) {
+                        contos[i100].p[i102].hsb[0] = fs[0];
+                        contos[i100].p[i102].hsb[1] = fs[1];
+                        contos[i100].p[i102].hsb[2] = fs[2];
+                        contos[i100].p[i102].oc[0] = contos[i100].scol[0];
+                        contos[i100].p[i102].oc[1] = contos[i100].scol[1];
+                        contos[i100].p[i102].oc[2] = contos[i100].scol[2];
                     }
-                contos[i_100_].xy = 0;
+                contos[i100].xy = 0;
             }
-            for (int i_103_ = 0; i_103_ < 6; i_103_++)
-                arnp[i_103_] = -1.0F;
+            for (int i103 = 0; i103 < 6; i103++)
+                arnp[i103] = -1.0F;
         }
         m.trk = 0;
         m.crs = true;
@@ -4254,33 +4254,33 @@ public class xtGraphics extends Panel implements Runnable {
                 /* empty */
             }
             int i = 0;
-            int i_353_ = 0;
-            int i_354_ = 0;
-            int i_355_ = 0;
-            for (int i_356_ = 0; i_356_ < 360000; i_356_++) {
-                final Color color = new Color(is[i_356_]);
-                int i_359_;
-                int i_360_;
-                int i_361_;
-                if (i_355_ == 0) {
-                    i_359_ = color.getRed();
-                    i = i_359_;
-                    i_360_ = color.getGreen();
-                    i_354_ = i_360_;
-                    i_361_ = color.getBlue();
-                    i_353_ = i_361_;
+            int i353 = 0;
+            int i354 = 0;
+            int i355 = 0;
+            for (int i356 = 0; i356 < 360000; i356++) {
+                final Color color = new Color(is[i356]);
+                int i359;
+                int i360;
+                int i361;
+                if (i355 == 0) {
+                    i359 = color.getRed();
+                    i = i359;
+                    i360 = color.getGreen();
+                    i354 = i360;
+                    i361 = color.getBlue();
+                    i353 = i361;
                 } else {
-                    i_359_ = (color.getRed() + i * 10) / 11;
-                    i = i_359_;
-                    i_360_ = (color.getGreen() + i_354_ * 10) / 11;
-                    i_354_ = i_360_;
-                    i_361_ = (color.getBlue() + i_353_ * 10) / 11;
-                    i_353_ = i_361_;
+                    i359 = (color.getRed() + i * 10) / 11;
+                    i = i359;
+                    i360 = (color.getGreen() + i354 * 10) / 11;
+                    i354 = i360;
+                    i361 = (color.getBlue() + i353 * 10) / 11;
+                    i353 = i361;
                 }
-                if (++i_355_ == 800)
-                    i_355_ = 0;
-                final Color color_362_ = new Color(i_359_, i_360_, i_361_);
-                is[i_356_] = color_362_.getRGB();
+                if (++i355 == 800)
+                    i355 = 0;
+                final Color color362 = new Color(i359, i360, i361);
+                is[i356] = color362.getRGB();
             }
             final Image image = createImage(new MemoryImageSource(800, 450, is, 0, 800));
             rd.drawImage(image, 0, 0, null);
@@ -4292,35 +4292,35 @@ public class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void levelhigh(final int i, final int i_91_, final int i_92_, final int i_93_, final int i_94_) {
+    public void levelhigh(final int i, final int i91, final int i92, final int i93, final int i94) {
         rd.drawImage(gameh, 301, 20, null);
-        int i_95_ = 16;
-        int i_96_ = 48;
-        int i_97_ = 96;
-        if (i_93_ < 50)
+        int i95 = 16;
+        int i96 = 48;
+        int i97 = 96;
+        if (i93 < 50)
             if (aflk) {
-                i_95_ = 106;
-                i_96_ = 176;
-                i_97_ = 255;
+                i95 = 106;
+                i96 = 176;
+                i97 = 255;
                 aflk = false;
             } else
                 aflk = true;
         if (i != im) {
-            if (i_92_ == 0)
-                drawcs(60, "You Wasted 'em!", i_95_, i_96_, i_97_, 0);
-            else if (i_92_ == 1)
-                drawcs(60, "Close Finish!", i_95_, i_96_, i_97_, 0);
+            if (i92 == 0)
+                drawcs(60, "You Wasted 'em!", i95, i96, i97, 0);
+            else if (i92 == 1)
+                drawcs(60, "Close Finish!", i95, i96, i97, 0);
             else
-                drawcs(60, "Close Finish!  Almost got it!", i_95_, i_96_, i_97_, 0);
-        } else if (i_91_ == 229) {
+                drawcs(60, "Close Finish!  Almost got it!", i95, i96, i97, 0);
+        } else if (i91 == 229) {
             if (discon != 240)
-                drawcs(60, "Wasted!", i_95_, i_96_, i_97_, 0);
+                drawcs(60, "Wasted!", i95, i96, i97, 0);
             else
-                drawcs(60, "Disconnected!", i_95_, i_96_, i_97_, 0);
-        } else if (i_94_ > 2 || i_94_ < 0)
-            drawcs(60, "Stunts!", i_95_, i_96_, i_97_, 0);
+                drawcs(60, "Disconnected!", i95, i96, i97, 0);
+        } else if (i94 > 2 || i94 < 0)
+            drawcs(60, "Stunts!", i95, i96, i97, 0);
         else
-            drawcs(60, "Best Stunt!", i_95_, i_96_, i_97_, 0);
+            drawcs(60, "Best Stunt!", i95, i96, i97, 0);
         drawcs(380, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
     }
 
@@ -4332,18 +4332,18 @@ public class xtGraphics extends Panel implements Runnable {
         } catch (final Exception exception) {
             /* empty */
         }
-        final int i_368_ = image.getHeight(ob);
-        final int i_369_ = image.getWidth(ob);
-        final int[] is_370_ = new int[i_369_ * i_368_];
-        final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i_369_, i_368_, is_370_, 0, i_369_);
+        final int i368 = image.getHeight(ob);
+        final int i369 = image.getWidth(ob);
+        final int[] is370 = new int[i369 * i368];
+        final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i369, i368, is370, 0, i369);
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
             /* empty */
         }
-        for (int i_371_ = 0; i_371_ < i_369_ * i_368_; i_371_++)
-            if (is_370_[i_371_] != is_370_[0] || i != 0) {
-                final Color color = new Color(is_370_[i_371_]);
+        for (int i371 = 0; i371 < i369 * i368; i371++)
+            if (is370[i371] != is370[0] || i != 0) {
+                final Color color = new Color(is370[i371]);
                 final float[] fs = new float[3];
                 Color.RGBtoHSB(color.getRed(), color.getGreen(), color.getBlue(), fs);
                 fs[0] = 0.12F;
@@ -4352,31 +4352,31 @@ public class xtGraphics extends Panel implements Runnable {
                     fs[0] = 0.13F;
                     fs[1] = 0.45F;
                 }
-                final Color color_372_ = Color.getHSBColor(fs[0], fs[1], fs[2]);
-                is_370_[i_371_] = color_372_.getRGB();
+                final Color color372 = Color.getHSBColor(fs[0], fs[1], fs[2]);
+                is370[i371] = color372.getRGB();
             }
         if (i == 2) {
-            Color color = new Color(is_370_[0]);
-            final int i_373_ = 0x40000000 | color.getRed() << 16 | color.getGreen() << 8 | color.getBlue();
-            color = new Color(is_370_[1]);
-            final int i_374_ = ~0x7fffffff | color.getRed() << 16 | color.getGreen() << 8 | color.getBlue();
-            for (int i_375_ = 2; i_375_ < i_369_ * i_368_; i_375_++) {
-                if (is_370_[i_375_] == is_370_[0])
-                    is_370_[i_375_] = i_373_;
-                if (is_370_[i_375_] == is_370_[1])
-                    is_370_[i_375_] = i_374_;
+            Color color = new Color(is370[0]);
+            final int i373 = 0x40000000 | color.getRed() << 16 | color.getGreen() << 8 | color.getBlue();
+            color = new Color(is370[1]);
+            final int i374 = ~0x7fffffff | color.getRed() << 16 | color.getGreen() << 8 | color.getBlue();
+            for (int i375 = 2; i375 < i369 * i368; i375++) {
+                if (is370[i375] == is370[0])
+                    is370[i375] = i373;
+                if (is370[i375] == is370[1])
+                    is370[i375] = i374;
             }
-            is_370_[0] = i_373_;
-            is_370_[1] = i_374_;
+            is370[0] = i373;
+            is370[1] = i374;
         }
-        Image image_376_;
+        Image image376;
         if (i == 2) {
-            final BufferedImage bufferedimage = new BufferedImage(i_369_, i_368_, 2);
-            bufferedimage.setRGB(0, 0, i_369_, i_368_, is_370_, 0, i_369_);
-            image_376_ = bufferedimage;
+            final BufferedImage bufferedimage = new BufferedImage(i369, i368, 2);
+            bufferedimage.setRGB(0, 0, i369, i368, is370, 0, i369);
+            image376 = bufferedimage;
         } else
-            image_376_ = createImage(new MemoryImageSource(i_369_, i_368_, is_370_, 0, i_369_));
-        return image_376_;
+            image376 = createImage(new MemoryImageSource(i369, i368, is370, 0, i369));
+        return image376;
     }
 
     public void loaddata() {
@@ -4405,7 +4405,7 @@ public class xtGraphics extends Panel implements Runnable {
         final Toolkit toolkit = Toolkit.getDefaultToolkit();
         final MediaTracker mediatracker = new MediaTracker(app);
         Image image = null;
-        Image image_10_ = null;
+        Image image10 = null;
         dnload += 8;
         try {
             final File file = new File(
@@ -4417,18 +4417,18 @@ public class xtGraphics extends Panel implements Runnable {
                 int i = (int) zipentry.getSize();
                 final String string = zipentry.getName();
                 final byte[] is = new byte[i];
-                int i_11_ = 0;
-                int i_12_;
-                for ( /**/ ; i > 0; i -= i_12_) {
-                    i_12_ = zipinputstream.read(is, i_11_, i);
-                    i_11_ += i_12_;
+                int i11 = 0;
+                int i12;
+                for ( /**/ ; i > 0; i -= i12) {
+                    i12 = zipinputstream.read(is, i11, i);
+                    i11 += i12;
                 }
                 if (string.equals("cars.gif"))
                     carsbg = loadBimage(is, mediatracker, toolkit, 1);
                 if (string.equals("color.gif"))
                     image = loadBimage(is, mediatracker, toolkit, 0);
                 if (string.equals("class.gif"))
-                    image_10_ = loadBimage(is, mediatracker, toolkit, 0);
+                    image10 = loadBimage(is, mediatracker, toolkit, 0);
                 if (string.equals("smokey.gif"))
                     smokeypix(is, mediatracker, toolkit);
                 if (string.equals("1.gif"))
@@ -4712,7 +4712,7 @@ public class xtGraphics extends Panel implements Runnable {
         } catch (final Exception exception) {
             System.out.println(new StringBuilder().append("Error Loading Images: ").append(exception).toString());
         }
-        makecarsbgc(image, image_10_);
+        makecarsbgc(image, image10);
         System.gc();
     }
 
@@ -4766,7 +4766,7 @@ public class xtGraphics extends Panel implements Runnable {
         removeds = 0;
     }
 
-    public void loadmusic(final int i, final String string, final int i_51_) {
+    public void loadmusic(final int i, final String string, final int i51) {
         hipnoload(i, false);
         app.setCursor(new Cursor(3));
         //app.repaint();
@@ -4786,7 +4786,7 @@ public class xtGraphics extends Panel implements Runnable {
             runner = new Thread(this);
             runner.start();
         }
-        loadstrack(i, string, i_51_);
+        loadstrack(i, string, i51);
         if (bool) {
             runner.interrupt();
             runner = null;
@@ -4814,11 +4814,11 @@ public class xtGraphics extends Panel implements Runnable {
         fase = 6;
     }
 
-    private Image loadopsnap(final Image image, int i, final int i_323_) {
-        final int i_324_ = image.getHeight(ob);
-        final int i_325_ = image.getWidth(ob);
-        final int[] is = new int[i_325_ * i_324_];
-        final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i_325_, i_324_, is, 0, i_325_);
+    private Image loadopsnap(final Image image, int i, final int i323) {
+        final int i324 = image.getHeight(ob);
+        final int i325 = image.getWidth(ob);
+        final int[] is = new int[i325 * i324];
+        final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i325, i324, is, 0, i325);
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
@@ -4826,108 +4826,108 @@ public class xtGraphics extends Panel implements Runnable {
         }
         if (i < 0)
             i = 33;
-        int i_326_ = 0;
-        if (i_323_ == 1)
-            i_326_ = is[61993];
-        final int[] is_327_ = {
+        int i326 = 0;
+        if (i323 == 1)
+            i326 = is[61993];
+        final int[] is327 = {
                 m.snap[0], m.snap[1], m.snap[2]
         };
-        while (is_327_[0] + is_327_[1] + is_327_[2] < -30 && !Thread.currentThread().isInterrupted())
-            for (int i_328_ = 0; i_328_ < 3; i_328_++)
-                if (is_327_[i_328_] < 50)
-                    is_327_[i_328_]++;
-        for (int i_329_ = 0; i_329_ < i_325_ * i_324_; i_329_++)
-            if (is[i_329_] != is[i_323_]) {
-                final Color color = new Color(is[i_329_]);
-                int i_332_;
-                int i_333_;
-                int i_334_;
-                if (i_323_ == 1 && is[i_329_] == i_326_) {
-                    i_332_ = (int) (237.0F - 237.0F * (is_327_[0] / 150.0F));
-                    if (i_332_ > 255)
-                        i_332_ = 255;
-                    if (i_332_ < 0)
-                        i_332_ = 0;
-                    i_333_ = (int) (237.0F - 237.0F * (is_327_[1] / 150.0F));
-                    if (i_333_ > 255)
-                        i_333_ = 255;
-                    if (i_333_ < 0)
-                        i_333_ = 0;
-                    i_334_ = (int) (237.0F - 237.0F * (is_327_[2] / 150.0F));
-                    if (i_334_ > 255)
-                        i_334_ = 255;
-                    if (i_334_ < 0)
-                        i_334_ = 0;
+        while (is327[0] + is327[1] + is327[2] < -30 && !Thread.currentThread().isInterrupted())
+            for (int i328 = 0; i328 < 3; i328++)
+                if (is327[i328] < 50)
+                    is327[i328]++;
+        for (int i329 = 0; i329 < i325 * i324; i329++)
+            if (is[i329] != is[i323]) {
+                final Color color = new Color(is[i329]);
+                int i332;
+                int i333;
+                int i334;
+                if (i323 == 1 && is[i329] == i326) {
+                    i332 = (int) (237.0F - 237.0F * (is327[0] / 150.0F));
+                    if (i332 > 255)
+                        i332 = 255;
+                    if (i332 < 0)
+                        i332 = 0;
+                    i333 = (int) (237.0F - 237.0F * (is327[1] / 150.0F));
+                    if (i333 > 255)
+                        i333 = 255;
+                    if (i333 < 0)
+                        i333 = 0;
+                    i334 = (int) (237.0F - 237.0F * (is327[2] / 150.0F));
+                    if (i334 > 255)
+                        i334 = 255;
+                    if (i334 < 0)
+                        i334 = 0;
                     if (i == 11) {
-                        i_332_ = 250;
-                        i_333_ = 250;
-                        i_334_ = 250;
+                        i332 = 250;
+                        i333 = 250;
+                        i334 = 250;
                     }
                 } else {
-                    i_332_ = (int) (color.getRed() - color.getRed() * (is_327_[0] / 100.0F));
-                    if (i_332_ > 255)
-                        i_332_ = 255;
-                    if (i_332_ < 0)
-                        i_332_ = 0;
-                    i_333_ = (int) (color.getGreen() - color.getGreen() * (is_327_[1] / 100.0F));
-                    if (i_333_ > 255)
-                        i_333_ = 255;
-                    if (i_333_ < 0)
-                        i_333_ = 0;
-                    i_334_ = (int) (color.getBlue() - color.getBlue() * (is_327_[2] / 100.0F));
-                    if (i_334_ > 255)
-                        i_334_ = 255;
-                    if (i_334_ < 0)
-                        i_334_ = 0;
+                    i332 = (int) (color.getRed() - color.getRed() * (is327[0] / 100.0F));
+                    if (i332 > 255)
+                        i332 = 255;
+                    if (i332 < 0)
+                        i332 = 0;
+                    i333 = (int) (color.getGreen() - color.getGreen() * (is327[1] / 100.0F));
+                    if (i333 > 255)
+                        i333 = 255;
+                    if (i333 < 0)
+                        i333 = 0;
+                    i334 = (int) (color.getBlue() - color.getBlue() * (is327[2] / 100.0F));
+                    if (i334 > 255)
+                        i334 = 255;
+                    if (i334 < 0)
+                        i334 = 0;
                 }
-                final Color color_335_ = new Color(i_332_, i_333_, i_334_);
-                is[i_329_] = color_335_.getRGB();
+                final Color color335 = new Color(i332, i333, i334);
+                is[i329] = color335.getRGB();
             }
-        final Image image_336_ = createImage(new MemoryImageSource(i_325_, i_324_, is, 0, i_325_));
-        return image_336_;
+        final Image image336 = createImage(new MemoryImageSource(i325, i324, is, 0, i325));
+        return image336;
     }
 
     private Image loadsnap(final Image image) {
         final int i = image.getHeight(ob);
-        final int i_316_ = image.getWidth(ob);
-        final int[] is = new int[i_316_ * i];
-        final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i_316_, i, is, 0, i_316_);
+        final int i316 = image.getWidth(ob);
+        final int[] is = new int[i316 * i];
+        final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i316, i, is, 0, i316);
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
             /* empty */
         }
-        for (int i_317_ = 0; i_317_ < i_316_ * i; i_317_++) {
-            final Color color = new Color(is[i_316_ * i - 1]);
-            final Color color_318_ = new Color(is[i_317_]);
-            if (color_318_.getRed() != color_318_.getGreen() && color_318_.getGreen() != color_318_.getBlue()) {
-                int i_319_ = (int) (color_318_.getRed() + color_318_.getRed() * (m.snap[0] / 100.0F));
-                if (i_319_ > 255)
-                    i_319_ = 255;
-                if (i_319_ < 0)
-                    i_319_ = 0;
-                int i_320_ = (int) (color_318_.getGreen() + color_318_.getGreen() * (m.snap[1] / 100.0F));
-                if (i_320_ > 255)
-                    i_320_ = 255;
-                if (i_320_ < 0)
-                    i_320_ = 0;
-                int i_321_ = (int) (color_318_.getBlue() + color_318_.getBlue() * (m.snap[2] / 100.0F));
-                if (i_321_ > 255)
-                    i_321_ = 255;
-                if (i_321_ < 0)
-                    i_321_ = 0;
-                is[i_317_] = ~0xffffff | i_319_ << 16 | i_320_ << 8 | i_321_;
+        for (int i317 = 0; i317 < i316 * i; i317++) {
+            final Color color = new Color(is[i316 * i - 1]);
+            final Color color318 = new Color(is[i317]);
+            if (color318.getRed() != color318.getGreen() && color318.getGreen() != color318.getBlue()) {
+                int i319 = (int) (color318.getRed() + color318.getRed() * (m.snap[0] / 100.0F));
+                if (i319 > 255)
+                    i319 = 255;
+                if (i319 < 0)
+                    i319 = 0;
+                int i320 = (int) (color318.getGreen() + color318.getGreen() * (m.snap[1] / 100.0F));
+                if (i320 > 255)
+                    i320 = 255;
+                if (i320 < 0)
+                    i320 = 0;
+                int i321 = (int) (color318.getBlue() + color318.getBlue() * (m.snap[2] / 100.0F));
+                if (i321 > 255)
+                    i321 = 255;
+                if (i321 < 0)
+                    i321 = 0;
+                is[i317] = ~0xffffff | i319 << 16 | i320 << 8 | i321;
             } else {
-                int i_322_ = (int) ((float) (color.getRed() - color_318_.getRed()) / (float) color.getRed() * 255.0F);
-                if (i_322_ > 255)
-                    i_322_ = 255;
-                if (i_322_ < 0)
-                    i_322_ = 0;
-                is[i_317_] = i_322_ << 24 | 0x0 | 0x0 | 0x0;
+                int i322 = (int) ((float) (color.getRed() - color318.getRed()) / (float) color.getRed() * 255.0F);
+                if (i322 > 255)
+                    i322 = 255;
+                if (i322 < 0)
+                    i322 = 0;
+                is[i317] = i322 << 24 | 0x0 | 0x0 | 0x0;
             }
         }
-        final BufferedImage bufferedimage = new BufferedImage(i_316_, i, 2);
-        bufferedimage.setRGB(0, 0, i_316_, i, is, 0, i_316_);
+        final BufferedImage bufferedimage = new BufferedImage(i316, i, 2);
+        bufferedimage.setRGB(0, 0, i316, i, is, 0, i316);
         return bufferedimage;
     }
 
@@ -4943,39 +4943,39 @@ public class xtGraphics extends Panel implements Runnable {
                 int i = (int) zipentry.getSize();
                 final String string = zipentry.getName();
                 final byte[] is = new byte[i];
-                int i_0_ = 0;
-                int i_1_;
-                for ( /**/ ; i > 0; i -= i_1_) {
-                    i_1_ = zipinputstream.read(is, i_0_, i);
-                    i_0_ += i_1_;
+                int i0 = 0;
+                int i1;
+                for ( /**/ ; i > 0; i -= i1) {
+                    i1 = zipinputstream.read(is, i0, i);
+                    i0 += i1;
                 }
-                for (int i_2_ = 0; i_2_ < 5; i_2_++)
-                    for (int i_3_ = 0; i_3_ < 5; i_3_++)
-                        if (string.equals(new StringBuilder().append("").append(i_3_).append("").append(i_2_)
+                for (int i2 = 0; i2 < 5; i2++)
+                    for (int i3 = 0; i3 < 5; i3++)
+                        if (string.equals(new StringBuilder().append("").append(i3).append("").append(i2)
                                 .append(".wav").toString()))
-                            engs[i_3_][i_2_] = new soundClip(is);
-                for (int i_4_ = 0; i_4_ < 6; i_4_++)
-                    if (string.equals(new StringBuilder().append("air").append(i_4_).append(".wav").toString()))
-                        air[i_4_] = new soundClip(is);
-                for (int i_5_ = 0; i_5_ < 3; i_5_++)
-                    if (string.equals(new StringBuilder().append("crash").append(i_5_ + 1).append(".wav").toString()))
-                        crash[i_5_] = new soundClip(is);
-                for (int i_6_ = 0; i_6_ < 3; i_6_++)
+                            engs[i3][i2] = new soundClip(is);
+                for (int i4 = 0; i4 < 6; i4++)
+                    if (string.equals(new StringBuilder().append("air").append(i4).append(".wav").toString()))
+                        air[i4] = new soundClip(is);
+                for (int i5 = 0; i5 < 3; i5++)
+                    if (string.equals(new StringBuilder().append("crash").append(i5 + 1).append(".wav").toString()))
+                        crash[i5] = new soundClip(is);
+                for (int i6 = 0; i6 < 3; i6++)
                     if (string
-                            .equals(new StringBuilder().append("lowcrash").append(i_6_ + 1).append(".wav").toString()))
-                        lowcrash[i_6_] = new soundClip(is);
-                for (int i_7_ = 0; i_7_ < 3; i_7_++)
-                    if (string.equals(new StringBuilder().append("skid").append(i_7_ + 1).append(".wav").toString()))
-                        skid[i_7_] = new soundClip(is);
-                for (int i_8_ = 0; i_8_ < 3; i_8_++)
+                            .equals(new StringBuilder().append("lowcrash").append(i6 + 1).append(".wav").toString()))
+                        lowcrash[i6] = new soundClip(is);
+                for (int i7 = 0; i7 < 3; i7++)
+                    if (string.equals(new StringBuilder().append("skid").append(i7 + 1).append(".wav").toString()))
+                        skid[i7] = new soundClip(is);
+                for (int i8 = 0; i8 < 3; i8++)
                     if (string
-                            .equals(new StringBuilder().append("dustskid").append(i_8_ + 1).append(".wav").toString()))
-                        dustskid[i_8_] = new soundClip(is);
-                for (int i_9_ = 0; i_9_ < 3; i_9_++)
+                            .equals(new StringBuilder().append("dustskid").append(i8 + 1).append(".wav").toString()))
+                        dustskid[i8] = new soundClip(is);
+                for (int i9 = 0; i9 < 3; i9++)
                     if (string
-                            .equals(new StringBuilder().append("scrape").append(i_9_ + 1).append(".wav").toString())) {
-                        scrape[i_9_] = new soundClip(is);
-                        if (i_9_ == 2)
+                            .equals(new StringBuilder().append("scrape").append(i9 + 1).append(".wav").toString())) {
+                        scrape[i9] = new soundClip(is);
+                        if (i9 == 2)
                             scrape[3] = new soundClip(is);
                     }
                 if (string.equals("powerup.wav"))
@@ -5008,7 +5008,7 @@ public class xtGraphics extends Panel implements Runnable {
         System.gc();
     }
 
-    public void loadstrack(final int i, final String string, final int i_52_) {
+    public void loadstrack(final int i, final String string, final int i52) {
         if (new File("music/stage" + i + ".mid").exists())
             strack = new RadicalMidi("music/stage" + i + ".mid");
         else if (new File("music/stage" + i + ".mp3").exists())
@@ -5120,9 +5120,9 @@ public class xtGraphics extends Panel implements Runnable {
                 if (i != -2)
                     strack = new RadicalMod(
                             new StringBuilder().append("mystages/mymusic/").append(string).append(".zip").toString(),
-                            i_52_, 8000, 125, false, false);
+                            i52, 8000, 125, false, false);
                 else
-                    strack = new RadicalMod(string, i_52_, 8000, 125, false, true);
+                    strack = new RadicalMod(string, i52, 8000, 125, false, true);
             } else
                 strack = new RadicalMod();
         loadedt = true;
@@ -5137,32 +5137,32 @@ public class xtGraphics extends Panel implements Runnable {
             /* empty */
         }
         final int i = image.getHeight(ob);
-        final int i_364_ = image.getWidth(ob);
-        final int[] is_365_ = new int[i_364_ * i];
-        final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i_364_, i, is_365_, 0, i_364_);
+        final int i364 = image.getWidth(ob);
+        final int[] is365 = new int[i364 * i];
+        final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i364, i, is365, 0, i364);
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
             /* empty */
         }
-        for (int i_366_ = 0; i_366_ < i_364_ * i; i_366_++) {
-            final Color color = new Color(is_365_[i_366_]);
+        for (int i366 = 0; i366 < i364 * i; i366++) {
+            final Color color = new Color(is365[i366]);
             if (color.getGreen() > color.getRed() + 5 && color.getGreen() > color.getBlue() + 5) {
-                int i_367_ = (int) (255.0F - (color.getGreen() - (color.getRed() + color.getBlue()) / 2) * 1.5F);
-                if (i_367_ > 255)
-                    i_367_ = 255;
-                if (i_367_ < 0)
-                    i_367_ = 0;
-                is_365_[i_366_] = i_367_ << 24 | 0x0 | 0x0 | 0x0;
+                int i367 = (int) (255.0F - (color.getGreen() - (color.getRed() + color.getBlue()) / 2) * 1.5F);
+                if (i367 > 255)
+                    i367 = 255;
+                if (i367 < 0)
+                    i367 = 0;
+                is365[i366] = i367 << 24 | 0x0 | 0x0 | 0x0;
             }
         }
-        final BufferedImage bufferedimage = new BufferedImage(i_364_, i, 2);
-        bufferedimage.setRGB(0, 0, i_364_, i, is_365_, 0, i_364_);
+        final BufferedImage bufferedimage = new BufferedImage(i364, i, 2);
+        bufferedimage.setRGB(0, 0, i364, i, is365, 0, i364);
         return bufferedimage;
     }
 
     public void mainbg(final int i) {
-        int i_26_ = 2;
+        int i26 = 2;
         rd.setColor(new Color(191, 184, 124));
         if (i == -1) {
             if (i != lmode) {
@@ -5173,7 +5173,7 @@ public class xtGraphics extends Panel implements Runnable {
                 lmode = i;
             }
             rd.setColor(new Color(144, 222, 9));
-            i_26_ = 8;
+            i26 = 8;
         }
         if (i == 0) {
             if (i != lmode) {
@@ -5183,9 +5183,9 @@ public class xtGraphics extends Panel implements Runnable {
                 bgf = 0.0F;
                 lmode = i;
             }
-            final int i_27_ = (int) (255.0F * bgf + 191.0F * (1.0F - bgf));
-            final int i_28_ = (int) (176.0F * bgf + 184.0F * (1.0F - bgf));
-            final int i_29_ = (int) (67.0F * bgf + 124.0F * (1.0F - bgf));
+            final int i27 = (int) (255.0F * bgf + 191.0F * (1.0F - bgf));
+            final int i28 = (int) (176.0F * bgf + 184.0F * (1.0F - bgf));
+            final int i29 = (int) (67.0F * bgf + 124.0F * (1.0F - bgf));
             if (!bgup) {
                 bgf += 0.02F;
                 if (bgf > 0.9F) {
@@ -5199,8 +5199,8 @@ public class xtGraphics extends Panel implements Runnable {
                     bgup = false;
                 }
             }
-            rd.setColor(new Color(i_27_, i_28_, i_29_));
-            i_26_ = 4;
+            rd.setColor(new Color(i27, i28, i29));
+            i26 = 4;
         }
         if (i == 1) {
             if (i != lmode) {
@@ -5209,7 +5209,7 @@ public class xtGraphics extends Panel implements Runnable {
                 lmode = i;
             }
             rd.setColor(new Color(255, 176, 67));
-            i_26_ = 8;
+            i26 = 8;
         }
         if (i == 2) {
             if (i != lmode) {
@@ -5220,16 +5220,16 @@ public class xtGraphics extends Panel implements Runnable {
             }
             rd.setColor(new Color(188, 170, 122));
             if (flipo == 16) {
-                final int i_30_ = (int) (176.0F * bgf + 191.0F * (1.0F - bgf));
-                final int i_31_ = (int) (202.0F * bgf + 184.0F * (1.0F - bgf));
-                final int i_32_ = (int) (255.0F * bgf + 124.0F * (1.0F - bgf));
-                rd.setColor(new Color(i_30_, i_31_, i_32_));
+                final int i30 = (int) (176.0F * bgf + 191.0F * (1.0F - bgf));
+                final int i31 = (int) (202.0F * bgf + 184.0F * (1.0F - bgf));
+                final int i32 = (int) (255.0F * bgf + 124.0F * (1.0F - bgf));
+                rd.setColor(new Color(i30, i31, i32));
                 bgf += 0.025F;
                 if (bgf > 0.85F)
                     bgf = 0.85F;
             } else
                 bgf = 0.2F;
-            i_26_ = 2;
+            i26 = 2;
         }
         if (i == 3) {
             if (i != lmode) {
@@ -5239,9 +5239,9 @@ public class xtGraphics extends Panel implements Runnable {
                 bgf = 0.0F;
                 lmode = i;
             }
-            final int i_33_ = (int) (255.0F * bgf + 191.0F * (1.0F - bgf));
-            final int i_34_ = (int) (176.0F * bgf + 184.0F * (1.0F - bgf));
-            final int i_35_ = (int) (67.0F * bgf + 124.0F * (1.0F - bgf));
+            final int i33 = (int) (255.0F * bgf + 191.0F * (1.0F - bgf));
+            final int i34 = (int) (176.0F * bgf + 184.0F * (1.0F - bgf));
+            final int i35 = (int) (67.0F * bgf + 124.0F * (1.0F - bgf));
             if (!bgup) {
                 bgf += 0.02F;
                 if (bgf > 0.9F) {
@@ -5255,8 +5255,8 @@ public class xtGraphics extends Panel implements Runnable {
                     bgup = false;
                 }
             }
-            rd.setColor(new Color(i_33_, i_34_, i_35_));
-            i_26_ = 2;
+            rd.setColor(new Color(i33, i34, i35));
+            i26 = 2;
         }
         if (i != -101)
             if (i == 4) {
@@ -5268,39 +5268,39 @@ public class xtGraphics extends Panel implements Runnable {
             if (i != lmode) {
                 bgmy[0] = 0;
                 bgmy[1] = 400;
-                for (int i_36_ = 0; i_36_ < 4; i_36_++) {
-                    ovw[i_36_] = (int) (50.0 + 150.0 * Math.random());
-                    ovh[i_36_] = (int) (50.0 + 150.0 * Math.random());
-                    ovy[i_36_] = (int) (400.0 * Math.random());
-                    ovx[i_36_] = (int) (Math.random() * 670.0);
-                    ovsx[i_36_] = (int) (5.0 + Math.random() * 10.0);
+                for (int i36 = 0; i36 < 4; i36++) {
+                    ovw[i36] = (int) (50.0 + 150.0 * Math.random());
+                    ovh[i36] = (int) (50.0 + 150.0 * Math.random());
+                    ovy[i36] = (int) (400.0 * Math.random());
+                    ovx[i36] = (int) (Math.random() * 670.0);
+                    ovsx[i36] = (int) (5.0 + Math.random() * 10.0);
                 }
                 lmode = i;
             }
-            for (int i_37_ = 0; i_37_ < 4; i_37_++) {
+            for (int i37 = 0; i37 < 4; i37++) {
                 rd.setColor(new Color(235, 176, 84));
-                rd.fillOval((int) (65 + ovx[i_37_] - ovw[i_37_] * 1.5 / 2.0),
-                        (int) (25 + ovy[i_37_] - ovh[i_37_] * 1.5 / 2.0), (int) (ovw[i_37_] * 1.5),
-                        (int) (ovh[i_37_] * 1.5));
+                rd.fillOval((int) (65 + ovx[i37] - ovw[i37] * 1.5 / 2.0),
+                        (int) (25 + ovy[i37] - ovh[i37] * 1.5 / 2.0), (int) (ovw[i37] * 1.5),
+                        (int) (ovh[i37] * 1.5));
                 rd.setColor(new Color(255, 176, 67));
-                rd.fillOval(65 + ovx[i_37_] - ovh[i_37_] / 2, 25 + ovy[i_37_] - ovh[i_37_] / 2, ovw[i_37_], ovh[i_37_]);
-                ovx[i_37_] -= ovsx[i_37_];
-                if (ovx[i_37_] + ovw[i_37_] * 1.5 / 2.0 < 0.0) {
-                    ovw[i_37_] = (int) (50.0 + 150.0 * Math.random());
-                    ovh[i_37_] = (int) (50.0 + 150.0 * Math.random());
-                    ovy[i_37_] = (int) (400.0 * Math.random());
-                    ovx[i_37_] = (int) (670.0 + ovw[i_37_] * 1.5 / 2.0);
-                    ovsx[i_37_] = (int) (5.0 + Math.random() * 10.0);
+                rd.fillOval(65 + ovx[i37] - ovh[i37] / 2, 25 + ovy[i37] - ovh[i37] / 2, ovw[i37], ovh[i37]);
+                ovx[i37] -= ovsx[i37];
+                if (ovx[i37] + ovw[i37] * 1.5 / 2.0 < 0.0) {
+                    ovw[i37] = (int) (50.0 + 150.0 * Math.random());
+                    ovh[i37] = (int) (50.0 + 150.0 * Math.random());
+                    ovy[i37] = (int) (400.0 * Math.random());
+                    ovx[i37] = (int) (670.0 + ovw[i37] * 1.5 / 2.0);
+                    ovsx[i37] = (int) (5.0 + Math.random() * 10.0);
                 }
             }
         }
         if (i != -101 && i != 4)
-            for (int i_38_ = 0; i_38_ < 2; i_38_++) {
+            for (int i38 = 0; i38 < 2; i38++) {
                 if (i != 2 || flipo != 16)
-                    rd.drawImage(bgmain, 65, 25 + bgmy[i_38_], null);
-                bgmy[i_38_] += i_26_;
-                if (bgmy[i_38_] >= 400)
-                    bgmy[i_38_] = -400;
+                    rd.drawImage(bgmain, 65, 25 + bgmy[i38], null);
+                bgmy[i38] += i26;
+                if (bgmy[i38] >= 400)
+                    bgmy[i38] = -400;
             }
         rd.setColor(new Color(0, 0, 0));
         rd.fillRect(0, 0, 65, 450);
@@ -5481,7 +5481,7 @@ public class xtGraphics extends Panel implements Runnable {
             }
     }
 
-    public void maini2(final Control control, final int i, final int i_98_, final int i_99_) {
+    public void maini2(final Control control, final int i, final int i98, final int i99) {
         mainbg(1);
         multion = 0;
         clangame = 0;
@@ -5644,9 +5644,9 @@ public class xtGraphics extends Panel implements Runnable {
         rd.drawImage(byrd, 72, 410, null);
         rd.drawImage(nfmcoms, 567, 410, null);
         boolean bool = false;
-        if (i_99_ == 2)
+        if (i99 == 2)
         	bool = true;
-        if (drawcarb(true, null, "   < Back   ", 161, 313, i, i_98_, bool)) {
+        if (drawcarb(true, null, "   < Back   ", 161, 313, i, i98, bool)) {
         	opselect = 0;
         	fase = 10;
         }
@@ -5660,7 +5660,7 @@ public class xtGraphics extends Panel implements Runnable {
                            }*/
     }
 
-    private void makecarsbgc(final Image image, final Image image_386_) {
+    private void makecarsbgc(final Image image, final Image image386) {
         final int[] is = new int[268000];
         final PixelGrabber pixelgrabber = new PixelGrabber(carsbg, 0, 0, 670, 400, is, 0, 670);
         try {
@@ -5668,87 +5668,87 @@ public class xtGraphics extends Panel implements Runnable {
         } catch (final InterruptedException interruptedexception) {
             /* empty */
         }
-        final int[] is_387_ = new int[20700];
-        final PixelGrabber pixelgrabber_388_ = new PixelGrabber(image, 0, 0, 92, 225, is_387_, 0, 92);
+        final int[] is387 = new int[20700];
+        final PixelGrabber pixelgrabber388 = new PixelGrabber(image, 0, 0, 92, 225, is387, 0, 92);
         try {
-            pixelgrabber_388_.grabPixels();
+            pixelgrabber388.grabPixels();
         } catch (final InterruptedException interruptedexception) {
             /* empty */
         }
-        final int[] is_389_ = new int[2112];
-        final PixelGrabber pixelgrabber_390_ = new PixelGrabber(image_386_, 0, 0, 88, 24, is_389_, 0, 88);
+        final int[] is389 = new int[2112];
+        final PixelGrabber pixelgrabber390 = new PixelGrabber(image386, 0, 0, 88, 24, is389, 0, 88);
         try {
-            pixelgrabber_390_.grabPixels();
+            pixelgrabber390.grabPixels();
         } catch (final InterruptedException interruptedexception) {
             /* empty */
         }
         for (int i = 0; i < 670; i++)
-            for (int i_391_ = 0; i_391_ < 400; i_391_++) {
-                if (i > 14 && i < 106 && i_391_ > 11 && i_391_ < 236
-                        && is_387_[i - 14 + (i_391_ - 11) * 92] != is_387_[0]) {
-                    final Color color = new Color(is[i + i_391_ * 670]);
-                    final Color color_392_ = new Color(is_387_[i - 14 + (i_391_ - 11) * 92]);
-                    int i_393_ = (int) (color.getRed() * 0.33 + color_392_.getRed() * 0.67);
-                    if (i_393_ > 255)
-                        i_393_ = 255;
-                    if (i_393_ < 0)
-                        i_393_ = 0;
-                    int i_394_ = (int) (color.getGreen() * 0.33 + color_392_.getGreen() * 0.67);
-                    if (i_394_ > 255)
-                        i_394_ = 255;
-                    if (i_394_ < 0)
-                        i_394_ = 0;
-                    int i_395_ = (int) (color.getBlue() * 0.33 + color_392_.getBlue() * 0.67);
-                    if (i_395_ > 255)
-                        i_395_ = 255;
-                    if (i_395_ < 0)
-                        i_395_ = 0;
-                    final Color color_396_ = new Color(i_393_, i_394_, i_395_);
-                    is[i + i_391_ * 670] = color_396_.getRGB();
+            for (int i391 = 0; i391 < 400; i391++) {
+                if (i > 14 && i < 106 && i391 > 11 && i391 < 236
+                        && is387[i - 14 + (i391 - 11) * 92] != is387[0]) {
+                    final Color color = new Color(is[i + i391 * 670]);
+                    final Color color392 = new Color(is387[i - 14 + (i391 - 11) * 92]);
+                    int i393 = (int) (color.getRed() * 0.33 + color392.getRed() * 0.67);
+                    if (i393 > 255)
+                        i393 = 255;
+                    if (i393 < 0)
+                        i393 = 0;
+                    int i394 = (int) (color.getGreen() * 0.33 + color392.getGreen() * 0.67);
+                    if (i394 > 255)
+                        i394 = 255;
+                    if (i394 < 0)
+                        i394 = 0;
+                    int i395 = (int) (color.getBlue() * 0.33 + color392.getBlue() * 0.67);
+                    if (i395 > 255)
+                        i395 = 255;
+                    if (i395 < 0)
+                        i395 = 0;
+                    final Color color396 = new Color(i393, i394, i395);
+                    is[i + i391 * 670] = color396.getRGB();
                 }
-                if (i > 564 && i < 656 && i_391_ > 11 && i_391_ < 236
-                        && is_387_[i - 564 + (i_391_ - 11) * 92] != is_387_[0]) {
-                    final Color color = new Color(is[i + i_391_ * 670]);
-                    final Color color_397_ = new Color(is_387_[i - 564 + (i_391_ - 11) * 92]);
-                    int i_398_ = (int) (color.getRed() * 0.33 + color_397_.getRed() * 0.67);
-                    if (i_398_ > 255)
-                        i_398_ = 255;
-                    if (i_398_ < 0)
-                        i_398_ = 0;
-                    int i_399_ = (int) (color.getGreen() * 0.33 + color_397_.getGreen() * 0.67);
-                    if (i_399_ > 255)
-                        i_399_ = 255;
-                    if (i_399_ < 0)
-                        i_399_ = 0;
-                    int i_400_ = (int) (color.getBlue() * 0.33 + color_397_.getBlue() * 0.67);
-                    if (i_400_ > 255)
-                        i_400_ = 255;
-                    if (i_400_ < 0)
-                        i_400_ = 0;
-                    final Color color_401_ = new Color(i_398_, i_399_, i_400_);
-                    is[i + i_391_ * 670] = color_401_.getRGB();
+                if (i > 564 && i < 656 && i391 > 11 && i391 < 236
+                        && is387[i - 564 + (i391 - 11) * 92] != is387[0]) {
+                    final Color color = new Color(is[i + i391 * 670]);
+                    final Color color397 = new Color(is387[i - 564 + (i391 - 11) * 92]);
+                    int i398 = (int) (color.getRed() * 0.33 + color397.getRed() * 0.67);
+                    if (i398 > 255)
+                        i398 = 255;
+                    if (i398 < 0)
+                        i398 = 0;
+                    int i399 = (int) (color.getGreen() * 0.33 + color397.getGreen() * 0.67);
+                    if (i399 > 255)
+                        i399 = 255;
+                    if (i399 < 0)
+                        i399 = 0;
+                    int i400 = (int) (color.getBlue() * 0.33 + color397.getBlue() * 0.67);
+                    if (i400 > 255)
+                        i400 = 255;
+                    if (i400 < 0)
+                        i400 = 0;
+                    final Color color401 = new Color(i398, i399, i400);
+                    is[i + i391 * 670] = color401.getRGB();
                 }
-                if (i > 440 && i < 528 && i_391_ > 53 && i_391_ < 77
-                        && is_389_[i - 440 + (i_391_ - 53) * 88] != is_389_[0]) {
-                    final Color color = new Color(is[i + i_391_ * 670]);
-                    final Color color_402_ = new Color(is_389_[i - 440 + (i_391_ - 53) * 88]);
-                    int i_403_ = (int) (color.getRed() * 0.33 + color_402_.getRed() * 0.67);
-                    if (i_403_ > 255)
-                        i_403_ = 255;
-                    if (i_403_ < 0)
-                        i_403_ = 0;
-                    int i_404_ = (int) (color.getGreen() * 0.33 + color_402_.getGreen() * 0.67);
-                    if (i_404_ > 255)
-                        i_404_ = 255;
-                    if (i_404_ < 0)
-                        i_404_ = 0;
-                    int i_405_ = (int) (color.getBlue() * 0.33 + color_402_.getBlue() * 0.67);
-                    if (i_405_ > 255)
-                        i_405_ = 255;
-                    if (i_405_ < 0)
-                        i_405_ = 0;
-                    final Color color_406_ = new Color(i_403_, i_404_, i_405_);
-                    is[i + i_391_ * 670] = color_406_.getRGB();
+                if (i > 440 && i < 528 && i391 > 53 && i391 < 77
+                        && is389[i - 440 + (i391 - 53) * 88] != is389[0]) {
+                    final Color color = new Color(is[i + i391 * 670]);
+                    final Color color402 = new Color(is389[i - 440 + (i391 - 53) * 88]);
+                    int i403 = (int) (color.getRed() * 0.33 + color402.getRed() * 0.67);
+                    if (i403 > 255)
+                        i403 = 255;
+                    if (i403 < 0)
+                        i403 = 0;
+                    int i404 = (int) (color.getGreen() * 0.33 + color402.getGreen() * 0.67);
+                    if (i404 > 255)
+                        i404 = 255;
+                    if (i404 < 0)
+                        i404 = 0;
+                    int i405 = (int) (color.getBlue() * 0.33 + color402.getBlue() * 0.67);
+                    if (i405 > 255)
+                        i405 = 255;
+                    if (i405 < 0)
+                        i405 = 0;
+                    final Color color406 = new Color(i403, i404, i405);
+                    is[i + i391 * 670] = color406.getRGB();
                 }
             }
         carsbgc = createImage(new MemoryImageSource(670, 400, is, 0, 670));
@@ -5774,113 +5774,113 @@ public class xtGraphics extends Panel implements Runnable {
             bool = true;
         if (string.equals("fu"))
             bool = true;
-        String string_419_ = "";
-        String string_420_ = "";
+        String string419 = "";
+        String string420 = "";
         int i = 0;
-        boolean bool_421_ = false;
-        boolean bool_422_;
-        for (bool_422_ = false; i < string.length() && !bool_422_; i++)
-            if (!bool_421_) {
-                string_419_ = new StringBuilder().append(string_419_).append("").append(string.charAt(i)).toString();
-                bool_421_ = true;
+        boolean bool421 = false;
+        boolean bool422;
+        for (bool422 = false; i < string.length() && !bool422; i++)
+            if (!bool421) {
+                string419 = new StringBuilder().append(string419).append("").append(string.charAt(i)).toString();
+                bool421 = true;
             } else {
-                bool_421_ = false;
-                if (!string_420_.equals("")
-                        && !string_420_.equals(new StringBuilder().append("").append(string.charAt(i)).toString()))
-                    bool_422_ = true;
-                string_420_ = new StringBuilder().append("").append(string.charAt(i)).toString();
+                bool421 = false;
+                if (!string420.equals("")
+                        && !string420.equals(new StringBuilder().append("").append(string.charAt(i)).toString()))
+                    bool422 = true;
+                string420 = new StringBuilder().append("").append(string.charAt(i)).toString();
             }
-        if (!bool_422_)
-            for (int i_423_ = 0; i_423_ < strings.length; i_423_++)
-                if (string_419_.indexOf(strings[i_423_]) != -1)
+        if (!bool422)
+            for (int i423 = 0; i423 < strings.length; i423++)
+                if (string419.indexOf(strings[i423]) != -1)
                     bool = true;
-        string_419_ = "";
-        string_420_ = "";
+        string419 = "";
+        string420 = "";
         i = 0;
-        bool_421_ = true;
-        for (bool_422_ = false; i < string.length() && !bool_422_; i++)
-            if (!bool_421_) {
-                string_419_ = new StringBuilder().append(string_419_).append("").append(string.charAt(i)).toString();
-                bool_421_ = true;
+        bool421 = true;
+        for (bool422 = false; i < string.length() && !bool422; i++)
+            if (!bool421) {
+                string419 = new StringBuilder().append(string419).append("").append(string.charAt(i)).toString();
+                bool421 = true;
             } else {
-                bool_421_ = false;
-                if (!string_420_.equals("")
-                        && !string_420_.equals(new StringBuilder().append("").append(string.charAt(i)).toString()))
-                    bool_422_ = true;
-                string_420_ = new StringBuilder().append("").append(string.charAt(i)).toString();
+                bool421 = false;
+                if (!string420.equals("")
+                        && !string420.equals(new StringBuilder().append("").append(string.charAt(i)).toString()))
+                    bool422 = true;
+                string420 = new StringBuilder().append("").append(string.charAt(i)).toString();
             }
-        if (!bool_422_)
-            for (int i_424_ = 0; i_424_ < strings.length; i_424_++)
-                if (string_419_.indexOf(strings[i_424_]) != -1)
+        if (!bool422)
+            for (int i424 = 0; i424 < strings.length; i424++)
+                if (string419.indexOf(strings[i424]) != -1)
                     bool = true;
-        string_419_ = "";
-        string_420_ = "";
+        string419 = "";
+        string420 = "";
         i = 0;
-        int i_425_ = 0;
-        for (bool_422_ = false; i < string.length() && !bool_422_; i++)
-            if (i_425_ == 0) {
-                string_419_ = new StringBuilder().append(string_419_).append("").append(string.charAt(i)).toString();
-                i_425_ = 2;
+        int i425 = 0;
+        for (bool422 = false; i < string.length() && !bool422; i++)
+            if (i425 == 0) {
+                string419 = new StringBuilder().append(string419).append("").append(string.charAt(i)).toString();
+                i425 = 2;
             } else {
-                i_425_--;
-                if (!string_420_.equals("")
-                        && !string_420_.equals(new StringBuilder().append("").append(string.charAt(i)).toString()))
-                    bool_422_ = true;
-                string_420_ = new StringBuilder().append("").append(string.charAt(i)).toString();
+                i425--;
+                if (!string420.equals("")
+                        && !string420.equals(new StringBuilder().append("").append(string.charAt(i)).toString()))
+                    bool422 = true;
+                string420 = new StringBuilder().append("").append(string.charAt(i)).toString();
             }
-        if (!bool_422_)
-            for (int i_426_ = 0; i_426_ < strings.length; i_426_++)
-                if (string_419_.indexOf(strings[i_426_]) != -1)
+        if (!bool422)
+            for (int i426 = 0; i426 < strings.length; i426++)
+                if (string419.indexOf(strings[i426]) != -1)
                     bool = true;
-        string_419_ = "";
-        string_420_ = "";
+        string419 = "";
+        string420 = "";
         i = 0;
-        i_425_ = 1;
-        for (bool_422_ = false; i < string.length() && !bool_422_; i++)
-            if (i_425_ == 0) {
-                string_419_ = new StringBuilder().append(string_419_).append("").append(string.charAt(i)).toString();
-                i_425_ = 2;
+        i425 = 1;
+        for (bool422 = false; i < string.length() && !bool422; i++)
+            if (i425 == 0) {
+                string419 = new StringBuilder().append(string419).append("").append(string.charAt(i)).toString();
+                i425 = 2;
             } else {
-                i_425_--;
-                if (!string_420_.equals("")
-                        && !string_420_.equals(new StringBuilder().append("").append(string.charAt(i)).toString()))
-                    bool_422_ = true;
-                string_420_ = new StringBuilder().append("").append(string.charAt(i)).toString();
+                i425--;
+                if (!string420.equals("")
+                        && !string420.equals(new StringBuilder().append("").append(string.charAt(i)).toString()))
+                    bool422 = true;
+                string420 = new StringBuilder().append("").append(string.charAt(i)).toString();
             }
-        if (!bool_422_)
-            for (int i_427_ = 0; i_427_ < strings.length; i_427_++)
-                if (string_419_.indexOf(strings[i_427_]) != -1)
+        if (!bool422)
+            for (int i427 = 0; i427 < strings.length; i427++)
+                if (string419.indexOf(strings[i427]) != -1)
                     bool = true;
-        string_419_ = "";
-        string_420_ = "";
+        string419 = "";
+        string420 = "";
         i = 0;
-        i_425_ = 2;
-        for (bool_422_ = false; i < string.length() && !bool_422_; i++)
-            if (i_425_ == 0) {
-                string_419_ = new StringBuilder().append(string_419_).append("").append(string.charAt(i)).toString();
-                i_425_ = 2;
+        i425 = 2;
+        for (bool422 = false; i < string.length() && !bool422; i++)
+            if (i425 == 0) {
+                string419 = new StringBuilder().append(string419).append("").append(string.charAt(i)).toString();
+                i425 = 2;
             } else {
-                i_425_--;
-                if (!string_420_.equals("")
-                        && !string_420_.equals(new StringBuilder().append("").append(string.charAt(i)).toString()))
-                    bool_422_ = true;
-                string_420_ = new StringBuilder().append("").append(string.charAt(i)).toString();
+                i425--;
+                if (!string420.equals("")
+                        && !string420.equals(new StringBuilder().append("").append(string.charAt(i)).toString()))
+                    bool422 = true;
+                string420 = new StringBuilder().append("").append(string.charAt(i)).toString();
             }
-        if (!bool_422_)
-            for (int i_428_ = 0; i_428_ < strings.length; i_428_++)
-                if (string_419_.indexOf(strings[i_428_]) != -1)
+        if (!bool422)
+            for (int i428 = 0; i428 < strings.length; i428++)
+                if (string419.indexOf(strings[i428]) != -1)
                     bool = true;
         return bool;
     }
 
-    public void multistat(final Control control, final CheckPoints checkpoints, final int i, final int i_53_,
+    public void multistat(final Control control, final CheckPoints checkpoints, final int i, final int i53,
             final boolean bool, final UDPMistro udpmistro) {
-        int i_54_ = -1;
+        int i54 = -1;
         if (fase != -2) {
             if (exitm != 0 && !holdit) {
                 if (!lan || im != 0) {
                     if (bool)
-                        if (i > 357 && i < 396 && i_53_ > 162 && i_53_ < 179) {
+                        if (i > 357 && i < 396 && i53 > 162 && i53 < 179) {
                             exitm = 2;
                             if (multion == 1 && !lan && sendstat == 0) {
                                 sendstat = 1;
@@ -5915,11 +5915,11 @@ public class xtGraphics extends Panel implements Runnable {
                     rd.fillRect(357, 162, 39, 7);
                     rd.fillRect(403, 162, 39, 7);
                     drawhi(exitgame, 116);
-                    if (i > 357 && i < 396 && i_53_ > 162 && i_53_ < 179) {
+                    if (i > 357 && i < 396 && i53 > 162 && i53 < 179) {
                         rd.setColor(new Color(m.csky[0], m.csky[1], m.csky[2]));
                         rd.fillRect(357, 162, 39, 17);
                     }
-                    if (i > 403 && i < 442 && i_53_ > 162 && i_53_ < 179) {
+                    if (i > 403 && i < 442 && i53 > 162 && i53 < 179) {
                         rd.setColor(new Color(m.csky[0], m.csky[1], m.csky[2]));
                         rd.fillRect(403, 162, 39, 17);
                     }
@@ -5943,7 +5943,7 @@ public class xtGraphics extends Panel implements Runnable {
                 }
             } else if (exitm == 4) {
                 if (bool) {
-                    if (i > 357 && i < 396 && i_53_ > 362 && i_53_ < 379) {
+                    if (i > 357 && i < 396 && i53 > 362 && i53 < 379) {
                         alocked = -1;
                         lalocked = -1;
                         multion = 2;
@@ -5952,7 +5952,7 @@ public class xtGraphics extends Panel implements Runnable {
                         exitm = 0;
                         control.chatup = 0;
                     }
-                    if ((!lan || im != 0) && i > 403 && i < 442 && i_53_ > 362 && i_53_ < 379) {
+                    if ((!lan || im != 0) && i > 403 && i < 442 && i53 > 362 && i53 < 379) {
                         holdcnt = 600;
                         exitm = 0;
                         control.chatup = 0;
@@ -5986,11 +5986,11 @@ public class xtGraphics extends Panel implements Runnable {
                 if (lan && im == 0)
                     drawcs(140, "(You cannot exit game.  Your computer is the LAN server... )", 0, 0, 0, 0);
                 rd.drawString("Continue watching this game?", 155, 375);
-                if (i > 357 && i < 396 && i_53_ > 362 && i_53_ < 379) {
+                if (i > 357 && i < 396 && i53 > 362 && i53 < 379) {
                     rd.setColor(new Color(m.csky[0], m.csky[1], m.csky[2]));
                     rd.fillRect(357, 362, 39, 17);
                 }
-                if ((!lan || im != 0) && i > 403 && i < 442 && i_53_ > 362 && i_53_ < 379) {
+                if ((!lan || im != 0) && i > 403 && i < 442 && i53 > 362 && i53 < 379) {
                     rd.setColor(new Color(m.csky[0], m.csky[1], m.csky[2]));
                     rd.fillRect(403, 362, 39, 17);
                 }
@@ -6011,101 +6011,101 @@ public class xtGraphics extends Panel implements Runnable {
             }
             if (runtyp == -101 && !lan) {
                 if (warning == 0 || warning == 210) {
-                    int i_55_ = 0;
-                    int i_56_ = 0;
+                    int i55 = 0;
+                    int i56 = 0;
                     if (clanchat) {
-                        i_55_ = 1;
-                        i_56_ = -23;
+                        i55 = 1;
+                        i56 = -23;
                     } else if (control.chatup == 2)
                         control.chatup = 1;
-                    for (int i_57_ = i_55_; i_57_ >= 0; i_57_--) {
-                        boolean bool_58_ = false;
-                        if (i > 5 && i < 33 && i_53_ > 423 + i_56_ && i_53_ < 446 + i_56_) {
-                            bool_58_ = true;
+                    for (int i57 = i55; i57 >= 0; i57--) {
+                        boolean bool58 = false;
+                        if (i > 5 && i < 33 && i53 > 423 + i56 && i53 < 446 + i56) {
+                            bool58 = true;
                             if (control.chatup != 0)
                                 control.chatup = 0;
-                        } else if (pointc[i_57_] != 6) {
-                            pointc[i_57_] = 6;
-                            floater[i_57_] = 1;
+                        } else if (pointc[i57] != 6) {
+                            pointc[i57] = 6;
+                            floater[i57] = 1;
                         }
-                        if (i > 33 && i < 666 && i_53_ > 423 + i_56_ && i_53_ < 446 + i_56_ && lxm != i && i_53_ != lym
+                        if (i > 33 && i < 666 && i53 > 423 + i56 && i53 < 446 + i56 && lxm != i && i53 != lym
                                 && lxm != -100) {
-                            control.chatup = i_57_ + 1;
-                            cntchatp[i_57_] = 0;
+                            control.chatup = i57 + 1;
+                            cntchatp[i57] = 0;
                         }
-                        if (i_57_ == 0) {
+                        if (i57 == 0) {
                             lxm = i;
-                            lym = i_53_;
+                            lym = i53;
                         }
                         if (exitm != 0 && exitm != 4)
                             control.chatup = 0;
-                        boolean bool_59_ = false;
-                        if (control.enter && control.chatup == i_57_ + 1) {
-                            bool_59_ = true;
+                        boolean bool59 = false;
+                        if (control.enter && control.chatup == i57 + 1) {
+                            bool59 = true;
                             control.chatup = 0;
                             control.enter = false;
                             lxm = -100;
                         }
                         if (bool) {
                             if (mouson == 0) {
-                                if (i > 676 && i < 785 && i_53_ > 426 + i_56_ && i_53_ < 443 + i_56_
-                                        && control.chatup == i_57_ + 1) {
-                                    bool_59_ = true;
+                                if (i > 676 && i < 785 && i53 > 426 + i56 && i53 < 443 + i56
+                                        && control.chatup == i57 + 1) {
+                                    bool59 = true;
                                     control.chatup = 0;
                                 }
-                                if (bool_58_ && pointc[i_57_] > 0) {
-                                    pointc[i_57_]--;
-                                    floater[i_57_] = 1;
+                                if (bool58 && pointc[i57] > 0) {
+                                    pointc[i57]--;
+                                    floater[i57] = 1;
                                 }
-                                if (i_57_ == 0)
+                                if (i57 == 0)
                                     mouson = 1;
                             }
-                            if (i_57_ == 0)
+                            if (i57 == 0)
                                 control.chatup = 0;
-                        } else if (i_57_ == 0 && mouson != 0)
+                        } else if (i57 == 0 && mouson != 0)
                             mouson = 0;
-                        if (bool_59_) {
+                        if (bool59) {
                             String string = "";
-                            int i_60_ = 0;
-                            int i_61_ = 1;
-                            for ( /**/ ; i_60_ < lcmsg[i_57_].length(); i_60_++) {
-                                final String string_62_ = new StringBuilder().append("")
-                                        .append(lcmsg[i_57_].charAt(i_60_)).toString();
-                                if (string_62_.equals(" "))
-                                    i_61_++;
+                            int i60 = 0;
+                            int i61 = 1;
+                            for ( /**/ ; i60 < lcmsg[i57].length(); i60++) {
+                                final String string62 = new StringBuilder().append("")
+                                        .append(lcmsg[i57].charAt(i60)).toString();
+                                if (string62.equals(" "))
+                                    i61++;
                                 else
-                                    i_61_ = 0;
-                                if (i_61_ < 2)
-                                    string = new StringBuilder().append(string).append(string_62_).toString();
+                                    i61 = 0;
+                                if (i61 < 2)
+                                    string = new StringBuilder().append(string).append(string62).toString();
                             }
                             if (!string.equals("")) {
                                 string = string.replace('|', ':');
                                 if (string.toLowerCase().indexOf(app.tpass.getText().toLowerCase()) != -1)
                                     string = " ";
-                                if (!msgcheck(string) && updatec[i_57_] > -12) {
-                                    if (cnames[i_57_][6].equals("Game Chat  ") || cnames[i_57_][6].equals(
+                                if (!msgcheck(string) && updatec[i57] > -12) {
+                                    if (cnames[i57][6].equals("Game Chat  ") || cnames[i57][6].equals(
                                             new StringBuilder().append("").append(clan).append("'s Chat  ").toString()))
-                                        cnames[i_57_][6] = "";
-                                    for (int i_63_ = 0; i_63_ < 6; i_63_++) {
-                                        sentn[i_57_][i_63_] = sentn[i_57_][i_63_ + 1];
-                                        cnames[i_57_][i_63_] = cnames[i_57_][i_63_ + 1];
+                                        cnames[i57][6] = "";
+                                    for (int i63 = 0; i63 < 6; i63++) {
+                                        sentn[i57][i63] = sentn[i57][i63 + 1];
+                                        cnames[i57][i63] = cnames[i57][i63 + 1];
                                     }
-                                    sentn[i_57_][6] = string;
-                                    cnames[i_57_][6] = nickname;
-                                    if (pointc[i_57_] != 6) {
-                                        pointc[i_57_] = 6;
-                                        floater[i_57_] = 1;
+                                    sentn[i57][6] = string;
+                                    cnames[i57][6] = nickname;
+                                    if (pointc[i57] != 6) {
+                                        pointc[i57] = 6;
+                                        floater[i57] = 1;
                                     }
-                                    msgflk[i_57_] = 110;
-                                    if (updatec[i_57_] > -11)
-                                        updatec[i_57_] = -11;
+                                    msgflk[i57] = 110;
+                                    if (updatec[i57] > -11)
+                                        updatec[i57] = -11;
                                     else
-                                        updatec[i_57_]--;
+                                        updatec[i57]--;
                                 } else
                                     warning++;
                             }
                         }
-                        if (bool_58_ || floater[i_57_] != 0 || control.chatup == i_57_ + 1 || msgflk[i_57_] != 0) {
+                        if (bool58 || floater[i57] != 0 || control.chatup == i57 + 1 || msgflk[i57] != 0) {
                             final float[] fs = new float[3];
                             Color.RGBtoHSB(m.cgrnd[0], m.cgrnd[1], m.cgrnd[2], fs);
                             fs[1] -= 0.15;
@@ -6115,115 +6115,115 @@ public class xtGraphics extends Panel implements Runnable {
                             if (fs[2] > 1.0F)
                                 fs[2] = 1.0F;
                             rd.setColor(Color.getHSBColor(fs[0], fs[1], fs[2]));
-                            rd.fillRect(33, 423 + i_56_, 761, 23);
+                            rd.fillRect(33, 423 + i56, 761, 23);
                         }
                         if (control.chatup == 0 && app.cmsg.isShowing()) {
                             app.cmsg.setVisible(false);
                             app.requestFocus();
                         }
-                        if (control.chatup != i_57_ + 1) {
-                            int i_64_ = 0;
-                            int i_65_ = (int) (48.0F + 48.0F * (m.snap[1] / 100.0F));
-                            if (i_65_ > 255)
-                                i_65_ = 255;
-                            if (i_65_ < 0)
-                                i_65_ = 0;
-                            int i_66_ = (int) (96.0F + 96.0F * (m.snap[2] / 100.0F));
-                            if (i_66_ > 255)
-                                i_66_ = 255;
-                            if (i_66_ < 0)
-                                i_66_ = 0;
-                            if (floater[i_57_] != 0) {
-                                for (int i_67_ = 6; i_67_ >= 0; i_67_--) {
-                                    if (pointc[i_57_] == i_67_)
-                                        if (Math.abs(i_64_ + movepos[i_57_]) > 10) {
-                                            floater[i_57_] = (movepos[i_57_] + i_64_) / 4;
-                                            if (floater[i_57_] > -5 && floater[i_57_] < 0)
-                                                floater[i_57_] = -5;
-                                            if (floater[i_57_] < 10 && floater[i_57_] > 0)
-                                                floater[i_57_] = 10;
-                                            movepos[i_57_] -= floater[i_57_];
+                        if (control.chatup != i57 + 1) {
+                            int i64 = 0;
+                            int i65 = (int) (48.0F + 48.0F * (m.snap[1] / 100.0F));
+                            if (i65 > 255)
+                                i65 = 255;
+                            if (i65 < 0)
+                                i65 = 0;
+                            int i66 = (int) (96.0F + 96.0F * (m.snap[2] / 100.0F));
+                            if (i66 > 255)
+                                i66 = 255;
+                            if (i66 < 0)
+                                i66 = 0;
+                            if (floater[i57] != 0) {
+                                for (int i67 = 6; i67 >= 0; i67--) {
+                                    if (pointc[i57] == i67)
+                                        if (Math.abs(i64 + movepos[i57]) > 10) {
+                                            floater[i57] = (movepos[i57] + i64) / 4;
+                                            if (floater[i57] > -5 && floater[i57] < 0)
+                                                floater[i57] = -5;
+                                            if (floater[i57] < 10 && floater[i57] > 0)
+                                                floater[i57] = 10;
+                                            movepos[i57] -= floater[i57];
                                         } else {
-                                            movepos[i_57_] = -i_64_;
-                                            floater[i_57_] = 0;
+                                            movepos[i57] = -i64;
+                                            floater[i57] = 0;
                                         }
-                                    if (pointc[i_57_] >= i_67_) {
-                                        rd.setColor(new Color(0, i_65_, i_66_));
+                                    if (pointc[i57] >= i67) {
+                                        rd.setColor(new Color(0, i65, i66));
                                         rd.setFont(new Font("Tahoma", 1, 11));
                                         ftm = rd.getFontMetrics();
-                                        rd.drawString(new StringBuilder().append(cnames[i_57_][i_67_]).append(": ")
-                                                .toString(), 39 + i_64_ + movepos[i_57_], 439 + i_56_);
-                                        i_64_ += ftm.stringWidth(new StringBuilder().append(cnames[i_57_][i_67_])
+                                        rd.drawString(new StringBuilder().append(cnames[i57][i67]).append(": ")
+                                                .toString(), 39 + i64 + movepos[i57], 439 + i56);
+                                        i64 += ftm.stringWidth(new StringBuilder().append(cnames[i57][i67])
                                                 .append(": ").toString());
                                         rd.setColor(new Color(0, 0, 0));
                                         rd.setFont(new Font("Tahoma", 0, 11));
                                         ftm = rd.getFontMetrics();
-                                        rd.drawString(new StringBuilder().append(sentn[i_57_][i_67_]).append("   ")
-                                                .toString(), 39 + i_64_ + movepos[i_57_], 439 + i_56_);
-                                        i_64_ += ftm.stringWidth(new StringBuilder().append(sentn[i_57_][i_67_])
+                                        rd.drawString(new StringBuilder().append(sentn[i57][i67]).append("   ")
+                                                .toString(), 39 + i64 + movepos[i57], 439 + i56);
+                                        i64 += ftm.stringWidth(new StringBuilder().append(sentn[i57][i67])
                                                 .append("   ").toString());
                                     } else {
-                                        i_64_ += ftm.stringWidth(new StringBuilder().append(cnames[i_57_][i_67_])
+                                        i64 += ftm.stringWidth(new StringBuilder().append(cnames[i57][i67])
                                                 .append(": ").toString());
-                                        i_64_ += ftm.stringWidth(new StringBuilder().append(sentn[i_57_][i_67_])
+                                        i64 += ftm.stringWidth(new StringBuilder().append(sentn[i57][i67])
                                                 .append("   ").toString());
                                     }
                                 }
                                 rd.setColor(new Color(0, 0, 0));
-                                rd.fillRect(0, 423 + i_56_, 5, 24);
-                                rd.fillRect(794, 423 + i_56_, 6, 24);
+                                rd.fillRect(0, 423 + i56, 5, 24);
+                                rd.fillRect(794, 423 + i56, 6, 24);
                             } else
-                                for (int i_68_ = pointc[i_57_]; i_68_ >= 0; i_68_--) {
-                                    if (i_68_ == 6 && msgflk[i_57_] != 0)
-                                        msgflk[i_57_]--;
-                                    rd.setColor(new Color(0, i_65_, i_66_));
+                                for (int i68 = pointc[i57]; i68 >= 0; i68--) {
+                                    if (i68 == 6 && msgflk[i57] != 0)
+                                        msgflk[i57]--;
+                                    rd.setColor(new Color(0, i65, i66));
                                     rd.setFont(new Font("Tahoma", 1, 11));
                                     ftm = rd.getFontMetrics();
                                     if (ftm.stringWidth(
-                                            new StringBuilder().append(cnames[i_57_][i_68_]).append(": ").toString())
-                                            + 39 + i_64_ < 775) {
-                                        if (i_68_ != 6 || msgflk[i_57_] < 67 || msgflk[i_57_] % 3 != 0)
-                                            rd.drawString(new StringBuilder().append(cnames[i_57_][i_68_]).append(": ")
-                                                    .toString(), 39 + i_64_, 439 + i_56_);
-                                        i_64_ += ftm.stringWidth(new StringBuilder().append(cnames[i_57_][i_68_])
+                                            new StringBuilder().append(cnames[i57][i68]).append(": ").toString())
+                                            + 39 + i64 < 775) {
+                                        if (i68 != 6 || msgflk[i57] < 67 || msgflk[i57] % 3 != 0)
+                                            rd.drawString(new StringBuilder().append(cnames[i57][i68]).append(": ")
+                                                    .toString(), 39 + i64, 439 + i56);
+                                        i64 += ftm.stringWidth(new StringBuilder().append(cnames[i57][i68])
                                                 .append(": ").toString());
                                     } else {
                                         String string = "";
-                                        for (int i_69_ = 0; ftm.stringWidth(string) + 39 + i_64_ < 775
-                                                && i_69_ < cnames[i_57_][i_68_].length(); i_69_++)
+                                        for (int i69 = 0; ftm.stringWidth(string) + 39 + i64 < 775
+                                                && i69 < cnames[i57][i68].length(); i69++)
                                             string = new StringBuilder().append(string)
-                                                    .append(cnames[i_57_][i_68_].charAt(i_69_)).toString();
+                                                    .append(cnames[i57][i68].charAt(i69)).toString();
                                         string = new StringBuilder().append(string).append("...").toString();
-                                        if (i_68_ != 6 || msgflk[i_57_] < 67 || msgflk[i_57_] % 3 != 0)
-                                            rd.drawString(string, 39 + i_64_, 439 + i_56_);
+                                        if (i68 != 6 || msgflk[i57] < 67 || msgflk[i57] % 3 != 0)
+                                            rd.drawString(string, 39 + i64, 439 + i56);
                                         break;
                                     }
                                     rd.setColor(new Color(0, 0, 0));
                                     rd.setFont(new Font("Tahoma", 0, 11));
                                     ftm = rd.getFontMetrics();
-                                    if (ftm.stringWidth(sentn[i_57_][i_68_]) + 39 + i_64_ < 775) {
-                                        if (i_68_ != 6 || msgflk[i_57_] < 67 || msgflk[i_57_] % 3 != 0)
-                                            rd.drawString(new StringBuilder().append(sentn[i_57_][i_68_]).append("   ")
-                                                    .toString(), 39 + i_64_, 439 + i_56_);
-                                        i_64_ += ftm.stringWidth(new StringBuilder().append(sentn[i_57_][i_68_])
+                                    if (ftm.stringWidth(sentn[i57][i68]) + 39 + i64 < 775) {
+                                        if (i68 != 6 || msgflk[i57] < 67 || msgflk[i57] % 3 != 0)
+                                            rd.drawString(new StringBuilder().append(sentn[i57][i68]).append("   ")
+                                                    .toString(), 39 + i64, 439 + i56);
+                                        i64 += ftm.stringWidth(new StringBuilder().append(sentn[i57][i68])
                                                 .append("   ").toString());
                                     } else {
                                         String string = "";
-                                        for (int i_70_ = 0; ftm.stringWidth(string) + 39 + i_64_ < 775
-                                                && i_70_ < sentn[i_57_][i_68_].length(); i_70_++)
+                                        for (int i70 = 0; ftm.stringWidth(string) + 39 + i64 < 775
+                                                && i70 < sentn[i57][i68].length(); i70++)
                                             string = new StringBuilder().append(string)
-                                                    .append(sentn[i_57_][i_68_].charAt(i_70_)).toString();
+                                                    .append(sentn[i57][i68].charAt(i70)).toString();
                                         string = new StringBuilder().append(string).append("...").toString();
-                                        if (i_68_ != 6 || msgflk[i_57_] < 67 || msgflk[i_57_] % 3 != 0)
-                                            rd.drawString(string, 39 + i_64_, 439 + i_56_);
+                                        if (i68 != 6 || msgflk[i57] < 67 || msgflk[i57] % 3 != 0)
+                                            rd.drawString(string, 39 + i64, 439 + i56);
                                         break;
                                     }
                                 }
                         } else {
-                            msgflk[i_57_] = 0;
-                            i_54_ = i_57_;
+                            msgflk[i57] = 0;
+                            i54 = i57;
                         }
-                        if (bool_58_ || floater[i_57_] != 0) {
+                        if (bool58 || floater[i57] != 0) {
                             final float[] fs = new float[3];
                             Color.RGBtoHSB(m.cgrnd[0], m.cgrnd[1], m.cgrnd[2], fs);
                             fs[1] -= 0.076;
@@ -6233,22 +6233,22 @@ public class xtGraphics extends Panel implements Runnable {
                             if (fs[2] > 1.0F)
                                 fs[2] = 1.0F;
                             rd.setColor(Color.getHSBColor(fs[0], fs[1], fs[2]));
-                            rd.fillRect(5, 423 + i_56_, 28, 23);
+                            rd.fillRect(5, 423 + i56, 28, 23);
                         }
-                        if (bool_58_)
+                        if (bool58)
                             rd.setColor(new Color(0, 0, 0));
                         else
                             rd.setColor(new Color((int) (m.cgrnd[0] / 2.0F), (int) (m.cgrnd[1] / 2.0F),
                                     (int) (m.cgrnd[2] / 2.0F)));
                         rd.setFont(new Font("Tahoma", 1, 11));
-                        rd.drawString("<<", 10, 439 + i_56_);
+                        rd.drawString("<<", 10, 439 + i56);
                         rd.setColor(new Color(0, 0, 0));
-                        rd.drawRect(5, 423 + i_56_, 789, 23);
-                        rd.drawLine(33, 423 + i_56_, 33, 446 + i_56_);
-                        i_56_ += 23;
+                        rd.drawRect(5, 423 + i56, 789, 23);
+                        rd.drawLine(33, 423 + i56, 33, 446 + i56);
+                        i56 += 23;
                     }
-                    if (i > 775 && i < 794 && i_53_ > 409 - i_55_ * 23 && i_53_ < 423 - i_55_ * 23) {
-                        rd.drawRect(775, 409 - i_55_ * 23, 19, 14);
+                    if (i > 775 && i < 794 && i53 > 409 - i55 * 23 && i53 < 423 - i55 * 23) {
+                        rd.drawRect(775, 409 - i55 * 23, 19, 14);
                         rd.setColor(new Color(200, 0, 0));
                         if (bool) {
                             control.chatup = 0;
@@ -6270,7 +6270,7 @@ public class xtGraphics extends Panel implements Runnable {
                         }
                     }
                     rd.setFont(new Font("Arial", 1, 12));
-                    rd.drawString("x", 782, 420 - i_55_ * 23);
+                    rd.drawString("x", 782, 420 - i55 * 23);
                 } else {
                     drawWarning();
                     if (app.cmsg.isShowing()) {
@@ -6310,195 +6310,195 @@ public class xtGraphics extends Panel implements Runnable {
                 if (multion >= 2) {
                     if (alocked == -1 || holdit) {
                         if (cntflock == 100)
-                            for (int i_71_ = 0; i_71_ < nplayers; i_71_++)
+                            for (int i71 = 0; i71 < nplayers; i71++)
                                 if (holdit) {
-                                    if (checkpoints.pos[i_71_] == 0) {
-                                        alocked = i_71_;
-                                        im = i_71_;
+                                    if (checkpoints.pos[i71] == 0) {
+                                        alocked = i71;
+                                        im = i71;
                                     }
-                                } else if (checkpoints.dested[i_71_] == 0) {
-                                    alocked = i_71_;
-                                    im = i_71_;
+                                } else if (checkpoints.dested[i71] == 0) {
+                                    alocked = i71;
+                                    im = i71;
                                 }
                         cntflock++;
                     } else
                         cntflock = 0;
                     if (lan) {
-                        boolean bool_72_ = true;
-                        for (int i_73_ = 0; i_73_ < nplayers; i_73_++)
-                            if (dested[i_73_] == 0 && plnames[i_73_].indexOf("MadBot") == -1)
-                                bool_72_ = false;
-                        if (bool_72_)
+                        boolean bool72 = true;
+                        for (int i73 = 0; i73 < nplayers; i73++)
+                            if (dested[i73] == 0 && plnames[i73].indexOf("MadBot") == -1)
+                                bool72 = false;
+                        if (bool72)
                             exitm = 2;
                     }
                 }
-                final int i_74_ = nplayers;
-                for (int i_75_ = 0; i_75_ < i_74_; i_75_++) {
-                    boolean bool_76_ = false;
-                    for (int i_77_ = 0; i_77_ < nplayers; i_77_++)
-                        if (checkpoints.pos[i_77_] == i_75_ && checkpoints.dested[i_77_] == 0 && !bool_76_) {
-                            int i_81_ = (int) (100.0F + 100.0F * (m.snap[2] / 100.0F));
-                            if (i_81_ > 255)
-                                i_81_ = 255;
-                            if (i_81_ < 0)
-                                i_81_ = 0;
-                            rd.setColor(new Color(0, 0, i_81_));
-                            if (i_75_ == 0)
-                                rd.drawString("1st", 673, 76 + 30 * i_75_);
-                            if (i_75_ == 1)
-                                rd.drawString("2nd", 671, 76 + 30 * i_75_);
-                            if (i_75_ == 2)
-                                rd.drawString("3rd", 671, 76 + 30 * i_75_);
-                            if (i_75_ >= 3)
-                                rd.drawString(new StringBuilder().append("").append(i_75_ + 1).append("th").toString(),
-                                        671, 76 + 30 * i_75_);
+                final int i74 = nplayers;
+                for (int i75 = 0; i75 < i74; i75++) {
+                    boolean bool76 = false;
+                    for (int i77 = 0; i77 < nplayers; i77++)
+                        if (checkpoints.pos[i77] == i75 && checkpoints.dested[i77] == 0 && !bool76) {
+                            int i81 = (int) (100.0F + 100.0F * (m.snap[2] / 100.0F));
+                            if (i81 > 255)
+                                i81 = 255;
+                            if (i81 < 0)
+                                i81 = 0;
+                            rd.setColor(new Color(0, 0, i81));
+                            if (i75 == 0)
+                                rd.drawString("1st", 673, 76 + 30 * i75);
+                            if (i75 == 1)
+                                rd.drawString("2nd", 671, 76 + 30 * i75);
+                            if (i75 == 2)
+                                rd.drawString("3rd", 671, 76 + 30 * i75);
+                            if (i75 >= 3)
+                                rd.drawString(new StringBuilder().append("").append(i75 + 1).append("th").toString(),
+                                        671, 76 + 30 * i75);
                             if (clangame != 0) {
-                                int i_82_;
-                                int i_83_;
-                                if (pclan[i_77_].toLowerCase().equals(gaclan.toLowerCase())) {
-                                    i_82_ = 255;
-                                    i_83_ = 128;
-                                    i_81_ = 0;
+                                int i82;
+                                int i83;
+                                if (pclan[i77].toLowerCase().equals(gaclan.toLowerCase())) {
+                                    i82 = 255;
+                                    i83 = 128;
+                                    i81 = 0;
                                 } else {
-                                    i_82_ = 0;
-                                    i_83_ = 128;
-                                    i_81_ = 255;
+                                    i82 = 0;
+                                    i83 = 128;
+                                    i81 = 255;
                                 }
-                                i_82_ += i_82_ * (m.snap[0] / 100.0F);
-                                if (i_82_ > 255)
-                                    i_82_ = 255;
-                                if (i_82_ < 0)
-                                    i_82_ = 0;
-                                i_83_ += i_83_ * (m.snap[1] / 100.0F);
-                                if (i_83_ > 255)
-                                    i_83_ = 255;
-                                if (i_83_ < 0)
-                                    i_83_ = 0;
-                                i_81_ += i_81_ * (m.snap[2] / 100.0F);
-                                if (i_81_ > 255)
-                                    i_81_ = 255;
-                                if (i_81_ < 0)
-                                    i_81_ = 0;
-                                rd.setColor(new Color(i_82_, i_83_, i_81_));
-                                rd.drawString(plnames[i_77_], 731 - ftm.stringWidth(plnames[i_77_]) / 2,
-                                        70 + 30 * i_75_);
+                                i82 += i82 * (m.snap[0] / 100.0F);
+                                if (i82 > 255)
+                                    i82 = 255;
+                                if (i82 < 0)
+                                    i82 = 0;
+                                i83 += i83 * (m.snap[1] / 100.0F);
+                                if (i83 > 255)
+                                    i83 = 255;
+                                if (i83 < 0)
+                                    i83 = 0;
+                                i81 += i81 * (m.snap[2] / 100.0F);
+                                if (i81 > 255)
+                                    i81 = 255;
+                                if (i81 < 0)
+                                    i81 = 0;
+                                rd.setColor(new Color(i82, i83, i81));
+                                rd.drawString(plnames[i77], 731 - ftm.stringWidth(plnames[i77]) / 2,
+                                        70 + 30 * i75);
                             }
                             rd.setColor(new Color(0, 0, 0));
-                            rd.drawString(plnames[i_77_], 730 - ftm.stringWidth(plnames[i_77_]) / 2, 70 + 30 * i_75_);
-                            final int i_84_ = (int) (60.0F * checkpoints.magperc[i_77_]);
-                            int i_85_ = 244;
-                            int i_86_ = 244;
-                            i_81_ = 11;
-                            if (i_84_ > 20)
-                                i_86_ = (int) (244.0F - 233.0F * ((i_84_ - 20) / 40.0F));
-                            i_85_ += i_85_ * (m.snap[0] / 100.0F);
-                            if (i_85_ > 255)
-                                i_85_ = 255;
-                            if (i_85_ < 0)
-                                i_85_ = 0;
-                            i_86_ += i_86_ * (m.snap[1] / 100.0F);
-                            if (i_86_ > 255)
-                                i_86_ = 255;
-                            if (i_86_ < 0)
-                                i_86_ = 0;
-                            i_81_ += i_81_ * (m.snap[2] / 100.0F);
-                            if (i_81_ > 255)
-                                i_81_ = 255;
-                            if (i_81_ < 0)
-                                i_81_ = 0;
-                            rd.setColor(new Color(i_85_, i_86_, i_81_));
-                            rd.fillRect(700, 74 + 30 * i_75_, i_84_, 5);
+                            rd.drawString(plnames[i77], 730 - ftm.stringWidth(plnames[i77]) / 2, 70 + 30 * i75);
+                            final int i84 = (int) (60.0F * checkpoints.magperc[i77]);
+                            int i85 = 244;
+                            int i86 = 244;
+                            i81 = 11;
+                            if (i84 > 20)
+                                i86 = (int) (244.0F - 233.0F * ((i84 - 20) / 40.0F));
+                            i85 += i85 * (m.snap[0] / 100.0F);
+                            if (i85 > 255)
+                                i85 = 255;
+                            if (i85 < 0)
+                                i85 = 0;
+                            i86 += i86 * (m.snap[1] / 100.0F);
+                            if (i86 > 255)
+                                i86 = 255;
+                            if (i86 < 0)
+                                i86 = 0;
+                            i81 += i81 * (m.snap[2] / 100.0F);
+                            if (i81 > 255)
+                                i81 = 255;
+                            if (i81 < 0)
+                                i81 = 0;
+                            rd.setColor(new Color(i85, i86, i81));
+                            rd.fillRect(700, 74 + 30 * i75, i84, 5);
                             rd.setColor(new Color(0, 0, 0));
-                            rd.drawRect(700, 74 + 30 * i_75_, 60, 5);
-                            boolean bool_87_ = false;
-                            if ((im != i_77_ || multion >= 2) && i > 661 && i < 775 && i_53_ > 58 + 30 * i_75_
-                                    && i_53_ < 83 + 30 * i_75_) {
-                                bool_87_ = true;
+                            rd.drawRect(700, 74 + 30 * i75, 60, 5);
+                            boolean bool87 = false;
+                            if ((im != i77 || multion >= 2) && i > 661 && i < 775 && i53 > 58 + 30 * i75
+                                    && i53 < 83 + 30 * i75) {
+                                bool87 = true;
                                 if (bool) {
                                     if (!onlock)
-                                        if (alocked != i_77_ || multion >= 2) {
-                                            alocked = i_77_;
+                                        if (alocked != i77 || multion >= 2) {
+                                            alocked = i77;
                                             if (multion >= 2)
-                                                im = i_77_;
+                                                im = i77;
                                         } else
                                             alocked = -1;
                                     onlock = true;
                                 } else if (onlock)
                                     onlock = false;
                             }
-                            if (alocked == i_77_) {
-                                i_85_ = (int) (159.0F + 159.0F * (m.snap[0] / 100.0F));
-                                if (i_85_ > 255)
-                                    i_85_ = 255;
-                                if (i_85_ < 0)
-                                    i_85_ = 0;
-                                i_86_ = (int) (207.0F + 207.0F * (m.snap[1] / 100.0F));
-                                if (i_86_ > 255)
-                                    i_86_ = 255;
-                                if (i_86_ < 0)
-                                    i_86_ = 0;
-                                i_81_ = (int) (255.0F + 255.0F * (m.snap[2] / 100.0F));
-                                if (i_81_ > 255)
-                                    i_81_ = 255;
-                                if (i_81_ < 0)
-                                    i_81_ = 0;
-                                rd.setColor(new Color(i_85_, i_86_, i_81_));
-                                rd.drawRect(661, 58 + 30 * i_75_, 114, 25);
-                                rd.drawRect(662, 59 + 30 * i_75_, 112, 23);
+                            if (alocked == i77) {
+                                i85 = (int) (159.0F + 159.0F * (m.snap[0] / 100.0F));
+                                if (i85 > 255)
+                                    i85 = 255;
+                                if (i85 < 0)
+                                    i85 = 0;
+                                i86 = (int) (207.0F + 207.0F * (m.snap[1] / 100.0F));
+                                if (i86 > 255)
+                                    i86 = 255;
+                                if (i86 < 0)
+                                    i86 = 0;
+                                i81 = (int) (255.0F + 255.0F * (m.snap[2] / 100.0F));
+                                if (i81 > 255)
+                                    i81 = 255;
+                                if (i81 < 0)
+                                    i81 = 0;
+                                rd.setColor(new Color(i85, i86, i81));
+                                rd.drawRect(661, 58 + 30 * i75, 114, 25);
+                                rd.drawRect(662, 59 + 30 * i75, 112, 23);
                             }
-                            if (bool_87_ && !onlock) {
-                                if (alocked == i_77_) {
-                                    i_85_ = (int) (120.0F + 120.0F * (m.snap[0] / 100.0F));
-                                    if (i_85_ > 255)
-                                        i_85_ = 255;
-                                    if (i_85_ < 0)
-                                        i_85_ = 0;
-                                    i_86_ = (int) (114.0F + 114.0F * (m.snap[1] / 100.0F));
-                                    if (i_86_ > 255)
-                                        i_86_ = 255;
-                                    if (i_86_ < 0)
-                                        i_86_ = 0;
-                                    i_81_ = (int) (255.0F + 255.0F * (m.snap[2] / 100.0F));
-                                    if (i_81_ > 255)
-                                        i_81_ = 255;
-                                    if (i_81_ < 0)
-                                        i_81_ = 0;
+                            if (bool87 && !onlock) {
+                                if (alocked == i77) {
+                                    i85 = (int) (120.0F + 120.0F * (m.snap[0] / 100.0F));
+                                    if (i85 > 255)
+                                        i85 = 255;
+                                    if (i85 < 0)
+                                        i85 = 0;
+                                    i86 = (int) (114.0F + 114.0F * (m.snap[1] / 100.0F));
+                                    if (i86 > 255)
+                                        i86 = 255;
+                                    if (i86 < 0)
+                                        i86 = 0;
+                                    i81 = (int) (255.0F + 255.0F * (m.snap[2] / 100.0F));
+                                    if (i81 > 255)
+                                        i81 = 255;
+                                    if (i81 < 0)
+                                        i81 = 0;
                                 } else {
-                                    i_85_ = (int) (140.0F + 140.0F * (m.snap[0] / 100.0F));
-                                    if (i_85_ > 255)
-                                        i_85_ = 255;
-                                    if (i_85_ < 0)
-                                        i_85_ = 0;
-                                    i_86_ = (int) (160.0F + 160.0F * (m.snap[1] / 100.0F));
-                                    if (i_86_ > 255)
-                                        i_86_ = 255;
-                                    if (i_86_ < 0)
-                                        i_86_ = 0;
-                                    i_81_ = (int) (255.0F + 255.0F * (m.snap[2] / 100.0F));
-                                    if (i_81_ > 255)
-                                        i_81_ = 255;
-                                    if (i_81_ < 0)
-                                        i_81_ = 0;
+                                    i85 = (int) (140.0F + 140.0F * (m.snap[0] / 100.0F));
+                                    if (i85 > 255)
+                                        i85 = 255;
+                                    if (i85 < 0)
+                                        i85 = 0;
+                                    i86 = (int) (160.0F + 160.0F * (m.snap[1] / 100.0F));
+                                    if (i86 > 255)
+                                        i86 = 255;
+                                    if (i86 < 0)
+                                        i86 = 0;
+                                    i81 = (int) (255.0F + 255.0F * (m.snap[2] / 100.0F));
+                                    if (i81 > 255)
+                                        i81 = 255;
+                                    if (i81 < 0)
+                                        i81 = 0;
                                 }
-                                rd.setColor(new Color(i_85_, i_86_, i_81_));
-                                rd.drawRect(660, 57 + 30 * i_75_, 116, 27);
+                                rd.setColor(new Color(i85, i86, i81));
+                                rd.drawRect(660, 57 + 30 * i75, 116, 27);
                             }
-                            bool_76_ = true;
+                            bool76 = true;
                         }
                 }
             }
             if (udpmistro.go && udpmistro.runon == 1 && !holdit) {
-                int i_88_ = 0;
-                int i_89_ = 0;
-                for (int i_90_ = 0; i_90_ < nplayers; i_90_++)
-                    if (i_90_ != udpmistro.im) {
-                        i_89_++;
-                        if (udpmistro.lframe[i_90_] == udpmistro.lcframe[i_90_] || udpmistro.force[i_90_] == 7)
-                            i_88_++;
+                int i88 = 0;
+                int i89 = 0;
+                for (int i90 = 0; i90 < nplayers; i90++)
+                    if (i90 != udpmistro.im) {
+                        i89++;
+                        if (udpmistro.lframe[i90] == udpmistro.lcframe[i90] || udpmistro.force[i90] == 7)
+                            i88++;
                         else
-                            udpmistro.lcframe[i_90_] = udpmistro.lframe[i_90_];
+                            udpmistro.lcframe[i90] = udpmistro.lframe[i90];
                     }
-                if (i_88_ == i_89_)
+                if (i88 == i89)
                     discon++;
                 else if (discon != 0)
                     discon = 0;
@@ -6506,7 +6506,7 @@ public class xtGraphics extends Panel implements Runnable {
                     udpmistro.runon = 2;
             }
         }
-        if (i_54_ != -1) {
+        if (i54 != -1) {
             final float[] fs = new float[3];
             Color.RGBtoHSB(m.cgrnd[0], m.cgrnd[1], m.cgrnd[2], fs);
             fs[1] -= 0.22;
@@ -6517,26 +6517,26 @@ public class xtGraphics extends Panel implements Runnable {
                 fs[2] = 1.0F;
             final Color color = Color.getHSBColor(fs[0], fs[1], fs[2]);
             rd.setColor(color);
-            rd.fillRect(676, 426 - i_54_ * 23, 109, 7);
+            rd.fillRect(676, 426 - i54 * 23, 109, 7);
             rd.setColor(new Color(0, 0, 0));
             rd.setFont(new Font("Tahoma", 1, 11));
-            rd.drawString("Send Message  >", 684, 439 - i_54_ * 23);
+            rd.drawString("Send Message  >", 684, 439 - i54 * 23);
             rd.setColor(new Color((int) (m.cgrnd[0] / 1.2F), (int) (m.cgrnd[1] / 1.2F), (int) (m.cgrnd[2] / 1.2F)));
-            rd.drawRect(676, 426 - i_54_ * 23, 109, 17);
+            rd.drawRect(676, 426 - i54 * 23, 109, 17);
             if (!app.cmsg.isShowing()) {
                 app.cmsg.setVisible(true);
                 app.cmsg.requestFocus();
-                lcmsg[i_54_] = "";
+                lcmsg[i54] = "";
                 app.cmsg.setText("");
                 app.cmsg.setBackground(color);
             }
-            app.movefield(app.cmsg, 34, 424 - i_54_ * 23, 633, 22);
-            if (app.cmsg.getText().equals(lcmsg[i_54_]))
-                cntchatp[i_54_]++;
+            app.movefield(app.cmsg, 34, 424 - i54 * 23, 633, 22);
+            if (app.cmsg.getText().equals(lcmsg[i54]))
+                cntchatp[i54]++;
             else
-                cntchatp[i_54_] = -200;
-            lcmsg[i_54_] = new StringBuilder().append("").append(app.cmsg.getText()).toString();
-            if (cntchatp[i_54_] == 67)
+                cntchatp[i54] = -200;
+            lcmsg[i54] = new StringBuilder().append("").append(app.cmsg.getText()).toString();
+            if (cntchatp[i54] == 67)
                 control.chatup = 0;
             if (app.cmsg.getText().length() > 100) {
                 app.cmsg.setText(app.cmsg.getText().substring(0, 100));
@@ -6610,15 +6610,15 @@ public class xtGraphics extends Panel implements Runnable {
         drawcs(445, "Game lost its focus.   Click screen with mouse to continue.", 100, 100, 100, 3);
     }
 
-    public boolean over(final Image image, final int i, final int i_294_, final int i_295_, final int i_296_) {
-        final int i_297_ = image.getHeight(ob);
-        final int i_298_ = image.getWidth(ob);
-        return i > i_295_ - 5 && i < i_295_ + i_298_ + 5 && i_294_ > i_296_ - 5 && i_294_ < i_296_ + i_297_ + 5;
+    public boolean over(final Image image, final int i, final int i294, final int i295, final int i296) {
+        final int i297 = image.getHeight(ob);
+        final int i298 = image.getWidth(ob);
+        return i > i295 - 5 && i < i295 + i298 + 5 && i294 > i296 - 5 && i294 < i296 + i297 + 5;
     }
 
-    public boolean overon(final int i, final int i_289_, final int i_290_, final int i_291_, final int i_292_,
-            final int i_293_) {
-        return i_292_ > i && i_292_ < i + i_290_ && i_293_ > i_289_ && i_293_ < i_289_ + i_291_;
+    public boolean overon(final int i, final int i289, final int i290, final int i291, final int i292,
+            final int i293) {
+        return i292 > i && i292 < i + i290 && i293 > i289 && i293 < i289 + i291;
     }
 
     public void pausedgame(final int i, final Control control, final Record record) {
@@ -6734,34 +6734,34 @@ public class xtGraphics extends Panel implements Runnable {
                 /* empty */
             }
             int i = 0;
-            int i_343_ = 0;
-            int i_344_ = 0;
-            int i_345_ = 0;
-            for (int i_346_ = 0; i_346_ < 360000; i_346_++) {
-                final Color color = new Color(is[i_346_]);
-                int i_347_;
-                if (i_345_ == 0) {
-                    i_347_ = (color.getRed() + color.getGreen() + color.getBlue()) / 3;
-                    i_344_ = i_347_;
+            int i343 = 0;
+            int i344 = 0;
+            int i345 = 0;
+            for (int i346 = 0; i346 < 360000; i346++) {
+                final Color color = new Color(is[i346]);
+                int i347;
+                if (i345 == 0) {
+                    i347 = (color.getRed() + color.getGreen() + color.getBlue()) / 3;
+                    i344 = i347;
                 } else {
-                    i_347_ = (color.getRed() + color.getGreen() + color.getBlue() + i_344_ * 30) / 33;
-                    i_344_ = i_347_;
+                    i347 = (color.getRed() + color.getGreen() + color.getBlue() + i344 * 30) / 33;
+                    i344 = i347;
                 }
-                if (++i_345_ == 800)
-                    i_345_ = 0;
-                if (i_346_ > 800 * (8 + i_343_) + 281 && i_343_ < 188) {
-                    final int i_348_ = (i_347_ + 60) / 3;
-                    final int i_349_ = (i_347_ + 135) / 3;
-                    final int i_350_ = (i_347_ + 220) / 3;
+                if (++i345 == 800)
+                    i345 = 0;
+                if (i346 > 800 * (8 + i343) + 281 && i343 < 188) {
+                    final int i348 = (i347 + 60) / 3;
+                    final int i349 = (i347 + 135) / 3;
+                    final int i350 = (i347 + 220) / 3;
                     if (++i == 237) {
-                        i_343_++;
+                        i343++;
                         i = 0;
                     }
-                    final Color color_351_ = new Color(i_348_, i_349_, i_350_);
-                    is[i_346_] = color_351_.getRGB();
+                    final Color color351 = new Color(i348, i349, i350);
+                    is[i346] = color351.getRGB();
                 } else {
-                    final Color color_352_ = new Color(i_347_, i_347_, i_347_);
-                    is[i_346_] = color_352_.getRGB();
+                    final Color color352 = new Color(i347, i347, i347);
+                    is[i346] = color352.getRGB();
                 }
             }
             fleximg = createImage(new MemoryImageSource(800, 450, is, 0, 800));
@@ -6793,61 +6793,61 @@ public class xtGraphics extends Panel implements Runnable {
     public void playsounds(final Mad mad, final Control control, final int i) {
         if ((fase == 0 || fase == 7001) && starcnt < 35 && cntwis != 8 && !mutes) {
             boolean bool = control.up && mad.speed > 0.0F || control.down && mad.speed < 10.0F;
-            boolean bool_257_ = mad.skid == 1 && control.handb
+            boolean bool257 = mad.skid == 1 && control.handb
                     || Math.abs(mad.scz[0] - (mad.scz[1] + mad.scz[0] + mad.scz[2] + mad.scz[3]) / 4.0F) > 1.0F
                     || Math.abs(mad.scx[0] - (mad.scx[1] + mad.scx[0] + mad.scx[2] + mad.scx[3]) / 4.0F) > 1.0F;
-            boolean bool_258_ = false;
+            boolean bool258 = false;
             if (control.up && mad.speed < 10.0F) {
-                bool_257_ = true;
+                bool257 = true;
                 bool = true;
-                bool_258_ = true;
+                bool258 = true;
             }
             if (bool && mad.mtouch) {
                 if (!mad.capsized) {
-                    if (!bool_257_) {
+                    if (!bool257) {
                         if (mad.power != 98.0F) {
                             if (Math.abs(mad.speed) > 0.0F && Math.abs(mad.speed) <= cd.swits[mad.cn][0]) {
-                                int i_259_ = (int) (3.0F * Math.abs(mad.speed) / cd.swits[mad.cn][0]);
-                                if (i_259_ == 2) {
+                                int i259 = (int) (3.0F * Math.abs(mad.speed) / cd.swits[mad.cn][0]);
+                                if (i259 == 2) {
                                     if (pwait == 0)
-                                        i_259_ = 0;
+                                        i259 = 0;
                                     else
                                         pwait--;
                                 } else
                                     pwait = 7;
-                                sparkeng(i_259_, mad.cn);
+                                sparkeng(i259, mad.cn);
                             }
                             if (Math.abs(mad.speed) > cd.swits[mad.cn][0]
                                     && Math.abs(mad.speed) <= cd.swits[mad.cn][1]) {
-                                int i_260_ = (int) (3.0F * (Math.abs(mad.speed) - cd.swits[mad.cn][0])
+                                int i260 = (int) (3.0F * (Math.abs(mad.speed) - cd.swits[mad.cn][0])
                                         / (cd.swits[mad.cn][1] - cd.swits[mad.cn][0]));
-                                if (i_260_ == 2) {
+                                if (i260 == 2) {
                                     if (pwait == 0)
-                                        i_260_ = 0;
+                                        i260 = 0;
                                     else
                                         pwait--;
                                 } else
                                     pwait = 7;
-                                sparkeng(i_260_, mad.cn);
+                                sparkeng(i260, mad.cn);
                             }
                             if (Math.abs(mad.speed) > cd.swits[mad.cn][1]
                                     && Math.abs(mad.speed) <= cd.swits[mad.cn][2]) {
-                                final int i_261_ = (int) (3.0F * (Math.abs(mad.speed) - cd.swits[mad.cn][1])
+                                final int i261 = (int) (3.0F * (Math.abs(mad.speed) - cd.swits[mad.cn][1])
                                         / (cd.swits[mad.cn][2] - cd.swits[mad.cn][1]));
-                                sparkeng(i_261_, mad.cn);
+                                sparkeng(i261, mad.cn);
                             }
                         } else {
-                            int i_262_ = 2;
+                            int i262 = 2;
                             if (pwait == 0) {
                                 if (Math.abs(mad.speed) > cd.swits[mad.cn][1])
-                                    i_262_ = 3;
+                                    i262 = 3;
                             } else
                                 pwait--;
-                            sparkeng(i_262_, mad.cn);
+                            sparkeng(i262, mad.cn);
                         }
                     } else {
                         sparkeng(-1, mad.cn);
-                        if (bool_258_) {
+                        if (bool258) {
                             if (stopcnt <= 0) {
                                 air[5].loop();
                                 stopcnt = 10;
@@ -6941,27 +6941,27 @@ public class xtGraphics extends Panel implements Runnable {
 
     private Image pressed(final Image image) {
         final int i = image.getHeight(ob);
-        final int i_337_ = image.getWidth(ob);
-        final int[] is = new int[i_337_ * i];
-        final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i_337_, i, is, 0, i_337_);
+        final int i337 = image.getWidth(ob);
+        final int[] is = new int[i337 * i];
+        final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i337, i, is, 0, i337);
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
             /* empty */
         }
-        for (int i_338_ = 0; i_338_ < i_337_ * i; i_338_++)
-            if (is[i_338_] != is[i_337_ * i - 1])
-                is[i_338_] = -16777216;
-        final Image image_339_ = createImage(new MemoryImageSource(i_337_, i, is, 0, i_337_));
-        return image_339_;
+        for (int i338 = 0; i338 < i337 * i; i338++)
+            if (is[i338] != is[i337 * i - 1])
+                is[i338] = -16777216;
+        final Image image339 = createImage(new MemoryImageSource(i337, i, is, 0, i337));
+        return image339;
     }
 
-    public int py(final int i, final int i_281_, final int i_282_, final int i_283_) {
-        return (i - i_281_) * (i - i_281_) + (i_282_ - i_283_) * (i_282_ - i_283_);
+    public int py(final int i, final int i281, final int i282, final int i283) {
+        return (i - i281) * (i - i281) + (i282 - i283) * (i282 - i283);
     }
 
-    public float pys(final int i, final int i_284_, final int i_285_, final int i_286_) {
-        return (float) Math.sqrt((i - i_284_) * (i - i_284_) + (i_285_ - i_286_) * (i_285_ - i_286_));
+    public float pys(final int i, final int i284, final int i285, final int i286) {
+        return (float) Math.sqrt((i - i284) * (i - i284) + (i285 - i286) * (i285 - i286));
     }
 
     public void rad(final int i) {
@@ -7017,84 +7017,84 @@ public class xtGraphics extends Panel implements Runnable {
         rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         rd.setColor(new Color(m.csky[0] / 2, m.csky[1] / 2, m.csky[2] / 2));
         for (int i = 0; i < checkpoints.n; i++) {
-            int i_241_ = i + 1;
+            int i241 = i + 1;
             if (i == checkpoints.n - 1)
-                i_241_ = 0;
+                i241 = 0;
             boolean bool = false;
-            if (checkpoints.typ[i_241_] == -3) {
-                i_241_ = 0;
+            if (checkpoints.typ[i241] == -3) {
+                i241 = 0;
                 bool = true;
             }
             final int[] is = {
                     (int) (96.0F - (checkpoints.opx[im] - checkpoints.x[i]) / checkpoints.prox),
-                    (int) (96.0F - (checkpoints.opx[im] - checkpoints.x[i_241_]) / checkpoints.prox)
+                    (int) (96.0F - (checkpoints.opx[im] - checkpoints.x[i241]) / checkpoints.prox)
             };
-            final int[] is_242_ = {
+            final int[] is242 = {
                     (int) (141.0F - (checkpoints.z[i] - checkpoints.opz[im]) / checkpoints.prox),
-                    (int) (141.0F - (checkpoints.z[i_241_] - checkpoints.opz[im]) / checkpoints.prox)
+                    (int) (141.0F - (checkpoints.z[i241] - checkpoints.opz[im]) / checkpoints.prox)
             };
-            rot(is, is_242_, 96, 141, mad.cxz, 2);
-            rd.drawLine(is[0], is_242_[0], is[1], is_242_[1]);
+            rot(is, is242, 96, 141, mad.cxz, 2);
+            rd.drawLine(is[0], is242[0], is[1], is242[1]);
             if (bool)
                 break;
         }
         if (arrace || multion > 1) {
             final int[] is = new int[nplayers];
-            final int[] is_245_ = new int[nplayers];
+            final int[] is245 = new int[nplayers];
             for (int i = 0; i < nplayers; i++) {
                 is[i] = (int) (96.0F - (checkpoints.opx[im] - checkpoints.opx[i]) / checkpoints.prox);
-                is_245_[i] = (int) (141.0F - (checkpoints.opz[i] - checkpoints.opz[im]) / checkpoints.prox);
+                is245[i] = (int) (141.0F - (checkpoints.opz[i] - checkpoints.opz[im]) / checkpoints.prox);
             }
-            rot(is, is_245_, 96, 141, mad.cxz, nplayers);
+            rot(is, is245, 96, 141, mad.cxz, nplayers);
             int i = 0;
-            int i_246_ = (int) (80.0F + 80.0F * (m.snap[1] / 100.0F));
-            if (i_246_ > 255)
-                i_246_ = 255;
-            if (i_246_ < 0)
-                i_246_ = 0;
-            int i_247_ = (int) (159.0F + 159.0F * (m.snap[2] / 100.0F));
-            if (i_247_ > 255)
-                i_247_ = 255;
-            if (i_247_ < 0)
-                i_247_ = 0;
-            for (int i_248_ = 0; i_248_ < nplayers; i_248_++)
-                if (i_248_ != im && checkpoints.dested[i_248_] == 0) {
+            int i246 = (int) (80.0F + 80.0F * (m.snap[1] / 100.0F));
+            if (i246 > 255)
+                i246 = 255;
+            if (i246 < 0)
+                i246 = 0;
+            int i247 = (int) (159.0F + 159.0F * (m.snap[2] / 100.0F));
+            if (i247 > 255)
+                i247 = 255;
+            if (i247 < 0)
+                i247 = 0;
+            for (int i248 = 0; i248 < nplayers; i248++)
+                if (i248 != im && checkpoints.dested[i248] == 0) {
                     if (clangame != 0) {
-                        if (pclan[i_248_].toLowerCase().equals(gaclan.toLowerCase())) {
+                        if (pclan[i248].toLowerCase().equals(gaclan.toLowerCase())) {
                             i = 159;
-                            i_246_ = 80;
-                            i_247_ = 0;
+                            i246 = 80;
+                            i247 = 0;
                         } else {
                             i = 0;
-                            i_246_ = 80;
-                            i_247_ = 159;
+                            i246 = 80;
+                            i247 = 159;
                         }
                         i += i * (m.snap[0] / 100.0F);
                         if (i > 255)
                             i = 255;
                         if (i < 0)
                             i = 0;
-                        i_246_ += i_246_ * (m.snap[1] / 100.0F);
-                        if (i_246_ > 255)
-                            i_246_ = 255;
-                        if (i_246_ < 0)
-                            i_246_ = 0;
-                        i_247_ += i_247_ * (m.snap[2] / 100.0F);
-                        if (i_247_ > 255)
-                            i_247_ = 255;
-                        if (i_247_ < 0)
-                            i_247_ = 0;
+                        i246 += i246 * (m.snap[1] / 100.0F);
+                        if (i246 > 255)
+                            i246 = 255;
+                        if (i246 < 0)
+                            i246 = 0;
+                        i247 += i247 * (m.snap[2] / 100.0F);
+                        if (i247 > 255)
+                            i247 = 255;
+                        if (i247 < 0)
+                            i247 = 0;
                     }
-                    int i_249_ = 2;
-                    if (alocked == i_248_) {
-                        i_249_ = 3;
-                        rd.setColor(new Color(i, i_246_, i_247_));
+                    int i249 = 2;
+                    if (alocked == i248) {
+                        i249 = 3;
+                        rd.setColor(new Color(i, i246, i247));
                     } else
-                        rd.setColor(new Color((i + m.csky[0]) / 2, (m.csky[1] + i_246_) / 2, (i_247_ + m.csky[2]) / 2));
-                    rd.drawLine(is[i_248_] - i_249_, is_245_[i_248_], is[i_248_] + i_249_, is_245_[i_248_]);
-                    rd.drawLine(is[i_248_], is_245_[i_248_] + i_249_, is[i_248_], is_245_[i_248_] - i_249_);
-                    rd.setColor(new Color(i, i_246_, i_247_));
-                    rd.fillRect(is[i_248_] - 1, is_245_[i_248_] - 1, 3, 3);
+                        rd.setColor(new Color((i + m.csky[0]) / 2, (m.csky[1] + i246) / 2, (i247 + m.csky[2]) / 2));
+                    rd.drawLine(is[i248] - i249, is245[i248], is[i248] + i249, is245[i248]);
+                    rd.drawLine(is[i248], is245[i248] + i249, is[i248], is245[i248] - i249);
+                    rd.setColor(new Color(i, i246, i247));
+                    rd.fillRect(is[i248] - 1, is245[i248] - 1, 3, 3);
                 }
         }
         int i = (int) (159.0F + 159.0F * (m.snap[0] / 100.0F));
@@ -7102,38 +7102,38 @@ public class xtGraphics extends Panel implements Runnable {
             i = 255;
         if (i < 0)
             i = 0;
-        int i_250_ = 0;
-        int i_251_ = 0;
+        int i250 = 0;
+        int i251 = 0;
         if (clangame != 0) {
             if (pclan[im].toLowerCase().equals(gaclan.toLowerCase())) {
                 i = 159;
-                i_250_ = 80;
-                i_251_ = 0;
+                i250 = 80;
+                i251 = 0;
             } else {
                 i = 0;
-                i_250_ = 80;
-                i_251_ = 159;
+                i250 = 80;
+                i251 = 159;
             }
             i += i * (m.snap[0] / 100.0F);
             if (i > 255)
                 i = 255;
             if (i < 0)
                 i = 0;
-            i_250_ += i_250_ * (m.snap[1] / 100.0F);
-            if (i_250_ > 255)
-                i_250_ = 255;
-            if (i_250_ < 0)
-                i_250_ = 0;
-            i_251_ += i_251_ * (m.snap[2] / 100.0F);
-            if (i_251_ > 255)
-                i_251_ = 255;
-            if (i_251_ < 0)
-                i_251_ = 0;
+            i250 += i250 * (m.snap[1] / 100.0F);
+            if (i250 > 255)
+                i250 = 255;
+            if (i250 < 0)
+                i250 = 0;
+            i251 += i251 * (m.snap[2] / 100.0F);
+            if (i251 > 255)
+                i251 = 255;
+            if (i251 < 0)
+                i251 = 0;
         }
-        rd.setColor(new Color((i + m.csky[0]) / 2, (m.csky[1] + i_250_) / 2, (i_251_ + m.csky[2]) / 2));
+        rd.setColor(new Color((i + m.csky[0]) / 2, (m.csky[1] + i250) / 2, (i251 + m.csky[2]) / 2));
         rd.drawLine(96, 139, 96, 143);
         rd.drawLine(94, 141, 98, 141);
-        rd.setColor(new Color(i, i_250_, i_251_));
+        rd.setColor(new Color(i, i250, i251));
         rd.fillRect(95, 140, 3, 3);
         rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
         if (m.darksky) {
@@ -7150,17 +7150,17 @@ public class xtGraphics extends Panel implements Runnable {
             rd.drawLine(187, 235, 187, 245);
         }
         rd.drawImage(sped, 7, 234, null);
-        final int i_252_ = conto.x - lcarx;
+        final int i252 = conto.x - lcarx;
         lcarx = conto.x;
         lcary = conto.y;
-        final int i_254_ = conto.z - lcarz;
+        final int i254 = conto.z - lcarz;
         lcarz = conto.z;
-        final float f = (float) Math.sqrt(i_252_ * i_252_ + i_254_ * i_254_);
-        final float f_255_ = f * 1.4F * 21.0F * 60.0F * 60.0F / 100000.0F;
-        final float f_256_ = f_255_ * 0.621371F;
+        final float f = (float) Math.sqrt(i252 * i252 + i254 * i254);
+        final float f255 = f * 1.4F * 21.0F * 60.0F * 60.0F / 100000.0F;
+        final float f256 = f255 * 0.621371F;
         rd.setColor(new Color(0, 0, 100));
-        rd.drawString(new StringBuilder().append("").append((int) f_255_).toString(), 62, 245);
-        rd.drawString(new StringBuilder().append("").append((int) f_256_).toString(), 132, 245);
+        rd.drawString(new StringBuilder().append("").append((int) f255).toString(), 62, 245);
+        rd.drawString(new StringBuilder().append("").append((int) f256).toString(), 132, 245);
     }
 
     public void replyn() {
@@ -7205,10 +7205,10 @@ public class xtGraphics extends Panel implements Runnable {
         holdit = false;
         winner = false;
         wasted = 0;
-        for (int i_20_ = 0; i_20_ < 8; i_20_++) {
-            dested[i_20_] = 0;
-            isbot[i_20_] = false;
-            dcrashes[i_20_] = 0;
+        for (int i20 = 0; i20 < 8; i20++) {
+            dested[i20] = 0;
+            isbot[i20] = false;
+            dcrashes[i20] = 0;
         }
         runtyp = 0;
         discon = 0;
@@ -7220,22 +7220,22 @@ public class xtGraphics extends Panel implements Runnable {
         if (fase == 2 || fase == -22)
             sortcars(i);
         if (fase == 22) {
-            for (int i_21_ = 0; i_21_ < 2; i_21_++) {
-                for (int i_22_ = 0; i_22_ < 7; i_22_++) {
-                    cnames[i_21_][i_22_] = "";
-                    sentn[i_21_][i_22_] = "";
+            for (int i21 = 0; i21 < 2; i21++) {
+                for (int i22 = 0; i22 < 7; i22++) {
+                    cnames[i21][i22] = "";
+                    sentn[i21][i22] = "";
                 }
-                if (i_21_ == 0)
-                    cnames[i_21_][6] = "Game Chat  ";
+                if (i21 == 0)
+                    cnames[i21][6] = "Game Chat  ";
                 else
-                    cnames[i_21_][6] = new StringBuilder().append("").append(clan).append("'s Chat  ").toString();
-                updatec[i_21_] = -1;
-                movepos[i_21_] = 0;
-                pointc[i_21_] = 6;
-                floater[i_21_] = 0;
-                cntchatp[i_21_] = 0;
-                msgflk[i_21_] = 0;
-                lcmsg[i_21_] = "";
+                    cnames[i21][6] = new StringBuilder().append("").append(clan).append("'s Chat  ").toString();
+                updatec[i21] = -1;
+                movepos[i21] = 0;
+                pointc[i21] = 6;
+                floater[i21] = 0;
+                cntchatp[i21] = 0;
+                msgflk[i21] = 0;
+                lcmsg[i21] = "";
             }
             if (multion == 3)
                 ransay = 4;
@@ -7249,14 +7249,14 @@ public class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void rot(final int[] is, final int[] is_272_, final int i, final int i_273_, final int i_274_,
-            final int i_275_) {
-        if (i_274_ != 0)
-            for (int i_276_ = 0; i_276_ < i_275_; i_276_++) {
-                final int i_277_ = is[i_276_];
-                final int i_278_ = is_272_[i_276_];
-                is[i_276_] = i + (int) ((i_277_ - i) * m.cos(i_274_) - (i_278_ - i_273_) * m.sin(i_274_));
-                is_272_[i_276_] = i_273_ + (int) ((i_277_ - i) * m.sin(i_274_) + (i_278_ - i_273_) * m.cos(i_274_));
+    public void rot(final int[] is, final int[] is272, final int i, final int i273, final int i274,
+            final int i275) {
+        if (i274 != 0)
+            for (int i276 = 0; i276 < i275; i276++) {
+                final int i277 = is[i276];
+                final int i278 = is272[i276];
+                is[i276] = i + (int) ((i277 - i) * m.cos(i274) - (i278 - i273) * m.sin(i274));
+                is272[i276] = i273 + (int) ((i277 - i) * m.sin(i274) + (i278 - i273) * m.cos(i274));
             }
     }
 
@@ -7316,17 +7316,17 @@ public class xtGraphics extends Panel implements Runnable {
                                 .toString();
                     sendstat = 2;
                 }
-                boolean bool_13_ = false;
-                String string_14_ = "";
+                boolean bool13 = false;
+                String string14 = "";
                 try {
                     dout.println(string);
-                    string_14_ = din.readLine();
-                    if (string_14_ == null)
-                        bool_13_ = true;
+                    string14 = din.readLine();
+                    if (string14 == null)
+                        bool13 = true;
                 } catch (final Exception exception) {
-                    bool_13_ = true;
+                    bool13 = true;
                 }
-                if (bool_13_) {
+                if (bool13) {
                     try {
                         socket.close();
                         socket = null;
@@ -7342,14 +7342,14 @@ public class xtGraphics extends Panel implements Runnable {
                         din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                         dout = new PrintWriter(socket.getOutputStream(), true);
                         dout.println(string);
-                        string_14_ = din.readLine();
-                        if (string_14_ != null)
-                            bool_13_ = false;
+                        string14 = din.readLine();
+                        if (string14 != null)
+                            bool13 = false;
                     } catch (final Exception exception) {
                         /* empty */
                     }
                 }
-                if (bool_13_) {
+                if (bool13) {
                     try {
                         socket.close();
                         socket = null;
@@ -7366,33 +7366,33 @@ public class xtGraphics extends Panel implements Runnable {
                 }
                 if (sendstat != 2) {
                     int i = 2;
-                    int i_15_ = 1;
+                    int i15 = 1;
                     if (clanchat)
-                        i_15_ = 2;
-                    for (int i_16_ = 0; i_16_ < i_15_; i_16_++) {
-                        final int i_17_ = getvalue(string_14_, i_16_);
-                        if (updatec[i_16_] != i_17_ && updatec[i_16_] >= -2 && pointc[i_16_] == 6) {
-                            for (int i_18_ = 0; i_18_ < 7; i_18_++) {
-                                cnames[i_16_][i_18_] = getSvalue(string_14_, i);
+                        i15 = 2;
+                    for (int i16 = 0; i16 < i15; i16++) {
+                        final int i17 = getvalue(string14, i16);
+                        if (updatec[i16] != i17 && updatec[i16] >= -2 && pointc[i16] == 6) {
+                            for (int i18 = 0; i18 < 7; i18++) {
+                                cnames[i16][i18] = getSvalue(string14, i);
                                 i++;
-                                sentn[i_16_][i_18_] = getSvalue(string_14_, i);
+                                sentn[i16][i18] = getSvalue(string14, i);
                                 i++;
                             }
-                            if (cnames[i_16_][6].equals(""))
-                                if (i_16_ == 0)
-                                    cnames[i_16_][6] = "Game Chat  ";
+                            if (cnames[i16][6].equals(""))
+                                if (i16 == 0)
+                                    cnames[i16][6] = "Game Chat  ";
                                 else
-                                    cnames[i_16_][6] = new StringBuilder().append("").append(clan).append("'s Chat  ")
+                                    cnames[i16][6] = new StringBuilder().append("").append(clan).append("'s Chat  ")
                                             .toString();
-                            if (updatec[i_16_] != -2) {
-                                floater[i_16_] = 1;
-                                if (bools[i_16_]) {
-                                    msgflk[i_16_] = 67;
-                                    bools[i_16_] = false;
+                            if (updatec[i16] != -2) {
+                                floater[i16] = 1;
+                                if (bools[i16]) {
+                                    msgflk[i16] = 67;
+                                    bools[i16] = false;
                                 } else
-                                    msgflk[i_16_] = 110;
+                                    msgflk[i16] = 110;
                             }
-                            updatec[i_16_] = i_17_;
+                            updatec[i16] = i17;
                         }
                     }
                 } else
@@ -7431,16 +7431,16 @@ public class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void scrape(final int i, final int i_266_, final int i_267_) {
-        if (bfscrape == 0 && Math.sqrt(i * i + i_266_ * i_266_ + i_267_ * i_267_) / 10.0 > 10.0) {
-            int i_268_ = 0;
+    public void scrape(final int i, final int i266, final int i267) {
+        if (bfscrape == 0 && Math.sqrt(i * i + i266 * i266 + i267 * i267) / 10.0 > 10.0) {
+            int i268 = 0;
             if (m.random() > m.random())
-                i_268_ = 1;
-            if (i_268_ == 0) {
+                i268 = 1;
+            if (i268 == 0) {
                 sturn1 = 0;
                 sturn0++;
                 if (sturn0 == 3) {
-                    i_268_ = 1;
+                    i268 = 1;
                     sturn1 = 1;
                     sturn0 = 0;
                 }
@@ -7448,13 +7448,13 @@ public class xtGraphics extends Panel implements Runnable {
                 sturn0 = 0;
                 sturn1++;
                 if (sturn1 == 3) {
-                    i_268_ = 0;
+                    i268 = 0;
                     sturn0 = 1;
                     sturn1 = 0;
                 }
             }
             if (!mutes)
-                scrape[i_268_].play();
+                scrape[i268].play();
             bfscrape = 5;
         }
     }
@@ -7529,8 +7529,8 @@ public class xtGraphics extends Panel implements Runnable {
                 Color.RGBtoHSB(color.getRed(), color.getGreen(), color.getBlue(), fs);
                 fs[0] = 0.11F;
                 fs[1] = 0.45F;
-                final Color color_385_ = Color.getHSBColor(fs[0], fs[1], fs[2]);
-                smokey[i] = color_385_.getRGB();
+                final Color color385 = Color.getHSBColor(fs[0], fs[1], fs[2]);
+                smokey[i] = color385.getRGB();
             }
     }
 
@@ -7541,10 +7541,10 @@ public class xtGraphics extends Panel implements Runnable {
         lap = loadsnap(olap);
         pos = loadsnap(opos);
         sped = loadsnap(osped);
-        for (int i_287_ = 0; i_287_ < 8; i_287_++)
-            rank[i_287_] = loadsnap(orank[i_287_]);
-        for (int i_288_ = 0; i_288_ < 4; i_288_++)
-            cntdn[i_288_] = loadsnap(ocntdn[i_288_]);
+        for (int i287 = 0; i287 < 8; i287++)
+            rank[i287] = loadsnap(orank[i287]);
+        for (int i288 = 0; i288 < 4; i288++)
+            cntdn[i288] = loadsnap(ocntdn[i288]);
         if (multion != 0) {
             wgame = loadsnap(owgame);
             exitgame = loadsnap(oexitgame);
@@ -7564,229 +7564,229 @@ public class xtGraphics extends Panel implements Runnable {
 
     public void sortcars(int i) {
         if (i != 0) {
-            for (int i_151_ = 1; i_151_ < 7; i_151_++)
-                sc[i_151_] = -1;
+            for (int i151 = 1; i151 < 7; i151++)
+                sc[i151] = -1;
             final boolean[] bools = new boolean[7];
             if (i < 0)
                 i = 27;
-            int i_152_ = 7;
+            int i152 = 7;
             //if (gmode == 1)
-            //	i_152_ = 5;
+            //	i152 = 5;
             boolean bool = false;
             if (i <= 10) {
-                final int i_153_ = 6;
+                final int i153 = 6;
                 //if (gmode == 1)
-                //	i_153_ = 4;
+                //	i153 = 4;
                 if ((i == 1 || i == 2) && sc[0] != 5) {
-                    sc[i_153_] = 5;
-                    i_152_ = i_153_;
+                    sc[i153] = 5;
+                    i152 = i153;
                 }
                 if ((i == 3 || i == 4) && sc[0] != 6) {
-                    sc[i_153_] = 6;
-                    i_152_ = i_153_;
+                    sc[i153] = 6;
+                    i152 = i153;
                 }
                 if ((i == 5 || i == 6) && sc[0] != 11) {
-                    sc[i_153_] = 11;
-                    i_152_ = i_153_;
+                    sc[i153] = 11;
+                    i152 = i153;
                 }
                 if ((i == 7 || i == 8) && sc[0] != 14) {
-                    sc[i_153_] = 14;
-                    i_152_ = i_153_;
+                    sc[i153] = 14;
+                    i152 = i153;
                 }
                 if ((i == 9 || i == 10) && sc[0] != 15) {
-                    sc[i_153_] = 15;
-                    i_152_ = i_153_;
+                    sc[i153] = 15;
+                    i152 = i153;
                 }
             } else {
                 //i -= 10;
                 bool = true;
                 if (sc[0] != 7 + (i + 1) / 2 && i != nTracks) {
                     sc[6] = 7 + (i + 1) / 2;
-                    i_152_ = 6;
+                    i152 = 6;
                 }
             }
-            int i_154_ = 16;
-            int i_155_ = 1;
-            int i_156_ = 2;
-            for (int i_157_ = 1; i_157_ < i_152_; i_157_++) {
-                bools[i_157_] = false;
-                while (!bools[i_157_] && !Thread.currentThread().isInterrupted()) {
+            int i154 = 16;
+            int i155 = 1;
+            int i156 = 2;
+            for (int i157 = 1; i157 < i152; i157++) {
+                bools[i157] = false;
+                while (!bools[i157] && !Thread.currentThread().isInterrupted()) {
                     float f = 10.0F;
                     if (bool)
                         f = 17.0F;
-                    sc[i_157_] = (int) (Math.random() * (24.0F + 8.0F * (i / f)));
-                    if (sc[i_157_] >= nCars)
-                        sc[i_157_] -= nCars;
-                    bools[i_157_] = true;
-                    for (int i_158_ = 0; i_158_ < 7; i_158_++)
-                        if (i_157_ != i_158_ && sc[i_157_] == sc[i_158_])
-                            bools[i_157_] = false;
+                    sc[i157] = (int) (Math.random() * (24.0F + 8.0F * (i / f)));
+                    if (sc[i157] >= nCars)
+                        sc[i157] -= nCars;
+                    bools[i157] = true;
+                    for (int i158 = 0; i158 < 7; i158++)
+                        if (i157 != i158 && sc[i157] == sc[i158])
+                            bools[i157] = false;
                     if (bool)
                         f = nCars;
-                    float f_159_ = (nCars - 1 - sc[i_157_]) / (float) nCars * (i / f);
-                    if (f_159_ > 0.8)
-                        f_159_ = 0.8F;
-                    if (i == nTracks && f_159_ > 0.5)
-                        f_159_ = 0.5F;
-                    if (f_159_ > Math.random())
-                        bools[i_157_] = false;
+                    float f159 = (nCars - 1 - sc[i157]) / (float) nCars * (i / f);
+                    if (f159 > 0.8)
+                        f159 = 0.8F;
+                    if (i == nTracks && f159 > 0.5)
+                        f159 = 0.5F;
+                    if (f159 > Math.random())
+                        bools[i157] = false;
                     /*if (gmode == 1) {
-                    	if (sc[i_157_] >= 7 && sc[i_157_] <= 10)
-                    		bools[i_157_] = false;
-                    	if (sc[i_157_] == 12 || sc[i_157_] == 13)
-                    		bools[i_157_] = false;
-                    	if (sc[i_157_] > 5 && unlocked[0] <= 2)
-                    		bools[i_157_] = false;
-                    	if (sc[i_157_] > 6 && unlocked[0] <= 4)
-                    		bools[i_157_] = false;
-                    	if (sc[i_157_] > 11 && unlocked[0] <= 6)
-                    		bools[i_157_] = false;
-                    	if (sc[i_157_] > 14 && unlocked[0] <= 8)
-                    		bools[i_157_] = false;
+                    	if (sc[i157] >= 7 && sc[i157] <= 10)
+                    		bools[i157] = false;
+                    	if (sc[i157] == 12 || sc[i157] == 13)
+                    		bools[i157] = false;
+                    	if (sc[i157] > 5 && unlocked[0] <= 2)
+                    		bools[i157] = false;
+                    	if (sc[i157] > 6 && unlocked[0] <= 4)
+                    		bools[i157] = false;
+                    	if (sc[i157] > 11 && unlocked[0] <= 6)
+                    		bools[i157] = false;
+                    	if (sc[i157] > 14 && unlocked[0] <= 8)
+                    		bools[i157] = false;
                     }*/
                     if (gmode == 2) {
-                        if ((sc[i_157_] - 7) * 2 > unlocked)
-                            bools[i_157_] = false;
-                        if (i == nTracks - 1 && unlocked == nTracks - 1 && sc[i_157_] < 9)
-                            bools[i_157_] = false;
+                        if ((sc[i157] - 7) * 2 > unlocked)
+                            bools[i157] = false;
+                        if (i == nTracks - 1 && unlocked == nTracks - 1 && sc[i157] < 9)
+                            bools[i157] = false;
                     }
                 }
-                if (sc[i_157_] < i_154_) {
-                    i_154_ = sc[i_157_];
-                    if (i_155_ != i_157_) {
-                        i_156_ = i_155_;
-                        i_155_ = i_157_;
+                if (sc[i157] < i154) {
+                    i154 = sc[i157];
+                    if (i155 != i157) {
+                        i156 = i155;
+                        i155 = i157;
                     }
                 }
             }
             if (!bool && i == 10) {
-                boolean bool_160_ = false;
-                for (int i_161_ = 0; i_161_ < 7; i_161_++)
-                    if (sc[i_161_] == 11)
-                        bool_160_ = true;
-                if (!bool_160_ && (Math.random() > Math.random() || gmode != 0))
-                    sc[i_155_] = 11;
-                bool_160_ = false;
-                for (int i_162_ = 0; i_162_ < 7; i_162_++)
-                    if (sc[i_162_] == 14)
-                        bool_160_ = true;
-                if (!bool_160_ && (Math.random() > Math.random() || gmode != 0))
-                    sc[i_156_] = 14;
+                boolean bool160 = false;
+                for (int i161 = 0; i161 < 7; i161++)
+                    if (sc[i161] == 11)
+                        bool160 = true;
+                if (!bool160 && (Math.random() > Math.random() || gmode != 0))
+                    sc[i155] = 11;
+                bool160 = false;
+                for (int i162 = 0; i162 < 7; i162++)
+                    if (sc[i162] == 14)
+                        bool160 = true;
+                if (!bool160 && (Math.random() > Math.random() || gmode != 0))
+                    sc[i156] = 14;
             }
             if (i == 12) {
-                boolean bool_163_ = false;
-                for (int i_164_ = 0; i_164_ < 7; i_164_++)
-                    if (sc[i_164_] == 11)
-                        bool_163_ = true;
-                if (!bool_163_)
-                    sc[i_155_] = 11;
+                boolean bool163 = false;
+                for (int i164 = 0; i164 < 7; i164++)
+                    if (sc[i164] == 11)
+                        bool163 = true;
+                if (!bool163)
+                    sc[i155] = 11;
             }
             if (i == 14) {
-                boolean bool_165_ = false;
-                for (int i_166_ = 0; i_166_ < 7; i_166_++)
-                    if (sc[i_166_] == 12)
-                        bool_165_ = true;
-                if (!bool_165_ && (Math.random() > Math.random() || gmode != 0))
-                    sc[i_155_] = 12;
-                bool_165_ = false;
-                for (int i_167_ = 0; i_167_ < 7; i_167_++)
-                    if (sc[i_167_] == 10)
-                        bool_165_ = true;
-                if (!bool_165_ && (Math.random() > Math.random() || gmode != 0))
-                    sc[i_156_] = 10;
+                boolean bool165 = false;
+                for (int i166 = 0; i166 < 7; i166++)
+                    if (sc[i166] == 12)
+                        bool165 = true;
+                if (!bool165 && (Math.random() > Math.random() || gmode != 0))
+                    sc[i155] = 12;
+                bool165 = false;
+                for (int i167 = 0; i167 < 7; i167++)
+                    if (sc[i167] == 10)
+                        bool165 = true;
+                if (!bool165 && (Math.random() > Math.random() || gmode != 0))
+                    sc[i156] = 10;
             }
             if (i == 15) {
-                boolean bool_168_ = false;
-                for (int i_169_ = 0; i_169_ < 7; i_169_++)
-                    if (sc[i_169_] == 11)
-                        bool_168_ = true;
-                if (!bool_168_ && (Math.random() > Math.random() || gmode != 0))
-                    sc[i_155_] = 11;
-                bool_168_ = false;
-                for (int i_170_ = 0; i_170_ < 7; i_170_++)
-                    if (sc[i_170_] == 13)
-                        bool_168_ = true;
-                if (!bool_168_ && (Math.random() > Math.random() || gmode != 0))
-                    sc[i_156_] = 13;
+                boolean bool168 = false;
+                for (int i169 = 0; i169 < 7; i169++)
+                    if (sc[i169] == 11)
+                        bool168 = true;
+                if (!bool168 && (Math.random() > Math.random() || gmode != 0))
+                    sc[i155] = 11;
+                bool168 = false;
+                for (int i170 = 0; i170 < 7; i170++)
+                    if (sc[i170] == 13)
+                        bool168 = true;
+                if (!bool168 && (Math.random() > Math.random() || gmode != 0))
+                    sc[i156] = 13;
             }
             if (i == 16) {
-                boolean bool_171_ = false;
-                for (int i_172_ = 0; i_172_ < 7; i_172_++)
-                    if (sc[i_172_] == 13)
-                        bool_171_ = true;
-                if (!bool_171_ && (Math.random() > Math.random() || gmode != 0))
-                    sc[i_155_] = 13;
-                bool_171_ = false;
-                for (int i_173_ = 0; i_173_ < 7; i_173_++)
-                    if (sc[i_173_] == 12)
-                        bool_171_ = true;
-                if (!bool_171_ && (Math.random() > Math.random() || gmode != 0))
-                    sc[i_156_] = 12;
+                boolean bool171 = false;
+                for (int i172 = 0; i172 < 7; i172++)
+                    if (sc[i172] == 13)
+                        bool171 = true;
+                if (!bool171 && (Math.random() > Math.random() || gmode != 0))
+                    sc[i155] = 13;
+                bool171 = false;
+                for (int i173 = 0; i173 < 7; i173++)
+                    if (sc[i173] == 12)
+                        bool171 = true;
+                if (!bool171 && (Math.random() > Math.random() || gmode != 0))
+                    sc[i156] = 12;
             }
             if (cd.lastload == 1) {
-                int i_174_ = 0;
-                for (int i_175_ = 0; i_175_ < cd.nlcars - 16; i_175_++) {
-                    if (i_174_ == 0)
-                        for (int i_176_ = 1; i_176_ < i_152_; i_176_++)
-                            bools[i_176_] = false;
-                    if (cd.include[i_175_] && sc[0] != i_175_ + 16) {
-                        int i_177_;
-                        for (i_177_ = (int) (1.0 + Math.random() * (i_152_ - 1)); bools[i_177_]; i_177_ = (int) (1.0
-                                + Math.random() * (i_152_ - 1))) {
+                int i174 = 0;
+                for (int i175 = 0; i175 < cd.nlcars - 16; i175++) {
+                    if (i174 == 0)
+                        for (int i176 = 1; i176 < i152; i176++)
+                            bools[i176] = false;
+                    if (cd.include[i175] && sc[0] != i175 + 16) {
+                        int i177;
+                        for (i177 = (int) (1.0 + Math.random() * (i152 - 1)); bools[i177]; i177 = (int) (1.0
+                                + Math.random() * (i152 - 1))) {
                             /* empty */
                         }
-                        bools[i_177_] = true;
-                        sc[i_177_] = i_175_ + 16;
-                        if (++i_174_ == i_152_ - 1)
-                            i_174_ = 0;
+                        bools[i177] = true;
+                        sc[i177] = i175 + 16;
+                        if (++i174 == i152 - 1)
+                            i174 = 0;
                     }
                 }
             }
             if (cd.lastload == 2) {
-                int i_178_ = 0;
-                for (int i_179_ = 0; i_179_ < cd.nlocars - 16; i_179_++) {
-                    if (i_178_ == 0)
-                        for (int i_180_ = 1; i_180_ < i_152_; i_180_++)
-                            bools[i_180_] = false;
-                    if (cd.include[i_179_] && sc[0] != i_179_ + 16) {
-                        int i_181_;
-                        for (i_181_ = (int) (1.0 + Math.random() * (i_152_ - 1)); bools[i_181_]; i_181_ = (int) (1.0
-                                + Math.random() * (i_152_ - 1))) {
+                int i178 = 0;
+                for (int i179 = 0; i179 < cd.nlocars - 16; i179++) {
+                    if (i178 == 0)
+                        for (int i180 = 1; i180 < i152; i180++)
+                            bools[i180] = false;
+                    if (cd.include[i179] && sc[0] != i179 + 16) {
+                        int i181;
+                        for (i181 = (int) (1.0 + Math.random() * (i152 - 1)); bools[i181]; i181 = (int) (1.0
+                                + Math.random() * (i152 - 1))) {
                             /* empty */
                         }
-                        bools[i_181_] = true;
-                        sc[i_181_] = i_179_ + 16;
-                        if (++i_178_ == i_152_ - 1)
-                            i_178_ = 0;
+                        bools[i181] = true;
+                        sc[i181] = i179 + 16;
+                        if (++i178 == i152 - 1)
+                            i178 = 0;
                     }
                 }
             }
         }
     }
 
-    public void sparkeng(int i, final int i_263_) {
-        if (lcn != i_263_) {
-            for (int i_264_ = 0; i_264_ < 5; i_264_++)
-                if (pengs[i_264_]) {
-                    engs[cd.enginsignature[lcn]][i_264_].stop();
-                    pengs[i_264_] = false;
+    public void sparkeng(int i, final int i263) {
+        if (lcn != i263) {
+            for (int i264 = 0; i264 < 5; i264++)
+                if (pengs[i264]) {
+                    engs[cd.enginsignature[lcn]][i264].stop();
+                    pengs[i264] = false;
                 }
-            lcn = i_263_;
+            lcn = i263;
         }
         i++;
-        for (int i_265_ = 0; i_265_ < 5; i_265_++)
-            if (i == i_265_) {
-                if (!pengs[i_265_]) {
-                    engs[cd.enginsignature[i_263_]][i_265_].loop();
-                    pengs[i_265_] = true;
+        for (int i265 = 0; i265 < 5; i265++)
+            if (i == i265) {
+                if (!pengs[i265]) {
+                    engs[cd.enginsignature[i263]][i265].loop();
+                    pengs[i265] = true;
                 }
-            } else if (pengs[i_265_]) {
-                engs[cd.enginsignature[i_263_]][i_265_].stop();
-                pengs[i_265_] = false;
+            } else if (pengs[i265]) {
+                engs[cd.enginsignature[i263]][i265].stop();
+                pengs[i265] = false;
             }
     }
 
-    public void stageselect(final CheckPoints checkpoints, final Control control, final int i, final int i_39_,
+    public void stageselect(final CheckPoints checkpoints, final Control control, final int i, final int i39,
             final boolean bool) {
         rd.drawImage(br, 65, 25, null);
         rd.drawImage(select, 338, 35, null);
@@ -7798,21 +7798,21 @@ public class xtGraphics extends Panel implements Runnable {
                     rd.drawImage(next[pnext], 625, 135, null);
             }
             if (gmode == 0) {
-                boolean bool_40_ = false;
-                int i_41_ = 0;
+                boolean bool40 = false;
+                int i41 = 0;
                 if (nfmtab != app.sgame.getSelectedIndex()) {
                     nfmtab = app.sgame.getSelectedIndex();
                     //app.snfm1.select(0);
                     //app.snfm2.select(0);
                     app.mstgs.select(0);
                     app.requestFocus();
-                    bool_40_ = true;
+                    bool40 = true;
                 }
                 if (cd.staction == 5) {
                     if (lfrom == 0) {
                         cd.staction = 0;
                         removeds = 1;
-                        bool_40_ = true;
+                        bool40 = true;
                     } else {
                         cd.onstage = checkpoints.name;
                         cd.staction = 2;
@@ -7845,21 +7845,21 @@ public class xtGraphics extends Panel implements Runnable {
                     app.tpass.setVisible(false);
                     cd.staction = 0;
                 }
-                int i_42_ = 0;
+                int i42 = 0;
                 app.sgame.setSize(131, 22);
                 //if (app.sgame.getSelectedIndex() == 0)
-                //	i_42_ = 400 - (app.sgame.getWidth() + 6 + app.snfm1.getWidth()) / 2;
+                //	i42 = 400 - (app.sgame.getWidth() + 6 + app.snfm1.getWidth()) / 2;
                 //if (app.sgame.getSelectedIndex() == 1)
-                //	i_42_ = 400 - (app.sgame.getWidth() + 6 + app.snfm2.getWidth()) / 2;
+                //	i42 = 400 - (app.sgame.getWidth() + 6 + app.snfm2.getWidth()) / 2;
                 if (app.sgame.getSelectedIndex() == 2) {
                     app.mstgs.setSize(338, 22);
-                    if (bool_40_)
+                    if (bool40)
                         if (logged) {
                             if (cd.msloaded != 1) {
                                 app.mstgs.removeAll();
                                 app.mstgs.add(rd, "Loading your stages now, please wait...");
                                 app.mstgs.select(0);
-                                i_41_ = 1;
+                                i41 = 1;
                             }
                         } else {
                             app.mstgs.removeAll();
@@ -7873,27 +7873,27 @@ public class xtGraphics extends Panel implements Runnable {
                             cntflock = 0;
                             cd.reco = -2;
                         }
-                    i_42_ = 400 - (app.sgame.getWidth() + 6 + app.mstgs.getWidth()) / 2;
+                    i42 = 400 - (app.sgame.getWidth() + 6 + app.mstgs.getWidth()) / 2;
                 }
                 if (app.sgame.getSelectedIndex() == 3) {
                     app.mstgs.setSize(338, 22);
-                    if (bool_40_ && cd.msloaded != 3) {
+                    if (bool40 && cd.msloaded != 3) {
                         app.mstgs.removeAll();
                         app.mstgs.add(rd, "Loading Top20 list, please wait...");
                         app.mstgs.select(0);
-                        i_41_ = 3;
+                        i41 = 3;
                     }
-                    i_42_ = 400 - (app.sgame.getWidth() + 6 + app.mstgs.getWidth()) / 2;
+                    i42 = 400 - (app.sgame.getWidth() + 6 + app.mstgs.getWidth()) / 2;
                 }
                 if (app.sgame.getSelectedIndex() == 4) {
                     app.mstgs.setSize(338, 22);
-                    if (bool_40_ && cd.msloaded != 4) {
+                    if (bool40 && cd.msloaded != 4) {
                         app.mstgs.removeAll();
                         app.mstgs.add(rd, "Loading Top20 list, please wait...");
                         app.mstgs.select(0);
-                        i_41_ = 4;
+                        i41 = 4;
                     }
-                    i_42_ = 400 - (app.sgame.getWidth() + 6 + app.mstgs.getWidth()) / 2;
+                    i42 = 400 - (app.sgame.getWidth() + 6 + app.mstgs.getWidth()) / 2;
                 }
                 if (app.sgame.getSelectedIndex() == 5) {
                     if (cd.staction != 0) {
@@ -7902,25 +7902,25 @@ public class xtGraphics extends Panel implements Runnable {
                         cd.staction = 0;
                     }
                     app.mstgs.setSize(338, 22);
-                    if (bool_40_ && cd.msloaded != 2) {
+                    if (bool40 && cd.msloaded != 2) {
                         app.mstgs.removeAll();
                         app.mstgs.add(rd, "Loading Stage Maker stages, please wait...");
                         app.mstgs.select(0);
-                        i_41_ = 2;
+                        i41 = 2;
                     }
-                    i_42_ = 400 - (app.sgame.getWidth() + 6 + app.mstgs.getWidth()) / 2;
+                    i42 = 400 - (app.sgame.getWidth() + 6 + app.mstgs.getWidth()) / 2;
                 }
                 if (!app.sgame.isShowing())
                     app.sgame.setVisible(true);
-                app.sgame.move(i_42_, 62);
-                i_42_ += app.sgame.getWidth() + 6;
+                app.sgame.move(i42, 62);
+                i42 += app.sgame.getWidth() + 6;
                 /*if (nfmtab == 0) {
                 	if (!app.snfm1.isShowing()) {
                 		app.snfm1.setVisible(true);
-                		if (!bool_40_ && checkpoints.stage > 0)
+                		if (!bool40 && checkpoints.stage > 0)
                 			app.snfm1.select(checkpoints.stage);
                 	}
-                	app.snfm1.move(i_42_, 62);
+                	app.snfm1.move(i42, 62);
                 	if (app.snfm2.isShowing())
                 		app.snfm2.setVisible(false);
                 	if (app.mstgs.isShowing())
@@ -7929,10 +7929,10 @@ public class xtGraphics extends Panel implements Runnable {
                 //if (nfmtab == 1) {
                 /*if (!app.snfm2.isShowing()) {
                 	app.snfm2.setVisible(true);
-                	if (!bool_40_ && checkpoints.stage > 10)
+                	if (!bool40 && checkpoints.stage > 10)
                 		app.snfm2.select(checkpoints.stage - 10);
                 }
-                app.snfm2.move(i_42_, 62);
+                app.snfm2.move(i42, 62);
                 if (app.snfm1.isShowing())
                 	app.snfm1.setVisible(false);
                 if (app.mstgs.isShowing())
@@ -7941,10 +7941,10 @@ public class xtGraphics extends Panel implements Runnable {
                 /*if (nfmtab == 2 || nfmtab == 3 || nfmtab == 4 || nfmtab == 5) {
                 	if (!app.mstgs.isShowing()) {
                 		app.mstgs.setVisible(true);
-                		if (!bool_40_)
+                		if (!bool40)
                 			app.mstgs.select(checkpoints.name);
                 	}
-                	app.mstgs.move(i_42_, 62);
+                	app.mstgs.move(i42, 62);
                 	if (app.snfm1.isShowing())
                 		app.snfm1.setVisible(false);
                 	if (app.snfm2.isShowing())
@@ -8065,7 +8065,7 @@ public class xtGraphics extends Panel implements Runnable {
                         }
                     }
                     if (cd.reco != -177) {
-                        if ((drawcarb(true, null, "       Login       ", 347, 247, i, i_39_, bool) || control.handb
+                        if ((drawcarb(true, null, "       Login       ", 347, 247, i, i39, bool) || control.handb
                                 || control.enter) && tcnt > 5) {
                             tcnt = 0;
                             if (!app.tnick.getText().equals("") && !app.tpass.getText().equals("")) {
@@ -8082,18 +8082,18 @@ public class xtGraphics extends Panel implements Runnable {
                                     cd.reco = -3;
                             }
                         }
-                    } else if (drawcarb(true, null, "  Upgrade to have your own stages!  ", 277, 247, i, i_39_, bool)
+                    } else if (drawcarb(true, null, "  Upgrade to have your own stages!  ", 277, 247, i, i39, bool)
                             && cntflock == 0) {
                         app.editlink(nickname, true);
                         cntflock = 100;
                     }
-                    if (drawcarb(true, null, "  Cancel  ", 409, 282, i, i_39_, bool)) {
+                    if (drawcarb(true, null, "  Cancel  ", 409, 282, i, i39, bool)) {
                         app.tnick.setVisible(false);
                         app.tpass.setVisible(false);
                         app.requestFocus();
                         cd.staction = 0;
                     }
-                    if (drawcarb(true, null, "  Register!  ", 316, 282, i, i_39_, bool)) {
+                    if (drawcarb(true, null, "  Register!  ", 316, 282, i, i39, bool)) {
                         if (cntflock == 0) {
                             app.reglink();
                             cntflock = 100;
@@ -8106,13 +8106,13 @@ public class xtGraphics extends Panel implements Runnable {
                     drawcs(195, "Logging in to your account...", 0, 0, 0, 3);
                 }
                 if (checkpoints.stage == -2 && cd.msloaded == 1 && checkpoints.top20 < 3 && !app.openm
-                        && drawcarb(true, null, "X", 609, 113, i, i_39_, bool))
+                        && drawcarb(true, null, "X", 609, 113, i, i39, bool))
                     cd.staction = 6;
                 if (cd.staction == -1 && checkpoints.top20 < 3) {
                     removeds = 0;
                     drawdprom(145, 95);
                     drawcs(175, "Failed to remove stage from your account, try again later.", 0, 0, 0, 3);
-                    if (drawcarb(true, null, " OK ", 379, 195, i, i_39_, bool))
+                    if (drawcarb(true, null, " OK ", 379, 195, i, i39, bool))
                         cd.staction = 0;
                 }
                 if (cd.staction == 1) {
@@ -8123,25 +8123,25 @@ public class xtGraphics extends Panel implements Runnable {
                 if (cd.staction == 6) {
                     drawdprom(145, 95);
                     drawcs(175, "Remove this stage from your account?", 0, 0, 0, 3);
-                    if (drawcarb(true, null, " Yes ", 354, 195, i, i_39_, bool)) {
+                    if (drawcarb(true, null, " Yes ", 354, 195, i, i39, bool)) {
                         cd.onstage = app.mstgs.getSelectedItem();
                         cd.staction = 1;
                         cd.sparkstageaction();
                     }
-                    if (drawcarb(true, null, " No ", 408, 195, i, i_39_, bool))
+                    if (drawcarb(true, null, " No ", 408, 195, i, i39, bool))
                         cd.staction = 0;
                 }
-                if (i_41_ == 1) {
+                if (i41 == 1) {
                     app.drawms();
                     //app.repaint();
                     cd.loadmystages(checkpoints);
                 }
-                if (i_41_ >= 3) {
+                if (i41 >= 3) {
                     app.drawms();
                     //app.repaint();
-                    cd.loadtop20(i_41_);
+                    cd.loadtop20(i41);
                 }
-                if (i_41_ == 2) {
+                if (i41 == 2) {
                     app.drawms();
                     //app.repaint();
                     cd.loadstagemaker();
@@ -8153,7 +8153,7 @@ public class xtGraphics extends Panel implements Runnable {
                 if (checkpoints.top20 >= 3 && cd.staction != 3 && cd.staction != 4) {
                     rd.setFont(new Font("Arial", 1, 11));
                     ftm = rd.getFontMetrics();
-                    if (dnload == 0 && drawcarb(true, null, " Add to My Stages ", 334, 355, i, i_39_, bool))
+                    if (dnload == 0 && drawcarb(true, null, " Add to My Stages ", 334, 355, i, i39, bool))
                         if (logged) {
                             cd.onstage = checkpoints.name;
                             cd.staction = 2;
@@ -8240,9 +8240,9 @@ public class xtGraphics extends Panel implements Runnable {
                 }
                 if (nfmtab == 3 || nfmtab == 4) {
                     String string = "";
-                    final int i_43_ = app.mstgs.getSelectedItem().indexOf(" ") + 1;
-                    if (i_43_ > 0)
-                        string = app.mstgs.getSelectedItem().substring(i_43_);
+                    final int i43 = app.mstgs.getSelectedItem().indexOf(" ") + 1;
+                    if (i43 > 0)
+                        string = app.mstgs.getSelectedItem().substring(i43);
                     if (!string.equals("") && !string.equals(checkpoints.name) && app.mstgs.getSelectedIndex() != 0) {
                         checkpoints.stage = -2;
                         checkpoints.name = string;
@@ -8257,10 +8257,10 @@ public class xtGraphics extends Panel implements Runnable {
                 rd.setFont(new Font("SansSerif", 1, 13));
                 ftm = rd.getFontMetrics();
                 if (checkpoints.stage != nTracks) {
-                    final int i_44_ = checkpoints.stage;
-                    //if (i_44_ > 10)
-                    //	i_44_ -= 10;
-                    drawcs(80, new StringBuilder().append("Stage ").append(i_44_).append("  >").toString(), 255, 128, 0,
+                    final int i44 = checkpoints.stage;
+                    //if (i44 > 10)
+                    //	i44 -= 10;
+                    drawcs(80, new StringBuilder().append("Stage ").append(i44).append("  >").toString(), 255, 128, 0,
                             3);
                 } else
                     drawcs(80, "Final Party Stage  >", 255, 128, 0, 3);
@@ -8349,7 +8349,7 @@ public class xtGraphics extends Panel implements Runnable {
                 intertrack.unload();
             }
         }
-        if (drawcarb(true, null, " Exit X ", 670, 30, i, i_39_, bool)) {
+        if (drawcarb(true, null, " Exit X ", 670, 30, i, i39, bool)) {
             fase = 103;
             //fase = 102;
             if (gmode == 0)
@@ -8420,43 +8420,43 @@ public class xtGraphics extends Panel implements Runnable {
             holdit = false;
             if (checkpoints.haltall)
                 checkpoints.haltall = false;
-            boolean bool_184_ = false;
+            boolean bool184 = false;
             String string = "";
-            String string_185_ = "";
+            String string185 = "";
             if (clangame != 0 && (!mad.dest || multion >= 2)) {
-                bool_184_ = true;
+                bool184 = true;
                 for (int i = 0; i < nplayers; i++)
                     if (checkpoints.dested[i] == 0)
                         if (string.equals(""))
                             string = pclan[i];
                         else if (!string.toLowerCase().equals(pclan[i].toLowerCase())) {
-                            bool_184_ = false;
+                            bool184 = false;
                             break;
                         }
             }
             if (clangame > 1) {
-                boolean bool_186_ = false;
-                String string_187_ = "";
-                if (bool_184_) {
+                boolean bool186 = false;
+                String string187 = "";
+                if (bool184) {
                     for (int i = 0; i < nplayers; i++)
                         if (!string.toLowerCase().equals(pclan[i].toLowerCase())) {
-                            string_185_ = pclan[i];
+                            string185 = pclan[i];
                             break;
                         }
                     if (clangame == 2) {
-                        bool_186_ = true;
-                        string_187_ = new StringBuilder().append("Clan ").append(string_185_)
+                        bool186 = true;
+                        string187 = new StringBuilder().append("Clan ").append(string185)
                                 .append(" wasted, nobody won becuase this is a racing only game!").toString();
                     }
                     if (clangame == 4 && !string.toLowerCase().equals(gaclan.toLowerCase())) {
-                        bool_186_ = true;
-                        string_187_ = new StringBuilder().append("Clan ").append(string_185_)
+                        bool186 = true;
+                        string187 = new StringBuilder().append("Clan ").append(string185)
                                 .append(" wasted, nobody won becuase ").append(string)
                                 .append(" should have raced in this racing vs wasting game!").toString();
                     }
                     if (clangame == 5 && string.toLowerCase().equals(gaclan.toLowerCase())) {
-                        bool_186_ = true;
-                        string_187_ = new StringBuilder().append("Clan ").append(string_185_)
+                        bool186 = true;
+                        string187 = new StringBuilder().append("Clan ").append(string185)
                                 .append(" wasted, nobody won becuase ").append(string)
                                 .append(" should have raced in this racing vs wasting game!").toString();
                     }
@@ -8464,32 +8464,32 @@ public class xtGraphics extends Panel implements Runnable {
                 for (int i = 0; i < nplayers; i++)
                     if (checkpoints.clear[i] == checkpoints.nlaps * checkpoints.nsp && checkpoints.pos[i] == 0) {
                         if (clangame == 3) {
-                            bool_186_ = true;
-                            string_187_ = new StringBuilder().append("").append(plnames[i]).append(" of clan ")
+                            bool186 = true;
+                            string187 = new StringBuilder().append("").append(plnames[i]).append(" of clan ")
                                     .append(pclan[i])
                                     .append(" finished first, nobody won becuase this is a wasting only game!")
                                     .toString();
                         }
                         if (clangame == 4 && pclan[i].toLowerCase().equals(gaclan.toLowerCase())) {
-                            bool_186_ = true;
-                            string_187_ = new StringBuilder().append("").append(plnames[i]).append(" of clan ")
+                            bool186 = true;
+                            string187 = new StringBuilder().append("").append(plnames[i]).append(" of clan ")
                                     .append(pclan[i]).append(" finished first, nobody won becuase ").append(pclan[i])
                                     .append(" should have wasted in this racing vs wasting game!").toString();
                         }
                         if (clangame == 5 && !pclan[i].toLowerCase().equals(gaclan.toLowerCase())) {
-                            bool_186_ = true;
-                            string_187_ = new StringBuilder().append("").append(plnames[i]).append(" of clan ")
+                            bool186 = true;
+                            string187 = new StringBuilder().append("").append(plnames[i]).append(" of clan ")
                                     .append(pclan[i]).append(" finished first, nobody won becuase ").append(pclan[i])
                                     .append(" should have wasted in this racing vs wasting game!").toString();
                         }
                     }
-                if (bool_186_) {
+                if (bool186) {
                     drawhi(gamefinished, 70);
                     if (aflk) {
-                        drawcs(120, string_187_, 0, 0, 0, 0);
+                        drawcs(120, string187, 0, 0, 0, 0);
                         aflk = false;
                     } else {
-                        drawcs(120, string_187_, 0, 128, 255, 0);
+                        drawcs(120, string187, 0, 128, 255, 0);
                         aflk = true;
                     }
                     drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
@@ -8499,9 +8499,9 @@ public class xtGraphics extends Panel implements Runnable {
                 }
             }
             if (multion < 2) {
-                if (!holdit && (checkpoints.wasted == nplayers - 1 && nplayers != 1 || bool_184_)) {
+                if (!holdit && (checkpoints.wasted == nplayers - 1 && nplayers != 1 || bool184)) {
                     drawhi(youwastedem, 70);
-                    if (!bool_184_) {
+                    if (!bool184) {
                         if (aflk) {
                             drawcs(120, "You Won, all cars have been wasted!", 0, 0, 0, 0);
                             aflk = false;
@@ -8530,14 +8530,14 @@ public class xtGraphics extends Panel implements Runnable {
                         drawhi(disco, 70);
                         stopchat();
                     }
-                    boolean bool_188_ = false;
+                    boolean bool188 = false;
                     if (lan) {
-                        bool_188_ = true;
+                        bool188 = true;
                         for (int i = 0; i < nplayers; i++)
                             if (i != im && dested[i] == 0 && plnames[i].indexOf("MadBot") == -1)
-                                bool_188_ = false;
+                                bool188 = false;
                     }
-                    if (fase == 7001 && nplayers - (checkpoints.wasted + 1) >= 2 && discon != 240 && !bool_188_)
+                    if (fase == 7001 && nplayers - (checkpoints.wasted + 1) >= 2 && discon != 240 && !bool188)
                         exitm = 4;
                     else {
                         if (exitm == 4)
@@ -8627,21 +8627,21 @@ public class xtGraphics extends Panel implements Runnable {
                             holdit = true;
                         }
             } else {
-                if (!holdit && (checkpoints.wasted >= nplayers - 1 || bool_184_)) {
-                    String string_189_ = "Someone";
-                    if (!bool_184_) {
+                if (!holdit && (checkpoints.wasted >= nplayers - 1 || bool184)) {
+                    String string189 = "Someone";
+                    if (!bool184) {
                         for (int i = 0; i < nplayers; i++)
                             if (checkpoints.dested[i] == 0)
-                                string_189_ = plnames[i];
+                                string189 = plnames[i];
                     } else
-                        string_189_ = new StringBuilder().append("Clan ").append(string).append("").toString();
+                        string189 = new StringBuilder().append("Clan ").append(string).append("").toString();
                     drawhi(gamefinished, 70);
                     if (aflk) {
-                        drawcs(120, new StringBuilder().append("").append(string_189_)
+                        drawcs(120, new StringBuilder().append("").append(string189)
                                 .append(" has wasted all the cars!").toString(), 0, 0, 0, 0);
                         aflk = false;
                     } else {
-                        drawcs(120, new StringBuilder().append("").append(string_189_)
+                        drawcs(120, new StringBuilder().append("").append(string189)
                                 .append(" has wasted all the cars!").toString(), 0, 128, 255, 0);
                         aflk = true;
                     }
@@ -8866,16 +8866,16 @@ public class xtGraphics extends Panel implements Runnable {
                                     pwflk = true;
                                 }
                         } else if (pwcnt < 100) {
-                            String string_192_ = "";
+                            String string192 = "";
                             if (multion == 0)
-                                string_192_ = "  (Press Enter)";
+                                string192 = "  (Press Enter)";
                             if (pwflk) {
                                 drawcs(110, new StringBuilder().append("Please read the Game Instructions!")
-                                        .append(string_192_).append("").toString(), 0, 0, 200, 0);
+                                        .append(string192).append("").toString(), 0, 0, 200, 0);
                                 pwflk = false;
                             } else {
                                 drawcs(110, new StringBuilder().append("Please read the Game Instructions!")
-                                        .append(string_192_).append("").toString(), 255, 100, 0, 0);
+                                        .append(string192).append("").toString(), 255, 100, 0, 0);
                                 pwflk = true;
                             }
                         }
@@ -8969,8 +8969,8 @@ public class xtGraphics extends Panel implements Runnable {
                         loop = new StringBuilder().append("Hanged ").append(loop).toString();
                     if (loop != "") {
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final xtGraphics xtgraphics_193_ = this;
-                        xtgraphics_193_.asay = stringbuilder.append(xtgraphics_193_.asay).append(" ")
+                        final xtGraphics xtgraphics193 = this;
+                        xtgraphics193.asay = stringbuilder.append(xtgraphics193.asay).append(" ")
                                 .append(loop).toString();
                     }
                     i = 0;
@@ -8993,62 +8993,62 @@ public class xtGraphics extends Panel implements Runnable {
                     if (i >= 4)
                         spin = "massive Roll spinning";
                     i = 0;
-                    boolean bool_194_ = false;
+                    boolean bool194 = false;
                     mad.travxz = Math.abs(mad.travxz);
                     while (mad.travxz > 90 && !Thread.currentThread().isInterrupted()) {
                         mad.travxz -= 180;
                         i += 180;
                         if (i > 900) {
                             i = 900;
-                            bool_194_ = true;
+                            bool194 = true;
                         }
                     }
                     if (i != 0) {
                         if (loop == "" && spin == "") {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final xtGraphics xtgraphics_195_ = this;
-                            xtgraphics_195_.asay = stringbuilder.append(xtgraphics_195_.asay).append(" ")
+                            final xtGraphics xtgraphics195 = this;
+                            xtgraphics195.asay = stringbuilder.append(xtgraphics195.asay).append(" ")
                                     .append(i).toString();
-                            if (bool_194_) {
-                                final StringBuilder stringbuilder_196_ = new StringBuilder();
-                                final xtGraphics xtgraphics_197_ = this;
-                                xtgraphics_197_.asay = stringbuilder_196_.append(xtgraphics_197_.asay)
+                            if (bool194) {
+                                final StringBuilder stringbuilder196 = new StringBuilder();
+                                final xtGraphics xtgraphics197 = this;
+                                xtgraphics197.asay = stringbuilder196.append(xtgraphics197.asay)
                                         .append(" and beyond").toString();
                             }
                         } else {
                             if (spin != "")
                                 if (loop == "") {
                                     final StringBuilder stringbuilder = new StringBuilder();
-                                    final xtGraphics xtgraphics_198_ = this;
-                                    xtgraphics_198_.asay = stringbuilder.append(xtgraphics_198_.asay)
+                                    final xtGraphics xtgraphics198 = this;
+                                    xtgraphics198.asay = stringbuilder.append(xtgraphics198.asay)
                                             .append(" ").append(spin).toString();
                                 } else {
                                     final StringBuilder stringbuilder = new StringBuilder();
-                                    final xtGraphics xtgraphics_199_ = this;
-                                    xtgraphics_199_.asay = stringbuilder.append(xtgraphics_199_.asay)
+                                    final xtGraphics xtgraphics199 = this;
+                                    xtgraphics199.asay = stringbuilder.append(xtgraphics199.asay)
                                             .append(" with ").append(spin).toString();
                                 }
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final xtGraphics xtgraphics_200_ = this;
-                            xtgraphics_200_.asay = stringbuilder.append(xtgraphics_200_.asay).append(" by ")
+                            final xtGraphics xtgraphics200 = this;
+                            xtgraphics200.asay = stringbuilder.append(xtgraphics200.asay).append(" by ")
                                     .append(i).toString();
-                            if (bool_194_) {
-                                final StringBuilder stringbuilder_201_ = new StringBuilder();
-                                final xtGraphics xtgraphics_202_ = this;
-                                xtgraphics_202_.asay = stringbuilder_201_.append(xtgraphics_202_.asay)
+                            if (bool194) {
+                                final StringBuilder stringbuilder201 = new StringBuilder();
+                                final xtGraphics xtgraphics202 = this;
+                                xtgraphics202.asay = stringbuilder201.append(xtgraphics202.asay)
                                         .append(" and beyond").toString();
                             }
                         }
                     } else if (spin != "")
                         if (loop == "") {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final xtGraphics xtgraphics_203_ = this;
-                            xtgraphics_203_.asay = stringbuilder.append(xtgraphics_203_.asay).append(" ")
+                            final xtGraphics xtgraphics203 = this;
+                            xtgraphics203.asay = stringbuilder.append(xtgraphics203.asay).append(" ")
                                     .append(spin).toString();
                         } else {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final xtGraphics xtgraphics_204_ = this;
-                            xtgraphics_204_.asay = stringbuilder.append(xtgraphics_204_.asay).append(" by ")
+                            final xtGraphics xtgraphics204 = this;
+                            xtgraphics204.asay = stringbuilder.append(xtgraphics204.asay).append(" by ")
                                     .append(spin).toString();
                         }
                     if (asay != "")
@@ -9064,21 +9064,21 @@ public class xtGraphics extends Panel implements Runnable {
                             powerup.play();
                         if (auscnt < -20)
                             auscnt = -20;
-                        int i_205_ = 0;
+                        int i205 = 0;
                         if (mad.powerup > 20.0F)
-                            i_205_ = 1;
+                            i205 = 1;
                         if (mad.powerup > 40.0F)
-                            i_205_ = 2;
+                            i205 = 2;
                         if (mad.powerup > 150.0F)
-                            i_205_ = 3;
+                            i205 = 3;
                         if (mad.surfer)
                             asay = new StringBuilder().append(" ").append(adj[4][(int) (m.random() * 3.0F)])
                                     .append(asay).toString();
-                        if (i_205_ != 3)
-                            asay = new StringBuilder().append(adj[i_205_][(int) (m.random() * 3.0F)]).append(asay)
-                                    .append(exlm[i_205_]).toString();
+                        if (i205 != 3)
+                            asay = new StringBuilder().append(adj[i205][(int) (m.random() * 3.0F)]).append(asay)
+                                    .append(exlm[i205]).toString();
                         else
-                            asay = adj[i_205_][(int) (m.random() * 3.0F)];
+                            asay = adj[i205][(int) (m.random() * 3.0F)];
                         if (!wasay) {
                             tcnt = auscnt;
                             if (mad.power != 98.0F)
@@ -9196,10 +9196,10 @@ public class xtGraphics extends Panel implements Runnable {
             loadedt = false;
         }
         for (int i = 0; i < 5; i++)
-            for (int i_19_ = 0; i_19_ < 5; i_19_++) {
-                if (engs[i][i_19_] != null)
-                    engs[i][i_19_].stop();
-                engs[i][i_19_] = null;
+            for (int i19 = 0; i19 < 5; i19++) {
+                if (engs[i][i19] != null)
+                    engs[i][i19].stop();
+                engs[i][i19] = null;
             }
         for (int i = 0; i < 6; i++) {
             if (air[i] != null)
@@ -9246,11 +9246,11 @@ public class xtGraphics extends Panel implements Runnable {
         }
         if (bool)
             i = 0;
-        for (int i_25_ = 0; i_25_ < 2; i_25_++) {
-            rd.drawImage(trackbg[i], trkx[i_25_], 25, null);
-            trkx[i_25_] -= 10;
-            if (trkx[i_25_] <= -605)
-                trkx[i_25_] = 735;
+        for (int i25 = 0; i25 < 2; i25++) {
+            rd.drawImage(trackbg[i], trkx[i25], 25, null);
+            trkx[i25] -= 10;
+            if (trkx[i25] <= -605)
+                trkx[i25] = 735;
         }
         rd.setColor(new Color(0, 0, 0));
         rd.fillRect(0, 0, 65, 450);
@@ -9286,15 +9286,15 @@ public class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public int xs(final int i, int i_279_) {
-        if (i_279_ < 50)
-            i_279_ = 50;
-        return (i_279_ - m.focusPoint) * (m.cx - i) / i_279_ + i;
+    public int xs(final int i, int i279) {
+        if (i279 < 50)
+            i279 = 50;
+        return (i279 - m.focusPoint) * (m.cx - i) / i279 + i;
     }
 
-    public int ys(final int i, int i_280_) {
-        if (i_280_ < 50)
-            i_280_ = 50;
-        return (i_280_ - m.focusPoint) * (m.cy - i) / i_280_ + i;
+    public int ys(final int i, int i280) {
+        if (i280 < 50)
+            i280 = 50;
+        return (i280 - m.focusPoint) * (m.cy - i) / i280 + i;
     }
 }

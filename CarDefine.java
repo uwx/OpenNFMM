@@ -415,442 +415,442 @@ public class CarDefine implements Runnable {
         gs = gamesparker;
     }
 
-    public void loadstat(final byte[] is, final String string, final int i, final int i_0_, final int i_1_,
-            final int i_2_) {
-        names[i_2_] = string;
+    public void loadstat(final byte[] is, final String string, final int i, final int i0, final int i1,
+            final int i2) {
+        names[i2] = string;
         boolean bool = false;
-        boolean bool_3_ = false;
-        String string_4_ = "";
-        final int[] is_5_ = {
+        boolean bool3 = false;
+        String string4 = "";
+        final int[] is5 = {
                 128, 128, 128, 128, 128
         };
-        int i_6_ = 640;
-        final int[] is_7_ = {
+        int i6 = 640;
+        final int[] is7 = {
                 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
         };
-        final int[] is_8_ = {
+        final int[] is8 = {
                 50, 50, 50
         };
-        enginsignature[i_2_] = 0;
+        enginsignature[i2] = 0;
         float f = 0.0F;
-        publish[i_2_ - 16] = 0;
-        createdby[i_2_ - 16] = "Unkown User";
+        publish[i2 - 16] = 0;
+        createdby[i2 - 16] = "Unkown User";
         try {
             final DataInputStream datainputstream = new DataInputStream(new ByteArrayInputStream(is));
-            while ((string_4_ = datainputstream.readLine()) != null) {
-                string_4_ = string_4_.trim();
-                if (string_4_.startsWith("stat("))
+            while ((string4 = datainputstream.readLine()) != null) {
+                string4 = string4.trim();
+                if (string4.startsWith("stat("))
                     try {
-                        i_6_ = 0;
-                        for (int i_9_ = 0; i_9_ < 5; i_9_++) {
-                            is_5_[i_9_] = getvalue("stat", string_4_, i_9_);
-                            if (is_5_[i_9_] > 200)
-                                is_5_[i_9_] = 200;
-                            if (is_5_[i_9_] < 16)
-                                is_5_[i_9_] = 16;
-                            i_6_ += is_5_[i_9_];
+                        i6 = 0;
+                        for (int i9 = 0; i9 < 5; i9++) {
+                            is5[i9] = getvalue("stat", string4, i9);
+                            if (is5[i9] > 200)
+                                is5[i9] = 200;
+                            if (is5[i9] < 16)
+                                is5[i9] = 16;
+                            i6 += is5[i9];
                         }
                         bool = true;
                     } catch (final Exception exception) {
                         bool = false;
                     }
-                if (string_4_.startsWith("physics("))
+                if (string4.startsWith("physics("))
                     try {
-                        for (int i_10_ = 0; i_10_ < 11; i_10_++) {
-                            is_7_[i_10_] = getvalue("physics", string_4_, i_10_);
-                            if (is_7_[i_10_] > 100)
-                                is_7_[i_10_] = 100;
-                            if (is_7_[i_10_] < 0)
-                                is_7_[i_10_] = 0;
+                        for (int i10 = 0; i10 < 11; i10++) {
+                            is7[i10] = getvalue("physics", string4, i10);
+                            if (is7[i10] > 100)
+                                is7[i10] = 100;
+                            if (is7[i10] < 0)
+                                is7[i10] = 0;
                         }
-                        for (int i_11_ = 0; i_11_ < 3; i_11_++) {
-                            is_8_[i_11_] = getvalue("physics", string_4_, i_11_ + 11);
-                            if (i_11_ != 0 && is_8_[i_11_] > 100)
-                                is_8_[i_11_] = 100;
-                            if (is_8_[i_11_] < 0)
-                                is_8_[i_11_] = 0;
+                        for (int i11 = 0; i11 < 3; i11++) {
+                            is8[i11] = getvalue("physics", string4, i11 + 11);
+                            if (i11 != 0 && is8[i11] > 100)
+                                is8[i11] = 100;
+                            if (is8[i11] < 0)
+                                is8[i11] = 0;
                         }
-                        enginsignature[i_2_] = getvalue("physics", string_4_, 14);
-                        if (enginsignature[i_2_] > 4)
-                            enginsignature[i_2_] = 0;
-                        if (enginsignature[i_2_] < 0)
-                            enginsignature[i_2_] = 0;
-                        f = getvalue("physics", string_4_, 15);
+                        enginsignature[i2] = getvalue("physics", string4, 14);
+                        if (enginsignature[i2] > 4)
+                            enginsignature[i2] = 0;
+                        if (enginsignature[i2] < 0)
+                            enginsignature[i2] = 0;
+                        f = getvalue("physics", string4, 15);
                         if (f > 0.0F)
-                            bool_3_ = true;
+                            bool3 = true;
                     } catch (final Exception exception) {
-                        bool_3_ = false;
+                        bool3 = false;
                     }
-                if (string_4_.startsWith("handling("))
+                if (string4.startsWith("handling("))
                     try {
-                        int i_12_ = getvalue("handling", string_4_, 0);
-                        if (i_12_ > 200)
-                            i_12_ = 200;
-                        if (i_12_ < 50)
-                            i_12_ = 50;
-                        dishandle[i_2_] = i_12_ / 200.0F;
+                        int i12 = getvalue("handling", string4, 0);
+                        if (i12 > 200)
+                            i12 = 200;
+                        if (i12 < 50)
+                            i12 = 50;
+                        dishandle[i2] = i12 / 200.0F;
                     } catch (final Exception exception) {
                         /* empty */
                     }
-                if (string_4_.startsWith("carmaker("))
-                    createdby[i_2_ - 16] = getSvalue("carmaker", string_4_, 0);
-                if (string_4_.startsWith("publish("))
-                    publish[i_2_ - 16] = getvalue("publish", string_4_, 0);
+                if (string4.startsWith("carmaker("))
+                    createdby[i2 - 16] = getSvalue("carmaker", string4, 0);
+                if (string4.startsWith("publish("))
+                    publish[i2 - 16] = getvalue("publish", string4, 0);
             }
             datainputstream.close();
         } catch (final Exception exception) {
             System.out.println(new StringBuilder().append("Error Loading Car Stat: ").append(exception).toString());
         }
-        if (bool && bool_3_) {
-            int i_13_ = 0;
-            if (i_6_ > 680)
-                i_13_ = 680 - i_6_;
-            if (i_6_ > 640 && i_6_ < 680)
-                i_13_ = 640 - i_6_;
-            if (i_6_ > 600 && i_6_ < 640)
-                i_13_ = 600 - i_6_;
-            if (i_6_ > 560 && i_6_ < 600)
-                i_13_ = 560 - i_6_;
-            if (i_6_ > 520 && i_6_ < 560)
-                i_13_ = 520 - i_6_;
-            if (i_6_ < 520)
-                i_13_ = 520 - i_6_;
-            while (i_13_ != 0)
-                for (int i_14_ = 0; i_14_ < 5; i_14_++) {
-                    if (i_13_ > 0 && is_5_[i_14_] < 200) {
-                        is_5_[i_14_]++;
-                        i_13_--;
+        if (bool && bool3) {
+            int i13 = 0;
+            if (i6 > 680)
+                i13 = 680 - i6;
+            if (i6 > 640 && i6 < 680)
+                i13 = 640 - i6;
+            if (i6 > 600 && i6 < 640)
+                i13 = 600 - i6;
+            if (i6 > 560 && i6 < 600)
+                i13 = 560 - i6;
+            if (i6 > 520 && i6 < 560)
+                i13 = 520 - i6;
+            if (i6 < 520)
+                i13 = 520 - i6;
+            while (i13 != 0)
+                for (int i14 = 0; i14 < 5; i14++) {
+                    if (i13 > 0 && is5[i14] < 200) {
+                        is5[i14]++;
+                        i13--;
                     }
-                    if (i_13_ < 0 && is_5_[i_14_] > 16) {
-                        is_5_[i_14_]--;
-                        i_13_++;
+                    if (i13 < 0 && is5[i14] > 16) {
+                        is5[i14]--;
+                        i13++;
                     }
                 }
-            i_6_ = 0;
-            for (int i_15_ = 0; i_15_ < 5; i_15_++)
-                i_6_ += is_5_[i_15_];
-            if (i_6_ == 520)
-                cclass[i_2_] = 0;
-            if (i_6_ == 560)
-                cclass[i_2_] = 1;
-            if (i_6_ == 600)
-                cclass[i_2_] = 2;
-            if (i_6_ == 640)
-                cclass[i_2_] = 3;
-            if (i_6_ == 680)
-                cclass[i_2_] = 4;
-            int i_16_ = 0;
-            int i_17_ = 0;
-            float f_18_ = 0.5F;
-            if (is_5_[0] == 200) {
-                i_16_ = 1;
-                i_17_ = 1;
+            i6 = 0;
+            for (int i15 = 0; i15 < 5; i15++)
+                i6 += is5[i15];
+            if (i6 == 520)
+                cclass[i2] = 0;
+            if (i6 == 560)
+                cclass[i2] = 1;
+            if (i6 == 600)
+                cclass[i2] = 2;
+            if (i6 == 640)
+                cclass[i2] = 3;
+            if (i6 == 680)
+                cclass[i2] = 4;
+            int i16 = 0;
+            int i17 = 0;
+            float f18 = 0.5F;
+            if (is5[0] == 200) {
+                i16 = 1;
+                i17 = 1;
             }
-            if (is_5_[0] > 192 && is_5_[0] < 200) {
-                i_16_ = 12;
-                i_17_ = 1;
-                f_18_ = (is_5_[0] - 192) / 8.0F;
+            if (is5[0] > 192 && is5[0] < 200) {
+                i16 = 12;
+                i17 = 1;
+                f18 = (is5[0] - 192) / 8.0F;
             }
-            if (is_5_[0] == 192) {
-                i_16_ = 12;
-                i_17_ = 12;
+            if (is5[0] == 192) {
+                i16 = 12;
+                i17 = 12;
             }
-            if (is_5_[0] > 148 && is_5_[0] < 192) {
-                i_16_ = 14;
-                i_17_ = 12;
-                f_18_ = (is_5_[0] - 148) / 44.0F;
+            if (is5[0] > 148 && is5[0] < 192) {
+                i16 = 14;
+                i17 = 12;
+                f18 = (is5[0] - 148) / 44.0F;
             }
-            if (is_5_[0] == 148) {
-                i_16_ = 14;
-                i_17_ = 14;
+            if (is5[0] == 148) {
+                i16 = 14;
+                i17 = 14;
             }
-            if (is_5_[0] > 133 && is_5_[0] < 148) {
-                i_16_ = 10;
-                i_17_ = 14;
-                f_18_ = (is_5_[0] - 133) / 15.0F;
+            if (is5[0] > 133 && is5[0] < 148) {
+                i16 = 10;
+                i17 = 14;
+                f18 = (is5[0] - 133) / 15.0F;
             }
-            if (is_5_[0] == 133) {
-                i_16_ = 10;
-                i_17_ = 10;
+            if (is5[0] == 133) {
+                i16 = 10;
+                i17 = 10;
             }
-            if (is_5_[0] > 112 && is_5_[0] < 133) {
-                i_16_ = 15;
-                i_17_ = 10;
-                f_18_ = (is_5_[0] - 112) / 21.0F;
+            if (is5[0] > 112 && is5[0] < 133) {
+                i16 = 15;
+                i17 = 10;
+                f18 = (is5[0] - 112) / 21.0F;
             }
-            if (is_5_[0] == 112) {
-                i_16_ = 15;
-                i_17_ = 15;
+            if (is5[0] == 112) {
+                i16 = 15;
+                i17 = 15;
             }
-            if (is_5_[0] > 107 && is_5_[0] < 112) {
-                i_16_ = 11;
-                i_17_ = 15;
-                f_18_ = (is_5_[0] - 107) / 5.0F;
+            if (is5[0] > 107 && is5[0] < 112) {
+                i16 = 11;
+                i17 = 15;
+                f18 = (is5[0] - 107) / 5.0F;
             }
-            if (is_5_[0] == 107) {
-                i_16_ = 11;
-                i_17_ = 11;
+            if (is5[0] == 107) {
+                i16 = 11;
+                i17 = 11;
             }
-            if (is_5_[0] > 88 && is_5_[0] < 107) {
-                i_16_ = 13;
-                i_17_ = 11;
-                f_18_ = (is_5_[0] - 88) / 19.0F;
+            if (is5[0] > 88 && is5[0] < 107) {
+                i16 = 13;
+                i17 = 11;
+                f18 = (is5[0] - 88) / 19.0F;
             }
-            if (is_5_[0] == 88) {
-                i_16_ = 13;
-                i_17_ = 13;
+            if (is5[0] == 88) {
+                i16 = 13;
+                i17 = 13;
             }
-            if (is_5_[0] > 88) {
-                swits[i_2_][0] = (int) ((swits[i_17_][0] - swits[i_16_][0]) * f_18_ + swits[i_16_][0]);
-                swits[i_2_][1] = (int) ((swits[i_17_][1] - swits[i_16_][1]) * f_18_ + swits[i_16_][1]);
-                swits[i_2_][2] = (int) ((swits[i_17_][2] - swits[i_16_][2]) * f_18_ + swits[i_16_][2]);
+            if (is5[0] > 88) {
+                swits[i2][0] = (int) ((swits[i17][0] - swits[i16][0]) * f18 + swits[i16][0]);
+                swits[i2][1] = (int) ((swits[i17][1] - swits[i16][1]) * f18 + swits[i16][1]);
+                swits[i2][2] = (int) ((swits[i17][2] - swits[i16][2]) * f18 + swits[i16][2]);
             } else {
-                f_18_ = is_5_[0] / 88.0F;
-                if (f_18_ < 0.76)
-                    f_18_ = 0.76F;
-                swits[i_2_][0] = (int) (50.0F * f_18_);
-                swits[i_2_][1] = (int) (130.0F * f_18_);
-                swits[i_2_][2] = (int) (210.0F * f_18_);
+                f18 = is5[0] / 88.0F;
+                if (f18 < 0.76)
+                    f18 = 0.76F;
+                swits[i2][0] = (int) (50.0F * f18);
+                swits[i2][1] = (int) (130.0F * f18);
+                swits[i2][2] = (int) (210.0F * f18);
             }
-            i_16_ = 0;
-            i_17_ = 0;
-            f_18_ = 0.5F;
-            if (is_5_[1] == 200) {
-                i_16_ = 1;
-                i_17_ = 1;
+            i16 = 0;
+            i17 = 0;
+            f18 = 0.5F;
+            if (is5[1] == 200) {
+                i16 = 1;
+                i17 = 1;
             }
-            if (is_5_[1] > 150 && is_5_[1] < 200) {
-                i_16_ = 14;
-                i_17_ = 1;
-                f_18_ = (is_5_[1] - 150) / 50.0F;
+            if (is5[1] > 150 && is5[1] < 200) {
+                i16 = 14;
+                i17 = 1;
+                f18 = (is5[1] - 150) / 50.0F;
             }
-            if (is_5_[1] == 150) {
-                i_16_ = 14;
-                i_17_ = 14;
+            if (is5[1] == 150) {
+                i16 = 14;
+                i17 = 14;
             }
-            if (is_5_[1] > 144 && is_5_[1] < 150) {
-                i_16_ = 9;
-                i_17_ = 14;
-                f_18_ = (is_5_[1] - 144) / 6.0F;
+            if (is5[1] > 144 && is5[1] < 150) {
+                i16 = 9;
+                i17 = 14;
+                f18 = (is5[1] - 144) / 6.0F;
             }
-            if (is_5_[1] == 144) {
-                i_16_ = 9;
-                i_17_ = 9;
+            if (is5[1] == 144) {
+                i16 = 9;
+                i17 = 9;
             }
-            if (is_5_[1] > 139 && is_5_[1] < 144) {
-                i_16_ = 6;
-                i_17_ = 9;
-                f_18_ = (is_5_[1] - 139) / 5.0F;
+            if (is5[1] > 139 && is5[1] < 144) {
+                i16 = 6;
+                i17 = 9;
+                f18 = (is5[1] - 139) / 5.0F;
             }
-            if (is_5_[1] == 139) {
-                i_16_ = 6;
-                i_17_ = 6;
+            if (is5[1] == 139) {
+                i16 = 6;
+                i17 = 6;
             }
-            if (is_5_[1] > 128 && is_5_[1] < 139) {
-                i_16_ = 15;
-                i_17_ = 6;
-                f_18_ = (is_5_[1] - 128) / 11.0F;
+            if (is5[1] > 128 && is5[1] < 139) {
+                i16 = 15;
+                i17 = 6;
+                f18 = (is5[1] - 128) / 11.0F;
             }
-            if (is_5_[1] == 128) {
-                i_16_ = 15;
-                i_17_ = 15;
+            if (is5[1] == 128) {
+                i16 = 15;
+                i17 = 15;
             }
-            if (is_5_[1] > 122 && is_5_[1] < 128) {
-                i_16_ = 10;
-                i_17_ = 15;
-                f_18_ = (is_5_[1] - 122) / 6.0F;
+            if (is5[1] > 122 && is5[1] < 128) {
+                i16 = 10;
+                i17 = 15;
+                f18 = (is5[1] - 122) / 6.0F;
             }
-            if (is_5_[1] == 122) {
-                i_16_ = 10;
-                i_17_ = 10;
+            if (is5[1] == 122) {
+                i16 = 10;
+                i17 = 10;
             }
-            if (is_5_[1] > 119 && is_5_[1] < 122) {
-                i_16_ = 3;
-                i_17_ = 10;
-                f_18_ = (is_5_[1] - 119) / 3.0F;
+            if (is5[1] > 119 && is5[1] < 122) {
+                i16 = 3;
+                i17 = 10;
+                f18 = (is5[1] - 119) / 3.0F;
             }
-            if (is_5_[1] == 119) {
-                i_16_ = 3;
-                i_17_ = 3;
+            if (is5[1] == 119) {
+                i16 = 3;
+                i17 = 3;
             }
-            if (is_5_[1] > 98 && is_5_[1] < 119) {
-                i_16_ = 5;
-                i_17_ = 3;
-                f_18_ = (is_5_[1] - 98) / 21.0F;
+            if (is5[1] > 98 && is5[1] < 119) {
+                i16 = 5;
+                i17 = 3;
+                f18 = (is5[1] - 98) / 21.0F;
             }
-            if (is_5_[1] == 98) {
-                i_16_ = 5;
-                i_17_ = 5;
+            if (is5[1] == 98) {
+                i16 = 5;
+                i17 = 5;
             }
-            if (is_5_[1] > 81 && is_5_[1] < 98) {
-                i_16_ = 0;
-                i_17_ = 5;
-                f_18_ = (is_5_[1] - 81) / 17.0F;
+            if (is5[1] > 81 && is5[1] < 98) {
+                i16 = 0;
+                i17 = 5;
+                f18 = (is5[1] - 81) / 17.0F;
             }
-            if (is_5_[1] == 81) {
-                i_16_ = 0;
-                i_17_ = 0;
+            if (is5[1] == 81) {
+                i16 = 0;
+                i17 = 0;
             }
-            if (is_5_[1] <= 80) {
-                i_16_ = 2;
-                i_17_ = 2;
+            if (is5[1] <= 80) {
+                i16 = 2;
+                i17 = 2;
             }
-            if (is_5_[0] <= 88) {
-                i_16_ = 13;
-                i_17_ = 13;
+            if (is5[0] <= 88) {
+                i16 = 13;
+                i17 = 13;
             }
-            acelf[i_2_][0] = (acelf[i_17_][0] - acelf[i_16_][0]) * f_18_ + acelf[i_16_][0];
-            acelf[i_2_][1] = (acelf[i_17_][1] - acelf[i_16_][1]) * f_18_ + acelf[i_16_][1];
-            acelf[i_2_][2] = (acelf[i_17_][2] - acelf[i_16_][2]) * f_18_ + acelf[i_16_][2];
-            if (is_5_[1] <= 70 && is_5_[0] > 88) {
-                acelf[i_2_][0] = 9.0F;
-                acelf[i_2_][1] = 4.0F;
-                acelf[i_2_][2] = 3.0F;
+            acelf[i2][0] = (acelf[i17][0] - acelf[i16][0]) * f18 + acelf[i16][0];
+            acelf[i2][1] = (acelf[i17][1] - acelf[i16][1]) * f18 + acelf[i16][1];
+            acelf[i2][2] = (acelf[i17][2] - acelf[i16][2]) * f18 + acelf[i16][2];
+            if (is5[1] <= 70 && is5[0] > 88) {
+                acelf[i2][0] = 9.0F;
+                acelf[i2][1] = 4.0F;
+                acelf[i2][2] = 3.0F;
             }
-            f_18_ = (is_5_[2] - 88) / 109.0F;
-            if (f_18_ > 1.0F)
-                f_18_ = 1.0F;
-            if (f_18_ < -0.55)
-                f_18_ = -0.55F;
-            airs[i_2_] = 0.55F + 0.45F * f_18_ + 0.4F * (is_7_[9] / 100.0F);
-            if (airs[i_2_] < 0.3)
-                airs[i_2_] = 0.3F;
-            airc[i_2_] = (int) (10.0F + 70.0F * f_18_ + 30.0F * (is_7_[10] / 100.0F));
-            if (airc[i_2_] < 0)
-                airc[i_2_] = 0;
-            int i_19_ = (int) (670.0F - (is_7_[9] + is_7_[10]) / 200.0F * 420.0F);
-            if (is_5_[0] <= 88)
-                i_19_ = (int) (1670.0F - (is_7_[9] + is_7_[10]) / 200.0F * 1420.0F);
-            if (is_5_[2] > 190 && i_19_ < 300)
-                i_19_ = 300;
-            powerloss[i_2_] = i_19_ * 10000;
-            moment[i_2_] = 0.7F + (is_5_[3] - 16) / 184.0F * 1.0F;
-            if (is_5_[0] < 110)
-                moment[i_2_] = 0.75F + (is_5_[3] - 16) / 184.0F * 1.25F;
-            if (is_5_[3] == 200 && is_5_[4] == 200 && is_5_[0] <= 88)
-                moment[i_2_] = 3.0F;
-            float f_20_ = 0.9F + (is_5_[4] - 90) * 0.01F;
-            if (f_20_ < 0.6)
-                f_20_ = 0.6F;
-            if (is_5_[4] == 200 && is_5_[0] <= 88)
-                f_20_ = 3.0F;
-            maxmag[i_2_] = (int) (f * f_20_);
-            outdam[i_2_] = 0.35F + (f_20_ - 0.6F) * 0.5F;
-            if (outdam[i_2_] < 0.35)
-                outdam[i_2_] = 0.35F;
-            if (outdam[i_2_] > 1.0F)
-                outdam[i_2_] = 1.0F;
-            clrad[i_2_] = (int) (is_8_[0] * is_8_[0] * 1.5);
-            if (clrad[i_2_] < 1000)
-                clrad[i_2_] = 1000;
-            dammult[i_2_] = 0.3F + is_8_[1] * 0.005F;
-            msquash[i_2_] = (int) (2.0 + is_8_[2] / 7.6);
-            flipy[i_2_] = i_0_;
-            handb[i_2_] = (int) (7.0F + is_7_[0] / 100.0F * 8.0F);
-            turn[i_2_] = (int) (4.0F + is_7_[1] / 100.0F * 6.0F);
-            grip[i_2_] = 16.0F + is_7_[2] / 100.0F * 14.0F;
-            if (grip[i_2_] < 21.0F) {
-                swits[i_2_][0] += 40.0F * ((21.0F - grip[i_2_]) / 5.0F);
-                if (swits[i_2_][0] > 100)
-                    swits[i_2_][0] = 100;
+            f18 = (is5[2] - 88) / 109.0F;
+            if (f18 > 1.0F)
+                f18 = 1.0F;
+            if (f18 < -0.55)
+                f18 = -0.55F;
+            airs[i2] = 0.55F + 0.45F * f18 + 0.4F * (is7[9] / 100.0F);
+            if (airs[i2] < 0.3)
+                airs[i2] = 0.3F;
+            airc[i2] = (int) (10.0F + 70.0F * f18 + 30.0F * (is7[10] / 100.0F));
+            if (airc[i2] < 0)
+                airc[i2] = 0;
+            int i19 = (int) (670.0F - (is7[9] + is7[10]) / 200.0F * 420.0F);
+            if (is5[0] <= 88)
+                i19 = (int) (1670.0F - (is7[9] + is7[10]) / 200.0F * 1420.0F);
+            if (is5[2] > 190 && i19 < 300)
+                i19 = 300;
+            powerloss[i2] = i19 * 10000;
+            moment[i2] = 0.7F + (is5[3] - 16) / 184.0F * 1.0F;
+            if (is5[0] < 110)
+                moment[i2] = 0.75F + (is5[3] - 16) / 184.0F * 1.25F;
+            if (is5[3] == 200 && is5[4] == 200 && is5[0] <= 88)
+                moment[i2] = 3.0F;
+            float f20 = 0.9F + (is5[4] - 90) * 0.01F;
+            if (f20 < 0.6)
+                f20 = 0.6F;
+            if (is5[4] == 200 && is5[0] <= 88)
+                f20 = 3.0F;
+            maxmag[i2] = (int) (f * f20);
+            outdam[i2] = 0.35F + (f20 - 0.6F) * 0.5F;
+            if (outdam[i2] < 0.35)
+                outdam[i2] = 0.35F;
+            if (outdam[i2] > 1.0F)
+                outdam[i2] = 1.0F;
+            clrad[i2] = (int) (is8[0] * is8[0] * 1.5);
+            if (clrad[i2] < 1000)
+                clrad[i2] = 1000;
+            dammult[i2] = 0.3F + is8[1] * 0.005F;
+            msquash[i2] = (int) (2.0 + is8[2] / 7.6);
+            flipy[i2] = i0;
+            handb[i2] = (int) (7.0F + is7[0] / 100.0F * 8.0F);
+            turn[i2] = (int) (4.0F + is7[1] / 100.0F * 6.0F);
+            grip[i2] = 16.0F + is7[2] / 100.0F * 14.0F;
+            if (grip[i2] < 21.0F) {
+                swits[i2][0] += 40.0F * ((21.0F - grip[i2]) / 5.0F);
+                if (swits[i2][0] > 100)
+                    swits[i2][0] = 100;
             }
-            bounce[i_2_] = 0.8F + is_7_[3] / 100.0F * 0.6F;
-            if (is_7_[3] > 67) {
-                airs[i_2_] *= 0.76F + (1.0F - is_7_[3] / 100.0F) * 0.24F;
-                airc[i_2_] *= 0.76F + (1.0F - is_7_[3] / 100.0F) * 0.24F;
+            bounce[i2] = 0.8F + is7[3] / 100.0F * 0.6F;
+            if (is7[3] > 67) {
+                airs[i2] *= 0.76F + (1.0F - is7[3] / 100.0F) * 0.24F;
+                airc[i2] *= 0.76F + (1.0F - is7[3] / 100.0F) * 0.24F;
             }
-            lift[i_2_] = (int) ((float) is_7_[5] * (float) is_7_[5] / 10000.0F * 30.0F);
-            revlift[i_2_] = (int) (is_7_[6] / 100.0F * 32.0F);
-            push[i_2_] = (int) (2.0F + is_7_[7] / 100.0F * 2.0F * ((30 - lift[i_2_]) / 30));
-            revpush[i_2_] = (int) (1.0F + is_7_[8] / 100.0F * 2.0F);
-            comprad[i_2_] = i / 400.0F + (is_5_[3] - 16) / 184.0F * 0.2F;
-            if (comprad[i_2_] < 0.4)
-                comprad[i_2_] = 0.4F;
-            simag[i_2_] = (i_1_ - 17) * 0.0167F + 0.85F;
+            lift[i2] = (int) ((float) is7[5] * (float) is7[5] / 10000.0F * 30.0F);
+            revlift[i2] = (int) (is7[6] / 100.0F * 32.0F);
+            push[i2] = (int) (2.0F + is7[7] / 100.0F * 2.0F * ((30 - lift[i2]) / 30));
+            revpush[i2] = (int) (1.0F + is7[8] / 100.0F * 2.0F);
+            comprad[i2] = i / 400.0F + (is5[3] - 16) / 184.0F * 0.2F;
+            if (comprad[i2] < 0.4)
+                comprad[i2] = 0.4F;
+            simag[i2] = (i1 - 17) * 0.0167F + 0.85F;
         } else
-            names[i_2_] = "";
+            names[i2] = "";
     }
 
-    public int getvalue(final String string, final String string_21_, final int i) {
-        int i_22_ = 0;
-        String string_23_ = "";
-        for (int i_24_ = string.length() + 1; i_24_ < string_21_.length(); i_24_++) {
-            final String string_25_ = new StringBuilder().append("").append(string_21_.charAt(i_24_)).toString();
-            if (string_25_.equals(",") || string_25_.equals(")")) {
-                i_22_++;
-                i_24_++;
+    public int getvalue(final String string, final String string21, final int i) {
+        int i22 = 0;
+        String string23 = "";
+        for (int i24 = string.length() + 1; i24 < string21.length(); i24++) {
+            final String string25 = new StringBuilder().append("").append(string21.charAt(i24)).toString();
+            if (string25.equals(",") || string25.equals(")")) {
+                i22++;
+                i24++;
             }
-            if (i_22_ == i)
-                string_23_ = new StringBuilder().append(string_23_).append(string_21_.charAt(i_24_)).toString();
+            if (i22 == i)
+                string23 = new StringBuilder().append(string23).append(string21.charAt(i24)).toString();
         }
-        return Float.valueOf(string_23_).intValue();
+        return Float.valueOf(string23).intValue();
     }
 
-    public String getSvalue(final String string, final String string_26_, final int i) {
-        String string_27_ = "";
-        int i_28_ = 0;
-        for (int i_29_ = string.length() + 1; i_29_ < string_26_.length() && i_28_ <= i; i_29_++) {
-            final String string_30_ = new StringBuilder().append("").append(string_26_.charAt(i_29_)).toString();
-            if (string_30_.equals(",") || string_30_.equals(")"))
-                i_28_++;
-            else if (i_28_ == i)
-                string_27_ = new StringBuilder().append(string_27_).append(string_30_).toString();
+    public String getSvalue(final String string, final String string26, final int i) {
+        String string27 = "";
+        int i28 = 0;
+        for (int i29 = string.length() + 1; i29 < string26.length() && i28 <= i; i29++) {
+            final String string30 = new StringBuilder().append("").append(string26.charAt(i29)).toString();
+            if (string30.equals(",") || string30.equals(")"))
+                i28++;
+            else if (i28 == i)
+                string27 = new StringBuilder().append(string27).append(string30).toString();
         }
-        return string_27_;
+        return string27;
     }
 
     public int servervalue(final String string, final int i) {
-        int i_31_ = -1;
+        int i31 = -1;
         try {
-            int i_32_ = 0;
-            int i_33_ = 0;
-            int i_34_ = 0;
-            String string_35_ = "";
-            String string_36_ = "";
-            for (/**/; i_32_ < string.length() && i_34_ != 2; i_32_++) {
-                string_35_ = new StringBuilder().append("").append(string.charAt(i_32_)).toString();
-                if (string_35_.equals("|")) {
-                    i_33_++;
-                    if (i_34_ == 1 || i_33_ > i)
-                        i_34_ = 2;
-                } else if (i_33_ == i) {
-                    string_36_ = new StringBuilder().append(string_36_).append(string_35_).toString();
-                    i_34_ = 1;
+            int i32 = 0;
+            int i33 = 0;
+            int i34 = 0;
+            String string35 = "";
+            String string36 = "";
+            for (/**/; i32 < string.length() && i34 != 2; i32++) {
+                string35 = new StringBuilder().append("").append(string.charAt(i32)).toString();
+                if (string35.equals("|")) {
+                    i33++;
+                    if (i34 == 1 || i33 > i)
+                        i34 = 2;
+                } else if (i33 == i) {
+                    string36 = new StringBuilder().append(string36).append(string35).toString();
+                    i34 = 1;
                 }
             }
-            if (string_36_.equals(""))
-                string_36_ = "-1";
-            i_31_ = Integer.valueOf(string_36_).intValue();
+            if (string36.equals(""))
+                string36 = "-1";
+            i31 = Integer.valueOf(string36).intValue();
         } catch (final Exception exception) {
             /* empty */
         }
-        return i_31_;
+        return i31;
     }
 
     public String serverSvalue(final String string, final int i) {
-        String string_37_ = "";
+        String string37 = "";
         try {
-            int i_38_ = 0;
-            int i_39_ = 0;
-            int i_40_ = 0;
-            String string_41_ = "";
-            String string_42_ = "";
-            for (/**/; i_38_ < string.length() && i_40_ != 2; i_38_++) {
-                string_41_ = new StringBuilder().append("").append(string.charAt(i_38_)).toString();
-                if (string_41_.equals("|")) {
-                    i_39_++;
-                    if (i_40_ == 1 || i_39_ > i)
-                        i_40_ = 2;
-                } else if (i_39_ == i) {
-                    string_42_ = new StringBuilder().append(string_42_).append(string_41_).toString();
-                    i_40_ = 1;
+            int i38 = 0;
+            int i39 = 0;
+            int i40 = 0;
+            String string41 = "";
+            String string42 = "";
+            for (/**/; i38 < string.length() && i40 != 2; i38++) {
+                string41 = new StringBuilder().append("").append(string.charAt(i38)).toString();
+                if (string41.equals("|")) {
+                    i39++;
+                    if (i40 == 1 || i39 > i)
+                        i40 = 2;
+                } else if (i39 == i) {
+                    string42 = new StringBuilder().append(string42).append(string41).toString();
+                    i40 = 1;
                 }
             }
-            string_37_ = string_42_;
+            string37 = string42;
         } catch (final Exception exception) {
             /* empty */
         }
-        return string_37_;
+        return string37;
     }
 
     public void loadready() {
@@ -998,8 +998,8 @@ public class CarDefine implements Runnable {
                         action = -1;
                     datainputstream.close();
                 } catch (final Exception exception) {
-                    final String string_43_ = new StringBuilder().append("").append(exception).toString();
-                    if (string_43_.indexOf("FileNotFound") != -1)
+                    final String string43 = new StringBuilder().append("").append(exception).toString();
+                    if (string43.indexOf("FileNotFound") != -1)
                         action = -1;
                     else
                         action = -2;
@@ -1086,58 +1086,58 @@ public class CarDefine implements Runnable {
                 nl = 0;
                 String string = "";
                 try {
-                    String string_44_ = "all";
+                    String string44 = "all";
                     if (loadlist == 1)
-                        string_44_ = "Wall";
+                        string44 = "Wall";
                     if (loadlist == 2)
-                        string_44_ = "WA";
+                        string44 = "WA";
                     if (loadlist == 3)
-                        string_44_ = "WAB";
+                        string44 = "WAB";
                     if (loadlist == 4)
-                        string_44_ = "WB";
+                        string44 = "WB";
                     if (loadlist == 5)
-                        string_44_ = "WBC";
+                        string44 = "WBC";
                     if (loadlist == 6)
-                        string_44_ = "WC";
+                        string44 = "WC";
                     if (loadlist == 7)
-                        string_44_ = "Mall";
+                        string44 = "Mall";
                     if (loadlist == 8)
-                        string_44_ = "MA";
+                        string44 = "MA";
                     if (loadlist == 9)
-                        string_44_ = "MAB";
+                        string44 = "MAB";
                     if (loadlist == 10)
-                        string_44_ = "MB";
+                        string44 = "MB";
                     if (loadlist == 11)
-                        string_44_ = "MBC";
+                        string44 = "MBC";
                     if (loadlist == 12)
-                        string_44_ = "MC";
+                        string44 = "MC";
                     if (loadlist == 13)
-                        string_44_ = "Sall";
+                        string44 = "Sall";
                     if (loadlist == 14)
-                        string_44_ = "SA";
+                        string44 = "SA";
                     if (loadlist == 15)
-                        string_44_ = "SAB";
+                        string44 = "SAB";
                     if (loadlist == 16)
-                        string_44_ = "SB";
+                        string44 = "SB";
                     if (loadlist == 17)
-                        string_44_ = "SBC";
+                        string44 = "SBC";
                     if (loadlist == 18)
-                        string_44_ = "SC";
+                        string44 = "SC";
                     if (loadlist == 19)
-                        string_44_ = "Aall";
+                        string44 = "Aall";
                     if (loadlist == 20)
-                        string_44_ = "AA";
+                        string44 = "AA";
                     if (loadlist == 21)
-                        string_44_ = "AAB";
+                        string44 = "AAB";
                     if (loadlist == 22)
-                        string_44_ = "AB";
+                        string44 = "AB";
                     if (loadlist == 23)
-                        string_44_ = "ABC";
+                        string44 = "ABC";
                     if (loadlist == 24)
-                        string_44_ = "AC";
+                        string44 = "AC";
                     final URL url = new URL(
                             new StringBuilder().append("http://multiplayer.needformadness.com/cars/top20/")
-                                    .append(string_44_).append(".txt").toString());
+                                    .append(string44).append(".txt").toString());
                     final DataInputStream datainputstream = new DataInputStream(url.openStream());
                     while ((string = datainputstream.readLine()) != null) {
                         string = new StringBuilder().append("").append(string.trim()).toString();
@@ -1214,8 +1214,8 @@ public class CarDefine implements Runnable {
                         action = -2;
                     datainputstream.close();
                 } catch (final Exception exception) {
-                    final String string_45_ = new StringBuilder().append("").append(exception).toString();
-                    if (string_45_.indexOf("FileNotFound") != -1)
+                    final String string45 = new StringBuilder().append("").append(exception).toString();
+                    if (string45.indexOf("FileNotFound") != -1)
                         action = -2;
                     else
                         action = -1;
@@ -1251,30 +1251,30 @@ public class CarDefine implements Runnable {
         if (Thread.currentThread() == carloader) {
             while (nl > 0) {
                 int i = 0;
-                for (int i_46_ = 16; i_46_ < 56; i_46_++)
-                    if (loadnames[nl - 1].equals(names[i_46_]))
+                for (int i46 = 16; i46 < 56; i46++)
+                    if (loadnames[nl - 1].equals(names[i46]))
                         i = -1;
                 if (fails.indexOf(
                         new StringBuilder().append("|").append(loadnames[nl - 1]).append("|").toString()) != -1)
                     i = -1;
                 if (i != -1) {
-                    int i_47_ = lcardate[0];
-                    int i_48_ = 36;
+                    int i47 = lcardate[0];
+                    int i48 = 36;
                     if (haltload > 0) {
-                        i_48_ = 36 + haltload;
-                        i_47_ = lcardate[haltload];
+                        i48 = 36 + haltload;
+                        i47 = lcardate[haltload];
                     }
-                    i = i_48_;
-                    for (int i_49_ = i_48_; i_49_ < 56; i_49_++)
-                        if (lcardate[i_49_ - 36] < i_47_) {
-                            i_47_ = lcardate[i_49_ - 36];
-                            i = i_49_;
+                    i = i48;
+                    for (int i49 = i48; i49 < 56; i49++)
+                        if (lcardate[i49 - 36] < i47) {
+                            i47 = lcardate[i49 - 36];
+                            i = i49;
                         }
                     onloadingcar = i - 35;
                     if (loadonlinecar(loadnames[nl - 1], i) == -1) {
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final CarDefine cardefine_50_ = this;
-                        cardefine_50_.fails = stringbuilder.append(cardefine_50_.fails).append("|")
+                        final CarDefine cardefine50 = this;
+                        cardefine50.fails = stringbuilder.append(cardefine50.fails).append("|")
                                 .append(loadnames[nl - 1]).append("|").toString();
                     } else
                         lcardate[i - 36]++;
@@ -1364,8 +1364,8 @@ public class CarDefine implements Runnable {
             if (staction == 2) {
                 int i = -1;
                 if (msloaded == 1)
-                    for (int i_51_ = 1; i_51_ < gs.mstgs.getItemCount(); i_51_++)
-                        if (gs.mstgs.getItem(i_51_).equals(onstage))
+                    for (int i51 = 1; i51 < gs.mstgs.getItemCount(); i51++)
+                        if (gs.mstgs.getItem(i51).equals(onstage))
                             i = 3;
                 if (i == -1)
                     try {
@@ -1401,39 +1401,39 @@ public class CarDefine implements Runnable {
 
     public int loadonlinecar(final String string, int i) {
         try {
-            String string_52_ = new StringBuilder().append("http://multiplayer.needformadness.com/cars/").append(string)
+            String string52 = new StringBuilder().append("http://multiplayer.needformadness.com/cars/").append(string)
                     .append(".radq").toString();
-            string_52_ = string_52_.replace(' ', '_');
-            final URL url = new URL(string_52_);
-            final int i_53_ = url.openConnection().getContentLength();
+            string52 = string52.replace(' ', '_');
+            final URL url = new URL(string52);
+            final int i53 = url.openConnection().getContentLength();
             final DataInputStream datainputstream = new DataInputStream(url.openStream());
-            final byte[] is = new byte[i_53_];
+            final byte[] is = new byte[i53];
             datainputstream.readFully(is);
             ZipInputStream zipinputstream;
             if (is[0] == 80 && is[1] == 75 && is[2] == 3)
                 zipinputstream = new ZipInputStream(new ByteArrayInputStream(is));
             else {
-                final byte[] is_54_ = new byte[i_53_ - 40];
-                for (int i_55_ = 0; i_55_ < i_53_ - 40; i_55_++) {
-                    int i_56_ = 20;
-                    if (i_55_ >= 500)
-                        i_56_ = 40;
-                    is_54_[i_55_] = is[i_55_ + i_56_];
+                final byte[] is54 = new byte[i53 - 40];
+                for (int i55 = 0; i55 < i53 - 40; i55++) {
+                    int i56 = 20;
+                    if (i55 >= 500)
+                        i56 = 40;
+                    is54[i55] = is[i55 + i56];
                 }
-                zipinputstream = new ZipInputStream(new ByteArrayInputStream(is_54_));
+                zipinputstream = new ZipInputStream(new ByteArrayInputStream(is54));
             }
             final ZipEntry zipentry = zipinputstream.getNextEntry();
             if (zipentry != null) {
-                int i_57_ = Integer.valueOf(zipentry.getName()).intValue();
-                final byte[] is_58_ = new byte[i_57_];
-                int i_59_ = 0;
-                int i_60_;
-                for (/**/; i_57_ > 0; i_57_ -= i_60_) {
-                    i_60_ = zipinputstream.read(is_58_, i_59_, i_57_);
-                    i_59_ += i_60_;
+                int i57 = Integer.valueOf(zipentry.getName()).intValue();
+                final byte[] is58 = new byte[i57];
+                int i59 = 0;
+                int i60;
+                for (/**/; i57 > 0; i57 -= i60) {
+                    i60 = zipinputstream.read(is58, i59, i57);
+                    i59 += i60;
                 }
                 m.loadnew = true;
-                bco[i] = new ContO(is_58_, m, t);
+                bco[i] = new ContO(is58, m, t);
                 if (bco[i].errd || bco[i].npl <= 60 || bco[i].maxR < 120)
                     i = -1;
                 if (i != -1) {
@@ -1457,7 +1457,7 @@ public class CarDefine implements Runnable {
                         i = -1;
                 }
                 if (i != -1) {
-                    loadstat(is_58_, string, bco[i].maxR, bco[i].roofat, bco[i].wh, i);
+                    loadstat(is58, string, bco[i].maxR, bco[i].roofat, bco[i].wh, i);
                     if (names[i].equals(""))
                         i = -1;
                 }
@@ -1501,8 +1501,8 @@ public class CarDefine implements Runnable {
                 msloaded = -2;
             datainputstream.close();
         } catch (final Exception exception) {
-            final String string_61_ = new StringBuilder().append("").append(exception).toString();
-            if (string_61_.indexOf("FileNotFound") != -1)
+            final String string61 = new StringBuilder().append("").append(exception).toString();
+            if (string61.indexOf("FileNotFound") != -1)
                 msloaded = -2;
             else
                 msloaded = -1;
@@ -1511,15 +1511,15 @@ public class CarDefine implements Runnable {
             gs.mstgs.setVisible(false);
             gs.mstgs.removeAll();
             gs.mstgs.add(gs.rd, "Select Stage");
-            int i_62_ = 0;
-            for (int i_63_ = 0; i_63_ < i; i_63_++) {
-                gs.mstgs.add(gs.rd, strings[i_63_]);
-                if (checkpoints.name.equals(strings[i_63_])) {
-                    i_62_ = i_63_ + 1;
+            int i62 = 0;
+            for (int i63 = 0; i63 < i; i63++) {
+                gs.mstgs.add(gs.rd, strings[i63]);
+                if (checkpoints.name.equals(strings[i63])) {
+                    i62 = i63 + 1;
                     checkpoints.top20 = 0;
                 }
             }
-            gs.mstgs.select(i_62_);
+            gs.mstgs.select(i62);
             gs.mstgs.setVisible(true);
         }
         if (msloaded == -2) {
@@ -1541,41 +1541,41 @@ public class CarDefine implements Runnable {
 
     public void loadtop20(final int i) {
         final String[] strings = new String[20];
-        int i_64_ = 0;
+        int i64 = 0;
         String string = "";
         try {
-            String string_65_ = "A";
+            String string65 = "A";
             if (i == 3)
-                string_65_ = "W";
+                string65 = "W";
             if (i == 4)
-                string_65_ = "M";
+                string65 = "M";
             final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/tracks/top20/")
-                    .append(string_65_).append(".txt").toString());
+                    .append(string65).append(".txt").toString());
             final DataInputStream datainputstream = new DataInputStream(url.openStream());
             while ((string = datainputstream.readLine()) != null) {
                 string = new StringBuilder().append("").append(string.trim()).toString();
                 if (string.startsWith("stages")) {
                     boolean bool = true;
-                    while (bool && i_64_ < 20) {
-                        strings[i_64_] = getSvalue("stages", string, i_64_);
-                        if (strings[i_64_].equals(""))
+                    while (bool && i64 < 20) {
+                        strings[i64] = getSvalue("stages", string, i64);
+                        if (strings[i64].equals(""))
                             bool = false;
                         else
-                            i_64_++;
+                            i64++;
                     }
                 }
                 if (string.startsWith("adds"))
-                    for (int i_66_ = 0; i_66_ < i_64_; i_66_++)
-                        top20adds[i_66_] = getvalue("adds", string, i_66_);
+                    for (int i66 = 0; i66 < i64; i66++)
+                        top20adds[i66] = getvalue("adds", string, i66);
             }
-            if (i_64_ > 0)
+            if (i64 > 0)
                 msloaded = i;
             else
                 msloaded = -2;
             datainputstream.close();
         } catch (final Exception exception) {
-            final String string_67_ = new StringBuilder().append("").append(exception).toString();
-            if (string_67_.indexOf("FileNotFound") != -1)
+            final String string67 = new StringBuilder().append("").append(exception).toString();
+            if (string67.indexOf("FileNotFound") != -1)
                 msloaded = -2;
             else
                 msloaded = -1;
@@ -1584,9 +1584,9 @@ public class CarDefine implements Runnable {
             gs.mstgs.setVisible(false);
             gs.mstgs.removeAll();
             gs.mstgs.add(gs.rd, "Select Stage");
-            for (int i_68_ = 0; i_68_ < i_64_; i_68_++)
-                gs.mstgs.add(gs.rd, new StringBuilder().append("N#").append(i_68_ + 1).append(" ")
-                        .append(strings[i_68_]).toString());
+            for (int i68 = 0; i68 < i64; i68++)
+                gs.mstgs.add(gs.rd, new StringBuilder().append("N#").append(i68 + 1).append(" ")
+                        .append(strings[i68]).toString());
             gs.mstgs.select(0);
             gs.mstgs.setVisible(true);
         }
@@ -1604,22 +1604,22 @@ public class CarDefine implements Runnable {
         if (!string.equals("")) {
             final String[] strings = new String[700];
             int i = 0;
-            String string_69_ = "";
+            String string69 = "";
             try {
                 final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/clans/")
                         .append(string).append("/stages.txt").toString());
                 DataInputStream datainputstream;
                 for (datainputstream = new DataInputStream(
-                        url.openStream()); (string_69_ = datainputstream.readLine()) != null && i < 700; i++)
-                    strings[i] = string_69_;
+                        url.openStream()); (string69 = datainputstream.readLine()) != null && i < 700; i++)
+                    strings[i] = string69;
                 if (i > 0)
                     msloaded = 7;
                 else
                     msloaded = -2;
                 datainputstream.close();
             } catch (final Exception exception) {
-                final String string_70_ = new StringBuilder().append("").append(exception).toString();
-                if (string_70_.indexOf("FileNotFound") != -1)
+                final String string70 = new StringBuilder().append("").append(exception).toString();
+                if (string70.indexOf("FileNotFound") != -1)
                     msloaded = -2;
                 else
                     msloaded = -1;
@@ -1628,8 +1628,8 @@ public class CarDefine implements Runnable {
                 gs.mstgs.setVisible(false);
                 gs.mstgs.removeAll();
                 gs.mstgs.add(gs.rd, "Select Stage");
-                for (int i_71_ = 0; i_71_ < i; i_71_++)
-                    gs.mstgs.add(gs.rd, strings[i_71_]);
+                for (int i71 = 0; i71 < i; i71++)
+                    gs.mstgs.add(gs.rd, strings[i71]);
                 gs.mstgs.select(0);
                 gs.mstgs.setVisible(true);
             }
@@ -1667,9 +1667,9 @@ public class CarDefine implements Runnable {
         if (file.exists()) {
             final String[] strings = new File(
                     new StringBuilder().append("").append(Madness.fpath).append("mystages/").toString()).list();
-            for (int i_72_ = 0; i_72_ < strings.length; i_72_++)
-                if (strings[i_72_].toLowerCase().endsWith(".txt") && i < 200) {
-                    gs.mstgs.add(gs.rd, strings[i_72_].substring(0, strings[i_72_].length() - 4));
+            for (int i72 = 0; i72 < strings.length; i72++)
+                if (strings[i72].toLowerCase().endsWith(".txt") && i < 200) {
+                    gs.mstgs.add(gs.rd, strings[i72].substring(0, strings[i72].length() - 4));
                     i++;
                 }
         }
@@ -1715,17 +1715,17 @@ public class CarDefine implements Runnable {
             final File file = new File(new StringBuilder().append("").append(Madness.fpath).append("mycars/")
                     .append(string).append(".rad").toString());
             if (file.exists()) {
-                String string_73_ = "";
+                String string73 = "";
                 final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
                 final Object object = null;
-                String string_74_;
-                while ((string_74_ = bufferedreader.readLine()) != null)
-                    string_73_ = new StringBuilder().append(string_73_).append("").append(string_74_).append("\n")
+                String string74;
+                while ((string74 = bufferedreader.readLine()) != null)
+                    string73 = new StringBuilder().append(string73).append("").append(string74).append("\n")
                             .toString();
                 bufferedreader.close();
-                final Object object_75_ = null;
+                final Object object75 = null;
                 m.loadnew = true;
-                bco[i] = new ContO(string_73_.getBytes(), m, t);
+                bco[i] = new ContO(string73.getBytes(), m, t);
                 if (bco[i].errd || bco[i].npl <= 60)
                     i = -1;
                 if (i != -1) {
@@ -1749,7 +1749,7 @@ public class CarDefine implements Runnable {
                         i = -1;
                 }
                 if (i != -1) {
-                    loadstat(string_73_.getBytes(), string, bco[i].maxR, bco[i].roofat, bco[i].wh, i);
+                    loadstat(string73.getBytes(), string, bco[i].maxR, bco[i].roofat, bco[i].wh, i);
                     if (names[i].equals(""))
                         i = -1;
                 }
