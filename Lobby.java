@@ -206,10 +206,10 @@ public class Lobby implements Runnable {
     boolean zeromsw = false;
 
     public Lobby(final Medium medium, final Graphics2D graphics2d, final Login login/*, final Globe globe*/,
-            final xtGraphics varXtGraphics, final CarDefine cardefine, final GameSparker gamesparker) {
+            final xtGraphics xtgraphics, final CarDefine cardefine, final GameSparker gamesparker) {
         m = medium;
         rd = graphics2d;
-        xt = varXtGraphics;
+        xt = xtgraphics;
         cd = cardefine;
         gs = gamesparker;
         lg = login;

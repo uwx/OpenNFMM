@@ -133,9 +133,9 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 setCursor(new Cursor(0));
     }
 
-    public void checkmemory(final xtGraphics varXtGraphics) {
+    public void checkmemory(final xtGraphics xtgraphics) {
         if (applejava || Runtime.getRuntime().freeMemory() / 1048576L < 50L)
-            varXtGraphics.badmac = true;
+            xtgraphics.badmac = true;
     }
 
     public void cropit(final Graphics2D graphics2d, final int i, final int i_98_) {
@@ -412,11 +412,11 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
     static private final int partskips = 100;//was 56
 
     public void loadbase(final ContO[] contos, final Medium medium, final Trackers trackers,
-            final xtGraphics varXtGraphics, final boolean bool) {
+            final xtGraphics xtgraphics, final boolean bool) {
         if (carRads.length < xtGraphics.nCars)
             throw new RuntimeException("too many cars and not enough rad files!");
         int i = 0;
-        varXtGraphics.dnload += 6;
+        xtgraphics.dnload += 6;
         try {
             ZipInputStream zipinputstream;
             if (!bool) {
@@ -446,7 +446,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                     i_179_ += i_180_;
                 }
                 contos[i_175_] = new ContO(is, medium, trackers);
-                varXtGraphics.dnload++;
+                xtgraphics.dnload++;
             }
             zipinputstream.close();
         } catch (final Exception exception) {
@@ -458,16 +458,16 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
     }
 
     public void loadstage(final ContO[] contos, final ContO[] contos_108_, final Medium medium, final Trackers trackers,
-            final CheckPoints checkpoints, final xtGraphics varXtGraphics, final Mad[] mads, final Record record) {
-        if (varXtGraphics.testdrive == 2 || varXtGraphics.testdrive == 4)
-            varXtGraphics.nplayers = 1;
-        /*if (varXtGraphics.gmode == 1) {
-        	varXtGraphics.nplayers = 5;
-        	varXtGraphics.xstart[4] = 0;
-        	varXtGraphics.zstart[4] = 760;
+            final CheckPoints checkpoints, final xtGraphics xtgraphics, final Mad[] mads, final Record record) {
+        if (xtgraphics.testdrive == 2 || xtgraphics.testdrive == 4)
+            xtgraphics.nplayers = 1;
+        /*if (xtgraphics.gmode == 1) {
+        	xtgraphics.nplayers = 5;
+        	xtgraphics.xstart[4] = 0;
+        	xtgraphics.zstart[4] = 760;
         }*/
         trackers.nt = 0;
-        nob = varXtGraphics.nplayers;
+        nob = xtgraphics.nplayers;
         notb = 0;
         checkpoints.n = 0;
         checkpoints.nsp = 0;
@@ -487,11 +487,11 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
         int i_109_ = 100;
         int i_110_ = 0;
         int i_111_ = 100;
-        varXtGraphics.newparts = false;
+        xtgraphics.newparts = false;
         String string = "";
         try {
             DataInputStream datainputstream;
-            if (varXtGraphics.multion == 0 && checkpoints.stage != -2) {
+            if (xtgraphics.multion == 0 && checkpoints.stage != -2) {
                 String string_112_ = new StringBuilder().append("stages/").append(checkpoints.stage).append("")
                         .toString();
                 if (checkpoints.stage == -1)
@@ -546,7 +546,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                     medium.setsnap(getint("snap", string, 0), getint("snap", string, 1), getint("snap", string, 2));
                 if (string.startsWith("sky")) {
                     medium.setsky(getint("sky", string, 0), getint("sky", string, 1), getint("sky", string, 2));
-                    varXtGraphics.snap(checkpoints.stage);
+                    xtgraphics.snap(checkpoints.stage);
                 }
                 if (string.startsWith("ground"))
                     medium.setgrnd(getint("ground", string, 0), getint("ground", string, 1),
@@ -576,7 +576,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                     medium.mgen = getint("mountains", string, 0);
                 if (string.startsWith("set")) {
                     int i_124_ = getint("set", string, 0);
-                    if (varXtGraphics.nplayers == 8) {
+                    if (xtgraphics.nplayers == 8) {
                         if (i_124_ == 47)
                             i_124_ = 76;
                         if (i_124_ == 48)
@@ -587,7 +587,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                         bool = false;
                     if (bool) {
                         if (i_124_ == 49 || i_124_ == 64 || i_124_ >= 56 && i_124_ <= 61)
-                            varXtGraphics.newparts = true;
+                            xtgraphics.newparts = true;
                         if ((checkpoints.stage < 0 || checkpoints.stage >= 28) && i_124_ >= 10 && i_124_ <= 25)
                             medium.loadnew = true;
                         i_124_ += partskips - 10;
@@ -668,7 +668,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                             getint("pile", string, 4), medium.ground);
                     nob++;
                 }
-                if (varXtGraphics.multion == 0 && string.startsWith("nlaps"))
+                if (xtgraphics.multion == 0 && string.startsWith("nlaps"))
                     checkpoints.nlaps = getint("nlaps", string, 0);
                 //if (checkpoints.nlaps < 1)
                 //	checkpoints.nlaps = 1;
@@ -687,7 +687,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                         checkpoints.trackvol = 50;
                     if (checkpoints.trackvol > 300)
                         checkpoints.trackvol = 300;
-                    varXtGraphics.sndsize[32] = getint("soundtrack", string, 2);
+                    xtgraphics.sndsize[32] = getint("soundtrack", string, 2);
                 }
                 if (string.startsWith("maxr")) {
                     final int i_128_ = getint("maxr", string, 0);
@@ -809,18 +809,18 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 medium.nochekflk = false;
             else
                 medium.nochekflk = true;
-            for (int i_144_ = 0; i_144_ < varXtGraphics.nplayers; i_144_++)
-                u[i_144_].reset(checkpoints, varXtGraphics.sc[i_144_]);
-            varXtGraphics.resetstat(checkpoints.stage);
+            for (int i_144_ = 0; i_144_ < xtgraphics.nplayers; i_144_++)
+                u[i_144_].reset(checkpoints, xtgraphics.sc[i_144_]);
+            xtgraphics.resetstat(checkpoints.stage);
             checkpoints.calprox();
-            for (int i_145_ = 0; i_145_ < varXtGraphics.nplayers; i_145_++) {
-                if (varXtGraphics.fase == 22)
-                    varXtGraphics.colorCar(contos_108_[varXtGraphics.sc[i_145_]], i_145_);
-                contos[i_145_] = new ContO(contos_108_[varXtGraphics.sc[i_145_]], varXtGraphics.xstart[i_145_],
-                        250 - contos_108_[varXtGraphics.sc[i_145_]].grat, varXtGraphics.zstart[i_145_], 0);
-                mads[i_145_].reseto(varXtGraphics.sc[i_145_], contos[i_145_], checkpoints);
+            for (int i_145_ = 0; i_145_ < xtgraphics.nplayers; i_145_++) {
+                if (xtgraphics.fase == 22)
+                    xtgraphics.colorCar(contos_108_[xtgraphics.sc[i_145_]], i_145_);
+                contos[i_145_] = new ContO(contos_108_[xtgraphics.sc[i_145_]], xtgraphics.xstart[i_145_],
+                        250 - contos_108_[xtgraphics.sc[i_145_]].grat, xtgraphics.zstart[i_145_], 0);
+                mads[i_145_].reseto(xtgraphics.sc[i_145_], contos[i_145_], checkpoints);
             }
-            if (varXtGraphics.fase == 2 || varXtGraphics.fase == -22) {
+            if (xtgraphics.fase == 2 || xtgraphics.fase == -22) {
                 medium.trx = (i_109_ + i) / 2;
                 medium.trz = (i_110_ + i_111_) / 2;
                 medium.ptr = 0;
@@ -833,12 +833,12 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 medium.iw = 65;
                 medium.h = 425;
                 medium.w = 735;
-                varXtGraphics.fase = 1;
+                xtgraphics.fase = 1;
                 mouses = 0;
             }
-            if (varXtGraphics.fase == 22) {
+            if (xtgraphics.fase == 22) {
                 medium.crs = false;
-                varXtGraphics.fase = 5;
+                xtgraphics.fase = 5;
             }
             if (checkpoints.stage > 0) {
                 int i_146_ = checkpoints.stage;
@@ -846,14 +846,14 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                     i_146_ -= 27;
                 else if (i_146_ > 10)
                     i_146_ -= 10;
-                varXtGraphics.asay = new StringBuilder().append("Stage ").append(i_146_).append(":  ")
+                xtgraphics.asay = new StringBuilder().append("Stage ").append(i_146_).append(":  ")
                         .append(checkpoints.name).append(" ").toString();
             } else
-                varXtGraphics.asay = new StringBuilder().append("Custom Stage:  ").append(checkpoints.name).append(" ")
+                xtgraphics.asay = new StringBuilder().append("Custom Stage:  ").append(checkpoints.name).append(" ")
                         .toString();
             record.reset(contos);
-        } else if (varXtGraphics.fase == 2)
-            varXtGraphics.fase = 1;
+        } else if (xtgraphics.fase == 2)
+            xtgraphics.fase = 1;
         System.gc();
     }
 
@@ -1229,7 +1229,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 
     private void trash() {
         rd.dispose();
-        varXtGraphics.stopallnow();
+        xtgraphics.stopallnow();
         //cardefine.stopallnow();
         //udpmistro.UDPquit();
         System.gc();
@@ -1367,8 +1367,8 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
             graphics2d.drawImage(offImage, apx, apy, this);
     }
 
-    public void readcookies(final xtGraphics varXtGraphics, final CarDefine cardefine, final ContO[] contos) {
-        varXtGraphics.nickname = "";
+    public void readcookies(final xtGraphics xtgraphics, final CarDefine cardefine, final ContO[] contos) {
+        xtgraphics.nickname = "";
         try {
             final File file = new File(
                     new StringBuilder().append("").append(Madness.fpath).append("data/user.data").toString());
@@ -1383,9 +1383,9 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 bufferedreader.close();
             }
             if (strings[0].startsWith("lastuser")) {
-                varXtGraphics.nickname = getstring("lastuser", strings[0], 0);
-                if (!varXtGraphics.nickname.equals(""))
-                    varXtGraphics.opselect = 1;
+                xtgraphics.nickname = getstring("lastuser", strings[0], 0);
+                if (!xtgraphics.nickname.equals(""))
+                    xtgraphics.opselect = 1;
                 String string = "";
                 try {
                     string = getstring("lastuser", strings[0], 1);
@@ -1393,26 +1393,26 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                     string = "";
                 }
                 if (!string.equals("")) {
-                    tnick.setText(varXtGraphics.nickname);
+                    tnick.setText(xtgraphics.nickname);
                     tpass.setText(string);
-                    varXtGraphics.autolog = true;
+                    xtgraphics.autolog = true;
                 }
             }
             if (strings[2].startsWith("saved")) {
                 int i = getint("saved", strings[2], 0);
                 if (i >= 0 && i < xtGraphics.nCars) {
-                    varXtGraphics.scm = i;
-                    varXtGraphics.firstime = false;
+                    xtgraphics.scm = i;
+                    xtgraphics.firstime = false;
                 }
                 i = getint("saved", strings[2], 1);
                 if (i >= 1 && i <= xtGraphics.nTracks)
-                    varXtGraphics.unlocked = i;
+                    xtgraphics.unlocked = i;
             }
             /*if (strings[3].startsWith("NFM2")) {
             	int i = getint("NFM2", strings[3], 0);
             	if (i >= 0 && i < 16) {
-            		varXtGraphics.scm[1] = i;
-            		varXtGraphics.firstime = false;
+            		xtgraphics.scm[1] = i;
+            		xtgraphics.firstime = false;
             	}
             	i = getint("NFM2", strings[3], 1);
             }*/
@@ -1428,33 +1428,33 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 int i = getint("lastcar", strings[1], 0);
                 cardefine.lastcar = getstring("lastcar", strings[1], 7);
                 if (i >= 0 && i < 36) {
-                    varXtGraphics.osc = i;
-                    varXtGraphics.firstime = false;
+                    xtgraphics.osc = i;
+                    xtgraphics.firstime = false;
                 }
                 int i_198_ = 0;
                 for (int i_199_ = 0; i_199_ < 6; i_199_++) {
                     i = getint("lastcar", strings[1], i_199_ + 1);
                     if (i >= 0 && i <= 100) {
-                        varXtGraphics.arnp[i_199_] = i / 100.0F;
+                        xtgraphics.arnp[i_199_] = i / 100.0F;
                         i_198_++;
                     }
                 }
-                if (i_198_ == 6 && varXtGraphics.osc >= 0 && varXtGraphics.osc <= 15) {
-                    final Color color = Color.getHSBColor(varXtGraphics.arnp[0], varXtGraphics.arnp[1],
-                            1.0F - varXtGraphics.arnp[2]);
-                    final Color color_200_ = Color.getHSBColor(varXtGraphics.arnp[3], varXtGraphics.arnp[4],
-                            1.0F - varXtGraphics.arnp[5]);
-                    for (int i_201_ = 0; i_201_ < contos[varXtGraphics.osc].npl; i_201_++)
-                        if (contos[varXtGraphics.osc].p[i_201_].colnum == 1) {
-                            contos[varXtGraphics.osc].p[i_201_].c[0] = color.getRed();
-                            contos[varXtGraphics.osc].p[i_201_].c[1] = color.getGreen();
-                            contos[varXtGraphics.osc].p[i_201_].c[2] = color.getBlue();
+                if (i_198_ == 6 && xtgraphics.osc >= 0 && xtgraphics.osc <= 15) {
+                    final Color color = Color.getHSBColor(xtgraphics.arnp[0], xtgraphics.arnp[1],
+                            1.0F - xtgraphics.arnp[2]);
+                    final Color color_200_ = Color.getHSBColor(xtgraphics.arnp[3], xtgraphics.arnp[4],
+                            1.0F - xtgraphics.arnp[5]);
+                    for (int i_201_ = 0; i_201_ < contos[xtgraphics.osc].npl; i_201_++)
+                        if (contos[xtgraphics.osc].p[i_201_].colnum == 1) {
+                            contos[xtgraphics.osc].p[i_201_].c[0] = color.getRed();
+                            contos[xtgraphics.osc].p[i_201_].c[1] = color.getGreen();
+                            contos[xtgraphics.osc].p[i_201_].c[2] = color.getBlue();
                         }
-                    for (int i_202_ = 0; i_202_ < contos[varXtGraphics.osc].npl; i_202_++)
-                        if (contos[varXtGraphics.osc].p[i_202_].colnum == 2) {
-                            contos[varXtGraphics.osc].p[i_202_].c[0] = color_200_.getRed();
-                            contos[varXtGraphics.osc].p[i_202_].c[1] = color_200_.getGreen();
-                            contos[varXtGraphics.osc].p[i_202_].c[2] = color_200_.getBlue();
+                    for (int i_202_ = 0; i_202_ < contos[xtgraphics.osc].npl; i_202_++)
+                        if (contos[xtgraphics.osc].p[i_202_].colnum == 2) {
+                            contos[xtgraphics.osc].p[i_202_].c[0] = color_200_.getRed();
+                            contos[xtgraphics.osc].p[i_202_].c[1] = color_200_.getGreen();
+                            contos[xtgraphics.osc].p[i_202_].c[2] = color_200_.getBlue();
                         }
                 }
             }
@@ -1601,7 +1601,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
     //allan please remove this soon
     private Date date;
     private int i_7_;
-    private xtGraphics varXtGraphics;
+    private xtGraphics xtgraphics;
     private ContO[] contos;
     private ContO[] contos_0_;
     private Mad[] mads;
@@ -1639,49 +1639,49 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
         checkpoints = new CheckPoints();
         contos = new ContO[carRads.length + partskips + stageRads.length];
         cardefine = new CarDefine(contos, medium, trackers, this);
-        varXtGraphics = new xtGraphics(medium, cardefine, rd, this);
-        sizebar = varXtGraphics.getImage("data/sizebar.gif");
-        blb = varXtGraphics.getImage("data/b.gif");
-        fulls = varXtGraphics.getImage("data/fullscreen.gif");
-        chkbx[0] = varXtGraphics.getImage("data/checkbox1.gif");
-        chkbx[1] = varXtGraphics.getImage("data/checkbox2.gif");
-        carmaker[0] = varXtGraphics.getImage("data/carmaker1.gif");
-        carmaker[1] = varXtGraphics.getImage("data/carmaker2.gif");
-        stagemaker[0] = varXtGraphics.getImage("data/stagemaker1.gif");
-        stagemaker[1] = varXtGraphics.getImage("data/stagemaker2.gif");
-        varXtGraphics.loaddata();
+        xtgraphics = new xtGraphics(medium, cardefine, rd, this);
+        sizebar = xtgraphics.getImage("data/sizebar.gif");
+        blb = xtgraphics.getImage("data/b.gif");
+        fulls = xtgraphics.getImage("data/fullscreen.gif");
+        chkbx[0] = xtgraphics.getImage("data/checkbox1.gif");
+        chkbx[1] = xtgraphics.getImage("data/checkbox2.gif");
+        carmaker[0] = xtgraphics.getImage("data/carmaker1.gif");
+        carmaker[1] = xtgraphics.getImage("data/carmaker2.gif");
+        stagemaker[0] = xtgraphics.getImage("data/stagemaker1.gif");
+        stagemaker[1] = xtgraphics.getImage("data/stagemaker2.gif");
+        xtgraphics.loaddata();
         //login = null;
         //lobby = null;
         //globe = null;
         //boolean bool = false;
         //final UDPMistro udpmistro = new UDPMistro();
         record = new Record(medium);
-        loadbase(contos, medium, trackers, varXtGraphics, false);
+        loadbase(contos, medium, trackers, xtgraphics, false);
         contos_0_ = new ContO[10000];
         mads = new Mad[8];
         for (int i = 0; i < 8; i++) {
-            mads[i] = new Mad(cardefine, medium, record, varXtGraphics, i);
+            mads[i] = new Mad(cardefine, medium, record, xtgraphics, i);
             u[i] = new Control(medium);
         }
         f = 47.0F;
-        readcookies(varXtGraphics, cardefine, contos);
-        varXtGraphics.testdrive = Madness.testdrive;
-        if (varXtGraphics.testdrive != 0)
-            if (varXtGraphics.testdrive <= 2) {
-                varXtGraphics.sc[0] = cardefine.loadcar(Madness.testcar, 16);
-                if (varXtGraphics.sc[0] != -1)
-                    varXtGraphics.fase = -9;
+        readcookies(xtgraphics, cardefine, contos);
+        xtgraphics.testdrive = Madness.testdrive;
+        if (xtgraphics.testdrive != 0)
+            if (xtgraphics.testdrive <= 2) {
+                xtgraphics.sc[0] = cardefine.loadcar(Madness.testcar, 16);
+                if (xtgraphics.sc[0] != -1)
+                    xtgraphics.fase = -9;
                 else {
                     Madness.testcar = "Failx12";
                     Madness.carmaker();
                 }
             } else {
                 checkpoints.name = Madness.testcar;
-                varXtGraphics.fase = -9;
+                xtgraphics.fase = -9;
             }
-        varXtGraphics.stoploading();
+        xtgraphics.stoploading();
         requestFocus();
-        if (varXtGraphics.testdrive == 0 && varXtGraphics.firstime)
+        if (xtgraphics.testdrive == 0 && xtgraphics.firstime)
             setupini();
         System.gc();
         date = new Date();
@@ -1703,23 +1703,23 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 
         date = new Date();
         date.getTime();
-        if (varXtGraphics.fase == 111) {
+        if (xtgraphics.fase == 111) {
             if (mouses == 1)
                 i_7_ = 800;
             if (i_7_ < 800) {
-                varXtGraphics.clicknow();
+                xtgraphics.clicknow();
                 i_7_++;
             } else {
                 i_7_ = 0;
                 if (!exwist)
-                    varXtGraphics.fase = 9;
+                    xtgraphics.fase = 9;
                 mouses = 0;
                 lostfcs = false;
             }
         }
-        if (varXtGraphics.fase == 9)
+        if (xtgraphics.fase == 9)
             if (i_7_ < 76) {
-                varXtGraphics.rad(i_7_);
+                xtgraphics.rad(i_7_);
                 catchlink();
                 if (mouses == 2)
                     mouses = 0;
@@ -1728,179 +1728,179 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 i_7_++;
             } else {
                 i_7_ = 0;
-                varXtGraphics.fase = 10;
+                xtgraphics.fase = 10;
                 mouses = 0;
                 u[0].falseo(0);
             }
-        if (varXtGraphics.fase == -9) {
-            if (varXtGraphics.loadedt) {
-                varXtGraphics.mainbg(-101);
+        if (xtgraphics.fase == -9) {
+            if (xtgraphics.loadedt) {
+                xtgraphics.mainbg(-101);
                 rd.setColor(new Color(0, 0, 0));
                 rd.fillRect(0, 0, 800, 450);
                 //repaint();
-                varXtGraphics.strack.unload();
-                varXtGraphics.strack = null;
-                varXtGraphics.flexpix = null;
-                varXtGraphics.fleximg = null;
+                xtgraphics.strack.unload();
+                xtgraphics.strack = null;
+                xtgraphics.flexpix = null;
+                xtgraphics.fleximg = null;
                 System.gc();
-                varXtGraphics.loadedt = false;
+                xtgraphics.loadedt = false;
             }
             if (i_7_ < 2) {
-                varXtGraphics.mainbg(-101);
+                xtgraphics.mainbg(-101);
                 rd.setColor(new Color(0, 0, 0));
                 rd.fillRect(65, 25, 670, 400);
                 i_7_++;
             } else {
-                checkmemory(varXtGraphics);
-                varXtGraphics.inishcarselect(contos);
+                checkmemory(xtgraphics);
+                xtgraphics.inishcarselect(contos);
                 i_7_ = 0;
-                varXtGraphics.fase = 7;
+                xtgraphics.fase = 7;
                 mvect = 50;
                 mouses = 0;
             }
         }
-        if (varXtGraphics.fase == 8) {
-            varXtGraphics.credits(u[0], xm, ym, mouses);
-            varXtGraphics.ctachm(xm, ym, mouses, u[0]);
-            if (varXtGraphics.flipo <= 100)
+        if (xtgraphics.fase == 8) {
+            xtgraphics.credits(u[0], xm, ym, mouses);
+            xtgraphics.ctachm(xm, ym, mouses, u[0]);
+            if (xtgraphics.flipo <= 100)
                 catchlink();
             if (mouses == 2)
                 mouses = 0;
             if (mouses == 1)
                 mouses = 2;
         }
-        if (varXtGraphics.fase == 10) {
+        if (xtgraphics.fase == 10) {
             mvect = 100;
-            varXtGraphics.maini(u[0]);
-            varXtGraphics.ctachm(xm, ym, mouses, u[0]);
+            xtgraphics.maini(u[0]);
+            xtgraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2)
                 mouses = 0;
             if (mouses == 1)
                 mouses = 2;
         }
-        if (varXtGraphics.fase == 103) {
+        if (xtgraphics.fase == 103) {
             mvect = 100;
-            if (varXtGraphics.loadedt) {
+            if (xtgraphics.loadedt) {
                 rd.setColor(new Color(0, 0, 0));
                 rd.fillRect(0, 0, 800, 450);
                 //repaint();
-                checkmemory(varXtGraphics);
-                varXtGraphics.strack.unload();
-                varXtGraphics.strack = null;
-                varXtGraphics.flexpix = null;
-                varXtGraphics.fleximg = null;
+                checkmemory(xtgraphics);
+                xtgraphics.strack.unload();
+                xtgraphics.strack = null;
+                xtgraphics.flexpix = null;
+                xtgraphics.fleximg = null;
                 System.gc();
-                varXtGraphics.loadedt = false;
+                xtgraphics.loadedt = false;
             }
-            if (varXtGraphics.testdrive == 1 || varXtGraphics.testdrive == 2)
+            if (xtgraphics.testdrive == 1 || xtgraphics.testdrive == 2)
                 Madness.carmaker();
-            if (varXtGraphics.testdrive == 3 || varXtGraphics.testdrive == 4)
+            if (xtgraphics.testdrive == 3 || xtgraphics.testdrive == 4)
                 Madness.stagemaker();
-            varXtGraphics.maini(u[0]);
-            varXtGraphics.fase = 10;
+            xtgraphics.maini(u[0]);
+            xtgraphics.fase = 10;
             if (mouses == 2)
                 mouses = 0;
             if (mouses == 1)
                 mouses = 2;
         }
-        if (varXtGraphics.fase == 102) {
+        if (xtgraphics.fase == 102) {
             mvect = 100;
-            if (varXtGraphics.loadedt) {
+            if (xtgraphics.loadedt) {
                 rd.setColor(new Color(0, 0, 0));
                 rd.fillRect(0, 0, 800, 450);
                 //repaint();
-                checkmemory(varXtGraphics);
-                varXtGraphics.strack.unload();
-                varXtGraphics.strack = null;
-                varXtGraphics.flexpix = null;
-                varXtGraphics.fleximg = null;
+                checkmemory(xtgraphics);
+                xtgraphics.strack.unload();
+                xtgraphics.strack = null;
+                xtgraphics.flexpix = null;
+                xtgraphics.fleximg = null;
                 System.gc();
-                varXtGraphics.loadedt = false;
+                xtgraphics.loadedt = false;
             }
-            if (varXtGraphics.testdrive == 1 || varXtGraphics.testdrive == 2)
+            if (xtgraphics.testdrive == 1 || xtgraphics.testdrive == 2)
                 Madness.carmaker();
-            if (varXtGraphics.testdrive == 3 || varXtGraphics.testdrive == 4)
+            if (xtgraphics.testdrive == 3 || xtgraphics.testdrive == 4)
                 Madness.stagemaker();
-            varXtGraphics.maini2(u[0], xm, ym, mouses);
-            varXtGraphics.ctachm(xm, ym, mouses, u[0]);
+            xtgraphics.maini2(u[0], xm, ym, mouses);
+            xtgraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2)
                 mouses = 0;
             if (mouses == 1)
                 mouses = 2;
         }
-        if (varXtGraphics.fase == -22) {
+        if (xtgraphics.fase == -22) {
             checkpoints.name = Madness.testcar;
             checkpoints.stage = -1;
-            loadstage(contos_0_, contos, medium, trackers, checkpoints, varXtGraphics, mads, record);
+            loadstage(contos_0_, contos, medium, trackers, checkpoints, xtgraphics, mads, record);
             if (checkpoints.stage == -3) {
                 Madness.testcar = "Failx12";
                 Madness.stagemaker();
             }
         }
-        if (varXtGraphics.fase == 11) {
-            varXtGraphics.inst(u[0]);
-            varXtGraphics.ctachm(xm, ym, mouses, u[0]);
+        if (xtgraphics.fase == 11) {
+            xtgraphics.inst(u[0]);
+            xtgraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2)
                 mouses = 0;
             if (mouses == 1)
                 mouses = 2;
         }
-        if (varXtGraphics.fase == -5) {
+        if (xtgraphics.fase == -5) {
             mvect = 100;
-            varXtGraphics.finish(checkpoints, contos, u[0], xm, ym, moused);
-            varXtGraphics.ctachm(xm, ym, mouses, u[0]);
+            xtgraphics.finish(checkpoints, contos, u[0], xm, ym, moused);
+            xtgraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2)
                 mouses = 0;
             if (mouses == 1)
                 mouses = 2;
         }
-        if (varXtGraphics.fase == 7) {
-            varXtGraphics.carselect(u[0], contos, mads[0], xm, ym, moused);
-            varXtGraphics.ctachm(xm, ym, mouses, u[0]);
+        if (xtgraphics.fase == 7) {
+            xtgraphics.carselect(u[0], contos, mads[0], xm, ym, moused);
+            xtgraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2)
                 mouses = 0;
             if (mouses == 1)
                 mouses = 2;
             drawms();
         }
-        if (varXtGraphics.fase == 6) {
-            varXtGraphics.musicomp(checkpoints.stage, u[0]);
-            varXtGraphics.ctachm(xm, ym, mouses, u[0]);
+        if (xtgraphics.fase == 6) {
+            xtgraphics.musicomp(checkpoints.stage, u[0]);
+            xtgraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2)
                 mouses = 0;
             if (mouses == 1)
                 mouses = 2;
         }
-        if (varXtGraphics.fase == 5) {
+        if (xtgraphics.fase == 5) {
             mvect = 100;
-            varXtGraphics.loadmusic(checkpoints.stage, checkpoints.trackname, checkpoints.trackvol);
+            xtgraphics.loadmusic(checkpoints.stage, checkpoints.trackname, checkpoints.trackvol);
         }
-        if (varXtGraphics.fase == 4) {
-            varXtGraphics.cantgo(u[0]);
-            varXtGraphics.ctachm(xm, ym, mouses, u[0]);
+        if (xtgraphics.fase == 4) {
+            xtgraphics.cantgo(u[0]);
+            xtgraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2)
                 mouses = 0;
             if (mouses == 1)
                 mouses = 2;
         }
-        if (varXtGraphics.fase == 3) {
+        if (xtgraphics.fase == 3) {
             rd.setColor(new Color(0, 0, 0));
             rd.fillRect(65, 25, 670, 400);
             //repaint();
-            varXtGraphics.inishstageselect(checkpoints);
+            xtgraphics.inishstageselect(checkpoints);
         }
-        if (varXtGraphics.fase == 2) {
+        if (xtgraphics.fase == 2) {
             mvect = 100;
-            varXtGraphics.loadingstage(checkpoints.stage, true);
+            xtgraphics.loadingstage(checkpoints.stage, true);
             checkpoints.nfix = 0;
             checkpoints.notb = false;
-            loadstage(contos_0_, contos, medium, trackers, checkpoints, varXtGraphics, mads, record);
+            loadstage(contos_0_, contos, medium, trackers, checkpoints, xtgraphics, mads, record);
             u[0].falseo(0);
             udpmistro.freg = 0.0F;
             mvect = 20;
         }
-        if (varXtGraphics.fase == 1) {
-            varXtGraphics.trackbg(false);
+        if (xtgraphics.fase == 1) {
+            xtgraphics.trackbg(false);
             rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
             if (checkpoints.stage != -3) {
                 medium.aroundtrack(checkpoints);
@@ -1908,7 +1908,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                     mvect++;
                 int i_12_ = 0;
                 final int[] is = new int[1000];
-                for (int i_13_ = varXtGraphics.nplayers; i_13_ < notb; i_13_++)
+                for (int i_13_ = xtgraphics.nplayers; i_13_ < notb; i_13_++)
                     if (contos_0_[i_13_].dist != 0) {
                         is[i_12_] = i_13_;
                         i_12_++;
@@ -1934,47 +1934,47 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                             contos_0_[is[i_19_]].d(rd);
             }
             if (!openm)
-                varXtGraphics.ctachm(xm, ym, mouses, u[0]);
+                xtgraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2)
                 mouses = 0;
             if (mouses == 1)
                 mouses = 2;
             rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            varXtGraphics.stageselect(checkpoints, u[0], xm, ym, moused);
+            xtgraphics.stageselect(checkpoints, u[0], xm, ym, moused);
             drawms();
         }
-        if (varXtGraphics.fase == 1177) {
+        if (xtgraphics.fase == 1177) {
             mvect = 100;
             if (!bool) {
-                if (varXtGraphics.loadedt) {
+                if (xtgraphics.loadedt) {
                     rd.setColor(new Color(0, 0, 0));
                     rd.fillRect(0, 0, 800, 450);
                     //repaint();
-                    checkmemory(varXtGraphics);
-                    varXtGraphics.strack.unload();
-                    varXtGraphics.strack = null;
-                    varXtGraphics.flexpix = null;
-                    varXtGraphics.fleximg = null;
+                    checkmemory(xtgraphics);
+                    xtgraphics.strack.unload();
+                    xtgraphics.strack = null;
+                    xtgraphics.flexpix = null;
+                    xtgraphics.fleximg = null;
                     System.gc();
-                    varXtGraphics.loadedt = false;
+                    xtgraphics.loadedt = false;
                 }
-                varXtGraphics.intertrack.unload();
+                xtgraphics.intertrack.unload();
                 rd.setColor(new Color(0, 0, 0));
                 rd.fillRect(65, 25, 670, 400);
                 if (mload > 0)
-                    rd.drawImage(varXtGraphics.mload, 259, 195, this);
+                    rd.drawImage(xtgraphics.mload, 259, 195, this);
                 //repaint();
                 if (mload == 2) {
                     cardefine.loadready();
-                    loadbase(contos, medium, trackers, varXtGraphics, true);
-                    readcookies(varXtGraphics, cardefine, contos);
+                    loadbase(contos, medium, trackers, xtgraphics, true);
+                    readcookies(xtgraphics, cardefine, contos);
                     mload = -1;
                 }
                 System.gc();
-                login = new Login(medium, rd, varXtGraphics, this);
-                //globe = new Globe(rd, varXtGraphics, medium, login, cardefine, checkpoints, contos, contos_0_,
+                login = new Login(medium, rd, xtgraphics, this);
+                //globe = new Globe(rd, xtgraphics, medium, login, cardefine, checkpoints, contos, contos_0_,
                 //		this);
-                lobby = new Lobby(medium, rd, login, varXtGraphics, cardefine, this);
+                lobby = new Lobby(medium, rd, login, xtgraphics, cardefine, this);
                 bool = true;
             }
             if (login.fase != 18) {
@@ -1990,7 +1990,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 //	bool_20_ = true;
                 //globe.dome(0, xm, ym, moused, u[0]);
                 if (login.justlog)
-                    //if (!varXtGraphics.clan.equals(""))
+                    //if (!xtgraphics.clan.equals(""))
                     //	globe.itab = 2;
                     login.justlog = false;
                 if (!bool_20_) {
@@ -2048,7 +2048,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                         if (lobby.msload == 1)
                             cardefine.loadmystages(checkpoints);
                         if (lobby.msload == 7)
-                            cardefine.loadclanstages(varXtGraphics.clan);
+                            cardefine.loadclanstages(xtgraphics.clan);
                         if (lobby.msload == 3 || lobby.msload == 4)
                             cardefine.loadtop20(lobby.msload);
                         lobby.msload = 0;
@@ -2056,7 +2056,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                     }
                 }
                 if (lobby.fase == 3) {
-                    varXtGraphics.trackbg(false);
+                    xtgraphics.trackbg(false);
                     medium.trk = 0;
                     medium.focusPoint = 400;
                     medium.crs = true;
@@ -2106,8 +2106,8 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                         mvect = 70;
                         //repaint();
                         setCursor(new Cursor(3));
-                        varXtGraphics.loadstrack(checkpoints.stage, checkpoints.trackname, checkpoints.trackvol);
-                        varXtGraphics.strack.play();
+                        xtgraphics.loadstrack(checkpoints.stage, checkpoints.trackname, checkpoints.trackvol);
+                        xtgraphics.strack.play();
                         lobby.plsndt = 2;
                         moused = false;
                         mouses = 0;
@@ -2128,7 +2128,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                         lobby.fase = 4;
                         lobby.addstage = 0;
                     } else {
-                        varXtGraphics.loadingstage(lobby.gstgn[i_30_], false);
+                        xtgraphics.loadingstage(lobby.gstgn[i_30_], false);
                         trackers.nt = 0;
                         if (loadstagePreview(lobby.gstgn[i_30_], lobby.gstages[i_30_], contos_0_, contos, medium,
                                 checkpoints)) {
@@ -2148,8 +2148,8 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                     checkpoints.name = lobby.stagename;
                     checkpoints.nfix = lobby.nfix;
                     checkpoints.notb = lobby.notb;
-                    varXtGraphics.fase = 21;
-                    u[0].multion = varXtGraphics.multion;
+                    xtgraphics.fase = 21;
+                    u[0].multion = xtgraphics.multion;
                 }
                 /*if (globe.loadwbgames == 7) {
                 	//repaint();
@@ -2192,7 +2192,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 }
             }
         }
-        if (varXtGraphics.fase == 24) {
+        if (xtgraphics.fase == 24) {
             login.endcons();
             login = null;
             lobby = null;
@@ -2200,17 +2200,17 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
             bool = false;
             System.gc();
             System.runFinalization();
-            if (!varXtGraphics.mtop) {
-                varXtGraphics.fase = 102;
-                varXtGraphics.opselect = 2;
+            if (!xtgraphics.mtop) {
+                xtgraphics.fase = 102;
+                xtgraphics.opselect = 2;
             } else {
-                varXtGraphics.fase = 10;
-                varXtGraphics.opselect = 1;
+                xtgraphics.fase = 10;
+                xtgraphics.opselect = 1;
             }
         }
-        if (varXtGraphics.fase == 23) {
+        if (xtgraphics.fase == 23) {
             if (login.fase == 18)
-                varXtGraphics.playingame = -101;
+                xtgraphics.playingame = -101;
             login.stopallnow();
             lobby.stopallnow();
             //globe.stopallnow();
@@ -2221,20 +2221,20 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
             bool = false;
             System.gc();
             System.runFinalization();
-            varXtGraphics.fase = -9;
+            xtgraphics.fase = -9;
         }
-        if (varXtGraphics.fase == 22) {
-            loadstage(contos_0_, contos, medium, trackers, checkpoints, varXtGraphics, mads, record);
+        if (xtgraphics.fase == 22) {
+            loadstage(contos_0_, contos, medium, trackers, checkpoints, xtgraphics, mads, record);
             if (checkpoints.stage != -3) {
-                if (varXtGraphics.lan && varXtGraphics.im == 0)
-                    udpmistro.UDPLanServer(varXtGraphics.nplayers, varXtGraphics.server, varXtGraphics.servport,
-                            varXtGraphics.playingame);
+                if (xtgraphics.lan && xtgraphics.im == 0)
+                    udpmistro.UDPLanServer(xtgraphics.nplayers, xtgraphics.server, xtgraphics.servport,
+                            xtgraphics.playingame);
                 u[0].falseo(2);
                 requestFocus();
             } else
-                varXtGraphics.fase = 1177;
+                xtgraphics.fase = 1177;
         }
-        if (varXtGraphics.fase == 21) {
+        if (xtgraphics.fase == 21) {
             login.endcons();
             login = null;
             lobby = null;
@@ -2242,10 +2242,10 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
             bool = false;
             System.gc();
             System.runFinalization();
-            varXtGraphics.fase = 22;
+            xtgraphics.fase = 22;
         }
-        if (varXtGraphics.fase == 0) {
-            for (int i_33_ = 0; i_33_ < varXtGraphics.nplayers; i_33_++)
+        if (xtgraphics.fase == 0) {
+            for (int i_33_ = 0; i_33_ < xtgraphics.nplayers; i_33_++)
                 if (mads[i_33_].newcar) {
                     final int i_34_ = contos_0_[i_33_].xz;
                     final int i_35_ = contos_0_[i_33_].xy;
@@ -2280,34 +2280,34 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
             }
             for (int i_44_ = 0; i_44_ < i_37_; i_44_++)
                 contos_0_[is[is_40_[i_44_]]].d(rd);
-            if (varXtGraphics.starcnt == 0) {
-                for (int i_45_ = 0; i_45_ < varXtGraphics.nplayers; i_45_++)
-                    for (int i_46_ = 0; i_46_ < varXtGraphics.nplayers; i_46_++)
+            if (xtgraphics.starcnt == 0) {
+                for (int i_45_ = 0; i_45_ < xtgraphics.nplayers; i_45_++)
+                    for (int i_46_ = 0; i_46_ < xtgraphics.nplayers; i_46_++)
                         if (i_46_ != i_45_)
                             mads[i_45_].colide(contos_0_[i_45_], mads[i_46_], contos_0_[i_46_]);
-                for (int i_47_ = 0; i_47_ < varXtGraphics.nplayers; i_47_++)
+                for (int i_47_ = 0; i_47_ < xtgraphics.nplayers; i_47_++)
                     mads[i_47_].drive(u[i_47_], contos_0_[i_47_], trackers, checkpoints);
-                for (int i_48_ = 0; i_48_ < varXtGraphics.nplayers; i_48_++)
+                for (int i_48_ = 0; i_48_ < xtgraphics.nplayers; i_48_++)
                     record.rec(contos_0_[i_48_], i_48_, mads[i_48_].squash, mads[i_48_].lastcolido, mads[i_48_].cntdest,
                             0);
-                checkpoints.checkstat(mads, contos_0_, record, varXtGraphics.nplayers, varXtGraphics.im, 0);
-                for (int i_49_ = 1; i_49_ < varXtGraphics.nplayers; i_49_++)
+                checkpoints.checkstat(mads, contos_0_, record, xtgraphics.nplayers, xtgraphics.im, 0);
+                for (int i_49_ = 1; i_49_ < xtgraphics.nplayers; i_49_++)
                     u[i_49_].preform(mads[i_49_], contos_0_[i_49_], checkpoints, trackers);
             } else {
-                if (varXtGraphics.starcnt == 130) {
+                if (xtgraphics.starcnt == 130) {
                     medium.adv = 1900;
                     medium.zy = 40;
                     medium.vxz = 70;
                     rd.setColor(new Color(255, 255, 255));
                     rd.fillRect(0, 0, 800, 450);
                 }
-                if (varXtGraphics.starcnt != 0)
-                    varXtGraphics.starcnt--;
+                if (xtgraphics.starcnt != 0)
+                    xtgraphics.starcnt--;
             }
-            if (varXtGraphics.starcnt < 38) {
+            if (xtgraphics.starcnt < 38) {
                 if (view == 0) {
                     medium.follow(contos_0_[0], mads[0].cxz, u[0].lookback);
-                    varXtGraphics.stat(mads[0], contos_0_[0], checkpoints, u[0], true);
+                    xtgraphics.stat(mads[0], contos_0_[0], checkpoints, u[0], true);
                     if (mads[0].outshakedam > 0) {
                         shaka = mads[0].outshakedam / 20;
                         if (shaka > 25)
@@ -2320,12 +2320,12 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 }
                 if (view == 1) {
                     medium.around(contos_0_[0], false);
-                    varXtGraphics.stat(mads[0], contos_0_[0], checkpoints, u[0], false);
+                    xtgraphics.stat(mads[0], contos_0_[0], checkpoints, u[0], false);
                     mvect = 80;
                 }
                 if (view == 2) {
                     medium.watch(contos_0_[0], mads[0].mxz);
-                    varXtGraphics.stat(mads[0], contos_0_[0], checkpoints, u[0], false);
+                    xtgraphics.stat(mads[0], contos_0_[0], checkpoints, u[0], false);
                     mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
                     if (mvect > 90)
                         mvect = 90;
@@ -2337,35 +2337,35 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 }
             } else {
                 int i_50_ = 3;
-                if (varXtGraphics.nplayers == 1)
+                if (xtgraphics.nplayers == 1)
                     i_50_ = 0;
                 medium.around(contos_0_[i_50_], true);
                 mvect = 80;
                 if (u[0].enter || u[0].handb) {
-                    varXtGraphics.starcnt = 38;
+                    xtgraphics.starcnt = 38;
                     u[0].enter = false;
                     u[0].handb = false;
                 }
-                if (varXtGraphics.starcnt == 38) {
+                if (xtgraphics.starcnt == 38) {
                     mouses = 0;
                     medium.vert = false;
                     medium.adv = 900;
                     medium.vxz = 180;
-                    checkpoints.checkstat(mads, contos_0_, record, varXtGraphics.nplayers, varXtGraphics.im, 0);
+                    checkpoints.checkstat(mads, contos_0_, record, xtgraphics.nplayers, xtgraphics.im, 0);
                     medium.follow(contos_0_[0], mads[0].cxz, 0);
-                    varXtGraphics.stat(mads[0], contos_0_[0], checkpoints, u[0], true);
+                    xtgraphics.stat(mads[0], contos_0_[0], checkpoints, u[0], true);
                     rd.setColor(new Color(255, 255, 255));
                     rd.fillRect(0, 0, 800, 450);
                 }
             }
         }
-        if (varXtGraphics.fase == 7001) {
-            for (int i_51_ = 0; i_51_ < varXtGraphics.nplayers; i_51_++)
+        if (xtgraphics.fase == 7001) {
+            for (int i_51_ = 0; i_51_ < xtgraphics.nplayers; i_51_++)
                 if (mads[i_51_].newedcar == 0 && mads[i_51_].newcar) {
                     final int i_52_ = contos_0_[i_51_].xz;
                     final int i_53_ = contos_0_[i_51_].xy;
                     final int i_54_ = contos_0_[i_51_].zy;
-                    varXtGraphics.colorCar(contos[mads[i_51_].cn], i_51_);
+                    xtgraphics.colorCar(contos[mads[i_51_].cn], i_51_);
                     contos_0_[i_51_] = new ContO(contos[mads[i_51_].cn], contos_0_[i_51_].x, contos_0_[i_51_].y,
                             contos_0_[i_51_].z, 0);
                     contos_0_[i_51_].xz = i_52_;
@@ -2395,94 +2395,94 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 is_58_[is_57_[i_60_]] = i_60_;
             }
             for (int i_62_ = 0; i_62_ < i_55_; i_62_++) {
-                if (is[is_58_[i_62_]] < varXtGraphics.nplayers && is[is_58_[i_62_]] != varXtGraphics.im)
+                if (is[is_58_[i_62_]] < xtgraphics.nplayers && is[is_58_[i_62_]] != xtgraphics.im)
                     udpmistro.readContOinfo(contos_0_[is[is_58_[i_62_]]], is[is_58_[i_62_]]);
                 contos_0_[is[is_58_[i_62_]]].d(rd);
             }
-            if (varXtGraphics.starcnt == 0) {
-                if (varXtGraphics.multion == 1) {
+            if (xtgraphics.starcnt == 0) {
+                if (xtgraphics.multion == 1) {
                     int i_63_ = 1;
-                    for (int i_64_ = 0; i_64_ < varXtGraphics.nplayers; i_64_++)
-                        if (varXtGraphics.im != i_64_) {
+                    for (int i_64_ = 0; i_64_ < xtgraphics.nplayers; i_64_++)
+                        if (xtgraphics.im != i_64_) {
                             udpmistro.readinfo(mads[i_64_], contos_0_[i_64_], u[i_63_], i_64_, checkpoints.dested);
                             i_63_++;
                         }
                 } else
-                    for (int i_65_ = 0; i_65_ < varXtGraphics.nplayers; i_65_++)
+                    for (int i_65_ = 0; i_65_ < xtgraphics.nplayers; i_65_++)
                         udpmistro.readinfo(mads[i_65_], contos_0_[i_65_], u[i_65_], i_65_, checkpoints.dested);
-                for (int i_66_ = 0; i_66_ < varXtGraphics.nplayers; i_66_++)
-                    for (int i_67_ = 0; i_67_ < varXtGraphics.nplayers; i_67_++)
+                for (int i_66_ = 0; i_66_ < xtgraphics.nplayers; i_66_++)
+                    for (int i_67_ = 0; i_67_ < xtgraphics.nplayers; i_67_++)
                         if (i_67_ != i_66_)
                             mads[i_66_].colide(contos_0_[i_66_], mads[i_67_], contos_0_[i_67_]);
-                if (varXtGraphics.multion == 1) {
+                if (xtgraphics.multion == 1) {
                     int i_68_ = 1;
-                    for (int i_69_ = 0; i_69_ < varXtGraphics.nplayers; i_69_++)
-                        if (varXtGraphics.im != i_69_) {
+                    for (int i_69_ = 0; i_69_ < xtgraphics.nplayers; i_69_++)
+                        if (xtgraphics.im != i_69_) {
                             mads[i_69_].drive(u[i_68_], contos_0_[i_69_], trackers, checkpoints);
                             i_68_++;
                         } else
                             mads[i_69_].drive(u[0], contos_0_[i_69_], trackers, checkpoints);
-                    for (int i_70_ = 0; i_70_ < varXtGraphics.nplayers; i_70_++)
+                    for (int i_70_ = 0; i_70_ < xtgraphics.nplayers; i_70_++)
                         record.rec(contos_0_[i_70_], i_70_, mads[i_70_].squash, mads[i_70_].lastcolido,
-                                mads[i_70_].cntdest, varXtGraphics.im);
+                                mads[i_70_].cntdest, xtgraphics.im);
                 } else
-                    for (int i_71_ = 0; i_71_ < varXtGraphics.nplayers; i_71_++)
+                    for (int i_71_ = 0; i_71_ < xtgraphics.nplayers; i_71_++)
                         mads[i_71_].drive(u[i_71_], contos_0_[i_71_], trackers, checkpoints);
-                checkpoints.checkstat(mads, contos_0_, record, varXtGraphics.nplayers, varXtGraphics.im,
-                        varXtGraphics.multion);
+                checkpoints.checkstat(mads, contos_0_, record, xtgraphics.nplayers, xtgraphics.im,
+                        xtgraphics.multion);
             } else {
-                if (varXtGraphics.starcnt == 130) {
+                if (xtgraphics.starcnt == 130) {
                     medium.adv = 1900;
                     medium.zy = 40;
                     medium.vxz = 70;
                     rd.setColor(new Color(255, 255, 255));
                     rd.fillRect(0, 0, 800, 450);
                     //repaint();
-                    if (varXtGraphics.lan) {
-                        udpmistro.UDPConnectLan(varXtGraphics.localserver, varXtGraphics.nplayers, varXtGraphics.im);
-                        if (varXtGraphics.im == 0)
-                            varXtGraphics.setbots(udpmistro.isbot, udpmistro.frame);
+                    if (xtgraphics.lan) {
+                        udpmistro.UDPConnectLan(xtgraphics.localserver, xtgraphics.nplayers, xtgraphics.im);
+                        if (xtgraphics.im == 0)
+                            xtgraphics.setbots(udpmistro.isbot, udpmistro.frame);
                     } else
-                        udpmistro.UDPConnectOnline(varXtGraphics.server, varXtGraphics.gameport,
-                                varXtGraphics.nplayers, varXtGraphics.im);
-                    if (varXtGraphics.multion >= 2) {
-                        varXtGraphics.im = (int) (Math.random() * varXtGraphics.nplayers);
-                        varXtGraphics.starcnt = 0;
+                        udpmistro.UDPConnectOnline(xtgraphics.server, xtgraphics.gameport,
+                                xtgraphics.nplayers, xtgraphics.im);
+                    if (xtgraphics.multion >= 2) {
+                        xtgraphics.im = (int) (Math.random() * xtgraphics.nplayers);
+                        xtgraphics.starcnt = 0;
                     }
                 }
-                if (varXtGraphics.starcnt == 50)
+                if (xtgraphics.starcnt == 50)
                     udpmistro.frame[udpmistro.im][0] = 0;
-                if (varXtGraphics.starcnt != 39 && varXtGraphics.starcnt != 0)
-                    varXtGraphics.starcnt--;
-                if (udpmistro.go && varXtGraphics.starcnt >= 39) {
-                    varXtGraphics.starcnt = 38;
-                    if (varXtGraphics.lan) {
+                if (xtgraphics.starcnt != 39 && xtgraphics.starcnt != 0)
+                    xtgraphics.starcnt--;
+                if (udpmistro.go && xtgraphics.starcnt >= 39) {
+                    xtgraphics.starcnt = 38;
+                    if (xtgraphics.lan) {
                         int i_72_ = checkpoints.stage;
                         if (i_72_ < 0)
                             i_72_ = 33;
-                        if (varXtGraphics.loadedt)
-                            varXtGraphics.strack.play();
+                        if (xtgraphics.loadedt)
+                            xtgraphics.strack.play();
                     }
                 }
             }
-            if (varXtGraphics.lan && udpmistro.im == 0)
-                for (int i_73_ = 2; i_73_ < varXtGraphics.nplayers; i_73_++)
+            if (xtgraphics.lan && udpmistro.im == 0)
+                for (int i_73_ = 2; i_73_ < xtgraphics.nplayers; i_73_++)
                     if (udpmistro.isbot[i_73_]) {
                         u[i_73_].preform(mads[i_73_], contos_0_[i_73_], checkpoints, trackers);
                         udpmistro.setinfo(mads[i_73_], contos_0_[i_73_], u[i_73_], checkpoints.pos[i_73_],
                                 checkpoints.magperc[i_73_], false, i_73_);
                     }
-            if (varXtGraphics.starcnt < 38) {
-                if (varXtGraphics.multion == 1) {
-                    udpmistro.setinfo(mads[varXtGraphics.im], contos_0_[varXtGraphics.im], u[0],
-                            checkpoints.pos[varXtGraphics.im], checkpoints.magperc[varXtGraphics.im],
-                            varXtGraphics.holdit, varXtGraphics.im);
+            if (xtgraphics.starcnt < 38) {
+                if (xtgraphics.multion == 1) {
+                    udpmistro.setinfo(mads[xtgraphics.im], contos_0_[xtgraphics.im], u[0],
+                            checkpoints.pos[xtgraphics.im], checkpoints.magperc[xtgraphics.im],
+                            xtgraphics.holdit, xtgraphics.im);
                     if (view == 0) {
-                        medium.follow(contos_0_[varXtGraphics.im], mads[varXtGraphics.im].cxz, u[0].lookback);
-                        varXtGraphics.stat(mads[varXtGraphics.im], contos_0_[varXtGraphics.im], checkpoints, u[0],
+                        medium.follow(contos_0_[xtgraphics.im], mads[xtgraphics.im].cxz, u[0].lookback);
+                        xtgraphics.stat(mads[xtgraphics.im], contos_0_[xtgraphics.im], checkpoints, u[0],
                                 true);
-                        if (mads[varXtGraphics.im].outshakedam > 0) {
-                            shaka = mads[varXtGraphics.im].outshakedam / 20;
+                        if (mads[xtgraphics.im].outshakedam > 0) {
+                            shaka = mads[xtgraphics.im].outshakedam / 20;
                             if (shaka > 25)
                                 shaka = 25;
                         }
@@ -2492,14 +2492,14 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                         lmxz = medium.xz;
                     }
                     if (view == 1) {
-                        medium.around(contos_0_[varXtGraphics.im], false);
-                        varXtGraphics.stat(mads[varXtGraphics.im], contos_0_[varXtGraphics.im], checkpoints, u[0],
+                        medium.around(contos_0_[xtgraphics.im], false);
+                        xtgraphics.stat(mads[xtgraphics.im], contos_0_[xtgraphics.im], checkpoints, u[0],
                                 false);
                         mvect = 80;
                     }
                     if (view == 2) {
-                        medium.watch(contos_0_[varXtGraphics.im], mads[varXtGraphics.im].mxz);
-                        varXtGraphics.stat(mads[varXtGraphics.im], contos_0_[varXtGraphics.im], checkpoints, u[0],
+                        medium.watch(contos_0_[xtgraphics.im], mads[xtgraphics.im].mxz);
+                        xtgraphics.stat(mads[xtgraphics.im], contos_0_[xtgraphics.im], checkpoints, u[0],
                                 false);
                         mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
                         if (mvect > 90)
@@ -2508,54 +2508,54 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                     }
                 } else {
                     if (view == 0) {
-                        medium.getaround(contos_0_[varXtGraphics.im]);
+                        medium.getaround(contos_0_[xtgraphics.im]);
                         mvect = 80;
                     }
                     if (view == 1) {
-                        medium.getfollow(contos_0_[varXtGraphics.im], mads[varXtGraphics.im].cxz, u[0].lookback);
+                        medium.getfollow(contos_0_[xtgraphics.im], mads[xtgraphics.im].cxz, u[0].lookback);
                         mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
                         if (mvect > 90)
                             mvect = 90;
                         lmxz = medium.xz;
                     }
                     if (view == 2) {
-                        medium.watch(contos_0_[varXtGraphics.im], mads[varXtGraphics.im].mxz);
+                        medium.watch(contos_0_[xtgraphics.im], mads[xtgraphics.im].mxz);
                         mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
                         if (mvect > 90)
                             mvect = 90;
                         lmxz = medium.xz;
                     }
-                    varXtGraphics.stat(mads[varXtGraphics.im], contos_0_[varXtGraphics.im], checkpoints, u[0], true);
+                    xtgraphics.stat(mads[xtgraphics.im], contos_0_[xtgraphics.im], checkpoints, u[0], true);
                 }
                 if (mouses == 1) {
-                    if (varXtGraphics.holdit && varXtGraphics.exitm != 4 && varXtGraphics.multion == 1)
+                    if (xtgraphics.holdit && xtgraphics.exitm != 4 && xtgraphics.multion == 1)
                         u[0].enter = true;
                     mouses = 0;
                 }
             } else {
-                medium.around(contos_0_[varXtGraphics.im], true);
+                medium.around(contos_0_[xtgraphics.im], true);
                 mvect = 80;
-                if (varXtGraphics.starcnt == 39)
-                    varXtGraphics.waitenter();
-                if (varXtGraphics.starcnt == 38) {
-                    varXtGraphics.forstart = 0;
+                if (xtgraphics.starcnt == 39)
+                    xtgraphics.waitenter();
+                if (xtgraphics.starcnt == 38) {
+                    xtgraphics.forstart = 0;
                     mouses = 0;
                     medium.vert = false;
                     medium.adv = 900;
                     medium.vxz = 180;
-                    checkpoints.checkstat(mads, contos_0_, record, varXtGraphics.nplayers, varXtGraphics.im,
-                            varXtGraphics.multion);
-                    medium.follow(contos_0_[varXtGraphics.im], mads[varXtGraphics.im].cxz, 0);
-                    varXtGraphics.stat(mads[varXtGraphics.im], contos_0_[varXtGraphics.im], checkpoints, u[0], true);
+                    checkpoints.checkstat(mads, contos_0_, record, xtgraphics.nplayers, xtgraphics.im,
+                            xtgraphics.multion);
+                    medium.follow(contos_0_[xtgraphics.im], mads[xtgraphics.im].cxz, 0);
+                    xtgraphics.stat(mads[xtgraphics.im], contos_0_[xtgraphics.im], checkpoints, u[0], true);
                     rd.setColor(new Color(255, 255, 255));
                     rd.fillRect(0, 0, 800, 450);
                 }
             }
-            varXtGraphics.multistat(u[0], checkpoints, xm, ym, moused, udpmistro);
+            xtgraphics.multistat(u[0], checkpoints, xm, ym, moused, udpmistro);
         }
-        if (varXtGraphics.fase == -1) {
+        if (xtgraphics.fase == -1) {
             if (i_6_ == 0)
-                for (int i_74_ = 0; i_74_ < varXtGraphics.nplayers; i_74_++) {
+                for (int i_74_ = 0; i_74_ < xtgraphics.nplayers; i_74_++) {
                     record.ocar[i_74_] = new ContO(contos_0_[i_74_], 0, 0, 0, 0);
                     contos_0_[i_74_] = new ContO(record.car[0][i_74_], 0, 0, 0, 0);
                 }
@@ -2592,7 +2592,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 u[0].handb = false;
                 mouses = 0;
             }
-            for (int i_83_ = 0; i_83_ < varXtGraphics.nplayers; i_83_++) {
+            for (int i_83_ = 0; i_83_ < xtgraphics.nplayers; i_83_++) {
                 if (record.fix[i_83_] == i_6_)
                     if (contos_0_[i_83_].dist == 0)
                         contos_0_[i_83_].fcnt = 8;
@@ -2608,26 +2608,26 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
             }
             if (++i_6_ == 300) {
                 i_6_ = 0;
-                varXtGraphics.fase = -6;
+                xtgraphics.fase = -6;
             } else
-                varXtGraphics.replyn();
+                xtgraphics.replyn();
             medium.around(contos_0_[0], false);
         }
-        if (varXtGraphics.fase == -2) {
-            if (varXtGraphics.multion >= 2)
+        if (xtgraphics.fase == -2) {
+            if (xtgraphics.multion >= 2)
                 record.hcaught = false;
             u[0].falseo(3);
             if (record.hcaught && record.wasted == 0 && record.whenwasted != 229
-                    && (checkpoints.stage == 1 || checkpoints.stage == 2) && varXtGraphics.looped != 0)
+                    && (checkpoints.stage == 1 || checkpoints.stage == 2) && xtgraphics.looped != 0)
                 record.hcaught = false;
             if (record.hcaught) {
                 rd.setColor(new Color(0, 0, 0));
                 rd.fillRect(0, 0, 800, 450);
                 //repaint();
             }
-            if (varXtGraphics.multion != 0) {
+            if (xtgraphics.multion != 0) {
                 udpmistro.UDPquit();
-                varXtGraphics.stopchat();
+                xtgraphics.stopchat();
                 if (cmsg.isShowing())
                     cmsg.setVisible(false);
                 cmsg.setText("");
@@ -2641,15 +2641,15 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 medium.adv = (int) (900.0F * medium.random());
                 medium.vxz = (int) (360.0F * medium.random());
                 i_6_ = 0;
-                varXtGraphics.fase = -3;
+                xtgraphics.fase = -3;
                 i_7_ = 0;
                 i_8_ = 0;
             } else {
                 i_6_ = -2;
-                varXtGraphics.fase = -4;
+                xtgraphics.fase = -4;
             }
         }
-        if (varXtGraphics.fase == -3) {
+        if (xtgraphics.fase == -3) {
             if (i_6_ == 0) {
                 if (record.wasted == 0) {
                     if (record.whenwasted == 229) {
@@ -2664,7 +2664,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                     }
                 } else if (record.closefinish != 0 && i_8_ != 0)
                     medium.vxz += 90;
-                for (int i_84_ = 0; i_84_ < varXtGraphics.nplayers; i_84_++)
+                for (int i_84_ = 0; i_84_ < xtgraphics.nplayers; i_84_++)
                     contos_0_[i_84_] = new ContO(record.starcar[i_84_], 0, 0, 0, 0);
             }
             medium.d(rd);
@@ -2694,7 +2694,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 for (int i_92_ = 0; i_92_ < i_85_; i_92_++)
                     if (is_87_[i_92_] == i_91_)
                         contos_0_[is[i_92_]].d(rd);
-            for (int i_93_ = 0; i_93_ < varXtGraphics.nplayers; i_93_++) {
+            for (int i_93_ = 0; i_93_ < xtgraphics.nplayers; i_93_++) {
                 if (record.hfix[i_93_] == i_6_)
                     if (contos_0_[i_93_].dist == 0)
                         contos_0_[i_93_].fcnt = 8;
@@ -2704,31 +2704,31 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                     contos_0_[i_93_] = new ContO(contos[mads[i_93_].cn], 0, 0, 0, 0);
                     record.cntdest[i_93_] = 0;
                 }
-                record.playh(contos_0_[i_93_], mads[i_93_], i_93_, i_6_, varXtGraphics.im);
+                record.playh(contos_0_[i_93_], mads[i_93_], i_93_, i_6_, xtgraphics.im);
             }
             if (i_8_ == 2 && i_6_ == 299)
                 u[0].enter = true;
             if (u[0].enter || u[0].handb) {
-                varXtGraphics.fase = -4;
+                xtgraphics.fase = -4;
                 u[0].enter = false;
                 u[0].handb = false;
                 i_6_ = -7;
             } else {
-                varXtGraphics.levelhigh(record.wasted, record.whenwasted, record.closefinish, i_6_, checkpoints.stage);
+                xtgraphics.levelhigh(record.wasted, record.whenwasted, record.closefinish, i_6_, checkpoints.stage);
                 if (i_6_ == 0 || i_6_ == 1 || i_6_ == 2) {
                     rd.setColor(new Color(0, 0, 0));
                     rd.fillRect(0, 0, 800, 450);
                 }
-                if (record.wasted != varXtGraphics.im) {
+                if (record.wasted != xtgraphics.im) {
                     if (record.closefinish == 0) {
                         if (i_7_ == 9 || i_7_ == 11) {
                             rd.setColor(new Color(255, 255, 255));
                             rd.fillRect(0, 0, 800, 450);
                         }
                         if (i_7_ == 0)
-                            medium.around(contos_0_[varXtGraphics.im], false);
+                            medium.around(contos_0_[xtgraphics.im], false);
                         if (i_7_ > 0 && i_7_ < 20)
-                            medium.transaround(contos_0_[varXtGraphics.im], contos_0_[record.wasted], i_7_);
+                            medium.transaround(contos_0_[xtgraphics.im], contos_0_[record.wasted], i_7_);
                         if (i_7_ == 20)
                             medium.around(contos_0_[record.wasted], false);
                         if (i_6_ > record.whenwasted && i_7_ != 20)
@@ -2740,17 +2740,17 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                         }
                     } else if (record.closefinish == 1) {
                         if (i_7_ == 0)
-                            medium.around(contos_0_[varXtGraphics.im], false);
+                            medium.around(contos_0_[xtgraphics.im], false);
                         if (i_7_ > 0 && i_7_ < 20)
-                            medium.transaround(contos_0_[varXtGraphics.im], contos_0_[record.wasted], i_7_);
+                            medium.transaround(contos_0_[xtgraphics.im], contos_0_[record.wasted], i_7_);
                         if (i_7_ == 20)
                             medium.around(contos_0_[record.wasted], false);
                         if (i_7_ > 20 && i_7_ < 40)
-                            medium.transaround(contos_0_[record.wasted], contos_0_[varXtGraphics.im], i_7_ - 20);
+                            medium.transaround(contos_0_[record.wasted], contos_0_[xtgraphics.im], i_7_ - 20);
                         if (i_7_ == 40)
-                            medium.around(contos_0_[varXtGraphics.im], false);
+                            medium.around(contos_0_[xtgraphics.im], false);
                         if (i_7_ > 40 && i_7_ < 60)
-                            medium.transaround(contos_0_[varXtGraphics.im], contos_0_[record.wasted], i_7_ - 40);
+                            medium.transaround(contos_0_[xtgraphics.im], contos_0_[record.wasted], i_7_ - 40);
                         if (i_7_ == 60)
                             medium.around(contos_0_[record.wasted], false);
                         if (i_6_ > 160 && i_7_ < 20)
@@ -2766,23 +2766,23 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                         }
                     } else {
                         if (i_7_ == 0)
-                            medium.around(contos_0_[varXtGraphics.im], false);
+                            medium.around(contos_0_[xtgraphics.im], false);
                         if (i_7_ > 0 && i_7_ < 20)
-                            medium.transaround(contos_0_[varXtGraphics.im], contos_0_[record.wasted], i_7_);
+                            medium.transaround(contos_0_[xtgraphics.im], contos_0_[record.wasted], i_7_);
                         if (i_7_ == 20)
                             medium.around(contos_0_[record.wasted], false);
                         if (i_7_ > 20 && i_7_ < 40)
-                            medium.transaround(contos_0_[record.wasted], contos_0_[varXtGraphics.im], i_7_ - 20);
+                            medium.transaround(contos_0_[record.wasted], contos_0_[xtgraphics.im], i_7_ - 20);
                         if (i_7_ == 40)
-                            medium.around(contos_0_[varXtGraphics.im], false);
+                            medium.around(contos_0_[xtgraphics.im], false);
                         if (i_7_ > 40 && i_7_ < 60)
-                            medium.transaround(contos_0_[varXtGraphics.im], contos_0_[record.wasted], i_7_ - 40);
+                            medium.transaround(contos_0_[xtgraphics.im], contos_0_[record.wasted], i_7_ - 40);
                         if (i_7_ == 60)
                             medium.around(contos_0_[record.wasted], false);
                         if (i_7_ > 60 && i_7_ < 80)
-                            medium.transaround(contos_0_[record.wasted], contos_0_[varXtGraphics.im], i_7_ - 60);
+                            medium.transaround(contos_0_[record.wasted], contos_0_[xtgraphics.im], i_7_ - 60);
                         if (i_7_ == 80)
-                            medium.around(contos_0_[varXtGraphics.im], false);
+                            medium.around(contos_0_[xtgraphics.im], false);
                         if (i_6_ > 90 && i_7_ < 20)
                             i_7_++;
                         if (i_6_ > 160 && i_7_ < 40)
@@ -2816,7 +2816,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                             bool_10_ = false;
                     if (i_6_ > record.whenwasted && i_7_ != i_9_)
                         i_7_++;
-                    medium.around(contos_0_[varXtGraphics.im], false);
+                    medium.around(contos_0_[xtgraphics.im], false);
                     if ((i_7_ == 0 || i_7_ == i_9_) && ++i_6_ == 300) {
                         i_6_ = 0;
                         i_7_ = 0;
@@ -2825,55 +2825,55 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 }
             }
         }
-        if (varXtGraphics.fase == -4) {
+        if (xtgraphics.fase == -4) {
             if (i_6_ == 0) {
-                varXtGraphics.sendwin(checkpoints);
-                if (varXtGraphics.winner && varXtGraphics.multion == 0 && varXtGraphics.gmode != 0
-                        && checkpoints.stage != xtGraphics.nTracks && checkpoints.stage == varXtGraphics.unlocked) {
-                    varXtGraphics.unlocked++;
-                    setcarcookie(varXtGraphics.sc[0], cardefine.names[varXtGraphics.sc[0]], varXtGraphics.arnp,
-                            varXtGraphics.gmode, varXtGraphics.unlocked, false);
-                    varXtGraphics.unlocked--;
+                xtgraphics.sendwin(checkpoints);
+                if (xtgraphics.winner && xtgraphics.multion == 0 && xtgraphics.gmode != 0
+                        && checkpoints.stage != xtGraphics.nTracks && checkpoints.stage == xtgraphics.unlocked) {
+                    xtgraphics.unlocked++;
+                    setcarcookie(xtgraphics.sc[0], cardefine.names[xtgraphics.sc[0]], xtgraphics.arnp,
+                            xtgraphics.gmode, xtgraphics.unlocked, false);
+                    xtgraphics.unlocked--;
                 }
             }
             if (i_6_ <= 0) {
-                rd.drawImage(varXtGraphics.mdness, 289, 30, null);
-                rd.drawImage(varXtGraphics.dude[0], 135, 10, null);
+                rd.drawImage(xtgraphics.mdness, 289, 30, null);
+                rd.drawImage(xtgraphics.dude[0], 135, 10, null);
             }
             if (i_6_ >= 0)
-                varXtGraphics.fleximage(offImage, i_6_, checkpoints.stage);
+                xtgraphics.fleximage(offImage, i_6_, checkpoints.stage);
             if (++i_6_ == 7) {
-                varXtGraphics.fase = -5;
+                xtgraphics.fase = -5;
                 rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
                 rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
             }
         }
-        if (varXtGraphics.fase == -6) {
+        if (xtgraphics.fase == -6) {
             //repaint();
-            varXtGraphics.pauseimage(offImage);
-            varXtGraphics.fase = -7;
+            xtgraphics.pauseimage(offImage);
+            xtgraphics.fase = -7;
             mouses = 0;
         }
-        if (varXtGraphics.fase == -7) {
-            varXtGraphics.pausedgame(checkpoints.stage, u[0], record);
+        if (xtgraphics.fase == -7) {
+            xtgraphics.pausedgame(checkpoints.stage, u[0], record);
             if (i_6_ != 0)
                 i_6_ = 0;
-            varXtGraphics.ctachm(xm, ym, mouses, u[0]);
+            xtgraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2)
                 mouses = 0;
             if (mouses == 1)
                 mouses = 2;
         }
-        if (varXtGraphics.fase == -8) {
-            varXtGraphics.cantreply();
+        if (xtgraphics.fase == -8) {
+            xtgraphics.cantreply();
             if (++i_6_ == 150 || u[0].enter || u[0].handb || mouses == 1) {
-                varXtGraphics.fase = -7;
+                xtgraphics.fase = -7;
                 mouses = 0;
                 u[0].enter = false;
                 u[0].handb = false;
             }
         }
-        if (lostfcs && varXtGraphics.fase == 7001)
+        if (lostfcs && xtgraphics.fase == 7001)
             if (fcscnt == 0) {
                 if (u[0].chatup == 0)
                     requestFocus();
@@ -2881,19 +2881,19 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
             } else
                 fcscnt--;
         //repaint();
-        if (varXtGraphics.im > -1 && varXtGraphics.im < 8) {
+        if (xtgraphics.im > -1 && xtgraphics.im < 8) {
             int i_94_ = 0;
-            if (varXtGraphics.multion == 2 || varXtGraphics.multion == 3) {
-                i_94_ = varXtGraphics.im;
+            if (xtgraphics.multion == 2 || xtgraphics.multion == 3) {
+                i_94_ = xtgraphics.im;
                 u[i_94_].mutem = u[0].mutem;
                 u[i_94_].mutes = u[0].mutes;
             }
-            varXtGraphics.playsounds(mads[varXtGraphics.im], u[i_94_], checkpoints.stage);
+            xtgraphics.playsounds(mads[xtgraphics.im], u[i_94_], checkpoints.stage);
         }
         date = new Date();
         final long l_95_ = date.getTime();
-        if (varXtGraphics.fase == 0 || varXtGraphics.fase == -1 || varXtGraphics.fase == -3
-                || varXtGraphics.fase == 7001) {
+        if (xtgraphics.fase == 0 || xtgraphics.fase == -1 || xtgraphics.fase == -3
+                || xtgraphics.fase == 7001) {
             if (!bool_3_) {
                 f_2_ = f;
                 if (f_2_ < 30.0F)
@@ -2910,7 +2910,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 f_2_ += f_96_;
                 if (f_2_ < 5.0F)
                     f_2_ = 5.0F;
-                medium.adjstfade(f_2_, f_96_, varXtGraphics.starcnt, this);
+                medium.adjstfade(f_2_, f_96_, xtgraphics.starcnt, this);
                 l_1_ = l_95_;
                 i_5_ = 0;
             } else
