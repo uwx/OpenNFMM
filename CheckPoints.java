@@ -23,6 +23,10 @@ public class CheckPoints {
     String name = "hogan rewish";
     int nfix = 0;
     int nlaps = 0;
+    /**
+     * "<strong>No</strong> <strong>T</strong>rees or <strong>B</strong>umps"<br/>
+     * Setting this to true will disable trees and bumps.
+     */
     boolean notb = false;
     int nsp = 0;
     int nto = 0;
