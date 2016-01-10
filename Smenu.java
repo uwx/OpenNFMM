@@ -83,9 +83,9 @@ public class Smenu {
         sopts[1] = string;
     }
 
-    public void addw(final String string, final String string_0_) {
+    public void addw(final String string, final String string0) {
         w = 300;
-        opts[no] = string_0_;
+        opts[no] = string0;
         sopts[no] = string;
         if (no < opts.length - 1)
             no++;
@@ -96,52 +96,52 @@ public class Smenu {
         dis = true;
     }
 
-    public boolean draw(final Graphics2D graphics2d, final int i, final int i_4_, final boolean bool, final int i_5_,
-            boolean bool_6_) {
-        boolean bool_7_ = false;
+    public boolean draw(final Graphics2D graphics2d, final int i, final int i4, final boolean bool, final int i5,
+            boolean bool6) {
+        boolean bool7 = false;
         if (revup) {
-            if (bool_6_)
-                bool_6_ = false;
+            if (bool6)
+                bool6 = false;
             else
-                bool_6_ = true;
+                bool6 = true;
             revup = false;
         }
         if (show) {
             if (alphad)
                 graphics2d.setComposite(AlphaComposite.getInstance(3, 0.7F));
-            boolean bool_8_ = false;
+            boolean bool8 = false;
             if (bool) {
                 if (!om) {
                     om = true;
-                    bool_8_ = true;
+                    bool8 = true;
                 }
             } else if (om)
                 om = false;
-            boolean bool_9_ = false;
+            boolean bool9 = false;
             if ((bcol.getRed() + bcol.getGreen() + bcol.getBlue())
                     / 3 > (fcol.getRed() + fcol.getGreen() + fcol.getBlue()) / 3)
-                bool_9_ = true;
-            boolean bool_10_ = false;
-            if (i > x && i < x + w && i_4_ > y + 1 && i_4_ < y + 22 && !open && !dis)
-                bool_10_ = true;
-            if (!open && bool_10_ && bool_8_ && !dis) {
+                bool9 = true;
+            boolean bool10 = false;
+            if (i > x && i < x + w && i4 > y + 1 && i4 < y + 22 && !open && !dis)
+                bool10 = true;
+            if (!open && bool10 && bool8 && !dis) {
                 open = true;
-                bool_8_ = false;
+                bool8 = false;
             }
             graphics2d.setFont(font);
             ftm = graphics2d.getFontMetrics();
             if (open) {
-                final int i_11_ = 4 + (ftm.getHeight() + 2) * no;
-                if (!bool_6_) {
-                    int i_12_ = 0;
+                final int i11 = 4 + (ftm.getHeight() + 2) * no;
+                if (!bool6) {
+                    int i12 = 0;
                     graphics2d.setColor(bcol);
-                    graphics2d.fillRect(x, y + 23, w, i_11_);
+                    graphics2d.fillRect(x, y + 23, w, i11);
                     graphics2d.setColor(new Color((fcol.getRed() + bcol.getRed()) / 2,
                             (fcol.getGreen() + bcol.getGreen()) / 2, (fcol.getBlue() + bcol.getBlue()) / 2));
-                    graphics2d.drawRect(x, y + 23, w, i_11_);
-                    if (y + 23 + i_11_ > i_5_) {
-                        graphics2d.drawLine(x + w - 18, y + 17, x + w - 18, i_5_);
-                        if (bool_9_)
+                    graphics2d.drawRect(x, y + 23, w, i11);
+                    if (y + 23 + i11 > i5) {
+                        graphics2d.drawLine(x + w - 18, y + 17, x + w - 18, i5);
+                        if (bool9)
                             graphics2d.setColor(new Color((bcol.getRed() + 510) / 3, (bcol.getGreen() + 510) / 3,
                                     (bcol.getBlue() + 510) / 3));
                         else
@@ -158,68 +158,68 @@ public class Smenu {
                         graphics2d.drawLine(x + w - 8, y + 11 + 29 + scra, x + w - 8, y + 12 + 29 + scra);
                         graphics2d.drawLine(x + w - 7, y + 10 + 29 + scra, x + w - 7, y + 11 + 29 + scra);
                         graphics2d.drawLine(x + w - 6, y + 9 + 29 + scra, x + w - 6, y + 10 + 29 + scra);
-                        i_12_ = -18;
+                        i12 = -18;
                         if (bool) {
-                            if (i > x + w - 18 && i < x + w && i_4_ > y + 25 && i_4_ < i_5_) {
-                                bool_8_ = false;
+                            if (i > x + w - 18 && i < x + w && i4 > y + 25 && i4 < i5) {
+                                bool8 = false;
                                 onsc = true;
                             }
                         } else if (onsc)
                             onsc = false;
                         if (onsc) {
-                            scra = i_4_ - (y + 25) - 15;
+                            scra = i4 - (y + 25) - 15;
                             if (scra < 0)
                                 scra = 0;
-                            final int i_13_ = i_5_ - (y + 25) - 33;
-                            if (scra > i_13_)
-                                scra = i_13_;
-                            final int i_14_ = no * (ftm.getHeight() + 2) - i_13_ - ftm.getHeight() / 2;
-                            scro = -(int) (scra * ((float) i_14_ / (float) i_13_));
+                            final int i13 = i5 - (y + 25) - 33;
+                            if (scra > i13)
+                                scra = i13;
+                            final int i14 = no * (ftm.getHeight() + 2) - i13 - ftm.getHeight() / 2;
+                            scro = -(int) (scra * ((float) i14 / (float) i13));
                         }
                     }
-                    for (int i_15_ = 0; i_15_ < no; i_15_++)
-                        if (Math.abs(scro) < (i_15_ + 1) * (ftm.getHeight() + 2)) {
+                    for (int i15 = 0; i15 < no; i15++)
+                        if (Math.abs(scro) < (i15 + 1) * (ftm.getHeight() + 2)) {
                             graphics2d.setColor(fcol);
-                            if (i > x && i < x + w && i_4_ > y + 25 + scro + i_15_ * (ftm.getHeight() + 2)
-                                    && i_4_ < y + 25 + scro + (i_15_ + 1) * (ftm.getHeight() + 2)) {
-                                if (bool_9_)
+                            if (i > x && i < x + w && i4 > y + 25 + scro + i15 * (ftm.getHeight() + 2)
+                                    && i4 < y + 25 + scro + (i15 + 1) * (ftm.getHeight() + 2)) {
+                                if (bool9)
                                     graphics2d.setColor(new Color((fcol.getRed() + bcol.getRed()) / 2,
                                             (fcol.getGreen() + bcol.getGreen()) / 2,
                                             (fcol.getBlue() + bcol.getBlue()) / 2));
                                 else
                                     graphics2d.setColor(fcol);
-                                graphics2d.fillRect(x + 1, y + 25 + scro + i_15_ * (ftm.getHeight() + 2), w - 1 + i_12_,
+                                graphics2d.fillRect(x + 1, y + 25 + scro + i15 * (ftm.getHeight() + 2), w - 1 + i12,
                                         ftm.getHeight() + 2);
                                 graphics2d.setColor(bcol);
-                                if (bool_8_) {
-                                    if (!rooms || !opts[i_15_].equals("full")) {
-                                        sel = i_15_;
-                                        if (rooms && i_15_ != 0)
-                                            sopts[i_15_] = " ";
+                                if (bool8) {
+                                    if (!rooms || !opts[i15].equals("full")) {
+                                        sel = i15;
+                                        if (rooms && i15 != 0)
+                                            sopts[i15] = " ";
                                     } else
                                         kmoused = 20;
                                     open = false;
                                 }
                             }
-                            if (rooms && sopts[i_15_].indexOf("10 / 10") != -1)
+                            if (rooms && sopts[i15].indexOf("10 / 10") != -1)
                                 graphics2d.setColor(new Color(255, 0, 0));
-                            graphics2d.drawString(sopts[i_15_], x + 4, y + 38 + scro + i_15_ * (ftm.getHeight() + 2));
+                            graphics2d.drawString(sopts[i15], x + 4, y + 38 + scro + i15 * (ftm.getHeight() + 2));
                         }
-                    if (i_12_ != 0) {
+                    if (i12 != 0) {
                         graphics2d.setColor(new Color((fcol.getRed() + bcol.getRed()) / 2,
                                 (fcol.getGreen() + bcol.getGreen()) / 2, (fcol.getBlue() + bcol.getBlue()) / 2));
-                        graphics2d.drawLine(x, i_5_ - 1, x + w, i_5_ - 1);
+                        graphics2d.drawLine(x, i5 - 1, x + w, i5 - 1);
                     }
                 } else {
-                    int i_16_ = 0;
+                    int i16 = 0;
                     graphics2d.setColor(bcol);
-                    graphics2d.fillRect(x, y - i_11_, w, i_11_);
+                    graphics2d.fillRect(x, y - i11, w, i11);
                     graphics2d.setColor(new Color((fcol.getRed() + bcol.getRed()) / 2,
                             (fcol.getGreen() + bcol.getGreen()) / 2, (fcol.getBlue() + bcol.getBlue()) / 2));
-                    graphics2d.drawRect(x, y - i_11_, w, i_11_);
-                    if (y - i_11_ < 0) {
+                    graphics2d.drawRect(x, y - i11, w, i11);
+                    if (y - i11 < 0) {
                         graphics2d.drawLine(x + w - 18, 0, x + w - 18, y);
-                        if (bool_9_)
+                        if (bool9)
                             graphics2d.setColor(new Color((bcol.getRed() + 510) / 3, (bcol.getGreen() + 510) / 3,
                                     (bcol.getBlue() + 510) / 3));
                         else
@@ -236,54 +236,54 @@ public class Smenu {
                         graphics2d.drawLine(x + w - 8, y + 11 - 29 - scra, x + w - 8, y + 10 - 29 - scra);
                         graphics2d.drawLine(x + w - 7, y + 12 - 29 - scra, x + w - 7, y + 11 - 29 - scra);
                         graphics2d.drawLine(x + w - 6, y + 13 - 29 - scra, x + w - 6, y + 12 - 29 - scra);
-                        i_16_ = -18;
+                        i16 = -18;
                         if (bool) {
-                            if (i > x + w - 18 && i < x + w && i_4_ > 0 && i_4_ < y - 3) {
-                                bool_8_ = false;
+                            if (i > x + w - 18 && i < x + w && i4 > 0 && i4 < y - 3) {
+                                bool8 = false;
                                 onsc = true;
                             }
                         } else if (onsc)
                             onsc = false;
                         if (onsc) {
-                            scra = y - 3 - 15 - i_4_;
+                            scra = y - 3 - 15 - i4;
                             if (scra < 0)
                                 scra = 0;
-                            final int i_17_ = y - 35;
-                            if (scra > i_17_)
-                                scra = i_17_;
-                            final int i_18_ = no * (ftm.getHeight() + 2) - i_17_ - ftm.getHeight() / 2;
-                            scro = (int) (scra * ((float) i_18_ / (float) i_17_));
+                            final int i17 = y - 35;
+                            if (scra > i17)
+                                scra = i17;
+                            final int i18 = no * (ftm.getHeight() + 2) - i17 - ftm.getHeight() / 2;
+                            scro = (int) (scra * ((float) i18 / (float) i17));
                         }
                     }
-                    for (int i_19_ = 0; i_19_ < no; i_19_++)
-                        if (Math.abs(scro) < (i_19_ + 1) * (ftm.getHeight() + 2)) {
+                    for (int i19 = 0; i19 < no; i19++)
+                        if (Math.abs(scro) < (i19 + 1) * (ftm.getHeight() + 2)) {
                             graphics2d.setColor(fcol);
-                            if (i > x && i < x + w && i_4_ < y - 18 + scro - (i_19_ - 1) * (ftm.getHeight() + 2)
-                                    && i_4_ > y - 18 + scro - i_19_ * (ftm.getHeight() + 2)) {
-                                if (bool_9_)
+                            if (i > x && i < x + w && i4 < y - 18 + scro - (i19 - 1) * (ftm.getHeight() + 2)
+                                    && i4 > y - 18 + scro - i19 * (ftm.getHeight() + 2)) {
+                                if (bool9)
                                     graphics2d.setColor(new Color((fcol.getRed() + bcol.getRed()) / 2,
                                             (fcol.getGreen() + bcol.getGreen()) / 2,
                                             (fcol.getBlue() + bcol.getBlue()) / 2));
                                 else
                                     graphics2d.setColor(fcol);
-                                graphics2d.fillRect(x + 1, y - 18 + scro - i_19_ * (ftm.getHeight() + 2), w - 1 + i_16_,
+                                graphics2d.fillRect(x + 1, y - 18 + scro - i19 * (ftm.getHeight() + 2), w - 1 + i16,
                                         ftm.getHeight() + 2);
                                 graphics2d.setColor(bcol);
-                                if (bool_8_) {
-                                    sel = i_19_;
+                                if (bool8) {
+                                    sel = i19;
                                     open = false;
                                 }
                             }
-                            graphics2d.drawString(sopts[i_19_], x + 4, y - 5 + scro - i_19_ * (ftm.getHeight() + 2));
+                            graphics2d.drawString(sopts[i19], x + 4, y - 5 + scro - i19 * (ftm.getHeight() + 2));
                         }
-                    if (i_16_ != 0) {
+                    if (i16 != 0) {
                         graphics2d.setColor(new Color((fcol.getRed() + bcol.getRed()) / 2,
                                 (fcol.getGreen() + bcol.getGreen()) / 2, (fcol.getBlue() + bcol.getBlue()) / 2));
                         graphics2d.drawLine(x, 0, x + w, 0);
                     }
                 }
-                bool_7_ = true;
-                if (bool_8_)
+                bool7 = true;
+                if (bool8)
                     open = false;
             } else {
                 if (scro != 0)
@@ -291,8 +291,8 @@ public class Smenu {
                 if (scra != 0)
                     scra = 0;
             }
-            if (bool_10_) {
-                if (bool_9_)
+            if (bool10) {
+                if (bool9)
                     graphics2d.setColor(new Color((fcol.getRed() + bcol.getRed()) / 2,
                             (fcol.getGreen() + bcol.getGreen()) / 2, (fcol.getBlue() + bcol.getBlue()) / 2));
                 else
@@ -303,7 +303,7 @@ public class Smenu {
             graphics2d.setColor(new Color((fcol.getRed() + bcol.getRed()) / 2, (fcol.getGreen() + bcol.getGreen()) / 2,
                     (fcol.getBlue() + bcol.getBlue()) / 2));
             graphics2d.drawRect(x, y + 1, w, 21);
-            if (bool_9_)
+            if (bool9)
                 graphics2d.setColor(
                         new Color((bcol.getRed() + 255) / 2, (bcol.getGreen() + 255) / 2, (bcol.getBlue() + 255) / 2));
             else
@@ -316,7 +316,7 @@ public class Smenu {
                 graphics2d.setColor(new Color((fcol.getRed() + bcol.getRed() * 2) / 3,
                         (fcol.getGreen() + bcol.getGreen() * 2) / 3, (fcol.getBlue() + bcol.getBlue() * 2) / 3));
             graphics2d.drawRect(x + w - 16, y + 3, 14, 17);
-            if (bool_9_)
+            if (bool9)
                 graphics2d.setColor(
                         new Color((bcol.getRed() + 510) / 3, (bcol.getGreen() + 510) / 3, (bcol.getBlue() + 510) / 3));
             else
@@ -334,14 +334,14 @@ public class Smenu {
             graphics2d.drawLine(x + w - 8, y + 11, x + w - 8, y + 12);
             graphics2d.drawLine(x + w - 7, y + 10, x + w - 7, y + 11);
             graphics2d.drawLine(x + w - 6, y + 9, x + w - 6, y + 10);
-            if (bool_10_)
+            if (bool10)
                 graphics2d.setColor(bcol);
             else
                 graphics2d.setColor(fcol);
             if (dis)
                 graphics2d.setColor(new Color((fcol.getRed() + bcol.getRed() * 2) / 3,
                         (fcol.getGreen() + bcol.getGreen() * 2) / 3, (fcol.getBlue() + bcol.getBlue() * 2) / 3));
-            if (carsel && !bool_10_)
+            if (carsel && !bool10)
                 if (flksel) {
                     graphics2d.setColor(new Color(240, 240, 240));
                     flksel = false;
@@ -356,7 +356,7 @@ public class Smenu {
             if (scra != 0)
                 scra = 0;
         }
-        return bool_7_;
+        return bool7;
     }
 
     @Deprecated
@@ -416,18 +416,18 @@ public class Smenu {
         return show;
     }
 
-    public void move(final int i, final int i_3_) {
+    public void move(final int i, final int i3) {
         x = i;
-        y = i_3_;
+        y = i3;
     }
 
     public void remove(final String string) {
         for (int i = 0; i < no; i++)
             if (opts[i].equals(string)) {
-                for (int i_1_ = i; i_1_ < no; i_1_++)
-                    if (i_1_ != no - 1) {
-                        opts[i_1_] = opts[i_1_ + 1];
-                        sopts[i_1_] = sopts[i_1_ + 1];
+                for (int i1 = i; i1 < no; i1++)
+                    if (i1 != no - 1) {
+                        opts[i1] = opts[i1 + 1];
+                        sopts[i1] = sopts[i1 + 1];
                     }
                 no--;
                 break;
@@ -465,9 +465,9 @@ public class Smenu {
         fcol = color;
     }
 
-    public void setSize(final int i, final int i_2_) {
+    public void setSize(final int i, final int i2) {
         w = i;
-        h = i_2_;
+        h = i2;
     }
 
     public void setVisible(final boolean v) {

@@ -19,12 +19,12 @@ public class udpOnline implements Runnable {
     boolean started = false;
     UDPMistro um;
 
-    public udpOnline(final UDPMistro udpmistro, final String string, final int i, final int i_0_, final int i_1_) {
+    public udpOnline(final UDPMistro udpmistro, final String string, final int i, final int i0, final int i1) {
         um = udpmistro;
         gameport = i;
-        nu = i_0_;
+        nu = i0;
         try {
-            dSocket = new DatagramSocket(7010 + i_1_ + nu);
+            dSocket = new DatagramSocket(7010 + i1 + nu);
             errd = false;
             IPAddress = InetAddress.getByName(string);
         } catch (final Exception exception) {
@@ -49,57 +49,57 @@ public class udpOnline implements Runnable {
     }
 
     public String getSvalue(final String string, final int i) {
-        String string_18_ = "";
+        String string18 = "";
         try {
-            int i_19_ = 0;
-            int i_20_ = 0;
-            int i_21_ = 0;
-            String string_22_ = "";
-            String string_23_ = "";
-            for (/**/; i_19_ < string.length() && i_21_ != 2; i_19_++) {
-                string_22_ = new StringBuilder().append("").append(string.charAt(i_19_)).toString();
-                if (string_22_.equals("|")) {
-                    i_20_++;
-                    if (i_21_ == 1 || i_20_ > i)
-                        i_21_ = 2;
-                } else if (i_20_ == i) {
-                    string_23_ = new StringBuilder().append(string_23_).append(string_22_).toString();
-                    i_21_ = 1;
+            int i19 = 0;
+            int i20 = 0;
+            int i21 = 0;
+            String string22 = "";
+            String string23 = "";
+            for (/**/; i19 < string.length() && i21 != 2; i19++) {
+                string22 = new StringBuilder().append("").append(string.charAt(i19)).toString();
+                if (string22.equals("|")) {
+                    i20++;
+                    if (i21 == 1 || i20 > i)
+                        i21 = 2;
+                } else if (i20 == i) {
+                    string23 = new StringBuilder().append(string23).append(string22).toString();
+                    i21 = 1;
                 }
             }
-            string_18_ = string_23_;
+            string18 = string23;
         } catch (final Exception exception) {
             /* empty */
         }
-        return string_18_;
+        return string18;
     }
 
     public int getvalue(final String string, final int i) {
-        int i_12_ = -1;
+        int i12 = -1;
         try {
-            int i_13_ = 0;
-            int i_14_ = 0;
-            int i_15_ = 0;
-            String string_16_ = "";
-            String string_17_ = "";
-            for (/**/; i_13_ < string.length() && i_15_ != 2; i_13_++) {
-                string_16_ = new StringBuilder().append("").append(string.charAt(i_13_)).toString();
-                if (string_16_.equals("|")) {
-                    i_14_++;
-                    if (i_15_ == 1 || i_14_ > i)
-                        i_15_ = 2;
-                } else if (i_14_ == i) {
-                    string_17_ = new StringBuilder().append(string_17_).append(string_16_).toString();
-                    i_15_ = 1;
+            int i13 = 0;
+            int i14 = 0;
+            int i15 = 0;
+            String string16 = "";
+            String string17 = "";
+            for (/**/; i13 < string.length() && i15 != 2; i13++) {
+                string16 = new StringBuilder().append("").append(string.charAt(i13)).toString();
+                if (string16.equals("|")) {
+                    i14++;
+                    if (i15 == 1 || i14 > i)
+                        i15 = 2;
+                } else if (i14 == i) {
+                    string17 = new StringBuilder().append(string17).append(string16).toString();
+                    i15 = 1;
                 }
             }
-            if (string_17_.equals(""))
-                string_17_ = "-1";
-            i_12_ = Integer.valueOf(string_17_).intValue();
+            if (string17.equals(""))
+                string17 = "-1";
+            i12 = Integer.valueOf(string17).intValue();
         } catch (final Exception exception) {
             /* empty */
         }
-        return i_12_;
+        return i12;
     }
 
     @Override
@@ -120,36 +120,36 @@ public class udpOnline implements Runnable {
         try {
             final byte[] is = new byte[4];
             final DatagramPacket datagrampacket = new DatagramPacket(is, is.length, IPAddress, gameport);
-            final String string_2_ = new StringBuilder().append("").append(string).append("|").append(um.im).append("|")
+            final String string2 = new StringBuilder().append("").append(string).append("|").append(um.im).append("|")
                     .append(um.frame[um.im][0]).append("|").append(um.info[um.im][0]).append("|").toString();
-            final byte[] is_3_ = string_2_.getBytes();
-            datagrampacket.setData(is_3_);
+            final byte[] is3 = string2.getBytes();
+            datagrampacket.setData(is3);
             dSocket.send(datagrampacket);
             for (int i = 0; i < um.nplayers - 1; i++) {
                 dSocket.receive(datagrampacket);
-                final String string_4_ = new String(datagrampacket.getData());
+                final String string4 = new String(datagrampacket.getData());
                 if ((nu == 0 || !um.go) && i == 0) {
-                    string = getSvalue(string_4_, 0);
+                    string = getSvalue(string4, 0);
                     if (!um.go && string.equals("1111111"))
                         um.go = true;
                 }
-                final int i_5_ = getvalue(string_4_, 1);
-                if (i_5_ >= 0 && i_5_ < um.nplayers) {
-                    final int i_6_ = getvalue(string_4_, 2);
-                    int i_7_ = 0;
-                    for (int i_8_ = 0; i_8_ < 3; i_8_++)
-                        if (i_6_ != um.frame[i_5_][i_8_])
-                            i_7_++;
-                    if (i_7_ == 3)
-                        for (int i_9_ = 0; i_9_ < 3; i_9_++)
-                            if (i_6_ > um.frame[i_5_][i_9_]) {
-                                for (int i_10_ = 2; i_10_ >= i_9_ + 1; i_10_--) {
-                                    um.frame[i_5_][i_10_] = um.frame[i_5_][i_10_ - 1];
-                                    um.info[i_5_][i_10_] = um.info[i_5_][i_10_ - 1];
+                final int i5 = getvalue(string4, 1);
+                if (i5 >= 0 && i5 < um.nplayers) {
+                    final int i6 = getvalue(string4, 2);
+                    int i7 = 0;
+                    for (int i8 = 0; i8 < 3; i8++)
+                        if (i6 != um.frame[i5][i8])
+                            i7++;
+                    if (i7 == 3)
+                        for (int i9 = 0; i9 < 3; i9++)
+                            if (i6 > um.frame[i5][i9]) {
+                                for (int i10 = 2; i10 >= i9 + 1; i10--) {
+                                    um.frame[i5][i10] = um.frame[i5][i10 - 1];
+                                    um.info[i5][i10] = um.info[i5][i10 - 1];
                                 }
-                                um.frame[i_5_][i_9_] = i_6_;
-                                um.info[i_5_][i_9_] = getSvalue(string_4_, 3);
-                                i_9_ = 3;
+                                um.frame[i5][i9] = i6;
+                                um.info[i5][i9] = getSvalue(string4, 3);
+                                i9 = 3;
                             }
                 }
             }
@@ -169,7 +169,7 @@ public class udpOnline implements Runnable {
         } catch (final Exception exception) {
             try {
                 dSocket.close();
-            } catch (final Exception exception_11_) {
+            } catch (final Exception exception11) {
                 /* empty */
             }
             dSocket = null;

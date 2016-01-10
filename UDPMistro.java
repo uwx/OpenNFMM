@@ -53,95 +53,95 @@ public class UDPMistro implements Runnable {
 
     public int getncoms(final String string) {
         int i = 0;
-        int i_89_ = 0;
-        String string_90_ = "";
-        for (/**/; i_89_ < string.length(); i_89_++) {
-            string_90_ = new StringBuilder().append("").append(string.charAt(i_89_)).toString();
-            if (string_90_.equals(","))
+        int i89 = 0;
+        String string90 = "";
+        for (/**/; i89 < string.length(); i89++) {
+            string90 = new StringBuilder().append("").append(string.charAt(i89)).toString();
+            if (string90.equals(","))
                 i++;
         }
         return i;
     }
 
     public String getSvalue(final String string, final int i) {
-        String string_83_ = "";
+        String string83 = "";
         try {
-            int i_84_ = 0;
-            int i_85_ = 0;
-            int i_86_ = 0;
-            String string_87_ = "";
-            String string_88_ = "";
-            for (/**/; i_84_ < string.length() && i_86_ != 2; i_84_++) {
-                string_87_ = new StringBuilder().append("").append(string.charAt(i_84_)).toString();
-                if (string_87_.equals(",")) {
-                    i_85_++;
-                    if (i_86_ == 1 || i_85_ > i)
-                        i_86_ = 2;
-                } else if (i_85_ == i) {
-                    string_88_ = new StringBuilder().append(string_88_).append(string_87_).toString();
-                    i_86_ = 1;
+            int i84 = 0;
+            int i85 = 0;
+            int i86 = 0;
+            String string87 = "";
+            String string88 = "";
+            for (/**/; i84 < string.length() && i86 != 2; i84++) {
+                string87 = new StringBuilder().append("").append(string.charAt(i84)).toString();
+                if (string87.equals(",")) {
+                    i85++;
+                    if (i86 == 1 || i85 > i)
+                        i86 = 2;
+                } else if (i85 == i) {
+                    string88 = new StringBuilder().append(string88).append(string87).toString();
+                    i86 = 1;
                 }
             }
-            string_83_ = string_88_;
+            string83 = string88;
         } catch (final Exception exception) {
             /* empty */
         }
-        return string_83_;
+        return string83;
     }
 
     public int getvalue(final String string, final int i) {
-        int i_78_ = -1;
+        int i78 = -1;
         try {
-            int i_79_ = 0;
-            int i_80_ = 0;
-            String string_81_ = "";
-            String string_82_ = "";
-            for (/**/; wx < string.length() && i_80_ != 2; wx++) {
-                string_81_ = new StringBuilder().append("").append(string.charAt(wx)).toString();
-                if (string_81_.equals(",")) {
-                    i_79_++;
-                    if (i_80_ == 1 || i_79_ > i)
-                        i_80_ = 2;
-                } else if (i_79_ == i) {
-                    string_82_ = new StringBuilder().append(string_82_).append(string_81_).toString();
-                    i_80_ = 1;
+            int i79 = 0;
+            int i80 = 0;
+            String string81 = "";
+            String string82 = "";
+            for (/**/; wx < string.length() && i80 != 2; wx++) {
+                string81 = new StringBuilder().append("").append(string.charAt(wx)).toString();
+                if (string81.equals(",")) {
+                    i79++;
+                    if (i80 == 1 || i79 > i)
+                        i80 = 2;
+                } else if (i79 == i) {
+                    string82 = new StringBuilder().append(string82).append(string81).toString();
+                    i80 = 1;
                 }
             }
-            if (string_82_.equals(""))
-                string_82_ = "-1";
-            i_78_ = Integer.valueOf(string_82_).intValue();
+            if (string82.equals(""))
+                string82 = "-1";
+            i78 = Integer.valueOf(string82).intValue();
         } catch (final Exception exception) {
             /* empty */
         }
-        return i_78_;
+        return i78;
     }
 
     public void readContOinfo(final ContO conto, final int i) {
         if (go && force[i] == 1 && !isbot[i]) {
-            int i_37_ = -2;
-            if (i_37_ == -2)
-                for (int i_38_ = 0; i_38_ < 3; i_38_++)
-                    if (frame[i][i_38_] == lframe[i] + 1)
-                        i_37_ = -1;
-            if (i_37_ == -1)
-                for (int i_39_ = 0; i_39_ < 3; i_39_++)
-                    if (frame[i][i_39_] == lframe[i])
-                        i_37_ = i_39_;
-            if (i_37_ > 0) {
-                final String string = info[i][i_37_];
-                final int i_40_ = getncoms(string);
+            int i37 = -2;
+            if (i37 == -2)
+                for (int i38 = 0; i38 < 3; i38++)
+                    if (frame[i][i38] == lframe[i] + 1)
+                        i37 = -1;
+            if (i37 == -1)
+                for (int i39 = 0; i39 < 3; i39++)
+                    if (frame[i][i39] == lframe[i])
+                        i37 = i39;
+            if (i37 > 0) {
+                final String string = info[i][i37];
+                final int i40 = getncoms(string);
                 wx = 0;
-                if (i_40_ > 1)
+                if (i40 > 1)
                     conto.x = getvalue(string, 1);
-                if (i_40_ > 1)
+                if (i40 > 1)
                     conto.y = getvalue(string, 0);
-                if (i_40_ > 1)
+                if (i40 > 1)
                     conto.z = getvalue(string, 0);
-                if (i_40_ > 1)
+                if (i40 > 1)
                     conto.xz = getvalue(string, 0);
-                if (i_40_ > 1)
+                if (i40 > 1)
                     conto.xy = getvalue(string, 0);
-                if (i_40_ > 1)
+                if (i40 > 1)
                     conto.zy = getvalue(string, 0);
             }
         }
@@ -150,162 +150,162 @@ public class UDPMistro implements Runnable {
     public void readinfo(final Mad mad, final ContO conto, final Control control, final int i, final int[] is) {
         if (go && force[i] != 7 && !isbot[i]) {
             freg += 0.05;
-            int i_29_ = -1;
-            if (i_29_ == -1)
-                for (int i_30_ = 0; i_30_ < 3; i_30_++)
-                    if (frame[i][i_30_] == lframe[i] + 1) {
-                        i_29_ = i_30_;
-                        if (i_30_ == 1)
+            int i29 = -1;
+            if (i29 == -1)
+                for (int i30 = 0; i30 < 3; i30++)
+                    if (frame[i][i30] == lframe[i] + 1) {
+                        i29 = i30;
+                        if (i30 == 1)
                             freg -= 0.1;
-                        if (i_30_ == 2)
+                        if (i30 == 2)
                             freg -= 0.15;
                     }
-            if (i_29_ == -1) {
-                int i_31_ = 0;
-                for (int i_32_ = 0; i_32_ < 3; i_32_++)
-                    if (frame[i][i_32_] > lframe[i] + 1)
-                        i_31_++;
-                if (i_31_ == 3)
-                    i_29_ = 2;
+            if (i29 == -1) {
+                int i31 = 0;
+                for (int i32 = 0; i32 < 3; i32++)
+                    if (frame[i][i32] > lframe[i] + 1)
+                        i31++;
+                if (i31 == 3)
+                    i29 = 2;
             }
-            if (i_29_ == -1 && force[i] == 1) {
-                for (int i_33_ = 0; i_33_ < 3; i_33_++)
-                    if (frame[i][i_33_] >= lframe[i])
-                        i_29_ = i_33_;
-                if (i_29_ == -1)
+            if (i29 == -1 && force[i] == 1) {
+                for (int i33 = 0; i33 < 3; i33++)
+                    if (frame[i][i33] >= lframe[i])
+                        i29 = i33;
+                if (i29 == -1)
                     freg += 0.2;
             }
             if (freg < -15.0F)
                 freg = -15.0F;
             if (freg > 0.0F)
                 freg = 0.0F;
-            if (i_29_ != -1) {
+            if (i29 != -1) {
                 force[i] = 0;
-                final String string = info[i][i_29_];
-                final String string_34_ = getSvalue(string, 0);
-                if (string_34_.length() == 16) {
-                    String string_35_ = "";
-                    string_35_ = new StringBuilder().append("").append(string_34_.charAt(0)).toString();
-                    if (string_35_.equals("0"))
+                final String string = info[i][i29];
+                final String string34 = getSvalue(string, 0);
+                if (string34.length() == 16) {
+                    String string35 = "";
+                    string35 = new StringBuilder().append("").append(string34.charAt(0)).toString();
+                    if (string35.equals("0"))
                         control.left = false;
                     else
                         control.left = true;
-                    string_35_ = new StringBuilder().append("").append(string_34_.charAt(1)).toString();
-                    if (string_35_.equals("0"))
+                    string35 = new StringBuilder().append("").append(string34.charAt(1)).toString();
+                    if (string35.equals("0"))
                         control.right = false;
                     else
                         control.right = true;
-                    string_35_ = new StringBuilder().append("").append(string_34_.charAt(2)).toString();
-                    if (string_35_.equals("0"))
+                    string35 = new StringBuilder().append("").append(string34.charAt(2)).toString();
+                    if (string35.equals("0"))
                         control.up = false;
                     else
                         control.up = true;
-                    string_35_ = new StringBuilder().append("").append(string_34_.charAt(3)).toString();
-                    if (string_35_.equals("0"))
+                    string35 = new StringBuilder().append("").append(string34.charAt(3)).toString();
+                    if (string35.equals("0"))
                         control.down = false;
                     else
                         control.down = true;
-                    string_35_ = new StringBuilder().append("").append(string_34_.charAt(4)).toString();
-                    if (string_35_.equals("0"))
+                    string35 = new StringBuilder().append("").append(string34.charAt(4)).toString();
+                    if (string35.equals("0"))
                         control.handb = false;
                     else
                         control.handb = true;
-                    string_35_ = new StringBuilder().append("").append(string_34_.charAt(5)).toString();
-                    if (string_35_.equals("0"))
+                    string35 = new StringBuilder().append("").append(string34.charAt(5)).toString();
+                    if (string35.equals("0"))
                         mad.newcar = false;
                     else
                         mad.newcar = true;
-                    string_35_ = new StringBuilder().append("").append(string_34_.charAt(6)).toString();
-                    if (string_35_.equals("0"))
+                    string35 = new StringBuilder().append("").append(string34.charAt(6)).toString();
+                    if (string35.equals("0"))
                         mad.mtouch = false;
                     else
                         mad.mtouch = true;
-                    string_35_ = new StringBuilder().append("").append(string_34_.charAt(7)).toString();
-                    if (string_35_.equals("0"))
+                    string35 = new StringBuilder().append("").append(string34.charAt(7)).toString();
+                    if (string35.equals("0"))
                         mad.wtouch = false;
                     else
                         mad.wtouch = true;
-                    string_35_ = new StringBuilder().append("").append(string_34_.charAt(8)).toString();
-                    if (string_35_.equals("0"))
+                    string35 = new StringBuilder().append("").append(string34.charAt(8)).toString();
+                    if (string35.equals("0"))
                         mad.pushed = false;
                     else
                         mad.pushed = true;
-                    string_35_ = new StringBuilder().append("").append(string_34_.charAt(9)).toString();
-                    if (string_35_.equals("0"))
+                    string35 = new StringBuilder().append("").append(string34.charAt(9)).toString();
+                    if (string35.equals("0"))
                         mad.gtouch = false;
                     else
                         mad.gtouch = true;
-                    string_35_ = new StringBuilder().append("").append(string_34_.charAt(10)).toString();
-                    if (string_35_.equals("0"))
+                    string35 = new StringBuilder().append("").append(string34.charAt(10)).toString();
+                    if (string35.equals("0"))
                         mad.pl = false;
                     else
                         mad.pl = true;
-                    string_35_ = new StringBuilder().append("").append(string_34_.charAt(11)).toString();
-                    if (string_35_.equals("0"))
+                    string35 = new StringBuilder().append("").append(string34.charAt(11)).toString();
+                    if (string35.equals("0"))
                         mad.pr = false;
                     else
                         mad.pr = true;
-                    string_35_ = new StringBuilder().append("").append(string_34_.charAt(12)).toString();
-                    if (string_35_.equals("0"))
+                    string35 = new StringBuilder().append("").append(string34.charAt(12)).toString();
+                    if (string35.equals("0"))
                         mad.pd = false;
                     else
                         mad.pd = true;
-                    string_35_ = new StringBuilder().append("").append(string_34_.charAt(13)).toString();
-                    if (string_35_.equals("0"))
+                    string35 = new StringBuilder().append("").append(string34.charAt(13)).toString();
+                    if (string35.equals("0"))
                         mad.pu = false;
                     else
                         mad.pu = true;
-                    string_35_ = new StringBuilder().append("").append(string_34_.charAt(14)).toString();
-                    if (string_35_.equals("0"))
+                    string35 = new StringBuilder().append("").append(string34.charAt(14)).toString();
+                    if (string35.equals("0"))
                         mad.dest = false;
                     else
                         mad.dest = true;
-                } else if (string_34_.equals("disco")) {
+                } else if (string34.equals("disco")) {
                     is[i] = 3;
                     mad.hitmag = mad.cd.maxmag[mad.cn] + 100;
                     force[i] = 7;
                 }
                 if (force[i] != 7) {
-                    final int i_36_ = getncoms(string);
+                    final int i36 = getncoms(string);
                     wx = 0;
-                    if (i_36_ > 1)
+                    if (i36 > 1)
                         conto.x = getvalue(string, 1);
-                    if (i_36_ > 2)
+                    if (i36 > 2)
                         conto.y = getvalue(string, 0);
-                    if (i_36_ > 3)
+                    if (i36 > 3)
                         conto.z = getvalue(string, 0);
-                    if (i_36_ > 4)
+                    if (i36 > 4)
                         conto.xz = getvalue(string, 0);
-                    if (i_36_ > 5)
+                    if (i36 > 5)
                         conto.xy = getvalue(string, 0);
-                    if (i_36_ > 6)
+                    if (i36 > 6)
                         conto.zy = getvalue(string, 0);
-                    if (i_36_ > 7)
+                    if (i36 > 7)
                         mad.speed = getvalue(string, 0) / 100.0F;
-                    if (i_36_ > 8)
+                    if (i36 > 8)
                         mad.power = getvalue(string, 0) / 100.0F;
-                    if (i_36_ > 9)
+                    if (i36 > 9)
                         mad.mxz = getvalue(string, 0);
-                    if (i_36_ > 10)
+                    if (i36 > 10)
                         mad.pzy = getvalue(string, 0);
-                    if (i_36_ > 11)
+                    if (i36 > 11)
                         mad.pxy = getvalue(string, 0);
-                    if (i_36_ > 12)
+                    if (i36 > 12)
                         mad.txz = getvalue(string, 0);
-                    if (i_36_ > 13)
+                    if (i36 > 13)
                         mad.loop = getvalue(string, 0);
-                    if (i_36_ > 14)
+                    if (i36 > 14)
                         conto.wxz = getvalue(string, 0);
-                    if (i_36_ > 15)
+                    if (i36 > 15)
                         mad.pcleared = getvalue(string, 0);
-                    if (i_36_ > 16)
+                    if (i36 > 16)
                         mad.clear = getvalue(string, 0);
-                    if (i_36_ > 17)
+                    if (i36 > 17)
                         mad.nlaps = getvalue(string, 0);
-                    if (i_36_ > 18)
+                    if (i36 > 18)
                         mad.hitmag = (int) (getvalue(string, 0) / 100.0F * mad.cd.maxmag[mad.cn]);
                 }
-                lframe[i] = frame[i][i_29_];
+                lframe[i] = frame[i][i29];
             } else if (force[i] == 0) {
                 lframe[i]++;
                 force[i] = 1;
@@ -336,12 +336,12 @@ public class UDPMistro implements Runnable {
                 }
             }
             if (diled == 10)
-                for (int i_18_ = 0; i_18_ < 20; i_18_++)
-                    if (udpc[i_18_].started) {
+                for (int i18 = 0; i18 < 20; i18++)
+                    if (udpc[i18].started) {
                         final Date date = new Date();
-                        final long l = date.getTime() - udpc[i_18_].sendat;
+                        final long l = date.getTime() - udpc[i18].sendat;
                         if (l > delay * 1.5 && l > rate)
-                            udpc[i_18_].stomp();
+                            udpc[i18].stomp();
                     }
             if (diledelay > 0)
                 diledelay--;
@@ -354,53 +354,53 @@ public class UDPMistro implements Runnable {
                 /* empty */
             }
         }
-        int i_19_ = 0;
-        int i_20_ = 0;
+        int i19 = 0;
+        int i20 = 0;
         while (runon == 4) {
-            for (int i_21_ = 0; i_21_ < nplayers; i_21_++) {
+            for (int i21 = 0; i21 < nplayers; i21++) {
                 boolean bool = false;
-                if (info[i_21_][0].length() > 16) {
-                    final String string = new StringBuilder().append("").append(info[i_21_][0].charAt(15)).toString();
+                if (info[i21][0].length() > 16) {
+                    final String string = new StringBuilder().append("").append(info[i21][0].charAt(15)).toString();
                     if (!string.equals("0"))
                         bool = true;
                 }
-                if (!bool && out[i_21_] == 77)
-                    out[i_21_] = 0;
-                if (out[i_21_] < 76)
-                    if (frame[i_21_][0] > 6) {
-                        if (lcframe[i_21_] != frame[i_21_][0] && !bool) {
-                            lcframe[i_21_] = frame[i_21_][0];
-                            out[i_21_] = 0;
+                if (!bool && out[i21] == 77)
+                    out[i21] = 0;
+                if (out[i21] < 76)
+                    if (frame[i21][0] > 6) {
+                        if (lcframe[i21] != frame[i21][0] && !bool) {
+                            lcframe[i21] = frame[i21][0];
+                            out[i21] = 0;
                         } else {
-                            if (out[i_21_] < 70)
-                                out[i_21_] = 71;
-                            out[i_21_]++;
+                            if (out[i21] < 70)
+                                out[i21] = 71;
+                            out[i21]++;
                             if (bool)
-                                out[i_21_] = 77;
-                            if (out[i_21_] == 76) {
-                                info[i_21_][0] = "disco";
-                                frame[i_21_][0] += 10;
+                                out[i21] = 77;
+                            if (out[i21] == 76) {
+                                info[i21][0] = "disco";
+                                frame[i21][0] += 10;
                             }
                         }
                     } else {
-                        out[i_21_]++;
-                        if (out[i_21_] == 30)
-                            frame[i_21_][0] = 7;
+                        out[i21]++;
+                        if (out[i21] == 30)
+                            frame[i21][0] = 7;
                     }
             }
-            if (i_20_ == 10) {
+            if (i20 == 10) {
                 final String string = new StringBuilder().append("3|").append(pgame).append("|alive|").toString();
-                String string_22_ = "";
-                if (i_19_ == 0)
+                String string22 = "";
+                if (i19 == 0)
                     try {
                         dout.println(string);
-                        string_22_ = din.readLine();
-                        if (string_22_ == null)
-                            i_19_ = 1;
+                        string22 = din.readLine();
+                        if (string22 == null)
+                            i19 = 1;
                     } catch (final Exception exception) {
-                        i_19_ = 1;
+                        i19 = 1;
                     }
-                if (i_19_ == 1) {
+                if (i19 == 1) {
                     try {
                         socket.close();
                         socket = null;
@@ -416,25 +416,25 @@ public class UDPMistro implements Runnable {
                         din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                         dout = new PrintWriter(socket.getOutputStream(), true);
                         dout.println(string);
-                        string_22_ = din.readLine();
-                        if (string_22_ != null)
-                            i_19_ = 0;
+                        string22 = din.readLine();
+                        if (string22 != null)
+                            i19 = 0;
                     } catch (final Exception exception) {
                         /* empty */
                     }
                 }
-                if (i_19_ == 1) {
+                if (i19 == 1) {
                     try {
                         socket.close();
                         socket = null;
                     } catch (final Exception exception) {
                         /* empty */
                     }
-                    i_19_ = 2;
+                    i19 = 2;
                 }
-                i_20_ = 0;
+                i20 = 0;
             } else
-                i_20_++;
+                i20++;
             try {
                 if (runner != null) {
                     /* empty */
@@ -444,18 +444,18 @@ public class UDPMistro implements Runnable {
                 /* empty */
             }
         }
-        int i_23_ = 0;
+        int i23 = 0;
         while (runon == 2) {
-            int i_24_ = 0;
-            for (int i_25_ = 0; i_25_ < 20; i_25_++)
-                if (!udpc[i_25_].started)
-                    i_24_++;
-            if (i_24_ != 20)
-                i_23_++;
-            if (i_23_ == 400 || i_24_ == 20) {
-                for (int i_26_ = 0; i_26_ < 20; i_26_++) {
-                    udpc[i_26_].closeSocket();
-                    udpc[i_26_] = null;
+            int i24 = 0;
+            for (int i25 = 0; i25 < 20; i25++)
+                if (!udpc[i25].started)
+                    i24++;
+            if (i24 != 20)
+                i23++;
+            if (i23 == 400 || i24 == 20) {
+                for (int i26 = 0; i26 < 20; i26++) {
+                    udpc[i26].closeSocket();
+                    udpc[i26] = null;
                 }
                 runon = 3;
             }
@@ -475,10 +475,10 @@ public class UDPMistro implements Runnable {
             runner = null;
         }
         if (runon == 5) {
-            for (int i_27_ = 0; i_27_ < nplayers + 2; i_27_++)
+            for (int i27 = 0; i27 < nplayers + 2; i27++)
                 try {
-                    usrv[i_27_].stopServe();
-                    usrv[i_27_] = null;
+                    usrv[i27].stopServe();
+                    usrv[i27] = null;
                 } catch (final Exception exception) {
                     /* empty */
                 }
@@ -503,228 +503,228 @@ public class UDPMistro implements Runnable {
     }
 
     public void setinfo(final Mad mad, final ContO conto, final Control control, final int i, final float f,
-            final boolean bool, final int i_41_) {
-        info[i_41_][0] = "";
+            final boolean bool, final int i41) {
+        info[i41][0] = "";
         if (control.left) {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_42_ = 0;
-            strings[i_42_] = stringbuilder.append(strings[i_42_]).append("1").toString();
+            final String[] strings = info[i41];
+            final int i42 = 0;
+            strings[i42] = stringbuilder.append(strings[i42]).append("1").toString();
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_43_ = 0;
-            strings[i_43_] = stringbuilder.append(strings[i_43_]).append("0").toString();
+            final String[] strings = info[i41];
+            final int i43 = 0;
+            strings[i43] = stringbuilder.append(strings[i43]).append("0").toString();
         }
         if (control.right) {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_44_ = 0;
-            strings[i_44_] = stringbuilder.append(strings[i_44_]).append("1").toString();
+            final String[] strings = info[i41];
+            final int i44 = 0;
+            strings[i44] = stringbuilder.append(strings[i44]).append("1").toString();
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_45_ = 0;
-            strings[i_45_] = stringbuilder.append(strings[i_45_]).append("0").toString();
+            final String[] strings = info[i41];
+            final int i45 = 0;
+            strings[i45] = stringbuilder.append(strings[i45]).append("0").toString();
         }
         if (control.up) {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_46_ = 0;
-            strings[i_46_] = stringbuilder.append(strings[i_46_]).append("1").toString();
+            final String[] strings = info[i41];
+            final int i46 = 0;
+            strings[i46] = stringbuilder.append(strings[i46]).append("1").toString();
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_47_ = 0;
-            strings[i_47_] = stringbuilder.append(strings[i_47_]).append("0").toString();
+            final String[] strings = info[i41];
+            final int i47 = 0;
+            strings[i47] = stringbuilder.append(strings[i47]).append("0").toString();
         }
         if (control.down) {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_48_ = 0;
-            strings[i_48_] = stringbuilder.append(strings[i_48_]).append("1").toString();
+            final String[] strings = info[i41];
+            final int i48 = 0;
+            strings[i48] = stringbuilder.append(strings[i48]).append("1").toString();
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_49_ = 0;
-            strings[i_49_] = stringbuilder.append(strings[i_49_]).append("0").toString();
+            final String[] strings = info[i41];
+            final int i49 = 0;
+            strings[i49] = stringbuilder.append(strings[i49]).append("0").toString();
         }
         if (control.handb) {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_50_ = 0;
-            strings[i_50_] = stringbuilder.append(strings[i_50_]).append("1").toString();
+            final String[] strings = info[i41];
+            final int i50 = 0;
+            strings[i50] = stringbuilder.append(strings[i50]).append("1").toString();
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_51_ = 0;
-            strings[i_51_] = stringbuilder.append(strings[i_51_]).append("0").toString();
+            final String[] strings = info[i41];
+            final int i51 = 0;
+            strings[i51] = stringbuilder.append(strings[i51]).append("0").toString();
         }
         if (mad.newcar) {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_52_ = 0;
-            strings[i_52_] = stringbuilder.append(strings[i_52_]).append("1").toString();
+            final String[] strings = info[i41];
+            final int i52 = 0;
+            strings[i52] = stringbuilder.append(strings[i52]).append("1").toString();
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_53_ = 0;
-            strings[i_53_] = stringbuilder.append(strings[i_53_]).append("0").toString();
+            final String[] strings = info[i41];
+            final int i53 = 0;
+            strings[i53] = stringbuilder.append(strings[i53]).append("0").toString();
         }
         if (mad.mtouch) {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_54_ = 0;
-            strings[i_54_] = stringbuilder.append(strings[i_54_]).append("1").toString();
+            final String[] strings = info[i41];
+            final int i54 = 0;
+            strings[i54] = stringbuilder.append(strings[i54]).append("1").toString();
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_55_ = 0;
-            strings[i_55_] = stringbuilder.append(strings[i_55_]).append("0").toString();
+            final String[] strings = info[i41];
+            final int i55 = 0;
+            strings[i55] = stringbuilder.append(strings[i55]).append("0").toString();
         }
         if (mad.wtouch) {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_56_ = 0;
-            strings[i_56_] = stringbuilder.append(strings[i_56_]).append("1").toString();
+            final String[] strings = info[i41];
+            final int i56 = 0;
+            strings[i56] = stringbuilder.append(strings[i56]).append("1").toString();
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_57_ = 0;
-            strings[i_57_] = stringbuilder.append(strings[i_57_]).append("0").toString();
+            final String[] strings = info[i41];
+            final int i57 = 0;
+            strings[i57] = stringbuilder.append(strings[i57]).append("0").toString();
         }
         if (mad.pushed) {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_58_ = 0;
-            strings[i_58_] = stringbuilder.append(strings[i_58_]).append("1").toString();
+            final String[] strings = info[i41];
+            final int i58 = 0;
+            strings[i58] = stringbuilder.append(strings[i58]).append("1").toString();
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_59_ = 0;
-            strings[i_59_] = stringbuilder.append(strings[i_59_]).append("0").toString();
+            final String[] strings = info[i41];
+            final int i59 = 0;
+            strings[i59] = stringbuilder.append(strings[i59]).append("0").toString();
         }
         if (mad.gtouch) {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_60_ = 0;
-            strings[i_60_] = stringbuilder.append(strings[i_60_]).append("1").toString();
+            final String[] strings = info[i41];
+            final int i60 = 0;
+            strings[i60] = stringbuilder.append(strings[i60]).append("1").toString();
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_61_ = 0;
-            strings[i_61_] = stringbuilder.append(strings[i_61_]).append("0").toString();
+            final String[] strings = info[i41];
+            final int i61 = 0;
+            strings[i61] = stringbuilder.append(strings[i61]).append("0").toString();
         }
         if (mad.pl) {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_62_ = 0;
-            strings[i_62_] = stringbuilder.append(strings[i_62_]).append("1").toString();
+            final String[] strings = info[i41];
+            final int i62 = 0;
+            strings[i62] = stringbuilder.append(strings[i62]).append("1").toString();
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_63_ = 0;
-            strings[i_63_] = stringbuilder.append(strings[i_63_]).append("0").toString();
+            final String[] strings = info[i41];
+            final int i63 = 0;
+            strings[i63] = stringbuilder.append(strings[i63]).append("0").toString();
         }
         if (mad.pr) {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_64_ = 0;
-            strings[i_64_] = stringbuilder.append(strings[i_64_]).append("1").toString();
+            final String[] strings = info[i41];
+            final int i64 = 0;
+            strings[i64] = stringbuilder.append(strings[i64]).append("1").toString();
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_65_ = 0;
-            strings[i_65_] = stringbuilder.append(strings[i_65_]).append("0").toString();
+            final String[] strings = info[i41];
+            final int i65 = 0;
+            strings[i65] = stringbuilder.append(strings[i65]).append("0").toString();
         }
         if (mad.pd) {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_66_ = 0;
-            strings[i_66_] = stringbuilder.append(strings[i_66_]).append("1").toString();
+            final String[] strings = info[i41];
+            final int i66 = 0;
+            strings[i66] = stringbuilder.append(strings[i66]).append("1").toString();
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_67_ = 0;
-            strings[i_67_] = stringbuilder.append(strings[i_67_]).append("0").toString();
+            final String[] strings = info[i41];
+            final int i67 = 0;
+            strings[i67] = stringbuilder.append(strings[i67]).append("0").toString();
         }
         if (mad.pu) {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_68_ = 0;
-            strings[i_68_] = stringbuilder.append(strings[i_68_]).append("1").toString();
+            final String[] strings = info[i41];
+            final int i68 = 0;
+            strings[i68] = stringbuilder.append(strings[i68]).append("1").toString();
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_69_ = 0;
-            strings[i_69_] = stringbuilder.append(strings[i_69_]).append("0").toString();
+            final String[] strings = info[i41];
+            final int i69 = 0;
+            strings[i69] = stringbuilder.append(strings[i69]).append("0").toString();
         }
         if (mad.dest) {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_70_ = 0;
-            strings[i_70_] = stringbuilder.append(strings[i_70_]).append("1").toString();
+            final String[] strings = info[i41];
+            final int i70 = 0;
+            strings[i70] = stringbuilder.append(strings[i70]).append("1").toString();
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_71_ = 0;
-            strings[i_71_] = stringbuilder.append(strings[i_71_]).append("0").toString();
+            final String[] strings = info[i41];
+            final int i71 = 0;
+            strings[i71] = stringbuilder.append(strings[i71]).append("0").toString();
         }
         if (bool) {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_72_ = 0;
-            strings[i_72_] = stringbuilder.append(strings[i_72_]).append("1").toString();
+            final String[] strings = info[i41];
+            final int i72 = 0;
+            strings[i72] = stringbuilder.append(strings[i72]).append("1").toString();
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
-            final String[] strings = info[i_41_];
-            final int i_73_ = 0;
-            strings[i_73_] = stringbuilder.append(strings[i_73_]).append("0").toString();
+            final String[] strings = info[i41];
+            final int i73 = 0;
+            strings[i73] = stringbuilder.append(strings[i73]).append("0").toString();
         }
         final StringBuilder stringbuilder = new StringBuilder();
-        final String[] strings = info[i_41_];
-        final int i_74_ = 0;
-        strings[i_74_] = stringbuilder.append(strings[i_74_]).append(",").append(conto.x).append(",").append(conto.y)
+        final String[] strings = info[i41];
+        final int i74 = 0;
+        strings[i74] = stringbuilder.append(strings[i74]).append(",").append(conto.x).append(",").append(conto.y)
                 .append(",").append(conto.z).append(",").append(conto.xz).append(",").append(conto.xy).append(",")
                 .append(conto.zy).append(",").append((int) (mad.speed * 100.0F)).append(",")
                 .append((int) (mad.power * 100.0F)).append(",").append(mad.mxz).append(",").append(mad.pzy).append(",")
                 .append(mad.pxy).append(",").append(mad.txz).append(",").append(mad.loop).append(",").append(conto.wxz)
                 .append(",").append(mad.pcleared).append(",").append(mad.clear).append(",").append(mad.nlaps)
                 .append(",").append((int) (f * 100.0F)).append(",").append(i).append(",").toString();
-        while (info[i_41_][0].length() < 110) {
-            final StringBuilder stringbuilder_75_ = new StringBuilder();
-            final String[] strings_76_ = info[i_41_];
-            final int i_77_ = 0;
-            strings_76_[i_77_] = stringbuilder_75_.append(strings_76_[i_77_]).append("|").toString();
+        while (info[i41][0].length() < 110) {
+            final StringBuilder stringbuilder75 = new StringBuilder();
+            final String[] strings76 = info[i41];
+            final int i77 = 0;
+            strings76[i77] = stringbuilder75.append(strings76[i77]).append("|").toString();
         }
         if (runon == 2)
             mad.hitmag = mad.cd.maxmag[mad.cn] + 100;
-        frame[i_41_][0]++;
+        frame[i41][0]++;
     }
 
-    public void UDPConnectLan(final String string, final int i, final int i_7_) {
+    public void UDPConnectLan(final String string, final int i, final int i7) {
         diledelay = 0;
         delay = 0;
-        for (int i_8_ = 0; i_8_ < 5; i_8_++)
-            ldelays[i_8_] = 0;
+        for (int i8 = 0; i8 < 5; i8++)
+            ldelays[i8] = 0;
         diled = 0;
         go = false;
         freg = 0.0F;
-        im = i_7_;
+        im = i7;
         nplayers = i;
-        for (int i_9_ = 0; i_9_ < 7; i_9_++) {
-            for (int i_10_ = 0; i_10_ < 3; i_10_++) {
-                frame[i_9_][i_10_] = -1;
-                info[i_9_][i_10_] = "";
+        for (int i9 = 0; i9 < 7; i9++) {
+            for (int i10 = 0; i10 < 3; i10++) {
+                frame[i9][i10] = -1;
+                info[i9][i10] = "";
             }
-            isbot[i_9_] = false;
-            lframe[i_9_] = 0;
-            force[i_9_] = 0;
-            lcframe[i_9_] = 0;
+            isbot[i9] = false;
+            lframe[i9] = 0;
+            force[i9] = 0;
+            lcframe[i9] = 0;
         }
         if (im != 0) {
-            for (int i_11_ = 0; i_11_ < 20; i_11_++)
-                udpc[i_11_] = new udpOnline(this, string, 7060 + im, i_11_, porturn);
+            for (int i11 = 0; i11 < 20; i11++)
+                udpc[i11] = new udpOnline(this, string, 7060 + im, i11, porturn);
             if (porturn == 0)
                 porturn = 20;
             else
@@ -735,8 +735,8 @@ public class UDPMistro implements Runnable {
                 while (info[im][0].length() < 110) {
                     final StringBuilder stringbuilder = new StringBuilder();
                     final String[] strings = info[im];
-                    final int i_12_ = 0;
-                    strings[i_12_] = stringbuilder.append(strings[i_12_]).append("|").toString();
+                    final int i12 = 0;
+                    strings[i12] = stringbuilder.append(strings[i12]).append("|").toString();
                 }
                 nplayers++;
                 go = true;
@@ -756,28 +756,28 @@ public class UDPMistro implements Runnable {
         runner.start();
     }
 
-    public void UDPConnectOnline(final String string, final int i, final int i_0_, final int i_1_) {
+    public void UDPConnectOnline(final String string, final int i, final int i0, final int i1) {
         diledelay = 0;
         delay = 0;
-        for (int i_2_ = 0; i_2_ < 5; i_2_++)
-            ldelays[i_2_] = 0;
+        for (int i2 = 0; i2 < 5; i2++)
+            ldelays[i2] = 0;
         diled = 0;
         go = false;
         freg = 0.0F;
-        im = i_1_;
-        nplayers = i_0_;
-        for (int i_3_ = 0; i_3_ < 7; i_3_++) {
-            for (int i_4_ = 0; i_4_ < 3; i_4_++) {
-                frame[i_3_][i_4_] = -1;
-                info[i_3_][i_4_] = "";
+        im = i1;
+        nplayers = i0;
+        for (int i3 = 0; i3 < 7; i3++) {
+            for (int i4 = 0; i4 < 3; i4++) {
+                frame[i3][i4] = -1;
+                info[i3][i4] = "";
             }
-            isbot[i_3_] = false;
-            lframe[i_3_] = 0;
-            force[i_3_] = 0;
-            lcframe[i_3_] = 0;
+            isbot[i3] = false;
+            lframe[i3] = 0;
+            force[i3] = 0;
+            lcframe[i3] = 0;
         }
-        for (int i_5_ = 0; i_5_ < 20; i_5_++)
-            udpc[i_5_] = new udpOnline(this, string, i + im, i_5_, porturn);
+        for (int i5 = 0; i5 < 20; i5++)
+            udpc[i5] = new udpOnline(this, string, i + im, i5, porturn);
         if (porturn == 0)
             porturn = 20;
         else
@@ -788,8 +788,8 @@ public class UDPMistro implements Runnable {
             while (info[im][0].length() < 110) {
                 final StringBuilder stringbuilder = new StringBuilder();
                 final String[] strings = info[im];
-                final int i_6_ = 0;
-                strings[i_6_] = stringbuilder.append(strings[i_6_]).append("|").toString();
+                final int i6 = 0;
+                strings[i6] = stringbuilder.append(strings[i6]).append("|").toString();
             }
             nplayers++;
             go = true;
@@ -799,23 +799,23 @@ public class UDPMistro implements Runnable {
         runner.start();
     }
 
-    public void UDPLanServer(final int i, final String string, final int i_13_, final int i_14_) {
+    public void UDPLanServer(final int i, final String string, final int i13, final int i14) {
         xtserver = string;
-        xtservport = i_13_;
-        pgame = i_14_;
-        for (int i_15_ = 0; i_15_ < 7; i_15_++) {
-            gocnt[i_15_] = 3;
-            out[i_15_] = 0;
-            for (int i_16_ = 0; i_16_ < 3; i_16_++) {
-                frame[i_15_][i_16_] = -1;
-                info[i_15_][i_16_] = "";
+        xtservport = i13;
+        pgame = i14;
+        for (int i15 = 0; i15 < 7; i15++) {
+            gocnt[i15] = 3;
+            out[i15] = 0;
+            for (int i16 = 0; i16 < 3; i16++) {
+                frame[i15][i16] = -1;
+                info[i15][i16] = "";
             }
-            lframe[i_15_] = 0;
-            force[i_15_] = 0;
-            lcframe[i_15_] = 0;
+            lframe[i15] = 0;
+            force[i15] = 0;
+            lcframe[i15] = 0;
         }
-        for (int i_17_ = 0; i_17_ < nplayers + 2; i_17_++)
-            usrv[i_17_] = new udpServe(this, i_17_ + 1);
+        for (int i17 = 0; i17 < nplayers + 2; i17++)
+            usrv[i17] = new udpServe(this, i17 + 1);
     }
 
     public void UDPquit() {
