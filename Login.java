@@ -120,11 +120,11 @@ public class Login implements Runnable {
     int xrr = 0;
     xtGraphics xt;
 
-    public Login(final Medium medium, final Graphics2D graphics2d, final xtGraphics varXtGraphics,
+    public Login(final Medium medium, final Graphics2D graphics2d, final xtGraphics xtgraphics,
             final GameSparker gamesparker) {
         m = medium;
         rd = graphics2d;
-        xt = varXtGraphics;
+        xt = xtgraphics;
         gs = gamesparker;
         if (xt.playingame != -1)
             fase = 18;

@@ -8969,8 +8969,8 @@ public class xtGraphics extends Panel implements Runnable {
                         loop = new StringBuilder().append("Hanged ").append(loop).toString();
                     if (loop != "") {
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final xtGraphics varXtGraphics_193_ = this;
-                        varXtGraphics_193_.asay = stringbuilder.append(varXtGraphics_193_.asay).append(" ")
+                        final xtGraphics xtgraphics_193_ = this;
+                        xtgraphics_193_.asay = stringbuilder.append(xtgraphics_193_.asay).append(" ")
                                 .append(loop).toString();
                     }
                     i = 0;
@@ -9006,49 +9006,49 @@ public class xtGraphics extends Panel implements Runnable {
                     if (i != 0) {
                         if (loop == "" && spin == "") {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final xtGraphics varXtGraphics_195_ = this;
-                            varXtGraphics_195_.asay = stringbuilder.append(varXtGraphics_195_.asay).append(" ")
+                            final xtGraphics xtgraphics_195_ = this;
+                            xtgraphics_195_.asay = stringbuilder.append(xtgraphics_195_.asay).append(" ")
                                     .append(i).toString();
                             if (bool_194_) {
                                 final StringBuilder stringbuilder_196_ = new StringBuilder();
-                                final xtGraphics varXtGraphics_197_ = this;
-                                varXtGraphics_197_.asay = stringbuilder_196_.append(varXtGraphics_197_.asay)
+                                final xtGraphics xtgraphics_197_ = this;
+                                xtgraphics_197_.asay = stringbuilder_196_.append(xtgraphics_197_.asay)
                                         .append(" and beyond").toString();
                             }
                         } else {
                             if (spin != "")
                                 if (loop == "") {
                                     final StringBuilder stringbuilder = new StringBuilder();
-                                    final xtGraphics varXtGraphics_198_ = this;
-                                    varXtGraphics_198_.asay = stringbuilder.append(varXtGraphics_198_.asay)
+                                    final xtGraphics xtgraphics_198_ = this;
+                                    xtgraphics_198_.asay = stringbuilder.append(xtgraphics_198_.asay)
                                             .append(" ").append(spin).toString();
                                 } else {
                                     final StringBuilder stringbuilder = new StringBuilder();
-                                    final xtGraphics varXtGraphics_199_ = this;
-                                    varXtGraphics_199_.asay = stringbuilder.append(varXtGraphics_199_.asay)
+                                    final xtGraphics xtgraphics_199_ = this;
+                                    xtgraphics_199_.asay = stringbuilder.append(xtgraphics_199_.asay)
                                             .append(" with ").append(spin).toString();
                                 }
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final xtGraphics varXtGraphics_200_ = this;
-                            varXtGraphics_200_.asay = stringbuilder.append(varXtGraphics_200_.asay).append(" by ")
+                            final xtGraphics xtgraphics_200_ = this;
+                            xtgraphics_200_.asay = stringbuilder.append(xtgraphics_200_.asay).append(" by ")
                                     .append(i).toString();
                             if (bool_194_) {
                                 final StringBuilder stringbuilder_201_ = new StringBuilder();
-                                final xtGraphics varXtGraphics_202_ = this;
-                                varXtGraphics_202_.asay = stringbuilder_201_.append(varXtGraphics_202_.asay)
+                                final xtGraphics xtgraphics_202_ = this;
+                                xtgraphics_202_.asay = stringbuilder_201_.append(xtgraphics_202_.asay)
                                         .append(" and beyond").toString();
                             }
                         }
                     } else if (spin != "")
                         if (loop == "") {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final xtGraphics varXtGraphics_203_ = this;
-                            varXtGraphics_203_.asay = stringbuilder.append(varXtGraphics_203_.asay).append(" ")
+                            final xtGraphics xtgraphics_203_ = this;
+                            xtgraphics_203_.asay = stringbuilder.append(xtgraphics_203_.asay).append(" ")
                                     .append(spin).toString();
                         } else {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final xtGraphics varXtGraphics_204_ = this;
-                            varXtGraphics_204_.asay = stringbuilder.append(varXtGraphics_204_.asay).append(" by ")
+                            final xtGraphics xtgraphics_204_ = this;
+                            xtgraphics_204_.asay = stringbuilder.append(xtgraphics_204_.asay).append(" by ")
                                     .append(spin).toString();
                         }
                     if (asay != "")

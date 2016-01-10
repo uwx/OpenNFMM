@@ -83,12 +83,12 @@ public class Mad {
     xtGraphics xt;
     int xtpower = 0;
 
-    public Mad(final CarDefine cardefine, final Medium medium, final Record record, final xtGraphics varXtGraphics,
+    public Mad(final CarDefine cardefine, final Medium medium, final Record record, final xtGraphics xtgraphics,
             final int i) {
         cd = cardefine;
         m = medium;
         rpd = record;
-        xt = varXtGraphics;
+        xt = xtgraphics;
         im = i;
     }
 
