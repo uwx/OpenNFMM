@@ -1093,12 +1093,12 @@ public class Plane {
     public int xs(final int i, int i_161_) {
         if (i_161_ < m.cz)
             i_161_ = m.cz;
-        return (i_161_ - m.focus_point) * (m.cx - i) / i_161_ + i;
+        return (i_161_ - m.focusPoint) * (m.cx - i) / i_161_ + i;
     }
 
     public int ys(final int i, int i_162_) {
         if (i_162_ < m.cz)
             i_162_ = m.cz;
-        return (i_162_ - m.focus_point) * (m.cy - i) / i_162_ + i;
+        return (i_162_ - m.focusPoint) * (m.cy - i) / i_162_ + i;
     }
 }

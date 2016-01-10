@@ -2022,12 +2022,12 @@ public class ContO {
     public int xs(final int i, int i_260_) {
         if (i_260_ < 50)
             i_260_ = 50;
-        return (i_260_ - m.focus_point) * (m.cx - i) / i_260_ + i;
+        return (i_260_ - m.focusPoint) * (m.cx - i) / i_260_ + i;
     }
 
     public int ys(final int i, int i_261_) {
         if (i_261_ < 50)
             i_261_ = 50;
-        return (i_261_ - m.focus_point) * (m.cy - i) / i_261_ + i;
+        return (i_261_ - m.focusPoint) * (m.cy - i) / i_261_ + i;
     }
 }

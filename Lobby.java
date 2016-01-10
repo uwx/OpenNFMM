@@ -206,10 +206,10 @@ public class Lobby implements Runnable {
     boolean zeromsw = false;
 
     public Lobby(final Medium medium, final Graphics2D graphics2d, final Login login/*, final Globe globe*/,
-            final xtGraphics var_xtGraphics, final CarDefine cardefine, final GameSparker gamesparker) {
+            final xtGraphics varXtGraphics, final CarDefine cardefine, final GameSparker gamesparker) {
         m = medium;
         rd = graphics2d;
-        xt = var_xtGraphics;
+        xt = varXtGraphics;
         cd = cardefine;
         gs = gamesparker;
         lg = login;
@@ -302,7 +302,7 @@ public class Lobby implements Runnable {
                             m.trk = 0;
                             if (xt.loadedt)
                                 xt.strack.unload();
-                            m.focus_point = 400;
+                            m.focusPoint = 400;
                             m.crs = true;
                             m.x = -335;
                             m.y = 0;
@@ -320,7 +320,7 @@ public class Lobby implements Runnable {
                             m.trk = 0;
                             if (xt.loadedt)
                                 xt.strack.unload();
-                            m.focus_point = 400;
+                            m.focusPoint = 400;
                             m.crs = true;
                             m.x = -335;
                             m.y = 0;
@@ -5825,7 +5825,7 @@ public class Lobby implements Runnable {
             m.trk = 0;
             if (xt.loadedt)
                 xt.strack.unload();
-            m.focus_point = 400;
+            m.focusPoint = 400;
             m.crs = true;
             m.x = -335;
             m.y = 0;

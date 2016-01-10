@@ -338,7 +338,7 @@ public class Madness extends Panel {
         }
         try {
             final File file = new File(
-                    new StringBuilder().append("").append(fpath).append("data/full_screen.data").toString());
+                    new StringBuilder().append("").append(fpath).append("data/fullScreen.data").toString());
             if (file.exists()) {
                 final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
                 String string;
@@ -379,7 +379,7 @@ public class Madness extends Panel {
         if (i_13_ != -1) {
             try {
                 final File file = new File(
-                        new StringBuilder().append("").append(fpath).append("data/full_screen.data").toString());
+                        new StringBuilder().append("").append(fpath).append("data/fullScreen.data").toString());
                 final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
                 bufferedwriter.write(new StringBuilder().append("").append(i).append("").toString());
                 bufferedwriter.newLine();

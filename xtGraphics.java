@@ -3923,7 +3923,7 @@ public class xtGraphics extends Panel implements Runnable {
         m.iw = 0;
         m.h = 450;
         m.w = 800;
-        m.focus_point = 400;
+        m.focusPoint = 400;
         m.cx = 400;
         m.cy = 225;
         m.cz = 50;
@@ -6562,7 +6562,7 @@ public class xtGraphics extends Panel implements Runnable {
             m.iw = 0;
             m.h = 450;
             m.w = 800;
-            m.focus_point = 400;
+            m.focusPoint = 400;
             m.cx = 400;
             m.cy = 225;
             m.cz = 50;
@@ -8969,8 +8969,8 @@ public class xtGraphics extends Panel implements Runnable {
                         loop = new StringBuilder().append("Hanged ").append(loop).toString();
                     if (loop != "") {
                         final StringBuilder stringbuilder = new StringBuilder();
-                        final xtGraphics var_xtGraphics_193_ = this;
-                        var_xtGraphics_193_.asay = stringbuilder.append(var_xtGraphics_193_.asay).append(" ")
+                        final xtGraphics varXtGraphics_193_ = this;
+                        varXtGraphics_193_.asay = stringbuilder.append(varXtGraphics_193_.asay).append(" ")
                                 .append(loop).toString();
                     }
                     i = 0;
@@ -9006,49 +9006,49 @@ public class xtGraphics extends Panel implements Runnable {
                     if (i != 0) {
                         if (loop == "" && spin == "") {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final xtGraphics var_xtGraphics_195_ = this;
-                            var_xtGraphics_195_.asay = stringbuilder.append(var_xtGraphics_195_.asay).append(" ")
+                            final xtGraphics varXtGraphics_195_ = this;
+                            varXtGraphics_195_.asay = stringbuilder.append(varXtGraphics_195_.asay).append(" ")
                                     .append(i).toString();
                             if (bool_194_) {
                                 final StringBuilder stringbuilder_196_ = new StringBuilder();
-                                final xtGraphics var_xtGraphics_197_ = this;
-                                var_xtGraphics_197_.asay = stringbuilder_196_.append(var_xtGraphics_197_.asay)
+                                final xtGraphics varXtGraphics_197_ = this;
+                                varXtGraphics_197_.asay = stringbuilder_196_.append(varXtGraphics_197_.asay)
                                         .append(" and beyond").toString();
                             }
                         } else {
                             if (spin != "")
                                 if (loop == "") {
                                     final StringBuilder stringbuilder = new StringBuilder();
-                                    final xtGraphics var_xtGraphics_198_ = this;
-                                    var_xtGraphics_198_.asay = stringbuilder.append(var_xtGraphics_198_.asay)
+                                    final xtGraphics varXtGraphics_198_ = this;
+                                    varXtGraphics_198_.asay = stringbuilder.append(varXtGraphics_198_.asay)
                                             .append(" ").append(spin).toString();
                                 } else {
                                     final StringBuilder stringbuilder = new StringBuilder();
-                                    final xtGraphics var_xtGraphics_199_ = this;
-                                    var_xtGraphics_199_.asay = stringbuilder.append(var_xtGraphics_199_.asay)
+                                    final xtGraphics varXtGraphics_199_ = this;
+                                    varXtGraphics_199_.asay = stringbuilder.append(varXtGraphics_199_.asay)
                                             .append(" with ").append(spin).toString();
                                 }
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final xtGraphics var_xtGraphics_200_ = this;
-                            var_xtGraphics_200_.asay = stringbuilder.append(var_xtGraphics_200_.asay).append(" by ")
+                            final xtGraphics varXtGraphics_200_ = this;
+                            varXtGraphics_200_.asay = stringbuilder.append(varXtGraphics_200_.asay).append(" by ")
                                     .append(i).toString();
                             if (bool_194_) {
                                 final StringBuilder stringbuilder_201_ = new StringBuilder();
-                                final xtGraphics var_xtGraphics_202_ = this;
-                                var_xtGraphics_202_.asay = stringbuilder_201_.append(var_xtGraphics_202_.asay)
+                                final xtGraphics varXtGraphics_202_ = this;
+                                varXtGraphics_202_.asay = stringbuilder_201_.append(varXtGraphics_202_.asay)
                                         .append(" and beyond").toString();
                             }
                         }
                     } else if (spin != "")
                         if (loop == "") {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final xtGraphics var_xtGraphics_203_ = this;
-                            var_xtGraphics_203_.asay = stringbuilder.append(var_xtGraphics_203_.asay).append(" ")
+                            final xtGraphics varXtGraphics_203_ = this;
+                            varXtGraphics_203_.asay = stringbuilder.append(varXtGraphics_203_.asay).append(" ")
                                     .append(spin).toString();
                         } else {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            final xtGraphics var_xtGraphics_204_ = this;
-                            var_xtGraphics_204_.asay = stringbuilder.append(var_xtGraphics_204_.asay).append(" by ")
+                            final xtGraphics varXtGraphics_204_ = this;
+                            varXtGraphics_204_.asay = stringbuilder.append(varXtGraphics_204_.asay).append(" by ")
                                     .append(spin).toString();
                         }
                     if (asay != "")
@@ -9289,12 +9289,12 @@ public class xtGraphics extends Panel implements Runnable {
     public int xs(final int i, int i_279_) {
         if (i_279_ < 50)
             i_279_ = 50;
-        return (i_279_ - m.focus_point) * (m.cx - i) / i_279_ + i;
+        return (i_279_ - m.focusPoint) * (m.cx - i) / i_279_ + i;
     }
 
     public int ys(final int i, int i_280_) {
         if (i_280_ < 50)
             i_280_ = 50;
-        return (i_280_ - m.focus_point) * (m.cy - i) / i_280_ + i;
+        return (i_280_ - m.focusPoint) * (m.cy - i) / i_280_ + i;
     }
 }
