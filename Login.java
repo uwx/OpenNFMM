@@ -120,11 +120,11 @@ public class Login implements Runnable {
     int xrr = 0;
     xtGraphics xt;
 
-    public Login(final Medium medium, final Graphics2D graphics2d, final xtGraphics var_xtGraphics,
+    public Login(final Medium medium, final Graphics2D graphics2d, final xtGraphics xtgraphics,
             final GameSparker gamesparker) {
         m = medium;
         rd = graphics2d;
-        xt = var_xtGraphics;
+        xt = xtgraphics;
         gs = gamesparker;
         if (xt.playingame != -1)
             fase = 18;
@@ -142,19 +142,19 @@ public class Login implements Runnable {
             if (string != null) {
                 final int i = getvalue(string, 0);
                 if (i != -1 && i != gamec) {
-                    final String string_12_ = getSvalue(string, 2);
-                    final int i_13_ = getvalue(string, 3);
+                    final String string12 = getSvalue(string, 2);
+                    final int i13 = getvalue(string, 3);
                     boolean bool = false;
-                    if (!string_12_.equals(xt.servername) || i_13_ != xt.servport - 7070)
-                        for (int i_14_ = 0; i_14_ < nservers; i_14_++)
-                            if (string_12_.equals(snames[i_14_]) && xt.delays[i_14_] < 300)
+                    if (!string12.equals(xt.servername) || i13 != xt.servport - 7070)
+                        for (int i14 = 0; i14 < nservers; i14++)
+                            if (string12.equals(snames[i14]) && xt.delays[i14] < 300)
                                 bool = true;
                     if (bool) {
                         gmaker = getSvalue(string, 1);
                         if (gmaker.equals(xt.nickname))
                             gmaker = "You";
-                        groom = i_13_;
-                        gservern = string_12_;
+                        groom = i13;
+                        gservern = string12;
                         gamec = i;
                         cntgame = 0;
                     }
@@ -171,8 +171,8 @@ public class Login implements Runnable {
     public void checknotifcations() {
     }
 
-    public Color color2k(final int i, final int i_62_, final int i_63_) {
-        final Color color = new Color(i, i_62_, i_63_);
+    public Color color2k(final int i, final int i62, final int i63) {
+        final Color color = new Color(i, i62, i63);
         final float[] fs = new float[3];
         Color.RGBtoHSB(color.getRed(), color.getGreen(), color.getBlue(), fs);
         fs[0] = 0.13F;
@@ -180,24 +180,24 @@ public class Login implements Runnable {
         return Color.getHSBColor(fs[0], fs[1], fs[2]);
     }
 
-    public void ctachm(final int i, final int i_47_, final int i_48_, final Control control, final Lobby lobby) {
-        int i_49_ = -1;
+    public void ctachm(final int i, final int i47, final int i48, final Control control, final Lobby lobby) {
+        int i49 = -1;
         if (fase != 2 && fase != 4 && fase != 6 && fase != 8 && fase != 9)
-            for (int i_50_ = 0; i_50_ < btn; i_50_++) {
-                if (Math.abs(i - bx[i_50_]) < bw[i_50_] / 2 + 12 && Math.abs(i_47_ - by[i_50_]) < 14
-                        && (i_48_ == 1 || i_48_ == 11))
-                    pessd[i_50_] = true;
+            for (int i50 = 0; i50 < btn; i50++) {
+                if (Math.abs(i - bx[i50]) < bw[i50] / 2 + 12 && Math.abs(i47 - by[i50]) < 14
+                        && (i48 == 1 || i48 == 11))
+                    pessd[i50] = true;
                 else
-                    pessd[i_50_] = false;
-                if (Math.abs(i - bx[i_50_]) < bw[i_50_] / 2 + 12 && Math.abs(i_47_ - by[i_50_]) < 14 && i_48_ <= -1) {
+                    pessd[i50] = false;
+                if (Math.abs(i - bx[i50]) < bw[i50] / 2 + 12 && Math.abs(i47 - by[i50]) < 14 && i48 <= -1) {
                     gs.mouses = 0;
-                    i_49_ = i_50_;
+                    i49 = i50;
                 }
-                if (fase == 12 && Math.abs(i - bx[i_50_]) < bw[i_50_] / 2 + 12 && Math.abs(i_47_ - by[i_50_]) < 14
-                        && (i_50_ == 3 || i_50_ == 4) && (i != lxm || i_47_ != lym))
-                    opselect = i_50_ - 3;
+                if (fase == 12 && Math.abs(i - bx[i50]) < bw[i50] / 2 + 12 && Math.abs(i47 - by[i50]) < 14
+                        && (i50 == 3 || i50 == 4) && (i != lxm || i47 != lym))
+                    opselect = i50 - 3;
             }
-        if (i_49_ == 0) {
+        if (i49 == 0) {
             gs.tnick.setVisible(false);
             gs.tpass.setVisible(false);
             gs.keplo.setVisible(false);
@@ -205,7 +205,7 @@ public class Login implements Runnable {
             gs.requestFocus();
             xt.fase = 24;
         }
-        if (i_49_ == 1 && fase != 5) {
+        if (i49 == 1 && fase != 5) {
             gs.tnick.setVisible(false);
             gs.tpass.setVisible(false);
             gs.keplo.setVisible(false);
@@ -213,9 +213,9 @@ public class Login implements Runnable {
             gs.requestFocus();
             xt.fase = 23;
         }
-        final int i_51_ = 2;
+        final int i51 = 2;
         if (fase == 12 || fase == 13 || fase == 14 || fase == 15 || fase == 16 || fase == 17) {
-            if (i > 176 && i_47_ > 152 && i < 296 && i_47_ < 174) {
+            if (i > 176 && i47 > 152 && i < 296 && i47 < 174) {
                 if (!ond) {
                     ond = true;
                     gs.setCursor(new Cursor(12));
@@ -225,14 +225,14 @@ public class Login implements Runnable {
                 gs.setCursor(new Cursor(0));
             }
             if (cntcl == 0) {
-                if (ond && i_48_ == 11) {
+                if (ond && i48 == 11) {
                     gs.editlink(xt.nickname, false);
                     cntcl = 10;
                 }
             } else
                 cntcl--;
-            if (i_49_ == i_51_) {
-                i_49_ = -1;
+            if (i49 == i51) {
+                i49 = -1;
                 if (xt.sc[0] >= 16) {
                     xt.sc[0] = 15;
                     gotcai = false;
@@ -262,35 +262,35 @@ public class Login implements Runnable {
                     control.down = false;
                 }
                 if (control.enter) {
-                    i_49_ = opselect + 3;
+                    i49 = opselect + 3;
                     control.enter = false;
                 }
-                if (i_49_ == i_51_ + 2) {
+                if (i49 == i51 + 2) {
                     trans = 0;
                     fase = 15;
-                    i_49_ = -1;
+                    i49 = -1;
                 }
-                if (!xt.logged && i_49_ == i_51_ + 3)
+                if (!xt.logged && i49 == i51 + 3)
                     gs.editlink(xt.nickname, true);
             } else {
                 if (xt.acexp > 0) {
-                    if (i_49_ == i_51_ + 1 || control.enter) {
+                    if (i49 == i51 + 1 || control.enter) {
                         gs.editlink(xt.nickname, false);
-                        i_49_ = -1;
+                        i49 = -1;
                     }
-                    if (i_49_ == i_51_ + 2) {
+                    if (i49 == i51 + 2) {
                         opselect = 0;
                         contrb = true;
-                        i_49_ = -1;
+                        i49 = -1;
                     }
                 }
                 if (xt.acexp == -1) {
-                    if (i_49_ == i_51_ + 1 || control.enter) {
+                    if (i49 == i51 + 1 || control.enter) {
                         gs.editlink(xt.nickname, false);
-                        i_49_ = -1;
+                        i49 = -1;
                     }
-                    if (i_49_ == i_51_ + 2) {
-                        i_49_ = -1;
+                    if (i49 == i51 + 2) {
+                        i49 = -1;
                         if (xt.sc[0] >= 16) {
                             xt.sc[0] = 15;
                             gotcai = false;
@@ -302,12 +302,12 @@ public class Login implements Runnable {
                     }
                 }
                 if (xt.acexp == -2) {
-                    if (i_49_ == i_51_ + 1 || control.enter) {
+                    if (i49 == i51 + 1 || control.enter) {
                         gs.multlink();
-                        i_49_ = -1;
+                        i49 = -1;
                     }
-                    if (i_49_ == i_51_ + 2) {
-                        i_49_ = -1;
+                    if (i49 == i51 + 2) {
+                        i49 = -1;
                         if (xt.sc[0] >= 16) {
                             xt.sc[0] = 15;
                             gotcai = false;
@@ -319,12 +319,12 @@ public class Login implements Runnable {
                     }
                 }
                 if (xt.acexp == -3) {
-                    if (i_49_ == i_51_ + 1 || control.enter) {
+                    if (i49 == i51 + 1 || control.enter) {
                         gs.editlink(xt.nickname, false);
-                        i_49_ = -1;
+                        i49 = -1;
                     }
-                    if (i_49_ == i_51_ + 2) {
-                        i_49_ = -1;
+                    if (i49 == i51 + 2) {
+                        i49 = -1;
                         if (xt.sc[0] >= 16) {
                             xt.sc[0] = 15;
                             gotcai = false;
@@ -338,8 +338,8 @@ public class Login implements Runnable {
             }
         if (fase == 13 || fase == 14 || fase == 15 || fase == 16 || fase == 17) {
             if (control.exit)
-                i_49_ = 3;
-            if (i_49_ == i_51_ + 1) {
+                i49 = 3;
+            if (i49 == i51 + 1) {
                 if (fase == 15)
                     opselect = 1;
                 else
@@ -368,10 +368,10 @@ public class Login implements Runnable {
                         connector.stop();
                         connector = null;
                     }
-                    for (int i_52_ = 0; i_52_ < nservers; i_52_++)
+                    for (int i52 = 0; i52 < nservers; i52++)
                         try {
-                            dSocket[i_52_].close();
-                            dSocket[i_52_] = null;
+                            dSocket[i52].close();
+                            dSocket[i52] = null;
                         } catch (final Exception exception) {
                             /* empty */
                         }
@@ -386,10 +386,10 @@ public class Login implements Runnable {
         }
         if (fase == 15) {
             if (control.enter) {
-                i_49_ = 4;
+                i49 = 4;
                 pessd[4] = true;
             }
-            if (i_49_ == i_51_ + 2)
+            if (i49 == i51 + 2)
                 if (xt.nofull)
                     nflk = 30;
                 else {
@@ -397,14 +397,14 @@ public class Login implements Runnable {
                     xt.servername = snames[1];
                     xt.servport = 7067;
                     xt.lan = true;
-                    i_49_ = -1;
+                    i49 = -1;
                     fase = 18;
                     lobby.fase = 0;
                 }
         }
         if (fase == 17) {
             if (control.enter) {
-                i_49_ = 4;
+                i49 = 4;
                 pessd[4] = true;
             }
             if (control.up) {
@@ -419,19 +419,19 @@ public class Login implements Runnable {
                     opselect = 0;
                 control.down = false;
             }
-            for (int i_54_ = 0; i_54_ < 5; i_54_++)
-                if (i > 175 && i_47_ > 230 + i_54_ * 20 + 14 && i < 625 && i_47_ < 250 + i_54_ * 20 + 14 && i_48_ == 1)
-                    opselect = i_54_;
-            if (i_49_ == i_51_ + 2) {
+            for (int i54 = 0; i54 < 5; i54++)
+                if (i > 175 && i47 > 230 + i54 * 20 + 14 && i < 625 && i47 < 250 + i54 * 20 + 14 && i48 == 1)
+                    opselect = i54;
+            if (i49 == i51 + 2) {
                 xt.servport = 7071 + opselect;
                 xt.lan = false;
-                i_49_ = -1;
+                i49 = -1;
                 fase = 18;
                 lobby.fase = 0;
             }
         }
         if (fase == 3) {
-            if (i > 295 && i_47_ > 334 && i < 505 && i_47_ < 348) {
+            if (i > 295 && i47 > 334 && i < 505 && i47 < 348) {
                 if (!onf) {
                     onf = true;
                     gs.setCursor(new Cursor(12));
@@ -440,7 +440,7 @@ public class Login implements Runnable {
                 onf = false;
                 gs.setCursor(new Cursor(0));
             }
-            if (onf && i_48_ == 11) {
+            if (onf && i48 == 11) {
                 msg = "Please enter your Email Address to recover your account details.";
                 gs.tnick.setForeground(new Color(0, 0, 0));
                 gs.tpass.setForeground(new Color(0, 0, 0));
@@ -451,7 +451,7 @@ public class Login implements Runnable {
                 gs.setCursor(new Cursor(0));
                 fase = 7;
             }
-            if (i > xrl && i < xrr && i_47_ > 360 && i_47_ < 373) {
+            if (i > xrl && i < xrr && i47 > 360 && i47 < 373) {
                 if (!onr) {
                     onr = true;
                     gs.setCursor(new Cursor(12));
@@ -460,17 +460,17 @@ public class Login implements Runnable {
                 onr = false;
                 gs.setCursor(new Cursor(0));
             }
-            if (onr && i_48_ == 11) {
+            if (onr && i48 == 11) {
                 gs.reglink();
                 gs.mouses = 0;
             }
         }
         if (fase == 1) {
             if (control.enter) {
-                i_49_ = 2;
+                i49 = 2;
                 pessd[2] = true;
             }
-            if (i_49_ == 2)
+            if (i49 == 2)
                 if (gs.tnick.getText().equals("Fyre") || gs.tnick.getText().equals("Nickname")
                         || gs.tnick.getText().equals("")) {
                     msg = "Type in any Nickname to play...";
@@ -483,15 +483,15 @@ public class Login implements Runnable {
                     connector = new Thread(this);
                     connector.start();
                 }
-            if (i_49_ == 3) {
+            if (i49 == 3) {
                 if (gs.tnick.getText().equals("Nickname") || msg.startsWith("This"))
                     gs.tnick.setText("");
                 msg = "Login to access the multiplayer madness!";
                 gs.tnick.setForeground(new Color(0, 0, 0));
                 fase = 3;
-                i_49_ = -1;
+                i49 = -1;
             }
-            if (i_49_ == 4) {
+            if (i49 == 4) {
                 if (nickero || gs.tnick.getText().equals("Nickname")) {
                     gs.tnick.setText("");
                     nickero = false;
@@ -502,13 +502,13 @@ public class Login implements Runnable {
         }
         if (fase == 3) {
             if (control.enter || xt.autolog) {
-                i_49_ = 2;
+                i49 = 2;
                 pessd[2] = true;
                 xt.autolog = false;
             }
             if (control.exit)
-                i_49_ = 3;
-            if (i_49_ == 2)
+                i49 = 3;
+            if (i49 == 2)
                 if (gs.tnick.getText().equals("")) {
                     msg = "Enter your Nickname!";
                     nflk = 30;
@@ -524,20 +524,20 @@ public class Login implements Runnable {
                     connector = new Thread(this);
                     connector.start();
                 }
-            if (i_49_ == 3)
+            if (i49 == 3)
                 gs.regnew();
         }
         if (fase == 5) {
             if (control.enter) {
-                i_49_ = 1;
+                i49 = 1;
                 pessd[1] = true;
             }
             if (control.exit)
-                i_49_ = 2;
-            if (i_49_ != 1) {
+                i49 = 2;
+            if (i49 != 1) {
                 /* empty */
             }
-            if (i_49_ == 2) {
+            if (i49 == 2) {
                 fase = lrgfase;
                 if (fase == 12) {
                     gs.tnick.setVisible(false);
@@ -548,12 +548,12 @@ public class Login implements Runnable {
         }
         if (fase == 7) {
             if (control.enter) {
-                i_49_ = 2;
+                i49 = 2;
                 pessd[2] = true;
             }
             if (control.exit)
-                i_49_ = 3;
-            if (i_49_ == 2) {
+                i49 = 3;
+            if (i49 == 2) {
                 nflk = 0;
                 if (gs.temail.getText().equals("")) {
                     msg = "Please type in your Email Address!";
@@ -561,17 +561,17 @@ public class Login implements Runnable {
                 }
                 if (nflk == 0) {
                     final String string = gs.temail.getText();
-                    int i_55_ = 0;
-                    int i_56_ = 0;
-                    for (/**/ ; i_55_ < string.length(); i_55_++) {
-                        final String string_57_ = new StringBuilder().append("").append(string.charAt(i_55_))
+                    int i55 = 0;
+                    int i56 = 0;
+                    for (/**/ ; i55 < string.length(); i55++) {
+                        final String string57 = new StringBuilder().append("").append(string.charAt(i55))
                                 .toString();
-                        if (string_57_.equals("@") && i_56_ == 0 && i_55_ != 0)
-                            i_56_ = 1;
-                        if (string_57_.equals(".") && i_56_ == 1 && i_55_ != string.length() - 1)
-                            i_56_ = 2;
+                        if (string57.equals("@") && i56 == 0 && i55 != 0)
+                            i56 = 1;
+                        if (string57.equals(".") && i56 == 1 && i55 != string.length() - 1)
+                            i56 = 2;
                     }
-                    if (i_56_ != 2) {
+                    if (i56 != 2) {
                         msg = "Please type in your Email Address correctly!";
                         nflk = 30;
                         errcnt = 40;
@@ -586,54 +586,54 @@ public class Login implements Runnable {
                     connector.start();
                 }
             }
-            if (i_49_ == 3) {
+            if (i49 == 3) {
                 inishmulti();
                 gs.temail.setText("");
                 gs.tpass.setText("");
             }
         }
         lxm = i;
-        lym = i_47_;
+        lym = i47;
         control.enter = false;
         control.exit = false;
     }
 
-    public void drawbutton(final Image image, final int i, final int i_59_) {
+    public void drawbutton(final Image image, final int i, final int i59) {
         bx[btn] = i;
-        by[btn] = i_59_;
+        by[btn] = i59;
         bw[btn] = image.getWidth(ob);
         if (!pessd[btn]) {
-            rd.drawImage(image, i - bw[btn] / 2, i_59_ - image.getHeight(ob) / 2, null);
-            rd.drawImage(xt.bol, i - bw[btn] / 2 - 15, i_59_ - 16, null);
-            rd.drawImage(xt.bor, i + bw[btn] / 2 + 9, i_59_ - 16, null);
-            rd.drawImage(xt.bot, i - bw[btn] / 2 - 9, i_59_ - 16, bw[btn] + 18, 3, null);
-            rd.drawImage(xt.bob, i - bw[btn] / 2 - 9, i_59_ + 13, bw[btn] + 18, 3, null);
+            rd.drawImage(image, i - bw[btn] / 2, i59 - image.getHeight(ob) / 2, null);
+            rd.drawImage(xt.bol, i - bw[btn] / 2 - 15, i59 - 16, null);
+            rd.drawImage(xt.bor, i + bw[btn] / 2 + 9, i59 - 16, null);
+            rd.drawImage(xt.bot, i - bw[btn] / 2 - 9, i59 - 16, bw[btn] + 18, 3, null);
+            rd.drawImage(xt.bob, i - bw[btn] / 2 - 9, i59 + 13, bw[btn] + 18, 3, null);
         } else {
-            rd.drawImage(image, i - bw[btn] / 2 + 1, i_59_ - image.getHeight(ob) / 2 + 1, null);
-            rd.drawImage(xt.bolp, i - bw[btn] / 2 - 15, i_59_ - 16, null);
-            rd.drawImage(xt.borp, i + bw[btn] / 2 + 9, i_59_ - 16, null);
-            rd.drawImage(xt.bob, i - bw[btn] / 2 - 9, i_59_ - 16, bw[btn] + 18, 3, null);
-            rd.drawImage(xt.bot, i - bw[btn] / 2 - 9, i_59_ + 13, bw[btn] + 18, 3, null);
+            rd.drawImage(image, i - bw[btn] / 2 + 1, i59 - image.getHeight(ob) / 2 + 1, null);
+            rd.drawImage(xt.bolp, i - bw[btn] / 2 - 15, i59 - 16, null);
+            rd.drawImage(xt.borp, i + bw[btn] / 2 + 9, i59 - 16, null);
+            rd.drawImage(xt.bob, i - bw[btn] / 2 - 9, i59 - 16, bw[btn] + 18, 3, null);
+            rd.drawImage(xt.bot, i - bw[btn] / 2 - 9, i59 + 13, bw[btn] + 18, 3, null);
         }
         btn++;
     }
 
-    public void drawSbutton(final Image image, final int i, final int i_58_) {
+    public void drawSbutton(final Image image, final int i, final int i58) {
         bx[btn] = i;
-        by[btn] = i_58_;
+        by[btn] = i58;
         bw[btn] = image.getWidth(ob);
         if (!pessd[btn]) {
-            rd.drawImage(image, i - bw[btn] / 2, i_58_ - image.getHeight(ob) / 2 - 1, null);
-            rd.drawImage(xt.bols, i - bw[btn] / 2 - 15, i_58_ - 13, null);
-            rd.drawImage(xt.bors, i + bw[btn] / 2 + 9, i_58_ - 13, null);
-            rd.drawImage(xt.bot, i - bw[btn] / 2 - 9, i_58_ - 13, bw[btn] + 18, 3, null);
-            rd.drawImage(xt.bob, i - bw[btn] / 2 - 9, i_58_ + 10, bw[btn] + 18, 3, null);
+            rd.drawImage(image, i - bw[btn] / 2, i58 - image.getHeight(ob) / 2 - 1, null);
+            rd.drawImage(xt.bols, i - bw[btn] / 2 - 15, i58 - 13, null);
+            rd.drawImage(xt.bors, i + bw[btn] / 2 + 9, i58 - 13, null);
+            rd.drawImage(xt.bot, i - bw[btn] / 2 - 9, i58 - 13, bw[btn] + 18, 3, null);
+            rd.drawImage(xt.bob, i - bw[btn] / 2 - 9, i58 + 10, bw[btn] + 18, 3, null);
         } else {
-            rd.drawImage(image, i - bw[btn] / 2 + 1, i_58_ - image.getHeight(ob) / 2, null);
-            rd.drawImage(xt.bolps, i - bw[btn] / 2 - 15, i_58_ - 13, null);
-            rd.drawImage(xt.borps, i + bw[btn] / 2 + 9, i_58_ - 13, null);
-            rd.drawImage(xt.bob, i - bw[btn] / 2 - 9, i_58_ - 13, bw[btn] + 18, 3, null);
-            rd.drawImage(xt.bot, i - bw[btn] / 2 - 9, i_58_ + 10, bw[btn] + 18, 3, null);
+            rd.drawImage(image, i - bw[btn] / 2 + 1, i58 - image.getHeight(ob) / 2, null);
+            rd.drawImage(xt.bolps, i - bw[btn] / 2 - 15, i58 - 13, null);
+            rd.drawImage(xt.borps, i + bw[btn] / 2 + 9, i58 - 13, null);
+            rd.drawImage(xt.bob, i - bw[btn] / 2 - 9, i58 - 13, bw[btn] + 18, 3, null);
+            rd.drawImage(xt.bot, i - bw[btn] / 2 - 9, i58 + 10, bw[btn] + 18, 3, null);
         }
         btn++;
     }
@@ -691,27 +691,27 @@ public class Login implements Runnable {
     public void fixtext(final TextField textfield) {
         String string = textfield.getText();
         string = string.replace('\"', '#');
-        final String string_64_ = "\\";
-        String string_65_ = "";
+        final String string64 = "\\";
+        String string65 = "";
         int i = 0;
-        int i_66_ = -1;
+        int i66 = -1;
         for (/**/ ; i < string.length(); i++) {
-            final String string_67_ = new StringBuilder().append("").append(string.charAt(i)).toString();
-            if (string_67_.equals("|") || string_67_.equals(",") || string_67_.equals("(") || string_67_.equals(")")
-                    || string_67_.equals("#") || string_67_.equals(string_64_) || string_67_.equals("!")
-                    || string_67_.equals("?") || string_67_.equals(" ") || string_67_.equals("~")
-                    || string_67_.equals("$") || string_67_.equals("%") || string_67_.equals("^")
-                    || string_67_.equals("&") || string_67_.equals("*") || string_67_.equals("+")
-                    || string_67_.equals("=") || string_67_.equals(">") || string_67_.equals("<")
-                    || string_67_.equals("/") || string_67_.equals("'") || string_67_.equals(";")
-                    || string_67_.equals(":") || string_67_.equals("\u00a0"))
-                i_66_ = i;
+            final String string67 = new StringBuilder().append("").append(string.charAt(i)).toString();
+            if (string67.equals("|") || string67.equals(",") || string67.equals("(") || string67.equals(")")
+                    || string67.equals("#") || string67.equals(string64) || string67.equals("!")
+                    || string67.equals("?") || string67.equals(" ") || string67.equals("~")
+                    || string67.equals("$") || string67.equals("%") || string67.equals("^")
+                    || string67.equals("&") || string67.equals("*") || string67.equals("+")
+                    || string67.equals("=") || string67.equals(">") || string67.equals("<")
+                    || string67.equals("/") || string67.equals("'") || string67.equals(";")
+                    || string67.equals(":") || string67.equals("\u00a0"))
+                i66 = i;
             else
-                string_65_ = new StringBuilder().append(string_65_).append(string_67_).toString();
+                string65 = new StringBuilder().append(string65).append(string67).toString();
         }
-        if (i_66_ != -1) {
-            textfield.setText(string_65_);
-            textfield.select(i_66_, i_66_);
+        if (i66 != -1) {
+            textfield.setText(string65);
+            textfield.select(i66, i66);
         }
     }
 
@@ -732,57 +732,57 @@ public class Login implements Runnable {
     }
 
     public String getSvalue(final String string, final int i) {
-        String string_74_ = "";
+        String string74 = "";
         try {
-            int i_75_ = 0;
-            int i_76_ = 0;
-            int i_77_ = 0;
-            String string_78_ = "";
-            String string_79_ = "";
-            for (/**/ ; i_75_ < string.length() && i_77_ != 2; i_75_++) {
-                string_78_ = new StringBuilder().append("").append(string.charAt(i_75_)).toString();
-                if (string_78_.equals("|")) {
-                    i_76_++;
-                    if (i_77_ == 1 || i_76_ > i)
-                        i_77_ = 2;
-                } else if (i_76_ == i) {
-                    string_79_ = new StringBuilder().append(string_79_).append(string_78_).toString();
-                    i_77_ = 1;
+            int i75 = 0;
+            int i76 = 0;
+            int i77 = 0;
+            String string78 = "";
+            String string79 = "";
+            for (/**/ ; i75 < string.length() && i77 != 2; i75++) {
+                string78 = new StringBuilder().append("").append(string.charAt(i75)).toString();
+                if (string78.equals("|")) {
+                    i76++;
+                    if (i77 == 1 || i76 > i)
+                        i77 = 2;
+                } else if (i76 == i) {
+                    string79 = new StringBuilder().append(string79).append(string78).toString();
+                    i77 = 1;
                 }
             }
-            string_74_ = string_79_;
+            string74 = string79;
         } catch (final Exception exception) {
             /* empty */
         }
-        return string_74_;
+        return string74;
     }
 
     public int getvalue(final String string, final int i) {
-        int i_68_ = -1;
+        int i68 = -1;
         try {
-            int i_69_ = 0;
-            int i_70_ = 0;
-            int i_71_ = 0;
-            String string_72_ = "";
-            String string_73_ = "";
-            for (/**/ ; i_69_ < string.length() && i_71_ != 2; i_69_++) {
-                string_72_ = new StringBuilder().append("").append(string.charAt(i_69_)).toString();
-                if (string_72_.equals("|")) {
-                    i_70_++;
-                    if (i_71_ == 1 || i_70_ > i)
-                        i_71_ = 2;
-                } else if (i_70_ == i) {
-                    string_73_ = new StringBuilder().append(string_73_).append(string_72_).toString();
-                    i_71_ = 1;
+            int i69 = 0;
+            int i70 = 0;
+            int i71 = 0;
+            String string72 = "";
+            String string73 = "";
+            for (/**/ ; i69 < string.length() && i71 != 2; i69++) {
+                string72 = new StringBuilder().append("").append(string.charAt(i69)).toString();
+                if (string72.equals("|")) {
+                    i70++;
+                    if (i71 == 1 || i70 > i)
+                        i71 = 2;
+                } else if (i70 == i) {
+                    string73 = new StringBuilder().append(string73).append(string72).toString();
+                    i71 = 1;
                 }
             }
-            if (string_73_.equals(""))
-                string_73_ = "-1";
-            i_68_ = Integer.valueOf(string_73_).intValue();
+            if (string73.equals(""))
+                string73 = "-1";
+            i68 = Integer.valueOf(string73).intValue();
         } catch (final Exception exception) {
             /* empty */
         }
-        return i_68_;
+        return i68;
     }
 
     public void inishmulti() {
@@ -885,22 +885,22 @@ public class Login implements Runnable {
         rd.drawRoundRect(173, 83, 132, 32, 20, 20);
         if (!gotcai) {
             int i = contos[xt.sc[0]].p[0].oz[0];
-            int i_26_ = i;
-            int i_27_ = contos[xt.sc[0]].p[0].oy[0];
-            int i_28_ = i_27_;
-            for (int i_29_ = 0; i_29_ < contos[xt.sc[0]].npl; i_29_++)
-                for (int i_30_ = 0; i_30_ < contos[xt.sc[0]].p[i_29_].n; i_30_++) {
-                    if (contos[xt.sc[0]].p[i_29_].oz[i_30_] < i)
-                        i = contos[xt.sc[0]].p[i_29_].oz[i_30_];
-                    if (contos[xt.sc[0]].p[i_29_].oz[i_30_] > i_26_)
-                        i_26_ = contos[xt.sc[0]].p[i_29_].oz[i_30_];
-                    if (contos[xt.sc[0]].p[i_29_].oy[i_30_] < i_27_)
-                        i_27_ = contos[xt.sc[0]].p[i_29_].oy[i_30_];
-                    if (contos[xt.sc[0]].p[i_29_].oy[i_30_] > i_28_)
-                        i_28_ = contos[xt.sc[0]].p[i_29_].oy[i_30_];
+            int i26 = i;
+            int i27 = contos[xt.sc[0]].p[0].oy[0];
+            int i28 = i27;
+            for (int i29 = 0; i29 < contos[xt.sc[0]].npl; i29++)
+                for (int i30 = 0; i30 < contos[xt.sc[0]].p[i29].n; i30++) {
+                    if (contos[xt.sc[0]].p[i29].oz[i30] < i)
+                        i = contos[xt.sc[0]].p[i29].oz[i30];
+                    if (contos[xt.sc[0]].p[i29].oz[i30] > i26)
+                        i26 = contos[xt.sc[0]].p[i29].oz[i30];
+                    if (contos[xt.sc[0]].p[i29].oy[i30] < i27)
+                        i27 = contos[xt.sc[0]].p[i29].oy[i30];
+                    if (contos[xt.sc[0]].p[i29].oy[i30] > i28)
+                        i28 = contos[xt.sc[0]].p[i29].oy[i30];
                 }
-            cax = (i_26_ + i) / 2;
-            cay = (i_28_ + i_27_) / 2;
+            cax = (i26 + i) / 2;
+            cay = (i28 + i27) / 2;
             gotcai = true;
         }
         contos[xt.sc[0]].z = 1500;
@@ -1076,14 +1076,14 @@ public class Login implements Runnable {
             resofaso = false;
     }
 
-    public void multistart(final ContO[] contos, final int i, final int i_38_, final boolean bool) {
+    public void multistart(final ContO[] contos, final int i, final int i38, final boolean bool) {
         btn = 0;
         xt.mainbg(4);
-        for (int i_39_ = 0; i_39_ < 3; i_39_++) {
-            rd.drawImage(xt.bgmain, 65, bgmy[i_39_], null);
-            bgmy[i_39_] -= 4;
-            if (bgmy[i_39_] <= -400)
-                bgmy[i_39_] = 800;
+        for (int i39 = 0; i39 < 3; i39++) {
+            rd.drawImage(xt.bgmain, 65, bgmy[i39], null);
+            bgmy[i39] -= 4;
+            if (bgmy[i39] <= -400)
+                bgmy[i39] = 800;
         }
         rd.setComposite(AlphaComposite.getInstance(3, 0.2F));
         rd.drawImage(xt.bggo, 0, 0, null);
@@ -1107,16 +1107,16 @@ public class Login implements Runnable {
         if (flipo > 50)
             flipo = 0;
         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
-        int i_40_ = 0;
-        if (i != oxm || i_38_ != oym) {
-            i_40_ = 1;
+        int i40 = 0;
+        if (i != oxm || i38 != oym) {
+            i40 = 1;
             oxm = i;
-            oym = i_38_;
+            oym = i38;
         }
         if (bool)
-            i_40_ = 2;
+            i40 = 2;
         rd.setComposite(AlphaComposite.getInstance(3, 0.3F));
-        rd.drawImage(xt.dude[i_40_], 87, 76, null);
+        rd.drawImage(xt.dude[i40], 87, 76, null);
         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
         rd.drawImage(xt.redy, 445, 153, null);
         // really dirty solution to a very specific bug
@@ -1137,23 +1137,23 @@ public class Login implements Runnable {
                     81);
             rd.drawRoundRect(246, 83, 180, 96, 20, 20);
             if (!gotcai) {
-                int i_41_ = contos[xt.sc[0]].p[0].oz[0];
-                int i_42_ = i_41_;
-                int i_43_ = contos[xt.sc[0]].p[0].oy[0];
-                int i_44_ = i_43_;
-                for (int i_45_ = 0; i_45_ < contos[xt.sc[0]].npl; i_45_++)
-                    for (int i_46_ = 0; i_46_ < contos[xt.sc[0]].p[i_45_].n; i_46_++) {
-                        if (contos[xt.sc[0]].p[i_45_].oz[i_46_] < i_41_)
-                            i_41_ = contos[xt.sc[0]].p[i_45_].oz[i_46_];
-                        if (contos[xt.sc[0]].p[i_45_].oz[i_46_] > i_42_)
-                            i_42_ = contos[xt.sc[0]].p[i_45_].oz[i_46_];
-                        if (contos[xt.sc[0]].p[i_45_].oy[i_46_] < i_43_)
-                            i_43_ = contos[xt.sc[0]].p[i_45_].oy[i_46_];
-                        if (contos[xt.sc[0]].p[i_45_].oy[i_46_] > i_44_)
-                            i_44_ = contos[xt.sc[0]].p[i_45_].oy[i_46_];
+                int i41 = contos[xt.sc[0]].p[0].oz[0];
+                int i42 = i41;
+                int i43 = contos[xt.sc[0]].p[0].oy[0];
+                int i44 = i43;
+                for (int i45 = 0; i45 < contos[xt.sc[0]].npl; i45++)
+                    for (int i46 = 0; i46 < contos[xt.sc[0]].p[i45].n; i46++) {
+                        if (contos[xt.sc[0]].p[i45].oz[i46] < i41)
+                            i41 = contos[xt.sc[0]].p[i45].oz[i46];
+                        if (contos[xt.sc[0]].p[i45].oz[i46] > i42)
+                            i42 = contos[xt.sc[0]].p[i45].oz[i46];
+                        if (contos[xt.sc[0]].p[i45].oy[i46] < i43)
+                            i43 = contos[xt.sc[0]].p[i45].oy[i46];
+                        if (contos[xt.sc[0]].p[i45].oy[i46] > i44)
+                            i44 = contos[xt.sc[0]].p[i45].oy[i46];
                     }
-                cax = (i_42_ + i_41_) / 2;
-                cay = (i_44_ + i_43_) / 2;
+                cax = (i42 + i41) / 2;
+                cay = (i44 + i43) / 2;
                 gotcai = true;
             }
             contos[xt.sc[0]].z = 1500;
@@ -1406,7 +1406,7 @@ public class Login implements Runnable {
         if (fase == 2) {
             gs.setCursor(new Cursor(3));
             int i = -1;
-            int i_15_ = -1;
+            int i15 = -1;
             try {
                 socket = new Socket(servers[0], 7061);
                 din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -1416,7 +1416,7 @@ public class Login implements Runnable {
                 if (string != null) {
                     i = getvalue(string, 0);
                     if (i == 0) {
-                        i_15_ = getvalue(string, 1);
+                        i15 = getvalue(string, 1);
                         xt.hours = getvalue(string, 2);
                         xt.nickey = getSvalue(string, 3);
                     }
@@ -1434,7 +1434,7 @@ public class Login implements Runnable {
             }
             if (i == 0) {
                 xt.nickname = gs.tnick.getText();
-                if (i_15_ != -1)
+                if (i15 != -1)
                     xt.nfreeplays = 0;
                 gs.tnick.setVisible(false);
                 gs.tpass.setVisible(false);
@@ -1466,7 +1466,7 @@ public class Login implements Runnable {
         if (fase == 4) {
             gs.setCursor(new Cursor(3));
             int i = -1;
-            int i_16_ = -1;
+            int i16 = -1;
             String string = "";
             try {
                 socket = new Socket(servers[0], 7061);
@@ -1485,7 +1485,7 @@ public class Login implements Runnable {
                         } else {
                             xt.clan = "";
                             xt.clankey = "";
-                            i_16_ = getvalue(string, 2);
+                            i16 = getvalue(string, 2);
                             xt.hours = getvalue(string, 3);
                         }
                     }
@@ -1523,7 +1523,7 @@ public class Login implements Runnable {
                     xt.acexp = -1;
                 if (i == -167) {
                     xt.logged = false;
-                    if (i_16_ != -1)
+                    if (i16 != -1)
                         xt.nfreeplays = 0;
                 }
                 if (xt.logged)
@@ -1614,12 +1614,12 @@ public class Login implements Runnable {
                         final DatagramPacket datagrampacket = new DatagramPacket(is, is.length, IPAddress[srvtrn],
                                 7000);
                         final String string = new StringBuilder().append("").append(xt.nickname).append("|").toString();
-                        final byte[] is_17_ = string.getBytes();
-                        datagrampacket.setData(is_17_);
+                        final byte[] is17 = string.getBytes();
+                        datagrampacket.setData(is17);
                         dSocket[srvtrn].send(datagrampacket);
                         dSocket[srvtrn].receive(datagrampacket);
-                        final String string_18_ = new String(datagrampacket.getData());
-                        if (string_18_.startsWith("OK")) {
+                        final String string18 = new String(datagrampacket.getData());
+                        if (string18.startsWith("OK")) {
                             date = new Date();
                             if (date.getTime() - servestart[srvtrn] < xt.delays[srvtrn])
                                 xt.delays[srvtrn] = (int) (date.getTime() - servestart[srvtrn]);
@@ -1653,7 +1653,7 @@ public class Login implements Runnable {
         if (fase == 16 || fase == 17) {
             boolean bool = false;
             int i = 0;
-            int i_20_ = -1;
+            int i20 = -1;
             recom = 0;
             try {
                 socket = new Socket(xt.server, 7067);
@@ -1667,11 +1667,11 @@ public class Login implements Runnable {
                 if (!bool) {
                     try {
                         dout.println("10|");
-                        final String string_21_ = din.readLine();
-                        if (string_21_ == null)
+                        final String string21 = din.readLine();
+                        if (string21 == null)
                             bool = true;
                         else
-                            string = string_21_;
+                            string = string21;
                     } catch (final Exception exception) {
                         bool = true;
                     }
@@ -1691,11 +1691,11 @@ public class Login implements Runnable {
                             din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                             dout = new PrintWriter(socket.getOutputStream(), true);
                             dout.println("10|");
-                            final String string_22_ = din.readLine();
-                            if (string_22_ != null)
+                            final String string22 = din.readLine();
+                            if (string22 != null)
                                 bool = false;
                             else
-                                string = string_22_;
+                                string = string22;
                         } catch (final Exception exception) {
                             bool = true;
                         }
@@ -1709,19 +1709,19 @@ public class Login implements Runnable {
                         }
                 }
                 if (!bool) {
-                    for (int i_23_ = 0; i_23_ < 5; i_23_++) {
-                        rmps[i_23_] = getvalue(string, i_23_ * 2);
-                        rmwt[i_23_] = getvalue(string, 1 + i_23_ * 2);
+                    for (int i23 = 0; i23 < 5; i23++) {
+                        rmps[i23] = getvalue(string, i23 * 2);
+                        rmwt[i23] = getvalue(string, 1 + i23 * 2);
                     }
-                    int i_24_ = 1000;
-                    for (int i_25_ = 0; i_25_ < 5; i_25_++)
-                        if (Math.abs(rmps[i_25_] - 6) < i_24_) {
-                            recom = i_25_;
-                            i_24_ = Math.abs(rmps[i_25_] - 6);
+                    int i24 = 1000;
+                    for (int i25 = 0; i25 < 5; i25++)
+                        if (Math.abs(rmps[i25] - 6) < i24) {
+                            recom = i25;
+                            i24 = Math.abs(rmps[i25] - 6);
                         }
-                    if (recom != i_20_) {
+                    if (recom != i20) {
                         opselect = recom;
-                        i_20_ = recom;
+                        i20 = recom;
                     }
                     if (fase == 16)
                         fase = 17;
@@ -1762,50 +1762,50 @@ public class Login implements Runnable {
         endcons();
     }
 
-    public void stringbutton(final String string, final int i, final int i_60_, final int i_61_) {
+    public void stringbutton(final String string, final int i, final int i60, final int i61) {
         rd.setFont(new Font("Arial", 1, 12));
         ftm = rd.getFontMetrics();
         bx[btn] = i;
-        by[btn] = i_60_ - 5;
+        by[btn] = i60 - 5;
         bw[btn] = ftm.stringWidth(string);
         if (!pessd[btn]) {
             rd.setColor(color2k(220, 220, 220));
-            rd.fillRect(i - bw[btn] / 2 - 10, i_60_ - (17 - i_61_), bw[btn] + 20, 25 - i_61_ * 2);
+            rd.fillRect(i - bw[btn] / 2 - 10, i60 - (17 - i61), bw[btn] + 20, 25 - i61 * 2);
             rd.setColor(color2k(240, 240, 240));
-            rd.drawLine(i - bw[btn] / 2 - 10, i_60_ - (17 - i_61_), i + bw[btn] / 2 + 10, i_60_ - (17 - i_61_));
-            rd.drawLine(i - bw[btn] / 2 - 10, i_60_ - (18 - i_61_), i + bw[btn] / 2 + 10, i_60_ - (18 - i_61_));
-            rd.drawLine(i - bw[btn] / 2 - 9, i_60_ - (19 - i_61_), i + bw[btn] / 2 + 9, i_60_ - (19 - i_61_));
+            rd.drawLine(i - bw[btn] / 2 - 10, i60 - (17 - i61), i + bw[btn] / 2 + 10, i60 - (17 - i61));
+            rd.drawLine(i - bw[btn] / 2 - 10, i60 - (18 - i61), i + bw[btn] / 2 + 10, i60 - (18 - i61));
+            rd.drawLine(i - bw[btn] / 2 - 9, i60 - (19 - i61), i + bw[btn] / 2 + 9, i60 - (19 - i61));
             rd.setColor(color2k(200, 200, 200));
-            rd.drawLine(i + bw[btn] / 2 + 10, i_60_ - (17 - i_61_), i + bw[btn] / 2 + 10, i_60_ + 7 - i_61_);
-            rd.drawLine(i + bw[btn] / 2 + 11, i_60_ - (17 - i_61_), i + bw[btn] / 2 + 11, i_60_ + 7 - i_61_);
-            rd.drawLine(i + bw[btn] / 2 + 12, i_60_ - (16 - i_61_), i + bw[btn] / 2 + 12, i_60_ + 6 - i_61_);
-            rd.drawLine(i - bw[btn] / 2 - 10, i_60_ + 7 - i_61_, i + bw[btn] / 2 + 10, i_60_ + 7 - i_61_);
-            rd.drawLine(i - bw[btn] / 2 - 10, i_60_ + 8 - i_61_, i + bw[btn] / 2 + 10, i_60_ + 8 - i_61_);
-            rd.drawLine(i - bw[btn] / 2 - 9, i_60_ + 9 - i_61_, i + bw[btn] / 2 + 9, i_60_ + 9 - i_61_);
+            rd.drawLine(i + bw[btn] / 2 + 10, i60 - (17 - i61), i + bw[btn] / 2 + 10, i60 + 7 - i61);
+            rd.drawLine(i + bw[btn] / 2 + 11, i60 - (17 - i61), i + bw[btn] / 2 + 11, i60 + 7 - i61);
+            rd.drawLine(i + bw[btn] / 2 + 12, i60 - (16 - i61), i + bw[btn] / 2 + 12, i60 + 6 - i61);
+            rd.drawLine(i - bw[btn] / 2 - 10, i60 + 7 - i61, i + bw[btn] / 2 + 10, i60 + 7 - i61);
+            rd.drawLine(i - bw[btn] / 2 - 10, i60 + 8 - i61, i + bw[btn] / 2 + 10, i60 + 8 - i61);
+            rd.drawLine(i - bw[btn] / 2 - 9, i60 + 9 - i61, i + bw[btn] / 2 + 9, i60 + 9 - i61);
             rd.setColor(color2k(240, 240, 240));
-            rd.drawLine(i - bw[btn] / 2 - 10, i_60_ - (17 - i_61_), i - bw[btn] / 2 - 10, i_60_ + 7 - i_61_);
-            rd.drawLine(i - bw[btn] / 2 - 11, i_60_ - (17 - i_61_), i - bw[btn] / 2 - 11, i_60_ + 7 - i_61_);
-            rd.drawLine(i - bw[btn] / 2 - 12, i_60_ - (16 - i_61_), i - bw[btn] / 2 - 12, i_60_ + 6 - i_61_);
+            rd.drawLine(i - bw[btn] / 2 - 10, i60 - (17 - i61), i - bw[btn] / 2 - 10, i60 + 7 - i61);
+            rd.drawLine(i - bw[btn] / 2 - 11, i60 - (17 - i61), i - bw[btn] / 2 - 11, i60 + 7 - i61);
+            rd.drawLine(i - bw[btn] / 2 - 12, i60 - (16 - i61), i - bw[btn] / 2 - 12, i60 + 6 - i61);
             rd.setColor(new Color(0, 0, 0));
-            rd.drawString(string, i - bw[btn] / 2, i_60_);
+            rd.drawString(string, i - bw[btn] / 2, i60);
         } else {
             rd.setColor(color2k(210, 210, 210));
-            rd.fillRect(i - bw[btn] / 2 - 10, i_60_ - (17 - i_61_), bw[btn] + 20, 25 - i_61_ * 2);
+            rd.fillRect(i - bw[btn] / 2 - 10, i60 - (17 - i61), bw[btn] + 20, 25 - i61 * 2);
             rd.setColor(color2k(200, 200, 200));
-            rd.drawLine(i - bw[btn] / 2 - 10, i_60_ - (17 - i_61_), i + bw[btn] / 2 + 10, i_60_ - (17 - i_61_));
-            rd.drawLine(i - bw[btn] / 2 - 10, i_60_ - (18 - i_61_), i + bw[btn] / 2 + 10, i_60_ - (18 - i_61_));
-            rd.drawLine(i - bw[btn] / 2 - 9, i_60_ - (19 - i_61_), i + bw[btn] / 2 + 9, i_60_ - (19 - i_61_));
-            rd.drawLine(i + bw[btn] / 2 + 10, i_60_ - (17 - i_61_), i + bw[btn] / 2 + 10, i_60_ + 7 - i_61_);
-            rd.drawLine(i + bw[btn] / 2 + 11, i_60_ - (17 - i_61_), i + bw[btn] / 2 + 11, i_60_ + 7 - i_61_);
-            rd.drawLine(i + bw[btn] / 2 + 12, i_60_ - (16 - i_61_), i + bw[btn] / 2 + 12, i_60_ + 6 - i_61_);
-            rd.drawLine(i - bw[btn] / 2 - 10, i_60_ + 7 - i_61_, i + bw[btn] / 2 + 10, i_60_ + 7 - i_61_);
-            rd.drawLine(i - bw[btn] / 2 - 10, i_60_ + 8 - i_61_, i + bw[btn] / 2 + 10, i_60_ + 8 - i_61_);
-            rd.drawLine(i - bw[btn] / 2 - 9, i_60_ + 9 - i_61_, i + bw[btn] / 2 + 9, i_60_ + 9 - i_61_);
-            rd.drawLine(i - bw[btn] / 2 - 10, i_60_ - (17 - i_61_), i - bw[btn] / 2 - 10, i_60_ + 7 - i_61_);
-            rd.drawLine(i - bw[btn] / 2 - 11, i_60_ - (17 - i_61_), i - bw[btn] / 2 - 11, i_60_ + 7 - i_61_);
-            rd.drawLine(i - bw[btn] / 2 - 12, i_60_ - (16 - i_61_), i - bw[btn] / 2 - 12, i_60_ + 6 - i_61_);
+            rd.drawLine(i - bw[btn] / 2 - 10, i60 - (17 - i61), i + bw[btn] / 2 + 10, i60 - (17 - i61));
+            rd.drawLine(i - bw[btn] / 2 - 10, i60 - (18 - i61), i + bw[btn] / 2 + 10, i60 - (18 - i61));
+            rd.drawLine(i - bw[btn] / 2 - 9, i60 - (19 - i61), i + bw[btn] / 2 + 9, i60 - (19 - i61));
+            rd.drawLine(i + bw[btn] / 2 + 10, i60 - (17 - i61), i + bw[btn] / 2 + 10, i60 + 7 - i61);
+            rd.drawLine(i + bw[btn] / 2 + 11, i60 - (17 - i61), i + bw[btn] / 2 + 11, i60 + 7 - i61);
+            rd.drawLine(i + bw[btn] / 2 + 12, i60 - (16 - i61), i + bw[btn] / 2 + 12, i60 + 6 - i61);
+            rd.drawLine(i - bw[btn] / 2 - 10, i60 + 7 - i61, i + bw[btn] / 2 + 10, i60 + 7 - i61);
+            rd.drawLine(i - bw[btn] / 2 - 10, i60 + 8 - i61, i + bw[btn] / 2 + 10, i60 + 8 - i61);
+            rd.drawLine(i - bw[btn] / 2 - 9, i60 + 9 - i61, i + bw[btn] / 2 + 9, i60 + 9 - i61);
+            rd.drawLine(i - bw[btn] / 2 - 10, i60 - (17 - i61), i - bw[btn] / 2 - 10, i60 + 7 - i61);
+            rd.drawLine(i - bw[btn] / 2 - 11, i60 - (17 - i61), i - bw[btn] / 2 - 11, i60 + 7 - i61);
+            rd.drawLine(i - bw[btn] / 2 - 12, i60 - (16 - i61), i - bw[btn] / 2 - 12, i60 + 6 - i61);
             rd.setColor(new Color(0, 0, 0));
-            rd.drawString(string, i - bw[btn] / 2 + 1, i_60_);
+            rd.drawString(string, i - bw[btn] / 2 + 1, i60);
         }
         btn++;
     }

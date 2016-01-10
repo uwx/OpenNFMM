@@ -60,7 +60,7 @@ public class Medium {
     };
     int fallen = 0;
     float fo = 1.0F;
-    int focus_point = 400;
+    int focusPoint = 400;
     int fogd = 7;
     int fvect = 200;
     float gofo = (float) (0.33000001311302185 + Math.random() * 1.34);
@@ -149,16 +149,16 @@ public class Medium {
             tsin[i] = (float) Math.sin(i * 0.017453292519943295);
     }
 
-    public void addsp(final int i, final int i_245_, final int i_246_) {
+    public void addsp(final int i, final int i245, final int i246) {
         if (nsp != 7) {
             spx[nsp] = i;
-            spz[nsp] = i_245_;
-            sprad[nsp] = i_246_;
+            spz[nsp] = i245;
+            sprad[nsp] = i246;
             nsp++;
         }
     }
 
-    public void adjstfade(final float f, final float f_271_, final int i, final GameSparker gamesparker) {
+    public void adjstfade(final float f, final float f271, final int i, final GameSparker gamesparker) {
         if (resdown != 2)
             if (f == 5.0F) {
                 if (resdown == 0 && rescnt == 0) {
@@ -171,7 +171,7 @@ public class Medium {
                 }
                 if (resdown == 1 && rescnt == 0)
                     resdown = 2;
-                if ((i == 0 || resdown == 0) && f_271_ <= -20.0F)
+                if ((i == 0 || resdown == 0) && f271 <= -20.0F)
                     rescnt--;
             } else if (resdown == 0)
                 rescnt = 5;
@@ -208,19 +208,19 @@ public class Medium {
             vxz += 2;
         else
             vxz += 4;
-        int i_4_ = 0;
-        int i_5_ = y;
-        if (i_5_ > 0)
-            i_5_ = 0;
-        if (conto.y - i_5_ - cy < 0)
-            i_4_ = -180;
-        final int i_6_ = (int) Math
+        int i4 = 0;
+        int i5 = y;
+        if (i5 > 0)
+            i5 = 0;
+        if (conto.y - i5 - cy < 0)
+            i4 = -180;
+        final int i6 = (int) Math
                 .sqrt((conto.z - z + cz) * (conto.z - z + cz) + (conto.x - x - cx) * (conto.x - x - cx));
-        int i_7_ = (int) (90 + i_4_ - Math.atan((double) i_6_ / (double) (conto.y - i_5_ - cy)) / 0.017453292519943295);
+        int i7 = (int) (90 + i4 - Math.atan((double) i6 / (double) (conto.y - i5 - cy)) / 0.017453292519943295);
         xz = -vxz + 90;
         if (bool)
-            i_7_ -= 15;
-        zy += (i_7_ - zy) / 10;
+            i7 -= 15;
+        zy += (i7 - zy) / 10;
     }
 
     public void aroundtrack(final CheckPoints checkpoints) {
@@ -233,7 +233,7 @@ public class Medium {
                 zy = 67;
                 atrx = (checkpoints.x[0] - trx) / 116L;
                 atrz = (checkpoints.z[0] - trz) / 116L;
-                focus_point = 400;
+                focusPoint = 400;
             }
             if (hit == 20000) {
                 fallen = 500;
@@ -241,7 +241,7 @@ public class Medium {
                 zy = 67;
                 atrx = (checkpoints.x[0] - trx) / 116L;
                 atrz = (checkpoints.z[0] - trz) / 116L;
-                focus_point = 400;
+                focusPoint = 400;
             }
             hit -= fallen;
             fallen += 7;
@@ -257,7 +257,7 @@ public class Medium {
             }
             vxz += 3;
         } else {
-            focus_point = (int) (400.0F * fo);
+            focusPoint = (int) (400.0F * fo);
             if (Math.abs(fo - gofo) > 0.005) {
                 if (fo < gofo)
                     fo += 0.005F;
@@ -314,51 +314,51 @@ public class Medium {
             y = 0;
         ground = 250 - y;
         final int[] is = new int[4];
-        final int[] is_223_ = new int[4];
+        final int[] is223 = new int[4];
         int i = cgrnd[0];
-        int i_224_ = cgrnd[1];
-        int i_225_ = cgrnd[2];
-        int i_226_ = crgrnd[0];
-        int i_227_ = crgrnd[1];
-        int i_228_ = crgrnd[2];
-        int i_229_ = h;
-        for (int i_230_ = 0; i_230_ < 16; i_230_++) {
-            int i_231_ = fade[i_230_];
-            int i_232_ = ground;
+        int i224 = cgrnd[1];
+        int i225 = cgrnd[2];
+        int i226 = crgrnd[0];
+        int i227 = crgrnd[1];
+        int i228 = crgrnd[2];
+        int i229 = h;
+        for (int i230 = 0; i230 < 16; i230++) {
+            int i231 = fade[i230];
+            int i232 = ground;
             if (zy != 0) {
-                i_232_ = cy + (int) ((ground - cy) * cos(zy) - (fade[i_230_] - cz) * sin(zy));
-                i_231_ = cz + (int) ((ground - cy) * sin(zy) + (fade[i_230_] - cz) * cos(zy));
+                i232 = cy + (int) ((ground - cy) * cos(zy) - (fade[i230] - cz) * sin(zy));
+                i231 = cz + (int) ((ground - cy) * sin(zy) + (fade[i230] - cz) * cos(zy));
             }
             is[0] = iw;
-            is_223_[0] = ys(i_232_, i_231_);
-            if (is_223_[0] < ih)
-                is_223_[0] = ih;
-            if (is_223_[0] > h)
-                is_223_[0] = h;
+            is223[0] = ys(i232, i231);
+            if (is223[0] < ih)
+                is223[0] = ih;
+            if (is223[0] > h)
+                is223[0] = h;
             is[1] = iw;
-            is_223_[1] = i_229_;
+            is223[1] = i229;
             is[2] = w;
-            is_223_[2] = i_229_;
+            is223[2] = i229;
             is[3] = w;
-            is_223_[3] = is_223_[0];
-            i_229_ = is_223_[0];
-            if (i_230_ > 0) {
-                i_226_ = (i_226_ * 7 + cfade[0]) / 8;
-                i_227_ = (i_227_ * 7 + cfade[1]) / 8;
-                i_228_ = (i_228_ * 7 + cfade[2]) / 8;
-                if (i_230_ < 3) {
+            is223[3] = is223[0];
+            i229 = is223[0];
+            if (i230 > 0) {
+                i226 = (i226 * 7 + cfade[0]) / 8;
+                i227 = (i227 * 7 + cfade[1]) / 8;
+                i228 = (i228 * 7 + cfade[2]) / 8;
+                if (i230 < 3) {
                     i = (i * 7 + cfade[0]) / 8;
-                    i_224_ = (i_224_ * 7 + cfade[1]) / 8;
-                    i_225_ = (i_225_ * 7 + cfade[2]) / 8;
+                    i224 = (i224 * 7 + cfade[1]) / 8;
+                    i225 = (i225 * 7 + cfade[2]) / 8;
                 } else {
-                    i = i_226_;
-                    i_224_ = i_227_;
-                    i_225_ = i_228_;
+                    i = i226;
+                    i224 = i227;
+                    i225 = i228;
                 }
             }
-            if (is_223_[0] < h && is_223_[1] > ih) {
-                graphics2d.setColor(new Color(i, i_224_, i_225_));
-                graphics2d.fillPolygon(is, is_223_, 4);
+            if (is223[0] < h && is223[1] > ih) {
+                graphics2d.setColor(new Color(i, i224, i225));
+                graphics2d.fillPolygon(is, is223, 4);
             }
         }
         if (lightn != -1 && lton) {
@@ -388,100 +388,100 @@ public class Medium {
                 csky[2] = 0;
         }
         i = csky[0];
-        i_224_ = csky[1];
-        i_225_ = csky[2];
-        int i_233_ = i;
-        int i_234_ = i_224_;
-        int i_235_ = i_225_;
-        int i_236_ = cy + (int) ((skyline - 700 - cy) * cos(zy) - (7000 - cz) * sin(zy));
-        final int i_237_ = cz + (int) ((skyline - 700 - cy) * sin(zy) + (7000 - cz) * cos(zy));
-        i_236_ = ys(i_236_, i_237_);
-        int i_238_ = ih;
-        for (int i_239_ = 0; i_239_ < 16; i_239_++) {
-            int i_240_ = fade[i_239_];
-            int i_241_ = skyline;
+        i224 = csky[1];
+        i225 = csky[2];
+        int i233 = i;
+        int i234 = i224;
+        int i235 = i225;
+        int i236 = cy + (int) ((skyline - 700 - cy) * cos(zy) - (7000 - cz) * sin(zy));
+        final int i237 = cz + (int) ((skyline - 700 - cy) * sin(zy) + (7000 - cz) * cos(zy));
+        i236 = ys(i236, i237);
+        int i238 = ih;
+        for (int i239 = 0; i239 < 16; i239++) {
+            int i240 = fade[i239];
+            int i241 = skyline;
             if (zy != 0) {
-                i_241_ = cy + (int) ((skyline - cy) * cos(zy) - (fade[i_239_] - cz) * sin(zy));
-                i_240_ = cz + (int) ((skyline - cy) * sin(zy) + (fade[i_239_] - cz) * cos(zy));
+                i241 = cy + (int) ((skyline - cy) * cos(zy) - (fade[i239] - cz) * sin(zy));
+                i240 = cz + (int) ((skyline - cy) * sin(zy) + (fade[i239] - cz) * cos(zy));
             }
             is[0] = iw;
-            is_223_[0] = ys(i_241_, i_240_);
-            if (is_223_[0] > h)
-                is_223_[0] = h;
-            if (is_223_[0] < ih)
-                is_223_[0] = ih;
+            is223[0] = ys(i241, i240);
+            if (is223[0] > h)
+                is223[0] = h;
+            if (is223[0] < ih)
+                is223[0] = ih;
             is[1] = iw;
-            is_223_[1] = i_238_;
+            is223[1] = i238;
             is[2] = w;
-            is_223_[2] = i_238_;
+            is223[2] = i238;
             is[3] = w;
-            is_223_[3] = is_223_[0];
-            i_238_ = is_223_[0];
-            if (i_239_ > 0) {
+            is223[3] = is223[0];
+            i238 = is223[0];
+            if (i239 > 0) {
                 i = (i * 7 + cfade[0]) / 8;
-                i_224_ = (i_224_ * 7 + cfade[1]) / 8;
-                i_225_ = (i_225_ * 7 + cfade[2]) / 8;
+                i224 = (i224 * 7 + cfade[1]) / 8;
+                i225 = (i225 * 7 + cfade[2]) / 8;
             }
-            if (is_223_[1] < i_236_) {
-                i_233_ = i;
-                i_234_ = i_224_;
-                i_235_ = i_225_;
+            if (is223[1] < i236) {
+                i233 = i;
+                i234 = i224;
+                i235 = i225;
             }
-            if (is_223_[0] > ih && is_223_[1] < h) {
-                graphics2d.setColor(new Color(i, i_224_, i_225_));
-                graphics2d.fillPolygon(is, is_223_, 4);
+            if (is223[0] > ih && is223[1] < h) {
+                graphics2d.setColor(new Color(i, i224, i225));
+                graphics2d.fillPolygon(is, is223, 4);
             }
         }
         is[0] = iw;
-        is_223_[0] = i_238_;
+        is223[0] = i238;
         is[1] = iw;
-        is_223_[1] = i_229_;
+        is223[1] = i229;
         is[2] = w;
-        is_223_[2] = i_229_;
+        is223[2] = i229;
         is[3] = w;
-        is_223_[3] = i_238_;
-        if (is_223_[0] < h && is_223_[1] > ih) {
+        is223[3] = i238;
+        if (is223[0] < h && is223[1] > ih) {
             float f = (Math.abs(y) - 250.0F) / (fade[0] * 2);
             if (f < 0.0F)
                 f = 0.0F;
             if (f > 1.0F)
                 f = 1.0F;
-            i = (int) ((i * (1.0F - f) + i_226_ * (1.0F + f)) / 2.0F);
-            i_224_ = (int) ((i_224_ * (1.0F - f) + i_227_ * (1.0F + f)) / 2.0F);
-            i_225_ = (int) ((i_225_ * (1.0F - f) + i_228_ * (1.0F + f)) / 2.0F);
-            graphics2d.setColor(new Color(i, i_224_, i_225_));
-            graphics2d.fillPolygon(is, is_223_, 4);
+            i = (int) ((i * (1.0F - f) + i226 * (1.0F + f)) / 2.0F);
+            i224 = (int) ((i224 * (1.0F - f) + i227 * (1.0F + f)) / 2.0F);
+            i225 = (int) ((i225 * (1.0F - f) + i228 * (1.0F + f)) / 2.0F);
+            graphics2d.setColor(new Color(i, i224, i225));
+            graphics2d.fillPolygon(is, is223, 4);
         }
         if (resdown != 2) {
-            for (int i_242_ = 1; i_242_ < 20; i_242_++) {
-                int i_243_ = 7000;
-                int i_244_ = skyline - 700 - i_242_ * 70;
-                if (zy != 0 && i_242_ != 19) {
-                    i_244_ = cy + (int) ((skyline - 700 - i_242_ * 70 - cy) * cos(zy) - (7000 - cz) * sin(zy));
-                    i_243_ = cz + (int) ((skyline - 700 - i_242_ * 70 - cy) * sin(zy) + (7000 - cz) * cos(zy));
+            for (int i242 = 1; i242 < 20; i242++) {
+                int i243 = 7000;
+                int i244 = skyline - 700 - i242 * 70;
+                if (zy != 0 && i242 != 19) {
+                    i244 = cy + (int) ((skyline - 700 - i242 * 70 - cy) * cos(zy) - (7000 - cz) * sin(zy));
+                    i243 = cz + (int) ((skyline - 700 - i242 * 70 - cy) * sin(zy) + (7000 - cz) * cos(zy));
                 }
                 is[0] = iw;
-                if (i_242_ != 19) {
-                    is_223_[0] = ys(i_244_, i_243_);
-                    if (is_223_[0] > h)
-                        is_223_[0] = h;
-                    if (is_223_[0] < ih)
-                        is_223_[0] = ih;
+                if (i242 != 19) {
+                    is223[0] = ys(i244, i243);
+                    if (is223[0] > h)
+                        is223[0] = h;
+                    if (is223[0] < ih)
+                        is223[0] = ih;
                 } else
-                    is_223_[0] = ih;
+                    is223[0] = ih;
                 is[1] = iw;
-                is_223_[1] = i_236_;
+                is223[1] = i236;
                 is[2] = w;
-                is_223_[2] = i_236_;
+                is223[2] = i236;
                 is[3] = w;
-                is_223_[3] = is_223_[0];
-                i_236_ = is_223_[0];
-                i_233_ *= 0.991;
-                i_234_ *= 0.991;
-                i_235_ *= 0.998;
-                if (is_223_[1] > ih && is_223_[0] < h) {
-                    graphics2d.setColor(new Color(i_233_, i_234_, i_235_));
-                    graphics2d.fillPolygon(is, is_223_, 4);
+                is223[3] = is223[0];
+                i236 = is223[0];
+                i233 *= 0.991;
+                i234 *= 0.991;
+                i235 *= 0.998;
+                if (is223[1] > ih && is223[0] < h) {
+                    graphics2d.setColor(new Color(i233, i234, i235));
+                    graphics2d.fillPolygon(is, is223, 4);
                 }
             }
             if (lightson)
@@ -502,224 +502,224 @@ public class Medium {
 
     public void drawclouds(final Graphics2D graphics2d) {
         for (int i = 0; i < noc; i++) {
-            final int i_104_ = cx + (int) ((clx[i] - x / 20 - cx) * cos(xz) - (clz[i] - z / 20 - cz) * sin(xz));
-            final int i_105_ = cz + (int) ((clx[i] - x / 20 - cx) * sin(xz) + (clz[i] - z / 20 - cz) * cos(xz));
-            final int i_106_ = cz + (int) ((cldd[4] - y / 20 - cy) * sin(zy) + (i_105_ - cz) * cos(zy));
-            final int i_107_ = xs(i_104_ + cmx[i], i_106_);
-            final int i_108_ = xs(i_104_ - cmx[i], i_106_);
-            if (i_107_ > 0 && i_108_ < w && i_106_ > -cmx[i] && i_107_ - i_108_ > 20) {
+            final int i104 = cx + (int) ((clx[i] - x / 20 - cx) * cos(xz) - (clz[i] - z / 20 - cz) * sin(xz));
+            final int i105 = cz + (int) ((clx[i] - x / 20 - cx) * sin(xz) + (clz[i] - z / 20 - cz) * cos(xz));
+            final int i106 = cz + (int) ((cldd[4] - y / 20 - cy) * sin(zy) + (i105 - cz) * cos(zy));
+            final int i107 = xs(i104 + cmx[i], i106);
+            final int i108 = xs(i104 - cmx[i], i106);
+            if (i107 > 0 && i108 < w && i106 > -cmx[i] && i107 - i108 > 20) {
                 final int[][] is = new int[3][12];
-                final int[][] is_109_ = new int[3][12];
-                final int[][] is_110_ = new int[3][12];
-                final int[] is_111_ = new int[12];
-                final int[] is_112_ = new int[12];
-                boolean bool_116_ = true;
-                for (int i_120_ = 0; i_120_ < 3; i_120_++) {
-                    for (int i_121_ = 0; i_121_ < 12; i_121_++) {
-                        is[i_120_][i_121_] = clax[i][i_120_][i_121_] + clx[i] - x / 20;
-                        is_110_[i_120_][i_121_] = claz[i][i_120_][i_121_] + clz[i] - z / 20;
-                        is_109_[i_120_][i_121_] = clay[i][i_120_][i_121_] + cldd[4] - y / 20;
+                final int[][] is109 = new int[3][12];
+                final int[][] is110 = new int[3][12];
+                final int[] is111 = new int[12];
+                final int[] is112 = new int[12];
+                boolean bool116 = true;
+                for (int i120 = 0; i120 < 3; i120++) {
+                    for (int i121 = 0; i121 < 12; i121++) {
+                        is[i120][i121] = clax[i][i120][i121] + clx[i] - x / 20;
+                        is110[i120][i121] = claz[i][i120][i121] + clz[i] - z / 20;
+                        is109[i120][i121] = clay[i][i120][i121] + cldd[4] - y / 20;
                     }
-                    rot(is[i_120_], is_110_[i_120_], cx, cz, xz, 12);
-                    rot(is_109_[i_120_], is_110_[i_120_], cy, cz, zy, 12);
+                    rot(is[i120], is110[i120], cx, cz, xz, 12);
+                    rot(is109[i120], is110[i120], cy, cz, zy, 12);
                 }
-                for (int i_122_ = 0; i_122_ < 12; i_122_ += 2) {
-                    int i_123_ = 0;
-                    int i_124_ = 0;
-                    int i_125_ = 0;
-                    int i_126_ = 0;
-                    bool_116_ = true;
-                    int i_127_ = 0;
-                    int i_128_ = 0;
-                    int i_129_ = 0;
-                    for (int i_130_ = 0; i_130_ < 6; i_130_++) {
-                        int i_131_ = 0;
-                        int i_132_ = 1;
-                        if (i_130_ == 0)
-                            i_131_ = i_122_;
-                        if (i_130_ == 1) {
-                            i_131_ = i_122_ + 1;
-                            if (i_131_ >= 12)
-                                i_131_ -= 12;
+                for (int i122 = 0; i122 < 12; i122 += 2) {
+                    int i123 = 0;
+                    int i124 = 0;
+                    int i125 = 0;
+                    int i126 = 0;
+                    bool116 = true;
+                    int i127 = 0;
+                    int i128 = 0;
+                    int i129 = 0;
+                    for (int i130 = 0; i130 < 6; i130++) {
+                        int i131 = 0;
+                        int i132 = 1;
+                        if (i130 == 0)
+                            i131 = i122;
+                        if (i130 == 1) {
+                            i131 = i122 + 1;
+                            if (i131 >= 12)
+                                i131 -= 12;
                         }
-                        if (i_130_ == 2) {
-                            i_131_ = i_122_ + 2;
-                            if (i_131_ >= 12)
-                                i_131_ -= 12;
+                        if (i130 == 2) {
+                            i131 = i122 + 2;
+                            if (i131 >= 12)
+                                i131 -= 12;
                         }
-                        if (i_130_ == 3) {
-                            i_131_ = i_122_ + 2;
-                            if (i_131_ >= 12)
-                                i_131_ -= 12;
-                            i_132_ = 2;
+                        if (i130 == 3) {
+                            i131 = i122 + 2;
+                            if (i131 >= 12)
+                                i131 -= 12;
+                            i132 = 2;
                         }
-                        if (i_130_ == 4) {
-                            i_131_ = i_122_ + 1;
-                            if (i_131_ >= 12)
-                                i_131_ -= 12;
-                            i_132_ = 2;
+                        if (i130 == 4) {
+                            i131 = i122 + 1;
+                            if (i131 >= 12)
+                                i131 -= 12;
+                            i132 = 2;
                         }
-                        if (i_130_ == 5) {
-                            i_131_ = i_122_;
-                            i_132_ = 2;
+                        if (i130 == 5) {
+                            i131 = i122;
+                            i132 = 2;
                         }
-                        is_111_[i_130_] = xs(is[i_132_][i_131_], is_110_[i_132_][i_131_]);
-                        is_112_[i_130_] = ys(is_109_[i_132_][i_131_], is_110_[i_132_][i_131_]);
-                        i_128_ += is[i_132_][i_131_];
-                        i_127_ += is_109_[i_132_][i_131_];
-                        i_129_ += is_110_[i_132_][i_131_];
-                        if (is_112_[i_130_] < 0 || is_110_[0][i_130_] < 10)
-                            i_123_++;
-                        if (is_112_[i_130_] > h || is_110_[0][i_130_] < 10)
-                            i_124_++;
-                        if (is_111_[i_130_] < 0 || is_110_[0][i_130_] < 10)
-                            i_125_++;
-                        if (is_111_[i_130_] > w || is_110_[0][i_130_] < 10)
-                            i_126_++;
+                        is111[i130] = xs(is[i132][i131], is110[i132][i131]);
+                        is112[i130] = ys(is109[i132][i131], is110[i132][i131]);
+                        i128 += is[i132][i131];
+                        i127 += is109[i132][i131];
+                        i129 += is110[i132][i131];
+                        if (is112[i130] < 0 || is110[0][i130] < 10)
+                            i123++;
+                        if (is112[i130] > h || is110[0][i130] < 10)
+                            i124++;
+                        if (is111[i130] < 0 || is110[0][i130] < 10)
+                            i125++;
+                        if (is111[i130] > w || is110[0][i130] < 10)
+                            i126++;
                     }
-                    if (i_125_ == 6 || i_123_ == 6 || i_124_ == 6 || i_126_ == 6)
-                        bool_116_ = false;
-                    if (bool_116_) {
-                        i_128_ /= 6;
-                        i_127_ /= 6;
-                        i_129_ /= 6;
-                        final int i_133_ = (int) Math
-                                .sqrt((cy - i_127_) * (cy - i_127_) + (cx - i_128_) * (cx - i_128_) + i_129_ * i_129_);
-                        if (i_133_ < fade[7]) {
-                            int i_134_ = clc[i][1][i_122_ / 2][0];
-                            int i_135_ = clc[i][1][i_122_ / 2][1];
-                            int i_136_ = clc[i][1][i_122_ / 2][2];
-                            for (int i_137_ = 0; i_137_ < 16; i_137_++)
-                                if (i_133_ > fade[i_137_]) {
-                                    i_134_ = (i_134_ * fogd + cfade[0]) / (fogd + 1);
-                                    i_135_ = (i_135_ * fogd + cfade[1]) / (fogd + 1);
-                                    i_136_ = (i_136_ * fogd + cfade[2]) / (fogd + 1);
+                    if (i125 == 6 || i123 == 6 || i124 == 6 || i126 == 6)
+                        bool116 = false;
+                    if (bool116) {
+                        i128 /= 6;
+                        i127 /= 6;
+                        i129 /= 6;
+                        final int i133 = (int) Math
+                                .sqrt((cy - i127) * (cy - i127) + (cx - i128) * (cx - i128) + i129 * i129);
+                        if (i133 < fade[7]) {
+                            int i134 = clc[i][1][i122 / 2][0];
+                            int i135 = clc[i][1][i122 / 2][1];
+                            int i136 = clc[i][1][i122 / 2][2];
+                            for (int i137 = 0; i137 < 16; i137++)
+                                if (i133 > fade[i137]) {
+                                    i134 = (i134 * fogd + cfade[0]) / (fogd + 1);
+                                    i135 = (i135 * fogd + cfade[1]) / (fogd + 1);
+                                    i136 = (i136 * fogd + cfade[2]) / (fogd + 1);
                                 }
-                            graphics2d.setColor(new Color(i_134_, i_135_, i_136_));
-                            graphics2d.fillPolygon(is_111_, is_112_, 6);
+                            graphics2d.setColor(new Color(i134, i135, i136));
+                            graphics2d.fillPolygon(is111, is112, 6);
                         }
                     }
                 }
-                for (int i_138_ = 0; i_138_ < 12; i_138_ += 2) {
-                    int i_139_ = 0;
-                    int i_140_ = 0;
-                    int i_141_ = 0;
-                    int i_142_ = 0;
-                    bool_116_ = true;
-                    int i_143_ = 0;
-                    int i_144_ = 0;
-                    int i_145_ = 0;
-                    for (int i_146_ = 0; i_146_ < 6; i_146_++) {
-                        int i_147_ = 0;
-                        int i_148_ = 0;
-                        if (i_146_ == 0)
-                            i_147_ = i_138_;
-                        if (i_146_ == 1) {
-                            i_147_ = i_138_ + 1;
-                            if (i_147_ >= 12)
-                                i_147_ -= 12;
+                for (int i138 = 0; i138 < 12; i138 += 2) {
+                    int i139 = 0;
+                    int i140 = 0;
+                    int i141 = 0;
+                    int i142 = 0;
+                    bool116 = true;
+                    int i143 = 0;
+                    int i144 = 0;
+                    int i145 = 0;
+                    for (int i146 = 0; i146 < 6; i146++) {
+                        int i147 = 0;
+                        int i148 = 0;
+                        if (i146 == 0)
+                            i147 = i138;
+                        if (i146 == 1) {
+                            i147 = i138 + 1;
+                            if (i147 >= 12)
+                                i147 -= 12;
                         }
-                        if (i_146_ == 2) {
-                            i_147_ = i_138_ + 2;
-                            if (i_147_ >= 12)
-                                i_147_ -= 12;
+                        if (i146 == 2) {
+                            i147 = i138 + 2;
+                            if (i147 >= 12)
+                                i147 -= 12;
                         }
-                        if (i_146_ == 3) {
-                            i_147_ = i_138_ + 2;
-                            if (i_147_ >= 12)
-                                i_147_ -= 12;
-                            i_148_ = 1;
+                        if (i146 == 3) {
+                            i147 = i138 + 2;
+                            if (i147 >= 12)
+                                i147 -= 12;
+                            i148 = 1;
                         }
-                        if (i_146_ == 4) {
-                            i_147_ = i_138_ + 1;
-                            if (i_147_ >= 12)
-                                i_147_ -= 12;
-                            i_148_ = 1;
+                        if (i146 == 4) {
+                            i147 = i138 + 1;
+                            if (i147 >= 12)
+                                i147 -= 12;
+                            i148 = 1;
                         }
-                        if (i_146_ == 5) {
-                            i_147_ = i_138_;
-                            i_148_ = 1;
+                        if (i146 == 5) {
+                            i147 = i138;
+                            i148 = 1;
                         }
-                        is_111_[i_146_] = xs(is[i_148_][i_147_], is_110_[i_148_][i_147_]);
-                        is_112_[i_146_] = ys(is_109_[i_148_][i_147_], is_110_[i_148_][i_147_]);
-                        i_144_ += is[i_148_][i_147_];
-                        i_143_ += is_109_[i_148_][i_147_];
-                        i_145_ += is_110_[i_148_][i_147_];
-                        if (is_112_[i_146_] < 0 || is_110_[0][i_146_] < 10)
-                            i_139_++;
-                        if (is_112_[i_146_] > h || is_110_[0][i_146_] < 10)
-                            i_140_++;
-                        if (is_111_[i_146_] < 0 || is_110_[0][i_146_] < 10)
-                            i_141_++;
-                        if (is_111_[i_146_] > w || is_110_[0][i_146_] < 10)
-                            i_142_++;
+                        is111[i146] = xs(is[i148][i147], is110[i148][i147]);
+                        is112[i146] = ys(is109[i148][i147], is110[i148][i147]);
+                        i144 += is[i148][i147];
+                        i143 += is109[i148][i147];
+                        i145 += is110[i148][i147];
+                        if (is112[i146] < 0 || is110[0][i146] < 10)
+                            i139++;
+                        if (is112[i146] > h || is110[0][i146] < 10)
+                            i140++;
+                        if (is111[i146] < 0 || is110[0][i146] < 10)
+                            i141++;
+                        if (is111[i146] > w || is110[0][i146] < 10)
+                            i142++;
                     }
-                    if (i_141_ == 6 || i_139_ == 6 || i_140_ == 6 || i_142_ == 6)
-                        bool_116_ = false;
-                    if (bool_116_) {
-                        i_144_ /= 6;
-                        i_143_ /= 6;
-                        i_145_ /= 6;
-                        final int i_149_ = (int) Math
-                                .sqrt((cy - i_143_) * (cy - i_143_) + (cx - i_144_) * (cx - i_144_) + i_145_ * i_145_);
-                        if (i_149_ < fade[7]) {
-                            int i_150_ = clc[i][0][i_138_ / 2][0];
-                            int i_151_ = clc[i][0][i_138_ / 2][1];
-                            int i_152_ = clc[i][0][i_138_ / 2][2];
-                            for (int i_153_ = 0; i_153_ < 16; i_153_++)
-                                if (i_149_ > fade[i_153_]) {
-                                    i_150_ = (i_150_ * fogd + cfade[0]) / (fogd + 1);
-                                    i_151_ = (i_151_ * fogd + cfade[1]) / (fogd + 1);
-                                    i_152_ = (i_152_ * fogd + cfade[2]) / (fogd + 1);
+                    if (i141 == 6 || i139 == 6 || i140 == 6 || i142 == 6)
+                        bool116 = false;
+                    if (bool116) {
+                        i144 /= 6;
+                        i143 /= 6;
+                        i145 /= 6;
+                        final int i149 = (int) Math
+                                .sqrt((cy - i143) * (cy - i143) + (cx - i144) * (cx - i144) + i145 * i145);
+                        if (i149 < fade[7]) {
+                            int i150 = clc[i][0][i138 / 2][0];
+                            int i151 = clc[i][0][i138 / 2][1];
+                            int i152 = clc[i][0][i138 / 2][2];
+                            for (int i153 = 0; i153 < 16; i153++)
+                                if (i149 > fade[i153]) {
+                                    i150 = (i150 * fogd + cfade[0]) / (fogd + 1);
+                                    i151 = (i151 * fogd + cfade[1]) / (fogd + 1);
+                                    i152 = (i152 * fogd + cfade[2]) / (fogd + 1);
                                 }
-                            graphics2d.setColor(new Color(i_150_, i_151_, i_152_));
-                            graphics2d.fillPolygon(is_111_, is_112_, 6);
+                            graphics2d.setColor(new Color(i150, i151, i152));
+                            graphics2d.fillPolygon(is111, is112, 6);
                         }
                     }
                 }
-                int i_154_ = 0;
-                int i_155_ = 0;
-                int i_156_ = 0;
-                int i_157_ = 0;
-                bool_116_ = true;
-                int i_158_ = 0;
-                int i_159_ = 0;
-                int i_160_ = 0;
-                for (int i_161_ = 0; i_161_ < 12; i_161_++) {
-                    is_111_[i_161_] = xs(is[0][i_161_], is_110_[0][i_161_]);
-                    is_112_[i_161_] = ys(is_109_[0][i_161_], is_110_[0][i_161_]);
-                    i_159_ += is[0][i_161_];
-                    i_158_ += is_109_[0][i_161_];
-                    i_160_ += is_110_[0][i_161_];
-                    if (is_112_[i_161_] < 0 || is_110_[0][i_161_] < 10)
-                        i_154_++;
-                    if (is_112_[i_161_] > h || is_110_[0][i_161_] < 10)
-                        i_155_++;
-                    if (is_111_[i_161_] < 0 || is_110_[0][i_161_] < 10)
-                        i_156_++;
-                    if (is_111_[i_161_] > w || is_110_[0][i_161_] < 10)
-                        i_157_++;
+                int i154 = 0;
+                int i155 = 0;
+                int i156 = 0;
+                int i157 = 0;
+                bool116 = true;
+                int i158 = 0;
+                int i159 = 0;
+                int i160 = 0;
+                for (int i161 = 0; i161 < 12; i161++) {
+                    is111[i161] = xs(is[0][i161], is110[0][i161]);
+                    is112[i161] = ys(is109[0][i161], is110[0][i161]);
+                    i159 += is[0][i161];
+                    i158 += is109[0][i161];
+                    i160 += is110[0][i161];
+                    if (is112[i161] < 0 || is110[0][i161] < 10)
+                        i154++;
+                    if (is112[i161] > h || is110[0][i161] < 10)
+                        i155++;
+                    if (is111[i161] < 0 || is110[0][i161] < 10)
+                        i156++;
+                    if (is111[i161] > w || is110[0][i161] < 10)
+                        i157++;
                 }
-                if (i_156_ == 12 || i_154_ == 12 || i_155_ == 12 || i_157_ == 12)
-                    bool_116_ = false;
-                if (bool_116_) {
-                    i_159_ /= 12;
-                    i_158_ /= 12;
-                    i_160_ /= 12;
-                    final int i_162_ = (int) Math
-                            .sqrt((cy - i_158_) * (cy - i_158_) + (cx - i_159_) * (cx - i_159_) + i_160_ * i_160_);
-                    if (i_162_ < fade[7]) {
-                        int i_163_ = clds[0];
-                        int i_164_ = clds[1];
-                        int i_165_ = clds[2];
-                        for (int i_166_ = 0; i_166_ < 16; i_166_++)
-                            if (i_162_ > fade[i_166_]) {
-                                i_163_ = (i_163_ * fogd + cfade[0]) / (fogd + 1);
-                                i_164_ = (i_164_ * fogd + cfade[1]) / (fogd + 1);
-                                i_165_ = (i_165_ * fogd + cfade[2]) / (fogd + 1);
+                if (i156 == 12 || i154 == 12 || i155 == 12 || i157 == 12)
+                    bool116 = false;
+                if (bool116) {
+                    i159 /= 12;
+                    i158 /= 12;
+                    i160 /= 12;
+                    final int i162 = (int) Math
+                            .sqrt((cy - i158) * (cy - i158) + (cx - i159) * (cx - i159) + i160 * i160);
+                    if (i162 < fade[7]) {
+                        int i163 = clds[0];
+                        int i164 = clds[1];
+                        int i165 = clds[2];
+                        for (int i166 = 0; i166 < 16; i166++)
+                            if (i162 > fade[i166]) {
+                                i163 = (i163 * fogd + cfade[0]) / (fogd + 1);
+                                i164 = (i164 * fogd + cfade[1]) / (fogd + 1);
+                                i165 = (i165 * fogd + cfade[2]) / (fogd + 1);
                             }
-                        graphics2d.setColor(new Color(i_163_, i_164_, i_165_));
-                        graphics2d.fillPolygon(is_111_, is_112_, 12);
+                        graphics2d.setColor(new Color(i163, i164, i165));
+                        graphics2d.fillPolygon(is111, is112, 12);
                     }
                 }
             }
@@ -728,73 +728,73 @@ public class Medium {
 
     public void drawmountains(final Graphics2D graphics2d) {
         for (int i = 0; i < nmt; i++) {
-            final int i_185_ = mrd[i];
-            final int i_186_ = cx
-                    + (int) ((mtx[i_185_][0] - x / 30 - cx) * cos(xz) - (mtz[i_185_][0] - z / 30 - cz) * sin(xz));
-            final int i_187_ = cz
-                    + (int) ((mtx[i_185_][0] - x / 30 - cx) * sin(xz) + (mtz[i_185_][0] - z / 30 - cz) * cos(xz));
-            final int i_188_ = cz + (int) ((mty[i_185_][0] - y / 30 - cy) * sin(zy) + (i_187_ - cz) * cos(zy));
-            final int i_189_ = cx + (int) ((mtx[i_185_][nmv[i_185_] - 1] - x / 30 - cx) * cos(xz)
-                    - (mtz[i_185_][nmv[i_185_] - 1] - z / 30 - cz) * sin(xz));
-            final int i_190_ = cz + (int) ((mtx[i_185_][nmv[i_185_] - 1] - x / 30 - cx) * sin(xz)
-                    + (mtz[i_185_][nmv[i_185_] - 1] - z / 30 - cz) * cos(xz));
-            final int i_191_ = cz
-                    + (int) ((mty[i_185_][nmv[i_185_] - 1] - y / 30 - cy) * sin(zy) + (i_190_ - cz) * cos(zy));
-            if (xs(i_189_, i_191_) > 0 && xs(i_186_, i_188_) < w) {
-                final int[] is = new int[nmv[i_185_] * 2];
-                final int[] is_192_ = new int[nmv[i_185_] * 2];
-                final int[] is_193_ = new int[nmv[i_185_] * 2];
-                for (int i_194_ = 0; i_194_ < nmv[i_185_] * 2; i_194_++) {
-                    is[i_194_] = mtx[i_185_][i_194_] - x / 30;
-                    is_192_[i_194_] = mty[i_185_][i_194_] - y / 30;
-                    is_193_[i_194_] = mtz[i_185_][i_194_] - z / 30;
+            final int i185 = mrd[i];
+            final int i186 = cx
+                    + (int) ((mtx[i185][0] - x / 30 - cx) * cos(xz) - (mtz[i185][0] - z / 30 - cz) * sin(xz));
+            final int i187 = cz
+                    + (int) ((mtx[i185][0] - x / 30 - cx) * sin(xz) + (mtz[i185][0] - z / 30 - cz) * cos(xz));
+            final int i188 = cz + (int) ((mty[i185][0] - y / 30 - cy) * sin(zy) + (i187 - cz) * cos(zy));
+            final int i189 = cx + (int) ((mtx[i185][nmv[i185] - 1] - x / 30 - cx) * cos(xz)
+                    - (mtz[i185][nmv[i185] - 1] - z / 30 - cz) * sin(xz));
+            final int i190 = cz + (int) ((mtx[i185][nmv[i185] - 1] - x / 30 - cx) * sin(xz)
+                    + (mtz[i185][nmv[i185] - 1] - z / 30 - cz) * cos(xz));
+            final int i191 = cz
+                    + (int) ((mty[i185][nmv[i185] - 1] - y / 30 - cy) * sin(zy) + (i190 - cz) * cos(zy));
+            if (xs(i189, i191) > 0 && xs(i186, i188) < w) {
+                final int[] is = new int[nmv[i185] * 2];
+                final int[] is192 = new int[nmv[i185] * 2];
+                final int[] is193 = new int[nmv[i185] * 2];
+                for (int i194 = 0; i194 < nmv[i185] * 2; i194++) {
+                    is[i194] = mtx[i185][i194] - x / 30;
+                    is192[i194] = mty[i185][i194] - y / 30;
+                    is193[i194] = mtz[i185][i194] - z / 30;
                 }
-                final int i_195_ = (int) Math.sqrt(is[nmv[i_185_] / 4] * is[nmv[i_185_] / 4]
-                        + is_193_[nmv[i_185_] / 4] * is_193_[nmv[i_185_] / 4]);
-                rot(is, is_193_, cx, cz, xz, nmv[i_185_] * 2);
-                rot(is_192_, is_193_, cy, cz, zy, nmv[i_185_] * 2);
-                final int[] is_196_ = new int[4];
-                final int[] is_197_ = new int[4];
-                boolean bool_201_ = true;
-                for (int i_202_ = 0; i_202_ < nmv[i_185_] - 1; i_202_++) {
-                    int i_203_ = 0;
-                    int i_204_ = 0;
-                    int i_205_ = 0;
-                    int i_206_ = 0;
-                    bool_201_ = true;
-                    for (int i_207_ = 0; i_207_ < 4; i_207_++) {
-                        int i_208_ = i_207_ + i_202_;
-                        if (i_207_ == 2)
-                            i_208_ = i_202_ + nmv[i_185_] + 1;
-                        if (i_207_ == 3)
-                            i_208_ = i_202_ + nmv[i_185_];
-                        is_196_[i_207_] = xs(is[i_208_], is_193_[i_208_]);
-                        is_197_[i_207_] = ys(is_192_[i_208_], is_193_[i_208_]);
-                        if (is_197_[i_207_] < 0 || is_193_[i_208_] < 10)
-                            i_203_++;
-                        if (is_197_[i_207_] > h || is_193_[i_208_] < 10)
-                            i_204_++;
-                        if (is_196_[i_207_] < 0 || is_193_[i_208_] < 10)
-                            i_205_++;
-                        if (is_196_[i_207_] > w || is_193_[i_208_] < 10)
-                            i_206_++;
+                final int i195 = (int) Math.sqrt(is[nmv[i185] / 4] * is[nmv[i185] / 4]
+                        + is193[nmv[i185] / 4] * is193[nmv[i185] / 4]);
+                rot(is, is193, cx, cz, xz, nmv[i185] * 2);
+                rot(is192, is193, cy, cz, zy, nmv[i185] * 2);
+                final int[] is196 = new int[4];
+                final int[] is197 = new int[4];
+                boolean bool201 = true;
+                for (int i202 = 0; i202 < nmv[i185] - 1; i202++) {
+                    int i203 = 0;
+                    int i204 = 0;
+                    int i205 = 0;
+                    int i206 = 0;
+                    bool201 = true;
+                    for (int i207 = 0; i207 < 4; i207++) {
+                        int i208 = i207 + i202;
+                        if (i207 == 2)
+                            i208 = i202 + nmv[i185] + 1;
+                        if (i207 == 3)
+                            i208 = i202 + nmv[i185];
+                        is196[i207] = xs(is[i208], is193[i208]);
+                        is197[i207] = ys(is192[i208], is193[i208]);
+                        if (is197[i207] < 0 || is193[i208] < 10)
+                            i203++;
+                        if (is197[i207] > h || is193[i208] < 10)
+                            i204++;
+                        if (is196[i207] < 0 || is193[i208] < 10)
+                            i205++;
+                        if (is196[i207] > w || is193[i208] < 10)
+                            i206++;
                     }
-                    if (i_205_ == 4 || i_203_ == 4 || i_204_ == 4 || i_206_ == 4)
-                        bool_201_ = false;
-                    if (bool_201_) {
-                        float f = i_195_ / 2500.0F + (8000.0F - fade[0]) / 1000.0F - 2.0F
+                    if (i205 == 4 || i203 == 4 || i204 == 4 || i206 == 4)
+                        bool201 = false;
+                    if (bool201) {
+                        float f = i195 / 2500.0F + (8000.0F - fade[0]) / 1000.0F - 2.0F
                                 - (Math.abs(y) - 250.0F) / 5000.0F;
                         if (f > 0.0F && f < 10.0F) {
                             if (f < 3.5)
                                 f = 3.5F;
-                            final int i_209_ = (int) ((mtc[i_185_][i_202_][0] + cgrnd[0] + csky[0] * f + cfade[0] * f)
+                            final int i209 = (int) ((mtc[i185][i202][0] + cgrnd[0] + csky[0] * f + cfade[0] * f)
                                     / (2.0F + f * 2.0F));
-                            final int i_210_ = (int) ((mtc[i_185_][i_202_][1] + cgrnd[1] + csky[1] * f + cfade[1] * f)
+                            final int i210 = (int) ((mtc[i185][i202][1] + cgrnd[1] + csky[1] * f + cfade[1] * f)
                                     / (2.0F + f * 2.0F));
-                            final int i_211_ = (int) ((mtc[i_185_][i_202_][2] + cgrnd[2] + csky[2] * f + cfade[2] * f)
+                            final int i211 = (int) ((mtc[i185][i202][2] + cgrnd[2] + csky[2] * f + cfade[2] * f)
                                     / (2.0F + f * 2.0F));
-                            graphics2d.setColor(new Color(i_209_, i_210_, i_211_));
-                            graphics2d.fillPolygon(is_196_, is_197_, 4);
+                            graphics2d.setColor(new Color(i209, i210, i211));
+                            graphics2d.fillPolygon(is196, is197, 4);
                         }
                     }
                 }
@@ -804,46 +804,46 @@ public class Medium {
 
     public void drawstars(final Graphics2D graphics2d) {
         for (int i = 0; i < nst; i++) {
-            int i_215_ = cx + (int) (stx[i] * cos(xz) - stz[i] * sin(xz));
-            final int i_216_ = cz + (int) (stx[i] * sin(xz) + stz[i] * cos(xz));
-            int i_217_ = cy + (int) (-200.0F * cos(zy) - i_216_ * sin(zy));
-            final int i_218_ = cz + (int) (-200.0F * sin(zy) + i_216_ * cos(zy));
-            i_215_ = xs(i_215_, i_218_);
-            i_217_ = ys(i_217_, i_218_);
-            if (i_215_ - 1 > iw && i_215_ + 3 < w && i_217_ - 1 > ih && i_217_ + 3 < h) {
+            int i215 = cx + (int) (stx[i] * cos(xz) - stz[i] * sin(xz));
+            final int i216 = cz + (int) (stx[i] * sin(xz) + stz[i] * cos(xz));
+            int i217 = cy + (int) (-200.0F * cos(zy) - i216 * sin(zy));
+            final int i218 = cz + (int) (-200.0F * sin(zy) + i216 * cos(zy));
+            i215 = xs(i215, i218);
+            i217 = ys(i217, i218);
+            if (i215 - 1 > iw && i215 + 3 < w && i217 - 1 > ih && i217 + 3 < h) {
                 if (twn[i] == 0) {
-                    int i_219_ = (int) (3.0 * Math.random());
-                    if (i_219_ >= 3)
-                        i_219_ = 0;
-                    if (i_219_ <= -1)
-                        i_219_ = 2;
-                    int i_220_ = i_219_ + 1;
+                    int i219 = (int) (3.0 * Math.random());
+                    if (i219 >= 3)
+                        i219 = 0;
+                    if (i219 <= -1)
+                        i219 = 2;
+                    int i220 = i219 + 1;
                     if (Math.random() > Math.random())
-                        i_220_ = i_219_ - 1;
-                    if (i_220_ == 3)
-                        i_220_ = 0;
-                    if (i_220_ == -1)
-                        i_220_ = 2;
-                    for (int i_221_ = 0; i_221_ < 3; i_221_++) {
-                        stc[i][0][i_221_] = 200;
-                        if (i_219_ == i_221_)
-                            stc[i][0][i_221_] += (int) (55.0 * Math.random());
-                        if (i_220_ == i_221_)
-                            stc[i][0][i_221_] += 55;
-                        stc[i][0][i_221_] = (stc[i][0][i_221_] * 2 + csky[i_221_]) / 3;
-                        stc[i][1][i_221_] = (stc[i][0][i_221_] + csky[i_221_]) / 2;
+                        i220 = i219 - 1;
+                    if (i220 == 3)
+                        i220 = 0;
+                    if (i220 == -1)
+                        i220 = 2;
+                    for (int i221 = 0; i221 < 3; i221++) {
+                        stc[i][0][i221] = 200;
+                        if (i219 == i221)
+                            stc[i][0][i221] += (int) (55.0 * Math.random());
+                        if (i220 == i221)
+                            stc[i][0][i221] += 55;
+                        stc[i][0][i221] = (stc[i][0][i221] * 2 + csky[i221]) / 3;
+                        stc[i][1][i221] = (stc[i][0][i221] + csky[i221]) / 2;
                     }
                     twn[i] = 3;
                 } else
                     twn[i]--;
-                int i_222_ = 0;
+                int i222 = 0;
                 if (bst[i])
-                    i_222_ = 1;
+                    i222 = 1;
                 graphics2d.setColor(new Color(stc[i][1][0], stc[i][1][1], stc[i][1][2]));
-                graphics2d.fillRect(i_215_ - 1, i_217_, 3 + i_222_, 1 + i_222_);
-                graphics2d.fillRect(i_215_, i_217_ - 1, 1 + i_222_, 3 + i_222_);
+                graphics2d.fillRect(i215 - 1, i217, 3 + i222, 1 + i222);
+                graphics2d.fillRect(i215, i217 - 1, 1 + i222, 3 + i222);
                 graphics2d.setColor(new Color(stc[i][0][0], stc[i][0][1], stc[i][0][2]));
-                graphics2d.fillRect(i_215_, i_217_, 1 + i_222_, 1 + i_222_);
+                graphics2d.fillRect(i215, i217, 1 + i222, 1 + i222);
             }
         }
     }
@@ -851,33 +851,33 @@ public class Medium {
     public void fadfrom(int i) {
         if (i > 8000)
             i = 8000;
-        for (int i_270_ = 1; i_270_ < 17; i_270_++)
-            fade[i_270_ - 1] = i / 2 * (i_270_ + 1);
+        for (int i270 = 1; i270 < 17; i270++)
+            fade[i270 - 1] = i / 2 * (i270 + 1);
     }
 
-    public void follow(final ContO conto, int i, final int i_27_) {
+    public void follow(final ContO conto, int i, final int i27) {
         zy = 10;
-        int i_28_ = 2 + Math.abs(bcxz) / 4;
-        if (i_28_ > 20)
-            i_28_ = 20;
-        if (i_27_ != 0) {
-            if (i_27_ == 1) {
+        int i28 = 2 + Math.abs(bcxz) / 4;
+        if (i28 > 20)
+            i28 = 20;
+        if (i27 != 0) {
+            if (i27 == 1) {
                 if (bcxz < 180)
-                    bcxz += i_28_;
+                    bcxz += i28;
                 if (bcxz > 180)
                     bcxz = 180;
             }
-            if (i_27_ == -1) {
+            if (i27 == -1) {
                 if (bcxz > -180)
-                    bcxz -= i_28_;
+                    bcxz -= i28;
                 if (bcxz < -180)
                     bcxz = -180;
             }
-        } else if (Math.abs(bcxz) > i_28_) {
+        } else if (Math.abs(bcxz) > i28) {
             if (bcxz > 0)
-                bcxz -= i_28_;
+                bcxz -= i28;
             else
-                bcxz += i_28_;
+                bcxz += i28;
         } else if (bcxz != 0)
             bcxz = 0;
         i += bcxz;
@@ -901,161 +901,161 @@ public class Medium {
         int i = 500 + adv;
         if (i < 1000)
             i = 1000;
-        final int i_8_ = conto.y - adv;
-        final int i_9_ = conto.x + (int) ((conto.x - i - conto.x) * cos(vxz));
-        final int i_10_ = conto.z + (int) ((conto.x - i - conto.x) * sin(vxz));
-        int i_11_ = 0;
-        if (Math.abs(i_8_ - y) > fvect) {
-            if (y < i_8_)
+        final int i8 = conto.y - adv;
+        final int i9 = conto.x + (int) ((conto.x - i - conto.x) * cos(vxz));
+        final int i10 = conto.z + (int) ((conto.x - i - conto.x) * sin(vxz));
+        int i11 = 0;
+        if (Math.abs(i8 - y) > fvect) {
+            if (y < i8)
                 y += fvect;
             else
                 y -= fvect;
         } else {
-            y = i_8_;
-            i_11_++;
+            y = i8;
+            i11++;
         }
-        if (Math.abs(i_9_ - x) > fvect) {
-            if (x < i_9_)
+        if (Math.abs(i9 - x) > fvect) {
+            if (x < i9)
                 x += fvect;
             else
                 x -= fvect;
         } else {
-            x = i_9_;
-            i_11_++;
+            x = i9;
+            i11++;
         }
-        if (Math.abs(i_10_ - z) > fvect) {
-            if (z < i_10_)
+        if (Math.abs(i10 - z) > fvect) {
+            if (z < i10)
                 z += fvect;
             else
                 z -= fvect;
         } else {
-            z = i_10_;
-            i_11_++;
+            z = i10;
+            i11++;
         }
-        if (i_11_ == 3)
+        if (i11 == 3)
             fvect = 200;
         else
             fvect += 2;
         for (vxz += 2; vxz > 360; vxz -= 360) {
             /* empty */
         }
-        int i_12_ = -vxz + 90;
-        int i_13_ = 0;
+        int i12 = -vxz + 90;
+        int i13 = 0;
         if (conto.x - x - cx > 0)
-            i_13_ = 180;
-        int i_14_ = -(int) (90 + i_13_
+            i13 = 180;
+        int i14 = -(int) (90 + i13
                 + Math.atan((double) (conto.z - z) / (double) (conto.x - x - cx)) / 0.017453292519943295);
-        int i_15_ = y;
-        i_13_ = 0;
-        if (i_15_ > 0)
-            i_15_ = 0;
-        if (conto.y - i_15_ - cy < 0)
-            i_13_ = -180;
-        final int i_16_ = (int) Math
+        int i15 = y;
+        i13 = 0;
+        if (i15 > 0)
+            i15 = 0;
+        if (conto.y - i15 - cy < 0)
+            i13 = -180;
+        final int i16 = (int) Math
                 .sqrt((conto.z - z + cz) * (conto.z - z + cz) + (conto.x - x - cx) * (conto.x - x - cx));
-        int i_17_ = 25;
-        if (i_16_ != 0)
-            i_17_ = (int) (90 + i_13_
-                    - Math.atan((double) i_16_ / (double) (conto.y - i_15_ - cy)) / 0.017453292519943295);
-        for (/**/; i_12_ < 0; i_12_ += 360) {
+        int i17 = 25;
+        if (i16 != 0)
+            i17 = (int) (90 + i13
+                    - Math.atan((double) i16 / (double) (conto.y - i15 - cy)) / 0.017453292519943295);
+        for (/**/; i12 < 0; i12 += 360) {
             /* empty */
         }
-        for (/**/; i_12_ > 360; i_12_ -= 360) {
+        for (/**/; i12 > 360; i12 -= 360) {
             /* empty */
         }
-        for (/**/; i_14_ < 0; i_14_ += 360) {
+        for (/**/; i14 < 0; i14 += 360) {
             /* empty */
         }
-        for (/**/; i_14_ > 360; i_14_ -= 360) {
+        for (/**/; i14 > 360; i14 -= 360) {
             /* empty */
         }
-        if ((Math.abs(i_12_ - i_14_) < 30 || Math.abs(i_12_ - i_14_) > 330) && i_11_ == 3) {
-            if (Math.abs(i_12_ - xz) > 7 && Math.abs(i_12_ - xz) < 353) {
-                if (Math.abs(i_12_ - xz) > 180) {
-                    if (xz > i_12_)
+        if ((Math.abs(i12 - i14) < 30 || Math.abs(i12 - i14) > 330) && i11 == 3) {
+            if (Math.abs(i12 - xz) > 7 && Math.abs(i12 - xz) < 353) {
+                if (Math.abs(i12 - xz) > 180) {
+                    if (xz > i12)
                         xz += 7;
                     else
                         xz -= 7;
-                } else if (xz < i_12_)
+                } else if (xz < i12)
                     xz += 7;
                 else
                     xz -= 7;
             } else
-                xz = i_12_;
-        } else if (Math.abs(i_14_ - xz) > 6 && Math.abs(i_14_ - xz) < 354) {
-            if (Math.abs(i_14_ - xz) > 180) {
-                if (xz > i_14_)
+                xz = i12;
+        } else if (Math.abs(i14 - xz) > 6 && Math.abs(i14 - xz) < 354) {
+            if (Math.abs(i14 - xz) > 180) {
+                if (xz > i14)
                     xz += 3;
                 else
                     xz -= 3;
-            } else if (xz < i_14_)
+            } else if (xz < i14)
                 xz += 3;
             else
                 xz -= 3;
         } else
-            xz = i_14_;
-        zy += (i_17_ - zy) / 10;
+            xz = i14;
+        zy += (i17 - zy) / 10;
     }
 
-    public void getfollow(final ContO conto, int i, final int i_29_) {
+    public void getfollow(final ContO conto, int i, final int i29) {
         zy = 10;
-        int i_30_ = 2 + Math.abs(bcxz) / 4;
-        if (i_30_ > 20)
-            i_30_ = 20;
-        if (i_29_ != 0) {
-            if (i_29_ == 1) {
+        int i30 = 2 + Math.abs(bcxz) / 4;
+        if (i30 > 20)
+            i30 = 20;
+        if (i29 != 0) {
+            if (i29 == 1) {
                 if (bcxz < 180)
-                    bcxz += i_30_;
+                    bcxz += i30;
                 if (bcxz > 180)
                     bcxz = 180;
             }
-            if (i_29_ == -1) {
+            if (i29 == -1) {
                 if (bcxz > -180)
-                    bcxz -= i_30_;
+                    bcxz -= i30;
                 if (bcxz < -180)
                     bcxz = -180;
             }
-        } else if (Math.abs(bcxz) > i_30_) {
+        } else if (Math.abs(bcxz) > i30) {
             if (bcxz > 0)
-                bcxz -= i_30_;
+                bcxz -= i30;
             else
-                bcxz += i_30_;
+                bcxz += i30;
         } else if (bcxz != 0)
             bcxz = 0;
         i += bcxz;
         xz = -i;
-        final int i_31_ = conto.x - cx + (int) (-(conto.z - 800 - conto.z) * sin(i));
-        final int i_32_ = conto.z - cz + (int) ((conto.z - 800 - conto.z) * cos(i));
-        final int i_33_ = conto.y - 250 - cy;
-        int i_34_ = 0;
-        if (Math.abs(i_33_ - y) > fvect) {
-            if (y < i_33_)
+        final int i31 = conto.x - cx + (int) (-(conto.z - 800 - conto.z) * sin(i));
+        final int i32 = conto.z - cz + (int) ((conto.z - 800 - conto.z) * cos(i));
+        final int i33 = conto.y - 250 - cy;
+        int i34 = 0;
+        if (Math.abs(i33 - y) > fvect) {
+            if (y < i33)
                 y += fvect;
             else
                 y -= fvect;
         } else {
-            y = i_33_;
-            i_34_++;
+            y = i33;
+            i34++;
         }
-        if (Math.abs(i_31_ - x) > fvect) {
-            if (x < i_31_)
+        if (Math.abs(i31 - x) > fvect) {
+            if (x < i31)
                 x += fvect;
             else
                 x -= fvect;
         } else {
-            x = i_31_;
-            i_34_++;
+            x = i31;
+            i34++;
         }
-        if (Math.abs(i_32_ - z) > fvect) {
-            if (z < i_32_)
+        if (Math.abs(i32 - z) > fvect) {
+            if (z < i32)
                 z += fvect;
             else
                 z -= fvect;
         } else {
-            z = i_32_;
-            i_34_++;
+            z = i32;
+            i34++;
         }
-        if (i_34_ == 3)
+        if (i34 == 3)
             fvect = 200;
         else
             fvect += 2;
@@ -1065,138 +1065,138 @@ public class Medium {
         int i = (x - sgpx) / 1200 - 12;
         if (i < 0)
             i = 0;
-        int i_48_ = i + 25;
-        if (i_48_ > nrw)
-            i_48_ = nrw;
-        if (i_48_ < i)
-            i_48_ = i;
-        int i_49_ = (z - sgpz) / 1200 - 12;
-        if (i_49_ < 0)
-            i_49_ = 0;
-        int i_50_ = i_49_ + 25;
-        if (i_50_ > ncl)
-            i_50_ = ncl;
-        if (i_50_ < i_49_)
-            i_50_ = i_49_;
-        final int[][] is = new int[i_48_ - i][i_50_ - i_49_];
-        for (int i_51_ = i; i_51_ < i_48_; i_51_++)
-            for (int i_52_ = i_49_; i_52_ < i_50_; i_52_++) {
-                is[i_51_ - i][i_52_ - i_49_] = 0;
-                final int i_53_ = i_51_ + i_52_ * nrw;
-                if (resdown < 2 || i_53_ % 2 == 0) {
-                    final int i_54_ = cx + (int) ((cgpx[i_53_] - x - cx) * cos(xz) - (cgpz[i_53_] - z - cz) * sin(xz));
-                    final int i_55_ = cz + (int) ((cgpx[i_53_] - x - cx) * sin(xz) + (cgpz[i_53_] - z - cz) * cos(xz));
-                    final int i_56_ = cz + (int) ((250 - y - cy) * sin(zy) + (i_55_ - cz) * cos(zy));
-                    if (xs(i_54_ + pmx[i_53_], i_56_) > 0 && xs(i_54_ - pmx[i_53_], i_56_) < w && i_56_ > -pmx[i_53_]
-                            && i_56_ < fade[2]) {
-                        is[i_51_ - i][i_52_ - i_49_] = i_56_;
-                        final int[] is_57_ = new int[8];
-                        final int[] is_58_ = new int[8];
-                        final int[] is_59_ = new int[8];
-                        for (int i_60_ = 0; i_60_ < 8; i_60_++) {
-                            is_57_[i_60_] = (int) (ogpx[i_53_][i_60_] * pvr[i_53_][i_60_] + cgpx[i_53_] - x);
-                            is_58_[i_60_] = (int) (ogpz[i_53_][i_60_] * pvr[i_53_][i_60_] + cgpz[i_53_] - z);
-                            is_59_[i_60_] = ground;
+        int i48 = i + 25;
+        if (i48 > nrw)
+            i48 = nrw;
+        if (i48 < i)
+            i48 = i;
+        int i49 = (z - sgpz) / 1200 - 12;
+        if (i49 < 0)
+            i49 = 0;
+        int i50 = i49 + 25;
+        if (i50 > ncl)
+            i50 = ncl;
+        if (i50 < i49)
+            i50 = i49;
+        final int[][] is = new int[i48 - i][i50 - i49];
+        for (int i51 = i; i51 < i48; i51++)
+            for (int i52 = i49; i52 < i50; i52++) {
+                is[i51 - i][i52 - i49] = 0;
+                final int i53 = i51 + i52 * nrw;
+                if (resdown < 2 || i53 % 2 == 0) {
+                    final int i54 = cx + (int) ((cgpx[i53] - x - cx) * cos(xz) - (cgpz[i53] - z - cz) * sin(xz));
+                    final int i55 = cz + (int) ((cgpx[i53] - x - cx) * sin(xz) + (cgpz[i53] - z - cz) * cos(xz));
+                    final int i56 = cz + (int) ((250 - y - cy) * sin(zy) + (i55 - cz) * cos(zy));
+                    if (xs(i54 + pmx[i53], i56) > 0 && xs(i54 - pmx[i53], i56) < w && i56 > -pmx[i53]
+                            && i56 < fade[2]) {
+                        is[i51 - i][i52 - i49] = i56;
+                        final int[] is57 = new int[8];
+                        final int[] is58 = new int[8];
+                        final int[] is59 = new int[8];
+                        for (int i60 = 0; i60 < 8; i60++) {
+                            is57[i60] = (int) (ogpx[i53][i60] * pvr[i53][i60] + cgpx[i53] - x);
+                            is58[i60] = (int) (ogpz[i53][i60] * pvr[i53][i60] + cgpz[i53] - z);
+                            is59[i60] = ground;
                         }
-                        rot(is_57_, is_58_, cx, cz, xz, 8);
-                        rot(is_59_, is_58_, cy, cz, zy, 8);
-                        final int[] is_61_ = new int[8];
-                        final int[] is_62_ = new int[8];
-                        int i_63_ = 0;
-                        int i_64_ = 0;
-                        int i_65_ = 0;
-                        int i_66_ = 0;
+                        rot(is57, is58, cx, cz, xz, 8);
+                        rot(is59, is58, cy, cz, zy, 8);
+                        final int[] is61 = new int[8];
+                        final int[] is62 = new int[8];
+                        int i63 = 0;
+                        int i64 = 0;
+                        int i65 = 0;
+                        int i66 = 0;
                         boolean bool = true;
-                        for (int i_67_ = 0; i_67_ < 8; i_67_++) {
-                            is_61_[i_67_] = xs(is_57_[i_67_], is_58_[i_67_]);
-                            is_62_[i_67_] = ys(is_59_[i_67_], is_58_[i_67_]);
-                            if (is_62_[i_67_] < 0 || is_58_[i_67_] < 10)
-                                i_63_++;
-                            if (is_62_[i_67_] > h || is_58_[i_67_] < 10)
-                                i_64_++;
-                            if (is_61_[i_67_] < 0 || is_58_[i_67_] < 10)
-                                i_65_++;
-                            if (is_61_[i_67_] > w || is_58_[i_67_] < 10)
-                                i_66_++;
+                        for (int i67 = 0; i67 < 8; i67++) {
+                            is61[i67] = xs(is57[i67], is58[i67]);
+                            is62[i67] = ys(is59[i67], is58[i67]);
+                            if (is62[i67] < 0 || is58[i67] < 10)
+                                i63++;
+                            if (is62[i67] > h || is58[i67] < 10)
+                                i64++;
+                            if (is61[i67] < 0 || is58[i67] < 10)
+                                i65++;
+                            if (is61[i67] > w || is58[i67] < 10)
+                                i66++;
                         }
-                        if (i_65_ == 8 || i_63_ == 8 || i_64_ == 8 || i_66_ == 8)
+                        if (i65 == 8 || i63 == 8 || i64 == 8 || i66 == 8)
                             bool = false;
                         if (bool) {
-                            int i_68_ = (int) ((cpol[0] * pcv[i_53_] + cgrnd[0]) / 2.0F);
-                            int i_69_ = (int) ((cpol[1] * pcv[i_53_] + cgrnd[1]) / 2.0F);
-                            int i_70_ = (int) ((cpol[2] * pcv[i_53_] + cgrnd[2]) / 2.0F);
-                            if (i_56_ - pmx[i_53_] > fade[0]) {
-                                i_68_ = (i_68_ * 7 + cfade[0]) / 8;
-                                i_69_ = (i_69_ * 7 + cfade[1]) / 8;
-                                i_70_ = (i_70_ * 7 + cfade[2]) / 8;
+                            int i68 = (int) ((cpol[0] * pcv[i53] + cgrnd[0]) / 2.0F);
+                            int i69 = (int) ((cpol[1] * pcv[i53] + cgrnd[1]) / 2.0F);
+                            int i70 = (int) ((cpol[2] * pcv[i53] + cgrnd[2]) / 2.0F);
+                            if (i56 - pmx[i53] > fade[0]) {
+                                i68 = (i68 * 7 + cfade[0]) / 8;
+                                i69 = (i69 * 7 + cfade[1]) / 8;
+                                i70 = (i70 * 7 + cfade[2]) / 8;
                             }
-                            if (i_56_ - pmx[i_53_] > fade[1]) {
-                                i_68_ = (i_68_ * 7 + cfade[0]) / 8;
-                                i_69_ = (i_69_ * 7 + cfade[1]) / 8;
-                                i_70_ = (i_70_ * 7 + cfade[2]) / 8;
+                            if (i56 - pmx[i53] > fade[1]) {
+                                i68 = (i68 * 7 + cfade[0]) / 8;
+                                i69 = (i69 * 7 + cfade[1]) / 8;
+                                i70 = (i70 * 7 + cfade[2]) / 8;
                             }
-                            graphics2d.setColor(new Color(i_68_, i_69_, i_70_));
-                            graphics2d.fillPolygon(is_61_, is_62_, 8);
+                            graphics2d.setColor(new Color(i68, i69, i70));
+                            graphics2d.fillPolygon(is61, is62, 8);
                         }
                     }
                 }
             }
-        for (int i_71_ = i; i_71_ < i_48_; i_71_++)
-            for (int i_72_ = i_49_; i_72_ < i_50_; i_72_++)
-                if (is[i_71_ - i][i_72_ - i_49_] != 0) {
-                    final int i_73_ = i_71_ + i_72_ * nrw;
-                    final int[] is_74_ = new int[8];
-                    final int[] is_75_ = new int[8];
-                    final int[] is_76_ = new int[8];
-                    for (int i_77_ = 0; i_77_ < 8; i_77_++) {
-                        is_74_[i_77_] = ogpx[i_73_][i_77_] + cgpx[i_73_] - x;
-                        is_75_[i_77_] = ogpz[i_73_][i_77_] + cgpz[i_73_] - z;
-                        is_76_[i_77_] = ground;
+        for (int i71 = i; i71 < i48; i71++)
+            for (int i72 = i49; i72 < i50; i72++)
+                if (is[i71 - i][i72 - i49] != 0) {
+                    final int i73 = i71 + i72 * nrw;
+                    final int[] is74 = new int[8];
+                    final int[] is75 = new int[8];
+                    final int[] is76 = new int[8];
+                    for (int i77 = 0; i77 < 8; i77++) {
+                        is74[i77] = ogpx[i73][i77] + cgpx[i73] - x;
+                        is75[i77] = ogpz[i73][i77] + cgpz[i73] - z;
+                        is76[i77] = ground;
                     }
-                    rot(is_74_, is_75_, cx, cz, xz, 8);
-                    rot(is_76_, is_75_, cy, cz, zy, 8);
-                    final int[] is_78_ = new int[8];
-                    final int[] is_79_ = new int[8];
-                    int i_80_ = 0;
-                    int i_81_ = 0;
-                    int i_82_ = 0;
-                    int i_83_ = 0;
+                    rot(is74, is75, cx, cz, xz, 8);
+                    rot(is76, is75, cy, cz, zy, 8);
+                    final int[] is78 = new int[8];
+                    final int[] is79 = new int[8];
+                    int i80 = 0;
+                    int i81 = 0;
+                    int i82 = 0;
+                    int i83 = 0;
                     boolean bool = true;
-                    for (int i_84_ = 0; i_84_ < 8; i_84_++) {
-                        is_78_[i_84_] = xs(is_74_[i_84_], is_75_[i_84_]);
-                        is_79_[i_84_] = ys(is_76_[i_84_], is_75_[i_84_]);
-                        if (is_79_[i_84_] < 0 || is_75_[i_84_] < 10)
-                            i_80_++;
-                        if (is_79_[i_84_] > h || is_75_[i_84_] < 10)
-                            i_81_++;
-                        if (is_78_[i_84_] < 0 || is_75_[i_84_] < 10)
-                            i_82_++;
-                        if (is_78_[i_84_] > w || is_75_[i_84_] < 10)
-                            i_83_++;
+                    for (int i84 = 0; i84 < 8; i84++) {
+                        is78[i84] = xs(is74[i84], is75[i84]);
+                        is79[i84] = ys(is76[i84], is75[i84]);
+                        if (is79[i84] < 0 || is75[i84] < 10)
+                            i80++;
+                        if (is79[i84] > h || is75[i84] < 10)
+                            i81++;
+                        if (is78[i84] < 0 || is75[i84] < 10)
+                            i82++;
+                        if (is78[i84] > w || is75[i84] < 10)
+                            i83++;
                     }
-                    if (i_82_ == 8 || i_80_ == 8 || i_81_ == 8 || i_83_ == 8)
+                    if (i82 == 8 || i80 == 8 || i81 == 8 || i83 == 8)
                         bool = false;
                     if (bool) {
-                        int i_85_ = (int) (cpol[0] * pcv[i_73_]);
-                        int i_86_ = (int) (cpol[1] * pcv[i_73_]);
-                        int i_87_ = (int) (cpol[2] * pcv[i_73_]);
-                        if (is[i_71_ - i][i_72_ - i_49_] - pmx[i_73_] > fade[0]) {
-                            i_85_ = (i_85_ * 7 + cfade[0]) / 8;
-                            i_86_ = (i_86_ * 7 + cfade[1]) / 8;
-                            i_87_ = (i_87_ * 7 + cfade[2]) / 8;
+                        int i85 = (int) (cpol[0] * pcv[i73]);
+                        int i86 = (int) (cpol[1] * pcv[i73]);
+                        int i87 = (int) (cpol[2] * pcv[i73]);
+                        if (is[i71 - i][i72 - i49] - pmx[i73] > fade[0]) {
+                            i85 = (i85 * 7 + cfade[0]) / 8;
+                            i86 = (i86 * 7 + cfade[1]) / 8;
+                            i87 = (i87 * 7 + cfade[2]) / 8;
                         }
-                        if (is[i_71_ - i][i_72_ - i_49_] - pmx[i_73_] > fade[1]) {
-                            i_85_ = (i_85_ * 7 + cfade[0]) / 8;
-                            i_86_ = (i_86_ * 7 + cfade[1]) / 8;
-                            i_87_ = (i_87_ * 7 + cfade[2]) / 8;
+                        if (is[i71 - i][i72 - i49] - pmx[i73] > fade[1]) {
+                            i85 = (i85 * 7 + cfade[0]) / 8;
+                            i86 = (i86 * 7 + cfade[1]) / 8;
+                            i87 = (i87 * 7 + cfade[2]) / 8;
                         }
-                        graphics2d.setColor(new Color(i_85_, i_86_, i_87_));
-                        graphics2d.fillPolygon(is_78_, is_79_, 8);
+                        graphics2d.setColor(new Color(i85, i86, i87));
+                        graphics2d.fillPolygon(is78, is79, 8);
                     }
                 }
     }
 
-    public void newclouds(int i, int i_88_, int i_89_, int i_90_) {
+    public void newclouds(int i, int i88, int i89, int i90) {
         clx = null;
         clz = null;
         cmx = null;
@@ -1205,10 +1205,10 @@ public class Medium {
         claz = null;
         clc = null;
         i = i / 20 - 10000;
-        i_88_ = i_88_ / 20 + 10000;
-        i_89_ = i_89_ / 20 - 10000;
-        i_90_ = i_90_ / 20 + 10000;
-        noc = (i_88_ - i) * (i_90_ - i_89_) / 16666667;
+        i88 = i88 / 20 + 10000;
+        i89 = i89 / 20 - 10000;
+        i90 = i90 / 20 + 10000;
+        noc = (i88 - i) * (i90 - i89) / 16666667;
         clx = new int[noc];
         clz = new int[noc];
         cmx = new int[noc];
@@ -1216,125 +1216,125 @@ public class Medium {
         clay = new int[noc][3][12];
         claz = new int[noc][3][12];
         clc = new int[noc][2][6][3];
-        for (int i_91_ = 0; i_91_ < noc; i_91_++) {
-            clx[i_91_] = (int) (i + (i_88_ - i) * Math.random());
-            clz[i_91_] = (int) (i_89_ + (i_90_ - i_89_) * Math.random());
+        for (int i91 = 0; i91 < noc; i91++) {
+            clx[i91] = (int) (i + (i88 - i) * Math.random());
+            clz[i91] = (int) (i89 + (i90 - i89) * Math.random());
             final float f = (float) (0.25 + Math.random() * 1.25);
-            float f_92_ = (float) ((200.0 + Math.random() * 700.0) * f);
-            clax[i_91_][0][0] = (int) (f_92_ * 0.3826);
-            claz[i_91_][0][0] = (int) (f_92_ * 0.9238);
-            clay[i_91_][0][0] = (int) ((25.0 - Math.random() * 50.0) * f);
-            f_92_ = (float) ((200.0 + Math.random() * 700.0) * f);
-            clax[i_91_][0][1] = (int) (f_92_ * 0.7071);
-            claz[i_91_][0][1] = (int) (f_92_ * 0.7071);
-            clay[i_91_][0][1] = (int) ((25.0 - Math.random() * 50.0) * f);
-            f_92_ = (float) ((200.0 + Math.random() * 700.0) * f);
-            clax[i_91_][0][2] = (int) (f_92_ * 0.9238);
-            claz[i_91_][0][2] = (int) (f_92_ * 0.3826);
-            clay[i_91_][0][2] = (int) ((25.0 - Math.random() * 50.0) * f);
-            f_92_ = (float) ((200.0 + Math.random() * 700.0) * f);
-            clax[i_91_][0][3] = (int) (f_92_ * 0.9238);
-            claz[i_91_][0][3] = -(int) (f_92_ * 0.3826);
-            clay[i_91_][0][3] = (int) ((25.0 - Math.random() * 50.0) * f);
-            f_92_ = (float) ((200.0 + Math.random() * 700.0) * f);
-            clax[i_91_][0][4] = (int) (f_92_ * 0.7071);
-            claz[i_91_][0][4] = -(int) (f_92_ * 0.7071);
-            clay[i_91_][0][4] = (int) ((25.0 - Math.random() * 50.0) * f);
-            f_92_ = (float) ((200.0 + Math.random() * 700.0) * f);
-            clax[i_91_][0][5] = (int) (f_92_ * 0.3826);
-            claz[i_91_][0][5] = -(int) (f_92_ * 0.9238);
-            clay[i_91_][0][5] = (int) ((25.0 - Math.random() * 50.0) * f);
-            f_92_ = (float) ((200.0 + Math.random() * 700.0) * f);
-            clax[i_91_][0][6] = -(int) (f_92_ * 0.3826);
-            claz[i_91_][0][6] = -(int) (f_92_ * 0.9238);
-            clay[i_91_][0][6] = (int) ((25.0 - Math.random() * 50.0) * f);
-            f_92_ = (float) ((200.0 + Math.random() * 700.0) * f);
-            clax[i_91_][0][7] = -(int) (f_92_ * 0.7071);
-            claz[i_91_][0][7] = -(int) (f_92_ * 0.7071);
-            clay[i_91_][0][7] = (int) ((25.0 - Math.random() * 50.0) * f);
-            f_92_ = (float) ((200.0 + Math.random() * 700.0) * f);
-            clax[i_91_][0][8] = -(int) (f_92_ * 0.9238);
-            claz[i_91_][0][8] = -(int) (f_92_ * 0.3826);
-            clay[i_91_][0][8] = (int) ((25.0 - Math.random() * 50.0) * f);
-            f_92_ = (float) ((200.0 + Math.random() * 700.0) * f);
-            clax[i_91_][0][9] = -(int) (f_92_ * 0.9238);
-            claz[i_91_][0][9] = (int) (f_92_ * 0.3826);
-            clay[i_91_][0][9] = (int) ((25.0 - Math.random() * 50.0) * f);
-            f_92_ = (float) ((200.0 + Math.random() * 700.0) * f);
-            clax[i_91_][0][10] = -(int) (f_92_ * 0.7071);
-            claz[i_91_][0][10] = (int) (f_92_ * 0.7071);
-            clay[i_91_][0][10] = (int) ((25.0 - Math.random() * 50.0) * f);
-            f_92_ = (float) ((200.0 + Math.random() * 700.0) * f);
-            clax[i_91_][0][11] = -(int) (f_92_ * 0.3826);
-            claz[i_91_][0][11] = (int) (f_92_ * 0.9238);
-            clay[i_91_][0][11] = (int) ((25.0 - Math.random() * 50.0) * f);
-            for (int i_93_ = 0; i_93_ < 12; i_93_++) {
-                int i_94_ = i_93_ - 1;
-                if (i_94_ == -1)
-                    i_94_ = 11;
-                int i_95_ = i_93_ + 1;
-                if (i_95_ == 12)
-                    i_95_ = 0;
-                clax[i_91_][0][i_93_] = ((clax[i_91_][0][i_94_] + clax[i_91_][0][i_95_]) / 2 + clax[i_91_][0][i_93_])
+            float f92 = (float) ((200.0 + Math.random() * 700.0) * f);
+            clax[i91][0][0] = (int) (f92 * 0.3826);
+            claz[i91][0][0] = (int) (f92 * 0.9238);
+            clay[i91][0][0] = (int) ((25.0 - Math.random() * 50.0) * f);
+            f92 = (float) ((200.0 + Math.random() * 700.0) * f);
+            clax[i91][0][1] = (int) (f92 * 0.7071);
+            claz[i91][0][1] = (int) (f92 * 0.7071);
+            clay[i91][0][1] = (int) ((25.0 - Math.random() * 50.0) * f);
+            f92 = (float) ((200.0 + Math.random() * 700.0) * f);
+            clax[i91][0][2] = (int) (f92 * 0.9238);
+            claz[i91][0][2] = (int) (f92 * 0.3826);
+            clay[i91][0][2] = (int) ((25.0 - Math.random() * 50.0) * f);
+            f92 = (float) ((200.0 + Math.random() * 700.0) * f);
+            clax[i91][0][3] = (int) (f92 * 0.9238);
+            claz[i91][0][3] = -(int) (f92 * 0.3826);
+            clay[i91][0][3] = (int) ((25.0 - Math.random() * 50.0) * f);
+            f92 = (float) ((200.0 + Math.random() * 700.0) * f);
+            clax[i91][0][4] = (int) (f92 * 0.7071);
+            claz[i91][0][4] = -(int) (f92 * 0.7071);
+            clay[i91][0][4] = (int) ((25.0 - Math.random() * 50.0) * f);
+            f92 = (float) ((200.0 + Math.random() * 700.0) * f);
+            clax[i91][0][5] = (int) (f92 * 0.3826);
+            claz[i91][0][5] = -(int) (f92 * 0.9238);
+            clay[i91][0][5] = (int) ((25.0 - Math.random() * 50.0) * f);
+            f92 = (float) ((200.0 + Math.random() * 700.0) * f);
+            clax[i91][0][6] = -(int) (f92 * 0.3826);
+            claz[i91][0][6] = -(int) (f92 * 0.9238);
+            clay[i91][0][6] = (int) ((25.0 - Math.random() * 50.0) * f);
+            f92 = (float) ((200.0 + Math.random() * 700.0) * f);
+            clax[i91][0][7] = -(int) (f92 * 0.7071);
+            claz[i91][0][7] = -(int) (f92 * 0.7071);
+            clay[i91][0][7] = (int) ((25.0 - Math.random() * 50.0) * f);
+            f92 = (float) ((200.0 + Math.random() * 700.0) * f);
+            clax[i91][0][8] = -(int) (f92 * 0.9238);
+            claz[i91][0][8] = -(int) (f92 * 0.3826);
+            clay[i91][0][8] = (int) ((25.0 - Math.random() * 50.0) * f);
+            f92 = (float) ((200.0 + Math.random() * 700.0) * f);
+            clax[i91][0][9] = -(int) (f92 * 0.9238);
+            claz[i91][0][9] = (int) (f92 * 0.3826);
+            clay[i91][0][9] = (int) ((25.0 - Math.random() * 50.0) * f);
+            f92 = (float) ((200.0 + Math.random() * 700.0) * f);
+            clax[i91][0][10] = -(int) (f92 * 0.7071);
+            claz[i91][0][10] = (int) (f92 * 0.7071);
+            clay[i91][0][10] = (int) ((25.0 - Math.random() * 50.0) * f);
+            f92 = (float) ((200.0 + Math.random() * 700.0) * f);
+            clax[i91][0][11] = -(int) (f92 * 0.3826);
+            claz[i91][0][11] = (int) (f92 * 0.9238);
+            clay[i91][0][11] = (int) ((25.0 - Math.random() * 50.0) * f);
+            for (int i93 = 0; i93 < 12; i93++) {
+                int i94 = i93 - 1;
+                if (i94 == -1)
+                    i94 = 11;
+                int i95 = i93 + 1;
+                if (i95 == 12)
+                    i95 = 0;
+                clax[i91][0][i93] = ((clax[i91][0][i94] + clax[i91][0][i95]) / 2 + clax[i91][0][i93])
                         / 2;
-                clay[i_91_][0][i_93_] = ((clay[i_91_][0][i_94_] + clay[i_91_][0][i_95_]) / 2 + clay[i_91_][0][i_93_])
+                clay[i91][0][i93] = ((clay[i91][0][i94] + clay[i91][0][i95]) / 2 + clay[i91][0][i93])
                         / 2;
-                claz[i_91_][0][i_93_] = ((claz[i_91_][0][i_94_] + claz[i_91_][0][i_95_]) / 2 + claz[i_91_][0][i_93_])
+                claz[i91][0][i93] = ((claz[i91][0][i94] + claz[i91][0][i95]) / 2 + claz[i91][0][i93])
                         / 2;
             }
-            for (int i_96_ = 0; i_96_ < 12; i_96_++) {
-                f_92_ = (float) (1.2 + 0.6 * Math.random());
-                clax[i_91_][1][i_96_] = (int) (clax[i_91_][0][i_96_] * f_92_);
-                claz[i_91_][1][i_96_] = (int) (claz[i_91_][0][i_96_] * f_92_);
-                clay[i_91_][1][i_96_] = (int) (clay[i_91_][0][i_96_] - 100.0 * Math.random());
-                f_92_ = (float) (1.1 + 0.3 * Math.random());
-                clax[i_91_][2][i_96_] = (int) (clax[i_91_][1][i_96_] * f_92_);
-                claz[i_91_][2][i_96_] = (int) (claz[i_91_][1][i_96_] * f_92_);
-                clay[i_91_][2][i_96_] = (int) (clay[i_91_][1][i_96_] - 240.0 * Math.random());
+            for (int i96 = 0; i96 < 12; i96++) {
+                f92 = (float) (1.2 + 0.6 * Math.random());
+                clax[i91][1][i96] = (int) (clax[i91][0][i96] * f92);
+                claz[i91][1][i96] = (int) (claz[i91][0][i96] * f92);
+                clay[i91][1][i96] = (int) (clay[i91][0][i96] - 100.0 * Math.random());
+                f92 = (float) (1.1 + 0.3 * Math.random());
+                clax[i91][2][i96] = (int) (clax[i91][1][i96] * f92);
+                claz[i91][2][i96] = (int) (claz[i91][1][i96] * f92);
+                clay[i91][2][i96] = (int) (clay[i91][1][i96] - 240.0 * Math.random());
             }
-            cmx[i_91_] = 0;
-            for (int i_97_ = 0; i_97_ < 12; i_97_++) {
-                int i_98_ = i_97_ - 1;
-                if (i_98_ == -1)
-                    i_98_ = 11;
-                int i_99_ = i_97_ + 1;
-                if (i_99_ == 12)
-                    i_99_ = 0;
-                clay[i_91_][1][i_97_] = ((clay[i_91_][1][i_98_] + clay[i_91_][1][i_99_]) / 2 + clay[i_91_][1][i_97_])
+            cmx[i91] = 0;
+            for (int i97 = 0; i97 < 12; i97++) {
+                int i98 = i97 - 1;
+                if (i98 == -1)
+                    i98 = 11;
+                int i99 = i97 + 1;
+                if (i99 == 12)
+                    i99 = 0;
+                clay[i91][1][i97] = ((clay[i91][1][i98] + clay[i91][1][i99]) / 2 + clay[i91][1][i97])
                         / 2;
-                clay[i_91_][2][i_97_] = ((clay[i_91_][2][i_98_] + clay[i_91_][2][i_99_]) / 2 + clay[i_91_][2][i_97_])
+                clay[i91][2][i97] = ((clay[i91][2][i98] + clay[i91][2][i99]) / 2 + clay[i91][2][i97])
                         / 2;
-                final int i_100_ = (int) Math.sqrt(
-                        clax[i_91_][2][i_97_] * clax[i_91_][2][i_97_] + claz[i_91_][2][i_97_] * claz[i_91_][2][i_97_]);
-                if (i_100_ > cmx[i_91_])
-                    cmx[i_91_] = i_100_;
+                final int i100 = (int) Math.sqrt(
+                        clax[i91][2][i97] * clax[i91][2][i97] + claz[i91][2][i97] * claz[i91][2][i97]);
+                if (i100 > cmx[i91])
+                    cmx[i91] = i100;
             }
-            for (int i_101_ = 0; i_101_ < 6; i_101_++) {
+            for (int i101 = 0; i101 < 6; i101++) {
                 final double d = Math.random();
-                final double d_102_ = Math.random();
-                for (int i_103_ = 0; i_103_ < 3; i_103_++) {
-                    f_92_ = clds[i_103_] * 1.05F - clds[i_103_];
-                    clc[i_91_][0][i_101_][i_103_] = (int) (clds[i_103_] + f_92_ * d);
-                    if (clc[i_91_][0][i_101_][i_103_] > 255)
-                        clc[i_91_][0][i_101_][i_103_] = 255;
-                    if (clc[i_91_][0][i_101_][i_103_] < 0)
-                        clc[i_91_][0][i_101_][i_103_] = 0;
-                    clc[i_91_][1][i_101_][i_103_] = (int) (clds[i_103_] * 1.05F + f_92_ * d_102_);
-                    if (clc[i_91_][1][i_101_][i_103_] > 255)
-                        clc[i_91_][1][i_101_][i_103_] = 255;
-                    if (clc[i_91_][1][i_101_][i_103_] < 0)
-                        clc[i_91_][1][i_101_][i_103_] = 0;
+                final double d102 = Math.random();
+                for (int i103 = 0; i103 < 3; i103++) {
+                    f92 = clds[i103] * 1.05F - clds[i103];
+                    clc[i91][0][i101][i103] = (int) (clds[i103] + f92 * d);
+                    if (clc[i91][0][i101][i103] > 255)
+                        clc[i91][0][i101][i103] = 255;
+                    if (clc[i91][0][i101][i103] < 0)
+                        clc[i91][0][i101][i103] = 0;
+                    clc[i91][1][i101][i103] = (int) (clds[i103] * 1.05F + f92 * d102);
+                    if (clc[i91][1][i101][i103] > 255)
+                        clc[i91][1][i101][i103] = 255;
+                    if (clc[i91][1][i101][i103] < 0)
+                        clc[i91][1][i101][i103] = 0;
                 }
             }
         }
     }
 
-    public void newmountains(final int i, final int i_167_, final int i_168_, final int i_169_) {
+    public void newmountains(final int i, final int i167, final int i168, final int i169) {
         final Random random = new Random(mgen);
         nmt = (int) (20.0 + 10.0 * random.nextDouble());
-        final int i_170_ = (i + i_167_) / 60;
-        final int i_171_ = (i_168_ + i_169_) / 60;
-        final int i_172_ = Math.max(i_167_ - i, i_169_ - i_168_) / 60;
+        final int i170 = (i + i167) / 60;
+        final int i171 = (i168 + i169) / 60;
+        final int i172 = Math.max(i167 - i, i169 - i168) / 60;
         mrd = null;
         nmv = null;
         mtx = null;
@@ -1348,83 +1348,83 @@ public class Medium {
         mtz = new int[nmt][];
         mtc = new int[nmt][][];
         final int[] is = new int[nmt];
-        final int[] is_173_ = new int[nmt];
-        for (int i_174_ = 0; i_174_ < nmt; i_174_++) {
-            int i_175_ = 85;
+        final int[] is173 = new int[nmt];
+        for (int i174 = 0; i174 < nmt; i174++) {
+            int i175 = 85;
             float f = 0.5F;
-            float f_176_ = 0.5F;
-            is[i_174_] = (int) (10000.0 + random.nextDouble() * 10000.0);
-            final int i_177_ = (int) (random.nextDouble() * 360.0);
+            float f176 = 0.5F;
+            is[i174] = (int) (10000.0 + random.nextDouble() * 10000.0);
+            final int i177 = (int) (random.nextDouble() * 360.0);
             if (random.nextDouble() > random.nextDouble()) {
                 f = (float) (0.2 + random.nextDouble() * 0.35);
-                f_176_ = (float) (0.2 + random.nextDouble() * 0.35);
-                nmv[i_174_] = (int) (f * (24.0 + 16.0 * random.nextDouble()));
-                i_175_ = (int) (85.0 + 10.0 * random.nextDouble());
+                f176 = (float) (0.2 + random.nextDouble() * 0.35);
+                nmv[i174] = (int) (f * (24.0 + 16.0 * random.nextDouble()));
+                i175 = (int) (85.0 + 10.0 * random.nextDouble());
             } else {
                 f = (float) (0.3 + random.nextDouble() * 1.1);
-                f_176_ = (float) (0.2 + random.nextDouble() * 0.35);
-                nmv[i_174_] = (int) (f * (12.0 + 8.0 * random.nextDouble()));
-                i_175_ = (int) (104.0 - 10.0 * random.nextDouble());
+                f176 = (float) (0.2 + random.nextDouble() * 0.35);
+                nmv[i174] = (int) (f * (12.0 + 8.0 * random.nextDouble()));
+                i175 = (int) (104.0 - 10.0 * random.nextDouble());
             }
-            mtx[i_174_] = new int[nmv[i_174_] * 2];
-            mty[i_174_] = new int[nmv[i_174_] * 2];
-            mtz[i_174_] = new int[nmv[i_174_] * 2];
-            mtc[i_174_] = new int[nmv[i_174_]][3];
-            for (int i_178_ = 0; i_178_ < nmv[i_174_]; i_178_++) {
-                mtx[i_174_][i_178_] = (int) ((i_178_ * 500 + (random.nextDouble() * 800.0 - 400.0)
-                        - 250 * (nmv[i_174_] - 1)) * f);
-                mtx[i_174_][i_178_ + nmv[i_174_]] = (int) ((i_178_ * 500 + (random.nextDouble() * 800.0 - 400.0)
-                        - 250 * (nmv[i_174_] - 1)) * f);
-                mtx[i_174_][nmv[i_174_]] = (int) (mtx[i_174_][0] - (100.0 + random.nextDouble() * 600.0) * f);
-                mtx[i_174_][nmv[i_174_] * 2
-                        - 1] = (int) (mtx[i_174_][nmv[i_174_] - 1] + (100.0 + random.nextDouble() * 600.0) * f);
-                if (i_178_ == 0 || i_178_ == nmv[i_174_] - 1)
-                    mty[i_174_][i_178_] = (int) ((-400.0 - 1200.0 * random.nextDouble()) * f_176_ + ground);
-                if (i_178_ == 1 || i_178_ == nmv[i_174_] - 2)
-                    mty[i_174_][i_178_] = (int) ((-1000.0 - 1450.0 * random.nextDouble()) * f_176_ + ground);
-                if (i_178_ > 1 && i_178_ < nmv[i_174_] - 2)
-                    mty[i_174_][i_178_] = (int) ((-1600.0 - 1700.0 * random.nextDouble()) * f_176_ + ground);
-                mty[i_174_][i_178_ + nmv[i_174_]] = ground - 70;
-                mtz[i_174_][i_178_] = i_171_ + i_172_ + is[i_174_];
-                mtz[i_174_][i_178_ + nmv[i_174_]] = i_171_ + i_172_ + is[i_174_];
-                final float f_179_ = (float) (0.5 + random.nextDouble() * 0.5);
-                mtc[i_174_][i_178_][0] = (int) (170.0F * f_179_ + 170.0F * f_179_ * (snap[0] / 100.0F));
-                if (mtc[i_174_][i_178_][0] > 255)
-                    mtc[i_174_][i_178_][0] = 255;
-                if (mtc[i_174_][i_178_][0] < 0)
-                    mtc[i_174_][i_178_][0] = 0;
-                mtc[i_174_][i_178_][1] = (int) (i_175_ * f_179_ + 85.0F * f_179_ * (snap[1] / 100.0F));
-                if (mtc[i_174_][i_178_][1] > 255)
-                    mtc[i_174_][i_178_][1] = 255;
-                if (mtc[i_174_][i_178_][1] < 1)
-                    mtc[i_174_][i_178_][1] = 0;
-                mtc[i_174_][i_178_][2] = 0;
+            mtx[i174] = new int[nmv[i174] * 2];
+            mty[i174] = new int[nmv[i174] * 2];
+            mtz[i174] = new int[nmv[i174] * 2];
+            mtc[i174] = new int[nmv[i174]][3];
+            for (int i178 = 0; i178 < nmv[i174]; i178++) {
+                mtx[i174][i178] = (int) ((i178 * 500 + (random.nextDouble() * 800.0 - 400.0)
+                        - 250 * (nmv[i174] - 1)) * f);
+                mtx[i174][i178 + nmv[i174]] = (int) ((i178 * 500 + (random.nextDouble() * 800.0 - 400.0)
+                        - 250 * (nmv[i174] - 1)) * f);
+                mtx[i174][nmv[i174]] = (int) (mtx[i174][0] - (100.0 + random.nextDouble() * 600.0) * f);
+                mtx[i174][nmv[i174] * 2
+                        - 1] = (int) (mtx[i174][nmv[i174] - 1] + (100.0 + random.nextDouble() * 600.0) * f);
+                if (i178 == 0 || i178 == nmv[i174] - 1)
+                    mty[i174][i178] = (int) ((-400.0 - 1200.0 * random.nextDouble()) * f176 + ground);
+                if (i178 == 1 || i178 == nmv[i174] - 2)
+                    mty[i174][i178] = (int) ((-1000.0 - 1450.0 * random.nextDouble()) * f176 + ground);
+                if (i178 > 1 && i178 < nmv[i174] - 2)
+                    mty[i174][i178] = (int) ((-1600.0 - 1700.0 * random.nextDouble()) * f176 + ground);
+                mty[i174][i178 + nmv[i174]] = ground - 70;
+                mtz[i174][i178] = i171 + i172 + is[i174];
+                mtz[i174][i178 + nmv[i174]] = i171 + i172 + is[i174];
+                final float f179 = (float) (0.5 + random.nextDouble() * 0.5);
+                mtc[i174][i178][0] = (int) (170.0F * f179 + 170.0F * f179 * (snap[0] / 100.0F));
+                if (mtc[i174][i178][0] > 255)
+                    mtc[i174][i178][0] = 255;
+                if (mtc[i174][i178][0] < 0)
+                    mtc[i174][i178][0] = 0;
+                mtc[i174][i178][1] = (int) (i175 * f179 + 85.0F * f179 * (snap[1] / 100.0F));
+                if (mtc[i174][i178][1] > 255)
+                    mtc[i174][i178][1] = 255;
+                if (mtc[i174][i178][1] < 1)
+                    mtc[i174][i178][1] = 0;
+                mtc[i174][i178][2] = 0;
             }
-            for (int i_180_ = 1; i_180_ < nmv[i_174_] - 1; i_180_++) {
-                final int i_181_ = i_180_ - 1;
-                final int i_182_ = i_180_ + 1;
-                mty[i_174_][i_180_] = ((mty[i_174_][i_181_] + mty[i_174_][i_182_]) / 2 + mty[i_174_][i_180_]) / 2;
+            for (int i180 = 1; i180 < nmv[i174] - 1; i180++) {
+                final int i181 = i180 - 1;
+                final int i182 = i180 + 1;
+                mty[i174][i180] = ((mty[i174][i181] + mty[i174][i182]) / 2 + mty[i174][i180]) / 2;
             }
-            rot(mtx[i_174_], mtz[i_174_], i_170_, i_171_, i_177_, nmv[i_174_] * 2);
-            is_173_[i_174_] = 0;
+            rot(mtx[i174], mtz[i174], i170, i171, i177, nmv[i174] * 2);
+            is173[i174] = 0;
         }
-        for (int i_183_ = 0; i_183_ < nmt; i_183_++) {
-            for (int i_184_ = i_183_ + 1; i_184_ < nmt; i_184_++)
-                if (is[i_183_] < is[i_184_])
-                    is_173_[i_183_]++;
+        for (int i183 = 0; i183 < nmt; i183++) {
+            for (int i184 = i183 + 1; i184 < nmt; i184++)
+                if (is[i183] < is[i184])
+                    is173[i183]++;
                 else
-                    is_173_[i_184_]++;
-            mrd[is_173_[i_183_]] = i_183_;
+                    is173[i184]++;
+            mrd[is173[i183]] = i183;
         }
     }
 
-    public void newpolys(final int i, final int i_35_, final int i_36_, final int i_37_, final Trackers trackers,
-            final int i_38_) {
-        final Random random = new Random((i_38_ + cgrnd[0] + cgrnd[1] + cgrnd[2]) * 1671);
-        nrw = i_35_ / 1200 + 9;
-        ncl = i_37_ / 1200 + 9;
+    public void newpolys(final int i, final int i35, final int i36, final int i37, final Trackers trackers,
+            final int i38) {
+        final Random random = new Random((i38 + cgrnd[0] + cgrnd[1] + cgrnd[2]) * 1671);
+        nrw = i35 / 1200 + 9;
+        ncl = i37 / 1200 + 9;
         sgpx = i - 4800;
-        sgpz = i_36_ - 4800;
+        sgpz = i36 - 4800;
         ogpx = null;
         ogpz = null;
         pvr = null;
@@ -1439,73 +1439,73 @@ public class Medium {
         cgpz = new int[nrw * ncl];
         pmx = new int[nrw * ncl];
         pcv = new float[nrw * ncl];
-        int i_39_ = 0;
-        int i_40_ = 0;
-        for (int i_41_ = 0; i_41_ < nrw * ncl; i_41_++) {
-            cgpx[i_41_] = sgpx + i_39_ * 1200 + (int) (random.nextDouble() * 1000.0 - 500.0);
-            cgpz[i_41_] = sgpz + i_40_ * 1200 + (int) (random.nextDouble() * 1000.0 - 500.0);
+        int i39 = 0;
+        int i40 = 0;
+        for (int i41 = 0; i41 < nrw * ncl; i41++) {
+            cgpx[i41] = sgpx + i39 * 1200 + (int) (random.nextDouble() * 1000.0 - 500.0);
+            cgpz[i41] = sgpz + i40 * 1200 + (int) (random.nextDouble() * 1000.0 - 500.0);
             if (trackers != null)
-                for (int i_42_ = 0; i_42_ < trackers.nt; i_42_++)
-                    if (trackers.zy[i_42_] == 0 && trackers.xy[i_42_] == 0) {
-                        if (trackers.radx[i_42_] < trackers.radz[i_42_]
-                                && Math.abs(cgpz[i_41_] - trackers.z[i_42_]) < trackers.radz[i_42_])
-                            for (/**/; Math.abs(cgpx[i_41_]
-                                    - trackers.x[i_42_]) < trackers.radx[i_42_]; cgpx[i_41_] += random.nextDouble()
-                                            * trackers.radx[i_42_] * 2.0 - trackers.radx[i_42_]) {
+                for (int i42 = 0; i42 < trackers.nt; i42++)
+                    if (trackers.zy[i42] == 0 && trackers.xy[i42] == 0) {
+                        if (trackers.radx[i42] < trackers.radz[i42]
+                                && Math.abs(cgpz[i41] - trackers.z[i42]) < trackers.radz[i42])
+                            for (/**/; Math.abs(cgpx[i41]
+                                    - trackers.x[i42]) < trackers.radx[i42]; cgpx[i41] += random.nextDouble()
+                                            * trackers.radx[i42] * 2.0 - trackers.radx[i42]) {
                                 /* empty */
                             }
-                        if (trackers.radz[i_42_] < trackers.radx[i_42_]
-                                && Math.abs(cgpx[i_41_] - trackers.x[i_42_]) < trackers.radx[i_42_])
-                            for (/**/; Math.abs(cgpz[i_41_]
-                                    - trackers.z[i_42_]) < trackers.radz[i_42_]; cgpz[i_41_] += random.nextDouble()
-                                            * trackers.radz[i_42_] * 2.0 - trackers.radz[i_42_]) {
+                        if (trackers.radz[i42] < trackers.radx[i42]
+                                && Math.abs(cgpx[i41] - trackers.x[i42]) < trackers.radx[i42])
+                            for (/**/; Math.abs(cgpz[i41]
+                                    - trackers.z[i42]) < trackers.radz[i42]; cgpz[i41] += random.nextDouble()
+                                            * trackers.radz[i42] * 2.0 - trackers.radz[i42]) {
                                 /* empty */
                             }
                     }
-            if (++i_39_ == nrw) {
-                i_39_ = 0;
-                i_40_++;
+            if (++i39 == nrw) {
+                i39 = 0;
+                i40++;
             }
         }
-        for (int i_43_ = 0; i_43_ < nrw * ncl; i_43_++) {
+        for (int i43 = 0; i43 < nrw * ncl; i43++) {
             final float f = (float) (0.3 + 1.6 * random.nextDouble());
-            ogpx[i_43_][0] = 0;
-            ogpz[i_43_][0] = (int) ((100.0 + random.nextDouble() * 760.0) * f);
-            ogpx[i_43_][1] = (int) ((100.0 + random.nextDouble() * 760.0) * 0.7071 * f);
-            ogpz[i_43_][1] = ogpx[i_43_][1];
-            ogpx[i_43_][2] = (int) ((100.0 + random.nextDouble() * 760.0) * f);
-            ogpz[i_43_][2] = 0;
-            ogpx[i_43_][3] = (int) ((100.0 + random.nextDouble() * 760.0) * 0.7071 * f);
-            ogpz[i_43_][3] = -ogpx[i_43_][3];
-            ogpx[i_43_][4] = 0;
-            ogpz[i_43_][4] = -(int) ((100.0 + random.nextDouble() * 760.0) * f);
-            ogpx[i_43_][5] = -(int) ((100.0 + random.nextDouble() * 760.0) * 0.7071 * f);
-            ogpz[i_43_][5] = ogpx[i_43_][5];
-            ogpx[i_43_][6] = -(int) ((100.0 + random.nextDouble() * 760.0) * f);
-            ogpz[i_43_][6] = 0;
-            ogpx[i_43_][7] = -(int) ((100.0 + random.nextDouble() * 760.0) * 0.7071 * f);
-            ogpz[i_43_][7] = -ogpx[i_43_][7];
-            for (int i_44_ = 0; i_44_ < 8; i_44_++) {
-                int i_45_ = i_44_ - 1;
-                if (i_45_ == -1)
-                    i_45_ = 7;
-                int i_46_ = i_44_ + 1;
-                if (i_46_ == 8)
-                    i_46_ = 0;
-                ogpx[i_43_][i_44_] = ((ogpx[i_43_][i_45_] + ogpx[i_43_][i_46_]) / 2 + ogpx[i_43_][i_44_]) / 2;
-                ogpz[i_43_][i_44_] = ((ogpz[i_43_][i_45_] + ogpz[i_43_][i_46_]) / 2 + ogpz[i_43_][i_44_]) / 2;
-                pvr[i_43_][i_44_] = (float) (1.1 + random.nextDouble() * 0.8);
-                final int i_47_ = (int) Math
-                        .sqrt((int) (ogpx[i_43_][i_44_] * ogpx[i_43_][i_44_] * pvr[i_43_][i_44_] * pvr[i_43_][i_44_]
-                                + ogpz[i_43_][i_44_] * ogpz[i_43_][i_44_] * pvr[i_43_][i_44_] * pvr[i_43_][i_44_]));
-                if (i_47_ > pmx[i_43_])
-                    pmx[i_43_] = i_47_;
+            ogpx[i43][0] = 0;
+            ogpz[i43][0] = (int) ((100.0 + random.nextDouble() * 760.0) * f);
+            ogpx[i43][1] = (int) ((100.0 + random.nextDouble() * 760.0) * 0.7071 * f);
+            ogpz[i43][1] = ogpx[i43][1];
+            ogpx[i43][2] = (int) ((100.0 + random.nextDouble() * 760.0) * f);
+            ogpz[i43][2] = 0;
+            ogpx[i43][3] = (int) ((100.0 + random.nextDouble() * 760.0) * 0.7071 * f);
+            ogpz[i43][3] = -ogpx[i43][3];
+            ogpx[i43][4] = 0;
+            ogpz[i43][4] = -(int) ((100.0 + random.nextDouble() * 760.0) * f);
+            ogpx[i43][5] = -(int) ((100.0 + random.nextDouble() * 760.0) * 0.7071 * f);
+            ogpz[i43][5] = ogpx[i43][5];
+            ogpx[i43][6] = -(int) ((100.0 + random.nextDouble() * 760.0) * f);
+            ogpz[i43][6] = 0;
+            ogpx[i43][7] = -(int) ((100.0 + random.nextDouble() * 760.0) * 0.7071 * f);
+            ogpz[i43][7] = -ogpx[i43][7];
+            for (int i44 = 0; i44 < 8; i44++) {
+                int i45 = i44 - 1;
+                if (i45 == -1)
+                    i45 = 7;
+                int i46 = i44 + 1;
+                if (i46 == 8)
+                    i46 = 0;
+                ogpx[i43][i44] = ((ogpx[i43][i45] + ogpx[i43][i46]) / 2 + ogpx[i43][i44]) / 2;
+                ogpz[i43][i44] = ((ogpz[i43][i45] + ogpz[i43][i46]) / 2 + ogpz[i43][i44]) / 2;
+                pvr[i43][i44] = (float) (1.1 + random.nextDouble() * 0.8);
+                final int i47 = (int) Math
+                        .sqrt((int) (ogpx[i43][i44] * ogpx[i43][i44] * pvr[i43][i44] * pvr[i43][i44]
+                                + ogpz[i43][i44] * ogpz[i43][i44] * pvr[i43][i44] * pvr[i43][i44]));
+                if (i47 > pmx[i43])
+                    pmx[i43] = i47;
             }
-            pcv[i_43_] = (float) (0.97 + random.nextDouble() * 0.03);
-            if (pcv[i_43_] > 1.0F)
-                pcv[i_43_] = 1.0F;
+            pcv[i43] = (float) (0.97 + random.nextDouble() * 0.03);
+            if (pcv[i43] > 1.0F)
+                pcv[i43] = 1.0F;
             if (random.nextDouble() > random.nextDouble())
-                pcv[i_43_] = 1.0F;
+                pcv[i43] = 1.0F;
         }
     }
 
@@ -1527,26 +1527,26 @@ public class Medium {
             for (int i = 0; i < nst; i++) {
                 stx[i] = (int) (2000.0 * random.nextDouble() - 1000.0);
                 stz[i] = (int) (2000.0 * random.nextDouble() - 1000.0);
-                int i_212_ = (int) (3.0 * random.nextDouble());
-                if (i_212_ >= 3)
-                    i_212_ = 0;
-                if (i_212_ <= -1)
-                    i_212_ = 2;
-                int i_213_ = i_212_ + 1;
+                int i212 = (int) (3.0 * random.nextDouble());
+                if (i212 >= 3)
+                    i212 = 0;
+                if (i212 <= -1)
+                    i212 = 2;
+                int i213 = i212 + 1;
                 if (random.nextDouble() > random.nextDouble())
-                    i_213_ = i_212_ - 1;
-                if (i_213_ == 3)
-                    i_213_ = 0;
-                if (i_213_ == -1)
-                    i_213_ = 2;
-                for (int i_214_ = 0; i_214_ < 3; i_214_++) {
-                    stc[i][0][i_214_] = 200;
-                    if (i_212_ == i_214_)
-                        stc[i][0][i_214_] += (int) (55.0 * random.nextDouble());
-                    if (i_213_ == i_214_)
-                        stc[i][0][i_214_] += 55;
-                    stc[i][0][i_214_] = (stc[i][0][i_214_] * 2 + csky[i_214_]) / 3;
-                    stc[i][1][i_214_] = (stc[i][0][i_214_] + csky[i_214_]) / 2;
+                    i213 = i212 - 1;
+                if (i213 == 3)
+                    i213 = 0;
+                if (i213 == -1)
+                    i213 = 2;
+                for (int i214 = 0; i214 < 3; i214++) {
+                    stc[i][0][i214] = 200;
+                    if (i212 == i214)
+                        stc[i][0][i214] += (int) (55.0 * random.nextDouble());
+                    if (i213 == i214)
+                        stc[i][0][i214] += 55;
+                    stc[i][0][i214] = (stc[i][0][i214] * 2 + csky[i214]) / 3;
+                    stc[i][1][i214] = (stc[i][0][i214] + csky[i214]) / 2;
                 }
                 twn[i] = (int) (4.0 * random.nextDouble());
                 if (random.nextDouble() > 0.8)
@@ -1585,164 +1585,164 @@ public class Medium {
         return rand[trn] / 10.0F;
     }
 
-    public void rot(final int[] is, final int[] is_274_, final int i, final int i_275_, final int i_276_,
-            final int i_277_) {
-        if (i_276_ != 0)
-            for (int i_278_ = 0; i_278_ < i_277_; i_278_++) {
-                final int i_279_ = is[i_278_];
-                final int i_280_ = is_274_[i_278_];
-                is[i_278_] = i + (int) ((i_279_ - i) * cos(i_276_) - (i_280_ - i_275_) * sin(i_276_));
-                is_274_[i_278_] = i_275_ + (int) ((i_279_ - i) * sin(i_276_) + (i_280_ - i_275_) * cos(i_276_));
+    public void rot(final int[] is, final int[] is274, final int i, final int i275, final int i276,
+            final int i277) {
+        if (i276 != 0)
+            for (int i278 = 0; i278 < i277; i278++) {
+                final int i279 = is[i278];
+                final int i280 = is274[i278];
+                is[i278] = i + (int) ((i279 - i) * cos(i276) - (i280 - i275) * sin(i276));
+                is274[i278] = i275 + (int) ((i279 - i) * sin(i276) + (i280 - i275) * cos(i276));
             }
     }
 
-    public void setcloads(final int i, final int i_252_, final int i_253_, int i_254_, int i_255_) {
-        if (i_254_ < 0)
-            i_254_ = 0;
-        if (i_254_ > 10)
-            i_254_ = 10;
-        if (i_255_ < -1500)
-            i_255_ = -1500;
-        if (i_255_ > -500)
-            i_255_ = -500;
+    public void setcloads(final int i, final int i252, final int i253, int i254, int i255) {
+        if (i254 < 0)
+            i254 = 0;
+        if (i254 > 10)
+            i254 = 10;
+        if (i255 < -1500)
+            i255 = -1500;
+        if (i255 > -500)
+            i255 = -500;
         cldd[0] = i;
-        cldd[1] = i_252_;
-        cldd[2] = i_253_;
-        cldd[3] = i_254_;
-        cldd[4] = i_255_;
-        for (int i_256_ = 0; i_256_ < 3; i_256_++) {
-            clds[i_256_] = (osky[i_256_] * cldd[3] + cldd[i_256_]) / (cldd[3] + 1);
-            clds[i_256_] = (int) (clds[i_256_] + clds[i_256_] * (snap[i_256_] / 100.0F));
-            if (clds[i_256_] > 255)
-                clds[i_256_] = 255;
-            if (clds[i_256_] < 0)
-                clds[i_256_] = 0;
+        cldd[1] = i252;
+        cldd[2] = i253;
+        cldd[3] = i254;
+        cldd[4] = i255;
+        for (int i256 = 0; i256 < 3; i256++) {
+            clds[i256] = (osky[i256] * cldd[3] + cldd[i256]) / (cldd[3] + 1);
+            clds[i256] = (int) (clds[i256] + clds[i256] * (snap[i256] / 100.0F));
+            if (clds[i256] > 255)
+                clds[i256] = 255;
+            if (clds[i256] < 0)
+                clds[i256] = 0;
         }
     }
 
-    public void setexture(int i, int i_261_, int i_262_, int i_263_) {
-        if (i_263_ < 20)
-            i_263_ = 20;
-        if (i_263_ > 60)
-            i_263_ = 60;
+    public void setexture(int i, int i261, int i262, int i263) {
+        if (i263 < 20)
+            i263 = 20;
+        if (i263 > 60)
+            i263 = 60;
         texture[0] = i;
-        texture[1] = i_261_;
-        texture[2] = i_262_;
-        texture[3] = i_263_;
-        i = (ogrnd[0] * i_263_ + i) / (1 + i_263_);
-        i_261_ = (ogrnd[1] * i_263_ + i_261_) / (1 + i_263_);
-        i_262_ = (ogrnd[2] * i_263_ + i_262_) / (1 + i_263_);
+        texture[1] = i261;
+        texture[2] = i262;
+        texture[3] = i263;
+        i = (ogrnd[0] * i263 + i) / (1 + i263);
+        i261 = (ogrnd[1] * i263 + i261) / (1 + i263);
+        i262 = (ogrnd[2] * i263 + i262) / (1 + i263);
         cpol[0] = (int) (i + i * (snap[0] / 100.0F));
         if (cpol[0] > 255)
             cpol[0] = 255;
         if (cpol[0] < 0)
             cpol[0] = 0;
-        cpol[1] = (int) (i_261_ + i_261_ * (snap[1] / 100.0F));
+        cpol[1] = (int) (i261 + i261 * (snap[1] / 100.0F));
         if (cpol[1] > 255)
             cpol[1] = 255;
         if (cpol[1] < 0)
             cpol[1] = 0;
-        cpol[2] = (int) (i_262_ + i_262_ * (snap[2] / 100.0F));
+        cpol[2] = (int) (i262 + i262 * (snap[2] / 100.0F));
         if (cpol[2] > 255)
             cpol[2] = 255;
         if (cpol[2] < 0)
             cpol[2] = 0;
-        for (int i_264_ = 0; i_264_ < 3; i_264_++)
-            crgrnd[i_264_] = (int) ((cpol[i_264_] * 0.99 + cgrnd[i_264_]) / 2.0);
+        for (int i264 = 0; i264 < 3; i264++)
+            crgrnd[i264] = (int) ((cpol[i264] * 0.99 + cgrnd[i264]) / 2.0);
     }
 
-    public void setfade(final int i, final int i_268_, final int i_269_) {
+    public void setfade(final int i, final int i268, final int i269) {
         cfade[0] = (int) (i + i * (snap[0] / 100.0F));
         if (cfade[0] > 255)
             cfade[0] = 255;
         if (cfade[0] < 0)
             cfade[0] = 0;
-        cfade[1] = (int) (i_268_ + i_268_ * (snap[1] / 100.0F));
+        cfade[1] = (int) (i268 + i268 * (snap[1] / 100.0F));
         if (cfade[1] > 255)
             cfade[1] = 255;
         if (cfade[1] < 0)
             cfade[1] = 0;
-        cfade[2] = (int) (i_269_ + i_269_ * (snap[2] / 100.0F));
+        cfade[2] = (int) (i269 + i269 * (snap[2] / 100.0F));
         if (cfade[2] > 255)
             cfade[2] = 255;
         if (cfade[2] < 0)
             cfade[2] = 0;
     }
 
-    public void setgrnd(final int i, final int i_257_, final int i_258_) {
+    public void setgrnd(final int i, final int i257, final int i258) {
         ogrnd[0] = i;
-        ogrnd[1] = i_257_;
-        ogrnd[2] = i_258_;
-        for (int i_259_ = 0; i_259_ < 3; i_259_++) {
-            cpol[i_259_] = (ogrnd[i_259_] * texture[3] + texture[i_259_]) / (1 + texture[3]);
-            cpol[i_259_] = (int) (cpol[i_259_] + cpol[i_259_] * (snap[i_259_] / 100.0F));
-            if (cpol[i_259_] > 255)
-                cpol[i_259_] = 255;
-            if (cpol[i_259_] < 0)
-                cpol[i_259_] = 0;
+        ogrnd[1] = i257;
+        ogrnd[2] = i258;
+        for (int i259 = 0; i259 < 3; i259++) {
+            cpol[i259] = (ogrnd[i259] * texture[3] + texture[i259]) / (1 + texture[3]);
+            cpol[i259] = (int) (cpol[i259] + cpol[i259] * (snap[i259] / 100.0F));
+            if (cpol[i259] > 255)
+                cpol[i259] = 255;
+            if (cpol[i259] < 0)
+                cpol[i259] = 0;
         }
         cgrnd[0] = (int) (i + i * (snap[0] / 100.0F));
         if (cgrnd[0] > 255)
             cgrnd[0] = 255;
         if (cgrnd[0] < 0)
             cgrnd[0] = 0;
-        cgrnd[1] = (int) (i_257_ + i_257_ * (snap[1] / 100.0F));
+        cgrnd[1] = (int) (i257 + i257 * (snap[1] / 100.0F));
         if (cgrnd[1] > 255)
             cgrnd[1] = 255;
         if (cgrnd[1] < 0)
             cgrnd[1] = 0;
-        cgrnd[2] = (int) (i_258_ + i_258_ * (snap[2] / 100.0F));
+        cgrnd[2] = (int) (i258 + i258 * (snap[2] / 100.0F));
         if (cgrnd[2] > 255)
             cgrnd[2] = 255;
         if (cgrnd[2] < 0)
             cgrnd[2] = 0;
-        for (int i_260_ = 0; i_260_ < 3; i_260_++)
-            crgrnd[i_260_] = (int) ((cpol[i_260_] * 0.99 + cgrnd[i_260_]) / 2.0);
+        for (int i260 = 0; i260 < 3; i260++)
+            crgrnd[i260] = (int) ((cpol[i260] * 0.99 + cgrnd[i260]) / 2.0);
     }
 
-    public void setpolys(final int i, final int i_265_, final int i_266_) {
+    public void setpolys(final int i, final int i265, final int i266) {
         cpol[0] = (int) (i + i * (snap[0] / 100.0F));
         if (cpol[0] > 255)
             cpol[0] = 255;
         if (cpol[0] < 0)
             cpol[0] = 0;
-        cpol[1] = (int) (i_265_ + i_265_ * (snap[1] / 100.0F));
+        cpol[1] = (int) (i265 + i265 * (snap[1] / 100.0F));
         if (cpol[1] > 255)
             cpol[1] = 255;
         if (cpol[1] < 0)
             cpol[1] = 0;
-        cpol[2] = (int) (i_266_ + i_266_ * (snap[2] / 100.0F));
+        cpol[2] = (int) (i266 + i266 * (snap[2] / 100.0F));
         if (cpol[2] > 255)
             cpol[2] = 255;
         if (cpol[2] < 0)
             cpol[2] = 0;
-        for (int i_267_ = 0; i_267_ < 3; i_267_++)
-            crgrnd[i_267_] = (int) ((cpol[i_267_] * 0.99 + cgrnd[i_267_]) / 2.0);
+        for (int i267 = 0; i267 < 3; i267++)
+            crgrnd[i267] = (int) ((cpol[i267] * 0.99 + cgrnd[i267]) / 2.0);
     }
 
-    public void setsky(final int i, final int i_249_, final int i_250_) {
+    public void setsky(final int i, final int i249, final int i250) {
         osky[0] = i;
-        osky[1] = i_249_;
-        osky[2] = i_250_;
-        for (int i_251_ = 0; i_251_ < 3; i_251_++) {
-            clds[i_251_] = (osky[i_251_] * cldd[3] + cldd[i_251_]) / (cldd[3] + 1);
-            clds[i_251_] = (int) (clds[i_251_] + clds[i_251_] * (snap[i_251_] / 100.0F));
-            if (clds[i_251_] > 255)
-                clds[i_251_] = 255;
-            if (clds[i_251_] < 0)
-                clds[i_251_] = 0;
+        osky[1] = i249;
+        osky[2] = i250;
+        for (int i251 = 0; i251 < 3; i251++) {
+            clds[i251] = (osky[i251] * cldd[3] + cldd[i251]) / (cldd[3] + 1);
+            clds[i251] = (int) (clds[i251] + clds[i251] * (snap[i251] / 100.0F));
+            if (clds[i251] > 255)
+                clds[i251] = 255;
+            if (clds[i251] < 0)
+                clds[i251] = 0;
         }
         csky[0] = (int) (i + i * (snap[0] / 100.0F));
         if (csky[0] > 255)
             csky[0] = 255;
         if (csky[0] < 0)
             csky[0] = 0;
-        csky[1] = (int) (i_249_ + i_249_ * (snap[1] / 100.0F));
+        csky[1] = (int) (i249 + i249 * (snap[1] / 100.0F));
         if (csky[1] > 255)
             csky[1] = 255;
         if (csky[1] < 0)
             csky[1] = 0;
-        csky[2] = (int) (i_250_ + i_250_ * (snap[2] / 100.0F));
+        csky[2] = (int) (i250 + i250 * (snap[2] / 100.0F));
         if (csky[2] > 255)
             csky[2] = 255;
         if (csky[2] < 0)
@@ -1755,10 +1755,10 @@ public class Medium {
             darksky = false;
     }
 
-    public void setsnap(final int i, final int i_247_, final int i_248_) {
+    public void setsnap(final int i, final int i247, final int i248) {
         snap[0] = i;
-        snap[1] = i_247_;
-        snap[2] = i_248_;
+        snap[1] = i247;
+        snap[2] = i248;
     }
 
     public float sin(int i) {
@@ -1771,10 +1771,10 @@ public class Medium {
         return tsin[i];
     }
 
-    public void transaround(final ContO conto, final ContO conto_18_, final int i) {
-        final int i_19_ = (conto.x * (20 - i) + conto_18_.x * i) / 20;
-        final int i_20_ = (conto.y * (20 - i) + conto_18_.y * i) / 20;
-        final int i_21_ = (conto.z * (20 - i) + conto_18_.z * i) / 20;
+    public void transaround(final ContO conto, final ContO conto18, final int i) {
+        final int i19 = (conto.x * (20 - i) + conto18.x * i) / 20;
+        final int i20 = (conto.y * (20 - i) + conto18.y * i) / 20;
+        final int i21 = (conto.z * (20 - i) + conto18.z * i) / 20;
         if (!vert)
             adv += 2;
         else
@@ -1783,26 +1783,26 @@ public class Medium {
             vert = true;
         if (adv < -500)
             vert = false;
-        int i_22_ = 500 + adv;
-        if (i_22_ < 1000)
-            i_22_ = 1000;
-        y = i_20_ - adv;
+        int i22 = 500 + adv;
+        if (i22 < 1000)
+            i22 = 1000;
+        y = i20 - adv;
         if (y > 10)
             vert = false;
-        x = i_19_ + (int) ((i_19_ - i_22_ - i_19_) * cos(vxz));
-        z = i_21_ + (int) ((i_19_ - i_22_ - i_19_) * sin(vxz));
+        x = i19 + (int) ((i19 - i22 - i19) * cos(vxz));
+        z = i21 + (int) ((i19 - i22 - i19) * sin(vxz));
         vxz += 2;
-        int i_23_ = 0;
-        int i_24_ = y;
-        if (i_24_ > 0)
-            i_24_ = 0;
-        if (i_20_ - i_24_ - cy < 0)
-            i_23_ = -180;
-        final int i_25_ = (int) Math.sqrt((i_21_ - z + cz) * (i_21_ - z + cz) + (i_19_ - x - cx) * (i_19_ - x - cx));
-        final int i_26_ = (int) (90 + i_23_
-                - Math.atan((double) i_25_ / (double) (i_20_ - i_24_ - cy)) / 0.017453292519943295);
+        int i23 = 0;
+        int i24 = y;
+        if (i24 > 0)
+            i24 = 0;
+        if (i20 - i24 - cy < 0)
+            i23 = -180;
+        final int i25 = (int) Math.sqrt((i21 - z + cz) * (i21 - z + cz) + (i19 - x - cx) * (i19 - x - cx));
+        final int i26 = (int) (90 + i23
+                - Math.atan((double) i25 / (double) (i20 - i24 - cy)) / 0.017453292519943295);
         xz = -vxz + 90;
-        zy += (i_26_ - zy) / 10;
+        zy += (i26 - zy) / 10;
     }
 
     public void watch(final ContO conto, final int i) {
@@ -1812,39 +1812,39 @@ public class Medium {
             z = conto.z + (int) ((conto.x + 400 - conto.x) * sin(i) + (conto.z + 5000 - conto.z) * cos(i));
             td = false;
         }
-        int i_0_ = 0;
+        int i0 = 0;
         if (conto.x - x - cx > 0)
-            i_0_ = 180;
-        int i_1_ = -(int) (90 + i_0_
+            i0 = 180;
+        int i1 = -(int) (90 + i0
                 + Math.atan((double) (conto.z - z) / (double) (conto.x - x - cx)) / 0.017453292519943295);
-        i_0_ = 0;
+        i0 = 0;
         if (conto.y - y - cy < 0)
-            i_0_ = -180;
-        final int i_2_ = (int) Math.sqrt((conto.z - z) * (conto.z - z) + (conto.x - x - cx) * (conto.x - x - cx));
-        final int i_3_ = (int) (90 + i_0_
-                - Math.atan((double) i_2_ / (double) (conto.y - y - cy)) / 0.017453292519943295);
-        for (/**/; i_1_ < 0; i_1_ += 360) {
+            i0 = -180;
+        final int i2 = (int) Math.sqrt((conto.z - z) * (conto.z - z) + (conto.x - x - cx) * (conto.x - x - cx));
+        final int i3 = (int) (90 + i0
+                - Math.atan((double) i2 / (double) (conto.y - y - cy)) / 0.017453292519943295);
+        for (/**/; i1 < 0; i1 += 360) {
             /* empty */
         }
-        for (/**/; i_1_ > 360; i_1_ -= 360) {
+        for (/**/; i1 > 360; i1 -= 360) {
             /* empty */
         }
-        xz = i_1_;
-        zy += (i_3_ - zy) / 5;
+        xz = i1;
+        zy += (i3 - zy) / 5;
         if ((int) Math.sqrt((conto.z - z) * (conto.z - z) + (conto.x - x - cx) * (conto.x - x - cx)
                 + (conto.y - y - cy) * (conto.y - y - cy)) > 6000)
             td = true;
     }
 
-    public int xs(final int i, int i_272_) {
-        if (i_272_ < cz)
-            i_272_ = cz;
-        return (i_272_ - focus_point) * (cx - i) / i_272_ + i;
+    public int xs(final int i, int i272) {
+        if (i272 < cz)
+            i272 = cz;
+        return (i272 - focusPoint) * (cx - i) / i272 + i;
     }
 
-    public int ys(final int i, int i_273_) {
-        if (i_273_ < 10)
-            i_273_ = 10;
-        return (i_273_ - focus_point) * (cy - i) / i_273_ + i;
+    public int ys(final int i, int i273) {
+        if (i273 < 10)
+            i273 = 10;
+        return (i273 - focusPoint) * (cy - i) / i273 + i;
     }
 }

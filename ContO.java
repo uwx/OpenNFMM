@@ -129,12 +129,12 @@ public class ContO {
         t = trackers;
         // p = new Plane[286];
         p = new Plane[10000];
-        // int[] is_0_ = new int[286];
-        final int[] is_0_ = new int[10000];
+        // int[] is0 = new int[286];
+        final int[] is0 = new int[10000];
         // for (int i = 0; i < 286; i++)
-        // is_0_[i] = 0;
+        // is0[i] = 0;
         for (int i = 0; i < 10000; i++)
-            is_0_[i] = 0;
+            is0[i] = 0;
         if (m.loadnew) {
             for (int i = 0; i < 4; i++)
                 keyz[i] = 0;
@@ -142,30 +142,30 @@ public class ContO {
         }
         String string = "";
         boolean bool = false;
-        boolean bool_1_ = false;
+        boolean bool1 = false;
         int i = 0;
         float f = 1.0F;
-        float f_2_ = 1.0F;
+        float f2 = 1.0F;
         final float[] fs = {
                 1.0F, 1.0F, 1.0F
         };
-        final int[] is_3_ = new int[100];
-        final int[] is_4_ = new int[100];
-        final int[] is_5_ = new int[100];
-        final int[] is_6_ = {
+        final int[] is3 = new int[100];
+        final int[] is4 = new int[100];
+        final int[] is5 = new int[100];
+        final int[] is6 = {
                 0, 0, 0
         };
-        boolean bool_7_ = false;
+        boolean bool7 = false;
         final Wheels wheels = new Wheels();
-        boolean bool_8_ = false;
-        int i_9_ = 0;
-        int i_10_ = 1;
-        int i_11_ = 0;
-        int i_12_ = 0;
-        int i_13_ = 0;
-        int i_14_ = 0;
-        boolean bool_15_ = false;
-        boolean bool_16_ = false;
+        boolean bool8 = false;
+        int i9 = 0;
+        int i10 = 1;
+        int i11 = 0;
+        int i12 = 0;
+        int i13 = 0;
+        int i14 = 0;
+        boolean bool15 = false;
+        boolean bool16 = false;
 
         boolean randomcolor = false;
         boolean randoutline = false;
@@ -178,19 +178,19 @@ public class ContO {
 
         try {
             final DataInputStream datainputstream = new DataInputStream(new ByteArrayInputStream(is));
-            String string_17_;
-            while ((string_17_ = datainputstream.readLine()) != null) {
-                string = new StringBuilder().append("").append(string_17_.trim()).toString();
+            String string17;
+            while ((string17 = datainputstream.readLine()) != null) {
+                string = new StringBuilder().append("").append(string17.trim()).toString();
                 if (npl < 10000 /* 210 */) {
                     if (string.startsWith("<p>")) {
                         bool = true;
                         i = 0;
-                        i_10_ = 0;
-                        i_11_ = 0;
-                        i_13_ = 0;
-                        is_0_[npl] = 1;
-                        if (!bool_16_)
-                            bool_15_ = false;
+                        i10 = 0;
+                        i11 = 0;
+                        i13 = 0;
+                        is0[npl] = 1;
+                        if (!bool16)
+                            bool15 = false;
 
                         randomcolor = false;
                         randoutline = false;
@@ -202,29 +202,29 @@ public class ContO {
                     }
                     if (bool) {
                         if (string.startsWith("gr("))
-                            i_10_ = getvalue("gr", string, 0);
+                            i10 = getvalue("gr", string, 0);
                         if (string.startsWith("fs(")) {
-                            i_11_ = getvalue("fs", string, 0);
-                            is_0_[npl] = 2;
+                            i11 = getvalue("fs", string, 0);
+                            is0[npl] = 2;
                         }
                         if (string.startsWith("c(")) {
-                            i_14_ = 0;
-                            is_6_[0] = getvalue("c", string, 0);
-                            is_6_[1] = getvalue("c", string, 1);
-                            is_6_[2] = getvalue("c", string, 2);
+                            i14 = 0;
+                            is6[0] = getvalue("c", string, 0);
+                            is6[1] = getvalue("c", string, 1);
+                            is6[2] = getvalue("c", string, 2);
                         }
                         if (string.startsWith("glass"))
-                            i_14_ = 1;
+                            i14 = 1;
                         if (string.startsWith("gshadow"))
-                            i_14_ = 2;
+                            i14 = 2;
                         if (string.startsWith("lightF"))
-                            i_13_ = 1;
+                            i13 = 1;
                         if (string.startsWith("light"))
-                            i_13_ = 1;
+                            i13 = 1;
                         if (string.startsWith("lightB"))
-                            i_13_ = 2;
+                            i13 = 2;
                         if (string.startsWith("noOutline"))
-                            bool_15_ = true;
+                            bool15 = true;
                         if (string.startsWith("random()") || string.startsWith("rainbow()"))
                             randomcolor = true;
                         if (string.startsWith("randoutline()"))
@@ -252,23 +252,23 @@ public class ContO {
                         if (string.startsWith("$outlineMtlimit("))
                             strokemtlimit = getvalue("$outlineMtlimit", string, 0);
                         if (string.startsWith("p(")) {
-                            is_3_[i] = (int) (getvalue("p", string, 0) * f * f_2_ * fs[0]);
-                            is_4_[i] = (int) (getvalue("p", string, 1) * f * fs[1]);
-                            is_5_[i] = (int) (getvalue("p", string, 2) * f * fs[2]);
-                            final int i_18_ = (int) Math
-                                    .sqrt(is_3_[i] * is_3_[i] + is_4_[i] * is_4_[i] + is_5_[i] * is_5_[i]);
-                            if (i_18_ > maxR)
-                                maxR = i_18_;
+                            is3[i] = (int) (getvalue("p", string, 0) * f * f2 * fs[0]);
+                            is4[i] = (int) (getvalue("p", string, 1) * f * fs[1]);
+                            is5[i] = (int) (getvalue("p", string, 2) * f * fs[2]);
+                            final int i18 = (int) Math
+                                    .sqrt(is3[i] * is3[i] + is4[i] * is4[i] + is5[i] * is5[i]);
+                            if (i18 > maxR)
+                                maxR = i18;
                             i++;
                         }
                     }
                     if (string.startsWith("</p>")) {
-                        p[npl] = new Plane(m, t, is_3_, is_5_, is_4_, i, is_6_, i_14_, i_10_, i_11_, 0, 0, 0, disline,
-                                0, bool_7_, i_13_, bool_15_, randomcolor, randoutline, customstroke, strokewidth,
+                        p[npl] = new Plane(m, t, is3, is5, is4, i, is6, i14, i10, i11, 0, 0, 0, disline,
+                                0, bool7, i13, bool15, randomcolor, randoutline, customstroke, strokewidth,
                                 strokecap, strokejoin, strokemtlimit);
-                        if (is_6_[0] == fcol[0] && is_6_[1] == fcol[1] && is_6_[2] == fcol[2] && i_14_ == 0)
+                        if (is6[0] == fcol[0] && is6[1] == fcol[1] && is6[2] == fcol[2] && i14 == 0)
                             p[npl].colnum = 1;
-                        if (is_6_[0] == scol[0] && is_6_[1] == scol[1] && is_6_[2] == scol[2] && i_14_ == 0)
+                        if (is6[0] == scol[0] && is6[1] == scol[1] && is6[2] == scol[2] && i14 == 0)
                             p[npl].colnum = 2;
                         npl++;
                         bool = false;
@@ -277,91 +277,91 @@ public class ContO {
                 if (string.startsWith("rims("))
                     wheels.setrims(getvalue("rims", string, 0), getvalue("rims", string, 1),
                             getvalue("rims", string, 2), getvalue("rims", string, 3), getvalue("rims", string, 4));
-                if (string.startsWith("w(") && i_9_ < 4) {
-                    keyx[i_9_] = (int) (getvalue("w", string, 0) * f * fs[0]);
-                    keyz[i_9_] = (int) (getvalue("w", string, 2) * f * fs[2]);
-                    wheels.make(m, t, p, npl, (int) (getvalue("w", string, 0) * f * f_2_ * fs[0]),
+                if (string.startsWith("w(") && i9 < 4) {
+                    keyx[i9] = (int) (getvalue("w", string, 0) * f * fs[0]);
+                    keyz[i9] = (int) (getvalue("w", string, 2) * f * fs[2]);
+                    wheels.make(m, t, p, npl, (int) (getvalue("w", string, 0) * f * f2 * fs[0]),
                             (int) (getvalue("w", string, 1) * f * fs[1]), (int) (getvalue("w", string, 2) * f * fs[2]),
-                            getvalue("w", string, 3), (int) (getvalue("w", string, 4) * f * f_2_),
-                            (int) (getvalue("w", string, 5) * f), i_12_);
+                            getvalue("w", string, 3), (int) (getvalue("w", string, 4) * f * f2),
+                            (int) (getvalue("w", string, 5) * f), i12);
                     npl += 19;
                     if (m.loadnew) {
                         wh += (int) (getvalue("w", string, 5) * f);
                         if (wheels.ground > 140) {
-                            String string_19_ = "FRONT";
-                            if (keyz[i_9_] < 0)
-                                string_19_ = "BACK";
-                            err = new StringBuilder().append("Wheels Error:\n").append(string_19_)
+                            String string19 = "FRONT";
+                            if (keyz[i9] < 0)
+                                string19 = "BACK";
+                            err = new StringBuilder().append("Wheels Error:\n").append(string19)
                                     .append(" Wheels floor is too far below the center of Y Axis of the car!    \n\nPlease decrease the Y value of the ")
-                                    .append(string_19_).append(" Wheels or decrease its height.     \n \n").toString();
+                                    .append(string19).append(" Wheels or decrease its height.     \n \n").toString();
                             errd = true;
-                            keyz[i_9_] = 0;
-                            keyx[i_9_] = 0;
+                            keyz[i9] = 0;
+                            keyx[i9] = 0;
                         }
                         if (wheels.ground < -100) {
-                            String string_20_ = "FRONT";
-                            if (keyz[i_9_] < 0)
-                                string_20_ = "BACK";
-                            err = new StringBuilder().append("Wheels Error:\n").append(string_20_)
+                            String string20 = "FRONT";
+                            if (keyz[i9] < 0)
+                                string20 = "BACK";
+                            err = new StringBuilder().append("Wheels Error:\n").append(string20)
                                     .append(" Wheels floor is too far above the center of Y Axis of the car!    \n\nPlease increase the Y value of the ")
-                                    .append(string_20_).append(" Wheels or increase its height.     \n \n").toString();
+                                    .append(string20).append(" Wheels or increase its height.     \n \n").toString();
                             errd = true;
-                            keyz[i_9_] = 0;
-                            keyx[i_9_] = 0;
+                            keyz[i9] = 0;
+                            keyx[i9] = 0;
                         }
-                        if (Math.abs(keyx[i_9_]) > 400) {
-                            String string_21_ = "FRONT";
-                            if (keyz[i_9_] < 0)
-                                string_21_ = "BACK";
-                            err = new StringBuilder().append("Wheels Error:\n").append(string_21_)
+                        if (Math.abs(keyx[i9]) > 400) {
+                            String string21 = "FRONT";
+                            if (keyz[i9] < 0)
+                                string21 = "BACK";
+                            err = new StringBuilder().append("Wheels Error:\n").append(string21)
                                     .append(" Wheels are too far apart!    \n\nPlease decrease the \u00b1X value of the ")
-                                    .append(string_21_).append(" Wheels.     \n \n").toString();
+                                    .append(string21).append(" Wheels.     \n \n").toString();
                             errd = true;
-                            keyz[i_9_] = 0;
-                            keyx[i_9_] = 0;
+                            keyz[i9] = 0;
+                            keyx[i9] = 0;
                         }
-                        if (Math.abs(keyz[i_9_]) > 700) {
-                            if (keyz[i_9_] < 0)
+                        if (Math.abs(keyz[i9]) > 700) {
+                            if (keyz[i9] < 0)
                                 err = "Wheels Error:\nBACK Wheels are too far backwards from the center of the Z Axis!    \n\nPlease increase the -Z value of the BACK Wheels.     \n \n";
                             else
                                 err = "Wheels Error:\nFRONT Wheels are too far forwards from the center of the Z Axis!    \n\nPlease decrease the +Z value of the FRONT Wheels.     \n \n";
                             errd = true;
-                            keyz[i_9_] = 0;
-                            keyx[i_9_] = 0;
+                            keyz[i9] = 0;
+                            keyx[i9] = 0;
                         }
-                        if ((int) (getvalue("w", string, 4) * f * f_2_) > 300) {
-                            String string_22_ = "FRONT";
-                            if (keyz[i_9_] < 0)
-                                string_22_ = "BACK";
-                            err = new StringBuilder().append("Wheels Error:\nWidth of the ").append(string_22_)
+                        if ((int) (getvalue("w", string, 4) * f * f2) > 300) {
+                            String string22 = "FRONT";
+                            if (keyz[i9] < 0)
+                                string22 = "BACK";
+                            err = new StringBuilder().append("Wheels Error:\nWidth of the ").append(string22)
                                     .append(" Wheels is too large!    \n\nPlease decrease the width of the ")
-                                    .append(string_22_).append(" Wheels.     \n \n").toString();
+                                    .append(string22).append(" Wheels.     \n \n").toString();
                             errd = true;
-                            keyz[i_9_] = 0;
-                            keyx[i_9_] = 0;
+                            keyz[i9] = 0;
+                            keyx[i9] = 0;
                         }
                     }
-                    i_9_++;
+                    i9++;
                 }
                 if (string.startsWith("tracks")) {
-                    final int i_23_ = getvalue("tracks", string, 0);
-                    txy = new int[i_23_];
-                    tzy = new int[i_23_];
-                    tc = new int[i_23_][3];
-                    tradx = new int[i_23_];
-                    tradz = new int[i_23_];
-                    trady = new int[i_23_];
-                    tx = new int[i_23_];
-                    ty = new int[i_23_];
-                    tz = new int[i_23_];
-                    skd = new int[i_23_];
-                    dam = new int[i_23_];
-                    notwall = new boolean[i_23_];
-                    bool_8_ = true;
+                    final int i23 = getvalue("tracks", string, 0);
+                    txy = new int[i23];
+                    tzy = new int[i23];
+                    tc = new int[i23][3];
+                    tradx = new int[i23];
+                    tradz = new int[i23];
+                    trady = new int[i23];
+                    tx = new int[i23];
+                    ty = new int[i23];
+                    tz = new int[i23];
+                    skd = new int[i23];
+                    dam = new int[i23];
+                    notwall = new boolean[i23];
+                    bool8 = true;
                 }
-                if (bool_8_) {
+                if (bool8) {
                     if (string.startsWith("<track>")) {
-                        bool_1_ = true;
+                        bool1 = true;
                         notwall[tnt] = false;
                         dam[tnt] = 1;
                         skd[tnt] = 0;
@@ -377,7 +377,7 @@ public class ContO {
                         tc[tnt][1] = 0;
                         tc[tnt][2] = 0;
                     }
-                    if (bool_1_) {
+                    if (bool1) {
                         if (string.startsWith("c")) {
                             tc[tnt][0] = getvalue("c", string, 0);
                             tc[tnt][1] = getvalue("c", string, 1);
@@ -407,7 +407,7 @@ public class ContO {
                             notwall[tnt] = true;
                     }
                     if (string.startsWith("</track>")) {
-                        bool_1_ = false;
+                        bool1 = false;
                         tnt++;
                     }
                 }
@@ -421,15 +421,15 @@ public class ContO {
                     noline = true;
                 if (string.startsWith("newstone")) {
                     noline = true;
-                    bool_15_ = true;
-                    bool_16_ = true;
+                    bool15 = true;
+                    bool16 = true;
                 }
                 if (string.startsWith("decorative"))
                     decor = true;
                 if (string.startsWith("road"))
-                    bool_7_ = true;
+                    bool7 = true;
                 if (string.startsWith("notroad"))
-                    bool_7_ = false;
+                    bool7 = false;
                 if (string.startsWith("grounded("))
                     grounded = getvalue("grounded", string, 0) / 100.0F;
                 if (string.startsWith("div("))
@@ -437,7 +437,7 @@ public class ContO {
                 if (string.startsWith("idiv("))
                     f = getvalue("idiv", string, 0) / 100.0F;
                 if (string.startsWith("iwid("))
-                    f_2_ = getvalue("iwid", string, 0) / 100.0F;
+                    f2 = getvalue("iwid", string, 0) / 100.0F;
                 if (string.startsWith("ScaleX("))
                     fs[0] = getvalue("ScaleX", string, 0) / 100.0F;
                 if (string.startsWith("ScaleY("))
@@ -445,14 +445,14 @@ public class ContO {
                 if (string.startsWith("ScaleZ("))
                     fs[2] = getvalue("ScaleZ", string, 0) / 100.0F;
                 if (string.startsWith("gwgr(")) {
-                    i_12_ = getvalue("gwgr", string, 0);
+                    i12 = getvalue("gwgr", string, 0);
                     if (m.loadnew) {
-                        if (i_12_ > 40)
-                            i_12_ = 40;
-                        if (i_12_ < 0 && i_12_ >= -15)
-                            i_12_ = -16;
-                        if (i_12_ < -40)
-                            i_12_ = -40;
+                        if (i12 > 40)
+                            i12 = 40;
+                        if (i12 < 0 && i12 >= -15)
+                            i12 = -16;
+                        if (i12 < -40)
+                            i12 = -40;
                     }
                 }
                 if (string.startsWith("1stColor(")) {
@@ -482,335 +482,335 @@ public class ContO {
         if (shadow) {
             stg = new int[20];
             rtg = new int[100];
-            for (int i_24_ = 0; i_24_ < 20; i_24_++)
-                stg[i_24_] = 0;
-            for (int i_25_ = 0; i_25_ < 100; i_25_++)
-                rtg[i_25_] = 0;
+            for (int i24 = 0; i24 < 20; i24++)
+                stg[i24] = 0;
+            for (int i25 = 0; i25 < 100; i25++)
+                rtg[i25] = 0;
         }
         if (m.loadnew) {
-            if (i_9_ != 0)
-                wh = wh / i_9_;
-            boolean bool_26_ = false;
-            for (int i_27_ = 0; i_27_ < npl; i_27_++) {
-                int i_28_ = 0;
-                int i_29_ = p[i_27_].ox[0];
-                int i_30_ = p[i_27_].ox[0];
-                int i_31_ = p[i_27_].oy[0];
-                int i_32_ = p[i_27_].oy[0];
-                int i_33_ = p[i_27_].oz[0];
-                int i_34_ = p[i_27_].oz[0];
-                for (int i_35_ = 0; i_35_ < p[i_27_].n; i_35_++) {
-                    if (p[i_27_].ox[i_35_] > i_29_)
-                        i_29_ = p[i_27_].ox[i_35_];
-                    if (p[i_27_].ox[i_35_] < i_30_)
-                        i_30_ = p[i_27_].ox[i_35_];
-                    if (p[i_27_].oy[i_35_] > i_31_)
-                        i_31_ = p[i_27_].oy[i_35_];
-                    if (p[i_27_].oy[i_35_] < i_32_)
-                        i_32_ = p[i_27_].oy[i_35_];
-                    if (p[i_27_].oz[i_35_] > i_33_)
-                        i_33_ = p[i_27_].oz[i_35_];
-                    if (p[i_27_].oz[i_35_] < i_34_)
-                        i_34_ = p[i_27_].oz[i_35_];
+            if (i9 != 0)
+                wh = wh / i9;
+            boolean bool26 = false;
+            for (int i27 = 0; i27 < npl; i27++) {
+                int i28 = 0;
+                int i29 = p[i27].ox[0];
+                int i30 = p[i27].ox[0];
+                int i31 = p[i27].oy[0];
+                int i32 = p[i27].oy[0];
+                int i33 = p[i27].oz[0];
+                int i34 = p[i27].oz[0];
+                for (int i35 = 0; i35 < p[i27].n; i35++) {
+                    if (p[i27].ox[i35] > i29)
+                        i29 = p[i27].ox[i35];
+                    if (p[i27].ox[i35] < i30)
+                        i30 = p[i27].ox[i35];
+                    if (p[i27].oy[i35] > i31)
+                        i31 = p[i27].oy[i35];
+                    if (p[i27].oy[i35] < i32)
+                        i32 = p[i27].oy[i35];
+                    if (p[i27].oz[i35] > i33)
+                        i33 = p[i27].oz[i35];
+                    if (p[i27].oz[i35] < i34)
+                        i34 = p[i27].oz[i35];
                 }
-                if (Math.abs(i_29_ - i_30_) <= Math.abs(i_31_ - i_32_)
-                        && Math.abs(i_29_ - i_30_) <= Math.abs(i_33_ - i_34_))
-                    i_28_ = 1;
-                if (Math.abs(i_31_ - i_32_) <= Math.abs(i_29_ - i_30_)
-                        && Math.abs(i_31_ - i_32_) <= Math.abs(i_33_ - i_34_))
-                    i_28_ = 2;
-                if (Math.abs(i_33_ - i_34_) <= Math.abs(i_29_ - i_30_)
-                        && Math.abs(i_33_ - i_34_) <= Math.abs(i_31_ - i_32_))
-                    i_28_ = 3;
-                if (i_28_ == 2 && (!bool_26_ || (i_31_ + i_32_) / 2 < roofat)) {
-                    roofat = (i_31_ + i_32_) / 2;
-                    bool_26_ = true;
+                if (Math.abs(i29 - i30) <= Math.abs(i31 - i32)
+                        && Math.abs(i29 - i30) <= Math.abs(i33 - i34))
+                    i28 = 1;
+                if (Math.abs(i31 - i32) <= Math.abs(i29 - i30)
+                        && Math.abs(i31 - i32) <= Math.abs(i33 - i34))
+                    i28 = 2;
+                if (Math.abs(i33 - i34) <= Math.abs(i29 - i30)
+                        && Math.abs(i33 - i34) <= Math.abs(i31 - i32))
+                    i28 = 3;
+                if (i28 == 2 && (!bool26 || (i31 + i32) / 2 < roofat)) {
+                    roofat = (i31 + i32) / 2;
+                    bool26 = true;
                 }
-                if (is_0_[i_27_] == 1) {
-                    int i_36_ = 1000;
-                    int i_37_ = 0;
-                    for (int i_38_ = 0; i_38_ < p[i_27_].n; i_38_++) {
-                        int i_39_ = i_38_ + 1;
-                        if (i_39_ >= p[i_27_].n)
-                            i_39_ -= p[i_27_].n;
-                        int i_40_ = i_38_ + 2;
-                        if (i_40_ >= p[i_27_].n)
-                            i_40_ -= p[i_27_].n;
-                        if (i_28_ == 1) {
-                            int i_41_ = Math.abs((int) (Math
-                                    .atan((double) (p[i_27_].oz[i_38_] - p[i_27_].oz[i_39_])
-                                            / (double) (p[i_27_].oy[i_38_] - p[i_27_].oy[i_39_]))
+                if (is0[i27] == 1) {
+                    int i36 = 1000;
+                    int i37 = 0;
+                    for (int i38 = 0; i38 < p[i27].n; i38++) {
+                        int i39 = i38 + 1;
+                        if (i39 >= p[i27].n)
+                            i39 -= p[i27].n;
+                        int i40 = i38 + 2;
+                        if (i40 >= p[i27].n)
+                            i40 -= p[i27].n;
+                        if (i28 == 1) {
+                            int i41 = Math.abs((int) (Math
+                                    .atan((double) (p[i27].oz[i38] - p[i27].oz[i39])
+                                            / (double) (p[i27].oy[i38] - p[i27].oy[i39]))
                                     / 0.017453292519943295));
-                            int i_42_ = Math.abs((int) (Math
-                                    .atan((double) (p[i_27_].oz[i_40_] - p[i_27_].oz[i_39_])
-                                            / (double) (p[i_27_].oy[i_40_] - p[i_27_].oy[i_39_]))
+                            int i42 = Math.abs((int) (Math
+                                    .atan((double) (p[i27].oz[i40] - p[i27].oz[i39])
+                                            / (double) (p[i27].oy[i40] - p[i27].oy[i39]))
                                     / 0.017453292519943295));
-                            if (i_41_ > 45)
-                                i_41_ = 90 - i_41_;
+                            if (i41 > 45)
+                                i41 = 90 - i41;
                             else
-                                i_42_ = 90 - i_42_;
-                            if (i_41_ + i_42_ < i_36_) {
-                                i_36_ = i_41_ + i_42_;
-                                i_37_ = i_38_;
+                                i42 = 90 - i42;
+                            if (i41 + i42 < i36) {
+                                i36 = i41 + i42;
+                                i37 = i38;
                             }
                         }
-                        if (i_28_ == 2) {
-                            int i_43_ = Math.abs((int) (Math
-                                    .atan((double) (p[i_27_].oz[i_38_] - p[i_27_].oz[i_39_])
-                                            / (double) (p[i_27_].ox[i_38_] - p[i_27_].ox[i_39_]))
+                        if (i28 == 2) {
+                            int i43 = Math.abs((int) (Math
+                                    .atan((double) (p[i27].oz[i38] - p[i27].oz[i39])
+                                            / (double) (p[i27].ox[i38] - p[i27].ox[i39]))
                                     / 0.017453292519943295));
-                            int i_44_ = Math.abs((int) (Math
-                                    .atan((double) (p[i_27_].oz[i_40_] - p[i_27_].oz[i_39_])
-                                            / (double) (p[i_27_].ox[i_40_] - p[i_27_].ox[i_39_]))
+                            int i44 = Math.abs((int) (Math
+                                    .atan((double) (p[i27].oz[i40] - p[i27].oz[i39])
+                                            / (double) (p[i27].ox[i40] - p[i27].ox[i39]))
                                     / 0.017453292519943295));
-                            if (i_43_ > 45)
-                                i_43_ = 90 - i_43_;
+                            if (i43 > 45)
+                                i43 = 90 - i43;
                             else
-                                i_44_ = 90 - i_44_;
-                            if (i_43_ + i_44_ < i_36_) {
-                                i_36_ = i_43_ + i_44_;
-                                i_37_ = i_38_;
+                                i44 = 90 - i44;
+                            if (i43 + i44 < i36) {
+                                i36 = i43 + i44;
+                                i37 = i38;
                             }
                         }
-                        if (i_28_ == 3) {
-                            int i_45_ = Math.abs((int) (Math
-                                    .atan((double) (p[i_27_].oy[i_38_] - p[i_27_].oy[i_39_])
-                                            / (double) (p[i_27_].ox[i_38_] - p[i_27_].ox[i_39_]))
+                        if (i28 == 3) {
+                            int i45 = Math.abs((int) (Math
+                                    .atan((double) (p[i27].oy[i38] - p[i27].oy[i39])
+                                            / (double) (p[i27].ox[i38] - p[i27].ox[i39]))
                                     / 0.017453292519943295));
-                            int i_46_ = Math.abs((int) (Math
-                                    .atan((double) (p[i_27_].oy[i_40_] - p[i_27_].oy[i_39_])
-                                            / (double) (p[i_27_].ox[i_40_] - p[i_27_].ox[i_39_]))
+                            int i46 = Math.abs((int) (Math
+                                    .atan((double) (p[i27].oy[i40] - p[i27].oy[i39])
+                                            / (double) (p[i27].ox[i40] - p[i27].ox[i39]))
                                     / 0.017453292519943295));
-                            if (i_45_ > 45)
-                                i_45_ = 90 - i_45_;
+                            if (i45 > 45)
+                                i45 = 90 - i45;
                             else
-                                i_46_ = 90 - i_46_;
-                            if (i_45_ + i_46_ < i_36_) {
-                                i_36_ = i_45_ + i_46_;
-                                i_37_ = i_38_;
+                                i46 = 90 - i46;
+                            if (i45 + i46 < i36) {
+                                i36 = i45 + i46;
+                                i37 = i38;
                             }
                         }
                     }
-                    if (i_37_ != 0) {
-                        final int[] is_47_ = new int[p[i_27_].n];
-                        final int[] is_48_ = new int[p[i_27_].n];
-                        final int[] is_49_ = new int[p[i_27_].n];
-                        for (int i_50_ = 0; i_50_ < p[i_27_].n; i_50_++) {
-                            is_47_[i_50_] = p[i_27_].ox[i_50_];
-                            is_48_[i_50_] = p[i_27_].oy[i_50_];
-                            is_49_[i_50_] = p[i_27_].oz[i_50_];
+                    if (i37 != 0) {
+                        final int[] is47 = new int[p[i27].n];
+                        final int[] is48 = new int[p[i27].n];
+                        final int[] is49 = new int[p[i27].n];
+                        for (int i50 = 0; i50 < p[i27].n; i50++) {
+                            is47[i50] = p[i27].ox[i50];
+                            is48[i50] = p[i27].oy[i50];
+                            is49[i50] = p[i27].oz[i50];
                         }
-                        for (int i_51_ = 0; i_51_ < p[i_27_].n; i_51_++) {
-                            int i_52_ = i_51_ + i_37_;
-                            if (i_52_ >= p[i_27_].n)
-                                i_52_ -= p[i_27_].n;
-                            p[i_27_].ox[i_51_] = is_47_[i_52_];
-                            p[i_27_].oy[i_51_] = is_48_[i_52_];
-                            p[i_27_].oz[i_51_] = is_49_[i_52_];
+                        for (int i51 = 0; i51 < p[i27].n; i51++) {
+                            int i52 = i51 + i37;
+                            if (i52 >= p[i27].n)
+                                i52 -= p[i27].n;
+                            p[i27].ox[i51] = is47[i52];
+                            p[i27].oy[i51] = is48[i52];
+                            p[i27].oz[i51] = is49[i52];
                         }
                     }
-                    if (i_28_ == 1)
-                        if (Math.abs(p[i_27_].oz[0] - p[i_27_].oz[1]) > Math.abs(p[i_27_].oy[0] - p[i_27_].oy[1])) {
-                            if (p[i_27_].oz[0] > p[i_27_].oz[1]) {
-                                if (p[i_27_].oy[1] > p[i_27_].oy[2])
-                                    p[i_27_].fs = 1;
+                    if (i28 == 1)
+                        if (Math.abs(p[i27].oz[0] - p[i27].oz[1]) > Math.abs(p[i27].oy[0] - p[i27].oy[1])) {
+                            if (p[i27].oz[0] > p[i27].oz[1]) {
+                                if (p[i27].oy[1] > p[i27].oy[2])
+                                    p[i27].fs = 1;
                                 else
-                                    p[i_27_].fs = -1;
-                            } else if (p[i_27_].oy[1] > p[i_27_].oy[2])
-                                p[i_27_].fs = -1;
+                                    p[i27].fs = -1;
+                            } else if (p[i27].oy[1] > p[i27].oy[2])
+                                p[i27].fs = -1;
                             else
-                                p[i_27_].fs = 1;
-                        } else if (p[i_27_].oy[0] > p[i_27_].oy[1]) {
-                            if (p[i_27_].oz[1] > p[i_27_].oz[2])
-                                p[i_27_].fs = -1;
+                                p[i27].fs = 1;
+                        } else if (p[i27].oy[0] > p[i27].oy[1]) {
+                            if (p[i27].oz[1] > p[i27].oz[2])
+                                p[i27].fs = -1;
                             else
-                                p[i_27_].fs = 1;
-                        } else if (p[i_27_].oz[1] > p[i_27_].oz[2])
-                            p[i_27_].fs = 1;
+                                p[i27].fs = 1;
+                        } else if (p[i27].oz[1] > p[i27].oz[2])
+                            p[i27].fs = 1;
                         else
-                            p[i_27_].fs = -1;
-                    if (i_28_ == 2)
-                        if (Math.abs(p[i_27_].oz[0] - p[i_27_].oz[1]) > Math.abs(p[i_27_].ox[0] - p[i_27_].ox[1])) {
-                            if (p[i_27_].oz[0] > p[i_27_].oz[1]) {
-                                if (p[i_27_].ox[1] > p[i_27_].ox[2])
-                                    p[i_27_].fs = -1;
+                            p[i27].fs = -1;
+                    if (i28 == 2)
+                        if (Math.abs(p[i27].oz[0] - p[i27].oz[1]) > Math.abs(p[i27].ox[0] - p[i27].ox[1])) {
+                            if (p[i27].oz[0] > p[i27].oz[1]) {
+                                if (p[i27].ox[1] > p[i27].ox[2])
+                                    p[i27].fs = -1;
                                 else
-                                    p[i_27_].fs = 1;
-                            } else if (p[i_27_].ox[1] > p[i_27_].ox[2])
-                                p[i_27_].fs = 1;
+                                    p[i27].fs = 1;
+                            } else if (p[i27].ox[1] > p[i27].ox[2])
+                                p[i27].fs = 1;
                             else
-                                p[i_27_].fs = -1;
-                        } else if (p[i_27_].ox[0] > p[i_27_].ox[1]) {
-                            if (p[i_27_].oz[1] > p[i_27_].oz[2])
-                                p[i_27_].fs = 1;
+                                p[i27].fs = -1;
+                        } else if (p[i27].ox[0] > p[i27].ox[1]) {
+                            if (p[i27].oz[1] > p[i27].oz[2])
+                                p[i27].fs = 1;
                             else
-                                p[i_27_].fs = -1;
-                        } else if (p[i_27_].oz[1] > p[i_27_].oz[2])
-                            p[i_27_].fs = -1;
+                                p[i27].fs = -1;
+                        } else if (p[i27].oz[1] > p[i27].oz[2])
+                            p[i27].fs = -1;
                         else
-                            p[i_27_].fs = 1;
-                    if (i_28_ == 3)
-                        if (Math.abs(p[i_27_].oy[0] - p[i_27_].oy[1]) > Math.abs(p[i_27_].ox[0] - p[i_27_].ox[1])) {
-                            if (p[i_27_].oy[0] > p[i_27_].oy[1]) {
-                                if (p[i_27_].ox[1] > p[i_27_].ox[2])
-                                    p[i_27_].fs = 1;
+                            p[i27].fs = 1;
+                    if (i28 == 3)
+                        if (Math.abs(p[i27].oy[0] - p[i27].oy[1]) > Math.abs(p[i27].ox[0] - p[i27].ox[1])) {
+                            if (p[i27].oy[0] > p[i27].oy[1]) {
+                                if (p[i27].ox[1] > p[i27].ox[2])
+                                    p[i27].fs = 1;
                                 else
-                                    p[i_27_].fs = -1;
-                            } else if (p[i_27_].ox[1] > p[i_27_].ox[2])
-                                p[i_27_].fs = -1;
+                                    p[i27].fs = -1;
+                            } else if (p[i27].ox[1] > p[i27].ox[2])
+                                p[i27].fs = -1;
                             else
-                                p[i_27_].fs = 1;
-                        } else if (p[i_27_].ox[0] > p[i_27_].ox[1]) {
-                            if (p[i_27_].oy[1] > p[i_27_].oy[2])
-                                p[i_27_].fs = -1;
+                                p[i27].fs = 1;
+                        } else if (p[i27].ox[0] > p[i27].ox[1]) {
+                            if (p[i27].oy[1] > p[i27].oy[2])
+                                p[i27].fs = -1;
                             else
-                                p[i_27_].fs = 1;
-                        } else if (p[i_27_].oy[1] > p[i_27_].oy[2])
-                            p[i_27_].fs = 1;
+                                p[i27].fs = 1;
+                        } else if (p[i27].oy[1] > p[i27].oy[2])
+                            p[i27].fs = 1;
                         else
-                            p[i_27_].fs = -1;
-                    boolean bool_53_ = false;
-                    boolean bool_54_ = false;
-                    for (int i_55_ = 0; i_55_ < npl; i_55_++) {
-                        if (i_55_ != i_27_ && is_0_[i_55_] != 0) {
-                            int i_57_ = p[i_55_].ox[0];
-                            int i_58_ = p[i_55_].ox[0];
-                            int i_59_ = p[i_55_].oy[0];
-                            int i_60_ = p[i_55_].oy[0];
-                            int i_61_ = p[i_55_].oz[0];
-                            int i_62_ = p[i_55_].oz[0];
-                            for (int i_63_ = 0; i_63_ < p[i_55_].n; i_63_++) {
-                                if (p[i_55_].ox[i_63_] > i_57_)
-                                    i_57_ = p[i_55_].ox[i_63_];
-                                if (p[i_55_].ox[i_63_] < i_58_)
-                                    i_58_ = p[i_55_].ox[i_63_];
-                                if (p[i_55_].oy[i_63_] > i_59_)
-                                    i_59_ = p[i_55_].oy[i_63_];
-                                if (p[i_55_].oy[i_63_] < i_60_)
-                                    i_60_ = p[i_55_].oy[i_63_];
-                                if (p[i_55_].oz[i_63_] > i_61_)
-                                    i_61_ = p[i_55_].oz[i_63_];
-                                if (p[i_55_].oz[i_63_] < i_62_)
-                                    i_62_ = p[i_55_].oz[i_63_];
+                            p[i27].fs = -1;
+                    boolean bool53 = false;
+                    boolean bool54 = false;
+                    for (int i55 = 0; i55 < npl; i55++) {
+                        if (i55 != i27 && is0[i55] != 0) {
+                            int i57 = p[i55].ox[0];
+                            int i58 = p[i55].ox[0];
+                            int i59 = p[i55].oy[0];
+                            int i60 = p[i55].oy[0];
+                            int i61 = p[i55].oz[0];
+                            int i62 = p[i55].oz[0];
+                            for (int i63 = 0; i63 < p[i55].n; i63++) {
+                                if (p[i55].ox[i63] > i57)
+                                    i57 = p[i55].ox[i63];
+                                if (p[i55].ox[i63] < i58)
+                                    i58 = p[i55].ox[i63];
+                                if (p[i55].oy[i63] > i59)
+                                    i59 = p[i55].oy[i63];
+                                if (p[i55].oy[i63] < i60)
+                                    i60 = p[i55].oy[i63];
+                                if (p[i55].oz[i63] > i61)
+                                    i61 = p[i55].oz[i63];
+                                if (p[i55].oz[i63] < i62)
+                                    i62 = p[i55].oz[i63];
                             }
-                            final int i_64_ = (i_57_ + i_58_) / 2;
-                            final int i_65_ = (i_59_ + i_60_) / 2;
-                            final int i_66_ = (i_61_ + i_62_) / 2;
-                            final int i_67_ = (i_29_ + i_30_) / 2;
-                            final int i_68_ = (i_31_ + i_32_) / 2;
-                            final int i_69_ = (i_33_ + i_34_) / 2;
-                            if (i_28_ == 1 && (i_65_ <= i_31_ && i_65_ >= i_32_ && i_66_ <= i_33_ && i_66_ >= i_34_
-                                    || i_68_ <= i_59_ && i_68_ >= i_60_ && i_69_ <= i_61_ && i_69_ >= i_62_)) {
-                                if (i_57_ < i_30_)
-                                    bool_53_ = true;
-                                if (i_58_ > i_29_)
-                                    bool_54_ = true;
+                            final int i64 = (i57 + i58) / 2;
+                            final int i65 = (i59 + i60) / 2;
+                            final int i66 = (i61 + i62) / 2;
+                            final int i67 = (i29 + i30) / 2;
+                            final int i68 = (i31 + i32) / 2;
+                            final int i69 = (i33 + i34) / 2;
+                            if (i28 == 1 && (i65 <= i31 && i65 >= i32 && i66 <= i33 && i66 >= i34
+                                    || i68 <= i59 && i68 >= i60 && i69 <= i61 && i69 >= i62)) {
+                                if (i57 < i30)
+                                    bool53 = true;
+                                if (i58 > i29)
+                                    bool54 = true;
                             }
-                            if (i_28_ == 2 && (i_64_ <= i_29_ && i_64_ >= i_30_ && i_66_ <= i_33_ && i_66_ >= i_34_
-                                    || i_67_ <= i_57_ && i_67_ >= i_58_ && i_69_ <= i_61_ && i_69_ >= i_62_)) {
-                                if (i_59_ < i_32_)
-                                    bool_53_ = true;
-                                if (i_60_ > i_31_)
-                                    bool_54_ = true;
+                            if (i28 == 2 && (i64 <= i29 && i64 >= i30 && i66 <= i33 && i66 >= i34
+                                    || i67 <= i57 && i67 >= i58 && i69 <= i61 && i69 >= i62)) {
+                                if (i59 < i32)
+                                    bool53 = true;
+                                if (i60 > i31)
+                                    bool54 = true;
                             }
-                            if (i_28_ == 3 && (i_64_ <= i_29_ && i_64_ >= i_30_ && i_65_ <= i_31_ && i_65_ >= i_32_
-                                    || i_67_ <= i_57_ && i_67_ >= i_58_ && i_68_ <= i_59_ && i_68_ >= i_60_)) {
-                                if (i_61_ < i_34_)
-                                    bool_53_ = true;
-                                if (i_62_ > i_33_)
-                                    bool_54_ = true;
+                            if (i28 == 3 && (i64 <= i29 && i64 >= i30 && i65 <= i31 && i65 >= i32
+                                    || i67 <= i57 && i67 >= i58 && i68 <= i59 && i68 >= i60)) {
+                                if (i61 < i34)
+                                    bool53 = true;
+                                if (i62 > i33)
+                                    bool54 = true;
                             }
                         }
-                        if (bool_53_ && bool_54_)
+                        if (bool53 && bool54)
                             break;
                     }
-                    boolean bool_70_ = false;
-                    if (bool_53_ && !bool_54_)
-                        bool_70_ = true;
-                    if (bool_54_ && !bool_53_) {
-                        p[i_27_].fs *= -1;
-                        bool_70_ = true;
+                    boolean bool70 = false;
+                    if (bool53 && !bool54)
+                        bool70 = true;
+                    if (bool54 && !bool53) {
+                        p[i27].fs *= -1;
+                        bool70 = true;
                     }
-                    if (bool_53_ && bool_54_) {
-                        p[i_27_].fs = 0;
-                        p[i_27_].gr = 40;
-                        bool_70_ = true;
+                    if (bool53 && bool54) {
+                        p[i27].fs = 0;
+                        p[i27].gr = 40;
+                        bool70 = true;
                     }
-                    if (!bool_70_) {
-                        int i_71_ = 0;
-                        int i_72_ = 0;
-                        if (i_28_ == 1) {
-                            i_71_ = (i_29_ + i_30_) / 2;
-                            i_72_ = i_71_;
+                    if (!bool70) {
+                        int i71 = 0;
+                        int i72 = 0;
+                        if (i28 == 1) {
+                            i71 = (i29 + i30) / 2;
+                            i72 = i71;
                         }
-                        if (i_28_ == 2) {
-                            i_71_ = (i_31_ + i_32_) / 2;
-                            i_72_ = i_71_;
+                        if (i28 == 2) {
+                            i71 = (i31 + i32) / 2;
+                            i72 = i71;
                         }
-                        if (i_28_ == 3) {
-                            i_71_ = (i_33_ + i_34_) / 2;
-                            i_72_ = i_71_;
+                        if (i28 == 3) {
+                            i71 = (i33 + i34) / 2;
+                            i72 = i71;
                         }
-                        for (int i_73_ = 0; i_73_ < npl; i_73_++)
-                            if (i_73_ != i_27_) {
-                                boolean bool_74_ = false;
-                                final boolean[] bools = new boolean[p[i_73_].n];
-                                for (int i_75_ = 0; i_75_ < p[i_73_].n; i_75_++) {
-                                    bools[i_75_] = false;
-                                    for (int i_76_ = 0; i_76_ < p[i_27_].n; i_76_++)
-                                        if (p[i_27_].ox[i_76_] == p[i_73_].ox[i_75_]
-                                                && p[i_27_].oy[i_76_] == p[i_73_].oy[i_75_]
-                                                && p[i_27_].oz[i_76_] == p[i_73_].oz[i_75_]) {
-                                            bools[i_75_] = true;
-                                            bool_74_ = true;
+                        for (int i73 = 0; i73 < npl; i73++)
+                            if (i73 != i27) {
+                                boolean bool74 = false;
+                                final boolean[] bools = new boolean[p[i73].n];
+                                for (int i75 = 0; i75 < p[i73].n; i75++) {
+                                    bools[i75] = false;
+                                    for (int i76 = 0; i76 < p[i27].n; i76++)
+                                        if (p[i27].ox[i76] == p[i73].ox[i75]
+                                                && p[i27].oy[i76] == p[i73].oy[i75]
+                                                && p[i27].oz[i76] == p[i73].oz[i75]) {
+                                            bools[i75] = true;
+                                            bool74 = true;
                                         }
                                 }
-                                if (bool_74_)
-                                    for (int i_77_ = 0; i_77_ < p[i_73_].n; i_77_++)
-                                        if (!bools[i_77_]) {
-                                            if (i_28_ == 1) {
-                                                if (p[i_73_].ox[i_77_] > i_71_)
-                                                    i_71_ = p[i_73_].ox[i_77_];
-                                                if (p[i_73_].ox[i_77_] < i_72_)
-                                                    i_72_ = p[i_73_].ox[i_77_];
+                                if (bool74)
+                                    for (int i77 = 0; i77 < p[i73].n; i77++)
+                                        if (!bools[i77]) {
+                                            if (i28 == 1) {
+                                                if (p[i73].ox[i77] > i71)
+                                                    i71 = p[i73].ox[i77];
+                                                if (p[i73].ox[i77] < i72)
+                                                    i72 = p[i73].ox[i77];
                                             }
-                                            if (i_28_ == 2) {
-                                                if (p[i_73_].oy[i_77_] > i_71_)
-                                                    i_71_ = p[i_73_].oy[i_77_];
-                                                if (p[i_73_].oy[i_77_] < i_72_)
-                                                    i_72_ = p[i_73_].oy[i_77_];
+                                            if (i28 == 2) {
+                                                if (p[i73].oy[i77] > i71)
+                                                    i71 = p[i73].oy[i77];
+                                                if (p[i73].oy[i77] < i72)
+                                                    i72 = p[i73].oy[i77];
                                             }
-                                            if (i_28_ == 3) {
-                                                if (p[i_73_].oz[i_77_] > i_71_)
-                                                    i_71_ = p[i_73_].oz[i_77_];
-                                                if (p[i_73_].oz[i_77_] < i_72_)
-                                                    i_72_ = p[i_73_].oz[i_77_];
+                                            if (i28 == 3) {
+                                                if (p[i73].oz[i77] > i71)
+                                                    i71 = p[i73].oz[i77];
+                                                if (p[i73].oz[i77] < i72)
+                                                    i72 = p[i73].oz[i77];
                                             }
                                         }
                             }
-                        if (i_28_ == 1)
-                            if ((i_71_ + i_72_) / 2 > (i_29_ + i_30_) / 2)
-                                p[i_27_].fs *= -1;
-                            else if ((i_71_ + i_72_) / 2 == (i_29_ + i_30_) / 2 && (i_29_ + i_30_) / 2 < 0)
-                                p[i_27_].fs *= -1;
-                        if (i_28_ == 2)
-                            if ((i_71_ + i_72_) / 2 > (i_31_ + i_32_) / 2)
-                                p[i_27_].fs *= -1;
-                            else if ((i_71_ + i_72_) / 2 == (i_31_ + i_32_) / 2 && (i_31_ + i_32_) / 2 < 0)
-                                p[i_27_].fs *= -1;
-                        if (i_28_ == 3)
-                            if ((i_71_ + i_72_) / 2 > (i_33_ + i_34_) / 2)
-                                p[i_27_].fs *= -1;
-                            else if ((i_71_ + i_72_) / 2 == (i_33_ + i_34_) / 2 && (i_33_ + i_34_) / 2 < 0)
-                                p[i_27_].fs *= -1;
+                        if (i28 == 1)
+                            if ((i71 + i72) / 2 > (i29 + i30) / 2)
+                                p[i27].fs *= -1;
+                            else if ((i71 + i72) / 2 == (i29 + i30) / 2 && (i29 + i30) / 2 < 0)
+                                p[i27].fs *= -1;
+                        if (i28 == 2)
+                            if ((i71 + i72) / 2 > (i31 + i32) / 2)
+                                p[i27].fs *= -1;
+                            else if ((i71 + i72) / 2 == (i31 + i32) / 2 && (i31 + i32) / 2 < 0)
+                                p[i27].fs *= -1;
+                        if (i28 == 3)
+                            if ((i71 + i72) / 2 > (i33 + i34) / 2)
+                                p[i27].fs *= -1;
+                            else if ((i71 + i72) / 2 == (i33 + i34) / 2 && (i33 + i34) / 2 < 0)
+                                p[i27].fs *= -1;
                     }
-                    p[i_27_].deltafntyp();
+                    p[i27].deltafntyp();
                 }
             }
         }
     }
 
-    public ContO(final ContO conto_78_, final int i, final int i_79_, final int i_80_, final int i_81_) {
+    public ContO(final ContO conto78, final int i, final int i79, final int i80, final int i81) {
         keyx = new int[4];
         keyz = new int[4];
         sprkat = 0;
@@ -844,79 +844,79 @@ public class ContO {
         err = "";
         roofat = 0;
         wh = 0;
-        m = conto_78_.m;
-        t = conto_78_.t;
-        npl = conto_78_.npl;
-        maxR = conto_78_.maxR;
-        disp = conto_78_.disp;
-        disline = conto_78_.disline;
-        noline = conto_78_.noline;
-        shadow = conto_78_.shadow;
-        grounded = conto_78_.grounded;
-        decor = conto_78_.decor;
-        if (m.loadnew && (i_81_ == 90 || i_81_ == -90))
+        m = conto78.m;
+        t = conto78.t;
+        npl = conto78.npl;
+        maxR = conto78.maxR;
+        disp = conto78.disp;
+        disline = conto78.disline;
+        noline = conto78.noline;
+        shadow = conto78.shadow;
+        grounded = conto78.grounded;
+        decor = conto78.decor;
+        if (m.loadnew && (i81 == 90 || i81 == -90))
             grounded += 10000.0F;
-        grat = conto_78_.grat;
-        sprkat = conto_78_.sprkat;
-        p = new Plane[conto_78_.npl];
-        for (int i_82_ = 0; i_82_ < npl; i_82_++) {
-            if (conto_78_.p[i_82_].master == 1)
-                conto_78_.p[i_82_].n = 20;
-            p[i_82_] = new Plane(m, t, conto_78_.p[i_82_].ox, conto_78_.p[i_82_].oz, conto_78_.p[i_82_].oy,
-                    conto_78_.p[i_82_].n, conto_78_.p[i_82_].oc, conto_78_.p[i_82_].glass, conto_78_.p[i_82_].gr,
-                    conto_78_.p[i_82_].fs, conto_78_.p[i_82_].wx, conto_78_.p[i_82_].wy, conto_78_.p[i_82_].wz,
-                    conto_78_.disline, conto_78_.p[i_82_].bfase, conto_78_.p[i_82_].road, conto_78_.p[i_82_].light,
-                    conto_78_.p[i_82_].solo, conto_78_.p[i_82_].randomcolor, conto_78_.p[i_82_].randoutline,
-                    conto_78_.p[i_82_].customstroke, conto_78_.p[i_82_].strokewidth, conto_78_.p[i_82_].strokecap,
-                    conto_78_.p[i_82_].strokejoin, conto_78_.p[i_82_].strokemtlimit);
+        grat = conto78.grat;
+        sprkat = conto78.sprkat;
+        p = new Plane[conto78.npl];
+        for (int i82 = 0; i82 < npl; i82++) {
+            if (conto78.p[i82].master == 1)
+                conto78.p[i82].n = 20;
+            p[i82] = new Plane(m, t, conto78.p[i82].ox, conto78.p[i82].oz, conto78.p[i82].oy,
+                    conto78.p[i82].n, conto78.p[i82].oc, conto78.p[i82].glass, conto78.p[i82].gr,
+                    conto78.p[i82].fs, conto78.p[i82].wx, conto78.p[i82].wy, conto78.p[i82].wz,
+                    conto78.disline, conto78.p[i82].bfase, conto78.p[i82].road, conto78.p[i82].light,
+                    conto78.p[i82].solo, conto78.p[i82].randomcolor, conto78.p[i82].randoutline,
+                    conto78.p[i82].customstroke, conto78.p[i82].strokewidth, conto78.p[i82].strokecap,
+                    conto78.p[i82].strokejoin, conto78.p[i82].strokemtlimit);
         }
         x = i;
-        y = i_79_;
-        z = i_80_;
+        y = i79;
+        z = i80;
         xz = 0;
         xy = 0;
         zy = 0;
-        for (int i_83_ = 0; i_83_ < npl; i_83_++) {
-            p[i_83_].colnum = conto_78_.p[i_83_].colnum;
-            p[i_83_].master = conto_78_.p[i_83_].master;
-            p[i_83_].rot(p[i_83_].ox, p[i_83_].oz, 0, 0, i_81_, p[i_83_].n);
-            p[i_83_].loadprojf();
+        for (int i83 = 0; i83 < npl; i83++) {
+            p[i83].colnum = conto78.p[i83].colnum;
+            p[i83].master = conto78.p[i83].master;
+            p[i83].rot(p[i83].ox, p[i83].oz, 0, 0, i81, p[i83].n);
+            p[i83].loadprojf();
         }
-        if (conto_78_.tnt != 0)
-            for (int i_84_ = 0; i_84_ < conto_78_.tnt; i_84_++) {
-                t.xy[t.nt] = (int) (conto_78_.txy[i_84_] * m.cos(i_81_) - conto_78_.tzy[i_84_] * m.sin(i_81_));
-                t.zy[t.nt] = (int) (conto_78_.tzy[i_84_] * m.cos(i_81_) + conto_78_.txy[i_84_] * m.sin(i_81_));
-                for (int i_85_ = 0; i_85_ < 3; i_85_++) {
-                    t.c[t.nt][i_85_] = (int) (conto_78_.tc[i_84_][i_85_]
-                            + conto_78_.tc[i_84_][i_85_] * (m.snap[i_85_] / 100.0F));
-                    if (t.c[t.nt][i_85_] > 255)
-                        t.c[t.nt][i_85_] = 255;
-                    if (t.c[t.nt][i_85_] < 0)
-                        t.c[t.nt][i_85_] = 0;
+        if (conto78.tnt != 0)
+            for (int i84 = 0; i84 < conto78.tnt; i84++) {
+                t.xy[t.nt] = (int) (conto78.txy[i84] * m.cos(i81) - conto78.tzy[i84] * m.sin(i81));
+                t.zy[t.nt] = (int) (conto78.tzy[i84] * m.cos(i81) + conto78.txy[i84] * m.sin(i81));
+                for (int i85 = 0; i85 < 3; i85++) {
+                    t.c[t.nt][i85] = (int) (conto78.tc[i84][i85]
+                            + conto78.tc[i84][i85] * (m.snap[i85] / 100.0F));
+                    if (t.c[t.nt][i85] > 255)
+                        t.c[t.nt][i85] = 255;
+                    if (t.c[t.nt][i85] < 0)
+                        t.c[t.nt][i85] = 0;
                 }
-                t.x[t.nt] = (int) (x + conto_78_.tx[i_84_] * m.cos(i_81_) - conto_78_.tz[i_84_] * m.sin(i_81_));
-                t.z[t.nt] = (int) (z + conto_78_.tz[i_84_] * m.cos(i_81_) + conto_78_.tx[i_84_] * m.sin(i_81_));
-                t.y[t.nt] = y + conto_78_.ty[i_84_];
-                t.skd[t.nt] = conto_78_.skd[i_84_];
-                t.dam[t.nt] = conto_78_.dam[i_84_];
-                t.notwall[t.nt] = conto_78_.notwall[i_84_];
+                t.x[t.nt] = (int) (x + conto78.tx[i84] * m.cos(i81) - conto78.tz[i84] * m.sin(i81));
+                t.z[t.nt] = (int) (z + conto78.tz[i84] * m.cos(i81) + conto78.tx[i84] * m.sin(i81));
+                t.y[t.nt] = y + conto78.ty[i84];
+                t.skd[t.nt] = conto78.skd[i84];
+                t.dam[t.nt] = conto78.dam[i84];
+                t.notwall[t.nt] = conto78.notwall[i84];
                 if (decor)
                     t.decor[t.nt] = true;
                 else
                     t.decor[t.nt] = false;
-                int i_86_ = Math.abs(i_81_);
-                if (i_86_ == 180)
-                    i_86_ = 0;
+                int i86 = Math.abs(i81);
+                if (i86 == 180)
+                    i86 = 0;
                 t.radx[t.nt] = (int) Math
-                        .abs(conto_78_.tradx[i_84_] * m.cos(i_86_) + conto_78_.tradz[i_84_] * m.sin(i_86_));
+                        .abs(conto78.tradx[i84] * m.cos(i86) + conto78.tradz[i84] * m.sin(i86));
                 t.radz[t.nt] = (int) Math
-                        .abs(conto_78_.tradx[i_84_] * m.sin(i_86_) + conto_78_.tradz[i_84_] * m.cos(i_86_));
-                t.rady[t.nt] = conto_78_.trady[i_84_];
+                        .abs(conto78.tradx[i84] * m.sin(i86) + conto78.tradz[i84] * m.cos(i86));
+                t.rady[t.nt] = conto78.trady[i84];
                 t.nt++;
             }
-        for (int i_87_ = 0; i_87_ < 4; i_87_++) {
-            keyx[i_87_] = conto_78_.keyx[i_87_];
-            keyz[i_87_] = conto_78_.keyz[i_87_];
+        for (int i87 = 0; i87 < 4; i87++) {
+            keyx[i87] = conto78.keyx[i87];
+            keyz[i87] = conto78.keyz[i87];
         }
         if (shadow) {
             stg = new int[20];
@@ -931,8 +931,8 @@ public class ContO {
             srgb = new int[20][3];
             sbln = new float[20];
             ust = 0;
-            for (int i_88_ = 0; i_88_ < 20; i_88_++)
-                stg[i_88_] = 0;
+            for (int i88 = 0; i88 < 20; i88++)
+                stg[i88] = 0;
             rtg = new int[100];
             rbef = new boolean[100];
             rx = new int[100];
@@ -941,13 +941,13 @@ public class ContO {
             vrx = new float[100];
             vry = new float[100];
             vrz = new float[100];
-            for (int i_89_ = 0; i_89_ < 100; i_89_++)
-                rtg[i_89_] = 0;
+            for (int i89 = 0; i89 < 100; i89++)
+                rtg[i89] = 0;
         }
     }
 
-    public ContO(final int i, final int i_90_, final int i_91_, final Medium medium, final Trackers trackers,
-            final int i_92_, final int i_93_, final int i_94_) {
+    public ContO(final int i, final int i90, final int i91, final Medium medium, final Trackers trackers,
+            final int i92, final int i93, final int i94) {
         keyx = new int[4];
         keyz = new int[4];
         sprkat = 0;
@@ -983,9 +983,9 @@ public class ContO {
         wh = 0;
         m = medium;
         t = trackers;
-        x = i_92_;
-        z = i_93_;
-        y = i_94_;
+        x = i92;
+        z = i93;
+        y = i94;
         xz = 0;
         xy = 0;
         zy = 0;
@@ -1000,174 +1000,174 @@ public class ContO {
         p = new Plane[5];
         final Random random = new Random(i);
         final int[] is = new int[8];
-        final int[] is_95_ = new int[8];
-        final int[] is_96_ = new int[8];
-        final int[] is_97_ = new int[8];
-        final int[] is_98_ = new int[8];
-        float f = i_90_;
-        float f_99_ = i_91_;
-        if (f_99_ < 2.0F)
-            f_99_ = 2.0F;
-        if (f_99_ > 6.0F)
-            f_99_ = 6.0F;
+        final int[] is95 = new int[8];
+        final int[] is96 = new int[8];
+        final int[] is97 = new int[8];
+        final int[] is98 = new int[8];
+        float f = i90;
+        float f99 = i91;
+        if (f99 < 2.0F)
+            f99 = 2.0F;
+        if (f99 > 6.0F)
+            f99 = 6.0F;
         if (f < 2.0F)
             f = 2.0F;
         if (f > 6.0F)
             f = 6.0F;
         f /= 1.5F;
-        f_99_ /= 1.5F;
-        f_99_ *= 1.0F + (f - 2.0F) * 0.1786F;
-        float f_100_ = (float) (50.0 + 100.0 * random.nextDouble());
-        is[0] = -(int) (f_100_ * f * 0.7071F);
-        is_95_[0] = (int) (f_100_ * f * 0.7071F);
-        f_100_ = (float) (50.0 + 100.0 * random.nextDouble());
+        f99 /= 1.5F;
+        f99 *= 1.0F + (f - 2.0F) * 0.1786F;
+        float f100 = (float) (50.0 + 100.0 * random.nextDouble());
+        is[0] = -(int) (f100 * f * 0.7071F);
+        is95[0] = (int) (f100 * f * 0.7071F);
+        f100 = (float) (50.0 + 100.0 * random.nextDouble());
         is[1] = 0;
-        is_95_[1] = (int) (f_100_ * f);
-        f_100_ = (float) (50.0 + 100.0 * random.nextDouble());
-        is[2] = (int) (f_100_ * f * 0.7071);
-        is_95_[2] = (int) (f_100_ * f * 0.7071);
-        f_100_ = (float) (50.0 + 100.0 * random.nextDouble());
-        is[3] = (int) (f_100_ * f);
-        is_95_[3] = 0;
-        f_100_ = (float) (50.0 + 100.0 * random.nextDouble());
-        is[4] = (int) (f_100_ * f * 0.7071);
-        is_95_[4] = -(int) (f_100_ * f * 0.7071);
-        f_100_ = (float) (50.0 + 100.0 * random.nextDouble());
+        is95[1] = (int) (f100 * f);
+        f100 = (float) (50.0 + 100.0 * random.nextDouble());
+        is[2] = (int) (f100 * f * 0.7071);
+        is95[2] = (int) (f100 * f * 0.7071);
+        f100 = (float) (50.0 + 100.0 * random.nextDouble());
+        is[3] = (int) (f100 * f);
+        is95[3] = 0;
+        f100 = (float) (50.0 + 100.0 * random.nextDouble());
+        is[4] = (int) (f100 * f * 0.7071);
+        is95[4] = -(int) (f100 * f * 0.7071);
+        f100 = (float) (50.0 + 100.0 * random.nextDouble());
         is[5] = 0;
-        is_95_[5] = -(int) (f_100_ * f);
-        f_100_ = (float) (50.0 + 100.0 * random.nextDouble());
-        is[6] = -(int) (f_100_ * f * 0.7071);
-        is_95_[6] = -(int) (f_100_ * f * 0.7071);
-        f_100_ = (float) (50.0 + 100.0 * random.nextDouble());
-        is[7] = -(int) (f_100_ * f);
-        is_95_[7] = 0;
-        for (int i_101_ = 0; i_101_ < 8; i_101_++) {
-            is_96_[i_101_] = (int) (is[i_101_] * (0.2 + 0.4 * random.nextDouble()));
-            is_97_[i_101_] = (int) (is_95_[i_101_] * (0.2 + 0.4 * random.nextDouble()));
-            is_98_[i_101_] = -(int) ((10.0 + 15.0 * random.nextDouble()) * f_99_);
+        is95[5] = -(int) (f100 * f);
+        f100 = (float) (50.0 + 100.0 * random.nextDouble());
+        is[6] = -(int) (f100 * f * 0.7071);
+        is95[6] = -(int) (f100 * f * 0.7071);
+        f100 = (float) (50.0 + 100.0 * random.nextDouble());
+        is[7] = -(int) (f100 * f);
+        is95[7] = 0;
+        for (int i101 = 0; i101 < 8; i101++) {
+            is96[i101] = (int) (is[i101] * (0.2 + 0.4 * random.nextDouble()));
+            is97[i101] = (int) (is95[i101] * (0.2 + 0.4 * random.nextDouble()));
+            is98[i101] = -(int) ((10.0 + 15.0 * random.nextDouble()) * f99);
         }
         maxR = 0;
-        for (int i_102_ = 0; i_102_ < 8; i_102_++) {
-            int i_103_ = i_102_ - 1;
-            if (i_103_ == -1)
-                i_103_ = 7;
-            int i_104_ = i_102_ + 1;
-            if (i_104_ == 8)
-                i_104_ = 0;
-            is[i_102_] = ((is[i_103_] + is[i_104_]) / 2 + is[i_102_]) / 2;
-            is_95_[i_102_] = ((is_95_[i_103_] + is_95_[i_104_]) / 2 + is_95_[i_102_]) / 2;
-            is_96_[i_102_] = ((is_96_[i_103_] + is_96_[i_104_]) / 2 + is_96_[i_102_]) / 2;
-            is_97_[i_102_] = ((is_97_[i_103_] + is_97_[i_104_]) / 2 + is_97_[i_102_]) / 2;
-            is_98_[i_102_] = ((is_98_[i_103_] + is_98_[i_104_]) / 2 + is_98_[i_102_]) / 2;
-            int i_105_ = (int) Math.sqrt(is[i_102_] * is[i_102_] + is_95_[i_102_] * is_95_[i_102_]);
-            if (i_105_ > maxR)
-                maxR = i_105_;
-            i_105_ = (int) Math.sqrt(is_96_[i_102_] * is_96_[i_102_] + is_98_[i_102_] * is_98_[i_102_]
-                    + is_97_[i_102_] * is_97_[i_102_]);
-            if (i_105_ > maxR)
-                maxR = i_105_;
+        for (int i102 = 0; i102 < 8; i102++) {
+            int i103 = i102 - 1;
+            if (i103 == -1)
+                i103 = 7;
+            int i104 = i102 + 1;
+            if (i104 == 8)
+                i104 = 0;
+            is[i102] = ((is[i103] + is[i104]) / 2 + is[i102]) / 2;
+            is95[i102] = ((is95[i103] + is95[i104]) / 2 + is95[i102]) / 2;
+            is96[i102] = ((is96[i103] + is96[i104]) / 2 + is96[i102]) / 2;
+            is97[i102] = ((is97[i103] + is97[i104]) / 2 + is97[i102]) / 2;
+            is98[i102] = ((is98[i103] + is98[i104]) / 2 + is98[i102]) / 2;
+            int i105 = (int) Math.sqrt(is[i102] * is[i102] + is95[i102] * is95[i102]);
+            if (i105 > maxR)
+                maxR = i105;
+            i105 = (int) Math.sqrt(is96[i102] * is96[i102] + is98[i102] * is98[i102]
+                    + is97[i102] * is97[i102]);
+            if (i105 > maxR)
+                maxR = i105;
         }
         disp = maxR / 17;
-        final int[] is_106_ = new int[3];
-        float f_107_ = -1.0F;
-        float f_108_ = (f / f_99_ - 0.33F) / 33.4F;
-        if (f_108_ < 0.005)
-            f_108_ = 0.0F;
-        if (f_108_ > 0.057)
-            f_108_ = 0.057F;
-        for (int i_109_ = 0; i_109_ < 4; i_109_++) {
-            final int i_110_ = i_109_ * 2;
-            int i_111_ = i_110_ + 2;
-            if (i_111_ == 8)
-                i_111_ = 0;
-            final int[] is_112_ = new int[6];
-            final int[] is_113_ = new int[6];
-            final int[] is_114_ = new int[6];
-            is_112_[0] = is[i_110_];
-            is_112_[1] = is[i_110_ + 1];
-            is_112_[2] = is[i_111_];
-            is_112_[5] = is_96_[i_110_];
-            is_112_[4] = is_96_[i_110_ + 1];
-            is_112_[3] = is_96_[i_111_];
-            is_114_[0] = is_95_[i_110_];
-            is_114_[1] = is_95_[i_110_ + 1];
-            is_114_[2] = is_95_[i_111_];
-            is_114_[5] = is_97_[i_110_];
-            is_114_[4] = is_97_[i_110_ + 1];
-            is_114_[3] = is_97_[i_111_];
-            is_113_[0] = 0;
-            is_113_[1] = 0;
-            is_113_[2] = 0;
-            is_113_[5] = is_98_[i_110_];
-            is_113_[4] = is_98_[i_110_ + 1];
-            is_113_[3] = is_98_[i_111_];
-            for (f_100_ = (float) ((0.17 - f_108_) * random.nextDouble()); Math.abs(f_107_ - f_100_) < 0.03
-                    - f_108_ * 0.176F; f_100_ = (float) ((0.17 - f_108_) * random.nextDouble())) {
+        final int[] is106 = new int[3];
+        float f107 = -1.0F;
+        float f108 = (f / f99 - 0.33F) / 33.4F;
+        if (f108 < 0.005)
+            f108 = 0.0F;
+        if (f108 > 0.057)
+            f108 = 0.057F;
+        for (int i109 = 0; i109 < 4; i109++) {
+            final int i110 = i109 * 2;
+            int i111 = i110 + 2;
+            if (i111 == 8)
+                i111 = 0;
+            final int[] is112 = new int[6];
+            final int[] is113 = new int[6];
+            final int[] is114 = new int[6];
+            is112[0] = is[i110];
+            is112[1] = is[i110 + 1];
+            is112[2] = is[i111];
+            is112[5] = is96[i110];
+            is112[4] = is96[i110 + 1];
+            is112[3] = is96[i111];
+            is114[0] = is95[i110];
+            is114[1] = is95[i110 + 1];
+            is114[2] = is95[i111];
+            is114[5] = is97[i110];
+            is114[4] = is97[i110 + 1];
+            is114[3] = is97[i111];
+            is113[0] = 0;
+            is113[1] = 0;
+            is113[2] = 0;
+            is113[5] = is98[i110];
+            is113[4] = is98[i110 + 1];
+            is113[3] = is98[i111];
+            for (f100 = (float) ((0.17 - f108) * random.nextDouble()); Math.abs(f107 - f100) < 0.03
+                    - f108 * 0.176F; f100 = (float) ((0.17 - f108) * random.nextDouble())) {
                 /* empty */
             }
-            f_107_ = f_100_;
-            for (int i_115_ = 0; i_115_ < 3; i_115_++)
+            f107 = f100;
+            for (int i115 = 0; i115 < 3; i115++)
                 if (m.trk == 2)
-                    is_106_[i_115_] = (int) (390.0F / (2.2F + f_100_ - f_108_));
+                    is106[i115] = (int) (390.0F / (2.2F + f100 - f108));
                 else
-                    is_106_[i_115_] = (int) ((m.cpol[i_115_] + m.cgrnd[i_115_]) / (2.2F + f_100_ - f_108_));
-            p[i_109_] = new Plane(m, t, is_112_, is_114_, is_113_, 6, is_106_, 3, -8, 0, 0, 0, 0, disline, 0, true, 0,
+                    is106[i115] = (int) ((m.cpol[i115] + m.cgrnd[i115]) / (2.2F + f100 - f108));
+            p[i109] = new Plane(m, t, is112, is114, is113, 6, is106, 3, -8, 0, 0, 0, 0, disline, 0, true, 0,
                     false, false, false, false, 1, 0, 0, 10);
         }
-        f_100_ = (float) (0.02 * random.nextDouble());
-        for (int i_116_ = 0; i_116_ < 3; i_116_++)
+        f100 = (float) (0.02 * random.nextDouble());
+        for (int i116 = 0; i116 < 3; i116++)
             if (m.trk == 2)
-                is_106_[i_116_] = (int) (390.0F / (2.15F + f_100_));
+                is106[i116] = (int) (390.0F / (2.15F + f100));
             else
-                is_106_[i_116_] = (int) ((m.cpol[i_116_] + m.cgrnd[i_116_]) / (2.15F + f_100_));
-        p[4] = new Plane(m, t, is_96_, is_97_, is_98_, 8, is_106_, 3, -8, 0, 0, 0, 0, disline, 0, true, 0, false, false,
+                is106[i116] = (int) ((m.cpol[i116] + m.cgrnd[i116]) / (2.15F + f100));
+        p[4] = new Plane(m, t, is96, is97, is98, 8, is106, 3, -8, 0, 0, 0, 0, disline, 0, true, 0, false, false,
                 false, false, 1, 0, 0, 10);
-        final int[] is_117_ = new int[2];
-        final int[] is_118_ = new int[2];
-        for (int i_119_ = 0; i_119_ < 4; i_119_++) {
-            int i_120_ = i_119_ * 2 + 1;
-            t.y[t.nt] = is_98_[i_120_] / 2;
-            t.rady[t.nt] = Math.abs(is_98_[i_120_] / 2);
-            if (i_119_ == 0 || i_119_ == 2) {
-                t.z[t.nt] = (is_95_[i_120_] + is_97_[i_120_]) / 2;
-                t.radz[t.nt] = Math.abs(t.z[t.nt] - is_95_[i_120_]);
-                i_120_ = i_119_ * 2 + 2;
-                if (i_120_ == 8)
-                    i_120_ = 0;
-                t.x[t.nt] = (is[i_119_ * 2] + is[i_120_]) / 2;
-                t.radx[t.nt] = Math.abs(t.x[t.nt] - is[i_119_ * 2]);
+        final int[] is117 = new int[2];
+        final int[] is118 = new int[2];
+        for (int i119 = 0; i119 < 4; i119++) {
+            int i120 = i119 * 2 + 1;
+            t.y[t.nt] = is98[i120] / 2;
+            t.rady[t.nt] = Math.abs(is98[i120] / 2);
+            if (i119 == 0 || i119 == 2) {
+                t.z[t.nt] = (is95[i120] + is97[i120]) / 2;
+                t.radz[t.nt] = Math.abs(t.z[t.nt] - is95[i120]);
+                i120 = i119 * 2 + 2;
+                if (i120 == 8)
+                    i120 = 0;
+                t.x[t.nt] = (is[i119 * 2] + is[i120]) / 2;
+                t.radx[t.nt] = Math.abs(t.x[t.nt] - is[i119 * 2]);
             } else {
-                t.x[t.nt] = (is[i_120_] + is_96_[i_120_]) / 2;
-                t.radx[t.nt] = Math.abs(t.x[t.nt] - is[i_120_]);
-                i_120_ = i_119_ * 2 + 2;
-                if (i_120_ == 8)
-                    i_120_ = 0;
-                t.z[t.nt] = (is_95_[i_119_ * 2] + is_95_[i_120_]) / 2;
-                t.radz[t.nt] = Math.abs(t.z[t.nt] - is_95_[i_119_ * 2]);
+                t.x[t.nt] = (is[i120] + is96[i120]) / 2;
+                t.radx[t.nt] = Math.abs(t.x[t.nt] - is[i120]);
+                i120 = i119 * 2 + 2;
+                if (i120 == 8)
+                    i120 = 0;
+                t.z[t.nt] = (is95[i119 * 2] + is95[i120]) / 2;
+                t.radz[t.nt] = Math.abs(t.z[t.nt] - is95[i119 * 2]);
             }
-            if (i_119_ == 0) {
-                is_118_[0] = t.z[t.nt] - t.radz[t.nt];
+            if (i119 == 0) {
+                is118[0] = t.z[t.nt] - t.radz[t.nt];
                 t.zy[t.nt] = (int) (Math.atan((double) t.rady[t.nt] / (double) t.radz[t.nt]) / 0.017453292519943295);
                 if (t.zy[t.nt] > 40)
                     t.zy[t.nt] = 40;
                 t.xy[t.nt] = 0;
             }
-            if (i_119_ == 1) {
-                is_117_[0] = t.x[t.nt] - t.radx[t.nt];
+            if (i119 == 1) {
+                is117[0] = t.x[t.nt] - t.radx[t.nt];
                 t.xy[t.nt] = (int) (Math.atan((double) t.rady[t.nt] / (double) t.radx[t.nt]) / 0.017453292519943295);
                 if (t.xy[t.nt] > 40)
                     t.xy[t.nt] = 40;
                 t.zy[t.nt] = 0;
             }
-            if (i_119_ == 2) {
-                is_118_[1] = t.z[t.nt] + t.radz[t.nt];
+            if (i119 == 2) {
+                is118[1] = t.z[t.nt] + t.radz[t.nt];
                 t.zy[t.nt] = -(int) (Math.atan((double) t.rady[t.nt] / (double) t.radz[t.nt]) / 0.017453292519943295);
                 if (t.zy[t.nt] < -40)
                     t.zy[t.nt] = -40;
                 t.xy[t.nt] = 0;
             }
-            if (i_119_ == 3) {
-                is_117_[1] = t.x[t.nt] + t.radx[t.nt];
+            if (i119 == 3) {
+                is117[1] = t.x[t.nt] + t.radx[t.nt];
                 t.xy[t.nt] = -(int) (Math.atan((double) t.rady[t.nt] / (double) t.radx[t.nt]) / 0.017453292519943295);
                 if (t.xy[t.nt] < -40)
                     t.xy[t.nt] = -40;
@@ -1176,8 +1176,8 @@ public class ContO {
             t.x[t.nt] += x;
             t.z[t.nt] += z;
             t.y[t.nt] += y;
-            for (int i_121_ = 0; i_121_ < 3; i_121_++)
-                t.c[t.nt][i_121_] = p[i_119_].oc[i_121_];
+            for (int i121 = 0; i121 < 3; i121++)
+                t.c[t.nt][i121] = p[i119].oc[i121];
             t.skd[t.nt] = 2;
             t.dam[t.nt] = 1;
             t.notwall[t.nt] = false;
@@ -1186,19 +1186,19 @@ public class ContO {
             t.nt++;
         }
         t.y[t.nt] = 0;
-        for (int i_122_ = 0; i_122_ < 8; i_122_++)
-            t.y[t.nt] += is_98_[i_122_];
+        for (int i122 = 0; i122 < 8; i122++)
+            t.y[t.nt] += is98[i122];
         t.y[t.nt] = t.y[t.nt] / 8;
         t.y[t.nt] += y;
         t.rady[t.nt] = 200;
-        t.radx[t.nt] = is_117_[0] - is_117_[1];
-        t.radz[t.nt] = is_118_[0] - is_118_[1];
-        t.x[t.nt] = (is_117_[0] + is_117_[1]) / 2 + x;
-        t.z[t.nt] = (is_118_[0] + is_118_[1]) / 2 + z;
+        t.radx[t.nt] = is117[0] - is117[1];
+        t.radz[t.nt] = is118[0] - is118[1];
+        t.x[t.nt] = (is117[0] + is117[1]) / 2 + x;
+        t.z[t.nt] = (is118[0] + is118[1]) / 2 + z;
         t.zy[t.nt] = 0;
         t.xy[t.nt] = 0;
-        for (int i_123_ = 0; i_123_ < 3; i_123_++)
-            t.c[t.nt][i_123_] = p[4].oc[i_123_];
+        for (int i123 = 0; i123 < 3; i123++)
+            t.c[t.nt][i123] = p[4].oc[i123];
         t.skd[t.nt] = 4;
         t.dam[t.nt] = 1;
         t.notwall[t.nt] = false;
@@ -1210,95 +1210,95 @@ public class ContO {
         if (dist != 0)
             dist = 0;
         final int i = m.cx + (int) ((x - m.x - m.cx) * m.cos(m.xz) - (z - m.z - m.cz) * m.sin(m.xz));
-        final int i_124_ = m.cz + (int) ((x - m.x - m.cx) * m.sin(m.xz) + (z - m.z - m.cz) * m.cos(m.xz));
-        final int i_125_ = m.cz + (int) ((y - m.y - m.cy) * m.sin(m.zy) + (i_124_ - m.cz) * m.cos(m.zy));
-        int i_126_ = xs(i + maxR, i_125_) - xs(i - maxR, i_125_);
-        if (xs(i + maxR * 2, i_125_) > m.iw && xs(i - maxR * 2, i_125_) < m.w && i_125_ > -maxR
-                && (i_125_ < m.fade[disline] + maxR || m.trk != 0) && (i_126_ > disp || m.trk != 0)
+        final int i124 = m.cz + (int) ((x - m.x - m.cx) * m.sin(m.xz) + (z - m.z - m.cz) * m.cos(m.xz));
+        final int i125 = m.cz + (int) ((y - m.y - m.cy) * m.sin(m.zy) + (i124 - m.cz) * m.cos(m.zy));
+        int i126 = xs(i + maxR, i125) - xs(i - maxR, i125);
+        if (xs(i + maxR * 2, i125) > m.iw && xs(i - maxR * 2, i125) < m.w && i125 > -maxR
+                && (i125 < m.fade[disline] + maxR || m.trk != 0) && (i126 > disp || m.trk != 0)
                 && (!decor || m.resdown != 2 && m.trk != 1)) {
             if (shadow)
                 if (!m.crs) {
-                    if (i_125_ < 2000) {
+                    if (i125 < 2000) {
                         boolean bool = false;
                         if (t.ncx != 0 || t.ncz != 0) {
-                            int i_127_ = (x - t.sx) / 3000;
-                            if (i_127_ > t.ncx)
-                                i_127_ = t.ncx;
-                            if (i_127_ < 0)
-                                i_127_ = 0;
-                            int i_128_ = (z - t.sz) / 3000;
-                            if (i_128_ > t.ncz)
-                                i_128_ = t.ncz;
-                            if (i_128_ < 0)
-                                i_128_ = 0;
-                            for (int i_129_ = t.sect[i_127_][i_128_].length - 1; i_129_ >= 0; i_129_--) {
-                                final int i_130_ = t.sect[i_127_][i_128_][i_129_];
-                                if (Math.abs(t.zy[i_130_]) != 90 && Math.abs(t.xy[i_130_]) != 90
-                                        && Math.abs(x - t.x[i_130_]) < t.radx[i_130_] + maxR
-                                        && Math.abs(z - t.z[i_130_]) < t.radz[i_130_] + maxR
-                                        && (!t.decor[i_130_] || m.resdown != 2)) {
+                            int i127 = (x - t.sx) / 3000;
+                            if (i127 > t.ncx)
+                                i127 = t.ncx;
+                            if (i127 < 0)
+                                i127 = 0;
+                            int i128 = (z - t.sz) / 3000;
+                            if (i128 > t.ncz)
+                                i128 = t.ncz;
+                            if (i128 < 0)
+                                i128 = 0;
+                            for (int i129 = t.sect[i127][i128].length - 1; i129 >= 0; i129--) {
+                                final int i130 = t.sect[i127][i128][i129];
+                                if (Math.abs(t.zy[i130]) != 90 && Math.abs(t.xy[i130]) != 90
+                                        && Math.abs(x - t.x[i130]) < t.radx[i130] + maxR
+                                        && Math.abs(z - t.z[i130]) < t.radz[i130] + maxR
+                                        && (!t.decor[i130] || m.resdown != 2)) {
                                     bool = true;
                                     break;
                                 }
                             }
                         }
                         if (bool)
-                            for (int i_131_ = 0; i_131_ < npl; i_131_++)
-                                p[i_131_].s(graphics2d, x - m.x, y - m.y, z - m.z, xz, xy, zy, 0);
+                            for (int i131 = 0; i131 < npl; i131++)
+                                p[i131].s(graphics2d, x - m.x, y - m.y, z - m.z, xz, xy, zy, 0);
                         else {
-                            final int i_132_ = m.cy
-                                    + (int) ((m.ground - m.cy) * m.cos(m.zy) - (i_124_ - m.cz) * m.sin(m.zy));
-                            final int i_133_ = m.cz
-                                    + (int) ((m.ground - m.cy) * m.sin(m.zy) + (i_124_ - m.cz) * m.cos(m.zy));
-                            if (ys(i_132_ + maxR, i_133_) > 0 && ys(i_132_ - maxR, i_133_) < m.h)
-                                for (int i_134_ = 0; i_134_ < npl; i_134_++)
-                                    p[i_134_].s(graphics2d, x - m.x, y - m.y, z - m.z, xz, xy, zy, 1);
+                            final int i132 = m.cy
+                                    + (int) ((m.ground - m.cy) * m.cos(m.zy) - (i124 - m.cz) * m.sin(m.zy));
+                            final int i133 = m.cz
+                                    + (int) ((m.ground - m.cy) * m.sin(m.zy) + (i124 - m.cz) * m.cos(m.zy));
+                            if (ys(i132 + maxR, i133) > 0 && ys(i132 - maxR, i133) < m.h)
+                                for (int i134 = 0; i134 < npl; i134++)
+                                    p[i134].s(graphics2d, x - m.x, y - m.y, z - m.z, xz, xy, zy, 1);
                         }
                         m.addsp(x - m.x, z - m.z, (int) (maxR * 0.8));
                     } else
-                        lowshadow(graphics2d, i_125_);
+                        lowshadow(graphics2d, i125);
                 } else
-                    for (int i_135_ = 0; i_135_ < npl; i_135_++)
-                        p[i_135_].s(graphics2d, x - m.x, y - m.y, z - m.z, xz, xy, zy, 2);
-            final int i_136_ = m.cy + (int) ((y - m.y - m.cy) * m.cos(m.zy) - (i_124_ - m.cz) * m.sin(m.zy));
-            if (ys(i_136_ + maxR, i_125_) > m.ih && ys(i_136_ - maxR, i_125_) < m.h) {
+                    for (int i135 = 0; i135 < npl; i135++)
+                        p[i135].s(graphics2d, x - m.x, y - m.y, z - m.z, xz, xy, zy, 2);
+            final int i136 = m.cy + (int) ((y - m.y - m.cy) * m.cos(m.zy) - (i124 - m.cz) * m.sin(m.zy));
+            if (ys(i136 + maxR, i125) > m.ih && ys(i136 - maxR, i125) < m.h) {
                 if (elec && m.noelec == 0)
                     electrify(graphics2d);
                 if (fix)
                     fixit(graphics2d);
                 if (checkpoint != 0 && checkpoint - 1 == m.checkpoint)
-                    i_126_ = -1;
+                    i126 = -1;
                 if (shadow) {
                     dist = (int) Math.sqrt((m.x + m.cx - x) * (m.x + m.cx - x) + (m.z - z) * (m.z - z)
                             + (m.y + m.cy - y) * (m.y + m.cy - y));
-                    for (int i_137_ = 0; i_137_ < 20; i_137_++)
-                        if (stg[i_137_] != 0)
-                            pdust(i_137_, graphics2d, true);
+                    for (int i137 = 0; i137 < 20; i137++)
+                        if (stg[i137] != 0)
+                            pdust(i137, graphics2d, true);
                     dsprk(graphics2d, true);
                 }
                 final int[] is = new int[npl];
-                final int[] is_138_ = new int[npl];
-                for (int i_139_ = 0; i_139_ < npl; i_139_++)
-                    is[i_139_] = 0;
-                for (int i_140_ = 0; i_140_ < npl; i_140_++) {
-                    for (int i_141_ = i_140_ + 1; i_141_ < npl; i_141_++)
-                        if (p[i_140_].av != p[i_141_].av) {
-                            if (p[i_140_].av < p[i_141_].av)
-                                is[i_140_]++;
+                final int[] is138 = new int[npl];
+                for (int i139 = 0; i139 < npl; i139++)
+                    is[i139] = 0;
+                for (int i140 = 0; i140 < npl; i140++) {
+                    for (int i141 = i140 + 1; i141 < npl; i141++)
+                        if (p[i140].av != p[i141].av) {
+                            if (p[i140].av < p[i141].av)
+                                is[i140]++;
                             else
-                                is[i_141_]++;
-                        } else if (i_140_ > i_141_)
-                            is[i_140_]++;
+                                is[i141]++;
+                        } else if (i140 > i141)
+                            is[i140]++;
                         else
-                            is[i_141_]++;
-                    is_138_[is[i_140_]] = i_140_;
+                            is[i141]++;
+                    is138[is[i140]] = i140;
                 }
-                for (int i_142_ = 0; i_142_ < npl; i_142_++)
-                    p[is_138_[i_142_]].d(graphics2d, x - m.x, y - m.y, z - m.z, xz, xy, zy, wxz, wzy, noline, i_126_);
+                for (int i142 = 0; i142 < npl; i142++)
+                    p[is138[i142]].d(graphics2d, x - m.x, y - m.y, z - m.z, xz, xy, zy, wxz, wzy, noline, i126);
                 if (shadow) {
-                    for (int i_143_ = 0; i_143_ < 20; i_143_++)
-                        if (stg[i_143_] != 0)
-                            pdust(i_143_, graphics2d, false);
+                    for (int i143 = 0; i143 < 20; i143++)
+                        if (stg[i143] != 0)
+                            pdust(i143, graphics2d, false);
                     dsprk(graphics2d, false);
                 }
                 dist = (int) (Math.sqrt((int) Math.sqrt((m.x + m.cx - x) * (m.x + m.cx - x) + (m.z - z) * (m.z - z)
@@ -1306,12 +1306,12 @@ public class ContO {
             }
         }
         if (shadow && dist == 0) {
-            for (int i_144_ = 0; i_144_ < 20; i_144_++)
-                if (stg[i_144_] != 0)
-                    stg[i_144_] = 0;
-            for (int i_145_ = 0; i_145_ < 100; i_145_++)
-                if (rtg[i_145_] != 0)
-                    rtg[i_145_] = 0;
+            for (int i144 = 0; i144 < 20; i144++)
+                if (stg[i144] != 0)
+                    stg[i144] = 0;
+            for (int i145 = 0; i145 < 100; i145++)
+                if (rtg[i145] != 0)
+                    rtg[i145] = 0;
             if (sprk != 0)
                 sprk = 0;
         }
@@ -1321,20 +1321,20 @@ public class ContO {
         if (bool && sprk != 0) {
             int i = (int) (Math.sqrt(rcx * rcx + rcy * rcy + rcz * rcz) / 10.0);
             if (i > 5) {
-                boolean bool_240_ = false;
+                boolean bool240 = false;
                 if (dist < Math.sqrt((m.x + m.cx - srx) * (m.x + m.cx - srx) + (m.y + m.cy - sry) * (m.y + m.cy - sry)
                         + (m.z - srz) * (m.z - srz)))
-                    bool_240_ = true;
+                    bool240 = true;
                 if (i > 33)
                     i = 33;
-                int i_241_ = 0;
-                for (int i_242_ = 0; i_242_ < 100; i_242_++) {
-                    if (rtg[i_242_] == 0) {
-                        rtg[i_242_] = 1;
-                        rbef[i_242_] = bool_240_;
-                        i_241_++;
+                int i241 = 0;
+                for (int i242 = 0; i242 < 100; i242++) {
+                    if (rtg[i242] == 0) {
+                        rtg[i242] = 1;
+                        rbef[i242] = bool240;
+                        i241++;
                     }
-                    if (i_241_ == i)
+                    if (i241 == i)
                         break;
                 }
             }
@@ -1351,69 +1351,69 @@ public class ContO {
                         ry[i] = sry - (int) (m.random() * 4.0F);
                         rz[i] = srz + 10 - (int) (m.random() * 20.0F);
                     }
-                    final int i_243_ = (int) Math.sqrt(rcx * rcx + rcy * rcy + rcz * rcz);
+                    final int i243 = (int) Math.sqrt(rcx * rcx + rcy * rcy + rcz * rcz);
                     final float f = 0.2F + 0.4F * m.random();
-                    final float f_244_ = m.random() * m.random() * m.random();
-                    float f_245_ = 1.0F;
+                    final float f244 = m.random() * m.random() * m.random();
+                    float f245 = 1.0F;
                     if (m.random() > m.random()) {
                         if (m.random() > m.random())
-                            f_245_ *= -1.0F;
-                        vrx[i] = -((rcx + i_243_ * (1.0F - rcx / i_243_) * f_244_ * f_245_) * f);
+                            f245 *= -1.0F;
+                        vrx[i] = -((rcx + i243 * (1.0F - rcx / i243) * f244 * f245) * f);
                     }
                     if (m.random() > m.random()) {
                         if (m.random() > m.random())
-                            f_245_ *= -1.0F;
+                            f245 *= -1.0F;
                         if (sprk == 5)
-                            f_245_ = 1.0F;
-                        vry[i] = -((rcy + i_243_ * (1.0F - rcy / i_243_) * f_244_ * f_245_) * f);
+                            f245 = 1.0F;
+                        vry[i] = -((rcy + i243 * (1.0F - rcy / i243) * f244 * f245) * f);
                     }
                     if (m.random() > m.random()) {
                         if (m.random() > m.random())
-                            f_245_ *= -1.0F;
-                        vrz[i] = -((rcz + i_243_ * (1.0F - rcz / i_243_) * f_244_ * f_245_) * f);
+                            f245 *= -1.0F;
+                        vrz[i] = -((rcz + i243 * (1.0F - rcz / i243) * f244 * f245) * f);
                     }
                 }
                 rx[i] += vrx[i];
                 ry[i] += vry[i];
                 rz[i] += vrz[i];
-                final int i_246_ = m.cx
+                final int i246 = m.cx
                         + (int) ((rx[i] - m.x - m.cx) * m.cos(m.xz) - (rz[i] - m.z - m.cz) * m.sin(m.xz));
-                int i_247_ = m.cz + (int) ((rx[i] - m.x - m.cx) * m.sin(m.xz) + (rz[i] - m.z - m.cz) * m.cos(m.xz));
-                final int i_248_ = m.cy + (int) ((ry[i] - m.y - m.cy) * m.cos(m.zy) - (i_247_ - m.cz) * m.sin(m.zy));
-                i_247_ = m.cz + (int) ((ry[i] - m.y - m.cy) * m.sin(m.zy) + (i_247_ - m.cz) * m.cos(m.zy));
-                final int i_249_ = m.cx + (int) ((rx[i] - m.x - m.cx + vrx[i]) * m.cos(m.xz)
+                int i247 = m.cz + (int) ((rx[i] - m.x - m.cx) * m.sin(m.xz) + (rz[i] - m.z - m.cz) * m.cos(m.xz));
+                final int i248 = m.cy + (int) ((ry[i] - m.y - m.cy) * m.cos(m.zy) - (i247 - m.cz) * m.sin(m.zy));
+                i247 = m.cz + (int) ((ry[i] - m.y - m.cy) * m.sin(m.zy) + (i247 - m.cz) * m.cos(m.zy));
+                final int i249 = m.cx + (int) ((rx[i] - m.x - m.cx + vrx[i]) * m.cos(m.xz)
                         - (rz[i] - m.z - m.cz + vrz[i]) * m.sin(m.xz));
-                int i_250_ = m.cz + (int) ((rx[i] - m.x - m.cx + vrx[i]) * m.sin(m.xz)
+                int i250 = m.cz + (int) ((rx[i] - m.x - m.cx + vrx[i]) * m.sin(m.xz)
                         + (rz[i] - m.z - m.cz + vrz[i]) * m.cos(m.xz));
-                final int i_251_ = m.cy
-                        + (int) ((ry[i] - m.y - m.cy + vry[i]) * m.cos(m.zy) - (i_250_ - m.cz) * m.sin(m.zy));
-                i_250_ = m.cz + (int) ((ry[i] - m.y - m.cy + vry[i]) * m.sin(m.zy) + (i_250_ - m.cz) * m.cos(m.zy));
-                final int i_252_ = xs(i_246_, i_247_);
-                final int i_253_ = ys(i_248_, i_247_);
-                final int i_254_ = xs(i_249_, i_250_);
-                final int i_255_ = ys(i_251_, i_250_);
-                if (i_252_ < m.iw && i_254_ < m.iw)
+                final int i251 = m.cy
+                        + (int) ((ry[i] - m.y - m.cy + vry[i]) * m.cos(m.zy) - (i250 - m.cz) * m.sin(m.zy));
+                i250 = m.cz + (int) ((ry[i] - m.y - m.cy + vry[i]) * m.sin(m.zy) + (i250 - m.cz) * m.cos(m.zy));
+                final int i252 = xs(i246, i247);
+                final int i253 = ys(i248, i247);
+                final int i254 = xs(i249, i250);
+                final int i255 = ys(i251, i250);
+                if (i252 < m.iw && i254 < m.iw)
                     rtg[i] = 0;
-                if (i_252_ > m.w && i_254_ > m.w)
+                if (i252 > m.w && i254 > m.w)
                     rtg[i] = 0;
-                if (i_253_ < m.ih && i_255_ < m.ih)
+                if (i253 < m.ih && i255 < m.ih)
                     rtg[i] = 0;
-                if (i_253_ > m.h && i_255_ > m.h)
+                if (i253 > m.h && i255 > m.h)
                     rtg[i] = 0;
                 if (ry[i] > 250)
                     rtg[i] = 0;
                 if (rtg[i] != 0) {
-                    int i_256_ = 255;
-                    int i_257_ = 197 - 30 * rtg[i];
-                    int i_258_ = 0;
-                    for (int i_259_ = 0; i_259_ < 16; i_259_++)
-                        if (i_247_ > m.fade[i_259_]) {
-                            i_256_ = (i_256_ * m.fogd + m.cfade[0]) / (m.fogd + 1);
-                            i_257_ = (i_257_ * m.fogd + m.cfade[1]) / (m.fogd + 1);
-                            i_258_ = (i_258_ * m.fogd + m.cfade[2]) / (m.fogd + 1);
+                    int i256 = 255;
+                    int i257 = 197 - 30 * rtg[i];
+                    int i258 = 0;
+                    for (int i259 = 0; i259 < 16; i259++)
+                        if (i247 > m.fade[i259]) {
+                            i256 = (i256 * m.fogd + m.cfade[0]) / (m.fogd + 1);
+                            i257 = (i257 * m.fogd + m.cfade[1]) / (m.fogd + 1);
+                            i258 = (i258 * m.fogd + m.cfade[2]) / (m.fogd + 1);
                         }
-                    graphics2d.setColor(new Color(i_256_, i_257_, i_258_));
-                    graphics2d.drawLine(i_252_, i_253_, i_254_, i_255_);
+                    graphics2d.setColor(new Color(i256, i257, i258));
+                    graphics2d.drawLine(i252, i253, i254, i255);
                     vrx[i] = vrx[i] * 0.8F;
                     vry[i] = vry[i] * 0.8F;
                     vrz[i] = vrz[i] * 0.8F;
@@ -1427,35 +1427,35 @@ public class ContO {
             sprk = 0;
     }
 
-    public void dust(final int i, final float f, final float f_199_, final float f_200_, final int i_201_,
-            final int i_202_, final float f_203_, final int i_204_, final boolean bool) {
-        boolean bool_205_ = false;
-        if (i_204_ > 5 && (i == 0 || i == 2))
-            bool_205_ = true;
-        if (i_204_ < -5 && (i == 1 || i == 3))
-            bool_205_ = true;
-        float f_206_ = (float) ((Math.sqrt(i_201_ * i_201_ + i_202_ * i_202_) - 40.0) / 160.0);
-        if (f_206_ > 1.0F)
-            f_206_ = 1.0F;
-        if (f_206_ > 0.2 && !bool_205_) {
+    public void dust(final int i, final float f, final float f199, final float f200, final int i201,
+            final int i202, final float f203, final int i204, final boolean bool) {
+        boolean bool205 = false;
+        if (i204 > 5 && (i == 0 || i == 2))
+            bool205 = true;
+        if (i204 < -5 && (i == 1 || i == 3))
+            bool205 = true;
+        float f206 = (float) ((Math.sqrt(i201 * i201 + i202 * i202) - 40.0) / 160.0);
+        if (f206 > 1.0F)
+            f206 = 1.0F;
+        if (f206 > 0.2 && !bool205) {
             ust++;
             if (ust == 20)
                 ust = 0;
             if (!bool) {
-                final float f_207_ = m.random();
-                sx[ust] = (int) ((f + x * f_207_) / (1.0F + f_207_));
-                sz[ust] = (int) ((f_200_ + z * f_207_) / (1.0F + f_207_));
-                sy[ust] = (int) ((f_199_ + y * f_207_) / (1.0F + f_207_));
+                final float f207 = m.random();
+                sx[ust] = (int) ((f + x * f207) / (1.0F + f207));
+                sz[ust] = (int) ((f200 + z * f207) / (1.0F + f207));
+                sy[ust] = (int) ((f199 + y * f207) / (1.0F + f207));
             } else {
-                sx[ust] = (int) ((f + (x + i_201_)) / 2.0F);
-                sz[ust] = (int) ((f_200_ + (z + i_202_)) / 2.0F);
-                sy[ust] = (int) f_199_;
+                sx[ust] = (int) ((f + (x + i201)) / 2.0F);
+                sz[ust] = (int) ((f200 + (z + i202)) / 2.0F);
+                sy[ust] = (int) f199;
             }
             if (sy[i] > 250)
                 sy[i] = 250;
-            osmag[ust] = f_203_ * f_206_;
-            scx[ust] = i_201_;
-            scz[ust] = i_202_;
+            osmag[ust] = f203 * f206;
+            scx[ust] = i201;
+            scz[ust] = i202;
             stg[ust] = 1;
         }
     }
@@ -1467,99 +1467,99 @@ public class ContO {
                 edr[i] = (int) (380.0F - m.random() * 760.0F);
                 elc[i] = 1;
             }
-            final int i_182_ = (int) (edl[i] + (190.0F - m.random() * 380.0F));
-            final int i_183_ = (int) (edr[i] + (190.0F - m.random() * 380.0F));
-            final int i_184_ = (int) (m.random() * 126.0F);
-            final int i_185_ = (int) (m.random() * 126.0F);
+            final int i182 = (int) (edl[i] + (190.0F - m.random() * 380.0F));
+            final int i183 = (int) (edr[i] + (190.0F - m.random() * 380.0F));
+            final int i184 = (int) (m.random() * 126.0F);
+            final int i185 = (int) (m.random() * 126.0F);
             final int[] is = new int[8];
-            final int[] is_186_ = new int[8];
-            final int[] is_187_ = new int[8];
-            for (int i_188_ = 0; i_188_ < 8; i_188_++)
-                is_187_[i_188_] = z - m.z;
+            final int[] is186 = new int[8];
+            final int[] is187 = new int[8];
+            for (int i188 = 0; i188 < 8; i188++)
+                is187[i188] = z - m.z;
             is[0] = x - m.x - 504;
-            is_186_[0] = y - m.y - edl[i] - 5 - (int) (m.random() * 5.0F);
-            is[1] = x - m.x - 252 + i_185_;
-            is_186_[1] = y - m.y - i_182_ - 5 - (int) (m.random() * 5.0F);
-            is[2] = x - m.x + 252 - i_184_;
-            is_186_[2] = y - m.y - i_183_ - 5 - (int) (m.random() * 5.0F);
+            is186[0] = y - m.y - edl[i] - 5 - (int) (m.random() * 5.0F);
+            is[1] = x - m.x - 252 + i185;
+            is186[1] = y - m.y - i182 - 5 - (int) (m.random() * 5.0F);
+            is[2] = x - m.x + 252 - i184;
+            is186[2] = y - m.y - i183 - 5 - (int) (m.random() * 5.0F);
             is[3] = x - m.x + 504;
-            is_186_[3] = y - m.y - edr[i] - 5 - (int) (m.random() * 5.0F);
+            is186[3] = y - m.y - edr[i] - 5 - (int) (m.random() * 5.0F);
             is[4] = x - m.x + 504;
-            is_186_[4] = y - m.y - edr[i] + 5 + (int) (m.random() * 5.0F);
-            is[5] = x - m.x + 252 - i_184_;
-            is_186_[5] = y - m.y - i_183_ + 5 + (int) (m.random() * 5.0F);
-            is[6] = x - m.x - 252 + i_185_;
-            is_186_[6] = y - m.y - i_182_ + 5 + (int) (m.random() * 5.0F);
+            is186[4] = y - m.y - edr[i] + 5 + (int) (m.random() * 5.0F);
+            is[5] = x - m.x + 252 - i184;
+            is186[5] = y - m.y - i183 + 5 + (int) (m.random() * 5.0F);
+            is[6] = x - m.x - 252 + i185;
+            is186[6] = y - m.y - i182 + 5 + (int) (m.random() * 5.0F);
             is[7] = x - m.x - 504;
-            is_186_[7] = y - m.y - edl[i] + 5 + (int) (m.random() * 5.0F);
+            is186[7] = y - m.y - edl[i] + 5 + (int) (m.random() * 5.0F);
             if (roted)
-                rot(is, is_187_, x - m.x, z - m.z, 90, 8);
-            rot(is, is_187_, m.cx, m.cz, m.xz, 8);
-            rot(is_186_, is_187_, m.cy, m.cz, m.zy, 8);
+                rot(is, is187, x - m.x, z - m.z, 90, 8);
+            rot(is, is187, m.cx, m.cz, m.xz, 8);
+            rot(is186, is187, m.cy, m.cz, m.zy, 8);
             boolean bool = true;
-            int i_189_ = 0;
-            int i_190_ = 0;
-            int i_191_ = 0;
-            int i_192_ = 0;
-            final int[] is_193_ = new int[8];
-            final int[] is_194_ = new int[8];
-            for (int i_195_ = 0; i_195_ < 8; i_195_++) {
-                is_193_[i_195_] = xs(is[i_195_], is_187_[i_195_]);
-                is_194_[i_195_] = ys(is_186_[i_195_], is_187_[i_195_]);
-                if (is_194_[i_195_] < m.ih || is_187_[i_195_] < 10)
-                    i_189_++;
-                if (is_194_[i_195_] > m.h || is_187_[i_195_] < 10)
-                    i_190_++;
-                if (is_193_[i_195_] < m.iw || is_187_[i_195_] < 10)
-                    i_191_++;
-                if (is_193_[i_195_] > m.w || is_187_[i_195_] < 10)
-                    i_192_++;
+            int i189 = 0;
+            int i190 = 0;
+            int i191 = 0;
+            int i192 = 0;
+            final int[] is193 = new int[8];
+            final int[] is194 = new int[8];
+            for (int i195 = 0; i195 < 8; i195++) {
+                is193[i195] = xs(is[i195], is187[i195]);
+                is194[i195] = ys(is186[i195], is187[i195]);
+                if (is194[i195] < m.ih || is187[i195] < 10)
+                    i189++;
+                if (is194[i195] > m.h || is187[i195] < 10)
+                    i190++;
+                if (is193[i195] < m.iw || is187[i195] < 10)
+                    i191++;
+                if (is193[i195] > m.w || is187[i195] < 10)
+                    i192++;
             }
-            if (i_191_ == 8 || i_189_ == 8 || i_190_ == 8 || i_192_ == 8)
+            if (i191 == 8 || i189 == 8 || i190 == 8 || i192 == 8)
                 bool = false;
             if (bool) {
-                int i_196_ = (int) (160.0F + 160.0F * (m.snap[0] / 500.0F));
-                if (i_196_ > 255)
-                    i_196_ = 255;
-                if (i_196_ < 0)
-                    i_196_ = 0;
-                int i_197_ = (int) (238.0F + 238.0F * (m.snap[1] / 500.0F));
-                if (i_197_ > 255)
-                    i_197_ = 255;
-                if (i_197_ < 0)
-                    i_197_ = 0;
-                int i_198_ = (int) (255.0F + 255.0F * (m.snap[2] / 500.0F));
-                if (i_198_ > 255)
-                    i_198_ = 255;
-                if (i_198_ < 0)
-                    i_198_ = 0;
-                i_196_ = (i_196_ * 2 + 214 * (elc[i] - 1)) / (elc[i] + 1);
-                i_197_ = (i_197_ * 2 + 236 * (elc[i] - 1)) / (elc[i] + 1);
+                int i196 = (int) (160.0F + 160.0F * (m.snap[0] / 500.0F));
+                if (i196 > 255)
+                    i196 = 255;
+                if (i196 < 0)
+                    i196 = 0;
+                int i197 = (int) (238.0F + 238.0F * (m.snap[1] / 500.0F));
+                if (i197 > 255)
+                    i197 = 255;
+                if (i197 < 0)
+                    i197 = 0;
+                int i198 = (int) (255.0F + 255.0F * (m.snap[2] / 500.0F));
+                if (i198 > 255)
+                    i198 = 255;
+                if (i198 < 0)
+                    i198 = 0;
+                i196 = (i196 * 2 + 214 * (elc[i] - 1)) / (elc[i] + 1);
+                i197 = (i197 * 2 + 236 * (elc[i] - 1)) / (elc[i] + 1);
                 if (m.trk == 1) {
-                    i_196_ = 255;
-                    i_197_ = 128;
-                    i_198_ = 0;
+                    i196 = 255;
+                    i197 = 128;
+                    i198 = 0;
                 }
-                graphics2d.setColor(new Color(i_196_, i_197_, i_198_));
-                graphics2d.fillPolygon(is_193_, is_194_, 8);
-                if (is_187_[0] < 4000) {
-                    i_196_ = (int) (150.0F + 150.0F * (m.snap[0] / 500.0F));
-                    if (i_196_ > 255)
-                        i_196_ = 255;
-                    if (i_196_ < 0)
-                        i_196_ = 0;
-                    i_197_ = (int) (227.0F + 227.0F * (m.snap[1] / 500.0F));
-                    if (i_197_ > 255)
-                        i_197_ = 255;
-                    if (i_197_ < 0)
-                        i_197_ = 0;
-                    i_198_ = (int) (255.0F + 255.0F * (m.snap[2] / 500.0F));
-                    if (i_198_ > 255)
-                        i_198_ = 255;
-                    if (i_198_ < 0)
-                        i_198_ = 0;
-                    graphics2d.setColor(new Color(i_196_, i_197_, i_198_));
-                    graphics2d.drawPolygon(is_193_, is_194_, 8);
+                graphics2d.setColor(new Color(i196, i197, i198));
+                graphics2d.fillPolygon(is193, is194, 8);
+                if (is187[0] < 4000) {
+                    i196 = (int) (150.0F + 150.0F * (m.snap[0] / 500.0F));
+                    if (i196 > 255)
+                        i196 = 255;
+                    if (i196 < 0)
+                        i196 = 0;
+                    i197 = (int) (227.0F + 227.0F * (m.snap[1] / 500.0F));
+                    if (i197 > 255)
+                        i197 = 255;
+                    if (i197 < 0)
+                        i197 = 0;
+                    i198 = (int) (255.0F + 255.0F * (m.snap[2] / 500.0F));
+                    if (i198 > 255)
+                        i198 = 255;
+                    if (i198 < 0)
+                        i198 = 0;
+                    graphics2d.setColor(new Color(i196, i197, i198));
+                    graphics2d.drawPolygon(is193, is194, 8);
                 }
             }
             if (elc[i] > m.random() * 60.0F)
@@ -1585,22 +1585,22 @@ public class ContO {
                 p[i].hsb[2] = 0.8F;
                 p[i].hsb[1] = 0.8F;
                 final Color color = Color.getHSBColor(p[i].hsb[0], p[i].hsb[1], p[i].hsb[2]);
-                int i_167_ = (int) (color.getRed() + color.getRed() * (m.snap[0] / 100.0F));
-                if (i_167_ > 255)
-                    i_167_ = 255;
-                if (i_167_ < 0)
-                    i_167_ = 0;
-                int i_168_ = (int) (color.getGreen() + color.getGreen() * (m.snap[1] / 100.0F));
-                if (i_168_ > 255)
-                    i_168_ = 255;
-                if (i_168_ < 0)
-                    i_168_ = 0;
-                int i_169_ = (int) (color.getBlue() + color.getBlue() * (m.snap[2] / 100.0F));
-                if (i_169_ > 255)
-                    i_169_ = 255;
-                if (i_169_ < 0)
-                    i_169_ = 0;
-                Color.RGBtoHSB(i_167_, i_168_, i_169_, p[i].hsb);
+                int i167 = (int) (color.getRed() + color.getRed() * (m.snap[0] / 100.0F));
+                if (i167 > 255)
+                    i167 = 255;
+                if (i167 < 0)
+                    i167 = 0;
+                int i168 = (int) (color.getGreen() + color.getGreen() * (m.snap[1] / 100.0F));
+                if (i168 > 255)
+                    i168 = 255;
+                if (i168 < 0)
+                    i168 = 0;
+                int i169 = (int) (color.getBlue() + color.getBlue() * (m.snap[2] / 100.0F));
+                if (i169 > 255)
+                    i169 = 255;
+                if (i169 < 0)
+                    i169 = 0;
+                Color.RGBtoHSB(i167, i168, i169, p[i].hsb);
                 p[i].flx = 1;
             }
         if (fcnt == 2)
@@ -1611,115 +1611,115 @@ public class ContO {
                 p[i].flx = 3;
         if ((fcnt == 1 || fcnt > 2) && fcnt != 9) {
             final int[] is = new int[8];
-            final int[] is_170_ = new int[8];
-            final int[] is_171_ = new int[4];
+            final int[] is170 = new int[8];
+            final int[] is171 = new int[4];
             for (int i = 0; i < 4; i++) {
                 is[i] = keyx[i] + x - m.x;
-                is_170_[i] = grat + y - m.y;
-                is_171_[i] = keyz[i] + z - m.z;
+                is170[i] = grat + y - m.y;
+                is171[i] = keyz[i] + z - m.z;
             }
-            rot(is, is_170_, x - m.x, y - m.y, xy, 4);
-            rot(is_170_, is_171_, y - m.y, z - m.y, zy, 4);
-            rot(is, is_171_, x - m.x, z - m.z, xz, 4);
-            rot(is, is_171_, m.cx, m.cz, m.xz, 4);
-            rot(is_170_, is_171_, m.cy, m.cz, m.zy, 4);
+            rot(is, is170, x - m.x, y - m.y, xy, 4);
+            rot(is170, is171, y - m.y, z - m.y, zy, 4);
+            rot(is, is171, x - m.x, z - m.z, xz, 4);
+            rot(is, is171, m.cx, m.cz, m.xz, 4);
+            rot(is170, is171, m.cy, m.cz, m.zy, 4);
             int i = 0;
-            int i_172_ = 0;
-            int i_173_ = 0;
-            for (int i_174_ = 0; i_174_ < 4; i_174_++)
-                for (int i_175_ = 0; i_175_ < 4; i_175_++) {
-                    if (Math.abs(is[i_174_] - is[i_175_]) > i)
-                        i = Math.abs(is[i_174_] - is[i_175_]);
-                    if (Math.abs(is_170_[i_174_] - is_170_[i_175_]) > i_172_)
-                        i_172_ = Math.abs(is_170_[i_174_] - is_170_[i_175_]);
-                    if (py(is[i_174_], is[i_175_], is_170_[i_174_], is_170_[i_175_]) > i_173_)
-                        i_173_ = py(is[i_174_], is[i_175_], is_170_[i_174_], is_170_[i_175_]);
+            int i172 = 0;
+            int i173 = 0;
+            for (int i174 = 0; i174 < 4; i174++)
+                for (int i175 = 0; i175 < 4; i175++) {
+                    if (Math.abs(is[i174] - is[i175]) > i)
+                        i = Math.abs(is[i174] - is[i175]);
+                    if (Math.abs(is170[i174] - is170[i175]) > i172)
+                        i172 = Math.abs(is170[i174] - is170[i175]);
+                    if (py(is[i174], is[i175], is170[i174], is170[i175]) > i173)
+                        i173 = py(is[i174], is[i175], is170[i174], is170[i175]);
                 }
-            i_173_ = (int) (Math.sqrt(i_173_) / 1.5);
-            if (i < i_173_)
-                i = i_173_;
-            if (i_172_ < i_173_)
-                i_172_ = i_173_;
-            final int i_176_ = m.cx + (int) ((x - m.x - m.cx) * m.cos(m.xz) - (z - m.z - m.cz) * m.sin(m.xz));
-            int i_177_ = m.cz + (int) ((x - m.x - m.cx) * m.sin(m.xz) + (z - m.z - m.cz) * m.cos(m.xz));
-            final int i_178_ = m.cy + (int) ((y - m.y - m.cy) * m.cos(m.zy) - (i_177_ - m.cz) * m.sin(m.zy));
-            i_177_ = m.cz + (int) ((y - m.y - m.cy) * m.sin(m.zy) + (i_177_ - m.cz) * m.cos(m.zy));
-            is[0] = xs((int) (i_176_ - i / 0.8 - m.random() * (i / 2.4)), i_177_);
-            is_170_[0] = ys((int) (i_178_ - i_172_ / 1.92 - m.random() * (i_172_ / 5.67)), i_177_);
-            is[1] = xs((int) (i_176_ - i / 0.8 - m.random() * (i / 2.4)), i_177_);
-            is_170_[1] = ys((int) (i_178_ + i_172_ / 1.92 + m.random() * (i_172_ / 5.67)), i_177_);
-            is[2] = xs((int) (i_176_ - i / 1.92 - m.random() * (i / 5.67)), i_177_);
-            is_170_[2] = ys((int) (i_178_ + i_172_ / 0.8 + m.random() * (i_172_ / 2.4)), i_177_);
-            is[3] = xs((int) (i_176_ + i / 1.92 + m.random() * (i / 5.67)), i_177_);
-            is_170_[3] = ys((int) (i_178_ + i_172_ / 0.8 + m.random() * (i_172_ / 2.4)), i_177_);
-            is[4] = xs((int) (i_176_ + i / 0.8 + m.random() * (i / 2.4)), i_177_);
-            is_170_[4] = ys((int) (i_178_ + i_172_ / 1.92 + m.random() * (i_172_ / 5.67)), i_177_);
-            is[5] = xs((int) (i_176_ + i / 0.8 + m.random() * (i / 2.4)), i_177_);
-            is_170_[5] = ys((int) (i_178_ - i_172_ / 1.92 - m.random() * (i_172_ / 5.67)), i_177_);
-            is[6] = xs((int) (i_176_ + i / 1.92 + m.random() * (i / 5.67)), i_177_);
-            is_170_[6] = ys((int) (i_178_ - i_172_ / 0.8 - m.random() * (i_172_ / 2.4)), i_177_);
-            is[7] = xs((int) (i_176_ - i / 1.92 - m.random() * (i / 5.67)), i_177_);
-            is_170_[7] = ys((int) (i_178_ - i_172_ / 0.8 - m.random() * (i_172_ / 2.4)), i_177_);
+            i173 = (int) (Math.sqrt(i173) / 1.5);
+            if (i < i173)
+                i = i173;
+            if (i172 < i173)
+                i172 = i173;
+            final int i176 = m.cx + (int) ((x - m.x - m.cx) * m.cos(m.xz) - (z - m.z - m.cz) * m.sin(m.xz));
+            int i177 = m.cz + (int) ((x - m.x - m.cx) * m.sin(m.xz) + (z - m.z - m.cz) * m.cos(m.xz));
+            final int i178 = m.cy + (int) ((y - m.y - m.cy) * m.cos(m.zy) - (i177 - m.cz) * m.sin(m.zy));
+            i177 = m.cz + (int) ((y - m.y - m.cy) * m.sin(m.zy) + (i177 - m.cz) * m.cos(m.zy));
+            is[0] = xs((int) (i176 - i / 0.8 - m.random() * (i / 2.4)), i177);
+            is170[0] = ys((int) (i178 - i172 / 1.92 - m.random() * (i172 / 5.67)), i177);
+            is[1] = xs((int) (i176 - i / 0.8 - m.random() * (i / 2.4)), i177);
+            is170[1] = ys((int) (i178 + i172 / 1.92 + m.random() * (i172 / 5.67)), i177);
+            is[2] = xs((int) (i176 - i / 1.92 - m.random() * (i / 5.67)), i177);
+            is170[2] = ys((int) (i178 + i172 / 0.8 + m.random() * (i172 / 2.4)), i177);
+            is[3] = xs((int) (i176 + i / 1.92 + m.random() * (i / 5.67)), i177);
+            is170[3] = ys((int) (i178 + i172 / 0.8 + m.random() * (i172 / 2.4)), i177);
+            is[4] = xs((int) (i176 + i / 0.8 + m.random() * (i / 2.4)), i177);
+            is170[4] = ys((int) (i178 + i172 / 1.92 + m.random() * (i172 / 5.67)), i177);
+            is[5] = xs((int) (i176 + i / 0.8 + m.random() * (i / 2.4)), i177);
+            is170[5] = ys((int) (i178 - i172 / 1.92 - m.random() * (i172 / 5.67)), i177);
+            is[6] = xs((int) (i176 + i / 1.92 + m.random() * (i / 5.67)), i177);
+            is170[6] = ys((int) (i178 - i172 / 0.8 - m.random() * (i172 / 2.4)), i177);
+            is[7] = xs((int) (i176 - i / 1.92 - m.random() * (i / 5.67)), i177);
+            is170[7] = ys((int) (i178 - i172 / 0.8 - m.random() * (i172 / 2.4)), i177);
             if (fcnt == 3)
-                rot(is, is_170_, xs(i_176_, i_177_), ys(i_178_, i_177_), 22, 8);
+                rot(is, is170, xs(i176, i177), ys(i178, i177), 22, 8);
             if (fcnt == 4)
-                rot(is, is_170_, xs(i_176_, i_177_), ys(i_178_, i_177_), 22, 8);
+                rot(is, is170, xs(i176, i177), ys(i178, i177), 22, 8);
             if (fcnt == 5)
-                rot(is, is_170_, xs(i_176_, i_177_), ys(i_178_, i_177_), 0, 8);
+                rot(is, is170, xs(i176, i177), ys(i178, i177), 0, 8);
             if (fcnt == 6)
-                rot(is, is_170_, xs(i_176_, i_177_), ys(i_178_, i_177_), -22, 8);
+                rot(is, is170, xs(i176, i177), ys(i178, i177), -22, 8);
             if (fcnt == 7)
-                rot(is, is_170_, xs(i_176_, i_177_), ys(i_178_, i_177_), -22, 8);
-            int i_179_ = (int) (191.0F + 191.0F * (m.snap[0] / 350.0F));
-            if (i_179_ > 255)
-                i_179_ = 255;
-            if (i_179_ < 0)
-                i_179_ = 0;
-            int i_180_ = (int) (232.0F + 232.0F * (m.snap[1] / 350.0F));
-            if (i_180_ > 255)
-                i_180_ = 255;
-            if (i_180_ < 0)
-                i_180_ = 0;
-            int i_181_ = (int) (255.0F + 255.0F * (m.snap[2] / 350.0F));
-            if (i_181_ > 255)
-                i_181_ = 255;
-            if (i_181_ < 0)
-                i_181_ = 0;
-            graphics2d.setColor(new Color(i_179_, i_180_, i_181_));
-            graphics2d.fillPolygon(is, is_170_, 8);
-            is[0] = xs((int) (i_176_ - i - m.random() * (i / 4)), i_177_);
-            is_170_[0] = ys((int) (i_178_ - i_172_ / 2.4 - m.random() * (i_172_ / 9.6)), i_177_);
-            is[1] = xs((int) (i_176_ - i - m.random() * (i / 4)), i_177_);
-            is_170_[1] = ys((int) (i_178_ + i_172_ / 2.4 + m.random() * (i_172_ / 9.6)), i_177_);
-            is[2] = xs((int) (i_176_ - i / 2.4 - m.random() * (i / 9.6)), i_177_);
-            is_170_[2] = ys((int) (i_178_ + i_172_ + m.random() * (i_172_ / 4)), i_177_);
-            is[3] = xs((int) (i_176_ + i / 2.4 + m.random() * (i / 9.6)), i_177_);
-            is_170_[3] = ys((int) (i_178_ + i_172_ + m.random() * (i_172_ / 4)), i_177_);
-            is[4] = xs((int) (i_176_ + i + m.random() * (i / 4)), i_177_);
-            is_170_[4] = ys((int) (i_178_ + i_172_ / 2.4 + m.random() * (i_172_ / 9.6)), i_177_);
-            is[5] = xs((int) (i_176_ + i + m.random() * (i / 4)), i_177_);
-            is_170_[5] = ys((int) (i_178_ - i_172_ / 2.4 - m.random() * (i_172_ / 9.6)), i_177_);
-            is[6] = xs((int) (i_176_ + i / 2.4 + m.random() * (i / 9.6)), i_177_);
-            is_170_[6] = ys((int) (i_178_ - i_172_ - m.random() * (i_172_ / 4)), i_177_);
-            is[7] = xs((int) (i_176_ - i / 2.4 - m.random() * (i / 9.6)), i_177_);
-            is_170_[7] = ys((int) (i_178_ - i_172_ - m.random() * (i_172_ / 4)), i_177_);
-            i_179_ = (int) (213.0F + 213.0F * (m.snap[0] / 350.0F));
-            if (i_179_ > 255)
-                i_179_ = 255;
-            if (i_179_ < 0)
-                i_179_ = 0;
-            i_180_ = (int) (239.0F + 239.0F * (m.snap[1] / 350.0F));
-            if (i_180_ > 255)
-                i_180_ = 255;
-            if (i_180_ < 0)
-                i_180_ = 0;
-            i_181_ = (int) (255.0F + 255.0F * (m.snap[2] / 350.0F));
-            if (i_181_ > 255)
-                i_181_ = 255;
-            if (i_181_ < 0)
-                i_181_ = 0;
-            graphics2d.setColor(new Color(i_179_, i_180_, i_181_));
-            graphics2d.fillPolygon(is, is_170_, 8);
+                rot(is, is170, xs(i176, i177), ys(i178, i177), -22, 8);
+            int i179 = (int) (191.0F + 191.0F * (m.snap[0] / 350.0F));
+            if (i179 > 255)
+                i179 = 255;
+            if (i179 < 0)
+                i179 = 0;
+            int i180 = (int) (232.0F + 232.0F * (m.snap[1] / 350.0F));
+            if (i180 > 255)
+                i180 = 255;
+            if (i180 < 0)
+                i180 = 0;
+            int i181 = (int) (255.0F + 255.0F * (m.snap[2] / 350.0F));
+            if (i181 > 255)
+                i181 = 255;
+            if (i181 < 0)
+                i181 = 0;
+            graphics2d.setColor(new Color(i179, i180, i181));
+            graphics2d.fillPolygon(is, is170, 8);
+            is[0] = xs((int) (i176 - i - m.random() * (i / 4)), i177);
+            is170[0] = ys((int) (i178 - i172 / 2.4 - m.random() * (i172 / 9.6)), i177);
+            is[1] = xs((int) (i176 - i - m.random() * (i / 4)), i177);
+            is170[1] = ys((int) (i178 + i172 / 2.4 + m.random() * (i172 / 9.6)), i177);
+            is[2] = xs((int) (i176 - i / 2.4 - m.random() * (i / 9.6)), i177);
+            is170[2] = ys((int) (i178 + i172 + m.random() * (i172 / 4)), i177);
+            is[3] = xs((int) (i176 + i / 2.4 + m.random() * (i / 9.6)), i177);
+            is170[3] = ys((int) (i178 + i172 + m.random() * (i172 / 4)), i177);
+            is[4] = xs((int) (i176 + i + m.random() * (i / 4)), i177);
+            is170[4] = ys((int) (i178 + i172 / 2.4 + m.random() * (i172 / 9.6)), i177);
+            is[5] = xs((int) (i176 + i + m.random() * (i / 4)), i177);
+            is170[5] = ys((int) (i178 - i172 / 2.4 - m.random() * (i172 / 9.6)), i177);
+            is[6] = xs((int) (i176 + i / 2.4 + m.random() * (i / 9.6)), i177);
+            is170[6] = ys((int) (i178 - i172 - m.random() * (i172 / 4)), i177);
+            is[7] = xs((int) (i176 - i / 2.4 - m.random() * (i / 9.6)), i177);
+            is170[7] = ys((int) (i178 - i172 - m.random() * (i172 / 4)), i177);
+            i179 = (int) (213.0F + 213.0F * (m.snap[0] / 350.0F));
+            if (i179 > 255)
+                i179 = 255;
+            if (i179 < 0)
+                i179 = 0;
+            i180 = (int) (239.0F + 239.0F * (m.snap[1] / 350.0F));
+            if (i180 > 255)
+                i180 = 255;
+            if (i180 < 0)
+                i180 = 0;
+            i181 = (int) (255.0F + 255.0F * (m.snap[2] / 350.0F));
+            if (i181 > 255)
+                i181 = 255;
+            if (i181 < 0)
+                i181 = 0;
+            graphics2d.setColor(new Color(i179, i180, i181));
+            graphics2d.fillPolygon(is, is170, 8);
         }
         if (fcnt > 7) {
             fcnt = 0;
@@ -1728,121 +1728,121 @@ public class ContO {
             fcnt++;
     }
 
-    public int getpy(final int i, final int i_267_, final int i_268_) {
-        return (i - x) / 10 * ((i - x) / 10) + (i_267_ - y) / 10 * ((i_267_ - y) / 10)
-                + (i_268_ - z) / 10 * ((i_268_ - z) / 10);
+    public int getpy(final int i, final int i267, final int i268) {
+        return (i - x) / 10 * ((i - x) / 10) + (i267 - y) / 10 * ((i267 - y) / 10)
+                + (i268 - z) / 10 * ((i268 - z) / 10);
     }
 
-    public int getvalue(final String string, final String string_262_, final int i) {
-        int i_263_ = 0;
-        String string_264_ = "";
-        for (int i_265_ = string.length() + 1; i_265_ < string_262_.length(); i_265_++) {
-            final String string_266_ = new StringBuilder().append("").append(string_262_.charAt(i_265_)).toString();
-            if (string_266_.equals(",") || string_266_.equals(")")) {
-                i_263_++;
-                i_265_++;
+    public int getvalue(final String string, final String string262, final int i) {
+        int i263 = 0;
+        String string264 = "";
+        for (int i265 = string.length() + 1; i265 < string262.length(); i265++) {
+            final String string266 = new StringBuilder().append("").append(string262.charAt(i265)).toString();
+            if (string266.equals(",") || string266.equals(")")) {
+                i263++;
+                i265++;
             }
-            if (i_263_ == i)
-                string_264_ = new StringBuilder().append(string_264_).append(string_262_.charAt(i_265_)).toString();
+            if (i263 == i)
+                string264 = new StringBuilder().append(string264).append(string262.charAt(i265)).toString();
         }
-        return Float.valueOf(string_264_).intValue();
+        return Float.valueOf(string264).intValue();
     }
 
     public void lowshadow(final Graphics2D graphics2d, final int i) {
         final int[] is = new int[4];
-        final int[] is_146_ = new int[4];
-        final int[] is_147_ = new int[4];
-        int i_148_ = 1;
-        int i_149_;
-        for (i_149_ = Math.abs(zy); i_149_ > 270; i_149_ -= 360) {
+        final int[] is146 = new int[4];
+        final int[] is147 = new int[4];
+        int i148 = 1;
+        int i149;
+        for (i149 = Math.abs(zy); i149 > 270; i149 -= 360) {
             /* empty */
         }
-        i_149_ = Math.abs(i_149_);
-        if (i_149_ > 90)
-            i_148_ = -1;
+        i149 = Math.abs(i149);
+        if (i149 > 90)
+            i148 = -1;
         is[0] = (int) (keyx[0] * 1.2 + x - m.x);
-        is_147_[0] = (int) ((keyz[0] + 30) * i_148_ * 1.2 + z - m.z);
+        is147[0] = (int) ((keyz[0] + 30) * i148 * 1.2 + z - m.z);
         is[1] = (int) (keyx[1] * 1.2 + x - m.x);
-        is_147_[1] = (int) ((keyz[1] + 30) * i_148_ * 1.2 + z - m.z);
+        is147[1] = (int) ((keyz[1] + 30) * i148 * 1.2 + z - m.z);
         is[2] = (int) (keyx[3] * 1.2 + x - m.x);
-        is_147_[2] = (int) ((keyz[3] - 30) * i_148_ * 1.2 + z - m.z);
+        is147[2] = (int) ((keyz[3] - 30) * i148 * 1.2 + z - m.z);
         is[3] = (int) (keyx[2] * 1.2 + x - m.x);
-        is_147_[3] = (int) ((keyz[2] - 30) * i_148_ * 1.2 + z - m.z);
-        rot(is, is_147_, x - m.x, z - m.z, xz, 4);
-        int i_150_ = (int) (m.crgrnd[0] / 1.5);
-        int i_151_ = (int) (m.crgrnd[1] / 1.5);
-        int i_152_ = (int) (m.crgrnd[2] / 1.5);
-        for (int i_153_ = 0; i_153_ < 4; i_153_++)
-            is_146_[i_153_] = m.ground;
+        is147[3] = (int) ((keyz[2] - 30) * i148 * 1.2 + z - m.z);
+        rot(is, is147, x - m.x, z - m.z, xz, 4);
+        int i150 = (int) (m.crgrnd[0] / 1.5);
+        int i151 = (int) (m.crgrnd[1] / 1.5);
+        int i152 = (int) (m.crgrnd[2] / 1.5);
+        for (int i153 = 0; i153 < 4; i153++)
+            is146[i153] = m.ground;
         if (t.ncx != 0 || t.ncz != 0) {
-            int i_154_ = (x - t.sx) / 3000;
-            if (i_154_ > t.ncx)
-                i_154_ = t.ncx;
-            if (i_154_ < 0)
-                i_154_ = 0;
-            int i_155_ = (z - t.sz) / 3000;
-            if (i_155_ > t.ncz)
-                i_155_ = t.ncz;
-            if (i_155_ < 0)
-                i_155_ = 0;
-            for (int i_156_ = t.sect[i_154_][i_155_].length - 1; i_156_ >= 0; i_156_--) {
-                final int i_157_ = t.sect[i_154_][i_155_][i_156_];
-                int i_158_ = 0;
-                for (int i_159_ = 0; i_159_ < 4; i_159_++)
-                    if (Math.abs(t.zy[i_157_]) != 90 && Math.abs(t.xy[i_157_]) != 90 && t.rady[i_157_] != 801
-                            && Math.abs(is[i_159_] - (t.x[i_157_] - m.x)) < t.radx[i_157_]
-                            && Math.abs(is_147_[i_159_] - (t.z[i_157_] - m.z)) < t.radz[i_157_]
-                            && (!t.decor[i_157_] || m.resdown != 2))
-                        i_158_++;
-                if (i_158_ > 2) {
-                    for (int i_160_ = 0; i_160_ < 4; i_160_++) {
-                        is_146_[i_160_] = t.y[i_157_] - m.y;
-                        if (t.zy[i_157_] != 0)
-                            is_146_[i_160_] += (is_147_[i_160_] - (t.z[i_157_] - m.z - t.radz[i_157_]))
-                                    * m.sin(t.zy[i_157_]) / m.sin(90 - t.zy[i_157_])
-                                    - t.radz[i_157_] * m.sin(t.zy[i_157_]) / m.sin(90 - t.zy[i_157_]);
-                        if (t.xy[i_157_] != 0)
-                            is_146_[i_160_] += (is[i_160_] - (t.x[i_157_] - m.x - t.radx[i_157_])) * m.sin(t.xy[i_157_])
-                                    / m.sin(90 - t.xy[i_157_])
-                                    - t.radx[i_157_] * m.sin(t.xy[i_157_]) / m.sin(90 - t.xy[i_157_]);
+            int i154 = (x - t.sx) / 3000;
+            if (i154 > t.ncx)
+                i154 = t.ncx;
+            if (i154 < 0)
+                i154 = 0;
+            int i155 = (z - t.sz) / 3000;
+            if (i155 > t.ncz)
+                i155 = t.ncz;
+            if (i155 < 0)
+                i155 = 0;
+            for (int i156 = t.sect[i154][i155].length - 1; i156 >= 0; i156--) {
+                final int i157 = t.sect[i154][i155][i156];
+                int i158 = 0;
+                for (int i159 = 0; i159 < 4; i159++)
+                    if (Math.abs(t.zy[i157]) != 90 && Math.abs(t.xy[i157]) != 90 && t.rady[i157] != 801
+                            && Math.abs(is[i159] - (t.x[i157] - m.x)) < t.radx[i157]
+                            && Math.abs(is147[i159] - (t.z[i157] - m.z)) < t.radz[i157]
+                            && (!t.decor[i157] || m.resdown != 2))
+                        i158++;
+                if (i158 > 2) {
+                    for (int i160 = 0; i160 < 4; i160++) {
+                        is146[i160] = t.y[i157] - m.y;
+                        if (t.zy[i157] != 0)
+                            is146[i160] += (is147[i160] - (t.z[i157] - m.z - t.radz[i157]))
+                                    * m.sin(t.zy[i157]) / m.sin(90 - t.zy[i157])
+                                    - t.radz[i157] * m.sin(t.zy[i157]) / m.sin(90 - t.zy[i157]);
+                        if (t.xy[i157] != 0)
+                            is146[i160] += (is[i160] - (t.x[i157] - m.x - t.radx[i157])) * m.sin(t.xy[i157])
+                                    / m.sin(90 - t.xy[i157])
+                                    - t.radx[i157] * m.sin(t.xy[i157]) / m.sin(90 - t.xy[i157]);
                     }
-                    i_150_ = (int) (t.c[i_157_][0] / 1.5);
-                    i_151_ = (int) (t.c[i_157_][1] / 1.5);
-                    i_152_ = (int) (t.c[i_157_][2] / 1.5);
+                    i150 = (int) (t.c[i157][0] / 1.5);
+                    i151 = (int) (t.c[i157][1] / 1.5);
+                    i152 = (int) (t.c[i157][2] / 1.5);
                     break;
                 }
             }
         }
-        rot(is, is_147_, m.cx, m.cz, m.xz, 4);
-        rot(is_146_, is_147_, m.cy, m.cz, m.zy, 4);
+        rot(is, is147, m.cx, m.cz, m.xz, 4);
+        rot(is146, is147, m.cy, m.cz, m.zy, 4);
         boolean bool = true;
-        int i_161_ = 0;
-        int i_162_ = 0;
-        int i_163_ = 0;
-        int i_164_ = 0;
-        for (int i_165_ = 0; i_165_ < 4; i_165_++) {
-            is[i_165_] = xs(is[i_165_], is_147_[i_165_]);
-            is_146_[i_165_] = ys(is_146_[i_165_], is_147_[i_165_]);
-            if (is_146_[i_165_] < m.ih || is_147_[i_165_] < 10)
-                i_161_++;
-            if (is_146_[i_165_] > m.h || is_147_[i_165_] < 10)
-                i_162_++;
-            if (is[i_165_] < m.iw || is_147_[i_165_] < 10)
-                i_163_++;
-            if (is[i_165_] > m.w || is_147_[i_165_] < 10)
-                i_164_++;
+        int i161 = 0;
+        int i162 = 0;
+        int i163 = 0;
+        int i164 = 0;
+        for (int i165 = 0; i165 < 4; i165++) {
+            is[i165] = xs(is[i165], is147[i165]);
+            is146[i165] = ys(is146[i165], is147[i165]);
+            if (is146[i165] < m.ih || is147[i165] < 10)
+                i161++;
+            if (is146[i165] > m.h || is147[i165] < 10)
+                i162++;
+            if (is[i165] < m.iw || is147[i165] < 10)
+                i163++;
+            if (is[i165] > m.w || is147[i165] < 10)
+                i164++;
         }
-        if (i_163_ == 4 || i_161_ == 4 || i_162_ == 4 || i_164_ == 4)
+        if (i163 == 4 || i161 == 4 || i162 == 4 || i164 == 4)
             bool = false;
         if (bool) {
-            for (int i_166_ = 0; i_166_ < 16; i_166_++)
-                if (i > m.fade[i_166_]) {
-                    i_150_ = (i_150_ * m.fogd + m.cfade[0]) / (m.fogd + 1);
-                    i_151_ = (i_151_ * m.fogd + m.cfade[1]) / (m.fogd + 1);
-                    i_152_ = (i_152_ * m.fogd + m.cfade[2]) / (m.fogd + 1);
+            for (int i166 = 0; i166 < 16; i166++)
+                if (i > m.fade[i166]) {
+                    i150 = (i150 * m.fogd + m.cfade[0]) / (m.fogd + 1);
+                    i151 = (i151 * m.fogd + m.cfade[1]) / (m.fogd + 1);
+                    i152 = (i152 * m.fogd + m.cfade[2]) / (m.fogd + 1);
                 }
-            graphics2d.setColor(new Color(i_150_, i_151_, i_152_));
-            graphics2d.fillPolygon(is, is_146_, 4);
+            graphics2d.setColor(new Color(i150, i151, i152));
+            graphics2d.fillPolygon(is, is146, 4);
         }
     }
 
@@ -1853,121 +1853,121 @@ public class ContO {
         if (bool && sav[i] > dist || !bool && sav[i] <= dist) {
             if (stg[i] == 1) {
                 sbln[i] = 0.6F;
-                boolean bool_208_ = false;
+                boolean bool208 = false;
                 final int[] is = new int[3];
-                for (int i_209_ = 0; i_209_ < 3; i_209_++) {
-                    is[i_209_] = (int) (255.0F + 255.0F * (m.snap[i_209_] / 100.0F));
-                    if (is[i_209_] > 255)
-                        is[i_209_] = 255;
-                    if (is[i_209_] < 0)
-                        is[i_209_] = 0;
+                for (int i209 = 0; i209 < 3; i209++) {
+                    is[i209] = (int) (255.0F + 255.0F * (m.snap[i209] / 100.0F));
+                    if (is[i209] > 255)
+                        is[i209] = 255;
+                    if (is[i209] < 0)
+                        is[i209] = 0;
                 }
-                int i_210_ = (x - t.sx) / 3000;
-                if (i_210_ > t.ncx)
-                    i_210_ = t.ncx;
-                if (i_210_ < 0)
-                    i_210_ = 0;
-                int i_211_ = (z - t.sz) / 3000;
-                if (i_211_ > t.ncz)
-                    i_211_ = t.ncz;
-                if (i_211_ < 0)
-                    i_211_ = 0;
-                for (int i_212_ = 0; i_212_ < t.sect[i_210_][i_211_].length; i_212_++) {
-                    final int i_213_ = t.sect[i_210_][i_211_][i_212_];
-                    if (Math.abs(t.zy[i_213_]) != 90 && Math.abs(t.xy[i_213_]) != 90
-                            && Math.abs(sx[i] - t.x[i_213_]) < t.radx[i_213_]
-                            && Math.abs(sz[i] - t.z[i_213_]) < t.radz[i_213_]) {
-                        if (t.skd[i_213_] == 0)
+                int i210 = (x - t.sx) / 3000;
+                if (i210 > t.ncx)
+                    i210 = t.ncx;
+                if (i210 < 0)
+                    i210 = 0;
+                int i211 = (z - t.sz) / 3000;
+                if (i211 > t.ncz)
+                    i211 = t.ncz;
+                if (i211 < 0)
+                    i211 = 0;
+                for (int i212 = 0; i212 < t.sect[i210][i211].length; i212++) {
+                    final int i213 = t.sect[i210][i211][i212];
+                    if (Math.abs(t.zy[i213]) != 90 && Math.abs(t.xy[i213]) != 90
+                            && Math.abs(sx[i] - t.x[i213]) < t.radx[i213]
+                            && Math.abs(sz[i] - t.z[i213]) < t.radz[i213]) {
+                        if (t.skd[i213] == 0)
                             sbln[i] = 0.2F;
-                        if (t.skd[i_213_] == 1)
+                        if (t.skd[i213] == 1)
                             sbln[i] = 0.4F;
-                        if (t.skd[i_213_] == 2)
+                        if (t.skd[i213] == 2)
                             sbln[i] = 0.45F;
-                        for (int i_214_ = 0; i_214_ < 3; i_214_++)
-                            srgb[i][i_214_] = (t.c[i_213_][i_214_] + is[i_214_]) / 2;
-                        bool_208_ = true;
+                        for (int i214 = 0; i214 < 3; i214++)
+                            srgb[i][i214] = (t.c[i213][i214] + is[i214]) / 2;
+                        bool208 = true;
                     }
                 }
-                if (!bool_208_)
-                    for (int i_215_ = 0; i_215_ < 3; i_215_++)
-                        srgb[i][i_215_] = (m.crgrnd[i_215_] + is[i_215_]) / 2;
+                if (!bool208)
+                    for (int i215 = 0; i215 < 3; i215++)
+                        srgb[i][i215] = (m.crgrnd[i215] + is[i215]) / 2;
                 float f = (float) (0.1 + m.random());
                 if (f > 1.0F)
                     f = 1.0F;
                 scx[i] = (int) (scx[i] * f);
                 scz[i] = (int) (scx[i] * f);
-                for (int i_216_ = 0; i_216_ < 8; i_216_++)
-                    smag[i][i_216_] = osmag[i] * m.random() * 50.0F;
-                for (int i_217_ = 0; i_217_ < 8; i_217_++) {
-                    int i_218_ = i_217_ - 1;
-                    if (i_218_ == -1)
-                        i_218_ = 7;
-                    int i_219_ = i_217_ + 1;
-                    if (i_219_ == 8)
-                        i_219_ = 0;
-                    smag[i][i_217_] = ((smag[i][i_218_] + smag[i][i_219_]) / 2.0F + smag[i][i_217_]) / 2.0F;
+                for (int i216 = 0; i216 < 8; i216++)
+                    smag[i][i216] = osmag[i] * m.random() * 50.0F;
+                for (int i217 = 0; i217 < 8; i217++) {
+                    int i218 = i217 - 1;
+                    if (i218 == -1)
+                        i218 = 7;
+                    int i219 = i217 + 1;
+                    if (i219 == 8)
+                        i219 = 0;
+                    smag[i][i217] = ((smag[i][i218] + smag[i][i219]) / 2.0F + smag[i][i217]) / 2.0F;
                 }
                 smag[i][6] = smag[i][7];
             }
-            final int i_220_ = m.cx + (int) ((sx[i] - m.x - m.cx) * m.cos(m.xz) - (sz[i] - m.z - m.cz) * m.sin(m.xz));
-            int i_221_ = m.cz + (int) ((sx[i] - m.x - m.cx) * m.sin(m.xz) + (sz[i] - m.z - m.cz) * m.cos(m.xz));
-            final int i_222_ = m.cy
-                    + (int) ((sy[i] - m.y - m.cy - smag[i][7]) * m.cos(m.zy) - (i_221_ - m.cz) * m.sin(m.zy));
-            i_221_ = m.cz + (int) ((sy[i] - m.y - m.cy - smag[i][7]) * m.sin(m.zy) + (i_221_ - m.cz) * m.cos(m.zy));
+            final int i220 = m.cx + (int) ((sx[i] - m.x - m.cx) * m.cos(m.xz) - (sz[i] - m.z - m.cz) * m.sin(m.xz));
+            int i221 = m.cz + (int) ((sx[i] - m.x - m.cx) * m.sin(m.xz) + (sz[i] - m.z - m.cz) * m.cos(m.xz));
+            final int i222 = m.cy
+                    + (int) ((sy[i] - m.y - m.cy - smag[i][7]) * m.cos(m.zy) - (i221 - m.cz) * m.sin(m.zy));
+            i221 = m.cz + (int) ((sy[i] - m.y - m.cy - smag[i][7]) * m.sin(m.zy) + (i221 - m.cz) * m.cos(m.zy));
             sx[i] += scx[i] / (stg[i] + 1);
             sz[i] += scz[i] / (stg[i] + 1);
             final int[] is = new int[8];
-            final int[] is_223_ = new int[8];
-            is[0] = xs((int) (i_220_ + smag[i][0] * 0.9238F * 1.5F), i_221_);
-            is_223_[0] = ys((int) (i_222_ + smag[i][0] * 0.3826F * 1.5F), i_221_);
-            is[1] = xs((int) (i_220_ + smag[i][1] * 0.9238F * 1.5F), i_221_);
-            is_223_[1] = ys((int) (i_222_ - smag[i][1] * 0.3826F * 1.5F), i_221_);
-            is[2] = xs((int) (i_220_ + smag[i][2] * 0.3826F), i_221_);
-            is_223_[2] = ys((int) (i_222_ - smag[i][2] * 0.9238F), i_221_);
-            is[3] = xs((int) (i_220_ - smag[i][3] * 0.3826F), i_221_);
-            is_223_[3] = ys((int) (i_222_ - smag[i][3] * 0.9238F), i_221_);
-            is[4] = xs((int) (i_220_ - smag[i][4] * 0.9238F * 1.5F), i_221_);
-            is_223_[4] = ys((int) (i_222_ - smag[i][4] * 0.3826F * 1.5F), i_221_);
-            is[5] = xs((int) (i_220_ - smag[i][5] * 0.9238F * 1.5F), i_221_);
-            is_223_[5] = ys((int) (i_222_ + smag[i][5] * 0.3826F * 1.5F), i_221_);
-            is[6] = xs((int) (i_220_ - smag[i][6] * 0.3826F * 1.7F), i_221_);
-            is_223_[6] = ys((int) (i_222_ + smag[i][6] * 0.9238F), i_221_);
-            is[7] = xs((int) (i_220_ + smag[i][7] * 0.3826F * 1.7F), i_221_);
-            is_223_[7] = ys((int) (i_222_ + smag[i][7] * 0.9238F), i_221_);
-            for (int i_224_ = 0; i_224_ < 7; i_224_++)
-                smag[i][i_224_] += 5.0F + m.random() * 15.0F;
+            final int[] is223 = new int[8];
+            is[0] = xs((int) (i220 + smag[i][0] * 0.9238F * 1.5F), i221);
+            is223[0] = ys((int) (i222 + smag[i][0] * 0.3826F * 1.5F), i221);
+            is[1] = xs((int) (i220 + smag[i][1] * 0.9238F * 1.5F), i221);
+            is223[1] = ys((int) (i222 - smag[i][1] * 0.3826F * 1.5F), i221);
+            is[2] = xs((int) (i220 + smag[i][2] * 0.3826F), i221);
+            is223[2] = ys((int) (i222 - smag[i][2] * 0.9238F), i221);
+            is[3] = xs((int) (i220 - smag[i][3] * 0.3826F), i221);
+            is223[3] = ys((int) (i222 - smag[i][3] * 0.9238F), i221);
+            is[4] = xs((int) (i220 - smag[i][4] * 0.9238F * 1.5F), i221);
+            is223[4] = ys((int) (i222 - smag[i][4] * 0.3826F * 1.5F), i221);
+            is[5] = xs((int) (i220 - smag[i][5] * 0.9238F * 1.5F), i221);
+            is223[5] = ys((int) (i222 + smag[i][5] * 0.3826F * 1.5F), i221);
+            is[6] = xs((int) (i220 - smag[i][6] * 0.3826F * 1.7F), i221);
+            is223[6] = ys((int) (i222 + smag[i][6] * 0.9238F), i221);
+            is[7] = xs((int) (i220 + smag[i][7] * 0.3826F * 1.7F), i221);
+            is223[7] = ys((int) (i222 + smag[i][7] * 0.9238F), i221);
+            for (int i224 = 0; i224 < 7; i224++)
+                smag[i][i224] += 5.0F + m.random() * 15.0F;
             smag[i][7] = smag[i][6];
-            boolean bool_225_ = true;
-            int i_226_ = 0;
-            int i_227_ = 0;
-            int i_228_ = 0;
-            int i_229_ = 0;
-            for (int i_230_ = 0; i_230_ < 8; i_230_++) {
-                if (is_223_[i_230_] < m.ih || i_221_ < 10)
-                    i_226_++;
-                if (is_223_[i_230_] > m.h || i_221_ < 10)
-                    i_227_++;
-                if (is[i_230_] < m.iw || i_221_ < 10)
-                    i_228_++;
-                if (is[i_230_] > m.w || i_221_ < 10)
-                    i_229_++;
+            boolean bool225 = true;
+            int i226 = 0;
+            int i227 = 0;
+            int i228 = 0;
+            int i229 = 0;
+            for (int i230 = 0; i230 < 8; i230++) {
+                if (is223[i230] < m.ih || i221 < 10)
+                    i226++;
+                if (is223[i230] > m.h || i221 < 10)
+                    i227++;
+                if (is[i230] < m.iw || i221 < 10)
+                    i228++;
+                if (is[i230] > m.w || i221 < 10)
+                    i229++;
             }
-            if (i_228_ == 4 || i_226_ == 4 || i_227_ == 4 || i_229_ == 4)
-                bool_225_ = false;
-            if (bool_225_) {
-                int i_231_ = srgb[i][0];
-                int i_232_ = srgb[i][1];
-                int i_233_ = srgb[i][2];
-                for (int i_234_ = 0; i_234_ < 16; i_234_++)
-                    if (sav[i] > m.fade[i_234_]) {
-                        i_231_ = (i_231_ * m.fogd + m.cfade[0]) / (m.fogd + 1);
-                        i_232_ = (i_232_ * m.fogd + m.cfade[1]) / (m.fogd + 1);
-                        i_233_ = (i_233_ * m.fogd + m.cfade[2]) / (m.fogd + 1);
+            if (i228 == 4 || i226 == 4 || i227 == 4 || i229 == 4)
+                bool225 = false;
+            if (bool225) {
+                int i231 = srgb[i][0];
+                int i232 = srgb[i][1];
+                int i233 = srgb[i][2];
+                for (int i234 = 0; i234 < 16; i234++)
+                    if (sav[i] > m.fade[i234]) {
+                        i231 = (i231 * m.fogd + m.cfade[0]) / (m.fogd + 1);
+                        i232 = (i232 * m.fogd + m.cfade[1]) / (m.fogd + 1);
+                        i233 = (i233 * m.fogd + m.cfade[2]) / (m.fogd + 1);
                     }
-                graphics2d.setColor(new Color(i_231_, i_232_, i_233_));
+                graphics2d.setColor(new Color(i231, i232, i233));
                 final float f = sbln[i] - stg[i] * (sbln[i] / 8.0F);
                 graphics2d.setComposite(AlphaComposite.getInstance(3, f));
-                graphics2d.fillPolygon(is, is_223_, 8);
+                graphics2d.fillPolygon(is, is223, 8);
                 graphics2d.setComposite(AlphaComposite.getInstance(3, 1.0F));
             }
             if (stg[i] == 7)
@@ -1977,57 +1977,57 @@ public class ContO {
         }
     }
 
-    public int py(final int i, final int i_269_, final int i_270_, final int i_271_) {
-        return (i - i_269_) * (i - i_269_) + (i_270_ - i_271_) * (i_270_ - i_271_);
+    public int py(final int i, final int i269, final int i270, final int i271) {
+        return (i - i269) * (i - i269) + (i270 - i271) * (i270 - i271);
     }
 
-    public void rot(final int[] is, final int[] is_272_, final int i, final int i_273_, final int i_274_,
-            final int i_275_) {
-        if (i_274_ != 0)
-            for (int i_276_ = 0; i_276_ < i_275_; i_276_++) {
-                final int i_277_ = is[i_276_];
-                final int i_278_ = is_272_[i_276_];
-                is[i_276_] = i + (int) ((i_277_ - i) * m.cos(i_274_) - (i_278_ - i_273_) * m.sin(i_274_));
-                is_272_[i_276_] = i_273_ + (int) ((i_277_ - i) * m.sin(i_274_) + (i_278_ - i_273_) * m.cos(i_274_));
+    public void rot(final int[] is, final int[] is272, final int i, final int i273, final int i274,
+            final int i275) {
+        if (i274 != 0)
+            for (int i276 = 0; i276 < i275; i276++) {
+                final int i277 = is[i276];
+                final int i278 = is272[i276];
+                is[i276] = i + (int) ((i277 - i) * m.cos(i274) - (i278 - i273) * m.sin(i274));
+                is272[i276] = i273 + (int) ((i277 - i) * m.sin(i274) + (i278 - i273) * m.cos(i274));
             }
     }
 
-    public void sprk(final float f, final float f_235_, final float f_236_, final float f_237_, final float f_238_,
-            final float f_239_, final int i) {
+    public void sprk(final float f, final float f235, final float f236, final float f237, final float f238,
+            final float f239, final int i) {
         if (i != 1) {
             srx = (int) (f - sprkat * m.sin(xz));
-            sry = (int) (f_235_ - sprkat * m.cos(zy) * m.cos(xy));
-            srz = (int) (f_236_ + sprkat * m.cos(xz));
+            sry = (int) (f235 - sprkat * m.cos(zy) * m.cos(xy));
+            srz = (int) (f236 + sprkat * m.cos(xz));
             sprk = 1;
         } else {
             sprk++;
             if (sprk == 4) {
-                srx = (int) (x + f_237_);
-                sry = (int) f_235_;
-                srz = (int) (z + f_239_);
+                srx = (int) (x + f237);
+                sry = (int) f235;
+                srz = (int) (z + f239);
                 sprk = 5;
             } else {
                 srx = (int) f;
-                sry = (int) f_235_;
-                srz = (int) f_236_;
+                sry = (int) f235;
+                srz = (int) f236;
             }
         }
         if (i == 2)
             sprk = 6;
-        rcx = f_237_;
-        rcy = f_238_;
-        rcz = f_239_;
+        rcx = f237;
+        rcy = f238;
+        rcz = f239;
     }
 
-    public int xs(final int i, int i_260_) {
-        if (i_260_ < 50)
-            i_260_ = 50;
-        return (i_260_ - m.focus_point) * (m.cx - i) / i_260_ + i;
+    public int xs(final int i, int i260) {
+        if (i260 < 50)
+            i260 = 50;
+        return (i260 - m.focusPoint) * (m.cx - i) / i260 + i;
     }
 
-    public int ys(final int i, int i_261_) {
-        if (i_261_ < 50)
-            i_261_ = 50;
-        return (i_261_ - m.focus_point) * (m.cy - i) / i_261_ + i;
+    public int ys(final int i, int i261) {
+        if (i261 < 50)
+            i261 = 50;
+        return (i261 - m.focusPoint) * (m.cy - i) / i261 + i;
     }
 }

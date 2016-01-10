@@ -7,23 +7,23 @@ public class Utility {
      *
      *
      * @param string The variable name (e.g: foo(bar) = foo)
-     * @param string_262_ The string (single line) to get the value from
+     * @param string262 The string (single line) to get the value from
      * @param i The position of the value (starting from 0)
      * @return An integer containing the value
      */
-    public static int getvalue(final String string, final String string_262_, final int i) {
-        int i_263_ = 0;
-        String string_264_ = "";
-        for (int i_265_ = string.length() + 1; i_265_ < string_262_.length(); i_265_++) {
-            final String string_266_ = new StringBuilder().append("").append(string_262_.charAt(i_265_)).toString();
-            if (string_266_.equals(",") || string_266_.equals(")")) {
-                i_263_++;
-                i_265_++;
+    public static int getvalue(final String string, final String string262, final int i) {
+        int i263 = 0;
+        String string264 = "";
+        for (int i265 = string.length() + 1; i265 < string262.length(); i265++) {
+            final String string266 = new StringBuilder().append("").append(string262.charAt(i265)).toString();
+            if (string266.equals(",") || string266.equals(")")) {
+                i263++;
+                i265++;
             }
-            if (i_263_ == i)
-                string_264_ = new StringBuilder().append(string_264_).append(string_262_.charAt(i_265_)).toString();
+            if (i263 == i)
+                string264 = new StringBuilder().append(string264).append(string262.charAt(i265)).toString();
         }
-        return Float.valueOf(string_264_).intValue();
+        return Float.valueOf(string264).intValue();
     }
 
     /**
@@ -33,31 +33,31 @@ public class Utility {
      * @return
      */
     public static int getServerValue(final String string, final int i) {
-        int i_437_ = -1;
+        int i437 = -1;
         try {
-            int i_438_ = 0;
-            int i_439_ = 0;
-            int i_440_ = 0;
-            String string_441_ = "";
-            String string_442_ = "";
-            for ( /**/ ; i_438_ < string.length() && i_440_ != 2; i_438_++) {
-                string_441_ = new StringBuilder().append("").append(string.charAt(i_438_)).toString();
-                if (string_441_.equals("|")) {
-                    i_439_++;
-                    if (i_440_ == 1 || i_439_ > i)
-                        i_440_ = 2;
-                } else if (i_439_ == i) {
-                    string_442_ = new StringBuilder().append(string_442_).append(string_441_).toString();
-                    i_440_ = 1;
+            int i438 = 0;
+            int i439 = 0;
+            int i440 = 0;
+            String string441 = "";
+            String string442 = "";
+            for ( /**/ ; i438 < string.length() && i440 != 2; i438++) {
+                string441 = new StringBuilder().append("").append(string.charAt(i438)).toString();
+                if (string441.equals("|")) {
+                    i439++;
+                    if (i440 == 1 || i439 > i)
+                        i440 = 2;
+                } else if (i439 == i) {
+                    string442 = new StringBuilder().append(string442).append(string441).toString();
+                    i440 = 1;
                 }
             }
-            if (string_442_.equals(""))
-                string_442_ = "-1";
-            i_437_ = Integer.valueOf(string_442_).intValue();
+            if (string442.equals(""))
+                string442 = "-1";
+            i437 = Integer.valueOf(string442).intValue();
         } catch (final Exception exception) {
             /* empty */
         }
-        return i_437_;
+        return i437;
     }
 
     /**
@@ -65,14 +65,14 @@ public class Utility {
      *
      * @param i
      *            The 3D X point
-     * @param i_161_
+     * @param i161
      *            The 3D Y point
      * @return The 2D X coordinate.
      */
-    public static int xs(final int i, int i_338_, final Medium m) {
-        if (i_338_ < m.cz)
-            i_338_ = m.cz;
-        return (i_338_ - m.focus_point) * (m.cx - i) / i_338_ + i;
+    public static int xs(final int i, int i338, final Medium m) {
+        if (i338 < m.cz)
+            i338 = m.cz;
+        return (i338 - m.focusPoint) * (m.cx - i) / i338 + i;
     }
 
     /**
@@ -80,41 +80,41 @@ public class Utility {
      *
      * @param i
      *            The 3D Z point
-     * @param i_161_
+     * @param i161
      *            The 3D Y point
      * @return The 2D Y coordinate.
      */
-    public static int ys(final int i, int i_339_, final Medium m) {
-        if (i_339_ < m.cz)
-            i_339_ = m.cz;
-        return (i_339_ - m.focus_point) * (m.cy - i) / i_339_ + i;
+    public static int ys(final int i, int i339, final Medium m) {
+        if (i339 < m.cz)
+            i339 = m.cz;
+        return (i339 - m.focusPoint) * (m.cy - i) / i339 + i;
     }
 
     // alt
 
-    public static int altXs(final int i, int i_260_, final Medium m) {
-        if (i_260_ < 50)
-            i_260_ = 50;
-        return (i_260_ - m.focus_point) * (m.cx - i) / i_260_ + i;
+    public static int altXs(final int i, int i260, final Medium m) {
+        if (i260 < 50)
+            i260 = 50;
+        return (i260 - m.focusPoint) * (m.cx - i) / i260 + i;
     }
 
-    public static int altYs(final int i, int i_261_, final Medium m) {
-        if (i_261_ < 50)
-            i_261_ = 50;
-        return (i_261_ - m.focus_point) * (m.cy - i) / i_261_ + i;
+    public static int altYs(final int i, int i261, final Medium m) {
+        if (i261 < 50)
+            i261 = 50;
+        return (i261 - m.focusPoint) * (m.cy - i) / i261 + i;
     }
 
     // medium
 
-    /*static public int mediumXs(final int i, int i_272_) {
-    	if (i_272_ < m.cz)
-    		i_272_ = m.cz;
-    	return (i_272_ - m.focus_point) * (m.cx - i) / i_272_ + i;
+    /*static public int mediumXs(final int i, int i272) {
+    	if (i272 < m.cz)
+    		i272 = m.cz;
+    	return (i272 - m.focusPoint) * (m.cx - i) / i272 + i;
     }*/
 
-    static public int mediumYs(final int i, int i_273_, final Medium m) {
-        if (i_273_ < 10)
-            i_273_ = 10;
-        return (i_273_ - m.focus_point) * (m.cy - i) / i_273_ + i;
+    static public int mediumYs(final int i, int i273, final Medium m) {
+        if (i273 < 10)
+            i273 = 10;
+        return (i273 - m.focusPoint) * (m.cy - i) / i273 + i;
     }
 }

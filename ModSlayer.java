@@ -31,7 +31,7 @@ public class ModSlayer {
     static final int EFF_TREMOLO = 64;
     static final int EFF_VIBRATO = 8;
     static final int EFF_VOL_SLIDE = 1;
-    static final int loud_vol_adj[] = {
+    static final int loudVolAdj[] = {
             0, 0, 1, 2, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42,
             44, 46, 47, 48, 49, 50, 51, 52, 53, 53, 54, 55, 55, 56, 56, 57, 57, 58, 58, 59, 59, 60, 60, 61, 61, 61, 62,
             62, 62, 63, 63, 63, 63, 63, 63
@@ -40,18 +40,18 @@ public class ModSlayer {
     static final int MAX_TRACKS = 32;
     static final int MIDCRATE = 8448;
     static final int MIX_BUF_SIZE = 2048;
-    static final int normal_vol_adj[] = {
+    static final int normalVolAdj[] = {
             0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
             29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55,
             56, 57, 58, 59, 60, 61, 62, 63, 63
     };
-    static final int period_set[] = {
+    static final int periodSet[] = {
             1712, 1616, 1525, 1440, 1359, 1283, 1211, 1143, 1078, 1018, 961, 907, 856, 808, 763, 720, 679, 641, 605,
             571, 539, 509, 480, 453, 428, 404, 381, 360, 340, 321, 303, 286, 270, 254, 240, 227, 214, 202, 191, 180,
             170, 160, 151, 143, 135, 127, 120, 113, 107, 101, 95, 90, 85, 80, 76, 71, 67, 64, 60, 57, 53, 50, 48, 45,
             42, 40, 38, 36, 34, 32, 30, 28, 27, 25, 24, 22, 21, 20, 19, 18, 17, 16, 15, 14
     };
-    static final int period_set_step[] = {
+    static final int periodSetStep[] = {
             1664, 1570, 1482, 1399, 1321, 1247, 1177, 1110, 1048, 989, 934, 881, 832, 785, 741, 699, 660, 623, 588, 555,
             524, 494, 466, 440, 416, 392, 370, 350, 330, 312, 294, 278, 262, 247, 233, 220, 208, 196, 185, 175, 165,
             155, 147, 139, 131, 123, 116, 110, 104, 98, 92, 87, 82, 78, 73, 69, 65, 62, 58, 55, 51, 49, 46, 43, 41, 39,
@@ -77,34 +77,34 @@ public class ModSlayer {
 
     public boolean bit16;
     int bpm;
-    int bpm_samples;
-    int break_row;
-    int def_bpm;
-    int def_tempo;
+    int bpmSamples;
+    int breakRow;
+    int defBpm;
+    int defTempo;
     public int gain;
     public boolean loud;
     int mixspeed;
     Mod mod;
-    boolean mod_done;
+    boolean modDone;
     public int nloops;
     int numtracks;
     int olav;
     int oln;
-    int order_pos;
+    int orderPos;
     public int oversample;
     byte patt[];
     int pattofs;
     int row;
     public int samplingrate;
     int tempo;
-    int tempo_wait;
+    int tempoWait;
     ModTrackInfo tracks[];
-    int vol_adj[];
-    int vol_shift;
-    byte vol_table[];
+    int volAdj[];
+    int volShift;
+    byte volTable[];
 
     ModSlayer(final Mod mod1, final int i, final int j, final int k) {
-        mod_done = false;
+        modDone = false;
         nloops = 1;
         loud = false;
         oln = 0;
@@ -113,63 +113,63 @@ public class ModSlayer {
         gain = j;
         oversample = 1;
         mod = mod1;
-        def_tempo = 6;
-        def_bpm = k;
+        defTempo = 6;
+        defBpm = k;
     }
 
     final void beattrack(final ModTrackInfo modtrackinfo) {
-        if (modtrackinfo.period_low_limit == 0)
-            modtrackinfo.period_low_limit = 1;
+        if (modtrackinfo.periodLowLimit == 0)
+            modtrackinfo.periodLowLimit = 1;
         if ((modtrackinfo.effect & 1) != 0) {
-            modtrackinfo.volume += modtrackinfo.vol_slide;
+            modtrackinfo.volume += modtrackinfo.volSlide;
             if (modtrackinfo.volume < 0)
                 modtrackinfo.volume = 0;
             if (modtrackinfo.volume > 64)
                 modtrackinfo.volume = 64;
         }
         if ((modtrackinfo.effect & 2) != 0) {
-            if ((modtrackinfo.period += modtrackinfo.port_down) > modtrackinfo.period_high_limit)
-                modtrackinfo.period = modtrackinfo.period_high_limit;
-            modtrackinfo.pitch = modtrackinfo.finetune_rate / modtrackinfo.period;
+            if ((modtrackinfo.period += modtrackinfo.portDown) > modtrackinfo.periodHighLimit)
+                modtrackinfo.period = modtrackinfo.periodHighLimit;
+            modtrackinfo.pitch = modtrackinfo.finetuneRate / modtrackinfo.period;
         }
         if ((modtrackinfo.effect & 4) != 0) {
-            if ((modtrackinfo.period -= modtrackinfo.port_up) < modtrackinfo.period_low_limit)
+            if ((modtrackinfo.period -= modtrackinfo.portUp) < modtrackinfo.periodLowLimit)
                 if (mod.s3m)
-                    modtrackinfo.period = modtrackinfo.period_high_limit;
+                    modtrackinfo.period = modtrackinfo.periodHighLimit;
                 else
-                    modtrackinfo.period = modtrackinfo.period_low_limit;
-            modtrackinfo.pitch = modtrackinfo.finetune_rate / modtrackinfo.period;
+                    modtrackinfo.period = modtrackinfo.periodLowLimit;
+            modtrackinfo.pitch = modtrackinfo.finetuneRate / modtrackinfo.period;
         }
         if ((modtrackinfo.effect & 0x20) != 0) {
             if (modtrackinfo.portto < modtrackinfo.period) {
-                if ((modtrackinfo.period += modtrackinfo.port_inc) > modtrackinfo.portto)
+                if ((modtrackinfo.period += modtrackinfo.portInc) > modtrackinfo.portto)
                     modtrackinfo.period = modtrackinfo.portto;
             } else if (modtrackinfo.portto > modtrackinfo.period
-                    && (modtrackinfo.period -= modtrackinfo.port_inc) < modtrackinfo.portto)
+                    && (modtrackinfo.period -= modtrackinfo.portInc) < modtrackinfo.portto)
                 modtrackinfo.period = modtrackinfo.portto;
-            modtrackinfo.pitch = modtrackinfo.finetune_rate / modtrackinfo.period;
+            modtrackinfo.pitch = modtrackinfo.finetuneRate / modtrackinfo.period;
         }
         if ((modtrackinfo.effect & 8) != 0) {
-            modtrackinfo.vibpos += modtrackinfo.vib_rate << 2;
-            int i = sintable[modtrackinfo.vibpos >> 2 & 0x1f] * modtrackinfo.vib_depth >> 7;
+            modtrackinfo.vibpos += modtrackinfo.vibRate << 2;
+            int i = sintable[modtrackinfo.vibpos >> 2 & 0x1f] * modtrackinfo.vibDepth >> 7;
             if ((modtrackinfo.vibpos & 0x80) != 0)
                 i = -i;
             i += modtrackinfo.period;
-            if (i < modtrackinfo.period_low_limit)
-                i = modtrackinfo.period_low_limit;
-            if (i > modtrackinfo.period_high_limit)
-                i = modtrackinfo.period_high_limit;
-            modtrackinfo.pitch = modtrackinfo.finetune_rate / i;
+            if (i < modtrackinfo.periodLowLimit)
+                i = modtrackinfo.periodLowLimit;
+            if (i > modtrackinfo.periodHighLimit)
+                i = modtrackinfo.periodHighLimit;
+            modtrackinfo.pitch = modtrackinfo.finetuneRate / i;
         }
         if ((modtrackinfo.effect & 0x10) != 0) {
-            modtrackinfo.pitch = modtrackinfo.finetune_rate / modtrackinfo.arp[modtrackinfo.arpindex];
+            modtrackinfo.pitch = modtrackinfo.finetuneRate / modtrackinfo.arp[modtrackinfo.arpindex];
             modtrackinfo.arpindex++;
             if (modtrackinfo.arpindex >= 3)
                 modtrackinfo.arpindex = 0;
         }
     }
 
-    final int get_track(final ModTrackInfo modtrackinfo, final byte abyte0[], int i) {
+    final int getTrack(final ModTrackInfo modtrackinfo, final byte abyte0[], int i) {
         int j = abyte0[i] & 0xf0;
         int k = (abyte0[i++] & 0xf) << 8;
         k |= abyte0[i++] & 0xff;
@@ -181,19 +181,19 @@ public class ModSlayer {
             j--;
             final ModInstrument modinstrument = mod.insts[j];
             modtrackinfo.volume = modinstrument.volume;
-            modtrackinfo.length = modinstrument.sample_length;
-            modtrackinfo.repeat = modinstrument.repeat_point;
-            modtrackinfo.replen = modinstrument.repeat_length;
-            modtrackinfo.finetune_rate = modinstrument.finetune_rate;
+            modtrackinfo.length = modinstrument.sampleLength;
+            modtrackinfo.repeat = modinstrument.repeatPoint;
+            modtrackinfo.replen = modinstrument.repeatLength;
+            modtrackinfo.finetuneRate = modinstrument.finetuneRate;
             modtrackinfo.samples = modinstrument.samples;
-            modtrackinfo.period_low_limit = modinstrument.period_low_limit;
-            modtrackinfo.period_high_limit = modinstrument.period_high_limit;
+            modtrackinfo.periodLowLimit = modinstrument.periodLowLimit;
+            modtrackinfo.periodHighLimit = modinstrument.periodHighLimit;
         }
         if (k != 0) {
             modtrackinfo.portto = k;
             if (l != 3 && l != 5) {
-                modtrackinfo.start_period = modtrackinfo.period = k;
-                modtrackinfo.pitch = modtrackinfo.finetune_rate / k;
+                modtrackinfo.startPeriod = modtrackinfo.period = k;
+                modtrackinfo.pitch = modtrackinfo.finetuneRate / k;
                 modtrackinfo.position = 0;
             }
         }
@@ -207,11 +207,11 @@ public class ModSlayer {
 
                 case 0: // '\0'
                     int j1;
-                    for (j1 = 12; j1 < 48 && modtrackinfo.period < period_set[j1]; j1++)
+                    for (j1 = 12; j1 < 48 && modtrackinfo.period < periodSet[j1]; j1++)
                         ;
-                    modtrackinfo.arp[0] = period_set[j1];
-                    modtrackinfo.arp[1] = period_set[j1 + (i1 & 0xf)];
-                    modtrackinfo.arp[2] = period_set[j1 + ((i1 & 0xf0) >> 4)];
+                    modtrackinfo.arp[0] = periodSet[j1];
+                    modtrackinfo.arp[1] = periodSet[j1 + (i1 & 0xf)];
+                    modtrackinfo.arp[2] = periodSet[j1 + ((i1 & 0xf0) >> 4)];
                     modtrackinfo.arpindex = 0;
                     modtrackinfo.effect |= 0x10;
                     break;
@@ -219,26 +219,26 @@ public class ModSlayer {
                 case 1: // '\001'
                     modtrackinfo.effect |= 4;
                     if (i1 != 0)
-                        modtrackinfo.port_up = i1;
+                        modtrackinfo.portUp = i1;
                     break;
 
                 case 2: // '\002'
                     modtrackinfo.effect |= 2;
                     if (i1 != 0)
-                        modtrackinfo.port_down = i1;
+                        modtrackinfo.portDown = i1;
                     break;
 
                 case 3: // '\003'
                     if (i1 != 0)
-                        modtrackinfo.port_inc = i1 & 0xff;
+                        modtrackinfo.portInc = i1 & 0xff;
                     modtrackinfo.effect |= 0x20;
                     break;
 
                 case 4: // '\004'
                     if ((i1 & 0xf) != 0)
-                        modtrackinfo.vib_depth = i1 & 0xf;
+                        modtrackinfo.vibDepth = i1 & 0xf;
                     if ((i1 & 0xf0) != 0)
-                        modtrackinfo.vib_rate = (i1 & 0xf0) >> 4;
+                        modtrackinfo.vibRate = (i1 & 0xf0) >> 4;
                     if (k != 0)
                         modtrackinfo.vibpos = 0;
                     modtrackinfo.effect |= 8;
@@ -261,7 +261,7 @@ public class ModSlayer {
                     // fall through
 
                 case 10: // '\n'
-                    modtrackinfo.vol_slide = ((i1 & 0xf0) >> 4) - (i1 & 0xf);
+                    modtrackinfo.volSlide = ((i1 & 0xf0) >> 4) - (i1 & 0xf);
                     modtrackinfo.effect |= 1;
                     break;
 
@@ -273,7 +273,7 @@ public class ModSlayer {
                     break;
 
                 case 13: // '\r'
-                    break_row = ((i1 & 0xf0) >> 4) * 10 + (i1 & 0xf);
+                    breakRow = ((i1 & 0xf0) >> 4) * 10 + (i1 & 0xf);
                     row = 64;
                     break;
 
@@ -286,18 +286,18 @@ public class ModSlayer {
 
                         case 1: // '\001'
                             modtrackinfo.period += i1;
-                            if (modtrackinfo.period > modtrackinfo.period_high_limit)
-                                modtrackinfo.period = modtrackinfo.period_high_limit;
-                            modtrackinfo.pitch = modtrackinfo.finetune_rate / modtrackinfo.period;
+                            if (modtrackinfo.period > modtrackinfo.periodHighLimit)
+                                modtrackinfo.period = modtrackinfo.periodHighLimit;
+                            modtrackinfo.pitch = modtrackinfo.finetuneRate / modtrackinfo.period;
                             break label0;
 
                         case 2: // '\002'
                             modtrackinfo.period -= i1;
                             break;
                     }
-                    if (modtrackinfo.period < modtrackinfo.period_low_limit)
-                        modtrackinfo.period = modtrackinfo.period_low_limit;
-                    modtrackinfo.pitch = modtrackinfo.finetune_rate / modtrackinfo.period;
+                    if (modtrackinfo.period < modtrackinfo.periodLowLimit)
+                        modtrackinfo.period = modtrackinfo.periodLowLimit;
+                    modtrackinfo.pitch = modtrackinfo.finetuneRate / modtrackinfo.period;
                     break;
 
                 case 15: // '\017'
@@ -306,27 +306,27 @@ public class ModSlayer {
                     i1 &= 0xff;
                     if (i1 <= 32) {
                         tempo = i1;
-                        tempo_wait = i1;
+                        tempoWait = i1;
                     } else {
                         bpm = i1;
-                        bpm_samples = samplingrate / (103 * i1 >> 8) * oversample;
+                        bpmSamples = samplingrate / (103 * i1 >> 8) * oversample;
                     }
                     break;
             }
         return i;
     }
 
-    final void make_vol_table8() {
-        vol_table = new byte[16640];
+    final void makeVolTable8() {
+        volTable = new byte[16640];
         for (int i = 0; i < 16640; i++)
-            vol_table[i] = (byte) (vol_adj[i >> 8] * (byte) i >> 8 + vol_shift);
+            volTable[i] = (byte) (volAdj[i >> 8] * (byte) i >> 8 + volShift);
 
     }
 
-    final void mixtrack_16_mono(final ModTrackInfo modtrackinfo, final int ai[], int i, int j) {
+    final void mixtrack_16Mono(final ModTrackInfo modtrackinfo, final int ai[], int i, int j) {
         final byte abyte0[] = modtrackinfo.samples;
         int k = modtrackinfo.position;
-        final int j1 = vol_adj[modtrackinfo.volume] * gain >> vol_shift + 8;
+        final int j1 = volAdj[modtrackinfo.volume] * gain >> volShift + 8;
         int i2 = modtrackinfo.error;
         final int k1 = modtrackinfo.pitch & 0xfff;
         final int l1 = modtrackinfo.pitch >> 12;
@@ -375,14 +375,14 @@ public class ModSlayer {
     }
 
     final void startplaying(final boolean flag) {
-        vol_adj = flag ? loud_vol_adj : normal_vol_adj;
+        volAdj = flag ? loudVolAdj : normalVolAdj;
         mixspeed = samplingrate * oversample;
-        order_pos = 0;
-        tempo_wait = tempo = def_tempo;
-        bpm = def_bpm;
+        orderPos = 0;
+        tempoWait = tempo = defTempo;
+        bpm = defBpm;
         row = 64;
-        break_row = 0;
-        bpm_samples = samplingrate / (24 * bpm / 60) * oversample;
+        breakRow = 0;
+        bpmSamples = samplingrate / (24 * bpm / 60) * oversample;
         numtracks = mod.numtracks;
         tracks = new ModTrackInfo[numtracks];
         for (int i = 0; i < tracks.length; i++)
@@ -391,26 +391,26 @@ public class ModSlayer {
         if (mod.s3m)
             for (int j = 0; j < mod.insts.length; j++) {
                 final ModInstrument modinstrument = mod.insts[j];
-                modinstrument.finetune_rate = (int) (428L * modinstrument.finetune_value << 8) / mixspeed;
-                modinstrument.period_low_limit = 14;
-                modinstrument.period_high_limit = 1712;
+                modinstrument.finetuneRate = (int) (428L * modinstrument.finetuneValue << 8) / mixspeed;
+                modinstrument.periodLowLimit = 14;
+                modinstrument.periodHighLimit = 1712;
             }
         else
             for (int k = 0; k < mod.insts.length; k++) {
                 final ModInstrument modinstrument1 = mod.insts[k];
-                modinstrument1.finetune_rate = (int) (0x14b080000000L
-                        / (mixspeed * (1536 - modinstrument1.finetune_value)));
-                modinstrument1.period_low_limit = 113;
-                modinstrument1.period_high_limit = 856;
+                modinstrument1.finetuneRate = (int) (0x14b080000000L
+                        / (mixspeed * (1536 - modinstrument1.finetuneValue)));
+                modinstrument1.periodLowLimit = 113;
+                modinstrument1.periodHighLimit = 856;
             }
         if (numtracks > 8)
-            vol_shift = 2;
+            volShift = 2;
         else if (numtracks > 4)
-            vol_shift = 1;
+            volShift = 1;
         else
-            vol_shift = 0;
+            volShift = 0;
         if (!bit16)
-            make_vol_table8();
+            makeVolTable8();
     }
 
     public byte[] turnbytesNorm(final boolean flag) throws IOException {
@@ -423,21 +423,21 @@ public class ModSlayer {
         olav = 1;
         int j1 = 1;
         do {
-            if (mod_done)
+            if (modDone)
                 break;
-            if (--tempo_wait > 0)
+            if (--tempoWait > 0)
                 for (int i1 = 0; i1 < numtracks; i1++)
                     beattrack(tracks[i1]);
             else
                 updatetracks();
-            System.arraycopy(ai1, 0, ai, 0, bpm_samples);
+            System.arraycopy(ai1, 0, ai, 0, bpmSamples);
             for (int i = 0; i < numtracks; i++)
-                mixtrack_16_mono(tracks[i], ai, 0, bpm_samples);
+                mixtrack_16Mono(tracks[i], ai, 0, bpmSamples);
 
-            int k1 = bpm_samples;
+            int k1 = bpmSamples;
             if (oversample > 1) {
                 int l1 = 0;
-                k1 = bpm_samples / oversample;
+                k1 = bpmSamples / oversample;
                 if (oversample == 2)
                     for (int j = 0; j < k1; j++) {
                         ai[j] = ai[l1] + ai[l1 + 1] >> 1;
@@ -485,20 +485,20 @@ public class ModSlayer {
         final int ai1[] = new int[mixspeed];
         final int ai2[] = new int[0x30d400];
         oln = 0;
-        while (!mod_done) {
-            if (--tempo_wait > 0)
+        while (!modDone) {
+            if (--tempoWait > 0)
                 for (int k1 = 0; k1 < numtracks; k1++)
                     beattrack(tracks[k1]);
             else
                 updatetracks();
-            System.arraycopy(ai1, 0, ai, 0, bpm_samples);
+            System.arraycopy(ai1, 0, ai, 0, bpmSamples);
             for (int i = 0; i < numtracks; i++)
-                mixtrack_16_mono(tracks[i], ai, 0, bpm_samples);
+                mixtrack_16Mono(tracks[i], ai, 0, bpmSamples);
 
-            int l1 = bpm_samples;
+            int l1 = bpmSamples;
             if (oversample > 1) {
                 int i2 = 0;
-                l1 = bpm_samples / oversample;
+                l1 = bpmSamples / oversample;
                 if (oversample == 2)
                     for (int j = 0; j < l1; j++) {
                         ai[j] = ai[i2] + ai[i2 + 1] >> 1;
@@ -536,27 +536,27 @@ public class ModSlayer {
     }
 
     final void updatetracks() {
-        tempo_wait = tempo;
+        tempoWait = tempo;
         if (row >= 64) {
-            if (order_pos >= mod.song_length_patterns) {
-                order_pos = 0;
+            if (orderPos >= mod.songLengthPatterns) {
+                orderPos = 0;
                 nloops--;
                 if (nloops == 0)
-                    mod_done = true;
+                    modDone = true;
             }
-            row = break_row;
-            break_row = 0;
-            if (mod.positions[order_pos] == 255) {
-                order_pos = 0;
+            row = breakRow;
+            breakRow = 0;
+            if (mod.positions[orderPos] == 255) {
+                orderPos = 0;
                 row = 0;
             }
-            patt = mod.patterns[mod.positions[order_pos]];
+            patt = mod.patterns[mod.positions[orderPos]];
             pattofs = row * 4 * numtracks;
-            order_pos++;
+            orderPos++;
         }
         row++;
         for (int i = 0; i < numtracks; i++)
-            pattofs = get_track(tracks[i], patt, pattofs);
+            pattofs = getTrack(tracks[i], patt, pattofs);
 
     }
 
