@@ -77,6 +77,9 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
     int mouses = 0;
     int mousew = 0;
     Smenu mstgs = new Smenu(707);
+    /**
+     * Applies transparency to every polygon (20 is 20% opacity, 100 is 100% opacity)
+     */
     int mvect = 100;
     Checkbox mycar;
     int nob = 0;
