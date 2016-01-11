@@ -640,50 +640,6 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                     nob++;
                     notb = nob;
                 }
-                if (string.startsWith("fset")) {
-                    int i124 = getint("set", string, 0);
-                    if (xtgraphics.nplayers == 8) {
-                        if (i124 == 47)
-                            i124 = 76;
-                        if (i124 == 48)
-                            i124 = 77;
-                    }
-                    boolean bool = true;
-                    if (i124 >= 65 && i124 <= 75 && checkpoints.notb)
-                        bool = false;
-                    if (bool) {
-                        if (i124 == 49 || i124 == 64 || i124 >= 56 && i124 <= 61)
-                            xtgraphics.newparts = true;
-                        if ((checkpoints.stage < 0 || checkpoints.stage >= 28) && i124 >= 10 && i124 <= 25)
-                            medium.loadnew = true;
-                        i124 += partskips - 10;
-                        contos[nob] = new ContO(contos108[i124], getint("set", string, 1),
-                                medium.ground - contos108[i124].grat, getint("set", string, 2),
-                                getint("set", string, 4));
-                        if (string.indexOf(")p") != -1) {
-                            checkpoints.x[checkpoints.n] = getint("set", string, 1);
-                            checkpoints.z[checkpoints.n] = getint("set", string, 2);
-                            checkpoints.y[checkpoints.n] = getint("set", string, 3);
-                            checkpoints.typ[checkpoints.n] = 0;
-                            if (string.indexOf(")pt") != -1)
-                                checkpoints.typ[checkpoints.n] = -1;
-                            if (string.indexOf(")pr") != -1)
-                                checkpoints.typ[checkpoints.n] = -2;
-                            if (string.indexOf(")po") != -1)
-                                checkpoints.typ[checkpoints.n] = -3;
-                            if (string.indexOf(")ph") != -1)
-                                checkpoints.typ[checkpoints.n] = -4;
-                            if (string.indexOf("out") != -1)
-                                System.out
-                                        .println(new StringBuilder().append("out: ").append(checkpoints.n).toString());
-                            checkpoints.n++;
-                            notb = nob + 1;
-                        }
-                        nob++;
-                        if (medium.loadnew)
-                            medium.loadnew = false;
-                    }
-                }
                 if (checkpoints.nfix != 5 && string.startsWith("fix")) {
                     int i127 = getint("fix", string, 0);
                     i127 += partskips - 10;
