@@ -120,10 +120,7 @@ public class Control {
         if (!mad.dest) {
             if (mad.mtouch)
                 if (stcnt > statusque) {
-                    int i = checkpoints.stage;
-                    if (i > 10)
-                        i -= 10;
-                    acuracy = (7 - checkpoints.pos[mad.im]) * checkpoints.pos[0] * (6 - i * 2);
+                    acuracy = (7 - checkpoints.pos[mad.im]) * checkpoints.pos[0] * (6 - checkpoints.stage * 2);
                     if (acuracy < 0 || checkpoints.stage == -1)
                         acuracy = 0;
                     clrnce = 5;
