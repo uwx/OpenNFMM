@@ -84,6 +84,7 @@ public class Control {
     int wtx = 0;
     int wtz = 0;
     boolean zyinv = false;
+    boolean tele = false;
 
     public Control(final Medium medium) {
         m = medium;
@@ -98,6 +99,7 @@ public class Control {
         lookback = 0;
         enter = false;
         exit = false;
+        tele = false;
         if (i != 1) {
             radar = false;
             arrace = false;
@@ -1792,6 +1794,7 @@ public class Control {
         gowait = false;
         apunch = 0;
         exitattack = false;
+        tele = false;
         if (checkpoints.stage == 16 || checkpoints.stage == 18)
             hold = 50;
         if (checkpoints.stage == 17)

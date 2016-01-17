@@ -2311,6 +2311,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 if (view == 0) {
                     medium.follow(contos0[0], mads[0].cxz, u[0].lookback);
                     xtgraphics.stat(mads[0], contos0[0], checkpoints, u[0], true);
+                    xtgraphics.attack(rd, contos0, u[0]);
                     if (mads[0].outshakedam > 0) {
                         shaka = mads[0].outshakedam / 20;
                         if (shaka > 25)
@@ -2324,11 +2325,13 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 if (view == 1) {
                     medium.around(contos0[0], false);
                     xtgraphics.stat(mads[0], contos0[0], checkpoints, u[0], false);
+                    xtgraphics.attack(rd, contos0, u[0]);
                     mvect = 80;
                 }
                 if (view == 2) {
                     medium.watch(contos0[0], mads[0].mxz);
                     xtgraphics.stat(mads[0], contos0[0], checkpoints, u[0], false);
+                    xtgraphics.attack(rd, contos0, u[0]);
                     mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
                     if (mvect > 90)
                         mvect = 90;
@@ -2484,6 +2487,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                         medium.follow(contos0[xtgraphics.im], mads[xtgraphics.im].cxz, u[0].lookback);
                         xtgraphics.stat(mads[xtgraphics.im], contos0[xtgraphics.im], checkpoints, u[0],
                                 true);
+                        xtgraphics.attack(rd, contos0, u[0]);
                         if (mads[xtgraphics.im].outshakedam > 0) {
                             shaka = mads[xtgraphics.im].outshakedam / 20;
                             if (shaka > 25)
@@ -2498,12 +2502,14 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                         medium.around(contos0[xtgraphics.im], false);
                         xtgraphics.stat(mads[xtgraphics.im], contos0[xtgraphics.im], checkpoints, u[0],
                                 false);
+                        xtgraphics.attack(rd, contos0, u[0]);
                         mvect = 80;
                     }
                     if (view == 2) {
                         medium.watch(contos0[xtgraphics.im], mads[xtgraphics.im].mxz);
                         xtgraphics.stat(mads[xtgraphics.im], contos0[xtgraphics.im], checkpoints, u[0],
                                 false);
+                        xtgraphics.attack(rd, contos0, u[0]);
                         mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
                         if (mvect > 90)
                             mvect = 90;
@@ -3128,6 +3134,8 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 if (view == 3)
                     view = 0;
             }
+            if (e.getKeyCode() == KeyEvent.VK_C)
+                u[0].tele = true;
         }
     }
 
@@ -3145,6 +3153,8 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                     u[0].left = false;
                 if (e.getKeyCode() == KeyEvent.VK_SPACE)
                     u[0].handb = false;
+                if (e.getKeyCode() == KeyEvent.VK_C)
+                    u[0].tele = false;
             }
             if (e.getKeyCode() == 27) {
                 u[0].exit = false;

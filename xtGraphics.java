@@ -495,6 +495,7 @@ public class xtGraphics extends Panel implements Runnable {
     int[] zstart = {
             -760, -380, -380, 0, 380, 380, 760, 0
     };
+    private int arrowvar = -1;
 
     public xtGraphics(final Medium medium, final CarDefine cardefine, final Graphics2D graphics2d,
             final GameSparker gamesparker) {
@@ -547,6 +548,7 @@ public class xtGraphics extends Panel implements Runnable {
         is218[6] = i221 + 50;
         int i224;
         if (!bool) {
+            arrowvar = -1;
             int i225 = 0;
             if (checkpoints.x[i] - checkpoints.opx[im] >= 0)
                 i225 = 180;
@@ -570,6 +572,7 @@ public class xtGraphics extends Panel implements Runnable {
                     }
             } else
                 i226 = alocked;
+            arrowvar = i226;
             int i230 = 0;
             if (checkpoints.opx[i226] - checkpoints.opx[im] >= 0)
                 i230 = 180;
@@ -8364,6 +8367,26 @@ public class xtGraphics extends Panel implements Runnable {
             app.tnick.setVisible(false);
             app.tpass.setVisible(false);
             intertrack.stop();
+        }
+    }
+
+    public void attack(Graphics2D rd, ContO conto[], Control control)
+    {
+        if(control.tele && arrowvar != -1)
+        {
+            conto[im].teleflash(rd);
+
+            conto[im].x = conto[arrowvar].x;// + 400;
+            conto[im].z = conto[arrowvar].z;// - 400;
+            ///conto[im].y = conto[arrowvar].y; ////this makes it really overpowered (lel like its not already), plus glitchy
+
+            // you can add some other features here, for example:
+            // conto[im].xz = conto[arrowvar].xz; // this will rotate the player to the angle of the
+
+            wasay = true;
+            say = "Sucessfully teleported to " + cd.names[sc[arrowvar]];
+
+            tcnt = -5;
         }
     }
 

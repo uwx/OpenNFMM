@@ -1578,6 +1578,158 @@ public class ContO {
         }
     }
 
+    public void teleflash(Graphics2D rd)
+    {
+        int ai[] = new int[8];
+        int ai1[] = new int[8];
+        int ai2[] = new int[4];
+        int j1 = 0;
+        do
+        {
+            ai[j1] = (keyx[j1] + x) - m.x;
+            ai1[j1] = (grat + y) - m.y;
+            ai2[j1] = (keyz[j1] + z) - m.z;
+        } while(++j1 < 4);
+        rot(ai, ai1, x - m.x, y - m.y, xy, 4);
+        rot(ai1, ai2, y - m.y, z - m.y, zy, 4);
+        rot(ai, ai2, x - m.x, z - m.z, xz, 4);
+        rot(ai, ai2, m.cx, m.cz, m.xz, 4);
+        rot(ai1, ai2, m.cy, m.cz, m.zy, 4);
+        j1 = 0;
+        int l1 = 0;
+        int i2 = 0;
+        int j2 = 0;
+        do
+        {
+            int k2 = 0;
+            do
+            {
+                if(Math.abs(ai[j2] - ai[k2]) > j1)
+                {
+                    j1 = Math.abs(ai[j2] - ai[k2]);
+                }
+                if(Math.abs(ai1[j2] - ai1[k2]) > l1)
+                {
+                    l1 = Math.abs(ai1[j2] - ai1[k2]);
+                }
+                if(py(ai[j2], ai[k2], ai1[j2], ai1[k2]) > i2)
+                {
+                    i2 = py(ai[j2], ai[k2], ai1[j2], ai1[k2]);
+                }
+            } while(++k2 < 4);
+        } while(++j2 < 4);
+        i2 = (int)(Math.sqrt(i2) / 1.5D);
+        if(j1 < i2)
+        {
+            j1 = i2;
+        }
+        if(l1 < i2)
+        {
+            l1 = i2;
+        }
+        j2 = m.cx + (int)((float)(x - m.x - m.cx) * m.cos(m.xz) - (float)(z - m.z - m.cz) * m.sin(m.xz));
+        int l2 = m.cz + (int)((float)(x - m.x - m.cx) * m.sin(m.xz) + (float)(z - m.z - m.cz) * m.cos(m.xz));
+        int i3 = m.cy + (int)((float)(y - m.y - m.cy) * m.cos(m.zy) - (float)(l2 - m.cz) * m.sin(m.zy));
+        l2 = m.cz + (int)((float)(y - m.y - m.cy) * m.sin(m.zy) + (float)(l2 - m.cz) * m.cos(m.zy));
+        ai[0] = xs((int)((double)j2 - (double)j1 / 0.80000000000000004D - (double)m.random() * ((double)j1 / 2.3999999999999999D)), l2);
+        ai1[0] = ys((int)((double)i3 - (double)l1 / 1.9199999999999999D - (double)m.random() * ((double)l1 / 5.6699999999999999D)), l2);
+        ai[1] = xs((int)((double)j2 - (double)j1 / 0.80000000000000004D - (double)m.random() * ((double)j1 / 2.3999999999999999D)), l2);
+        ai1[1] = ys((int)((double)i3 + (double)l1 / 1.9199999999999999D + (double)m.random() * ((double)l1 / 5.6699999999999999D)), l2);
+        ai[2] = xs((int)((double)j2 - (double)j1 / 1.9199999999999999D - (double)m.random() * ((double)j1 / 5.6699999999999999D)), l2);
+        ai1[2] = ys((int)((double)i3 + (double)l1 / 0.80000000000000004D + (double)m.random() * ((double)l1 / 2.3999999999999999D)), l2);
+        ai[3] = xs((int)((double)j2 + (double)j1 / 1.9199999999999999D + (double)m.random() * ((double)j1 / 5.6699999999999999D)), l2);
+        ai1[3] = ys((int)((double)i3 + (double)l1 / 0.80000000000000004D + (double)m.random() * ((double)l1 / 2.3999999999999999D)), l2);
+        ai[4] = xs((int)((double)j2 + (double)j1 / 0.80000000000000004D + (double)m.random() * ((double)j1 / 2.3999999999999999D)), l2);
+        ai1[4] = ys((int)((double)i3 + (double)l1 / 1.9199999999999999D + (double)m.random() * ((double)l1 / 5.6699999999999999D)), l2);
+        ai[5] = xs((int)((double)j2 + (double)j1 / 0.80000000000000004D + (double)m.random() * ((double)j1 / 2.3999999999999999D)), l2);
+        ai1[5] = ys((int)((double)i3 - (double)l1 / 1.9199999999999999D - (double)m.random() * ((double)l1 / 5.6699999999999999D)), l2);
+        ai[6] = xs((int)((double)j2 + (double)j1 / 1.9199999999999999D + (double)m.random() * ((double)j1 / 5.6699999999999999D)), l2);
+        ai1[6] = ys((int)((double)i3 - (double)l1 / 0.80000000000000004D - (double)m.random() * ((double)l1 / 2.3999999999999999D)), l2);
+        ai[7] = xs((int)((double)j2 - (double)j1 / 1.9199999999999999D - (double)m.random() * ((double)j1 / 5.6699999999999999D)), l2);
+        ai1[7] = ys((int)((double)i3 - (double)l1 / 0.80000000000000004D - (double)m.random() * ((double)l1 / 2.3999999999999999D)), l2);
+
+
+            rot(ai, ai1, xs(j2, l2), ys(i3, l2), 22, 8);
+
+
+        //FIX HOOP COLOR
+        int j3 = (int)(25F + 25F * ((float)m.snap[0] / 200F));
+        if(j3 > 25)
+        {
+            j3 = 25;
+        }
+        if(j3 < 0)
+        {
+            j3 = 0;
+        }
+        int k3 = (int)(0F + 0F * ((float)m.snap[1] / 200F));
+        if(k3 > 0)
+        {
+            k3 = 0;
+        }
+        if(k3 < 0)
+        {
+            k3 = 0;
+        }
+        int l3 = (int)(0F + 0F * ((float)m.snap[2] / 200F));
+        if(l3 > 0)
+        {
+            l3 = 0;
+        }
+        if(l3 < 0)
+        {
+            l3 = 0;
+        }
+        rd.setColor(new Color(j3, k3, l3));
+        rd.fillPolygon(ai, ai1, 8);
+        ai[0] = xs((int)((float)(j2 - j1) - m.random() * (float)(j1 / 4)), l2);
+        ai1[0] = ys((int)((double)i3 - (double)l1 / 2.3999999999999999D - (double)m.random() * ((double)l1 / 9.5999999999999996D)), l2);
+        ai[1] = xs((int)((float)(j2 - j1) - m.random() * (float)(j1 / 4)), l2);
+        ai1[1] = ys((int)((double)i3 + (double)l1 / 2.3999999999999999D + (double)m.random() * ((double)l1 / 9.5999999999999996D)), l2);
+        ai[2] = xs((int)((double)j2 - (double)j1 / 2.3999999999999999D - (double)m.random() * ((double)j1 / 9.5999999999999996D)), l2);
+        ai1[2] = ys((int)((float)(i3 + l1) + m.random() * (float)(l1 / 4)), l2);
+        ai[3] = xs((int)((double)j2 + (double)j1 / 2.3999999999999999D + (double)m.random() * ((double)j1 / 9.5999999999999996D)), l2);
+        ai1[3] = ys((int)((float)(i3 + l1) + m.random() * (float)(l1 / 4)), l2);
+        ai[4] = xs((int)((float)(j2 + j1) + m.random() * (float)(j1 / 4)), l2);
+        ai1[4] = ys((int)((double)i3 + (double)l1 / 2.3999999999999999D + (double)m.random() * ((double)l1 / 9.5999999999999996D)), l2);
+        ai[5] = xs((int)((float)(j2 + j1) + m.random() * (float)(j1 / 4)), l2);
+        ai1[5] = ys((int)((double)i3 - (double)l1 / 2.3999999999999999D - (double)m.random() * ((double)l1 / 9.5999999999999996D)), l2);
+        ai[6] = xs((int)((double)j2 + (double)j1 / 2.3999999999999999D + (double)m.random() * ((double)j1 / 9.5999999999999996D)), l2);
+        ai1[6] = ys((int)((float)(i3 - l1) - m.random() * (float)(l1 / 4)), l2);
+        ai[7] = xs((int)((double)j2 - (double)j1 / 2.3999999999999999D - (double)m.random() * ((double)j1 / 9.5999999999999996D)), l2);
+        ai1[7] = ys((int)((float)(i3 - l1) - m.random() * (float)(l1 / 4)), l2);
+        //CARFIX COLOR #2
+        j3 = (int)(255F + 255F * ((float)m.snap[0] / 200F));
+        if(j3 > 255)
+        {
+            j3 = 255;
+        }
+        if(j3 < 0)
+        {
+            j3 = 0;
+        }
+        k3 = (int)(25F + 25F * ((float)m.snap[1] / 200F));
+        if(k3 > 255)
+        {
+            k3 = 255;
+        }
+        if(k3 < 0)
+        {
+            k3 = 0;
+        }
+        l3 = (int)(25F + 25F * ((float)m.snap[2] / 200F));
+        if(l3 > 255)
+        {
+            l3 = 255;
+        }
+        if(l3 < 0)
+        {
+            l3 = 0;
+        }
+        rd.setColor(new Color(j3, k3, l3));
+        rd.fillPolygon(ai, ai1, 8);
+    }
+
     public void fixit(final Graphics2D graphics2d) {
         if (fcnt == 1)
             for (int i = 0; i < npl; i++) {
