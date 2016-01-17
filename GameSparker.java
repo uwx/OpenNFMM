@@ -857,7 +857,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
             record.reset(contos);
         } else if (xtgraphics.fase == 2)
             xtgraphics.fase = 1;
-        for (int k = 0; k < nob; k++)
+        for (int k = 0; k < xtgraphics.nplayers; k++)
             for (int j = 0; j < contos[k].npl; j++)
                 contos[k].p[j].embos = 1;
         System.gc();
