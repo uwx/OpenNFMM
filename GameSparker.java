@@ -32,6 +32,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URL;
 import java.util.Date;
@@ -493,20 +494,20 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
         xtgraphics.newparts = false;
         String string = "";
         try {
-            DataInputStream datainputstream;
+            BufferedReader stageDataReader;
             if (xtgraphics.multion == 0 && checkpoints.stage != -2) {
-                String string112 = new StringBuilder().append("stages/").append(checkpoints.stage).append("")
+                String customStagePath = new StringBuilder().append("stages/").append(checkpoints.stage).append("")
                         .toString();
                 if (checkpoints.stage == -1)
-                    string112 = new StringBuilder().append("mystages/").append(checkpoints.name).append("")
+                    customStagePath = new StringBuilder().append("mystages/").append(checkpoints.name).append("")
                             .toString();
-                final File file = new File(new StringBuilder().append("").append(Madness.fpath).append("")
-                        .append(string112).append(".txt").toString());
-                datainputstream = new DataInputStream(new FileInputStream(file));
+                final File customStageFile = new File(new StringBuilder().append("").append(Madness.fpath).append("")
+                        .append(customStagePath).append(".txt").toString());
+                stageDataReader = new BufferedReader(new InputStreamReader(new DataInputStream(new FileInputStream(customStageFile))));
             } else if (checkpoints.stage > 0) {
                 final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/stages/")
                         .append(checkpoints.stage).append(".txt").toString());
-                datainputstream = new DataInputStream(url.openStream());
+                stageDataReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
             } else {
                 String string113 = new StringBuilder().append("http://multiplayer.needformadness.com/tracks/")
                         .append(checkpoints.name).append(".radq").toString();
@@ -540,10 +541,10 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 }
                 zipinputstream.close();
                 datainputstream115.close();
-                datainputstream = new DataInputStream(new ByteArrayInputStream(is120));
+                stageDataReader = new BufferedReader(new InputStreamReader(new DataInputStream(new ByteArrayInputStream(is120))));
             }
             String string123;
-            while ((string123 = datainputstream.readLine()) != null) {
+            while ((string123 = stageDataReader.readLine()) != null) {
                 string = new StringBuilder().append("").append(string123.trim()).toString();
                 if (string.startsWith("snap"))
                     medium.setsnap(getint("snap", string, 0), getint("snap", string, 1), getint("snap", string, 2));
@@ -786,7 +787,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                     trackers.nt++;
                 }
             }
-            datainputstream.close();
+            stageDataReader.close();
             medium.newpolys(i109, i - i109, i111, i110 - i111, trackers, notb);
             medium.newclouds(i109, i, i111, i110);
             medium.newmountains(i109, i, i111, i110);
