@@ -1,5 +1,4 @@
 
-
 /* Smenu - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -487,7 +486,7 @@ public class Smenu {
         show = true;
     }
 
-    public void setEnabled(boolean b) {
+    public void setEnabled(final boolean b) {
         dis = b;
     }
 }

@@ -255,17 +255,16 @@ public class ContO {
                             is3[i] = (int) (getvalue("p", string, 0) * f * f2 * fs[0]);
                             is4[i] = (int) (getvalue("p", string, 1) * f * fs[1]);
                             is5[i] = (int) (getvalue("p", string, 2) * f * fs[2]);
-                            final int i18 = (int) Math
-                                    .sqrt(is3[i] * is3[i] + is4[i] * is4[i] + is5[i] * is5[i]);
+                            final int i18 = (int) Math.sqrt(is3[i] * is3[i] + is4[i] * is4[i] + is5[i] * is5[i]);
                             if (i18 > maxR)
                                 maxR = i18;
                             i++;
                         }
                     }
                     if (string.startsWith("</p>")) {
-                        p[npl] = new Plane(m, t, is3, is5, is4, i, is6, i14, i10, i11, 0, 0, 0, disline,
-                                0, bool7, i13, bool15, randomcolor, randoutline, customstroke, strokewidth,
-                                strokecap, strokejoin, strokemtlimit);
+                        p[npl] = new Plane(m, t, is3, is5, is4, i, is6, i14, i10, i11, 0, 0, 0, disline, 0, bool7, i13,
+                                bool15, randomcolor, randoutline, customstroke, strokewidth, strokecap, strokejoin,
+                                strokemtlimit);
                         if (is6[0] == fcol[0] && is6[1] == fcol[1] && is6[2] == fcol[2] && i14 == 0)
                             p[npl].colnum = 1;
                         if (is6[0] == scol[0] && is6[1] == scol[1] && is6[2] == scol[2] && i14 == 0)
@@ -513,14 +512,11 @@ public class ContO {
                     if (p[i27].oz[i35] < i34)
                         i34 = p[i27].oz[i35];
                 }
-                if (Math.abs(i29 - i30) <= Math.abs(i31 - i32)
-                        && Math.abs(i29 - i30) <= Math.abs(i33 - i34))
+                if (Math.abs(i29 - i30) <= Math.abs(i31 - i32) && Math.abs(i29 - i30) <= Math.abs(i33 - i34))
                     i28 = 1;
-                if (Math.abs(i31 - i32) <= Math.abs(i29 - i30)
-                        && Math.abs(i31 - i32) <= Math.abs(i33 - i34))
+                if (Math.abs(i31 - i32) <= Math.abs(i29 - i30) && Math.abs(i31 - i32) <= Math.abs(i33 - i34))
                     i28 = 2;
-                if (Math.abs(i33 - i34) <= Math.abs(i29 - i30)
-                        && Math.abs(i33 - i34) <= Math.abs(i31 - i32))
+                if (Math.abs(i33 - i34) <= Math.abs(i29 - i30) && Math.abs(i33 - i34) <= Math.abs(i31 - i32))
                     i28 = 3;
                 if (i28 == 2 && (!bool26 || (i31 + i32) / 2 < roofat)) {
                     roofat = (i31 + i32) / 2;
@@ -537,14 +533,16 @@ public class ContO {
                         if (i40 >= p[i27].n)
                             i40 -= p[i27].n;
                         if (i28 == 1) {
-                            int i41 = Math.abs((int) (Math
-                                    .atan((double) (p[i27].oz[i38] - p[i27].oz[i39])
-                                            / (double) (p[i27].oy[i38] - p[i27].oy[i39]))
-                                    / 0.017453292519943295));
-                            int i42 = Math.abs((int) (Math
-                                    .atan((double) (p[i27].oz[i40] - p[i27].oz[i39])
-                                            / (double) (p[i27].oy[i40] - p[i27].oy[i39]))
-                                    / 0.017453292519943295));
+                            int i41 = Math
+                                    .abs((int) (Math
+                                            .atan((double) (p[i27].oz[i38] - p[i27].oz[i39])
+                                                    / (double) (p[i27].oy[i38] - p[i27].oy[i39]))
+                                            / 0.017453292519943295));
+                            int i42 = Math
+                                    .abs((int) (Math
+                                            .atan((double) (p[i27].oz[i40] - p[i27].oz[i39])
+                                                    / (double) (p[i27].oy[i40] - p[i27].oy[i39]))
+                                            / 0.017453292519943295));
                             if (i41 > 45)
                                 i41 = 90 - i41;
                             else
@@ -555,14 +553,16 @@ public class ContO {
                             }
                         }
                         if (i28 == 2) {
-                            int i43 = Math.abs((int) (Math
-                                    .atan((double) (p[i27].oz[i38] - p[i27].oz[i39])
-                                            / (double) (p[i27].ox[i38] - p[i27].ox[i39]))
-                                    / 0.017453292519943295));
-                            int i44 = Math.abs((int) (Math
-                                    .atan((double) (p[i27].oz[i40] - p[i27].oz[i39])
-                                            / (double) (p[i27].ox[i40] - p[i27].ox[i39]))
-                                    / 0.017453292519943295));
+                            int i43 = Math
+                                    .abs((int) (Math
+                                            .atan((double) (p[i27].oz[i38] - p[i27].oz[i39])
+                                                    / (double) (p[i27].ox[i38] - p[i27].ox[i39]))
+                                            / 0.017453292519943295));
+                            int i44 = Math
+                                    .abs((int) (Math
+                                            .atan((double) (p[i27].oz[i40] - p[i27].oz[i39])
+                                                    / (double) (p[i27].ox[i40] - p[i27].ox[i39]))
+                                            / 0.017453292519943295));
                             if (i43 > 45)
                                 i43 = 90 - i43;
                             else
@@ -573,14 +573,16 @@ public class ContO {
                             }
                         }
                         if (i28 == 3) {
-                            int i45 = Math.abs((int) (Math
-                                    .atan((double) (p[i27].oy[i38] - p[i27].oy[i39])
-                                            / (double) (p[i27].ox[i38] - p[i27].ox[i39]))
-                                    / 0.017453292519943295));
-                            int i46 = Math.abs((int) (Math
-                                    .atan((double) (p[i27].oy[i40] - p[i27].oy[i39])
-                                            / (double) (p[i27].ox[i40] - p[i27].ox[i39]))
-                                    / 0.017453292519943295));
+                            int i45 = Math
+                                    .abs((int) (Math
+                                            .atan((double) (p[i27].oy[i38] - p[i27].oy[i39])
+                                                    / (double) (p[i27].ox[i38] - p[i27].ox[i39]))
+                                            / 0.017453292519943295));
+                            int i46 = Math
+                                    .abs((int) (Math
+                                            .atan((double) (p[i27].oy[i40] - p[i27].oy[i39])
+                                                    / (double) (p[i27].ox[i40] - p[i27].ox[i39]))
+                                            / 0.017453292519943295));
                             if (i45 > 45)
                                 i45 = 90 - i45;
                             else
@@ -758,8 +760,7 @@ public class ContO {
                                 for (int i75 = 0; i75 < p[i73].n; i75++) {
                                     bools[i75] = false;
                                     for (int i76 = 0; i76 < p[i27].n; i76++)
-                                        if (p[i27].ox[i76] == p[i73].ox[i75]
-                                                && p[i27].oy[i76] == p[i73].oy[i75]
+                                        if (p[i27].ox[i76] == p[i73].ox[i75] && p[i27].oy[i76] == p[i73].oy[i75]
                                                 && p[i27].oz[i76] == p[i73].oz[i75]) {
                                             bools[i75] = true;
                                             bool74 = true;
@@ -862,11 +863,10 @@ public class ContO {
         for (int i82 = 0; i82 < npl; i82++) {
             if (conto78.p[i82].master == 1)
                 conto78.p[i82].n = 20;
-            p[i82] = new Plane(m, t, conto78.p[i82].ox, conto78.p[i82].oz, conto78.p[i82].oy,
-                    conto78.p[i82].n, conto78.p[i82].oc, conto78.p[i82].glass, conto78.p[i82].gr,
-                    conto78.p[i82].fs, conto78.p[i82].wx, conto78.p[i82].wy, conto78.p[i82].wz,
-                    conto78.disline, conto78.p[i82].bfase, conto78.p[i82].road, conto78.p[i82].light,
-                    conto78.p[i82].solo, conto78.p[i82].randomcolor, conto78.p[i82].randoutline,
+            p[i82] = new Plane(m, t, conto78.p[i82].ox, conto78.p[i82].oz, conto78.p[i82].oy, conto78.p[i82].n,
+                    conto78.p[i82].oc, conto78.p[i82].glass, conto78.p[i82].gr, conto78.p[i82].fs, conto78.p[i82].wx,
+                    conto78.p[i82].wy, conto78.p[i82].wz, conto78.disline, conto78.p[i82].bfase, conto78.p[i82].road,
+                    conto78.p[i82].light, conto78.p[i82].solo, conto78.p[i82].randomcolor, conto78.p[i82].randoutline,
                     conto78.p[i82].customstroke, conto78.p[i82].strokewidth, conto78.p[i82].strokecap,
                     conto78.p[i82].strokejoin, conto78.p[i82].strokemtlimit);
         }
@@ -887,8 +887,7 @@ public class ContO {
                 t.xy[t.nt] = (int) (conto78.txy[i84] * m.cos(i81) - conto78.tzy[i84] * m.sin(i81));
                 t.zy[t.nt] = (int) (conto78.tzy[i84] * m.cos(i81) + conto78.txy[i84] * m.sin(i81));
                 for (int i85 = 0; i85 < 3; i85++) {
-                    t.c[t.nt][i85] = (int) (conto78.tc[i84][i85]
-                            + conto78.tc[i84][i85] * (m.snap[i85] / 100.0F));
+                    t.c[t.nt][i85] = (int) (conto78.tc[i84][i85] + conto78.tc[i84][i85] * (m.snap[i85] / 100.0F));
                     if (t.c[t.nt][i85] > 255)
                         t.c[t.nt][i85] = 255;
                     if (t.c[t.nt][i85] < 0)
@@ -907,10 +906,8 @@ public class ContO {
                 int i86 = Math.abs(i81);
                 if (i86 == 180)
                     i86 = 0;
-                t.radx[t.nt] = (int) Math
-                        .abs(conto78.tradx[i84] * m.cos(i86) + conto78.tradz[i84] * m.sin(i86));
-                t.radz[t.nt] = (int) Math
-                        .abs(conto78.tradx[i84] * m.sin(i86) + conto78.tradz[i84] * m.cos(i86));
+                t.radx[t.nt] = (int) Math.abs(conto78.tradx[i84] * m.cos(i86) + conto78.tradz[i84] * m.sin(i86));
+                t.radz[t.nt] = (int) Math.abs(conto78.tradx[i84] * m.sin(i86) + conto78.tradz[i84] * m.cos(i86));
                 t.rady[t.nt] = conto78.trady[i84];
                 t.nt++;
             }
@@ -946,8 +943,8 @@ public class ContO {
         }
     }
 
-    public ContO(final int i, final int i90, final int i91, final Medium medium, final Trackers trackers,
-            final int i92, final int i93, final int i94) {
+    public ContO(final int i, final int i90, final int i91, final Medium medium, final Trackers trackers, final int i92,
+            final int i93, final int i94) {
         keyx = new int[4];
         keyz = new int[4];
         sprkat = 0;
@@ -1062,8 +1059,7 @@ public class ContO {
             int i105 = (int) Math.sqrt(is[i102] * is[i102] + is95[i102] * is95[i102]);
             if (i105 > maxR)
                 maxR = i105;
-            i105 = (int) Math.sqrt(is96[i102] * is96[i102] + is98[i102] * is98[i102]
-                    + is97[i102] * is97[i102]);
+            i105 = (int) Math.sqrt(is96[i102] * is96[i102] + is98[i102] * is98[i102] + is97[i102] * is97[i102]);
             if (i105 > maxR)
                 maxR = i105;
         }
@@ -1111,8 +1107,8 @@ public class ContO {
                     is106[i115] = (int) (390.0F / (2.2F + f100 - f108));
                 else
                     is106[i115] = (int) ((m.cpol[i115] + m.cgrnd[i115]) / (2.2F + f100 - f108));
-            p[i109] = new Plane(m, t, is112, is114, is113, 6, is106, 3, -8, 0, 0, 0, 0, disline, 0, true, 0,
-                    false, false, false, false, 1, 0, 0, 10);
+            p[i109] = new Plane(m, t, is112, is114, is113, 6, is106, 3, -8, 0, 0, 0, 0, disline, 0, true, 0, false,
+                    false, false, false, 1, 0, 0, 10);
         }
         f100 = (float) (0.02 * random.nextDouble());
         for (int i116 = 0; i116 < 3; i116++)
@@ -1120,8 +1116,8 @@ public class ContO {
                 is106[i116] = (int) (390.0F / (2.15F + f100));
             else
                 is106[i116] = (int) ((m.cpol[i116] + m.cgrnd[i116]) / (2.15F + f100));
-        p[4] = new Plane(m, t, is96, is97, is98, 8, is106, 3, -8, 0, 0, 0, 0, disline, 0, true, 0, false, false,
-                false, false, 1, 0, 0, 10);
+        p[4] = new Plane(m, t, is96, is97, is98, 8, is106, 3, -8, 0, 0, 0, 0, disline, 0, true, 0, false, false, false,
+                false, 1, 0, 0, 10);
         final int[] is117 = new int[2];
         final int[] is118 = new int[2];
         for (int i119 = 0; i119 < 4; i119++) {
@@ -1376,8 +1372,7 @@ public class ContO {
                 rx[i] += vrx[i];
                 ry[i] += vry[i];
                 rz[i] += vrz[i];
-                final int i246 = m.cx
-                        + (int) ((rx[i] - m.x - m.cx) * m.cos(m.xz) - (rz[i] - m.z - m.cz) * m.sin(m.xz));
+                final int i246 = m.cx + (int) ((rx[i] - m.x - m.cx) * m.cos(m.xz) - (rz[i] - m.z - m.cz) * m.sin(m.xz));
                 int i247 = m.cz + (int) ((rx[i] - m.x - m.cx) * m.sin(m.xz) + (rz[i] - m.z - m.cz) * m.cos(m.xz));
                 final int i248 = m.cy + (int) ((ry[i] - m.y - m.cy) * m.cos(m.zy) - (i247 - m.cz) * m.sin(m.zy));
                 i247 = m.cz + (int) ((ry[i] - m.y - m.cy) * m.sin(m.zy) + (i247 - m.cz) * m.cos(m.zy));
@@ -1427,8 +1422,8 @@ public class ContO {
             sprk = 0;
     }
 
-    public void dust(final int i, final float f, final float f199, final float f200, final int i201,
-            final int i202, final float f203, final int i204, final boolean bool) {
+    public void dust(final int i, final float f, final float f199, final float f200, final int i201, final int i202,
+            final float f203, final int i204, final boolean bool) {
         boolean bool205 = false;
         if (i204 > 5 && (i == 0 || i == 2))
             bool205 = true;
@@ -1798,8 +1793,8 @@ public class ContO {
                     for (int i160 = 0; i160 < 4; i160++) {
                         is146[i160] = t.y[i157] - m.y;
                         if (t.zy[i157] != 0)
-                            is146[i160] += (is147[i160] - (t.z[i157] - m.z - t.radz[i157]))
-                                    * m.sin(t.zy[i157]) / m.sin(90 - t.zy[i157])
+                            is146[i160] += (is147[i160] - (t.z[i157] - m.z - t.radz[i157])) * m.sin(t.zy[i157])
+                                    / m.sin(90 - t.zy[i157])
                                     - t.radz[i157] * m.sin(t.zy[i157]) / m.sin(90 - t.zy[i157]);
                         if (t.xy[i157] != 0)
                             is146[i160] += (is[i160] - (t.x[i157] - m.x - t.radx[i157])) * m.sin(t.xy[i157])
@@ -1981,8 +1976,7 @@ public class ContO {
         return (i - i269) * (i - i269) + (i270 - i271) * (i270 - i271);
     }
 
-    public void rot(final int[] is, final int[] is272, final int i, final int i273, final int i274,
-            final int i275) {
+    public void rot(final int[] is, final int[] is272, final int i, final int i273, final int i274, final int i275) {
         if (i274 != 0)
             for (int i276 = 0; i276 < i275; i276++) {
                 final int i277 = is[i276];

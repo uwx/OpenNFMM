@@ -415,8 +415,7 @@ public class CarDefine implements Runnable {
         gs = gamesparker;
     }
 
-    public void loadstat(final byte[] is, final String string, final int i, final int i0, final int i1,
-            final int i2) {
+    public void loadstat(final byte[] is, final String string, final int i, final int i0, final int i1, final int i2) {
         names[i2] = string;
         boolean bool = false;
         boolean bool3 = false;
@@ -436,7 +435,8 @@ public class CarDefine implements Runnable {
         publish[i2 - 16] = 0;
         createdby[i2 - 16] = "Unkown User";
         try {
-            final BufferedReader statReader = new BufferedReader(new InputStreamReader(new DataInputStream(new ByteArrayInputStream(is))));
+            final BufferedReader statReader = new BufferedReader(
+                    new InputStreamReader(new DataInputStream(new ByteArrayInputStream(is))));
             while ((line = statReader.readLine()) != null) {
                 line = line.trim();
                 if (line.startsWith("stat("))
@@ -978,7 +978,8 @@ public class CarDefine implements Runnable {
                     final URL url = new URL(new StringBuilder()
                             .append("http://multiplayer.needformadness.com/cars/lists/").append(gs.tnick.getText())
                             .append(".txt?reqlo=").append((int) (Math.random() * 1000.0)).append("").toString());
-                    final BufferedReader carReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
+                    final BufferedReader carReader = new BufferedReader(
+                            new InputStreamReader(new DataInputStream(url.openStream())));
                     while ((line = carReader.readLine()) != null) {
                         line = new StringBuilder().append("").append(line.trim()).toString();
                         if (line.startsWith("mycars")) {
@@ -1138,7 +1139,8 @@ public class CarDefine implements Runnable {
                     final URL url = new URL(
                             new StringBuilder().append("http://multiplayer.needformadness.com/cars/top20/")
                                     .append(string44).append(".txt").toString());
-                    final BufferedReader top20Reader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
+                    final BufferedReader top20Reader = new BufferedReader(
+                            new InputStreamReader(new DataInputStream(url.openStream())));
                     while ((line = top20Reader.readLine()) != null) {
                         line = new StringBuilder().append("").append(line.trim()).toString();
                         if (line.startsWith("cars")) {
@@ -1194,7 +1196,8 @@ public class CarDefine implements Runnable {
                     final URL url = new URL(new StringBuilder()
                             .append("http://multiplayer.needformadness.com/cars/lists/").append(viewname)
                             .append(".txt?reqlo=").append((int) (Math.random() * 1000.0)).append("").toString());
-                    final BufferedReader carListReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
+                    final BufferedReader carListReader = new BufferedReader(
+                            new InputStreamReader(new DataInputStream(url.openStream())));
                     while ((line = carListReader.readLine()) != null) {
                         line = new StringBuilder().append("").append(line.trim()).toString();
                         if (line.startsWith("mycars")) {
@@ -1481,7 +1484,8 @@ public class CarDefine implements Runnable {
             final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/tracks/lists/")
                     .append(gs.tnick.getText()).append(".txt?reqlo=").append((int) (Math.random() * 1000.0)).append("")
                     .toString());
-            final BufferedReader stageReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
+            final BufferedReader stageReader = new BufferedReader(
+                    new InputStreamReader(new DataInputStream(url.openStream())));
             while ((line = stageReader.readLine()) != null) {
                 line = new StringBuilder().append("").append(line.trim()).toString();
                 if (line.startsWith("mystages")) {
@@ -1551,7 +1555,8 @@ public class CarDefine implements Runnable {
                 string65 = "M";
             final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/tracks/top20/")
                     .append(string65).append(".txt").toString());
-            final BufferedReader top20Reader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
+            final BufferedReader top20Reader = new BufferedReader(
+                    new InputStreamReader(new DataInputStream(url.openStream())));
             while ((line = top20Reader.readLine()) != null) {
                 line = new StringBuilder().append("").append(line.trim()).toString();
                 if (line.startsWith("stages")) {
@@ -1585,8 +1590,8 @@ public class CarDefine implements Runnable {
             gs.mstgs.removeAll();
             gs.mstgs.add(gs.rd, "Select Stage");
             for (int i68 = 0; i68 < i64; i68++)
-                gs.mstgs.add(gs.rd, new StringBuilder().append("N#").append(i68 + 1).append(" ")
-                        .append(strings[i68]).toString());
+                gs.mstgs.add(gs.rd,
+                        new StringBuilder().append("N#").append(i68 + 1).append(" ").append(strings[i68]).toString());
             gs.mstgs.select(0);
             gs.mstgs.setVisible(true);
         }
@@ -1609,8 +1614,9 @@ public class CarDefine implements Runnable {
                 final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/clans/")
                         .append(string).append("/stages.txt").toString());
                 BufferedReader clanStageReader;
-                for (clanStageReader = new BufferedReader(new InputStreamReader(new DataInputStream(
-                        url.openStream()))); (line = clanStageReader.readLine()) != null && i < 700; i++)
+                for (clanStageReader = new BufferedReader(new InputStreamReader(
+                        new DataInputStream(url.openStream()))); (line = clanStageReader.readLine()) != null
+                                && i < 700; i++)
                     lines[i] = line;
                 if (i > 0)
                     msloaded = 7;
@@ -1720,8 +1726,7 @@ public class CarDefine implements Runnable {
                 //final Object object = null;
                 String string74;
                 while ((string74 = bufferedreader.readLine()) != null)
-                    string73 = new StringBuilder().append(string73).append("").append(string74).append("\n")
-                            .toString();
+                    string73 = new StringBuilder().append(string73).append("").append(string74).append("\n").toString();
                 bufferedreader.close();
                 //final Object object75 = null;
                 m.loadnew = true;

@@ -1,5 +1,4 @@
 
-
 /* udpServe - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -143,12 +142,11 @@ public class udpServe implements Runnable {
                         if (i12 == -1)
                             i12 = 0;
                         lsframe[i11] = um.frame[i11][i12];
-                        final String string15 = new StringBuilder().append("").append(string0).append("|")
-                                .append(i11).append("|").append(um.frame[i11][i12]).append("|")
-                                .append(um.info[i11][i12]).append("|").toString();
+                        final String string15 = new StringBuilder().append("").append(string0).append("|").append(i11)
+                                .append("|").append(um.frame[i11][i12]).append("|").append(um.info[i11][i12])
+                                .append("|").toString();
                         final byte[] is16 = string15.getBytes();
-                        final DatagramPacket datagrampacket17 = new DatagramPacket(is16, is16.length, inetaddress,
-                                i10);
+                        final DatagramPacket datagrampacket17 = new DatagramPacket(is16, is16.length, inetaddress, i10);
                         dSocket.send(datagrampacket17);
                     }
             }

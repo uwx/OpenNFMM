@@ -738,8 +738,7 @@ public class Medium {
                     - (mtz[i185][nmv[i185] - 1] - z / 30 - cz) * sin(xz));
             final int i190 = cz + (int) ((mtx[i185][nmv[i185] - 1] - x / 30 - cx) * sin(xz)
                     + (mtz[i185][nmv[i185] - 1] - z / 30 - cz) * cos(xz));
-            final int i191 = cz
-                    + (int) ((mty[i185][nmv[i185] - 1] - y / 30 - cy) * sin(zy) + (i190 - cz) * cos(zy));
+            final int i191 = cz + (int) ((mty[i185][nmv[i185] - 1] - y / 30 - cy) * sin(zy) + (i190 - cz) * cos(zy));
             if (xs(i189, i191) > 0 && xs(i186, i188) < w) {
                 final int[] is = new int[nmv[i185] * 2];
                 final int[] is192 = new int[nmv[i185] * 2];
@@ -749,8 +748,8 @@ public class Medium {
                     is192[i194] = mty[i185][i194] - y / 30;
                     is193[i194] = mtz[i185][i194] - z / 30;
                 }
-                final int i195 = (int) Math.sqrt(is[nmv[i185] / 4] * is[nmv[i185] / 4]
-                        + is193[nmv[i185] / 4] * is193[nmv[i185] / 4]);
+                final int i195 = (int) Math
+                        .sqrt(is[nmv[i185] / 4] * is[nmv[i185] / 4] + is193[nmv[i185] / 4] * is193[nmv[i185] / 4]);
                 rot(is, is193, cx, cz, xz, nmv[i185] * 2);
                 rot(is192, is193, cy, cz, zy, nmv[i185] * 2);
                 final int[] is196 = new int[4];
@@ -955,8 +954,7 @@ public class Medium {
                 .sqrt((conto.z - z + cz) * (conto.z - z + cz) + (conto.x - x - cx) * (conto.x - x - cx));
         int i17 = 25;
         if (i16 != 0)
-            i17 = (int) (90 + i13
-                    - Math.atan((double) i16 / (double) (conto.y - i15 - cy)) / 0.017453292519943295);
+            i17 = (int) (90 + i13 - Math.atan((double) i16 / (double) (conto.y - i15 - cy)) / 0.017453292519943295);
         for (/**/; i12 < 0; i12 += 360) {
             /* empty */
         }
@@ -1275,12 +1273,9 @@ public class Medium {
                 int i95 = i93 + 1;
                 if (i95 == 12)
                     i95 = 0;
-                clax[i91][0][i93] = ((clax[i91][0][i94] + clax[i91][0][i95]) / 2 + clax[i91][0][i93])
-                        / 2;
-                clay[i91][0][i93] = ((clay[i91][0][i94] + clay[i91][0][i95]) / 2 + clay[i91][0][i93])
-                        / 2;
-                claz[i91][0][i93] = ((claz[i91][0][i94] + claz[i91][0][i95]) / 2 + claz[i91][0][i93])
-                        / 2;
+                clax[i91][0][i93] = ((clax[i91][0][i94] + clax[i91][0][i95]) / 2 + clax[i91][0][i93]) / 2;
+                clay[i91][0][i93] = ((clay[i91][0][i94] + clay[i91][0][i95]) / 2 + clay[i91][0][i93]) / 2;
+                claz[i91][0][i93] = ((claz[i91][0][i94] + claz[i91][0][i95]) / 2 + claz[i91][0][i93]) / 2;
             }
             for (int i96 = 0; i96 < 12; i96++) {
                 f92 = (float) (1.2 + 0.6 * Math.random());
@@ -1300,12 +1295,10 @@ public class Medium {
                 int i99 = i97 + 1;
                 if (i99 == 12)
                     i99 = 0;
-                clay[i91][1][i97] = ((clay[i91][1][i98] + clay[i91][1][i99]) / 2 + clay[i91][1][i97])
-                        / 2;
-                clay[i91][2][i97] = ((clay[i91][2][i98] + clay[i91][2][i99]) / 2 + clay[i91][2][i97])
-                        / 2;
-                final int i100 = (int) Math.sqrt(
-                        clax[i91][2][i97] * clax[i91][2][i97] + claz[i91][2][i97] * claz[i91][2][i97]);
+                clay[i91][1][i97] = ((clay[i91][1][i98] + clay[i91][1][i99]) / 2 + clay[i91][1][i97]) / 2;
+                clay[i91][2][i97] = ((clay[i91][2][i98] + clay[i91][2][i99]) / 2 + clay[i91][2][i97]) / 2;
+                final int i100 = (int) Math
+                        .sqrt(clax[i91][2][i97] * clax[i91][2][i97] + claz[i91][2][i97] * claz[i91][2][i97]);
                 if (i100 > cmx[i91])
                     cmx[i91] = i100;
             }
@@ -1371,8 +1364,8 @@ public class Medium {
             mtz[i174] = new int[nmv[i174] * 2];
             mtc[i174] = new int[nmv[i174]][3];
             for (int i178 = 0; i178 < nmv[i174]; i178++) {
-                mtx[i174][i178] = (int) ((i178 * 500 + (random.nextDouble() * 800.0 - 400.0)
-                        - 250 * (nmv[i174] - 1)) * f);
+                mtx[i174][i178] = (int) ((i178 * 500 + (random.nextDouble() * 800.0 - 400.0) - 250 * (nmv[i174] - 1))
+                        * f);
                 mtx[i174][i178 + nmv[i174]] = (int) ((i178 * 500 + (random.nextDouble() * 800.0 - 400.0)
                         - 250 * (nmv[i174] - 1)) * f);
                 mtx[i174][nmv[i174]] = (int) (mtx[i174][0] - (100.0 + random.nextDouble() * 600.0) * f);
@@ -1449,15 +1442,15 @@ public class Medium {
                     if (trackers.zy[i42] == 0 && trackers.xy[i42] == 0) {
                         if (trackers.radx[i42] < trackers.radz[i42]
                                 && Math.abs(cgpz[i41] - trackers.z[i42]) < trackers.radz[i42])
-                            for (/**/; Math.abs(cgpx[i41]
-                                    - trackers.x[i42]) < trackers.radx[i42]; cgpx[i41] += random.nextDouble()
+                            for (/**/; Math.abs(
+                                    cgpx[i41] - trackers.x[i42]) < trackers.radx[i42]; cgpx[i41] += random.nextDouble()
                                             * trackers.radx[i42] * 2.0 - trackers.radx[i42]) {
                                 /* empty */
                             }
                         if (trackers.radz[i42] < trackers.radx[i42]
                                 && Math.abs(cgpx[i41] - trackers.x[i42]) < trackers.radx[i42])
-                            for (/**/; Math.abs(cgpz[i41]
-                                    - trackers.z[i42]) < trackers.radz[i42]; cgpz[i41] += random.nextDouble()
+                            for (/**/; Math.abs(
+                                    cgpz[i41] - trackers.z[i42]) < trackers.radz[i42]; cgpz[i41] += random.nextDouble()
                                             * trackers.radz[i42] * 2.0 - trackers.radz[i42]) {
                                 /* empty */
                             }
@@ -1495,9 +1488,8 @@ public class Medium {
                 ogpx[i43][i44] = ((ogpx[i43][i45] + ogpx[i43][i46]) / 2 + ogpx[i43][i44]) / 2;
                 ogpz[i43][i44] = ((ogpz[i43][i45] + ogpz[i43][i46]) / 2 + ogpz[i43][i44]) / 2;
                 pvr[i43][i44] = (float) (1.1 + random.nextDouble() * 0.8);
-                final int i47 = (int) Math
-                        .sqrt((int) (ogpx[i43][i44] * ogpx[i43][i44] * pvr[i43][i44] * pvr[i43][i44]
-                                + ogpz[i43][i44] * ogpz[i43][i44] * pvr[i43][i44] * pvr[i43][i44]));
+                final int i47 = (int) Math.sqrt((int) (ogpx[i43][i44] * ogpx[i43][i44] * pvr[i43][i44] * pvr[i43][i44]
+                        + ogpz[i43][i44] * ogpz[i43][i44] * pvr[i43][i44] * pvr[i43][i44]));
                 if (i47 > pmx[i43])
                     pmx[i43] = i47;
             }
@@ -1585,8 +1577,7 @@ public class Medium {
         return rand[trn] / 10.0F;
     }
 
-    public void rot(final int[] is, final int[] is274, final int i, final int i275, final int i276,
-            final int i277) {
+    public void rot(final int[] is, final int[] is274, final int i, final int i275, final int i276, final int i277) {
         if (i276 != 0)
             for (int i278 = 0; i278 < i277; i278++) {
                 final int i279 = is[i278];
@@ -1799,8 +1790,7 @@ public class Medium {
         if (i20 - i24 - cy < 0)
             i23 = -180;
         final int i25 = (int) Math.sqrt((i21 - z + cz) * (i21 - z + cz) + (i19 - x - cx) * (i19 - x - cx));
-        final int i26 = (int) (90 + i23
-                - Math.atan((double) i25 / (double) (i20 - i24 - cy)) / 0.017453292519943295);
+        final int i26 = (int) (90 + i23 - Math.atan((double) i25 / (double) (i20 - i24 - cy)) / 0.017453292519943295);
         xz = -vxz + 90;
         zy += (i26 - zy) / 10;
     }
@@ -1821,8 +1811,7 @@ public class Medium {
         if (conto.y - y - cy < 0)
             i0 = -180;
         final int i2 = (int) Math.sqrt((conto.z - z) * (conto.z - z) + (conto.x - x - cx) * (conto.x - x - cx));
-        final int i3 = (int) (90 + i0
-                - Math.atan((double) i2 / (double) (conto.y - y - cy)) / 0.017453292519943295);
+        final int i3 = (int) (90 + i0 - Math.atan((double) i2 / (double) (conto.y - y - cy)) / 0.017453292519943295);
         for (/**/; i1 < 0; i1 += 360) {
             /* empty */
         }
