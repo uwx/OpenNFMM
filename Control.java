@@ -851,8 +851,8 @@ public class Control {
                                         i21++;
                                 bool20 = mad.clear != i21 + mad.nlaps * checkpoints.nsp;
                             }
-                            while (checkpoints.typ[i19] == 0 || checkpoints.typ[i19] == -1
-                                    || checkpoints.typ[i19] == -3 || bool20) {
+                            while (checkpoints.typ[i19] == 0 || checkpoints.typ[i19] == -1 || checkpoints.typ[i19] == -3
+                                    || bool20) {
                                 i = i19;
                                 if (++i19 >= checkpoints.n)
                                     i19 = 0;
@@ -1142,9 +1142,8 @@ public class Control {
                                 int i30 = -10;
                                 for (int i31 = 0; i31 < checkpoints.n; i31++)
                                     if ((checkpoints.typ[i31] == -2 || checkpoints.typ[i31] == -4)
-                                            && (i31 < 50 || i31 > 54)
-                                            && (py(conto.x / 100, checkpoints.x[i31] / 100, conto.z / 100,
-                                                    checkpoints.z[i31] / 100) < i30 || i30 == -10)) {
+                                            && (i31 < 50 || i31 > 54) && (py(conto.x / 100, checkpoints.x[i31] / 100,
+                                                    conto.z / 100, checkpoints.z[i31] / 100) < i30 || i30 == -10)) {
                                         i30 = py(conto.x / 100, checkpoints.x[i31] / 100, conto.z / 100,
                                                 checkpoints.z[i31] / 100);
                                         oupnt = i31;
@@ -1270,10 +1269,9 @@ public class Control {
                                 if (oupnt == -1) {
                                     int i33 = -10;
                                     for (int i34 = 0; i34 < checkpoints.n; i34++)
-                                        if (checkpoints.typ[i34] == -4
-                                                && (py(conto.x / 100, checkpoints.x[i34] / 100, conto.z / 100,
-                                                        checkpoints.z[i34] / 100) < i33 && m.random() > 0.6
-                                                        || i33 == -10)) {
+                                        if (checkpoints.typ[i34] == -4 && (py(conto.x / 100, checkpoints.x[i34] / 100,
+                                                conto.z / 100, checkpoints.z[i34] / 100) < i33 && m.random() > 0.6
+                                                || i33 == -10)) {
                                             i33 = py(conto.x / 100, checkpoints.x[i34] / 100, conto.z / 100,
                                                     checkpoints.z[i34] / 100);
                                             oupnt = i34;
@@ -1368,8 +1366,8 @@ public class Control {
                     final int i44 = (int) (checkpoints.opz[acr] + i42 * m.cos(checkpoints.omxz[acr]));
                     if (i43 - conto.x >= 0)
                         i = 180;
-                    pan = (int) (90 + i + Math.atan((double) (i44 - conto.z) / (double) (i43 - conto.x))
-                            / 0.017453292519943295);
+                    pan = (int) (90 + i
+                            + Math.atan((double) (i44 - conto.z) / (double) (i43 - conto.x)) / 0.017453292519943295);
                     attack--;
                     if (attack <= 0)
                         attack = 0;

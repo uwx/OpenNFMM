@@ -63,10 +63,10 @@ public class Plane {
     boolean randoutline;
 
     public Plane(final Medium medium, final Trackers trackers, final int[] is, final int[] is0, final int[] is1,
-            final int i, final int[] is2, final int i3, final int i4, final int i5, final int i6,
-            final int i7, final int i8, final int i9, final int i10, final boolean bool, final int i11,
-            final boolean bool12, final boolean randomcolor, final boolean randoutline, final boolean customstroke,
-            final int strokewidth, final int strokecap, final int strokejoin, final int strokemtlimit) {
+            final int i, final int[] is2, final int i3, final int i4, final int i5, final int i6, final int i7,
+            final int i8, final int i9, final int i10, final boolean bool, final int i11, final boolean bool12,
+            final boolean randomcolor, final boolean randoutline, final boolean customstroke, final int strokewidth,
+            final int strokecap, final int strokejoin, final int strokemtlimit) {
         this.randoutline = randoutline;
         this.randomcolor = randomcolor;
         //stroke
@@ -167,8 +167,8 @@ public class Plane {
         deltafntyp();
     }
 
-    public void d(final Graphics2D graphics2d, final int i, final int i29, final int i30, final int i31,
-            final int i32, final int i33, final int i34, final int i35, boolean bool, final int i36) {
+    public void d(final Graphics2D graphics2d, final int i, final int i29, final int i30, final int i31, final int i32,
+            final int i33, final int i34, final int i35, boolean bool, final int i36) {
         if (master == 1)
             if (av > 1500 && !m.crs)
                 n = 12;
@@ -491,8 +491,7 @@ public class Plane {
         int i78 = 1;
         for (int i79 = 0; i79 < n; i79++)
             for (int i80 = i79; i80 < n; i80++)
-                if (i79 != i80
-                        && Math.abs(is73[i79] - is73[i80]) - Math.abs(is74[i79] - is74[i80]) < i75) {
+                if (i79 != i80 && Math.abs(is73[i79] - is73[i80]) - Math.abs(is74[i79] - is74[i80]) < i75) {
                     i78 = i79;
                     i77 = i80;
                     i75 = Math.abs(is73[i79] - is73[i80]) - Math.abs(is74[i79] - is74[i80]);
@@ -557,8 +556,7 @@ public class Plane {
                     }
             if (i93 == 0 || i94 == 0)
                 bool84 = false;
-            else if (i93 < 3 && i94 < 3 && (i36 / i93 > 15 && i36 / i94 > 15 || bool)
-                    && (!m.lightson || light == 0))
+            else if (i93 < 3 && i94 < 3 && (i36 / i93 > 15 && i36 / i94 > 15 || bool) && (!m.lightson || light == 0))
                 bool84 = false;
         }
         if (bool84) {
@@ -622,8 +620,8 @@ public class Plane {
             final int i110 = (i103 + i104) / 2;
             final int i111 = (i105 + i106) / 2;
             final int i112 = (i107 + i108) / 2;
-            av = (int) Math.sqrt((m.cy - i110) * (m.cy - i110) + (m.cx - i111) * (m.cx - i111) + i112 * i112
-                    + i98 * i98 * i98);
+            av = (int) Math.sqrt(
+                    (m.cy - i110) * (m.cy - i110) + (m.cx - i111) * (m.cx - i111) + i112 * i112 + i98 * i98 * i98);
             if (m.trk == 0 && (av > m.fade[disline] || av == 0))
                 bool84 = false;
             if (i97 == -111 && av > 4500 && !road)
@@ -926,8 +924,8 @@ public class Plane {
             for (int i27 = 0; i27 < 3; i27++)
                 if (i27 != i26)
                     deltaf *= (float) (Math.sqrt((ox[i27] - ox[i26]) * (ox[i27] - ox[i26])
-                            + (oy[i27] - oy[i26]) * (oy[i27] - oy[i26])
-                            + (oz[i27] - oz[i26]) * (oz[i27] - oz[i26])) / 100.0);
+                            + (oy[i27] - oy[i26]) * (oy[i27] - oy[i26]) + (oz[i27] - oz[i26]) * (oz[i27] - oz[i26]))
+                            / 100.0);
         deltaf = deltaf / 3.0F;
     }
 
@@ -936,14 +934,12 @@ public class Plane {
         for (int i = 0; i < 3; i++)
             for (int i28 = 0; i28 < 3; i28++)
                 if (i28 != i)
-                    projf *= (float) (Math
-                            .sqrt((ox[i] - ox[i28]) * (ox[i] - ox[i28]) + (oz[i] - oz[i28]) * (oz[i] - oz[i28]))
-                            / 100.0);
+                    projf *= (float) (Math.sqrt(
+                            (ox[i] - ox[i28]) * (ox[i] - ox[i28]) + (oz[i] - oz[i28]) * (oz[i] - oz[i28])) / 100.0);
         projf = projf / 3.0F;
     }
 
-    public void rot(final int[] is, final int[] is163, final int i, final int i164, final int i165,
-            final int i166) {
+    public void rot(final int[] is, final int[] is163, final int i, final int i164, final int i165, final int i166) {
         if (i165 != 0)
             for (int i167 = 0; i167 < i166; i167++) {
                 final int i168 = is[i167];
@@ -1017,15 +1013,14 @@ public class Plane {
                 int i149 = 0;
                 if (Math.abs(t.zy[i148]) != 90 && Math.abs(t.xy[i148]) != 90 && t.rady[i148] != 801
                         && Math.abs(i143 - (t.x[i148] - m.x)) < t.radx[i148]
-                        && Math.abs(i144 - (t.z[i148] - m.z)) < t.radz[i148]
-                        && (!t.decor[i148] || m.resdown != 2))
+                        && Math.abs(i144 - (t.z[i148] - m.z)) < t.radz[i148] && (!t.decor[i148] || m.resdown != 2))
                     i149++;
                 if (i149 != 0) {
                     for (int i150 = 0; i150 < n; i150++) {
                         is127[i150] = t.y[i148] - m.y;
                         if (t.zy[i148] != 0)
-                            is127[i150] += (is126[i150] - (t.z[i148] - m.z - t.radz[i148]))
-                                    * m.sin(t.zy[i148]) / m.sin(90 - t.zy[i148])
+                            is127[i150] += (is126[i150] - (t.z[i148] - m.z - t.radz[i148])) * m.sin(t.zy[i148])
+                                    / m.sin(90 - t.zy[i148])
                                     - t.radz[i148] * m.sin(t.zy[i148]) / m.sin(90 - t.zy[i148]);
                         if (t.xy[i148] != 0)
                             is127[i150] += (is[i150] - (t.x[i148] - m.x - t.radx[i148])) * m.sin(t.xy[i148])

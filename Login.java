@@ -184,8 +184,7 @@ public class Login implements Runnable {
         int i49 = -1;
         if (fase != 2 && fase != 4 && fase != 6 && fase != 8 && fase != 9)
             for (int i50 = 0; i50 < btn; i50++) {
-                if (Math.abs(i - bx[i50]) < bw[i50] / 2 + 12 && Math.abs(i47 - by[i50]) < 14
-                        && (i48 == 1 || i48 == 11))
+                if (Math.abs(i - bx[i50]) < bw[i50] / 2 + 12 && Math.abs(i47 - by[i50]) < 14 && (i48 == 1 || i48 == 11))
                     pessd[i50] = true;
                 else
                     pessd[i50] = false;
@@ -564,8 +563,7 @@ public class Login implements Runnable {
                     int i55 = 0;
                     int i56 = 0;
                     for (/**/ ; i55 < string.length(); i55++) {
-                        final String string57 = new StringBuilder().append("").append(string.charAt(i55))
-                                .toString();
+                        final String string57 = new StringBuilder().append("").append(string.charAt(i55)).toString();
                         if (string57.equals("@") && i56 == 0 && i55 != 0)
                             i56 = 1;
                         if (string57.equals(".") && i56 == 1 && i55 != string.length() - 1)
@@ -698,13 +696,12 @@ public class Login implements Runnable {
         for (/**/ ; i < string.length(); i++) {
             final String string67 = new StringBuilder().append("").append(string.charAt(i)).toString();
             if (string67.equals("|") || string67.equals(",") || string67.equals("(") || string67.equals(")")
-                    || string67.equals("#") || string67.equals(string64) || string67.equals("!")
-                    || string67.equals("?") || string67.equals(" ") || string67.equals("~")
-                    || string67.equals("$") || string67.equals("%") || string67.equals("^")
-                    || string67.equals("&") || string67.equals("*") || string67.equals("+")
-                    || string67.equals("=") || string67.equals(">") || string67.equals("<")
-                    || string67.equals("/") || string67.equals("'") || string67.equals(";")
-                    || string67.equals(":") || string67.equals("\u00a0"))
+                    || string67.equals("#") || string67.equals(string64) || string67.equals("!") || string67.equals("?")
+                    || string67.equals(" ") || string67.equals("~") || string67.equals("$") || string67.equals("%")
+                    || string67.equals("^") || string67.equals("&") || string67.equals("*") || string67.equals("+")
+                    || string67.equals("=") || string67.equals(">") || string67.equals("<") || string67.equals("/")
+                    || string67.equals("'") || string67.equals(";") || string67.equals(":")
+                    || string67.equals("\u00a0"))
                 i66 = i;
             else
                 string65 = new StringBuilder().append(string65).append(string67).toString();

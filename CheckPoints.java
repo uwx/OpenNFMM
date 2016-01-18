@@ -100,8 +100,8 @@ public class CheckPoints {
                         while (typ[i5] <= 0)
                             if (++i5 >= n)
                                 i5 = 0;
-                        if (py(contos[i3].x / 100, x[i5] / 100, contos[i3].z / 100, z[i5] / 100) > py(
-                                contos[i4].x / 100, x[i5] / 100, contos[i4].z / 100, z[i5] / 100))
+                        if (py(contos[i3].x / 100, x[i5] / 100, contos[i3].z / 100,
+                                z[i5] / 100) > py(contos[i4].x / 100, x[i5] / 100, contos[i4].z / 100, z[i5] / 100))
                             pos[i3]++;
                         else
                             pos[i4]++;

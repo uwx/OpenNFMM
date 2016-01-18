@@ -338,8 +338,7 @@ public class Record {
         return (i - i74) * (i - i74) + (i75 - i76) * (i75 - i76);
     }
 
-    public void rec(final ContO conto, final int i, final int i18, final int i19, final int i20,
-            final int i21) {
+    public void rec(final ContO conto, final int i, final int i18, final int i19, final int i20, final int i21) {
         if (i == i21)
             caught++;
         if (cntf == 50) {

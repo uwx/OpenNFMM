@@ -140,8 +140,8 @@ public class Mad {
         int i = 0;
         int i125 = 0;
         if (dominate[mad118.im]) {
-            final int i126 = (int) (((scz[0] - mad118.scz[0] + scz[1] - mad118.scz[1] + scz[2] - mad118.scz[2]
-                    + scz[3] - mad118.scz[3])
+            final int i126 = (int) (((scz[0] - mad118.scz[0] + scz[1] - mad118.scz[1] + scz[2] - mad118.scz[2] + scz[3]
+                    - mad118.scz[3])
                     * (scz[0] - mad118.scz[0] + scz[1] - mad118.scz[1] + scz[2] - mad118.scz[2] + scz[3]
                             - mad118.scz[3])
                     + (scx[0] - mad118.scx[0] + scx[1] - mad118.scx[1] + scx[2] - mad118.scx[2] + scx[3]
@@ -157,10 +157,9 @@ public class Mad {
             }
             for (int i128 = 0; i128 < 4; i128++)
                 for (int i129 = 0; i129 < 4; i129++)
-                    if (rpy(fs[i128], fs122[i129], fs120[i128], fs123[i129], fs121[i128],
-                            fs124[i129]) < (i126 + i127) * (cd.comprad[mad118.cn] + cd.comprad[cn])) {
-                        if (Math.abs(scx[i128] * cd.moment[cn]) > Math
-                                .abs(mad118.scx[i129] * cd.moment[mad118.cn])) {
+                    if (rpy(fs[i128], fs122[i129], fs120[i128], fs123[i129], fs121[i128], fs124[i129]) < (i126 + i127)
+                            * (cd.comprad[mad118.cn] + cd.comprad[cn])) {
+                        if (Math.abs(scx[i128] * cd.moment[cn]) > Math.abs(mad118.scx[i129] * cd.moment[mad118.cn])) {
                             float f130 = mad118.scx[i129] * cd.revpush[cn];
                             if (f130 > 300.0F)
                                 f130 = 300.0F;
@@ -186,15 +185,12 @@ public class Mad {
                             if (mad118.colidim)
                                 mad118.colidim = false;
                             if (m.random() > m.random())
-                                conto119.sprk((fs[i128] + fs122[i129]) / 2.0F,
-                                        (fs120[i128] + fs123[i129]) / 2.0F,
-                                        (fs121[i128] + fs124[i129]) / 2.0F,
-                                        (mad118.scx[i129] + scx[i128]) / 4.0F,
-                                        (mad118.scy[i129] + scy[i128]) / 4.0F,
-                                        (mad118.scz[i129] + scz[i128]) / 4.0F, 2);
+                                conto119.sprk((fs[i128] + fs122[i129]) / 2.0F, (fs120[i128] + fs123[i129]) / 2.0F,
+                                        (fs121[i128] + fs124[i129]) / 2.0F, (mad118.scx[i129] + scx[i128]) / 4.0F,
+                                        (mad118.scy[i129] + scy[i128]) / 4.0F, (mad118.scz[i129] + scz[i128]) / 4.0F,
+                                        2);
                         }
-                        if (Math.abs(scz[i128] * cd.moment[cn]) > Math
-                                .abs(mad118.scz[i129] * cd.moment[mad118.cn])) {
+                        if (Math.abs(scz[i128] * cd.moment[cn]) > Math.abs(mad118.scz[i129] * cd.moment[mad118.cn])) {
                             float f132 = mad118.scz[i129] * cd.revpush[cn];
                             if (f132 > 300.0F)
                                 f132 = 300.0F;
@@ -220,12 +216,10 @@ public class Mad {
                             if (mad118.colidim)
                                 mad118.colidim = false;
                             if (m.random() > m.random())
-                                conto119.sprk((fs[i128] + fs122[i129]) / 2.0F,
-                                        (fs120[i128] + fs123[i129]) / 2.0F,
-                                        (fs121[i128] + fs124[i129]) / 2.0F,
-                                        (mad118.scx[i129] + scx[i128]) / 4.0F,
-                                        (mad118.scy[i129] + scy[i128]) / 4.0F,
-                                        (mad118.scz[i129] + scz[i128]) / 4.0F, 2);
+                                conto119.sprk((fs[i128] + fs122[i129]) / 2.0F, (fs120[i128] + fs123[i129]) / 2.0F,
+                                        (fs121[i128] + fs124[i129]) / 2.0F, (mad118.scx[i129] + scx[i128]) / 4.0F,
+                                        (mad118.scy[i129] + scy[i128]) / 4.0F, (mad118.scz[i129] + scz[i128]) / 4.0F,
+                                        2);
                         }
                         if (im == xt.im)
                             mad118.lastcolido = 70;
@@ -661,18 +655,18 @@ public class Mad {
                         if (i32 != 0)
                             f42 = 1.2F;
                         if (m.random() > 0.65) {
-                            conto.dust(i41, fs[i41], fs23[i41], fs22[i41], (int) scx[i41],
-                                    (int) scz[i41], f42 * cd.simag[cn], (int) tilt, capsized && mtouch);
+                            conto.dust(i41, fs[i41], fs23[i41], fs22[i41], (int) scx[i41], (int) scz[i41],
+                                    f42 * cd.simag[cn], (int) tilt, capsized && mtouch);
                             if (im == xt.im && !capsized)
                                 xt.skid(i32, (float) Math.sqrt(scx[i41] * scx[i41] + scz[i41] * scz[i41]));
                         }
                     } else {
                         if (i32 == 1 && m.random() > 0.8)
-                            conto.dust(i41, fs[i41], fs23[i41], fs22[i41], (int) scx[i41],
-                                    (int) scz[i41], 1.1F * cd.simag[cn], (int) tilt, capsized && mtouch);
+                            conto.dust(i41, fs[i41], fs23[i41], fs22[i41], (int) scx[i41], (int) scz[i41],
+                                    1.1F * cd.simag[cn], (int) tilt, capsized && mtouch);
                         if ((i32 == 2 || i32 == 3) && m.random() > 0.6)
-                            conto.dust(i41, fs[i41], fs23[i41], fs22[i41], (int) scx[i41],
-                                    (int) scz[i41], 1.15F * cd.simag[cn], (int) tilt, capsized && mtouch);
+                            conto.dust(i41, fs[i41], fs23[i41], fs22[i41], (int) scx[i41], (int) scz[i41],
+                                    1.15F * cd.simag[cn], (int) tilt, capsized && mtouch);
                     }
                 } else if (dcnt != 0) {
                     dcnt -= 2;
@@ -734,8 +728,8 @@ public class Mad {
                         f50 += 1.1;
                     else
                         f50 += 1.2;
-                    conto.dust(i49, fs[i49], fs23[i49], fs22[i49], (int) scx[i49], (int) scz[i49],
-                            f50 * cd.simag[cn], 0, capsized && mtouch);
+                    conto.dust(i49, fs[i49], fs23[i49], fs22[i49], (int) scx[i49], (int) scz[i49], f50 * cd.simag[cn],
+                            0, capsized && mtouch);
                 }
                 fs23[i49] = 250.0F;
                 bools47[i49] = true;
@@ -796,8 +790,8 @@ public class Mad {
                                 f59 += 1.1;
                             else
                                 f59 += 1.2;
-                            conto.dust(i58, fs[i58], fs23[i58], fs22[i58], (int) scx[i58],
-                                    (int) scz[i58], f59 * cd.simag[cn], 0, capsized && mtouch);
+                            conto.dust(i58, fs[i58], fs23[i58], fs22[i58], (int) scx[i58], (int) scz[i58],
+                                    f59 * cd.simag[cn], 0, capsized && mtouch);
                         }
                         fs23[i58] = trackers.y[i55];
                         if (capsized && (trackers.skd[i55] == 0 || trackers.skd[i55] == 1)) {
@@ -966,21 +960,20 @@ public class Mad {
                             wtouch = true;
                             gtouch = false;
                             if (capsized && (trackers.skd[i55] == 0 || trackers.skd[i55] == 1)) {
-                                conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58],
-                                        1);
+                                conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58], 1);
                                 if (im == xt.im)
                                     xt.gscrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
                             }
                             if (!bool25 && i32 != 0) {
                                 final float f73 = 1.4F;
-                                conto.dust(i58, fs[i58], fs23[i58], fs22[i58], (int) scx[i58],
-                                        (int) scz[i58], f73 * cd.simag[cn], 0, capsized && mtouch);
+                                conto.dust(i58, fs[i58], fs23[i58], fs22[i58], (int) scx[i58], (int) scz[i58],
+                                        f73 * cd.simag[cn], 0, capsized && mtouch);
                             }
                         }
-                        fs23[i58] = trackers.y[i55] + ((f71 - trackers.y[i55]) * m.cos(-i69)
-                                - (f72 - trackers.z[i55]) * m.sin(-i69));
-                        fs22[i58] = trackers.z[i55] + ((f71 - trackers.y[i55]) * m.sin(-i69)
-                                + (f72 - trackers.z[i55]) * m.cos(-i69));
+                        fs23[i58] = trackers.y[i55]
+                                + ((f71 - trackers.y[i55]) * m.cos(-i69) - (f72 - trackers.z[i55]) * m.sin(-i69));
+                        fs22[i58] = trackers.z[i55]
+                                + ((f71 - trackers.y[i55]) * m.sin(-i69) + (f72 - trackers.z[i55]) * m.cos(-i69));
                         bools[i58] = true;
                     }
                     if (trackers.xy[i55] != 0 && trackers.xy[i55] != 90 && trackers.xy[i55] != -90) {
@@ -1004,21 +997,20 @@ public class Mad {
                             wtouch = true;
                             gtouch = false;
                             if (capsized && (trackers.skd[i55] == 0 || trackers.skd[i55] == 1)) {
-                                conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58],
-                                        1);
+                                conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58], 1);
                                 if (im == xt.im)
                                     xt.gscrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
                             }
                             if (!bool25 && i32 != 0) {
                                 final float f78 = 1.4F;
-                                conto.dust(i58, fs[i58], fs23[i58], fs22[i58], (int) scx[i58],
-                                        (int) scz[i58], f78 * cd.simag[cn], 0, capsized && mtouch);
+                                conto.dust(i58, fs[i58], fs23[i58], fs22[i58], (int) scx[i58], (int) scz[i58],
+                                        f78 * cd.simag[cn], 0, capsized && mtouch);
                             }
                         }
-                        fs23[i58] = trackers.y[i55] + ((f76 - trackers.y[i55]) * m.cos(-i74)
-                                - (f77 - trackers.x[i55]) * m.sin(-i74));
-                        fs[i58] = trackers.x[i55] + ((f76 - trackers.y[i55]) * m.sin(-i74)
-                                + (f77 - trackers.x[i55]) * m.cos(-i74));
+                        fs23[i58] = trackers.y[i55]
+                                + ((f76 - trackers.y[i55]) * m.cos(-i74) - (f77 - trackers.x[i55]) * m.sin(-i74));
+                        fs[i58] = trackers.x[i55]
+                                + ((f76 - trackers.y[i55]) * m.sin(-i74) + (f77 - trackers.x[i55]) * m.cos(-i74));
                         bools[i58] = true;
                     }
                 }
@@ -1045,9 +1037,8 @@ public class Mad {
                 i = -1;
             else
                 i = 1;
-            d = Math.sqrt((fs22[0] - fs22[2]) * (fs22[0] - fs22[2])
-                    + (fs23[0] - fs23[2]) * (fs23[0] - fs23[2]) + (fs[0] - fs[2]) * (fs[0] - fs[2]))
-                    / (Math.abs(conto.keyz[0]) + Math.abs(conto.keyz[2]));
+            d = Math.sqrt((fs22[0] - fs22[2]) * (fs22[0] - fs22[2]) + (fs23[0] - fs23[2]) * (fs23[0] - fs23[2])
+                    + (fs[0] - fs[2]) * (fs[0] - fs[2])) / (Math.abs(conto.keyz[0]) + Math.abs(conto.keyz[2]));
             if (d >= 0.9998)
                 i81 = i;
             else
@@ -1058,9 +1049,8 @@ public class Mad {
                 i = -1;
             else
                 i = 1;
-            d = Math.sqrt((fs22[1] - fs22[3]) * (fs22[1] - fs22[3])
-                    + (fs23[1] - fs23[3]) * (fs23[1] - fs23[3]) + (fs[1] - fs[3]) * (fs[1] - fs[3]))
-                    / (Math.abs(conto.keyz[1]) + Math.abs(conto.keyz[3]));
+            d = Math.sqrt((fs22[1] - fs22[3]) * (fs22[1] - fs22[3]) + (fs23[1] - fs23[3]) * (fs23[1] - fs23[3])
+                    + (fs[1] - fs[3]) * (fs[1] - fs[3])) / (Math.abs(conto.keyz[1]) + Math.abs(conto.keyz[3]));
             if (d >= 0.9998)
                 i82 = i;
             else
@@ -1071,9 +1061,8 @@ public class Mad {
                 i = -1;
             else
                 i = 1;
-            d = Math.sqrt((fs22[0] - fs22[1]) * (fs22[0] - fs22[1])
-                    + (fs23[0] - fs23[1]) * (fs23[0] - fs23[1]) + (fs[0] - fs[1]) * (fs[0] - fs[1]))
-                    / (Math.abs(conto.keyx[0]) + Math.abs(conto.keyx[1]));
+            d = Math.sqrt((fs22[0] - fs22[1]) * (fs22[0] - fs22[1]) + (fs23[0] - fs23[1]) * (fs23[0] - fs23[1])
+                    + (fs[0] - fs[1]) * (fs[0] - fs[1])) / (Math.abs(conto.keyx[0]) + Math.abs(conto.keyx[1]));
             if (d >= 0.9998)
                 i83 = i;
             else
@@ -1084,9 +1073,8 @@ public class Mad {
                 i = -1;
             else
                 i = 1;
-            d = Math.sqrt((fs22[2] - fs22[3]) * (fs22[2] - fs22[3])
-                    + (fs23[2] - fs23[3]) * (fs23[2] - fs23[3]) + (fs[2] - fs[3]) * (fs[2] - fs[3]))
-                    / (Math.abs(conto.keyx[2]) + Math.abs(conto.keyx[3]));
+            d = Math.sqrt((fs22[2] - fs22[3]) * (fs22[2] - fs22[3]) + (fs23[2] - fs23[3]) * (fs23[2] - fs23[3])
+                    + (fs[2] - fs[3]) * (fs[2] - fs[3])) / (Math.abs(conto.keyx[2]) + Math.abs(conto.keyx[3]));
             if (d >= 0.9998)
                 i84 = i;
             else
@@ -1171,8 +1159,7 @@ public class Mad {
                 cntouch++;
         } else
             cntouch = 0;
-        conto.y = (int) ((fs23[0] + fs23[1] + fs23[2] + fs23[3]) / 4.0F - i10 * m.cos(pzy) * m.cos(pxy)
-                + f12);
+        conto.y = (int) ((fs23[0] + fs23[1] + fs23[2] + fs23[3]) / 4.0F - i10 * m.cos(pzy) * m.cos(pxy) + f12);
         if (bool)
             i = -1;
         else
@@ -1714,8 +1701,7 @@ public class Mad {
                             if (conto.p[i107].wz == 0) {
                                 f108 = f / 15.0F * m.random();
                                 if ((Math.abs(conto.p[i107].oy[i109] - cd.flipy[cn] - squash) < cd.msquash[cn] * 3
-                                        || conto.p[i107].oy[i109] < cd.flipy[cn] + squash)
-                                        && squash < cd.msquash[cn]) {
+                                        || conto.p[i107].oy[i109] < cd.flipy[cn] + squash) && squash < cd.msquash[cn]) {
                                     conto.p[i107].oy[i109] += f108;
                                     i105 += f108;
                                     i106++;
@@ -1913,7 +1899,6 @@ public class Mad {
 
     public int rpy(final float f, final float f140, final float f141, final float f142, final float f143,
             final float f144) {
-        return (int) ((f - f140) * (f - f140) + (f141 - f142) * (f141 - f142)
-                + (f143 - f144) * (f143 - f144));
+        return (int) ((f - f140) * (f - f140) + (f141 - f142) * (f141 - f142) + (f143 - f144) * (f143 - f144));
     }
 }

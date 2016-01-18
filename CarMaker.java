@@ -320,11 +320,15 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                 if (Madness.textid == 18)
                     editor.replaceText(string399, editor.getSelectionStart(), editor.getSelectionEnd());
                 else
-                    textcomponent.setText(new StringBuilder()
-                            .append(textcomponent.getText().substring(0, textcomponent.getSelectionStart()))
-                            .append(string399).append(textcomponent.getText()
-                                    .substring(textcomponent.getSelectionEnd(), textcomponent.getText().length()))
-                            .toString());
+                    textcomponent
+                            .setText(
+                                    new StringBuilder()
+                                            .append(textcomponent.getText().substring(0,
+                                                    textcomponent.getSelectionStart()))
+                                            .append(string399)
+                                            .append(textcomponent.getText().substring(textcomponent.getSelectionEnd(),
+                                                    textcomponent.getText().length()))
+                                            .toString());
             } catch (final Exception exception) {
                 /* empty */
             }
@@ -612,8 +616,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                         if (i181 < 600) {
                                             multf10 = false;
                                             objfacend = false;
-                                            for (is180[i181] = 0; !objfacend
-                                                    && is180[i181] < 100; is180[i181]++)
+                                            for (is180[i181] = 0; !objfacend && is180[i181] < 100; is180[i181]++)
                                                 is179[i181][is180[i181]] = objvalue(string, is180[i181]);
                                             i181++;
                                         } else
@@ -664,8 +667,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                     if (is179[i184][i185] < 6000) {
                                         final int i186 = is179[i184][i185];
                                         string = new StringBuilder().append(string).append("p(").append(is[i186])
-                                                .append(",").append(-is176[i186]).append(",")
-                                                .append(is177[i186]).append(")\n").toString();
+                                                .append(",").append(-is176[i186]).append(",").append(is177[i186])
+                                                .append(")\n").toString();
                                     }
                                 string = new StringBuilder().append(string).append("</p>\n\n").toString();
                             }
@@ -751,8 +754,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                 for (int i193 = 0; i193 < o.p[i192].n; i193++) {
                                     boolean bool = false;
                                     for (int i194 = 0; i194 < i191; i194++)
-                                        if (is[i194] == o.p[i192].ox[i193]
-                                                && is189[i194] == o.p[i192].oy[i193]
+                                        if (is[i194] == o.p[i192].ox[i193] && is189[i194] == o.p[i192].oy[i193]
                                                 && is190[i194] == o.p[i192].oz[i193])
                                             bool = true;
                                     if (!bool && i191 < 6000) {
@@ -772,11 +774,10 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                     for (int i197 = 0; i197 < o.p[i196].n; i197++) {
                                         string = new StringBuilder().append(string).append(" ").toString();
                                         for (int i198 = 0; i198 < i191; i198++)
-                                            if (is[i198] == o.p[i196].ox[i197]
-                                                    && is189[i198] == o.p[i196].oy[i197]
+                                            if (is[i198] == o.p[i196].ox[i197] && is189[i198] == o.p[i196].oy[i197]
                                                     && is190[i198] == o.p[i196].oz[i197])
-                                                string = new StringBuilder().append(string).append("")
-                                                        .append(i198 + 1).toString();
+                                                string = new StringBuilder().append(string).append("").append(i198 + 1)
+                                                        .toString();
                                     }
                                     string = new StringBuilder().append(string).append("\n").toString();
                                 }
@@ -895,33 +896,29 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                             final int i203 = string202.indexOf(",", 0);
                             if (i203 >= 0)
                                 if (string202.startsWith(",-", i203))
-                                    string202 = new StringBuilder().append("")
-                                            .append(string202.substring(0, i203)).append(",")
-                                            .append(string202.substring(i203 + 2, string202.length())).append("")
-                                            .toString();
+                                    string202 = new StringBuilder().append("").append(string202.substring(0, i203))
+                                            .append(",").append(string202.substring(i203 + 2, string202.length()))
+                                            .append("").toString();
                                 else if (string202.startsWith(",", i203))
-                                    string202 = new StringBuilder().append("")
-                                            .append(string202.substring(0, i203)).append(",-")
-                                            .append(string202.substring(i203 + 1, string202.length())).append("")
-                                            .toString();
+                                    string202 = new StringBuilder().append("").append(string202.substring(0, i203))
+                                            .append(",-").append(string202.substring(i203 + 1, string202.length()))
+                                            .append("").toString();
                         }
                         if (i == 5 && string202.startsWith("p(")) {
                             int i204 = string202.indexOf(",", 0);
                             i204 = string202.indexOf(",", i204 + 1);
                             if (i204 >= 0)
                                 if (string202.startsWith(",-", i204))
-                                    string202 = new StringBuilder().append("")
-                                            .append(string202.substring(0, i204)).append(",")
-                                            .append(string202.substring(i204 + 2, string202.length())).append("")
-                                            .toString();
+                                    string202 = new StringBuilder().append("").append(string202.substring(0, i204))
+                                            .append(",").append(string202.substring(i204 + 2, string202.length()))
+                                            .append("").toString();
                                 else if (string202.startsWith(",", i204))
-                                    string202 = new StringBuilder().append("")
-                                            .append(string202.substring(0, i204)).append(",-")
-                                            .append(string202.substring(i204 + 1, string202.length())).append("")
-                                            .toString();
+                                    string202 = new StringBuilder().append("").append(string202.substring(0, i204))
+                                            .append(",-").append(string202.substring(i204 + 1, string202.length()))
+                                            .append("").toString();
                         }
-                        string199 = new StringBuilder().append(string199).append("").append(string202)
-                                .append("\n").toString();
+                        string199 = new StringBuilder().append(string199).append("").append(string202).append("\n")
+                                .toString();
                     }
                     string199 = new StringBuilder().append(string199).append("\n// End of mirror").toString();
                     editor.insertText(string199, editor.getSelectionEnd());
@@ -977,8 +974,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                 }
                                 if (i209 == 0) {
                                     string211 = string213;
-                                    string210 = new StringBuilder().append("1stColor").append(string213)
-                                            .append("\n").toString();
+                                    string210 = new StringBuilder().append("1stColor").append(string213).append("\n")
+                                            .toString();
                                     i209 = 1;
                                 }
                             }
@@ -1050,12 +1047,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         final int i221 = editor.getText().indexOf("\n", i219);
                         if (i221 > i220)
                             editor.replaceText(
-                                    new StringBuilder().append("ScaleX(").append(scale[0]).append(")").toString(),
-                                    i219, i220 + 1);
+                                    new StringBuilder().append("ScaleX(").append(scale[0]).append(")").toString(), i219,
+                                    i220 + 1);
                         else
                             editor.replaceText(
-                                    new StringBuilder().append("ScaleX(").append(scale[0]).append(")").toString(),
-                                    i219, i221);
+                                    new StringBuilder().append("ScaleX(").append(scale[0]).append(")").toString(), i219,
+                                    i221);
                     } else {
                         final int i222 = editor.getText().indexOf("<p>", 0);
                         final int i223 = editor.getText().indexOf("\nScale", 0);
@@ -1083,12 +1080,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         final int i226 = editor.getText().indexOf("\n", i224);
                         if (i226 > i225)
                             editor.replaceText(
-                                    new StringBuilder().append("ScaleY(").append(scale[1]).append(")").toString(),
-                                    i224, i225 + 1);
+                                    new StringBuilder().append("ScaleY(").append(scale[1]).append(")").toString(), i224,
+                                    i225 + 1);
                         else
                             editor.replaceText(
-                                    new StringBuilder().append("ScaleY(").append(scale[1]).append(")").toString(),
-                                    i224, i226);
+                                    new StringBuilder().append("ScaleY(").append(scale[1]).append(")").toString(), i224,
+                                    i226);
                     } else {
                         final int i227 = editor.getText().indexOf("<p>", 0);
                         final int i228 = editor.getText().indexOf("\nScale", 0);
@@ -1116,12 +1113,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         final int i231 = editor.getText().indexOf("\n", i229);
                         if (i231 > i230)
                             editor.replaceText(
-                                    new StringBuilder().append("ScaleZ(").append(scale[2]).append(")").toString(),
-                                    i229, i230 + 1);
+                                    new StringBuilder().append("ScaleZ(").append(scale[2]).append(")").toString(), i229,
+                                    i230 + 1);
                         else
                             editor.replaceText(
-                                    new StringBuilder().append("ScaleZ(").append(scale[2]).append(")").toString(),
-                                    i229, i231);
+                                    new StringBuilder().append("ScaleZ(").append(scale[2]).append(")").toString(), i229,
+                                    i231);
                     } else {
                         final int i232 = editor.getText().indexOf("<p>", 0);
                         final int i233 = editor.getText().indexOf("\nScale", 0);
@@ -1192,8 +1189,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                         i243 -= 10;
                                     string234 = new StringBuilder().append(string234).append("p(").append(i241)
                                             .append(",").append(i242).append(",").append(i243).append(")")
-                                            .append(string237.substring(i240 + 1, string237.length()))
-                                            .append("\n").toString();
+                                            .append(string237.substring(i240 + 1, string237.length())).append("\n")
+                                            .toString();
                                 } else
                                     string234 = new StringBuilder().append(string234).append("").append(string237)
                                             .append("\n").toString();
@@ -1314,14 +1311,13 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                             }
                         }
                         string250 = string250.trim();
-                        string250 = new StringBuilder().append(string250).append("\n\n\ngwgr(")
-                                .append(wv[15].getText()).append(")\n").toString();
+                        string250 = new StringBuilder().append(string250).append("\n\n\ngwgr(").append(wv[15].getText())
+                                .append(")\n").toString();
                         String string254 = "140,140,140";
                         if (rplc.getText().startsWith("(") && rplc.getText().endsWith(")"))
                             string254 = rplc.getText().substring(1, rplc.getText().length() - 1);
-                        string250 = new StringBuilder().append(string250).append("rims(").append(string254)
-                                .append(",").append(wv[13].getText()).append(",").append(wv[14].getText()).append(")\n")
-                                .toString();
+                        string250 = new StringBuilder().append(string250).append("rims(").append(string254).append(",")
+                                .append(wv[13].getText()).append(",").append(wv[14].getText()).append(")\n").toString();
                         string250 = new StringBuilder().append(string250).append("w(-").append(wv[8].getText())
                                 .append(",").append(wv[9].getText()).append(",").append(wv[10].getText()).append(",11,")
                                 .append(wv[12].getText()).append(",").append(wv[11].getText()).append(")\n").toString();
@@ -1334,9 +1330,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         string254 = "140,140,140";
                         if (srch.getText().startsWith("(") && srch.getText().endsWith(")"))
                             string254 = srch.getText().substring(1, srch.getText().length() - 1);
-                        string250 = new StringBuilder().append(string250).append("rims(").append(string254)
-                                .append(",").append(wv[5].getText()).append(",").append(wv[6].getText()).append(")\n")
-                                .toString();
+                        string250 = new StringBuilder().append(string250).append("rims(").append(string254).append(",")
+                                .append(wv[5].getText()).append(",").append(wv[6].getText()).append(")\n").toString();
                         string250 = new StringBuilder().append(string250).append("w(-").append(wv[0].getText())
                                 .append(",").append(wv[1].getText()).append(",").append(wv[2].getText()).append(",0,")
                                 .append(wv[4].getText()).append(",").append(wv[3].getText()).append(")\n").toString();
@@ -1407,8 +1402,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         while (i258 != 0 && i259 != 5) {
                             i259 = 0;
                             for (int i260 = 0; i260 < 5; i260++)
-                                if (i257 != i260 && (stat[i260] <= 200 || i258 > 0)
-                                        && (stat[i260] >= 16 || i258 < 0) && i258 != 0) {
+                                if (i257 != i260 && (stat[i260] <= 200 || i258 > 0) && (stat[i260] >= 16 || i258 < 0)
+                                        && i258 != 0) {
                                     if (i258 > 0) {
                                         stat[i257]++;
                                         stat[i260]--;
@@ -2023,12 +2018,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             final String string363 = new StringBuilder().append("").append(string.charAt(i)).toString();
             if (string363.equals("|") || string363.equals(",") || string363.equals("(") || string363.equals(")")
                     || string363.equals("#") || string363.equals(string360) || string363.equals("!")
-                    || string363.equals("?") || string363.equals("~") || string363.equals(".")
-                    || string363.equals("@") || string363.equals("$") || string363.equals("%")
-                    || string363.equals("^") || string363.equals("&") || string363.equals("*")
-                    || string363.equals("+") || string363.equals("=") || string363.equals(">")
-                    || string363.equals("<") || string363.equals("/") || string363.equals("'")
-                    || string363.equals(";") || string363.equals(":") || i > 15)
+                    || string363.equals("?") || string363.equals("~") || string363.equals(".") || string363.equals("@")
+                    || string363.equals("$") || string363.equals("%") || string363.equals("^") || string363.equals("&")
+                    || string363.equals("*") || string363.equals("+") || string363.equals("=") || string363.equals(">")
+                    || string363.equals("<") || string363.equals("/") || string363.equals("'") || string363.equals(";")
+                    || string363.equals(":") || i > 15)
                 i362 = i;
             else
                 string361 = new StringBuilder().append(string361).append(string363).toString();
@@ -2348,8 +2342,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             while ((string = bufferedreader.readLine()) != null) {
                 final StringBuilder stringbuilder = new StringBuilder();
                 final CarMaker carmaker300 = this;
-                carmaker300.lastedo = stringbuilder.append(carmaker300.lastedo).append("").append(string)
-                        .append("\n").toString();
+                carmaker300.lastedo = stringbuilder.append(carmaker300.lastedo).append("").append(string).append("\n")
+                        .toString();
             }
             loadedfile = true;
             bufferedreader.close();
@@ -2421,8 +2415,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     if (string.equals(new StringBuilder().append("crash").append(i354 + 1).append(".wav").toString()))
                         crashs[i354] = new soundClip(is);
                 for (int i355 = 0; i355 < 3; i355++)
-                    if (string.equals(
-                            new StringBuilder().append("lowcrash").append(i355 + 1).append(".wav").toString()))
+                    if (string
+                            .equals(new StringBuilder().append("lowcrash").append(i355 + 1).append(".wav").toString()))
                         lowcrashs[i355] = new soundClip(is);
             }
             fileinputstream.close();
@@ -2693,8 +2687,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             for (int i316 = 0; i316 < o.npl; i316++) {
                 float f317 = 0.0F;
                 for (int i318 = 0; i318 < o.p[i316].n; i318++)
-                    if (o.p[i316].wz == 0
-                            && py(o.keyx[i], o.p[i316].ox[i318], o.keyz[i], o.p[i316].oz[i318]) < i315) {
+                    if (o.p[i316].wz == 0 && py(o.keyx[i], o.p[i316].ox[i318], o.keyz[i], o.p[i316].oz[i318]) < i315) {
                         f317 = f / 20.0F * m.random();
                         o.p[i316].oz[i318] -= f317 * m.sin(o.xz) * m.cos(o.zy);
                         o.p[i316].ox[i318] += f317 * m.cos(o.xz) * m.cos(o.xy);
@@ -2723,8 +2716,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                             o.p[i316].hsb[0] = 0.05F;
                         o.p[i316].bfase += Math.abs(f317);
                         new Color(o.p[i316].c[0], o.p[i316].c[1], o.p[i316].c[2]);
-                        final Color color = Color.getHSBColor(o.p[i316].hsb[0], o.p[i316].hsb[1],
-                                o.p[i316].hsb[2]);
+                        final Color color = Color.getHSBColor(o.p[i316].hsb[0], o.p[i316].hsb[1], o.p[i316].hsb[2]);
                         o.p[i316].c[0] = color.getRed();
                         o.p[i316].c[1] = color.getGreen();
                         o.p[i316].c[2] = color.getBlue();
@@ -2752,8 +2744,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             for (int i320 = 0; i320 < o.npl; i320++) {
                 float f321 = 0.0F;
                 for (int i322 = 0; i322 < o.p[i320].n; i322++)
-                    if (o.p[i320].wz == 0
-                            && py(o.keyx[i], o.p[i320].ox[i322], o.keyz[i], o.p[i320].oz[i322]) < i319) {
+                    if (o.p[i320].wz == 0 && py(o.keyx[i], o.p[i320].ox[i322], o.keyz[i], o.p[i320].oz[i322]) < i319) {
                         f321 = f / 20.0F * m.random();
                         o.p[i320].oz[i322] += f321 * m.cos(o.xz) * m.cos(o.zy);
                         o.p[i320].ox[i322] += f321 * m.sin(o.xz) * m.cos(o.xy);
@@ -2782,8 +2773,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                             o.p[i320].hsb[0] = 0.05F;
                         o.p[i320].bfase += Math.abs(f321);
                         new Color(o.p[i320].c[0], o.p[i320].c[1], o.p[i320].c[2]);
-                        final Color color = Color.getHSBColor(o.p[i320].hsb[0], o.p[i320].hsb[1],
-                                o.p[i320].hsb[2]);
+                        final Color color = Color.getHSBColor(o.p[i320].hsb[0], o.p[i320].hsb[1], o.p[i320].hsb[2]);
                         o.p[i320].c[0] = color.getRed();
                         o.p[i320].c[1] = color.getGreen();
                         o.p[i320].c[2] = color.getBlue();
@@ -2860,8 +2850,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                             o.p[i325].hsb[0] = 0.05F;
                         o.p[i325].bfase += f326;
                         new Color(o.p[i325].c[0], o.p[i325].c[1], o.p[i325].c[2]);
-                        final Color color = Color.getHSBColor(o.p[i325].hsb[0], o.p[i325].hsb[1],
-                                o.p[i325].hsb[2]);
+                        final Color color = Color.getHSBColor(o.p[i325].hsb[0], o.p[i325].hsb[1], o.p[i325].hsb[2]);
                         o.p[i325].c[0] = color.getRed();
                         o.p[i325].c[1] = color.getGreen();
                         o.p[i325].c[2] = color.getBlue();
@@ -2877,8 +2866,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         }
     }
 
-    public void rot(final int[] is, final int[] is331, final int i, final int i332, final int i333,
-            final int i334) {
+    public void rot(final int[] is, final int[] is331, final int i, final int i332, final int i333, final int i334) {
         if (i333 != 0)
             for (int i335 = 0; i335 < i334; i335++) {
                 final int i336 = is[i335];
@@ -3171,8 +3159,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     stringbutton("  Cancel  ", 350, 366 + i2, 0, false);
                 }
                 if (sfase == 4) {
-                    rd.drawString("Select Car to Export", 350 - ftm.stringWidth("Select Car to Export") / 2,
-                            230 + i2);
+                    rd.drawString("Select Car to Export", 350 - ftm.stringWidth("Select Car to Export") / 2, 230 + i2);
                     slcar.move(250, 240 + i2);
                     if (slcar.getWidth() != 200)
                         slcar.setSize(200, 21);
@@ -3677,8 +3664,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                         is29[1] = 0;
                                     if (is29[1] > 255)
                                         is29[1] = 255;
-                                    is29[2] = Integer.valueOf(fcol.substring(i32 + 1, fcol.length() - 1))
-                                            .intValue();
+                                    is29[2] = Integer.valueOf(fcol.substring(i32 + 1, fcol.length() - 1)).intValue();
                                     if (is29[2] < 0)
                                         is29[2] = 0;
                                     if (is29[2] > 255)
@@ -3710,8 +3696,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                         is33[1] = 0;
                                     if (is33[1] > 255)
                                         is33[1] = 255;
-                                    is33[2] = Integer.valueOf(scol.substring(i36 + 1, scol.length() - 1))
-                                            .intValue();
+                                    is33[2] = Integer.valueOf(scol.substring(i36 + 1, scol.length() - 1)).intValue();
                                     if (is33[2] < 0)
                                         is33[2] = 0;
                                     if (is33[2] > 255)
@@ -3736,8 +3721,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         if (i37 != -1) {
                             i37++;
                             try {
-                                scale[0] = Integer.valueOf(
-                                        editor.getText().substring(i37 + 7, editor.getText().indexOf(")", i37)))
+                                scale[0] = Integer
+                                        .valueOf(
+                                                editor.getText().substring(i37 + 7, editor.getText().indexOf(")", i37)))
                                         .intValue();
                             } catch (final Exception exception) {
                                 scale[0] = 100;
@@ -3749,8 +3735,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         if (i37 != -1) {
                             i37++;
                             try {
-                                scale[1] = Integer.valueOf(
-                                        editor.getText().substring(i37 + 7, editor.getText().indexOf(")", i37)))
+                                scale[1] = Integer
+                                        .valueOf(
+                                                editor.getText().substring(i37 + 7, editor.getText().indexOf(")", i37)))
                                         .intValue();
                             } catch (final Exception exception) {
                                 scale[1] = 100;
@@ -3762,8 +3749,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         if (i37 != -1) {
                             i37++;
                             try {
-                                scale[2] = Integer.valueOf(
-                                        editor.getText().substring(i37 + 7, editor.getText().indexOf(")", i37)))
+                                scale[2] = Integer
+                                        .valueOf(
+                                                editor.getText().substring(i37 + 7, editor.getText().indexOf(")", i37)))
                                         .intValue();
                             } catch (final Exception exception) {
                                 scale[2] = 100;
@@ -4304,12 +4292,10 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                     pnx[i96], 447 + i96 * 24);
                             rd.drawLine(140, 443 + i96 * 24, 230, 443 + i96 * 24);
                             for (int i97 = 1; i97 < 10; i97++)
-                                rd.drawLine(140 + 10 * i97, 443 - i97 + i96 * 24, 140 + 10 * i97,
-                                        443 + i97 + i96 * 24);
+                                rd.drawLine(140 + 10 * i97, 443 - i97 + i96 * 24, 140 + 10 * i97, 443 + i97 + i96 * 24);
                             rd.setColor(new Color(255, 0, 0));
                             final int i98 = (int) (phys[i96] / 1.1111F / 10.0F);
-                            rd.fillRect(138 + (int) (phys[i96] / 1.1111F), 443 - i98 + i96 * 24, 5,
-                                    i98 * 2 + 1);
+                            rd.fillRect(138 + (int) (phys[i96] / 1.1111F), 443 - i98 + i96 * 24, 5, i98 * 2 + 1);
                             rd.setColor(new Color(255, 128, 0));
                             rd.drawRect(139 + (int) (phys[i96] / 1.1111F), 434 + i96 * 24, 2, 18);
                             stringbutton(" - ", 260, 447 + i96 * 24, 4, false);
@@ -4329,8 +4315,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                 rd.setColor(new Color(176, 64, 0));
                                 rd.drawLine(pnx[i99 + 5], 448 + i99 * 24, 109, 448 + i99 * 24);
                             }
-                            rd.drawString(
-                                    new StringBuilder().append("").append(pname[i99 + 5]).append(" :").toString(),
+                            rd.drawString(new StringBuilder().append("").append(pname[i99 + 5]).append(" :").toString(),
                                     pnx[i99 + 5], 447 + i99 * 24);
                             rd.drawLine(121, 443 + i99 * 24, 211, 443 + i99 * 24);
                             for (int i100 = 1; i100 < 10; i100++)
@@ -4338,8 +4323,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                         443 + i100 + i99 * 24);
                             rd.setColor(new Color(255, 0, 0));
                             final int i101 = (int) (phys[i99 + 5] / 1.1111F / 10.0F);
-                            rd.fillRect(119 + (int) (phys[i99 + 5] / 1.1111F), 443 - i101 + i99 * 24, 5,
-                                    i101 * 2 + 1);
+                            rd.fillRect(119 + (int) (phys[i99 + 5] / 1.1111F), 443 - i101 + i99 * 24, 5, i101 * 2 + 1);
                             rd.setColor(new Color(255, 128, 0));
                             rd.drawRect(120 + (int) (phys[i99 + 5] / 1.1111F), 434 + i99 * 24, 2, 18);
                             stringbutton(" - ", 241, 447 + i99 * 24, 4, false);
@@ -4969,9 +4953,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         nad[i143] = 0;
                         String string = "";
                         try {
-                            String string144 = new StringBuilder()
-                                    .append("http://multiplayer.needformadness.com/cars/").append(mycars[i143])
-                                    .append(".txt?reqlo=").append((int) (Math.random() * 1000.0)).append("").toString();
+                            String string144 = new StringBuilder().append("http://multiplayer.needformadness.com/cars/")
+                                    .append(mycars[i143]).append(".txt?reqlo=").append((int) (Math.random() * 1000.0))
+                                    .append("").toString();
                             string144 = string144.replace(' ', '_');
                             final URL url = new URL(string144);
                             final DataInputStream datainputstream = new DataInputStream(url.openStream());
@@ -5082,23 +5066,22 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                 rd.setColor(new Color(0, 64, 0));
                                 rd.drawString("You", 300 - ftm.stringWidth("You") / 2, 156 + i148 * 20);
                             } else
-                                rd.drawString(maker[i148], 300 - ftm.stringWidth(maker[i148]) / 2,
-                                        156 + i148 * 20);
+                                rd.drawString(maker[i148], 300 - ftm.stringWidth(maker[i148]) / 2, 156 + i148 * 20);
                             if (nad[i148] > 1) {
-                                if (ovbutton(new StringBuilder().append("").append(nad[i148]).append(" Players")
-                                        .toString(), 400, 156 + i148 * 20)) {
+                                if (ovbutton(
+                                        new StringBuilder().append("").append(nad[i148]).append(" Players").toString(),
+                                        400, 156 + i148 * 20)) {
                                     String string150 = new StringBuilder().append("[ ").append(mycars[i148])
                                             .append(" ]  has been added by the following players to their accounts:     \n\n")
                                             .toString();
                                     int i151 = 0;
                                     for (int i152 = 0; i152 < nad[i148]; i152++) {
                                         if (++i151 == 17) {
-                                            string150 = new StringBuilder().append(string150).append("\n")
-                                                    .toString();
+                                            string150 = new StringBuilder().append(string150).append("\n").toString();
                                             i151 = 1;
                                         }
-                                        string150 = new StringBuilder().append(string150)
-                                                .append(addeda[i148][i152]).toString();
+                                        string150 = new StringBuilder().append(string150).append(addeda[i148][i152])
+                                                .toString();
                                         if (i152 != nad[i148] - 1)
                                             if (i152 != nad[i148] - 2)
                                                 string150 = new StringBuilder().append(string150).append(", ")
@@ -5185,8 +5168,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                                 i162 += i163;
                                             }
                                             String string164 = new String(is161);
-                                            string164 = new StringBuilder().append(string164).append("\n")
-                                                    .toString();
+                                            string164 = new StringBuilder().append(string164).append("\n").toString();
                                             String string165 = "";
                                             int i166 = 0;
                                             int i167 = string164.indexOf("\n", 0);
@@ -5206,8 +5188,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                                 }
                                             }
                                             string165 = string165.trim();
-                                            string165 = new StringBuilder().append(string165).append("\n\n")
-                                                    .toString();
+                                            string165 = new StringBuilder().append(string165).append("\n\n").toString();
                                             File file = new File("mycars/");
                                             if (!file.exists())
                                                 file.mkdirs();

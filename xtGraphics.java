@@ -920,8 +920,8 @@ public class xtGraphics extends Panel implements Runnable {
             for (int i108 = 0; i108 < contos[sc[0]].npl && !bool107; i108++)
                 if (contos[sc[0]].p[i108].colnum == 1) {
                     final float[] fs = new float[3];
-                    Color.RGBtoHSB(contos[sc[0]].p[i108].c[0], contos[sc[0]].p[i108].c[1],
-                            contos[sc[0]].p[i108].c[2], fs);
+                    Color.RGBtoHSB(contos[sc[0]].p[i108].c[0], contos[sc[0]].p[i108].c[1], contos[sc[0]].p[i108].c[2],
+                            fs);
                     arnp[0] = fs[0];
                     arnp[1] = fs[1];
                     arnp[2] = 1.0F - fs[2];
@@ -931,8 +931,8 @@ public class xtGraphics extends Panel implements Runnable {
             for (int i109 = 0; i109 < contos[sc[0]].npl && !bool107; i109++)
                 if (contos[sc[0]].p[i109].colnum == 2) {
                     final float[] fs = new float[3];
-                    Color.RGBtoHSB(contos[sc[0]].p[i109].c[0], contos[sc[0]].p[i109].c[1],
-                            contos[sc[0]].p[i109].c[2], fs);
+                    Color.RGBtoHSB(contos[sc[0]].p[i109].c[0], contos[sc[0]].p[i109].c[1], contos[sc[0]].p[i109].c[2],
+                            fs);
                     arnp[3] = fs[0];
                     arnp[4] = fs[1];
                     arnp[5] = 1.0F - fs[2];
@@ -2852,12 +2852,12 @@ public class xtGraphics extends Panel implements Runnable {
                             final float f412 = (255.0F - color411.getRed()) / 255.0F;
                             final float f413 = (255.0F - color411.getGreen()) / 255.0F;
                             final float f414 = (255.0F - color411.getBlue()) / 255.0F;
-                            int i415 = (int) ((color.getRed() * (flang * f412)
-                                    + color411.getRed() * (1.0F - f412)) / (flang * f412 + (1.0F - f412)));
-                            int i416 = (int) ((color.getGreen() * (flang * f413)
-                                    + color411.getGreen() * (1.0F - f413)) / (flang * f413 + (1.0F - f413)));
-                            int i417 = (int) ((color.getBlue() * (flang * f414)
-                                    + color411.getBlue() * (1.0F - f414)) / (flang * f414 + (1.0F - f414)));
+                            int i415 = (int) ((color.getRed() * (flang * f412) + color411.getRed() * (1.0F - f412))
+                                    / (flang * f412 + (1.0F - f412)));
+                            int i416 = (int) ((color.getGreen() * (flang * f413) + color411.getGreen() * (1.0F - f413))
+                                    / (flang * f413 + (1.0F - f413)));
+                            int i417 = (int) ((color.getBlue() * (flang * f414) + color411.getBlue() * (1.0F - f414))
+                                    / (flang * f414 + (1.0F - f414)));
                             if (i415 > 255)
                                 i415 = 255;
                             if (i415 < 0)
@@ -3189,11 +3189,11 @@ public class xtGraphics extends Panel implements Runnable {
                     if (i144 == 13)
                         string147 = " ";
                     if (aflk)
-                        drawcs(320, new StringBuilder().append("").append(cd.names[i144]).append("")
-                                .append(string147).append(" has been unlocked!").toString(), 196, 176, 0, 3);
+                        drawcs(320, new StringBuilder().append("").append(cd.names[i144]).append("").append(string147)
+                                .append(" has been unlocked!").toString(), 196, 176, 0, 3);
                     else
-                        drawcs(320, new StringBuilder().append("").append(cd.names[i144]).append("")
-                                .append(string147).append(" has been unlocked!").toString(), 255, 247, 165, 3);
+                        drawcs(320, new StringBuilder().append("").append(cd.names[i144]).append("").append(string147)
+                                .append(" has been unlocked!").toString(), 255, 247, 165, 3);
                     pin = 140;
                 }
                 rd.setFont(new Font("Arial", 1, 11));
@@ -4952,8 +4952,8 @@ public class xtGraphics extends Panel implements Runnable {
                 }
                 for (int i2 = 0; i2 < 5; i2++)
                     for (int i3 = 0; i3 < 5; i3++)
-                        if (string.equals(new StringBuilder().append("").append(i3).append("").append(i2)
-                                .append(".wav").toString()))
+                        if (string.equals(new StringBuilder().append("").append(i3).append("").append(i2).append(".wav")
+                                .toString()))
                             engs[i3][i2] = new soundClip(is);
                 for (int i4 = 0; i4 < 6; i4++)
                     if (string.equals(new StringBuilder().append("air").append(i4).append(".wav").toString()))
@@ -4962,19 +4962,16 @@ public class xtGraphics extends Panel implements Runnable {
                     if (string.equals(new StringBuilder().append("crash").append(i5 + 1).append(".wav").toString()))
                         crash[i5] = new soundClip(is);
                 for (int i6 = 0; i6 < 3; i6++)
-                    if (string
-                            .equals(new StringBuilder().append("lowcrash").append(i6 + 1).append(".wav").toString()))
+                    if (string.equals(new StringBuilder().append("lowcrash").append(i6 + 1).append(".wav").toString()))
                         lowcrash[i6] = new soundClip(is);
                 for (int i7 = 0; i7 < 3; i7++)
                     if (string.equals(new StringBuilder().append("skid").append(i7 + 1).append(".wav").toString()))
                         skid[i7] = new soundClip(is);
                 for (int i8 = 0; i8 < 3; i8++)
-                    if (string
-                            .equals(new StringBuilder().append("dustskid").append(i8 + 1).append(".wav").toString()))
+                    if (string.equals(new StringBuilder().append("dustskid").append(i8 + 1).append(".wav").toString()))
                         dustskid[i8] = new soundClip(is);
                 for (int i9 = 0; i9 < 3; i9++)
-                    if (string
-                            .equals(new StringBuilder().append("scrape").append(i9 + 1).append(".wav").toString())) {
+                    if (string.equals(new StringBuilder().append("scrape").append(i9 + 1).append(".wav").toString())) {
                         scrape[i9] = new soundClip(is);
                         if (i9 == 2)
                             scrape[3] = new soundClip(is);
@@ -5280,9 +5277,8 @@ public class xtGraphics extends Panel implements Runnable {
             }
             for (int i37 = 0; i37 < 4; i37++) {
                 rd.setColor(new Color(235, 176, 84));
-                rd.fillOval((int) (65 + ovx[i37] - ovw[i37] * 1.5 / 2.0),
-                        (int) (25 + ovy[i37] - ovh[i37] * 1.5 / 2.0), (int) (ovw[i37] * 1.5),
-                        (int) (ovh[i37] * 1.5));
+                rd.fillOval((int) (65 + ovx[i37] - ovw[i37] * 1.5 / 2.0), (int) (25 + ovy[i37] - ovh[i37] * 1.5 / 2.0),
+                        (int) (ovw[i37] * 1.5), (int) (ovh[i37] * 1.5));
                 rd.setColor(new Color(255, 176, 67));
                 rd.fillOval(65 + ovx[i37] - ovh[i37] / 2, 25 + ovy[i37] - ovh[i37] / 2, ovw[i37], ovh[i37]);
                 ovx[i37] -= ovsx[i37];
@@ -5685,8 +5681,7 @@ public class xtGraphics extends Panel implements Runnable {
         }
         for (int i = 0; i < 670; i++)
             for (int i391 = 0; i391 < 400; i391++) {
-                if (i > 14 && i < 106 && i391 > 11 && i391 < 236
-                        && is387[i - 14 + (i391 - 11) * 92] != is387[0]) {
+                if (i > 14 && i < 106 && i391 > 11 && i391 < 236 && is387[i - 14 + (i391 - 11) * 92] != is387[0]) {
                     final Color color = new Color(is[i + i391 * 670]);
                     final Color color392 = new Color(is387[i - 14 + (i391 - 11) * 92]);
                     int i393 = (int) (color.getRed() * 0.33 + color392.getRed() * 0.67);
@@ -5707,8 +5702,7 @@ public class xtGraphics extends Panel implements Runnable {
                     final Color color396 = new Color(i393, i394, i395);
                     is[i + i391 * 670] = color396.getRGB();
                 }
-                if (i > 564 && i < 656 && i391 > 11 && i391 < 236
-                        && is387[i - 564 + (i391 - 11) * 92] != is387[0]) {
+                if (i > 564 && i < 656 && i391 > 11 && i391 < 236 && is387[i - 564 + (i391 - 11) * 92] != is387[0]) {
                     final Color color = new Color(is[i + i391 * 670]);
                     final Color color397 = new Color(is387[i - 564 + (i391 - 11) * 92]);
                     int i398 = (int) (color.getRed() * 0.33 + color397.getRed() * 0.67);
@@ -5729,8 +5723,7 @@ public class xtGraphics extends Panel implements Runnable {
                     final Color color401 = new Color(i398, i399, i400);
                     is[i + i391 * 670] = color401.getRGB();
                 }
-                if (i > 440 && i < 528 && i391 > 53 && i391 < 77
-                        && is389[i - 440 + (i391 - 53) * 88] != is389[0]) {
+                if (i > 440 && i < 528 && i391 > 53 && i391 < 77 && is389[i - 440 + (i391 - 53) * 88] != is389[0]) {
                     final Color color = new Color(is[i + i391 * 670]);
                     final Color color402 = new Color(is389[i - 440 + (i391 - 53) * 88]);
                     int i403 = (int) (color.getRed() * 0.33 + color402.getRed() * 0.67);
@@ -6070,8 +6063,8 @@ public class xtGraphics extends Panel implements Runnable {
                             int i60 = 0;
                             int i61 = 1;
                             for ( /**/ ; i60 < lcmsg[i57].length(); i60++) {
-                                final String string62 = new StringBuilder().append("")
-                                        .append(lcmsg[i57].charAt(i60)).toString();
+                                final String string62 = new StringBuilder().append("").append(lcmsg[i57].charAt(i60))
+                                        .toString();
                                 if (string62.equals(" "))
                                     i61++;
                                 else
@@ -6152,22 +6145,24 @@ public class xtGraphics extends Panel implements Runnable {
                                         rd.setColor(new Color(0, i65, i66));
                                         rd.setFont(new Font("Tahoma", 1, 11));
                                         ftm = rd.getFontMetrics();
-                                        rd.drawString(new StringBuilder().append(cnames[i57][i67]).append(": ")
-                                                .toString(), 39 + i64 + movepos[i57], 439 + i56);
-                                        i64 += ftm.stringWidth(new StringBuilder().append(cnames[i57][i67])
-                                                .append(": ").toString());
+                                        rd.drawString(
+                                                new StringBuilder().append(cnames[i57][i67]).append(": ").toString(),
+                                                39 + i64 + movepos[i57], 439 + i56);
+                                        i64 += ftm.stringWidth(
+                                                new StringBuilder().append(cnames[i57][i67]).append(": ").toString());
                                         rd.setColor(new Color(0, 0, 0));
                                         rd.setFont(new Font("Tahoma", 0, 11));
                                         ftm = rd.getFontMetrics();
-                                        rd.drawString(new StringBuilder().append(sentn[i57][i67]).append("   ")
-                                                .toString(), 39 + i64 + movepos[i57], 439 + i56);
-                                        i64 += ftm.stringWidth(new StringBuilder().append(sentn[i57][i67])
-                                                .append("   ").toString());
+                                        rd.drawString(
+                                                new StringBuilder().append(sentn[i57][i67]).append("   ").toString(),
+                                                39 + i64 + movepos[i57], 439 + i56);
+                                        i64 += ftm.stringWidth(
+                                                new StringBuilder().append(sentn[i57][i67]).append("   ").toString());
                                     } else {
-                                        i64 += ftm.stringWidth(new StringBuilder().append(cnames[i57][i67])
-                                                .append(": ").toString());
-                                        i64 += ftm.stringWidth(new StringBuilder().append(sentn[i57][i67])
-                                                .append("   ").toString());
+                                        i64 += ftm.stringWidth(
+                                                new StringBuilder().append(cnames[i57][i67]).append(": ").toString());
+                                        i64 += ftm.stringWidth(
+                                                new StringBuilder().append(sentn[i57][i67]).append("   ").toString());
                                     }
                                 }
                                 rd.setColor(new Color(0, 0, 0));
@@ -6181,13 +6176,13 @@ public class xtGraphics extends Panel implements Runnable {
                                     rd.setFont(new Font("Tahoma", 1, 11));
                                     ftm = rd.getFontMetrics();
                                     if (ftm.stringWidth(
-                                            new StringBuilder().append(cnames[i57][i68]).append(": ").toString())
-                                            + 39 + i64 < 775) {
+                                            new StringBuilder().append(cnames[i57][i68]).append(": ").toString()) + 39
+                                            + i64 < 775) {
                                         if (i68 != 6 || msgflk[i57] < 67 || msgflk[i57] % 3 != 0)
                                             rd.drawString(new StringBuilder().append(cnames[i57][i68]).append(": ")
                                                     .toString(), 39 + i64, 439 + i56);
-                                        i64 += ftm.stringWidth(new StringBuilder().append(cnames[i57][i68])
-                                                .append(": ").toString());
+                                        i64 += ftm.stringWidth(
+                                                new StringBuilder().append(cnames[i57][i68]).append(": ").toString());
                                     } else {
                                         String string = "";
                                         for (int i69 = 0; ftm.stringWidth(string) + 39 + i64 < 775
@@ -6206,8 +6201,8 @@ public class xtGraphics extends Panel implements Runnable {
                                         if (i68 != 6 || msgflk[i57] < 67 || msgflk[i57] % 3 != 0)
                                             rd.drawString(new StringBuilder().append(sentn[i57][i68]).append("   ")
                                                     .toString(), 39 + i64, 439 + i56);
-                                        i64 += ftm.stringWidth(new StringBuilder().append(sentn[i57][i68])
-                                                .append("   ").toString());
+                                        i64 += ftm.stringWidth(
+                                                new StringBuilder().append(sentn[i57][i68]).append("   ").toString());
                                     } else {
                                         String string = "";
                                         for (int i70 = 0; ftm.stringWidth(string) + 39 + i64 < 775
@@ -6381,8 +6376,7 @@ public class xtGraphics extends Panel implements Runnable {
                                 if (i81 < 0)
                                     i81 = 0;
                                 rd.setColor(new Color(i82, i83, i81));
-                                rd.drawString(plnames[i77], 731 - ftm.stringWidth(plnames[i77]) / 2,
-                                        70 + 30 * i75);
+                                rd.drawString(plnames[i77], 731 - ftm.stringWidth(plnames[i77]) / 2, 70 + 30 * i75);
                             }
                             rd.setColor(new Color(0, 0, 0));
                             rd.drawString(plnames[i77], 730 - ftm.stringWidth(plnames[i77]) / 2, 70 + 30 * i75);
@@ -6617,8 +6611,7 @@ public class xtGraphics extends Panel implements Runnable {
         return i > i295 - 5 && i < i295 + i298 + 5 && i294 > i296 - 5 && i294 < i296 + i297 + 5;
     }
 
-    public boolean overon(final int i, final int i289, final int i290, final int i291, final int i292,
-            final int i293) {
+    public boolean overon(final int i, final int i289, final int i290, final int i291, final int i292, final int i293) {
         return i292 > i && i292 < i + i290 && i293 > i289 && i293 < i289 + i291;
     }
 
@@ -7250,8 +7243,7 @@ public class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void rot(final int[] is, final int[] is272, final int i, final int i273, final int i274,
-            final int i275) {
+    public void rot(final int[] is, final int[] is272, final int i, final int i273, final int i274, final int i275) {
         if (i274 != 0)
             for (int i276 = 0; i276 < i275; i276++) {
                 final int i277 = is[i276];
@@ -8638,12 +8630,12 @@ public class xtGraphics extends Panel implements Runnable {
                         string189 = new StringBuilder().append("Clan ").append(string).append("").toString();
                     drawhi(gamefinished, 70);
                     if (aflk) {
-                        drawcs(120, new StringBuilder().append("").append(string189)
-                                .append(" has wasted all the cars!").toString(), 0, 0, 0, 0);
+                        drawcs(120, new StringBuilder().append("").append(string189).append(" has wasted all the cars!")
+                                .toString(), 0, 0, 0, 0);
                         aflk = false;
                     } else {
-                        drawcs(120, new StringBuilder().append("").append(string189)
-                                .append(" has wasted all the cars!").toString(), 0, 128, 255, 0);
+                        drawcs(120, new StringBuilder().append("").append(string189).append(" has wasted all the cars!")
+                                .toString(), 0, 128, 255, 0);
                         aflk = true;
                     }
                     drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
@@ -8971,8 +8963,8 @@ public class xtGraphics extends Panel implements Runnable {
                     if (loop != "") {
                         final StringBuilder stringbuilder = new StringBuilder();
                         final xtGraphics xtgraphics193 = this;
-                        xtgraphics193.asay = stringbuilder.append(xtgraphics193.asay).append(" ")
-                                .append(loop).toString();
+                        xtgraphics193.asay = stringbuilder.append(xtgraphics193.asay).append(" ").append(loop)
+                                .toString();
                     }
                     i = 0;
                     mad.travxy = Math.abs(mad.travxy);
@@ -9008,49 +9000,49 @@ public class xtGraphics extends Panel implements Runnable {
                         if (loop == "" && spin == "") {
                             final StringBuilder stringbuilder = new StringBuilder();
                             final xtGraphics xtgraphics195 = this;
-                            xtgraphics195.asay = stringbuilder.append(xtgraphics195.asay).append(" ")
-                                    .append(i).toString();
+                            xtgraphics195.asay = stringbuilder.append(xtgraphics195.asay).append(" ").append(i)
+                                    .toString();
                             if (bool194) {
                                 final StringBuilder stringbuilder196 = new StringBuilder();
                                 final xtGraphics xtgraphics197 = this;
-                                xtgraphics197.asay = stringbuilder196.append(xtgraphics197.asay)
-                                        .append(" and beyond").toString();
+                                xtgraphics197.asay = stringbuilder196.append(xtgraphics197.asay).append(" and beyond")
+                                        .toString();
                             }
                         } else {
                             if (spin != "")
                                 if (loop == "") {
                                     final StringBuilder stringbuilder = new StringBuilder();
                                     final xtGraphics xtgraphics198 = this;
-                                    xtgraphics198.asay = stringbuilder.append(xtgraphics198.asay)
-                                            .append(" ").append(spin).toString();
+                                    xtgraphics198.asay = stringbuilder.append(xtgraphics198.asay).append(" ")
+                                            .append(spin).toString();
                                 } else {
                                     final StringBuilder stringbuilder = new StringBuilder();
                                     final xtGraphics xtgraphics199 = this;
-                                    xtgraphics199.asay = stringbuilder.append(xtgraphics199.asay)
-                                            .append(" with ").append(spin).toString();
+                                    xtgraphics199.asay = stringbuilder.append(xtgraphics199.asay).append(" with ")
+                                            .append(spin).toString();
                                 }
                             final StringBuilder stringbuilder = new StringBuilder();
                             final xtGraphics xtgraphics200 = this;
-                            xtgraphics200.asay = stringbuilder.append(xtgraphics200.asay).append(" by ")
-                                    .append(i).toString();
+                            xtgraphics200.asay = stringbuilder.append(xtgraphics200.asay).append(" by ").append(i)
+                                    .toString();
                             if (bool194) {
                                 final StringBuilder stringbuilder201 = new StringBuilder();
                                 final xtGraphics xtgraphics202 = this;
-                                xtgraphics202.asay = stringbuilder201.append(xtgraphics202.asay)
-                                        .append(" and beyond").toString();
+                                xtgraphics202.asay = stringbuilder201.append(xtgraphics202.asay).append(" and beyond")
+                                        .toString();
                             }
                         }
                     } else if (spin != "")
                         if (loop == "") {
                             final StringBuilder stringbuilder = new StringBuilder();
                             final xtGraphics xtgraphics203 = this;
-                            xtgraphics203.asay = stringbuilder.append(xtgraphics203.asay).append(" ")
-                                    .append(spin).toString();
+                            xtgraphics203.asay = stringbuilder.append(xtgraphics203.asay).append(" ").append(spin)
+                                    .toString();
                         } else {
                             final StringBuilder stringbuilder = new StringBuilder();
                             final xtGraphics xtgraphics204 = this;
-                            xtgraphics204.asay = stringbuilder.append(xtgraphics204.asay).append(" by ")
-                                    .append(spin).toString();
+                            xtgraphics204.asay = stringbuilder.append(xtgraphics204.asay).append(" by ").append(spin)
+                                    .toString();
                         }
                     if (asay != "")
                         auscnt -= 15;
