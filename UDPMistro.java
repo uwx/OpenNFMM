@@ -51,7 +51,7 @@ public class UDPMistro implements Runnable {
     int[] gocnt = new int[8];
     int[] out = new int[8];
 
-    public int getncoms(final String string) {
+    private int getncoms(final String string) {
         int i = 0;
         int i89 = 0;
         String string90 = "";
@@ -63,7 +63,7 @@ public class UDPMistro implements Runnable {
         return i;
     }
 
-    public String getSvalue(final String string, final int i) {
+    private String getSvalue(final String string, final int i) {
         String string83 = "";
         try {
             int i84 = 0;
@@ -89,7 +89,7 @@ public class UDPMistro implements Runnable {
         return string83;
     }
 
-    public int getvalue(final String string, final int i) {
+    private int getvalue(final String string, final int i) {
         int i78 = -1;
         try {
             int i79 = 0;

@@ -1081,17 +1081,17 @@ public class Plane {
         }
     }
 
-    public int spy(final int i, final int i170) {
+    private int spy(final int i, final int i170) {
         return (int) Math.sqrt((i - m.cx) * (i - m.cx) + i170 * i170);
     }
 
-    public int xs(final int i, int i161) {
+    private int xs(final int i, int i161) {
         if (i161 < m.cz)
             i161 = m.cz;
         return (i161 - m.focusPoint) * (m.cx - i) / i161 + i;
     }
 
-    public int ys(final int i, int i162) {
+    private int ys(final int i, int i162) {
         if (i162 < m.cz)
             i162 = m.cz;
         return (i162 - m.focusPoint) * (m.cy - i) / i162 + i;

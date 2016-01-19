@@ -168,10 +168,10 @@ public class Login implements Runnable {
         }
     }
 
-    public void checknotifcations() {
+    private void checknotifcations() {
     }
 
-    public Color color2k(final int i, final int i62, final int i63) {
+    private Color color2k(final int i, final int i62, final int i63) {
         final Color color = new Color(i, i62, i63);
         final float[] fs = new float[3];
         Color.RGBtoHSB(color.getRed(), color.getGreen(), color.getBlue(), fs);
@@ -596,7 +596,7 @@ public class Login implements Runnable {
         control.exit = false;
     }
 
-    public void drawbutton(final Image image, final int i, final int i59) {
+    private void drawbutton(final Image image, final int i, final int i59) {
         bx[btn] = i;
         by[btn] = i59;
         bw[btn] = image.getWidth(ob);
@@ -616,7 +616,7 @@ public class Login implements Runnable {
         btn++;
     }
 
-    public void drawSbutton(final Image image, final int i, final int i58) {
+    private void drawSbutton(final Image image, final int i, final int i58) {
         bx[btn] = i;
         by[btn] = i58;
         bw[btn] = image.getWidth(ob);
@@ -686,7 +686,7 @@ public class Login implements Runnable {
         connector.start();
     }
 
-    public void fixtext(final TextField textfield) {
+    private void fixtext(final TextField textfield) {
         String string = textfield.getText();
         string = string.replace('\"', '#');
         final String string64 = "\\";
@@ -728,7 +728,7 @@ public class Login implements Runnable {
         }
     }
 
-    public String getSvalue(final String string, final int i) {
+    private String getSvalue(final String string, final int i) {
         String string74 = "";
         try {
             int i75 = 0;
@@ -754,7 +754,7 @@ public class Login implements Runnable {
         return string74;
     }
 
-    public int getvalue(final String string, final int i) {
+    private int getvalue(final String string, final int i) {
         int i68 = -1;
         try {
             int i69 = 0;
@@ -1759,7 +1759,7 @@ public class Login implements Runnable {
         endcons();
     }
 
-    public void stringbutton(final String string, final int i, final int i60, final int i61) {
+    private void stringbutton(final String string, final int i, final int i60, final int i61) {
         rd.setFont(new Font("Arial", 1, 12));
         ftm = rd.getFontMetrics();
         bx[btn] = i;

@@ -109,7 +109,7 @@ public class Chronometer {
         return getTime(laptimes[bestlap - 1]);
     }
 
-    public String getTime(final long time) {
+    private String getTime(final long time) {
         final long cent = time % 1000L / 10L;
         final int secs = (int) (time / 1000L % 60L);
         final int mins = (int) (time / 1000L / 60L);

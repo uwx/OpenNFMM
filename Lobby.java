@@ -266,7 +266,7 @@ public class Lobby implements Runnable {
         gs.sgame.add(rd, " Monthly Top 20 ");*/
     }
 
-    public Color color2k(final int i, final int i327, final int i328) {
+    private Color color2k(final int i, final int i327, final int i328) {
         final Color color = new Color(i, i327, i328);
         final float[] fs = new float[3];
         Color.RGBtoHSB(color.getRed(), color.getGreen(), color.getBlue(), fs);
@@ -900,7 +900,7 @@ public class Lobby implements Runnable {
         control.exit = false;
     }
 
-    public void drawSbutton(final Image image, final int i, final int i324) {
+    private void drawSbutton(final Image image, final int i, final int i324) {
         bx[btn] = i;
         by[btn] = i324;
         bw[btn] = image.getWidth(ob);
@@ -920,7 +920,7 @@ public class Lobby implements Runnable {
         btn++;
     }
 
-    public String getHSvalue(final String string, final int i) {
+    private String getHSvalue(final String string, final int i) {
         String string347 = "";
         try {
             int i348 = 0;
@@ -946,7 +946,7 @@ public class Lobby implements Runnable {
         return string347;
     }
 
-    public int getHvalue(final String string, final int i) {
+    private int getHvalue(final String string, final int i) {
         int i341 = -1;
         try {
             int i342 = 0;
@@ -974,7 +974,7 @@ public class Lobby implements Runnable {
         return i341;
     }
 
-    public String getSevervalue(final String string, final int i) {
+    private String getSevervalue(final String string, final int i) {
         String string353 = "";
         if (!string.equals(""))
             try {
@@ -1001,7 +1001,7 @@ public class Lobby implements Runnable {
         return string353;
     }
 
-    public String getSvalue(final String string, final int i) {
+    private String getSvalue(final String string, final int i) {
         String string335 = "";
         try {
             int i336 = 0;
@@ -1027,7 +1027,7 @@ public class Lobby implements Runnable {
         return string335;
     }
 
-    public int getvalue(final String string, final int i) {
+    private int getvalue(final String string, final int i) {
         int i329 = -1;
         try {
             int i330 = 0;
@@ -1055,7 +1055,7 @@ public class Lobby implements Runnable {
         return i329;
     }
 
-    public void hideinputs() {
+    private void hideinputs() {
         gs.cmsg.setVisible(false);
         gs.swait.setVisible(false);
         gs.snpls.setVisible(false);
@@ -5845,7 +5845,7 @@ public class Lobby implements Runnable {
         }
     }
 
-    public void stringbutton(final String string, final int i, final int i325, final int i326) {
+    private void stringbutton(final String string, final int i, final int i325, final int i326) {
         rd.setFont(new Font("Arial", 1, 12));
         ftm = rd.getFontMetrics();
         bx[btn] = i;

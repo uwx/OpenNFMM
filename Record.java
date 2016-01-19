@@ -107,7 +107,7 @@ public class Record {
         cotchinow(0);
     }
 
-    public void chipx(final int i, float f, final ContO conto, final Mad mad) {
+    private void chipx(final int i, float f, final ContO conto, final Mad mad) {
         if (Math.abs(f) > 100.0F) {
             if (f > 100.0F)
                 f -= 100.0F;
@@ -127,7 +127,7 @@ public class Record {
         }
     }
 
-    public void chipz(final int i, float f, final ContO conto, final Mad mad) {
+    private void chipz(final int i, float f, final ContO conto, final Mad mad) {
         if (Math.abs(f) > 100.0F) {
             if (f > 100.0F)
                 f -= 100.0F;
@@ -334,7 +334,7 @@ public class Record {
         lastfr = i38;
     }
 
-    public int py(final int i, final int i74, final int i75, final int i76) {
+    private int py(final int i, final int i74, final int i75, final int i76) {
         return (i - i74) * (i - i74) + (i75 - i76) * (i75 - i76);
     }
 
@@ -452,7 +452,7 @@ public class Record {
             nrz[i49][i] = 0;
     }
 
-    public void regx(final int i, float f, final ContO conto, final Mad mad) {
+    private void regx(final int i, float f, final ContO conto, final Mad mad) {
         if (Math.abs(f) > 100.0F) {
             if (f > 100.0F)
                 f -= 100.0F;
@@ -506,7 +506,7 @@ public class Record {
         }
     }
 
-    public void regy(final int i, float f, final boolean bool, final ContO conto, final Mad mad) {
+    private void regy(final int i, float f, final boolean bool, final ContO conto, final Mad mad) {
         if (f > 100.0F) {
             f -= 100.0F;
             int i50 = 0;
@@ -611,7 +611,7 @@ public class Record {
         }
     }
 
-    public void regz(final int i, float f, final ContO conto, final Mad mad) {
+    private void regz(final int i, float f, final ContO conto, final Mad mad) {
         if (Math.abs(f) > 100.0F) {
             if (f > 100.0F)
                 f -= 100.0F;

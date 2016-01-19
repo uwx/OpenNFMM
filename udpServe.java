@@ -24,7 +24,7 @@ public class udpServe implements Runnable {
         servo.start();
     }
 
-    public String getSvalue(final String string, final int i) {
+    private String getSvalue(final String string, final int i) {
         String string24 = "";
         try {
             int i25 = 0;
@@ -50,7 +50,7 @@ public class udpServe implements Runnable {
         return string24;
     }
 
-    public int getvalue(final String string, final int i) {
+    private int getvalue(final String string, final int i) {
         int i18 = -1;
         try {
             int i19 = 0;

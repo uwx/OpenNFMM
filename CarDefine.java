@@ -415,7 +415,7 @@ public class CarDefine implements Runnable {
         gs = gamesparker;
     }
 
-    public void loadstat(final byte[] is, final String string, final int i, final int i0, final int i1, final int i2) {
+    private void loadstat(final byte[] is, final String string, final int i, final int i0, final int i1, final int i2) {
         names[i2] = string;
         boolean bool = false;
         boolean bool3 = false;
@@ -771,7 +771,7 @@ public class CarDefine implements Runnable {
             names[i2] = "";
     }
 
-    public int getvalue(final String string, final String string21, final int i) {
+    private int getvalue(final String string, final String string21, final int i) {
         int i22 = 0;
         String string23 = "";
         for (int i24 = string.length() + 1; i24 < string21.length(); i24++) {
@@ -786,7 +786,7 @@ public class CarDefine implements Runnable {
         return Float.valueOf(string23).intValue();
     }
 
-    public String getSvalue(final String string, final String string26, final int i) {
+    private String getSvalue(final String string, final String string26, final int i) {
         String string27 = "";
         int i28 = 0;
         for (int i29 = string.length() + 1; i29 < string26.length() && i28 <= i; i29++) {
@@ -799,7 +799,7 @@ public class CarDefine implements Runnable {
         return string27;
     }
 
-    public int servervalue(final String string, final int i) {
+    private int servervalue(final String string, final int i) {
         int i31 = -1;
         try {
             int i32 = 0;
@@ -827,7 +827,7 @@ public class CarDefine implements Runnable {
         return i31;
     }
 
-    public String serverSvalue(final String string, final int i) {
+    private String serverSvalue(final String string, final int i) {
         String string37 = "";
         try {
             int i38 = 0;
@@ -1402,7 +1402,7 @@ public class CarDefine implements Runnable {
         }
     }
 
-    public int loadonlinecar(final String string, int i) {
+    private int loadonlinecar(final String string, int i) {
         try {
             String string52 = new StringBuilder().append("http://multiplayer.needformadness.com/cars/").append(string)
                     .append(".radq").toString();

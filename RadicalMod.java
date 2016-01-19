@@ -101,7 +101,7 @@ class RadicalMod implements RadicalMusic {
             return new StringBuilder().append(mins).append(":0").append(secs).toString();
     }
 
-    public void loadimod(final boolean bool) {
+    private void loadimod(final boolean bool) {
         if (loaded == 1) {
             final int i = 44000;
             int i_6 = 160;
@@ -134,7 +134,7 @@ class RadicalMod implements RadicalMusic {
         }
     }
 
-    public void loadpmod(final boolean bool) {
+    private void loadpmod(final boolean bool) {
         if (loaded == 1) {
             final int i = 44000;
             int i_10 = 160;

@@ -500,7 +500,7 @@ public class Medium {
         }
     }
 
-    public void drawclouds(final Graphics2D graphics2d) {
+    private void drawclouds(final Graphics2D graphics2d) {
         for (int i = 0; i < noc; i++) {
             final int i104 = cx + (int) ((clx[i] - x / 20 - cx) * cos(xz) - (clz[i] - z / 20 - cz) * sin(xz));
             final int i105 = cz + (int) ((clx[i] - x / 20 - cx) * sin(xz) + (clz[i] - z / 20 - cz) * cos(xz));
@@ -726,7 +726,7 @@ public class Medium {
         }
     }
 
-    public void drawmountains(final Graphics2D graphics2d) {
+    private void drawmountains(final Graphics2D graphics2d) {
         for (int i = 0; i < nmt; i++) {
             final int i185 = mrd[i];
             final int i186 = cx
@@ -801,7 +801,7 @@ public class Medium {
         }
     }
 
-    public void drawstars(final Graphics2D graphics2d) {
+    private void drawstars(final Graphics2D graphics2d) {
         for (int i = 0; i < nst; i++) {
             int i215 = cx + (int) (stx[i] * cos(xz) - stz[i] * sin(xz));
             final int i216 = cz + (int) (stx[i] * sin(xz) + stz[i] * cos(xz));
@@ -1059,7 +1059,7 @@ public class Medium {
             fvect += 2;
     }
 
-    public void groundpolys(final Graphics2D graphics2d) {
+    private void groundpolys(final Graphics2D graphics2d) {
         int i = (x - sgpx) / 1200 - 12;
         if (i < 0)
             i = 0;
@@ -1577,7 +1577,7 @@ public class Medium {
         return rand[trn] / 10.0F;
     }
 
-    public void rot(final int[] is, final int[] is274, final int i, final int i275, final int i276, final int i277) {
+    private void rot(final int[] is, final int[] is274, final int i, final int i275, final int i276, final int i277) {
         if (i276 != 0)
             for (int i278 = 0; i278 < i277; i278++) {
                 final int i279 = is[i278];
@@ -1825,13 +1825,13 @@ public class Medium {
             td = true;
     }
 
-    public int xs(final int i, int i272) {
+    private int xs(final int i, int i272) {
         if (i272 < cz)
             i272 = cz;
         return (i272 - focusPoint) * (cx - i) / i272 + i;
     }
 
-    public int ys(final int i, int i273) {
+    private int ys(final int i, int i273) {
         if (i273 < 10)
             i273 = 10;
         return (i273 - focusPoint) * (cy - i) / i273 + i;

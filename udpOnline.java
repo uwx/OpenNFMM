@@ -47,7 +47,7 @@ public class udpOnline implements Runnable {
         started = false;
     }
 
-    public String getSvalue(final String string, final int i) {
+    private String getSvalue(final String string, final int i) {
         String string18 = "";
         try {
             int i19 = 0;
@@ -73,7 +73,7 @@ public class udpOnline implements Runnable {
         return string18;
     }
 
-    public int getvalue(final String string, final int i) {
+    private int getvalue(final String string, final int i) {
         int i12 = -1;
         try {
             int i13 = 0;

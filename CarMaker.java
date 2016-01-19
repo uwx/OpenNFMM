@@ -336,7 +336,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             textcomponent.selectAll();
     }
 
-    public boolean checko(final String string) {
+    private boolean checko(final String string) {
         loadfile();
         setupo();
         if (o.colok < 2) {
@@ -478,7 +478,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         return true;
     }
 
-    public void crash(float f) {
+    private void crash(float f) {
         if (f > 100.0F)
             f -= 100.0F;
         if (f < -100.0F)
@@ -499,7 +499,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         }
     }
 
-    public void ctachm() {
+    private void ctachm() {
         int i = -1;
         for (int i174 = 0; i174 < btn; i174++) {
             if (Math.abs(xm - bx[i174]) < bw[i174] / 2 + 12 && Math.abs(ym - by[i174]) < 14 && mouses == 1)
@@ -1959,7 +1959,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         }
     }
 
-    public void delcar(final String string) {
+    private void delcar(final String string) {
         if (string.equals(""))
             JOptionPane.showMessageDialog(null, "Please Select a Car to Delete!\n", "Car Maker", 1);
         else {
@@ -1981,7 +1981,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         }
     }
 
-    public void drawms() {
+    private void drawms() {
         openm = false;
         if (pubtyp.draw(rd, xm, ym, mousdr, 550, false))
             openm = true;
@@ -2007,7 +2007,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         }
     }
 
-    public void fixtext(final TextField textfield) {
+    private void fixtext(final TextField textfield) {
         String string = textfield.getText();
         string = string.replace('\"', '#');
         final String string360 = "\\";
@@ -2033,7 +2033,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         }
     }
 
-    public Image getImage(final String string) {
+    private Image getImage(final String string) {
         final Image image = Toolkit.getDefaultToolkit().createImage(string);
         final MediaTracker mediatracker = new MediaTracker(this);
         mediatracker.addImage(image, 0);
@@ -2045,7 +2045,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         return image;
     }
 
-    public String getSvalue(final String string, final String string369, final int i) {
+    private String getSvalue(final String string, final String string369, final int i) {
         String string370 = "";
         int i371 = 0;
         for (int i372 = string.length() + 1; i372 < string369.length() && i371 <= i; i372++) {
@@ -2058,7 +2058,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         return string370;
     }
 
-    public int getvalue(final String string, final String string364, final int i) {
+    private int getvalue(final String string, final String string364, final int i) {
         int i365 = 0;
         String string366 = "";
         for (int i367 = string.length() + 1; i367 < string364.length(); i367++) {
@@ -2079,7 +2079,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         return false;
     }
 
-    public void hidefields() {
+    private void hidefields() {
         pubtyp.setVisible(false);
         tpass.setVisible(false);
         tnick.setVisible(false);
@@ -2296,7 +2296,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         return false;
     }
 
-    public void loadbase() {
+    private void loadbase() {
         final String[] strings = {
                 "2000tornados", "formula7", "canyenaro", "lescrab", "nimi", "maxrevenge", "leadoxide", "koolkat",
                 "drifter", "policecops", "mustang", "king", "audir8", "masheen", "radicalone", "drmonster"
@@ -2332,7 +2332,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         System.gc();
     }
 
-    public void loadfile() {
+    private void loadfile() {
         loadedfile = false;
         lastedo = "";
         try {
@@ -2357,7 +2357,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         editor.setText(lastedo);
     }
 
-    public void loadsettings() {
+    private void loadsettings() {
         try {
             final File file = new File("mycars/settings.data");
             if (file.exists()) {
@@ -2390,7 +2390,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         }
     }
 
-    public void loadsounds() {
+    private void loadsounds() {
         try {
             final File file = new File("data/sounds.zip");
             final FileInputStream fileinputstream = new FileInputStream(file);
@@ -2482,7 +2482,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         return false;
     }
 
-    public void movefield(final Component component, int i, int i343, final int i344, final int i345) {
+    private void movefield(final Component component, int i, int i343, final int i344, final int i345) {
         i += apx;
         i343 += apy;
         if (component.getX() != i || component.getY() != i343 || component.getWidth() != i344
@@ -2490,7 +2490,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             component.setBounds(i, i343, i344, i345);
     }
 
-    public void newcar(final String string) {
+    private void newcar(final String string) {
         if (string.equals(""))
             JOptionPane.showMessageDialog(null, "Please Enter a Car Name!\n", "Car Maker", 1);
         else {
@@ -2527,7 +2527,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         }
     }
 
-    public int objvalue(final String string, final int i) {
+    private int objvalue(final String string, final int i) {
         int i386 = 0;
         try {
             int i387 = 2;
@@ -2573,19 +2573,19 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         return i386;
     }
 
-    public void openelink() {
+    private void openelink() {
         Madness.openurl("http://www.needformadness.com/developer/extras.html");
     }
 
-    public void openhlink() {
+    private void openhlink() {
         Madness.openurl("http://www.needformadness.com/developer/");
     }
 
-    public void openlink() {
+    private void openlink() {
         Madness.openurl("http://www.needformadness.com/developer/simplecar.html");
     }
 
-    public boolean ovbutton(final String string, final int i, final int i395) {
+    private boolean ovbutton(final String string, final int i, final int i395) {
         rd.setFont(new Font("Arial", 0, 12));
         ftm = rd.getFontMetrics();
         if (string.equals("X") || string.equals("Download")) {
@@ -2667,11 +2667,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         graphics.drawImage(offImage, apx, apy, this);
     }
 
-    public int py(final int i, final int i328, final int i329, final int i330) {
+    private int py(final int i, final int i328, final int i329, final int i330) {
         return (i - i328) * (i - i328) + (i329 - i330) * (i329 - i330);
     }
 
-    public void regx(final int i, float f, final boolean bool) {
+    private void regx(final int i, float f, final boolean bool) {
         hitmag += f;
         if (!bool)
             crash(f);
@@ -2728,7 +2728,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         }
     }
 
-    public void regz(final int i, float f, final boolean bool) {
+    private void regz(final int i, float f, final boolean bool) {
         hitmag += f;
         if (!bool)
             crash(f);
@@ -2785,7 +2785,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         }
     }
 
-    public void rencar(final String string) {
+    private void rencar(final String string) {
         if (string.equals(""))
             JOptionPane.showMessageDialog(null, "Please Enter a New Car Name!\n", "Car Maker", 1);
         else
@@ -2812,7 +2812,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             }
     }
 
-    public void roofsqsh(float f) {
+    private void roofsqsh(float f) {
         if (f > 100.0F) {
             crash(f);
             f -= 100.0F;
@@ -2866,7 +2866,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         }
     }
 
-    public void rot(final int[] is, final int[] is331, final int i, final int i332, final int i333, final int i334) {
+    private void rot(final int[] is, final int[] is331, final int i, final int i332, final int i333, final int i334) {
         if (i333 != 0)
             for (int i335 = 0; i335 < i334; i335++) {
                 final int i336 = is[i335];
@@ -5317,7 +5317,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         System.gc();
     }
 
-    public void savefile() {
+    private void savefile() {
         if (!editor.getText().equals(""))
             try {
                 File file = new File("mycars/");
@@ -5336,7 +5336,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         savesettings();
     }
 
-    public void savesettings() {
+    private void savesettings() {
         if (!scar.equals(carname) || !suser.equals(tnick.getText()) || !sfont.equals(cfont) || cthm != sthm) {
             final String string = new StringBuilder().append("").append(carname).append("\n").append(tnick.getText())
                     .append("\n").append(cfont).append("\n").append(cthm).append("\n\n").toString();
@@ -5384,7 +5384,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         return string380;
     }
 
-    public int servervalue(final String string, final int i) {
+    private int servervalue(final String string, final int i) {
         int i374 = -1;
         try {
             int i375 = 0;
@@ -5412,7 +5412,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         return i374;
     }
 
-    public void setheme() {
+    private void setheme() {
         if (cthm == 0) {
             editor.setForeground(deff);
             editor.setBackground(defb);
@@ -5447,7 +5447,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         }
     }
 
-    public void setupo() {
+    private void setupo() {
         o = new ContO(editor.getText().getBytes(), m, t);
         o.x = ox;
         o.y = oy;
@@ -5482,7 +5482,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         exwist = true;
     }
 
-    public void stringbutton(final String string, final int i, final int i393, final int i394, final boolean bool) {
+    private void stringbutton(final String string, final int i, final int i393, final int i394, final boolean bool) {
         rd.setFont(new Font("Arial", 1, 12));
         ftm = rd.getFontMetrics();
         if (string.indexOf("Publish") != -1) {
@@ -5555,13 +5555,13 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         paint(graphics);
     }
 
-    public int xs(final int i, int i338) {
+    private int xs(final int i, int i338) {
         if (i338 < m.cz)
             i338 = m.cz;
         return (i338 - m.focusPoint) * (m.cx - i) / i338 + i;
     }
 
-    public int ys(final int i, int i339) {
+    private int ys(final int i, int i339) {
         if (i339 < m.cz)
             i339 = m.cz;
         return (i339 - m.focusPoint) * (m.cy - i) / i339 + i;

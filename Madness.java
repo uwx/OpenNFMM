@@ -146,7 +146,7 @@ public class Madness extends Panel {
         cm.start();
     }
 
-    public static void checknupdate(final int i) {
+    private static void checknupdate(final int i) {
         /* :D */ }
 
     public static void exitfullscreen() {
@@ -184,7 +184,7 @@ public class Madness extends Panel {
         fullscreen = false;
     }
 
-    public static void exitsequance() {
+    private static void exitsequance() {
         if (updateon == 0 || updateon == 3) {
             if (endadv == 1)
                 endadv = 2;

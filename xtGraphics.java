@@ -522,7 +522,7 @@ public class xtGraphics extends Panel implements Runnable {
         chronostart = false;
     }
 
-    public void arrow(final int i, final int i216, final CheckPoints checkpoints, final boolean bool) {
+    private void arrow(final int i, final int i216, final CheckPoints checkpoints, final boolean bool) {
         final int[] is = new int[7];
         final int[] is217 = new int[7];
         final int[] is218 = new int[7];
@@ -816,7 +816,7 @@ public class xtGraphics extends Panel implements Runnable {
         drawcs(89, "Sorry not enough replay data to play available, please try again later.", 255, 255, 255, 1);
     }
 
-    public void carsbginflex() {
+    private void carsbginflex() {
         if (!badmac) {
             flatr = 0;
             flyr = (int) (m.random() * 160.0F - 80.0F);
@@ -2162,7 +2162,7 @@ public class xtGraphics extends Panel implements Runnable {
         return bool135;
     }
 
-    public void closesounds() {
+    private void closesounds() {
         for (int i = 0; i < 5; i++)
             for (int i271 = 0; i271 < 5; i271++)
                 engs[i][i271].checkopen();
@@ -2222,7 +2222,7 @@ public class xtGraphics extends Panel implements Runnable {
         return colorSnap(r, g, b, 255);
     }
 
-    protected Color colorSnap(final int r, final int g, final int b, int a) {
+    private Color colorSnap(final int r, final int g, final int b, int a) {
         int nr = r;
         int ng = g;
         int nb = b;
@@ -2773,7 +2773,7 @@ public class xtGraphics extends Panel implements Runnable {
         rd.drawString(string, 400 - ftm.stringWidth(string) / 2, i);
     }
 
-    public void drawdprom(final int i, final int i139) {
+    private void drawdprom(final int i, final int i139) {
         rd.setComposite(AlphaComposite.getInstance(3, 0.9F));
         rd.setColor(new Color(129, 203, 237));
         rd.fillRoundRect(205, i, 390, i139, 30, 30);
@@ -2782,7 +2782,7 @@ public class xtGraphics extends Panel implements Runnable {
         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
     }
 
-    public void drawhi(final Image image, final int i) {
+    private void drawhi(final Image image, final int i) {
         if (m.darksky) {
             Color color = new Color(m.csky[0], m.csky[1], m.csky[2]);
             final float[] fs = new float[3];
@@ -2818,7 +2818,7 @@ public class xtGraphics extends Panel implements Runnable {
         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
     }
 
-    public void drawSmokeCarsbg() {
+    private void drawSmokeCarsbg() {
         if (!badmac) {
             if (Math.abs(flyr - flyrdest) > 20) {
                 if (flyr > flyrdest)
@@ -2884,7 +2884,7 @@ public class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void drawstat(final int i, int i206, final boolean bool, final float f) {
+    private void drawstat(final int i, int i206, final boolean bool, final float f) {
         final int[] is = new int[4];
         final int[] is207 = new int[4];
         if (i206 > i)
@@ -3430,7 +3430,7 @@ public class xtGraphics extends Panel implements Runnable {
         return image;
     }
 
-    public String getSvalue(final String string, final int i) {
+    private String getSvalue(final String string, final int i) {
         String string443 = "";
         try {
             int i444 = 0;
@@ -3456,7 +3456,7 @@ public class xtGraphics extends Panel implements Runnable {
         return string443;
     }
 
-    public int getvalue(final String string, final int i) {
+    private int getvalue(final String string, final int i) {
         int i437 = -1;
         try {
             int i438 = 0;
@@ -3503,14 +3503,14 @@ public class xtGraphics extends Panel implements Runnable {
             }
     }
 
-    public void hidos() {
+    private void hidos() {
         app.sgame.setVisible(false);
         //app.snfm1.setVisible(false);
         //app.snfm2.setVisible(false);
         app.mstgs.setVisible(false);
     }
 
-    public void hipnoload(final int i, final boolean bool) {
+    private void hipnoload(final int i, final boolean bool) {
         final int[] is = {
                 m.snap[0], m.snap[1], m.snap[2]
         };
@@ -4402,7 +4402,7 @@ public class xtGraphics extends Panel implements Runnable {
         return image;
     }
 
-    public void loadimages() {
+    private void loadimages() {
         final Toolkit toolkit = Toolkit.getDefaultToolkit();
         final MediaTracker mediatracker = new MediaTracker(app);
         Image image = null;
@@ -4717,7 +4717,7 @@ public class xtGraphics extends Panel implements Runnable {
         System.gc();
     }
 
-    public void loading() {
+    private void loading() {
         rd.setColor(new Color(0, 0, 0));
         rd.fillRect(0, 0, 800, 450);
         rd.drawImage(sign, 362, 35, this);
@@ -4932,7 +4932,7 @@ public class xtGraphics extends Panel implements Runnable {
         return bufferedimage;
     }
 
-    public void loadsounds() {
+    private void loadsounds() {
         dnload += 3;
         try {
             final File file = new File(
@@ -6605,13 +6605,13 @@ public class xtGraphics extends Panel implements Runnable {
         drawcs(445, "Game lost its focus.   Click screen with mouse to continue.", 100, 100, 100, 3);
     }
 
-    public boolean over(final Image image, final int i, final int i294, final int i295, final int i296) {
+    private boolean over(final Image image, final int i, final int i294, final int i295, final int i296) {
         final int i297 = image.getHeight(ob);
         final int i298 = image.getWidth(ob);
         return i > i295 - 5 && i < i295 + i298 + 5 && i294 > i296 - 5 && i294 < i296 + i297 + 5;
     }
 
-    public boolean overon(final int i, final int i289, final int i290, final int i291, final int i292, final int i293) {
+    private boolean overon(final int i, final int i289, final int i290, final int i291, final int i292, final int i293) {
         return i292 > i && i292 < i + i290 && i293 > i289 && i293 < i289 + i291;
     }
 
@@ -6768,7 +6768,7 @@ public class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void pingstat() {
+    private void pingstat() {
         final int i = (int) (100.0 * Math.random());
         try {
             final URL url = new URL(new StringBuilder().append("http://c.statcounter.com/9994681/0/14bb645e/1/?reco=")
@@ -6950,11 +6950,11 @@ public class xtGraphics extends Panel implements Runnable {
         return image339;
     }
 
-    public int py(final int i, final int i281, final int i282, final int i283) {
+    private int py(final int i, final int i281, final int i282, final int i283) {
         return (i - i281) * (i - i281) + (i282 - i283) * (i282 - i283);
     }
 
-    public float pys(final int i, final int i284, final int i285, final int i286) {
+    private float pys(final int i, final int i284, final int i285, final int i286) {
         return (float) Math.sqrt((i - i284) * (i - i284) + (i285 - i286) * (i285 - i286));
     }
 
@@ -7003,7 +7003,7 @@ public class xtGraphics extends Panel implements Runnable {
         rd.fillRect(65, 425, 670, 25);
     }
 
-    public void radarstat(final Mad mad, final ContO conto, final CheckPoints checkpoints) {
+    private void radarstat(final Mad mad, final ContO conto, final CheckPoints checkpoints) {
         rd.setComposite(AlphaComposite.getInstance(3, 0.5F));
         rd.setColor(new Color(m.csky[0], m.csky[1], m.csky[2]));
         rd.fillRoundRect(10, 55, 172, 172, 30, 30);
@@ -7243,7 +7243,7 @@ public class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void rot(final int[] is, final int[] is272, final int i, final int i273, final int i274, final int i275) {
+    private void rot(final int[] is, final int[] is272, final int i, final int i273, final int i274, final int i275) {
         if (i274 != 0)
             for (int i276 = 0; i276 < i275; i276++) {
                 final int i277 = is[i276];
@@ -7555,7 +7555,7 @@ public class xtGraphics extends Panel implements Runnable {
         flaot = loadopsnap(oflaot, i, 1);
     }
 
-    public void sortcars(int i) {
+    private void sortcars(int i) {
         if (i != 0) {
             for (int i151 = 1; i151 < 7; i151++)
                 sc[i151] = -1;
@@ -7757,7 +7757,7 @@ public class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void sparkeng(int i, final int i263) {
+    private void sparkeng(int i, final int i263) {
         if (lcn != i263) {
             for (int i264 = 0; i264 < 5; i264++)
                 if (pengs[i264]) {
@@ -9172,7 +9172,7 @@ public class xtGraphics extends Panel implements Runnable {
         //	m.lton = true;
     }
 
-    public void stopairs() {
+    private void stopairs() {
         for (int i = 0; i < 6; i++)
             air[i].stop();
     }
@@ -9279,13 +9279,13 @@ public class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public int xs(final int i, int i279) {
+    private int xs(final int i, int i279) {
         if (i279 < 50)
             i279 = 50;
         return (i279 - m.focusPoint) * (m.cx - i) / i279 + i;
     }
 
-    public int ys(final int i, int i280) {
+    private int ys(final int i, int i280) {
         if (i280 < 50)
             i280 = 50;
         return (i280 - m.focusPoint) * (m.cy - i) / i280 + i;

@@ -1766,11 +1766,11 @@ public class Control {
         }
     }
 
-    public int py(final int i, final int i47, final int i48, final int i49) {
+    private int py(final int i, final int i47, final int i48, final int i49) {
         return (i - i47) * (i - i47) + (i48 - i49) * (i48 - i49);
     }
 
-    public int pys(final int i, final int i50, final int i51, final int i52) {
+    private int pys(final int i, final int i50, final int i51, final int i52) {
         return (int) Math.sqrt((i - i50) * (i - i50) + (i51 - i52) * (i51 - i52));
     }
 

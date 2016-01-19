@@ -1313,7 +1313,7 @@ public class ContO {
         }
     }
 
-    public void dsprk(final Graphics2D graphics2d, final boolean bool) {
+    private void dsprk(final Graphics2D graphics2d, final boolean bool) {
         if (bool && sprk != 0) {
             int i = (int) (Math.sqrt(rcx * rcx + rcy * rcy + rcz * rcz) / 10.0);
             if (i > 5) {
@@ -1455,7 +1455,7 @@ public class ContO {
         }
     }
 
-    public void electrify(final Graphics2D graphics2d) {
+    private void electrify(final Graphics2D graphics2d) {
         for (int i = 0; i < 4; i++) {
             if (elc[i] == 0) {
                 edl[i] = (int) (380.0F - m.random() * 760.0F);
@@ -1573,7 +1573,7 @@ public class ContO {
         }
     }
 
-    public void fixit(final Graphics2D graphics2d) {
+    private void fixit(final Graphics2D graphics2d) {
         if (fcnt == 1)
             for (int i = 0; i < npl; i++) {
                 p[i].hsb[0] = 0.57F;
@@ -1728,7 +1728,7 @@ public class ContO {
                 + (i268 - z) / 10 * ((i268 - z) / 10);
     }
 
-    public int getvalue(final String string, final String string262, final int i) {
+    private int getvalue(final String string, final String string262, final int i) {
         int i263 = 0;
         String string264 = "";
         for (int i265 = string.length() + 1; i265 < string262.length(); i265++) {
@@ -1743,7 +1743,7 @@ public class ContO {
         return Float.valueOf(string264).intValue();
     }
 
-    public void lowshadow(final Graphics2D graphics2d, final int i) {
+    private void lowshadow(final Graphics2D graphics2d, final int i) {
         final int[] is = new int[4];
         final int[] is146 = new int[4];
         final int[] is147 = new int[4];
@@ -1841,7 +1841,7 @@ public class ContO {
         }
     }
 
-    public void pdust(final int i, final Graphics2D graphics2d, final boolean bool) {
+    private void pdust(final int i, final Graphics2D graphics2d, final boolean bool) {
         if (bool)
             sav[i] = (int) Math.sqrt((m.x + m.cx - sx[i]) * (m.x + m.cx - sx[i])
                     + (m.y + m.cy - sy[i]) * (m.y + m.cy - sy[i]) + (m.z - sz[i]) * (m.z - sz[i]));
@@ -1972,11 +1972,11 @@ public class ContO {
         }
     }
 
-    public int py(final int i, final int i269, final int i270, final int i271) {
+    private int py(final int i, final int i269, final int i270, final int i271) {
         return (i - i269) * (i - i269) + (i270 - i271) * (i270 - i271);
     }
 
-    public void rot(final int[] is, final int[] is272, final int i, final int i273, final int i274, final int i275) {
+    private void rot(final int[] is, final int[] is272, final int i, final int i273, final int i274, final int i275) {
         if (i274 != 0)
             for (int i276 = 0; i276 < i275; i276++) {
                 final int i277 = is[i276];
@@ -2013,13 +2013,13 @@ public class ContO {
         rcz = f239;
     }
 
-    public int xs(final int i, int i260) {
+    private int xs(final int i, int i260) {
         if (i260 < 50)
             i260 = 50;
         return (i260 - m.focusPoint) * (m.cx - i) / i260 + i;
     }
 
-    public int ys(final int i, int i261) {
+    private int ys(final int i, int i261) {
         if (i261 < 50)
             i261 = 50;
         return (i261 - m.focusPoint) * (m.cy - i) / i261 + i;

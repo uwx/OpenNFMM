@@ -236,7 +236,7 @@ public class Mad {
         }
     }
 
-    public void distruct(final ContO conto) {
+    private void distruct(final ContO conto) {
         for (int i = 0; i < conto.npl; i++)
             if (conto.p[i].wz == 0 || conto.p[i].gr == -17 || conto.p[i].gr == -16)
                 conto.p[i].embos = 1;
@@ -1532,11 +1532,11 @@ public class Mad {
         }
     }
 
-    public int py(final int i, final int i145, final int i146, final int i147) {
+    private int py(final int i, final int i145, final int i146, final int i147) {
         return (i - i145) * (i - i145) + (i146 - i147) * (i146 - i147);
     }
 
-    public int regx(final int i, float f, final ContO conto) {
+    private int regx(final int i, float f, final ContO conto) {
         int i110 = 0;
         boolean bool = true;
         if (xt.multion == 1 && xt.im != im)
@@ -1604,7 +1604,7 @@ public class Mad {
         return i110;
     }
 
-    public int regy(final int i, float f, final ContO conto) {
+    private int regy(final int i, float f, final ContO conto) {
         int i97 = 0;
         boolean bool = true;
         if (xt.multion == 1 && xt.im != im)
@@ -1728,7 +1728,7 @@ public class Mad {
         return i97;
     }
 
-    public int regz(final int i, float f, final ContO conto) {
+    private int regz(final int i, float f, final ContO conto) {
         int i114 = 0;
         boolean bool = true;
         if (xt.multion == 1 && xt.im != im)
@@ -1886,7 +1886,7 @@ public class Mad {
             fixes = 1;
     }
 
-    public void rot(final float[] fs, final float[] fs134, final int i, final int i135, final int i136,
+    private void rot(final float[] fs, final float[] fs134, final int i, final int i135, final int i136,
             final int i137) {
         if (i136 != 0)
             for (int i138 = 0; i138 < i137; i138++) {
@@ -1897,7 +1897,7 @@ public class Mad {
             }
     }
 
-    public int rpy(final float f, final float f140, final float f141, final float f142, final float f143,
+    private int rpy(final float f, final float f140, final float f141, final float f142, final float f143,
             final float f144) {
         return (int) ((f - f140) * (f - f140) + (f141 - f142) * (f141 - f142) + (f143 - f144) * (f143 - f144));
     }

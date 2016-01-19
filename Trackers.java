@@ -68,7 +68,7 @@ public class Trackers {
         ncz--;
     }
 
-    public int py(final int i, final int i13, final int i14, final int i15) {
+    private int py(final int i, final int i13, final int i14, final int i15) {
         return (i - i13) * (i - i13) + (i14 - i15) * (i14 - i15);
     }
 }

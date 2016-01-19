@@ -136,7 +136,7 @@ public class CheckPoints {
         }
     }
 
-    public int py(final int i, final int i11, final int i12, final int i13) {
+    private int py(final int i, final int i11, final int i12, final int i13) {
         return (i - i11) * (i - i11) + (i12 - i13) * (i12 - i13);
     }
 }

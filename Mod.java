@@ -32,7 +32,7 @@ public class Mod {
                 | (string.charAt(0) & 0xff) << 24;
     }
 
-    static ModInstrument readInstrument(final DataInputStream datainputstream) throws IOException {
+    private static ModInstrument readInstrument(final DataInputStream datainputstream) throws IOException {
         final ModInstrument modinstrument = new ModInstrument();
         modinstrument.name = readText(datainputstream, 22);
         modinstrument.sampleLength = readu16(datainputstream) << 1;
@@ -48,7 +48,7 @@ public class Mod {
         return modinstrument;
     }
 
-    static void readSampleData(final DataInputStream datainputstream, final ModInstrument modinstrument)
+    private static void readSampleData(final DataInputStream datainputstream, final ModInstrument modinstrument)
             throws IOException {
         datainputstream.readFully(modinstrument.samples, 0, modinstrument.sampleLength);
         if (modinstrument.repeatLength > 3)
@@ -56,7 +56,7 @@ public class Mod {
                     modinstrument.sampleLength, 8);
     }
 
-    static final String readText(final DataInputStream datainputstream, final int i) throws IOException {
+    private static final String readText(final DataInputStream datainputstream, final int i) throws IOException {
         final byte[] is = new byte[i];
         datainputstream.readFully(is, 0, i);
         for (int i12 = i - 1; i12 >= 0; i12--)
@@ -65,11 +65,11 @@ public class Mod {
         return "";
     }
 
-    static final int readu16(final DataInputStream datainputstream) throws IOException {
+    private static final int readu16(final DataInputStream datainputstream) throws IOException {
         return datainputstream.readShort() & 0xffff;
     }
 
-    static final int readu8(final DataInputStream datainputstream) throws IOException {
+    private static final int readu8(final DataInputStream datainputstream) throws IOException {
         return datainputstream.readByte() & 0xff;
     }
 
@@ -163,7 +163,7 @@ public class Mod {
         return numtracks;
     }
 
-    public void LoadMod(final InputStream inputstream) throws IOException {
+    private void LoadMod(final InputStream inputstream) throws IOException {
         final DataInputStream datainputstream = new DataInputStream(inputstream);
         int i = 15;
         numtracks = 4;

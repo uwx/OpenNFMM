@@ -127,7 +127,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
     private int xm = 0;
     private int ym = 0;
 
-    public void catchlink() {
+    private void catchlink() {
         if (!lostfcs)
             if (xm > 65 && xm < 735 && ym > 135 && ym < 194 || xm > 275 && xm < 525 && ym > 265 && ym < 284) {
                 setCursor(new Cursor(12));
@@ -137,12 +137,12 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 setCursor(new Cursor(0));
     }
 
-    public void checkmemory(final xtGraphics xtgraphics) {
+    private void checkmemory(final xtGraphics xtgraphics) {
         if (applejava || Runtime.getRuntime().freeMemory() / 1048576L < 50L)
             xtgraphics.badmac = true;
     }
 
-    public void cropit(final Graphics2D graphics2d, final int i, final int i98) {
+    private void cropit(final Graphics2D graphics2d, final int i, final int i98) {
         if (i != 0 || i98 != 0) {
             graphics2d.setComposite(AlphaComposite.getInstance(3, 1.0F));
             graphics2d.setColor(new Color(0, 0, 0));
@@ -229,7 +229,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 .append("#").append(string).append("").toString());
     }
 
-    public int getint(final String string, final String string181, final int i) {
+    private int getint(final String string, final String string181, final int i) {
         int i182 = 0;
         String string183 = "";
         for (int i184 = string.length() + 1; i184 < string181.length(); i184++) {
@@ -244,7 +244,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
         return Integer.valueOf(string183).intValue();
     }
 
-    public String getstring(final String string, final String string186, final int i) {
+    private String getstring(final String string, final String string186, final int i) {
         int i187 = 0;
         String string188 = "";
         for (int i189 = string.length() + 1; i189 < string186.length(); i189++) {
@@ -266,7 +266,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
         return false;
     }
 
-    public void hidefields() {
+    private void hidefields() {
         ilaps.setVisible(false);
         icars.setVisible(false);
         proitem.setVisible(false);
@@ -306,7 +306,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
     }
 
     //@Override
-    public void initApplet() {
+    private void initApplet() {
         setBackground(new Color(0, 0, 0));
         //offImage = createImage(800, 450);
         //if (offImage != null)
@@ -414,7 +414,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
      */
     static private final int partskips = 100;//was 56
 
-    public void loadbase(final ContO[] contos, final Medium medium, final Trackers trackers,
+    private void loadbase(final ContO[] contos, final Medium medium, final Trackers trackers,
             final xtGraphics xtgraphics, final boolean bool) {
         if (carRads.length < xtGraphics.nCars)
             throw new RuntimeException("too many cars and not enough rad files!");
@@ -460,7 +460,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
             mload = 2;
     }
 
-    public void loadstage(final ContO[] contos, final ContO[] contos108, final Medium medium, final Trackers trackers,
+    private void loadstage(final ContO[] contos, final ContO[] contos108, final Medium medium, final Trackers trackers,
             final CheckPoints checkpoints, final xtGraphics xtgraphics, final Mad[] mads, final Record record) {
         if (xtgraphics.testdrive == 2 || xtgraphics.testdrive == 4)
             xtgraphics.nplayers = 1;
@@ -862,7 +862,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
         System.gc();
     }
 
-    public boolean loadstagePreview(final int i, final String string, final ContO[] contos, final ContO[] contos147,
+    private boolean loadstagePreview(final int i, final String string, final ContO[] contos, final ContO[] contos147,
             final Medium medium, final CheckPoints checkpoints) {
         boolean bool = true;
         if (i < 100) {
@@ -1214,7 +1214,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
         openurl("https://github.com/chrishansen69/OpenNFMM");
     }
 
-    public void openurl(final String string) {
+    private void openurl(final String string) {
         if (Desktop.isDesktopSupported())
             try {
                 Desktop.getDesktop().browse(new URI(string));
@@ -1370,7 +1370,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
             graphics2d.drawImage(offImage, apx, apy, this);
     }
 
-    public void readcookies(final xtGraphics xtgraphics, final CarDefine cardefine, final ContO[] contos) {
+    private void readcookies(final xtGraphics xtgraphics, final CarDefine cardefine, final ContO[] contos) {
         xtgraphics.nickname = "";
         try {
             final File file = new File(
@@ -1478,7 +1478,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
         
     }
 
-    public void makeMenus() {
+    private void makeMenus() {
         rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         sgame.add(rd, " NFM 1     ");
@@ -1630,7 +1630,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
     private float f;
 
     //@Override
-    public void initialize() {
+    private void initialize() {
         rd.setColor(new Color(0, 0, 0));
         rd.fillRect(0, 0, 800, 450);
         //repaint();
@@ -1702,7 +1702,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
         //while (!Thread.currentThread().isInterrupted()) {}
     }
 
-    public void gameTick() {
+    private void gameTick() {
 
         date = new Date();
         date.getTime();
@@ -3001,7 +3001,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
         }
     }
 
-    public void setupini() {
+    private void setupini() {
         Madness.inisetup = true;
         try {
             final File file = new File(
@@ -3035,7 +3035,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
         Madness.inisetup = false;
     }
 
-    public void sizescreen(final int i, final int i207) {
+    private void sizescreen(final int i, final int i207) {
         if (i > getWidth() / 2 - 230 && i < getWidth() / 2 - 68 && i207 > 21 && i207 < 39 || onbar) {
             reqmult = (i - (getWidth() / 2 - 222)) / 141.0F;
             if (reqmult < 0.1)
