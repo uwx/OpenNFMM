@@ -1,5 +1,5 @@
 # Appveyor doesn"t have JDK 8 by default in PATH so we must set it
 
 build_script:
-  - cmd: "C:\Program Files\Java\jdk1.8.0\bin\javac" -classpath "libraries/jl1.0.1.jar" javazoom/jl/player/PausablePlayer.java
-  - cmd: "C:\Program Files\Java\jdk1.8.0\bin\javac" -classpath "libraries/dragshotMod.jar:libraries/easyogg.jar:libraries/jl1.0.1.jar:libraries/jogg-0.0.7.jar:libraries/jorbis-0.0.15.jar:./" *.java -Xlint:deprecation
+  - "C:\\Program Files\\Java\\jdk1.8.0\\bin\\javac" -classpath "libraries/jl1.0.1.jar" javazoom/jl/player/PausablePlayer.java
+  - "C:\\Program Files\\Java\\jdk1.8.0\\bin\\javac" -classpath "libraries/dragshotMod.jar:libraries/easyogg.jar:libraries/jl1.0.1.jar:libraries/jogg-0.0.7.jar:libraries/jorbis-0.0.15.jar:./" *.java -Xlint:deprecation
