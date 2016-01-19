@@ -55,7 +55,7 @@ class Utility {
                 string442 = "-1";
             i437 = Integer.valueOf(string442).intValue();
         } catch (final Exception exception) {
-            
+
         }
         return i437;
     }
@@ -69,7 +69,7 @@ class Utility {
      *            The 3D Y point
      * @return The 2D X coordinate.
      */
-    public static int xs(final int i, int i338, final Medium m) {
+    static int xs(final int i, int i338, final Medium m) {
         if (i338 < m.cz)
             i338 = m.cz;
         return (i338 - m.focusPoint) * (m.cx - i) / i338 + i;
@@ -84,7 +84,7 @@ class Utility {
      *            The 3D Y point
      * @return The 2D Y coordinate.
      */
-    public static int ys(final int i, int i339, final Medium m) {
+    static int ys(final int i, int i339, final Medium m) {
         if (i339 < m.cz)
             i339 = m.cz;
         return (i339 - m.focusPoint) * (m.cy - i) / i339 + i;
@@ -92,13 +92,13 @@ class Utility {
 
     // alt
 
-    public static int altXs(final int i, int i260, final Medium m) {
+    static int altXs(final int i, int i260, final Medium m) {
         if (i260 < 50)
             i260 = 50;
         return (i260 - m.focusPoint) * (m.cx - i) / i260 + i;
     }
 
-    public static int altYs(final int i, int i261, final Medium m) {
+    static int altYs(final int i, int i261, final Medium m) {
         if (i261 < 50)
             i261 = 50;
         return (i261 - m.focusPoint) * (m.cy - i) / i261 + i;
@@ -112,7 +112,7 @@ class Utility {
     	return (i272 - m.focusPoint) * (m.cx - i) / i272 + i;
     }*/
 
-    static public int mediumYs(final int i, int i273, final Medium m) {
+    static int mediumYs(final int i, int i273, final Medium m) {
         if (i273 < 10)
             i273 = 10;
         return (i273 - m.focusPoint) * (m.cy - i) / i273 + i;

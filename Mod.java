@@ -91,66 +91,6 @@ class Mod {
 
     int trackShift;
 
-    public Mod(final byte[] is) {
-        try {
-            final ZipInputStream zipinputstream = new ZipInputStream(new ByteArrayInputStream(is));
-            final ZipEntry zipentry = zipinputstream.getNextEntry();
-            int i = (int) zipentry.getSize();
-            final byte[] is4 = new byte[i];
-            int i5 = 0;
-            int i6;
-            for (/**/; i > 0; i -= i6) {
-                i6 = zipinputstream.read(is4, i5, i);
-                i5 += i6;
-            }
-            LoadMod(new ByteArrayInputStream(is4));
-            loaded = true;
-        } catch (final Exception exception) {
-            loaded = false;
-        }
-    }
-
-    public Mod(final String string) {
-        try {
-            final File file = new File(string);
-            final ZipInputStream zipinputstream = new ZipInputStream(new FileInputStream(file));
-            final ZipEntry zipentry = zipinputstream.getNextEntry();
-            int i = (int) zipentry.getSize();
-            final byte[] is = new byte[i];
-            int i0 = 0;
-            int i1;
-            for (/**/; i > 0; i -= i1) {
-                i1 = zipinputstream.read(is, i0, i);
-                i0 += i1;
-            }
-            LoadMod(new ByteArrayInputStream(is));
-            zipinputstream.close();
-            loaded = true;
-        } catch (final Exception exception) {
-            loaded = false;
-        }
-    }
-
-    public Mod(final URL url) {
-        try {
-            final ZipInputStream zipinputstream = new ZipInputStream(new DataInputStream(url.openStream()));
-            final ZipEntry zipentry = zipinputstream.getNextEntry();
-            int i = (int) zipentry.getSize();
-            final byte[] is = new byte[i];
-            int i2 = 0;
-            int i3;
-            for (/**/; i > 0; i -= i3) {
-                i3 = zipinputstream.read(is, i2, i);
-                i2 += i3;
-            }
-            LoadMod(new ByteArrayInputStream(is));
-            zipinputstream.close();
-            loaded = true;
-        } catch (final Exception exception) {
-            loaded = false;
-        }
-    }
-
     public String getName() {
         return name;
     }
