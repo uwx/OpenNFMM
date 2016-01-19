@@ -50,20 +50,20 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
      *
      */
     private static final long serialVersionUID = 7903118983954264757L;
-    int actmag = 0;
-    String[][] addeda = new String[20][5000];
+    private int actmag = 0;
+    private String[][] addeda = new String[20][5000];
     int[] adna = {
             276, 276, 276, 276, 276, 276
     };
     String aply1 = "";
     String aply2 = "";
-    boolean aplyd1 = false;
-    boolean aplyd2 = false;
+    private boolean aplyd1 = false;
+    private boolean aplyd2 = false;
     int apx = 0;
     int apy = 0;
     int bfo = 0;
-    boolean breakbond = false;
-    Image[] btgame = new Image[2];
+    private boolean breakbond = false;
+    private Image[] btgame = new Image[2];
     int btn = 0;
     int[] bw = {
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
@@ -76,7 +76,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
     };
     String carname = "";
     int carsel = 0;
-    int[][] carstat = {
+    private int[][] carstat = {
             {
                     110, 81, 131, 98, 100
             }, {
@@ -112,8 +112,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             }
     };
     String cfont = "Monospaced";
-    boolean changed = false;
-    boolean changed2 = false;
+    private boolean changed = false;
+    private boolean changed2 = false;
     int[] clas = new int[20];
     Smenu cls = new Smenu(40);
     int clsel = 0;
@@ -121,88 +121,88 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
     int cntpls = 0;
     int cntprf = 0;
     Smenu compcar = new Smenu(40);
-    ContO[] compo = new ContO[16];
+    private ContO[] compo = new ContO[16];
     int compsel = 0;
     int[] crash = {
             50, 50, 50
     };
-    boolean crashleft = false;
-    boolean crashok = false;
-    soundClip[] crashs = new soundClip[3];
-    boolean crashup = false;
+    private boolean crashleft = false;
+    private boolean crashok = false;
+    private soundClip[] crashs = new soundClip[3];
+    private boolean crashup = false;
     int crshturn = 0;
     Smenu ctheme = new Smenu(40);
     int cthm = 0;
     Color defb;
     Color deff;
-    boolean defnow = false;
-    boolean down = false;
+    private boolean defnow = false;
+    private boolean down = false;
     int dtab = 0;
     int dtabed = -1;
-    TextArea editor = new TextArea(20, 20);
+    private TextArea editor = new TextArea(20, 20);
     Smenu engine = new Smenu(40);
-    boolean engon = false;
-    soundClip[][] engs = new soundClip[5][5];
+    private boolean engon = false;
+    private soundClip[][] engs = new soundClip[5][5];
     int engsel = 0;
-    boolean exwist = false;
+    private boolean exwist = false;
     String fcol = "";
-    float[] fhsb = {
+    private float[] fhsb = {
             0.5F, 0.5F, 0.5F
     };
     int flk = 0;
-    boolean focuson = true;
+    private boolean focuson = true;
     Smenu fontsel = new Smenu(40);
-    boolean forwheels = false;
-    FontMetrics ftm;
+    private boolean forwheels = false;
+    private FontMetrics ftm;
     int handling = 140;
     int hitmag = 0;
-    boolean in = false;
+    private boolean in = false;
     String lastedo = "";
-    boolean left = false;
-    boolean loadedfile = false;
+    private boolean left = false;
+    private boolean loadedfile = false;
     int logged = 0;
     Image logo;
-    soundClip[] lowcrashs = new soundClip[3];
+    private soundClip[] lowcrashs = new soundClip[3];
     Medium m = new Medium();
-    String[] maker = new String[20];
-    boolean minus = false;
-    boolean mirror = false;
-    boolean mousdr = false;
+    private String[] maker = new String[20];
+    private boolean minus = false;
+    private boolean mirror = false;
+    private boolean mousdr = false;
     int mouseon = -1;
     int mouses = 0;
-    boolean multf10 = false;
-    String[] mycars = new String[20];
+    private boolean multf10 = false;
+    private String[] mycars = new String[20];
     int[] nad = new int[20];
     int nmc = 0;
     int npolys = 0;
     ContO o;
-    boolean objfacend = false;
+    private boolean objfacend = false;
     String ofcol = "";
     Image offImage;
-    boolean onbtgame = false;
-    boolean openm = false;
+    private boolean onbtgame = false;
+    private boolean openm = false;
     int[] oscale = {
             100, 100, 100
     };
     String oscol = "";
-    boolean out = false;
+    private boolean out = false;
     int ox = 335;
     int oxy = 0;
     int oxz = -90;
     int oy = 40;
     int oz = 800;
     int ozy = 0;
-    boolean[] pessd = {
+    private boolean[] pessd = {
             false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
             false, false, false, false, false, false, false, false, false
     };
     int pfase = 0;
-    boolean pflk = false;
+    private boolean pflk = false;
     int[] phys = {
             50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
     };
-    boolean plus = false;
-    String[] pname = {
+    private boolean plus = false;
+    private String[] pname = {
             "Handbrake", "Turning Sensitivity", "Tire Grip", "Bouncing", "Empty", "Lifts Others", "Gets Lifted",
             "Pushes Others", "Gets Pushed", "Aerial Rotation Speed", "Aerial Control/Gliding"
     };
@@ -210,23 +210,23 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             62, 20, 76, 71, 60, 38, 44, 20, 33, 320, 324
     };
     int polynum = -1;
-    PopupMenu popupMenu;
-    boolean prefs = false;
+    private PopupMenu popupMenu;
+    private boolean prefs = false;
     int prflk = 0;
     int[] pubt = new int[20];
     Smenu pubtyp = new Smenu(40);
-    boolean rateh = false;
+    private boolean rateh = false;
     int[] rcrash = {
             50, 50, 50
     };
-    Graphics2D rd;
-    boolean right = false;
-    boolean rotl = false;
-    boolean rotr = false;
+    private Graphics2D rd;
+    private boolean right = false;
+    private boolean rotl = false;
+    private boolean rotr = false;
     int[] rphys = {
             50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
     };
-    TextField rplc = new TextField("", 15);
+    private TextField rplc = new TextField("", 15);
     int[] rstat = {
             0, 0, 0, 0, 0
     };
@@ -237,7 +237,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
     String scol = "";
     int sfase = 0;
     String sfont = "Monospaced";
-    float[] shsb = {
+    private float[] shsb = {
             0.5F, 0.5F, 0.5F
     };
     Smenu simcar = new Smenu(40);
@@ -245,24 +245,24 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
     int sle = -1;
     int sls = -1;
     int squash = 0;
-    TextField srch = new TextField("", 15);
+    private TextField srch = new TextField("", 15);
     int[] stat = {
             100, 100, 100, 100, 100
     };
-    boolean statdef = false;
+    private boolean statdef = false;
     int sthm = 0;
     String suser = "Horaks";
-    Trackers t = new Trackers();
+    private Trackers t = new Trackers();
     int tab = 0;
     int tabed = -1;
     boolean tested = false;
     Thread thredo;
-    TextField tnick = new TextField("", 15);
-    boolean tomany = false;
-    TextField tpass = new TextField("", 15);
-    boolean tutok = false;
-    boolean up = false;
-    String[] usage = {
+    private TextField tnick = new TextField("", 15);
+    private boolean tomany = false;
+    private TextField tpass = new TextField("", 15);
+    private boolean tutok = false;
+    private boolean up = false;
+    private String[] usage = {
             "Handbrake:\nThis defines the hand braking power of the car.\nThe more handbrake the car has the faster it brakes when you press Spacebar while driving.\nBut also the lesser the Handbrake the more the car can drift when you press Spacebar.\n\n",
             "Turning Sensitivity:\nThis defines how fast the car turns (or how fast the wheels respond to turning).\nThe more turning sensitive the faster the car turns and responds.\n\nWhen designing a fast car that is more racing oriented high turning sensitivity is     \nrecommended for the car to be able to take sharp and quick turns.\nHowever too much turning sensitivity can make the car hard to drive!\n\nWhen designing a slower and bigger car (like El King) lower turning sensitivity is\nrecommended for a more realistic effect.\n\n",
             "Tires Grip:\nThis defines the griping power of the car\u2019s wheels on the ground.\n\nThe more griping the more the cars sticks to track.\nThe less gripping the more the car drifts in the turns.\n\nSome drifting can be helpful as it makes the car drive smoother while less drifting can\nmake the car more irritable, it depends on how you like to drive the car and how it\nfeels for you.\n\n",
@@ -279,9 +279,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             "Crash Magnitude:\nThe magnitude of the distortion and indentation to occur on the effected pieces/polygons.\n\nOr basically in other words the amount of destruction that happens to each piece when\ncrashed.\n\nHigher magnitude means the piece gets more destructed from an amount of damage,\nlower magnitude means the piece gets less destructed from that same amount of damage.\n\n",
             "Roof Destruction:\nThe amount of destruction to occur on the car\u2019s top.\nThe length of indentation and destruction to happen from above.\n\nTo really see this variable's effect try crashing the roof alone (without a normal crash),\ntry more then once while fixing the car and changing the variable\u2019s value to see the\ndifference.\n\nThe roof crash normally happens in the game when the car lands upside down from a\njump or when a big car like Dr Monstaa steps on it.\n\n"
     };
-    boolean waso = false;
+    private boolean waso = false;
     Smenu witho = new Smenu(40);
-    TextField[] wv = new TextField[16];
+    private TextField[] wv = new TextField[16];
     int xm = 0;
     int ym = 0;
 

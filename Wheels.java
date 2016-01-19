@@ -3,7 +3,7 @@
  */
 
 public class Wheels {
-    float depth = 3.0F;
+    private float depth = 3.0F;
     int ground = 0;
     int mast = 0;
     int[] rc = {

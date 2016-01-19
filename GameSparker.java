@@ -48,84 +48,84 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
      *
      */
     private static final long serialVersionUID = -5976860556958716653L;
-    float apmult = 1.0F;
+    private float apmult = 1.0F;
     boolean applejava = false;
-    int apx = 0;
-    int apy = 0;
-    Image blb;
-    Image[] carmaker = new Image[2];
-    Image[] chkbx = new Image[2];
-    Smenu clanlev = new Smenu(8);
-    Smenu clcars = new Smenu(707);
+    private int apx = 0;
+    private int apy = 0;
+    private Image blb;
+    private Image[] carmaker = new Image[2];
+    private Image[] chkbx = new Image[2];
+    private Smenu clanlev = new Smenu(8);
+    private Smenu clcars = new Smenu(707);
     TextField cmsg;
-    Smenu datat = new Smenu(26);
-    boolean exwist = false;
-    int fcscnt = 0;
-    Image fulls;
+    private Smenu datat = new Smenu(26);
+    private boolean exwist = false;
+    private int fcscnt = 0;
+    private Image fulls;
     Smenu gmode = new Smenu(3);
-    Smenu icars = new Smenu(5);
-    Smenu ilaps = new Smenu(18);
+    private Smenu icars = new Smenu(5);
+    private Smenu ilaps = new Smenu(18);
     Checkbox keplo;
-    int lasth = 0;
-    int lastw = 0;
-    int lmxz = 0;
-    boolean lostfcs = false;
+    private int lasth = 0;
+    private int lastw = 0;
+    private int lmxz = 0;
+    private boolean lostfcs = false;
     Smenu mcars = new Smenu(707);
-    int mload = 1;
-    TextArea mmsg;
+    private int mload = 1;
+    private TextArea mmsg;
     int moto = 1;
-    boolean moused = false;
+    private boolean moused = false;
     int mouses = 0;
-    int mousew = 0;
+    private int mousew = 0;
     Smenu mstgs = new Smenu(707);
     /**
      * Applies transparency to every polygon (20 is 20% opacity, 100 is 100% opacity)
      */
-    int mvect = 100;
+    private int mvect = 100;
     Checkbox mycar;
-    int nob = 0;
-    int notb = 0;
+    private int nob = 0;
+    private int notb = 0;
     Checkbox notp;
     BufferedImage offImage;
-    boolean onbar = false;
-    boolean oncarm = false;
-    boolean onfulls = false;
-    boolean onstgm = false;
+    private boolean onbar = false;
+    private boolean oncarm = false;
+    private boolean onfulls = false;
+    private boolean onstgm = false;
     boolean openm = false;
     Smenu pgame = new Smenu(11);
-    Smenu proitem = new Smenu(707);
+    private Smenu proitem = new Smenu(707);
     Graphics2D rd;
-    float reqmult = 0.0F;
+    private float reqmult = 0.0F;
     Smenu rooms = new Smenu(7);
     Smenu scars = new Smenu(4);
     Smenu sclass = new Smenu(7);
-    Smenu senditem = new Smenu(707);
-    Smenu sendtyp = new Smenu(6);
+    private Smenu senditem = new Smenu(707);
+    private Smenu sendtyp = new Smenu(6);
     Smenu sfix = new Smenu(7);
     Smenu sgame = new Smenu(8);
-    int shaka = 0;
-    int showsize = 0;
-    Image sizebar;
+    private int shaka = 0;
+    private int showsize = 0;
+    private Image sizebar;
     Smenu slaps = new Smenu(17);
-    int smooth = 1;
+    private int smooth = 1;
     Smenu snbts = new Smenu(8);
     //Smenu snfm1 = new Smenu(12);
     //Smenu snfm2 = new Smenu(19);
     Smenu snfmm = new Smenu(xtGraphics.nTracks + 2);
     Smenu snpls = new Smenu(9);
-    Image[] stagemaker = new Image[2];
+    private Image[] stagemaker = new Image[2];
     Smenu swait = new Smenu(6);
     TextField temail;
     TextField tnick;
     TextField tpass;
-    Control[] u = new Control[8];
-    int view = 0;
+    private Control[] u = new Control[8];
+    private int view = 0;
     Smenu vnpls = new Smenu(5);
     Smenu vtyp = new Smenu(6);
     Smenu warb = new Smenu(102);
     Smenu wgame = new Smenu(4);
-    int xm = 0;
-    int ym = 0;
+    private int xm = 0;
+    private int ym = 0;
 
     public void catchlink() {
         if (!lostfcs)
@@ -391,7 +391,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
      * <strong>ALL CAR MODELS IN THE ZIP FILE SHOULD BE PUT HERE OR THINGS WILL GO WRONG!</strong><br/>
      * (Additional info: when a .rad file is found and it has no index here or in stageRads it will be assigned to index 0 - Tornado Shark)<br/>
      */
-    final String[] carRads = {
+    private final String[] carRads = {
             "2000tornados", "formula7", "canyenaro", "lescrab", "nimi", "maxrevenge", "leadoxide", "koolkat", "drifter",
             "policecops", "mustang", "king", "audir8", "masheen", "radicalone", "drmonster"
     };
@@ -400,7 +400,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
      * <strong>ALL NON-CAR MODELS IN THE ZIP FILE SHOULD BE PUT HERE OR THINGS WILL GO WRONG!</strong><br/>
      * (Additional info: when a .rad file is found and it has no index here or in carRads it will be assigned to index 0 - Tornado Shark)<br/>
      */
-    final String[] stageRads = {
+    private final String[] stageRads = {
             "road", "froad", "twister2", "twister1", "turn", "offroad", "bumproad", "offturn", "nroad", "nturn",
             "roblend", "noblend", "rnblend", "roadend", "offroadend", "hpground", "ramp30", "cramp35", "dramp15",
             "dhilo15", "slide10", "takeoff", "sramp22", "offbump", "offramp", "sofframp", "halfpipe", "spikes", "rail",

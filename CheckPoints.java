@@ -39,7 +39,7 @@ public class CheckPoints {
     int[] pos = {
             7, 7, 7, 7, 7, 7, 7, 7
     };
-    int postwo = 0;
+    private int postwo = 0;
     float prox = 0.0F;
     int pubt = 0;
     boolean[] roted = new boolean[5];

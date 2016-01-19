@@ -8,15 +8,15 @@ import java.net.InetAddress;
 import java.util.Date;
 
 public class udpOnline implements Runnable {
-    Thread con;
-    DatagramSocket dSocket;
-    boolean errd = false;
+    private Thread con;
+    private DatagramSocket dSocket;
+    private boolean errd = false;
     int gameport = 7001;
-    InetAddress IPAddress;
+    private InetAddress IPAddress;
     int nu = 0;
     long sendat = 0L;
     boolean started = false;
-    UDPMistro um;
+    private UDPMistro um;
 
     public udpOnline(final UDPMistro udpmistro, final String string, final int i, final int i0, final int i1) {
         um = udpmistro;

@@ -10,13 +10,13 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
 public class soundClip {
-    Clip clip = null;
+    private Clip clip = null;
     int cntcheck = 0;
     int lfrpo = -1;
-    boolean loaded = false;
+    private boolean loaded = false;
     int rollBackPos;
     int rollBackTrig;
-    AudioInputStream sound;
+    private AudioInputStream sound;
 
     public soundClip(final byte[] is) {
         try {

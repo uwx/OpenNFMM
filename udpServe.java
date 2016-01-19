@@ -7,14 +7,14 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 public class udpServe implements Runnable {
-    DatagramSocket dSocket;
+    private DatagramSocket dSocket;
     int im = 0;
     int[] lsframe = {
             -1, -1, -1, -1, -1, -1, -1, -1
     };
     int mport = 7060;
     Thread servo;
-    UDPMistro um;
+    private UDPMistro um;
 
     public udpServe(final UDPMistro udpmistro, final int i) {
         um = udpmistro;

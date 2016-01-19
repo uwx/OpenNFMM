@@ -15,13 +15,13 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 public class CarDefine implements Runnable {
-    Trackers t;
-    GameSparker gs;
-    ContO[] bco;
-    Medium m;
-    Thread carloader;
-    Thread actionloader;
-    Thread stageaction;
+    private Trackers t;
+    private GameSparker gs;
+    private ContO[] bco;
+    private Medium m;
+    private Thread carloader;
+    private Thread actionloader;
+    private Thread stageaction;
     int[][] swits = {
             {
                     50, 185, 282
@@ -374,22 +374,22 @@ public class CarDefine implements Runnable {
     int lastload = 0;
     int nlcars = 0;
     int nlocars = 0;
-    int xnlocars = 0;
+    private int xnlocars = 0;
     boolean[] include = new boolean[40];
     String[] createdby = new String[40];
     int[] publish = new int[40];
     String[] loadnames = new String[20];
     int nl = 0;
     int action = 0;
-    boolean carlon = false;
+    private boolean carlon = false;
     int reco = -2;
     int[] lcardate = {
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
     int haltload = 0;
-    int onloadingcar = 0;
+    private int onloadingcar = 0;
     int ac = -1;
-    String acname = "Radical One";
+    private String acname = "Radical One";
     String fails = "";
     String tnickey = "";
     String tclan = "";

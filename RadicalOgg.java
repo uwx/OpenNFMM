@@ -4,12 +4,12 @@ import org.newdawn.easyogg.OggClip;
 
 class RadicalOgg implements RadicalMusic {
 
-    boolean paused;
-    boolean loaded;
-    boolean playing;
+    private boolean paused;
+    private boolean loaded;
+    private boolean playing;
     String s;
 
-    OggClip ogg;
+    private OggClip ogg;
 
     /**
      * Sets up the RadicalMidi for playback. Use load() to load the file; Use

@@ -41,8 +41,8 @@ import java.util.zip.ZipInputStream;
 import javax.swing.JOptionPane;
 
 public class StageMaker extends Applet implements Runnable {
-    CheckPoints cp = new CheckPoints();
-    Trackers t = new Trackers();
+    private CheckPoints cp = new CheckPoints();
+    private Trackers t = new Trackers();
     //////////////// ------------ REMEMBER NEW PARTS ARE ALWAYS -10 INDEXES SINCE YOU CAN'T SELECT CARS IN THE STAGEMAKER
     //////////////// ------------ REMEMBER ALL PARTS INDEX 67 AND UP ARE CUSTOM PARTS
     //////////////// ------------ IF THEY'RE NOT IN THE TREES MENU THEY SHOULD BE COMMENTED OUT
@@ -71,7 +71,7 @@ public class StageMaker extends Applet implements Runnable {
     /**
      * leave at false unless you really know what you're doing!!!
      */
-    boolean floats = false;
+    private boolean floats = false;
 
     /*if (sptyp == 0) // PART ROADS
     	partroads();
@@ -101,7 +101,7 @@ public class StageMaker extends Applet implements Runnable {
      * ------------------ INCREMENT THIS WHEN YOU WANT A NEW PART<br/>
      * Attach points are: x1, z1, x2, z2<br/>
      */
-    int[][] atp = {
+    private int[][] atp = {
             {
                     0, 2800, 0, -2800
             }, {

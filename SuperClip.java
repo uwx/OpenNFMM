@@ -113,12 +113,12 @@ public class SuperClip implements Runnable {
         }
     }
 
-    int skiprate;
-    Thread cliper;
+    private int skiprate;
+    private Thread cliper;
     int stoped;
-    SourceDataLine source;
+    private SourceDataLine source;
     ByteArrayInputStream stream;
     int rollBackPos;
     int rollBackTrig;
-    boolean changeGain;
+    private boolean changeGain;
 }

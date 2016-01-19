@@ -22,11 +22,11 @@ import java.net.Socket;
 import java.util.Date;
 
 public class Login implements Runnable {
-    int[] bgmy = {
+    private int[] bgmy = {
             0, 400, 800
     };
     int btn = 0;
-    boolean btroom = false;
+    private boolean btroom = false;
     int[] bw = {
             0, 0, 0, 0, 0, 0
     };
@@ -38,28 +38,28 @@ public class Login implements Runnable {
     };
     int cax = 0;
     int cay = 0;
-    boolean checknote = false;
+    private boolean checknote = false;
     String clanapv = "";
     int cntcl = 0;
     int cntgame = 0;
     Thread connector;
-    boolean contrb = false;
-    BufferedReader din;
-    PrintWriter dout;
-    DatagramSocket[] dSocket = new DatagramSocket[3];
+    private boolean contrb = false;
+    private BufferedReader din;
+    private PrintWriter dout;
+    private DatagramSocket[] dSocket = new DatagramSocket[3];
     int errcnt = 0;
     int fase = 0;
     int fclan = 0;
     int flipo = 0;
     int fplayer = 0;
-    FontMetrics ftm;
+    private FontMetrics ftm;
     int gamec = -1;
     String gmaker = "";
-    boolean gotcai = false;
+    private boolean gotcai = false;
     int groom = 0;
-    GameSparker gs;
+    private GameSparker gs;
     String gservern = "";
-    InetAddress[] IPAddress = new InetAddress[3];
+    private InetAddress[] IPAddress = new InetAddress[3];
     boolean jflk = false;
     boolean justlog = false;
     String lemail = "";
@@ -75,24 +75,24 @@ public class Login implements Runnable {
     int ncreq = 0;
     int nflk = 0;
     int nfreq = 0;
-    boolean nickero = false;
+    private boolean nickero = false;
     int nmsgs = 0;
     int nservers = 2;
-    ImageObserver ob;
-    boolean ond = false;
-    boolean onf = false;
-    boolean onr = false;
+    private ImageObserver ob;
+    private boolean ond = false;
+    private boolean onf = false;
+    private boolean onr = false;
     int opselect = 0;
     int oxm = 0;
     int oym = 0;
     int pend = 0;
-    boolean pendb = false;
-    boolean[] pessd = {
+    private boolean pendb = false;
+    private boolean[] pessd = {
             false, false, false, false, false, false
     };
-    Graphics2D rd;
+    private Graphics2D rd;
     int recom = 0;
-    boolean resofaso = false;
+    private boolean resofaso = false;
     int[] rmps = {
             0, 0, 0, 0, 0
     };
@@ -108,17 +108,17 @@ public class Login implements Runnable {
     long[] servestart = {
             0L, 0L, 0L
     };
-    boolean showtf = false;
+    private boolean showtf = false;
     String[] snames = {
             "Dominion", "Avenger", "Ghostrider"
     };
     Socket socket;
-    boolean socketson = false;
+    private boolean socketson = false;
     int srvtrn = 0;
     int trans = 0;
     int xrl = 0;
     int xrr = 0;
-    xtGraphics xt;
+    private xtGraphics xt;
 
     public Login(final Medium medium, final Graphics2D graphics2d, final xtGraphics xtgraphics,
             final GameSparker gamesparker) {

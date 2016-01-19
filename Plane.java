@@ -13,7 +13,7 @@ public class Plane {
     int[] c = new int[3];
     int chip = 0;
     int colnum = 0;
-    int[] cox = new int[3];
+    private int[] cox = new int[3];
     int[] coy = new int[3];
     int[] coz = new int[3];
     float ctmag = 0.0F;
@@ -45,7 +45,7 @@ public class Plane {
     float projf = 1.0F;
     boolean road = false;
     boolean solo = false;
-    Trackers t;
+    private Trackers t;
     int typ = 0;
     int vx = 0;
     int vy = 0;

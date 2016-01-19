@@ -20,189 +20,189 @@ import java.util.Date;
 
 public class Lobby implements Runnable {
     int addstage = 0;
-    int britchl = 0;
-    int btn = 0;
-    int[] bw = {
+    private int britchl = 0;
+    private int btn = 0;
+    private int[] bw = {
             0, 0, 0, 0, 0, 0, 0, 0
     };
-    int[] bx = {
+    private int[] bx = {
             0, 0, 0, 0, 0, 0, 0, 0
     };
-    int[] by = {
+    private int[] by = {
             0, 0, 0, 0, 0, 0, 0, 0
     };
-    int[] cac = {
+    private int[] cac = {
             -1, -1, -1, -1, -1, -1, -1, -1, -1
     };
-    int cancreate = 0;
-    int[] cax = {
+    private int cancreate = 0;
+    private int[] cax = {
             0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    int[] cay = {
+    private int[] cay = {
             0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    CarDefine cd;
-    int cflk = 0;
-    String chalby = "";
-    int chalngd = -1;
-    int clicked = -1;
-    int cmonp = -1;
-    String[] cnames = {
+    private CarDefine cd;
+    private int cflk = 0;
+    private String chalby = "";
+    private int chalngd = -1;
+    private int clicked = -1;
+    private int cmonp = -1;
+    private String[] cnames = {
             "", "", "", "", "", "", ""
     };
     int cntchkn = 0;
-    Thread connector;
-    int conon = 0;
-    int ctime = 0;
-    BufferedReader din;
-    String[] dinvi = {
+    private Thread connector;
+    private int conon = 0;
+    private int ctime = 0;
+    private BufferedReader din;
+    private String[] dinvi = {
             "", "", "", "", "", "", "", ""
     };
-    int dispcar = -1;
-    ContO dispco = null;
-    PrintWriter dout;
+    private int dispcar = -1;
+    private ContO dispco = null;
+    private PrintWriter dout;
     int fase = 0;
-    int flks = 0;
-    int forcar = -1;
-    boolean fstart = false;
-    FontMetrics ftm;
-    String[] gaclan = new String[500];
-    int[] gameturn = new int[500];
-    int[] gascore = new int[500];
+    private int flks = 0;
+    private int forcar = -1;
+    private boolean fstart = false;
+    private FontMetrics ftm;
+    private String[] gaclan = new String[500];
+    private int[] gameturn = new int[500];
+    private int[] gascore = new int[500];
     //Globe gb;
-    int gcars;
-    int gclass = 0;
-    int[] gclss = new int[500];
-    int[] gcrs = new int[500];
-    int gfix = 0;
-    int[] gfx = new int[500];
-    String[] gmaker = new String[500];
-    int gnbts = 0;
-    int[] gnlaps = new int[500];
-    int gnotp = 0;
-    int gnpls = 8;
-    int[] gntb = new int[500];
+    private int gcars;
+    private int gclass = 0;
+    private int[] gclss = new int[500];
+    private int[] gcrs = new int[500];
+    private int gfix = 0;
+    private int[] gfx = new int[500];
+    private String[] gmaker = new String[500];
+    private int gnbts = 0;
+    private int[] gnlaps = new int[500];
+    private int gnotp = 0;
+    private int gnpls = 8;
+    private int[] gntb = new int[500];
     int[] gnum = new int[500];
-    String gplayers = "";
-    String[] gplyrs = new String[500];
+    private String gplayers = "";
+    private String[] gplyrs = new String[500];
     boolean grprsd = false;
-    GameSparker gs;
-    int gstage = 0;
+    private GameSparker gs;
+    private int gstage = 0;
     int gstagelaps = 0;
     String gstagename = "";
     String[] gstages = new String[500];
     int[] gstgn = new int[500];
-    String[] gvclan = new String[500];
-    int[] gvscore = new int[500];
-    int gwait = 0;
-    int[] gwarb = new int[500];
-    String[] gwarbnum = new String[500];
-    int[] gwtyp = new int[500];
-    int im = 0;
-    boolean invo = false;
-    String[] invos = {
+    private String[] gvclan = new String[500];
+    private int[] gvscore = new int[500];
+    private int gwait = 0;
+    private int[] gwarb = new int[500];
+    private String[] gwarbnum = new String[500];
+    private int[] gwtyp = new int[500];
+    private int im = 0;
+    private boolean invo = false;
+    private String[] invos = {
             "", "", "", "", "", "", "", ""
     };
-    boolean inwab = false;
-    boolean jflexo = false;
-    int join = -1;
-    boolean lanlogged = true;
+    private boolean inwab = false;
+    private boolean jflexo = false;
+    private int join = -1;
+    private boolean lanlogged = true;
     int laps = 3;
-    String lapsname = "";
-    Login lg;
-    boolean lloaded = false;
-    String lmsg = "| Searching/Waiting for other LAN Players |";
+    private String lapsname = "";
+    private Login lg;
+    private boolean lloaded = false;
+    private String lmsg = "| Searching/Waiting for other LAN Players |";
     int loadstage = 0;
     boolean loadwarb = false;
-    int longame = -1;
-    int lspos = 0;
-    int lspos2 = 0;
+    private int longame = -1;
+    private int lspos = 0;
+    private int lspos2 = 0;
     int lspos3 = 0;
-    int lxm = 0;
-    int lym = 0;
-    Medium m;
-    int[] mnbts = new int[500];
-    int[] mnpls = new int[500];
-    boolean mousedout = false;
-    int mousonp = -1;
-    int mrot = 0;
-    int mscro = 125;
-    int mscro2 = 145;
+    private int lxm = 0;
+    private int lym = 0;
+    private Medium m;
+    private int[] mnbts = new int[500];
+    private int[] mnpls = new int[500];
+    private boolean mousedout = false;
+    private int mousonp = -1;
+    private int mrot = 0;
+    private int mscro = 125;
+    private int mscro2 = 145;
     int mscro3 = 345;
-    String msg = "";
+    private String msg = "";
     int msload = 0;
-    int ncnt = 0;
+    private int ncnt = 0;
     int nfix = 0;
-    int nflk = 0;
+    private int nflk = 0;
     int ngm = 0;
     boolean notb = false;
-    int[] npls = new int[500];
-    int npo = 0;
-    ImageObserver ob;
+    private int[] npls = new int[500];
+    private int npo = 0;
+    private ImageObserver ob;
     int ongame = -1;
-    int onjoin = -1;
-    int ontyp = 0;
-    int opengame = 0;
-    int opselect = 0;
-    int pback = 0;
-    int pbtn = 0;
-    String[] pcarnames = new String[200];
-    int[] pcars = new int[200];
-    String[] pclan = new String[200];
-    float[][] pcols = new float[200][6];
-    int pcurs = 0;
-    int[] pdam = {
+    private int onjoin = -1;
+    private int ontyp = 0;
+    private int opengame = 0;
+    private int opselect = 0;
+    private int pback = 0;
+    private int pbtn = 0;
+    private String[] pcarnames = new String[200];
+    private int[] pcars = new int[200];
+    private String[] pclan = new String[200];
+    private float[][] pcols = new float[200][6];
+    private int pcurs = 0;
+    private int[] pdam = {
             50, 50, 50, 50, 50, 50, 50, 50
     };
-    int pend = 0;
-    boolean pendb = false;
-    boolean[] pessd = {
+    private int pend = 0;
+    private boolean pendb = false;
+    private boolean[] pessd = {
             false, false, false, false, false, false, false, false
     };
-    int[] pgames = new int[200];
+    private int[] pgames = new int[200];
     int pgamesel = 0;
-    int[] plap = {
+    private int[] plap = {
             6, 6, 6, 6, 6, 6, 6, 6
     };
     int plsndt = 0;
-    String[] pnames = new String[200];
-    int[] ppos = {
+    private String[] pnames = new String[200];
+    private int[] ppos = {
             6, 6, 6, 6, 6, 6, 6, 6
     };
-    int[] ppow = {
+    private int[] ppow = {
             50, 50, 50, 50, 50, 50, 50, 50
     };
-    boolean pre1 = false;
-    boolean pre2 = false;
+    private boolean pre1 = false;
+    private boolean pre2 = false;
     int prereq = 0;
-    int prevloaded = -1;
-    String[] prnames = {
+    private int prevloaded = -1;
+    private String[] prnames = {
             "", "", "", "", "", "", "", ""
     };
-    int prnpo = 0;
-    long ptime = 0L;
-    Graphics2D rd;
-    boolean regnow = false;
-    int remstage = 0;
-    int rerr = 0;
-    String[] sentn = {
+    private int prnpo = 0;
+    private long ptime = 0L;
+    private Graphics2D rd;
+    private boolean regnow = false;
+    private int remstage = 0;
+    private int rerr = 0;
+    private String[] sentn = {
             "", "", "", "", "", "", ""
     };
-    int sflk = 0;
-    int sgflag = 0;
-    Socket socket;
-    int spos = 0;
-    int spos2 = 0;
-    int spos3 = 28;
+    private int sflk = 0;
+    private int sgflag = 0;
+    private Socket socket;
+    private int spos = 0;
+    private int spos2 = 0;
+    private int spos3 = 28;
     int stage = 0;
     String stagename = "";
-    String stuntname = "";
-    int updatec = -1;
-    int[] wait = new int[500];
-    int waitlink = 0;
+    private String stuntname = "";
+    private int updatec = -1;
+    private int[] wait = new int[500];
+    private int waitlink = 0;
     int warbsel = 0;
-    String wastename = "";
-    xtGraphics xt;
+    private String wastename = "";
+    private xtGraphics xt;
     boolean zeromsw = false;
 
     public Lobby(final Medium medium, final Graphics2D graphics2d, final Login login/*, final Globe globe*/,

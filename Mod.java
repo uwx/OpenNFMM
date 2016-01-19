@@ -15,15 +15,15 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 public class Mod {
-    static final int voice_28ch = FOURCC("28CH");
-    static final int voice_6chn = FOURCC("6CHN");
-    static final int voice_8chn = FOURCC("8CHN");
-    static final int voiceFlt4 = FOURCC("FLT4");
-    static final int voiceFlt8 = FOURCC("FLT8");
-    static final int voiceMk = FOURCC("M.K.");
-    static final int voiceMk2 = FOURCC("M!K!");
-    static final int voiceMk3 = FOURCC("M&K!");
-    static final int[] voice_31List = {
+    private static final int voice_28ch = FOURCC("28CH");
+    private static final int voice_6chn = FOURCC("6CHN");
+    private static final int voice_8chn = FOURCC("8CHN");
+    private static final int voiceFlt4 = FOURCC("FLT4");
+    private static final int voiceFlt8 = FOURCC("FLT8");
+    private static final int voiceMk = FOURCC("M.K.");
+    private static final int voiceMk2 = FOURCC("M!K!");
+    private static final int voiceMk3 = FOURCC("M&K!");
+    private static final int[] voice_31List = {
             voiceMk, voiceMk2, voiceMk3, voiceFlt4, voiceFlt8, voice_8chn, voice_6chn, voice_28ch
     };
 
@@ -74,7 +74,7 @@ public class Mod {
     }
 
     ModInstrument[] insts;
-    boolean loaded = false;
+    private boolean loaded = false;
     String name;
     int numpatterns;
     int numtracks;

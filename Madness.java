@@ -25,27 +25,27 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 
 public class Madness extends Panel {
-    static long advtime = 0L;
+    private static long advtime = 0L;
     static int anti = 1;
-    static GameSparker applet;
-    static CarMaker cm;
-    static DisplayMode defdisp;
+    private static GameSparker applet;
+    private static CarMaker cm;
+    private static DisplayMode defdisp;
     static int endadv = 0;
     static String fpath = "";
-    static Frame frame;
+    private static Frame frame;
     static DisplayMode fulldisp;
     static boolean fullscreen = false;
     static boolean inisetup = false;
-    static GraphicsDevice myDevice;
+    private static GraphicsDevice myDevice;
     /**
      *
      */
     private static final long serialVersionUID = 8881840450218558380L;
-    static StageMaker sm;
+    private static StageMaker sm;
     static String testcar = "";
     static int testdrive = 0;
     static int textid = 0;
-    static int updateon = 0;
+    private static int updateon = 0;
     static String upfile = "";
 
     public static void advopen() {

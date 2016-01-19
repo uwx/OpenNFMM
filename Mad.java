@@ -8,19 +8,19 @@ public class Mad {
     boolean btab = false;
     int capcnt = 0;
     boolean capsized = false;
-    boolean[] caught = new boolean[8];
+    private boolean[] caught = new boolean[8];
     CarDefine cd;
     int clear = 0;
     int cn = 0;
     int cntdest = 0;
     int cntouch = 0;
-    boolean colidim = false;
-    int[][] crank = new int[4][4];
+    private boolean colidim = false;
+    private int[][] crank = new int[4][4];
     int cxz = 0;
     int dcnt = 0;
     float dcomp = 0.0F;
     boolean dest = false;
-    boolean[] dominate = new boolean[8];
+    private boolean[] dominate = new boolean[8];
     float drag = 0.5F;
     int fixes = -1;
     int focus = -1;
@@ -32,7 +32,7 @@ public class Mad {
     int im = 0;
     int lastcolido = 0;
     float lcomp = 0.0F;
-    int[][] lcrank = new int[4][4];
+    private int[][] lcrank = new int[4][4];
     int loop = 0;
     int lxz = 0;
     Medium m;
@@ -80,7 +80,7 @@ public class Mad {
     int txz = 0;
     float ucomp = 0.0F;
     boolean wtouch = false;
-    xtGraphics xt;
+    private xtGraphics xt;
     int xtpower = 0;
 
     public Mad(final CarDefine cardefine, final Medium medium, final Record record, final xtGraphics xtgraphics,

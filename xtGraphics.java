@@ -41,7 +41,7 @@ public class xtGraphics extends Panel implements Runnable {
      */
     static final int nCars = 16;
     int acexp = 0;
-    String[][] adj = {
+    private String[][] adj = {
             {
                     "Cool", "Alright", "Nice"
             }, {
@@ -54,18 +54,18 @@ public class xtGraphics extends Panel implements Runnable {
                     "surf style", "off the lip", "bounce back"
             }
     };
-    boolean aflk = false;
-    soundClip[] air = new soundClip[6];
-    boolean aird = false;
+    private boolean aflk = false;
+    private soundClip[] air = new soundClip[6];
+    private boolean aird = false;
     float[][] allrnp = new float[8][6];
     int alocked = -1;
     int ana = 0;
-    GameSparker app;
+    private GameSparker app;
     Image arn;
     float[] arnp = {
             0.5F, 0.0F, 0.0F, 1.0F, 0.5F, 0.0F
     };
-    boolean arrace = false;
+    private boolean arrace = false;
     Image arrows;
     String asay = "";
     Image asd;
@@ -76,9 +76,9 @@ public class xtGraphics extends Panel implements Runnable {
     String backlog = "";
     boolean badmac = false;
     int basefase = 0;
-    Image[] bc = new Image[2];
-    Image[] bcl = new Image[2];
-    Image[] bcr = new Image[2];
+    private Image[] bc = new Image[2];
+    private Image[] bcl = new Image[2];
+    private Image[] bcr = new Image[2];
     int beststunt = 0;
     int bfcrash = 0;
     int bfsc1 = 0;
@@ -91,7 +91,7 @@ public class xtGraphics extends Panel implements Runnable {
     int[] bgmy = {
             0, -400
     };
-    boolean bgup = false;
+    private boolean bgup = false;
     Image bob;
     Image bol;
     Image bolp;
@@ -115,17 +115,17 @@ public class xtGraphics extends Panel implements Runnable {
     Image cgame;
     Image change;
     Image chat;
-    soundClip checkpoint;
+    private soundClip checkpoint;
     Image chil;
-    Chronometer chrono;
-    boolean chronostart;
+    private Chronometer chrono;
+    private boolean chronostart;
     String clan = "";
     boolean clanchat = false;
     int clangame = 0;
     String clankey = "";
     int clear = 0;
     Image cmc;
-    String[][] cnames = {
+    private String[][] cnames = {
             {
                     "", "", "", "", "", "", "Game Chat  "
             }, {
@@ -137,15 +137,15 @@ public class xtGraphics extends Panel implements Runnable {
     int[] cntchatp = {
             0, 0
     };
-    Image[] cntdn = new Image[4];
+    private Image[] cntdn = new Image[4];
     int cntflock = 0;
     int cntovn = 0;
     int cntptrys = 5;
     int cntwis = 0;
     Image congrd;
-    Image[] contin = new Image[2];
-    soundClip[] crash = new soundClip[3];
-    boolean crashup = false;
+    private Image[] contin = new Image[2];
+    private soundClip[] crash = new soundClip[3];
+    private boolean crashup = false;
     Image crd;
     int crshturn = 0;
     int[] dcrashes = {
@@ -157,30 +157,30 @@ public class xtGraphics extends Panel implements Runnable {
     int[] dested = {
             0, 0, 0, 0, 0, 0, 0, 0
     };
-    BufferedReader din;
+    private BufferedReader din;
     Image disco;
     int discon = 0;
     int dmcnt = 0;
-    boolean dmflk = false;
+    private boolean dmflk = false;
     Image dmg;
     int dnload = 0;
-    PrintWriter dout;
+    private PrintWriter dout;
     int dropf = 0;
     int dskflg = 0;
     Image[] dude = new Image[3];
     int dudo = 0;
     int duds = 0;
-    soundClip[] dustskid = new soundClip[3];
-    soundClip[][] engs = new soundClip[5][5];
+    private soundClip[] dustskid = new soundClip[3];
+    private soundClip[][] engs = new soundClip[5][5];
     Image exit;
     Image exitgame;
     int exitm = 0;
-    String[] exlm = {
+    private String[] exlm = {
             "!", "!!", "!!!"
     };
     int fase = 111;
     int fastestlap = 0;
-    soundClip firewasted;
+    private soundClip firewasted;
     boolean firstime = true;
     Image fixhoop;
     int flang = 0;
@@ -190,7 +190,7 @@ public class xtGraphics extends Panel implements Runnable {
     Image fleximg;
     int[] flexpix = null;
     int flipo = 0;
-    boolean flk = false;
+    private boolean flk = false;
     int flkat = 0;
     int[] floater = {
             0, 0
@@ -209,10 +209,10 @@ public class xtGraphics extends Panel implements Runnable {
     int gatey = 300;
     Image gmc;
     int gmode = 0;
-    soundClip go;
+    private soundClip go;
     int gocnt = 0;
     boolean gotlog = false;
-    boolean grrd = false;
+    private boolean grrd = false;
     int gxdu = 0;
     int gydu = 0;
     Image hello;
@@ -223,7 +223,7 @@ public class xtGraphics extends Panel implements Runnable {
     RadicalMusic intertrack;
     boolean[] isbot = new boolean[8];
     boolean justwon1 = false;
-    boolean justwon2 = false;
+    private boolean justwon2 = false;
     int kbload = 0;
     Image kenter;
     Image km;
@@ -241,7 +241,7 @@ public class xtGraphics extends Panel implements Runnable {
     int lcarx = 0;
     int lcary = 0;
     int lcarz = 0;
-    String[] lcmsg = {
+    private String[] lcmsg = {
             "", ""
     };
     int lcn = 0;
@@ -260,7 +260,7 @@ public class xtGraphics extends Panel implements Runnable {
     Image logout;
     String loop = "";
     int looped = 1;
-    soundClip[] lowcrash = new soundClip[3];
+    private soundClip[] lowcrash = new soundClip[3];
     int lsc = -1;
     int lxm = -10;
     int lym = -10;
@@ -268,7 +268,7 @@ public class xtGraphics extends Panel implements Runnable {
     /**
      * Max car select selected car (don't change)
      */
-    int maxsl = nCars - 1;
+    private int maxsl = nCars - 1;
     Image mdness;
     int minsl = 0;
     Image mload;
@@ -283,12 +283,12 @@ public class xtGraphics extends Panel implements Runnable {
     boolean mtop = false;
     int muhi = 0;
     int multion = 0;
-    boolean mutem = false;
+    private boolean mutem = false;
     boolean mutes = false;
     Image myc;
     int ndisco = 0;
     boolean newparts = false;
-    Image[] next = new Image[2];
+    private Image[] next = new Image[2];
     int nextc = 0;
     Image nfm;
     Image nfmcom;
@@ -297,12 +297,12 @@ public class xtGraphics extends Panel implements Runnable {
     int nfreeplays = 0;
     String nickey = "";
     String nickname = "";
-    boolean noclass = false;
+    private boolean noclass = false;
     boolean nofull = false;
     int nplayers = 7;
     Image ntrg;
-    ImageObserver ob;
-    Image[] ocntdn = new Image[4];
+    private ImageObserver ob;
+    private Image[] ocntdn = new Image[4];
     Image odisco;
     Image odmg;
     Image oexitgame;
@@ -312,24 +312,24 @@ public class xtGraphics extends Panel implements Runnable {
     Image olap;
     int oldfase = 0;
     Image oloadingmusic;
-    soundClip one;
+    private soundClip one;
     Image onfmm;
     int onjoin = -1;
-    boolean onlock = false;
+    private boolean onlock = false;
     int onmsc = -1;
     int ontyp = 0;
-    boolean onviewpro = false;
+    private boolean onviewpro = false;
     Image opback;
     Image opos;
     int opselect = 0;
     Image opti;
     Image opti2;
     Image opwr;
-    Image[] orank = new Image[8];
+    private Image[] orank = new Image[8];
     Image ory;
     int osc = 10;
     Image osped;
-    Image[] ostar = new Image[2];
+    private Image[] ostar = new Image[2];
     int[] ovh = {
             0, 0, 0, 0
     };
@@ -357,11 +357,11 @@ public class xtGraphics extends Panel implements Runnable {
             "", "", "", "", "", "", "", ""
     };
     int pcontin = 0;
-    boolean[] pengs = new boolean[5];
+    private boolean[] pengs = new boolean[5];
     int[] pgady = {
             0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    boolean[] pgas = {
+    private boolean[] pgas = {
             false, false, false, false, false, false, false, false, false
     };
     Image pgate;
@@ -387,22 +387,22 @@ public class xtGraphics extends Panel implements Runnable {
     };
     Image pos;
     int posit = 0;
-    soundClip powerup;
+    private soundClip powerup;
     int pstar = 0;
     int pwait = 7;
-    boolean pwastd = false;
+    private boolean pwastd = false;
     int pwcnt = 0;
-    boolean pwflk = false;
+    private boolean pwflk = false;
     Image pwr;
     Image racing;
     Image radicalplay;
     int radpx = 212;
-    Image[] rank = new Image[8];
+    private Image[] rank = new Image[8];
     int ransay = 0;
     Graphics2D rd;
     Image redy;
     Image register;
-    boolean remi = false;
+    private boolean remi = false;
     int removeds = 0;
     Image roomp;
     Image rpro;
@@ -414,12 +414,12 @@ public class xtGraphics extends Panel implements Runnable {
             0, 0, 0, 0, 0, 0, 0, 0
     };
     int scm = 0;
-    soundClip[] scrape = new soundClip[4];
+    private soundClip[] scrape = new soundClip[4];
     Image sdets;
     Image select;
     Image selectcar;
     int sendstat = 0;
-    String[][] sentn = {
+    private String[][] sentn = {
             {
                     "", "", "", "", "", "", ""
             }, {
@@ -429,13 +429,13 @@ public class xtGraphics extends Panel implements Runnable {
     String server = "multiplayer.needformadness.com";
     String servername = "Madness";
     int servport = 7071;
-    boolean shaded = false;
+    private boolean shaded = false;
     float shload = 0.0F;
-    boolean showtf = false;
+    private boolean showtf = false;
     Image sign;
     int skflg = 0;
-    soundClip[] skid = new soundClip[3];
-    boolean skidup = false;
+    private soundClip[] skid = new soundClip[3];
+    private boolean skidup = false;
     int[] smokey = new int[94132];
     int[] sndsize = {
             39, 128, 23, 58, 106, 140, 81, 135, 38, 141, 106, 76, 56, 116, 92, 208, 70, 80, 152, 102, 27, 65, 52, 30,
@@ -445,7 +445,7 @@ public class xtGraphics extends Panel implements Runnable {
     Image space;
     Image sped;
     String spin = "";
-    Image[] star = new Image[3];
+    private Image[] star = new Image[3];
     int starcnt = 0;
     Image statb;
     Image statbo;
@@ -458,17 +458,17 @@ public class xtGraphics extends Panel implements Runnable {
     int sturn1 = 0;
     int tcnt = 30;
     int testdrive = 0;
-    boolean tflk = false;
-    soundClip three;
-    soundClip tires;
+    private boolean tflk = false;
+    private soundClip three;
+    private soundClip tires;
     Image top20s;
-    Image[] trackbg = new Image[2];
+    private Image[] trackbg = new Image[2];
     int trkl = 0;
     int trklim = (int) (Math.random() * 40.0);
     int[] trkx = {
             65, 735
     };
-    soundClip two;
+    private soundClip two;
     int unlocked = 1;
     int[] updatec = {
             -1, -1
@@ -477,8 +477,8 @@ public class xtGraphics extends Panel implements Runnable {
     int waitlink = 0;
     int warning = 0;
     Image was;
-    boolean wasay = false;
-    soundClip wastd;
+    private boolean wasay = false;
+    private soundClip wastd;
     int wasted = 0;
     Image wasting;
     Image wgame;

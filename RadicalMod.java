@@ -9,9 +9,9 @@ import ds.nfm.ModuleLoader;
 import ds.nfm.ModuleSlayer;
 
 class RadicalMod implements RadicalMusic {
-    static String name = "";
-    static String filename = "";
-    static boolean nonempty = false;
+    private static String name = "";
+    private static String filename = "";
+    private static boolean nonempty = false;
     SuperClip sClip;
     boolean playing;
     int loaded;

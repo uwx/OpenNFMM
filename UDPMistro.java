@@ -13,8 +13,8 @@ public class UDPMistro implements Runnable {
     int delay = 0;
     int diled = 0;
     int diledelay = 0;
-    BufferedReader din;
-    PrintWriter dout;
+    private BufferedReader din;
+    private PrintWriter dout;
     //int[] force = new int[7];
     float freg = 0.0F;
     boolean go = false;
@@ -34,13 +34,13 @@ public class UDPMistro implements Runnable {
     long sendat = 0L;
     String sendcheck = "";
     Socket socket;
-    udpOnline[] udpc = new udpOnline[20];
+    private udpOnline[] udpc = new udpOnline[20];
     int wx = 0;
     String xtserver = "";
     int xtservport = 0;
 
     //fixed for 8 player games
-    udpServe[] usrv = new udpServe[13];
+    private udpServe[] usrv = new udpServe[13];
 
     String[][] info = new String[14][3];
     int[][] frame = new int[14][3];

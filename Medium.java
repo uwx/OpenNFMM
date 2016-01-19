@@ -8,10 +8,10 @@ import java.util.Random;
 
 public class Medium {
     int adv = 500;
-    long atrx = 0L;
+    private long atrx = 0L;
     long atrz = 0L;
     int bcxz = 0;
-    boolean[] bst = null;
+    private boolean[] bst = null;
     boolean bt = false;
     int[] cfade = {
             255, 220, 220
@@ -22,10 +22,10 @@ public class Medium {
             205, 200, 200
     };
     int checkpoint = -1;
-    int[][][] clax = null;
-    int[][][] clay = null;
-    int[][][] claz = null;
-    int[][][][] clc = null;
+    private int[][][] clax = null;
+    private int[][][] clay = null;
+    private int[][][] claz = null;
+    private int[][][][] clc = null;
     int[] cldd = {
             210, 210, 210, 1, -1000
     };
@@ -51,7 +51,7 @@ public class Medium {
     int cy = 225;
     int cz = 50;
     boolean darksky = false;
-    boolean[] diup = {
+    private boolean[] diup = {
             false, false, false
     };
     float elecr = 0.0F;
@@ -78,10 +78,10 @@ public class Medium {
     boolean lton = false;
     int mgen = (int) (Math.random() * 100000.0);
     int[] mrd = null;
-    int[][][] mtc = null;
-    int[][] mtx = null;
-    int[][] mty = null;
-    int[][] mtz = null;
+    private int[][][] mtc = null;
+    private int[][] mtx = null;
+    private int[][] mty = null;
+    private int[][] mtz = null;
     int ncl = 0;
     int nmt = 0;
     int[] nmv = null;
@@ -92,19 +92,19 @@ public class Medium {
     int nrw = 0;
     int nsp = 0;
     int nst = 0;
-    int[][] ogpx = null;
-    int[][] ogpz = null;
+    private int[][] ogpx = null;
+    private int[][] ogpz = null;
     int[] ogrnd = {
             205, 200, 200
     };
     int[] osky = {
             170, 220, 255
     };
-    float[] pcv = null;
+    private float[] pcv = null;
     int[] pmx = null;
     int ptcnt = -10;
     int ptr = 0;
-    float[][] pvr = null;
+    private float[][] pvr = null;
     int[] rand = {
             0, 0, 0
     };
@@ -119,11 +119,11 @@ public class Medium {
     int[] sprad = new int[7];
     int[] spx = new int[7];
     int[] spz = new int[7];
-    int[][][] stc = null;
+    private int[][][] stc = null;
     int[] stx = null;
     int[] stz = null;
-    float[] tcos = new float[360];
-    boolean td = false;
+    private float[] tcos = new float[360];
+    private boolean td = false;
     int[] texture = {
             0, 0, 0, 50
     };
@@ -131,7 +131,7 @@ public class Medium {
     int trn = 0;
     long trx = 0L;
     long trz = 0L;
-    float[] tsin = new float[360];
+    private float[] tsin = new float[360];
     int[] twn = null;
     boolean vert = false;
     int vxz = 180;

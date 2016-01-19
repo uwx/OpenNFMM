@@ -12,17 +12,17 @@ import java.text.DecimalFormat;
 
 public class Chronometer {
 
-    int bestlap;
+    private int bestlap;
 
     int current;
 
-    DecimalFormat dc;
+    private DecimalFormat dc;
 
     long delay;
 
     long end;
 
-    FontMetrics ftm;
+    private FontMetrics ftm;
 
     int laps;
 
@@ -30,19 +30,19 @@ public class Chronometer {
 
     long laptimes[];
 
-    boolean paused;
+    private boolean paused;
 
     long pausetime;
 
-    Graphics2D rd;
+    private Graphics2D rd;
 
-    boolean ready;
+    private boolean ready;
 
-    boolean running;
+    private boolean running;
 
     long start;
 
-    xtGraphics xt;
+    private xtGraphics xt;
 
     public Chronometer(final xtGraphics pxt) {
         System.out.println("Chronometer ready");
