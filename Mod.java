@@ -75,8 +75,8 @@ class Mod {
 
     ModInstrument[] insts;
     private boolean loaded = false;
-    String name;
-    int numpatterns;
+    private String name;
+    private int numpatterns;
     int numtracks;
 
     byte[][] patterns;
@@ -87,7 +87,7 @@ class Mod {
 
     int songLengthPatterns;
 
-    int songRepeatPatterns;
+    private int songRepeatPatterns;
 
     int trackShift;
 

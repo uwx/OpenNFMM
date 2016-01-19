@@ -14,25 +14,25 @@ class Chronometer {
 
     private int bestlap;
 
-    int current;
+    private int current;
 
     private DecimalFormat dc;
 
-    long delay;
+    private long delay;
 
-    long end;
+    private long end;
 
     private FontMetrics ftm;
 
-    int laps;
+    private int laps;
 
-    long lapsplits[];
+    private long lapsplits[];
 
-    long laptimes[];
+    private long laptimes[];
 
     private boolean paused;
 
-    long pausetime;
+    private long pausetime;
 
     private Graphics2D rd;
 
@@ -40,7 +40,7 @@ class Chronometer {
 
     private boolean running;
 
-    long start;
+    private long start;
 
     private xtGraphics xt;
 

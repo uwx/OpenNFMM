@@ -52,30 +52,30 @@ class CarMaker extends Applet implements Runnable, ActionListener {
     private static final long serialVersionUID = 7903118983954264757L;
     private int actmag = 0;
     private String[][] addeda = new String[20][5000];
-    int[] adna = {
+    private int[] adna = {
             276, 276, 276, 276, 276, 276
     };
-    String aply1 = "";
-    String aply2 = "";
+    private String aply1 = "";
+    private String aply2 = "";
     private boolean aplyd1 = false;
     private boolean aplyd2 = false;
-    int apx = 0;
-    int apy = 0;
-    int bfo = 0;
+    private int apx = 0;
+    private int apy = 0;
+    private int bfo = 0;
     private boolean breakbond = false;
     private Image[] btgame = new Image[2];
-    int btn = 0;
-    int[] bw = {
+    private int btn = 0;
+    private int[] bw = {
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    int[] bx = {
+    private int[] bx = {
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    int[] by = {
+    private int[] by = {
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    String carname = "";
-    int carsel = 0;
+    private String carname = "";
+    private int carsel = 0;
     private int[][] carstat = {
             {
                     110, 81, 131, 98, 100
@@ -111,94 +111,94 @@ class CarMaker extends Applet implements Runnable, ActionListener {
                     112, 128, 120, 192, 128
             }
     };
-    String cfont = "Monospaced";
+    private String cfont = "Monospaced";
     private boolean changed = false;
     private boolean changed2 = false;
-    int[] clas = new int[20];
-    Smenu cls = new Smenu(40);
-    int clsel = 0;
-    int cntchk = 0;
-    int cntpls = 0;
-    int cntprf = 0;
-    Smenu compcar = new Smenu(40);
+    private int[] clas = new int[20];
+    private Smenu cls = new Smenu(40);
+    private int clsel = 0;
+    private int cntchk = 0;
+    private int cntpls = 0;
+    private int cntprf = 0;
+    private Smenu compcar = new Smenu(40);
     private ContO[] compo = new ContO[16];
-    int compsel = 0;
-    int[] crash = {
+    private int compsel = 0;
+    private int[] crash = {
             50, 50, 50
     };
     private boolean crashleft = false;
     private boolean crashok = false;
     private soundClip[] crashs = new soundClip[3];
     private boolean crashup = false;
-    int crshturn = 0;
-    Smenu ctheme = new Smenu(40);
-    int cthm = 0;
-    Color defb;
-    Color deff;
+    private int crshturn = 0;
+    private Smenu ctheme = new Smenu(40);
+    private int cthm = 0;
+    private Color defb;
+    private Color deff;
     private boolean defnow = false;
     private boolean down = false;
-    int dtab = 0;
-    int dtabed = -1;
+    private int dtab = 0;
+    private int dtabed = -1;
     private TextArea editor = new TextArea(20, 20);
-    Smenu engine = new Smenu(40);
+    private Smenu engine = new Smenu(40);
     private boolean engon = false;
     private soundClip[][] engs = new soundClip[5][5];
-    int engsel = 0;
+    private int engsel = 0;
     private boolean exwist = false;
-    String fcol = "";
+    private String fcol = "";
     private float[] fhsb = {
             0.5F, 0.5F, 0.5F
     };
-    int flk = 0;
+    private int flk = 0;
     private boolean focuson = true;
-    Smenu fontsel = new Smenu(40);
+    private Smenu fontsel = new Smenu(40);
     private boolean forwheels = false;
     private FontMetrics ftm;
-    int handling = 140;
-    int hitmag = 0;
+    private int handling = 140;
+    private int hitmag = 0;
     private boolean in = false;
-    String lastedo = "";
+    private String lastedo = "";
     private boolean left = false;
     private boolean loadedfile = false;
-    int logged = 0;
-    Image logo;
+    private int logged = 0;
+    private Image logo;
     private soundClip[] lowcrashs = new soundClip[3];
-    Medium m = new Medium();
+    private Medium m = new Medium();
     private String[] maker = new String[20];
     private boolean minus = false;
     private boolean mirror = false;
     private boolean mousdr = false;
-    int mouseon = -1;
-    int mouses = 0;
+    private int mouseon = -1;
+    private int mouses = 0;
     private boolean multf10 = false;
     private String[] mycars = new String[20];
-    int[] nad = new int[20];
-    int nmc = 0;
-    int npolys = 0;
-    ContO o;
+    private int[] nad = new int[20];
+    private int nmc = 0;
+    private int npolys = 0;
+    private ContO o;
     private boolean objfacend = false;
-    String ofcol = "";
-    Image offImage;
+    private String ofcol = "";
+    private Image offImage;
     private boolean onbtgame = false;
     private boolean openm = false;
-    int[] oscale = {
+    private int[] oscale = {
             100, 100, 100
     };
-    String oscol = "";
+    private String oscol = "";
     private boolean out = false;
-    int ox = 335;
-    int oxy = 0;
-    int oxz = -90;
-    int oy = 40;
-    int oz = 800;
-    int ozy = 0;
+    private int ox = 335;
+    private int oxy = 0;
+    private int oxz = -90;
+    private int oy = 40;
+    private int oz = 800;
+    private int ozy = 0;
     private boolean[] pessd = {
             false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
             false, false, false, false, false, false, false, false, false
     };
-    int pfase = 0;
+    private int pfase = 0;
     private boolean pflk = false;
-    int[] phys = {
+    private int[] phys = {
             50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
     };
     private boolean plus = false;
@@ -206,57 +206,57 @@ class CarMaker extends Applet implements Runnable, ActionListener {
             "Handbrake", "Turning Sensitivity", "Tire Grip", "Bouncing", "Empty", "Lifts Others", "Gets Lifted",
             "Pushes Others", "Gets Pushed", "Aerial Rotation Speed", "Aerial Control/Gliding"
     };
-    int[] pnx = {
+    private int[] pnx = {
             62, 20, 76, 71, 60, 38, 44, 20, 33, 320, 324
     };
-    int polynum = -1;
+    private int polynum = -1;
     private PopupMenu popupMenu;
     private boolean prefs = false;
-    int prflk = 0;
-    int[] pubt = new int[20];
-    Smenu pubtyp = new Smenu(40);
+    private int prflk = 0;
+    private int[] pubt = new int[20];
+    private Smenu pubtyp = new Smenu(40);
     private boolean rateh = false;
-    int[] rcrash = {
+    private int[] rcrash = {
             50, 50, 50
     };
     private Graphics2D rd;
     private boolean right = false;
     private boolean rotl = false;
     private boolean rotr = false;
-    int[] rphys = {
+    private int[] rphys = {
             50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
     };
     private TextField rplc = new TextField("", 15);
-    int[] rstat = {
+    private int[] rstat = {
             0, 0, 0, 0, 0
     };
-    int[] scale = {
+    private int[] scale = {
             100, 100, 100
     };
-    String scar = "";
-    String scol = "";
-    int sfase = 0;
-    String sfont = "Monospaced";
+    private String scar = "";
+    private String scol = "";
+    private int sfase = 0;
+    private String sfont = "Monospaced";
     private float[] shsb = {
             0.5F, 0.5F, 0.5F
     };
-    Smenu simcar = new Smenu(40);
-    Smenu slcar = new Smenu(2000);
-    int sle = -1;
-    int sls = -1;
-    int squash = 0;
+    private Smenu simcar = new Smenu(40);
+    private Smenu slcar = new Smenu(2000);
+    private int sle = -1;
+    private int sls = -1;
+    private int squash = 0;
     private TextField srch = new TextField("", 15);
-    int[] stat = {
+    private int[] stat = {
             100, 100, 100, 100, 100
     };
     private boolean statdef = false;
-    int sthm = 0;
-    String suser = "Horaks";
+    private int sthm = 0;
+    private String suser = "Horaks";
     private Trackers t = new Trackers();
-    int tab = 0;
-    int tabed = -1;
+    private int tab = 0;
+    private int tabed = -1;
     boolean tested = false;
-    Thread thredo;
+    private Thread thredo;
     private TextField tnick = new TextField("", 15);
     private boolean tomany = false;
     private TextField tpass = new TextField("", 15);
@@ -280,10 +280,10 @@ class CarMaker extends Applet implements Runnable, ActionListener {
             "Roof Destruction:\nThe amount of destruction to occur on the car\u2019s top.\nThe length of indentation and destruction to happen from above.\n\nTo really see this variable's effect try crashing the roof alone (without a normal crash),\ntry more then once while fixing the car and changing the variable\u2019s value to see the\ndifference.\n\nThe roof crash normally happens in the game when the car lands upside down from a\njump or when a big car like Dr Monstaa steps on it.\n\n"
     };
     private boolean waso = false;
-    Smenu witho = new Smenu(40);
+    private Smenu witho = new Smenu(40);
     private TextField[] wv = new TextField[16];
-    int xm = 0;
-    int ym = 0;
+    private int xm = 0;
+    private int ym = 0;
 
     @Override
     public void actionPerformed(final ActionEvent actionevent) {

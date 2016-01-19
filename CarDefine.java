@@ -390,19 +390,19 @@ class CarDefine implements Runnable {
     private int onloadingcar = 0;
     int ac = -1;
     private String acname = "Radical One";
-    String fails = "";
+    private String fails = "";
     String tnickey = "";
     String tclan = "";
     String tclankey = "";
-    int loadlist = 0;
-    int[] adds = {
+    private int loadlist = 0;
+    private int[] adds = {
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
     String viewname = "";
     int staction = 0;
     String onstage = "";
-    int inslot = -1;
-    int roundslot = 0;
+    private int inslot = -1;
+    private int roundslot = 0;
     String lastcar = "";
     int msloaded = 0;
     int[] top20adds = new int[20];

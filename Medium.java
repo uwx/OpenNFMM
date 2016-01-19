@@ -9,15 +9,15 @@ import java.util.Random;
 class Medium {
     int adv = 500;
     private long atrx = 0L;
-    long atrz = 0L;
-    int bcxz = 0;
+    private long atrz = 0L;
+    private int bcxz = 0;
     private boolean[] bst = null;
     boolean bt = false;
     int[] cfade = {
             255, 220, 220
     };
-    int[] cgpx = null;
-    int[] cgpz = null;
+    private int[] cgpx = null;
+    private int[] cgpz = null;
     int[] cgrnd = {
             205, 200, 200
     };
@@ -26,16 +26,16 @@ class Medium {
     private int[][][] clay = null;
     private int[][][] claz = null;
     private int[][][][] clc = null;
-    int[] cldd = {
+    private int[] cldd = {
             210, 210, 210, 1, -1000
     };
-    int[] clds = {
+    private int[] clds = {
             210, 210, 210
     };
-    int[] clx = null;
-    int[] clz = null;
-    int[] cmx = null;
-    int cntrn = 0;
+    private int[] clx = null;
+    private int[] clz = null;
+    private int[] cmx = null;
+    private int cntrn = 0;
     boolean cpflik = false;
     int[] cpol = {
             215, 210, 210
@@ -59,11 +59,11 @@ class Medium {
             3000, 4500, 6000, 7500, 9000, 10500, 12000, 13500, 15000, 16500, 18000, 19500, 21000, 22500, 24000, 25500
     };
     int fallen = 0;
-    float fo = 1.0F;
+    private float fo = 1.0F;
     int focusPoint = 400;
     int fogd = 7;
-    int fvect = 200;
-    float gofo = (float) (0.33000001311302185 + Math.random() * 1.34);
+    private int fvect = 200;
+    private float gofo = (float) (0.33000001311302185 + Math.random() * 1.34);
     int ground = 250;
     int h = 450;
     int hit = 45000;
@@ -73,46 +73,46 @@ class Medium {
     int lastmaf = 0;
     int lightn = -1;
     boolean lightson = false;
-    int lilo = 217;
+    private int lilo = 217;
     boolean loadnew = false;
     boolean lton = false;
     int mgen = (int) (Math.random() * 100000.0);
-    int[] mrd = null;
+    private int[] mrd = null;
     private int[][][] mtc = null;
     private int[][] mtx = null;
     private int[][] mty = null;
     private int[][] mtz = null;
     int ncl = 0;
-    int nmt = 0;
-    int[] nmv = null;
-    int noc = 0;
+    private int nmt = 0;
+    private int[] nmv = null;
+    private int noc = 0;
     boolean nochekflk = false;
     int noelec = 0;
     int nrnd = 0;
     int nrw = 0;
     int nsp = 0;
-    int nst = 0;
+    private int nst = 0;
     private int[][] ogpx = null;
     private int[][] ogpz = null;
-    int[] ogrnd = {
+    private int[] ogrnd = {
             205, 200, 200
     };
-    int[] osky = {
+    private int[] osky = {
             170, 220, 255
     };
     private float[] pcv = null;
-    int[] pmx = null;
+    private int[] pmx = null;
     int ptcnt = -10;
     int ptr = 0;
     private float[][] pvr = null;
-    int[] rand = {
+    private int[] rand = {
             0, 0, 0
     };
     int rescnt = 5;
     int resdown = 0;
-    int sgpx = 0;
-    int sgpz = 0;
-    int skyline = -300;
+    private int sgpx = 0;
+    private int sgpz = 0;
+    private int skyline = -300;
     int[] snap = {
             0, 0, 0
     };
@@ -120,19 +120,19 @@ class Medium {
     int[] spx = new int[7];
     int[] spz = new int[7];
     private int[][][] stc = null;
-    int[] stx = null;
-    int[] stz = null;
+    private int[] stx = null;
+    private int[] stz = null;
     private float[] tcos = new float[360];
     private boolean td = false;
-    int[] texture = {
+    private int[] texture = {
             0, 0, 0, 50
     };
     int trk = 0;
-    int trn = 0;
+    private int trn = 0;
     long trx = 0L;
     long trz = 0L;
     private float[] tsin = new float[360];
-    int[] twn = null;
+    private int[] twn = null;
     boolean vert = false;
     int vxz = 180;
     int w = 800;

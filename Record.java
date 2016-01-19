@@ -10,12 +10,12 @@ class Record {
     private int[] checkpoint = new int[300];
     int closefinish = 0;
     int[] cntdest = new int[8];
-    int cntf = 50;
+    private int cntf = 50;
     int[] dest = new int[8];
     int[] fix = new int[8];
     boolean hcaught = false;
-    int[] hcheckpoint = new int[300];
-    int[] hdest = {
+    private int[] hcheckpoint = new int[300];
+    private int[] hdest = {
             -1, -1, -1, -1, -1, -1, -1, -1
     };
     int[] hfix = {
@@ -37,7 +37,7 @@ class Record {
     private int[][][] hscz = new int[8][20][30];
     private float[][][] hsmag = new float[8][20][30];
     private int[][] hsprk = new int[8][200];
-    int[] hsquash = {
+    private int[] hsquash = {
             0, 0, 0, 0, 0, 0, 0, 0
     };
     private int[][] hsrx = new int[8][200];
@@ -56,13 +56,13 @@ class Record {
     private int[][] hz = new int[300][8];
     private int[][] hzy = new int[300][8];
     private boolean[] lastcheck = new boolean[300];
-    int lastfr = 0;
-    Medium m;
+    private int lastfr = 0;
+    private Medium m;
     private int[][][] magx = new int[8][4][7];
     private int[][][] magy = new int[8][4][7];
     private int[][][] magz = new int[8][4][7];
     private boolean[][] mtouch = new boolean[8][7];
-    int[] nr = new int[8];
+    private int[] nr = new int[8];
     private int[][] nrx = new int[8][4];
     private int[][] nry = new int[8][4];
     private int[][] nrz = new int[8][4];

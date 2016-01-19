@@ -16,8 +16,8 @@ class RadicalMod implements RadicalMusic {
     boolean playing;
     int loaded;
     int rvol;
-    String imod;
-    String pmod;
+    private String imod;
+    private String pmod;
 
     public RadicalMod() {
         playing = false;

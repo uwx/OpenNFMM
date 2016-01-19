@@ -11,9 +11,9 @@ class udpOnline implements Runnable {
     private Thread con;
     private DatagramSocket dSocket;
     private boolean errd = false;
-    int gameport = 7001;
+    private int gameport = 7001;
     private InetAddress IPAddress;
-    int nu = 0;
+    private int nu = 0;
     long sendat = 0L;
     boolean started = false;
     private UDPMistro um;

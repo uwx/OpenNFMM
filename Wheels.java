@@ -6,10 +6,10 @@ class Wheels {
     private float depth = 3.0F;
     int ground = 0;
     int mast = 0;
-    int[] rc = {
+    private int[] rc = {
             120, 120, 120
     };
-    float size = 2.0F;
+    private float size = 2.0F;
     int sparkat = 0;
 
     public Wheels() {

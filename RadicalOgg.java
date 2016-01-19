@@ -7,7 +7,7 @@ class RadicalOgg implements RadicalMusic {
     private boolean paused;
     private boolean loaded;
     private boolean playing;
-    String s;
+    private String s;
 
     private OggClip ogg;
 

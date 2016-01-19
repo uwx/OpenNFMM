@@ -11,8 +11,8 @@ import javax.sound.sampled.Clip;
 
 class soundClip {
     private Clip clip = null;
-    int cntcheck = 0;
-    int lfrpo = -1;
+    private int cntcheck = 0;
+    private int lfrpo = -1;
     private boolean loaded = false;
     int rollBackPos;
     int rollBackTrig;

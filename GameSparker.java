@@ -1617,7 +1617,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
     //private Globe globe = null;
     private final UDPMistro udpmistro = new UDPMistro();
     private boolean bool = false;
-    Record record;
+    private Record record;
     private int i6;
     private int i8;
     private int i9;

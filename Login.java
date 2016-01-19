@@ -25,55 +25,55 @@ class Login implements Runnable {
     private int[] bgmy = {
             0, 400, 800
     };
-    int btn = 0;
+    private int btn = 0;
     private boolean btroom = false;
-    int[] bw = {
+    private int[] bw = {
             0, 0, 0, 0, 0, 0
     };
-    int[] bx = {
+    private int[] bx = {
             0, 0, 0, 0, 0, 0
     };
-    int[] by = {
+    private int[] by = {
             0, 0, 0, 0, 0, 0
     };
-    int cax = 0;
-    int cay = 0;
+    private int cax = 0;
+    private int cay = 0;
     private boolean checknote = false;
     String clanapv = "";
-    int cntcl = 0;
-    int cntgame = 0;
-    Thread connector;
+    private int cntcl = 0;
+    private int cntgame = 0;
+    private Thread connector;
     private boolean contrb = false;
     private BufferedReader din;
     private PrintWriter dout;
     private DatagramSocket[] dSocket = new DatagramSocket[3];
-    int errcnt = 0;
+    private int errcnt = 0;
     int fase = 0;
     int fclan = 0;
     int flipo = 0;
     int fplayer = 0;
     private FontMetrics ftm;
     int gamec = -1;
-    String gmaker = "";
+    private String gmaker = "";
     private boolean gotcai = false;
-    int groom = 0;
+    private int groom = 0;
     private GameSparker gs;
-    String gservern = "";
+    private String gservern = "";
     private InetAddress[] IPAddress = new InetAddress[3];
     boolean jflk = false;
     boolean justlog = false;
-    String lemail = "";
-    String lnick = "";
-    String lpass = "";
-    int lrgfase = 0;
-    int lxm = 0;
-    int lym = 0;
-    Medium m;
-    String msg = "";
-    int ncnt = 0;
+    private String lemail = "";
+    private String lnick = "";
+    private String lpass = "";
+    private int lrgfase = 0;
+    private int lxm = 0;
+    private int lym = 0;
+    private Medium m;
+    private String msg = "";
+    private int ncnt = 0;
     int nconf = 0;
     int ncreq = 0;
-    int nflk = 0;
+    private int nflk = 0;
     int nfreq = 0;
     private boolean nickero = false;
     int nmsgs = 0;
@@ -82,42 +82,42 @@ class Login implements Runnable {
     private boolean ond = false;
     private boolean onf = false;
     private boolean onr = false;
-    int opselect = 0;
-    int oxm = 0;
-    int oym = 0;
-    int pend = 0;
+    private int opselect = 0;
+    private int oxm = 0;
+    private int oym = 0;
+    private int pend = 0;
     private boolean pendb = false;
     private boolean[] pessd = {
             false, false, false, false, false, false
     };
     private Graphics2D rd;
-    int recom = 0;
+    private int recom = 0;
     private boolean resofaso = false;
-    int[] rmps = {
+    private int[] rmps = {
             0, 0, 0, 0, 0
     };
-    int[] rmwt = {
+    private int[] rmwt = {
             0, 0, 0, 0, 0
     };
-    int[] serverdone = {
+    private int[] serverdone = {
             -1, -1, -1
     };
     String[] servers = {
             "multiplayer.needformadness.com", "avenger.needformadness.com", "ghostrider.needformadness.com"
     };
-    long[] servestart = {
+    private long[] servestart = {
             0L, 0L, 0L
     };
     private boolean showtf = false;
     String[] snames = {
             "Dominion", "Avenger", "Ghostrider"
     };
-    Socket socket;
+    private Socket socket;
     private boolean socketson = false;
-    int srvtrn = 0;
-    int trans = 0;
-    int xrl = 0;
-    int xrr = 0;
+    private int srvtrn = 0;
+    private int trans = 0;
+    private int xrl = 0;
+    private int xrr = 0;
     private xtGraphics xt;
 
     Login(final Medium medium, final Graphics2D graphics2d, final xtGraphics xtgraphics,

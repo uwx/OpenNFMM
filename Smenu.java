@@ -13,11 +13,11 @@ class Smenu {
     private Color bcol = new Color(255, 255, 255);
     boolean carsel = false;
     private boolean dis = false;
-    Color fcol = new Color(0, 0, 0);
+    private Color fcol = new Color(0, 0, 0);
     private boolean flksel = false;
-    Font font = new Font("Arial", 1, 13);
+    private Font font = new Font("Arial", 1, 13);
     private FontMetrics ftm;
-    int h = 0;
+    private int h = 0;
     int[] iroom;
     int kmoused = 0;
     int maxl = 0;
@@ -28,14 +28,14 @@ class Smenu {
     String[] opts;
     private boolean revup = false;
     boolean rooms = false;
-    int scra = 0;
-    int scro = 0;
+    private int scra = 0;
+    private int scro = 0;
     int sel = 0;
     boolean show = false;
     String[] sopts;
     int w = 0;
-    int x = 0;
-    int y = 0;
+    private int x = 0;
+    private int y = 0;
 
     Smenu(final int i) {
         opts = new String[i];

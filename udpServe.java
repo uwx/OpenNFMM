@@ -8,12 +8,12 @@ import java.net.InetAddress;
 
 class udpServe implements Runnable {
     private DatagramSocket dSocket;
-    int im = 0;
-    int[] lsframe = {
+    private int im = 0;
+    private int[] lsframe = {
             -1, -1, -1, -1, -1, -1, -1, -1
     };
-    int mport = 7060;
-    Thread servo;
+    private int mport = 7060;
+    private Thread servo;
     private UDPMistro um;
 
     udpServe(final UDPMistro udpmistro, final int i) {

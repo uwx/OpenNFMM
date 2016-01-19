@@ -26,18 +26,18 @@ class UDPMistro implements Runnable {
     //int[] lframe = new int[7];
     int nplayers = 0;
     //int[] out = new int[7];
-    int pgame = 0;
-    int porturn = 0;
-    int rate = 30;
-    Thread runner;
+    private int pgame = 0;
+    private int porturn = 0;
+    private int rate = 30;
+    private Thread runner;
     int runon = 0;
     long sendat = 0L;
     String sendcheck = "";
-    Socket socket;
+    private Socket socket;
     private udpOnline[] udpc = new udpOnline[20];
-    int wx = 0;
-    String xtserver = "";
-    int xtservport = 0;
+    private int wx = 0;
+    private String xtserver = "";
+    private int xtservport = 0;
 
     //fixed for 8 player games
     private udpServe[] usrv = new udpServe[13];

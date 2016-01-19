@@ -13,7 +13,7 @@ class RadicalMp3 implements RadicalMusic {
     private boolean playing;
     private String s;
     private FileInputStream fi;
-    File fl;
+    private File fl;
 
     private PausablePlayer player;
     String filePath;
