@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-public class Wheels {
+class Wheels {
     private float depth = 3.0F;
     int ground = 0;
     int mast = 0;

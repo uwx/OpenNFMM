@@ -43,7 +43,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMotionListener, ActionListener {
+class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMotionListener, ActionListener {
     /**
      *
      */

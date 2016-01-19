@@ -24,7 +24,7 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
-public class Madness extends Panel {
+class Madness extends Panel {
     private static long advtime = 0L;
     static int anti = 1;
     private static GameSparker applet;

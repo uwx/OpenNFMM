@@ -45,7 +45,7 @@ import java.util.zip.ZipInputStream;
 
 import javax.swing.JOptionPane;
 
-public class CarMaker extends Applet implements Runnable, ActionListener {
+class CarMaker extends Applet implements Runnable, ActionListener {
     /**
      *
      */

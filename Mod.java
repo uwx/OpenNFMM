@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-public class Mod {
+class Mod {
     private static final int voice_28ch = FOURCC("28CH");
     private static final int voice_6chn = FOURCC("6CHN");
     private static final int voice_8chn = FOURCC("8CHN");

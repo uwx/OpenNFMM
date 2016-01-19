@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-public class CheckPoints {
+class CheckPoints {
     int catchfin = 0;
     int[] clear = {
             0, 0, 0, 0, 0, 0, 0, 0

@@ -4,7 +4,7 @@
  */
 import java.awt.Color;
 
-public class Mad {
+class Mad {
     boolean btab = false;
     int capcnt = 0;
     boolean capsized = false;

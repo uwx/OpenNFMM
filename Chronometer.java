@@ -10,7 +10,7 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.text.DecimalFormat;
 
-public class Chronometer {
+class Chronometer {
 
     private int bestlap;
 

@@ -7,7 +7,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.Date;
 
-public class udpOnline implements Runnable {
+class udpOnline implements Runnable {
     private Thread con;
     private DatagramSocket dSocket;
     private boolean errd = false;

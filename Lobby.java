@@ -18,7 +18,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Date;
 
-public class Lobby implements Runnable {
+class Lobby implements Runnable {
     int addstage = 0;
     private int britchl = 0;
     private int btn = 0;

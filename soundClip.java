@@ -9,7 +9,7 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
-public class soundClip {
+class soundClip {
     private Clip clip = null;
     int cntcheck = 0;
     int lfrpo = -1;

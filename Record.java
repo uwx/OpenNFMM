@@ -4,7 +4,7 @@
  */
 import java.awt.Color;
 
-public class Record {
+class Record {
     ContO[][] car = new ContO[6][8];
     int caught = 0;
     private int[] checkpoint = new int[300];

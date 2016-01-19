@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-public class CarDefine implements Runnable {
+class CarDefine implements Runnable {
     private Trackers t;
     private GameSparker gs;
     private ContO[] bco;

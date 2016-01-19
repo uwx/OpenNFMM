@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Date;
 
-public class UDPMistro implements Runnable {
+class UDPMistro implements Runnable {
     int delay = 0;
     int diled = 0;
     int diledelay = 0;

@@ -1,5 +1,5 @@
 
-public interface RadicalMusic {
+interface RadicalMusic {
 
     //SuperClip sClip = null;
     static final int TYPE_OGG = 3;

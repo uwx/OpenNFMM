@@ -40,7 +40,7 @@ import java.util.zip.ZipInputStream;
 
 import javax.swing.JOptionPane;
 
-public class StageMaker extends Applet implements Runnable {
+class StageMaker extends Applet implements Runnable {
     private CheckPoints cp = new CheckPoints();
     private Trackers t = new Trackers();
     //////////////// ------------ REMEMBER NEW PARTS ARE ALWAYS -10 INDEXES SINCE YOU CAN'T SELECT CARS IN THE STAGEMAKER

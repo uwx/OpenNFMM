@@ -1,5 +1,5 @@
 
-public class Utility {
+class Utility {
 
     /**
      * Gets a value from a string in format:

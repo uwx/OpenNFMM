@@ -10,7 +10,7 @@ import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.util.Random;
 
-public class ContO {
+class ContO {
     int checkpoint;
     int colok;
     private int[] dam;

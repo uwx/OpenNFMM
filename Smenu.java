@@ -8,7 +8,7 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 
-public class Smenu {
+class Smenu {
     boolean alphad = false;
     private Color bcol = new Color(255, 255, 255);
     boolean carsel = false;

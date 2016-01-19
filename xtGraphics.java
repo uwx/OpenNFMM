@@ -27,7 +27,7 @@ import java.net.URL;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-public class xtGraphics extends Panel implements Runnable {
+class xtGraphics extends Panel implements Runnable {
     /**
      *
      */

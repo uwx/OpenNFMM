@@ -2,7 +2,7 @@
  * Visit http://jode.sourceforge.net/
  */
 
-public class Control {
+class Control {
     private int acr = 0;
     int actwait = 0;
     int acuracy = 0;

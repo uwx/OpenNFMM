@@ -10,7 +10,7 @@ import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.SourceDataLine;
 
-public class SuperClip implements Runnable {
+class SuperClip implements Runnable {
 
     public SuperClip(final byte abyte0[], final int i, final int j) {
         skiprate = 0;

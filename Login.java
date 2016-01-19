@@ -21,7 +21,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Date;
 
-public class Login implements Runnable {
+class Login implements Runnable {
     private int[] bgmy = {
             0, 400, 800
     };

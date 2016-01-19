@@ -2,7 +2,7 @@
  * DragShot Software
  * JODE (c) 1998-2001 Jochen Hoenicke
  */
-public class Trackers {
+class Trackers {
     int[][] c = new int[95000][3];
     int[] dam = new int[95000];
     boolean[] decor = new boolean[95000];

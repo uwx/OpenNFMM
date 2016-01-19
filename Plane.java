@@ -7,7 +7,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
-public class Plane {
+class Plane {
     int av = 0;
     int bfase = 0;
     int[] c = new int[3];

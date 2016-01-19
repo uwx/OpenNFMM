@@ -6,7 +6,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-public class udpServe implements Runnable {
+class udpServe implements Runnable {
     private DatagramSocket dSocket;
     int im = 0;
     int[] lsframe = {

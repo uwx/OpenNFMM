@@ -6,7 +6,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.Random;
 
-public class Medium {
+class Medium {
     int adv = 500;
     private long atrx = 0L;
     long atrz = 0L;
