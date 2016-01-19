@@ -1,0 +1,3 @@
+# Appveyor doesn"t have JDK 8 by default in PATH so we must set it
+
+build_script: build.bat
