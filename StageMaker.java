@@ -973,7 +973,7 @@ public class StageMaker extends Applet implements Runnable {
         try {
             mediatracker.waitForID(0);
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return image;
     }
@@ -1220,7 +1220,7 @@ public class StageMaker extends Applet implements Runnable {
                 bufferedreader.close();
             }
         } catch (final Exception exception) {
-            /* empty */
+            
         }
     }
 
@@ -4386,7 +4386,7 @@ public class StageMaker extends Applet implements Runnable {
                                 file = new File(new StringBuilder().append("").append(filedialog.getDirectory())
                                         .append("").append(filedialog.getFile()).append("").toString());
                         } catch (final Exception exception) {
-                            /* empty */
+                            
                         }
                         if (file != null)
                             try {
@@ -4591,11 +4591,11 @@ public class StageMaker extends Applet implements Runnable {
                                             repaint();
                                             try {
                                                 if (thredo != null) {
-                                                    /* empty */
+                                                    
                                                 }
                                                 Thread.sleep(10L);
                                             } catch (final InterruptedException interruptedexception) {
-                                                /* empty */
+                                                
                                             }
                                         }
                                         printwriter.println("QUITX1111");
@@ -4925,7 +4925,7 @@ public class StageMaker extends Applet implements Runnable {
                                                         fileoutputstream.close();
                                                     }
                                                 } catch (final Exception exception) {
-                                                    /* empty */
+                                                    
                                                 }
                                             setCursor(new Cursor(0));
                                             JOptionPane.showMessageDialog(null,
@@ -5023,7 +5023,7 @@ public class StageMaker extends Applet implements Runnable {
                                 }
                             }
                         } catch (final Exception exception) {
-                            /* empty */
+                            
                         }
                     }
                     setCursor(new Cursor(0));
@@ -5212,11 +5212,11 @@ public class StageMaker extends Applet implements Runnable {
             if (!exwist)
                 try {
                     if (thredo != null) {
-                        /* empty */
+                        
                     }
                     Thread.sleep(40L);
                 } catch (final InterruptedException interruptedexception) {
-                    /* empty */
+                    
                 }
         }
         track.unload();
@@ -5262,7 +5262,7 @@ public class StageMaker extends Applet implements Runnable {
                 bufferedwriter.write(string);
                 bufferedwriter.close();
             } catch (final Exception exception) {
-                /* empty */
+                
             }
         }
     }
@@ -5289,7 +5289,7 @@ public class StageMaker extends Applet implements Runnable {
     // 			}
     // 			string365 = string370;
     // 		} catch (final Exception exception) {
-    // 			/* empty */
+    // 			
     // 		}
     // 		return string365;
     // 	}
@@ -5317,7 +5317,7 @@ public class StageMaker extends Applet implements Runnable {
                 string364 = "-1";
             i359 = Integer.valueOf(string364).intValue();
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return i359;
     }
@@ -5673,7 +5673,7 @@ public class StageMaker extends Applet implements Runnable {
                         }
                     }
                 if (i297 != -1) {
-                    /* empty */
+                    
                 }
                 if (i297 != -1) {
                     for (int i300 = i243; i300 > i297; i300--)

@@ -36,7 +36,7 @@ public class udpOnline implements Runnable {
         try {
             dSocket.close();
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         dSocket = null;
         errd = true;
@@ -68,7 +68,7 @@ public class udpOnline implements Runnable {
             }
             string18 = string23;
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return string18;
     }
@@ -96,7 +96,7 @@ public class udpOnline implements Runnable {
                 string17 = "-1";
             i12 = Integer.valueOf(string17).intValue();
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return i12;
     }
@@ -169,7 +169,7 @@ public class udpOnline implements Runnable {
             try {
                 dSocket.close();
             } catch (final Exception exception11) {
-                /* empty */
+                
             }
             dSocket = null;
             errd = true;
@@ -184,13 +184,13 @@ public class udpOnline implements Runnable {
                 dSocket = new DatagramSocket(7020 + nu);
                 errd = false;
             } catch (final Exception exception) {
-                /* empty */
+                
             }
         try {
             con = new Thread(this);
             con.start();
         } catch (final Exception exception) {
-            /* empty */
+            
         }
     }
 

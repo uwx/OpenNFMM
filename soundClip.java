@@ -40,7 +40,7 @@ public class soundClip {
                         clip.close();
                         sound.reset();
                     } catch (final Exception exception) {
-                        /* empty */
+                        
                     }
                     lfrpo = -1;
                 } else
@@ -55,7 +55,7 @@ public class soundClip {
                 try {
                     clip.open(sound);
                 } catch (final Exception exception) {
-                    /* empty */
+                    
                 }
             clip.loop(70);
             lfrpo = -2;
@@ -69,7 +69,7 @@ public class soundClip {
                 try {
                     clip.open(sound);
                 } catch (final Exception exception) {
-                    /* empty */
+                    
                 }
                 clip.loop(0);
             } else

@@ -45,7 +45,7 @@ public class udpServe implements Runnable {
             }
             string24 = string29;
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return string24;
     }
@@ -73,7 +73,7 @@ public class udpServe implements Runnable {
                 string23 = "-1";
             i18 = Integer.valueOf(string23).intValue();
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return i18;
     }
@@ -151,7 +151,7 @@ public class udpServe implements Runnable {
                     }
             }
         } catch (final Exception exception) {
-            /* empty */
+            
         }
     }
 
@@ -160,7 +160,7 @@ public class udpServe implements Runnable {
             dSocket.close();
             dSocket = null;
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         if (servo != null) {
             servo.stop();

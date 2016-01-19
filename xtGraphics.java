@@ -591,10 +591,10 @@ public class xtGraphics extends Panel implements Runnable {
             }
         }
         for (i224 += m.xz; i224 < 0; i224 += 360) {
-            /* empty */
+            
         }
-        for ( /**/ ; i224 > 180; i224 -= 360) {
-            /* empty */
+        for (; i224 > 180; i224 -= 360) {
+            
         }
         if (!bool) {
             if (i224 > 130)
@@ -766,7 +766,7 @@ public class xtGraphics extends Panel implements Runnable {
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            /* empty */
+            
         }
         final Color color = new Color(247, 255, 165);
         for (int i341 = 0; i341 < i340 * i; i341++)
@@ -827,7 +827,7 @@ public class xtGraphics extends Panel implements Runnable {
             try {
                 pixelgrabber.grabPixels();
             } catch (final InterruptedException interruptedexception) {
-                /* empty */
+                
             }
         }
     }
@@ -1990,8 +1990,8 @@ public class xtGraphics extends Panel implements Runnable {
                         		sc[0] = 14;
                         }*/
                         if (multion != 0 && onjoin != -1 && ontyp > 0 && ontyp <= 5)
-                            for ( /**/ ; sc[0] < maxsl && Math.abs(cd.cclass[sc[0]] - (ontyp - 1)) > 1; sc[0]++) {
-                                /* empty */
+                            for (; sc[0] < maxsl && Math.abs(cd.cclass[sc[0]] - (ontyp - 1)) > 1; sc[0]++) {
+                                
                             }
                     }
                     if (nextc == -1) {
@@ -2003,8 +2003,8 @@ public class xtGraphics extends Panel implements Runnable {
                         		sc[0] = 6;
                         }*/
                         if (multion != 0 && onjoin != -1 && ontyp > 0 && ontyp <= 5)
-                            for ( /**/ ; sc[0] > minsl && Math.abs(cd.cclass[sc[0]] - (ontyp - 1)) > 1; sc[0]--) {
-                                /* empty */
+                            for (; sc[0] > minsl && Math.abs(cd.cclass[sc[0]] - (ontyp - 1)) > 1; sc[0]--) {
+                                
                             }
                     }
                     if (cfase == 3 && cd.lastload == 2)
@@ -2646,7 +2646,7 @@ public class xtGraphics extends Panel implements Runnable {
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            /* empty */
+            
         }
         for (int i379 = 0; i379 < i378 * i; i379++) {
             final Color color = new Color(is[i379]);
@@ -3366,7 +3366,7 @@ public class xtGraphics extends Panel implements Runnable {
                 try {
                     pixelgrabber.grabPixels();
                 } catch (final InterruptedException interruptedexception) {
-                    /* empty */
+                    
                 }
             }
             int i300 = 0;
@@ -3425,7 +3425,7 @@ public class xtGraphics extends Panel implements Runnable {
         try {
             mediatracker.waitForID(0);
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return image;
     }
@@ -3438,7 +3438,7 @@ public class xtGraphics extends Panel implements Runnable {
             int i446 = 0;
             String string447 = "";
             String string448 = "";
-            for ( /**/ ; i444 < string.length() && i446 != 2; i444++) {
+            for (; i444 < string.length() && i446 != 2; i444++) {
                 string447 = new StringBuilder().append("").append(string.charAt(i444)).toString();
                 if (string447.equals("|")) {
                     i445++;
@@ -3451,7 +3451,7 @@ public class xtGraphics extends Panel implements Runnable {
             }
             string443 = string448;
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return string443;
     }
@@ -3464,7 +3464,7 @@ public class xtGraphics extends Panel implements Runnable {
             int i440 = 0;
             String string441 = "";
             String string442 = "";
-            for ( /**/ ; i438 < string.length() && i440 != 2; i438++) {
+            for (; i438 < string.length() && i440 != 2; i438++) {
                 string441 = new StringBuilder().append("").append(string.charAt(i438)).toString();
                 if (string441.equals("|")) {
                     i439++;
@@ -3479,7 +3479,7 @@ public class xtGraphics extends Panel implements Runnable {
                 string442 = "-1";
             i437 = Integer.valueOf(string442).intValue();
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return i437;
     }
@@ -4252,7 +4252,7 @@ public class xtGraphics extends Panel implements Runnable {
             try {
                 pixelgrabber.grabPixels();
             } catch (final InterruptedException interruptedexception) {
-                /* empty */
+                
             }
             int i = 0;
             int i353 = 0;
@@ -4331,7 +4331,7 @@ public class xtGraphics extends Panel implements Runnable {
         try {
             mediatracker.waitForID(0);
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         final int i368 = image.getHeight(ob);
         final int i369 = image.getWidth(ob);
@@ -4340,7 +4340,7 @@ public class xtGraphics extends Panel implements Runnable {
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            /* empty */
+            
         }
         for (int i371 = 0; i371 < i369 * i368; i371++)
             if (is370[i371] != is370[0] || i != 0) {
@@ -4397,7 +4397,7 @@ public class xtGraphics extends Panel implements Runnable {
         try {
             mediatracker.waitForID(0);
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return image;
     }
@@ -4420,7 +4420,7 @@ public class xtGraphics extends Panel implements Runnable {
                 final byte[] is = new byte[i];
                 int i11 = 0;
                 int i12;
-                for ( /**/ ; i > 0; i -= i12) {
+                for (; i > 0; i -= i12) {
                     i12 = zipinputstream.read(is, i11, i);
                     i11 += i12;
                 }
@@ -4798,7 +4798,7 @@ public class xtGraphics extends Panel implements Runnable {
             try {
                 Thread.sleep(1000L);
             } catch (final InterruptedException interruptedexception) {
-                /* empty */
+                
             }
         if (!lan)
             strack.play();
@@ -4806,7 +4806,7 @@ public class xtGraphics extends Panel implements Runnable {
             try {
                 Thread.sleep(1000L);
             } catch (final InterruptedException interruptedexception) {
-                /* empty */
+                
             }
         app.setCursor(new Cursor(0));
         pcontin = 0;
@@ -4823,7 +4823,7 @@ public class xtGraphics extends Panel implements Runnable {
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            /* empty */
+            
         }
         if (i < 0)
             i = 33;
@@ -4896,7 +4896,7 @@ public class xtGraphics extends Panel implements Runnable {
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            /* empty */
+            
         }
         for (int i317 = 0; i317 < i316 * i; i317++) {
             final Color color = new Color(is[i316 * i - 1]);
@@ -4946,7 +4946,7 @@ public class xtGraphics extends Panel implements Runnable {
                 final byte[] is = new byte[i];
                 int i0 = 0;
                 int i1;
-                for ( /**/ ; i > 0; i -= i1) {
+                for (; i > 0; i -= i1) {
                     i1 = zipinputstream.read(is, i0, i);
                     i0 += i1;
                 }
@@ -5132,7 +5132,7 @@ public class xtGraphics extends Panel implements Runnable {
         try {
             mediatracker.waitForID(0);
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         final int i = image.getHeight(ob);
         final int i364 = image.getWidth(ob);
@@ -5141,7 +5141,7 @@ public class xtGraphics extends Panel implements Runnable {
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            /* empty */
+            
         }
         for (int i366 = 0; i366 < i364 * i; i366++) {
             final Color color = new Color(is365[i366]);
@@ -5474,7 +5474,7 @@ public class xtGraphics extends Panel implements Runnable {
             try {
                 Thread.sleep(200L);
             } catch (final InterruptedException interruptedexception) {
-                /* empty */
+                
             }
     }
 
@@ -5652,7 +5652,7 @@ public class xtGraphics extends Panel implements Runnable {
         	try {
         		Thread.sleep(200L);
         	} catch (final InterruptedException interruptedexception) {
-        		/* empty *//*
+        		/*
                            }
                            }*/
     }
@@ -5663,21 +5663,21 @@ public class xtGraphics extends Panel implements Runnable {
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            /* empty */
+            
         }
         final int[] is387 = new int[20700];
         final PixelGrabber pixelgrabber388 = new PixelGrabber(image, 0, 0, 92, 225, is387, 0, 92);
         try {
             pixelgrabber388.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            /* empty */
+            
         }
         final int[] is389 = new int[2112];
         final PixelGrabber pixelgrabber390 = new PixelGrabber(image386, 0, 0, 88, 24, is389, 0, 88);
         try {
             pixelgrabber390.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            /* empty */
+            
         }
         for (int i = 0; i < 670; i++)
             for (int i391 = 0; i391 < 400; i391++) {
@@ -6062,7 +6062,7 @@ public class xtGraphics extends Panel implements Runnable {
                             String string = "";
                             int i60 = 0;
                             int i61 = 1;
-                            for ( /**/ ; i60 < lcmsg[i57].length(); i60++) {
+                            for (; i60 < lcmsg[i57].length(); i60++) {
                                 final String string62 = new StringBuilder().append("").append(lcmsg[i57].charAt(i60))
                                         .toString();
                                 if (string62.equals(" "))
@@ -6261,7 +6261,7 @@ public class xtGraphics extends Panel implements Runnable {
                                 dout.close();
                                 dout = null;
                             } catch (final Exception exception) {
-                                /* empty */
+                                
                             }
                         }
                     }
@@ -6577,7 +6577,7 @@ public class xtGraphics extends Panel implements Runnable {
                         runner = new Thread(this);
                         runner.start();
                     } catch (final Exception exception) {
-                        /* empty */
+                        
                     }
             }
             if (Math.random() > Math.random())
@@ -6725,7 +6725,7 @@ public class xtGraphics extends Panel implements Runnable {
             try {
                 pixelgrabber.grabPixels();
             } catch (final InterruptedException interruptedexception) {
-                /* empty */
+                
             }
             int i = 0;
             int i343 = 0;
@@ -6780,7 +6780,7 @@ public class xtGraphics extends Panel implements Runnable {
             mediatracker.waitForID(0);
             mediatracker.removeImage(image, 0);
         } catch (final Exception exception) {
-            /* empty */
+            
         }
     }
 
@@ -6941,7 +6941,7 @@ public class xtGraphics extends Panel implements Runnable {
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            /* empty */
+            
         }
         for (int i338 = 0; i338 < i337 * i; i338++)
             if (is[i338] != is[i337 * i - 1])
@@ -7267,11 +7267,11 @@ public class xtGraphics extends Panel implements Runnable {
                 //app.repaint();
                 try {
                     if (runner != null) {
-                        /* empty */
+                        
                     }
                     Thread.sleep(20L);
                 } catch (final InterruptedException interruptedexception) {
-                    /* empty */
+                    
                 }
             }
             if (bool) {
@@ -7328,7 +7328,7 @@ public class xtGraphics extends Panel implements Runnable {
                         dout.close();
                         dout = null;
                     } catch (final Exception exception) {
-                        /* empty */
+                        
                     }
                     try {
                         socket = new Socket(server, servport);
@@ -7339,7 +7339,7 @@ public class xtGraphics extends Panel implements Runnable {
                         if (string14 != null)
                             bool13 = false;
                     } catch (final Exception exception) {
-                        /* empty */
+                        
                     }
                 }
                 if (bool13) {
@@ -7347,7 +7347,7 @@ public class xtGraphics extends Panel implements Runnable {
                         socket.close();
                         socket = null;
                     } catch (final Exception exception) {
-                        /* empty */
+                        
                     }
                     runtyp = 0;
                     if (app.cmsg.isShowing()) {
@@ -7392,11 +7392,11 @@ public class xtGraphics extends Panel implements Runnable {
                     sendstat = 3;
                 try {
                     if (runner != null) {
-                        /* empty */
+                        
                     }
                     Thread.sleep(1000L);
                 } catch (final InterruptedException interruptedexception) {
-                    /* empty */
+                    
                 }
             }
             if (runtyp == -167 || runtyp == -168) {
@@ -7415,7 +7415,7 @@ public class xtGraphics extends Panel implements Runnable {
                     dout.close();
                     dout = null;
                 } catch (final Exception exception) {
-                    /* empty */
+                    
                 }
                 runtyp = 0;
             }
@@ -7507,13 +7507,13 @@ public class xtGraphics extends Panel implements Runnable {
         try {
             mediatracker.waitForID(0);
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, 466, 202, smokey, 0, 466);
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            /* empty */
+            
         }
         for (int i = 0; i < 94132; i++)
             if (smokey[i] != smokey[0]) {
@@ -7726,7 +7726,7 @@ public class xtGraphics extends Panel implements Runnable {
                         int i177;
                         for (i177 = (int) (1.0 + Math.random() * (i152 - 1)); bools[i177]; i177 = (int) (1.0
                                 + Math.random() * (i152 - 1))) {
-                            /* empty */
+                            
                         }
                         bools[i177] = true;
                         sc[i177] = i175 + 16;
@@ -7745,7 +7745,7 @@ public class xtGraphics extends Panel implements Runnable {
                         int i181;
                         for (i181 = (int) (1.0 + Math.random() * (i152 - 1)); bools[i181]; i181 = (int) (1.0
                                 + Math.random() * (i152 - 1))) {
-                            /* empty */
+                            
                         }
                         bools[i181] = true;
                         sc[i181] = i179 + 16;
@@ -7991,7 +7991,7 @@ public class xtGraphics extends Panel implements Runnable {
                             try {
                                 Thread.sleep(5000L);
                             } catch (final InterruptedException interruptedexception) {
-                                /* empty */
+                                
                             }
                             //if (nfmtab == 0)
                             //	app.snfm1.select(1 + (int) (Math.random() * 10.0));
@@ -9218,7 +9218,7 @@ public class xtGraphics extends Panel implements Runnable {
                 dout.close();
                 dout = null;
             } catch (final Exception exception) {
-                /* empty */
+                
             }
         }
     }

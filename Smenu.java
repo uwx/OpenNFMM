@@ -56,7 +56,7 @@ public class Smenu {
         if (maxl != 0) {
             int i;
             for (i = string.length(); ftm.stringWidth(string.substring(0, i)) + 30 > maxl; i--) {
-                /* empty */
+                
             }
             if (i != string.length()) {
                 string = string.substring(0, i - 3);

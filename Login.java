@@ -164,7 +164,7 @@ public class Login implements Runnable {
             din.close();
             dout.close();
         } catch (final Exception exception) {
-            /* empty */
+            
         }
     }
 
@@ -356,7 +356,7 @@ public class Login implements Runnable {
                         dout.close();
                         dout = null;
                     } catch (final Exception exception) {
-                        /* empty */
+                        
                     }
                     fase = 12;
                     connector = new Thread(this);
@@ -372,7 +372,7 @@ public class Login implements Runnable {
                             dSocket[i52].close();
                             dSocket[i52] = null;
                         } catch (final Exception exception) {
-                            /* empty */
+                            
                         }
                     socketson = false;
                     fase = 12;
@@ -534,7 +534,7 @@ public class Login implements Runnable {
             if (control.exit)
                 i49 = 2;
             if (i49 != 1) {
-                /* empty */
+                
             }
             if (i49 == 2) {
                 fase = lrgfase;
@@ -642,7 +642,7 @@ public class Login implements Runnable {
                 dSocket[i].close();
                 dSocket[i] = null;
             } catch (final Exception exception) {
-                /* empty */
+                
             }
         try {
             socket.close();
@@ -652,7 +652,7 @@ public class Login implements Runnable {
             dout.close();
             dout = null;
         } catch (final Exception exception) {
-            /* empty */
+            
         }
     }
 
@@ -724,7 +724,7 @@ public class Login implements Runnable {
             din.close();
             dout.close();
         } catch (final Exception exception) {
-            /* empty */
+            
         }
     }
 
@@ -749,7 +749,7 @@ public class Login implements Runnable {
             }
             string74 = string79;
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return string74;
     }
@@ -777,7 +777,7 @@ public class Login implements Runnable {
                 string73 = "-1";
             i68 = Integer.valueOf(string73).intValue();
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return i68;
     }
@@ -1422,7 +1422,7 @@ public class Login implements Runnable {
                 din.close();
                 dout.close();
             } catch (final Exception exception) {
-                /* empty */
+                
             }
             gs.tnick.setEnabled(true);
             if (i == -1) {
@@ -1491,7 +1491,7 @@ public class Login implements Runnable {
                 din.close();
                 dout.close();
             } catch (final Exception exception) {
-                /* empty */
+                
             }
             gs.tnick.setEnabled(true);
             gs.tpass.setEnabled(true);
@@ -1562,7 +1562,7 @@ public class Login implements Runnable {
                 din.close();
                 dout.close();
             } catch (final Exception exception) {
-                /* empty */
+                
             }
             gs.temail.setEnabled(true);
             if (i == -1) {
@@ -1630,11 +1630,11 @@ public class Login implements Runnable {
             }
             try {
                 if (connector != null) {
-                    /* empty */
+                    
                 }
                 Thread.sleep(5L);
             } catch (final InterruptedException interruptedexception) {
-                /* empty */
+                
             }
         }
         if (fase != 12 && fase != 13 && fase != 14 && fase != 15 && fase != 5 && socketson) {
@@ -1643,7 +1643,7 @@ public class Login implements Runnable {
                     dSocket[i].close();
                     dSocket[i] = null;
                 } catch (final Exception exception) {
-                    /* empty */
+                    
                 }
             socketson = false;
         }
@@ -1657,7 +1657,7 @@ public class Login implements Runnable {
                 din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 dout = new PrintWriter(socket.getOutputStream(), true);
             } catch (final Exception exception) {
-                /* empty */
+                
             }
             while ((fase == 16 || fase == 17) && i != 3) {
                 String string = "";
@@ -1681,7 +1681,7 @@ public class Login implements Runnable {
                             dout.close();
                             dout = null;
                         } catch (final Exception exception) {
-                            /* empty */
+                            
                         }
                         try {
                             socket = new Socket(xt.server, 7067);
@@ -1702,7 +1702,7 @@ public class Login implements Runnable {
                             socket.close();
                             socket = null;
                         } catch (final Exception exception) {
-                            /* empty */
+                            
                         }
                 }
                 if (!bool) {
@@ -1729,11 +1729,11 @@ public class Login implements Runnable {
                 if (i != 3)
                     try {
                         if (connector != null) {
-                            /* empty */
+                            
                         }
                         Thread.sleep(2000L);
                     } catch (final InterruptedException interruptedexception) {
-                        /* empty */
+                        
                     }
             }
             try {
@@ -1744,7 +1744,7 @@ public class Login implements Runnable {
                 dout.close();
                 dout = null;
             } catch (final Exception exception) {
-                /* empty */
+                
             }
             if (i == 3)
                 resofaso = true;

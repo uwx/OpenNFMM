@@ -458,10 +458,10 @@ public class Control {
                                 if (zyinv)
                                     i7 += 180;
                                 for (/**/; i7 < 0; i7 += 360) {
-                                    /* empty */
+                                    
                                 }
                                 for (/**/; i7 > 180; i7 -= 360) {
-                                    /* empty */
+                                    
                                 }
                                 int i8 = 0;
                                 if (checkpoints.opx[i6] - conto.x >= 0)
@@ -471,10 +471,10 @@ public class Control {
                                         + Math.atan((double) (checkpoints.opz[i6] - conto.z)
                                                 / (double) (checkpoints.opx[i6] - conto.x))
                                         / 0.017453292519943295); i9 < 0; i9 += 360) {
-                                    /* empty */
+                                    
                                 }
                                 for (/**/; i9 > 180; i9 -= 360) {
-                                    /* empty */
+                                    
                                 }
                                 int i10 = Math.abs(i7 - i9);
                                 if (i10 > 180)
@@ -1003,10 +1003,10 @@ public class Control {
                                 if (zyinv)
                                     i25 += 180;
                                 for (/**/; i25 < 0; i25 += 360) {
-                                    /* empty */
+                                    
                                 }
                                 for (/**/; i25 > 180; i25 -= 360) {
-                                    /* empty */
+                                    
                                 }
                                 int i26 = 0;
                                 if (checkpoints.opx[0] - conto.x >= 0)
@@ -1016,10 +1016,10 @@ public class Control {
                                         + Math.atan((double) (checkpoints.opz[0] - conto.z)
                                                 / (double) (checkpoints.opx[0] - conto.x))
                                         / 0.017453292519943295); i27 < 0; i27 += 360) {
-                                    /* empty */
+                                    
                                 }
                                 for (/**/; i27 > 180; i27 -= 360) {
-                                    /* empty */
+                                    
                                 }
                                 int i28 = Math.abs(i25 - i27);
                                 if (i28 > 180)
@@ -1386,16 +1386,16 @@ public class Control {
                 if (zyinv)
                     i += 180;
                 for (/**/; i < 0; i += 360) {
-                    /* empty */
+                    
                 }
                 for (/**/; i > 180; i -= 360) {
-                    /* empty */
+                    
                 }
                 for (/**/; pan < 0; pan += 360) {
-                    /* empty */
+                    
                 }
                 for (/**/; pan > 180; pan -= 360) {
-                    /* empty */
+                    
                 }
                 if (wall != -1 && hold == 0)
                     clrnce = 0;
@@ -1660,10 +1660,10 @@ public class Control {
                     if (udbare) {
                         int i;
                         for (i = mad.pzy + 90; i < 0; i += 360) {
-                            /* empty */
+                            
                         }
                         for (/**/; i > 180; i -= 360) {
-                            /* empty */
+                            
                         }
                         i = Math.abs(i);
                         if (mad.lcomp - mad.rcomp < 5.0F && (onced || onceu))
@@ -1713,10 +1713,10 @@ public class Control {
                         if (zyinv)
                             i += 180;
                         for (/**/; i < 0; i += 360) {
-                            /* empty */
+                            
                         }
                         for (/**/; i > 180; i -= 360) {
-                            /* empty */
+                            
                         }
                         i = Math.abs(i);
                         if (mad.lcomp - mad.rcomp < 10.0F && (oncel || oncer))

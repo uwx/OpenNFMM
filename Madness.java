@@ -76,7 +76,7 @@ public class Madness extends Panel {
                         final Process process = Runtime.getRuntime().exec(file26.getAbsolutePath());
                         final DataInputStream datainputstream = new DataInputStream(process.getInputStream());
                         while (datainputstream.readLine() != null) {
-                            /* empty */
+                            
                         }
                     } else
                         openurl("http://www.needformadness.com/");
@@ -85,7 +85,7 @@ public class Madness extends Panel {
                 }
             }
         } catch (final Exception exception) {
-            /* empty */
+            
         }
     }
 
@@ -106,7 +106,7 @@ public class Madness extends Panel {
         try {
             Thread.sleep(400L);
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         /*try {
         	applet.destroy();
@@ -137,7 +137,7 @@ public class Madness extends Panel {
         try {
             Thread.sleep(400L);
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         cm = new CarMaker();
         frame.add("Center", cm);
@@ -168,13 +168,13 @@ public class Madness extends Panel {
             try {
                 myDevice.setDisplayMode(defdisp);
             } catch (final Exception exception) {
-                /* empty */
+                
             }
             if (myDevice.isDisplayChangeSupported())
                 try {
                     myDevice.setFullScreenWindow(null);
                 } catch (final Exception exception) {
-                    /* empty */
+                    
                 }
         }
         frame.setMinimumSize(new Dimension(930, 586));
@@ -205,7 +205,7 @@ public class Madness extends Panel {
             try {
                 Thread.sleep(200L);
             } catch (final Exception exception) {
-                /* empty */
+                
             }
             /*try {
             	applet.destroy();
@@ -252,7 +252,7 @@ public class Madness extends Panel {
         try {
             Thread.sleep(400L);
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         /*try {
         	applet.destroy();
@@ -283,7 +283,7 @@ public class Madness extends Panel {
         try {
             Thread.sleep(400L);
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         applet = new GameSparker();
         frame.add("Center", applet);
@@ -359,7 +359,7 @@ public class Madness extends Panel {
                 bufferedreader.close();
             }
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         final String[] strings10 = new String[i3];
         for (int i11 = 0; i11 < i3; i11++)
@@ -385,7 +385,7 @@ public class Madness extends Panel {
                 bufferedwriter.newLine();
                 bufferedwriter.close();
             } catch (final Exception exception) {
-                /* empty */
+                
             }
             fullscreen = true;
             frame.dispose();
@@ -401,13 +401,13 @@ public class Madness extends Panel {
                 try {
                     myDevice.setFullScreenWindow(frame);
                 } catch (final Exception exception) {
-                    /* empty */
+                    
                 }
                 if (myDevice.isDisplayChangeSupported())
                     try {
                         myDevice.setDisplayMode(displaymodes[i13]);
                     } catch (final Exception exception) {
-                        /* empty */
+                        
                     }
             }
             applet.requestFocus();
@@ -444,7 +444,7 @@ public class Madness extends Panel {
                         bufferedwriter.close();
                     }
                 } catch (final Exception exception) {
-                    /* empty */
+                    
                 }
             } else {
                 final File file = new File(
@@ -483,14 +483,14 @@ public class Madness extends Panel {
             try {
                 Desktop.getDesktop().browse(new URI(string));
             } catch (final Exception exception) {
-                /* empty */
+                
             }
         else
             try {
                 Runtime.getRuntime().exec(new StringBuilder().append("").append(urlopen()).append(" ").append(string)
                         .append("").toString());
             } catch (final Exception exception) {
-                /* empty */
+                
             }
     }
 
@@ -511,7 +511,7 @@ public class Madness extends Panel {
         try {
             Thread.sleep(400L);
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         /*try {
         	applet.destroy();
@@ -542,7 +542,7 @@ public class Madness extends Panel {
         try {
             Thread.sleep(400L);
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         sm = new StageMaker();
         frame.add("Center", sm);

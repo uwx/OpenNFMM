@@ -514,20 +514,20 @@ public class Record {
             int i52 = conto.zy;
             int i53 = conto.xy;
             for (/**/; i52 < 360; i52 += 360) {
-                /* empty */
+                
             }
             for (/**/; i52 > 360; i52 -= 360) {
-                /* empty */
+                
             }
             if (i52 < 210 && i52 > 150)
                 i50 = -1;
             if (i52 > 330 || i52 < 30)
                 i50 = 1;
             for (/**/; i53 < 360; i53 += 360) {
-                /* empty */
+                
             }
             for (/**/; i53 > 360; i53 -= 360) {
-                /* empty */
+                
             }
             if (i53 < 210 && i53 > 150)
                 i51 = -1;

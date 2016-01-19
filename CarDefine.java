@@ -490,7 +490,7 @@ public class CarDefine implements Runnable {
                             i12 = 50;
                         dishandle[i2] = i12 / 200.0F;
                     } catch (final Exception exception) {
-                        /* empty */
+                        
                     }
                 if (line.startsWith("carmaker("))
                     createdby[i2 - 16] = getSvalue("carmaker", line, 0);
@@ -822,7 +822,7 @@ public class CarDefine implements Runnable {
                 string36 = "-1";
             i31 = Integer.valueOf(string36).intValue();
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return i31;
     }
@@ -848,7 +848,7 @@ public class CarDefine implements Runnable {
             }
             string37 = string42;
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return string37;
     }
@@ -968,7 +968,7 @@ public class CarDefine implements Runnable {
                 System.gc();
             }
             while (action == 2) {
-                /* empty */
+                
             }
             if (action == 3) {
                 final String[] strings = new String[700];
@@ -1286,11 +1286,11 @@ public class CarDefine implements Runnable {
                 nl--;
                 try {
                     if (carloader != null) {
-                        /* empty */
+                        
                     }
                     Thread.sleep(20L);
                 } catch (final InterruptedException interruptedexception) {
-                    /* empty */
+                    
                 }
             }
             carlon = false;
@@ -1319,7 +1319,7 @@ public class CarDefine implements Runnable {
                     try {
                         gs.mstgs.remove(onstage);
                     } catch (final Exception exception) {
-                        /* empty */
+                        
                     }
                     gs.mstgs.select(0);
                     staction = 0;
@@ -1361,7 +1361,7 @@ public class CarDefine implements Runnable {
                     staction = 3;
                 System.gc();
                 while (staction == 5) {
-                    /* empty */
+                    
                 }
             }
             if (staction == 2) {

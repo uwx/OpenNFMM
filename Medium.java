@@ -292,10 +292,10 @@ public class Medium {
 
     public float cos(int i) {
         for (/**/; i >= 360; i -= 360) {
-            /* empty */
+            
         }
         for (/**/; i < 0; i += 360) {
-            /* empty */
+            
         }
         return tcos[i];
     }
@@ -936,7 +936,7 @@ public class Medium {
         else
             fvect += 2;
         for (vxz += 2; vxz > 360; vxz -= 360) {
-            /* empty */
+            
         }
         int i12 = -vxz + 90;
         int i13 = 0;
@@ -956,16 +956,16 @@ public class Medium {
         if (i16 != 0)
             i17 = (int) (90 + i13 - Math.atan((double) i16 / (double) (conto.y - i15 - cy)) / 0.017453292519943295);
         for (/**/; i12 < 0; i12 += 360) {
-            /* empty */
+            
         }
         for (/**/; i12 > 360; i12 -= 360) {
-            /* empty */
+            
         }
         for (/**/; i14 < 0; i14 += 360) {
-            /* empty */
+            
         }
         for (/**/; i14 > 360; i14 -= 360) {
-            /* empty */
+            
         }
         if ((Math.abs(i12 - i14) < 30 || Math.abs(i12 - i14) > 330) && i11 == 3) {
             if (Math.abs(i12 - xz) > 7 && Math.abs(i12 - xz) < 353) {
@@ -1445,14 +1445,14 @@ public class Medium {
                             for (/**/; Math.abs(
                                     cgpx[i41] - trackers.x[i42]) < trackers.radx[i42]; cgpx[i41] += random.nextDouble()
                                             * trackers.radx[i42] * 2.0 - trackers.radx[i42]) {
-                                /* empty */
+                                
                             }
                         if (trackers.radz[i42] < trackers.radx[i42]
                                 && Math.abs(cgpx[i41] - trackers.x[i42]) < trackers.radx[i42])
                             for (/**/; Math.abs(
                                     cgpz[i41] - trackers.z[i42]) < trackers.radz[i42]; cgpz[i41] += random.nextDouble()
                                             * trackers.radz[i42] * 2.0 - trackers.radz[i42]) {
-                                /* empty */
+                                
                             }
                     }
             if (++i39 == nrw) {
@@ -1754,10 +1754,10 @@ public class Medium {
 
     public float sin(int i) {
         for (/**/; i >= 360; i -= 360) {
-            /* empty */
+            
         }
         for (/**/; i < 0; i += 360) {
-            /* empty */
+            
         }
         return tsin[i];
     }
@@ -1813,10 +1813,10 @@ public class Medium {
         final int i2 = (int) Math.sqrt((conto.z - z) * (conto.z - z) + (conto.x - x - cx) * (conto.x - x - cx));
         final int i3 = (int) (90 + i0 - Math.atan((double) i2 / (double) (conto.y - y - cy)) / 0.017453292519943295);
         for (/**/; i1 < 0; i1 += 360) {
-            /* empty */
+            
         }
         for (/**/; i1 > 360; i1 -= 360) {
-            /* empty */
+            
         }
         xz = i1;
         zy += (i3 - zy) / 5;

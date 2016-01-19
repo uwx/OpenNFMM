@@ -405,7 +405,7 @@ public class Lobby implements Runnable {
                                     dout.close();
                                     dout = null;
                                 } catch (final Exception exception) {
-                                    /* empty */
+                                    
                                 }
                                 hideinputs();
                             }
@@ -943,7 +943,7 @@ public class Lobby implements Runnable {
             }
             string347 = string352;
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return string347;
     }
@@ -971,7 +971,7 @@ public class Lobby implements Runnable {
                 string346 = "-1";
             i341 = Integer.valueOf(string346).intValue();
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return i341;
     }
@@ -1024,7 +1024,7 @@ public class Lobby implements Runnable {
             }
             string335 = string340;
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return string335;
     }
@@ -1052,7 +1052,7 @@ public class Lobby implements Runnable {
                 string334 = "-1";
             i329 = Integer.valueOf(string334).intValue();
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return i329;
     }
@@ -1152,7 +1152,7 @@ public class Lobby implements Runnable {
             din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             dout = new PrintWriter(socket.getOutputStream(), true);
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         conon = 1;
         connector = new Thread(this);
@@ -2671,7 +2671,7 @@ public class Lobby implements Runnable {
                                             gs.snbts.move(524, 105);
                                             if (gs.snbts.getSelectedIndex() != gnbts || bool167) {
                                                 for (gnbts = gs.snbts.getSelectedIndex(); gnbts + gnpls > 8; gnbts--) {
-                                                    /* empty */
+                                                    
                                                 }
                                                 gs.snbts.select(gnbts);
                                             }
@@ -4634,7 +4634,7 @@ public class Lobby implements Runnable {
                     dout.close();
                     dout = null;
                 } catch (final Exception exception) {
-                    /* empty */
+                    
                 }
             }
             xt.warning++;
@@ -4851,7 +4851,7 @@ public class Lobby implements Runnable {
                     dout.close();
                     dout = null;
                 } catch (final Exception exception) {
-                    /* empty */
+                    
                 }
                 try {
                     socket = new Socket(xt.server, xt.servport);
@@ -4862,7 +4862,7 @@ public class Lobby implements Runnable {
                     if (string10 != null)
                         bool11 = false;
                 } catch (final Exception exception) {
-                    /* empty */
+                    
                 }
             }
             if (bool11) {
@@ -4870,7 +4870,7 @@ public class Lobby implements Runnable {
                     socket.close();
                     socket = null;
                 } catch (final Exception exception) {
-                    /* empty */
+                    
                 }
                 conon = 0;
                 lg.exitfromlobby();
@@ -5213,11 +5213,11 @@ public class Lobby implements Runnable {
                 i56 = 50;
             try {
                 if (connector != null) {
-                    /* empty */
+                    
                 }
                 Thread.sleep(i56);
             } catch (final InterruptedException interruptedexception) {
-                /* empty */
+                
             }
         }
         if (conon == 2) {
@@ -5244,7 +5244,7 @@ public class Lobby implements Runnable {
                         dout.close();
                         dout = null;
                     } catch (final Exception exception) {
-                        /* empty */
+                        
                     }
                     try {
                         socket = new Socket(xt.server, xt.servport);
@@ -5255,7 +5255,7 @@ public class Lobby implements Runnable {
                         if (string58 != null)
                             bool = false;
                     } catch (final Exception exception) {
-                        /* empty */
+                        
                     }
                 }
                 if (bool) {
@@ -5263,7 +5263,7 @@ public class Lobby implements Runnable {
                         socket.close();
                         socket = null;
                     } catch (final Exception exception) {
-                        /* empty */
+                        
                     }
                     conon = 0;
                     lg.exitfromlobby();
@@ -5315,11 +5315,11 @@ public class Lobby implements Runnable {
                                     cd.sparkcarloader();
                                     try {
                                         if (connector != null) {
-                                            /* empty */
+                                            
                                         }
                                         Thread.sleep(100L);
                                     } catch (final InterruptedException interruptedexception) {
-                                        /* empty */
+                                        
                                     }
                                     for (int i68 = 16; i68 < 56; i68++)
                                         if (string63.equals(cd.names[i68]))
@@ -5375,11 +5375,11 @@ public class Lobby implements Runnable {
                     i57--;
                 try {
                     if (connector != null) {
-                        /* empty */
+                        
                     }
                     Thread.sleep(1000L);
                 } catch (final InterruptedException interruptedexception) {
-                    /* empty */
+                    
                 }
             }
             try {
@@ -5390,7 +5390,7 @@ public class Lobby implements Runnable {
                 dout.close();
                 dout = null;
             } catch (final Exception exception) {
-                /* empty */
+                
             }
             if (xt.playingame != -1) {
                 if (!xt.lan && !xt.logged) {
@@ -5409,7 +5409,7 @@ public class Lobby implements Runnable {
                         dout.close();
                         dout = null;
                     } catch (final Exception exception) {
-                        /* empty */
+                        
                     }
                 }
                 hideinputs();
@@ -5443,7 +5443,7 @@ public class Lobby implements Runnable {
                         dout.close();
                         dout = null;
                     } catch (final Exception exception) {
-                        /* empty */
+                        
                     }
                     try {
                         socket = new Socket(xt.server, xt.servport);
@@ -5454,7 +5454,7 @@ public class Lobby implements Runnable {
                         if (string79 != null)
                             bool = false;
                     } catch (final Exception exception) {
-                        /* empty */
+                        
                     }
                 }
                 if (bool) {
@@ -5462,7 +5462,7 @@ public class Lobby implements Runnable {
                         socket.close();
                         socket = null;
                     } catch (final Exception exception) {
-                        /* empty */
+                        
                     }
                     conon = 0;
                     lg.exitfromlobby();
@@ -5511,11 +5511,11 @@ public class Lobby implements Runnable {
                                     cd.sparkcarloader();
                                     try {
                                         if (connector != null) {
-                                            /* empty */
+                                            
                                         }
                                         Thread.sleep(100L);
                                     } catch (final InterruptedException interruptedexception) {
-                                        /* empty */
+                                        
                                     }
                                     for (int i89 = 16; i89 < 56; i89++)
                                         if (string84.equals(cd.names[i89]))
@@ -5573,11 +5573,11 @@ public class Lobby implements Runnable {
                     i78--;
                 try {
                     if (connector != null) {
-                        /* empty */
+                        
                     }
                     Thread.sleep(1000L);
                 } catch (final InterruptedException interruptedexception) {
-                    /* empty */
+                    
                 }
             }
             try {
@@ -5588,7 +5588,7 @@ public class Lobby implements Runnable {
                 dout.close();
                 dout = null;
             } catch (final Exception exception) {
-                /* empty */
+                
             }
             if (xt.playingame != -1) {
                 hideinputs();
@@ -5839,7 +5839,7 @@ public class Lobby implements Runnable {
             dout.close();
             dout = null;
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         if (connector != null) {
             connector.stop();

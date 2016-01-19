@@ -431,7 +431,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 zipinputstream = new ZipInputStream(url.openStream());
             }
             ZipEntry zipentry = zipinputstream.getNextEntry();
-            for ( /**/ ; zipentry != null; zipentry = zipinputstream.getNextEntry()) {
+            for (; zipentry != null; zipentry = zipinputstream.getNextEntry()) {
                 int i175 = 0;
                 for (int i176 = 0; i176 < carRads.length; i176++)
                     if (zipentry.getName().startsWith(carRads[i176]))
@@ -444,7 +444,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 final byte[] is = new byte[i178];
                 int i179 = 0;
                 int i180;
-                for ( /**/ ; i178 > 0; i178 -= i180) {
+                for (; i178 > 0; i178 -= i180) {
                     i180 = zipinputstream.read(is, i179, i178);
                     i179 += i180;
                 }
@@ -535,7 +535,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 final byte[] is120 = new byte[i119];
                 int i121 = 0;
                 int i122;
-                for ( /**/ ; i119 > 0; i119 -= i122) {
+                for (; i119 > 0; i119 -= i122) {
                     i122 = zipinputstream.read(is120, i121, i119);
                     i121 += i122;
                 }
@@ -928,7 +928,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 final byte[] is161 = new byte[i160];
                 int i162 = 0;
                 int i163;
-                for ( /**/ ; i160 > 0; i160 -= i163) {
+                for (; i160 > 0; i160 -= i163) {
                     i163 = zipinputstream.read(is161, i162, i160);
                     i162 += i163;
                 }
@@ -1219,14 +1219,14 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
             try {
                 Desktop.getDesktop().browse(new URI(string));
             } catch (final Exception exception) {
-                /* empty */
+                
             }
         else
             try {
                 Runtime.getRuntime().exec(new StringBuilder().append("").append(Madness.urlopen()).append(" ")
                         .append(string).append("").toString());
             } catch (final Exception exception) {
-                /* empty */
+                
             }
     }
 
@@ -1462,7 +1462,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 }
             }
         } catch (final Exception exception) {
-            /* empty */
+            
         }
     }
 
@@ -1475,7 +1475,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
     }
 
     public void regprom() {
-        /* empty */
+        
     }
 
     public void makeMenus() {
@@ -2967,7 +2967,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
             }
             bufferedwriter.close();
         } catch (final Exception exception) {
-            /* empty */
+            
         }
     }
 
@@ -2997,7 +2997,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
             }
             bufferedwriter.close();
         } catch (final Exception exception) {
-            /* empty */
+            
         }
     }
 
@@ -3011,7 +3011,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 int i = 0;
                 final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
                 String string;
-                for ( /**/ ; (string = bufferedreader.readLine()) != null && i < 40; i++) {
+                for (; (string = bufferedreader.readLine()) != null && i < 40; i++) {
                     strings[i] = string;
                     if (strings[i].startsWith("Class Path"))
                         if (strings[i].indexOf("madapps.jar") != -1)
@@ -3030,7 +3030,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
                 bufferedwriter.close();
             }
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         Madness.inisetup = false;
     }

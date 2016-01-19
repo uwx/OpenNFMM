@@ -40,7 +40,7 @@ public class Utility {
             int i440 = 0;
             String string441 = "";
             String string442 = "";
-            for ( /**/ ; i438 < string.length() && i440 != 2; i438++) {
+            for (; i438 < string.length() && i440 != 2; i438++) {
                 string441 = new StringBuilder().append("").append(string.charAt(i438)).toString();
                 if (string441.equals("|")) {
                     i439++;
@@ -55,7 +55,7 @@ public class Utility {
                 string442 = "-1";
             i437 = Integer.valueOf(string442).intValue();
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return i437;
     }

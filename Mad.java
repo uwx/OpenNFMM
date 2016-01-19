@@ -252,7 +252,7 @@ public class Mad {
         capsized = false;
         int i7;
         for (i7 = Math.abs(pzy); i7 > 270; i7 -= 360) {
-            /* empty */
+            
         }
         i7 = Math.abs(i7);
         if (i7 > 90)
@@ -260,7 +260,7 @@ public class Mad {
         boolean bool8 = false;
         int i9;
         for (i9 = Math.abs(pxy); i9 > 270; i9 -= 360) {
-            /* empty */
+            
         }
         i9 = Math.abs(i9);
         if (i9 > 90) {
@@ -1083,14 +1083,14 @@ public class Mad {
         if (bool6) {
             int i85;
             for (i85 = Math.abs(conto.xz + 45); i85 > 180; i85 -= 360) {
-                /* empty */
+                
             }
             if (Math.abs(i85) > 90)
                 pmlt = 1;
             else
                 pmlt = -1;
             for (i85 = Math.abs(conto.xz - 45); i85 > 180; i85 -= 360) {
-                /* empty */
+                
             }
             if (Math.abs(i85) > 90)
                 nmlt = 1;
@@ -1291,7 +1291,7 @@ public class Mad {
             if (xt.multion == 1 && xt.starcnt == 0)
                 xt.laptime++;
             for (m.checkpoint = clear; m.checkpoint >= checkpoints.nsp; m.checkpoint -= checkpoints.nsp) {
-                /* empty */
+                
             }
             if (clear == checkpoints.nlaps * checkpoints.nsp - 1)
                 m.lastcheck = true;
@@ -1622,20 +1622,20 @@ public class Mad {
             int i100 = conto.zy;
             int i101 = conto.xy;
             for (/**/; i100 < 360; i100 += 360) {
-                /* empty */
+                
             }
             for (/**/; i100 > 360; i100 -= 360) {
-                /* empty */
+                
             }
             if (i100 < 210 && i100 > 150)
                 i98 = -1;
             if (i100 > 330 || i100 < 30)
                 i98 = 1;
             for (/**/; i101 < 360; i101 += 360) {
-                /* empty */
+                
             }
             for (/**/; i101 > 360; i101 -= 360) {
-                /* empty */
+                
             }
             if (i101 < 210 && i101 > 150)
                 i99 = -1;

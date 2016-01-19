@@ -242,7 +242,7 @@ public class Plane {
             if (embos == 16) {
                 pa = (int) (m.random() * n);
                 for (pb = (int) (m.random() * n); pa == pb; pb = (int) (m.random() * n)) {
-                    /* empty */
+                    
                 }
             }
             if (embos >= 16) {
@@ -250,14 +250,14 @@ public class Plane {
                 int i46 = 1;
                 int i47;
                 for (i47 = Math.abs(i33); i47 > 270; i47 -= 360) {
-                    /* empty */
+                    
                 }
                 i47 = Math.abs(i47);
                 if (i47 > 90)
                     i45 = -1;
                 int i48;
                 for (i48 = Math.abs(i32); i48 > 270; i48 -= 360) {
-                    /* empty */
+                    
                 }
                 i48 = Math.abs(i48);
                 if (i48 > 90)

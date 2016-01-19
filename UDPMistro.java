@@ -84,7 +84,7 @@ public class UDPMistro implements Runnable {
             }
             string83 = string88;
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return string83;
     }
@@ -111,7 +111,7 @@ public class UDPMistro implements Runnable {
                 string82 = "-1";
             i78 = Integer.valueOf(string82).intValue();
         } catch (final Exception exception) {
-            /* empty */
+            
         }
         return i78;
     }
@@ -347,11 +347,11 @@ public class UDPMistro implements Runnable {
                 diledelay--;
             try {
                 if (runner != null) {
-                    /* empty */
+                    
                 }
                 Thread.sleep(5L);
             } catch (final InterruptedException interruptedexception) {
-                /* empty */
+                
             }
         }
         int i19 = 0;
@@ -409,7 +409,7 @@ public class UDPMistro implements Runnable {
                         dout.close();
                         dout = null;
                     } catch (final Exception exception) {
-                        /* empty */
+                        
                     }
                     try {
                         socket = new Socket(xtserver, xtservport);
@@ -420,7 +420,7 @@ public class UDPMistro implements Runnable {
                         if (string22 != null)
                             i19 = 0;
                     } catch (final Exception exception) {
-                        /* empty */
+                        
                     }
                 }
                 if (i19 == 1) {
@@ -428,7 +428,7 @@ public class UDPMistro implements Runnable {
                         socket.close();
                         socket = null;
                     } catch (final Exception exception) {
-                        /* empty */
+                        
                     }
                     i19 = 2;
                 }
@@ -437,11 +437,11 @@ public class UDPMistro implements Runnable {
                 i20++;
             try {
                 if (runner != null) {
-                    /* empty */
+                    
                 }
                 Thread.sleep(1000L);
             } catch (final InterruptedException interruptedexception) {
-                /* empty */
+                
             }
         }
         int i23 = 0;
@@ -461,11 +461,11 @@ public class UDPMistro implements Runnable {
             }
             try {
                 if (runner != null) {
-                    /* empty */
+                    
                 }
                 Thread.sleep(5L);
             } catch (final InterruptedException interruptedexception) {
-                /* empty */
+                
             }
         }
         if (runon == 3) {
@@ -480,7 +480,7 @@ public class UDPMistro implements Runnable {
                     usrv[i27].stopServe();
                     usrv[i27] = null;
                 } catch (final Exception exception) {
-                    /* empty */
+                    
                 }
             final String string = new StringBuilder().append("3|").append(pgame).append("|finish|").toString();
             try {
@@ -493,7 +493,7 @@ public class UDPMistro implements Runnable {
                 dout.close();
                 dout = null;
             } catch (final Exception exception) {
-                /* empty */
+                
             }
             System.gc();
             System.runFinalization();
@@ -748,7 +748,7 @@ public class UDPMistro implements Runnable {
                 din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 dout = new PrintWriter(socket.getOutputStream(), true);
             } catch (final Exception exception) {
-                /* empty */
+                
             }
             runon = 4;
         }

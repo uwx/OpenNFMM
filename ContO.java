@@ -1099,7 +1099,7 @@ public class ContO {
             is113[3] = is98[i111];
             for (f100 = (float) ((0.17 - f108) * random.nextDouble()); Math.abs(f107 - f100) < 0.03
                     - f108 * 0.176F; f100 = (float) ((0.17 - f108) * random.nextDouble())) {
-                /* empty */
+                
             }
             f107 = f100;
             for (int i115 = 0; i115 < 3; i115++)
@@ -1750,7 +1750,7 @@ public class ContO {
         int i148 = 1;
         int i149;
         for (i149 = Math.abs(zy); i149 > 270; i149 -= 360) {
-            /* empty */
+            
         }
         i149 = Math.abs(i149);
         if (i149 > 90)
