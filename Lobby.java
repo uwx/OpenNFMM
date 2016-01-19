@@ -205,7 +205,7 @@ class Lobby implements Runnable {
     private xtGraphics xt;
     boolean zeromsw = false;
 
-    public Lobby(final Medium medium, final Graphics2D graphics2d, final Login login/*, final Globe globe*/,
+    Lobby(final Medium medium, final Graphics2D graphics2d, final Login login/*, final Globe globe*/,
             final xtGraphics xtgraphics, final CarDefine cardefine, final GameSparker gamesparker) {
         m = medium;
         rd = graphics2d;
@@ -275,7 +275,7 @@ class Lobby implements Runnable {
         return Color.getHSBColor(fs[0], fs[1], fs[2]);
     }
 
-    public void ctachm(final int xm, final int ym, final int i307, final Control control) {
+    void ctachm(final int xm, final int ym, final int i307, final Control control) {
         int i308 = -1;
         if (fase == 1 || fase == 4)
             for (int i309 = 0; i309 < btn; i309++) {
@@ -1080,7 +1080,7 @@ class Lobby implements Runnable {
         gs.requestFocus();
     }
 
-    public void inishlobby() {
+    void inishlobby() {
         gs.tnick.setVisible(false);
         gs.tpass.setVisible(false);
         gs.temail.setVisible(false);
@@ -1157,7 +1157,7 @@ class Lobby implements Runnable {
         connector.start();
     }
 
-    public void lobby(int i, int i99, boolean bool, final int i100, final CheckPoints checkpoints,
+    void lobby(int i, int i99, boolean bool, final int i100, final CheckPoints checkpoints,
             final Control control, final ContO[] contos) {
         pre1 = false;
         pre2 = false;
@@ -4643,7 +4643,7 @@ class Lobby implements Runnable {
         }
     }
 
-    public void preforma(final int i, final int i292) {
+    void preforma(final int i, final int i292) {
         if (pre1) {
             boolean bool = false;
             if (!gs.openm/* && gb.open == 0*/) {
@@ -5598,7 +5598,7 @@ class Lobby implements Runnable {
         }
     }
 
-    public void stageselect(final CheckPoints checkpoints, final Control control, final int i, final int i293,
+    void stageselect(final CheckPoints checkpoints, final Control control, final int i, final int i293,
             final boolean bool) {
         rd.setColor(new Color(0, 0, 0));
         rd.fillRect(0, 0, 65, 450);
@@ -5827,7 +5827,7 @@ class Lobby implements Runnable {
         }
     }
 
-    public void stopallnow() {
+    void stopallnow() {
         conon = 0;
         try {
             socket.close();

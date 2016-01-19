@@ -91,7 +91,7 @@ class ContO {
     int z = 0;
     int zy = 0;
 
-    public ContO(final byte[] is, final Medium medium, final Trackers trackers) {
+    ContO(final byte[] is, final Medium medium, final Trackers trackers) {
         keyx = new int[4];
         keyz = new int[4];
         sprkat = 0;
@@ -811,7 +811,7 @@ class ContO {
         }
     }
 
-    public ContO(final ContO conto78, final int i, final int i79, final int i80, final int i81) {
+    ContO(final ContO conto78, final int i, final int i79, final int i80, final int i81) {
         keyx = new int[4];
         keyz = new int[4];
         sprkat = 0;
@@ -943,7 +943,7 @@ class ContO {
         }
     }
 
-    public ContO(final int i, final int i90, final int i91, final Medium medium, final Trackers trackers, final int i92,
+    ContO(final int i, final int i90, final int i91, final Medium medium, final Trackers trackers, final int i92,
             final int i93, final int i94) {
         keyx = new int[4];
         keyz = new int[4];
@@ -1202,7 +1202,7 @@ class ContO {
         t.nt++;
     }
 
-    public void d(final Graphics2D graphics2d) {
+    void d(final Graphics2D graphics2d) {
         if (dist != 0)
             dist = 0;
         final int i = m.cx + (int) ((x - m.x - m.cx) * m.cos(m.xz) - (z - m.z - m.cz) * m.sin(m.xz));
@@ -1422,7 +1422,7 @@ class ContO {
             sprk = 0;
     }
 
-    public void dust(final int i, final float f, final float f199, final float f200, final int i201, final int i202,
+    void dust(final int i, final float f, final float f199, final float f200, final int i201, final int i202,
             final float f203, final int i204, final boolean bool) {
         boolean bool205 = false;
         if (i204 > 5 && (i == 0 || i == 2))
@@ -1986,7 +1986,7 @@ class ContO {
             }
     }
 
-    public void sprk(final float f, final float f235, final float f236, final float f237, final float f238,
+    void sprk(final float f, final float f235, final float f236, final float f237, final float f238,
             final float f239, final int i) {
         if (i != 1) {
             srx = (int) (f - sprkat * m.sin(xz));

@@ -48,7 +48,7 @@ class Madness extends Panel {
     private static int updateon = 0;
     static String upfile = "";
 
-    public static void advopen() {
+    static void advopen() {
         try {
             final File file = new File(
                     new StringBuilder().append("").append(fpath).append("data/user.data").toString());
@@ -89,7 +89,7 @@ class Madness extends Panel {
         }
     }
 
-    public static void carmaker() {
+    static void carmaker() {
         /*try {
         	applet.stop();
         } catch (final Exception ex) {
@@ -149,7 +149,7 @@ class Madness extends Panel {
     private static void checknupdate(final int i) {
         /* :D */ }
 
-    public static void exitfullscreen() {
+    static void exitfullscreen() {
         frame.dispose();
         frame = new Frame("Need for Madness");
         frame.setBackground(new Color(0, 0, 0));
@@ -235,7 +235,7 @@ class Madness extends Panel {
         }
     }
 
-    public static void game() {
+    static void game() {
         /*try {
         	applet.stop();
         } catch (final Exception ex) {
@@ -305,7 +305,7 @@ class Madness extends Panel {
         return string29;
     }
 
-    public static void gofullscreen() {
+    static void gofullscreen() {
         final DisplayMode[] displaymodes = myDevice.getDisplayModes();
         final String[] strings = new String[100];
         final int[] is = new int[100];
@@ -478,7 +478,7 @@ class Madness extends Panel {
         checknupdate(36);
     }
 
-    public static void openurl(final String string) {
+    static void openurl(final String string) {
         if (Desktop.isDesktopSupported())
             try {
                 Desktop.getDesktop().browse(new URI(string));
@@ -494,7 +494,7 @@ class Madness extends Panel {
             }
     }
 
-    public static void stagemaker() {
+    static void stagemaker() {
         /*try {
         	applet.stop();
         } catch (final Exception ex) {
@@ -551,7 +551,7 @@ class Madness extends Panel {
         sm.start();
     }
 
-    public static String urlopen() {
+    static String urlopen() {
         String string = "explorer";
         final String string27 = System.getProperty("os.name").toLowerCase();
         if (string27.indexOf("linux") != -1 || string27.indexOf("unix") != -1 || string27.equals("aix"))

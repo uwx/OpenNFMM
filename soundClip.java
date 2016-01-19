@@ -18,7 +18,7 @@ class soundClip {
     int rollBackTrig;
     private AudioInputStream sound;
 
-    public soundClip(final byte[] is) {
+    soundClip(final byte[] is) {
         try {
             final ByteArrayInputStream bytearrayinputstream = new ByteArrayInputStream(is);
             sound = AudioSystem.getAudioInputStream(bytearrayinputstream);
@@ -31,7 +31,7 @@ class soundClip {
         }
     }
 
-    public void checkopen() {
+    void checkopen() {
         if (loaded && clip.isOpen() && lfrpo != -2)
             if (cntcheck == 0) {
                 final int i = clip.getFramePosition();
@@ -49,7 +49,7 @@ class soundClip {
                 cntcheck--;
     }
 
-    public void loop() {
+    void loop() {
         if (loaded) {
             if (!clip.isOpen())
                 try {
@@ -63,7 +63,7 @@ class soundClip {
         }
     }
 
-    public void play() {
+    void play() {
         if (loaded) {
             if (!clip.isOpen()) {
                 try {
@@ -79,7 +79,7 @@ class soundClip {
         }
     }
 
-    public void stop() {
+    void stop() {
         if (loaded) {
             clip.stop();
             lfrpo = -1;

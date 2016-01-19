@@ -18,7 +18,7 @@ class udpOnline implements Runnable {
     boolean started = false;
     private UDPMistro um;
 
-    public udpOnline(final UDPMistro udpmistro, final String string, final int i, final int i0, final int i1) {
+    udpOnline(final UDPMistro udpmistro, final String string, final int i, final int i0, final int i1) {
         um = udpmistro;
         gameport = i;
         nu = i0;
@@ -32,7 +32,7 @@ class udpOnline implements Runnable {
         }
     }
 
-    public void closeSocket() {
+    void closeSocket() {
         try {
             dSocket.close();
         } catch (final Exception exception) {
@@ -178,7 +178,7 @@ class udpOnline implements Runnable {
         con = null;
     }
 
-    public void spark() {
+    void spark() {
         if (errd)
             try {
                 dSocket = new DatagramSocket(7020 + nu);
@@ -194,7 +194,7 @@ class udpOnline implements Runnable {
         }
     }
 
-    public void stomp() {
+    void stomp() {
         if (con != null) {
             con.stop();
             con = null;

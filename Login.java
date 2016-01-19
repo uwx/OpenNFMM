@@ -120,7 +120,7 @@ class Login implements Runnable {
     int xrr = 0;
     private xtGraphics xt;
 
-    public Login(final Medium medium, final Graphics2D graphics2d, final xtGraphics xtgraphics,
+    Login(final Medium medium, final Graphics2D graphics2d, final xtGraphics xtgraphics,
             final GameSparker gamesparker) {
         m = medium;
         rd = graphics2d;
@@ -180,7 +180,7 @@ class Login implements Runnable {
         return Color.getHSBColor(fs[0], fs[1], fs[2]);
     }
 
-    public void ctachm(final int i, final int i47, final int i48, final Control control, final Lobby lobby) {
+    void ctachm(final int i, final int i47, final int i48, final Control control, final Lobby lobby) {
         int i49 = -1;
         if (fase != 2 && fase != 4 && fase != 6 && fase != 8 && fase != 9)
             for (int i50 = 0; i50 < btn; i50++) {
@@ -636,7 +636,7 @@ class Login implements Runnable {
         btn++;
     }
 
-    public void endcons() {
+    void endcons() {
         for (int i = 0; i < nservers; i++)
             try {
                 dSocket[i].close();
@@ -656,7 +656,7 @@ class Login implements Runnable {
         }
     }
 
-    public void exitfromlobby() {
+    void exitfromlobby() {
         if (!xt.lan)
             opselect = 0;
         else
@@ -712,7 +712,7 @@ class Login implements Runnable {
         }
     }
 
-    public void gamealert() {
+    void gamealert() {
         try {
             socket = new Socket(servers[0], 7061);
             din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -782,7 +782,7 @@ class Login implements Runnable {
         return i68;
     }
 
-    public void inishmulti() {
+    void inishmulti() {
         gs.tnick.setVisible(false);
         gs.tnick.setEnabled(true);
         gs.tnick.setForeground(new Color(0, 0, 0));
@@ -840,7 +840,7 @@ class Login implements Runnable {
         }
     }
 
-    public void multimode(final ContO[] contos) {
+    void multimode(final ContO[] contos) {
         btn = 0;
         xt.mainbg(4);
         for (int i = 0; i < 3; i++) {
@@ -1073,7 +1073,7 @@ class Login implements Runnable {
             resofaso = false;
     }
 
-    public void multistart(final ContO[] contos, final int i, final int i38, final boolean bool) {
+    void multistart(final ContO[] contos, final int i, final int i38, final boolean bool) {
         btn = 0;
         xt.mainbg(4);
         for (int i39 = 0; i39 < 3; i39++) {
@@ -1751,7 +1751,7 @@ class Login implements Runnable {
         }
     }
 
-    public void stopallnow() {
+    void stopallnow() {
         if (connector != null) {
             connector.stop();
             connector = null;

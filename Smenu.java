@@ -37,12 +37,12 @@ class Smenu {
     int x = 0;
     int y = 0;
 
-    public Smenu(final int i) {
+    Smenu(final int i) {
         opts = new String[i];
         sopts = new String[i];
     }
 
-    public void add(final Graphics2D graphics2d, String string) {
+    void add(final Graphics2D graphics2d, String string) {
         graphics2d.setFont(font);
         ftm = graphics2d.getFontMetrics();
         if ((!rooms || no == 0) && ftm.stringWidth(string) + 30 > w)
@@ -68,7 +68,7 @@ class Smenu {
             no++;
     }
 
-    public void addstg(final String string) {
+    void addstg(final String string) {
         if (ftm.stringWidth(string) + 30 > w)
             w = ftm.stringWidth(string) + 30;
         no++;
@@ -95,7 +95,7 @@ class Smenu {
         dis = true;
     }
 
-    public boolean draw(final Graphics2D graphics2d, final int i, final int i4, final boolean bool, final int i5,
+    boolean draw(final Graphics2D graphics2d, final int i, final int i4, final boolean bool, final int i5,
             boolean bool6) {
         boolean bool7 = false;
         if (revup) {
@@ -371,7 +371,7 @@ class Smenu {
         return fcol;
     }
 
-    public String getItem(final int i) {
+    String getItem(final int i) {
         String string = "";
         if (i >= 0 && i < no)
             string = opts[i];
@@ -394,7 +394,7 @@ class Smenu {
         return w;
     }
 
-    public boolean hasFocus() {
+    boolean hasFocus() {
         return false;
     }
 
@@ -415,12 +415,12 @@ class Smenu {
         return show;
     }
 
-    public void move(final int i, final int i3) {
+    void move(final int i, final int i3) {
         x = i;
         y = i3;
     }
 
-    public void remove(final String string) {
+    void remove(final String string) {
         for (int i = 0; i < no; i++)
             if (opts[i].equals(string)) {
                 for (int i1 = i; i1 < no; i1++)
@@ -433,18 +433,18 @@ class Smenu {
             }
     }
 
-    public void removeAll() {
+    void removeAll() {
         no = 0;
         w = 0;
         sel = 0;
     }
 
-    public void select(final int i) {
+    void select(final int i) {
         if (i >= 0 && i < no)
             sel = i;
     }
 
-    public void select(final String string) {
+    void select(final String string) {
         for (int i = 0; i < no; i++)
             if (opts[i].equals(string)) {
                 sel = i;
@@ -464,7 +464,7 @@ class Smenu {
         fcol = color;
     }
 
-    public void setSize(final int i, final int i2) {
+    void setSize(final int i, final int i2) {
         w = i;
         h = i2;
     }

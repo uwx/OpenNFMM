@@ -496,7 +496,7 @@ class xtGraphics extends Panel implements Runnable {
             -760, -380, -380, 0, 380, 380, 760, 0
     };
 
-    public xtGraphics(final Medium medium, final CarDefine cardefine, final Graphics2D graphics2d,
+    xtGraphics(final Medium medium, final CarDefine cardefine, final Graphics2D graphics2d,
             final GameSparker gamesparker) {
         m = medium;
         cd = cardefine;
@@ -776,7 +776,7 @@ class xtGraphics extends Panel implements Runnable {
         return image342;
     }
 
-    public void cantgo(final Control control) {
+    void cantgo(final Control control) {
         pnext = 0;
         trackbg(false);
         rd.drawImage(br, 65, 25, null);
@@ -808,7 +808,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void cantreply() {
+    void cantreply() {
         rd.setColor(new Color(64, 143, 223));
         rd.fillRoundRect(200, 73, 400, 23, 7, 20);
         rd.setColor(new Color(0, 89, 223));
@@ -832,7 +832,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void carselect(final Control control, final ContO[] contos, final Mad mad, final int i, final int i104,
+    void carselect(final Control control, final ContO[] contos, final Mad mad, final int i, final int i104,
             final boolean bool) {
         rd.setColor(new Color(0, 0, 0));
         rd.fillRect(0, 0, 65, 450);
@@ -2126,7 +2126,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void clicknow() {
+    void clicknow() {
         rd.setColor(new Color(198, 214, 255));
         rd.fillRoundRect(250, 340, 300, 80, 30, 70);
         rd.setColor(new Color(128, 167, 255));
@@ -2187,7 +2187,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void colorCar(final ContO conto, final int i) {
+    void colorCar(final ContO conto, final int i) {
         if (plnames[i].indexOf("MadBot") == -1)
             for (int i132 = 0; i132 < conto.npl; i132++) {
                 if (conto.p[i132].colnum == 1) {
@@ -2250,7 +2250,7 @@ class xtGraphics extends Panel implements Runnable {
         return c;
     }
 
-    public void crash(final float f, final int i) {
+    void crash(final float f, final int i) {
         if (bfcrash == 0) {
             if (i == 0) {
                 if (Math.abs(f) > 25.0F && Math.abs(f) < 170.0F) {
@@ -2294,7 +2294,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void credits(final Control control, final int i, final int i23, final int i24) {
+    void credits(final Control control, final int i, final int i23, final int i24) {
         if (flipo == 0) {
             powerup.play();
             flipo = 1;
@@ -2421,7 +2421,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void ctachm(final int i, final int i182, final int i183, final Control control) {
+    void ctachm(final int i, final int i182, final int i183, final Control control) {
         if (fase == 1) {
             if (i183 == 1) {
                 if (over(next[0], i, i182, 625, 135))
@@ -2672,7 +2672,7 @@ class xtGraphics extends Panel implements Runnable {
         return image384;
     }
 
-    public boolean drawcarb(final boolean bool, final Image image, final String string, final int i, int i429,
+    boolean drawcarb(final boolean bool, final Image image, final String string, final int i, int i429,
             final int i430, final int i431, final boolean bool432) {
         boolean bool433 = false;
         rd.setFont(new Font("Arial", 1, 13));
@@ -2709,7 +2709,7 @@ class xtGraphics extends Panel implements Runnable {
         return bool433;
     }
 
-    public void drawcs(final int i, final String string, int i212, int i213, int i214, final int i215) {
+    void drawcs(final int i, final String string, int i212, int i213, int i214, final int i215) {
         if (i215 != 3 && i215 != 4 && i215 != 5) {
             i212 += i212 * (m.snap[0] / 100.0F);
             if (i212 > 255)
@@ -2968,7 +2968,7 @@ class xtGraphics extends Panel implements Runnable {
         rd.fillPolygon(is, is207, 4);
     }
 
-    public void drawWarning() {
+    void drawWarning() {
         rd.setColor(new Color(0, 0, 0));
         rd.fillRect(0, 0, 800, 450);
         rd.setFont(new Font("Arial", 1, 22));
@@ -2992,7 +2992,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void finish(final CheckPoints checkpoints, final ContO[] contos, final Control control, final int i,
+    void finish(final CheckPoints checkpoints, final ContO[] contos, final Control control, final int i,
             final int i141, final boolean bool) {
         if (chronostart) {
             chrono.stop();
@@ -3358,7 +3358,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void fleximage(final Image image, final int i, final int i299) {
+    void fleximage(final Image image, final int i, final int i299) {
         if (!badmac) {
             if (i == 0) {
                 flexpix = new int[360000];
@@ -3417,7 +3417,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public Image getImage(final String string) {
+    Image getImage(final String string) {
         final Image image = Toolkit.getDefaultToolkit().createImage(
                 new StringBuilder().append("").append(Madness.fpath).append("").append(string).append("").toString());
         final MediaTracker mediatracker = new MediaTracker(app);
@@ -3484,7 +3484,7 @@ class xtGraphics extends Panel implements Runnable {
         return i437;
     }
 
-    public void gscrape(final int i, final int i269, final int i270) {
+    void gscrape(final int i, final int i269, final int i270) {
         if ((bfsc1 == 0 || bfsc2 == 0) && Math.sqrt(i * i + i269 * i269 + i270 * i270) / 10.0 > 15.0)
             if (bfsc1 == 0) {
                 if (!mutes) {
@@ -3721,7 +3721,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void inishcarselect(final ContO[] contos) {
+    void inishcarselect(final ContO[] contos) {
         nplayers = 7;
         im = 0;
         xstart[0] = 0;
@@ -3932,7 +3932,7 @@ class xtGraphics extends Panel implements Runnable {
             intertrack.play();
     }
 
-    public void inishstageselect(final CheckPoints checkpoints) {
+    void inishstageselect(final CheckPoints checkpoints) {
         chrono.reset();
         if (checkpoints.stage == -2 && (cd.msloaded != 1 || !logged)) {
             checkpoints.stage = (int) (Math.random() * 27.0) + 1;
@@ -4000,7 +4000,7 @@ class xtGraphics extends Panel implements Runnable {
         fase = 2;
     }
 
-    public void inst(final Control control) {
+    void inst(final Control control) {
         if (flipo == 0)
             flipo = 1;
         if (flipo == 2) {
@@ -4245,7 +4245,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void jflexo() {
+    void jflexo() {
         if (!badmac) {
             final int[] is = new int[360000];
             final PixelGrabber pixelgrabber = new PixelGrabber(app.offImage, 0, 0, 800, 450, is, 0, 800);
@@ -4293,7 +4293,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void levelhigh(final int i, final int i91, final int i92, final int i93, final int i94) {
+    void levelhigh(final int i, final int i91, final int i92, final int i93, final int i94) {
         rd.drawImage(gameh, 301, 20, null);
         int i95 = 16;
         int i96 = 48;
@@ -4380,7 +4380,7 @@ class xtGraphics extends Panel implements Runnable {
         return image376;
     }
 
-    public void loaddata() {
+    void loaddata() {
         kbload = 637;
         runtyp = 176;
         runner = new Thread(this);
@@ -4745,7 +4745,7 @@ class xtGraphics extends Panel implements Runnable {
         rd.fillRect(287, 371, 26 + (int) (shload / kbload * 200.0F), 10);
     }
 
-    public void loadingstage(final int i, final boolean bool) {
+    void loadingstage(final int i, final boolean bool) {
 
         trackbg(true);
         rd.drawImage(br, 65, 25, null);
@@ -4767,7 +4767,7 @@ class xtGraphics extends Panel implements Runnable {
         removeds = 0;
     }
 
-    public void loadmusic(final int i, final String string, final int i51) {
+    void loadmusic(final int i, final String string, final int i51) {
         hipnoload(i, false);
         app.setCursor(new Cursor(3));
         //app.repaint();
@@ -5006,7 +5006,7 @@ class xtGraphics extends Panel implements Runnable {
         System.gc();
     }
 
-    public void loadstrack(final int i, final String string, final int i52) {
+    void loadstrack(final int i, final String string, final int i52) {
         if (new File("music/stage" + i + ".mid").exists())
             strack = new RadicalMidi("music/stage" + i + ".mid");
         else if (new File("music/stage" + i + ".mp3").exists())
@@ -5159,7 +5159,7 @@ class xtGraphics extends Panel implements Runnable {
         return bufferedimage;
     }
 
-    public void mainbg(final int i) {
+    void mainbg(final int i) {
         int i26 = 2;
         rd.setColor(new Color(191, 184, 124));
         if (i == -1) {
@@ -5307,7 +5307,7 @@ class xtGraphics extends Panel implements Runnable {
         rd.fillRect(65, 425, 670, 25);
     }
 
-    public void maini(final Control control) {
+    void maini(final Control control) {
         if (flipo == 0) {
             app.setCursor(new Cursor(0));
             flipo++;
@@ -5478,7 +5478,7 @@ class xtGraphics extends Panel implements Runnable {
             }
     }
 
-    public void maini2(final Control control, final int i, final int i98, final int i99) {
+    void maini2(final Control control, final int i, final int i98, final int i99) {
         mainbg(1);
         multion = 0;
         clangame = 0;
@@ -5748,7 +5748,7 @@ class xtGraphics extends Panel implements Runnable {
         carsbgc = createImage(new MemoryImageSource(670, 400, is, 0, 670));
     }
 
-    public boolean msgcheck(String string) {
+    boolean msgcheck(String string) {
         boolean bool = false;
         string = string.toLowerCase();
         final String[] strings = {
@@ -5867,7 +5867,7 @@ class xtGraphics extends Panel implements Runnable {
         return bool;
     }
 
-    public void multistat(final Control control, final CheckPoints checkpoints, final int i, final int i53,
+    void multistat(final Control control, final CheckPoints checkpoints, final int i, final int i53,
             final boolean bool, final UDPMistro udpmistro) {
         int i54 = -1;
         if (fase != -2) {
@@ -6542,7 +6542,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void musicomp(final int i, final Control control) {
+    void musicomp(final int i, final Control control) {
         hipnoload(i, true);
         if (multion != 0) {
             forstart--;
@@ -6615,7 +6615,7 @@ class xtGraphics extends Panel implements Runnable {
         return i292 > i && i292 < i + i290 && i293 > i289 && i293 < i289 + i291;
     }
 
-    public void pausedgame(final int i, final Control control, final Record record) {
+    void pausedgame(final int i, final Control control, final Record record) {
         if (chronostart) {
             chronostart = false;
             chrono.pause();
@@ -6718,7 +6718,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void pauseimage(final Image image) {
+    void pauseimage(final Image image) {
         if (!badmac) {
             final int[] is = new int[360000];
             final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, 800, 450, is, 0, 800);
@@ -6784,7 +6784,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void playsounds(final Mad mad, final Control control, final int i) {
+    void playsounds(final Mad mad, final Control control, final int i) {
         if ((fase == 0 || fase == 7001) && starcnt < 35 && cntwis != 8 && !mutes) {
             boolean bool = control.up && mad.speed > 0.0F || control.down && mad.speed < 10.0F;
             boolean bool257 = mad.skid == 1 && control.handb
@@ -6958,7 +6958,7 @@ class xtGraphics extends Panel implements Runnable {
         return (float) Math.sqrt((i - i284) * (i - i284) + (i285 - i286) * (i285 - i286));
     }
 
-    public void rad(final int i) {
+    void rad(final int i) {
         if (i == 0) {
             powerup.play();
             radpx = 212;
@@ -7157,7 +7157,7 @@ class xtGraphics extends Panel implements Runnable {
         rd.drawString(new StringBuilder().append("").append((int) f256).toString(), 132, 245);
     }
 
-    public void replyn() {
+    void replyn() {
         if (aflk) {
             drawcs(30, "Replay  > ", 0, 0, 0, 0);
             aflk = false;
@@ -7167,7 +7167,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void resetstat(final int i) {
+    void resetstat(final int i) {
         arrace = false;
         alocked = -1;
         lalocked = -1;
@@ -7424,7 +7424,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void scrape(final int i, final int i266, final int i267) {
+    void scrape(final int i, final int i266, final int i267) {
         if (bfscrape == 0 && Math.sqrt(i * i + i266 * i266 + i267 * i267) / 10.0 > 10.0) {
             int i268 = 0;
             if (m.random() > m.random())
@@ -7452,7 +7452,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void sendwin(final CheckPoints checkpoints) {
+    void sendwin(final CheckPoints checkpoints) {
         if (logged && multion == 1 && winner) {
             if (checkpoints.wasted == nplayers - 1)
                 runtyp = -167;
@@ -7464,7 +7464,7 @@ class xtGraphics extends Panel implements Runnable {
         runner.start();
     }
 
-    public void setbots(final boolean[] bools, final int[][] is) {
+    void setbots(final boolean[] bools, final int[][] is) {
         for (int i = 0; i < nplayers; i++)
             if (plnames[i].indexOf("MadBot") != -1) {
                 bools[i] = true;
@@ -7472,7 +7472,7 @@ class xtGraphics extends Panel implements Runnable {
             }
     }
 
-    public void skid(final int i, final float f) {
+    void skid(final int i, final float f) {
         if (bfcrash == 0 && bfskid == 0 && f > 150.0F) {
             if (i == 0) {
                 if (!mutes)
@@ -7527,7 +7527,7 @@ class xtGraphics extends Panel implements Runnable {
             }
     }
 
-    public void snap(final int i) {
+    void snap(final int i) {
         dmg = loadsnap(odmg);
         pwr = loadsnap(opwr);
         was = loadsnap(owas);
@@ -7779,7 +7779,7 @@ class xtGraphics extends Panel implements Runnable {
             }
     }
 
-    public void stageselect(final CheckPoints checkpoints, final Control control, final int i, final int i39,
+    void stageselect(final CheckPoints checkpoints, final Control control, final int i, final int i39,
             final boolean bool) {
         rd.drawImage(br, 65, 25, null);
         rd.drawImage(select, 338, 35, null);
@@ -8359,7 +8359,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void stat(final Mad mad, final ContO conto, final CheckPoints checkpoints, final Control control,
+    void stat(final Mad mad, final ContO conto, final CheckPoints checkpoints, final Control control,
             final boolean bool) {
         if (!chronostart)
             if (starcnt == 0) {
@@ -9177,7 +9177,7 @@ class xtGraphics extends Panel implements Runnable {
             air[i].stop();
     }
 
-    public void stopallnow() {
+    void stopallnow() {
         if (runner != null) {
             runner.interrupt();
             runner = null;
@@ -9205,7 +9205,7 @@ class xtGraphics extends Panel implements Runnable {
         intertrack = null;
     }
 
-    public void stopchat() {
+    void stopchat() {
         clanchat = false;
         clangame = 0;
         if (runtyp == -101) {
@@ -9223,13 +9223,13 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    public void stoploading() {
+    void stoploading() {
         loading();
         //app.repaint();
         runtyp = 0;
     }
 
-    public void trackbg(final boolean bool) {
+    void trackbg(final boolean bool) {
         int i = 0;
         trkl++;
         if (trkl > trklim) {
@@ -9252,7 +9252,7 @@ class xtGraphics extends Panel implements Runnable {
         rd.fillRect(65, 425, 670, 25);
     }
 
-    public void waitenter() {
+    void waitenter() {
         if (forstart < 690) {
             rd.setFont(new Font("Arial", 1, 13));
             ftm = rd.getFontMetrics();

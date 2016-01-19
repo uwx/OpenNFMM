@@ -54,7 +54,7 @@ class CheckPoints {
     int[] y = new int[10000];
     int[] z = new int[10000];
 
-    public void calprox() {
+    void calprox() {
         int i = 0;
         for (int i9 = 0; i9 < n - 1; i9++)
             for (int i10 = i9 + 1; i10 < n; i10++) {
@@ -66,7 +66,7 @@ class CheckPoints {
         prox = i / 90.0F;
     }
 
-    public void checkstat(final Mad[] mads, final ContO[] contos, final Record record, final int i, final int i0,
+    void checkstat(final Mad[] mads, final ContO[] contos, final Record record, final int i, final int i0,
             final int i1) {
         if (!haltall) {
             pcleared = mads[i0].pcleared;

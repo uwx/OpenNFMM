@@ -116,7 +116,7 @@ class UDPMistro implements Runnable {
         return i78;
     }
 
-    public void readContOinfo(final ContO conto, final int i) {
+    void readContOinfo(final ContO conto, final int i) {
         if (go && force[i] == 1 && !isbot[i]) {
             int i37 = -2;
             if (i37 == -2)
@@ -147,7 +147,7 @@ class UDPMistro implements Runnable {
         }
     }
 
-    public void readinfo(final Mad mad, final ContO conto, final Control control, final int i, final int[] is) {
+    void readinfo(final Mad mad, final ContO conto, final Control control, final int i, final int[] is) {
         if (go && force[i] != 7 && !isbot[i]) {
             freg += 0.05;
             int i29 = -1;
@@ -502,7 +502,7 @@ class UDPMistro implements Runnable {
         }
     }
 
-    public void setinfo(final Mad mad, final ContO conto, final Control control, final int i, final float f,
+    void setinfo(final Mad mad, final ContO conto, final Control control, final int i, final float f,
             final boolean bool, final int i41) {
         info[i41][0] = "";
         if (control.left) {
@@ -702,7 +702,7 @@ class UDPMistro implements Runnable {
         frame[i41][0]++;
     }
 
-    public void UDPConnectLan(final String string, final int i, final int i7) {
+    void UDPConnectLan(final String string, final int i, final int i7) {
         diledelay = 0;
         delay = 0;
         for (int i8 = 0; i8 < 5; i8++)
@@ -756,7 +756,7 @@ class UDPMistro implements Runnable {
         runner.start();
     }
 
-    public void UDPConnectOnline(final String string, final int i, final int i0, final int i1) {
+    void UDPConnectOnline(final String string, final int i, final int i0, final int i1) {
         diledelay = 0;
         delay = 0;
         for (int i2 = 0; i2 < 5; i2++)
@@ -799,7 +799,7 @@ class UDPMistro implements Runnable {
         runner.start();
     }
 
-    public void UDPLanServer(final int i, final String string, final int i13, final int i14) {
+    void UDPLanServer(final int i, final String string, final int i13, final int i14) {
         xtserver = string;
         xtservport = i13;
         pgame = i14;
@@ -818,7 +818,7 @@ class UDPMistro implements Runnable {
             usrv[i17] = new udpServe(this, i17 + 1);
     }
 
-    public void UDPquit() {
+    void UDPquit() {
         if (runon == 1)
             runon = 2;
         if (runon == 4)

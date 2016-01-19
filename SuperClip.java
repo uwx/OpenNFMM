@@ -12,7 +12,7 @@ import javax.sound.sampled.SourceDataLine;
 
 class SuperClip implements Runnable {
 
-    public SuperClip(final byte abyte0[], final int i, final int j) {
+    SuperClip(final byte abyte0[], final int i, final int j) {
         skiprate = 0;
         stoped = 1;
         source = null;
@@ -77,7 +77,7 @@ class SuperClip implements Runnable {
         stoped = 2;
     }
 
-    public void play() {
+    void play() {
         if (stoped == 2) {
             stoped = 0;
             try {
@@ -89,7 +89,7 @@ class SuperClip implements Runnable {
         }
     }
 
-    public void resume() {
+    void resume() {
         if (stoped == 2) {
             stoped = 0;
             cliper = new Thread(this);
@@ -97,7 +97,7 @@ class SuperClip implements Runnable {
         }
     }
 
-    public void stop() {
+    void stop() {
         if (stoped == 0) {
             stoped = 1;
             if (source != null)
@@ -105,7 +105,7 @@ class SuperClip implements Runnable {
         }
     }
 
-    public void close() {
+    void close() {
         try {
             stream.close();
             stream = null;

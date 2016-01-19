@@ -149,7 +149,7 @@ class Medium {
             tsin[i] = (float) Math.sin(i * 0.017453292519943295);
     }
 
-    public void addsp(final int i, final int i245, final int i246) {
+    void addsp(final int i, final int i245, final int i246) {
         if (nsp != 7) {
             spx[nsp] = i;
             spz[nsp] = i245;
@@ -158,7 +158,7 @@ class Medium {
         }
     }
 
-    public void adjstfade(final float f, final float f271, final int i, final GameSparker gamesparker) {
+    void adjstfade(final float f, final float f271, final int i, final GameSparker gamesparker) {
         if (resdown != 2)
             if (f == 5.0F) {
                 if (resdown == 0 && rescnt == 0) {
@@ -179,7 +179,7 @@ class Medium {
                 rescnt = 10;
     }
 
-    public void around(final ContO conto, final boolean bool) {
+    void around(final ContO conto, final boolean bool) {
         if (!bool) {
             if (!vert)
                 adv += 2;
@@ -223,7 +223,7 @@ class Medium {
         zy += (i7 - zy) / 10;
     }
 
-    public void aroundtrack(final CheckPoints checkpoints) {
+    void aroundtrack(final CheckPoints checkpoints) {
         y = -hit;
         x = cx + (int) trx + (int) (17000.0F * cos(vxz));
         z = (int) trz + (int) (17000.0F * sin(vxz));
@@ -290,7 +290,7 @@ class Medium {
             cpflik = true;
     }
 
-    public float cos(int i) {
+    float cos(int i) {
         for (/**/; i >= 360; i -= 360) {
             
         }
@@ -300,7 +300,7 @@ class Medium {
         return tcos[i];
     }
 
-    public void d(final Graphics2D graphics2d) {
+    void d(final Graphics2D graphics2d) {
         nsp = 0;
         if (zy > 90)
             zy = 90;
@@ -847,14 +847,14 @@ class Medium {
         }
     }
 
-    public void fadfrom(int i) {
+    void fadfrom(int i) {
         if (i > 8000)
             i = 8000;
         for (int i270 = 1; i270 < 17; i270++)
             fade[i270 - 1] = i / 2 * (i270 + 1);
     }
 
-    public void follow(final ContO conto, int i, final int i27) {
+    void follow(final ContO conto, int i, final int i27) {
         zy = 10;
         int i28 = 2 + Math.abs(bcxz) / 4;
         if (i28 > 20)
@@ -886,7 +886,7 @@ class Medium {
         y = conto.y - 250 - cy;
     }
 
-    public void getaround(final ContO conto) {
+    void getaround(final ContO conto) {
         if (!vert)
             adv += 2;
         else
@@ -995,7 +995,7 @@ class Medium {
         zy += (i17 - zy) / 10;
     }
 
-    public void getfollow(final ContO conto, int i, final int i29) {
+    void getfollow(final ContO conto, int i, final int i29) {
         zy = 10;
         int i30 = 2 + Math.abs(bcxz) / 4;
         if (i30 > 20)
@@ -1194,7 +1194,7 @@ class Medium {
                 }
     }
 
-    public void newclouds(int i, int i88, int i89, int i90) {
+    void newclouds(int i, int i88, int i89, int i90) {
         clx = null;
         clz = null;
         cmx = null;
@@ -1322,7 +1322,7 @@ class Medium {
         }
     }
 
-    public void newmountains(final int i, final int i167, final int i168, final int i169) {
+    void newmountains(final int i, final int i167, final int i168, final int i169) {
         final Random random = new Random(mgen);
         nmt = (int) (20.0 + 10.0 * random.nextDouble());
         final int i170 = (i + i167) / 60;
@@ -1411,7 +1411,7 @@ class Medium {
         }
     }
 
-    public void newpolys(final int i, final int i35, final int i36, final int i37, final Trackers trackers,
+    void newpolys(final int i, final int i35, final int i36, final int i37, final Trackers trackers,
             final int i38) {
         final Random random = new Random((i38 + cgrnd[0] + cgrnd[1] + cgrnd[2]) * 1671);
         nrw = i35 / 1200 + 9;
@@ -1501,7 +1501,7 @@ class Medium {
         }
     }
 
-    public void newstars() {
+    void newstars() {
         stx = null;
         stz = null;
         stc = null;
@@ -1549,7 +1549,7 @@ class Medium {
         }
     }
 
-    public float random() {
+    float random() {
         if (cntrn == 0) {
             for (int i = 0; i < 3; i++) {
                 rand[i] = (int) (10.0 * Math.random());
@@ -1587,7 +1587,7 @@ class Medium {
             }
     }
 
-    public void setcloads(final int i, final int i252, final int i253, int i254, int i255) {
+    void setcloads(final int i, final int i252, final int i253, int i254, int i255) {
         if (i254 < 0)
             i254 = 0;
         if (i254 > 10)
@@ -1611,7 +1611,7 @@ class Medium {
         }
     }
 
-    public void setexture(int i, int i261, int i262, int i263) {
+    void setexture(int i, int i261, int i262, int i263) {
         if (i263 < 20)
             i263 = 20;
         if (i263 > 60)
@@ -1642,7 +1642,7 @@ class Medium {
             crgrnd[i264] = (int) ((cpol[i264] * 0.99 + cgrnd[i264]) / 2.0);
     }
 
-    public void setfade(final int i, final int i268, final int i269) {
+    void setfade(final int i, final int i268, final int i269) {
         cfade[0] = (int) (i + i * (snap[0] / 100.0F));
         if (cfade[0] > 255)
             cfade[0] = 255;
@@ -1660,7 +1660,7 @@ class Medium {
             cfade[2] = 0;
     }
 
-    public void setgrnd(final int i, final int i257, final int i258) {
+    void setgrnd(final int i, final int i257, final int i258) {
         ogrnd[0] = i;
         ogrnd[1] = i257;
         ogrnd[2] = i258;
@@ -1691,7 +1691,7 @@ class Medium {
             crgrnd[i260] = (int) ((cpol[i260] * 0.99 + cgrnd[i260]) / 2.0);
     }
 
-    public void setpolys(final int i, final int i265, final int i266) {
+    void setpolys(final int i, final int i265, final int i266) {
         cpol[0] = (int) (i + i * (snap[0] / 100.0F));
         if (cpol[0] > 255)
             cpol[0] = 255;
@@ -1711,7 +1711,7 @@ class Medium {
             crgrnd[i267] = (int) ((cpol[i267] * 0.99 + cgrnd[i267]) / 2.0);
     }
 
-    public void setsky(final int i, final int i249, final int i250) {
+    void setsky(final int i, final int i249, final int i250) {
         osky[0] = i;
         osky[1] = i249;
         osky[2] = i250;
@@ -1746,13 +1746,13 @@ class Medium {
             darksky = false;
     }
 
-    public void setsnap(final int i, final int i247, final int i248) {
+    void setsnap(final int i, final int i247, final int i248) {
         snap[0] = i;
         snap[1] = i247;
         snap[2] = i248;
     }
 
-    public float sin(int i) {
+    float sin(int i) {
         for (/**/; i >= 360; i -= 360) {
             
         }
@@ -1762,7 +1762,7 @@ class Medium {
         return tsin[i];
     }
 
-    public void transaround(final ContO conto, final ContO conto18, final int i) {
+    void transaround(final ContO conto, final ContO conto18, final int i) {
         final int i19 = (conto.x * (20 - i) + conto18.x * i) / 20;
         final int i20 = (conto.y * (20 - i) + conto18.y * i) / 20;
         final int i21 = (conto.z * (20 - i) + conto18.z * i) / 20;
@@ -1795,7 +1795,7 @@ class Medium {
         zy += (i26 - zy) / 10;
     }
 
-    public void watch(final ContO conto, final int i) {
+    void watch(final ContO conto, final int i) {
         if (td) {
             y = (int) (conto.y - 300 - 1100.0F * random());
             x = conto.x + (int) ((conto.x + 400 - conto.x) * cos(i) - (conto.z + 5000 - conto.z) * sin(i));

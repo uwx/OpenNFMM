@@ -62,7 +62,7 @@ class Plane {
     boolean randomcolor;
     boolean randoutline;
 
-    public Plane(final Medium medium, final Trackers trackers, final int[] is, final int[] is0, final int[] is1,
+    Plane(final Medium medium, final Trackers trackers, final int[] is, final int[] is0, final int[] is1,
             final int i, final int[] is2, final int i3, final int i4, final int i5, final int i6, final int i7,
             final int i8, final int i9, final int i10, final boolean bool, final int i11, final boolean bool12,
             final boolean randomcolor, final boolean randoutline, final boolean customstroke, final int strokewidth,
@@ -167,7 +167,7 @@ class Plane {
         deltafntyp();
     }
 
-    public void d(final Graphics2D graphics2d, final int i, final int i29, final int i30, final int i31, final int i32,
+    void d(final Graphics2D graphics2d, final int i, final int i29, final int i30, final int i31, final int i32,
             final int i33, final int i34, final int i35, boolean bool, final int i36) {
         if (master == 1)
             if (av > 1500 && !m.crs)
@@ -909,7 +909,7 @@ class Plane {
         }
     }
 
-    public void deltafntyp() {
+    void deltafntyp() {
         final int i = Math.abs(ox[2] - ox[1]);
         final int i24 = Math.abs(oy[2] - oy[1]);
         final int i25 = Math.abs(oz[2] - oz[1]);
@@ -929,7 +929,7 @@ class Plane {
         deltaf = deltaf / 3.0F;
     }
 
-    public void loadprojf() {
+    void loadprojf() {
         projf = 1.0F;
         for (int i = 0; i < 3; i++)
             for (int i28 = 0; i28 < 3; i28++)
@@ -939,7 +939,7 @@ class Plane {
         projf = projf / 3.0F;
     }
 
-    public void rot(final int[] is, final int[] is163, final int i, final int i164, final int i165, final int i166) {
+    void rot(final int[] is, final int[] is163, final int i, final int i164, final int i165, final int i166) {
         if (i165 != 0)
             for (int i167 = 0; i167 < i166; i167++) {
                 final int i168 = is[i167];
@@ -949,7 +949,7 @@ class Plane {
             }
     }
 
-    public void s(final Graphics2D graphics2d, final int i, final int i120, final int i121, final int i122,
+    void s(final Graphics2D graphics2d, final int i, final int i120, final int i121, final int i122,
             final int i123, final int i124, final int i125) {
         final int[] is = new int[n];
         final int[] is126 = new int[n];

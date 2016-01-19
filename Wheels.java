@@ -17,7 +17,7 @@ class Wheels {
         ground = 0;
     }
 
-    public void make(final Medium medium, final Trackers trackers, final Plane[] planes, int i, final int i4,
+    void make(final Medium medium, final Trackers trackers, final Plane[] planes, int i, final int i4,
             final int i5, final int i6, final int i7, final int i8, final int i9, final int i10) {
         final int[] is = new int[20];
         final int[] is11 = new int[20];
@@ -323,7 +323,7 @@ class Wheels {
         i++;
     }
 
-    public void setrims(final int i, final int i0, final int i1, final int i2, final int i3) {
+    void setrims(final int i, final int i0, final int i1, final int i2, final int i3) {
         rc[0] = i;
         rc[1] = i0;
         rc[2] = i1;

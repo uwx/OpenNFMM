@@ -85,11 +85,11 @@ class Control {
     int wtz = 0;
     boolean zyinv = false;
 
-    public Control(final Medium medium) {
+    Control(final Medium medium) {
         m = medium;
     }
 
-    public void falseo(final int i) {
+    void falseo(final int i) {
         left = false;
         right = false;
         up = false;
@@ -111,7 +111,7 @@ class Control {
         }
     }
 
-    public void preform(final Mad mad, final ContO conto, final CheckPoints checkpoints, final Trackers trackers) {
+    void preform(final Mad mad, final ContO conto, final CheckPoints checkpoints, final Trackers trackers) {
         left = false;
         right = false;
         up = false;
@@ -1774,7 +1774,7 @@ class Control {
         return (int) Math.sqrt((i - i50) * (i - i50) + (i51 - i52) * (i51 - i52));
     }
 
-    public void reset(final CheckPoints checkpoints, final int i) {
+    void reset(final CheckPoints checkpoints, final int i) {
         pan = 0;
         attack = 0;
         acr = 0;

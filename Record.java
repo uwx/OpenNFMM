@@ -101,7 +101,7 @@ class Record {
     private int[][] z = new int[300][8];
     private int[][] zy = new int[300][8];
 
-    public Record(final Medium medium) {
+    Record(final Medium medium) {
         m = medium;
         caught = 0;
         cotchinow(0);
@@ -147,7 +147,7 @@ class Record {
         }
     }
 
-    public void cotchinow(final int i) {
+    void cotchinow(final int i) {
         if (caught >= 300) {
             wasted = i;
             for (int i6 = 0; i6 < 8; i6++) {
@@ -209,7 +209,7 @@ class Record {
         }
     }
 
-    public void play(final ContO conto, final Mad mad, final int i, final int i30) {
+    void play(final ContO conto, final Mad mad, final int i, final int i30) {
         conto.x = x[i30][i];
         conto.y = y[i30][i];
         conto.z = z[i30][i];
@@ -268,7 +268,7 @@ class Record {
             }
     }
 
-    public void playh(final ContO conto, final Mad mad, final int i, final int i38, final int i39) {
+    void playh(final ContO conto, final Mad mad, final int i, final int i38, final int i39) {
         conto.x = hx[i38][i];
         conto.y = hy[i38][i];
         conto.z = hz[i38][i];
@@ -338,7 +338,7 @@ class Record {
         return (i - i74) * (i - i74) + (i75 - i76) * (i75 - i76);
     }
 
-    public void rec(final ContO conto, final int i, final int i18, final int i19, final int i20, final int i21) {
+    void rec(final ContO conto, final int i, final int i18, final int i19, final int i20, final int i21) {
         if (i == i21)
             caught++;
         if (cntf == 50) {
@@ -427,7 +427,7 @@ class Record {
             }
     }
 
-    public void recx(final int i, final float f, final int i48) {
+    void recx(final int i, final float f, final int i48) {
         rx[i48][i][nry[i48][i]] = 300;
         magx[i48][i][nry[i48][i]] = (int) f;
         nrx[i48][i]++;
@@ -435,7 +435,7 @@ class Record {
             nrx[i48][i] = 0;
     }
 
-    public void recy(final int i, final float f, final boolean bool, final int i47) {
+    void recy(final int i, final float f, final boolean bool, final int i47) {
         ry[i47][i][nry[i47][i]] = 300;
         magy[i47][i][nry[i47][i]] = (int) f;
         mtouch[i47][nry[i47][i]] = bool;
@@ -444,7 +444,7 @@ class Record {
             nry[i47][i] = 0;
     }
 
-    public void recz(final int i, final float f, final int i49) {
+    void recz(final int i, final float f, final int i49) {
         rz[i49][i][nry[i49][i]] = 300;
         magz[i49][i][nry[i49][i]] = (int) f;
         nrz[i49][i]++;
@@ -665,7 +665,7 @@ class Record {
         }
     }
 
-    public void reset(final ContO[] contos) {
+    void reset(final ContO[] contos) {
         caught = 0;
         hcaught = false;
         wasted = 0;

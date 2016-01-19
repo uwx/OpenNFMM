@@ -11,7 +11,7 @@ class Utility {
      * @param i The position of the value (starting from 0)
      * @return An integer containing the value
      */
-    public static int getvalue(final String string, final String string262, final int i) {
+    static int getvalue(final String string, final String string262, final int i) {
         int i263 = 0;
         String string264 = "";
         for (int i265 = string.length() + 1; i265 < string262.length(); i265++) {

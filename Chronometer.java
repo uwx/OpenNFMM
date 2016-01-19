@@ -44,7 +44,7 @@ class Chronometer {
 
     private xtGraphics xt;
 
-    public Chronometer(final xtGraphics pxt) {
+    Chronometer(final xtGraphics pxt) {
         System.out.println("Chronometer ready");
         xt = pxt;
         rd = xt.rd;
@@ -121,7 +121,7 @@ class Chronometer {
         return getTime(lapsplits[laps - 1]);
     }
 
-    public void paint(final int x, final int y, final int style) {
+    void paint(final int x, final int y, final int style) {
         final int r = 50;
         final int g = 204;
         final int b = 255;
@@ -190,7 +190,7 @@ class Chronometer {
         ftm = tmpm;
     }
 
-    public void pause() {
+    void pause() {
         if (running && !paused) {
             pausetime = System.currentTimeMillis();
             lapsplits[current - 1] = pausetime - start - delay;
@@ -199,7 +199,7 @@ class Chronometer {
         }
     }
 
-    public void performLap() {
+    void performLap() {
         if (running && current <= laps) {
             final long l = System.currentTimeMillis();
             lapsplits[current - 1] = l - start - delay;
@@ -210,7 +210,7 @@ class Chronometer {
         }
     }
 
-    public void reset() {
+    void reset() {
         if (!running) {
             start = 0L;
             end = 0L;
@@ -226,7 +226,7 @@ class Chronometer {
         }
     }
 
-    public void resume() {
+    void resume() {
         if (running && paused) {
             delay += System.currentTimeMillis() - pausetime;
             paused = false;
@@ -243,7 +243,7 @@ class Chronometer {
         }
     }
 
-    public void start() {
+    void start() {
         if (ready) {
             start = System.currentTimeMillis();
             delay = 0L;
@@ -254,7 +254,7 @@ class Chronometer {
         }
     }
 
-    public void stop() {
+    void stop() {
         if (current <= laps)
             performLap();
         current--;

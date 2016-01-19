@@ -23,7 +23,7 @@ class Trackers {
     int[] z = new int[95000];
     int[] zy = new int[95000];
 
-    public void devidetrackers(final int i, final int i0, final int i1, final int i2) {
+    void devidetrackers(final int i, final int i0, final int i1, final int i2) {
         sect = null;
         sx = i;
         sz = i1;

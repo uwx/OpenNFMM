@@ -16,7 +16,7 @@ class udpServe implements Runnable {
     Thread servo;
     private UDPMistro um;
 
-    public udpServe(final UDPMistro udpmistro, final int i) {
+    udpServe(final UDPMistro udpmistro, final int i) {
         um = udpmistro;
         im = i;
         mport = 7060 + im;
@@ -155,7 +155,7 @@ class udpServe implements Runnable {
         }
     }
 
-    public void stopServe() {
+    void stopServe() {
         try {
             dSocket.close();
             dSocket = null;

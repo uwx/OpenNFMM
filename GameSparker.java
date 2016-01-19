@@ -161,7 +161,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
                         (int) (850.0F * apmult), i98);
     }
 
-    public void drawms() {
+    void drawms() {
         openm = false;
         if (gmode.draw(rd, xm, ym, moused, 450, true))
             openm = true;
@@ -221,7 +221,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
             openm = true;
     }
 
-    public void editlink(final String string, final boolean bool) {
+    void editlink(final String string, final boolean bool) {
         String string208 = "";
         if (bool)
             string208 = "?display=upgrade";
@@ -1113,7 +1113,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
         return false;
     }
 
-    public void madlink() {
+    void madlink() {
         openurl("http://www.needformadness.com/");
     }
 
@@ -1122,7 +1122,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
             mousew += i * 4;
     }
 
-    public void movefield(final Component component, int i, int i99, final int i100, final int i101) {
+    void movefield(final Component component, int i, int i99, final int i100, final int i101) {
         if (i100 == 360 || i100 == 576) {
             i = (int) (i * apmult + apx + component.getWidth() / 2 * (apmult - 1.0F));
             i99 = (int) (i99 * apmult + apy + 12.0F * (apmult - 1.0F));
@@ -1167,7 +1167,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
         }
     }
 
-    public void movefieldd(final TextField textfield, int i, int i102, final int i103, final int i104,
+    void movefieldd(final TextField textfield, int i, int i102, final int i103, final int i104,
             final boolean bool) {
         if (applejava) {
             if (bool)
@@ -1202,15 +1202,15 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
         }
     }
 
-    public void multlink() {
+    void multlink() {
         openurl("http://multiplayer.needformadness.com/");
     }
 
-    public void musiclink() {
+    void musiclink() {
         openurl("http://multiplayer.needformadness.com/music.html");
     }
 
-    public void onfmmlink() {
+    void onfmmlink() {
         openurl("https://github.com/chrishansen69/OpenNFMM");
     }
 
@@ -1466,11 +1466,11 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
         }
     }
 
-    public void reglink() {
+    void reglink() {
         openurl("http://multiplayer.needformadness.com/register.html?ref=game");
     }
 
-    public void regnew() {
+    void regnew() {
         openurl("http://multiplayer.needformadness.com/registernew.pl");
     }
 
@@ -2932,7 +2932,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
 
     }
 
-    public void setcarcookie(final int i, final String string, final float[] fs, final int i191, final int is,
+    void setcarcookie(final int i, final String string, final float[] fs, final int i191, final int is,
             final boolean bool) {
         try {
             final File file = new File(
@@ -2971,7 +2971,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
         }
     }
 
-    public void setloggedcookie() {
+    void setloggedcookie() {
         try {
             final File file = new File(
                     new StringBuilder().append("").append(Madness.fpath).append("data/user.data").toString());

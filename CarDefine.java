@@ -407,7 +407,7 @@ class CarDefine implements Runnable {
     int msloaded = 0;
     int[] top20adds = new int[20];
 
-    public CarDefine(final ContO[] contos, final Medium medium, final Trackers trackers,
+    CarDefine(final ContO[] contos, final Medium medium, final Trackers trackers,
             final GameSparker gamesparker) {
         bco = contos;
         m = medium;
@@ -853,7 +853,7 @@ class CarDefine implements Runnable {
         return string37;
     }
 
-    public void loadready() {
+    void loadready() {
         m.csky[0] = 170;
         m.csky[1] = 220;
         m.csky[2] = 255;
@@ -870,12 +870,12 @@ class CarDefine implements Runnable {
         action = 0;
     }
 
-    public void sparkactionloader() {
+    void sparkactionloader() {
         actionloader = new Thread(this);
         actionloader.start();
     }
 
-    public void sparkcarloader() {
+    void sparkcarloader() {
         if (!carlon) {
             carloader = new Thread(this);
             carloader.start();
@@ -883,7 +883,7 @@ class CarDefine implements Runnable {
         }
     }
 
-    public void sparkstageaction() {
+    void sparkstageaction() {
         stageaction = new Thread(this);
         stageaction.start();
     }
@@ -1476,7 +1476,7 @@ class CarDefine implements Runnable {
         return i;
     }
 
-    public void loadmystages(final CheckPoints checkpoints) {
+    void loadmystages(final CheckPoints checkpoints) {
         final String[] strings = new String[700];
         int i = 0;
         String line = "";
@@ -1543,7 +1543,7 @@ class CarDefine implements Runnable {
         System.gc();
     }
 
-    public void loadtop20(final int i) {
+    void loadtop20(final int i) {
         final String[] strings = new String[20];
         int i64 = 0;
         String line = "";
@@ -1605,7 +1605,7 @@ class CarDefine implements Runnable {
         System.gc();
     }
 
-    public void loadclanstages(final String string) {
+    void loadclanstages(final String string) {
         if (!string.equals("")) {
             final String[] lines = new String[700];
             int i = 0;
@@ -1664,7 +1664,7 @@ class CarDefine implements Runnable {
         }
     }
 
-    public void loadstagemaker() {
+    void loadstagemaker() {
         gs.mstgs.setVisible(false);
         gs.mstgs.removeAll();
         gs.mstgs.add(gs.rd, "Select Stage");
@@ -1716,7 +1716,7 @@ class CarDefine implements Runnable {
             lastload = 1;
     }
 
-    public int loadcar(final String string, int i) {
+    int loadcar(final String string, int i) {
         try {
             final File file = new File(new StringBuilder().append("").append(Madness.fpath).append("mycars/")
                     .append(string).append(".rad").toString());

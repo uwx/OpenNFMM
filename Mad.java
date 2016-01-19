@@ -83,7 +83,7 @@ class Mad {
     private xtGraphics xt;
     int xtpower = 0;
 
-    public Mad(final CarDefine cardefine, final Medium medium, final Record record, final xtGraphics xtgraphics,
+    Mad(final CarDefine cardefine, final Medium medium, final Record record, final xtGraphics xtgraphics,
             final int i) {
         cd = cardefine;
         m = medium;
@@ -92,7 +92,7 @@ class Mad {
         im = i;
     }
 
-    public void colide(final ContO conto, final Mad mad118, final ContO conto119) {
+    void colide(final ContO conto, final Mad mad118, final ContO conto119) {
         final float[] fs = new float[4];
         final float[] fs120 = new float[4];
         final float[] fs121 = new float[4];
@@ -242,7 +242,7 @@ class Mad {
                 conto.p[i].embos = 1;
     }
 
-    public void drive(final Control control, final ContO conto, final Trackers trackers,
+    void drive(final Control control, final ContO conto, final Trackers trackers,
             final CheckPoints checkpoints) {
         int i = 1;
         int i4 = 1;
@@ -1796,7 +1796,7 @@ class Mad {
         return i114;
     }
 
-    public void reseto(final int i, final ContO conto, final CheckPoints checkpoints) {
+    void reseto(final int i, final ContO conto, final CheckPoints checkpoints) {
         cn = i;
         for (int i0 = 0; i0 < 8; i0++) {
             dominate[i0] = false;
