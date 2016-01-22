@@ -18,6 +18,8 @@ import java.awt.TextArea;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -43,7 +45,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMotionListener, ActionListener {
+class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMotionListener, ActionListener, FocusListener {
     /**
      *
      */
@@ -257,13 +259,6 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
                 string188 = new StringBuilder().append(string188).append(string186.charAt(i189)).toString();
         }
         return string188;
-    }
-
-    @Override
-    public boolean gotFocus(final Event event, final Object object) {
-        if (!exwist && lostfcs)
-            lostfcs = false;
-        return false;
     }
 
     private void hidefields() {
@@ -1097,22 +1092,6 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
         return bool;
     }
 
-    @Override
-    public boolean lostFocus(final Event event, final Object object) {
-        if (!exwist && !lostfcs) {
-            lostfcs = true;
-            fcscnt = 10;
-            if (u[0] != null) {
-                if (u[0].multion == 0)
-                    u[0].falseo(1);
-                else if (u[0].chatup == 0)
-                    requestFocus();
-                setCursor(new Cursor(0));
-            }
-        }
-        return false;
-    }
-
     void madlink() {
         openurl("http://www.needformadness.com/");
     }
@@ -1219,14 +1198,14 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
             try {
                 Desktop.getDesktop().browse(new URI(string));
             } catch (final Exception exception) {
-                
+
             }
         else
             try {
                 Runtime.getRuntime().exec(new StringBuilder().append("").append(Madness.urlopen()).append(" ")
                         .append(string).append("").toString());
             } catch (final Exception exception) {
-                
+
             }
     }
 
@@ -1462,7 +1441,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
                 }
             }
         } catch (final Exception exception) {
-            
+
         }
     }
 
@@ -1475,7 +1454,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
     }
 
     public void regprom() {
-        
+
     }
 
     private void makeMenus() {
@@ -1583,6 +1562,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
         addKeyListener(this);
         addMouseListener(this);
         addMouseMotionListener(this);
+        addFocusListener(this);
         setFocusable(true);
         requestFocusInWindow();
         //ActionListener animate =
@@ -2967,7 +2947,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
             }
             bufferedwriter.close();
         } catch (final Exception exception) {
-            
+
         }
     }
 
@@ -2997,7 +2977,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
             }
             bufferedwriter.close();
         } catch (final Exception exception) {
-            
+
         }
     }
 
@@ -3030,7 +3010,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
                 bufferedwriter.close();
             }
         } catch (final Exception exception) {
-            
+
         }
         Madness.inisetup = false;
     }
@@ -3053,7 +3033,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
     		gamer = new Thread(this);
     	gamer.start();
     }
-    
+
     @Override
     public void stop() {
     	if (exwist && gamer != null) {
@@ -3276,4 +3256,26 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
     public void actionPerformed(final ActionEvent e) {
         repaint();
     }
+
+    @Override
+    public void focusGained(FocusEvent e) {
+        if (!exwist && lostfcs)
+            lostfcs = false;
+   }
+
+    @Override
+    public void focusLost(FocusEvent e) {
+        if (!exwist && !lostfcs) {
+            lostfcs = true;
+            fcscnt = 10;
+            if (u[0] != null) {
+                if (u[0].multion == 0)
+                    u[0].falseo(1);
+                else if (u[0].chatup == 0)
+                    requestFocus();
+                setCursor(new Cursor(0));
+            }
+        }
+    }
+
 }
