@@ -1222,11 +1222,17 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
         //gamer = null;
     }
 
+    private byte loadpaintick = 50;
+
     @Override
     public void paintComponent(final Graphics graphics) {
         final Graphics2D graphics2d = (Graphics2D) graphics;
-        graphics.setColor(Color.BLACK);
-        graphics.fillRect(0, 0, getWidth(), getHeight());
+        if (moto == 0 || loadpaintick > 0) { //REQUIRED
+            graphics.setColor(Color.BLACK);
+            graphics.fillRect(0, 0, getWidth(), getHeight());
+            if (loadpaintick > 0)
+                loadpaintick--;
+        }
         try {
             gameTick();
         } catch (final Exception e) {
