@@ -40,7 +40,7 @@ import java.util.zip.ZipInputStream;
 
 import javax.swing.JOptionPane;
 
-class StageMaker extends Applet implements Runnable {
+public class StageMaker extends Applet implements Runnable {
     private CheckPoints cp = new CheckPoints();
     private Trackers t = new Trackers();
     //////////////// ------------ REMEMBER NEW PARTS ARE ALWAYS -10 INDEXES SINCE YOU CAN'T SELECT CARS IN THE STAGEMAKER
@@ -973,7 +973,7 @@ class StageMaker extends Applet implements Runnable {
         try {
             mediatracker.waitForID(0);
         } catch (final Exception exception) {
-            
+
         }
         return image;
     }
@@ -1220,7 +1220,7 @@ class StageMaker extends Applet implements Runnable {
                 bufferedreader.close();
             }
         } catch (final Exception exception) {
-            
+
         }
     }
 
@@ -2613,7 +2613,7 @@ class StageMaker extends Applet implements Runnable {
                                 m.trk = 2;
                         }
                 if (xm > 248 && xm < 762 && ym > 63 && ym < 517) {
-                    if (!epart && !arrng) {
+                    if (!epart && !arrng) { // CALCULATES MOUSE POSITION AND PLACES SHIT
                         bco[selectedPart].x = (xm - 505) * (Math.abs(sy) / m.focusPoint) + sx;
                         bco[selectedPart].z = (290 - ym) * (Math.abs(sy) / m.focusPoint) + sz;
                         bco[selectedPart].y = m.ground - bco[selectedPart].grat;
@@ -3298,6 +3298,7 @@ class StageMaker extends Applet implements Runnable {
                     }
                 } else if (fixh.isShowing())
                     fixh.setVisible(false);
+                // CAMERA POSITION FOR THE CONTO PREVIEW SHIT
                 m.trk = 2;
                 m.zy = 90;
                 m.xz = 0;
@@ -4386,7 +4387,7 @@ class StageMaker extends Applet implements Runnable {
                                 file = new File(new StringBuilder().append("").append(filedialog.getDirectory())
                                         .append("").append(filedialog.getFile()).append("").toString());
                         } catch (final Exception exception) {
-                            
+
                         }
                         if (file != null)
                             try {
@@ -4591,11 +4592,11 @@ class StageMaker extends Applet implements Runnable {
                                             repaint();
                                             try {
                                                 if (thredo != null) {
-                                                    
+
                                                 }
                                                 Thread.sleep(10L);
                                             } catch (final InterruptedException interruptedexception) {
-                                                
+
                                             }
                                         }
                                         printwriter.println("QUITX1111");
@@ -4925,7 +4926,7 @@ class StageMaker extends Applet implements Runnable {
                                                         fileoutputstream.close();
                                                     }
                                                 } catch (final Exception exception) {
-                                                    
+
                                                 }
                                             setCursor(new Cursor(0));
                                             JOptionPane.showMessageDialog(null,
@@ -5023,7 +5024,7 @@ class StageMaker extends Applet implements Runnable {
                                 }
                             }
                         } catch (final Exception exception) {
-                            
+
                         }
                     }
                     setCursor(new Cursor(0));
@@ -5212,11 +5213,11 @@ class StageMaker extends Applet implements Runnable {
             if (!exwist)
                 try {
                     if (thredo != null) {
-                        
+
                     }
                     Thread.sleep(40L);
                 } catch (final InterruptedException interruptedexception) {
-                    
+
                 }
         }
         track.unload();
@@ -5262,7 +5263,7 @@ class StageMaker extends Applet implements Runnable {
                 bufferedwriter.write(string);
                 bufferedwriter.close();
             } catch (final Exception exception) {
-                
+
             }
         }
     }
@@ -5289,7 +5290,7 @@ class StageMaker extends Applet implements Runnable {
     // 			}
     // 			string365 = string370;
     // 		} catch (final Exception exception) {
-    // 			
+    //
     // 		}
     // 		return string365;
     // 	}
@@ -5317,7 +5318,7 @@ class StageMaker extends Applet implements Runnable {
                 string364 = "-1";
             i359 = Integer.valueOf(string364).intValue();
         } catch (final Exception exception) {
-            
+
         }
         return i359;
     }
@@ -5673,7 +5674,7 @@ class StageMaker extends Applet implements Runnable {
                         }
                     }
                 if (i297 != -1) {
-                    
+
                 }
                 if (i297 != -1) {
                     for (int i300 = i243; i300 > i297; i300--)
