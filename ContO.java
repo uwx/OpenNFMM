@@ -469,7 +469,9 @@ class ContO {
             }
             datainputstream.close();
         } catch (final Exception exception) {
-            if (!errd) {
+            if (exception instanceof RuntimeException)
+                throw new RuntimeException(exception);
+            else if (!errd) {
                 err = new StringBuilder().append("Error While Loading 3D Model\n\nLine:     ").append(string)
                         .append("\n\nError Detail:\n").append(exception).append("           \n \n").toString();
                 System.out.println(err);
@@ -1099,7 +1101,7 @@ class ContO {
             is113[3] = is98[i111];
             for (f100 = (float) ((0.17 - f108) * random.nextDouble()); Math.abs(f107 - f100) < 0.03
                     - f108 * 0.176F; f100 = (float) ((0.17 - f108) * random.nextDouble())) {
-                
+
             }
             f107 = f100;
             for (int i115 = 0; i115 < 3; i115++)
@@ -1750,7 +1752,7 @@ class ContO {
         int i148 = 1;
         int i149;
         for (i149 = Math.abs(zy); i149 > 270; i149 -= 360) {
-            
+
         }
         i149 = Math.abs(i149);
         if (i149 > 90)

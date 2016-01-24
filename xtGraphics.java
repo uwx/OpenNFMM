@@ -35,7 +35,7 @@ class xtGraphics extends Panel implements Runnable {
     /**
      * How many stages you have
      */
-    static final int nTracks = 17;
+    static final int nTracks = 32;
     /**
      * How many cars you have
      */
@@ -591,10 +591,10 @@ class xtGraphics extends Panel implements Runnable {
             }
         }
         for (i224 += m.xz; i224 < 0; i224 += 360) {
-            
+
         }
         for (; i224 > 180; i224 -= 360) {
-            
+
         }
         if (!bool) {
             if (i224 > 130)
@@ -766,7 +766,7 @@ class xtGraphics extends Panel implements Runnable {
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            
+
         }
         final Color color = new Color(247, 255, 165);
         for (int i341 = 0; i341 < i340 * i; i341++)
@@ -827,7 +827,7 @@ class xtGraphics extends Panel implements Runnable {
             try {
                 pixelgrabber.grabPixels();
             } catch (final InterruptedException interruptedexception) {
-                
+
             }
         }
     }
@@ -1991,7 +1991,7 @@ class xtGraphics extends Panel implements Runnable {
                         }*/
                         if (multion != 0 && onjoin != -1 && ontyp > 0 && ontyp <= 5)
                             for (; sc[0] < maxsl && Math.abs(cd.cclass[sc[0]] - (ontyp - 1)) > 1; sc[0]++) {
-                                
+
                             }
                     }
                     if (nextc == -1) {
@@ -2004,7 +2004,7 @@ class xtGraphics extends Panel implements Runnable {
                         }*/
                         if (multion != 0 && onjoin != -1 && ontyp > 0 && ontyp <= 5)
                             for (; sc[0] > minsl && Math.abs(cd.cclass[sc[0]] - (ontyp - 1)) > 1; sc[0]--) {
-                                
+
                             }
                     }
                     if (cfase == 3 && cd.lastload == 2)
@@ -2646,7 +2646,7 @@ class xtGraphics extends Panel implements Runnable {
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            
+
         }
         for (int i379 = 0; i379 < i378 * i; i379++) {
             final Color color = new Color(is[i379]);
@@ -3366,7 +3366,7 @@ class xtGraphics extends Panel implements Runnable {
                 try {
                     pixelgrabber.grabPixels();
                 } catch (final InterruptedException interruptedexception) {
-                    
+
                 }
             }
             int i300 = 0;
@@ -3425,7 +3425,7 @@ class xtGraphics extends Panel implements Runnable {
         try {
             mediatracker.waitForID(0);
         } catch (final Exception exception) {
-            
+
         }
         return image;
     }
@@ -3451,7 +3451,7 @@ class xtGraphics extends Panel implements Runnable {
             }
             string443 = string448;
         } catch (final Exception exception) {
-            
+
         }
         return string443;
     }
@@ -3479,7 +3479,7 @@ class xtGraphics extends Panel implements Runnable {
                 string442 = "-1";
             i437 = Integer.valueOf(string442).intValue();
         } catch (final Exception exception) {
-            
+
         }
         return i437;
     }
@@ -4252,7 +4252,7 @@ class xtGraphics extends Panel implements Runnable {
             try {
                 pixelgrabber.grabPixels();
             } catch (final InterruptedException interruptedexception) {
-                
+
             }
             int i = 0;
             int i353 = 0;
@@ -4331,7 +4331,7 @@ class xtGraphics extends Panel implements Runnable {
         try {
             mediatracker.waitForID(0);
         } catch (final Exception exception) {
-            
+
         }
         final int i368 = image.getHeight(ob);
         final int i369 = image.getWidth(ob);
@@ -4340,7 +4340,7 @@ class xtGraphics extends Panel implements Runnable {
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            
+
         }
         for (int i371 = 0; i371 < i369 * i368; i371++)
             if (is370[i371] != is370[0] || i != 0) {
@@ -4397,7 +4397,7 @@ class xtGraphics extends Panel implements Runnable {
         try {
             mediatracker.waitForID(0);
         } catch (final Exception exception) {
-            
+
         }
         return image;
     }
@@ -4798,7 +4798,7 @@ class xtGraphics extends Panel implements Runnable {
             try {
                 Thread.sleep(1000L);
             } catch (final InterruptedException interruptedexception) {
-                
+
             }
         if (!lan)
             strack.play();
@@ -4806,7 +4806,7 @@ class xtGraphics extends Panel implements Runnable {
             try {
                 Thread.sleep(1000L);
             } catch (final InterruptedException interruptedexception) {
-                
+
             }
         app.setCursor(new Cursor(0));
         pcontin = 0;
@@ -4823,7 +4823,7 @@ class xtGraphics extends Panel implements Runnable {
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            
+
         }
         if (i < 0)
             i = 33;
@@ -4896,7 +4896,7 @@ class xtGraphics extends Panel implements Runnable {
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            
+
         }
         for (int i317 = 0; i317 < i316 * i; i317++) {
             final Color color = new Color(is[i316 * i - 1]);
@@ -5132,7 +5132,7 @@ class xtGraphics extends Panel implements Runnable {
         try {
             mediatracker.waitForID(0);
         } catch (final Exception exception) {
-            
+
         }
         final int i = image.getHeight(ob);
         final int i364 = image.getWidth(ob);
@@ -5141,7 +5141,7 @@ class xtGraphics extends Panel implements Runnable {
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            
+
         }
         for (int i366 = 0; i366 < i364 * i; i366++) {
             final Color color = new Color(is365[i366]);
@@ -5474,7 +5474,7 @@ class xtGraphics extends Panel implements Runnable {
             try {
                 Thread.sleep(200L);
             } catch (final InterruptedException interruptedexception) {
-                
+
             }
     }
 
@@ -5663,21 +5663,21 @@ class xtGraphics extends Panel implements Runnable {
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            
+
         }
         final int[] is387 = new int[20700];
         final PixelGrabber pixelgrabber388 = new PixelGrabber(image, 0, 0, 92, 225, is387, 0, 92);
         try {
             pixelgrabber388.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            
+
         }
         final int[] is389 = new int[2112];
         final PixelGrabber pixelgrabber390 = new PixelGrabber(image386, 0, 0, 88, 24, is389, 0, 88);
         try {
             pixelgrabber390.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            
+
         }
         for (int i = 0; i < 670; i++)
             for (int i391 = 0; i391 < 400; i391++) {
@@ -6261,7 +6261,7 @@ class xtGraphics extends Panel implements Runnable {
                                 dout.close();
                                 dout = null;
                             } catch (final Exception exception) {
-                                
+
                             }
                         }
                     }
@@ -6577,7 +6577,7 @@ class xtGraphics extends Panel implements Runnable {
                         runner = new Thread(this);
                         runner.start();
                     } catch (final Exception exception) {
-                        
+
                     }
             }
             if (Math.random() > Math.random())
@@ -6725,7 +6725,7 @@ class xtGraphics extends Panel implements Runnable {
             try {
                 pixelgrabber.grabPixels();
             } catch (final InterruptedException interruptedexception) {
-                
+
             }
             int i = 0;
             int i343 = 0;
@@ -6780,7 +6780,7 @@ class xtGraphics extends Panel implements Runnable {
             mediatracker.waitForID(0);
             mediatracker.removeImage(image, 0);
         } catch (final Exception exception) {
-            
+
         }
     }
 
@@ -6941,7 +6941,7 @@ class xtGraphics extends Panel implements Runnable {
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            
+
         }
         for (int i338 = 0; i338 < i337 * i; i338++)
             if (is[i338] != is[i337 * i - 1])
@@ -7267,11 +7267,11 @@ class xtGraphics extends Panel implements Runnable {
                 //app.repaint();
                 try {
                     if (runner != null) {
-                        
+
                     }
                     Thread.sleep(20L);
                 } catch (final InterruptedException interruptedexception) {
-                    
+
                 }
             }
             if (bool) {
@@ -7328,7 +7328,7 @@ class xtGraphics extends Panel implements Runnable {
                         dout.close();
                         dout = null;
                     } catch (final Exception exception) {
-                        
+
                     }
                     try {
                         socket = new Socket(server, servport);
@@ -7339,7 +7339,7 @@ class xtGraphics extends Panel implements Runnable {
                         if (string14 != null)
                             bool13 = false;
                     } catch (final Exception exception) {
-                        
+
                     }
                 }
                 if (bool13) {
@@ -7347,7 +7347,7 @@ class xtGraphics extends Panel implements Runnable {
                         socket.close();
                         socket = null;
                     } catch (final Exception exception) {
-                        
+
                     }
                     runtyp = 0;
                     if (app.cmsg.isShowing()) {
@@ -7392,11 +7392,11 @@ class xtGraphics extends Panel implements Runnable {
                     sendstat = 3;
                 try {
                     if (runner != null) {
-                        
+
                     }
                     Thread.sleep(1000L);
                 } catch (final InterruptedException interruptedexception) {
-                    
+
                 }
             }
             if (runtyp == -167 || runtyp == -168) {
@@ -7415,7 +7415,7 @@ class xtGraphics extends Panel implements Runnable {
                     dout.close();
                     dout = null;
                 } catch (final Exception exception) {
-                    
+
                 }
                 runtyp = 0;
             }
@@ -7507,13 +7507,13 @@ class xtGraphics extends Panel implements Runnable {
         try {
             mediatracker.waitForID(0);
         } catch (final Exception exception) {
-            
+
         }
         final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, 466, 202, smokey, 0, 466);
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException interruptedexception) {
-            
+
         }
         for (int i = 0; i < 94132; i++)
             if (smokey[i] != smokey[0]) {
@@ -7557,203 +7557,38 @@ class xtGraphics extends Panel implements Runnable {
 
     private void sortcars(int i) {
         if (i != 0) {
-            for (int i151 = 1; i151 < 7; i151++)
-                sc[i151] = -1;
-            final boolean[] bools = new boolean[7];
-            if (i < 0)
-                i = 27;
-            int i152 = 7;
-            //if (gmode == 1)
-            //	i152 = 5;
-            boolean bool = false;
-            if (i <= 10) {
-                final int i153 = 6;
-                //if (gmode == 1)
-                //	i153 = 4;
-                if ((i == 1 || i == 2) && sc[0] != 5) {
-                    sc[i153] = 5;
-                    i152 = i153;
-                }
-                if ((i == 3 || i == 4) && sc[0] != 6) {
-                    sc[i153] = 6;
-                    i152 = i153;
-                }
-                if ((i == 5 || i == 6) && sc[0] != 11) {
-                    sc[i153] = 11;
-                    i152 = i153;
-                }
-                if ((i == 7 || i == 8) && sc[0] != 14) {
-                    sc[i153] = 14;
-                    i152 = i153;
-                }
-                if ((i == 9 || i == 10) && sc[0] != 15) {
-                    sc[i153] = 15;
-                    i152 = i153;
-                }
-            } else {
-                //i -= 10;
-                bool = true;
-                if (sc[0] != 7 + (i + 1) / 2 && i != nTracks) {
-                    sc[6] = 7 + (i + 1) / 2;
-                    i152 = 6;
-                }
+            int lastcar = nplayers;
+
+            // get boss car if player is not in the mad party
+            if (sc[0] != 7 + (i + 1) / 2 && i != nTracks) {
+                sc[6] = 7 + (i + 1) / 2;
+                while (sc[6] >= nCars)
+                    sc[6] = nCars - 1; // you could put -= 5 or something here
+                lastcar--; //boss car won't be randomized
             }
-            int i154 = 16;
-            int i155 = 1;
-            int i156 = 2;
-            for (int i157 = 1; i157 < i152; i157++) {
-                bools[i157] = false;
-                while (!bools[i157] && !Thread.currentThread().isInterrupted()) {
-                    float f = 10.0F;
-                    if (bool)
-                        f = 17.0F;
-                    sc[i157] = (int) (Math.random() * (24.0F + 8.0F * (i / f)));
-                    if (sc[i157] >= nCars)
-                        sc[i157] -= nCars;
-                    bools[i157] = true;
-                    for (int i158 = 0; i158 < 7; i158++)
-                        if (i157 != i158 && sc[i157] == sc[i158])
-                            bools[i157] = false;
-                    if (bool)
-                        f = nCars;
-                    float f159 = (nCars - 1 - sc[i157]) / (float) nCars * (i / f);
-                    if (f159 > 0.8)
-                        f159 = 0.8F;
-                    if (i == nTracks && f159 > 0.5)
-                        f159 = 0.5F;
-                    if (f159 > Math.random())
-                        bools[i157] = false;
-                    /*if (gmode == 1) {
-                    	if (sc[i157] >= 7 && sc[i157] <= 10)
-                    		bools[i157] = false;
-                    	if (sc[i157] == 12 || sc[i157] == 13)
-                    		bools[i157] = false;
-                    	if (sc[i157] > 5 && unlocked[0] <= 2)
-                    		bools[i157] = false;
-                    	if (sc[i157] > 6 && unlocked[0] <= 4)
-                    		bools[i157] = false;
-                    	if (sc[i157] > 11 && unlocked[0] <= 6)
-                    		bools[i157] = false;
-                    	if (sc[i157] > 14 && unlocked[0] <= 8)
-                    		bools[i157] = false;
-                    }*/
-                    if (gmode == 2) {
-                        if ((sc[i157] - 7) * 2 > unlocked)
-                            bools[i157] = false;
-                        if (i == nTracks - 1 && unlocked == nTracks - 1 && sc[i157] < 9)
-                            bools[i157] = false;
-                    }
-                }
-                if (sc[i157] < i154) {
-                    i154 = sc[i157];
-                    if (i155 != i157) {
-                        i156 = i155;
-                        i155 = i157;
-                    }
-                }
+
+            for (int j = 1; j < lastcar; j++) {
+
+                //float f = 10.0F;
+                //if (bool)
+                //    f = 17.0F;
+
+                sc[j] = (int) (Math.random() * (24.0F + 8.0F * (i / (float)nCars)));
+                while (sc[j] >= nCars)
+                    sc[j] -= Math.random() * 5F;
+                System.out.println("sc of " + j + " is " + sc[j]);
+
+                for (int dupecar = 1; dupecar < lastcar; dupecar++)
+                    if (j != dupecar && sc[j] == sc[j])
+                        if (sc[dupecar] > 0)
+                            sc[dupecar]--;
+                        else //car equals 0
+                            sc[dupecar]++;
             }
-            if (!bool && i == 10) {
-                boolean bool160 = false;
-                for (int i161 = 0; i161 < 7; i161++)
-                    if (sc[i161] == 11)
-                        bool160 = true;
-                if (!bool160 && (Math.random() > Math.random() || gmode != 0))
-                    sc[i155] = 11;
-                bool160 = false;
-                for (int i162 = 0; i162 < 7; i162++)
-                    if (sc[i162] == 14)
-                        bool160 = true;
-                if (!bool160 && (Math.random() > Math.random() || gmode != 0))
-                    sc[i156] = 14;
-            }
-            if (i == 12) {
-                boolean bool163 = false;
-                for (int i164 = 0; i164 < 7; i164++)
-                    if (sc[i164] == 11)
-                        bool163 = true;
-                if (!bool163)
-                    sc[i155] = 11;
-            }
-            if (i == 14) {
-                boolean bool165 = false;
-                for (int i166 = 0; i166 < 7; i166++)
-                    if (sc[i166] == 12)
-                        bool165 = true;
-                if (!bool165 && (Math.random() > Math.random() || gmode != 0))
-                    sc[i155] = 12;
-                bool165 = false;
-                for (int i167 = 0; i167 < 7; i167++)
-                    if (sc[i167] == 10)
-                        bool165 = true;
-                if (!bool165 && (Math.random() > Math.random() || gmode != 0))
-                    sc[i156] = 10;
-            }
-            if (i == 15) {
-                boolean bool168 = false;
-                for (int i169 = 0; i169 < 7; i169++)
-                    if (sc[i169] == 11)
-                        bool168 = true;
-                if (!bool168 && (Math.random() > Math.random() || gmode != 0))
-                    sc[i155] = 11;
-                bool168 = false;
-                for (int i170 = 0; i170 < 7; i170++)
-                    if (sc[i170] == 13)
-                        bool168 = true;
-                if (!bool168 && (Math.random() > Math.random() || gmode != 0))
-                    sc[i156] = 13;
-            }
-            if (i == 16) {
-                boolean bool171 = false;
-                for (int i172 = 0; i172 < 7; i172++)
-                    if (sc[i172] == 13)
-                        bool171 = true;
-                if (!bool171 && (Math.random() > Math.random() || gmode != 0))
-                    sc[i155] = 13;
-                bool171 = false;
-                for (int i173 = 0; i173 < 7; i173++)
-                    if (sc[i173] == 12)
-                        bool171 = true;
-                if (!bool171 && (Math.random() > Math.random() || gmode != 0))
-                    sc[i156] = 12;
-            }
-            if (cd.lastload == 1) {
-                int i174 = 0;
-                for (int i175 = 0; i175 < cd.nlcars - 16; i175++) {
-                    if (i174 == 0)
-                        for (int i176 = 1; i176 < i152; i176++)
-                            bools[i176] = false;
-                    if (cd.include[i175] && sc[0] != i175 + 16) {
-                        int i177;
-                        for (i177 = (int) (1.0 + Math.random() * (i152 - 1)); bools[i177]; i177 = (int) (1.0
-                                + Math.random() * (i152 - 1))) {
-                            
-                        }
-                        bools[i177] = true;
-                        sc[i177] = i175 + 16;
-                        if (++i174 == i152 - 1)
-                            i174 = 0;
-                    }
-                }
-            }
-            if (cd.lastload == 2) {
-                int i178 = 0;
-                for (int i179 = 0; i179 < cd.nlocars - 16; i179++) {
-                    if (i178 == 0)
-                        for (int i180 = 1; i180 < i152; i180++)
-                            bools[i180] = false;
-                    if (cd.include[i179] && sc[0] != i179 + 16) {
-                        int i181;
-                        for (i181 = (int) (1.0 + Math.random() * (i152 - 1)); bools[i181]; i181 = (int) (1.0
-                                + Math.random() * (i152 - 1))) {
-                            
-                        }
-                        bools[i181] = true;
-                        sc[i181] = i179 + 16;
-                        if (++i178 == i152 - 1)
-                            i178 = 0;
-                    }
-                }
-            }
+        }
+        for (int j = 0; j < nplayers; j++) {
+            if (sc[j] > nCars)
+                throw new RuntimeException("there are too many tracks and not enough cars");
         }
     }
 
@@ -7991,7 +7826,7 @@ class xtGraphics extends Panel implements Runnable {
                             try {
                                 Thread.sleep(5000L);
                             } catch (final InterruptedException interruptedexception) {
-                                
+
                             }
                             //if (nfmtab == 0)
                             //	app.snfm1.select(1 + (int) (Math.random() * 10.0));
@@ -9218,7 +9053,7 @@ class xtGraphics extends Panel implements Runnable {
                 dout.close();
                 dout = null;
             } catch (final Exception exception) {
-                
+
             }
         }
     }

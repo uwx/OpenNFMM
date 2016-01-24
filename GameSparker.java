@@ -444,11 +444,17 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
                     i179 += i180;
                 }
                 contos[i175] = new ContO(is, medium, trackers);
+                if (i175 < xtGraphics.nCars && !contos[i175].shadow)
+                    throw new RuntimeException("car " + cardefine.names[i175] + " does not have a shadow");
                 xtgraphics.dnload++;
             }
             zipinputstream.close();
+
         } catch (final Exception exception) {
-            System.out.println(new StringBuilder().append("Error Reading Models: ").append(exception).toString());
+            if (exception instanceof RuntimeException)
+                throw new RuntimeException(exception);
+            else
+                System.out.println(new StringBuilder().append("Error Reading Models: ").append(exception).toString());
         }
         System.gc();
         if (mload != -1 && i != 615671)
@@ -813,12 +819,22 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
                 u[i144].reset(checkpoints, xtgraphics.sc[i144]);
             xtgraphics.resetstat(checkpoints.stage);
             checkpoints.calprox();
-            for (int i145 = 0; i145 < xtgraphics.nplayers; i145++) {
+
+            
+            for (int j = 0; j < xtgraphics.nplayers; j++) {
+                
+
+                System.out.println(j);
+                System.out.println(xtgraphics.sc[j]);
+                System.out.println(contos108[j]);
+                System.out.println(contos[xtgraphics.sc[j]]);
+                System.out.println("cps " + contos108[partskips]);
+                
                 if (xtgraphics.fase == 22)
-                    xtgraphics.colorCar(contos108[xtgraphics.sc[i145]], i145);
-                contos[i145] = new ContO(contos108[xtgraphics.sc[i145]], xtgraphics.xstart[i145],
-                        250 - contos108[xtgraphics.sc[i145]].grat, xtgraphics.zstart[i145], 0);
-                mads[i145].reseto(xtgraphics.sc[i145], contos[i145], checkpoints);
+                    xtgraphics.colorCar(contos108[xtgraphics.sc[j]], j);
+                contos[j] = new ContO(contos108[xtgraphics.sc[j]], xtgraphics.xstart[j],
+                        250 - contos108[xtgraphics.sc[j]].grat, xtgraphics.zstart[j], 0);
+                mads[j].reseto(xtgraphics.sc[j], contos[j], checkpoints);
             }
             if (xtgraphics.fase == 2 || xtgraphics.fase == -22) {
                 medium.trx = (i109 + i) / 2;
