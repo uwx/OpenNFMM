@@ -15,13 +15,13 @@ class Utility {
         int i263 = 0;
         String string264 = "";
         for (int i265 = string.length() + 1; i265 < string262.length(); i265++) {
-            final String string266 = "" + ("") + (string262.charAt(i265));
+            final String string266 = "" + "" + string262.charAt(i265);
             if (string266.equals(",") || string266.equals(")")) {
                 i263++;
                 i265++;
             }
             if (i263 == i) {
-                string264 = "" + (string264) + (string262.charAt(i265));
+                string264 = "" + string264 + string262.charAt(i265);
             }
         }
         return Float.valueOf(string264).intValue();
@@ -42,14 +42,14 @@ class Utility {
             String string441 = "";
             String string442 = "";
             for (; i438 < string.length() && i440 != 2; i438++) {
-                string441 = "" + ("") + (string.charAt(i438));
+                string441 = "" + "" + string.charAt(i438);
                 if (string441.equals("|")) {
                     i439++;
                     if (i440 == 1 || i439 > i) {
                         i440 = 2;
                     }
                 } else if (i439 == i) {
-                    string442 = "" + (string442) + (string441);
+                    string442 = "" + string442 + string441;
                     i440 = 1;
                 }
             }

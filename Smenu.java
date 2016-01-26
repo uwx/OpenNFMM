@@ -61,7 +61,7 @@ class Smenu {
             }
             if (i != string.length()) {
                 string = string.substring(0, i - 3);
-                string = "" + (string) + ("...");
+                string = "" + string + "...";
             }
         }
         sopts[no] = string;

@@ -508,7 +508,7 @@ class xtGraphics extends Panel implements Runnable {
             try {
                 securitymanager.checkConnect("needformadness.com", -1);
             } catch (final Exception exception) {
-                final String string = "" + ("") + (exception);
+                final String string = "" + "" + exception;
                 if (string.indexOf("access denied") != -1) {
                     nofull = true;
                 }
@@ -825,19 +825,17 @@ class xtGraphics extends Panel implements Runnable {
         rd.drawImage(select, 338, 35, null);
         rd.setFont(new Font("Arial", 1, 13));
         ftm = rd.getFontMetrics();
-        drawcs(130, "" + ("This stage will be unlocked when stage ") + (unlocked) + (" is complete!"), 177, 177, 177, 3);
+        drawcs(130, "" + "This stage will be unlocked when stage " + unlocked + " is complete!", 177, 177, 177, 3);
         for (int i = 0; i < 9; i++) {
             rd.drawImage(pgate, 277 + i * 30, 215, null);
         }
         rd.setFont(new Font("Arial", 1, 12));
         ftm = rd.getFontMetrics();
         if (aflk) {
-            drawcs(185, "" + ("[ Stage ") + (unlocked
-                    + 1) + (" Locked ]"), 255, 128, 0, 3);
+            drawcs(185, "" + "[ Stage " + (unlocked + 1) + " Locked ]", 255, 128, 0, 3);
             aflk = false;
         } else {
-            drawcs(185, "" + ("[ Stage ") + (unlocked
-                    + 1) + (" Locked ]"), 255, 0, 0, 3);
+            drawcs(185, "" + "[ Stage " + (unlocked + 1) + " Locked ]", 255, 0, 0, 3);
             aflk = true;
         }
         rd.drawImage(back[pback], 370, 345, null);
@@ -1035,14 +1033,13 @@ class xtGraphics extends Panel implements Runnable {
                     app.mcars.show = false;
                     String string = "";
                     if (cfase == 11) {
-                        string = "" + ("N#") + (sc[0] - 35) + ("  ");
+                        string = "" + "N#" + (sc[0] - 35) + "  ";
                     }
                     if (aflk) {
-                        drawcs(95
-                                + i115, "" + (string) + (cd.names[sc[0]]), 240, 240, 240, 3);
+                        drawcs(95 + i115, "" + string + cd.names[sc[0]], 240, 240, 240, 3);
                         aflk = false;
                     } else {
-                        drawcs(95, "" + (string) + (cd.names[sc[0]]), 176, 176, 176, 3);
+                        drawcs(95, "" + string + cd.names[sc[0]], 176, 176, 176, 3);
                         aflk = true;
                     }
                 }
@@ -1122,7 +1119,7 @@ class xtGraphics extends Panel implements Runnable {
                 }
                 if (flatrstart == 6) {
                     drawcs(355, "[ Car Locked ]", 210, 210, 210, 3);
-                    drawcs(375, "" + ("This car unlocks when stage ") + (i113) + (" is completed..."), 255, 96, 0, 3);
+                    drawcs(375, "" + "This car unlocks when stage " + i113 + " is completed...", 255, 96, 0, 3);
                 }
             } else {
                 if (flatrstart == 6) {
@@ -2235,11 +2232,9 @@ class xtGraphics extends Panel implements Runnable {
 
     public boolean clink(final String string, final int i, final int i134, final boolean bool) {
         boolean bool135 = false;
-        rd.drawString("" + ("Created by :  ") + (string) + (""), 241, 160);
+        rd.drawString("" + "Created by :  " + string + "", 241, 160);
         final int i136 = ftm.stringWidth(string);
-        final int i137 = 241
-                + ftm.stringWidth("" + ("Created by :  ") + (string) + (""))
-                - i136;
+        final int i137 = 241 + ftm.stringWidth("" + "Created by :  " + string + "") - i136;
         rd.drawLine(i137, 162, i137 + i136 - 2, 162);
         if (i > i137 - 2 && i < i137 + i136 && i134 > 147 && i134 < 164) {
             if (bool) {
@@ -3210,13 +3205,13 @@ class xtGraphics extends Panel implements Runnable {
             final int i143 = checkpoints.stage;
             //if (i143 > 10)
             //	i143 -= 10;
-            string = "" + (" ") + (i143) + ("!");
+            string = "" + " " + i143 + "!";
         }
         if (multion < 3) {
             if (winner) {
                 rd.drawImage(congrd, 265, 87, null);
-                drawcs(137, "" + ("You Won!  At Stage") + (string) + (""), 255, 161, 85, 3);
-                drawcs(154, "" + ("") + (checkpoints.name) + (""), 255, 115, 0, 3);
+                drawcs(137, "" + "You Won!  At Stage" + string + "", 255, 161, 85, 3);
+                drawcs(154, "" + "" + checkpoints.name + "", 255, 115, 0, 3);
                 i142 = 154;
             } else {
                 rd.drawImage(gameov, 315, 117, null);
@@ -3224,19 +3219,19 @@ class xtGraphics extends Panel implements Runnable {
                     drawcs(167, "Sorry, You where Disconnected from Game!", 255, 161, 85, 3);
                     drawcs(184, "Please check your connection!", 255, 115, 0, 3);
                 } else {
-                    drawcs(167, "" + ("You Lost!  At Stage") + (string) + (""), 255, 161, 85, 3);
-                    drawcs(184, "" + ("") + (checkpoints.name) + (""), 255, 115, 0, 3);
+                    drawcs(167, "" + "You Lost!  At Stage" + string + "", 255, 161, 85, 3);
+                    drawcs(184, "" + "" + checkpoints.name + "", 255, 115, 0, 3);
                     i142 = 184;
                 }
             }
             rd.setColor(new Color(193, 106, 0));
-            rd.drawString("" + ("Your time: ") + (chrono.getTotalTime()), 380
-                    - ftm.stringWidth("" + ("Your time: ") + (chrono.getTotalTime())), 200);
-            rd.drawString("" + ("Best lap: ") + (chrono.getBestLapTime()), 420, 200);
+            rd.drawString("" + "Your time: " + chrono.getTotalTime(), 380
+                    - ftm.stringWidth("" + "Your time: " + chrono.getTotalTime()), 200);
+            rd.drawString("" + "Best lap: " + chrono.getBestLapTime(), 420, 200);
         } else {
             rd.drawImage(gameov, 315, 117, null);
-            drawcs(167, "" + ("Finished Watching Game!  At Stage") + (string) + (""), 255, 161, 85, 3);
-            drawcs(184, "" + ("") + (checkpoints.name) + (""), 255, 115, 0, 3);
+            drawcs(167, "" + "Finished Watching Game!  At Stage" + string + "", 255, 161, 85, 3);
+            drawcs(184, "" + "" + checkpoints.name + "", 255, 115, 0, 3);
             i142 = 184;
         }
         if (winner && multion == 0 && gmode != 0
@@ -3330,11 +3325,9 @@ class xtGraphics extends Panel implements Runnable {
                 rd.setFont(new Font("Arial", 1, 13));
                 ftm = rd.getFontMetrics();
                 if (aflk) {
-                    drawcs(200 + pin, "" + ("Stage ") + (checkpoints.stage
-                            + 1) + (" is now unlocked!"), 196, 176, 0, 3);
+                    drawcs(200 + pin, "" + "Stage " + (checkpoints.stage + 1) + " is now unlocked!", 196, 176, 0, 3);
                 } else {
-                    drawcs(200 + pin, "" + ("Stage ") + (checkpoints.stage
-                            + 1) + (" is now unlocked!"), 255, 247, 165, 3);
+                    drawcs(200 + pin, "" + "Stage " + (checkpoints.stage + 1) + " is now unlocked!", 255, 247, 165, 3);
                 }
                 if (i144 != 0) {
                     if (aflk) {
@@ -3382,9 +3375,10 @@ class xtGraphics extends Panel implements Runnable {
                         string147 = " ";
                     }
                     if (aflk) {
-                        drawcs(320, "" + ("") + (cd.names[i144]) + ("") + (string147) + (" has been unlocked!"), 196, 176, 0, 3);
+                        drawcs(320, "" + "" + cd.names[i144] + "" + string147 + " has been unlocked!", 196, 176, 0, 3);
                     } else {
-                        drawcs(320, "" + ("") + (cd.names[i144]) + ("") + (string147) + (" has been unlocked!"), 255, 247, 165, 3);
+                        drawcs(320, "" + "" + cd.names[i144] + "" + string147
+                                + " has been unlocked!", 255, 247, 165, 3);
                     }
                     pin = 140;
                 }
@@ -3400,9 +3394,9 @@ class xtGraphics extends Panel implements Runnable {
                 rd.setFont(new Font("Arial", 1, 13));
                 ftm = rd.getFontMetrics();
                 if (aflk) {
-                    drawcs(180, "" + ("Woohoooo you finished NFM") + (gmode) + (" !!!"), 144, 167, 255, 3);
+                    drawcs(180, "" + "Woohoooo you finished NFM" + gmode + " !!!", 144, 167, 255, 3);
                 } else {
-                    drawcs(180, "" + ("Woohoooo you finished NFM") + (gmode) + (" !!!"), 228, 240, 255, 3);
+                    drawcs(180, "" + "Woohoooo you finished NFM" + gmode + " !!!", 228, 240, 255, 3);
                 }
                 if (aflk) {
                     drawcs(210, "You're Awesome!", 144, 167, 255, 3);
@@ -3453,8 +3447,7 @@ class xtGraphics extends Panel implements Runnable {
             }
         }
         if (multion != 0 && checkpoints.stage == -2 && i142 != 0) {
-            drawcs(i142
-                    + 17, "" + ("Created by: ") + (checkpoints.maker) + (""), 255, 161, 85, 3);
+            drawcs(i142 + 17, "" + "Created by: " + checkpoints.maker + "", 255, 161, 85, 3);
             if (checkpoints.pubt > 0) {
                 if (checkpoints.pubt == 2) {
                     drawcs(310, "Super Public Stage", 41, 177, 255, 3);
@@ -3638,7 +3631,7 @@ class xtGraphics extends Panel implements Runnable {
     }
 
     Image getImage(final String string) {
-        final Image image = Toolkit.getDefaultToolkit().createImage("" + ("") + (Madness.fpath) + ("") + (string) + (""));
+        final Image image = Toolkit.getDefaultToolkit().createImage("" + "" + Madness.fpath + "" + string + "");
         final MediaTracker mediatracker = new MediaTracker(app);
         mediatracker.addImage(image, 0);
         try {
@@ -3658,14 +3651,14 @@ class xtGraphics extends Panel implements Runnable {
             String string447 = "";
             String string448 = "";
             for (; i444 < string.length() && i446 != 2; i444++) {
-                string447 = "" + ("") + (string.charAt(i444));
+                string447 = "" + "" + string.charAt(i444);
                 if (string447.equals("|")) {
                     i445++;
                     if (i446 == 1 || i445 > i) {
                         i446 = 2;
                     }
                 } else if (i445 == i) {
-                    string448 = "" + (string448) + (string447);
+                    string448 = "" + string448 + string447;
                     i446 = 1;
                 }
             }
@@ -3685,14 +3678,14 @@ class xtGraphics extends Panel implements Runnable {
             String string441 = "";
             String string442 = "";
             for (; i438 < string.length() && i440 != 2; i438++) {
-                string441 = "" + ("") + (string.charAt(i438));
+                string441 = "" + "" + string.charAt(i438);
                 if (string441.equals("|")) {
                     i439++;
                     if (i440 == 1 || i439 > i) {
                         i440 = 2;
                     }
                 } else if (i439 == i) {
-                    string442 = "" + (string442) + (string441);
+                    string442 = "" + string442 + string441;
                     i440 = 1;
                 }
             }
@@ -3969,7 +3962,7 @@ class xtGraphics extends Panel implements Runnable {
                     pstar = 0;
                 }
             if (multion != 0) {
-                drawcs(380 + i49, "" + ("") + (forstart / 20), 0, 0, 0, 3);
+                drawcs(380 + i49, "" + "" + forstart / 20, 0, 0, 0, 3);
             }
         }
     }
@@ -4698,7 +4691,7 @@ class xtGraphics extends Panel implements Runnable {
         Image image10 = null;
         dnload += 8;
         try {
-            final File file = new File("" + ("") + (Madness.fpath) + ("data/images.zip"));
+            final File file = new File("" + "" + Madness.fpath + "data/images.zip");
             final FileInputStream fileinputstream = new FileInputStream(file);
             final ZipInputStream zipinputstream = new ZipInputStream(fileinputstream);
             for (ZipEntry zipentry = zipinputstream.getNextEntry(); zipentry != null; zipentry = zipinputstream.getNextEntry()) {
@@ -5129,7 +5122,7 @@ class xtGraphics extends Panel implements Runnable {
             fileinputstream.close();
             zipinputstream.close();
         } catch (final Exception exception) {
-            System.out.println("" + ("Error Loading Images: ") + (exception));
+            System.out.println("" + "Error Loading Images: " + exception);
         }
         makecarsbgc(image, image10);
         System.gc();
@@ -5157,9 +5150,8 @@ class xtGraphics extends Panel implements Runnable {
         if (dnload == kbload) {
             shload = kbload;
         }
-        drawcs(410, "" + ("") + ((int) ((26.0F + shload / kbload * 200.0F) / 226.0F
-                * 100.0F)) + (" % loaded    |    ") + (kbload
-                        - (int) shload) + (" KB remaining"), 32, 64, 128, 3);
+        drawcs(410, "" + "" + (int) ((26.0F + shload / kbload * 200.0F) / 226.0F * 100.0F) + " % loaded    |    "
+                + (kbload - (int) shload) + " KB remaining", 32, 64, 128, 3);
         rd.setColor(new Color(32, 64, 128));
         rd.fillRect(287, 371, 26 + (int) (shload / kbload * 200.0F), 10);
     }
@@ -5385,7 +5377,7 @@ class xtGraphics extends Panel implements Runnable {
     private void loadsounds() {
         dnload += 3;
         try {
-            final File file = new File("" + ("") + (Madness.fpath) + ("data/sounds.zip"));
+            final File file = new File("" + "" + Madness.fpath + "data/sounds.zip");
             final FileInputStream fileinputstream = new FileInputStream(file);
             final ZipInputStream zipinputstream = new ZipInputStream(fileinputstream);
             for (ZipEntry zipentry = zipinputstream.getNextEntry(); zipentry != null; zipentry = zipinputstream.getNextEntry()) {
@@ -5400,34 +5392,32 @@ class xtGraphics extends Panel implements Runnable {
                 }
                 for (int i2 = 0; i2 < 5; i2++) {
                     for (int i3 = 0; i3 < 5; i3++)
-                        if (string.equals("" + ("") + (i3) + ("") + (i2) + (".wav"))) {
+                        if (string.equals("" + "" + i3 + "" + i2 + ".wav")) {
                             engs[i3][i2] = new soundClip(is);
                         }
                 }
                 for (int i4 = 0; i4 < 6; i4++)
-                    if (string.equals("" + ("air") + (i4) + (".wav"))) {
+                    if (string.equals("" + "air" + i4 + ".wav")) {
                         air[i4] = new soundClip(is);
                     }
                 for (int i5 = 0; i5 < 3; i5++)
-                    if (string.equals("" + ("crash") + (i5 + 1) + (".wav"))) {
+                    if (string.equals("" + "crash" + (i5 + 1) + ".wav")) {
                         crash[i5] = new soundClip(is);
                     }
                 for (int i6 = 0; i6 < 3; i6++)
-                    if (string.equals("" + ("lowcrash") + (i6
-                            + 1) + (".wav"))) {
+                    if (string.equals("" + "lowcrash" + (i6 + 1) + ".wav")) {
                         lowcrash[i6] = new soundClip(is);
                     }
                 for (int i7 = 0; i7 < 3; i7++)
-                    if (string.equals("" + ("skid") + (i7 + 1) + (".wav"))) {
+                    if (string.equals("" + "skid" + (i7 + 1) + ".wav")) {
                         skid[i7] = new soundClip(is);
                     }
                 for (int i8 = 0; i8 < 3; i8++)
-                    if (string.equals("" + ("dustskid") + (i8
-                            + 1) + (".wav"))) {
+                    if (string.equals("" + "dustskid" + (i8 + 1) + ".wav")) {
                         dustskid[i8] = new soundClip(is);
                     }
                 for (int i9 = 0; i9 < 3; i9++)
-                    if (string.equals("" + ("scrape") + (i9 + 1) + (".wav"))) {
+                    if (string.equals("" + "scrape" + (i9 + 1) + ".wav")) {
                         scrape[i9] = new soundClip(is);
                         if (i9 == 2) {
                             scrape[3] = new soundClip(is);
@@ -5468,7 +5458,7 @@ class xtGraphics extends Panel implements Runnable {
             fileinputstream.close();
             zipinputstream.close();
         } catch (final Exception exception) {
-            System.out.println("" + ("Error Loading Sounds: ") + (exception));
+            System.out.println("" + "Error Loading Sounds: " + exception);
         }
         System.gc();
     }
@@ -5482,109 +5472,109 @@ class xtGraphics extends Panel implements Runnable {
             strack = new RadicalOgg("music/stage" + i + ".ogg");
         } else {
             if (i == 1) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 240, 8400, 135, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 240, 8400, 135, false, false);
             }
             if (i == 2) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 190, 9000, 145, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 190, 9000, 145, false, false);
             }
             if (i == 3) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 170, 8500, 145, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 170, 8500, 145, false, false);
             }
             if (i == 4) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 205, 7500, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 205, 7500, 125, false, false);
             }
             if (i == 5) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 170, 7900, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 170, 7900, 125, false, false);
             }
             if (i == 6) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 370, 7900, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 370, 7900, 125, false, false);
             }
             if (i == 7) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 205, 7500, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 205, 7500, 125, false, false);
             }
             if (i == 8) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 230, 7900, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 230, 7900, 125, false, false);
             }
             if (i == 9) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 180, 7900, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 180, 7900, 125, false, false);
             }
             if (i == 10) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 280, 8100, 145, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 280, 8100, 145, false, false);
             }
             if (i == 11) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 120, 8000, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 120, 8000, 125, false, false);
             }
             if (i == 12) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 260, 7200, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 260, 7200, 125, false, false);
             }
             if (i == 13) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 270, 8000, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 270, 8000, 125, false, false);
             }
             if (i == 14) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 190, 8000, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 190, 8000, 125, false, false);
             }
             if (i == 15) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 162, 7800, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 162, 7800, 125, false, false);
             }
             if (i == 16) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 220, 7600, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 220, 7600, 125, false, false);
             }
             if (i == 17) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 300, 7500, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 300, 7500, 125, false, false);
             }
             if (i == 18) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 200, 7900, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 200, 7900, 125, false, false);
             }
             if (i == 19) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 200, 7900, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 200, 7900, 125, false, false);
             }
             if (i == 20) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 232, 7300, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 232, 7300, 125, false, false);
             }
             if (i == 21) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 370, 7900, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 370, 7900, 125, false, false);
             }
             if (i == 22) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 290, 7900, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 290, 7900, 125, false, false);
             }
             if (i == 23) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 222, 7600, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 222, 7600, 125, false, false);
             }
             if (i == 24) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 230, 8000, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 230, 8000, 125, false, false);
             }
             if (i == 25) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 220, 8000, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 220, 8000, 125, false, false);
             }
             if (i == 26) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 261, 8000, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 261, 8000, 125, false, false);
             }
             if (i == 27) {
                 strack = new RadicalMod("music/party.zip", 400, 7600, 125, false, false);
             }
             if (i == 28) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 182, 8000, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 182, 8000, 125, false, false);
             }
             if (i == 29) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 220, 8000, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 220, 8000, 125, false, false);
             }
             if (i == 30) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 200, 8000, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 200, 8000, 125, false, false);
             }
             if (i == 31) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 350, 7900, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 350, 7900, 125, false, false);
             }
             if (i == 32) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 310, 8000, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 310, 8000, 125, false, false);
             }
             if (i > 32) {
-                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 550, 8000, 125, false, false);
+                strack = new RadicalMod("" + "music/stage" + i + ".zip", 550, 8000, 125, false, false);
             }
         }
         if (i < 0)
             if (!string.equals("")) {
                 if (i != -2) {
-                    strack = new RadicalMod("" + ("mystages/mymusic/") + (string) + (".zip"), i52, 8000, 125, false, false);
+                    strack = new RadicalMod("" + "mystages/mymusic/" + string + ".zip", i52, 8000, 125, false, false);
                 } else {
                     strack = new RadicalMod(string, i52, 8000, 125, false, true);
                 }
@@ -6287,15 +6277,14 @@ class xtGraphics extends Panel implements Runnable {
         boolean bool422;
         for (bool422 = false; i < string.length() && !bool422; i++)
             if (!bool421) {
-                string419 = "" + (string419) + ("") + (string.charAt(i));
+                string419 = "" + string419 + "" + string.charAt(i);
                 bool421 = true;
             } else {
                 bool421 = false;
-                if (!string420.equals("")
-                        && !string420.equals("" + ("") + (string.charAt(i)))) {
+                if (!string420.equals("") && !string420.equals("" + "" + string.charAt(i))) {
                     bool422 = true;
                 }
-                string420 = "" + ("") + (string.charAt(i));
+                string420 = "" + "" + string.charAt(i);
             }
         if (!bool422) {
             for (final String string2 : strings)
@@ -6309,15 +6298,14 @@ class xtGraphics extends Panel implements Runnable {
         bool421 = true;
         for (bool422 = false; i < string.length() && !bool422; i++)
             if (!bool421) {
-                string419 = "" + (string419) + ("") + (string.charAt(i));
+                string419 = "" + string419 + "" + string.charAt(i);
                 bool421 = true;
             } else {
                 bool421 = false;
-                if (!string420.equals("")
-                        && !string420.equals("" + ("") + (string.charAt(i)))) {
+                if (!string420.equals("") && !string420.equals("" + "" + string.charAt(i))) {
                     bool422 = true;
                 }
-                string420 = "" + ("") + (string.charAt(i));
+                string420 = "" + "" + string.charAt(i);
             }
         if (!bool422) {
             for (final String string2 : strings)
@@ -6331,15 +6319,14 @@ class xtGraphics extends Panel implements Runnable {
         int i425 = 0;
         for (bool422 = false; i < string.length() && !bool422; i++)
             if (i425 == 0) {
-                string419 = "" + (string419) + ("") + (string.charAt(i));
+                string419 = "" + string419 + "" + string.charAt(i);
                 i425 = 2;
             } else {
                 i425--;
-                if (!string420.equals("")
-                        && !string420.equals("" + ("") + (string.charAt(i)))) {
+                if (!string420.equals("") && !string420.equals("" + "" + string.charAt(i))) {
                     bool422 = true;
                 }
-                string420 = "" + ("") + (string.charAt(i));
+                string420 = "" + "" + string.charAt(i);
             }
         if (!bool422) {
             for (final String string2 : strings)
@@ -6353,15 +6340,14 @@ class xtGraphics extends Panel implements Runnable {
         i425 = 1;
         for (bool422 = false; i < string.length() && !bool422; i++)
             if (i425 == 0) {
-                string419 = "" + (string419) + ("") + (string.charAt(i));
+                string419 = "" + string419 + "" + string.charAt(i);
                 i425 = 2;
             } else {
                 i425--;
-                if (!string420.equals("")
-                        && !string420.equals("" + ("") + (string.charAt(i)))) {
+                if (!string420.equals("") && !string420.equals("" + "" + string.charAt(i))) {
                     bool422 = true;
                 }
-                string420 = "" + ("") + (string.charAt(i));
+                string420 = "" + "" + string.charAt(i);
             }
         if (!bool422) {
             for (final String string2 : strings)
@@ -6375,15 +6361,14 @@ class xtGraphics extends Panel implements Runnable {
         i425 = 2;
         for (bool422 = false; i < string.length() && !bool422; i++)
             if (i425 == 0) {
-                string419 = "" + (string419) + ("") + (string.charAt(i));
+                string419 = "" + string419 + "" + string.charAt(i);
                 i425 = 2;
             } else {
                 i425--;
-                if (!string420.equals("")
-                        && !string420.equals("" + ("") + (string.charAt(i)))) {
+                if (!string420.equals("") && !string420.equals("" + "" + string.charAt(i))) {
                     bool422 = true;
                 }
-                string420 = "" + ("") + (string.charAt(i));
+                string420 = "" + "" + string.charAt(i);
             }
         if (!bool422) {
             for (final String string2 : strings)
@@ -6611,14 +6596,14 @@ class xtGraphics extends Panel implements Runnable {
                             int i60 = 0;
                             int i61 = 1;
                             for (; i60 < lcmsg[i57].length(); i60++) {
-                                final String string62 = "" + ("") + (lcmsg[i57].charAt(i60));
+                                final String string62 = "" + "" + lcmsg[i57].charAt(i60);
                                 if (string62.equals(" ")) {
                                     i61++;
                                 } else {
                                     i61 = 0;
                                 }
                                 if (i61 < 2) {
-                                    string = "" + (string) + (string62);
+                                    string = "" + string + string62;
                                 }
                             }
                             if (!string.equals("")) {
@@ -6628,7 +6613,7 @@ class xtGraphics extends Panel implements Runnable {
                                 }
                                 if (!msgcheck(string) && updatec[i57] > -12) {
                                     if (cnames[i57][6].equals("Game Chat  ")
-                                            || cnames[i57][6].equals("" + ("") + (clan) + ("'s Chat  "))) {
+                                            || cnames[i57][6].equals("" + "" + clan + "'s Chat  ")) {
                                         cnames[i57][6] = "";
                                     }
                                     for (int i63 = 0; i63 < 6; i63++) {
@@ -6706,18 +6691,16 @@ class xtGraphics extends Panel implements Runnable {
                                         rd.setColor(new Color(0, i65, i66));
                                         rd.setFont(new Font("Tahoma", 1, 11));
                                         ftm = rd.getFontMetrics();
-                                        rd.drawString("" + (cnames[i57][i67]) + (": "), 39
-                                                + i64 + movepos[i57], 439 + i56);
-                                        i64 += ftm.stringWidth("" + (cnames[i57][i67]) + (": "));
+                                        rd.drawString("" + cnames[i57][i67] + ": ", 39 + i64 + movepos[i57], 439 + i56);
+                                        i64 += ftm.stringWidth("" + cnames[i57][i67] + ": ");
                                         rd.setColor(new Color(0, 0, 0));
                                         rd.setFont(new Font("Tahoma", 0, 11));
                                         ftm = rd.getFontMetrics();
-                                        rd.drawString("" + (sentn[i57][i67]) + ("   "), 39
-                                                + i64 + movepos[i57], 439 + i56);
-                                        i64 += ftm.stringWidth("" + (sentn[i57][i67]) + ("   "));
+                                        rd.drawString("" + sentn[i57][i67] + "   ", 39 + i64 + movepos[i57], 439 + i56);
+                                        i64 += ftm.stringWidth("" + sentn[i57][i67] + "   ");
                                     } else {
-                                        i64 += ftm.stringWidth("" + (cnames[i57][i67]) + (": "));
-                                        i64 += ftm.stringWidth("" + (sentn[i57][i67]) + ("   "));
+                                        i64 += ftm.stringWidth("" + cnames[i57][i67] + ": ");
+                                        i64 += ftm.stringWidth("" + sentn[i57][i67] + "   ");
                                     }
                                 }
                                 rd.setColor(new Color(0, 0, 0));
@@ -6731,20 +6714,18 @@ class xtGraphics extends Panel implements Runnable {
                                     rd.setColor(new Color(0, i65, i66));
                                     rd.setFont(new Font("Tahoma", 1, 11));
                                     ftm = rd.getFontMetrics();
-                                    if (ftm.stringWidth("" + (cnames[i57][i68]) + (": "))
-                                            + 39 + i64 < 775) {
+                                    if (ftm.stringWidth("" + cnames[i57][i68] + ": ") + 39 + i64 < 775) {
                                         if (i68 != 6 || msgflk[i57] < 67 || msgflk[i57] % 3 != 0) {
-                                            rd.drawString("" + (cnames[i57][i68]) + (": "), 39
-                                                    + i64, 439 + i56);
+                                            rd.drawString("" + cnames[i57][i68] + ": ", 39 + i64, 439 + i56);
                                         }
-                                        i64 += ftm.stringWidth("" + (cnames[i57][i68]) + (": "));
+                                        i64 += ftm.stringWidth("" + cnames[i57][i68] + ": ");
                                     } else {
                                         String string = "";
                                         for (int i69 = 0; ftm.stringWidth(string) + 39 + i64 < 775
                                                 && i69 < cnames[i57][i68].length(); i69++) {
-                                            string = "" + (string) + (cnames[i57][i68].charAt(i69));
+                                            string = "" + string + cnames[i57][i68].charAt(i69);
                                         }
-                                        string = "" + (string) + ("...");
+                                        string = "" + string + "...";
                                         if (i68 != 6 || msgflk[i57] < 67 || msgflk[i57] % 3 != 0) {
                                             rd.drawString(string, 39 + i64, 439 + i56);
                                         }
@@ -6755,17 +6736,16 @@ class xtGraphics extends Panel implements Runnable {
                                     ftm = rd.getFontMetrics();
                                     if (ftm.stringWidth(sentn[i57][i68]) + 39 + i64 < 775) {
                                         if (i68 != 6 || msgflk[i57] < 67 || msgflk[i57] % 3 != 0) {
-                                            rd.drawString("" + (sentn[i57][i68]) + ("   "), 39
-                                                    + i64, 439 + i56);
+                                            rd.drawString("" + sentn[i57][i68] + "   ", 39 + i64, 439 + i56);
                                         }
-                                        i64 += ftm.stringWidth("" + (sentn[i57][i68]) + ("   "));
+                                        i64 += ftm.stringWidth("" + sentn[i57][i68] + "   ");
                                     } else {
                                         String string = "";
                                         for (int i70 = 0; ftm.stringWidth(string) + 39 + i64 < 775
                                                 && i70 < sentn[i57][i68].length(); i70++) {
-                                            string = "" + (string) + (sentn[i57][i68].charAt(i70));
+                                            string = "" + string + sentn[i57][i68].charAt(i70);
                                         }
-                                        string = "" + (string) + ("...");
+                                        string = "" + string + "...";
                                         if (i68 != 6 || msgflk[i57] < 67 || msgflk[i57] % 3 != 0) {
                                             rd.drawString(string, 39 + i64, 439 + i56);
                                         }
@@ -6918,8 +6898,7 @@ class xtGraphics extends Panel implements Runnable {
                                 rd.drawString("3rd", 671, 76 + 30 * i75);
                             }
                             if (i75 >= 3) {
-                                rd.drawString("" + ("") + (i75
-                                        + 1) + ("th"), 671, 76 + 30 * i75);
+                                rd.drawString("" + "" + (i75 + 1) + "th", 671, 76 + 30 * i75);
                             }
                             if (clangame != 0) {
                                 int i82;
@@ -7143,7 +7122,7 @@ class xtGraphics extends Panel implements Runnable {
             } else {
                 cntchatp[i54] = -200;
             }
-            lcmsg[i54] = "" + ("") + (app.cmsg.getText());
+            lcmsg[i54] = "" + "" + app.cmsg.getText();
             if (cntchatp[i54] == 67) {
                 control.chatup = 0;
             }
@@ -7402,7 +7381,7 @@ class xtGraphics extends Panel implements Runnable {
     private void pingstat() {
         final int i = (int) (100.0 * Math.random());
         try {
-            final URL url = new URL("" + ("http://c.statcounter.com/9994681/0/14bb645e/1/?reco=") + (i) + (""));
+            final URL url = new URL("" + "http://c.statcounter.com/9994681/0/14bb645e/1/?reco=" + i + "");
             url.openConnection().setConnectTimeout(5000);
             final Image image = Toolkit.getDefaultToolkit().createImage(url);
             final MediaTracker mediatracker = new MediaTracker(app);
@@ -7829,8 +7808,8 @@ class xtGraphics extends Panel implements Runnable {
         final float f255 = f * 1.4F * 21.0F * 60.0F * 60.0F / 100000.0F;
         final float f256 = f255 * 0.621371F;
         rd.setColor(new Color(0, 0, 100));
-        rd.drawString("" + ("") + ((int) f255), 62, 245);
-        rd.drawString("" + ("") + ((int) f256), 132, 245);
+        rd.drawString("" + "" + (int) f255, 62, 245);
+        rd.drawString("" + "" + (int) f256, 132, 245);
     }
 
     void replyn() {
@@ -7898,7 +7877,7 @@ class xtGraphics extends Panel implements Runnable {
                 if (i21 == 0) {
                     cnames[i21][6] = "Game Chat  ";
                 } else {
-                    cnames[i21][6] = "" + ("") + (clan) + ("'s Chat  ");
+                    cnames[i21][6] = "" + "" + clan + "'s Chat  ";
                 }
                 updatec[i21] = -1;
                 movepos[i21] = 0;
@@ -7962,30 +7941,28 @@ class xtGraphics extends Panel implements Runnable {
                     true, true
             };
             while ((runtyp == -101 || sendstat == 1) && !lan && !Thread.currentThread().isInterrupted()) {
-                String string = "" + ("3|") + (playingame) + ("|") + (updatec[0]) + ("|");
+                String string = "" + "3|" + playingame + "|" + updatec[0] + "|";
                 if (clanchat) {
-                    string = "" + (string) + ("") + (updatec[1]) + ("|") + (clan) + ("|") + (clankey) + ("|");
+                    string = "" + string + "" + updatec[1] + "|" + clan + "|" + clankey + "|";
                 } else {
-                    string = "" + (string) + ("0|||");
+                    string = "" + string + "0|||";
                 }
                 if (updatec[0] <= -11) {
                     for (int i = 0; i < -updatec[0] - 10; i++) {
-                        string = "" + (string) + ("") + (cnames[0][6
-                                - i]) + ("|") + (sentn[0][6 - i]) + ("|");
+                        string = "" + string + "" + cnames[0][6 - i] + "|" + sentn[0][6 - i] + "|";
                     }
                     updatec[0] = -2;
                 }
                 if (clanchat && updatec[1] <= -11) {
                     for (int i = 0; i < -updatec[1] - 10; i++) {
-                        string = "" + (string) + ("") + (cnames[1][6
-                                - i]) + ("|") + (sentn[1][6 - i]) + ("|");
+                        string = "" + string + "" + cnames[1][6 - i] + "|" + sentn[1][6 - i] + "|";
                     }
                     updatec[1] = -2;
                 }
                 if (sendstat == 1) {
-                    string = "" + ("5|") + (playingame) + ("|") + (im) + ("|") + (beststunt) + ("|") + (fastestlap) + ("|");
+                    string = "" + "5|" + playingame + "|" + im + "|" + beststunt + "|" + fastestlap + "|";
                     for (int i = 0; i < nplayers; i++) {
-                        string = "" + (string) + ("") + (dcrashes[i]) + ("|");
+                        string = "" + string + "" + dcrashes[i] + "|";
                     }
                     sendstat = 2;
                 }
@@ -8058,7 +8035,7 @@ class xtGraphics extends Panel implements Runnable {
                                 if (i16 == 0) {
                                     cnames[i16][6] = "Game Chat  ";
                                 } else {
-                                    cnames[i16][6] = "" + ("") + (clan) + ("'s Chat  ");
+                                    cnames[i16][6] = "" + "" + clan + "'s Chat  ";
                                 }
                             if (updatec[i16] != -2) {
                                 floater[i16] = 1;
@@ -8089,8 +8066,8 @@ class xtGraphics extends Panel implements Runnable {
                     socket = new Socket("multiplayer.needformadness.com", 7061);
                     din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     dout = new PrintWriter(socket.getOutputStream(), true);
-                    dout.println("" + ("101|") + (runtyp
-                            + 174) + ("|") + (app.tnick.getText()) + ("|") + (app.tpass.getText()) + ("|"));
+                    dout.println("" + "101|" + (runtyp + 174) + "|" + app.tnick.getText() + "|" + app.tpass.getText()
+                            + "|");
                     din.readLine();
                     socket.close();
                     socket = null;
@@ -8493,13 +8470,13 @@ class xtGraphics extends Panel implements Runnable {
                     if (checkpoints.stage != -3) {
                         String string = "";
                         if (checkpoints.top20 >= 3) {
-                            string = "" + ("N#") + (checkpoints.nto) + ("  ");
+                            string = "" + "N#" + checkpoints.nto + "  ";
                         }
                         if (aflk) {
-                            drawcs(132, "" + (string) + (checkpoints.name), 240, 240, 240, 3);
+                            drawcs(132, "" + string + checkpoints.name, 240, 240, 240, 3);
                             aflk = false;
                         } else {
-                            drawcs(132, "" + (string) + (checkpoints.name), 176, 176, 176, 3);
+                            drawcs(132, "" + string + checkpoints.name, 176, 176, 176, 3);
                             aflk = true;
                         }
                         if (checkpoints.stage == -2 && cd.staction == 0) {
@@ -8509,11 +8486,11 @@ class xtGraphics extends Panel implements Runnable {
                             if (checkpoints.maker.equals(nickname)) {
                                 rd.drawString("Created by You", 70, 115);
                             } else {
-                                rd.drawString("" + ("Created by :  ") + (checkpoints.maker) + (""), 70, 115);
+                                rd.drawString("" + "Created by :  " + checkpoints.maker + "", 70, 115);
                             }
                             if (checkpoints.top20 >= 3) {
-                                rd.drawString("" + ("Added by :  ") + (cd.top20adds[checkpoints.nto
-                                        - 1]) + (" Players"), 70, 135);
+                                rd.drawString("" + "Added by :  " + cd.top20adds[checkpoints.nto - 1]
+                                        + " Players", 70, 135);
                             }
                         }
                     } else if (removeds != 1) {
@@ -8827,15 +8804,15 @@ class xtGraphics extends Panel implements Runnable {
                     final int i44 = checkpoints.stage;
                     //if (i44 > 10)
                     //	i44 -= 10;
-                    drawcs(80, "" + ("Stage ") + (i44) + ("  >"), 255, 128, 0, 3);
+                    drawcs(80, "" + "Stage " + i44 + "  >", 255, 128, 0, 3);
                 } else {
                     drawcs(80, "Final Party Stage  >", 255, 128, 0, 3);
                 }
                 if (aflk) {
-                    drawcs(100, "" + ("| ") + (checkpoints.name) + (" |"), 240, 240, 240, 3);
+                    drawcs(100, "" + "| " + checkpoints.name + " |", 240, 240, 240, 3);
                     aflk = false;
                 } else {
-                    drawcs(100, "" + ("| ") + (checkpoints.name) + (" |"), 176, 176, 176, 3);
+                    drawcs(100, "" + "| " + checkpoints.name + " |", 176, 176, 176, 3);
                     aflk = true;
                 }
                 if (checkpoints.stage != -3) {
@@ -9020,30 +8997,38 @@ class xtGraphics extends Panel implements Runnable {
                         }
                     if (clangame == 2) {
                         bool186 = true;
-                        string187 = "" + ("Clan ") + (string185) + (" wasted, nobody won becuase this is a racing only game!");
+                        string187 = "" + "Clan " + string185
+                                + " wasted, nobody won becuase this is a racing only game!";
                     }
                     if (clangame == 4 && !string.toLowerCase().equals(gaclan.toLowerCase())) {
                         bool186 = true;
-                        string187 = "" + ("Clan ") + (string185) + (" wasted, nobody won becuase ") + (string) + (" should have raced in this racing vs wasting game!");
+                        string187 = "" + "Clan " + string185 + " wasted, nobody won becuase " + string
+                                + " should have raced in this racing vs wasting game!";
                     }
                     if (clangame == 5 && string.toLowerCase().equals(gaclan.toLowerCase())) {
                         bool186 = true;
-                        string187 = "" + ("Clan ") + (string185) + (" wasted, nobody won becuase ") + (string) + (" should have raced in this racing vs wasting game!");
+                        string187 = "" + "Clan " + string185 + " wasted, nobody won becuase " + string
+                                + " should have raced in this racing vs wasting game!";
                     }
                 }
                 for (int i = 0; i < nplayers; i++)
                     if (checkpoints.clear[i] == checkpoints.nlaps * checkpoints.nsp && checkpoints.pos[i] == 0) {
                         if (clangame == 3) {
                             bool186 = true;
-                            string187 = "" + ("") + (plnames[i]) + (" of clan ") + (pclan[i]) + (" finished first, nobody won becuase this is a wasting only game!");
+                            string187 = "" + "" + plnames[i] + " of clan " + pclan[i]
+                                    + " finished first, nobody won becuase this is a wasting only game!";
                         }
                         if (clangame == 4 && pclan[i].toLowerCase().equals(gaclan.toLowerCase())) {
                             bool186 = true;
-                            string187 = "" + ("") + (plnames[i]) + (" of clan ") + (pclan[i]) + (" finished first, nobody won becuase ") + (pclan[i]) + (" should have wasted in this racing vs wasting game!");
+                            string187 = "" + "" + plnames[i] + " of clan " + pclan[i]
+                                    + " finished first, nobody won becuase " + pclan[i]
+                                    + " should have wasted in this racing vs wasting game!";
                         }
                         if (clangame == 5 && !pclan[i].toLowerCase().equals(gaclan.toLowerCase())) {
                             bool186 = true;
-                            string187 = "" + ("") + (plnames[i]) + (" of clan ") + (pclan[i]) + (" finished first, nobody won becuase ") + (pclan[i]) + (" should have wasted in this racing vs wasting game!");
+                            string187 = "" + "" + plnames[i] + " of clan " + pclan[i]
+                                    + " finished first, nobody won becuase " + pclan[i]
+                                    + " should have wasted in this racing vs wasting game!";
                         }
                     }
                 if (bool186) {
@@ -9073,10 +9058,10 @@ class xtGraphics extends Panel implements Runnable {
                             aflk = true;
                         }
                     } else if (aflk) {
-                        drawcs(120, "" + ("Your clan ") + (string) + (" has wasted all the cars!"), 0, 0, 0, 0);
+                        drawcs(120, "" + "Your clan " + string + " has wasted all the cars!", 0, 0, 0, 0);
                         aflk = false;
                     } else {
-                        drawcs(120, "" + ("Your clan ") + (string) + (" has wasted all the cars!"), 0, 128, 255, 0);
+                        drawcs(120, "" + "Your clan " + string + " has wasted all the cars!", 0, 128, 255, 0);
                         aflk = true;
                     }
                     drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
@@ -9132,17 +9117,20 @@ class xtGraphics extends Panel implements Runnable {
                                     drawhi(youlost, 70);
                                     if (fase != 7001) {
                                         if (aflk) {
-                                            drawcs(120, "" + ("") + (cd.names[sc[i]]) + (" finished first, race over!"), 0, 0, 0, 0);
+                                            drawcs(120, "" + "" + cd.names[sc[i]]
+                                                    + " finished first, race over!", 0, 0, 0, 0);
                                             aflk = false;
                                         } else {
-                                            drawcs(120, "" + ("") + (cd.names[sc[i]]) + (" finished first, race over!"), 0, 128, 255, 0);
+                                            drawcs(120, "" + "" + cd.names[sc[i]]
+                                                    + " finished first, race over!", 0, 128, 255, 0);
                                             aflk = true;
                                         }
                                     } else if (aflk) {
-                                        drawcs(120, "" + ("") + (plnames[i]) + (" finished first, race over!"), 0, 0, 0, 0);
+                                        drawcs(120, "" + "" + plnames[i] + " finished first, race over!", 0, 0, 0, 0);
                                         aflk = false;
                                     } else {
-                                        drawcs(120, "" + ("") + (plnames[i]) + (" finished first, race over!"), 0, 128, 255, 0);
+                                        drawcs(120, "" + "" + plnames[i]
+                                                + " finished first, race over!", 0, 128, 255, 0);
                                         aflk = true;
                                     }
                                     winner = false;
@@ -9150,20 +9138,24 @@ class xtGraphics extends Panel implements Runnable {
                             } else if (pclan[i].toLowerCase().equals(pclan[im].toLowerCase())) {
                                 drawhi(youwon, 70);
                                 if (aflk) {
-                                    drawcs(120, "" + ("Your clan ") + (pclan[im]) + (" finished first, nice job!"), 0, 0, 0, 0);
+                                    drawcs(120, "" + "Your clan " + pclan[im]
+                                            + " finished first, nice job!", 0, 0, 0, 0);
                                     aflk = false;
                                 } else {
-                                    drawcs(120, "" + ("Your clan ") + (pclan[im]) + (" finished first, nice job!"), 0, 128, 255, 0);
+                                    drawcs(120, "" + "Your clan " + pclan[im]
+                                            + " finished first, nice job!", 0, 128, 255, 0);
                                     aflk = true;
                                 }
                                 winner = true;
                             } else {
                                 drawhi(youlost, 70);
                                 if (aflk) {
-                                    drawcs(120, "" + ("") + (plnames[i]) + (" of clan ") + (pclan[i]) + (" finished first, race over!"), 0, 0, 0, 0);
+                                    drawcs(120, "" + "" + plnames[i] + " of clan " + pclan[i]
+                                            + " finished first, race over!", 0, 0, 0, 0);
                                     aflk = false;
                                 } else {
-                                    drawcs(120, "" + ("") + (plnames[i]) + (" of clan ") + (pclan[i]) + (" finished first, race over!"), 0, 128, 255, 0);
+                                    drawcs(120, "" + "" + plnames[i] + " of clan " + pclan[i]
+                                            + " finished first, race over!", 0, 128, 255, 0);
                                     aflk = true;
                                 }
                                 winner = false;
@@ -9182,14 +9174,14 @@ class xtGraphics extends Panel implements Runnable {
                                 string189 = plnames[i];
                             }
                     } else {
-                        string189 = "" + ("Clan ") + (string) + ("");
+                        string189 = "" + "Clan " + string + "";
                     }
                     drawhi(gamefinished, 70);
                     if (aflk) {
-                        drawcs(120, "" + ("") + (string189) + (" has wasted all the cars!"), 0, 0, 0, 0);
+                        drawcs(120, "" + "" + string189 + " has wasted all the cars!", 0, 0, 0, 0);
                         aflk = false;
                     } else {
-                        drawcs(120, "" + ("") + (string189) + (" has wasted all the cars!"), 0, 128, 255, 0);
+                        drawcs(120, "" + "" + string189 + " has wasted all the cars!", 0, 128, 255, 0);
                         aflk = true;
                     }
                     drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
@@ -9203,17 +9195,17 @@ class xtGraphics extends Panel implements Runnable {
                             drawhi(gamefinished, 70);
                             if (clangame == 0) {
                                 if (aflk) {
-                                    drawcs(120, "" + ("") + (plnames[i]) + (" finished first, race over!"), 0, 0, 0, 0);
+                                    drawcs(120, "" + "" + plnames[i] + " finished first, race over!", 0, 0, 0, 0);
                                     aflk = false;
                                 } else {
-                                    drawcs(120, "" + ("") + (plnames[i]) + (" finished first, race over!"), 0, 128, 255, 0);
+                                    drawcs(120, "" + "" + plnames[i] + " finished first, race over!", 0, 128, 255, 0);
                                     aflk = true;
                                 }
                             } else if (aflk) {
-                                drawcs(120, "" + ("Clan ") + (pclan[i]) + (" finished first, race over!"), 0, 0, 0, 0);
+                                drawcs(120, "" + "Clan " + pclan[i] + " finished first, race over!", 0, 0, 0, 0);
                                 aflk = false;
                             } else {
-                                drawcs(120, "" + ("Clan ") + (pclan[i]) + (" finished first, race over!"), 0, 128, 255, 0);
+                                drawcs(120, "" + "Clan " + pclan[i] + " finished first, race over!", 0, 128, 255, 0);
                                 aflk = true;
                             }
                             drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
@@ -9259,7 +9251,7 @@ class xtGraphics extends Panel implements Runnable {
                         say = " Arrow now pointing at >  CARS";
                         if (multion == 1) {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            say = stringbuilder + (say) + ("    Press [S] to toggle Radar!");
+                            say = stringbuilder + say + "    Press [S] to toggle Radar!";
                         }
                         tcnt = -5;
                     }
@@ -9268,7 +9260,7 @@ class xtGraphics extends Panel implements Runnable {
                         say = " Arrow now pointing at >  TRACK";
                         if (multion == 1) {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            say = stringbuilder + (say) + ("    Press [S] to toggle Radar!");
+                            say = stringbuilder + say + "    Press [S] to toggle Radar!";
                         }
                         tcnt = -5;
                         cntan = 20;
@@ -9312,7 +9304,7 @@ class xtGraphics extends Panel implements Runnable {
                     } else if (alocked != lalocked) {
                         if (alocked != -1) {
                             wasay = true;
-                            say = "" + (" Arrow Locked on >  ") + (plnames[alocked]) + ("");
+                            say = "" + " Arrow Locked on >  " + plnames[alocked] + "";
                             tcnt = -5;
                         } else {
                             wasay = true;
@@ -9350,12 +9342,10 @@ class xtGraphics extends Panel implements Runnable {
                 rd.drawImage(pwr, 600, 27, null);
                 rd.drawImage(lap, 19, 7, null);
                 rd.setColor(new Color(0, 0, 100));
-                rd.drawString("" + ("") + (mad.nlaps
-                        + 1) + (" / ") + (checkpoints.nlaps) + (""), 51, 18);
+                rd.drawString("" + "" + (mad.nlaps + 1) + " / " + checkpoints.nlaps + "", 51, 18);
                 rd.drawImage(was, 92, 7, null);
                 rd.setColor(new Color(0, 0, 100));
-                rd.drawString("" + ("") + (checkpoints.wasted) + (" / ") + (nplayers
-                        - 1) + (""), 150, 18);
+                rd.drawString("" + "" + checkpoints.wasted + " / " + (nplayers - 1) + "", 150, 18);
                 rd.drawImage(pos, 42, 27, null);
                 rd.drawImage(rank[checkpoints.pos[mad.im]], 110, 28, null);
                 drawstat(cd.maxmag[mad.cn], mad.hitmag, mad.newcar, mad.power);
@@ -9430,10 +9420,10 @@ class xtGraphics extends Panel implements Runnable {
                                 string192 = "  (Press Enter)";
                             }
                             if (pwflk) {
-                                drawcs(110, "" + ("Please read the Game Instructions!") + (string192) + (""), 0, 0, 200, 0);
+                                drawcs(110, "" + "Please read the Game Instructions!" + string192 + "", 0, 0, 200, 0);
                                 pwflk = false;
                             } else {
-                                drawcs(110, "" + ("Please read the Game Instructions!") + (string192) + (""), 255, 100, 0, 0);
+                                drawcs(110, "" + "Please read the Game Instructions!" + string192 + "", 255, 100, 0, 0);
                                 pwflk = true;
                             }
                         }
@@ -9536,15 +9526,15 @@ class xtGraphics extends Panel implements Runnable {
                             loop = "Tabletop";
                         }
                     if (i > 0 && mad.btab) {
-                        loop = "" + ("Hanged ") + (loop);
+                        loop = "" + "Hanged " + loop;
                     }
                     if (i < 0 && mad.ftab) {
-                        loop = "" + ("Hanged ") + (loop);
+                        loop = "" + "Hanged " + loop;
                     }
                     if (loop != "") {
                         final StringBuilder stringbuilder = new StringBuilder();
                         final xtGraphics xtgraphics193 = this;
-                        xtgraphics193.asay = stringbuilder + (xtgraphics193.asay) + (" ") + (loop);
+                        xtgraphics193.asay = stringbuilder + xtgraphics193.asay + " " + loop;
                     }
                     i = 0;
                     mad.travxy = Math.abs(mad.travxy);
@@ -9585,41 +9575,41 @@ class xtGraphics extends Panel implements Runnable {
                         if (loop == "" && spin == "") {
                             final StringBuilder stringbuilder = new StringBuilder();
                             final xtGraphics xtgraphics195 = this;
-                            xtgraphics195.asay = stringbuilder + (xtgraphics195.asay) + (" ") + (i);
+                            xtgraphics195.asay = stringbuilder + xtgraphics195.asay + " " + i;
                             if (bool194) {
                                 final StringBuilder stringbuilder196 = new StringBuilder();
                                 final xtGraphics xtgraphics197 = this;
-                                xtgraphics197.asay = stringbuilder196 + (xtgraphics197.asay) + (" and beyond");
+                                xtgraphics197.asay = stringbuilder196 + xtgraphics197.asay + " and beyond";
                             }
                         } else {
                             if (spin != "")
                                 if (loop == "") {
                                     final StringBuilder stringbuilder = new StringBuilder();
                                     final xtGraphics xtgraphics198 = this;
-                                    xtgraphics198.asay = stringbuilder + (xtgraphics198.asay) + (" ") + (spin);
+                                    xtgraphics198.asay = stringbuilder + xtgraphics198.asay + " " + spin;
                                 } else {
                                     final StringBuilder stringbuilder = new StringBuilder();
                                     final xtGraphics xtgraphics199 = this;
-                                    xtgraphics199.asay = stringbuilder + (xtgraphics199.asay) + (" with ") + (spin);
+                                    xtgraphics199.asay = stringbuilder + xtgraphics199.asay + " with " + spin;
                                 }
                             final StringBuilder stringbuilder = new StringBuilder();
                             final xtGraphics xtgraphics200 = this;
-                            xtgraphics200.asay = stringbuilder + (xtgraphics200.asay) + (" by ") + (i);
+                            xtgraphics200.asay = stringbuilder + xtgraphics200.asay + " by " + i;
                             if (bool194) {
                                 final StringBuilder stringbuilder201 = new StringBuilder();
                                 final xtGraphics xtgraphics202 = this;
-                                xtgraphics202.asay = stringbuilder201 + (xtgraphics202.asay) + (" and beyond");
+                                xtgraphics202.asay = stringbuilder201 + xtgraphics202.asay + " and beyond";
                             }
                         }
                     } else if (spin != "")
                         if (loop == "") {
                             final StringBuilder stringbuilder = new StringBuilder();
                             final xtGraphics xtgraphics203 = this;
-                            xtgraphics203.asay = stringbuilder + (xtgraphics203.asay) + (" ") + (spin);
+                            xtgraphics203.asay = stringbuilder + xtgraphics203.asay + " " + spin;
                         } else {
                             final StringBuilder stringbuilder = new StringBuilder();
                             final xtGraphics xtgraphics204 = this;
-                            xtgraphics204.asay = stringbuilder + (xtgraphics204.asay) + (" by ") + (spin);
+                            xtgraphics204.asay = stringbuilder + xtgraphics204.asay + " by " + spin;
                         }
                     if (asay != "") {
                         auscnt -= 15;
@@ -9651,20 +9641,17 @@ class xtGraphics extends Panel implements Runnable {
                             i205 = 3;
                         }
                         if (mad.surfer) {
-                            asay = "" + (" ") + (adj[4][(int) (m.random()
-                                    * 3.0F)]) + (asay);
+                            asay = "" + " " + adj[4][(int) (m.random() * 3.0F)] + asay;
                         }
                         if (i205 != 3) {
-                            asay = "" + (adj[i205][(int) (m.random()
-                                    * 3.0F)]) + (asay) + (exlm[i205]);
+                            asay = "" + adj[i205][(int) (m.random() * 3.0F)] + asay + exlm[i205];
                         } else {
                             asay = adj[i205][(int) (m.random() * 3.0F)];
                         }
                         if (!wasay) {
                             tcnt = auscnt;
                             if (mad.power != 98.0F) {
-                                say = "" + ("Power Up ") + ((int) (100.0F * mad.powerup
-                                        / 98.0F)) + ("%");
+                                say = "" + "Power Up " + (int) (100.0F * mad.powerup / 98.0F) + "%";
                             } else {
                                 say = "Power To The MAX";
                             }
@@ -9693,32 +9680,32 @@ class xtGraphics extends Panel implements Runnable {
                         if (fase != 7001) {
                             if (dested[i] == 1) {
                                 wasay = true;
-                                say = "" + ("") + (cd.names[sc[i]]) + (" has been wasted!");
+                                say = "" + "" + cd.names[sc[i]] + " has been wasted!";
                                 tcnt = -15;
                             }
                             if (dested[i] == 2) {
                                 wasay = true;
-                                say = "" + ("You wasted ") + (cd.names[sc[i]]) + ("!");
+                                say = "" + "You wasted " + cd.names[sc[i]] + "!";
                                 tcnt = -15;
                             }
                         } else {
                             if (dested[i] == 1) {
                                 wasay = true;
-                                say = "" + ("") + (plnames[i]) + (" has been wasted!");
+                                say = "" + "" + plnames[i] + " has been wasted!";
                                 tcnt = -15;
                             }
                             if (dested[i] == 2) {
                                 wasay = true;
                                 if (multion < 2) {
-                                    say = "" + ("You wasted ") + (plnames[i]) + ("!");
+                                    say = "" + "You wasted " + plnames[i] + "!";
                                 } else {
-                                    say = "" + ("") + (plnames[im]) + (" wasted ") + (plnames[i]) + ("!");
+                                    say = "" + "" + plnames[im] + " wasted " + plnames[i] + "!";
                                 }
                                 tcnt = -15;
                             }
                             if (dested[i] == 3) {
                                 wasay = true;
-                                say = "" + ("") + (plnames[i]) + (" has been wasted! (Disconnected)");
+                                say = "" + "" + plnames[i] + " has been wasted! (Disconnected)";
                                 tcnt = -15;
                             }
                         }
@@ -9726,7 +9713,7 @@ class xtGraphics extends Panel implements Runnable {
                 if (multion >= 2 && alocked != lalocked) {
                     if (alocked != -1) {
                         wasay = false;
-                        say = "" + ("Now following ") + (plnames[alocked]) + ("!");
+                        say = "" + "Now following " + plnames[alocked] + "!";
                         tcnt = -15;
                     }
                     lalocked = alocked;
@@ -9854,8 +9841,7 @@ class xtGraphics extends Panel implements Runnable {
             ftm = rd.getFontMetrics();
             drawcs(70, "Waiting for all players to finish loading!", 0, 0, 0, 0);
             if (forstart <= 640) {
-                drawcs(90, "" + ("") + ((640 - forstart)
-                        / 32) + (""), 0, 0, 0, 0);
+                drawcs(90, "" + "" + (640 - forstart) / 32 + "", 0, 0, 0, 0);
             } else {
                 drawcs(90, "Your connection to game may have been lost...", 0, 0, 0, 0);
             }

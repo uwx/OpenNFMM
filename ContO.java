@@ -182,7 +182,7 @@ class ContO {
             final DataInputStream datainputstream = new DataInputStream(new ByteArrayInputStream(is));
             String string17;
             while ((string17 = datainputstream.readLine()) != null) {
-                string = "" + ("") + (string17.trim());
+                string = "" + "" + string17.trim();
                 if (npl < 10000 /* 210 */) {
                     if (string.startsWith("<p>")) {
                         bool = true;
@@ -313,7 +313,9 @@ class ContO {
                             if (keyz[i9] < 0) {
                                 string19 = "BACK";
                             }
-                            err = "" + ("Wheels Error:\n") + (string19) + (" Wheels floor is too far below the center of Y Axis of the car!    \n\nPlease decrease the Y value of the ") + (string19) + (" Wheels or decrease its height.     \n \n");
+                            err = "" + "Wheels Error:\n" + string19
+                                    + " Wheels floor is too far below the center of Y Axis of the car!    \n\nPlease decrease the Y value of the "
+                                    + string19 + " Wheels or decrease its height.     \n \n";
                             errd = true;
                             keyz[i9] = 0;
                             keyx[i9] = 0;
@@ -323,7 +325,9 @@ class ContO {
                             if (keyz[i9] < 0) {
                                 string20 = "BACK";
                             }
-                            err = "" + ("Wheels Error:\n") + (string20) + (" Wheels floor is too far above the center of Y Axis of the car!    \n\nPlease increase the Y value of the ") + (string20) + (" Wheels or increase its height.     \n \n");
+                            err = "" + "Wheels Error:\n" + string20
+                                    + " Wheels floor is too far above the center of Y Axis of the car!    \n\nPlease increase the Y value of the "
+                                    + string20 + " Wheels or increase its height.     \n \n";
                             errd = true;
                             keyz[i9] = 0;
                             keyx[i9] = 0;
@@ -333,7 +337,9 @@ class ContO {
                             if (keyz[i9] < 0) {
                                 string21 = "BACK";
                             }
-                            err = "" + ("Wheels Error:\n") + (string21) + (" Wheels are too far apart!    \n\nPlease decrease the \u00b1X value of the ") + (string21) + (" Wheels.     \n \n");
+                            err = "" + "Wheels Error:\n" + string21
+                                    + " Wheels are too far apart!    \n\nPlease decrease the \u00b1X value of the "
+                                    + string21 + " Wheels.     \n \n";
                             errd = true;
                             keyz[i9] = 0;
                             keyx[i9] = 0;
@@ -353,7 +359,9 @@ class ContO {
                             if (keyz[i9] < 0) {
                                 string22 = "BACK";
                             }
-                            err = "" + ("Wheels Error:\nWidth of the ") + (string22) + (" Wheels is too large!    \n\nPlease decrease the width of the ") + (string22) + (" Wheels.     \n \n");
+                            err = "" + "Wheels Error:\nWidth of the " + string22
+                                    + " Wheels is too large!    \n\nPlease decrease the width of the " + string22
+                                    + " Wheels.     \n \n";
                             errd = true;
                             keyz[i9] = 0;
                             keyx[i9] = 0;
@@ -519,7 +527,8 @@ class ContO {
             if (exception instanceof RuntimeException)
                 throw new RuntimeException(exception);
             else if (!errd) {
-                err = "" + ("Error While Loading 3D Model\n\nLine:     ") + (string) + ("\n\nError Detail:\n") + (exception) + ("           \n \n");
+                err = "" + "Error While Loading 3D Model\n\nLine:     " + string + "\n\nError Detail:\n" + exception
+                        + "           \n \n";
                 System.out.println(err);
                 errd = true;
             }
@@ -1937,13 +1946,13 @@ class ContO {
         int i263 = 0;
         String string264 = "";
         for (int i265 = string.length() + 1; i265 < string262.length(); i265++) {
-            final String string266 = "" + ("") + (string262.charAt(i265));
+            final String string266 = "" + "" + string262.charAt(i265);
             if (string266.equals(",") || string266.equals(")")) {
                 i263++;
                 i265++;
             }
             if (i263 == i) {
-                string264 = "" + (string264) + (string262.charAt(i265));
+                string264 = "" + string264 + string262.charAt(i265);
             }
         }
         return Float.valueOf(string264).intValue();

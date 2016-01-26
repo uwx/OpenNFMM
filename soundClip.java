@@ -26,7 +26,7 @@ class soundClip {
             clip = AudioSystem.getClip();
             loaded = true;
         } catch (final Exception exception) {
-            System.out.println("" + ("Loading Clip error: ") + (exception));
+            System.out.println("" + "Loading Clip error: " + exception);
             loaded = false;
         }
     }

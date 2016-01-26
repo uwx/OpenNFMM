@@ -15,38 +15,10 @@ class Mod {
     private static final int voiceMk = FOURCC("M.K.");
     private static final int voiceMk2 = FOURCC("M!K!");
     private static final int voiceMk3 = FOURCC("M&K!");
-    private static final int[] voice_31List = {
-            voiceMk, voiceMk2, voiceMk3, voiceFlt4, voiceFlt8, voice_8chn, voice_6chn, voice_28ch
-    };
 
     static final int FOURCC(final String string) {
         return string.charAt(3) & 0xff | (string.charAt(2) & 0xff) << 8 | (string.charAt(1) & 0xff) << 16
                 | (string.charAt(0) & 0xff) << 24;
-    }
-
-    private static ModInstrument readInstrument(final DataInputStream datainputstream) throws IOException {
-        final ModInstrument modinstrument = new ModInstrument();
-        modinstrument.name = readText(datainputstream, 22);
-        modinstrument.sampleLength = readu16(datainputstream) << 1;
-        modinstrument.samples = new byte[modinstrument.sampleLength + 8];
-        modinstrument.finetuneValue = (byte) (readu8(datainputstream) << 4);
-        modinstrument.volume = readu8(datainputstream);
-        modinstrument.repeatPoint = readu16(datainputstream) << 1;
-        modinstrument.repeatLength = readu16(datainputstream) << 1;
-        if (modinstrument.repeatPoint > modinstrument.sampleLength) {
-            modinstrument.repeatPoint = modinstrument.sampleLength;
-        }
-        if (modinstrument.repeatPoint + modinstrument.repeatLength > modinstrument.sampleLength) {
-            modinstrument.repeatLength = modinstrument.sampleLength - modinstrument.repeatPoint;
-        }
-        return modinstrument;
-    }
-
-    private static void readSampleData(final DataInputStream datainputstream, final ModInstrument modinstrument) throws IOException {
-        datainputstream.readFully(modinstrument.samples, 0, modinstrument.sampleLength);
-        if (modinstrument.repeatLength > 3) {
-            System.arraycopy(modinstrument.samples, modinstrument.repeatPoint, modinstrument.samples, modinstrument.sampleLength, 8);
-        }
     }
 
     private static final String readText(final DataInputStream datainputstream, final int i) throws IOException {
@@ -122,6 +94,6 @@ class Mod {
 
     @Override
     public String toString() {
-        return "" + (name) + (" (") + (numtracks) + (" tracks, ") + (numpatterns) + (" patterns, ") + (insts.length) + (" samples)");
+        return "" + name + " (" + numtracks + " tracks, " + numpatterns + " patterns, " + insts.length + " samples)";
     }
 }

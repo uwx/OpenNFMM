@@ -56,7 +56,7 @@ class UDPMistro implements Runnable {
         int i89 = 0;
         String string90 = "";
         for (/**/; i89 < string.length(); i89++) {
-            string90 = "" + ("") + (string.charAt(i89));
+            string90 = "" + "" + string.charAt(i89);
             if (string90.equals(",")) {
                 i++;
             }
@@ -73,14 +73,14 @@ class UDPMistro implements Runnable {
             String string87 = "";
             String string88 = "";
             for (/**/; i84 < string.length() && i86 != 2; i84++) {
-                string87 = "" + ("") + (string.charAt(i84));
+                string87 = "" + "" + string.charAt(i84);
                 if (string87.equals(",")) {
                     i85++;
                     if (i86 == 1 || i85 > i) {
                         i86 = 2;
                     }
                 } else if (i85 == i) {
-                    string88 = "" + (string88) + (string87);
+                    string88 = "" + string88 + string87;
                     i86 = 1;
                 }
             }
@@ -99,14 +99,14 @@ class UDPMistro implements Runnable {
             String string81 = "";
             String string82 = "";
             for (/**/; wx < string.length() && i80 != 2; wx++) {
-                string81 = "" + ("") + (string.charAt(wx));
+                string81 = "" + "" + string.charAt(wx);
                 if (string81.equals(",")) {
                     i79++;
                     if (i80 == 1 || i79 > i) {
                         i80 = 2;
                     }
                 } else if (i79 == i) {
-                    string82 = "" + (string82) + (string81);
+                    string82 = "" + string82 + string81;
                     i80 = 1;
                 }
             }
@@ -208,91 +208,91 @@ class UDPMistro implements Runnable {
                 final String string34 = getSvalue(string, 0);
                 if (string34.length() == 16) {
                     String string35 = "";
-                    string35 = "" + ("") + (string34.charAt(0));
+                    string35 = "" + "" + string34.charAt(0);
                     if (string35.equals("0")) {
                         control.left = false;
                     } else {
                         control.left = true;
                     }
-                    string35 = "" + ("") + (string34.charAt(1));
+                    string35 = "" + "" + string34.charAt(1);
                     if (string35.equals("0")) {
                         control.right = false;
                     } else {
                         control.right = true;
                     }
-                    string35 = "" + ("") + (string34.charAt(2));
+                    string35 = "" + "" + string34.charAt(2);
                     if (string35.equals("0")) {
                         control.up = false;
                     } else {
                         control.up = true;
                     }
-                    string35 = "" + ("") + (string34.charAt(3));
+                    string35 = "" + "" + string34.charAt(3);
                     if (string35.equals("0")) {
                         control.down = false;
                     } else {
                         control.down = true;
                     }
-                    string35 = "" + ("") + (string34.charAt(4));
+                    string35 = "" + "" + string34.charAt(4);
                     if (string35.equals("0")) {
                         control.handb = false;
                     } else {
                         control.handb = true;
                     }
-                    string35 = "" + ("") + (string34.charAt(5));
+                    string35 = "" + "" + string34.charAt(5);
                     if (string35.equals("0")) {
                         mad.newcar = false;
                     } else {
                         mad.newcar = true;
                     }
-                    string35 = "" + ("") + (string34.charAt(6));
+                    string35 = "" + "" + string34.charAt(6);
                     if (string35.equals("0")) {
                         mad.mtouch = false;
                     } else {
                         mad.mtouch = true;
                     }
-                    string35 = "" + ("") + (string34.charAt(7));
+                    string35 = "" + "" + string34.charAt(7);
                     if (string35.equals("0")) {
                         mad.wtouch = false;
                     } else {
                         mad.wtouch = true;
                     }
-                    string35 = "" + ("") + (string34.charAt(8));
+                    string35 = "" + "" + string34.charAt(8);
                     if (string35.equals("0")) {
                         mad.pushed = false;
                     } else {
                         mad.pushed = true;
                     }
-                    string35 = "" + ("") + (string34.charAt(9));
+                    string35 = "" + "" + string34.charAt(9);
                     if (string35.equals("0")) {
                         mad.gtouch = false;
                     } else {
                         mad.gtouch = true;
                     }
-                    string35 = "" + ("") + (string34.charAt(10));
+                    string35 = "" + "" + string34.charAt(10);
                     if (string35.equals("0")) {
                         mad.pl = false;
                     } else {
                         mad.pl = true;
                     }
-                    string35 = "" + ("") + (string34.charAt(11));
+                    string35 = "" + "" + string34.charAt(11);
                     if (string35.equals("0")) {
                         mad.pr = false;
                     } else {
                         mad.pr = true;
                     }
-                    string35 = "" + ("") + (string34.charAt(12));
+                    string35 = "" + "" + string34.charAt(12);
                     if (string35.equals("0")) {
                         mad.pd = false;
                     } else {
                         mad.pd = true;
                     }
-                    string35 = "" + ("") + (string34.charAt(13));
+                    string35 = "" + "" + string34.charAt(13);
                     if (string35.equals("0")) {
                         mad.pu = false;
                     } else {
                         mad.pu = true;
                     }
-                    string35 = "" + ("") + (string34.charAt(14));
+                    string35 = "" + "" + string34.charAt(14);
                     if (string35.equals("0")) {
                         mad.dest = false;
                     } else {
@@ -419,7 +419,7 @@ class UDPMistro implements Runnable {
             for (int i21 = 0; i21 < nplayers; i21++) {
                 boolean bool = false;
                 if (info[i21][0].length() > 16) {
-                    final String string = "" + ("") + (info[i21][0].charAt(15));
+                    final String string = "" + "" + info[i21][0].charAt(15);
                     if (!string.equals("0")) {
                         bool = true;
                     }
@@ -453,7 +453,7 @@ class UDPMistro implements Runnable {
                     }
             }
             if (i20 == 10) {
-                final String string = "" + ("3|") + (pgame) + ("|alive|");
+                final String string = "" + "3|" + pgame + "|alive|";
                 String string22 = "";
                 if (i19 == 0) {
                     try {
@@ -553,7 +553,7 @@ class UDPMistro implements Runnable {
 
                 }
             }
-            final String string = "" + ("3|") + (pgame) + ("|finish|");
+            final String string = "" + "3|" + pgame + "|finish|";
             try {
                 dout.println(string);
                 din.readLine();
@@ -579,190 +579,190 @@ class UDPMistro implements Runnable {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i42 = 0;
-            strings[i42] = stringbuilder + (strings[i42]) + ("1");
+            strings[i42] = stringbuilder + strings[i42] + "1";
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i43 = 0;
-            strings[i43] = stringbuilder + (strings[i43]) + ("0");
+            strings[i43] = stringbuilder + strings[i43] + "0";
         }
         if (control.right) {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i44 = 0;
-            strings[i44] = stringbuilder + (strings[i44]) + ("1");
+            strings[i44] = stringbuilder + strings[i44] + "1";
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i45 = 0;
-            strings[i45] = stringbuilder + (strings[i45]) + ("0");
+            strings[i45] = stringbuilder + strings[i45] + "0";
         }
         if (control.up) {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i46 = 0;
-            strings[i46] = stringbuilder + (strings[i46]) + ("1");
+            strings[i46] = stringbuilder + strings[i46] + "1";
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i47 = 0;
-            strings[i47] = stringbuilder + (strings[i47]) + ("0");
+            strings[i47] = stringbuilder + strings[i47] + "0";
         }
         if (control.down) {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i48 = 0;
-            strings[i48] = stringbuilder + (strings[i48]) + ("1");
+            strings[i48] = stringbuilder + strings[i48] + "1";
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i49 = 0;
-            strings[i49] = stringbuilder + (strings[i49]) + ("0");
+            strings[i49] = stringbuilder + strings[i49] + "0";
         }
         if (control.handb) {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i50 = 0;
-            strings[i50] = stringbuilder + (strings[i50]) + ("1");
+            strings[i50] = stringbuilder + strings[i50] + "1";
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i51 = 0;
-            strings[i51] = stringbuilder + (strings[i51]) + ("0");
+            strings[i51] = stringbuilder + strings[i51] + "0";
         }
         if (mad.newcar) {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i52 = 0;
-            strings[i52] = stringbuilder + (strings[i52]) + ("1");
+            strings[i52] = stringbuilder + strings[i52] + "1";
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i53 = 0;
-            strings[i53] = stringbuilder + (strings[i53]) + ("0");
+            strings[i53] = stringbuilder + strings[i53] + "0";
         }
         if (mad.mtouch) {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i54 = 0;
-            strings[i54] = stringbuilder + (strings[i54]) + ("1");
+            strings[i54] = stringbuilder + strings[i54] + "1";
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i55 = 0;
-            strings[i55] = stringbuilder + (strings[i55]) + ("0");
+            strings[i55] = stringbuilder + strings[i55] + "0";
         }
         if (mad.wtouch) {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i56 = 0;
-            strings[i56] = stringbuilder + (strings[i56]) + ("1");
+            strings[i56] = stringbuilder + strings[i56] + "1";
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i57 = 0;
-            strings[i57] = stringbuilder + (strings[i57]) + ("0");
+            strings[i57] = stringbuilder + strings[i57] + "0";
         }
         if (mad.pushed) {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i58 = 0;
-            strings[i58] = stringbuilder + (strings[i58]) + ("1");
+            strings[i58] = stringbuilder + strings[i58] + "1";
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i59 = 0;
-            strings[i59] = stringbuilder + (strings[i59]) + ("0");
+            strings[i59] = stringbuilder + strings[i59] + "0";
         }
         if (mad.gtouch) {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i60 = 0;
-            strings[i60] = stringbuilder + (strings[i60]) + ("1");
+            strings[i60] = stringbuilder + strings[i60] + "1";
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i61 = 0;
-            strings[i61] = stringbuilder + (strings[i61]) + ("0");
+            strings[i61] = stringbuilder + strings[i61] + "0";
         }
         if (mad.pl) {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i62 = 0;
-            strings[i62] = stringbuilder + (strings[i62]) + ("1");
+            strings[i62] = stringbuilder + strings[i62] + "1";
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i63 = 0;
-            strings[i63] = stringbuilder + (strings[i63]) + ("0");
+            strings[i63] = stringbuilder + strings[i63] + "0";
         }
         if (mad.pr) {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i64 = 0;
-            strings[i64] = stringbuilder + (strings[i64]) + ("1");
+            strings[i64] = stringbuilder + strings[i64] + "1";
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i65 = 0;
-            strings[i65] = stringbuilder + (strings[i65]) + ("0");
+            strings[i65] = stringbuilder + strings[i65] + "0";
         }
         if (mad.pd) {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i66 = 0;
-            strings[i66] = stringbuilder + (strings[i66]) + ("1");
+            strings[i66] = stringbuilder + strings[i66] + "1";
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i67 = 0;
-            strings[i67] = stringbuilder + (strings[i67]) + ("0");
+            strings[i67] = stringbuilder + strings[i67] + "0";
         }
         if (mad.pu) {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i68 = 0;
-            strings[i68] = stringbuilder + (strings[i68]) + ("1");
+            strings[i68] = stringbuilder + strings[i68] + "1";
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i69 = 0;
-            strings[i69] = stringbuilder + (strings[i69]) + ("0");
+            strings[i69] = stringbuilder + strings[i69] + "0";
         }
         if (mad.dest) {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i70 = 0;
-            strings[i70] = stringbuilder + (strings[i70]) + ("1");
+            strings[i70] = stringbuilder + strings[i70] + "1";
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i71 = 0;
-            strings[i71] = stringbuilder + (strings[i71]) + ("0");
+            strings[i71] = stringbuilder + strings[i71] + "0";
         }
         if (bool) {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i72 = 0;
-            strings[i72] = stringbuilder + (strings[i72]) + ("1");
+            strings[i72] = stringbuilder + strings[i72] + "1";
         } else {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings = info[i41];
             final int i73 = 0;
-            strings[i73] = stringbuilder + (strings[i73]) + ("0");
+            strings[i73] = stringbuilder + strings[i73] + "0";
         }
         final StringBuilder stringbuilder = new StringBuilder();
         final String[] strings = info[i41];
         final int i74 = 0;
-        strings[i74] = stringbuilder + (strings[i74]) + (",") + (conto.x) + (",") + (conto.y) + (",") + (conto.z) + (",") + (conto.xz) + (",") + (conto.xy) + (",") + (conto.zy) + (",") + ((int) (mad.speed
-                * 100.0F)) + (",") + ((int) (mad.power
-                        * 100.0F)) + (",") + (mad.mxz) + (",") + (mad.pzy) + (",") + (mad.pxy) + (",") + (mad.txz) + (",") + (mad.loop) + (",") + (conto.wxz) + (",") + (mad.pcleared) + (",") + (mad.clear) + (",") + (mad.nlaps) + (",") + ((int) (f
-                                * 100.0F)) + (",") + (i) + (",");
+        strings[i74] = stringbuilder + strings[i74] + "," + conto.x + "," + conto.y + "," + conto.z + "," + conto.xz
+                + "," + conto.xy + "," + conto.zy + "," + (int) (mad.speed * 100.0F) + "," + (int) (mad.power * 100.0F)
+                + "," + mad.mxz + "," + mad.pzy + "," + mad.pxy + "," + mad.txz + "," + mad.loop + "," + conto.wxz + ","
+                + mad.pcleared + "," + mad.clear + "," + mad.nlaps + "," + (int) (f * 100.0F) + "," + i + ",";
         while (info[i41][0].length() < 110) {
             final StringBuilder stringbuilder75 = new StringBuilder();
             final String[] strings76 = info[i41];
             final int i77 = 0;
-            strings76[i77] = stringbuilder75 + (strings76[i77]) + ("|");
+            strings76[i77] = stringbuilder75 + strings76[i77] + "|";
         }
         if (runon == 2) {
             mad.hitmag = mad.cd.maxmag[mad.cn] + 100;
@@ -807,7 +807,7 @@ class UDPMistro implements Runnable {
                     final StringBuilder stringbuilder = new StringBuilder();
                     final String[] strings = info[im];
                     final int i12 = 0;
-                    strings[i12] = stringbuilder + (strings[i12]) + ("|");
+                    strings[i12] = stringbuilder + strings[i12] + "|";
                 }
                 nplayers++;
                 go = true;
@@ -863,7 +863,7 @@ class UDPMistro implements Runnable {
                 final StringBuilder stringbuilder = new StringBuilder();
                 final String[] strings = info[im];
                 final int i6 = 0;
-                strings[i6] = stringbuilder + (strings[i6]) + ("|");
+                strings[i6] = stringbuilder + strings[i6] + "|";
             }
             nplayers++;
             go = true;
