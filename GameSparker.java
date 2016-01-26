@@ -259,20 +259,20 @@ class GameSparker extends JPanel
         if (bool) {
             string208 = "?display=upgrade";
         }
-        openurl(new StringBuilder().append("http://multiplayer.needformadness.com/edit.pl").append(string208).append("#").append(string).append("").toString());
+        openurl("" + ("http://multiplayer.needformadness.com/edit.pl") + (string208) + ("#") + (string) + (""));
     }
 
     private int getint(final String string, final String string181, final int i) {
         int i182 = 0;
         String string183 = "";
         for (int i184 = string.length() + 1; i184 < string181.length(); i184++) {
-            final String string185 = new StringBuilder().append("").append(string181.charAt(i184)).toString();
+            final String string185 = "" + ("") + (string181.charAt(i184));
             if (string185.equals(",") || string185.equals(")")) {
                 i182++;
                 i184++;
             }
             if (i182 == i) {
-                string183 = new StringBuilder().append(string183).append(string181.charAt(i184)).toString();
+                string183 = "" + (string183) + (string181.charAt(i184));
             }
         }
         return Integer.valueOf(string183).intValue();
@@ -282,13 +282,13 @@ class GameSparker extends JPanel
         int i187 = 0;
         String string188 = "";
         for (int i189 = string.length() + 1; i189 < string186.length(); i189++) {
-            final String string190 = new StringBuilder().append("").append(string186.charAt(i189)).toString();
+            final String string190 = "" + ("") + (string186.charAt(i189));
             if (string190.equals(",") || string190.equals(")")) {
                 i187++;
                 i189++;
             }
             if (i187 == i) {
-                string188 = new StringBuilder().append(string188).append(string186.charAt(i189)).toString();
+                string188 = "" + (string188) + (string186.charAt(i189));
             }
         }
         return string188;
@@ -452,7 +452,7 @@ class GameSparker extends JPanel
         try {
             ZipInputStream zipinputstream;
             if (!bool) {
-                final File file = new File(new StringBuilder().append("").append(Madness.fpath).append("data/models.zip").toString());
+                final File file = new File("" + ("") + (Madness.fpath) + ("data/models.zip"));
                 zipinputstream = new ZipInputStream(new FileInputStream(file));
             } else {
                 final URL url = new URL("http://multiplayer.needformadness.com/data/models.zip");
@@ -489,7 +489,7 @@ class GameSparker extends JPanel
             if (exception instanceof RuntimeException)
                 throw new RuntimeException(exception);
             else {
-                System.out.println(new StringBuilder().append("Error Reading Models: ").append(exception).toString());
+                System.out.println("" + ("Error Reading Models: ") + (exception));
             }
         }
         System.gc();
@@ -533,17 +533,17 @@ class GameSparker extends JPanel
         try {
             BufferedReader stageDataReader;
             if (xtgraphics.multion == 0 && checkpoints.stage != -2) {
-                String customStagePath = new StringBuilder().append("stages/").append(checkpoints.stage).append("").toString();
+                String customStagePath = "" + ("stages/") + (checkpoints.stage) + ("");
                 if (checkpoints.stage == -1) {
-                    customStagePath = new StringBuilder().append("mystages/").append(checkpoints.name).append("").toString();
+                    customStagePath = "" + ("mystages/") + (checkpoints.name) + ("");
                 }
-                final File customStageFile = new File(new StringBuilder().append("").append(Madness.fpath).append("").append(customStagePath).append(".txt").toString());
+                final File customStageFile = new File("" + ("") + (Madness.fpath) + ("") + (customStagePath) + (".txt"));
                 stageDataReader = new BufferedReader(new InputStreamReader(new DataInputStream(new FileInputStream(customStageFile))));
             } else if (checkpoints.stage > 0) {
-                final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/stages/").append(checkpoints.stage).append(".txt").toString());
+                final URL url = new URL("" + ("http://multiplayer.needformadness.com/stages/") + (checkpoints.stage) + (".txt"));
                 stageDataReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
             } else {
-                String string113 = new StringBuilder().append("http://multiplayer.needformadness.com/tracks/").append(checkpoints.name).append(".radq").toString();
+                String string113 = "" + ("http://multiplayer.needformadness.com/tracks/") + (checkpoints.name) + (".radq");
                 string113 = string113.replace(' ', '_');
                 final URL url = new URL(string113);
                 final int i114 = url.openConnection().getContentLength();
@@ -579,7 +579,7 @@ class GameSparker extends JPanel
             }
             String string123;
             while ((string123 = stageDataReader.readLine()) != null) {
-                string = new StringBuilder().append("").append(string123.trim()).toString();
+                string = "" + ("") + (string123.trim());
                 if (string.startsWith("snap")) {
                     medium.setsnap(getint("snap", string, 0), getint("snap", string, 1), getint("snap", string, 2));
                 }
@@ -662,7 +662,7 @@ class GameSparker extends JPanel
                                 checkpoints.typ[checkpoints.n] = -4;
                             }
                             if (string.indexOf("out") != -1) {
-                                System.out.println(new StringBuilder().append("out: ").append(checkpoints.n).toString());
+                                System.out.println("" + ("out: ") + (checkpoints.n));
                             }
                             checkpoints.n++;
                             notb = nob + 1;
@@ -852,9 +852,9 @@ class GameSparker extends JPanel
             trackers.devidetrackers(i109, i - i109, i111, i110 - i111);
         } catch (final Exception exception) {
             checkpoints.stage = -3;
-            System.out.println(new StringBuilder().append("Error in stage ").append(checkpoints.stage).toString());
-            System.out.println(new StringBuilder().append("").append(exception).toString());
-            System.out.println(new StringBuilder().append("At line: ").append(string).toString());
+            System.out.println("" + ("Error in stage ") + (checkpoints.stage));
+            System.out.println("" + ("") + (exception));
+            System.out.println("" + ("At line: ") + (string));
         }
         if (checkpoints.nsp < 2) {
             checkpoints.stage = -3;
@@ -922,9 +922,9 @@ class GameSparker extends JPanel
                 } else if (i146 > 10) {
                     i146 -= 10;
                 }
-                xtgraphics.asay = new StringBuilder().append("Stage ").append(i146).append(":  ").append(checkpoints.name).append(" ").toString();
+                xtgraphics.asay = "" + ("Stage ") + (i146) + (":  ") + (checkpoints.name) + (" ");
             } else {
-                xtgraphics.asay = new StringBuilder().append("Custom Stage:  ").append(checkpoints.name).append(" ").toString();
+                xtgraphics.asay = "" + ("Custom Stage:  ") + (checkpoints.name) + (" ");
             }
             record.reset(contos);
         } else if (xtgraphics.fase == 2) {
@@ -970,10 +970,10 @@ class GameSparker extends JPanel
         try {
             DataInputStream datainputstream;
             if (checkpoints.stage > 0) {
-                final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/stages/").append(checkpoints.stage).append(".txt").toString());
+                final URL url = new URL("" + ("http://multiplayer.needformadness.com/stages/") + (checkpoints.stage) + (".txt"));
                 datainputstream = new DataInputStream(url.openStream());
             } else {
-                String string154 = new StringBuilder().append("http://multiplayer.needformadness.com/tracks/").append(checkpoints.name).append(".radq").toString();
+                String string154 = "" + ("http://multiplayer.needformadness.com/tracks/") + (checkpoints.name) + (".radq");
                 string154 = string154.replace(' ', '_');
                 final URL url = new URL(string154);
                 final int i155 = url.openConnection().getContentLength();
@@ -1009,7 +1009,7 @@ class GameSparker extends JPanel
             }
             String string164;
             while ((string164 = datainputstream.readLine()) != null) {
-                string153 = new StringBuilder().append("").append(string164.trim()).toString();
+                string153 = "" + ("") + (string164.trim());
                 if (string153.startsWith("snap")) {
                     medium.setsnap(getint("snap", string153, 0), getint("snap", string153, 1), getint("snap", string153, 2));
                 }
@@ -1083,7 +1083,7 @@ class GameSparker extends JPanel
                             checkpoints.typ[checkpoints.n] = -4;
                         }
                         if (string153.indexOf("out") != -1) {
-                            System.out.println(new StringBuilder().append("out: ").append(checkpoints.n).toString());
+                            System.out.println("" + ("out: ") + (checkpoints.n));
                         }
                         checkpoints.n++;
                     }
@@ -1175,9 +1175,9 @@ class GameSparker extends JPanel
             medium.newstars();
         } catch (final Exception exception) {
             bool = false;
-            System.out.println(new StringBuilder().append("Error in stage ").append(checkpoints.stage).toString());
-            System.out.println(new StringBuilder().append("").append(exception).toString());
-            System.out.println(new StringBuilder().append("At line: ").append(string153).toString());
+            System.out.println("" + ("Error in stage ") + (checkpoints.stage));
+            System.out.println("" + ("") + (exception));
+            System.out.println("" + ("At line: ") + (string153));
         }
         if (checkpoints.nsp < 2) {
             bool = false;
@@ -1306,7 +1306,7 @@ class GameSparker extends JPanel
             }
         } else {
             try {
-                Runtime.getRuntime().exec(new StringBuilder().append("").append(Madness.urlopen()).append(" ").append(string).append("").toString());
+                Runtime.getRuntime().exec("" + ("") + (Madness.urlopen()) + (" ") + (string) + (""));
             } catch (final Exception exception) {
 
             }
@@ -1409,7 +1409,7 @@ class GameSparker extends JPanel
                 graphics2d.setColor(new Color(0, 0, 0));
                 graphics2d.fillRect(getWidth() / 2 - 153, 5, 80, 16);
                 graphics2d.setColor(new Color(121, 135, 152));
-                String string = new StringBuilder().append("").append((int) (apmult * 100.0F)).append("%").toString();
+                String string = "" + ("") + ((int) (apmult * 100.0F)) + ("%");
                 if (reqmult == 0.0F) {
                     string = "Original";
                 }
@@ -1475,7 +1475,7 @@ class GameSparker extends JPanel
     private void readcookies(final xtGraphics xtgraphics, final CarDefine cardefine, final ContO[] contos) {
         xtgraphics.nickname = "";
         try {
-            final File file = new File(new StringBuilder().append("").append(Madness.fpath).append("data/user.data").toString());
+            final File file = new File("" + ("") + (Madness.fpath) + ("data/user.data"));
             final String[] strings = {
                     "", "", "", "", ""
             };
@@ -1618,26 +1618,26 @@ class GameSparker extends JPanel
         ilaps.add(rd, "Laps");
         ilaps.add(rd, "1 Lap");
         for (int i = 0; i < xtGraphics.nTracks; i++) {
-            snfmm.add(rd, new StringBuilder().append(" Stage ").append(i + 1).append("").toString());
+            snfmm.add(rd, "" + (" Stage ") + (i + 1) + (""));
         }
         /*for (int i = 0; i < 10; i++)
-        	snfm1.add(rd, new StringBuilder().append(" Stage ").append(i + 1).append("").toString());
+        	snfm1.add(rd, "" + (" Stage ") + (i + 1) + (""));
         for (int i = 0; i < 17; i++)
-        	snfm2.add(rd, new StringBuilder().append(" Stage ").append(i + 1).append("").toString());*/
+        	snfm2.add(rd, "" + (" Stage ") + (i + 1) + (""));*/
         for (int i = 0; i < 7; i++) {
-            snpls.add(rd, new StringBuilder().append("    ").append(i + 2).append("").toString());
+            snpls.add(rd, "" + ("    ") + (i + 2) + (""));
         }
         for (int i = 0; i < 7; i++) {
-            snbts.add(rd, new StringBuilder().append("    ").append(i).append("    ").toString());
+            snbts.add(rd, "" + ("    ") + (i) + ("    "));
         }
         for (int i = 0; i < 2; i++) {
-            swait.add(rd, new StringBuilder().append("").append(i + 2).append(" Minutes").toString());
+            swait.add(rd, "" + ("") + (i + 2) + (" Minutes"));
         }
         for (int i = 0; i < 15; i++) {
-            slaps.add(rd, new StringBuilder().append("").append(i + 1).append("").toString());
+            slaps.add(rd, "" + ("") + (i + 1) + (""));
         }
         for (int i = 0; i < 14; i++) {
-            ilaps.add(rd, new StringBuilder().append("").append(i + 2).append(" Laps").toString());
+            ilaps.add(rd, "" + ("") + (i + 2) + (" Laps"));
         }
         sclass.add(rd, "All Classes");
         sclass.add(rd, "Class C Cars");
@@ -1670,7 +1670,7 @@ class GameSparker extends JPanel
         sendtyp.add(rd, "Share a Relative Date");
         senditem.add(rd, "Suddenly the King becomes Santa's Little Helper");
         for (int i = 0; i < 6; i++) {
-            clanlev.add(rd, new StringBuilder().append("").append(i + 1).append("").toString());
+            clanlev.add(rd, "" + ("") + (i + 1) + (""));
         }
         clanlev.add(rd, "7 - Admin");
         hidefields();
@@ -3224,7 +3224,7 @@ class GameSparker extends JPanel
 
     void setcarcookie(final int i, final String string, final float[] fs, final int i191, final int is, final boolean bool) {
         try {
-            final File file = new File(new StringBuilder().append("").append(Madness.fpath).append("data/user.data").toString());
+            final File file = new File("" + ("") + (Madness.fpath) + ("data/user.data"));
             final String[] strings = {
                     "", "", "", "", ""
             };
@@ -3237,19 +3237,19 @@ class GameSparker extends JPanel
                 bufferedreader.close();
             }
             if (i191 == 0) {
-                strings[1] = new StringBuilder().append("lastcar(").append(i).append(",").append((int) (fs[0]
-                        * 100.0F)).append(",").append((int) (fs[1] * 100.0F)).append(",").append((int) (fs[2]
-                                * 100.0F)).append(",").append((int) (fs[3] * 100.0F)).append(",").append((int) (fs[4]
-                                        * 100.0F)).append(",").append((int) (fs[5]
-                                                * 100.0F)).append(",").append(string).append(")").toString();
+                strings[1] = "" + ("lastcar(") + (i) + (",") + ((int) (fs[0]
+                        * 100.0F)) + (",") + ((int) (fs[1] * 100.0F)) + (",") + ((int) (fs[2]
+                                * 100.0F)) + (",") + ((int) (fs[3] * 100.0F)) + (",") + ((int) (fs[4]
+                                        * 100.0F)) + (",") + ((int) (fs[5]
+                                                * 100.0F)) + (",") + (string) + (")");
             }
             if (i191 == 1 || i191 == 2) {
-                strings[2] = new StringBuilder().append("saved(").append(i).append(",").append(is).append(")").toString();
+                strings[2] = "" + ("saved(") + (i) + (",") + (is) + (")");
             }
             //if (i191 == 2)
-            //	strings[3] = new StringBuilder().append("NFM2(").append(i).append(")")
-            //			.toString();
-            strings[4] = new StringBuilder().append("graphics(").append(moto).append(",").append(Madness.anti).append(")").toString();
+            //	strings[3] = "" + ("NFM2(") + (i) + (")")
+            //			;
+            strings[4] = "" + ("graphics(") + (moto) + (",") + (Madness.anti) + (")");
             final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
             for (int i195 = 0; i195 < 5; i195++) {
                 bufferedwriter.write(strings[i195]);
@@ -3263,7 +3263,7 @@ class GameSparker extends JPanel
 
     void setloggedcookie() {
         try {
-            final File file = new File(new StringBuilder().append("").append(Madness.fpath).append("data/user.data").toString());
+            final File file = new File("" + ("") + (Madness.fpath) + ("data/user.data"));
             final String[] strings = {
                     "", "", "", "", ""
             };
@@ -3276,9 +3276,9 @@ class GameSparker extends JPanel
                 bufferedreader.close();
             }
             if (keplo.getState()) {
-                strings[0] = new StringBuilder().append("lastuser(").append(tnick.getText()).append(",").append(tpass.getText()).append(")").toString();
+                strings[0] = "" + ("lastuser(") + (tnick.getText()) + (",") + (tpass.getText()) + (")");
             } else {
-                strings[0] = new StringBuilder().append("lastuser(").append(tnick.getText()).append(")").toString();
+                strings[0] = "" + ("lastuser(") + (tnick.getText()) + (")");
             }
             final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
             for (int i = 0; i < 5; i++) {
@@ -3294,7 +3294,7 @@ class GameSparker extends JPanel
     private void setupini() {
         Madness.inisetup = true;
         try {
-            final File file = new File(new StringBuilder().append("").append(Madness.fpath).append("Madness.ini").toString());
+            final File file = new File("" + ("") + (Madness.fpath) + ("Madness.ini"));
             if (file.exists()) {
                 final String[] strings = new String[40];
                 int i = 0;

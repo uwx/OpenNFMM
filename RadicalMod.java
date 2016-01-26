@@ -44,7 +44,7 @@ class RadicalMod implements RadicalMusic {
                 module = ModuleLoader.loadMod(string);
             } else {
                 string = string.replace(' ', '_');
-                final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/tracks/music/").append(string).append(".zip").toString());
+                final URL url = new URL("" + ("http://multiplayer.needformadness.com/tracks/music/") + (string) + (".zip"));
                 module = ModuleLoader.loadMod(url);
             }
             if (module.isLoaded()) {
@@ -61,14 +61,14 @@ class RadicalMod implements RadicalMusic {
                 sClip.rollBackPos = moduleslayer.rollBackPos;
                 sClip.rollBackTrig = moduleslayer.oln - moduleslayer.rollBackTrig;
                 if (bool_2) {
-                    filename = new StringBuilder().append("Length: ").append(getTimer(sClip.stream.available()
-                            / 44100)).toString();
+                    filename = "" + ("Length: ") + (getTimer(sClip.stream.available()
+                            / 44100));
                 }
                 loaded = 2;
             }
         } catch (final Exception exception) {
             exception.printStackTrace();
-            System.out.println(new StringBuilder().append("Error downloading and making Mod: ").append(exception.toString()).toString());
+            System.out.println("" + ("Error downloading and making Mod: ") + (exception));
             loaded = 0;
         }
         System.runFinalization();
@@ -91,9 +91,9 @@ class RadicalMod implements RadicalMusic {
         final int mins = secs / 60;
         secs %= 60;
         if (secs >= 10)
-            return new StringBuilder().append(mins).append(":").append(secs).toString();
+            return "" + (mins) + (":") + (secs);
         else
-            return new StringBuilder().append(mins).append(":0").append(secs).toString();
+            return "" + (mins) + (":0") + (secs);
     }
 
     private void loadimod(final boolean bool) {
@@ -122,7 +122,7 @@ class RadicalMod implements RadicalMusic {
                     loaded = 2;
                 }
             } catch (final Exception exception) {
-                System.out.println(new StringBuilder().append("Error making a imod: ").append(exception.toString()).toString());
+                System.out.println("" + ("Error making a imod: ") + (exception));
                 loaded = 0;
             }
             System.runFinalization();
@@ -156,7 +156,7 @@ class RadicalMod implements RadicalMusic {
                     loaded = 2;
                 }
             } catch (final Exception exception) {
-                System.out.println(new StringBuilder().append("Error making a imod: ").append(exception.toString()).toString());
+                System.out.println("" + ("Error making a imod: ") + (exception));
                 loaded = 0;
             }
             System.runFinalization();

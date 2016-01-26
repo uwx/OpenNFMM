@@ -459,8 +459,8 @@ public class StageMaker extends Applet implements Runnable {
     private final Smenu tracks = new Smenu(2000);
     private int tracksize = 111;
     private int trackvol = 200;
-    private String tstage = new StringBuilder().append("snap(0,0,0)\r\nsky(191,215,255)\r\nclouds(255,255,255,5,-1000)\r\nfog(195,207,230)\r\nground(192,194,202)\r\ntexture(0,0,0,50)\r\nfadefrom(5000)\r\ndensity(5)\n\rmountains(").append((int) (Math.random()
-            * 100000.0)).append(")\r\nnlaps(5)\r\n\r\n").toString();
+    private String tstage = "" + ("snap(0,0,0)\r\nsky(191,215,255)\r\nclouds(255,255,255,5,-1000)\r\nfog(195,207,230)\r\nground(192,194,202)\r\ntexture(0,0,0,50)\r\nfadefrom(5000)\r\ndensity(5)\n\rmountains(") + ((int) (Math.random()
+            * 100000.0)) + (")\r\nnlaps(5)\r\n\r\n");
     private String ttstage = "";
     private final String[] undos = new String[5000];
     private boolean up = false;
@@ -897,18 +897,18 @@ public class StageMaker extends Applet implements Runnable {
 
     private void delstage(final String string) {
         try {
-            final File file = new File(new StringBuilder().append("mystages/").append(string).append(".txt").toString());
+            final File file = new File("" + ("mystages/") + (string) + (".txt"));
             file.delete();
             slstage.remove(string);
             slstage.select(0);
         } catch (final Exception exception) {
-            JOptionPane.showMessageDialog(null, new StringBuilder().append("Unable to delete file! Error Deatials:\n").append(exception).toString(), "Stage Maker", 1);
+            JOptionPane.showMessageDialog(null, "" + ("Unable to delete file! Error Deatials:\n") + (exception), "Stage Maker", 1);
         }
     }
 
     private void deltrack() {
         try {
-            final File file = new File(new StringBuilder().append("mystages/mymusic/").append(tracks.getSelectedItem()).append(".zip").toString());
+            final File file = new File("" + ("mystages/mymusic/") + (tracks.getSelectedItem()) + (".zip"));
             file.delete();
             if (trackname.equals(tracks.getSelectedItem())) {
                 trackname = "";
@@ -918,7 +918,7 @@ public class StageMaker extends Applet implements Runnable {
             tracks.remove(tracks.getSelectedItem());
             tracks.select(0);
         } catch (final Exception exception) {
-            JOptionPane.showMessageDialog(null, new StringBuilder().append("Unable to delete file! Error Deatials:\n").append(exception).toString(), "Stage Maker", 1);
+            JOptionPane.showMessageDialog(null, "" + ("Unable to delete file! Error Deatials:\n") + (exception), "Stage Maker", 1);
         }
     }
 
@@ -970,7 +970,7 @@ public class StageMaker extends Applet implements Runnable {
         rd.setFont(new Font("Arial", 1, 12));
         ftm = rd.getFontMetrics();
         for (/**/; i < string.length(); i++) {
-            final String string333 = new StringBuilder().append("").append(string.charAt(i)).toString();
+            final String string333 = "" + ("") + (string.charAt(i));
             if (string333.equals("|") || string333.equals(",") || string333.equals("(") || string333.equals(")")
                     || string333.equals("#") || string333.equals(string330) || string333.equals("!")
                     || string333.equals("?") || string333.equals("~") || string333.equals(".") || string333.equals("@")
@@ -980,7 +980,7 @@ public class StageMaker extends Applet implements Runnable {
                     || ftm.stringWidth(string331) > 274) {
                 i332 = i;
             } else {
-                string331 = new StringBuilder().append(string331).append(string333).toString();
+                string331 = "" + (string331) + (string333);
             }
         }
         if (i332 != -1) {
@@ -1005,13 +1005,13 @@ public class StageMaker extends Applet implements Runnable {
         int i355 = 0;
         String string356 = "";
         for (int i357 = string.length() + 1; i357 < string354.length(); i357++) {
-            final String string358 = new StringBuilder().append("").append(string354.charAt(i357)).toString();
+            final String string358 = "" + ("") + (string354.charAt(i357));
             if (string358.equals(",") || string358.equals(")")) {
                 i355++;
                 i357++;
             }
             if (i355 == i) {
-                string356 = new StringBuilder().append(string356).append(string354.charAt(i357)).toString();
+                string356 = "" + (string356) + (string354.charAt(i357));
             }
         }
         return Integer.valueOf(string356).intValue();
@@ -1021,13 +1021,13 @@ public class StageMaker extends Applet implements Runnable {
         int i350 = 0;
         String string351 = "";
         for (int i352 = string.length() + 1; i352 < string349.length(); i352++) {
-            final String string353 = new StringBuilder().append("").append(string349.charAt(i352)).toString();
+            final String string353 = "" + ("") + (string349.charAt(i352));
             if (string353.equals(",") || string353.equals(")")) {
                 i350++;
                 i352++;
             }
             if (i350 == i) {
-                string351 = new StringBuilder().append(string351).append(string349.charAt(i352)).toString();
+                string351 = "" + (string351) + (string349.charAt(i352));
             }
         }
         return string351;
@@ -1037,11 +1037,11 @@ public class StageMaker extends Applet implements Runnable {
         String string377 = "";
         int i378 = 0;
         for (int i379 = string.length() + 1; i379 < string376.length() && i378 <= i; i379++) {
-            final String string380 = new StringBuilder().append("").append(string376.charAt(i379)).toString();
+            final String string380 = "" + ("") + (string376.charAt(i379));
             if (string380.equals(",") || string380.equals(")")) {
                 i378++;
             } else if (i378 == i) {
-                string377 = new StringBuilder().append(string377).append(string380).toString();
+                string377 = "" + (string377) + (string380);
             }
         }
         return string377;
@@ -1111,7 +1111,7 @@ public class StageMaker extends Applet implements Runnable {
         pfog.setForeground(new Color(0, 0, 0));
         nlaps.setFont(new Font("Arial", 1, 12));
         for (int i = 0; i < 15; i++) {
-            nlaps.add(rd, new StringBuilder().append(" ").append(i + 1).append(" ").toString());
+            nlaps.add(rd, "" + (" ") + (i + 1) + (" "));
         }
         nlaps.setBackground(new Color(63, 80, 110));
         nlaps.setForeground(new Color(209, 217, 230));
@@ -1236,7 +1236,7 @@ public class StageMaker extends Applet implements Runnable {
             zipinputstream.close();
             bco[bumppart] = new ContO((int) (10000.0 * Math.random()), (int) pwd, (int) phd, m, t, 0, 0, 0);
         } catch (final Exception exception) {
-            JOptionPane.showMessageDialog(null, new StringBuilder().append("Unable to load file 'data/models.zip'!\nError:\n").append(exception).toString(), "Stage Maker", 1);
+            JOptionPane.showMessageDialog(null, "" + ("Unable to load file 'data/models.zip'!\nError:\n") + (exception), "Stage Maker", 1);
         }
         System.gc();
     }
@@ -1325,11 +1325,11 @@ public class StageMaker extends Applet implements Runnable {
 
     private void newstage() {
         if (!srch.getText().equals("")) {
-            final File file = new File(new StringBuilder().append("mystages/").append(srch.getText()).append(".txt").toString());
+            final File file = new File("" + ("mystages/") + (srch.getText()) + (".txt"));
             if (!file.exists()) {
                 stagename = srch.getText();
-                tstage = new StringBuilder().append("snap(0,0,0)\r\nsky(191,215,255)\r\nclouds(255,255,255,5,-1000)\r\nfog(195,207,230)\r\nground(192,194,202)\r\ntexture(0,0,0,50)\r\nfadefrom(5000)\r\ndensity(5)\r\nmountains(").append((int) (Math.random()
-                        * 100000.0)).append(")\r\nnlaps(5)\r\n\r\n").toString();
+                tstage = "" + ("snap(0,0,0)\r\nsky(191,215,255)\r\nclouds(255,255,255,5,-1000)\r\nfog(195,207,230)\r\nground(192,194,202)\r\ntexture(0,0,0,50)\r\nfadefrom(5000)\r\ndensity(5)\r\nmountains(") + ((int) (Math.random()
+                        * 100000.0)) + (")\r\nnlaps(5)\r\n\r\n");
                 if (strtyp.getSelectedIndex() == 1) {
                     bstage = "set(48,0,0,0)\r\n";
                 } else {
@@ -1337,7 +1337,7 @@ public class StageMaker extends Applet implements Runnable {
                 }
                 final StringBuilder stringbuilder = new StringBuilder();
                 final StageMaker stagemaker238 = this;
-                stagemaker238.bstage = stringbuilder.append(stagemaker238.bstage).append("\r\nmaxl(3,-7200,-4800)\r\nmaxb(3,-7200,-4800)\r\nmaxr(3,7200,-4800)\r\nmaxt(3,7200,-4800)\r\n").toString();
+                stagemaker238.bstage = stringbuilder + (stagemaker238.bstage) + ("\r\nmaxl(3,-7200,-4800)\r\nmaxb(3,-7200,-4800)\r\nmaxr(3,7200,-4800)\r\nmaxt(3,7200,-4800)\r\n");
                 savefile();
                 strtyp.setVisible(false);
                 srch.setVisible(false);
@@ -1563,7 +1563,7 @@ public class StageMaker extends Applet implements Runnable {
         }
         String string = bstage;
         if (i == 1 || i == 2) {
-            string = new StringBuilder().append("").append(tstage).append("\r\n").append(bstage).append("").toString();
+            string = "" + ("") + (tstage) + ("\r\n") + (bstage) + ("");
         }
         int i181 = 0;
         int i182 = 100;
@@ -1575,7 +1575,7 @@ public class StageMaker extends Applet implements Runnable {
         try {
             DataInputStream datainputstream;
             if (i == 3) {
-                final File file = new File(new StringBuilder().append("mystages/").append(stagename).append(".txt").toString());
+                final File file = new File("" + ("mystages/") + (stagename) + (".txt"));
                 datainputstream = new DataInputStream(new FileInputStream(file));
                 nundo = 0;
             } else {
@@ -1583,7 +1583,7 @@ public class StageMaker extends Applet implements Runnable {
             }
             String string187;
             while ((string187 = datainputstream.readLine()) != null) {
-                string186 = new StringBuilder().append("").append(string187.trim()).toString();
+                string186 = "" + ("") + (string187.trim());
                 if (string186.startsWith("sky")) {
                     csky[0] = getint("sky", string186, 0);
                     csky[1] = getint("sky", string186, 1);
@@ -1592,7 +1592,7 @@ public class StageMaker extends Applet implements Runnable {
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker188 = this;
-                        stagemaker188.tstage = stringbuilder.append(stagemaker188.tstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker188.tstage = stringbuilder + (stagemaker188.tstage) + ("") + (string186) + ("\r\n");
                     }
                 }
                 if (string186.startsWith("ground")) {
@@ -1603,7 +1603,7 @@ public class StageMaker extends Applet implements Runnable {
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker189 = this;
-                        stagemaker189.tstage = stringbuilder.append(stagemaker189.tstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker189.tstage = stringbuilder + (stagemaker189.tstage) + ("") + (string186) + ("\r\n");
                     }
                 }
                 if (string186.startsWith("polys")) {
@@ -1611,7 +1611,7 @@ public class StageMaker extends Applet implements Runnable {
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker190 = this;
-                        stagemaker190.tstage = stringbuilder.append(stagemaker190.tstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker190.tstage = stringbuilder + (stagemaker190.tstage) + ("") + (string186) + ("\r\n");
                     }
                 }
                 if (string186.startsWith("fog")) {
@@ -1622,7 +1622,7 @@ public class StageMaker extends Applet implements Runnable {
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker191 = this;
-                        stagemaker191.tstage = stringbuilder.append(stagemaker191.tstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker191.tstage = stringbuilder + (stagemaker191.tstage) + ("") + (string186) + ("\r\n");
                     }
                 }
                 if (string186.startsWith("texture")) {
@@ -1634,7 +1634,7 @@ public class StageMaker extends Applet implements Runnable {
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker192 = this;
-                        stagemaker192.tstage = stringbuilder.append(stagemaker192.tstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker192.tstage = stringbuilder + (stagemaker192.tstage) + ("") + (string186) + ("\r\n");
                     }
                 }
                 if (string186.startsWith("clouds")) {
@@ -1647,7 +1647,7 @@ public class StageMaker extends Applet implements Runnable {
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker193 = this;
-                        stagemaker193.tstage = stringbuilder.append(stagemaker193.tstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker193.tstage = stringbuilder + (stagemaker193.tstage) + ("") + (string186) + ("\r\n");
                     }
                 }
                 if (i != 2 && string186.startsWith("snap")) {
@@ -1655,7 +1655,7 @@ public class StageMaker extends Applet implements Runnable {
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker194 = this;
-                        stagemaker194.tstage = stringbuilder.append(stagemaker194.tstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker194.tstage = stringbuilder + (stagemaker194.tstage) + ("") + (string186) + ("\r\n");
                     }
                 }
                 if (string186.startsWith("density")) {
@@ -1669,7 +1669,7 @@ public class StageMaker extends Applet implements Runnable {
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker195 = this;
-                        stagemaker195.tstage = stringbuilder.append(stagemaker195.tstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker195.tstage = stringbuilder + (stagemaker195.tstage) + ("") + (string186) + ("\r\n");
                     }
                 }
                 if (string186.startsWith("mountains")) {
@@ -1677,7 +1677,7 @@ public class StageMaker extends Applet implements Runnable {
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker196 = this;
-                        stagemaker196.tstage = stringbuilder.append(stagemaker196.tstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker196.tstage = stringbuilder + (stagemaker196.tstage) + ("") + (string186) + ("\r\n");
                     }
                 }
                 if (string186.startsWith("fadefrom")) {
@@ -1686,7 +1686,7 @@ public class StageMaker extends Applet implements Runnable {
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker197 = this;
-                        stagemaker197.tstage = stringbuilder.append(stagemaker197.tstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker197.tstage = stringbuilder + (stagemaker197.tstage) + ("") + (string186) + ("\r\n");
                     }
                 }
                 if (string186.startsWith("lightson")) {
@@ -1694,7 +1694,7 @@ public class StageMaker extends Applet implements Runnable {
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker198 = this;
-                        stagemaker198.tstage = stringbuilder.append(stagemaker198.tstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker198.tstage = stringbuilder + (stagemaker198.tstage) + ("") + (string186) + ("\r\n");
                     }
                 }
                 if (string186.startsWith("nlaps")) {
@@ -1708,7 +1708,7 @@ public class StageMaker extends Applet implements Runnable {
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker199 = this;
-                        stagemaker199.tstage = stringbuilder.append(stagemaker199.tstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker199.tstage = stringbuilder + (stagemaker199.tstage) + ("") + (string186) + ("\r\n");
                     }
                 }
                 if (string186.startsWith("soundtrack")) {
@@ -1718,7 +1718,7 @@ public class StageMaker extends Applet implements Runnable {
                     if (i == 3) {
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker200 = this;
-                        stagemaker200.tstage = stringbuilder.append(stagemaker200.tstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker200.tstage = stringbuilder + (stagemaker200.tstage) + ("") + (string186) + ("\r\n");
                     }
                 }
                 if (string186.startsWith("set")) {
@@ -1756,12 +1756,12 @@ public class StageMaker extends Applet implements Runnable {
                         if (bool185) {
                             final StringBuilder stringbuilder = new StringBuilder();
                             final StageMaker stagemaker202 = this;
-                            stagemaker202.bstage = stringbuilder.append(stagemaker202.bstage).append("\r\n").toString();
+                            stagemaker202.bstage = stringbuilder + (stagemaker202.bstage) + ("\r\n");
                             bool185 = false;
                         }
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker203 = this;
-                        stagemaker203.bstage = stringbuilder.append(stagemaker203.bstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker203.bstage = stringbuilder + (stagemaker203.bstage) + ("") + (string186) + ("\r\n");
                     }
                     if (m.loadnew) {
                         m.loadnew = false;
@@ -1798,12 +1798,12 @@ public class StageMaker extends Applet implements Runnable {
                         if (bool185) {
                             final StringBuilder stringbuilder = new StringBuilder();
                             final StageMaker stagemaker206 = this;
-                            stagemaker206.bstage = stringbuilder.append(stagemaker206.bstage).append("\r\n").toString();
+                            stagemaker206.bstage = stringbuilder + (stagemaker206.bstage) + ("\r\n");
                             bool185 = false;
                         }
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker207 = this;
-                        stagemaker207.bstage = stringbuilder.append(stagemaker207.bstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker207.bstage = stringbuilder + (stagemaker207.bstage) + ("") + (string186) + ("\r\n");
                     }
                 }
                 if (string186.startsWith("fix")) {
@@ -1834,12 +1834,12 @@ public class StageMaker extends Applet implements Runnable {
                         if (bool185) {
                             final StringBuilder stringbuilder = new StringBuilder();
                             final StageMaker stagemaker209 = this;
-                            stagemaker209.bstage = stringbuilder.append(stagemaker209.bstage).append("\r\n").toString();
+                            stagemaker209.bstage = stringbuilder + (stagemaker209.bstage) + ("\r\n");
                             bool185 = false;
                         }
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker210 = this;
-                        stagemaker210.bstage = stringbuilder.append(stagemaker210.bstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker210.bstage = stringbuilder + (stagemaker210.bstage) + ("") + (string186) + ("\r\n");
                     }
                 }
                 if (string186.startsWith("pile")) {
@@ -1854,12 +1854,12 @@ public class StageMaker extends Applet implements Runnable {
                         if (bool185) {
                             final StringBuilder stringbuilder = new StringBuilder();
                             final StageMaker stagemaker211 = this;
-                            stagemaker211.bstage = stringbuilder.append(stagemaker211.bstage).append("\r\n").toString();
+                            stagemaker211.bstage = stringbuilder + (stagemaker211.bstage) + ("\r\n");
                             bool185 = false;
                         }
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker212 = this;
-                        stagemaker212.bstage = stringbuilder.append(stagemaker212.bstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker212.bstage = stringbuilder + (stagemaker212.bstage) + ("") + (string186) + ("\r\n");
                     }
                 }
                 if (string186.startsWith("maxr")) {
@@ -1879,12 +1879,12 @@ public class StageMaker extends Applet implements Runnable {
                         if (bool) {
                             final StringBuilder stringbuilder = new StringBuilder();
                             final StageMaker stagemaker217 = this;
-                            stagemaker217.bstage = stringbuilder.append(stagemaker217.bstage).append("\r\n").toString();
+                            stagemaker217.bstage = stringbuilder + (stagemaker217.bstage) + ("\r\n");
                             bool = false;
                         }
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker218 = this;
-                        stagemaker218.bstage = stringbuilder.append(stagemaker218.bstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker218.bstage = stringbuilder + (stagemaker218.bstage) + ("") + (string186) + ("\r\n");
                     }
                 }
                 if (string186.startsWith("maxl")) {
@@ -1904,12 +1904,12 @@ public class StageMaker extends Applet implements Runnable {
                         if (bool) {
                             final StringBuilder stringbuilder = new StringBuilder();
                             final StageMaker stagemaker223 = this;
-                            stagemaker223.bstage = stringbuilder.append(stagemaker223.bstage).append("\r\n").toString();
+                            stagemaker223.bstage = stringbuilder + (stagemaker223.bstage) + ("\r\n");
                             bool = false;
                         }
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker224 = this;
-                        stagemaker224.bstage = stringbuilder.append(stagemaker224.bstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker224.bstage = stringbuilder + (stagemaker224.bstage) + ("") + (string186) + ("\r\n");
                     }
                 }
                 if (string186.startsWith("maxt")) {
@@ -1929,12 +1929,12 @@ public class StageMaker extends Applet implements Runnable {
                         if (bool) {
                             final StringBuilder stringbuilder = new StringBuilder();
                             final StageMaker stagemaker229 = this;
-                            stagemaker229.bstage = stringbuilder.append(stagemaker229.bstage).append("\r\n").toString();
+                            stagemaker229.bstage = stringbuilder + (stagemaker229.bstage) + ("\r\n");
                             bool = false;
                         }
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker230 = this;
-                        stagemaker230.bstage = stringbuilder.append(stagemaker230.bstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker230.bstage = stringbuilder + (stagemaker230.bstage) + ("") + (string186) + ("\r\n");
                     }
                 }
                 if (string186.startsWith("maxb")) {
@@ -1954,12 +1954,12 @@ public class StageMaker extends Applet implements Runnable {
                         if (bool) {
                             final StringBuilder stringbuilder = new StringBuilder();
                             final StageMaker stagemaker235 = this;
-                            stagemaker235.bstage = stringbuilder.append(stagemaker235.bstage).append("\r\n").toString();
+                            stagemaker235.bstage = stringbuilder + (stagemaker235.bstage) + ("\r\n");
                             bool = false;
                         }
                         final StringBuilder stringbuilder = new StringBuilder();
                         final StageMaker stagemaker236 = this;
-                        stagemaker236.bstage = stringbuilder.append(stagemaker236.bstage).append("").append(string186).append("\r\n").toString();
+                        stagemaker236.bstage = stringbuilder + (stagemaker236.bstage) + ("") + (string186) + ("\r\n");
                     }
                 }
             }
@@ -1969,9 +1969,9 @@ public class StageMaker extends Applet implements Runnable {
             m.newmountains(i182, i181, i184, i183);
             m.newstars();
         } catch (final Exception exception) {
-            System.out.println(new StringBuilder().append("Error in stage ").append(stagename).toString());
-            System.out.println(new StringBuilder().append("").append(exception).toString());
-            System.out.println(new StringBuilder().append("At line: ").append(string186).toString());
+            System.out.println("" + ("Error in stage ") + (stagename));
+            System.out.println("" + ("") + (exception));
+            System.out.println("" + ("At line: ") + (string186));
             errd = 6;
             if (cp.fn >= 5) {
                 errd = 5;
@@ -1995,7 +1995,7 @@ public class StageMaker extends Applet implements Runnable {
         if (i == 3 && bstage.indexOf("set(47,0,0,0)") == -1 && bstage.indexOf("set(48,0,0,0)") == -1) {
             final StringBuilder stringbuilder = new StringBuilder();
             final StageMaker stagemaker237 = this;
-            stagemaker237.bstage = stringbuilder.append(stagemaker237.bstage).append("set(47,0,0,0)\r\n").toString();
+            stagemaker237.bstage = stringbuilder + (stagemaker237.bstage) + ("set(47,0,0,0)\r\n");
         }
     }
 
@@ -2008,43 +2008,43 @@ public class StageMaker extends Applet implements Runnable {
         System.out.println("roof: " + co[esp].roofat);
         if (!floats) {
             if (co[esp].colok != 30 && co[esp].colok != 31 && co[esp].colok != 32 && co[esp].colok != bumppart) {
-                string = new StringBuilder().append("set(").append(co[esp].colok
-                        + 10).append(",").append(co[esp].x).append(",").append(co[esp].z).append(",").append(co[esp].roofat).append(")").toString();
+                string = "" + ("set(") + (co[esp].colok
+                        + 10) + (",") + (co[esp].x) + (",") + (co[esp].z) + (",") + (co[esp].roofat) + (")");
             }
             if (co[esp].colok == 31) {
-                string = new StringBuilder().append("fix(").append(co[esp].colok
-                        + 10).append(",").append(co[esp].x).append(",").append(co[esp].z).append(",").append(co[esp].y).append(",").append(co[esp].roofat).append(")").toString();
+                string = "" + ("fix(") + (co[esp].colok
+                        + 10) + (",") + (co[esp].x) + (",") + (co[esp].z) + (",") + (co[esp].y) + (",") + (co[esp].roofat) + (")");
             }
             if (co[esp].colok == 30 || co[esp].colok == 32) {
-                string = new StringBuilder().append("chk(").append(co[esp].colok
-                        + 10).append(",").append(co[esp].x).append(",").append(co[esp].z).append(",").append(co[esp].roofat).append(")").toString();
+                string = "" + ("chk(") + (co[esp].colok
+                        + 10) + (",") + (co[esp].x) + (",") + (co[esp].z) + (",") + (co[esp].roofat) + (")");
             }
             if (co[esp].colok == 54) {
-                string = new StringBuilder().append("chk(").append(co[esp].colok
-                        + 10).append(",").append(co[esp].x).append(",").append(co[esp].z).append(",").append(co[esp].roofat).append(",").append(co[esp].y).append(")").toString();
+                string = "" + ("chk(") + (co[esp].colok
+                        + 10) + (",") + (co[esp].x) + (",") + (co[esp].z) + (",") + (co[esp].roofat) + (",") + (co[esp].y) + (")");
             }
             if (co[esp].colok == bumppart) {
-                string = new StringBuilder().append("pile(").append(co[esp].srz).append(",").append(co[esp].srx).append(",").append(co[esp].sry).append(",").append(co[esp].x).append(",").append(co[esp].z).append(")").toString();
+                string = "" + ("pile(") + (co[esp].srz) + (",") + (co[esp].srx) + (",") + (co[esp].sry) + (",") + (co[esp].x) + (",") + (co[esp].z) + (")");
             }
         } else {
             if (co[esp].colok != 30 && co[esp].colok != 31 && co[esp].colok != 32 && co[esp].colok != bumppart) {
-                string = new StringBuilder().append("set(").append(co[esp].colok
-                        + 10).append(",").append(co[esp].x).append(",").append(co[esp].z).append(",").append(co[esp].y).append(",").append(co[esp].roofat).append(")").toString();
+                string = "" + ("set(") + (co[esp].colok
+                        + 10) + (",") + (co[esp].x) + (",") + (co[esp].z) + (",") + (co[esp].y) + (",") + (co[esp].roofat) + (")");
             }
             if (co[esp].colok == 31) {
-                string = new StringBuilder().append("fix(").append(co[esp].colok
-                        + 10).append(",").append(co[esp].x).append(",").append(co[esp].z).append(",").append(co[esp].y).append(",").append(co[esp].roofat).append(")").toString();
+                string = "" + ("fix(") + (co[esp].colok
+                        + 10) + (",") + (co[esp].x) + (",") + (co[esp].z) + (",") + (co[esp].y) + (",") + (co[esp].roofat) + (")");
             }
             if (co[esp].colok == 30 || co[esp].colok == 32) {
-                string = new StringBuilder().append("chk(").append(co[esp].colok
-                        + 10).append(",").append(co[esp].x).append(",").append(co[esp].z).append(",").append(co[esp].y).append(",").append(co[esp].roofat).append(")").toString();
+                string = "" + ("chk(") + (co[esp].colok
+                        + 10) + (",") + (co[esp].x) + (",") + (co[esp].z) + (",") + (co[esp].y) + (",") + (co[esp].roofat) + (")");
             }
             if (co[esp].colok == 54) {
-                string = new StringBuilder().append("chk(").append(co[esp].colok
-                        + 10).append(",").append(co[esp].x).append(",").append(co[esp].z).append(",").append(co[esp].y).append(",").append(co[esp].roofat).append(")").toString();
+                string = "" + ("chk(") + (co[esp].colok
+                        + 10) + (",") + (co[esp].x) + (",") + (co[esp].z) + (",") + (co[esp].y) + (",") + (co[esp].roofat) + (")");
             }
             if (co[esp].colok == bumppart) {
-                string = new StringBuilder().append("pile(").append(co[esp].srz).append(",").append(co[esp].srx).append(",").append(co[esp].sry).append(",").append(co[esp].x).append(",").append(co[esp].z).append(")").toString();
+                string = "" + ("pile(") + (co[esp].srz) + (",") + (co[esp].srx) + (",") + (co[esp].sry) + (",") + (co[esp].x) + (",") + (co[esp].z) + (")");
             }
         }
         final int i = bstage.indexOf(string);
@@ -2072,7 +2072,7 @@ public class StageMaker extends Applet implements Runnable {
             i166 = i167;
         }
         if (i != -1) {
-            bstage = new StringBuilder().append("").append(bstage.substring(0, i)).append("").append(bstage.substring(i166, bstage.length())).append("").toString();
+            bstage = "" + ("") + (bstage.substring(0, i)) + ("") + (bstage.substring(i166, bstage.length())) + ("");
         }
         readstage(0);
     }
@@ -2082,18 +2082,18 @@ public class StageMaker extends Applet implements Runnable {
             JOptionPane.showMessageDialog(null, "Please Enter a New Stage Name!\n", "Stage Maker", 1);
         } else {
             try {
-                final File file = new File(new StringBuilder().append("mystages/").append(stagename).append(".txt").toString());
-                final File file329 = new File(new StringBuilder().append("mystages/").append(string).append(".txt").toString());
+                final File file = new File("" + ("mystages/") + (stagename) + (".txt"));
+                final File file329 = new File("" + ("mystages/") + (string) + (".txt"));
                 if (file.renameTo(file329)) {
                     stagename = string;
                     sfase = 0;
                     hidefields();
                     tabed = -2;
                 } else {
-                    JOptionPane.showMessageDialog(null, new StringBuilder().append("Unable to rename stage to: '").append(string).append("', possible reason: stage name already used!\n").toString(), "Stage Maker", 1);
+                    JOptionPane.showMessageDialog(null, "" + ("Unable to rename stage to: '") + (string) + ("', possible reason: stage name already used!\n"), "Stage Maker", 1);
                 }
             } catch (final Exception exception) {
-                JOptionPane.showMessageDialog(null, new StringBuilder().append("Unable to rename file! Error Deatials:\n").append(exception).toString(), "Stage Maker", 1);
+                JOptionPane.showMessageDialog(null, "" + ("Unable to rename file! Error Deatials:\n") + (exception), "Stage Maker", 1);
             }
         }
     }
@@ -2116,12 +2116,12 @@ public class StageMaker extends Applet implements Runnable {
         btgame[1] = getImage("data/backtogame2.gif");
         logo = getImage("data/stagemakerlogo.gif");
         for (int i = 0; i < 2; i++) {
-            su[i] = getImage(new StringBuilder().append("data/su").append(i + 1).append(".gif").toString());
-            sl[i] = getImage(new StringBuilder().append("data/sl").append(i + 1).append(".gif").toString());
-            sd[i] = getImage(new StringBuilder().append("data/sd").append(i + 1).append(".gif").toString());
-            sr[i] = getImage(new StringBuilder().append("data/sr").append(i + 1).append(".gif").toString());
-            zi[i] = getImage(new StringBuilder().append("data/zi").append(i + 1).append(".gif").toString());
-            zo[i] = getImage(new StringBuilder().append("data/zo").append(i + 1).append(".gif").toString());
+            su[i] = getImage("" + ("data/su") + (i + 1) + (".gif"));
+            sl[i] = getImage("" + ("data/sl") + (i + 1) + (".gif"));
+            sd[i] = getImage("" + ("data/sd") + (i + 1) + (".gif"));
+            sr[i] = getImage("" + ("data/sr") + (i + 1) + (".gif"));
+            zi[i] = getImage("" + ("data/zi") + (i + 1) + (".gif"));
+            zo[i] = getImage("" + ("data/zo") + (i + 1) + (".gif"));
         }
         loadbase();
         loadsettings();
@@ -2298,7 +2298,7 @@ public class StageMaker extends Applet implements Runnable {
                         }
                     if (button("      Delete Stage      ", 475, 336 + i0, 0, false))
                         if (!stagename.equals("")) {
-                            if (JOptionPane.showConfirmDialog(null, new StringBuilder().append("Are you sure you want to permanently delete this stage?\n\n").append(stagename).append("\n\n").toString(), "Stage Maker", 0) == 0) {
+                            if (JOptionPane.showConfirmDialog(null, "" + ("Are you sure you want to permanently delete this stage?\n\n") + (stagename) + ("\n\n"), "Stage Maker", 0) == 0) {
                                 delstage(stagename);
                             }
                         } else {
@@ -2342,8 +2342,8 @@ public class StageMaker extends Applet implements Runnable {
                     }
                 }
                 if (sfase == 2) {
-                    rd.drawString(new StringBuilder().append("Rename Stage :  ").append(stagename).append("").toString(), 400
-                            - ftm.stringWidth(new StringBuilder().append("Rename Stage :  ").append(stagename).append("").toString())
+                    rd.drawString("" + ("Rename Stage :  ") + (stagename) + (""), 400
+                            - ftm.stringWidth("" + ("Rename Stage :  ") + (stagename) + (""))
                                     / 2, 230 + i0);
                     rd.setFont(new Font("Arial", 1, 12));
                     rd.drawString("New name :", 218, 266 + i0);
@@ -2713,10 +2713,10 @@ public class StageMaker extends Applet implements Runnable {
                                 rd.setColor(new Color(0, 0, 0));
                                 rd.setFont(new Font("Arial", 1, 12));
                                 ftm = rd.getFontMetrics();
-                                rd.drawString(new StringBuilder().append("NO# ").append(arrcnt
-                                        + 1).append("").toString(), Utility.xs(i9, i12, m)
-                                                - ftm.stringWidth(new StringBuilder().append("NO# ").append(arrcnt
-                                                        + 1).append("").toString()) / 2, Utility.ys(i11, i12, m)
+                                rd.drawString("" + ("NO# ") + (arrcnt
+                                        + 1) + (""), Utility.xs(i9, i12, m)
+                                                - ftm.stringWidth("" + ("NO# ") + (arrcnt
+                                                        + 1) + ("")) / 2, Utility.ys(i11, i12, m)
                                                                 - i13 / 2);
                             }
                             if (arrng && (co[is[i8]].colok == 30 || co[is[i8]].colok == 32 || co[is[i8]].colok == 54)
@@ -2739,8 +2739,8 @@ public class StageMaker extends Applet implements Runnable {
                                 rd.setColor(new Color(0, 0, 0));
                                 rd.setFont(new Font("Arial", 1, 12));
                                 ftm = rd.getFontMetrics();
-                                rd.drawString(new StringBuilder().append("NO# ").append(co[is[i8]].wh).append("").toString(), Utility.xs(i14, i17, m)
-                                        - ftm.stringWidth(new StringBuilder().append("NO# ").append(co[is[i8]].wh).append("").toString())
+                                rd.drawString("" + ("NO# ") + (co[is[i8]].wh) + (""), Utility.xs(i14, i17, m)
+                                        - ftm.stringWidth("" + ("NO# ") + (co[is[i8]].wh) + (""))
                                                 / 2, Utility.ys(i16, i17, m) - i18 / 2);
                             }
                             co[is[i8]].d(rd);
@@ -2972,7 +2972,7 @@ public class StageMaker extends Applet implements Runnable {
                                                 co[nob].roofat = bco[selectedPart].xz;
                                                 co[nob].colok = selectedPart;
                                                 nob++;
-                                                fixh.setText(new StringBuilder().append("").append(Math.abs(bco[selectedPart].y)).append("").toString());
+                                                fixh.setText("" + ("") + (Math.abs(bco[selectedPart].y)) + (""));
                                             } else {
                                                 errd = 5;
                                             }
@@ -3029,8 +3029,8 @@ public class StageMaker extends Applet implements Runnable {
                                         }
                                     }
                                     if (errd != 0) {
-                                        JOptionPane.showMessageDialog(null, new StringBuilder().append("Error!  Unable to place part!\nReason:\n").append(errlo[errd
-                                                - 1]).append("\n\n").toString(), "Stage Maker", 0);
+                                        JOptionPane.showMessageDialog(null, "" + ("Error!  Unable to place part!\nReason:\n") + (errlo[errd
+                                                - 1]) + ("\n\n"), "Stage Maker", 0);
                                         if (bool) {
                                             nundo--;
                                             bstage = undos[nundo];
@@ -3753,10 +3753,10 @@ public class StageMaker extends Applet implements Runnable {
                 }
                 rd.fillRect(167, 531, i65, 9);
                 if (button("Memory Consumption :", 85, 540, 3, false)) {
-                    JOptionPane.showMessageDialog(null, new StringBuilder().append("Memory Consumption Details\n\nNumber of Parts:  ").append(i64
-                            / 2).append(" %\nPart's Details:  ").append(i66 / 2).append(" %\nRoad Points:  ").append(i67
-                                    / 2).append(" %\nStage Area:  ").append(i68
-                                            / 2).append(" %\n \n").toString(), "Stage Maker", 1);
+                    JOptionPane.showMessageDialog(null, "" + ("Memory Consumption Details\n\nNumber of Parts:  ") + (i64
+                            / 2) + (" %\nPart's Details:  ") + (i66 / 2) + (" %\nRoad Points:  ") + (i67
+                                    / 2) + (" %\nStage Area:  ") + (i68
+                                            / 2) + (" %\n \n"), "Stage Maker", 1);
                 }
                 rd.setColor(new Color(0, 0, 0));
                 rd.drawRect(167, 531, 200, 9);
@@ -3764,7 +3764,7 @@ public class StageMaker extends Applet implements Runnable {
                         "Number of Parts", "Part's Details", "Road Points", "Stage Area"
                 };
                 rd.drawString(strings[i63], 267 - ftm.stringWidth(strings[i63]) / 2, 540);
-                rd.drawString(new StringBuilder().append("").append(i65 / 2).append(" %  used").toString(), 375, 540);
+                rd.drawString("" + ("") + (i65 / 2) + (" %  used"), 375, 540);
                 if (overcan) {
                     overcan = false;
                 }
@@ -3786,8 +3786,8 @@ public class StageMaker extends Applet implements Runnable {
                 }
                 if (arrng) {
                     rd.setColor(new Color(0, 0, 0));
-                    rd.drawString(new StringBuilder().append("Click on Checkpoint NO# ").append(arrcnt
-                            + 1).append("  >").toString(), 257, 80);
+                    rd.drawString("" + ("Click on Checkpoint NO# ") + (arrcnt
+                            + 1) + ("  >"), 257, 80);
                     if (button(" Cancel ", 330, 100, 4, false)) {
                         arrng = false;
                     }
@@ -4099,7 +4099,7 @@ public class StageMaker extends Applet implements Runnable {
                     if (dtabed != dtab) {
                         Color.RGBtoHSB(cldd[0], cldd[1], cldd[2], hsb[0]);
                         Color.RGBtoHSB(texture[0], texture[1], texture[2], hsb[1]);
-                        mgen.setText(new StringBuilder().append("").append(m.mgen).append("").toString());
+                        mgen.setText("" + ("") + (m.mgen) + (""));
                         mouseon = -1;
                         ttstage = "";
                     }
@@ -4346,14 +4346,14 @@ public class StageMaker extends Applet implements Runnable {
                     }
                     if (button("  Generate New  ", 512, 525, 3, true)) {
                         m.mgen = (int) (Math.random() * 100000.0);
-                        mgen.setText(new StringBuilder().append("").append(m.mgen).append("").toString());
+                        mgen.setText("" + ("") + (m.mgen) + (""));
                         if (ttstage.equals("")) {
                             ttstage = tstage;
                         }
                         sortop();
                         readstage(1);
                     }
-                    if (!mgen.getText().equals(new StringBuilder().append("").append(m.mgen).append("").toString())) {
+                    if (!mgen.getText().equals("" + ("") + (m.mgen) + (""))) {
                         try {
                             final int i107 = Integer.valueOf(mgen.getText()).intValue();
                             m.mgen = i107;
@@ -4363,7 +4363,7 @@ public class StageMaker extends Applet implements Runnable {
                             sortop();
                             readstage(1);
                         } catch (final Exception exception) {
-                            mgen.setText(new StringBuilder().append("").append(m.mgen).append("").toString());
+                            mgen.setText("" + ("") + (m.mgen) + (""));
                         }
                     }
                     if (button(" Reset ", 650, 510, 0, true)) {
@@ -4408,7 +4408,7 @@ public class StageMaker extends Applet implements Runnable {
                     int i112 = -70;
                     for (int i113 = 0; i113 < 3; i113++) {
                         rd.setColor(new Color(0, 0, 0));
-                        rd.drawString(new StringBuilder().append("").append(strings109[i113]).append(" :").toString(), is110[i113], 447
+                        rd.drawString("" + ("") + (strings109[i113]) + (" :"), is110[i113], 447
                                 + i113 * 24 + i111);
                         rd.drawLine(140 + i112, 443 + i113 * 24 + i111, 230 + i112, 443 + i113 * 24 + i111);
                         for (int i114 = 1; i114 < 10; i114++) {
@@ -4482,7 +4482,7 @@ public class StageMaker extends Applet implements Runnable {
                     i112 = 210 + i118;
                     for (int i122 = 0; i122 < 2; i122++) {
                         rd.setColor(new Color(0, 0, 0));
-                        rd.drawString(new StringBuilder().append("").append(strings119[i122]).append(" :").toString(), is120[i122], 447
+                        rd.drawString("" + ("") + (strings119[i122]) + (" :"), is120[i122], 447
                                 + i122 * 24 + i111);
                         rd.drawLine(140 + i112, 443 + i122 * 24 + i111, 230 + i112, 443 + i122 * 24 + i111);
                         for (int i123 = 1; i123 < 10; i123++) {
@@ -4618,7 +4618,7 @@ public class StageMaker extends Applet implements Runnable {
                     } else if (tracks.getSelectedIndex() != 0 && button("      Play  >      ", 110, 495, 2, false)) {
                         if (!ltrackname.equals(tracks.getSelectedItem())) {
                             track.unload();
-                            track = new RadicalMod(new StringBuilder().append("mystages/mymusic/").append(tracks.getSelectedItem()).append(".zip").toString(), 300, 8000, 125, true, false);
+                            track = new RadicalMod("" + ("mystages/mymusic/") + (tracks.getSelectedItem()) + (".zip"), 300, 8000, 125, true, false);
                             if (track.loaded == 2) {
                                 avon = track.sClip.stream.available();
                                 ltrackname = tracks.getSelectedItem();
@@ -4629,14 +4629,14 @@ public class StageMaker extends Applet implements Runnable {
                         if (!ltrackname.equals("")) {
                             track.play();
                         } else {
-                            JOptionPane.showMessageDialog(null, new StringBuilder().append("Failed to load '").append(tracks.getSelectedItem()).append("', please make sure it is a valid MOD Track!").toString(), "Stage Maker", 1);
+                            JOptionPane.showMessageDialog(null, "" + ("Failed to load '") + (tracks.getSelectedItem()) + ("', please make sure it is a valid MOD Track!"), "Stage Maker", 1);
                         }
                     }
                     if (tracks.getSelectedIndex() != 0) {
                         if (button("   Set as the stage's Sound Track  >   ", 330, 466, 2, false)) {
                             if (!ltrackname.equals(tracks.getSelectedItem())) {
                                 track.unload();
-                                track = new RadicalMod(new StringBuilder().append("mystages/mymusic/").append(tracks.getSelectedItem()).append(".zip").toString(), 300, 8000, 125, true, false);
+                                track = new RadicalMod("" + ("mystages/mymusic/") + (tracks.getSelectedItem()) + (".zip"), 300, 8000, 125, true, false);
                                 if (track.loaded == 2) {
                                     avon = track.sClip.stream.available();
                                     ltrackname = tracks.getSelectedItem();
@@ -4648,21 +4648,21 @@ public class StageMaker extends Applet implements Runnable {
                                 trackname = ltrackname;
                                 trackvol = (int) (220.0F / (track.rvol / 3750.0F));
                                 try {
-                                    final File file = new File(new StringBuilder().append("mystages/mymusic/").append(trackname).append(".zip").toString());
+                                    final File file = new File("" + ("mystages/mymusic/") + (trackname) + (".zip"));
                                     tracksize = (int) (file.length() / 1024L);
                                     if (tracksize > 250) {
-                                        JOptionPane.showMessageDialog(null, new StringBuilder().append("Cannot use '").append(tracks.getSelectedItem()).append("' as the sound track!\nIts file size is bigger then 250KB.\n\n").toString(), "Stage Maker", 1);
+                                        JOptionPane.showMessageDialog(null, "" + ("Cannot use '") + (tracks.getSelectedItem()) + ("' as the sound track!\nIts file size is bigger then 250KB.\n\n"), "Stage Maker", 1);
                                         trackname = "";
                                     }
                                 } catch (final Exception exception) {
                                     tracksize = 111;
                                 }
                             } else {
-                                JOptionPane.showMessageDialog(null, new StringBuilder().append("Failed to load '").append(tracks.getSelectedItem()).append("', please make sure it is a valid MOD Track!").toString(), "Stage Maker", 1);
+                                JOptionPane.showMessageDialog(null, "" + ("Failed to load '") + (tracks.getSelectedItem()) + ("', please make sure it is a valid MOD Track!"), "Stage Maker", 1);
                             }
                         }
                         if (button("   X Delete   ", 258, 495, 2, false)
-                                && JOptionPane.showConfirmDialog(null, new StringBuilder().append("Are you sure you want to permanently delete this MOD Track from your Play List?\n\n").append(tracks.getSelectedItem()).append("\n\n>  If you delete this Track from the Play List you will not be able to use it for other stages as well!     \n\n").toString(), "Stage Maker", 0) == 0) {
+                                && JOptionPane.showConfirmDialog(null, "" + ("Are you sure you want to permanently delete this MOD Track from your Play List?\n\n") + (tracks.getSelectedItem()) + ("\n\n>  If you delete this Track from the Play List you will not be able to use it for other stages as well!     \n\n"), "Stage Maker", 0) == 0) {
                             deltrack();
                         }
                     }
@@ -4675,7 +4675,7 @@ public class StageMaker extends Applet implements Runnable {
                         filedialog.setVisible(true);
                         try {
                             if (filedialog.getFile() != null) {
-                                file = new File(new StringBuilder().append("").append(filedialog.getDirectory()).append("").append(filedialog.getFile()).append("").toString());
+                                file = new File("" + ("") + (filedialog.getDirectory()) + ("") + (filedialog.getFile()) + (""));
                             }
                         } catch (final Exception exception) {
 
@@ -4687,7 +4687,7 @@ public class StageMaker extends Applet implements Runnable {
                                     if (!file128.exists()) {
                                         file128.mkdirs();
                                     }
-                                    file128 = new File(new StringBuilder().append("mystages/mymusic/").append(file.getName()).append("").toString());
+                                    file128 = new File("" + ("mystages/mymusic/") + (file.getName()) + (""));
                                     final FileInputStream fileinputstream = new FileInputStream(file);
                                     final FileOutputStream fileoutputstream = new FileOutputStream(file128);
                                     final byte[] is129 = new byte[1024];
@@ -4711,7 +4711,7 @@ public class StageMaker extends Applet implements Runnable {
                                     JOptionPane.showMessageDialog(null, "The selected file is larger then 250KB in size and therefore cannot be added!", "Stage Maker", 1);
                                 }
                             } catch (final Exception exception) {
-                                JOptionPane.showMessageDialog(null, new StringBuilder().append("Unable to copy file! Error Deatials:\n").append(exception).toString(), "Stage Maker", 1);
+                                JOptionPane.showMessageDialog(null, "" + ("Unable to copy file! Error Deatials:\n") + (exception), "Stage Maker", 1);
                             }
                         }
                     }
@@ -4761,8 +4761,8 @@ public class StageMaker extends Applet implements Runnable {
                             Madness.testdrive = witho.getSelectedIndex() + 3;
                             Madness.game();
                         } else {
-                            JOptionPane.showMessageDialog(null, new StringBuilder().append("Error!  This stage is not ready for a test drive!\nReason:\n").append(errlo[errd
-                                    - 1]).append("\n\n").toString(), "Stage Maker", 0);
+                            JOptionPane.showMessageDialog(null, "" + ("Error!  This stage is not ready for a test drive!\nReason:\n") + (errlo[errd
+                                    - 1]) + ("\n\n"), "Stage Maker", 0);
                         }
                     }
                 }
@@ -4776,7 +4776,7 @@ public class StageMaker extends Applet implements Runnable {
             if (tab == 3) {
                 rd.setFont(new Font("Arial", 1, 13));
                 rd.setColor(new Color(0, 0, 0));
-                rd.drawString(new StringBuilder().append("Publish Stage :  [ ").append(stagename).append(" ]").toString(), 30, 50);
+                rd.drawString("" + ("Publish Stage :  [ ") + (stagename) + (" ]"), 30, 50);
                 rd.drawString("Publishing Type :", 30, 80);
                 pubtyp.move(150, 63);
                 if (!pubtyp.isShowing()) {
@@ -4830,7 +4830,7 @@ public class StageMaker extends Applet implements Runnable {
                             for (int i134 = 0; i134 < nms; i134++)
                                 if (mystages[i134].equals(stagename)
                                         && maker[i134].toLowerCase().equals(tnick.getText().toLowerCase())) {
-                                    i = JOptionPane.showConfirmDialog(null, new StringBuilder().append("Replace your already online stage '").append(stagename).append("' with this one?").toString(), "Stage Maker", 0);
+                                    i = JOptionPane.showConfirmDialog(null, "" + ("Replace your already online stage '") + (stagename) + ("' with this one?"), "Stage Maker", 0);
                                 }
                             if (i == 0) {
                                 setCursor(new Cursor(3));
@@ -4847,14 +4847,14 @@ public class StageMaker extends Applet implements Runnable {
                                     final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                                     final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                                     final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                                    printwriter.println(new StringBuilder().append("20|").append(tnick.getText()).append("|").append(tpass.getText()).append("|").append(stagename).append("|").append(pubtyp.getSelectedIndex()).append("|").toString());
+                                    printwriter.println("" + ("20|") + (tnick.getText()) + ("|") + (tpass.getText()) + ("|") + (stagename) + ("|") + (pubtyp.getSelectedIndex()) + ("|"));
                                     String string = bufferedreader.readLine();
                                     if (string != null) {
                                         i135 = servervalue(string, 0);
                                     }
                                     if (i135 == 0) {
                                         String string136 = " Publishing Stage ";
-                                        final String string137 = new StringBuilder().append("").append(tstage).append("\r\n").append(bstage).append("").toString();
+                                        final String string137 = "" + ("") + (tstage) + ("\r\n") + (bstage) + ("");
                                         final DataInputStream datainputstream = new DataInputStream(new ByteArrayInputStream(string137.getBytes()));
                                         String string139;
                                         while ((string139 = datainputstream.readLine()) != null) {
@@ -4864,7 +4864,7 @@ public class StageMaker extends Applet implements Runnable {
                                             rd.fillRect(11, 141, 779, 401);
                                             rd.setColor(new Color(0, 0, 0));
                                             rd.drawString(string136, 400 - ftm.stringWidth(string136) / 2, 250);
-                                            string136 = new StringBuilder().append("| ").append(string136).append(" |").toString();
+                                            string136 = "" + ("| ") + (string136) + (" |");
                                             if (string136.equals("| | | | | | | | | | | | | | | | | | | | | | | |  Publishing Stage  | | | | | | | | | | | | | | | | | | | | | | | |")) {
                                                 string136 = " Publishing Stage ";
                                             }
@@ -4904,10 +4904,10 @@ public class StageMaker extends Applet implements Runnable {
                                                     - ftm.stringWidth("This may take a couple of minutes, please wait...")
                                                             / 2, 280);
                                             repaint();
-                                            final File file = new File(new StringBuilder().append("mystages/mymusic/").append(trackname).append(".zip").toString());
+                                            final File file = new File("" + ("mystages/mymusic/") + (trackname) + (".zip"));
                                             if (!trackname.equals("") && file.exists()) {
                                                 final int i140 = (int) file.length();
-                                                printwriter.println(new StringBuilder().append("track|").append(trackname).append("|").append(i140).append("|").toString());
+                                                printwriter.println("" + ("track|") + (trackname) + ("|") + (i140) + ("|"));
                                                 string = bufferedreader.readLine();
                                                 if (string != null) {
                                                     i135 = servervalue(string, 0);
@@ -4948,11 +4948,11 @@ public class StageMaker extends Applet implements Runnable {
                                     bool = true;
                                 }
                                 if (i135 == 3) {
-                                    JOptionPane.showMessageDialog(null, new StringBuilder().append("Unable to publish stage.\nReason:\n").append(errlo[6]).append("\n\n").toString(), "Stage Maker", 1);
+                                    JOptionPane.showMessageDialog(null, "" + ("Unable to publish stage.\nReason:\n") + (errlo[6]) + ("\n\n"), "Stage Maker", 1);
                                     bool = true;
                                 }
                                 if (i135 == 4) {
-                                    JOptionPane.showMessageDialog(null, new StringBuilder().append("Unable to publish stage.\nReason:\nStage name used (").append(stagename).append(").\nThe name '").append(stagename).append("' is already used by another published stage.\nPlease rename your stage.\n\n").toString(), "Stage Maker", 1);
+                                    JOptionPane.showMessageDialog(null, "" + ("Unable to publish stage.\nReason:\nStage name used (") + (stagename) + (").\nThe name '") + (stagename) + ("' is already used by another published stage.\nPlease rename your stage.\n\n"), "Stage Maker", 1);
                                     bool = true;
                                 }
                                 if (i135 == 5) {
@@ -4983,8 +4983,8 @@ public class StageMaker extends Applet implements Runnable {
                                 }
                             }
                         } else {
-                            JOptionPane.showMessageDialog(null, new StringBuilder().append("Error!  This stage is not ready for publishing!\nReason:\n").append(errlo[errd
-                                    - 1]).append("\n\n").toString(), "Stage Maker", 0);
+                            JOptionPane.showMessageDialog(null, "" + ("Error!  This stage is not ready for publishing!\nReason:\n") + (errlo[errd
+                                    - 1]) + ("\n\n"), "Stage Maker", 0);
                         }
                     }
                 }
@@ -5015,27 +5015,27 @@ public class StageMaker extends Applet implements Runnable {
                                 rd.drawString(maker[i], 400 - ftm.stringWidth(maker[i]) / 2, 156 + i * 20);
                             }
                             if (nad[i] > 1) {
-                                if (ovbutton(new StringBuilder().append("").append(nad[i]).append(" Players").toString(), 500, 156
+                                if (ovbutton("" + ("") + (nad[i]) + (" Players"), 500, 156
                                         + i * 20)) {
-                                    String string = new StringBuilder().append("[ ").append(mystages[i]).append(" ]  has been added by the following players to their accounts:     \n\n").toString();
+                                    String string = "" + ("[ ") + (mystages[i]) + (" ]  has been added by the following players to their accounts:     \n\n");
                                     int i141 = 0;
                                     for (int i142 = 0; i142 < nad[i]; i142++) {
                                         if (++i141 == 17) {
-                                            string = new StringBuilder().append(string).append("\n").toString();
+                                            string = "" + (string) + ("\n");
                                             i141 = 1;
                                         }
-                                        string = new StringBuilder().append(string).append(addeda[i][i142]).toString();
+                                        string = "" + (string) + (addeda[i][i142]);
                                         if (i142 != nad[i] - 1)
                                             if (i142 != nad[i] - 2) {
-                                                string = new StringBuilder().append(string).append(", ").toString();
+                                                string = "" + (string) + (", ");
                                             } else if (i141 == 16) {
-                                                string = new StringBuilder().append(string).append("\nand ").toString();
+                                                string = "" + (string) + ("\nand ");
                                                 i141 = 0;
                                             } else {
-                                                string = new StringBuilder().append(string).append(" and ").toString();
+                                                string = "" + (string) + (" and ");
                                             }
                                     }
-                                    string = new StringBuilder().append(string).append("\n \n \n").toString();
+                                    string = "" + (string) + ("\n \n \n");
                                     JOptionPane.showMessageDialog(null, string, "Stage Maker", 1);
                                 }
                             } else {
@@ -5058,7 +5058,7 @@ public class StageMaker extends Applet implements Runnable {
                                 int i143 = 0;
                                 for (int i144 = 0; i144 < slstage.getItemCount(); i144++)
                                     if (mystages[i].equals(slstage.getItem(i144))) {
-                                        i143 = JOptionPane.showConfirmDialog(null, new StringBuilder().append("Replace the local ").append(mystages[i]).append(" in your 'mystages' folder with the published online copy?").toString(), "Stage Maker", 0);
+                                        i143 = JOptionPane.showConfirmDialog(null, "" + ("Replace the local ") + (mystages[i]) + (" in your 'mystages' folder with the published online copy?"), "Stage Maker", 0);
                                     }
                                 if (i143 == 0) {
                                     setCursor(new Cursor(3));
@@ -5071,8 +5071,8 @@ public class StageMaker extends Applet implements Runnable {
                                             - ftm.stringWidth("Downloading stage, please wait...") / 2, 250);
                                     repaint();
                                     try {
-                                        String string = new StringBuilder().append("http://multiplayer.needformadness.com/tracks/").append(mystages[i]).append(".radq?reqlo=").append((int) (Math.random()
-                                                * 1000.0)).append("").toString();
+                                        String string = "" + ("http://multiplayer.needformadness.com/tracks/") + (mystages[i]) + (".radq?reqlo=") + ((int) (Math.random()
+                                                * 1000.0)) + ("");
                                         string = string.replace(' ', '_');
                                         URL url = new URL(string);
                                         int i145 = url.openConnection().getContentLength();
@@ -5106,7 +5106,7 @@ public class StageMaker extends Applet implements Runnable {
                                                 i152 += i153;
                                             }
                                             String string154 = new String(is151);
-                                            string154 = new StringBuilder().append(string154).append("\n").toString();
+                                            string154 = "" + (string154) + ("\n");
                                             String string155 = "";
                                             int i156 = 0;
                                             int i157 = string154.indexOf("\n", 0);
@@ -5117,22 +5117,22 @@ public class StageMaker extends Applet implements Runnable {
                                                 i157 = string154.indexOf("\n", i156);
                                                 if (!string158.startsWith("stagemaker(")
                                                         && !string158.startsWith("publish(")) {
-                                                    string155 = new StringBuilder().append(string155).append("").append(string158).append("\r\n").toString();
+                                                    string155 = "" + (string155) + ("") + (string158) + ("\r\n");
                                                 } else {
                                                     string155 = string155.trim();
-                                                    string155 = new StringBuilder().append(string155).append("\r\n").toString();
+                                                    string155 = "" + (string155) + ("\r\n");
                                                 }
                                                 if (string158.startsWith("soundtrack")) {
                                                     string149 = getstring("soundtrack", string158, 0);
                                                 }
                                             }
                                             string155 = string155.trim();
-                                            string155 = new StringBuilder().append(string155).append("\r\n\r\n").toString();
+                                            string155 = "" + (string155) + ("\r\n\r\n");
                                             File file = new File("mystages/");
                                             if (!file.exists()) {
                                                 file.mkdirs();
                                             }
-                                            file = new File(new StringBuilder().append("mystages/").append(mystages[i]).append(".txt").toString());
+                                            file = new File("" + ("mystages/") + (mystages[i]) + (".txt"));
                                             final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
                                             bufferedwriter.write(string155);
                                             bufferedwriter.close();
@@ -5144,16 +5144,16 @@ public class StageMaker extends Applet implements Runnable {
                                                             - ftm.stringWidth("Downloading stage's sound track...")
                                                                     / 2, 280);
                                                     repaint();
-                                                    string = new StringBuilder().append("http://multiplayer.needformadness.com/tracks/music/").append(string149).append(".zip").toString();
+                                                    string = "" + ("http://multiplayer.needformadness.com/tracks/music/") + (string149) + (".zip");
                                                     string = string.replace(' ', '_');
                                                     url = new URL(string);
                                                     i145 = url.openConnection().getContentLength();
-                                                    file = new File(new StringBuilder().append("mystages/mymusic/").append(string149).append(".zip").toString());
+                                                    file = new File("" + ("mystages/mymusic/") + (string149) + (".zip"));
                                                     if (file.exists())
                                                         if (file.length() == i145) {
                                                             i143 = 1;
                                                         } else {
-                                                            i143 = JOptionPane.showConfirmDialog(null, new StringBuilder().append("Another track named '").append(string149).append("' already exists in your Sound Tracks folder!\nReplace it with the one attached to this stage?").toString(), "Stage Maker", 0);
+                                                            i143 = JOptionPane.showConfirmDialog(null, "" + ("Another track named '") + (string149) + ("' already exists in your Sound Tracks folder!\nReplace it with the one attached to this stage?"), "Stage Maker", 0);
                                                         }
                                                     if (i143 == 0) {
                                                         datainputstream = new DataInputStream(url.openStream());
@@ -5169,7 +5169,7 @@ public class StageMaker extends Applet implements Runnable {
                                                 }
                                             }
                                             setCursor(new Cursor(0));
-                                            JOptionPane.showMessageDialog(null, new StringBuilder().append("").append(mystages[i]).append(" has been successfully downloaded!").toString(), "Stage Maker", 1);
+                                            JOptionPane.showMessageDialog(null, "" + ("") + (mystages[i]) + (" has been successfully downloaded!"), "Stage Maker", 1);
                                         } else {
                                             JOptionPane.showMessageDialog(null, "Unable to download stage.  Unknown Error!     \nPlease try again later.", "Stage Maker", 1);
                                         }
@@ -5183,14 +5183,14 @@ public class StageMaker extends Applet implements Runnable {
                                     - ftm.stringWidth("-    Error Loading this stage's info!    -") / 2, 156 + i * 20);
                         }
                         if (ovbutton("X", 765, 156 + i * 20)
-                                && JOptionPane.showConfirmDialog(null, new StringBuilder().append("Remove ").append(mystages[i]).append(" from your account?").toString(), "Stage Maker", 0) == 0) {
+                                && JOptionPane.showConfirmDialog(null, "" + ("Remove ") + (mystages[i]) + (" from your account?"), "Stage Maker", 0) == 0) {
                             setCursor(new Cursor(3));
                             int i160 = -1;
                             try {
                                 final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                                 final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                                 final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                                printwriter.println(new StringBuilder().append("19|").append(tnick.getText()).append("|").append(tpass.getText()).append("|").append(mystages[i]).append("|").toString());
+                                printwriter.println("" + ("19|") + (tnick.getText()) + ("|") + (tpass.getText()) + ("|") + (mystages[i]) + ("|"));
                                 final String string = bufferedreader.readLine();
                                 if (string != null) {
                                     i160 = servervalue(string, 0);
@@ -5203,7 +5203,7 @@ public class StageMaker extends Applet implements Runnable {
                                 logged = 1;
                             } else {
                                 setCursor(new Cursor(0));
-                                JOptionPane.showMessageDialog(null, new StringBuilder().append("Failed to remove ").append(mystages[i]).append(" from your account.  Unknown Error!     \nPlease try again later.").toString(), "Stage Maker", 1);
+                                JOptionPane.showMessageDialog(null, "" + ("Failed to remove ") + (mystages[i]) + (" from your account.  Unknown Error!     \nPlease try again later."), "Stage Maker", 1);
                             }
                         }
                     }
@@ -5215,8 +5215,8 @@ public class StageMaker extends Applet implements Runnable {
                         rd.setColor(new Color(225, 225, 225));
                         rd.fillRect(50, 150, 600, 150);
                         rd.setColor(new Color(0, 0, 0));
-                        rd.drawString(new StringBuilder().append("Loading ").append(mystages[i]).append("\u2018s info...").toString(), 400
-                                - ftm.stringWidth(new StringBuilder().append("Loading ").append(mystages[i]).append("\u2018s info...").toString())
+                        rd.drawString("" + ("Loading ") + (mystages[i]) + ("\u2018s info..."), 400
+                                - ftm.stringWidth("" + ("Loading ") + (mystages[i]) + ("\u2018s info..."))
                                         / 2, 220);
                         repaint();
                         maker[i] = "Unkown";
@@ -5224,13 +5224,13 @@ public class StageMaker extends Applet implements Runnable {
                         nad[i] = 0;
                         String string = "";
                         try {
-                            String string161 = new StringBuilder().append("http://multiplayer.needformadness.com/tracks/").append(mystages[i]).append(".txt?reqlo=").append((int) (Math.random()
-                                    * 1000.0)).append("").toString();
+                            String string161 = "" + ("http://multiplayer.needformadness.com/tracks/") + (mystages[i]) + (".txt?reqlo=") + ((int) (Math.random()
+                                    * 1000.0)) + ("");
                             string161 = string161.replace(' ', '_');
                             final URL url = new URL(string161);
                             final DataInputStream datainputstream = new DataInputStream(url.openStream());
                             while ((string = datainputstream.readLine()) != null) {
-                                string = new StringBuilder().append("").append(string.trim()).toString();
+                                string = "" + ("") + (string.trim());
                                 if (string.startsWith("details")) {
                                     maker[i] = getSvalue("details", string, 0);
                                     pubt[i] = Utility.getvalue("details", string, 1);
@@ -5278,11 +5278,11 @@ public class StageMaker extends Applet implements Runnable {
                     nms = 0;
                     String string = "";
                     try {
-                        final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/tracks/lists/").append(tnick.getText()).append(".txt?reqlo=").append((int) (Math.random()
-                                * 1000.0)).append("").toString());
+                        final URL url = new URL("" + ("http://multiplayer.needformadness.com/tracks/lists/") + (tnick.getText()) + (".txt?reqlo=") + ((int) (Math.random()
+                                * 1000.0)) + (""));
                         final DataInputStream datainputstream = new DataInputStream(url.openStream());
                         while ((string = datainputstream.readLine()) != null) {
-                            string = new StringBuilder().append("").append(string.trim()).toString();
+                            string = "" + ("") + (string.trim());
                             if (string.startsWith("mystages")) {
                                 boolean bool = true;
                                 while (bool && nms < 20) {
@@ -5303,7 +5303,7 @@ public class StageMaker extends Applet implements Runnable {
                         }
                         datainputstream.close();
                     } catch (final Exception exception) {
-                        final String string162 = new StringBuilder().append("").append(exception).toString();
+                        final String string162 = "" + ("") + (exception);
                         if (string162.indexOf("FileNotFound") != -1) {
                             setCursor(new Cursor(0));
                             logged = -1;
@@ -5340,7 +5340,7 @@ public class StageMaker extends Applet implements Runnable {
                             final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                             final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                             final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                            printwriter.println(new StringBuilder().append("1|").append(tnick.getText().toLowerCase()).append("|").append(tpass.getText()).append("|").toString());
+                            printwriter.println("" + ("1|") + (tnick.getText().toLowerCase()) + ("|") + (tpass.getText()) + ("|"));
                             final String string = bufferedreader.readLine();
                             if (string != null) {
                                 i = servervalue(string, 0);
@@ -5459,20 +5459,20 @@ public class StageMaker extends Applet implements Runnable {
             if (!file.exists()) {
                 file.mkdirs();
             }
-            file = new File(new StringBuilder().append("mystages/").append(stagename).append(".txt").toString());
+            file = new File("" + ("mystages/") + (stagename) + (".txt"));
             final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
             bufferedwriter.write(tstage);
             bufferedwriter.write(bstage);
             bufferedwriter.close();
         } catch (final Exception exception) {
-            JOptionPane.showMessageDialog(null, new StringBuilder().append("Unable to save file! Error Deatials:\n").append(exception).toString(), "Stage Maker", 1);
+            JOptionPane.showMessageDialog(null, "" + ("Unable to save file! Error Deatials:\n") + (exception), "Stage Maker", 1);
         }
         savesettings();
     }
 
     private void savesettings() {
         if (!sstage.equals(stagename) || !suser.equals(tnick.getText())) {
-            final String string = new StringBuilder().append("").append(stagename).append("\n").append(tnick.getText()).append("\n\n").toString();
+            final String string = "" + ("") + (stagename) + ("\n") + (tnick.getText()) + ("\n\n");
             sstage = stagename;
             suser = tnick.getText();
             try {
@@ -5500,13 +5500,13 @@ public class StageMaker extends Applet implements Runnable {
     // 			String string369 = "";
     // 			String string370 = "";
     // 			for (/**/; i366 < string.length() && i368 != 2; i366++) {
-    // 				string369 = new StringBuilder().append("").append(string.charAt(i366)).toString();
+    // 				string369 = "" + ("") + (string.charAt(i366));
     // 				if (string369.equals("|")) {
     // 					i367++;
     // 					if (i368 == 1 || i367 > i)
     // 						i368 = 2;
     // 				} else if (i367 == i) {
-    // 					string370 = new StringBuilder().append(string370).append(string369).toString();
+    // 					string370 = "" + (string370) + (string369);
     // 					i368 = 1;
     // 				}
     // 			}
@@ -5526,14 +5526,14 @@ public class StageMaker extends Applet implements Runnable {
             String string363 = "";
             String string364 = "";
             for (/**/; i360 < string.length() && i362 != 2; i360++) {
-                string363 = new StringBuilder().append("").append(string.charAt(i360)).toString();
+                string363 = "" + ("") + (string.charAt(i360));
                 if (string363.equals("|")) {
                     i361++;
                     if (i362 == 1 || i361 > i) {
                         i362 = 2;
                     }
                 } else if (i361 == i) {
-                    string364 = new StringBuilder().append(string364).append(string363).toString();
+                    string364 = "" + (string364) + (string363);
                     i362 = 1;
                 }
             }
@@ -5548,13 +5548,13 @@ public class StageMaker extends Applet implements Runnable {
     }
 
     private void sortop() {
-        tstage = new StringBuilder().append("snap(").append(m.snap[0]).append(",").append(m.snap[1]).append(",").append(m.snap[2]).append(")\r\nsky(").append(csky[0]).append(",").append(csky[1]).append(",").append(csky[2]).append(")\r\nfog(").append(cfade[0]).append(",").append(cfade[1]).append(",").append(cfade[2]).append(")\r\nclouds(").append(cldd[0]).append(",").append(cldd[1]).append(",").append(cldd[2]).append(",").append(cldd[3]).append(",").append(cldd[4]).append(")\r\nground(").append(cgrnd[0]).append(",").append(cgrnd[1]).append(",").append(cgrnd[2]).append(")\r\ntexture(").append(texture[0]).append(",").append(texture[1]).append(",").append(texture[2]).append(",").append(texture[3]).append(")\r\nfadefrom(").append(origfade).append(")\r\ndensity(").append((m.fogd
+        tstage = "" + ("snap(") + (m.snap[0]) + (",") + (m.snap[1]) + (",") + (m.snap[2]) + (")\r\nsky(") + (csky[0]) + (",") + (csky[1]) + (",") + (csky[2]) + (")\r\nfog(") + (cfade[0]) + (",") + (cfade[1]) + (",") + (cfade[2]) + (")\r\nclouds(") + (cldd[0]) + (",") + (cldd[1]) + (",") + (cldd[2]) + (",") + (cldd[3]) + (",") + (cldd[4]) + (")\r\nground(") + (cgrnd[0]) + (",") + (cgrnd[1]) + (",") + (cgrnd[2]) + (")\r\ntexture(") + (texture[0]) + (",") + (texture[1]) + (",") + (texture[2]) + (",") + (texture[3]) + (")\r\nfadefrom(") + (origfade) + (")\r\ndensity(") + ((m.fogd
                 + 1) / 2
-                - 1).append(")\r\nmountains(").append(m.mgen).append(")\r\nnlaps(").append(cp.nlaps).append(")\r\n").toString();
+                - 1) + (")\r\nmountains(") + (m.mgen) + (")\r\nnlaps(") + (cp.nlaps) + (")\r\n");
         if (!trackname.equals("")) {
             final StringBuilder stringbuilder = new StringBuilder();
             final StageMaker stagemaker239 = this;
-            stagemaker239.tstage = stringbuilder.append(stagemaker239.tstage).append("soundtrack(").append(trackname).append(",").append(trackvol).append(",").append(tracksize).append(")\r\n").toString();
+            stagemaker239.tstage = stringbuilder + (stagemaker239.tstage) + ("soundtrack(") + (trackname) + (",") + (trackvol) + (",") + (tracksize) + (")\r\n");
         }
         for (int i = 0; i < 3; i++) {
             snap[i] = (int) (m.snap[i] / 1.2F + 50.0F);
@@ -5562,11 +5562,11 @@ public class StageMaker extends Applet implements Runnable {
         if (snap[0] + snap[1] + snap[2] <= 110) {
             final StringBuilder stringbuilder = new StringBuilder();
             final StageMaker stagemaker240 = this;
-            stagemaker240.tstage = stringbuilder.append(stagemaker240.tstage).append("lightson()\r\n").toString();
+            stagemaker240.tstage = stringbuilder + (stagemaker240.tstage) + ("lightson()\r\n");
         }
         final StringBuilder stringbuilder = new StringBuilder();
         final StageMaker stagemaker241 = this;
-        stagemaker241.tstage = stringbuilder.append(stagemaker241.tstage).append("\r\n").toString();
+        stagemaker241.tstage = stringbuilder + (stagemaker241.tstage) + ("\r\n");
     }
 
     private void sortstage() {
@@ -6051,11 +6051,11 @@ public class StageMaker extends Applet implements Runnable {
 
                 }
                 if (!floats) {
-                    stagemaker314.bstage = stringbuilder.append(stagemaker314.bstage).append("set(").append(co[is242[i313]].colok
-                            + 10).append(",").append(co[is242[i313]].x).append(",").append(co[is242[i313]].z).append(",").append(co[is242[i313]].roofat).append(")").append(string).append("\r\n").toString();
+                    stagemaker314.bstage = stringbuilder + (stagemaker314.bstage) + ("set(") + (co[is242[i313]].colok
+                            + 10) + (",") + (co[is242[i313]].x) + (",") + (co[is242[i313]].z) + (",") + (co[is242[i313]].roofat) + (")") + (string) + ("\r\n");
                 } else {
-                    stagemaker314.bstage = stringbuilder.append(stagemaker314.bstage).append("set(").append(co[is242[i313]].colok
-                            + 10).append(",").append(co[is242[i313]].x).append(",").append(co[is242[i313]].z).append(",").append(co[is242[i313]].y).append(",").append(co[is242[i313]].roofat).append(")").append(string).append("\r\n").toString();
+                    stagemaker314.bstage = stringbuilder + (stagemaker314.bstage) + ("set(") + (co[is242[i313]].colok
+                            + 10) + (",") + (co[is242[i313]].x) + (",") + (co[is242[i313]].z) + (",") + (co[is242[i313]].y) + (",") + (co[is242[i313]].roofat) + (")") + (string) + ("\r\n");
                 }
             }
             if (co[is242[i313]].colok == 30 || co[is242[i313]].colok == 32) {
@@ -6069,11 +6069,11 @@ public class StageMaker extends Applet implements Runnable {
                 final StringBuilder stringbuilder = new StringBuilder();
                 final StageMaker stagemaker315 = this;
                 if (floats) {
-                    stagemaker315.bstage = stringbuilder.append(stagemaker315.bstage).append("chk(").append(co[is242[i313]].colok
-                            + 10).append(",").append(co[is242[i313]].x).append(",").append(co[is242[i313]].z).append(",").append(co[is242[i313]].y).append(",").append(co[is242[i313]].roofat).append(")").append(string).append("\r\n").toString();
+                    stagemaker315.bstage = stringbuilder + (stagemaker315.bstage) + ("chk(") + (co[is242[i313]].colok
+                            + 10) + (",") + (co[is242[i313]].x) + (",") + (co[is242[i313]].z) + (",") + (co[is242[i313]].y) + (",") + (co[is242[i313]].roofat) + (")") + (string) + ("\r\n");
                 } else {
-                    stagemaker315.bstage = stringbuilder.append(stagemaker315.bstage).append("chk(").append(co[is242[i313]].colok
-                            + 10).append(",").append(co[is242[i313]].x).append(",").append(co[is242[i313]].z).append(",").append(co[is242[i313]].roofat).append(")").append(string).append("\r\n").toString();
+                    stagemaker315.bstage = stringbuilder + (stagemaker315.bstage) + ("chk(") + (co[is242[i313]].colok
+                            + 10) + (",") + (co[is242[i313]].x) + (",") + (co[is242[i313]].z) + (",") + (co[is242[i313]].roofat) + (")") + (string) + ("\r\n");
                 }
             }
             if (co[is242[i313]].colok == 54) {
@@ -6086,28 +6086,28 @@ public class StageMaker extends Applet implements Runnable {
                 }
                 final StringBuilder stringbuilder = new StringBuilder();
                 final StageMaker stagemaker316 = this;
-                //   stagemaker316.bstage = stringbuilder.append(stagemaker316.bstage).append("chk(")
-                //		.append(co[is242[i313]].colok + 10).append(",").append(co[is242[i313]].x).append(",")
-                //		.append(co[is242[i313]].z).append(",").append(co[is242[i313]].y).append(",").append(co[is242[i313]].roofat)
-                //		.append(")").append(string).append("\r\n").toString();
+                //   stagemaker316.bstage = stringbuilder + (stagemaker316.bstage) + ("chk(")
+                //		 + (co[is242[i313]].colok + 10) + (",") + (co[is242[i313]].x) + (",")
+                //		 + (co[is242[i313]].z) + (",") + (co[is242[i313]].y) + (",") + (co[is242[i313]].roofat)
+                //		 + (")") + (string) + ("\r\n");
                 if (floats) {
-                    stagemaker316.bstage = stringbuilder.append(stagemaker316.bstage).append("chk(").append(co[is242[i313]].colok
-                            + 10).append(",").append(co[is242[i313]].x).append(",").append(co[is242[i313]].z).append(",").append(co[is242[i313]].y).append(",").append(co[is242[i313]].roofat).append(")").append(string).append("\r\n").toString();
+                    stagemaker316.bstage = stringbuilder + (stagemaker316.bstage) + ("chk(") + (co[is242[i313]].colok
+                            + 10) + (",") + (co[is242[i313]].x) + (",") + (co[is242[i313]].z) + (",") + (co[is242[i313]].y) + (",") + (co[is242[i313]].roofat) + (")") + (string) + ("\r\n");
                 } else {
-                    stagemaker316.bstage = stringbuilder.append(stagemaker316.bstage).append("chk(").append(co[is242[i313]].colok
-                            + 10).append(",").append(co[is242[i313]].x).append(",").append(co[is242[i313]].z).append(",").append(co[is242[i313]].roofat).append(")").append(string).append("\r\n").toString();
+                    stagemaker316.bstage = stringbuilder + (stagemaker316.bstage) + ("chk(") + (co[is242[i313]].colok
+                            + 10) + (",") + (co[is242[i313]].x) + (",") + (co[is242[i313]].z) + (",") + (co[is242[i313]].roofat) + (")") + (string) + ("\r\n");
                 }
             }
             if (co[is242[i313]].colok == 31) {
                 final StringBuilder stringbuilder = new StringBuilder();
                 final StageMaker stagemaker317 = this;
-                stagemaker317.bstage = stringbuilder.append(stagemaker317.bstage).append("fix(").append(co[is242[i313]].colok
-                        + 10).append(",").append(co[is242[i313]].x).append(",").append(co[is242[i313]].z).append(",").append(co[is242[i313]].y).append(",").append(co[is242[i313]].roofat).append(")\r\n").toString();
+                stagemaker317.bstage = stringbuilder + (stagemaker317.bstage) + ("fix(") + (co[is242[i313]].colok
+                        + 10) + (",") + (co[is242[i313]].x) + (",") + (co[is242[i313]].z) + (",") + (co[is242[i313]].y) + (",") + (co[is242[i313]].roofat) + (")\r\n");
             }
             if (co[is242[i313]].colok == bumppart) {
                 final StringBuilder stringbuilder = new StringBuilder();
                 final StageMaker stagemaker318 = this;
-                stagemaker318.bstage = stringbuilder.append(stagemaker318.bstage).append("pile(").append(co[is242[i313]].srz).append(",").append(co[is242[i313]].srx).append(",").append(co[is242[i313]].sry).append(",").append(co[is242[i313]].x).append(",").append(co[is242[i313]].z).append(")\r\n").toString();
+                stagemaker318.bstage = stringbuilder + (stagemaker318.bstage) + ("pile(") + (co[is242[i313]].srz) + (",") + (co[is242[i313]].srx) + (",") + (co[is242[i313]].sry) + (",") + (co[is242[i313]].x) + (",") + (co[is242[i313]].z) + (")\r\n");
             }
             if (co[is242[i313]].x + co[is242[i313]].maxR > i309) {
                 i309 = co[is242[i313]].x + co[is242[i313]].maxR;
@@ -6138,7 +6138,7 @@ public class StageMaker extends Applet implements Runnable {
         final int i327 = i324 + 2400;
         final StringBuilder stringbuilder = new StringBuilder();
         final StageMaker stagemaker328 = this;
-        stagemaker328.bstage = stringbuilder.append(stagemaker328.bstage).append("\r\nmaxl(").append(i326).append(",").append(i319).append(",").append(i327).append(")\r\nmaxb(").append(i321).append(",").append(i324).append(",").append(i323).append(")\r\nmaxr(").append(i326).append(",").append(i320).append(",").append(i327).append(")\r\nmaxt(").append(i321).append(",").append(i325).append(",").append(i323).append(")\r\n").toString();
+        stagemaker328.bstage = stringbuilder + (stagemaker328.bstage) + ("\r\nmaxl(") + (i326) + (",") + (i319) + (",") + (i327) + (")\r\nmaxb(") + (i321) + (",") + (i324) + (",") + (i323) + (")\r\nmaxr(") + (i326) + (",") + (i320) + (",") + (i327) + (")\r\nmaxt(") + (i321) + (",") + (i325) + (",") + (i323) + (")\r\n");
     }
 
     @Override

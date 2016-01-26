@@ -508,7 +508,7 @@ class xtGraphics extends Panel implements Runnable {
             try {
                 securitymanager.checkConnect("needformadness.com", -1);
             } catch (final Exception exception) {
-                final String string = new StringBuilder().append("").append(exception).toString();
+                final String string = "" + ("") + (exception);
                 if (string.indexOf("access denied") != -1) {
                     nofull = true;
                 }
@@ -825,19 +825,19 @@ class xtGraphics extends Panel implements Runnable {
         rd.drawImage(select, 338, 35, null);
         rd.setFont(new Font("Arial", 1, 13));
         ftm = rd.getFontMetrics();
-        drawcs(130, new StringBuilder().append("This stage will be unlocked when stage ").append(unlocked).append(" is complete!").toString(), 177, 177, 177, 3);
+        drawcs(130, "" + ("This stage will be unlocked when stage ") + (unlocked) + (" is complete!"), 177, 177, 177, 3);
         for (int i = 0; i < 9; i++) {
             rd.drawImage(pgate, 277 + i * 30, 215, null);
         }
         rd.setFont(new Font("Arial", 1, 12));
         ftm = rd.getFontMetrics();
         if (aflk) {
-            drawcs(185, new StringBuilder().append("[ Stage ").append(unlocked
-                    + 1).append(" Locked ]").toString(), 255, 128, 0, 3);
+            drawcs(185, "" + ("[ Stage ") + (unlocked
+                    + 1) + (" Locked ]"), 255, 128, 0, 3);
             aflk = false;
         } else {
-            drawcs(185, new StringBuilder().append("[ Stage ").append(unlocked
-                    + 1).append(" Locked ]").toString(), 255, 0, 0, 3);
+            drawcs(185, "" + ("[ Stage ") + (unlocked
+                    + 1) + (" Locked ]"), 255, 0, 0, 3);
             aflk = true;
         }
         rd.drawImage(back[pback], 370, 345, null);
@@ -916,25 +916,25 @@ class xtGraphics extends Panel implements Runnable {
         			string106 = "Monthly";
         	}
         	if (i105 == 1)
-        		string = new StringBuilder().append("").append(string106).append(" Top 20 Cars").toString();
+        		string = "" + ("") + (string106) + (" Top 20 Cars");
         	if (i105 == 2)
-        		string = new StringBuilder().append("").append(string106).append(" Top 20 Class A Cars").toString();
+        		string = "" + ("") + (string106) + (" Top 20 Class A Cars");
         	if (i105 == 3)
-        		string = new StringBuilder().append("").append(string106).append(" Top 20 Class A & B Cars")
-        				.toString();
+        		string = "" + ("") + (string106) + (" Top 20 Class A & B Cars")
+        				;
         	if (i105 == 4)
-        		string = new StringBuilder().append("").append(string106).append(" Top 20 Class B Cars").toString();
+        		string = "" + ("") + (string106) + (" Top 20 Class B Cars");
         	if (i105 == 5)
-        		string = new StringBuilder().append("").append(string106).append(" Top 20 Class B & C Cars")
-        				.toString();
+        		string = "" + ("") + (string106) + (" Top 20 Class B & C Cars")
+        				;
         	if (i105 == 6)
-        		string = new StringBuilder().append("").append(string106).append(" Top 20 Class C Cars").toString();
+        		string = "" + ("") + (string106) + (" Top 20 Class C Cars");
         	drawcs(69, string, 120, 176, 255, 3);
         }*/
         /*if (cfase == 101) {
         	rd.setFont(new Font("Arial", 1, 13));
         	ftm = rd.getFontMetrics();
-        	drawcs(69, new StringBuilder().append("").append(cd.viewname).append("'s account cars!").toString(), 220,
+        	drawcs(69, "" + ("") + (cd.viewname) + ("'s account cars!"), 220,
         			112, 33, 3);
         }*/
         if (!remi) {
@@ -1035,14 +1035,14 @@ class xtGraphics extends Panel implements Runnable {
                     app.mcars.show = false;
                     String string = "";
                     if (cfase == 11) {
-                        string = new StringBuilder().append("N#").append(sc[0] - 35).append("  ").toString();
+                        string = "" + ("N#") + (sc[0] - 35) + ("  ");
                     }
                     if (aflk) {
                         drawcs(95
-                                + i115, new StringBuilder().append(string).append(cd.names[sc[0]]).toString(), 240, 240, 240, 3);
+                                + i115, "" + (string) + (cd.names[sc[0]]), 240, 240, 240, 3);
                         aflk = false;
                     } else {
-                        drawcs(95, new StringBuilder().append(string).append(cd.names[sc[0]]).toString(), 176, 176, 176, 3);
+                        drawcs(95, "" + (string) + (cd.names[sc[0]]), 176, 176, 176, 3);
                         aflk = true;
                     }
                 }
@@ -1122,7 +1122,7 @@ class xtGraphics extends Panel implements Runnable {
                 }
                 if (flatrstart == 6) {
                     drawcs(355, "[ Car Locked ]", 210, 210, 210, 3);
-                    drawcs(375, new StringBuilder().append("This car unlocks when stage ").append(i113).append(" is completed...").toString(), 255, 96, 0, 3);
+                    drawcs(375, "" + ("This car unlocks when stage ") + (i113) + (" is completed..."), 255, 96, 0, 3);
                 }
             } else {
                 if (flatrstart == 6) {
@@ -1148,30 +1148,30 @@ class xtGraphics extends Panel implements Runnable {
                     			string120 = "Monthly";
                     	}
                     	if (i119 == 1)
-                    		string = new StringBuilder().append("").append(string120).append(" Top 20 Cars")
-                    				.toString();
+                    		string = "" + ("") + (string120) + (" Top 20 Cars")
+                    				;
                     	if (i119 == 2)
-                    		string = new StringBuilder().append("").append(string120)
-                    				.append(" Top 20 Class A Cars").toString();
+                    		string = "" + ("") + (string120)
+                    				 + (" Top 20 Class A Cars");
                     	if (i119 == 3)
-                    		string = new StringBuilder().append("").append(string120)
-                    				.append(" Top 20 Class A & B Cars").toString();
+                    		string = "" + ("") + (string120)
+                    				 + (" Top 20 Class A & B Cars");
                     	if (i119 == 4)
-                    		string = new StringBuilder().append("").append(string120)
-                    				.append(" Top 20 Class B Cars").toString();
+                    		string = "" + ("") + (string120)
+                    				 + (" Top 20 Class B Cars");
                     	if (i119 == 5)
-                    		string = new StringBuilder().append("").append(string120)
-                    				.append(" Top 20 Class B & C Cars").toString();
+                    		string = "" + ("") + (string120)
+                    				 + (" Top 20 Class B & C Cars");
                     	if (i119 == 6)
-                    		string = new StringBuilder().append("").append(string120)
-                    				.append(" Top 20 Class C Cars").toString();
+                    		string = "" + ("") + (string120)
+                    				 + (" Top 20 Class C Cars");
                     	drawprom(145, 170);
                     	drawcs(195,
-                    			new StringBuilder().append("[  Loading ").append(string).append("  ]").toString(),
+                    			"" + ("[  Loading ") + (string) + ("  ]"),
                     			0, 0, 0, 3);
                     	if (cd.nl > 0 && cd.nl <= 20)
-                    		drawcs(235, new StringBuilder().append("Loading :  ").append(cd.loadnames[cd.nl - 1])
-                    				.append("").toString(), 0, 0, 0, 3);
+                    		drawcs(235, "" + ("Loading :  ") + (cd.loadnames[cd.nl - 1])
+                    				 + (""), 0, 0, 0, 3);
                     }*/
                     /*if (cd.action == 11) {
                     	drawprom(145, 170);
@@ -1269,8 +1269,8 @@ class xtGraphics extends Panel implements Runnable {
                     		drawprom(145, 170);
                     		drawcs(195, "No account cars found.", 0, 0, 0, 3);
                     		drawcs(225,
-                    				new StringBuilder().append("").append(cd.viewname)
-                    						.append(" does not have any published or added cars.").toString(),
+                    				"" + ("") + (cd.viewname)
+                    						 + (" does not have any published or added cars."),
                     				0, 0, 0, 3);
                     		if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool))
                     			if (sc[0] >= 16 && cd.lastload == 2 && sc[0] < 36)
@@ -1284,16 +1284,16 @@ class xtGraphics extends Panel implements Runnable {
                     	}
                     	if (cd.action == 101) {
                     		drawprom(145, 170);
-                    		drawcs(195, new StringBuilder().append("Loading ").append(cd.viewname)
-                    				.append("'s account cars, please wait...").toString(), 0, 0, 0, 3);
+                    		drawcs(195, "" + ("Loading ") + (cd.viewname)
+                    				 + ("'s account cars, please wait..."), 0, 0, 0, 3);
                     	}
                     	if (cd.action == 102) {
                     		drawprom(145, 170);
-                    		drawcs(195, new StringBuilder().append("Loading ").append(cd.viewname)
-                    				.append("'s account cars, please wait...").toString(), 0, 0, 0, 3);
+                    		drawcs(195, "" + ("Loading ") + (cd.viewname)
+                    				 + ("'s account cars, please wait..."), 0, 0, 0, 3);
                     		if (cd.nl > 0 && cd.nl <= 20)
-                    			drawcs(235, new StringBuilder().append("Loading :  ").append(cd.loadnames[cd.nl - 1])
-                    					.append("").toString(), 0, 0, 0, 3);
+                    			drawcs(235, "" + ("Loading :  ") + (cd.loadnames[cd.nl - 1])
+                    					 + (""), 0, 0, 0, 3);
                     	}
                     	if (cd.action == 103) {
                     		minsl = nCars + 20;
@@ -1475,8 +1475,8 @@ class xtGraphics extends Panel implements Runnable {
                     			string = "Class A or B";
                     		if (ontyp == 5)
                     			string = "Class A";
-                    		drawcs(230, new StringBuilder().append("You do not have a ").append(string)
-                    				.append(" car in your account cars.").toString(), 0, 0, 0, 3);
+                    		drawcs(230, "" + ("You do not have a ") + (string)
+                    				 + (" car in your account cars."), 0, 0, 0, 3);
                     		if (drawcarb(true, null, "   OK   ", 371, 250, i, i104, bool))
                     			noclass = false;
                     	}
@@ -1503,16 +1503,16 @@ class xtGraphics extends Panel implements Runnable {
                     	if (cd.action == 7) {
                     		drawprom(145, 95);
                     		drawcs(175,
-                    				new StringBuilder().append("").append(cd.names[cd.ac])
-                    						.append(" has been successfully added to your cars!").toString(),
+                    				"" + ("") + (cd.names[cd.ac])
+                    						 + (" has been successfully added to your cars!"),
                     				0, 0, 0, 3);
                     		if (drawcarb(true, null, " OK ", 379, 195, i, i104, bool))
                     			cd.action = 0;
                     	}
                     	if (cd.action == 6) {
                     		drawprom(145, 95);
-                    		drawcs(195, new StringBuilder().append("Adding ").append(cd.names[cd.ac])
-                    				.append(" to your cars...").toString(), 0, 0, 0, 3);
+                    		drawcs(195, "" + ("Adding ") + (cd.names[cd.ac])
+                    				 + (" to your cars..."), 0, 0, 0, 3);
                     	}
                     	int i125 = 95;
                     	int i126 = 5;
@@ -1571,8 +1571,8 @@ class xtGraphics extends Panel implements Runnable {
                     			rd.drawString("Created by You", 241, 160);
                     		if (cfase != 101) {
                     			rd.setFont(new Font("Arial", 1, 11));
-                    			rd.drawString(new StringBuilder().append("Added by :  ").append(cd.adds[sc[0] - 36])
-                    					.append(" Players").toString(), 241, 180);
+                    			rd.drawString("" + ("Added by :  ") + (cd.adds[sc[0] - 36])
+                    					 + (" Players"), 241, 180);
                     		}
                     	}
                     }*/
@@ -1593,8 +1593,8 @@ class xtGraphics extends Panel implements Runnable {
                     	}
                     	if (cd.action == 4) {
                     		drawcs(195, "[  Loading Car  ]", 0, 0, 0, 3);
-                    		drawcs(235, new StringBuilder().append("Loading :  ").append(app.mcars.getSelectedItem())
-                    				.append("").toString(), 0, 0, 0, 3);
+                    		drawcs(235, "" + ("Loading :  ") + (app.mcars.getSelectedItem())
+                    				 + (""), 0, 0, 0, 3);
                     	}
                     	if (cd.action == -2) {
                     		drawcs(195, "Unknown Connection Error", 0, 0, 0, 3);
@@ -2235,10 +2235,10 @@ class xtGraphics extends Panel implements Runnable {
 
     public boolean clink(final String string, final int i, final int i134, final boolean bool) {
         boolean bool135 = false;
-        rd.drawString(new StringBuilder().append("Created by :  ").append(string).append("").toString(), 241, 160);
+        rd.drawString("" + ("Created by :  ") + (string) + (""), 241, 160);
         final int i136 = ftm.stringWidth(string);
         final int i137 = 241
-                + ftm.stringWidth(new StringBuilder().append("Created by :  ").append(string).append("").toString())
+                + ftm.stringWidth("" + ("Created by :  ") + (string) + (""))
                 - i136;
         rd.drawLine(i137, 162, i137 + i136 - 2, 162);
         if (i > i137 - 2 && i < i137 + i136 && i134 > 147 && i134 < 164) {
@@ -3210,13 +3210,13 @@ class xtGraphics extends Panel implements Runnable {
             final int i143 = checkpoints.stage;
             //if (i143 > 10)
             //	i143 -= 10;
-            string = new StringBuilder().append(" ").append(i143).append("!").toString();
+            string = "" + (" ") + (i143) + ("!");
         }
         if (multion < 3) {
             if (winner) {
                 rd.drawImage(congrd, 265, 87, null);
-                drawcs(137, new StringBuilder().append("You Won!  At Stage").append(string).append("").toString(), 255, 161, 85, 3);
-                drawcs(154, new StringBuilder().append("").append(checkpoints.name).append("").toString(), 255, 115, 0, 3);
+                drawcs(137, "" + ("You Won!  At Stage") + (string) + (""), 255, 161, 85, 3);
+                drawcs(154, "" + ("") + (checkpoints.name) + (""), 255, 115, 0, 3);
                 i142 = 154;
             } else {
                 rd.drawImage(gameov, 315, 117, null);
@@ -3224,19 +3224,19 @@ class xtGraphics extends Panel implements Runnable {
                     drawcs(167, "Sorry, You where Disconnected from Game!", 255, 161, 85, 3);
                     drawcs(184, "Please check your connection!", 255, 115, 0, 3);
                 } else {
-                    drawcs(167, new StringBuilder().append("You Lost!  At Stage").append(string).append("").toString(), 255, 161, 85, 3);
-                    drawcs(184, new StringBuilder().append("").append(checkpoints.name).append("").toString(), 255, 115, 0, 3);
+                    drawcs(167, "" + ("You Lost!  At Stage") + (string) + (""), 255, 161, 85, 3);
+                    drawcs(184, "" + ("") + (checkpoints.name) + (""), 255, 115, 0, 3);
                     i142 = 184;
                 }
             }
             rd.setColor(new Color(193, 106, 0));
-            rd.drawString(new StringBuilder().append("Your time: ").append(chrono.getTotalTime()).toString(), 380
-                    - ftm.stringWidth(new StringBuilder().append("Your time: ").append(chrono.getTotalTime()).toString()), 200);
-            rd.drawString(new StringBuilder().append("Best lap: ").append(chrono.getBestLapTime()).toString(), 420, 200);
+            rd.drawString("" + ("Your time: ") + (chrono.getTotalTime()), 380
+                    - ftm.stringWidth("" + ("Your time: ") + (chrono.getTotalTime())), 200);
+            rd.drawString("" + ("Best lap: ") + (chrono.getBestLapTime()), 420, 200);
         } else {
             rd.drawImage(gameov, 315, 117, null);
-            drawcs(167, new StringBuilder().append("Finished Watching Game!  At Stage").append(string).append("").toString(), 255, 161, 85, 3);
-            drawcs(184, new StringBuilder().append("").append(checkpoints.name).append("").toString(), 255, 115, 0, 3);
+            drawcs(167, "" + ("Finished Watching Game!  At Stage") + (string) + (""), 255, 161, 85, 3);
+            drawcs(184, "" + ("") + (checkpoints.name) + (""), 255, 115, 0, 3);
             i142 = 184;
         }
         if (winner && multion == 0 && gmode != 0
@@ -3330,11 +3330,11 @@ class xtGraphics extends Panel implements Runnable {
                 rd.setFont(new Font("Arial", 1, 13));
                 ftm = rd.getFontMetrics();
                 if (aflk) {
-                    drawcs(200 + pin, new StringBuilder().append("Stage ").append(checkpoints.stage
-                            + 1).append(" is now unlocked!").toString(), 196, 176, 0, 3);
+                    drawcs(200 + pin, "" + ("Stage ") + (checkpoints.stage
+                            + 1) + (" is now unlocked!"), 196, 176, 0, 3);
                 } else {
-                    drawcs(200 + pin, new StringBuilder().append("Stage ").append(checkpoints.stage
-                            + 1).append(" is now unlocked!").toString(), 255, 247, 165, 3);
+                    drawcs(200 + pin, "" + ("Stage ") + (checkpoints.stage
+                            + 1) + (" is now unlocked!"), 255, 247, 165, 3);
                 }
                 if (i144 != 0) {
                     if (aflk) {
@@ -3382,9 +3382,9 @@ class xtGraphics extends Panel implements Runnable {
                         string147 = " ";
                     }
                     if (aflk) {
-                        drawcs(320, new StringBuilder().append("").append(cd.names[i144]).append("").append(string147).append(" has been unlocked!").toString(), 196, 176, 0, 3);
+                        drawcs(320, "" + ("") + (cd.names[i144]) + ("") + (string147) + (" has been unlocked!"), 196, 176, 0, 3);
                     } else {
-                        drawcs(320, new StringBuilder().append("").append(cd.names[i144]).append("").append(string147).append(" has been unlocked!").toString(), 255, 247, 165, 3);
+                        drawcs(320, "" + ("") + (cd.names[i144]) + ("") + (string147) + (" has been unlocked!"), 255, 247, 165, 3);
                     }
                     pin = 140;
                 }
@@ -3400,9 +3400,9 @@ class xtGraphics extends Panel implements Runnable {
                 rd.setFont(new Font("Arial", 1, 13));
                 ftm = rd.getFontMetrics();
                 if (aflk) {
-                    drawcs(180, new StringBuilder().append("Woohoooo you finished NFM").append(gmode).append(" !!!").toString(), 144, 167, 255, 3);
+                    drawcs(180, "" + ("Woohoooo you finished NFM") + (gmode) + (" !!!"), 144, 167, 255, 3);
                 } else {
-                    drawcs(180, new StringBuilder().append("Woohoooo you finished NFM").append(gmode).append(" !!!").toString(), 228, 240, 255, 3);
+                    drawcs(180, "" + ("Woohoooo you finished NFM") + (gmode) + (" !!!"), 228, 240, 255, 3);
                 }
                 if (aflk) {
                     drawcs(210, "You're Awesome!", 144, 167, 255, 3);
@@ -3454,7 +3454,7 @@ class xtGraphics extends Panel implements Runnable {
         }
         if (multion != 0 && checkpoints.stage == -2 && i142 != 0) {
             drawcs(i142
-                    + 17, new StringBuilder().append("Created by: ").append(checkpoints.maker).append("").toString(), 255, 161, 85, 3);
+                    + 17, "" + ("Created by: ") + (checkpoints.maker) + (""), 255, 161, 85, 3);
             if (checkpoints.pubt > 0) {
                 if (checkpoints.pubt == 2) {
                     drawcs(310, "Super Public Stage", 41, 177, 255, 3);
@@ -3638,7 +3638,7 @@ class xtGraphics extends Panel implements Runnable {
     }
 
     Image getImage(final String string) {
-        final Image image = Toolkit.getDefaultToolkit().createImage(new StringBuilder().append("").append(Madness.fpath).append("").append(string).append("").toString());
+        final Image image = Toolkit.getDefaultToolkit().createImage("" + ("") + (Madness.fpath) + ("") + (string) + (""));
         final MediaTracker mediatracker = new MediaTracker(app);
         mediatracker.addImage(image, 0);
         try {
@@ -3658,14 +3658,14 @@ class xtGraphics extends Panel implements Runnable {
             String string447 = "";
             String string448 = "";
             for (; i444 < string.length() && i446 != 2; i444++) {
-                string447 = new StringBuilder().append("").append(string.charAt(i444)).toString();
+                string447 = "" + ("") + (string.charAt(i444));
                 if (string447.equals("|")) {
                     i445++;
                     if (i446 == 1 || i445 > i) {
                         i446 = 2;
                     }
                 } else if (i445 == i) {
-                    string448 = new StringBuilder().append(string448).append(string447).toString();
+                    string448 = "" + (string448) + (string447);
                     i446 = 1;
                 }
             }
@@ -3685,14 +3685,14 @@ class xtGraphics extends Panel implements Runnable {
             String string441 = "";
             String string442 = "";
             for (; i438 < string.length() && i440 != 2; i438++) {
-                string441 = new StringBuilder().append("").append(string.charAt(i438)).toString();
+                string441 = "" + ("") + (string.charAt(i438));
                 if (string441.equals("|")) {
                     i439++;
                     if (i440 == 1 || i439 > i) {
                         i440 = 2;
                     }
                 } else if (i439 == i) {
-                    string442 = new StringBuilder().append(string442).append(string441).toString();
+                    string442 = "" + (string442) + (string441);
                     i440 = 1;
                 }
             }
@@ -3954,7 +3954,7 @@ class xtGraphics extends Panel implements Runnable {
         }
         if (!bool) {
             //unnecessary
-            //drawcs(340 + i49, new StringBuilder().append("").append(sndsize[i50]).append(" KB").toString(), 0, 0, 0,
+            //drawcs(340 + i49, "" + ("") + (sndsize[i50]) + (" KB"), 0, 0, 0,
             //		3);
             drawcs(375 + i49, " Please Wait...", 0, 0, 0, 3);
         } else {
@@ -3969,7 +3969,7 @@ class xtGraphics extends Panel implements Runnable {
                     pstar = 0;
                 }
             if (multion != 0) {
-                drawcs(380 + i49, new StringBuilder().append("").append(forstart / 20).toString(), 0, 0, 0, 3);
+                drawcs(380 + i49, "" + ("") + (forstart / 20), 0, 0, 0, 3);
             }
         }
     }
@@ -4698,7 +4698,7 @@ class xtGraphics extends Panel implements Runnable {
         Image image10 = null;
         dnload += 8;
         try {
-            final File file = new File(new StringBuilder().append("").append(Madness.fpath).append("data/images.zip").toString());
+            final File file = new File("" + ("") + (Madness.fpath) + ("data/images.zip"));
             final FileInputStream fileinputstream = new FileInputStream(file);
             final ZipInputStream zipinputstream = new ZipInputStream(fileinputstream);
             for (ZipEntry zipentry = zipinputstream.getNextEntry(); zipentry != null; zipentry = zipinputstream.getNextEntry()) {
@@ -5129,7 +5129,7 @@ class xtGraphics extends Panel implements Runnable {
             fileinputstream.close();
             zipinputstream.close();
         } catch (final Exception exception) {
-            System.out.println(new StringBuilder().append("Error Loading Images: ").append(exception).toString());
+            System.out.println("" + ("Error Loading Images: ") + (exception));
         }
         makecarsbgc(image, image10);
         System.gc();
@@ -5157,9 +5157,9 @@ class xtGraphics extends Panel implements Runnable {
         if (dnload == kbload) {
             shload = kbload;
         }
-        drawcs(410, new StringBuilder().append("").append((int) ((26.0F + shload / kbload * 200.0F) / 226.0F
-                * 100.0F)).append(" % loaded    |    ").append(kbload
-                        - (int) shload).append(" KB remaining").toString(), 32, 64, 128, 3);
+        drawcs(410, "" + ("") + ((int) ((26.0F + shload / kbload * 200.0F) / 226.0F
+                * 100.0F)) + (" % loaded    |    ") + (kbload
+                        - (int) shload) + (" KB remaining"), 32, 64, 128, 3);
         rd.setColor(new Color(32, 64, 128));
         rd.fillRect(287, 371, 26 + (int) (shload / kbload * 200.0F), 10);
     }
@@ -5385,7 +5385,7 @@ class xtGraphics extends Panel implements Runnable {
     private void loadsounds() {
         dnload += 3;
         try {
-            final File file = new File(new StringBuilder().append("").append(Madness.fpath).append("data/sounds.zip").toString());
+            final File file = new File("" + ("") + (Madness.fpath) + ("data/sounds.zip"));
             final FileInputStream fileinputstream = new FileInputStream(file);
             final ZipInputStream zipinputstream = new ZipInputStream(fileinputstream);
             for (ZipEntry zipentry = zipinputstream.getNextEntry(); zipentry != null; zipentry = zipinputstream.getNextEntry()) {
@@ -5400,34 +5400,34 @@ class xtGraphics extends Panel implements Runnable {
                 }
                 for (int i2 = 0; i2 < 5; i2++) {
                     for (int i3 = 0; i3 < 5; i3++)
-                        if (string.equals(new StringBuilder().append("").append(i3).append("").append(i2).append(".wav").toString())) {
+                        if (string.equals("" + ("") + (i3) + ("") + (i2) + (".wav"))) {
                             engs[i3][i2] = new soundClip(is);
                         }
                 }
                 for (int i4 = 0; i4 < 6; i4++)
-                    if (string.equals(new StringBuilder().append("air").append(i4).append(".wav").toString())) {
+                    if (string.equals("" + ("air") + (i4) + (".wav"))) {
                         air[i4] = new soundClip(is);
                     }
                 for (int i5 = 0; i5 < 3; i5++)
-                    if (string.equals(new StringBuilder().append("crash").append(i5 + 1).append(".wav").toString())) {
+                    if (string.equals("" + ("crash") + (i5 + 1) + (".wav"))) {
                         crash[i5] = new soundClip(is);
                     }
                 for (int i6 = 0; i6 < 3; i6++)
-                    if (string.equals(new StringBuilder().append("lowcrash").append(i6
-                            + 1).append(".wav").toString())) {
+                    if (string.equals("" + ("lowcrash") + (i6
+                            + 1) + (".wav"))) {
                         lowcrash[i6] = new soundClip(is);
                     }
                 for (int i7 = 0; i7 < 3; i7++)
-                    if (string.equals(new StringBuilder().append("skid").append(i7 + 1).append(".wav").toString())) {
+                    if (string.equals("" + ("skid") + (i7 + 1) + (".wav"))) {
                         skid[i7] = new soundClip(is);
                     }
                 for (int i8 = 0; i8 < 3; i8++)
-                    if (string.equals(new StringBuilder().append("dustskid").append(i8
-                            + 1).append(".wav").toString())) {
+                    if (string.equals("" + ("dustskid") + (i8
+                            + 1) + (".wav"))) {
                         dustskid[i8] = new soundClip(is);
                     }
                 for (int i9 = 0; i9 < 3; i9++)
-                    if (string.equals(new StringBuilder().append("scrape").append(i9 + 1).append(".wav").toString())) {
+                    if (string.equals("" + ("scrape") + (i9 + 1) + (".wav"))) {
                         scrape[i9] = new soundClip(is);
                         if (i9 == 2) {
                             scrape[3] = new soundClip(is);
@@ -5468,7 +5468,7 @@ class xtGraphics extends Panel implements Runnable {
             fileinputstream.close();
             zipinputstream.close();
         } catch (final Exception exception) {
-            System.out.println(new StringBuilder().append("Error Loading Sounds: ").append(exception).toString());
+            System.out.println("" + ("Error Loading Sounds: ") + (exception));
         }
         System.gc();
     }
@@ -5482,109 +5482,109 @@ class xtGraphics extends Panel implements Runnable {
             strack = new RadicalOgg("music/stage" + i + ".ogg");
         } else {
             if (i == 1) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 240, 8400, 135, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 240, 8400, 135, false, false);
             }
             if (i == 2) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 190, 9000, 145, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 190, 9000, 145, false, false);
             }
             if (i == 3) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 170, 8500, 145, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 170, 8500, 145, false, false);
             }
             if (i == 4) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 205, 7500, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 205, 7500, 125, false, false);
             }
             if (i == 5) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 170, 7900, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 170, 7900, 125, false, false);
             }
             if (i == 6) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 370, 7900, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 370, 7900, 125, false, false);
             }
             if (i == 7) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 205, 7500, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 205, 7500, 125, false, false);
             }
             if (i == 8) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 230, 7900, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 230, 7900, 125, false, false);
             }
             if (i == 9) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 180, 7900, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 180, 7900, 125, false, false);
             }
             if (i == 10) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 280, 8100, 145, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 280, 8100, 145, false, false);
             }
             if (i == 11) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 120, 8000, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 120, 8000, 125, false, false);
             }
             if (i == 12) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 260, 7200, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 260, 7200, 125, false, false);
             }
             if (i == 13) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 270, 8000, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 270, 8000, 125, false, false);
             }
             if (i == 14) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 190, 8000, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 190, 8000, 125, false, false);
             }
             if (i == 15) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 162, 7800, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 162, 7800, 125, false, false);
             }
             if (i == 16) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 220, 7600, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 220, 7600, 125, false, false);
             }
             if (i == 17) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 300, 7500, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 300, 7500, 125, false, false);
             }
             if (i == 18) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 200, 7900, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 200, 7900, 125, false, false);
             }
             if (i == 19) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 200, 7900, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 200, 7900, 125, false, false);
             }
             if (i == 20) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 232, 7300, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 232, 7300, 125, false, false);
             }
             if (i == 21) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 370, 7900, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 370, 7900, 125, false, false);
             }
             if (i == 22) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 290, 7900, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 290, 7900, 125, false, false);
             }
             if (i == 23) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 222, 7600, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 222, 7600, 125, false, false);
             }
             if (i == 24) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 230, 8000, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 230, 8000, 125, false, false);
             }
             if (i == 25) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 220, 8000, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 220, 8000, 125, false, false);
             }
             if (i == 26) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 261, 8000, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 261, 8000, 125, false, false);
             }
             if (i == 27) {
                 strack = new RadicalMod("music/party.zip", 400, 7600, 125, false, false);
             }
             if (i == 28) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 182, 8000, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 182, 8000, 125, false, false);
             }
             if (i == 29) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 220, 8000, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 220, 8000, 125, false, false);
             }
             if (i == 30) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 200, 8000, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 200, 8000, 125, false, false);
             }
             if (i == 31) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 350, 7900, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 350, 7900, 125, false, false);
             }
             if (i == 32) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 310, 8000, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 310, 8000, 125, false, false);
             }
             if (i > 32) {
-                strack = new RadicalMod(new StringBuilder().append("music/stage").append(i).append(".zip").toString(), 550, 8000, 125, false, false);
+                strack = new RadicalMod("" + ("music/stage") + (i) + (".zip"), 550, 8000, 125, false, false);
             }
         }
         if (i < 0)
             if (!string.equals("")) {
                 if (i != -2) {
-                    strack = new RadicalMod(new StringBuilder().append("mystages/mymusic/").append(string).append(".zip").toString(), i52, 8000, 125, false, false);
+                    strack = new RadicalMod("" + ("mystages/mymusic/") + (string) + (".zip"), i52, 8000, 125, false, false);
                 } else {
                     strack = new RadicalMod(string, i52, 8000, 125, false, true);
                 }
@@ -6287,15 +6287,15 @@ class xtGraphics extends Panel implements Runnable {
         boolean bool422;
         for (bool422 = false; i < string.length() && !bool422; i++)
             if (!bool421) {
-                string419 = new StringBuilder().append(string419).append("").append(string.charAt(i)).toString();
+                string419 = "" + (string419) + ("") + (string.charAt(i));
                 bool421 = true;
             } else {
                 bool421 = false;
                 if (!string420.equals("")
-                        && !string420.equals(new StringBuilder().append("").append(string.charAt(i)).toString())) {
+                        && !string420.equals("" + ("") + (string.charAt(i)))) {
                     bool422 = true;
                 }
-                string420 = new StringBuilder().append("").append(string.charAt(i)).toString();
+                string420 = "" + ("") + (string.charAt(i));
             }
         if (!bool422) {
             for (final String string2 : strings)
@@ -6309,15 +6309,15 @@ class xtGraphics extends Panel implements Runnable {
         bool421 = true;
         for (bool422 = false; i < string.length() && !bool422; i++)
             if (!bool421) {
-                string419 = new StringBuilder().append(string419).append("").append(string.charAt(i)).toString();
+                string419 = "" + (string419) + ("") + (string.charAt(i));
                 bool421 = true;
             } else {
                 bool421 = false;
                 if (!string420.equals("")
-                        && !string420.equals(new StringBuilder().append("").append(string.charAt(i)).toString())) {
+                        && !string420.equals("" + ("") + (string.charAt(i)))) {
                     bool422 = true;
                 }
-                string420 = new StringBuilder().append("").append(string.charAt(i)).toString();
+                string420 = "" + ("") + (string.charAt(i));
             }
         if (!bool422) {
             for (final String string2 : strings)
@@ -6331,15 +6331,15 @@ class xtGraphics extends Panel implements Runnable {
         int i425 = 0;
         for (bool422 = false; i < string.length() && !bool422; i++)
             if (i425 == 0) {
-                string419 = new StringBuilder().append(string419).append("").append(string.charAt(i)).toString();
+                string419 = "" + (string419) + ("") + (string.charAt(i));
                 i425 = 2;
             } else {
                 i425--;
                 if (!string420.equals("")
-                        && !string420.equals(new StringBuilder().append("").append(string.charAt(i)).toString())) {
+                        && !string420.equals("" + ("") + (string.charAt(i)))) {
                     bool422 = true;
                 }
-                string420 = new StringBuilder().append("").append(string.charAt(i)).toString();
+                string420 = "" + ("") + (string.charAt(i));
             }
         if (!bool422) {
             for (final String string2 : strings)
@@ -6353,15 +6353,15 @@ class xtGraphics extends Panel implements Runnable {
         i425 = 1;
         for (bool422 = false; i < string.length() && !bool422; i++)
             if (i425 == 0) {
-                string419 = new StringBuilder().append(string419).append("").append(string.charAt(i)).toString();
+                string419 = "" + (string419) + ("") + (string.charAt(i));
                 i425 = 2;
             } else {
                 i425--;
                 if (!string420.equals("")
-                        && !string420.equals(new StringBuilder().append("").append(string.charAt(i)).toString())) {
+                        && !string420.equals("" + ("") + (string.charAt(i)))) {
                     bool422 = true;
                 }
-                string420 = new StringBuilder().append("").append(string.charAt(i)).toString();
+                string420 = "" + ("") + (string.charAt(i));
             }
         if (!bool422) {
             for (final String string2 : strings)
@@ -6375,15 +6375,15 @@ class xtGraphics extends Panel implements Runnable {
         i425 = 2;
         for (bool422 = false; i < string.length() && !bool422; i++)
             if (i425 == 0) {
-                string419 = new StringBuilder().append(string419).append("").append(string.charAt(i)).toString();
+                string419 = "" + (string419) + ("") + (string.charAt(i));
                 i425 = 2;
             } else {
                 i425--;
                 if (!string420.equals("")
-                        && !string420.equals(new StringBuilder().append("").append(string.charAt(i)).toString())) {
+                        && !string420.equals("" + ("") + (string.charAt(i)))) {
                     bool422 = true;
                 }
-                string420 = new StringBuilder().append("").append(string.charAt(i)).toString();
+                string420 = "" + ("") + (string.charAt(i));
             }
         if (!bool422) {
             for (final String string2 : strings)
@@ -6611,14 +6611,14 @@ class xtGraphics extends Panel implements Runnable {
                             int i60 = 0;
                             int i61 = 1;
                             for (; i60 < lcmsg[i57].length(); i60++) {
-                                final String string62 = new StringBuilder().append("").append(lcmsg[i57].charAt(i60)).toString();
+                                final String string62 = "" + ("") + (lcmsg[i57].charAt(i60));
                                 if (string62.equals(" ")) {
                                     i61++;
                                 } else {
                                     i61 = 0;
                                 }
                                 if (i61 < 2) {
-                                    string = new StringBuilder().append(string).append(string62).toString();
+                                    string = "" + (string) + (string62);
                                 }
                             }
                             if (!string.equals("")) {
@@ -6628,7 +6628,7 @@ class xtGraphics extends Panel implements Runnable {
                                 }
                                 if (!msgcheck(string) && updatec[i57] > -12) {
                                     if (cnames[i57][6].equals("Game Chat  ")
-                                            || cnames[i57][6].equals(new StringBuilder().append("").append(clan).append("'s Chat  ").toString())) {
+                                            || cnames[i57][6].equals("" + ("") + (clan) + ("'s Chat  "))) {
                                         cnames[i57][6] = "";
                                     }
                                     for (int i63 = 0; i63 < 6; i63++) {
@@ -6706,18 +6706,18 @@ class xtGraphics extends Panel implements Runnable {
                                         rd.setColor(new Color(0, i65, i66));
                                         rd.setFont(new Font("Tahoma", 1, 11));
                                         ftm = rd.getFontMetrics();
-                                        rd.drawString(new StringBuilder().append(cnames[i57][i67]).append(": ").toString(), 39
+                                        rd.drawString("" + (cnames[i57][i67]) + (": "), 39
                                                 + i64 + movepos[i57], 439 + i56);
-                                        i64 += ftm.stringWidth(new StringBuilder().append(cnames[i57][i67]).append(": ").toString());
+                                        i64 += ftm.stringWidth("" + (cnames[i57][i67]) + (": "));
                                         rd.setColor(new Color(0, 0, 0));
                                         rd.setFont(new Font("Tahoma", 0, 11));
                                         ftm = rd.getFontMetrics();
-                                        rd.drawString(new StringBuilder().append(sentn[i57][i67]).append("   ").toString(), 39
+                                        rd.drawString("" + (sentn[i57][i67]) + ("   "), 39
                                                 + i64 + movepos[i57], 439 + i56);
-                                        i64 += ftm.stringWidth(new StringBuilder().append(sentn[i57][i67]).append("   ").toString());
+                                        i64 += ftm.stringWidth("" + (sentn[i57][i67]) + ("   "));
                                     } else {
-                                        i64 += ftm.stringWidth(new StringBuilder().append(cnames[i57][i67]).append(": ").toString());
-                                        i64 += ftm.stringWidth(new StringBuilder().append(sentn[i57][i67]).append("   ").toString());
+                                        i64 += ftm.stringWidth("" + (cnames[i57][i67]) + (": "));
+                                        i64 += ftm.stringWidth("" + (sentn[i57][i67]) + ("   "));
                                     }
                                 }
                                 rd.setColor(new Color(0, 0, 0));
@@ -6731,20 +6731,20 @@ class xtGraphics extends Panel implements Runnable {
                                     rd.setColor(new Color(0, i65, i66));
                                     rd.setFont(new Font("Tahoma", 1, 11));
                                     ftm = rd.getFontMetrics();
-                                    if (ftm.stringWidth(new StringBuilder().append(cnames[i57][i68]).append(": ").toString())
+                                    if (ftm.stringWidth("" + (cnames[i57][i68]) + (": "))
                                             + 39 + i64 < 775) {
                                         if (i68 != 6 || msgflk[i57] < 67 || msgflk[i57] % 3 != 0) {
-                                            rd.drawString(new StringBuilder().append(cnames[i57][i68]).append(": ").toString(), 39
+                                            rd.drawString("" + (cnames[i57][i68]) + (": "), 39
                                                     + i64, 439 + i56);
                                         }
-                                        i64 += ftm.stringWidth(new StringBuilder().append(cnames[i57][i68]).append(": ").toString());
+                                        i64 += ftm.stringWidth("" + (cnames[i57][i68]) + (": "));
                                     } else {
                                         String string = "";
                                         for (int i69 = 0; ftm.stringWidth(string) + 39 + i64 < 775
                                                 && i69 < cnames[i57][i68].length(); i69++) {
-                                            string = new StringBuilder().append(string).append(cnames[i57][i68].charAt(i69)).toString();
+                                            string = "" + (string) + (cnames[i57][i68].charAt(i69));
                                         }
-                                        string = new StringBuilder().append(string).append("...").toString();
+                                        string = "" + (string) + ("...");
                                         if (i68 != 6 || msgflk[i57] < 67 || msgflk[i57] % 3 != 0) {
                                             rd.drawString(string, 39 + i64, 439 + i56);
                                         }
@@ -6755,17 +6755,17 @@ class xtGraphics extends Panel implements Runnable {
                                     ftm = rd.getFontMetrics();
                                     if (ftm.stringWidth(sentn[i57][i68]) + 39 + i64 < 775) {
                                         if (i68 != 6 || msgflk[i57] < 67 || msgflk[i57] % 3 != 0) {
-                                            rd.drawString(new StringBuilder().append(sentn[i57][i68]).append("   ").toString(), 39
+                                            rd.drawString("" + (sentn[i57][i68]) + ("   "), 39
                                                     + i64, 439 + i56);
                                         }
-                                        i64 += ftm.stringWidth(new StringBuilder().append(sentn[i57][i68]).append("   ").toString());
+                                        i64 += ftm.stringWidth("" + (sentn[i57][i68]) + ("   "));
                                     } else {
                                         String string = "";
                                         for (int i70 = 0; ftm.stringWidth(string) + 39 + i64 < 775
                                                 && i70 < sentn[i57][i68].length(); i70++) {
-                                            string = new StringBuilder().append(string).append(sentn[i57][i68].charAt(i70)).toString();
+                                            string = "" + (string) + (sentn[i57][i68].charAt(i70));
                                         }
-                                        string = new StringBuilder().append(string).append("...").toString();
+                                        string = "" + (string) + ("...");
                                         if (i68 != 6 || msgflk[i57] < 67 || msgflk[i57] % 3 != 0) {
                                             rd.drawString(string, 39 + i64, 439 + i56);
                                         }
@@ -6918,8 +6918,8 @@ class xtGraphics extends Panel implements Runnable {
                                 rd.drawString("3rd", 671, 76 + 30 * i75);
                             }
                             if (i75 >= 3) {
-                                rd.drawString(new StringBuilder().append("").append(i75
-                                        + 1).append("th").toString(), 671, 76 + 30 * i75);
+                                rd.drawString("" + ("") + (i75
+                                        + 1) + ("th"), 671, 76 + 30 * i75);
                             }
                             if (clangame != 0) {
                                 int i82;
@@ -7143,7 +7143,7 @@ class xtGraphics extends Panel implements Runnable {
             } else {
                 cntchatp[i54] = -200;
             }
-            lcmsg[i54] = new StringBuilder().append("").append(app.cmsg.getText()).toString();
+            lcmsg[i54] = "" + ("") + (app.cmsg.getText());
             if (cntchatp[i54] == 67) {
                 control.chatup = 0;
             }
@@ -7402,7 +7402,7 @@ class xtGraphics extends Panel implements Runnable {
     private void pingstat() {
         final int i = (int) (100.0 * Math.random());
         try {
-            final URL url = new URL(new StringBuilder().append("http://c.statcounter.com/9994681/0/14bb645e/1/?reco=").append(i).append("").toString());
+            final URL url = new URL("" + ("http://c.statcounter.com/9994681/0/14bb645e/1/?reco=") + (i) + (""));
             url.openConnection().setConnectTimeout(5000);
             final Image image = Toolkit.getDefaultToolkit().createImage(url);
             final MediaTracker mediatracker = new MediaTracker(app);
@@ -7829,8 +7829,8 @@ class xtGraphics extends Panel implements Runnable {
         final float f255 = f * 1.4F * 21.0F * 60.0F * 60.0F / 100000.0F;
         final float f256 = f255 * 0.621371F;
         rd.setColor(new Color(0, 0, 100));
-        rd.drawString(new StringBuilder().append("").append((int) f255).toString(), 62, 245);
-        rd.drawString(new StringBuilder().append("").append((int) f256).toString(), 132, 245);
+        rd.drawString("" + ("") + ((int) f255), 62, 245);
+        rd.drawString("" + ("") + ((int) f256), 132, 245);
     }
 
     void replyn() {
@@ -7898,7 +7898,7 @@ class xtGraphics extends Panel implements Runnable {
                 if (i21 == 0) {
                     cnames[i21][6] = "Game Chat  ";
                 } else {
-                    cnames[i21][6] = new StringBuilder().append("").append(clan).append("'s Chat  ").toString();
+                    cnames[i21][6] = "" + ("") + (clan) + ("'s Chat  ");
                 }
                 updatec[i21] = -1;
                 movepos[i21] = 0;
@@ -7962,30 +7962,30 @@ class xtGraphics extends Panel implements Runnable {
                     true, true
             };
             while ((runtyp == -101 || sendstat == 1) && !lan && !Thread.currentThread().isInterrupted()) {
-                String string = new StringBuilder().append("3|").append(playingame).append("|").append(updatec[0]).append("|").toString();
+                String string = "" + ("3|") + (playingame) + ("|") + (updatec[0]) + ("|");
                 if (clanchat) {
-                    string = new StringBuilder().append(string).append("").append(updatec[1]).append("|").append(clan).append("|").append(clankey).append("|").toString();
+                    string = "" + (string) + ("") + (updatec[1]) + ("|") + (clan) + ("|") + (clankey) + ("|");
                 } else {
-                    string = new StringBuilder().append(string).append("0|||").toString();
+                    string = "" + (string) + ("0|||");
                 }
                 if (updatec[0] <= -11) {
                     for (int i = 0; i < -updatec[0] - 10; i++) {
-                        string = new StringBuilder().append(string).append("").append(cnames[0][6
-                                - i]).append("|").append(sentn[0][6 - i]).append("|").toString();
+                        string = "" + (string) + ("") + (cnames[0][6
+                                - i]) + ("|") + (sentn[0][6 - i]) + ("|");
                     }
                     updatec[0] = -2;
                 }
                 if (clanchat && updatec[1] <= -11) {
                     for (int i = 0; i < -updatec[1] - 10; i++) {
-                        string = new StringBuilder().append(string).append("").append(cnames[1][6
-                                - i]).append("|").append(sentn[1][6 - i]).append("|").toString();
+                        string = "" + (string) + ("") + (cnames[1][6
+                                - i]) + ("|") + (sentn[1][6 - i]) + ("|");
                     }
                     updatec[1] = -2;
                 }
                 if (sendstat == 1) {
-                    string = new StringBuilder().append("5|").append(playingame).append("|").append(im).append("|").append(beststunt).append("|").append(fastestlap).append("|").toString();
+                    string = "" + ("5|") + (playingame) + ("|") + (im) + ("|") + (beststunt) + ("|") + (fastestlap) + ("|");
                     for (int i = 0; i < nplayers; i++) {
-                        string = new StringBuilder().append(string).append("").append(dcrashes[i]).append("|").toString();
+                        string = "" + (string) + ("") + (dcrashes[i]) + ("|");
                     }
                     sendstat = 2;
                 }
@@ -8058,7 +8058,7 @@ class xtGraphics extends Panel implements Runnable {
                                 if (i16 == 0) {
                                     cnames[i16][6] = "Game Chat  ";
                                 } else {
-                                    cnames[i16][6] = new StringBuilder().append("").append(clan).append("'s Chat  ").toString();
+                                    cnames[i16][6] = "" + ("") + (clan) + ("'s Chat  ");
                                 }
                             if (updatec[i16] != -2) {
                                 floater[i16] = 1;
@@ -8089,8 +8089,8 @@ class xtGraphics extends Panel implements Runnable {
                     socket = new Socket("multiplayer.needformadness.com", 7061);
                     din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     dout = new PrintWriter(socket.getOutputStream(), true);
-                    dout.println(new StringBuilder().append("101|").append(runtyp
-                            + 174).append("|").append(app.tnick.getText()).append("|").append(app.tpass.getText()).append("|").toString());
+                    dout.println("" + ("101|") + (runtyp
+                            + 174) + ("|") + (app.tnick.getText()) + ("|") + (app.tpass.getText()) + ("|"));
                     din.readLine();
                     socket.close();
                     socket = null;
@@ -8493,13 +8493,13 @@ class xtGraphics extends Panel implements Runnable {
                     if (checkpoints.stage != -3) {
                         String string = "";
                         if (checkpoints.top20 >= 3) {
-                            string = new StringBuilder().append("N#").append(checkpoints.nto).append("  ").toString();
+                            string = "" + ("N#") + (checkpoints.nto) + ("  ");
                         }
                         if (aflk) {
-                            drawcs(132, new StringBuilder().append(string).append(checkpoints.name).toString(), 240, 240, 240, 3);
+                            drawcs(132, "" + (string) + (checkpoints.name), 240, 240, 240, 3);
                             aflk = false;
                         } else {
-                            drawcs(132, new StringBuilder().append(string).append(checkpoints.name).toString(), 176, 176, 176, 3);
+                            drawcs(132, "" + (string) + (checkpoints.name), 176, 176, 176, 3);
                             aflk = true;
                         }
                         if (checkpoints.stage == -2 && cd.staction == 0) {
@@ -8509,11 +8509,11 @@ class xtGraphics extends Panel implements Runnable {
                             if (checkpoints.maker.equals(nickname)) {
                                 rd.drawString("Created by You", 70, 115);
                             } else {
-                                rd.drawString(new StringBuilder().append("Created by :  ").append(checkpoints.maker).append("").toString(), 70, 115);
+                                rd.drawString("" + ("Created by :  ") + (checkpoints.maker) + (""), 70, 115);
                             }
                             if (checkpoints.top20 >= 3) {
-                                rd.drawString(new StringBuilder().append("Added by :  ").append(cd.top20adds[checkpoints.nto
-                                        - 1]).append(" Players").toString(), 70, 135);
+                                rd.drawString("" + ("Added by :  ") + (cd.top20adds[checkpoints.nto
+                                        - 1]) + (" Players"), 70, 135);
                             }
                         }
                     } else if (removeds != 1) {
@@ -8827,15 +8827,15 @@ class xtGraphics extends Panel implements Runnable {
                     final int i44 = checkpoints.stage;
                     //if (i44 > 10)
                     //	i44 -= 10;
-                    drawcs(80, new StringBuilder().append("Stage ").append(i44).append("  >").toString(), 255, 128, 0, 3);
+                    drawcs(80, "" + ("Stage ") + (i44) + ("  >"), 255, 128, 0, 3);
                 } else {
                     drawcs(80, "Final Party Stage  >", 255, 128, 0, 3);
                 }
                 if (aflk) {
-                    drawcs(100, new StringBuilder().append("| ").append(checkpoints.name).append(" |").toString(), 240, 240, 240, 3);
+                    drawcs(100, "" + ("| ") + (checkpoints.name) + (" |"), 240, 240, 240, 3);
                     aflk = false;
                 } else {
-                    drawcs(100, new StringBuilder().append("| ").append(checkpoints.name).append(" |").toString(), 176, 176, 176, 3);
+                    drawcs(100, "" + ("| ") + (checkpoints.name) + (" |"), 176, 176, 176, 3);
                     aflk = true;
                 }
                 if (checkpoints.stage != -3) {
@@ -9020,30 +9020,30 @@ class xtGraphics extends Panel implements Runnable {
                         }
                     if (clangame == 2) {
                         bool186 = true;
-                        string187 = new StringBuilder().append("Clan ").append(string185).append(" wasted, nobody won becuase this is a racing only game!").toString();
+                        string187 = "" + ("Clan ") + (string185) + (" wasted, nobody won becuase this is a racing only game!");
                     }
                     if (clangame == 4 && !string.toLowerCase().equals(gaclan.toLowerCase())) {
                         bool186 = true;
-                        string187 = new StringBuilder().append("Clan ").append(string185).append(" wasted, nobody won becuase ").append(string).append(" should have raced in this racing vs wasting game!").toString();
+                        string187 = "" + ("Clan ") + (string185) + (" wasted, nobody won becuase ") + (string) + (" should have raced in this racing vs wasting game!");
                     }
                     if (clangame == 5 && string.toLowerCase().equals(gaclan.toLowerCase())) {
                         bool186 = true;
-                        string187 = new StringBuilder().append("Clan ").append(string185).append(" wasted, nobody won becuase ").append(string).append(" should have raced in this racing vs wasting game!").toString();
+                        string187 = "" + ("Clan ") + (string185) + (" wasted, nobody won becuase ") + (string) + (" should have raced in this racing vs wasting game!");
                     }
                 }
                 for (int i = 0; i < nplayers; i++)
                     if (checkpoints.clear[i] == checkpoints.nlaps * checkpoints.nsp && checkpoints.pos[i] == 0) {
                         if (clangame == 3) {
                             bool186 = true;
-                            string187 = new StringBuilder().append("").append(plnames[i]).append(" of clan ").append(pclan[i]).append(" finished first, nobody won becuase this is a wasting only game!").toString();
+                            string187 = "" + ("") + (plnames[i]) + (" of clan ") + (pclan[i]) + (" finished first, nobody won becuase this is a wasting only game!");
                         }
                         if (clangame == 4 && pclan[i].toLowerCase().equals(gaclan.toLowerCase())) {
                             bool186 = true;
-                            string187 = new StringBuilder().append("").append(plnames[i]).append(" of clan ").append(pclan[i]).append(" finished first, nobody won becuase ").append(pclan[i]).append(" should have wasted in this racing vs wasting game!").toString();
+                            string187 = "" + ("") + (plnames[i]) + (" of clan ") + (pclan[i]) + (" finished first, nobody won becuase ") + (pclan[i]) + (" should have wasted in this racing vs wasting game!");
                         }
                         if (clangame == 5 && !pclan[i].toLowerCase().equals(gaclan.toLowerCase())) {
                             bool186 = true;
-                            string187 = new StringBuilder().append("").append(plnames[i]).append(" of clan ").append(pclan[i]).append(" finished first, nobody won becuase ").append(pclan[i]).append(" should have wasted in this racing vs wasting game!").toString();
+                            string187 = "" + ("") + (plnames[i]) + (" of clan ") + (pclan[i]) + (" finished first, nobody won becuase ") + (pclan[i]) + (" should have wasted in this racing vs wasting game!");
                         }
                     }
                 if (bool186) {
@@ -9073,10 +9073,10 @@ class xtGraphics extends Panel implements Runnable {
                             aflk = true;
                         }
                     } else if (aflk) {
-                        drawcs(120, new StringBuilder().append("Your clan ").append(string).append(" has wasted all the cars!").toString(), 0, 0, 0, 0);
+                        drawcs(120, "" + ("Your clan ") + (string) + (" has wasted all the cars!"), 0, 0, 0, 0);
                         aflk = false;
                     } else {
-                        drawcs(120, new StringBuilder().append("Your clan ").append(string).append(" has wasted all the cars!").toString(), 0, 128, 255, 0);
+                        drawcs(120, "" + ("Your clan ") + (string) + (" has wasted all the cars!"), 0, 128, 255, 0);
                         aflk = true;
                     }
                     drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
@@ -9132,17 +9132,17 @@ class xtGraphics extends Panel implements Runnable {
                                     drawhi(youlost, 70);
                                     if (fase != 7001) {
                                         if (aflk) {
-                                            drawcs(120, new StringBuilder().append("").append(cd.names[sc[i]]).append(" finished first, race over!").toString(), 0, 0, 0, 0);
+                                            drawcs(120, "" + ("") + (cd.names[sc[i]]) + (" finished first, race over!"), 0, 0, 0, 0);
                                             aflk = false;
                                         } else {
-                                            drawcs(120, new StringBuilder().append("").append(cd.names[sc[i]]).append(" finished first, race over!").toString(), 0, 128, 255, 0);
+                                            drawcs(120, "" + ("") + (cd.names[sc[i]]) + (" finished first, race over!"), 0, 128, 255, 0);
                                             aflk = true;
                                         }
                                     } else if (aflk) {
-                                        drawcs(120, new StringBuilder().append("").append(plnames[i]).append(" finished first, race over!").toString(), 0, 0, 0, 0);
+                                        drawcs(120, "" + ("") + (plnames[i]) + (" finished first, race over!"), 0, 0, 0, 0);
                                         aflk = false;
                                     } else {
-                                        drawcs(120, new StringBuilder().append("").append(plnames[i]).append(" finished first, race over!").toString(), 0, 128, 255, 0);
+                                        drawcs(120, "" + ("") + (plnames[i]) + (" finished first, race over!"), 0, 128, 255, 0);
                                         aflk = true;
                                     }
                                     winner = false;
@@ -9150,20 +9150,20 @@ class xtGraphics extends Panel implements Runnable {
                             } else if (pclan[i].toLowerCase().equals(pclan[im].toLowerCase())) {
                                 drawhi(youwon, 70);
                                 if (aflk) {
-                                    drawcs(120, new StringBuilder().append("Your clan ").append(pclan[im]).append(" finished first, nice job!").toString(), 0, 0, 0, 0);
+                                    drawcs(120, "" + ("Your clan ") + (pclan[im]) + (" finished first, nice job!"), 0, 0, 0, 0);
                                     aflk = false;
                                 } else {
-                                    drawcs(120, new StringBuilder().append("Your clan ").append(pclan[im]).append(" finished first, nice job!").toString(), 0, 128, 255, 0);
+                                    drawcs(120, "" + ("Your clan ") + (pclan[im]) + (" finished first, nice job!"), 0, 128, 255, 0);
                                     aflk = true;
                                 }
                                 winner = true;
                             } else {
                                 drawhi(youlost, 70);
                                 if (aflk) {
-                                    drawcs(120, new StringBuilder().append("").append(plnames[i]).append(" of clan ").append(pclan[i]).append(" finished first, race over!").toString(), 0, 0, 0, 0);
+                                    drawcs(120, "" + ("") + (plnames[i]) + (" of clan ") + (pclan[i]) + (" finished first, race over!"), 0, 0, 0, 0);
                                     aflk = false;
                                 } else {
-                                    drawcs(120, new StringBuilder().append("").append(plnames[i]).append(" of clan ").append(pclan[i]).append(" finished first, race over!").toString(), 0, 128, 255, 0);
+                                    drawcs(120, "" + ("") + (plnames[i]) + (" of clan ") + (pclan[i]) + (" finished first, race over!"), 0, 128, 255, 0);
                                     aflk = true;
                                 }
                                 winner = false;
@@ -9182,14 +9182,14 @@ class xtGraphics extends Panel implements Runnable {
                                 string189 = plnames[i];
                             }
                     } else {
-                        string189 = new StringBuilder().append("Clan ").append(string).append("").toString();
+                        string189 = "" + ("Clan ") + (string) + ("");
                     }
                     drawhi(gamefinished, 70);
                     if (aflk) {
-                        drawcs(120, new StringBuilder().append("").append(string189).append(" has wasted all the cars!").toString(), 0, 0, 0, 0);
+                        drawcs(120, "" + ("") + (string189) + (" has wasted all the cars!"), 0, 0, 0, 0);
                         aflk = false;
                     } else {
-                        drawcs(120, new StringBuilder().append("").append(string189).append(" has wasted all the cars!").toString(), 0, 128, 255, 0);
+                        drawcs(120, "" + ("") + (string189) + (" has wasted all the cars!"), 0, 128, 255, 0);
                         aflk = true;
                     }
                     drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
@@ -9203,17 +9203,17 @@ class xtGraphics extends Panel implements Runnable {
                             drawhi(gamefinished, 70);
                             if (clangame == 0) {
                                 if (aflk) {
-                                    drawcs(120, new StringBuilder().append("").append(plnames[i]).append(" finished first, race over!").toString(), 0, 0, 0, 0);
+                                    drawcs(120, "" + ("") + (plnames[i]) + (" finished first, race over!"), 0, 0, 0, 0);
                                     aflk = false;
                                 } else {
-                                    drawcs(120, new StringBuilder().append("").append(plnames[i]).append(" finished first, race over!").toString(), 0, 128, 255, 0);
+                                    drawcs(120, "" + ("") + (plnames[i]) + (" finished first, race over!"), 0, 128, 255, 0);
                                     aflk = true;
                                 }
                             } else if (aflk) {
-                                drawcs(120, new StringBuilder().append("Clan ").append(pclan[i]).append(" finished first, race over!").toString(), 0, 0, 0, 0);
+                                drawcs(120, "" + ("Clan ") + (pclan[i]) + (" finished first, race over!"), 0, 0, 0, 0);
                                 aflk = false;
                             } else {
-                                drawcs(120, new StringBuilder().append("Clan ").append(pclan[i]).append(" finished first, race over!").toString(), 0, 128, 255, 0);
+                                drawcs(120, "" + ("Clan ") + (pclan[i]) + (" finished first, race over!"), 0, 128, 255, 0);
                                 aflk = true;
                             }
                             drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
@@ -9259,7 +9259,7 @@ class xtGraphics extends Panel implements Runnable {
                         say = " Arrow now pointing at >  CARS";
                         if (multion == 1) {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            say = stringbuilder.append(say).append("    Press [S] to toggle Radar!").toString();
+                            say = stringbuilder + (say) + ("    Press [S] to toggle Radar!");
                         }
                         tcnt = -5;
                     }
@@ -9268,7 +9268,7 @@ class xtGraphics extends Panel implements Runnable {
                         say = " Arrow now pointing at >  TRACK";
                         if (multion == 1) {
                             final StringBuilder stringbuilder = new StringBuilder();
-                            say = stringbuilder.append(say).append("    Press [S] to toggle Radar!").toString();
+                            say = stringbuilder + (say) + ("    Press [S] to toggle Radar!");
                         }
                         tcnt = -5;
                         cntan = 20;
@@ -9312,7 +9312,7 @@ class xtGraphics extends Panel implements Runnable {
                     } else if (alocked != lalocked) {
                         if (alocked != -1) {
                             wasay = true;
-                            say = new StringBuilder().append(" Arrow Locked on >  ").append(plnames[alocked]).append("").toString();
+                            say = "" + (" Arrow Locked on >  ") + (plnames[alocked]) + ("");
                             tcnt = -5;
                         } else {
                             wasay = true;
@@ -9350,12 +9350,12 @@ class xtGraphics extends Panel implements Runnable {
                 rd.drawImage(pwr, 600, 27, null);
                 rd.drawImage(lap, 19, 7, null);
                 rd.setColor(new Color(0, 0, 100));
-                rd.drawString(new StringBuilder().append("").append(mad.nlaps
-                        + 1).append(" / ").append(checkpoints.nlaps).append("").toString(), 51, 18);
+                rd.drawString("" + ("") + (mad.nlaps
+                        + 1) + (" / ") + (checkpoints.nlaps) + (""), 51, 18);
                 rd.drawImage(was, 92, 7, null);
                 rd.setColor(new Color(0, 0, 100));
-                rd.drawString(new StringBuilder().append("").append(checkpoints.wasted).append(" / ").append(nplayers
-                        - 1).append("").toString(), 150, 18);
+                rd.drawString("" + ("") + (checkpoints.wasted) + (" / ") + (nplayers
+                        - 1) + (""), 150, 18);
                 rd.drawImage(pos, 42, 27, null);
                 rd.drawImage(rank[checkpoints.pos[mad.im]], 110, 28, null);
                 drawstat(cd.maxmag[mad.cn], mad.hitmag, mad.newcar, mad.power);
@@ -9430,10 +9430,10 @@ class xtGraphics extends Panel implements Runnable {
                                 string192 = "  (Press Enter)";
                             }
                             if (pwflk) {
-                                drawcs(110, new StringBuilder().append("Please read the Game Instructions!").append(string192).append("").toString(), 0, 0, 200, 0);
+                                drawcs(110, "" + ("Please read the Game Instructions!") + (string192) + (""), 0, 0, 200, 0);
                                 pwflk = false;
                             } else {
-                                drawcs(110, new StringBuilder().append("Please read the Game Instructions!").append(string192).append("").toString(), 255, 100, 0, 0);
+                                drawcs(110, "" + ("Please read the Game Instructions!") + (string192) + (""), 255, 100, 0, 0);
                                 pwflk = true;
                             }
                         }
@@ -9536,15 +9536,15 @@ class xtGraphics extends Panel implements Runnable {
                             loop = "Tabletop";
                         }
                     if (i > 0 && mad.btab) {
-                        loop = new StringBuilder().append("Hanged ").append(loop).toString();
+                        loop = "" + ("Hanged ") + (loop);
                     }
                     if (i < 0 && mad.ftab) {
-                        loop = new StringBuilder().append("Hanged ").append(loop).toString();
+                        loop = "" + ("Hanged ") + (loop);
                     }
                     if (loop != "") {
                         final StringBuilder stringbuilder = new StringBuilder();
                         final xtGraphics xtgraphics193 = this;
-                        xtgraphics193.asay = stringbuilder.append(xtgraphics193.asay).append(" ").append(loop).toString();
+                        xtgraphics193.asay = stringbuilder + (xtgraphics193.asay) + (" ") + (loop);
                     }
                     i = 0;
                     mad.travxy = Math.abs(mad.travxy);
@@ -9585,41 +9585,41 @@ class xtGraphics extends Panel implements Runnable {
                         if (loop == "" && spin == "") {
                             final StringBuilder stringbuilder = new StringBuilder();
                             final xtGraphics xtgraphics195 = this;
-                            xtgraphics195.asay = stringbuilder.append(xtgraphics195.asay).append(" ").append(i).toString();
+                            xtgraphics195.asay = stringbuilder + (xtgraphics195.asay) + (" ") + (i);
                             if (bool194) {
                                 final StringBuilder stringbuilder196 = new StringBuilder();
                                 final xtGraphics xtgraphics197 = this;
-                                xtgraphics197.asay = stringbuilder196.append(xtgraphics197.asay).append(" and beyond").toString();
+                                xtgraphics197.asay = stringbuilder196 + (xtgraphics197.asay) + (" and beyond");
                             }
                         } else {
                             if (spin != "")
                                 if (loop == "") {
                                     final StringBuilder stringbuilder = new StringBuilder();
                                     final xtGraphics xtgraphics198 = this;
-                                    xtgraphics198.asay = stringbuilder.append(xtgraphics198.asay).append(" ").append(spin).toString();
+                                    xtgraphics198.asay = stringbuilder + (xtgraphics198.asay) + (" ") + (spin);
                                 } else {
                                     final StringBuilder stringbuilder = new StringBuilder();
                                     final xtGraphics xtgraphics199 = this;
-                                    xtgraphics199.asay = stringbuilder.append(xtgraphics199.asay).append(" with ").append(spin).toString();
+                                    xtgraphics199.asay = stringbuilder + (xtgraphics199.asay) + (" with ") + (spin);
                                 }
                             final StringBuilder stringbuilder = new StringBuilder();
                             final xtGraphics xtgraphics200 = this;
-                            xtgraphics200.asay = stringbuilder.append(xtgraphics200.asay).append(" by ").append(i).toString();
+                            xtgraphics200.asay = stringbuilder + (xtgraphics200.asay) + (" by ") + (i);
                             if (bool194) {
                                 final StringBuilder stringbuilder201 = new StringBuilder();
                                 final xtGraphics xtgraphics202 = this;
-                                xtgraphics202.asay = stringbuilder201.append(xtgraphics202.asay).append(" and beyond").toString();
+                                xtgraphics202.asay = stringbuilder201 + (xtgraphics202.asay) + (" and beyond");
                             }
                         }
                     } else if (spin != "")
                         if (loop == "") {
                             final StringBuilder stringbuilder = new StringBuilder();
                             final xtGraphics xtgraphics203 = this;
-                            xtgraphics203.asay = stringbuilder.append(xtgraphics203.asay).append(" ").append(spin).toString();
+                            xtgraphics203.asay = stringbuilder + (xtgraphics203.asay) + (" ") + (spin);
                         } else {
                             final StringBuilder stringbuilder = new StringBuilder();
                             final xtGraphics xtgraphics204 = this;
-                            xtgraphics204.asay = stringbuilder.append(xtgraphics204.asay).append(" by ").append(spin).toString();
+                            xtgraphics204.asay = stringbuilder + (xtgraphics204.asay) + (" by ") + (spin);
                         }
                     if (asay != "") {
                         auscnt -= 15;
@@ -9651,20 +9651,20 @@ class xtGraphics extends Panel implements Runnable {
                             i205 = 3;
                         }
                         if (mad.surfer) {
-                            asay = new StringBuilder().append(" ").append(adj[4][(int) (m.random()
-                                    * 3.0F)]).append(asay).toString();
+                            asay = "" + (" ") + (adj[4][(int) (m.random()
+                                    * 3.0F)]) + (asay);
                         }
                         if (i205 != 3) {
-                            asay = new StringBuilder().append(adj[i205][(int) (m.random()
-                                    * 3.0F)]).append(asay).append(exlm[i205]).toString();
+                            asay = "" + (adj[i205][(int) (m.random()
+                                    * 3.0F)]) + (asay) + (exlm[i205]);
                         } else {
                             asay = adj[i205][(int) (m.random() * 3.0F)];
                         }
                         if (!wasay) {
                             tcnt = auscnt;
                             if (mad.power != 98.0F) {
-                                say = new StringBuilder().append("Power Up ").append((int) (100.0F * mad.powerup
-                                        / 98.0F)).append("%").toString();
+                                say = "" + ("Power Up ") + ((int) (100.0F * mad.powerup
+                                        / 98.0F)) + ("%");
                             } else {
                                 say = "Power To The MAX";
                             }
@@ -9693,32 +9693,32 @@ class xtGraphics extends Panel implements Runnable {
                         if (fase != 7001) {
                             if (dested[i] == 1) {
                                 wasay = true;
-                                say = new StringBuilder().append("").append(cd.names[sc[i]]).append(" has been wasted!").toString();
+                                say = "" + ("") + (cd.names[sc[i]]) + (" has been wasted!");
                                 tcnt = -15;
                             }
                             if (dested[i] == 2) {
                                 wasay = true;
-                                say = new StringBuilder().append("You wasted ").append(cd.names[sc[i]]).append("!").toString();
+                                say = "" + ("You wasted ") + (cd.names[sc[i]]) + ("!");
                                 tcnt = -15;
                             }
                         } else {
                             if (dested[i] == 1) {
                                 wasay = true;
-                                say = new StringBuilder().append("").append(plnames[i]).append(" has been wasted!").toString();
+                                say = "" + ("") + (plnames[i]) + (" has been wasted!");
                                 tcnt = -15;
                             }
                             if (dested[i] == 2) {
                                 wasay = true;
                                 if (multion < 2) {
-                                    say = new StringBuilder().append("You wasted ").append(plnames[i]).append("!").toString();
+                                    say = "" + ("You wasted ") + (plnames[i]) + ("!");
                                 } else {
-                                    say = new StringBuilder().append("").append(plnames[im]).append(" wasted ").append(plnames[i]).append("!").toString();
+                                    say = "" + ("") + (plnames[im]) + (" wasted ") + (plnames[i]) + ("!");
                                 }
                                 tcnt = -15;
                             }
                             if (dested[i] == 3) {
                                 wasay = true;
-                                say = new StringBuilder().append("").append(plnames[i]).append(" has been wasted! (Disconnected)").toString();
+                                say = "" + ("") + (plnames[i]) + (" has been wasted! (Disconnected)");
                                 tcnt = -15;
                             }
                         }
@@ -9726,7 +9726,7 @@ class xtGraphics extends Panel implements Runnable {
                 if (multion >= 2 && alocked != lalocked) {
                     if (alocked != -1) {
                         wasay = false;
-                        say = new StringBuilder().append("Now following ").append(plnames[alocked]).append("!").toString();
+                        say = "" + ("Now following ") + (plnames[alocked]) + ("!");
                         tcnt = -15;
                     }
                     lalocked = alocked;
@@ -9854,8 +9854,8 @@ class xtGraphics extends Panel implements Runnable {
             ftm = rd.getFontMetrics();
             drawcs(70, "Waiting for all players to finish loading!", 0, 0, 0, 0);
             if (forstart <= 640) {
-                drawcs(90, new StringBuilder().append("").append((640 - forstart)
-                        / 32).append("").toString(), 0, 0, 0, 0);
+                drawcs(90, "" + ("") + ((640 - forstart)
+                        / 32) + (""), 0, 0, 0, 0);
             } else {
                 drawcs(90, "Your connection to game may have been lost...", 0, 0, 0, 0);
             }

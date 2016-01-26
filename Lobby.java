@@ -547,12 +547,12 @@ class Lobby implements Runnable {
                                                         invo = false;
                                                     }
                                                     msg = "| Creating Game |";
-                                                    /*gplayers = new StringBuilder().append("#warb#").append(gb.warb)
-                                                    		.append("#").append(gb.warbnum).append("#")
-                                                    		.append(gb.gameturn + 1).append("#").append(xt.clan)
-                                                    		.append("#").append(gb.vclan).append("#").append(gb.ascore)
-                                                    		.append("#").append(gb.vscore).append("#")
-                                                    		.append(this.gs.vtyp.sel + 1).append("#").toString();
+                                                    /*gplayers = "" + ("#warb#") + (gb.warb)
+                                                    		 + ("#") + (gb.warbnum) + ("#")
+                                                    		 + (gb.gameturn + 1) + ("#") + (xt.clan)
+                                                    		 + ("#") + (gb.vclan) + ("#") + (gb.ascore)
+                                                    		 + ("#") + (gb.vscore) + ("#")
+                                                    		 + (this.gs.vtyp.sel + 1) + ("#");
                                                     gstage = gb.wbstage[gb.gameturn];
                                                     gstagelaps = gb.wblaps[gb.gameturn];
                                                     gcars = gb.wbcars[gb.gameturn] - 1;
@@ -702,11 +702,11 @@ class Lobby implements Runnable {
                                         gplayers = "";
                                         if (i316 != 0) {
                                             gnpls = i316 + 1;
-                                            gplayers = new StringBuilder().append("").append(pnames[im]).append("#").toString();
+                                            gplayers = "" + ("") + (pnames[im]) + ("#");
                                             for (int i318 = 0; i318 < i316; i318++) {
                                                 final StringBuilder stringbuilder = new StringBuilder();
                                                 final Lobby lobby319 = this;
-                                                lobby319.gplayers = stringbuilder.append(lobby319.gplayers).append(invos[i318]).append("#").toString();
+                                                lobby319.gplayers = stringbuilder + (lobby319.gplayers) + (invos[i318]) + ("#");
                                             }
                                         }
                                         gs.sclass.setVisible(false);
@@ -975,14 +975,14 @@ class Lobby implements Runnable {
             String string351 = "";
             String string352 = "";
             for (/**/ ; i348 < string.length() && i350 != 2; i348++) {
-                string351 = new StringBuilder().append("").append(string.charAt(i348)).toString();
+                string351 = "" + ("") + (string.charAt(i348));
                 if (string351.equals("#")) {
                     i349++;
                     if (i350 == 1 || i349 > i) {
                         i350 = 2;
                     }
                 } else if (i349 == i) {
-                    string352 = new StringBuilder().append(string352).append(string351).toString();
+                    string352 = "" + (string352) + (string351);
                     i350 = 1;
                 }
             }
@@ -1002,14 +1002,14 @@ class Lobby implements Runnable {
             String string345 = "";
             String string346 = "";
             for (/**/ ; i342 < string.length() && i344 != 2; i342++) {
-                string345 = new StringBuilder().append("").append(string.charAt(i342)).toString();
+                string345 = "" + ("") + (string.charAt(i342));
                 if (string345.equals("#")) {
                     i343++;
                     if (i344 == 1 || i343 > i) {
                         i344 = 2;
                     }
                 } else if (i343 == i) {
-                    string346 = new StringBuilder().append(string346).append(string345).toString();
+                    string346 = "" + (string346) + (string345);
                     i344 = 1;
                 }
             }
@@ -1033,14 +1033,14 @@ class Lobby implements Runnable {
                 String string357 = "";
                 String string358 = "";
                 for (/**/ ; i354 < string.length() && i356 != 2; i354++) {
-                    string357 = new StringBuilder().append("").append(string.charAt(i354)).toString();
+                    string357 = "" + ("") + (string.charAt(i354));
                     if (string357.equals("|")) {
                         i355++;
                         if (i356 == 1 || i355 > i) {
                             i356 = 2;
                         }
                     } else if (i355 == i) {
-                        string358 = new StringBuilder().append(string358).append(string357).toString();
+                        string358 = "" + (string358) + (string357);
                         i356 = 1;
                     }
                 }
@@ -1061,14 +1061,14 @@ class Lobby implements Runnable {
             String string339 = "";
             String string340 = "";
             for (/**/ ; i336 < string.length() && i338 != 2; i336++) {
-                string339 = new StringBuilder().append("").append(string.charAt(i336)).toString();
+                string339 = "" + ("") + (string.charAt(i336));
                 if (string339.equals("|")) {
                     i337++;
                     if (i338 == 1 || i337 > i) {
                         i338 = 2;
                     }
                 } else if (i337 == i) {
-                    string340 = new StringBuilder().append(string340).append(string339).toString();
+                    string340 = "" + (string340) + (string339);
                     i338 = 1;
                 }
             }
@@ -1088,14 +1088,14 @@ class Lobby implements Runnable {
             String string333 = "";
             String string334 = "";
             for (/**/ ; i330 < string.length() && i332 != 2; i330++) {
-                string333 = new StringBuilder().append("").append(string.charAt(i330)).toString();
+                string333 = "" + ("") + (string.charAt(i330));
                 if (string333.equals("|")) {
                     i331++;
                     if (i332 == 1 || i331 > i) {
                         i332 = 2;
                     }
                 } else if (i331 == i) {
-                    string334 = new StringBuilder().append(string334).append(string333).toString();
+                    string334 = "" + (string334) + (string333);
                     i332 = 1;
                 }
             }
@@ -1142,8 +1142,8 @@ class Lobby implements Runnable {
         gs.mycar.setBackground(color2k(255, 255, 255));
         gs.mycar.setForeground(new Color(0, 0, 0));
         gs.rooms.removeAll();
-        gs.rooms.add(rd, new StringBuilder().append("").append(xt.servername).append(" :: ").append(xt.servport
-                - 7070).append("").toString());
+        gs.rooms.add(rd, "" + ("") + (xt.servername) + (" :: ") + (xt.servport
+                - 7070) + (""));
         gs.rooms.select(0);
         gs.requestFocus();
         cd.loadready();
@@ -1284,7 +1284,7 @@ class Lobby implements Runnable {
                                                 }
                                                 bool112 = true;
                                                 if (control.handb) {
-                                                    gs.cmsg.setText(new StringBuilder().append(gs.cmsg.getText()).append("").append(pnames[i109]).toString());
+                                                    gs.cmsg.setText("" + (gs.cmsg.getText()) + ("") + (pnames[i109]));
                                                     control.handb = false;
                                                 }
                                             }
@@ -1388,7 +1388,7 @@ class Lobby implements Runnable {
                                         }
                                         bool119 = true;
                                         if (control.handb) {
-                                            gs.cmsg.setText(new StringBuilder().append(gs.cmsg.getText()).append("").append(pnames[i116]).toString());
+                                            gs.cmsg.setText("" + (gs.cmsg.getText()) + ("") + (pnames[i116]));
                                             control.handb = false;
                                         }
                                     }
@@ -1470,7 +1470,7 @@ class Lobby implements Runnable {
                                                     }
                                                     bool129 = true;
                                                     if (control.handb) {
-                                                        gs.cmsg.setText(new StringBuilder().append(gs.cmsg.getText()).append("").append(pnames[i123]).toString());
+                                                        gs.cmsg.setText("" + (gs.cmsg.getText()) + ("") + (pnames[i123]));
                                                         control.handb = false;
                                                     }
                                                 }
@@ -1790,8 +1790,8 @@ class Lobby implements Runnable {
                                     rd.setColor(color2k(90, 90, 90));
                                     rd.setFont(new Font("Arial", 1, 12));
                                     ftm = rd.getFontMetrics();
-                                    rd.drawString(new StringBuilder().append("[  ").append(i106).append(" Players Connected  ]").toString(), 472
-                                            - ftm.stringWidth(new StringBuilder().append("[  ").append(i106).append(" Players Connected  ]").toString())
+                                    rd.drawString("" + ("[  ") + (i106) + (" Players Connected  ]"), 472
+                                            - ftm.stringWidth("" + ("[  ") + (i106) + (" Players Connected  ]"))
                                                     / 2, 295);
                                     drawSbutton(xt.cgame, 472, 325);
                                 }
@@ -2021,8 +2021,8 @@ class Lobby implements Runnable {
                                         rd.drawString("|", 525, 105 + 24 * i149 - i105);
                                         rd.drawString("|", 584, 105 + 24 * i149 - i105);
                                         if (wait[is137[i149]] > 0) {
-                                            rd.drawString(new StringBuilder().append("").append(npls[is137[i149]]).append(" / ").append(mnpls[is137[i149]]).append("").toString(), 556
-                                                    - ftm.stringWidth(new StringBuilder().append("").append(npls[is137[i149]]).append(" / ").append(mnpls[is137[i149]]).append("").toString())
+                                            rd.drawString("" + ("") + (npls[is137[i149]]) + (" / ") + (mnpls[is137[i149]]) + (""), 556
+                                                    - ftm.stringWidth("" + ("") + (npls[is137[i149]]) + (" / ") + (mnpls[is137[i149]]) + (""))
                                                             / 2, 105 + 24 * i149 - i105);
                                             rd.setFont(new Font("Arial", 0, 12));
                                             rd.setColor(new Color(80, 128, 0));
@@ -2056,8 +2056,8 @@ class Lobby implements Runnable {
                                                         - i105);
                                             }
                                         } else {
-                                            rd.drawString(new StringBuilder().append("").append(npls[is137[i149]]).append("").toString(), 556
-                                                    - ftm.stringWidth(new StringBuilder().append("").append(npls[is137[i149]]).append("").toString())
+                                            rd.drawString("" + ("") + (npls[is137[i149]]) + (""), 556
+                                                    - ftm.stringWidth("" + ("") + (npls[is137[i149]]) + (""))
                                                             / 2, 105 + 24 * i149 - i105);
                                             rd.setFont(new Font("Arial", 0, 12));
                                             ftm = rd.getFontMetrics();
@@ -2278,12 +2278,12 @@ class Lobby implements Runnable {
                                         rd.setColor(new Color(0, 0, 0));
                                         rd.setFont(new Font("Arial", 1, 13));
                                         ftm = rd.getFontMetrics();
-                                        rd.drawString(new StringBuilder().append("You have been invited by ").append(chalby).append(" to join a game!").toString(), 472
-                                                - ftm.stringWidth(new StringBuilder().append("You have been invited by ").append(chalby).append(" to join a game!").toString())
+                                        rd.drawString("" + ("You have been invited by ") + (chalby) + (" to join a game!"), 472
+                                                - ftm.stringWidth("" + ("You have been invited by ") + (chalby) + (" to join a game!"))
                                                         / 2, 95);
                                         rd.setColor(new Color(117, 67, 0));
                                         rd.drawString(chalby, 472
-                                                - ftm.stringWidth(new StringBuilder().append("You have been invited by ").append(chalby).append(" to join a game!").toString())
+                                                - ftm.stringWidth("" + ("You have been invited by ") + (chalby) + (" to join a game!"))
                                                         / 2
                                                 + ftm.stringWidth("You have been invited by "), 95);
                                     }
@@ -2293,25 +2293,25 @@ class Lobby implements Runnable {
                                     rd.setColor(new Color(0, 0, 0));
                                     rd.setFont(new Font("Arial", 1, 12));
                                     ftm = rd.getFontMetrics();
-                                    rd.drawString(new StringBuilder().append("Stage:  ").append(gstages[i158]).append(" ,  Laps: ").append(gnlaps[i158]).append("").toString(), 472
-                                            - ftm.stringWidth(new StringBuilder().append("Stage:  ").append(gstages[i158]).append(" ,  Laps: ").append(gnlaps[i158]).append("").toString())
+                                    rd.drawString("" + ("Stage:  ") + (gstages[i158]) + (" ,  Laps: ") + (gnlaps[i158]) + (""), 472
+                                            - ftm.stringWidth("" + ("Stage:  ") + (gstages[i158]) + (" ,  Laps: ") + (gnlaps[i158]) + (""))
                                                     / 2, 130);
                                     rd.setColor(new Color(62, 98, 0));
                                     rd.drawString(gstages[i158], 472
-                                            - ftm.stringWidth(new StringBuilder().append("Stage:  ").append(gstages[i158]).append(" ,  Laps: ").append(gnlaps[i158]).append("").toString())
+                                            - ftm.stringWidth("" + ("Stage:  ") + (gstages[i158]) + (" ,  Laps: ") + (gnlaps[i158]) + (""))
                                                     / 2
                                             + ftm.stringWidth("Stage:  "), 130);
-                                    rd.drawString(new StringBuilder().append("").append(gnlaps[i158]).append("").toString(), 472
-                                            - ftm.stringWidth(new StringBuilder().append("Stage:  ").append(gstages[i158]).append(" ,  Laps: ").append(gnlaps[i158]).append("").toString())
+                                    rd.drawString("" + ("") + (gnlaps[i158]) + (""), 472
+                                            - ftm.stringWidth("" + ("Stage:  ") + (gstages[i158]) + (" ,  Laps: ") + (gnlaps[i158]) + (""))
                                                     / 2
-                                            + ftm.stringWidth(new StringBuilder().append("Stage:  ").append(gstages[i158]).append(" ,  Laps: ").toString()), 130);
+                                            + ftm.stringWidth("" + ("Stage:  ") + (gstages[i158]) + (" ,  Laps: ")), 130);
                                     rd.setColor(new Color(0, 0, 0));
-                                    rd.drawString(new StringBuilder().append("Players:  ").append(mnpls[i158]).append("").toString(), 472
-                                            - ftm.stringWidth(new StringBuilder().append("Players:  ").append(mnpls[i158]).append("").toString())
+                                    rd.drawString("" + ("Players:  ") + (mnpls[i158]) + (""), 472
+                                            - ftm.stringWidth("" + ("Players:  ") + (mnpls[i158]) + (""))
                                                     / 2, 150);
                                     rd.setColor(new Color(62, 98, 0));
-                                    rd.drawString(new StringBuilder().append("").append(mnpls[i158]).append("").toString(), 472
-                                            - ftm.stringWidth(new StringBuilder().append("Players:  ").append(mnpls[i158]).append("").toString())
+                                    rd.drawString("" + ("") + (mnpls[i158]) + (""), 472
+                                            - ftm.stringWidth("" + ("Players:  ") + (mnpls[i158]) + (""))
                                                     / 2
                                             + ftm.stringWidth("Players:  "), 150);
                                     final Date date = new Date();
@@ -2325,8 +2325,8 @@ class Lobby implements Runnable {
                                     rd.setColor(new Color(0, 0, 0));
                                     rd.setFont(new Font("Arial", 0, 12));
                                     ftm = rd.getFontMetrics();
-                                    rd.drawString(new StringBuilder().append("(").append(ctime).append(" )").toString(), 472
-                                            - ftm.stringWidth(new StringBuilder().append("(").append(ctime).append(" )").toString())
+                                    rd.drawString("" + ("(") + (ctime) + (" )"), 472
+                                            - ftm.stringWidth("" + ("(") + (ctime) + (" )"))
                                                     / 2, 170);
                                     if (ctime == 0) {
                                         ongame = longame;
@@ -2629,15 +2629,15 @@ class Lobby implements Runnable {
                                                 rd.setColor(new Color(0, 0, 0));
                                                 rd.setFont(new Font("Arial", 1, 12));
                                                 ftm = rd.getFontMetrics();
-                                                rd.drawString(new StringBuilder().append("").append(gstagename).append("  -  Laps:              ").toString(), 472
-                                                        - ftm.stringWidth(new StringBuilder().append("").append(gstagename).append("  -  Laps:              ").toString())
+                                                rd.drawString("" + ("") + (gstagename) + ("  -  Laps:              "), 472
+                                                        - ftm.stringWidth("" + ("") + (gstagename) + ("  -  Laps:              "))
                                                                 / 2, 155);
                                                 if (!gs.slaps.isShowing()) {
                                                     gs.slaps.setVisible(true);
                                                     gs.slaps.select(gstagelaps - 1);
                                                 }
                                                 gs.slaps.move(472
-                                                        + ftm.stringWidth(new StringBuilder().append("").append(gstagename).append("  -  Laps:              ").toString())
+                                                        + ftm.stringWidth("" + ("") + (gstagename) + ("  -  Laps:              "))
                                                                 / 2
                                                         - 35, 138);
                                                 if (gs.slaps.getSelectedIndex() != gstagelaps - 1) {
@@ -2876,7 +2876,7 @@ class Lobby implements Runnable {
                                             }
                                             if (!gs.mycar.isShowing()) {
                                                 gs.mycar.setVisible(true);
-                                                gs.mycar.setLabel(new StringBuilder().append("").append(cd.names[xt.sc[0]]).append(" Game!").toString());
+                                                gs.mycar.setLabel("" + ("") + (cd.names[xt.sc[0]]) + (" Game!"));
                                                 if (gclass <= -2) {
                                                     gs.mycar.setState(true);
                                                 } else {
@@ -2922,20 +2922,20 @@ class Lobby implements Runnable {
                                             int i171 = 0;
                                             for (int i172 = 0; i172 < 7; i172++)
                                                 if (!invos[i172].equals("")) {
-                                                    string = new StringBuilder().append(string).append(invos[i172]).toString();
+                                                    string = "" + (string) + (invos[i172]);
                                                     if (++i171 != i169)
                                                         if (i171 == i169 - 1) {
-                                                            string = new StringBuilder().append(string).append(" and ").toString();
+                                                            string = "" + (string) + (" and ");
                                                         } else {
-                                                            string = new StringBuilder().append(string).append(", ").toString();
+                                                            string = "" + (string) + (", ");
                                                         }
                                                 }
                                         }
                                         rd.setColor(new Color(0, 0, 0));
                                         if (i169 < gnpls - 1) {
                                             rd.setFont(new Font("Arial", 1, 13));
-                                            rd.drawString(new StringBuilder().append("Private Game, only specific players allowed to join?  ").append(i169).append("/").append(gnpls
-                                                    - 1).append("").toString(), 330, 180);
+                                            rd.drawString("" + ("Private Game, only specific players allowed to join?  ") + (i169) + ("/") + (gnpls
+                                                    - 1) + (""), 330, 180);
                                             stringbutton("<   Select   ", 281, 180, 2);
                                             rd.setFont(new Font("Tahoma", 0, 11));
                                             ftm = rd.getFontMetrics();
@@ -2943,8 +2943,8 @@ class Lobby implements Runnable {
                                         } else {
                                             rd.setFont(new Font("Arial", 1, 13));
                                             ftm = rd.getFontMetrics();
-                                            rd.drawString(new StringBuilder().append("").append(i169).append(" Allowed Players Selected").toString(), 472
-                                                    - ftm.stringWidth(new StringBuilder().append("").append(i169).append(" Allowed Players Selected").toString())
+                                            rd.drawString("" + ("") + (i169) + (" Allowed Players Selected"), 472
+                                                    - ftm.stringWidth("" + ("") + (i169) + (" Allowed Players Selected"))
                                                             / 2, 180);
                                             rd.setFont(new Font("Tahoma", 0, 11));
                                             ftm = rd.getFontMetrics();
@@ -3106,7 +3106,7 @@ class Lobby implements Runnable {
                                 if (gwarb[i193] == 3) {
                                     string = "Stage battle";
                                 }
-                                rd.drawString(new StringBuilder().append("").append(string).append(" between ").append(gaclan[i193]).append(" and ").append(gvclan[i193]).append("").toString(), 243, 14);
+                                rd.drawString("" + ("") + (string) + (" between ") + (gaclan[i193]) + (" and ") + (gvclan[i193]) + (""), 243, 14);
                             }
                             String string = "";
                             String string197 = "";
@@ -3121,19 +3121,19 @@ class Lobby implements Runnable {
                                             string199 = "Private Game";
                                         }
                                         if (gfx[i193] == 1) {
-                                            string199 = new StringBuilder().append(string199).append(" | 4 Fixes").toString();
+                                            string199 = "" + (string199) + (" | 4 Fixes");
                                         }
                                         if (gfx[i193] == 2) {
-                                            string199 = new StringBuilder().append(string199).append(" | 3 Fixes").toString();
+                                            string199 = "" + (string199) + (" | 3 Fixes");
                                         }
                                         if (gfx[i193] == 3) {
-                                            string199 = new StringBuilder().append(string199).append(" | 2 Fixes").toString();
+                                            string199 = "" + (string199) + (" | 2 Fixes");
                                         }
                                         if (gfx[i193] == 4) {
-                                            string199 = new StringBuilder().append(string199).append(" | 1 Fix").toString();
+                                            string199 = "" + (string199) + (" | 1 Fix");
                                         }
                                         if (gfx[i193] == 5) {
-                                            string199 = new StringBuilder().append(string199).append(" | No Fixing").toString();
+                                            string199 = "" + (string199) + (" | No Fixing");
                                         }
                                         String string200 = "";
                                         if (gclss[i193] > -2) {
@@ -3160,13 +3160,13 @@ class Lobby implements Runnable {
                                                 string201 = "Class A";
                                             }
                                             if (!string200.equals("") && !string201.equals("")) {
-                                                string200 = new StringBuilder().append(string200).append(" | ").append(string201).toString();
+                                                string200 = "" + (string200) + (" | ") + (string201);
                                             } else {
-                                                string200 = new StringBuilder().append(string200).append(string201).toString();
+                                                string200 = "" + (string200) + (string201);
                                             }
                                         } else {
-                                            string200 = new StringBuilder().append("").append(cd.names[Math.abs(gclss[i193]
-                                                    + 2)]).append("").toString();
+                                            string200 = "" + ("") + (cd.names[Math.abs(gclss[i193]
+                                                    + 2)]) + ("");
                                         }
                                         if (string200.equals("")) {
                                             rd.drawString("Type:", 243, 23);
@@ -3180,42 +3180,42 @@ class Lobby implements Runnable {
                                             rd.drawString(string200, 279, 28);
                                         }
                                     } else {
-                                        String string202 = new StringBuilder().append("Game #").append(gameturn[i193]).append("").toString();
+                                        String string202 = "" + ("Game #") + (gameturn[i193]) + ("");
                                         if (gcrs[i193] == 1) {
-                                            string202 = new StringBuilder().append(string202).append(" | Clan Cars").toString();
+                                            string202 = "" + (string202) + (" | Clan Cars");
                                         }
                                         if (gcrs[i193] == 2) {
-                                            string202 = new StringBuilder().append(string202).append(" | Game Cars").toString();
+                                            string202 = "" + (string202) + (" | Game Cars");
                                         }
                                         if (gclss[i193] == 1) {
-                                            string202 = new StringBuilder().append(string202).append(" | Class C").toString();
+                                            string202 = "" + (string202) + (" | Class C");
                                         }
                                         if (gclss[i193] == 2) {
-                                            string202 = new StringBuilder().append(string202).append(" | Class B & C").toString();
+                                            string202 = "" + (string202) + (" | Class B & C");
                                         }
                                         if (gclss[i193] == 3) {
-                                            string202 = new StringBuilder().append(string202).append(" | Class B").toString();
+                                            string202 = "" + (string202) + (" | Class B");
                                         }
                                         if (gclss[i193] == 4) {
-                                            string202 = new StringBuilder().append(string202).append(" | Class A & B").toString();
+                                            string202 = "" + (string202) + (" | Class A & B");
                                         }
                                         if (gclss[i193] == 5) {
-                                            string202 = new StringBuilder().append(string202).append(" | Class A").toString();
+                                            string202 = "" + (string202) + (" | Class A");
                                         }
                                         if (gfx[i193] == 1) {
-                                            string202 = new StringBuilder().append(string202).append(" | 4 Fixes").toString();
+                                            string202 = "" + (string202) + (" | 4 Fixes");
                                         }
                                         if (gfx[i193] == 2) {
-                                            string202 = new StringBuilder().append(string202).append(" | 3 Fixes").toString();
+                                            string202 = "" + (string202) + (" | 3 Fixes");
                                         }
                                         if (gfx[i193] == 3) {
-                                            string202 = new StringBuilder().append(string202).append(" | 2 Fixes").toString();
+                                            string202 = "" + (string202) + (" | 2 Fixes");
                                         }
                                         if (gfx[i193] == 4) {
-                                            string202 = new StringBuilder().append(string202).append(" | 1 Fix").toString();
+                                            string202 = "" + (string202) + (" | 1 Fix");
                                         }
                                         if (gfx[i193] == 5) {
-                                            string202 = new StringBuilder().append(string202).append(" | No Fixing").toString();
+                                            string202 = "" + (string202) + (" | No Fixing");
                                         }
                                         rd.setColor(new Color(80, 128, 0));
                                         rd.drawString(string202, 243, 28);
@@ -3281,7 +3281,7 @@ class Lobby implements Runnable {
                                                     break;
                                                 }
                                             if (!bool208) {
-                                                string198 = new StringBuilder().append("").append(string).append(" should have raced in this game!").toString();
+                                                string198 = "" + ("") + (string) + (" should have raced in this game!");
                                                 string = "";
                                             }
                                         }
@@ -3294,7 +3294,7 @@ class Lobby implements Runnable {
                                                     break;
                                                 }
                                             if (!bool210) {
-                                                string198 = new StringBuilder().append("").append(string).append(" should have wasted in this game!").toString();
+                                                string198 = "" + ("") + (string) + (" should have wasted in this game!");
                                                 string = "";
                                             }
                                         }
@@ -3308,7 +3308,7 @@ class Lobby implements Runnable {
                                                         break;
                                                     }
                                                 if (!bool212) {
-                                                    string198 = new StringBuilder().append("").append(string).append(" should have wasted in this game!").toString();
+                                                    string198 = "" + ("") + (string) + (" should have wasted in this game!");
                                                     string = "";
                                                 }
                                             } else {
@@ -3320,7 +3320,7 @@ class Lobby implements Runnable {
                                                         break;
                                                     }
                                                 if (!bool214) {
-                                                    string198 = new StringBuilder().append("").append(string).append(" should have raced in this game!").toString();
+                                                    string198 = "" + ("") + (string) + (" should have raced in this game!");
                                                     string = "";
                                                 }
                                             }
@@ -3334,7 +3334,7 @@ class Lobby implements Runnable {
                                                         break;
                                                     }
                                                 if (!bool216) {
-                                                    string198 = new StringBuilder().append("").append(string).append(" should have wasted in this game!").toString();
+                                                    string198 = "" + ("") + (string) + (" should have wasted in this game!");
                                                     string = "";
                                                 }
                                             } else {
@@ -3346,7 +3346,7 @@ class Lobby implements Runnable {
                                                         break;
                                                     }
                                                 if (!bool218) {
-                                                    string198 = new StringBuilder().append("").append(string).append(" should have raced in this game!").toString();
+                                                    string198 = "" + ("") + (string) + (" should have raced in this game!");
                                                     string = "";
                                                 }
                                             }
@@ -3360,24 +3360,24 @@ class Lobby implements Runnable {
                                         i204 = 1;
                                     }
                                 }
-                                rd.drawString(new StringBuilder().append("").append(gaclan[i193]).append(" : ").append(gascore[i193]
-                                        + i203).append("     |     ").append(gvclan[i193]).append(" : ").append(gvscore[i193]
-                                                + i204).append("").toString(), 474
-                                                        - ftm.stringWidth(new StringBuilder().append("").append(gaclan[i193]).append(" : ").append(gascore[i193]).append("     |     ").append(gvclan[i193]).append(" : ").append(gvscore[i193]).append("").toString())
+                                rd.drawString("" + ("") + (gaclan[i193]) + (" : ") + (gascore[i193]
+                                        + i203) + ("     |     ") + (gvclan[i193]) + (" : ") + (gvscore[i193]
+                                                + i204) + (""), 474
+                                                        - ftm.stringWidth("" + ("") + (gaclan[i193]) + (" : ") + (gascore[i193]) + ("     |     ") + (gvclan[i193]) + (" : ") + (gvscore[i193]) + (""))
                                                                 / 2, 28);
                                 if (gwarb[i193] == 1) {
                                     if (gascore[i193] + i203 >= 5) {
-                                        string197 = new StringBuilder().append("").append(gaclan[i193]).append(" wins the war!").toString();
+                                        string197 = "" + ("") + (gaclan[i193]) + (" wins the war!");
                                     }
                                     if (gvscore[i193] + i204 >= 5) {
-                                        string197 = new StringBuilder().append("").append(gvclan[i193]).append(" wins the war!").toString();
+                                        string197 = "" + ("") + (gvclan[i193]) + (" wins the war!");
                                     }
                                 } else {
                                     if (gascore[i193] + i203 >= 3) {
-                                        string197 = new StringBuilder().append("").append(gaclan[i193]).append(" wins the battle!").toString();
+                                        string197 = "" + ("") + (gaclan[i193]) + (" wins the battle!");
                                     }
                                     if (gvscore[i193] + i204 >= 3) {
-                                        string197 = new StringBuilder().append("").append(gvclan[i193]).append(" wins the battle!").toString();
+                                        string197 = "" + ("") + (gvclan[i193]) + (" wins the battle!");
                                     }
                                 }
                             }
@@ -3618,8 +3618,8 @@ class Lobby implements Runnable {
                                 rd.setColor(new Color(0, 0, 0));
                                 rd.setFont(new Font("Arial", 1, 12));
                                 ftm = rd.getFontMetrics();
-                                rd.drawString(new StringBuilder().append("Plus ").append(mnbts[i193]).append(" MadBots!").toString(), 322
-                                        - ftm.stringWidth(new StringBuilder().append("Plus ").append(mnbts[i193]).append(" MadBots!").toString())
+                                rd.drawString("" + ("Plus ") + (mnbts[i193]) + (" MadBots!"), 322
+                                        - ftm.stringWidth("" + ("Plus ") + (mnbts[i193]) + (" MadBots!"))
                                                 / 2, 73 + mnpls[i193] * 42);
                             }
                             if (dispcar == -1 || conon != 1) {
@@ -3637,10 +3637,10 @@ class Lobby implements Runnable {
                                                 if (mnpls[i193] - npls[i193] == 1) {
                                                     string238 = "";
                                                 }
-                                                rd.drawString(new StringBuilder().append("Waiting for ").append(mnpls[i193]
-                                                        - npls[i193]).append(" more player").append(string238).append(" to join to start.").toString(), 561
-                                                                - ftm.stringWidth(new StringBuilder().append("Waiting for ").append(mnpls[i193]
-                                                                        - npls[i193]).append(" more player").append(string238).append(" to join to start.").toString())
+                                                rd.drawString("" + ("Waiting for ") + (mnpls[i193]
+                                                        - npls[i193]) + (" more player") + (string238) + (" to join to start."), 561
+                                                                - ftm.stringWidth("" + ("Waiting for ") + (mnpls[i193]
+                                                                        - npls[i193]) + (" more player") + (string238) + (" to join to start."))
                                                                         / 2, 98);
                                                 rd.setFont(new Font("Arial", 0, 12));
                                                 ftm = rd.getFontMetrics();
@@ -3655,20 +3655,20 @@ class Lobby implements Runnable {
                                                         }
                                                     if (bool240) {
                                                         i239 = 144;
-                                                        rd.drawString(new StringBuilder().append("").append(gmaker[i193]).append(" can start this game at anytime.").toString(), 561
-                                                                - ftm.stringWidth(new StringBuilder().append("").append(gmaker[i193]).append(" can start this game at anytime.").toString())
+                                                        rd.drawString("" + ("") + (gmaker[i193]) + (" can start this game at anytime."), 561
+                                                                - ftm.stringWidth("" + ("") + (gmaker[i193]) + (" can start this game at anytime."))
                                                                         / 2, 124);
                                                     }
                                                 }
                                                 if (npls[i193] > 1) {
-                                                    String string242 = new StringBuilder().append("").append(wait[i193]).append(" seconds").toString();
+                                                    String string242 = "" + ("") + (wait[i193]) + (" seconds");
                                                     if (wait[i193] > 60) {
-                                                        string242 = new StringBuilder().append("").append((int) (wait[i193]
+                                                        string242 = "" + ("") + ((int) (wait[i193]
                                                                 / 60.0F * 100.0F)
-                                                                / 100.0F).append(" minutes").toString();
+                                                                / 100.0F) + (" minutes");
                                                     }
-                                                    rd.drawString(new StringBuilder().append("(Waiting ").append(string242).append(" maximum! )").toString(), 561
-                                                            - ftm.stringWidth(new StringBuilder().append("(Waiting ").append(string242).append(" maximum! )").toString())
+                                                    rd.drawString("" + ("(Waiting ") + (string242) + (" maximum! )"), 561
+                                                            - ftm.stringWidth("" + ("(Waiting ") + (string242) + (" maximum! )"))
                                                                     / 2, i239);
                                                 }
                                             } else {
@@ -3684,8 +3684,8 @@ class Lobby implements Runnable {
                                                     ptime = l;
                                                 }
                                                 if (pgames[im] == ongame || nflk != 0) {
-                                                    rd.drawString(new StringBuilder().append("Game starts in ").append(wait[i193]).append(" seconds!").toString(), 561
-                                                            - ftm.stringWidth(new StringBuilder().append("Game starts in ").append(wait[i193]).append(" seconds!").toString())
+                                                    rd.drawString("" + ("Game starts in ") + (wait[i193]) + (" seconds!"), 561
+                                                            - ftm.stringWidth("" + ("Game starts in ") + (wait[i193]) + (" seconds!"))
                                                                     / 2, 124);
                                                     if (pgames[im] != ongame) {
                                                         nflk--;
@@ -3732,10 +3732,10 @@ class Lobby implements Runnable {
                                             if (mnpls[i193] - npls[i193] == 1) {
                                                 string243 = "";
                                             }
-                                            rd.drawString(new StringBuilder().append("Waiting for ").append(mnpls[i193]
-                                                    - npls[i193]).append(" clan member").append(string243).append(" to join to start.").toString(), 561
-                                                            - ftm.stringWidth(new StringBuilder().append("Waiting for ").append(mnpls[i193]
-                                                                    - npls[i193]).append(" clan member").append(string243).append(" to join to start.").toString())
+                                            rd.drawString("" + ("Waiting for ") + (mnpls[i193]
+                                                    - npls[i193]) + (" clan member") + (string243) + (" to join to start."), 561
+                                                            - ftm.stringWidth("" + ("Waiting for ") + (mnpls[i193]
+                                                                    - npls[i193]) + (" clan member") + (string243) + (" to join to start."))
                                                                     / 2, 72);
                                             int i244 = mnpls[i193] / 2;
                                             int i245 = mnpls[i193] / 2;
@@ -3752,8 +3752,8 @@ class Lobby implements Runnable {
                                                 }
                                             rd.setFont(new Font("Arial", 0, 12));
                                             ftm = rd.getFontMetrics();
-                                            rd.drawString(new StringBuilder().append("(").append(i244).append(" of ").append(gaclan[i193]).append("  &  ").append(i245).append(" of ").append(gvclan[i193]).append(" )").toString(), 561
-                                                    - ftm.stringWidth(new StringBuilder().append("(").append(i244).append(" of ").append(gaclan[i193]).append("  &  ").append(i245).append(" of ").append(gvclan[i193]).append(" )").toString())
+                                            rd.drawString("" + ("(") + (i244) + (" of ") + (gaclan[i193]) + ("  &  ") + (i245) + (" of ") + (gvclan[i193]) + (" )"), 561
+                                                    - ftm.stringWidth("" + ("(") + (i244) + (" of ") + (gaclan[i193]) + ("  &  ") + (i245) + (" of ") + (gvclan[i193]) + (" )"))
                                                             / 2, 87);
                                             rd.drawString(gaclan[i193], 491 - ftm.stringWidth(gaclan[i193]) / 2, 125);
                                             rd.drawString(gvclan[i193], 631 - ftm.stringWidth(gvclan[i193]) / 2, 125);
@@ -3763,14 +3763,14 @@ class Lobby implements Runnable {
                                             if (gwarb[i193] > 1) {
                                                 string247 = "Battle";
                                             }
-                                            rd.drawString(new StringBuilder().append("").append(string247).append(" Score").toString(), 561
-                                                    - ftm.stringWidth(new StringBuilder().append("").append(string247).append(" Score").toString())
+                                            rd.drawString("" + ("") + (string247) + (" Score"), 561
+                                                    - ftm.stringWidth("" + ("") + (string247) + (" Score"))
                                                             / 2, 107);
-                                            rd.drawString(new StringBuilder().append("").append(gascore[i193]).append("").toString(), 491
-                                                    - ftm.stringWidth(new StringBuilder().append("").append(gascore[i193]).append("").toString())
+                                            rd.drawString("" + ("") + (gascore[i193]) + (""), 491
+                                                    - ftm.stringWidth("" + ("") + (gascore[i193]) + (""))
                                                             / 2, 139);
-                                            rd.drawString(new StringBuilder().append("").append(gvscore[i193]).append("").toString(), 631
-                                                    - ftm.stringWidth(new StringBuilder().append("").append(gascore[i193]).append("").toString())
+                                            rd.drawString("" + ("") + (gvscore[i193]) + (""), 631
+                                                    - ftm.stringWidth("" + ("") + (gascore[i193]) + (""))
                                                             / 2, 139);
                                             rd.drawRect(421, 111, 280, 33);
                                             rd.drawLine(561, 111, 561, 144);
@@ -3851,8 +3851,8 @@ class Lobby implements Runnable {
                                                 }
                                                 rd.drawString("This is Racers VS Wasters game!", 561
                                                         - ftm.stringWidth("This is Racers VS Wasters game!") / 2, 161);
-                                                rd.drawString(new StringBuilder().append("").append(gaclan[i193]).append(" wastes & ").append(gvclan[i193]).append(" races.").toString(), 561
-                                                        - ftm.stringWidth(new StringBuilder().append("").append(gaclan[i193]).append(" wastes & ").append(gvclan[i193]).append(" races.").toString())
+                                                rd.drawString("" + ("") + (gaclan[i193]) + (" wastes & ") + (gvclan[i193]) + (" races."), 561
+                                                        - ftm.stringWidth("" + ("") + (gaclan[i193]) + (" wastes & ") + (gvclan[i193]) + (" races."))
                                                                 / 2, 176);
                                             }
                                             if (gwtyp[i193] == 5) {
@@ -3865,8 +3865,8 @@ class Lobby implements Runnable {
                                                 }
                                                 rd.drawString("This is Racers VS Wasters game!", 561
                                                         - ftm.stringWidth("This is Racers VS Wasters game!") / 2, 161);
-                                                rd.drawString(new StringBuilder().append("").append(gaclan[i193]).append(" races & ").append(gvclan[i193]).append(" wastes.").toString(), 561
-                                                        - ftm.stringWidth(new StringBuilder().append("").append(gaclan[i193]).append(" races & ").append(gvclan[i193]).append(" wastes.").toString())
+                                                rd.drawString("" + ("") + (gaclan[i193]) + (" races & ") + (gvclan[i193]) + (" wastes."), 561
+                                                        - ftm.stringWidth("" + ("") + (gaclan[i193]) + (" races & ") + (gvclan[i193]) + (" wastes."))
                                                                 / 2, 176);
                                             }
                                         }
@@ -3929,19 +3929,19 @@ class Lobby implements Runnable {
                                                         if (ppos[i252] == 2) {
                                                             string253 = "rd";
                                                         }
-                                                        rd.drawString(new StringBuilder().append("").append(ppos[i252]
-                                                                + 1).append("").append(string253).toString(), 515
-                                                                        - ftm.stringWidth(new StringBuilder().append("").append(ppos[i252]
-                                                                                + 1).append("").append(string253).toString())
+                                                        rd.drawString("" + ("") + (ppos[i252]
+                                                                + 1) + ("") + (string253), 515
+                                                                        - ftm.stringWidth("" + ("") + (ppos[i252]
+                                                                                + 1) + ("") + (string253))
                                                                                 / 2, 83 + 11 * i220);
                                                         rd.setColor(new Color(128, 73, 0));
                                                         if (plap[i252] > gnlaps[i193] - 1) {
                                                             plap[i252] = gnlaps[i193] - 1;
                                                         }
-                                                        rd.drawString(new StringBuilder().append("").append(plap[i252]
-                                                                + 1).append(" / ").append(gnlaps[i193]).append("").toString(), 560
-                                                                        - ftm.stringWidth(new StringBuilder().append("").append(plap[i252]
-                                                                                + 1).append(" / ").append(gnlaps[i193]).append("").toString())
+                                                        rd.drawString("" + ("") + (plap[i252]
+                                                                + 1) + (" / ") + (gnlaps[i193]) + (""), 560
+                                                                        - ftm.stringWidth("" + ("") + (plap[i252]
+                                                                                + 1) + (" / ") + (gnlaps[i193]) + (""))
                                                                                 / 2, 83 + 11 * i220);
                                                         rd.setColor(new Color(0, 128, 255));
                                                         rd.drawRect(582, 76 + 11 * i220, 56, 6);
@@ -4023,8 +4023,8 @@ class Lobby implements Runnable {
                                                             - ftm.stringWidth("Game Finished!    Nobody Won!")
                                                                     / 2, i254);
                                                 } else {
-                                                    rd.drawString(new StringBuilder().append("Game Finished!    Winner:  ").append(string255).append("").toString(), 561
-                                                            - ftm.stringWidth(new StringBuilder().append("Game Finished!    Winner:  ").append(string255).append("").toString())
+                                                    rd.drawString("" + ("Game Finished!    Winner:  ") + (string255) + (""), 561
+                                                            - ftm.stringWidth("" + ("Game Finished!    Winner:  ") + (string255) + (""))
                                                                     / 2, i254);
                                                     if (nflk == 0) {
                                                         rd.setColor(new Color(255, 176, 67));
@@ -4032,8 +4032,8 @@ class Lobby implements Runnable {
                                                     } else {
                                                         nflk--;
                                                     }
-                                                    rd.drawString(new StringBuilder().append("").append(string255).append("").toString(), 561
-                                                            - ftm.stringWidth(new StringBuilder().append("Game Finished!    Winner:  ").append(string255).append("").toString())
+                                                    rd.drawString("" + ("") + (string255) + (""), 561
+                                                            - ftm.stringWidth("" + ("Game Finished!    Winner:  ") + (string255) + (""))
                                                                     / 2
                                                             + ftm.stringWidth("Game Finished!    Winner:  "), i254);
                                                 }
@@ -4043,19 +4043,19 @@ class Lobby implements Runnable {
                                                 String string257 = "    ";
                                                 int i258 = 0;
                                                 if (!lapsname.equals("")) {
-                                                    string257 = new StringBuilder().append(string257).append("Fastest lap: ").append(lapsname).append("    ").toString();
+                                                    string257 = "" + (string257) + ("Fastest lap: ") + (lapsname) + ("    ");
                                                     i258++;
                                                 }
                                                 if (!wastename.equals("")) {
-                                                    string257 = new StringBuilder().append(string257).append("Deadliest waster: ").append(wastename).append("    ").toString();
+                                                    string257 = "" + (string257) + ("Deadliest waster: ") + (wastename) + ("    ");
                                                     i258++;
                                                 }
                                                 if (i258 == 2) {
                                                     if (!stuntname.equals("")) {
                                                         rd.drawString(string257, 561
                                                                 - ftm.stringWidth(string257) / 2, 199);
-                                                        rd.drawString(new StringBuilder().append("Best stunt: ").append(stuntname).append("").toString(), 561
-                                                                - ftm.stringWidth(new StringBuilder().append("Best stunt: ").append(stuntname).append("").toString())
+                                                        rd.drawString("" + ("Best stunt: ") + (stuntname) + (""), 561
+                                                                - ftm.stringWidth("" + ("Best stunt: ") + (stuntname) + (""))
                                                                         / 2, 213);
                                                     } else {
                                                         rd.drawString(string257, 561
@@ -4063,7 +4063,7 @@ class Lobby implements Runnable {
                                                     }
                                                 } else {
                                                     if (!stuntname.equals("")) {
-                                                        string257 = new StringBuilder().append(string257).append("Best stunt: ").append(stuntname).append("    ").toString();
+                                                        string257 = "" + (string257) + ("Best stunt: ") + (stuntname) + ("    ");
                                                     }
                                                     rd.drawString(string257, 561 - ftm.stringWidth(string257) / 2, 206);
                                                 }
@@ -4076,8 +4076,8 @@ class Lobby implements Runnable {
                                                     ftm = rd.getFontMetrics();
                                                     rd.drawString(string198, 561 - ftm.stringWidth(string198) / 2, 206);
                                                 } else {
-                                                    rd.drawString(new StringBuilder().append("Game Finished!    ").append(string).append("  Wins!").toString(), 561
-                                                            - ftm.stringWidth(new StringBuilder().append("Game Finished!    ").append(string).append("  Wins!").toString())
+                                                    rd.drawString("" + ("Game Finished!    ") + (string) + ("  Wins!"), 561
+                                                            - ftm.stringWidth("" + ("Game Finished!    ") + (string) + ("  Wins!"))
                                                                     / 2, 196);
                                                     if (nflk == 0) {
                                                         rd.setColor(new Color(255, 176, 67));
@@ -4085,8 +4085,8 @@ class Lobby implements Runnable {
                                                     } else {
                                                         nflk--;
                                                     }
-                                                    rd.drawString(new StringBuilder().append("").append(string).append("").toString(), 561
-                                                            - ftm.stringWidth(new StringBuilder().append("Game Finished!    ").append(string).append("  Wins!").toString())
+                                                    rd.drawString("" + ("") + (string) + (""), 561
+                                                            - ftm.stringWidth("" + ("Game Finished!    ") + (string) + ("  Wins!"))
                                                                     / 2
                                                             + ftm.stringWidth("Game Finished!    "), 196);
                                                 }
@@ -4144,7 +4144,7 @@ class Lobby implements Runnable {
                                 rd.setColor(new Color(0, 0, 0));
                                 rd.setFont(new Font("Arial", 1, 10));
                                 ftm = rd.getFontMetrics();
-                                rd.drawString(new StringBuilder().append("Laps: ").append(gnlaps[i193]).append("").toString(), 660, 235);
+                                rd.drawString("" + ("Laps: ") + (gnlaps[i193]) + (""), 660, 235);
                                 if (i > 415 && i < 708 && i99 > 222 && i99 < 262 && (wait[i193] > 0 || gstgn[i193] < 0)
                                         && conon == 1) {
                                     stringbutton("       Preview Stage       ", 562, 247, 0);
@@ -4192,7 +4192,7 @@ class Lobby implements Runnable {
                                             int i268 = 0;
                                             int i269 = 0;
                                             for (/**/ ; i265 < sentn[i264].length(); i265++) {
-                                                final String string270 = new StringBuilder().append("").append(sentn[i264].charAt(i265)).toString();
+                                                final String string270 = "" + ("") + (sentn[i264].charAt(i265));
                                                 if (string270.equals(" ")) {
                                                     i266 = i267;
                                                     i268 = i265;
@@ -4204,7 +4204,7 @@ class Lobby implements Runnable {
                                                     final StringBuilder stringbuilder = new StringBuilder();
                                                     final String[] strings271 = strings;
                                                     final int i272 = i264;
-                                                    strings271[i272] = stringbuilder.append(strings271[i272]).append(string270).toString();
+                                                    strings271[i272] = stringbuilder + (strings271[i272]) + (string270);
                                                     i267++;
                                                     if (ftm.stringWidth(strings[i264]) > i262 - 94)
                                                         if (i266 != 0) {
@@ -4231,16 +4231,16 @@ class Lobby implements Runnable {
                                         ftm = rd.getFontMetrics();
                                         for (int i275 = 0; i275 < 7; i275++)
                                             if (!string274.equals(strings263[i275])) {
-                                                rd.drawString(new StringBuilder().append(strings263[i275]).append(":").toString(), i261
+                                                rd.drawString("" + (strings263[i275]) + (":"), i261
                                                         + 84
-                                                        - ftm.stringWidth(new StringBuilder().append(strings263[i275]).append(":").toString()), 299
+                                                        - ftm.stringWidth("" + (strings263[i275]) + (":")), 299
                                                                 + i275 * 14);
                                                 string274 = strings263[i275];
                                             }
                                         rd.setFont(new Font("Tahoma", 0, 11));
                                         for (int i276 = 0; i276 < 7; i276++) {
                                             if (bools[i276] && i276 == 0 && strings[i276].indexOf(" ") != -1) {
-                                                strings[i276] = new StringBuilder().append("...").append(strings[i276].substring(strings[i276].indexOf(" "), strings[i276].length())).append("").toString();
+                                                strings[i276] = "" + ("...") + (strings[i276].substring(strings[i276].indexOf(" "), strings[i276].length())) + ("");
                                             }
                                             rd.drawString(strings[i276], i261 + 88, 299 + i276 * 14);
                                         }
@@ -4427,16 +4427,16 @@ class Lobby implements Runnable {
                                         rd.setFont(new Font("Arial", 1, 12));
                                         ftm = rd.getFontMetrics();
                                         if (!cd.createdby[forcar - 16].equals(xt.nickname)) {
-                                            rd.drawString(new StringBuilder().append("Created by :  ").append(cd.createdby[forcar
-                                                    - 16]).append("").toString(), 561
-                                                            - ftm.stringWidth(new StringBuilder().append("Created by :  ").append(cd.createdby[forcar
-                                                                    - 16]).append("").toString()) / 2, 347);
+                                            rd.drawString("" + ("Created by :  ") + (cd.createdby[forcar
+                                                    - 16]) + (""), 561
+                                                            - ftm.stringWidth("" + ("Created by :  ") + (cd.createdby[forcar
+                                                                    - 16]) + ("")) / 2, 347);
                                             final int i284 = ftm.stringWidth(cd.createdby[forcar - 16]);
                                             final int i285 = 561
-                                                    - ftm.stringWidth(new StringBuilder().append("Created by :  ").append(cd.createdby[forcar
-                                                            - 16]).append("").toString()) / 2
-                                                    + ftm.stringWidth(new StringBuilder().append("Created by :  ").append(cd.createdby[forcar
-                                                            - 16]).append("").toString())
+                                                    - ftm.stringWidth("" + ("Created by :  ") + (cd.createdby[forcar
+                                                            - 16]) + ("")) / 2
+                                                    + ftm.stringWidth("" + ("Created by :  ") + (cd.createdby[forcar
+                                                            - 16]) + (""))
                                                     - i284;
                                             rd.drawLine(i285, 349, i285 + i284 - 2, 349);
                                             if (i > i285 - 2 && i < i285 + i284 && i99 > 334 && i99 < 351) {
@@ -4473,14 +4473,14 @@ class Lobby implements Runnable {
                                             string286 = "Class A ,  ";
                                         }
                                         if (cd.publish[forcar - 16] == 0) {
-                                            string286 = new StringBuilder().append(string286).append("Private Car").toString();
+                                            string286 = "" + (string286) + ("Private Car");
                                         }
                                         if (cd.publish[forcar - 16] == 1) {
-                                            string286 = new StringBuilder().append(string286).append("Public Car").toString();
+                                            string286 = "" + (string286) + ("Public Car");
                                             rd.setColor(new Color(0, 64, 128));
                                         }
                                         if (cd.publish[forcar - 16] == 2) {
-                                            string286 = new StringBuilder().append(string286).append("Super Public Car").toString();
+                                            string286 = "" + (string286) + ("Super Public Car");
                                             rd.setColor(new Color(0, 64, 128));
                                         }
                                         rd.drawString(string286, 561 - ftm.stringWidth(string286) / 2, 367);
@@ -4499,8 +4499,8 @@ class Lobby implements Runnable {
                                                                 / 2, 395);
                                             }
                                             if (cd.action == 7) {
-                                                rd.drawString(new StringBuilder().append("").append(cd.names[cd.ac]).append(" has been added to your cars!").toString(), 561
-                                                        - ftm.stringWidth(new StringBuilder().append("").append(cd.names[cd.ac]).append(" has been added to your cars!").toString())
+                                                rd.drawString("" + ("") + (cd.names[cd.ac]) + (" has been added to your cars!"), 561
+                                                        - ftm.stringWidth("" + ("") + (cd.names[cd.ac]) + (" has been added to your cars!"))
                                                                 / 2, 395);
                                             }
                                             if (cd.action == -7) {
@@ -4582,51 +4582,51 @@ class Lobby implements Runnable {
                             i290 = 10;
                             string = "Custom Cars";
                             if (ontyp > 10) {
-                                string = new StringBuilder().append(string).append(", ").toString();
+                                string = "" + (string) + (", ");
                             }
                         }
                         if (ontyp >= 20) {
                             i290 = 20;
                             string = "Game Cars";
                             if (ontyp > 20) {
-                                string = new StringBuilder().append(string).append(", ").toString();
+                                string = "" + (string) + (", ");
                             }
                         }
                         if (ontyp >= 30) {
                             i290 = 30;
                             string = "Clan Cars";
                             if (ontyp > 30) {
-                                string = new StringBuilder().append(string).append(", ").toString();
+                                string = "" + (string) + (", ");
                             }
                         }
                         if (ontyp - i290 == 1) {
-                            string = new StringBuilder().append(string).append("Class C").toString();
+                            string = "" + (string) + ("Class C");
                         }
                         if (ontyp - i290 == 2) {
-                            string = new StringBuilder().append(string).append("Class B & C").toString();
+                            string = "" + (string) + ("Class B & C");
                         }
                         if (ontyp - i290 == 3) {
-                            string = new StringBuilder().append(string).append("Class B").toString();
+                            string = "" + (string) + ("Class B");
                         }
                         if (ontyp - i290 == 4) {
-                            string = new StringBuilder().append(string).append("Class A & B").toString();
+                            string = "" + (string) + ("Class A & B");
                         }
                         if (ontyp - i290 == 5) {
-                            string = new StringBuilder().append(string).append("Class A").toString();
+                            string = "" + (string) + ("Class A");
                         }
                         if (ontyp <= -2)
                             if (Math.abs(ontyp + 2) == 13) {
-                                string = new StringBuilder().append(" ").append(cd.names[Math.abs(ontyp
-                                        + 2)]).append("  Game").toString();
+                                string = "" + (" ") + (cd.names[Math.abs(ontyp
+                                        + 2)]) + ("  Game");
                             } else {
-                                string = new StringBuilder().append("").append(cd.names[Math.abs(ontyp
-                                        + 2)]).append(" Game").toString();
+                                string = "" + ("") + (cd.names[Math.abs(ontyp
+                                        + 2)]) + (" Game");
                             }
                         rd.setColor(new Color(0, 0, 0));
                         rd.setFont(new Font("Arial", 1, 13));
                         ftm = rd.getFontMetrics();
-                        rd.drawString(new StringBuilder().append(": :   ").append(string).append("   : :").toString(), 400
-                                - ftm.stringWidth(new StringBuilder().append(": :   ").append(string).append("   : :").toString())
+                        rd.drawString("" + (": :   ") + (string) + ("   : :"), 400
+                                - ftm.stringWidth("" + (": :   ") + (string) + ("   : :"))
                                         / 2, 175);
                         string = "a";
                         if (ontyp - i290 == 1) {
@@ -4645,29 +4645,29 @@ class Lobby implements Runnable {
                             string = "a class A";
                         }
                         if (i290 == 0) {
-                            string = new StringBuilder().append(string).append(" car").toString();
+                            string = "" + (string) + (" car");
                         }
                         if (i290 == 10) {
-                            string = new StringBuilder().append(string).append(" custom car").toString();
+                            string = "" + (string) + (" custom car");
                         }
                         if (i290 == 20) {
-                            string = new StringBuilder().append(string).append(" game car").toString();
+                            string = "" + (string) + (" game car");
                         }
                         if (i290 == 30) {
-                            string = new StringBuilder().append(string).append(" clan car").toString();
+                            string = "" + (string) + (" clan car");
                         }
                         if (ontyp <= -2)
                             if (Math.abs(ontyp + 2) == 13) {
-                                string = new StringBuilder().append(" ").append(cd.names[Math.abs(ontyp
-                                        + 2)]).append(" ").toString();
+                                string = "" + (" ") + (cd.names[Math.abs(ontyp
+                                        + 2)]) + (" ");
                             } else {
-                                string = new StringBuilder().append("").append(cd.names[Math.abs(ontyp
-                                        + 2)]).append("").toString();
+                                string = "" + ("") + (cd.names[Math.abs(ontyp
+                                        + 2)]) + ("");
                             }
-                        rd.drawString(new StringBuilder().append("To join this game you need to have ").append(string).append("!").toString(), 400
-                                - ftm.stringWidth(new StringBuilder().append("To join this game you need to have ").append(string).append("!").toString())
+                        rd.drawString("" + ("To join this game you need to have ") + (string) + ("!"), 400
+                                - ftm.stringWidth("" + ("To join this game you need to have ") + (string) + ("!"))
                                         / 2, 206);
-                        stringbutton(new StringBuilder().append("  Get ").append(string).append(" now  ").toString(), 400, 247, 0);
+                        stringbutton("" + ("  Get ") + (string) + (" now  "), 400, 247, 0);
                         stringbutton("  Cancel X  ", 593, 259, 2);
                         //if (gb.open > 0 && gb.upo)
                         //	onjoin = -1;
@@ -4919,22 +4919,22 @@ class Lobby implements Runnable {
                         }
                 }
             }
-            String string = new StringBuilder().append("").append(xt.sc[0]).append("").toString();
+            String string = "" + ("") + (xt.sc[0]) + ("");
             if (xt.sc[0] >= xtGraphics.nCars) {
-                string = new StringBuilder().append("C").append(cd.names[xt.sc[0]]).append("").toString();
+                string = "" + ("C") + (cd.names[xt.sc[0]]) + ("");
             }
-            String string4 = new StringBuilder().append("1|").append(xt.nickname).append(":").append(xt.nickey).append("|").append(xt.clan).append("|").append(xt.clankey).append("|").append(string).append("|").append(join).append("|").append((int) (xt.arnp[0]
-                    * 100.0F)).append("|").append((int) (xt.arnp[1] * 100.0F)).append("|").append((int) (xt.arnp[2]
-                            * 100.0F)).append("|").append((int) (xt.arnp[3]
-                                    * 100.0F)).append("|").append((int) (xt.arnp[4]
-                                            * 100.0F)).append("|").append((int) (xt.arnp[5]
-                                                    * 100.0F)).append("|").append(ongame).append("|").toString();
+            String string4 = "" + ("1|") + (xt.nickname) + (":") + (xt.nickey) + ("|") + (xt.clan) + ("|") + (xt.clankey) + ("|") + (string) + ("|") + (join) + ("|") + ((int) (xt.arnp[0]
+                    * 100.0F)) + ("|") + ((int) (xt.arnp[1] * 100.0F)) + ("|") + ((int) (xt.arnp[2]
+                            * 100.0F)) + ("|") + ((int) (xt.arnp[3]
+                                    * 100.0F)) + ("|") + ((int) (xt.arnp[4]
+                                            * 100.0F)) + ("|") + ((int) (xt.arnp[5]
+                                                    * 100.0F)) + ("|") + (ongame) + ("|");
             if (!xt.lan) {
-                string4 = new StringBuilder().append(string4).append("").append(updatec).append("|").toString();
+                string4 = "" + (string4) + ("") + (updatec) + ("|");
                 if (updatec <= -11) {
                     for (int i5 = 0; i5 < -updatec - 10; i5++) {
-                        string4 = new StringBuilder().append(string4).append("").append(cnames[6
-                                - i5]).append("|").append(sentn[6 - i5]).append("|").toString();
+                        string4 = "" + (string4) + ("") + (cnames[6
+                                - i5]) + ("|") + (sentn[6 - i5]) + ("|");
                     }
                     updatec = -2;
                 }
@@ -4952,16 +4952,16 @@ class Lobby implements Runnable {
                 if (xt.logged) {
                     i7 = 1;
                 }
-                string4 = new StringBuilder().append(string4).append("").append(string6).append("|").append(i7).append("|").toString();
+                string4 = "" + (string4) + ("") + (string6) + ("|") + (i7) + ("|");
             }
             if (fstart) {
-                string4 = new StringBuilder().append(string4).append("3|").toString();
+                string4 = "" + (string4) + ("3|");
                 bool = true;
             }
             if (chalngd == -5 && !fstart) {
-                string4 = new StringBuilder().append(string4).append("11|").append(gstage).append("|").append(gstagename).append("|").append(gstagelaps).append("|").append(gnpls).append("|").append(gwait).append("|").append(pnames[im]).append("|").append(gcars).append("|").append(gclass).append("|").append(gfix).append("|").append(gnotp).append("|").append(gplayers).append("|").toString();
+                string4 = "" + (string4) + ("11|") + (gstage) + ("|") + (gstagename) + ("|") + (gstagelaps) + ("|") + (gnpls) + ("|") + (gwait) + ("|") + (pnames[im]) + ("|") + (gcars) + ("|") + (gclass) + ("|") + (gfix) + ("|") + (gnotp) + ("|") + (gplayers) + ("|");
                 if (xt.lan) {
-                    string4 = new StringBuilder().append(string4).append("").append(gnbts).append("|").toString();
+                    string4 = "" + (string4) + ("") + (gnbts) + ("|");
                 }
             }
             if (ongame != -1 && chalngd != -5 && !fstart) {
@@ -4969,10 +4969,10 @@ class Lobby implements Runnable {
                 for (int i9 = 0; i9 < 7; i9++)
                     if (!invos[i9].equals("") && !dinvi[i9].equals(invos[i9])) {
                         if (!bool8) {
-                            string4 = new StringBuilder().append(string4).append("2|").append(ongame).append("|").toString();
+                            string4 = "" + (string4) + ("2|") + (ongame) + ("|");
                             bool8 = true;
                         }
-                        string4 = new StringBuilder().append(string4).append("").append(invos[i9]).append("|").toString();
+                        string4 = "" + (string4) + ("") + (invos[i9]) + ("|");
                         dinvi[i9] = invos[i9];
                     }
             }
@@ -5324,7 +5324,7 @@ class Lobby implements Runnable {
                     if (i48 != xt.servport - 7070) {
                         final int i49 = getvalue(string10, i18 + i48);
                         if (i49 != -1) {
-                            gs.rooms.sopts[i47] = new StringBuilder().append("Room ").append(i48).append("  ::  ").append(i49).append("").toString();
+                            gs.rooms.sopts[i47] = "" + ("Room ") + (i48) + ("  ::  ") + (i49) + ("");
                             gs.rooms.opts[i47] = "";
                             gs.rooms.iroom[i47] = i48;
                             i47++;
@@ -5332,7 +5332,7 @@ class Lobby implements Runnable {
                     }
                 for (int i50 = 0; i50 < lg.nservers; i50++)
                     if (!xt.server.equals(lg.servers[i50]) && xt.delays[i50] < 300) {
-                        gs.rooms.sopts[i47] = new StringBuilder().append(":: ").append(lg.snames[i50]).append("").toString();
+                        gs.rooms.sopts[i47] = "" + (":: ") + (lg.snames[i50]) + ("");
                         gs.rooms.opts[i47] = "";
                         gs.rooms.iroom[i47] = 1000 + i50;
                         i47++;
@@ -5412,7 +5412,7 @@ class Lobby implements Runnable {
             int i57 = 20;
             xt.playingame = -1;
             while (i57 != 0) {
-                final String string = new StringBuilder().append("2|").append(i).append("|").toString();
+                final String string = "" + ("2|") + (i) + ("|");
                 String string58 = "";
                 boolean bool = false;
                 try {
@@ -5608,7 +5608,7 @@ class Lobby implements Runnable {
                         socket = new Socket(lg.servers[0], 7061);
                         din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                         dout = new PrintWriter(socket.getOutputStream(), true);
-                        dout.println(new StringBuilder().append("7|").append(xt.nfreeplays).append("|").toString());
+                        dout.println("" + ("7|") + (xt.nfreeplays) + ("|"));
                         final String string = din.readLine();
                         xt.hours = getvalue(string, 0);
                         socket.close();
@@ -5633,7 +5633,7 @@ class Lobby implements Runnable {
             int i78 = 20;
             xt.playingame = -1;
             while (i78 != 0) {
-                final String string = new StringBuilder().append("4|").append(ongame).append("|").toString();
+                final String string = "" + ("4|") + (ongame) + ("|");
                 String string79 = "";
                 boolean bool = false;
                 try {
@@ -5877,14 +5877,14 @@ class Lobby implements Runnable {
                                 }
                                 ptime = l;
                             }
-                            string = new StringBuilder().append(" (waiting ").append(wait[i295]).append(" seconds maximum)").toString();
+                            string = "" + (" (waiting ") + (wait[i295]) + (" seconds maximum)");
                             if (wait[i295] > 60) {
-                                string = new StringBuilder().append(" (waiting ").append((int) (wait[i295] / 60.0F
-                                        * 100.0F) / 100.0F).append(" minutes maximum)").toString();
+                                string = "" + (" (waiting ") + ((int) (wait[i295] / 60.0F
+                                        * 100.0F) / 100.0F) + (" minutes maximum)");
                             }
                         }
-                        rd.drawString(new StringBuilder().append("Waiting for ").append(mnpls[i295]
-                                - npls[i295]).append(" more players to join to start this game").append(string).append("!").toString(), 95, 15);
+                        rd.drawString("" + ("Waiting for ") + (mnpls[i295]
+                                - npls[i295]) + (" more players to join to start this game") + (string) + ("!"), 95, 15);
                         rd.setFont(new Font("Arial", 0, 12));
                         if (!gmaker[i295].equals("Coach Insano") && !gmaker[i295].equals(pnames[im])) {
                             boolean bool297 = false;
@@ -5893,7 +5893,7 @@ class Lobby implements Runnable {
                                     bool297 = true;
                                 }
                             if (bool297) {
-                                rd.drawString(new StringBuilder().append("").append(gmaker[i295]).append(" can start this game at anytime (the game creator)...").toString(), 95, 31);
+                                rd.drawString("" + ("") + (gmaker[i295]) + (" can start this game at anytime (the game creator)..."), 95, 31);
                             }
                         }
                     } else {
@@ -5909,8 +5909,8 @@ class Lobby implements Runnable {
                             ptime = l;
                         }
                         if (pgames[im] == ongame || nflk != 0) {
-                            rd.drawString(new StringBuilder().append("Game starts in ").append(wait[i295]).append(" seconds!").toString(), 400
-                                    - ftm.stringWidth(new StringBuilder().append("Game starts in ").append(wait[i295]).append(" seconds!").toString())
+                            rd.drawString("" + ("Game starts in ") + (wait[i295]) + (" seconds!"), 400
+                                    - ftm.stringWidth("" + ("Game starts in ") + (wait[i295]) + (" seconds!"))
                                             / 2, 23);
                             if (pgames[im] != ongame) {
                                 nflk--;
@@ -5920,8 +5920,8 @@ class Lobby implements Runnable {
                         }
                     }
                 } else {
-                    rd.drawString(new StringBuilder().append("Waiting for ").append(mnpls[i295]
-                            - npls[i295]).append(" clan members to join to start this game!").toString(), 95, 23);
+                    rd.drawString("" + ("Waiting for ") + (mnpls[i295]
+                            - npls[i295]) + (" clan members to join to start this game!"), 95, 23);
                 }
                 if (pgames[im] != ongame) {
                     boolean bool299 = false;
@@ -5953,13 +5953,13 @@ class Lobby implements Runnable {
         /*if (checkpoints.stage < 0)
         	string = "Custom Stage";
         if (checkpoints.stage > 0 && checkpoints.stage <= 10)
-        	string = new StringBuilder().append("Stage ").append(checkpoints.stage).append(" NFM 1").toString();
+        	string = "" + ("Stage ") + (checkpoints.stage) + (" NFM 1");
         if (checkpoints.stage > 10 && checkpoints.stage <= 27)
-        	string = new StringBuilder().append("Stage ").append(checkpoints.stage - 10).append(" NFM 2").toString();
+        	string = "" + ("Stage ") + (checkpoints.stage - 10) + (" NFM 2");
         if (checkpoints.stage > 27)*/
-        string = new StringBuilder().append("Stage " + checkpoints.stage).toString();
-        xt.drawcs(85, new StringBuilder().append("Previewing ").append(string).append("  >").toString(), 255, 138, 0, 5);
-        xt.drawcs(105, new StringBuilder().append("| ").append(checkpoints.name).append(" |").toString(), 255, 176, 85, 5);
+        string = "" + ("Stage " + checkpoints.stage);
+        xt.drawcs(85, "" + ("Previewing ") + (string) + ("  >"), 255, 138, 0, 5);
+        xt.drawcs(105, "" + ("| ") + (checkpoints.name) + (" |"), 255, 176, 85, 5);
         rd.drawImage(xt.back[pback], 532, 285, null);
         if (plsndt == 0) {
             final String string300 = "Play Soundtrack >";
@@ -5983,7 +5983,7 @@ class Lobby implements Runnable {
         }
         if (checkpoints.stage < 0) {
             rd.setColor(new Color(255, 138, 0));
-            rd.drawString(new StringBuilder().append("Created by: ").append(checkpoints.maker).append("").toString(), 85, 413);
+            rd.drawString("" + ("Created by: ") + (checkpoints.maker) + (""), 85, 413);
             if (checkpoints.pubt > 0) {
                 if (checkpoints.pubt == 2) {
                     xt.drawcs(413, "Super Public Stage", 41, 177, 255, 3);

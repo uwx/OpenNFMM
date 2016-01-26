@@ -511,7 +511,7 @@ class CarDefine implements Runnable {
             }
             statReader.close();
         } catch (final Exception exception) {
-            System.out.println(new StringBuilder().append("Error Loading Car Stat: ").append(exception).toString());
+            System.out.println("" + ("Error Loading Car Stat: ") + (exception));
         }
         if (bool && bool3) {
             int i13 = 0;
@@ -817,13 +817,13 @@ class CarDefine implements Runnable {
         int i22 = 0;
         String string23 = "";
         for (int i24 = string.length() + 1; i24 < string21.length(); i24++) {
-            final String string25 = new StringBuilder().append("").append(string21.charAt(i24)).toString();
+            final String string25 = "" + ("") + (string21.charAt(i24));
             if (string25.equals(",") || string25.equals(")")) {
                 i22++;
                 i24++;
             }
             if (i22 == i) {
-                string23 = new StringBuilder().append(string23).append(string21.charAt(i24)).toString();
+                string23 = "" + (string23) + (string21.charAt(i24));
             }
         }
         return Float.valueOf(string23).intValue();
@@ -833,11 +833,11 @@ class CarDefine implements Runnable {
         String string27 = "";
         int i28 = 0;
         for (int i29 = string.length() + 1; i29 < string26.length() && i28 <= i; i29++) {
-            final String string30 = new StringBuilder().append("").append(string26.charAt(i29)).toString();
+            final String string30 = "" + ("") + (string26.charAt(i29));
             if (string30.equals(",") || string30.equals(")")) {
                 i28++;
             } else if (i28 == i) {
-                string27 = new StringBuilder().append(string27).append(string30).toString();
+                string27 = "" + (string27) + (string30);
             }
         }
         return string27;
@@ -852,14 +852,14 @@ class CarDefine implements Runnable {
             String string35 = "";
             String string36 = "";
             for (/**/; i32 < string.length() && i34 != 2; i32++) {
-                string35 = new StringBuilder().append("").append(string.charAt(i32)).toString();
+                string35 = "" + ("") + (string.charAt(i32));
                 if (string35.equals("|")) {
                     i33++;
                     if (i34 == 1 || i33 > i) {
                         i34 = 2;
                     }
                 } else if (i33 == i) {
-                    string36 = new StringBuilder().append(string36).append(string35).toString();
+                    string36 = "" + (string36) + (string35);
                     i34 = 1;
                 }
             }
@@ -882,14 +882,14 @@ class CarDefine implements Runnable {
             String string41 = "";
             String string42 = "";
             for (/**/; i38 < string.length() && i40 != 2; i38++) {
-                string41 = new StringBuilder().append("").append(string.charAt(i38)).toString();
+                string41 = "" + ("") + (string.charAt(i38));
                 if (string41.equals("|")) {
                     i39++;
                     if (i40 == 1 || i39 > i) {
                         i40 = 2;
                     }
                 } else if (i39 == i) {
-                    string42 = new StringBuilder().append(string42).append(string41).toString();
+                    string42 = "" + (string42) + (string41);
                     i40 = 1;
                 }
             }
@@ -962,7 +962,7 @@ class CarDefine implements Runnable {
                     final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println(new StringBuilder().append("9|").append(gs.tnick.getText()).append("|").append(gs.tpass.getText()).append("|").append(names[ac]).append("|").toString());
+                    printwriter.println("" + ("9|") + (gs.tnick.getText()) + ("|") + (gs.tpass.getText()) + ("|") + (names[ac]) + ("|"));
                     final String string = bufferedreader.readLine();
                     if (string != null) {
                         i = servervalue(string, 0);
@@ -986,7 +986,7 @@ class CarDefine implements Runnable {
                     final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println(new StringBuilder().append("1|").append(gs.tnick.getText()).append("|").append(gs.tpass.getText()).append("|").toString());
+                    printwriter.println("" + ("1|") + (gs.tnick.getText()) + ("|") + (gs.tpass.getText()) + ("|"));
                     final String string = bufferedreader.readLine();
                     if (string != null) {
                         reco = servervalue(string, 0);
@@ -1022,11 +1022,11 @@ class CarDefine implements Runnable {
                 nl = 0;
                 String line = "";
                 try {
-                    final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/cars/lists/").append(gs.tnick.getText()).append(".txt?reqlo=").append((int) (Math.random()
-                            * 1000.0)).append("").toString());
+                    final URL url = new URL("" + ("http://multiplayer.needformadness.com/cars/lists/") + (gs.tnick.getText()) + (".txt?reqlo=") + ((int) (Math.random()
+                            * 1000.0)) + (""));
                     final BufferedReader carReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
                     while ((line = carReader.readLine()) != null) {
-                        line = new StringBuilder().append("").append(line.trim()).toString();
+                        line = "" + ("") + (line.trim());
                         if (line.startsWith("mycars")) {
                             boolean bool = true;
                             while (bool && nl < 700) {
@@ -1046,7 +1046,7 @@ class CarDefine implements Runnable {
                     }
                     carReader.close();
                 } catch (final Exception exception) {
-                    final String string43 = new StringBuilder().append("").append(exception).toString();
+                    final String string43 = "" + ("") + (exception);
                     if (string43.indexOf("FileNotFound") != -1) {
                         action = -1;
                     } else {
@@ -1109,7 +1109,7 @@ class CarDefine implements Runnable {
                     final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println(new StringBuilder().append("8|").append(gs.tnick.getText()).append("|").append(gs.tpass.getText()).append("|").append(acname).append("|").toString());
+                    printwriter.println("" + ("8|") + (gs.tnick.getText()) + ("|") + (gs.tpass.getText()) + ("|") + (acname) + ("|"));
                     final String string = bufferedreader.readLine();
                     if (string != null) {
                         i = servervalue(string, 0);
@@ -1215,10 +1215,10 @@ class CarDefine implements Runnable {
                     if (loadlist == 24) {
                         string44 = "AC";
                     }
-                    final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/cars/top20/").append(string44).append(".txt").toString());
+                    final URL url = new URL("" + ("http://multiplayer.needformadness.com/cars/top20/") + (string44) + (".txt"));
                     final BufferedReader top20Reader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
                     while ((line = top20Reader.readLine()) != null) {
-                        line = new StringBuilder().append("").append(line.trim()).toString();
+                        line = "" + ("") + (line.trim());
                         if (line.startsWith("cars")) {
                             boolean bool = true;
                             while (bool && nl < 20) {
@@ -1275,11 +1275,11 @@ class CarDefine implements Runnable {
                 nl = 0;
                 String line = "";
                 try {
-                    final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/cars/lists/").append(viewname).append(".txt?reqlo=").append((int) (Math.random()
-                            * 1000.0)).append("").toString());
+                    final URL url = new URL("" + ("http://multiplayer.needformadness.com/cars/lists/") + (viewname) + (".txt?reqlo=") + ((int) (Math.random()
+                            * 1000.0)) + (""));
                     final BufferedReader carListReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
                     while ((line = carListReader.readLine()) != null) {
-                        line = new StringBuilder().append("").append(line.trim()).toString();
+                        line = "" + ("") + (line.trim());
                         if (line.startsWith("mycars")) {
                             boolean bool = true;
                             while (bool && nl < 20) {
@@ -1299,7 +1299,7 @@ class CarDefine implements Runnable {
                     }
                     carListReader.close();
                 } catch (final Exception exception) {
-                    final String string45 = new StringBuilder().append("").append(exception).toString();
+                    final String string45 = "" + ("") + (exception);
                     if (string45.indexOf("FileNotFound") != -1) {
                         action = -2;
                     } else {
@@ -1344,8 +1344,8 @@ class CarDefine implements Runnable {
                     if (loadnames[nl - 1].equals(names[i46])) {
                         i = -1;
                     }
-                if (fails.indexOf(new StringBuilder().append("|").append(loadnames[nl
-                        - 1]).append("|").toString()) != -1) {
+                if (fails.indexOf("" + ("|") + (loadnames[nl
+                        - 1]) + ("|")) != -1) {
                     i = -1;
                 }
                 if (i != -1) {
@@ -1364,8 +1364,8 @@ class CarDefine implements Runnable {
                     if (loadonlinecar(loadnames[nl - 1], i) == -1) {
                         final StringBuilder stringbuilder = new StringBuilder();
                         final CarDefine cardefine50 = this;
-                        cardefine50.fails = stringbuilder.append(cardefine50.fails).append("|").append(loadnames[nl
-                                - 1]).append("|").toString();
+                        cardefine50.fails = stringbuilder + (cardefine50.fails) + ("|") + (loadnames[nl
+                                - 1]) + ("|");
                     } else {
                         lcardate[i - 36]++;
                     }
@@ -1390,7 +1390,7 @@ class CarDefine implements Runnable {
                     final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println(new StringBuilder().append("19|").append(gs.tnick.getText()).append("|").append(gs.tpass.getText()).append("|").append(onstage).append("|").toString());
+                    printwriter.println("" + ("19|") + (gs.tnick.getText()) + ("|") + (gs.tpass.getText()) + ("|") + (onstage) + ("|"));
                     final String string = bufferedreader.readLine();
                     if (string != null) {
                         i = servervalue(string, 0);
@@ -1419,7 +1419,7 @@ class CarDefine implements Runnable {
                     final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println(new StringBuilder().append("1|").append(gs.tnick.getText()).append("|").append(gs.tpass.getText()).append("|").toString());
+                    printwriter.println("" + ("1|") + (gs.tnick.getText()) + ("|") + (gs.tpass.getText()) + ("|"));
                     final String string = bufferedreader.readLine();
                     if (string != null) {
                         reco = servervalue(string, 0);
@@ -1463,7 +1463,7 @@ class CarDefine implements Runnable {
                         final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                         final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                         final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                        printwriter.println(new StringBuilder().append("18|").append(gs.tnick.getText()).append("|").append(gs.tpass.getText()).append("|").append(onstage).append("|").toString());
+                        printwriter.println("" + ("18|") + (gs.tnick.getText()) + ("|") + (gs.tpass.getText()) + ("|") + (onstage) + ("|"));
                         final String string = bufferedreader.readLine();
                         if (string != null) {
                             i = servervalue(string, 0);
@@ -1495,7 +1495,7 @@ class CarDefine implements Runnable {
 
     private int loadonlinecar(final String string, int i) {
         try {
-            String string52 = new StringBuilder().append("http://multiplayer.needformadness.com/cars/").append(string).append(".radq").toString();
+            String string52 = "" + ("http://multiplayer.needformadness.com/cars/") + (string) + (".radq");
             string52 = string52.replace(' ', '_');
             final URL url = new URL(string52);
             final int i53 = url.openConnection().getContentLength();
@@ -1580,11 +1580,11 @@ class CarDefine implements Runnable {
         int i = 0;
         String line = "";
         try {
-            final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/tracks/lists/").append(gs.tnick.getText()).append(".txt?reqlo=").append((int) (Math.random()
-                    * 1000.0)).append("").toString());
+            final URL url = new URL("" + ("http://multiplayer.needformadness.com/tracks/lists/") + (gs.tnick.getText()) + (".txt?reqlo=") + ((int) (Math.random()
+                    * 1000.0)) + (""));
             final BufferedReader stageReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
             while ((line = stageReader.readLine()) != null) {
-                line = new StringBuilder().append("").append(line.trim()).toString();
+                line = "" + ("") + (line.trim());
                 if (line.startsWith("mystages")) {
                     boolean bool = true;
                     while (bool && i < 700) {
@@ -1604,7 +1604,7 @@ class CarDefine implements Runnable {
             }
             stageReader.close();
         } catch (final Exception exception) {
-            final String string61 = new StringBuilder().append("").append(exception).toString();
+            final String string61 = "" + ("") + (exception);
             if (string61.indexOf("FileNotFound") != -1) {
                 msloaded = -2;
             } else {
@@ -1655,10 +1655,10 @@ class CarDefine implements Runnable {
             if (i == 4) {
                 string65 = "M";
             }
-            final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/tracks/top20/").append(string65).append(".txt").toString());
+            final URL url = new URL("" + ("http://multiplayer.needformadness.com/tracks/top20/") + (string65) + (".txt"));
             final BufferedReader top20Reader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
             while ((line = top20Reader.readLine()) != null) {
-                line = new StringBuilder().append("").append(line.trim()).toString();
+                line = "" + ("") + (line.trim());
                 if (line.startsWith("stages")) {
                     boolean bool = true;
                     while (bool && i64 < 20) {
@@ -1683,7 +1683,7 @@ class CarDefine implements Runnable {
             }
             top20Reader.close();
         } catch (final Exception exception) {
-            final String string67 = new StringBuilder().append("").append(exception).toString();
+            final String string67 = "" + ("") + (exception);
             if (string67.indexOf("FileNotFound") != -1) {
                 msloaded = -2;
             } else {
@@ -1695,8 +1695,8 @@ class CarDefine implements Runnable {
             gs.mstgs.removeAll();
             gs.mstgs.add(gs.rd, "Select Stage");
             for (int i68 = 0; i68 < i64; i68++) {
-                gs.mstgs.add(gs.rd, new StringBuilder().append("N#").append(i68
-                        + 1).append(" ").append(strings[i68]).toString());
+                gs.mstgs.add(gs.rd, "" + ("N#") + (i68
+                        + 1) + (" ") + (strings[i68]));
             }
             gs.mstgs.select(0);
             gs.mstgs.setVisible(true);
@@ -1717,7 +1717,7 @@ class CarDefine implements Runnable {
             int i = 0;
             String line = "";
             try {
-                final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/clans/").append(string).append("/stages.txt").toString());
+                final URL url = new URL("" + ("http://multiplayer.needformadness.com/clans/") + (string) + ("/stages.txt"));
                 BufferedReader clanStageReader;
                 for (clanStageReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream()))); (line = clanStageReader.readLine()) != null
                         && i < 700; i++) {
@@ -1730,7 +1730,7 @@ class CarDefine implements Runnable {
                 }
                 clanStageReader.close();
             } catch (final Exception exception) {
-                final String string70 = new StringBuilder().append("").append(exception).toString();
+                final String string70 = "" + ("") + (exception);
                 if (string70.indexOf("FileNotFound") != -1) {
                     msloaded = -2;
                 } else {
@@ -1777,9 +1777,9 @@ class CarDefine implements Runnable {
         gs.mstgs.removeAll();
         gs.mstgs.add(gs.rd, "Select Stage");
         int i = 0;
-        final File file = new File(new StringBuilder().append("").append(Madness.fpath).append("mystages/").toString());
+        final File file = new File("" + ("") + (Madness.fpath) + ("mystages/"));
         if (file.exists()) {
-            final String[] strings = new File(new StringBuilder().append("").append(Madness.fpath).append("mystages/").toString()).list();
+            final String[] strings = new File("" + ("") + (Madness.fpath) + ("mystages/")).list();
             for (final String string : strings)
                 if (string.toLowerCase().endsWith(".txt") && i < 200) {
                     gs.mstgs.add(gs.rd, string.substring(0, string.length() - 4));
@@ -1810,9 +1810,9 @@ class CarDefine implements Runnable {
             include[i] = false;
         }
         nlcars = 16;
-        final File file = new File(new StringBuilder().append("").append(Madness.fpath).append("mycars/").toString());
+        final File file = new File("" + ("") + (Madness.fpath) + ("mycars/"));
         if (file.exists()) {
-            final String[] strings = new File(new StringBuilder().append("").append(Madness.fpath).append("mycars/").toString()).list();
+            final String[] strings = new File("" + ("") + (Madness.fpath) + ("mycars/")).list();
             for (final String string : strings)
                 if (string.toLowerCase().endsWith(".rad") && nlcars < 56
                         && loadcar(string.substring(0, string.length() - 4), nlcars) == nlcars) {
@@ -1827,14 +1827,14 @@ class CarDefine implements Runnable {
 
     int loadcar(final String string, int i) {
         try {
-            final File file = new File(new StringBuilder().append("").append(Madness.fpath).append("mycars/").append(string).append(".rad").toString());
+            final File file = new File("" + ("") + (Madness.fpath) + ("mycars/") + (string) + (".rad"));
             if (file.exists()) {
                 String string73 = "";
                 final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
                 //final Object object = null;
                 String string74;
                 while ((string74 = bufferedreader.readLine()) != null) {
-                    string73 = new StringBuilder().append(string73).append("").append(string74).append("\n").toString();
+                    string73 = "" + (string73) + ("") + (string74) + ("\n");
                 }
                 bufferedreader.close();
                 //final Object object75 = null;
@@ -1880,7 +1880,7 @@ class CarDefine implements Runnable {
             }
         } catch (final Exception exception) {
             i = -1;
-            System.out.println(new StringBuilder().append("Error Loading Car: ").append(exception).toString());
+            System.out.println("" + ("Error Loading Car: ") + (exception));
         }
         System.gc();
         return i;

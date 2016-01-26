@@ -33,14 +33,14 @@ class udpServe implements Runnable {
             String string28 = "";
             String string29 = "";
             for (/**/; i25 < string.length() && i27 != 2; i25++) {
-                string28 = new StringBuilder().append("").append(string.charAt(i25)).toString();
+                string28 = "" + ("") + (string.charAt(i25));
                 if (string28.equals("|")) {
                     i26++;
                     if (i27 == 1 || i26 > i) {
                         i27 = 2;
                     }
                 } else if (i26 == i) {
-                    string29 = new StringBuilder().append(string29).append(string28).toString();
+                    string29 = "" + (string29) + (string28);
                     i27 = 1;
                 }
             }
@@ -60,14 +60,14 @@ class udpServe implements Runnable {
             String string22 = "";
             String string23 = "";
             for (/**/; i19 < string.length() && i21 != 2; i19++) {
-                string22 = new StringBuilder().append("").append(string.charAt(i19)).toString();
+                string22 = "" + ("") + (string.charAt(i19));
                 if (string22.equals("|")) {
                     i20++;
                     if (i21 == 1 || i20 > i) {
                         i21 = 2;
                     }
                 } else if (i20 == i) {
-                    string23 = new StringBuilder().append(string23).append(string22).toString();
+                    string23 = "" + (string23) + (string22);
                     i21 = 1;
                 }
             }
@@ -155,7 +155,7 @@ class udpServe implements Runnable {
                             i12 = 0;
                         }
                         lsframe[i11] = um.frame[i11][i12];
-                        final String string15 = new StringBuilder().append("").append(string0).append("|").append(i11).append("|").append(um.frame[i11][i12]).append("|").append(um.info[i11][i12]).append("|").toString();
+                        final String string15 = "" + ("") + (string0) + ("|") + (i11) + ("|") + (um.frame[i11][i12]) + ("|") + (um.info[i11][i12]) + ("|");
                         final byte[] is16 = string15.getBytes();
                         final DatagramPacket datagrampacket17 = new DatagramPacket(is16, is16.length, inetaddress, i10);
                         dSocket.send(datagrampacket17);

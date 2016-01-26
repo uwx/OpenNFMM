@@ -50,14 +50,14 @@ class Madness extends Panel {
 
     static void advopen() {
         try {
-            final File file = new File(new StringBuilder().append("").append(fpath).append("data/user.data").toString());
+            final File file = new File("" + ("") + (fpath) + ("data/user.data"));
             if (file.exists()) {
                 final Date date = new Date();
                 final long l = date.getTime();
                 if (advtime == 0L || l - advtime > 120000L) {
                     final String string = System.getProperty("os.name").toLowerCase();
                     if (string.indexOf("win") != -1) {
-                        final File file26 = new File(new StringBuilder().append("").append(fpath).append("data/adv.bat").toString());
+                        final File file26 = new File("" + ("") + (fpath) + ("data/adv.bat"));
                         boolean bool = false;
                         if (!file26.exists()) {
                             bool = true;
@@ -154,7 +154,7 @@ class Madness extends Panel {
         frame = new Frame("Need for Madness");
         frame.setBackground(new Color(0, 0, 0));
         frame.setIgnoreRepaint(true);
-        frame.setIconImage(Toolkit.getDefaultToolkit().createImage(new StringBuilder().append("").append(fpath).append("data/icon.gif").toString()));
+        frame.setIconImage(Toolkit.getDefaultToolkit().createImage("" + ("") + (fpath) + ("data/icon.gif")));
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(final WindowEvent windowevent) {
@@ -297,11 +297,11 @@ class Madness extends Panel {
         String string29 = "";
         int i30 = 0;
         for (int i31 = string.length() + 1; i31 < string28.length() && i30 <= i; i31++) {
-            final String string32 = new StringBuilder().append("").append(string28.charAt(i31)).toString();
+            final String string32 = "" + ("") + (string28.charAt(i31));
             if (string32.equals(",") || string32.equals(")")) {
                 i30++;
             } else if (i30 == i) {
-                string29 = new StringBuilder().append(string29).append(string32).toString();
+                string29 = "" + (string29) + (string32);
             }
         }
         return string29;
@@ -325,7 +325,7 @@ class Madness extends Panel {
                         f2 = f5;
                     }
                 }
-                strings[i3] = new StringBuilder().append("").append(displaymodes[i4].getWidth()).append(" x ").append(displaymodes[i4].getHeight()).append(" Resolution   -   ").append(displaymodes[i4].getBitDepth()).append(" Bits   -   ").append(displaymodes[i4].getRefreshRate()).append(" Refresh Rate").toString();
+                strings[i3] = "" + ("") + (displaymodes[i4].getWidth()) + (" x ") + (displaymodes[i4].getHeight()) + (" Resolution   -   ") + (displaymodes[i4].getBitDepth()) + (" Bits   -   ") + (displaymodes[i4].getRefreshRate()) + (" Refresh Rate");
                 is[i3] = i4;
                 i3++;
             }
@@ -333,10 +333,10 @@ class Madness extends Panel {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings6 = strings;
             final int i7 = i;
-            strings6[i7] = stringbuilder.append(strings6[i7]).append("     <  Recommended").toString();
+            strings6[i7] = stringbuilder + (strings6[i7]) + ("     <  Recommended");
         }
         try {
-            final File file = new File(new StringBuilder().append("").append(fpath).append("data/fullScreen.data").toString());
+            final File file = new File("" + ("") + (fpath) + ("data/fullScreen.data"));
             if (file.exists()) {
                 final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
                 String string;
@@ -378,9 +378,9 @@ class Madness extends Panel {
         }
         if (i13 != -1) {
             try {
-                final File file = new File(new StringBuilder().append("").append(fpath).append("data/fullScreen.data").toString());
+                final File file = new File("" + ("") + (fpath) + ("data/fullScreen.data"));
                 final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
-                bufferedwriter.write(new StringBuilder().append("").append(i).append("").toString());
+                bufferedwriter.write("" + ("") + (i) + (""));
                 bufferedwriter.newLine();
                 bufferedwriter.close();
             } catch (final Exception exception) {
@@ -426,10 +426,10 @@ class Madness extends Panel {
         for (int i1 = 0; i1 < i; i1++) {
             final String string = strings0[i1];
             if (!bool) {
-                fpath = new StringBuilder().append(fpath).append(string).toString();
+                fpath = "" + (fpath) + (string);
                 bool = true;
             } else {
-                fpath = new StringBuilder().append(fpath).append(" ").append(string).toString();
+                fpath = "" + (fpath) + (" ") + (string);
             }
         }
         if (!fpath.equals(""))
@@ -439,8 +439,8 @@ class Madness extends Panel {
                     final File file = new File("data/manar.ok");
                     if (!file.exists()) {
                         final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
-                        bufferedwriter.write(new StringBuilder().append("").append((int) (Math.random()
-                                * 1000.0)).append("").toString());
+                        bufferedwriter.write("" + ("") + ((int) (Math.random()
+                                * 1000.0)) + (""));
                         bufferedwriter.newLine();
                         bufferedwriter.close();
                     }
@@ -448,12 +448,12 @@ class Madness extends Panel {
 
                 }
             } else {
-                final File file = new File(new StringBuilder().append("").append(fpath).append("data/models.zip").toString());
+                final File file = new File("" + ("") + (fpath) + ("data/models.zip"));
                 if (!file.exists()) {
                     fpath = "";
                 }
             }
-        frame.setIconImage(Toolkit.getDefaultToolkit().createImage(new StringBuilder().append("").append(fpath).append("data/icon.png").toString()));
+        frame.setIconImage(Toolkit.getDefaultToolkit().createImage("" + ("") + (fpath) + ("data/icon.png")));
         applet = new GameSparker();
         frame.addWindowListener(new WindowAdapter() {
             @Override
@@ -487,7 +487,7 @@ class Madness extends Panel {
             }
         } else {
             try {
-                Runtime.getRuntime().exec(new StringBuilder().append("").append(urlopen()).append(" ").append(string).append("").toString());
+                Runtime.getRuntime().exec("" + ("") + (urlopen()) + (" ") + (string) + (""));
             } catch (final Exception exception) {
 
             }

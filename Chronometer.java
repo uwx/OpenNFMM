@@ -121,7 +121,7 @@ class Chronometer {
         final long cent = time % 1000L / 10L;
         final int secs = (int) (time / 1000L % 60L);
         final int mins = (int) (time / 1000L / 60L);
-        return new StringBuilder().append(dc.format(mins)).append(":").append(dc.format(secs)).append(".").append(dc.format(cent)).toString();
+        return "" + (dc.format(mins)) + (":") + (dc.format(secs)) + (".") + (dc.format(cent));
     }
 
     public String getTotalTime() {
@@ -183,8 +183,8 @@ class Chronometer {
                 } else {
                     colorSnap(250, 250, 250);
                 }
-            rd.drawString(new StringBuilder().append("").append(i + 1).toString(), x + 22
-                    - ftm.stringWidth(new StringBuilder().append("").append(i + 1).toString()) / 2, y + 20 * pos + 15);
+            rd.drawString("" + ("") + (i + 1), x + 22
+                    - ftm.stringWidth("" + ("") + (i + 1)) / 2, y + 20 * pos + 15);
             String currentTime;
             String lapTime;
             if (i == current - 1 && running && !paused) {

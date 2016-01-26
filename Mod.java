@@ -122,6 +122,6 @@ class Mod {
 
     @Override
     public String toString() {
-        return new StringBuilder().append(name).append(" (").append(numtracks).append(" tracks, ").append(numpatterns).append(" patterns, ").append(insts.length).append(" samples)").toString();
+        return "" + (name) + (" (") + (numtracks) + (" tracks, ") + (numpatterns) + (" patterns, ") + (insts.length) + (" samples)");
     }
 }

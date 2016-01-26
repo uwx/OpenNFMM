@@ -61,7 +61,7 @@ class Smenu {
             }
             if (i != string.length()) {
                 string = string.substring(0, i - 3);
-                string = new StringBuilder().append(string).append("...").toString();
+                string = "" + (string) + ("...");
             }
         }
         sopts[no] = string;

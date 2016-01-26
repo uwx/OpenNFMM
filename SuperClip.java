@@ -65,7 +65,7 @@ class SuperClip implements Runnable {
                 }
                 source.write(abyte0, 0, abyte0.length);
             } catch (final Exception exception1) {
-                System.out.println(new StringBuilder().append("Play error: ").append(exception1).toString());
+                System.out.println("" + ("Play error: ") + (exception1));
                 stoped = 1;
             }
             try {
