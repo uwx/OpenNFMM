@@ -3,16 +3,8 @@
  * DragShot Software
  * JODE (c) 1998-2001 Jochen Hoenicke
  */
-import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
-import java.io.EOFException;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 
 class Mod {
     private static final int voice_28ch = FOURCC("28CH");
@@ -41,19 +33,20 @@ class Mod {
         modinstrument.volume = readu8(datainputstream);
         modinstrument.repeatPoint = readu16(datainputstream) << 1;
         modinstrument.repeatLength = readu16(datainputstream) << 1;
-        if (modinstrument.repeatPoint > modinstrument.sampleLength)
+        if (modinstrument.repeatPoint > modinstrument.sampleLength) {
             modinstrument.repeatPoint = modinstrument.sampleLength;
-        if (modinstrument.repeatPoint + modinstrument.repeatLength > modinstrument.sampleLength)
+        }
+        if (modinstrument.repeatPoint + modinstrument.repeatLength > modinstrument.sampleLength) {
             modinstrument.repeatLength = modinstrument.sampleLength - modinstrument.repeatPoint;
+        }
         return modinstrument;
     }
 
-    private static void readSampleData(final DataInputStream datainputstream, final ModInstrument modinstrument)
-            throws IOException {
+    private static void readSampleData(final DataInputStream datainputstream, final ModInstrument modinstrument) throws IOException {
         datainputstream.readFully(modinstrument.samples, 0, modinstrument.sampleLength);
-        if (modinstrument.repeatLength > 3)
-            System.arraycopy(modinstrument.samples, modinstrument.repeatPoint, modinstrument.samples,
-                    modinstrument.sampleLength, 8);
+        if (modinstrument.repeatLength > 3) {
+            System.arraycopy(modinstrument.samples, modinstrument.repeatPoint, modinstrument.samples, modinstrument.sampleLength, 8);
+        }
     }
 
     private static final String readText(final DataInputStream datainputstream, final int i) throws IOException {
@@ -74,7 +67,6 @@ class Mod {
     }
 
     ModInstrument[] insts;
-    private boolean loaded = false;
     private String name;
     private int numpatterns;
     int numtracks;
@@ -103,43 +95,6 @@ class Mod {
         return numtracks;
     }
 
-    private void LoadMod(final InputStream inputstream) throws IOException {
-        final DataInputStream datainputstream = new DataInputStream(inputstream);
-        int i = 15;
-        numtracks = 4;
-        name = readText(datainputstream, 20);
-        datainputstream.mark(1068);
-        datainputstream.skip(1060L);
-        final int i7 = datainputstream.readInt();
-        datainputstream.reset();
-        for (int i8 = 0; i8 < voice_31List.length; i8++)
-            if (i7 == voice_31List[i8]) {
-                i = 31;
-                break;
-            }
-        if (i == 31)
-            if (i7 == voice_8chn)
-                numtracks = 8;
-            else if (i7 == voice_6chn)
-                numtracks = 6;
-            else if (i7 == voice_28ch)
-                numtracks = 28;
-        insts = new ModInstrument[i];
-        for (int i9 = 0; i9 < i; i9++)
-            insts[i9] = readInstrument(datainputstream);
-        readSequence(datainputstream);
-        datainputstream.skipBytes(4);
-        readPatterns(datainputstream);
-        try {
-            for (int i10 = 0; i10 < i; i10++)
-                readSampleData(datainputstream, insts[i10]);
-        } catch (final EOFException eofexception) {
-            System.out.println("Warning: EOF on MOD file");
-        }
-        datainputstream.close();
-        inputstream.close();
-    }
-
     void readPatterns(final DataInputStream datainputstream) throws IOException {
         final int i = numtracks * 4 * 64;
         patterns = new byte[numpatterns][];
@@ -154,18 +109,19 @@ class Mod {
         songLengthPatterns = readu8(datainputstream);
         songRepeatPatterns = readu8(datainputstream);
         datainputstream.readFully(positions, 0, 128);
-        if (songRepeatPatterns > songLengthPatterns)
+        if (songRepeatPatterns > songLengthPatterns) {
             songRepeatPatterns = songLengthPatterns;
+        }
         numpatterns = 0;
-        for (int i = 0; i < positions.length; i++)
-            if (positions[i] > numpatterns)
-                numpatterns = positions[i];
+        for (final byte position : positions)
+            if (position > numpatterns) {
+                numpatterns = position;
+            }
         numpatterns++;
     }
 
     @Override
     public String toString() {
-        return new StringBuilder().append(name).append(" (").append(numtracks).append(" tracks, ").append(numpatterns)
-                .append(" patterns, ").append(insts.length).append(" samples)").toString();
+        return new StringBuilder().append(name).append(" (").append(numtracks).append(" tracks, ").append(numpatterns).append(" patterns, ").append(insts.length).append(" samples)").toString();
     }
 }

@@ -40,23 +40,26 @@ class soundClip {
                         clip.close();
                         sound.reset();
                     } catch (final Exception exception) {
-                        
+
                     }
                     lfrpo = -1;
-                } else
+                } else {
                     lfrpo = i;
-            } else
+                }
+            } else {
                 cntcheck--;
+            }
     }
 
     void loop() {
         if (loaded) {
-            if (!clip.isOpen())
+            if (!clip.isOpen()) {
                 try {
                     clip.open(sound);
                 } catch (final Exception exception) {
-                    
+
                 }
+            }
             clip.loop(70);
             lfrpo = -2;
             cntcheck = 0;
@@ -69,11 +72,12 @@ class soundClip {
                 try {
                     clip.open(sound);
                 } catch (final Exception exception) {
-                    
+
                 }
                 clip.loop(0);
-            } else
+            } else {
                 clip.loop(1);
+            }
             lfrpo = -1;
             cntcheck = 5;
         }

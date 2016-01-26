@@ -9,11 +9,8 @@ class RadicalMp3 implements RadicalMusic {
 
     //BufferedInputStream is;
     private boolean paused;
-    private boolean loaded;
-    private boolean playing;
-    private String s;
     private FileInputStream fi;
-    private File fl;
+    private final File fl;
 
     private PausablePlayer player;
     String filePath;
@@ -29,9 +26,6 @@ class RadicalMp3 implements RadicalMusic {
      *            the file name of the file to load.
      */
     public RadicalMp3(final String fn) {
-        loaded = false;
-        playing = false;
-        s = fn;
         fl = new File(fn);
         try {
             fi = new FileInputStream(fl);
@@ -69,10 +63,11 @@ class RadicalMp3 implements RadicalMusic {
     @Override
     public void setPaused(final boolean paused) {
         this.paused = paused;
-        if (paused)
+        if (paused) {
             player.pause();
-        else
+        } else {
             player.resume();
+        }
     }
 
     /**

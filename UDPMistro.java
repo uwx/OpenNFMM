@@ -28,19 +28,19 @@ class UDPMistro implements Runnable {
     //int[] out = new int[7];
     private int pgame = 0;
     private int porturn = 0;
-    private int rate = 30;
+    private final int rate = 30;
     private Thread runner;
     int runon = 0;
     long sendat = 0L;
     String sendcheck = "";
     private Socket socket;
-    private udpOnline[] udpc = new udpOnline[20];
+    private final udpOnline[] udpc = new udpOnline[20];
     private int wx = 0;
     private String xtserver = "";
     private int xtservport = 0;
 
     //fixed for 8 player games
-    private udpServe[] usrv = new udpServe[13];
+    private final udpServe[] usrv = new udpServe[13];
 
     String[][] info = new String[14][3];
     int[][] frame = new int[14][3];
@@ -57,8 +57,9 @@ class UDPMistro implements Runnable {
         String string90 = "";
         for (/**/; i89 < string.length(); i89++) {
             string90 = new StringBuilder().append("").append(string.charAt(i89)).toString();
-            if (string90.equals(","))
+            if (string90.equals(",")) {
                 i++;
+            }
         }
         return i;
     }
@@ -75,8 +76,9 @@ class UDPMistro implements Runnable {
                 string87 = new StringBuilder().append("").append(string.charAt(i84)).toString();
                 if (string87.equals(",")) {
                     i85++;
-                    if (i86 == 1 || i85 > i)
+                    if (i86 == 1 || i85 > i) {
                         i86 = 2;
+                    }
                 } else if (i85 == i) {
                     string88 = new StringBuilder().append(string88).append(string87).toString();
                     i86 = 1;
@@ -84,7 +86,7 @@ class UDPMistro implements Runnable {
             }
             string83 = string88;
         } catch (final Exception exception) {
-            
+
         }
         return string83;
     }
@@ -100,18 +102,20 @@ class UDPMistro implements Runnable {
                 string81 = new StringBuilder().append("").append(string.charAt(wx)).toString();
                 if (string81.equals(",")) {
                     i79++;
-                    if (i80 == 1 || i79 > i)
+                    if (i80 == 1 || i79 > i) {
                         i80 = 2;
+                    }
                 } else if (i79 == i) {
                     string82 = new StringBuilder().append(string82).append(string81).toString();
                     i80 = 1;
                 }
             }
-            if (string82.equals(""))
+            if (string82.equals("")) {
                 string82 = "-1";
+            }
             i78 = Integer.valueOf(string82).intValue();
         } catch (final Exception exception) {
-            
+
         }
         return i78;
     }
@@ -119,30 +123,40 @@ class UDPMistro implements Runnable {
     void readContOinfo(final ContO conto, final int i) {
         if (go && force[i] == 1 && !isbot[i]) {
             int i37 = -2;
-            if (i37 == -2)
+            if (i37 == -2) {
                 for (int i38 = 0; i38 < 3; i38++)
-                    if (frame[i][i38] == lframe[i] + 1)
+                    if (frame[i][i38] == lframe[i] + 1) {
                         i37 = -1;
-            if (i37 == -1)
+                    }
+            }
+            if (i37 == -1) {
                 for (int i39 = 0; i39 < 3; i39++)
-                    if (frame[i][i39] == lframe[i])
+                    if (frame[i][i39] == lframe[i]) {
                         i37 = i39;
+                    }
+            }
             if (i37 > 0) {
                 final String string = info[i][i37];
                 final int i40 = getncoms(string);
                 wx = 0;
-                if (i40 > 1)
+                if (i40 > 1) {
                     conto.x = getvalue(string, 1);
-                if (i40 > 1)
+                }
+                if (i40 > 1) {
                     conto.y = getvalue(string, 0);
-                if (i40 > 1)
+                }
+                if (i40 > 1) {
                     conto.z = getvalue(string, 0);
-                if (i40 > 1)
+                }
+                if (i40 > 1) {
                     conto.xz = getvalue(string, 0);
-                if (i40 > 1)
+                }
+                if (i40 > 1) {
                     conto.xy = getvalue(string, 0);
-                if (i40 > 1)
+                }
+                if (i40 > 1) {
                     conto.zy = getvalue(string, 0);
+                }
             }
         }
     }
@@ -151,34 +165,43 @@ class UDPMistro implements Runnable {
         if (go && force[i] != 7 && !isbot[i]) {
             freg += 0.05;
             int i29 = -1;
-            if (i29 == -1)
+            if (i29 == -1) {
                 for (int i30 = 0; i30 < 3; i30++)
                     if (frame[i][i30] == lframe[i] + 1) {
                         i29 = i30;
-                        if (i30 == 1)
+                        if (i30 == 1) {
                             freg -= 0.1;
-                        if (i30 == 2)
+                        }
+                        if (i30 == 2) {
                             freg -= 0.15;
+                        }
                     }
+            }
             if (i29 == -1) {
                 int i31 = 0;
                 for (int i32 = 0; i32 < 3; i32++)
-                    if (frame[i][i32] > lframe[i] + 1)
+                    if (frame[i][i32] > lframe[i] + 1) {
                         i31++;
-                if (i31 == 3)
+                    }
+                if (i31 == 3) {
                     i29 = 2;
+                }
             }
             if (i29 == -1 && force[i] == 1) {
                 for (int i33 = 0; i33 < 3; i33++)
-                    if (frame[i][i33] >= lframe[i])
+                    if (frame[i][i33] >= lframe[i]) {
                         i29 = i33;
-                if (i29 == -1)
+                    }
+                if (i29 == -1) {
                     freg += 0.2;
+                }
             }
-            if (freg < -15.0F)
+            if (freg < -15.0F) {
                 freg = -15.0F;
-            if (freg > 0.0F)
+            }
+            if (freg > 0.0F) {
                 freg = 0.0F;
+            }
             if (i29 != -1) {
                 force[i] = 0;
                 final String string = info[i][i29];
@@ -186,80 +209,95 @@ class UDPMistro implements Runnable {
                 if (string34.length() == 16) {
                     String string35 = "";
                     string35 = new StringBuilder().append("").append(string34.charAt(0)).toString();
-                    if (string35.equals("0"))
+                    if (string35.equals("0")) {
                         control.left = false;
-                    else
+                    } else {
                         control.left = true;
+                    }
                     string35 = new StringBuilder().append("").append(string34.charAt(1)).toString();
-                    if (string35.equals("0"))
+                    if (string35.equals("0")) {
                         control.right = false;
-                    else
+                    } else {
                         control.right = true;
+                    }
                     string35 = new StringBuilder().append("").append(string34.charAt(2)).toString();
-                    if (string35.equals("0"))
+                    if (string35.equals("0")) {
                         control.up = false;
-                    else
+                    } else {
                         control.up = true;
+                    }
                     string35 = new StringBuilder().append("").append(string34.charAt(3)).toString();
-                    if (string35.equals("0"))
+                    if (string35.equals("0")) {
                         control.down = false;
-                    else
+                    } else {
                         control.down = true;
+                    }
                     string35 = new StringBuilder().append("").append(string34.charAt(4)).toString();
-                    if (string35.equals("0"))
+                    if (string35.equals("0")) {
                         control.handb = false;
-                    else
+                    } else {
                         control.handb = true;
+                    }
                     string35 = new StringBuilder().append("").append(string34.charAt(5)).toString();
-                    if (string35.equals("0"))
+                    if (string35.equals("0")) {
                         mad.newcar = false;
-                    else
+                    } else {
                         mad.newcar = true;
+                    }
                     string35 = new StringBuilder().append("").append(string34.charAt(6)).toString();
-                    if (string35.equals("0"))
+                    if (string35.equals("0")) {
                         mad.mtouch = false;
-                    else
+                    } else {
                         mad.mtouch = true;
+                    }
                     string35 = new StringBuilder().append("").append(string34.charAt(7)).toString();
-                    if (string35.equals("0"))
+                    if (string35.equals("0")) {
                         mad.wtouch = false;
-                    else
+                    } else {
                         mad.wtouch = true;
+                    }
                     string35 = new StringBuilder().append("").append(string34.charAt(8)).toString();
-                    if (string35.equals("0"))
+                    if (string35.equals("0")) {
                         mad.pushed = false;
-                    else
+                    } else {
                         mad.pushed = true;
+                    }
                     string35 = new StringBuilder().append("").append(string34.charAt(9)).toString();
-                    if (string35.equals("0"))
+                    if (string35.equals("0")) {
                         mad.gtouch = false;
-                    else
+                    } else {
                         mad.gtouch = true;
+                    }
                     string35 = new StringBuilder().append("").append(string34.charAt(10)).toString();
-                    if (string35.equals("0"))
+                    if (string35.equals("0")) {
                         mad.pl = false;
-                    else
+                    } else {
                         mad.pl = true;
+                    }
                     string35 = new StringBuilder().append("").append(string34.charAt(11)).toString();
-                    if (string35.equals("0"))
+                    if (string35.equals("0")) {
                         mad.pr = false;
-                    else
+                    } else {
                         mad.pr = true;
+                    }
                     string35 = new StringBuilder().append("").append(string34.charAt(12)).toString();
-                    if (string35.equals("0"))
+                    if (string35.equals("0")) {
                         mad.pd = false;
-                    else
+                    } else {
                         mad.pd = true;
+                    }
                     string35 = new StringBuilder().append("").append(string34.charAt(13)).toString();
-                    if (string35.equals("0"))
+                    if (string35.equals("0")) {
                         mad.pu = false;
-                    else
+                    } else {
                         mad.pu = true;
+                    }
                     string35 = new StringBuilder().append("").append(string34.charAt(14)).toString();
-                    if (string35.equals("0"))
+                    if (string35.equals("0")) {
                         mad.dest = false;
-                    else
+                    } else {
                         mad.dest = true;
+                    }
                 } else if (string34.equals("disco")) {
                     is[i] = 3;
                     mad.hitmag = mad.cd.maxmag[mad.cn] + 100;
@@ -268,42 +306,60 @@ class UDPMistro implements Runnable {
                 if (force[i] != 7) {
                     final int i36 = getncoms(string);
                     wx = 0;
-                    if (i36 > 1)
+                    if (i36 > 1) {
                         conto.x = getvalue(string, 1);
-                    if (i36 > 2)
+                    }
+                    if (i36 > 2) {
                         conto.y = getvalue(string, 0);
-                    if (i36 > 3)
+                    }
+                    if (i36 > 3) {
                         conto.z = getvalue(string, 0);
-                    if (i36 > 4)
+                    }
+                    if (i36 > 4) {
                         conto.xz = getvalue(string, 0);
-                    if (i36 > 5)
+                    }
+                    if (i36 > 5) {
                         conto.xy = getvalue(string, 0);
-                    if (i36 > 6)
+                    }
+                    if (i36 > 6) {
                         conto.zy = getvalue(string, 0);
-                    if (i36 > 7)
+                    }
+                    if (i36 > 7) {
                         mad.speed = getvalue(string, 0) / 100.0F;
-                    if (i36 > 8)
+                    }
+                    if (i36 > 8) {
                         mad.power = getvalue(string, 0) / 100.0F;
-                    if (i36 > 9)
+                    }
+                    if (i36 > 9) {
                         mad.mxz = getvalue(string, 0);
-                    if (i36 > 10)
+                    }
+                    if (i36 > 10) {
                         mad.pzy = getvalue(string, 0);
-                    if (i36 > 11)
+                    }
+                    if (i36 > 11) {
                         mad.pxy = getvalue(string, 0);
-                    if (i36 > 12)
+                    }
+                    if (i36 > 12) {
                         mad.txz = getvalue(string, 0);
-                    if (i36 > 13)
+                    }
+                    if (i36 > 13) {
                         mad.loop = getvalue(string, 0);
-                    if (i36 > 14)
+                    }
+                    if (i36 > 14) {
                         conto.wxz = getvalue(string, 0);
-                    if (i36 > 15)
+                    }
+                    if (i36 > 15) {
                         mad.pcleared = getvalue(string, 0);
-                    if (i36 > 16)
+                    }
+                    if (i36 > 16) {
                         mad.clear = getvalue(string, 0);
-                    if (i36 > 17)
+                    }
+                    if (i36 > 17) {
                         mad.nlaps = getvalue(string, 0);
-                    if (i36 > 18)
+                    }
+                    if (i36 > 18) {
                         mad.hitmag = (int) (getvalue(string, 0) / 100.0F * mad.cd.maxmag[mad.cn]);
+                    }
                 }
                 lframe[i] = frame[i][i29];
             } else if (force[i] == 0) {
@@ -335,23 +391,26 @@ class UDPMistro implements Runnable {
                     i++;
                 }
             }
-            if (diled == 10)
+            if (diled == 10) {
                 for (int i18 = 0; i18 < 20; i18++)
                     if (udpc[i18].started) {
                         final Date date = new Date();
                         final long l = date.getTime() - udpc[i18].sendat;
-                        if (l > delay * 1.5 && l > rate)
+                        if (l > delay * 1.5 && l > rate) {
                             udpc[i18].stomp();
+                        }
                     }
-            if (diledelay > 0)
+            }
+            if (diledelay > 0) {
                 diledelay--;
+            }
             try {
                 if (runner != null) {
-                    
+
                 }
                 Thread.sleep(5L);
             } catch (final InterruptedException interruptedexception) {
-                
+
             }
         }
         int i19 = 0;
@@ -361,22 +420,26 @@ class UDPMistro implements Runnable {
                 boolean bool = false;
                 if (info[i21][0].length() > 16) {
                     final String string = new StringBuilder().append("").append(info[i21][0].charAt(15)).toString();
-                    if (!string.equals("0"))
+                    if (!string.equals("0")) {
                         bool = true;
+                    }
                 }
-                if (!bool && out[i21] == 77)
+                if (!bool && out[i21] == 77) {
                     out[i21] = 0;
+                }
                 if (out[i21] < 76)
                     if (frame[i21][0] > 6) {
                         if (lcframe[i21] != frame[i21][0] && !bool) {
                             lcframe[i21] = frame[i21][0];
                             out[i21] = 0;
                         } else {
-                            if (out[i21] < 70)
+                            if (out[i21] < 70) {
                                 out[i21] = 71;
+                            }
                             out[i21]++;
-                            if (bool)
+                            if (bool) {
                                 out[i21] = 77;
+                            }
                             if (out[i21] == 76) {
                                 info[i21][0] = "disco";
                                 frame[i21][0] += 10;
@@ -384,22 +447,25 @@ class UDPMistro implements Runnable {
                         }
                     } else {
                         out[i21]++;
-                        if (out[i21] == 30)
+                        if (out[i21] == 30) {
                             frame[i21][0] = 7;
+                        }
                     }
             }
             if (i20 == 10) {
                 final String string = new StringBuilder().append("3|").append(pgame).append("|alive|").toString();
                 String string22 = "";
-                if (i19 == 0)
+                if (i19 == 0) {
                     try {
                         dout.println(string);
                         string22 = din.readLine();
-                        if (string22 == null)
+                        if (string22 == null) {
                             i19 = 1;
+                        }
                     } catch (final Exception exception) {
                         i19 = 1;
                     }
+                }
                 if (i19 == 1) {
                     try {
                         socket.close();
@@ -409,7 +475,7 @@ class UDPMistro implements Runnable {
                         dout.close();
                         dout = null;
                     } catch (final Exception exception) {
-                        
+
                     }
                     try {
                         socket = new Socket(xtserver, xtservport);
@@ -417,10 +483,11 @@ class UDPMistro implements Runnable {
                         dout = new PrintWriter(socket.getOutputStream(), true);
                         dout.println(string);
                         string22 = din.readLine();
-                        if (string22 != null)
+                        if (string22 != null) {
                             i19 = 0;
+                        }
                     } catch (final Exception exception) {
-                        
+
                     }
                 }
                 if (i19 == 1) {
@@ -428,30 +495,33 @@ class UDPMistro implements Runnable {
                         socket.close();
                         socket = null;
                     } catch (final Exception exception) {
-                        
+
                     }
                     i19 = 2;
                 }
                 i20 = 0;
-            } else
+            } else {
                 i20++;
+            }
             try {
                 if (runner != null) {
-                    
+
                 }
                 Thread.sleep(1000L);
             } catch (final InterruptedException interruptedexception) {
-                
+
             }
         }
         int i23 = 0;
         while (runon == 2) {
             int i24 = 0;
             for (int i25 = 0; i25 < 20; i25++)
-                if (!udpc[i25].started)
+                if (!udpc[i25].started) {
                     i24++;
-            if (i24 != 20)
+                }
+            if (i24 != 20) {
                 i23++;
+            }
             if (i23 == 400 || i24 == 20) {
                 for (int i26 = 0; i26 < 20; i26++) {
                     udpc[i26].closeSocket();
@@ -461,11 +531,11 @@ class UDPMistro implements Runnable {
             }
             try {
                 if (runner != null) {
-                    
+
                 }
                 Thread.sleep(5L);
             } catch (final InterruptedException interruptedexception) {
-                
+
             }
         }
         if (runon == 3) {
@@ -475,13 +545,14 @@ class UDPMistro implements Runnable {
             runner = null;
         }
         if (runon == 5) {
-            for (int i27 = 0; i27 < nplayers + 2; i27++)
+            for (int i27 = 0; i27 < nplayers + 2; i27++) {
                 try {
                     usrv[i27].stopServe();
                     usrv[i27] = null;
                 } catch (final Exception exception) {
-                    
+
                 }
+            }
             final String string = new StringBuilder().append("3|").append(pgame).append("|finish|").toString();
             try {
                 dout.println(string);
@@ -493,7 +564,7 @@ class UDPMistro implements Runnable {
                 dout.close();
                 dout = null;
             } catch (final Exception exception) {
-                
+
             }
             System.gc();
             System.runFinalization();
@@ -502,8 +573,7 @@ class UDPMistro implements Runnable {
         }
     }
 
-    void setinfo(final Mad mad, final ContO conto, final Control control, final int i, final float f,
-            final boolean bool, final int i41) {
+    void setinfo(final Mad mad, final ContO conto, final Control control, final int i, final float f, final boolean bool, final int i41) {
         info[i41][0] = "";
         if (control.left) {
             final StringBuilder stringbuilder = new StringBuilder();
@@ -684,29 +754,28 @@ class UDPMistro implements Runnable {
         final StringBuilder stringbuilder = new StringBuilder();
         final String[] strings = info[i41];
         final int i74 = 0;
-        strings[i74] = stringbuilder.append(strings[i74]).append(",").append(conto.x).append(",").append(conto.y)
-                .append(",").append(conto.z).append(",").append(conto.xz).append(",").append(conto.xy).append(",")
-                .append(conto.zy).append(",").append((int) (mad.speed * 100.0F)).append(",")
-                .append((int) (mad.power * 100.0F)).append(",").append(mad.mxz).append(",").append(mad.pzy).append(",")
-                .append(mad.pxy).append(",").append(mad.txz).append(",").append(mad.loop).append(",").append(conto.wxz)
-                .append(",").append(mad.pcleared).append(",").append(mad.clear).append(",").append(mad.nlaps)
-                .append(",").append((int) (f * 100.0F)).append(",").append(i).append(",").toString();
+        strings[i74] = stringbuilder.append(strings[i74]).append(",").append(conto.x).append(",").append(conto.y).append(",").append(conto.z).append(",").append(conto.xz).append(",").append(conto.xy).append(",").append(conto.zy).append(",").append((int) (mad.speed
+                * 100.0F)).append(",").append((int) (mad.power
+                        * 100.0F)).append(",").append(mad.mxz).append(",").append(mad.pzy).append(",").append(mad.pxy).append(",").append(mad.txz).append(",").append(mad.loop).append(",").append(conto.wxz).append(",").append(mad.pcleared).append(",").append(mad.clear).append(",").append(mad.nlaps).append(",").append((int) (f
+                                * 100.0F)).append(",").append(i).append(",").toString();
         while (info[i41][0].length() < 110) {
             final StringBuilder stringbuilder75 = new StringBuilder();
             final String[] strings76 = info[i41];
             final int i77 = 0;
             strings76[i77] = stringbuilder75.append(strings76[i77]).append("|").toString();
         }
-        if (runon == 2)
+        if (runon == 2) {
             mad.hitmag = mad.cd.maxmag[mad.cn] + 100;
+        }
         frame[i41][0]++;
     }
 
     void UDPConnectLan(final String string, final int i, final int i7) {
         diledelay = 0;
         delay = 0;
-        for (int i8 = 0; i8 < 5; i8++)
+        for (int i8 = 0; i8 < 5; i8++) {
             ldelays[i8] = 0;
+        }
         diled = 0;
         go = false;
         freg = 0.0F;
@@ -723,12 +792,14 @@ class UDPMistro implements Runnable {
             lcframe[i9] = 0;
         }
         if (im != 0) {
-            for (int i11 = 0; i11 < 20; i11++)
+            for (int i11 = 0; i11 < 20; i11++) {
                 udpc[i11] = new udpOnline(this, string, 7060 + im, i11, porturn);
-            if (porturn == 0)
+            }
+            if (porturn == 0) {
                 porturn = 20;
-            else
+            } else {
                 porturn = 0;
+            }
             if (im >= nplayers) {
                 frame[im][0] = 11111;
                 info[im][0] = "watching";
@@ -748,7 +819,7 @@ class UDPMistro implements Runnable {
                 din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 dout = new PrintWriter(socket.getOutputStream(), true);
             } catch (final Exception exception) {
-                
+
             }
             runon = 4;
         }
@@ -759,8 +830,9 @@ class UDPMistro implements Runnable {
     void UDPConnectOnline(final String string, final int i, final int i0, final int i1) {
         diledelay = 0;
         delay = 0;
-        for (int i2 = 0; i2 < 5; i2++)
+        for (int i2 = 0; i2 < 5; i2++) {
             ldelays[i2] = 0;
+        }
         diled = 0;
         go = false;
         freg = 0.0F;
@@ -776,12 +848,14 @@ class UDPMistro implements Runnable {
             force[i3] = 0;
             lcframe[i3] = 0;
         }
-        for (int i5 = 0; i5 < 20; i5++)
+        for (int i5 = 0; i5 < 20; i5++) {
             udpc[i5] = new udpOnline(this, string, i + im, i5, porturn);
-        if (porturn == 0)
+        }
+        if (porturn == 0) {
             porturn = 20;
-        else
+        } else {
             porturn = 0;
+        }
         if (im >= nplayers) {
             frame[im][0] = 11111;
             info[im][0] = "watching";
@@ -814,14 +888,17 @@ class UDPMistro implements Runnable {
             force[i15] = 0;
             lcframe[i15] = 0;
         }
-        for (int i17 = 0; i17 < nplayers + 2; i17++)
+        for (int i17 = 0; i17 < nplayers + 2; i17++) {
             usrv[i17] = new udpServe(this, i17 + 1);
+        }
     }
 
     void UDPquit() {
-        if (runon == 1)
+        if (runon == 1) {
             runon = 2;
-        if (runon == 4)
+        }
+        if (runon == 4) {
             runon = 5;
+        }
     }
 }

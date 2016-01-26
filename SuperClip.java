@@ -18,7 +18,6 @@ class SuperClip implements Runnable {
         source = null;
         rollBackPos = 0;
         rollBackTrig = 0;
-        changeGain = false;
         stoped = 2;
         skiprate = j;
         stream = new ByteArrayInputStream(abyte0, 0, i);
@@ -27,10 +26,8 @@ class SuperClip implements Runnable {
     @Override
     public void run() {
         try {
-            final AudioFormat audioformat = new AudioFormat(javax.sound.sampled.AudioFormat.Encoding.PCM_SIGNED,
-                    skiprate, 16, 1, 2, skiprate, false);
-            final javax.sound.sampled.DataLine.Info info = new javax.sound.sampled.DataLine.Info(SourceDataLine.class,
-                    audioformat);
+            final AudioFormat audioformat = new AudioFormat(javax.sound.sampled.AudioFormat.Encoding.PCM_SIGNED, skiprate, 16, 1, 2, skiprate, false);
+            final javax.sound.sampled.DataLine.Info info = new javax.sound.sampled.DataLine.Info(SourceDataLine.class, audioformat);
             source = (SourceDataLine) AudioSystem.getLine(info);
             source.open(audioformat);
             source.start();
@@ -42,21 +39,26 @@ class SuperClip implements Runnable {
             try {
                 final int i = skiprate;
                 int j = stream.available();
-                if (j % 2 != 0)
+                if (j % 2 != 0) {
                     j++;
+                }
                 byte abyte0[] = new byte[j <= i ? j : i];
                 final int l = stream.read(abyte0, 0, abyte0.length);
-                if (l == -1 || rollBackPos != 0 && j < rollBackTrig)
+                if (l == -1 || rollBackPos != 0 && j < rollBackTrig) {
                     flag = true;
+                }
                 if (flag) {
-                    if (l != -1)
+                    if (l != -1) {
                         source.write(abyte0, 0, abyte0.length);
+                    }
                     stream.reset();
-                    if (rollBackPos != 0)
+                    if (rollBackPos != 0) {
                         stream.skip(rollBackPos);
+                    }
                     int k = stream.available();
-                    if (k % 2 != 0)
+                    if (k % 2 != 0) {
                         k++;
+                    }
                     abyte0 = new byte[k <= i ? k : i];
                     stream.read(abyte0, 0, abyte0.length);
                     flag = false;
@@ -100,8 +102,9 @@ class SuperClip implements Runnable {
     void stop() {
         if (stoped == 0) {
             stoped = 1;
-            if (source != null)
+            if (source != null) {
                 source.stop();
+            }
         }
     }
 
@@ -120,5 +123,4 @@ class SuperClip implements Runnable {
     ByteArrayInputStream stream;
     int rollBackPos;
     int rollBackTrig;
-    private boolean changeGain;
 }

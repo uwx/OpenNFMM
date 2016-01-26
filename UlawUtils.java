@@ -374,10 +374,12 @@ final class UlawUtils {
     }
 
     static final byte linear2ulawclip(int i) {
-        if (i < -32767)
+        if (i < -32767) {
             i = -32767;
-        if (i > 32767)
+        }
+        if (i > 32767) {
             i = 32767;
+        }
         return s2uLut[i >> 3 & 0x1fff];
     }
 }

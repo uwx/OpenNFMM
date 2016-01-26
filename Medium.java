@@ -26,10 +26,10 @@ class Medium {
     private int[][][] clay = null;
     private int[][][] claz = null;
     private int[][][][] clc = null;
-    private int[] cldd = {
+    private final int[] cldd = {
             210, 210, 210, 1, -1000
     };
-    private int[] clds = {
+    private final int[] clds = {
             210, 210, 210
     };
     private int[] clx = null;
@@ -51,7 +51,7 @@ class Medium {
     int cy = 225;
     int cz = 50;
     boolean darksky = false;
-    private boolean[] diup = {
+    private final boolean[] diup = {
             false, false, false
     };
     float elecr = 0.0F;
@@ -94,10 +94,10 @@ class Medium {
     private int nst = 0;
     private int[][] ogpx = null;
     private int[][] ogpz = null;
-    private int[] ogrnd = {
+    private final int[] ogrnd = {
             205, 200, 200
     };
-    private int[] osky = {
+    private final int[] osky = {
             170, 220, 255
     };
     private float[] pcv = null;
@@ -105,14 +105,14 @@ class Medium {
     int ptcnt = -10;
     int ptr = 0;
     private float[][] pvr = null;
-    private int[] rand = {
+    private final int[] rand = {
             0, 0, 0
     };
     int rescnt = 5;
     int resdown = 0;
     private int sgpx = 0;
     private int sgpz = 0;
-    private int skyline = -300;
+    private final int skyline = -300;
     int[] snap = {
             0, 0, 0
     };
@@ -122,16 +122,16 @@ class Medium {
     private int[][][] stc = null;
     private int[] stx = null;
     private int[] stz = null;
-    private float[] tcos = new float[360];
+    private final float[] tcos = new float[360];
     private boolean td = false;
-    private int[] texture = {
+    private final int[] texture = {
             0, 0, 0, 50
     };
     int trk = 0;
     private int trn = 0;
     long trx = 0L;
     long trz = 0L;
-    private float[] tsin = new float[360];
+    private final float[] tsin = new float[360];
     private int[] twn = null;
     boolean vert = false;
     int vxz = 180;
@@ -143,10 +143,12 @@ class Medium {
     int zy = 0;
 
     public Medium() {
-        for (int i = 0; i < 360; i++)
+        for (int i = 0; i < 360; i++) {
             tcos[i] = (float) Math.cos(i * 0.017453292519943295);
-        for (int i = 0; i < 360; i++)
+        }
+        for (int i = 0; i < 360; i++) {
             tsin[i] = (float) Math.sin(i * 0.017453292519943295);
+        }
     }
 
     void addsp(final int i, final int i245, final int i246) {
@@ -169,57 +171,71 @@ class Medium {
                     resdown = 1;
                     rescnt = 10;
                 }
-                if (resdown == 1 && rescnt == 0)
+                if (resdown == 1 && rescnt == 0) {
                     resdown = 2;
-                if ((i == 0 || resdown == 0) && f271 <= -20.0F)
+                }
+                if ((i == 0 || resdown == 0) && f271 <= -20.0F) {
                     rescnt--;
-            } else if (resdown == 0)
+                }
+            } else if (resdown == 0) {
                 rescnt = 5;
-            else
+            } else {
                 rescnt = 10;
+            }
     }
 
     void around(final ContO conto, final boolean bool) {
         if (!bool) {
-            if (!vert)
+            if (!vert) {
                 adv += 2;
-            else
+            } else {
                 adv -= 2;
-            if (adv > 900)
+            }
+            if (adv > 900) {
                 vert = true;
-            if (adv < -500)
+            }
+            if (adv < -500) {
                 vert = false;
+            }
         } else {
             adv -= 14;
-            if (adv < 617)
+            if (adv < 617) {
                 adv = 617;
+            }
         }
         int i = 500 + adv;
-        if (bool && i < 1300)
+        if (bool && i < 1300) {
             i = 1300;
-        if (i < 1000)
+        }
+        if (i < 1000) {
             i = 1000;
+        }
         y = conto.y - adv;
-        if (y > 10)
+        if (y > 10) {
             vert = false;
+        }
         x = conto.x + (int) ((conto.x - i - conto.x) * cos(vxz));
         z = conto.z + (int) ((conto.x - i - conto.x) * sin(vxz));
-        if (!bool)
+        if (!bool) {
             vxz += 2;
-        else
+        } else {
             vxz += 4;
+        }
         int i4 = 0;
         int i5 = y;
-        if (i5 > 0)
+        if (i5 > 0) {
             i5 = 0;
-        if (conto.y - i5 - cy < 0)
+        }
+        if (conto.y - i5 - cy < 0) {
             i4 = -180;
-        final int i6 = (int) Math
-                .sqrt((conto.z - z + cz) * (conto.z - z + cz) + (conto.x - x - cx) * (conto.x - x - cx));
+        }
+        final int i6 = (int) Math.sqrt((conto.z - z + cz) * (conto.z - z + cz)
+                + (conto.x - x - cx) * (conto.x - x - cx));
         int i7 = (int) (90 + i4 - Math.atan((double) i6 / (double) (conto.y - i5 - cy)) / 0.017453292519943295);
         xz = -vxz + 90;
-        if (bool)
+        if (bool) {
             i7 -= 15;
+        }
         zy += (i7 - zy) / 10;
     }
 
@@ -247,10 +263,12 @@ class Medium {
             fallen += 7;
             trx += atrx;
             trz += atrz;
-            if (hit < 17600)
+            if (hit < 17600) {
                 zy -= 2;
-            if (fallen > 500)
+            }
+            if (fallen > 500) {
                 fallen = 500;
+            }
             if (hit <= 5000) {
                 hit = 5000;
                 fallen = 0;
@@ -259,12 +277,14 @@ class Medium {
         } else {
             focusPoint = (int) (400.0F * fo);
             if (Math.abs(fo - gofo) > 0.005) {
-                if (fo < gofo)
+                if (fo < gofo) {
                     fo += 0.005F;
-                else
+                } else {
                     fo -= 0.005F;
-            } else
+                }
+            } else {
                 gofo = (float) (0.3499999940395355 + Math.random() * 1.3);
+            }
             vxz++;
             trx -= (trx - checkpoints.x[ptr]) / 10L;
             trz -= (trz - checkpoints.z[ptr]) / 10L;
@@ -275,43 +295,51 @@ class Medium {
                     nrnd++;
                 }
                 ptcnt = 0;
-            } else
+            } else {
                 ptcnt++;
+            }
         }
-        if (vxz > 360)
+        if (vxz > 360) {
             vxz -= 360;
+        }
         xz = -vxz - 90;
         if (-y - cy < 0) {
         }
         Math.sqrt((trz - z + cz) * (trz - z + cz) + (trx - x - cx) * (trx - x - cx));
-        if (cpflik)
+        if (cpflik) {
             cpflik = false;
-        else
+        } else {
             cpflik = true;
+        }
     }
 
     float cos(int i) {
         for (/**/; i >= 360; i -= 360) {
-            
+
         }
         for (/**/; i < 0; i += 360) {
-            
+
         }
         return tcos[i];
     }
 
     void d(final Graphics2D graphics2d) {
         nsp = 0;
-        if (zy > 90)
+        if (zy > 90) {
             zy = 90;
-        if (zy < -90)
+        }
+        if (zy < -90) {
             zy = -90;
-        if (xz > 360)
+        }
+        if (xz > 360) {
             xz -= 360;
-        if (xz < 0)
+        }
+        if (xz < 0) {
             xz += 360;
-        if (y > 0)
+        }
+        if (y > 0) {
             y = 0;
+        }
         ground = 250 - y;
         final int[] is = new int[4];
         final int[] is223 = new int[4];
@@ -331,10 +359,12 @@ class Medium {
             }
             is[0] = iw;
             is223[0] = ys(i232, i231);
-            if (is223[0] < ih)
+            if (is223[0] < ih) {
                 is223[0] = ih;
-            if (is223[0] > h)
+            }
+            if (is223[0] > h) {
                 is223[0] = h;
+            }
             is[1] = iw;
             is223[1] = i229;
             is[2] = w;
@@ -363,29 +393,37 @@ class Medium {
         }
         if (lightn != -1 && lton) {
             if (lightn < 16) {
-                if (lilo > lightn + 217)
+                if (lilo > lightn + 217) {
                     lilo -= 3;
-                else
+                } else {
                     lightn = (int) (16.0F + 16.0F * random());
-            } else if (lilo < lightn + 217)
+                }
+            } else if (lilo < lightn + 217) {
                 lilo += 7;
-            else
+            } else {
                 lightn = (int) (16.0F * random());
+            }
             csky[0] = (int) (lilo + lilo * (snap[0] / 100.0F));
-            if (csky[0] > 255)
+            if (csky[0] > 255) {
                 csky[0] = 255;
-            if (csky[0] < 0)
+            }
+            if (csky[0] < 0) {
                 csky[0] = 0;
+            }
             csky[1] = (int) (lilo + lilo * (snap[1] / 100.0F));
-            if (csky[1] > 255)
+            if (csky[1] > 255) {
                 csky[1] = 255;
-            if (csky[1] < 0)
+            }
+            if (csky[1] < 0) {
                 csky[1] = 0;
+            }
             csky[2] = (int) (lilo + lilo * (snap[2] / 100.0F));
-            if (csky[2] > 255)
+            if (csky[2] > 255) {
                 csky[2] = 255;
-            if (csky[2] < 0)
+            }
+            if (csky[2] < 0) {
                 csky[2] = 0;
+            }
         }
         i = csky[0];
         i224 = csky[1];
@@ -406,10 +444,12 @@ class Medium {
             }
             is[0] = iw;
             is223[0] = ys(i241, i240);
-            if (is223[0] > h)
+            if (is223[0] > h) {
                 is223[0] = h;
-            if (is223[0] < ih)
+            }
+            if (is223[0] < ih) {
                 is223[0] = ih;
+            }
             is[1] = iw;
             is223[1] = i238;
             is[2] = w;
@@ -442,10 +482,12 @@ class Medium {
         is223[3] = i238;
         if (is223[0] < h && is223[1] > ih) {
             float f = (Math.abs(y) - 250.0F) / (fade[0] * 2);
-            if (f < 0.0F)
+            if (f < 0.0F) {
                 f = 0.0F;
-            if (f > 1.0F)
+            }
+            if (f > 1.0F) {
                 f = 1.0F;
+            }
             i = (int) ((i * (1.0F - f) + i226 * (1.0F + f)) / 2.0F);
             i224 = (int) ((i224 * (1.0F - f) + i227 * (1.0F + f)) / 2.0F);
             i225 = (int) ((i225 * (1.0F - f) + i228 * (1.0F + f)) / 2.0F);
@@ -463,12 +505,15 @@ class Medium {
                 is[0] = iw;
                 if (i242 != 19) {
                     is223[0] = ys(i244, i243);
-                    if (is223[0] > h)
+                    if (is223[0] > h) {
                         is223[0] = h;
-                    if (is223[0] < ih)
+                    }
+                    if (is223[0] < ih) {
                         is223[0] = ih;
-                } else
+                    }
+                } else {
                     is223[0] = ih;
+                }
                 is[1] = iw;
                 is223[1] = i236;
                 is[2] = w;
@@ -484,17 +529,19 @@ class Medium {
                     graphics2d.fillPolygon(is, is223, 4);
                 }
             }
-            if (lightson)
+            if (lightson) {
                 drawstars(graphics2d);
+            }
             drawmountains(graphics2d);
             drawclouds(graphics2d);
         }
         groundpolys(graphics2d);
-        if (noelec != 0)
+        if (noelec != 0) {
             noelec--;
-        if (cpflik)
+        }
+        if (cpflik) {
             cpflik = false;
-        else {
+        } else {
             cpflik = true;
             elecr = random() * 15.0F - 6.0F;
         }
@@ -535,28 +582,33 @@ class Medium {
                     for (int i130 = 0; i130 < 6; i130++) {
                         int i131 = 0;
                         int i132 = 1;
-                        if (i130 == 0)
+                        if (i130 == 0) {
                             i131 = i122;
+                        }
                         if (i130 == 1) {
                             i131 = i122 + 1;
-                            if (i131 >= 12)
+                            if (i131 >= 12) {
                                 i131 -= 12;
+                            }
                         }
                         if (i130 == 2) {
                             i131 = i122 + 2;
-                            if (i131 >= 12)
+                            if (i131 >= 12) {
                                 i131 -= 12;
+                            }
                         }
                         if (i130 == 3) {
                             i131 = i122 + 2;
-                            if (i131 >= 12)
+                            if (i131 >= 12) {
                                 i131 -= 12;
+                            }
                             i132 = 2;
                         }
                         if (i130 == 4) {
                             i131 = i122 + 1;
-                            if (i131 >= 12)
+                            if (i131 >= 12) {
                                 i131 -= 12;
+                            }
                             i132 = 2;
                         }
                         if (i130 == 5) {
@@ -568,23 +620,28 @@ class Medium {
                         i128 += is[i132][i131];
                         i127 += is109[i132][i131];
                         i129 += is110[i132][i131];
-                        if (is112[i130] < 0 || is110[0][i130] < 10)
+                        if (is112[i130] < 0 || is110[0][i130] < 10) {
                             i123++;
-                        if (is112[i130] > h || is110[0][i130] < 10)
+                        }
+                        if (is112[i130] > h || is110[0][i130] < 10) {
                             i124++;
-                        if (is111[i130] < 0 || is110[0][i130] < 10)
+                        }
+                        if (is111[i130] < 0 || is110[0][i130] < 10) {
                             i125++;
-                        if (is111[i130] > w || is110[0][i130] < 10)
+                        }
+                        if (is111[i130] > w || is110[0][i130] < 10) {
                             i126++;
+                        }
                     }
-                    if (i125 == 6 || i123 == 6 || i124 == 6 || i126 == 6)
+                    if (i125 == 6 || i123 == 6 || i124 == 6 || i126 == 6) {
                         bool116 = false;
+                    }
                     if (bool116) {
                         i128 /= 6;
                         i127 /= 6;
                         i129 /= 6;
-                        final int i133 = (int) Math
-                                .sqrt((cy - i127) * (cy - i127) + (cx - i128) * (cx - i128) + i129 * i129);
+                        final int i133 = (int) Math.sqrt((cy - i127) * (cy - i127) + (cx - i128) * (cx - i128)
+                                + i129 * i129);
                         if (i133 < fade[7]) {
                             int i134 = clc[i][1][i122 / 2][0];
                             int i135 = clc[i][1][i122 / 2][1];
@@ -612,28 +669,33 @@ class Medium {
                     for (int i146 = 0; i146 < 6; i146++) {
                         int i147 = 0;
                         int i148 = 0;
-                        if (i146 == 0)
+                        if (i146 == 0) {
                             i147 = i138;
+                        }
                         if (i146 == 1) {
                             i147 = i138 + 1;
-                            if (i147 >= 12)
+                            if (i147 >= 12) {
                                 i147 -= 12;
+                            }
                         }
                         if (i146 == 2) {
                             i147 = i138 + 2;
-                            if (i147 >= 12)
+                            if (i147 >= 12) {
                                 i147 -= 12;
+                            }
                         }
                         if (i146 == 3) {
                             i147 = i138 + 2;
-                            if (i147 >= 12)
+                            if (i147 >= 12) {
                                 i147 -= 12;
+                            }
                             i148 = 1;
                         }
                         if (i146 == 4) {
                             i147 = i138 + 1;
-                            if (i147 >= 12)
+                            if (i147 >= 12) {
                                 i147 -= 12;
+                            }
                             i148 = 1;
                         }
                         if (i146 == 5) {
@@ -645,23 +707,28 @@ class Medium {
                         i144 += is[i148][i147];
                         i143 += is109[i148][i147];
                         i145 += is110[i148][i147];
-                        if (is112[i146] < 0 || is110[0][i146] < 10)
+                        if (is112[i146] < 0 || is110[0][i146] < 10) {
                             i139++;
-                        if (is112[i146] > h || is110[0][i146] < 10)
+                        }
+                        if (is112[i146] > h || is110[0][i146] < 10) {
                             i140++;
-                        if (is111[i146] < 0 || is110[0][i146] < 10)
+                        }
+                        if (is111[i146] < 0 || is110[0][i146] < 10) {
                             i141++;
-                        if (is111[i146] > w || is110[0][i146] < 10)
+                        }
+                        if (is111[i146] > w || is110[0][i146] < 10) {
                             i142++;
+                        }
                     }
-                    if (i141 == 6 || i139 == 6 || i140 == 6 || i142 == 6)
+                    if (i141 == 6 || i139 == 6 || i140 == 6 || i142 == 6) {
                         bool116 = false;
+                    }
                     if (bool116) {
                         i144 /= 6;
                         i143 /= 6;
                         i145 /= 6;
-                        final int i149 = (int) Math
-                                .sqrt((cy - i143) * (cy - i143) + (cx - i144) * (cx - i144) + i145 * i145);
+                        final int i149 = (int) Math.sqrt((cy - i143) * (cy - i143) + (cx - i144) * (cx - i144)
+                                + i145 * i145);
                         if (i149 < fade[7]) {
                             int i150 = clc[i][0][i138 / 2][0];
                             int i151 = clc[i][0][i138 / 2][1];
@@ -691,23 +758,28 @@ class Medium {
                     i159 += is[0][i161];
                     i158 += is109[0][i161];
                     i160 += is110[0][i161];
-                    if (is112[i161] < 0 || is110[0][i161] < 10)
+                    if (is112[i161] < 0 || is110[0][i161] < 10) {
                         i154++;
-                    if (is112[i161] > h || is110[0][i161] < 10)
+                    }
+                    if (is112[i161] > h || is110[0][i161] < 10) {
                         i155++;
-                    if (is111[i161] < 0 || is110[0][i161] < 10)
+                    }
+                    if (is111[i161] < 0 || is110[0][i161] < 10) {
                         i156++;
-                    if (is111[i161] > w || is110[0][i161] < 10)
+                    }
+                    if (is111[i161] > w || is110[0][i161] < 10) {
                         i157++;
+                    }
                 }
-                if (i156 == 12 || i154 == 12 || i155 == 12 || i157 == 12)
+                if (i156 == 12 || i154 == 12 || i155 == 12 || i157 == 12) {
                     bool116 = false;
+                }
                 if (bool116) {
                     i159 /= 12;
                     i158 /= 12;
                     i160 /= 12;
-                    final int i162 = (int) Math
-                            .sqrt((cy - i158) * (cy - i158) + (cx - i159) * (cx - i159) + i160 * i160);
+                    final int i162 = (int) Math.sqrt((cy - i158) * (cy - i158) + (cx - i159) * (cx - i159)
+                            + i160 * i160);
                     if (i162 < fade[7]) {
                         int i163 = clds[0];
                         int i164 = clds[1];
@@ -748,8 +820,8 @@ class Medium {
                     is192[i194] = mty[i185][i194] - y / 30;
                     is193[i194] = mtz[i185][i194] - z / 30;
                 }
-                final int i195 = (int) Math
-                        .sqrt(is[nmv[i185] / 4] * is[nmv[i185] / 4] + is193[nmv[i185] / 4] * is193[nmv[i185] / 4]);
+                final int i195 = (int) Math.sqrt(is[nmv[i185] / 4] * is[nmv[i185] / 4]
+                        + is193[nmv[i185] / 4] * is193[nmv[i185] / 4]);
                 rot(is, is193, cx, cz, xz, nmv[i185] * 2);
                 rot(is192, is193, cy, cz, zy, nmv[i185] * 2);
                 final int[] is196 = new int[4];
@@ -763,29 +835,37 @@ class Medium {
                     bool201 = true;
                     for (int i207 = 0; i207 < 4; i207++) {
                         int i208 = i207 + i202;
-                        if (i207 == 2)
+                        if (i207 == 2) {
                             i208 = i202 + nmv[i185] + 1;
-                        if (i207 == 3)
+                        }
+                        if (i207 == 3) {
                             i208 = i202 + nmv[i185];
+                        }
                         is196[i207] = xs(is[i208], is193[i208]);
                         is197[i207] = ys(is192[i208], is193[i208]);
-                        if (is197[i207] < 0 || is193[i208] < 10)
+                        if (is197[i207] < 0 || is193[i208] < 10) {
                             i203++;
-                        if (is197[i207] > h || is193[i208] < 10)
+                        }
+                        if (is197[i207] > h || is193[i208] < 10) {
                             i204++;
-                        if (is196[i207] < 0 || is193[i208] < 10)
+                        }
+                        if (is196[i207] < 0 || is193[i208] < 10) {
                             i205++;
-                        if (is196[i207] > w || is193[i208] < 10)
+                        }
+                        if (is196[i207] > w || is193[i208] < 10) {
                             i206++;
+                        }
                     }
-                    if (i205 == 4 || i203 == 4 || i204 == 4 || i206 == 4)
+                    if (i205 == 4 || i203 == 4 || i204 == 4 || i206 == 4) {
                         bool201 = false;
+                    }
                     if (bool201) {
                         float f = i195 / 2500.0F + (8000.0F - fade[0]) / 1000.0F - 2.0F
                                 - (Math.abs(y) - 250.0F) / 5000.0F;
                         if (f > 0.0F && f < 10.0F) {
-                            if (f < 3.5)
+                            if (f < 3.5) {
                                 f = 3.5F;
+                            }
                             final int i209 = (int) ((mtc[i185][i202][0] + cgrnd[0] + csky[0] * f + cfade[0] * f)
                                     / (2.0F + f * 2.0F));
                             final int i210 = (int) ((mtc[i185][i202][1] + cgrnd[1] + csky[1] * f + cfade[1] * f)
@@ -812,32 +892,41 @@ class Medium {
             if (i215 - 1 > iw && i215 + 3 < w && i217 - 1 > ih && i217 + 3 < h) {
                 if (twn[i] == 0) {
                     int i219 = (int) (3.0 * Math.random());
-                    if (i219 >= 3)
+                    if (i219 >= 3) {
                         i219 = 0;
-                    if (i219 <= -1)
+                    }
+                    if (i219 <= -1) {
                         i219 = 2;
+                    }
                     int i220 = i219 + 1;
-                    if (Math.random() > Math.random())
+                    if (Math.random() > Math.random()) {
                         i220 = i219 - 1;
-                    if (i220 == 3)
+                    }
+                    if (i220 == 3) {
                         i220 = 0;
-                    if (i220 == -1)
+                    }
+                    if (i220 == -1) {
                         i220 = 2;
+                    }
                     for (int i221 = 0; i221 < 3; i221++) {
                         stc[i][0][i221] = 200;
-                        if (i219 == i221)
+                        if (i219 == i221) {
                             stc[i][0][i221] += (int) (55.0 * Math.random());
-                        if (i220 == i221)
+                        }
+                        if (i220 == i221) {
                             stc[i][0][i221] += 55;
+                        }
                         stc[i][0][i221] = (stc[i][0][i221] * 2 + csky[i221]) / 3;
                         stc[i][1][i221] = (stc[i][0][i221] + csky[i221]) / 2;
                     }
                     twn[i] = 3;
-                } else
+                } else {
                     twn[i]--;
+                }
                 int i222 = 0;
-                if (bst[i])
+                if (bst[i]) {
                     i222 = 1;
+                }
                 graphics2d.setColor(new Color(stc[i][1][0], stc[i][1][1], stc[i][1][2]));
                 graphics2d.fillRect(i215 - 1, i217, 3 + i222, 1 + i222);
                 graphics2d.fillRect(i215, i217 - 1, 1 + i222, 3 + i222);
@@ -848,37 +937,46 @@ class Medium {
     }
 
     void fadfrom(int i) {
-        if (i > 8000)
+        if (i > 8000) {
             i = 8000;
-        for (int i270 = 1; i270 < 17; i270++)
+        }
+        for (int i270 = 1; i270 < 17; i270++) {
             fade[i270 - 1] = i / 2 * (i270 + 1);
+        }
     }
 
     void follow(final ContO conto, int i, final int i27) {
         zy = 10;
         int i28 = 2 + Math.abs(bcxz) / 4;
-        if (i28 > 20)
+        if (i28 > 20) {
             i28 = 20;
+        }
         if (i27 != 0) {
             if (i27 == 1) {
-                if (bcxz < 180)
+                if (bcxz < 180) {
                     bcxz += i28;
-                if (bcxz > 180)
+                }
+                if (bcxz > 180) {
                     bcxz = 180;
+                }
             }
             if (i27 == -1) {
-                if (bcxz > -180)
+                if (bcxz > -180) {
                     bcxz -= i28;
-                if (bcxz < -180)
+                }
+                if (bcxz < -180) {
                     bcxz = -180;
+                }
             }
         } else if (Math.abs(bcxz) > i28) {
-            if (bcxz > 0)
+            if (bcxz > 0) {
                 bcxz -= i28;
-            else
+            } else {
                 bcxz += i28;
-        } else if (bcxz != 0)
+            }
+        } else if (bcxz != 0) {
             bcxz = 0;
+        }
         i += bcxz;
         xz = -i;
         x = conto.x - cx + (int) (-(conto.z - 800 - conto.z) * sin(i));
@@ -887,139 +985,165 @@ class Medium {
     }
 
     void getaround(final ContO conto) {
-        if (!vert)
+        if (!vert) {
             adv += 2;
-        else
+        } else {
             adv -= 2;
-        if (adv > 1700)
+        }
+        if (adv > 1700) {
             vert = true;
-        if (adv < -500)
+        }
+        if (adv < -500) {
             vert = false;
-        if (conto.y - adv > 10)
+        }
+        if (conto.y - adv > 10) {
             vert = false;
+        }
         int i = 500 + adv;
-        if (i < 1000)
+        if (i < 1000) {
             i = 1000;
+        }
         final int i8 = conto.y - adv;
         final int i9 = conto.x + (int) ((conto.x - i - conto.x) * cos(vxz));
         final int i10 = conto.z + (int) ((conto.x - i - conto.x) * sin(vxz));
         int i11 = 0;
         if (Math.abs(i8 - y) > fvect) {
-            if (y < i8)
+            if (y < i8) {
                 y += fvect;
-            else
+            } else {
                 y -= fvect;
+            }
         } else {
             y = i8;
             i11++;
         }
         if (Math.abs(i9 - x) > fvect) {
-            if (x < i9)
+            if (x < i9) {
                 x += fvect;
-            else
+            } else {
                 x -= fvect;
+            }
         } else {
             x = i9;
             i11++;
         }
         if (Math.abs(i10 - z) > fvect) {
-            if (z < i10)
+            if (z < i10) {
                 z += fvect;
-            else
+            } else {
                 z -= fvect;
+            }
         } else {
             z = i10;
             i11++;
         }
-        if (i11 == 3)
+        if (i11 == 3) {
             fvect = 200;
-        else
+        } else {
             fvect += 2;
+        }
         for (vxz += 2; vxz > 360; vxz -= 360) {
-            
+
         }
         int i12 = -vxz + 90;
         int i13 = 0;
-        if (conto.x - x - cx > 0)
+        if (conto.x - x - cx > 0) {
             i13 = 180;
+        }
         int i14 = -(int) (90 + i13
                 + Math.atan((double) (conto.z - z) / (double) (conto.x - x - cx)) / 0.017453292519943295);
         int i15 = y;
         i13 = 0;
-        if (i15 > 0)
+        if (i15 > 0) {
             i15 = 0;
-        if (conto.y - i15 - cy < 0)
+        }
+        if (conto.y - i15 - cy < 0) {
             i13 = -180;
-        final int i16 = (int) Math
-                .sqrt((conto.z - z + cz) * (conto.z - z + cz) + (conto.x - x - cx) * (conto.x - x - cx));
+        }
+        final int i16 = (int) Math.sqrt((conto.z - z + cz) * (conto.z - z + cz)
+                + (conto.x - x - cx) * (conto.x - x - cx));
         int i17 = 25;
-        if (i16 != 0)
+        if (i16 != 0) {
             i17 = (int) (90 + i13 - Math.atan((double) i16 / (double) (conto.y - i15 - cy)) / 0.017453292519943295);
+        }
         for (/**/; i12 < 0; i12 += 360) {
-            
+
         }
         for (/**/; i12 > 360; i12 -= 360) {
-            
+
         }
         for (/**/; i14 < 0; i14 += 360) {
-            
+
         }
         for (/**/; i14 > 360; i14 -= 360) {
-            
+
         }
         if ((Math.abs(i12 - i14) < 30 || Math.abs(i12 - i14) > 330) && i11 == 3) {
             if (Math.abs(i12 - xz) > 7 && Math.abs(i12 - xz) < 353) {
                 if (Math.abs(i12 - xz) > 180) {
-                    if (xz > i12)
+                    if (xz > i12) {
                         xz += 7;
-                    else
+                    } else {
                         xz -= 7;
-                } else if (xz < i12)
+                    }
+                } else if (xz < i12) {
                     xz += 7;
-                else
+                } else {
                     xz -= 7;
-            } else
+                }
+            } else {
                 xz = i12;
+            }
         } else if (Math.abs(i14 - xz) > 6 && Math.abs(i14 - xz) < 354) {
             if (Math.abs(i14 - xz) > 180) {
-                if (xz > i14)
+                if (xz > i14) {
                     xz += 3;
-                else
+                } else {
                     xz -= 3;
-            } else if (xz < i14)
+                }
+            } else if (xz < i14) {
                 xz += 3;
-            else
+            } else {
                 xz -= 3;
-        } else
+            }
+        } else {
             xz = i14;
+        }
         zy += (i17 - zy) / 10;
     }
 
     void getfollow(final ContO conto, int i, final int i29) {
         zy = 10;
         int i30 = 2 + Math.abs(bcxz) / 4;
-        if (i30 > 20)
+        if (i30 > 20) {
             i30 = 20;
+        }
         if (i29 != 0) {
             if (i29 == 1) {
-                if (bcxz < 180)
+                if (bcxz < 180) {
                     bcxz += i30;
-                if (bcxz > 180)
+                }
+                if (bcxz > 180) {
                     bcxz = 180;
+                }
             }
             if (i29 == -1) {
-                if (bcxz > -180)
+                if (bcxz > -180) {
                     bcxz -= i30;
-                if (bcxz < -180)
+                }
+                if (bcxz < -180) {
                     bcxz = -180;
+                }
             }
         } else if (Math.abs(bcxz) > i30) {
-            if (bcxz > 0)
+            if (bcxz > 0) {
                 bcxz -= i30;
-            else
+            } else {
                 bcxz += i30;
-        } else if (bcxz != 0)
+            }
+        } else if (bcxz != 0) {
             bcxz = 0;
+        }
         i += bcxz;
         xz = -i;
         final int i31 = conto.x - cx + (int) (-(conto.z - 800 - conto.z) * sin(i));
@@ -1027,57 +1151,67 @@ class Medium {
         final int i33 = conto.y - 250 - cy;
         int i34 = 0;
         if (Math.abs(i33 - y) > fvect) {
-            if (y < i33)
+            if (y < i33) {
                 y += fvect;
-            else
+            } else {
                 y -= fvect;
+            }
         } else {
             y = i33;
             i34++;
         }
         if (Math.abs(i31 - x) > fvect) {
-            if (x < i31)
+            if (x < i31) {
                 x += fvect;
-            else
+            } else {
                 x -= fvect;
+            }
         } else {
             x = i31;
             i34++;
         }
         if (Math.abs(i32 - z) > fvect) {
-            if (z < i32)
+            if (z < i32) {
                 z += fvect;
-            else
+            } else {
                 z -= fvect;
+            }
         } else {
             z = i32;
             i34++;
         }
-        if (i34 == 3)
+        if (i34 == 3) {
             fvect = 200;
-        else
+        } else {
             fvect += 2;
+        }
     }
 
     private void groundpolys(final Graphics2D graphics2d) {
         int i = (x - sgpx) / 1200 - 12;
-        if (i < 0)
+        if (i < 0) {
             i = 0;
+        }
         int i48 = i + 25;
-        if (i48 > nrw)
+        if (i48 > nrw) {
             i48 = nrw;
-        if (i48 < i)
+        }
+        if (i48 < i) {
             i48 = i;
+        }
         int i49 = (z - sgpz) / 1200 - 12;
-        if (i49 < 0)
+        if (i49 < 0) {
             i49 = 0;
+        }
         int i50 = i49 + 25;
-        if (i50 > ncl)
+        if (i50 > ncl) {
             i50 = ncl;
-        if (i50 < i49)
+        }
+        if (i50 < i49) {
             i50 = i49;
+        }
         final int[][] is = new int[i48 - i][i50 - i49];
-        for (int i51 = i; i51 < i48; i51++)
+        for (int i51 = i; i51 < i48; i51++) {
             for (int i52 = i49; i52 < i50; i52++) {
                 is[i51 - i][i52 - i49] = 0;
                 final int i53 = i51 + i52 * nrw;
@@ -1108,17 +1242,22 @@ class Medium {
                         for (int i67 = 0; i67 < 8; i67++) {
                             is61[i67] = xs(is57[i67], is58[i67]);
                             is62[i67] = ys(is59[i67], is58[i67]);
-                            if (is62[i67] < 0 || is58[i67] < 10)
+                            if (is62[i67] < 0 || is58[i67] < 10) {
                                 i63++;
-                            if (is62[i67] > h || is58[i67] < 10)
+                            }
+                            if (is62[i67] > h || is58[i67] < 10) {
                                 i64++;
-                            if (is61[i67] < 0 || is58[i67] < 10)
+                            }
+                            if (is61[i67] < 0 || is58[i67] < 10) {
                                 i65++;
-                            if (is61[i67] > w || is58[i67] < 10)
+                            }
+                            if (is61[i67] > w || is58[i67] < 10) {
                                 i66++;
+                            }
                         }
-                        if (i65 == 8 || i63 == 8 || i64 == 8 || i66 == 8)
+                        if (i65 == 8 || i63 == 8 || i64 == 8 || i66 == 8) {
                             bool = false;
+                        }
                         if (bool) {
                             int i68 = (int) ((cpol[0] * pcv[i53] + cgrnd[0]) / 2.0F);
                             int i69 = (int) ((cpol[1] * pcv[i53] + cgrnd[1]) / 2.0F);
@@ -1139,7 +1278,8 @@ class Medium {
                     }
                 }
             }
-        for (int i71 = i; i71 < i48; i71++)
+        }
+        for (int i71 = i; i71 < i48; i71++) {
             for (int i72 = i49; i72 < i50; i72++)
                 if (is[i71 - i][i72 - i49] != 0) {
                     final int i73 = i71 + i72 * nrw;
@@ -1163,17 +1303,22 @@ class Medium {
                     for (int i84 = 0; i84 < 8; i84++) {
                         is78[i84] = xs(is74[i84], is75[i84]);
                         is79[i84] = ys(is76[i84], is75[i84]);
-                        if (is79[i84] < 0 || is75[i84] < 10)
+                        if (is79[i84] < 0 || is75[i84] < 10) {
                             i80++;
-                        if (is79[i84] > h || is75[i84] < 10)
+                        }
+                        if (is79[i84] > h || is75[i84] < 10) {
                             i81++;
-                        if (is78[i84] < 0 || is75[i84] < 10)
+                        }
+                        if (is78[i84] < 0 || is75[i84] < 10) {
                             i82++;
-                        if (is78[i84] > w || is75[i84] < 10)
+                        }
+                        if (is78[i84] > w || is75[i84] < 10) {
                             i83++;
+                        }
                     }
-                    if (i82 == 8 || i80 == 8 || i81 == 8 || i83 == 8)
+                    if (i82 == 8 || i80 == 8 || i81 == 8 || i83 == 8) {
                         bool = false;
+                    }
                     if (bool) {
                         int i85 = (int) (cpol[0] * pcv[i73]);
                         int i86 = (int) (cpol[1] * pcv[i73]);
@@ -1192,6 +1337,7 @@ class Medium {
                         graphics2d.fillPolygon(is78, is79, 8);
                     }
                 }
+        }
     }
 
     void newclouds(int i, int i88, int i89, int i90) {
@@ -1268,11 +1414,13 @@ class Medium {
             clay[i91][0][11] = (int) ((25.0 - Math.random() * 50.0) * f);
             for (int i93 = 0; i93 < 12; i93++) {
                 int i94 = i93 - 1;
-                if (i94 == -1)
+                if (i94 == -1) {
                     i94 = 11;
+                }
                 int i95 = i93 + 1;
-                if (i95 == 12)
+                if (i95 == 12) {
                     i95 = 0;
+                }
                 clax[i91][0][i93] = ((clax[i91][0][i94] + clax[i91][0][i95]) / 2 + clax[i91][0][i93]) / 2;
                 clay[i91][0][i93] = ((clay[i91][0][i94] + clay[i91][0][i95]) / 2 + clay[i91][0][i93]) / 2;
                 claz[i91][0][i93] = ((claz[i91][0][i94] + claz[i91][0][i95]) / 2 + claz[i91][0][i93]) / 2;
@@ -1290,17 +1438,20 @@ class Medium {
             cmx[i91] = 0;
             for (int i97 = 0; i97 < 12; i97++) {
                 int i98 = i97 - 1;
-                if (i98 == -1)
+                if (i98 == -1) {
                     i98 = 11;
+                }
                 int i99 = i97 + 1;
-                if (i99 == 12)
+                if (i99 == 12) {
                     i99 = 0;
+                }
                 clay[i91][1][i97] = ((clay[i91][1][i98] + clay[i91][1][i99]) / 2 + clay[i91][1][i97]) / 2;
                 clay[i91][2][i97] = ((clay[i91][2][i98] + clay[i91][2][i99]) / 2 + clay[i91][2][i97]) / 2;
-                final int i100 = (int) Math
-                        .sqrt(clax[i91][2][i97] * clax[i91][2][i97] + claz[i91][2][i97] * claz[i91][2][i97]);
-                if (i100 > cmx[i91])
+                final int i100 = (int) Math.sqrt(clax[i91][2][i97] * clax[i91][2][i97]
+                        + claz[i91][2][i97] * claz[i91][2][i97]);
+                if (i100 > cmx[i91]) {
                     cmx[i91] = i100;
+                }
             }
             for (int i101 = 0; i101 < 6; i101++) {
                 final double d = Math.random();
@@ -1308,15 +1459,19 @@ class Medium {
                 for (int i103 = 0; i103 < 3; i103++) {
                     f92 = clds[i103] * 1.05F - clds[i103];
                     clc[i91][0][i101][i103] = (int) (clds[i103] + f92 * d);
-                    if (clc[i91][0][i101][i103] > 255)
+                    if (clc[i91][0][i101][i103] > 255) {
                         clc[i91][0][i101][i103] = 255;
-                    if (clc[i91][0][i101][i103] < 0)
+                    }
+                    if (clc[i91][0][i101][i103] < 0) {
                         clc[i91][0][i101][i103] = 0;
+                    }
                     clc[i91][1][i101][i103] = (int) (clds[i103] * 1.05F + f92 * d102);
-                    if (clc[i91][1][i101][i103] > 255)
+                    if (clc[i91][1][i101][i103] > 255) {
                         clc[i91][1][i101][i103] = 255;
-                    if (clc[i91][1][i101][i103] < 0)
+                    }
+                    if (clc[i91][1][i101][i103] < 0) {
                         clc[i91][1][i101][i103] = 0;
+                    }
                 }
             }
         }
@@ -1371,26 +1526,33 @@ class Medium {
                 mtx[i174][nmv[i174]] = (int) (mtx[i174][0] - (100.0 + random.nextDouble() * 600.0) * f);
                 mtx[i174][nmv[i174] * 2
                         - 1] = (int) (mtx[i174][nmv[i174] - 1] + (100.0 + random.nextDouble() * 600.0) * f);
-                if (i178 == 0 || i178 == nmv[i174] - 1)
+                if (i178 == 0 || i178 == nmv[i174] - 1) {
                     mty[i174][i178] = (int) ((-400.0 - 1200.0 * random.nextDouble()) * f176 + ground);
-                if (i178 == 1 || i178 == nmv[i174] - 2)
+                }
+                if (i178 == 1 || i178 == nmv[i174] - 2) {
                     mty[i174][i178] = (int) ((-1000.0 - 1450.0 * random.nextDouble()) * f176 + ground);
-                if (i178 > 1 && i178 < nmv[i174] - 2)
+                }
+                if (i178 > 1 && i178 < nmv[i174] - 2) {
                     mty[i174][i178] = (int) ((-1600.0 - 1700.0 * random.nextDouble()) * f176 + ground);
+                }
                 mty[i174][i178 + nmv[i174]] = ground - 70;
                 mtz[i174][i178] = i171 + i172 + is[i174];
                 mtz[i174][i178 + nmv[i174]] = i171 + i172 + is[i174];
                 final float f179 = (float) (0.5 + random.nextDouble() * 0.5);
                 mtc[i174][i178][0] = (int) (170.0F * f179 + 170.0F * f179 * (snap[0] / 100.0F));
-                if (mtc[i174][i178][0] > 255)
+                if (mtc[i174][i178][0] > 255) {
                     mtc[i174][i178][0] = 255;
-                if (mtc[i174][i178][0] < 0)
+                }
+                if (mtc[i174][i178][0] < 0) {
                     mtc[i174][i178][0] = 0;
+                }
                 mtc[i174][i178][1] = (int) (i175 * f179 + 85.0F * f179 * (snap[1] / 100.0F));
-                if (mtc[i174][i178][1] > 255)
+                if (mtc[i174][i178][1] > 255) {
                     mtc[i174][i178][1] = 255;
-                if (mtc[i174][i178][1] < 1)
+                }
+                if (mtc[i174][i178][1] < 1) {
                     mtc[i174][i178][1] = 0;
+                }
                 mtc[i174][i178][2] = 0;
             }
             for (int i180 = 1; i180 < nmv[i174] - 1; i180++) {
@@ -1403,16 +1565,16 @@ class Medium {
         }
         for (int i183 = 0; i183 < nmt; i183++) {
             for (int i184 = i183 + 1; i184 < nmt; i184++)
-                if (is[i183] < is[i184])
+                if (is[i183] < is[i184]) {
                     is173[i183]++;
-                else
+                } else {
                     is173[i184]++;
+                }
             mrd[is173[i183]] = i183;
         }
     }
 
-    void newpolys(final int i, final int i35, final int i36, final int i37, final Trackers trackers,
-            final int i38) {
+    void newpolys(final int i, final int i35, final int i36, final int i37, final Trackers trackers, final int i38) {
         final Random random = new Random((i38 + cgrnd[0] + cgrnd[1] + cgrnd[2]) * 1671);
         nrw = i35 / 1200 + 9;
         ncl = i37 / 1200 + 9;
@@ -1437,24 +1599,27 @@ class Medium {
         for (int i41 = 0; i41 < nrw * ncl; i41++) {
             cgpx[i41] = sgpx + i39 * 1200 + (int) (random.nextDouble() * 1000.0 - 500.0);
             cgpz[i41] = sgpz + i40 * 1200 + (int) (random.nextDouble() * 1000.0 - 500.0);
-            if (trackers != null)
+            if (trackers != null) {
                 for (int i42 = 0; i42 < trackers.nt; i42++)
                     if (trackers.zy[i42] == 0 && trackers.xy[i42] == 0) {
                         if (trackers.radx[i42] < trackers.radz[i42]
-                                && Math.abs(cgpz[i41] - trackers.z[i42]) < trackers.radz[i42])
-                            for (/**/; Math.abs(
-                                    cgpx[i41] - trackers.x[i42]) < trackers.radx[i42]; cgpx[i41] += random.nextDouble()
+                                && Math.abs(cgpz[i41] - trackers.z[i42]) < trackers.radz[i42]) {
+                            for (/**/; Math.abs(cgpx[i41]
+                                    - trackers.x[i42]) < trackers.radx[i42]; cgpx[i41] += random.nextDouble()
                                             * trackers.radx[i42] * 2.0 - trackers.radx[i42]) {
-                                
+
                             }
+                        }
                         if (trackers.radz[i42] < trackers.radx[i42]
-                                && Math.abs(cgpx[i41] - trackers.x[i42]) < trackers.radx[i42])
-                            for (/**/; Math.abs(
-                                    cgpz[i41] - trackers.z[i42]) < trackers.radz[i42]; cgpz[i41] += random.nextDouble()
+                                && Math.abs(cgpx[i41] - trackers.x[i42]) < trackers.radx[i42]) {
+                            for (/**/; Math.abs(cgpz[i41]
+                                    - trackers.z[i42]) < trackers.radz[i42]; cgpz[i41] += random.nextDouble()
                                             * trackers.radz[i42] * 2.0 - trackers.radz[i42]) {
-                                
+
                             }
+                        }
                     }
+            }
             if (++i39 == nrw) {
                 i39 = 0;
                 i40++;
@@ -1480,24 +1645,29 @@ class Medium {
             ogpz[i43][7] = -ogpx[i43][7];
             for (int i44 = 0; i44 < 8; i44++) {
                 int i45 = i44 - 1;
-                if (i45 == -1)
+                if (i45 == -1) {
                     i45 = 7;
+                }
                 int i46 = i44 + 1;
-                if (i46 == 8)
+                if (i46 == 8) {
                     i46 = 0;
+                }
                 ogpx[i43][i44] = ((ogpx[i43][i45] + ogpx[i43][i46]) / 2 + ogpx[i43][i44]) / 2;
                 ogpz[i43][i44] = ((ogpz[i43][i45] + ogpz[i43][i46]) / 2 + ogpz[i43][i44]) / 2;
                 pvr[i43][i44] = (float) (1.1 + random.nextDouble() * 0.8);
                 final int i47 = (int) Math.sqrt((int) (ogpx[i43][i44] * ogpx[i43][i44] * pvr[i43][i44] * pvr[i43][i44]
                         + ogpz[i43][i44] * ogpz[i43][i44] * pvr[i43][i44] * pvr[i43][i44]));
-                if (i47 > pmx[i43])
+                if (i47 > pmx[i43]) {
                     pmx[i43] = i47;
+                }
             }
             pcv[i43] = (float) (0.97 + random.nextDouble() * 0.03);
-            if (pcv[i43] > 1.0F)
+            if (pcv[i43] > 1.0F) {
                 pcv[i43] = 1.0F;
-            if (random.nextDouble() > random.nextDouble())
+            }
+            if (random.nextDouble() > random.nextDouble()) {
                 pcv[i43] = 1.0F;
+            }
         }
     }
 
@@ -1520,31 +1690,39 @@ class Medium {
                 stx[i] = (int) (2000.0 * random.nextDouble() - 1000.0);
                 stz[i] = (int) (2000.0 * random.nextDouble() - 1000.0);
                 int i212 = (int) (3.0 * random.nextDouble());
-                if (i212 >= 3)
+                if (i212 >= 3) {
                     i212 = 0;
-                if (i212 <= -1)
+                }
+                if (i212 <= -1) {
                     i212 = 2;
+                }
                 int i213 = i212 + 1;
-                if (random.nextDouble() > random.nextDouble())
+                if (random.nextDouble() > random.nextDouble()) {
                     i213 = i212 - 1;
-                if (i213 == 3)
+                }
+                if (i213 == 3) {
                     i213 = 0;
-                if (i213 == -1)
+                }
+                if (i213 == -1) {
                     i213 = 2;
+                }
                 for (int i214 = 0; i214 < 3; i214++) {
                     stc[i][0][i214] = 200;
-                    if (i212 == i214)
+                    if (i212 == i214) {
                         stc[i][0][i214] += (int) (55.0 * random.nextDouble());
-                    if (i213 == i214)
+                    }
+                    if (i213 == i214) {
                         stc[i][0][i214] += 55;
+                    }
                     stc[i][0][i214] = (stc[i][0][i214] * 2 + csky[i214]) / 3;
                     stc[i][1][i214] = (stc[i][0][i214] + csky[i214]) / 2;
                 }
                 twn[i] = (int) (4.0 * random.nextDouble());
-                if (random.nextDouble() > 0.8)
+                if (random.nextDouble() > 0.8) {
                     bst[i] = true;
-                else
+                } else {
                     bst[i] = false;
+                }
             }
         }
     }
@@ -1553,49 +1731,59 @@ class Medium {
         if (cntrn == 0) {
             for (int i = 0; i < 3; i++) {
                 rand[i] = (int) (10.0 * Math.random());
-                if (Math.random() > Math.random())
+                if (Math.random() > Math.random()) {
                     diup[i] = false;
-                else
+                } else {
                     diup[i] = true;
+                }
             }
             cntrn = 20;
-        } else
+        } else {
             cntrn--;
+        }
         for (int i = 0; i < 3; i++)
             if (diup[i]) {
                 rand[i]++;
-                if (rand[i] == 10)
+                if (rand[i] == 10) {
                     rand[i] = 0;
+                }
             } else {
                 rand[i]--;
-                if (rand[i] == -1)
+                if (rand[i] == -1) {
                     rand[i] = 9;
+                }
             }
         trn++;
-        if (trn == 3)
+        if (trn == 3) {
             trn = 0;
+        }
         return rand[trn] / 10.0F;
     }
 
     private void rot(final int[] is, final int[] is274, final int i, final int i275, final int i276, final int i277) {
-        if (i276 != 0)
+        if (i276 != 0) {
             for (int i278 = 0; i278 < i277; i278++) {
                 final int i279 = is[i278];
                 final int i280 = is274[i278];
                 is[i278] = i + (int) ((i279 - i) * cos(i276) - (i280 - i275) * sin(i276));
                 is274[i278] = i275 + (int) ((i279 - i) * sin(i276) + (i280 - i275) * cos(i276));
             }
+        }
     }
 
     void setcloads(final int i, final int i252, final int i253, int i254, int i255) {
-        if (i254 < 0)
+        if (i254 < 0) {
             i254 = 0;
-        if (i254 > 10)
+        }
+        if (i254 > 10) {
             i254 = 10;
-        if (i255 < -1500)
+        }
+        if (i255 < -1500) {
             i255 = -1500;
-        if (i255 > -500)
+        }
+        if (i255 > -500) {
             i255 = -500;
+        }
         cldd[0] = i;
         cldd[1] = i252;
         cldd[2] = i253;
@@ -1604,18 +1792,22 @@ class Medium {
         for (int i256 = 0; i256 < 3; i256++) {
             clds[i256] = (osky[i256] * cldd[3] + cldd[i256]) / (cldd[3] + 1);
             clds[i256] = (int) (clds[i256] + clds[i256] * (snap[i256] / 100.0F));
-            if (clds[i256] > 255)
+            if (clds[i256] > 255) {
                 clds[i256] = 255;
-            if (clds[i256] < 0)
+            }
+            if (clds[i256] < 0) {
                 clds[i256] = 0;
+            }
         }
     }
 
     void setexture(int i, int i261, int i262, int i263) {
-        if (i263 < 20)
+        if (i263 < 20) {
             i263 = 20;
-        if (i263 > 60)
+        }
+        if (i263 > 60) {
             i263 = 60;
+        }
         texture[0] = i;
         texture[1] = i261;
         texture[2] = i262;
@@ -1624,40 +1816,53 @@ class Medium {
         i261 = (ogrnd[1] * i263 + i261) / (1 + i263);
         i262 = (ogrnd[2] * i263 + i262) / (1 + i263);
         cpol[0] = (int) (i + i * (snap[0] / 100.0F));
-        if (cpol[0] > 255)
+        if (cpol[0] > 255) {
             cpol[0] = 255;
-        if (cpol[0] < 0)
+        }
+        if (cpol[0] < 0) {
             cpol[0] = 0;
+        }
         cpol[1] = (int) (i261 + i261 * (snap[1] / 100.0F));
-        if (cpol[1] > 255)
+        if (cpol[1] > 255) {
             cpol[1] = 255;
-        if (cpol[1] < 0)
+        }
+        if (cpol[1] < 0) {
             cpol[1] = 0;
+        }
         cpol[2] = (int) (i262 + i262 * (snap[2] / 100.0F));
-        if (cpol[2] > 255)
+        if (cpol[2] > 255) {
             cpol[2] = 255;
-        if (cpol[2] < 0)
+        }
+        if (cpol[2] < 0) {
             cpol[2] = 0;
-        for (int i264 = 0; i264 < 3; i264++)
+        }
+        for (int i264 = 0; i264 < 3; i264++) {
             crgrnd[i264] = (int) ((cpol[i264] * 0.99 + cgrnd[i264]) / 2.0);
+        }
     }
 
     void setfade(final int i, final int i268, final int i269) {
         cfade[0] = (int) (i + i * (snap[0] / 100.0F));
-        if (cfade[0] > 255)
+        if (cfade[0] > 255) {
             cfade[0] = 255;
-        if (cfade[0] < 0)
+        }
+        if (cfade[0] < 0) {
             cfade[0] = 0;
+        }
         cfade[1] = (int) (i268 + i268 * (snap[1] / 100.0F));
-        if (cfade[1] > 255)
+        if (cfade[1] > 255) {
             cfade[1] = 255;
-        if (cfade[1] < 0)
+        }
+        if (cfade[1] < 0) {
             cfade[1] = 0;
+        }
         cfade[2] = (int) (i269 + i269 * (snap[2] / 100.0F));
-        if (cfade[2] > 255)
+        if (cfade[2] > 255) {
             cfade[2] = 255;
-        if (cfade[2] < 0)
+        }
+        if (cfade[2] < 0) {
             cfade[2] = 0;
+        }
     }
 
     void setgrnd(final int i, final int i257, final int i258) {
@@ -1667,48 +1872,64 @@ class Medium {
         for (int i259 = 0; i259 < 3; i259++) {
             cpol[i259] = (ogrnd[i259] * texture[3] + texture[i259]) / (1 + texture[3]);
             cpol[i259] = (int) (cpol[i259] + cpol[i259] * (snap[i259] / 100.0F));
-            if (cpol[i259] > 255)
+            if (cpol[i259] > 255) {
                 cpol[i259] = 255;
-            if (cpol[i259] < 0)
+            }
+            if (cpol[i259] < 0) {
                 cpol[i259] = 0;
+            }
         }
         cgrnd[0] = (int) (i + i * (snap[0] / 100.0F));
-        if (cgrnd[0] > 255)
+        if (cgrnd[0] > 255) {
             cgrnd[0] = 255;
-        if (cgrnd[0] < 0)
+        }
+        if (cgrnd[0] < 0) {
             cgrnd[0] = 0;
+        }
         cgrnd[1] = (int) (i257 + i257 * (snap[1] / 100.0F));
-        if (cgrnd[1] > 255)
+        if (cgrnd[1] > 255) {
             cgrnd[1] = 255;
-        if (cgrnd[1] < 0)
+        }
+        if (cgrnd[1] < 0) {
             cgrnd[1] = 0;
+        }
         cgrnd[2] = (int) (i258 + i258 * (snap[2] / 100.0F));
-        if (cgrnd[2] > 255)
+        if (cgrnd[2] > 255) {
             cgrnd[2] = 255;
-        if (cgrnd[2] < 0)
+        }
+        if (cgrnd[2] < 0) {
             cgrnd[2] = 0;
-        for (int i260 = 0; i260 < 3; i260++)
+        }
+        for (int i260 = 0; i260 < 3; i260++) {
             crgrnd[i260] = (int) ((cpol[i260] * 0.99 + cgrnd[i260]) / 2.0);
+        }
     }
 
     void setpolys(final int i, final int i265, final int i266) {
         cpol[0] = (int) (i + i * (snap[0] / 100.0F));
-        if (cpol[0] > 255)
+        if (cpol[0] > 255) {
             cpol[0] = 255;
-        if (cpol[0] < 0)
+        }
+        if (cpol[0] < 0) {
             cpol[0] = 0;
+        }
         cpol[1] = (int) (i265 + i265 * (snap[1] / 100.0F));
-        if (cpol[1] > 255)
+        if (cpol[1] > 255) {
             cpol[1] = 255;
-        if (cpol[1] < 0)
+        }
+        if (cpol[1] < 0) {
             cpol[1] = 0;
+        }
         cpol[2] = (int) (i266 + i266 * (snap[2] / 100.0F));
-        if (cpol[2] > 255)
+        if (cpol[2] > 255) {
             cpol[2] = 255;
-        if (cpol[2] < 0)
+        }
+        if (cpol[2] < 0) {
             cpol[2] = 0;
-        for (int i267 = 0; i267 < 3; i267++)
+        }
+        for (int i267 = 0; i267 < 3; i267++) {
             crgrnd[i267] = (int) ((cpol[i267] * 0.99 + cgrnd[i267]) / 2.0);
+        }
     }
 
     void setsky(final int i, final int i249, final int i250) {
@@ -1718,32 +1939,41 @@ class Medium {
         for (int i251 = 0; i251 < 3; i251++) {
             clds[i251] = (osky[i251] * cldd[3] + cldd[i251]) / (cldd[3] + 1);
             clds[i251] = (int) (clds[i251] + clds[i251] * (snap[i251] / 100.0F));
-            if (clds[i251] > 255)
+            if (clds[i251] > 255) {
                 clds[i251] = 255;
-            if (clds[i251] < 0)
+            }
+            if (clds[i251] < 0) {
                 clds[i251] = 0;
+            }
         }
         csky[0] = (int) (i + i * (snap[0] / 100.0F));
-        if (csky[0] > 255)
+        if (csky[0] > 255) {
             csky[0] = 255;
-        if (csky[0] < 0)
+        }
+        if (csky[0] < 0) {
             csky[0] = 0;
+        }
         csky[1] = (int) (i249 + i249 * (snap[1] / 100.0F));
-        if (csky[1] > 255)
+        if (csky[1] > 255) {
             csky[1] = 255;
-        if (csky[1] < 0)
+        }
+        if (csky[1] < 0) {
             csky[1] = 0;
+        }
         csky[2] = (int) (i250 + i250 * (snap[2] / 100.0F));
-        if (csky[2] > 255)
+        if (csky[2] > 255) {
             csky[2] = 255;
-        if (csky[2] < 0)
+        }
+        if (csky[2] < 0) {
             csky[2] = 0;
+        }
         final float[] fs = new float[3];
         Color.RGBtoHSB(csky[0], csky[1], csky[2], fs);
-        if (fs[2] < 0.6)
+        if (fs[2] < 0.6) {
             darksky = true;
-        else
+        } else {
             darksky = false;
+        }
     }
 
     void setsnap(final int i, final int i247, final int i248) {
@@ -1754,10 +1984,10 @@ class Medium {
 
     float sin(int i) {
         for (/**/; i >= 360; i -= 360) {
-            
+
         }
         for (/**/; i < 0; i += 360) {
-            
+
         }
         return tsin[i];
     }
@@ -1766,29 +1996,36 @@ class Medium {
         final int i19 = (conto.x * (20 - i) + conto18.x * i) / 20;
         final int i20 = (conto.y * (20 - i) + conto18.y * i) / 20;
         final int i21 = (conto.z * (20 - i) + conto18.z * i) / 20;
-        if (!vert)
+        if (!vert) {
             adv += 2;
-        else
+        } else {
             adv -= 2;
-        if (adv > 900)
+        }
+        if (adv > 900) {
             vert = true;
-        if (adv < -500)
+        }
+        if (adv < -500) {
             vert = false;
+        }
         int i22 = 500 + adv;
-        if (i22 < 1000)
+        if (i22 < 1000) {
             i22 = 1000;
+        }
         y = i20 - adv;
-        if (y > 10)
+        if (y > 10) {
             vert = false;
+        }
         x = i19 + (int) ((i19 - i22 - i19) * cos(vxz));
         z = i21 + (int) ((i19 - i22 - i19) * sin(vxz));
         vxz += 2;
         int i23 = 0;
         int i24 = y;
-        if (i24 > 0)
+        if (i24 > 0) {
             i24 = 0;
-        if (i20 - i24 - cy < 0)
+        }
+        if (i20 - i24 - cy < 0) {
             i23 = -180;
+        }
         final int i25 = (int) Math.sqrt((i21 - z + cz) * (i21 - z + cz) + (i19 - x - cx) * (i19 - x - cx));
         final int i26 = (int) (90 + i23 - Math.atan((double) i25 / (double) (i20 - i24 - cy)) / 0.017453292519943295);
         xz = -vxz + 90;
@@ -1803,37 +2040,42 @@ class Medium {
             td = false;
         }
         int i0 = 0;
-        if (conto.x - x - cx > 0)
+        if (conto.x - x - cx > 0) {
             i0 = 180;
+        }
         int i1 = -(int) (90 + i0
                 + Math.atan((double) (conto.z - z) / (double) (conto.x - x - cx)) / 0.017453292519943295);
         i0 = 0;
-        if (conto.y - y - cy < 0)
+        if (conto.y - y - cy < 0) {
             i0 = -180;
+        }
         final int i2 = (int) Math.sqrt((conto.z - z) * (conto.z - z) + (conto.x - x - cx) * (conto.x - x - cx));
         final int i3 = (int) (90 + i0 - Math.atan((double) i2 / (double) (conto.y - y - cy)) / 0.017453292519943295);
         for (/**/; i1 < 0; i1 += 360) {
-            
+
         }
         for (/**/; i1 > 360; i1 -= 360) {
-            
+
         }
         xz = i1;
         zy += (i3 - zy) / 5;
         if ((int) Math.sqrt((conto.z - z) * (conto.z - z) + (conto.x - x - cx) * (conto.x - x - cx)
-                + (conto.y - y - cy) * (conto.y - y - cy)) > 6000)
+                + (conto.y - y - cy) * (conto.y - y - cy)) > 6000) {
             td = true;
+        }
     }
 
     private int xs(final int i, int i272) {
-        if (i272 < cz)
+        if (i272 < cz) {
             i272 = cz;
+        }
         return (i272 - focusPoint) * (cx - i) / i272 + i;
     }
 
     private int ys(final int i, int i273) {
-        if (i273 < 10)
+        if (i273 < 10) {
             i273 = 10;
+        }
         return (i273 - focusPoint) * (cy - i) / i273 + i;
     }
 }

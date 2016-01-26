@@ -62,8 +62,9 @@ public class PausablePlayer {
      */
     public boolean pause() {
         synchronized (playerLock) {
-            if (playerStatus == PLAYING)
+            if (playerStatus == PLAYING) {
                 playerStatus = PAUSED;
+            }
             return playerStatus == PAUSED;
         }
     }
@@ -94,20 +95,22 @@ public class PausablePlayer {
     private void playInternal() {
         while (playerStatus != FINISHED) {
             try {
-                if (!player.play(1))
+                if (!player.play(1)) {
                     break;
+                }
             } catch (final JavaLayerException e) {
                 break;
             }
             // check if paused or terminated
             synchronized (playerLock) {
-                while (playerStatus == PAUSED)
+                while (playerStatus == PAUSED) {
                     try {
                         playerLock.wait();
                     } catch (final InterruptedException e) {
                         // terminate player
                         break;
                     }
+                }
             }
         }
         close();

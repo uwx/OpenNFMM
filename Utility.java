@@ -20,8 +20,9 @@ class Utility {
                 i263++;
                 i265++;
             }
-            if (i263 == i)
+            if (i263 == i) {
                 string264 = new StringBuilder().append(string264).append(string262.charAt(i265)).toString();
+            }
         }
         return Float.valueOf(string264).intValue();
     }
@@ -44,15 +45,17 @@ class Utility {
                 string441 = new StringBuilder().append("").append(string.charAt(i438)).toString();
                 if (string441.equals("|")) {
                     i439++;
-                    if (i440 == 1 || i439 > i)
+                    if (i440 == 1 || i439 > i) {
                         i440 = 2;
+                    }
                 } else if (i439 == i) {
                     string442 = new StringBuilder().append(string442).append(string441).toString();
                     i440 = 1;
                 }
             }
-            if (string442.equals(""))
+            if (string442.equals("")) {
                 string442 = "-1";
+            }
             i437 = Integer.valueOf(string442).intValue();
         } catch (final Exception exception) {
 
@@ -70,8 +73,9 @@ class Utility {
      * @return The 2D X coordinate.
      */
     static int xs(final int i, int i338, final Medium m) {
-        if (i338 < m.cz)
+        if (i338 < m.cz) {
             i338 = m.cz;
+        }
         return (i338 - m.focusPoint) * (m.cx - i) / i338 + i;
     }
 
@@ -85,22 +89,25 @@ class Utility {
      * @return The 2D Y coordinate.
      */
     static int ys(final int i, int i339, final Medium m) {
-        if (i339 < m.cz)
+        if (i339 < m.cz) {
             i339 = m.cz;
+        }
         return (i339 - m.focusPoint) * (m.cy - i) / i339 + i;
     }
 
     // alt
 
     static int altXs(final int i, int i260, final Medium m) {
-        if (i260 < 50)
+        if (i260 < 50) {
             i260 = 50;
+        }
         return (i260 - m.focusPoint) * (m.cx - i) / i260 + i;
     }
 
     static int altYs(final int i, int i261, final Medium m) {
-        if (i261 < 50)
+        if (i261 < 50) {
             i261 = 50;
+        }
         return (i261 - m.focusPoint) * (m.cy - i) / i261 + i;
     }
 
@@ -113,8 +120,9 @@ class Utility {
     }*/
 
     static int mediumYs(final int i, int i273, final Medium m) {
-        if (i273 < 10)
+        if (i273 < 10) {
             i273 = 10;
+        }
         return (i273 - m.focusPoint) * (m.cy - i) / i273 + i;
     }
 }

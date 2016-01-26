@@ -50,21 +50,20 @@ class Madness extends Panel {
 
     static void advopen() {
         try {
-            final File file = new File(
-                    new StringBuilder().append("").append(fpath).append("data/user.data").toString());
+            final File file = new File(new StringBuilder().append("").append(fpath).append("data/user.data").toString());
             if (file.exists()) {
                 final Date date = new Date();
                 final long l = date.getTime();
                 if (advtime == 0L || l - advtime > 120000L) {
                     final String string = System.getProperty("os.name").toLowerCase();
                     if (string.indexOf("win") != -1) {
-                        final File file26 = new File(
-                                new StringBuilder().append("").append(fpath).append("data/adv.bat").toString());
+                        final File file26 = new File(new StringBuilder().append("").append(fpath).append("data/adv.bat").toString());
                         boolean bool = false;
-                        if (!file26.exists())
+                        if (!file26.exists()) {
                             bool = true;
-                        else if (file26.length() != 81L)
+                        } else if (file26.length() != 81L) {
                             bool = true;
+                        }
                         if (bool) {
                             final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file26));
                             bufferedwriter.write("cd %programfiles%\\Internet Explorer");
@@ -76,16 +75,17 @@ class Madness extends Panel {
                         final Process process = Runtime.getRuntime().exec(file26.getAbsolutePath());
                         final DataInputStream datainputstream = new DataInputStream(process.getInputStream());
                         while (datainputstream.readLine() != null) {
-                            
+
                         }
-                    } else
+                    } else {
                         openurl("http://www.needformadness.com/");
+                    }
                     advtime = l;
                     endadv = 1;
                 }
             }
         } catch (final Exception exception) {
-            
+
         }
     }
 
@@ -106,7 +106,7 @@ class Madness extends Panel {
         try {
             Thread.sleep(400L);
         } catch (final Exception exception) {
-            
+
         }
         /*try {
         	applet.destroy();
@@ -137,7 +137,7 @@ class Madness extends Panel {
         try {
             Thread.sleep(400L);
         } catch (final Exception exception) {
-            
+
         }
         cm = new CarMaker();
         frame.add("Center", cm);
@@ -154,8 +154,7 @@ class Madness extends Panel {
         frame = new Frame("Need for Madness");
         frame.setBackground(new Color(0, 0, 0));
         frame.setIgnoreRepaint(true);
-        frame.setIconImage(Toolkit.getDefaultToolkit()
-                .createImage(new StringBuilder().append("").append(fpath).append("data/icon.gif").toString()));
+        frame.setIconImage(Toolkit.getDefaultToolkit().createImage(new StringBuilder().append("").append(fpath).append("data/icon.gif").toString()));
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(final WindowEvent windowevent) {
@@ -168,14 +167,15 @@ class Madness extends Panel {
             try {
                 myDevice.setDisplayMode(defdisp);
             } catch (final Exception exception) {
-                
+
             }
-            if (myDevice.isDisplayChangeSupported())
+            if (myDevice.isDisplayChangeSupported()) {
                 try {
                     myDevice.setFullScreenWindow(null);
                 } catch (final Exception exception) {
-                    
+
                 }
+            }
         }
         frame.setMinimumSize(new Dimension(930, 586));
         frame.setSize(800, 586);
@@ -186,8 +186,9 @@ class Madness extends Panel {
 
     private static void exitsequance() {
         if (updateon == 0 || updateon == 3) {
-            if (endadv == 1)
+            if (endadv == 1) {
                 endadv = 2;
+            }
             //if (updateon != 3)
             /*try {
             	applet.stop();
@@ -205,7 +206,7 @@ class Madness extends Panel {
             try {
                 Thread.sleep(200L);
             } catch (final Exception exception) {
-                
+
             }
             /*try {
             	applet.destroy();
@@ -252,7 +253,7 @@ class Madness extends Panel {
         try {
             Thread.sleep(400L);
         } catch (final Exception exception) {
-            
+
         }
         /*try {
         	applet.destroy();
@@ -283,7 +284,7 @@ class Madness extends Panel {
         try {
             Thread.sleep(400L);
         } catch (final Exception exception) {
-            
+
         }
         applet = new GameSparker();
         frame.add("Center", applet);
@@ -297,10 +298,11 @@ class Madness extends Panel {
         int i30 = 0;
         for (int i31 = string.length() + 1; i31 < string28.length() && i30 <= i; i31++) {
             final String string32 = new StringBuilder().append("").append(string28.charAt(i31)).toString();
-            if (string32.equals(",") || string32.equals(")"))
+            if (string32.equals(",") || string32.equals(")")) {
                 i30++;
-            else if (i30 == i)
+            } else if (i30 == i) {
                 string29 = new StringBuilder().append(string29).append(string32).toString();
+            }
         }
         return string29;
     }
@@ -323,10 +325,7 @@ class Madness extends Panel {
                         f2 = f5;
                     }
                 }
-                strings[i3] = new StringBuilder().append("").append(displaymodes[i4].getWidth()).append(" x ")
-                        .append(displaymodes[i4].getHeight()).append(" Resolution   -   ")
-                        .append(displaymodes[i4].getBitDepth()).append(" Bits   -   ")
-                        .append(displaymodes[i4].getRefreshRate()).append(" Refresh Rate").toString();
+                strings[i3] = new StringBuilder().append("").append(displaymodes[i4].getWidth()).append(" x ").append(displaymodes[i4].getHeight()).append(" Resolution   -   ").append(displaymodes[i4].getBitDepth()).append(" Bits   -   ").append(displaymodes[i4].getRefreshRate()).append(" Refresh Rate").toString();
                 is[i3] = i4;
                 i3++;
             }
@@ -337,8 +336,7 @@ class Madness extends Panel {
             strings6[i7] = stringbuilder.append(strings6[i7]).append("     <  Recommended").toString();
         }
         try {
-            final File file = new File(
-                    new StringBuilder().append("").append(fpath).append("data/fullScreen.data").toString());
+            final File file = new File(new StringBuilder().append("").append(fpath).append("data/fullScreen.data").toString());
             if (file.exists()) {
                 final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
                 String string;
@@ -351,41 +349,42 @@ class Madness extends Panel {
                         i8 = i;
                     }
                     i = i8;
-                    if (i < 0)
+                    if (i < 0) {
                         i = 0;
-                    if (i > i3 - 1)
+                    }
+                    if (i > i3 - 1) {
                         i = i3 - 1;
+                    }
                 }
                 bufferedreader.close();
             }
         } catch (final Exception exception) {
-            
+
         }
         final String[] strings10 = new String[i3];
-        for (int i11 = 0; i11 < i3; i11++)
+        for (int i11 = 0; i11 < i3; i11++) {
             strings10[i11] = strings[i11];
+        }
         final String[] strings12 = strings10;
-        final Object object = JOptionPane.showInputDialog(null,
-                "Choose a screen resolution setting below and click OK to try it.\nExit Fullscreen by pressing [Esc].\n\nIMPORTANT: If the game does not display properly in Fullscreen press [Esc]      \nand try a different resolution setting below,",
-                "Fullscreen Options", 1, null, strings12, strings12[i]);
+        final Object object = JOptionPane.showInputDialog(null, "Choose a screen resolution setting below and click OK to try it.\nExit Fullscreen by pressing [Esc].\n\nIMPORTANT: If the game does not display properly in Fullscreen press [Esc]      \nand try a different resolution setting below,", "Fullscreen Options", 1, null, strings12, strings12[i]);
         int i13 = -1;
-        if (object != null)
+        if (object != null) {
             for (int i14 = 0; i14 < i3; i14++)
                 if (object.equals(strings12[i14])) {
                     i13 = is[i14];
                     i = i14;
                     break;
                 }
+        }
         if (i13 != -1) {
             try {
-                final File file = new File(
-                        new StringBuilder().append("").append(fpath).append("data/fullScreen.data").toString());
+                final File file = new File(new StringBuilder().append("").append(fpath).append("data/fullScreen.data").toString());
                 final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
                 bufferedwriter.write(new StringBuilder().append("").append(i).append("").toString());
                 bufferedwriter.newLine();
                 bufferedwriter.close();
             } catch (final Exception exception) {
-                
+
             }
             fullscreen = true;
             frame.dispose();
@@ -401,14 +400,15 @@ class Madness extends Panel {
                 try {
                     myDevice.setFullScreenWindow(frame);
                 } catch (final Exception exception) {
-                    
+
                 }
-                if (myDevice.isDisplayChangeSupported())
+                if (myDevice.isDisplayChangeSupported()) {
                     try {
                         myDevice.setDisplayMode(displaymodes[i13]);
                     } catch (final Exception exception) {
-                        
+
                     }
+                }
             }
             applet.requestFocus();
         }
@@ -428,8 +428,9 @@ class Madness extends Panel {
             if (!bool) {
                 fpath = new StringBuilder().append(fpath).append(string).toString();
                 bool = true;
-            } else
+            } else {
                 fpath = new StringBuilder().append(fpath).append(" ").append(string).toString();
+            }
         }
         if (!fpath.equals(""))
             if (fpath.equals("manar")) {
@@ -438,22 +439,21 @@ class Madness extends Panel {
                     final File file = new File("data/manar.ok");
                     if (!file.exists()) {
                         final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
-                        bufferedwriter.write(new StringBuilder().append("").append((int) (Math.random() * 1000.0))
-                                .append("").toString());
+                        bufferedwriter.write(new StringBuilder().append("").append((int) (Math.random()
+                                * 1000.0)).append("").toString());
                         bufferedwriter.newLine();
                         bufferedwriter.close();
                     }
                 } catch (final Exception exception) {
-                    
+
                 }
             } else {
-                final File file = new File(
-                        new StringBuilder().append("").append(fpath).append("data/models.zip").toString());
-                if (!file.exists())
+                final File file = new File(new StringBuilder().append("").append(fpath).append("data/models.zip").toString());
+                if (!file.exists()) {
                     fpath = "";
+                }
             }
-        frame.setIconImage(Toolkit.getDefaultToolkit()
-                .createImage(new StringBuilder().append("").append(fpath).append("data/icon.png").toString()));
+        frame.setIconImage(Toolkit.getDefaultToolkit().createImage(new StringBuilder().append("").append(fpath).append("data/icon.png").toString()));
         applet = new GameSparker();
         frame.addWindowListener(new WindowAdapter() {
             @Override
@@ -479,19 +479,19 @@ class Madness extends Panel {
     }
 
     static void openurl(final String string) {
-        if (Desktop.isDesktopSupported())
+        if (Desktop.isDesktopSupported()) {
             try {
                 Desktop.getDesktop().browse(new URI(string));
             } catch (final Exception exception) {
-                
+
             }
-        else
+        } else {
             try {
-                Runtime.getRuntime().exec(new StringBuilder().append("").append(urlopen()).append(" ").append(string)
-                        .append("").toString());
+                Runtime.getRuntime().exec(new StringBuilder().append("").append(urlopen()).append(" ").append(string).append("").toString());
             } catch (final Exception exception) {
-                
+
             }
+        }
     }
 
     static void stagemaker() {
@@ -511,7 +511,7 @@ class Madness extends Panel {
         try {
             Thread.sleep(400L);
         } catch (final Exception exception) {
-            
+
         }
         /*try {
         	applet.destroy();
@@ -542,7 +542,7 @@ class Madness extends Panel {
         try {
             Thread.sleep(400L);
         } catch (final Exception exception) {
-            
+
         }
         sm = new StageMaker();
         frame.add("Center", sm);
@@ -554,10 +554,12 @@ class Madness extends Panel {
     static String urlopen() {
         String string = "explorer";
         final String string27 = System.getProperty("os.name").toLowerCase();
-        if (string27.indexOf("linux") != -1 || string27.indexOf("unix") != -1 || string27.equals("aix"))
+        if (string27.indexOf("linux") != -1 || string27.indexOf("unix") != -1 || string27.equals("aix")) {
             string = "xdg-open";
-        if (string27.indexOf("mac") != -1)
+        }
+        if (string27.indexOf("mac") != -1) {
             string = "open";
+        }
         return string;
     }
 

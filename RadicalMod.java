@@ -11,7 +11,6 @@ import ds.nfm.ModuleSlayer;
 class RadicalMod implements RadicalMusic {
     private static String name = "";
     private static String filename = "";
-    private static boolean nonempty = false;
     SuperClip sClip;
     boolean playing;
     int loaded;
@@ -26,7 +25,6 @@ class RadicalMod implements RadicalMusic {
         imod = "";
         pmod = "";
         loaded = 0;
-        nonempty = false;
         System.gc();
     }
 
@@ -40,40 +38,38 @@ class RadicalMod implements RadicalMusic {
         i_0 = (int) (i_0 / 8000F * 2.0F * i_3);
         i = (int) (i * 0.8F);
         filename = string.replace("mystages/mymusic/", "");
-        nonempty = true;
         try {
             Module module;
-            if (!bool_2)
+            if (!bool_2) {
                 module = ModuleLoader.loadMod(string);
-            else {
+            } else {
                 string = string.replace(' ', '_');
-                final URL url = new URL(
-                        new StringBuilder().append("http://multiplayer.needformadness.com/tracks/music/").append(string)
-                                .append(".zip").toString());
+                final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/tracks/music/").append(string).append(".zip").toString());
                 module = ModuleLoader.loadMod(url);
             }
             if (module.isLoaded()) {
                 name = module.getName();
-                if (name.trim().equals(""))
+                if (name.trim().equals("")) {
                     name = "Untitled";
+                }
                 final ModuleSlayer moduleslayer = ModuleLoader.prepareSlayer(module, i_0, i, i_1);
                 final byte is[] = moduleslayer.turnbytesNorm(bool);
-                if (bool)
+                if (bool) {
                     rvol = moduleslayer.olav;
+                }
                 sClip = new SuperClip(is, moduleslayer.oln, i_3);
                 sClip.rollBackPos = moduleslayer.rollBackPos;
                 sClip.rollBackTrig = moduleslayer.oln - moduleslayer.rollBackTrig;
-                if (bool_2)
-                    filename = new StringBuilder().append("Length: ").append(getTimer(sClip.stream.available() / 44100))
-                            .toString();
+                if (bool_2) {
+                    filename = new StringBuilder().append("Length: ").append(getTimer(sClip.stream.available()
+                            / 44100)).toString();
+                }
                 loaded = 2;
             }
         } catch (final Exception exception) {
             exception.printStackTrace();
-            System.out.println(new StringBuilder().append("Error downloading and making Mod: ")
-                    .append(exception.toString()).toString());
+            System.out.println(new StringBuilder().append("Error downloading and making Mod: ").append(exception.toString()).toString());
             loaded = 0;
-            nonempty = false;
         }
         System.runFinalization();
         System.gc();
@@ -88,7 +84,6 @@ class RadicalMod implements RadicalMusic {
         loaded = 1;
         imod = string;
         filename = string;
-        nonempty = true;
         loadimod(false);
     }
 
@@ -105,29 +100,30 @@ class RadicalMod implements RadicalMusic {
         if (loaded == 1) {
             final int i = 44000;
             int i_6 = 160;
-            if (bool)
+            if (bool) {
                 i_6 = 300;
+            }
             final int i_7 = 125;
             try {
                 final Module module = ModuleLoader.loadMod(imod);
                 if (module.isLoaded()) {
                     name = module.getName();
-                    if (name.trim().equals(""))
+                    if (name.trim().equals("")) {
                         name = "Untitled";
+                    }
                     final ModuleSlayer moduleslayer = ModuleLoader.prepareSlayer(module, i, i_6, i_7);
                     final byte is[] = moduleslayer.turnbytesNorm(bool);
-                    if (bool)
+                    if (bool) {
                         rvol = moduleslayer.olav;
+                    }
                     sClip = new SuperClip(is, moduleslayer.oln, 22000);
                     sClip.rollBackPos = moduleslayer.rollBackPos;
                     sClip.rollBackTrig = moduleslayer.oln - moduleslayer.rollBackTrig;
                     loaded = 2;
                 }
             } catch (final Exception exception) {
-                System.out.println(
-                        new StringBuilder().append("Error making a imod: ").append(exception.toString()).toString());
+                System.out.println(new StringBuilder().append("Error making a imod: ").append(exception.toString()).toString());
                 loaded = 0;
-                nonempty = false;
             }
             System.runFinalization();
             System.gc();
@@ -138,29 +134,30 @@ class RadicalMod implements RadicalMusic {
         if (loaded == 1) {
             final int i = 44000;
             int i_10 = 160;
-            if (bool)
+            if (bool) {
                 i_10 = 300;
+            }
             final int i_11 = 125;
             try {
                 final Module module = ModuleLoader.loadMod(pmod);
                 if (module.isLoaded()) {
                     name = module.getName();
-                    if (name.trim().equals(""))
+                    if (name.trim().equals("")) {
                         name = "Untitled";
+                    }
                     final ModuleSlayer moduleslayer = ModuleLoader.prepareSlayer(module, i, i_10, i_11);
                     final byte is[] = moduleslayer.turnbytesNorm(bool);
-                    if (bool)
+                    if (bool) {
                         rvol = moduleslayer.olav;
+                    }
                     sClip = new SuperClip(is, moduleslayer.oln, 22000);
                     sClip.rollBackPos = moduleslayer.rollBackPos;
                     sClip.rollBackTrig = moduleslayer.oln - moduleslayer.rollBackTrig;
                     loaded = 2;
                 }
             } catch (final Exception exception) {
-                System.out.println(
-                        new StringBuilder().append("Error making a imod: ").append(exception.toString()).toString());
+                System.out.println(new StringBuilder().append("Error making a imod: ").append(exception.toString()).toString());
                 loaded = 0;
-                nonempty = false;
             }
             System.runFinalization();
             System.gc();
@@ -177,15 +174,15 @@ class RadicalMod implements RadicalMusic {
         pmod = string;
         loadpmod(true);
         filename = string;
-        nonempty = true;
     }
 
     @Override
     public void play() {
         if (!playing && loaded == 2) {
             sClip.play();
-            if (sClip.stoped == 0)
+            if (sClip.stoped == 0) {
                 playing = true;
+            }
         }
     }
 
@@ -229,8 +226,9 @@ class RadicalMod implements RadicalMusic {
     public void resume() {
         if (!playing && loaded == 2) {
             sClip.resume();
-            if (sClip.stoped == 0)
+            if (sClip.stoped == 0) {
                 playing = true;
+            }
         }
     }
 
@@ -253,8 +251,9 @@ class RadicalMod implements RadicalMusic {
             }
         else if (!playing && loaded == 2) {
             sClip.resume();
-            if (sClip.stoped == 0)
+            if (sClip.stoped == 0) {
                 playing = true;
+            }
         }
     }
 

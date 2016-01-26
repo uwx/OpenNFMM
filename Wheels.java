@@ -6,7 +6,7 @@ class Wheels {
     private float depth = 3.0F;
     int ground = 0;
     int mast = 0;
-    private int[] rc = {
+    private final int[] rc = {
             120, 120, 120
     };
     private float size = 2.0F;
@@ -17,8 +17,7 @@ class Wheels {
         ground = 0;
     }
 
-    void make(final Medium medium, final Trackers trackers, final Plane[] planes, int i, final int i4,
-            final int i5, final int i6, final int i7, final int i8, final int i9, final int i10) {
+    void make(final Medium medium, final Trackers trackers, final Plane[] planes, int i, final int i4, final int i5, final int i6, final int i7, final int i8, final int i9, final int i10) {
         final int[] is = new int[20];
         final int[] is11 = new int[20];
         final int[] is12 = new int[20];
@@ -28,15 +27,18 @@ class Wheels {
         int i14 = 0;
         final float f = i8 / 10.0F;
         final float f15 = i9 / 10.0F;
-        if (i7 == 11)
+        if (i7 == 11) {
             i14 = (int) (i4 + 4.0F * f);
+        }
         sparkat = (int) (f15 * 24.0F);
         ground = (int) (i5 + 13.0F * f15);
         int i16 = -1;
-        if (i4 < 0)
+        if (i4 < 0) {
             i16 = 1;
-        for (int i17 = 0; i17 < 20; i17++)
+        }
+        for (int i17 = 0; i17 < 20; i17++) {
             is[i17] = (int) (i4 - 4.0F * f);
+        }
         is11[0] = (int) (i5 - 9.1923F * f15);
         is12[0] = (int) (i6 + 9.1923F * f15);
         is11[1] = (int) (i5 - 12.557F * f15);
@@ -77,69 +79,69 @@ class Wheels {
         is12[18] = (int) (i6 + 10.0F * size);
         is11[19] = (int) (i5 - 3.3646F * f15);
         is12[19] = (int) (i6 + 12.557F * f15);
-        planes[i] = new Plane(medium, trackers, is, is12, is11, 20, is13, 0, i10, 0, i14, i5, i6, 7, 0, false, 0, false,
-                false, false, false, 1, 0, 0, 10);
+        planes[i] = new Plane(medium, trackers, is, is12, is11, 20, is13, 0, i10, 0, i14, i5, i6, 7, 0, false, 0, false, false, false, false, 1, 0, 0, 10);
         planes[i].master = 1;
         i++;
         is[2] = (int) (i4 - depth * f);
         is11[2] = i5;
         is12[2] = i6;
         int i18 = (int) (i10 - depth / size * 4.0F);
-        if (i18 < -16)
+        if (i18 < -16) {
             i18 = -16;
+        }
         is11[0] = i5;
         is12[0] = (int) (i6 + 10.0F * size);
         is11[1] = (int) (i5 + 8.66 * size);
         is12[1] = (int) (i6 + 5.0F * size);
-        planes[i] = new Plane(medium, trackers, is, is12, is11, 3, rc, 0, i18, 0, i14, i5, i6, 7, 0, false, 0, false,
-                false, false, false, 1, 0, 0, 10);
-        if (depth / size < 7.0F)
+        planes[i] = new Plane(medium, trackers, is, is12, is11, 3, rc, 0, i18, 0, i14, i5, i6, 7, 0, false, 0, false, false, false, false, 1, 0, 0, 10);
+        if (depth / size < 7.0F) {
             planes[i].master = 2;
+        }
         i++;
         is11[0] = (int) (i5 + 8.66 * size);
         is12[0] = (int) (i6 + 5.0F * size);
         is11[1] = (int) (i5 + 8.66 * size);
         is12[1] = (int) (i6 - 5.0F * size);
-        planes[i] = new Plane(medium, trackers, is, is12, is11, 3, rc, 0, i18, 0, i14, i5, i6, 7, 0, false, 0, false,
-                false, false, false, 1, 0, 0, 10);
-        if (depth / size < 7.0F)
+        planes[i] = new Plane(medium, trackers, is, is12, is11, 3, rc, 0, i18, 0, i14, i5, i6, 7, 0, false, 0, false, false, false, false, 1, 0, 0, 10);
+        if (depth / size < 7.0F) {
             planes[i].master = 2;
+        }
         i++;
         is11[0] = (int) (i5 + 8.66 * size);
         is12[0] = (int) (i6 - 5.0F * size);
         is11[1] = i5;
         is12[1] = (int) (i6 - 10.0F * size);
-        planes[i] = new Plane(medium, trackers, is, is12, is11, 3, rc, 0, i18, 0, i14, i5, i6, 7, 0, false, 0, false,
-                false, false, false, 1, 0, 0, 10);
-        if (depth / size < 7.0F)
+        planes[i] = new Plane(medium, trackers, is, is12, is11, 3, rc, 0, i18, 0, i14, i5, i6, 7, 0, false, 0, false, false, false, false, 1, 0, 0, 10);
+        if (depth / size < 7.0F) {
             planes[i].master = 2;
+        }
         i++;
         is11[0] = i5;
         is12[0] = (int) (i6 - 10.0F * size);
         is11[1] = (int) (i5 - 8.66 * size);
         is12[1] = (int) (i6 - 5.0F * size);
-        planes[i] = new Plane(medium, trackers, is, is12, is11, 3, rc, 0, i18, 0, i14, i5, i6, 7, 0, false, 0, false,
-                false, false, false, 1, 0, 0, 10);
-        if (depth / size < 7.0F)
+        planes[i] = new Plane(medium, trackers, is, is12, is11, 3, rc, 0, i18, 0, i14, i5, i6, 7, 0, false, 0, false, false, false, false, 1, 0, 0, 10);
+        if (depth / size < 7.0F) {
             planes[i].master = 2;
+        }
         i++;
         is11[0] = (int) (i5 - 8.66 * size);
         is12[0] = (int) (i6 - 5.0F * size);
         is11[1] = (int) (i5 - 8.66 * size);
         is12[1] = (int) (i6 + 5.0F * size);
-        planes[i] = new Plane(medium, trackers, is, is12, is11, 3, rc, 0, i18, 0, i14, i5, i6, 7, 0, false, 0, false,
-                false, false, false, 1, 0, 0, 10);
-        if (depth / size < 7.0F)
+        planes[i] = new Plane(medium, trackers, is, is12, is11, 3, rc, 0, i18, 0, i14, i5, i6, 7, 0, false, 0, false, false, false, false, 1, 0, 0, 10);
+        if (depth / size < 7.0F) {
             planes[i].master = 2;
+        }
         i++;
         is11[0] = (int) (i5 - 8.66 * size);
         is12[0] = (int) (i6 + 5.0F * size);
         is11[1] = i5;
         is12[1] = (int) (i6 + 10.0F * size);
-        planes[i] = new Plane(medium, trackers, is, is12, is11, 3, rc, 0, i18, 0, i14, i5, i6, 7, 0, false, 0, false,
-                false, false, false, 1, 0, 0, 10);
-        if (depth / size < 7.0F)
+        planes[i] = new Plane(medium, trackers, is, is12, is11, 3, rc, 0, i18, 0, i14, i5, i6, 7, 0, false, 0, false, false, false, false, 1, 0, 0, 10);
+        if (depth / size < 7.0F) {
             planes[i].master = 2;
+        }
         i++;
         is[0] = (int) (i4 - 4.0F * f);
         is11[0] = (int) (i5 - 12.557F * f15);
@@ -153,8 +155,8 @@ class Wheels {
         is[3] = (int) (i4 + 4.0F * f);
         is11[3] = (int) (i5 - 12.557F * f15);
         is12[3] = (int) (i6 + 3.3646F * f15);
-        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, -1 * i16, i14, i5, i6, 7, 0, false, 0,
-                true, false, false, false, 1, 0, 0, 10);
+        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, -1
+                * i16, i14, i5, i6, 7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
         i++;
         is[0] = (int) (i4 - 4.0F * f);
         is11[0] = (int) (i5 - 9.1923F * f15);
@@ -168,8 +170,8 @@ class Wheels {
         is[3] = (int) (i4 + 4.0F * f);
         is11[3] = (int) (i5 - 9.1923F * f15);
         is12[3] = (int) (i6 - 9.1923F * f15);
-        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, 1 * i16, i14, i5, i6, 7, 0, false, 0,
-                true, false, false, false, 1, 0, 0, 10);
+        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, 1
+                * i16, i14, i5, i6, 7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
         i++;
         is[0] = (int) (i4 - 4.0F * f);
         is11[0] = (int) (i5 - 9.1923F * f15);
@@ -183,8 +185,8 @@ class Wheels {
         is[3] = (int) (i4 + 4.0F * f);
         is11[3] = (int) (i5 - 9.1923F * f15);
         is12[3] = (int) (i6 - 9.1923F * f15);
-        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, 1 * i16, i14, i5, i6, 7, 0, false, 0,
-                true, false, false, false, 1, 0, 0, 10);
+        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, 1
+                * i16, i14, i5, i6, 7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
         i++;
         is[0] = (int) (i4 - 4.0F * f);
         is11[0] = (int) (i5 - 3.3646F * f15);
@@ -198,8 +200,8 @@ class Wheels {
         is[3] = (int) (i4 + 4.0F * f);
         is11[3] = (int) (i5 - 3.3646F * f15);
         is12[3] = (int) (i6 - 12.557F * f15);
-        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, -1 * i16, i14, i5, i6, 7, 0, false, 0,
-                true, false, false, false, 1, 0, 0, 10);
+        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, -1
+                * i16, i14, i5, i6, 7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
         i++;
         is[0] = (int) (i4 - 4.0F * f);
         is11[0] = (int) (i5 + 9.1923F * f15);
@@ -213,8 +215,8 @@ class Wheels {
         is[3] = (int) (i4 + 4.0F * f);
         is11[3] = (int) (i5 + 9.1923F * f15);
         is12[3] = (int) (i6 - 9.1923F * f15);
-        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, 1 * i16, i14, i5, i6, 7, 0, false, 0,
-                true, false, false, false, 1, 0, 0, 10);
+        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, 1
+                * i16, i14, i5, i6, 7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
         i++;
         is[0] = (int) (i4 - 4.0F * f);
         is11[0] = (int) (i5 + 9.1923F * f15);
@@ -228,8 +230,8 @@ class Wheels {
         is[3] = (int) (i4 + 4.0F * f);
         is11[3] = (int) (i5 + 9.1923F * f15);
         is12[3] = (int) (i6 - 9.1923F * f15);
-        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, 1 * i16, i14, i5, i6, 7, 0, false, 0,
-                true, false, false, false, 1, 0, 0, 10);
+        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, 1
+                * i16, i14, i5, i6, 7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
         i++;
         is[0] = (int) (i4 - 4.0F * f);
         is11[0] = (int) (i5 + 12.557F * f15);
@@ -243,8 +245,8 @@ class Wheels {
         is[3] = (int) (i4 + 4.0F * f);
         is11[3] = (int) (i5 + 12.557F * f15);
         is12[3] = (int) (i6 - 3.3646F * f15);
-        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, -1 * i16, i14, i5, i6, 7, 0, false, 0,
-                true, false, false, false, 1, 0, 0, 10);
+        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, -1
+                * i16, i14, i5, i6, 7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
         i++;
         is[0] = (int) (i4 - 4.0F * f);
         is11[0] = (int) (i5 + 9.1923F * f15);
@@ -258,8 +260,8 @@ class Wheels {
         is[3] = (int) (i4 + 4.0F * f);
         is11[3] = (int) (i5 + 9.1923F * f15);
         is12[3] = (int) (i6 + 9.1923F * f15);
-        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, 1 * i16, i14, i5, i6, 7, 0, false, 0,
-                true, false, false, false, 1, 0, 0, 10);
+        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, 1
+                * i16, i14, i5, i6, 7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
         i++;
         is[0] = (int) (i4 - 4.0F * f);
         is11[0] = (int) (i5 + 9.1923F * f15);
@@ -273,8 +275,8 @@ class Wheels {
         is[3] = (int) (i4 + 4.0F * f);
         is11[3] = (int) (i5 + 9.1923F * f15);
         is12[3] = (int) (i6 + 9.1923F * f15);
-        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, 1 * i16, i14, i5, i6, 7, 0, false, 0,
-                true, false, false, false, 1, 0, 0, 10);
+        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, 1
+                * i16, i14, i5, i6, 7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
         i++;
         is[0] = (int) (i4 - 4.0F * f);
         is11[0] = (int) (i5 + 3.3646F * f15);
@@ -288,8 +290,8 @@ class Wheels {
         is[3] = (int) (i4 + 4.0F * f);
         is11[3] = (int) (i5 + 3.3646F * f15);
         is12[3] = (int) (i6 + 12.557F * f15);
-        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, -1 * i16, i14, i5, i6, 7, 0, false, 0,
-                true, false, false, false, 1, 0, 0, 10);
+        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, -1
+                * i16, i14, i5, i6, 7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
         i++;
         is[0] = (int) (i4 - 4.0F * f);
         is11[0] = (int) (i5 - 9.1923F * f15);
@@ -303,8 +305,8 @@ class Wheels {
         is[3] = (int) (i4 + 4.0F * f);
         is11[3] = (int) (i5 - 9.1923F * f15);
         is12[3] = (int) (i6 + 9.1923F * f15);
-        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, 1 * i16, i14, i5, i6, 7, 0, false, 0,
-                true, false, false, false, 1, 0, 0, 10);
+        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, 1
+                * i16, i14, i5, i6, 7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
         i++;
         is[0] = (int) (i4 - 4.0F * f);
         is11[0] = (int) (i5 - 9.1923F * f15);
@@ -318,8 +320,8 @@ class Wheels {
         is[3] = (int) (i4 + 4.0F * f);
         is11[3] = (int) (i5 - 9.1923F * f15);
         is12[3] = (int) (i6 + 9.1923F * f15);
-        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, 1 * i16, i14, i5, i6, 7, 0, false, 0,
-                true, false, false, false, 1, 0, 0, 10);
+        planes[i] = new Plane(medium, trackers, is, is12, is11, 4, is13, 0, i10, 1
+                * i16, i14, i5, i6, 7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
         i++;
     }
 
@@ -328,12 +330,15 @@ class Wheels {
         rc[1] = i0;
         rc[2] = i1;
         size = i2 / 10.0F;
-        if (size < 0.0F)
+        if (size < 0.0F) {
             size = 0.0F;
+        }
         depth = i3 / 10.0F;
-        if (depth / size > 41.0F)
+        if (depth / size > 41.0F) {
             depth = size * 41.0F;
-        if (depth / size < -25.0F)
+        }
+        if (depth / size < -25.0F) {
             depth = -(size * 25.0F);
+        }
     }
 }

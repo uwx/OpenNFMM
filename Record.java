@@ -7,99 +7,99 @@ import java.awt.Color;
 class Record {
     ContO[][] car = new ContO[6][8];
     int caught = 0;
-    private int[] checkpoint = new int[300];
+    private final int[] checkpoint = new int[300];
     int closefinish = 0;
     int[] cntdest = new int[8];
     private int cntf = 50;
     int[] dest = new int[8];
     int[] fix = new int[8];
     boolean hcaught = false;
-    private int[] hcheckpoint = new int[300];
-    private int[] hdest = {
+    private final int[] hcheckpoint = new int[300];
+    private final int[] hdest = {
             -1, -1, -1, -1, -1, -1, -1, -1
     };
     int[] hfix = {
             -1, -1, -1, -1, -1, -1, -1, -1
     };
-    private boolean[] hlastcheck = new boolean[300];
-    private int[][][] hmagx = new int[8][4][7];
-    private int[][][] hmagy = new int[8][4][7];
-    private int[][][] hmagz = new int[8][4][7];
-    private boolean[][] hmtouch = new boolean[8][7];
-    private float[][] hrcx = new float[8][200];
-    private float[][] hrcy = new float[8][200];
-    private float[][] hrcz = new float[8][200];
-    private int[][] hrspark = new int[8][200];
-    private int[][][] hrx = new int[8][4][7];
-    private int[][][] hry = new int[8][4][7];
-    private int[][][] hrz = new int[8][4][7];
-    private int[][][] hscx = new int[8][20][30];
-    private int[][][] hscz = new int[8][20][30];
-    private float[][][] hsmag = new float[8][20][30];
-    private int[][] hsprk = new int[8][200];
-    private int[] hsquash = {
+    private final boolean[] hlastcheck = new boolean[300];
+    private final int[][][] hmagx = new int[8][4][7];
+    private final int[][][] hmagy = new int[8][4][7];
+    private final int[][][] hmagz = new int[8][4][7];
+    private final boolean[][] hmtouch = new boolean[8][7];
+    private final float[][] hrcx = new float[8][200];
+    private final float[][] hrcy = new float[8][200];
+    private final float[][] hrcz = new float[8][200];
+    private final int[][] hrspark = new int[8][200];
+    private final int[][][] hrx = new int[8][4][7];
+    private final int[][][] hry = new int[8][4][7];
+    private final int[][][] hrz = new int[8][4][7];
+    private final int[][][] hscx = new int[8][20][30];
+    private final int[][][] hscz = new int[8][20][30];
+    private final float[][][] hsmag = new float[8][20][30];
+    private final int[][] hsprk = new int[8][200];
+    private final int[] hsquash = {
             0, 0, 0, 0, 0, 0, 0, 0
     };
-    private int[][] hsrx = new int[8][200];
-    private int[][] hsry = new int[8][200];
-    private int[][] hsrz = new int[8][200];
-    private int[][][] hsspark = new int[8][20][30];
-    private int[][][] hsx = new int[8][20][30];
-    private int[][][] hsy = new int[8][20][30];
-    private int[][][] hsz = new int[8][20][30];
-    private int[][] hwxz = new int[300][8];
-    private int[][] hwzy = new int[300][8];
-    private int[][] hx = new int[300][8];
-    private int[][] hxy = new int[300][8];
-    private int[][] hxz = new int[300][8];
-    private int[][] hy = new int[300][8];
-    private int[][] hz = new int[300][8];
-    private int[][] hzy = new int[300][8];
-    private boolean[] lastcheck = new boolean[300];
+    private final int[][] hsrx = new int[8][200];
+    private final int[][] hsry = new int[8][200];
+    private final int[][] hsrz = new int[8][200];
+    private final int[][][] hsspark = new int[8][20][30];
+    private final int[][][] hsx = new int[8][20][30];
+    private final int[][][] hsy = new int[8][20][30];
+    private final int[][][] hsz = new int[8][20][30];
+    private final int[][] hwxz = new int[300][8];
+    private final int[][] hwzy = new int[300][8];
+    private final int[][] hx = new int[300][8];
+    private final int[][] hxy = new int[300][8];
+    private final int[][] hxz = new int[300][8];
+    private final int[][] hy = new int[300][8];
+    private final int[][] hz = new int[300][8];
+    private final int[][] hzy = new int[300][8];
+    private final boolean[] lastcheck = new boolean[300];
     private int lastfr = 0;
-    private Medium m;
-    private int[][][] magx = new int[8][4][7];
-    private int[][][] magy = new int[8][4][7];
-    private int[][][] magz = new int[8][4][7];
-    private boolean[][] mtouch = new boolean[8][7];
-    private int[] nr = new int[8];
-    private int[][] nrx = new int[8][4];
-    private int[][] nry = new int[8][4];
-    private int[][] nrz = new int[8][4];
-    private int[][] ns = new int[8][20];
+    private final Medium m;
+    private final int[][][] magx = new int[8][4][7];
+    private final int[][][] magy = new int[8][4][7];
+    private final int[][][] magz = new int[8][4][7];
+    private final boolean[][] mtouch = new boolean[8][7];
+    private final int[] nr = new int[8];
+    private final int[][] nrx = new int[8][4];
+    private final int[][] nry = new int[8][4];
+    private final int[][] nrz = new int[8][4];
+    private final int[][] ns = new int[8][20];
     ContO[] ocar = new ContO[8];
     int powered = 0;
     private boolean prepit = true;
-    private float[][] rcx = new float[8][200];
-    private float[][] rcy = new float[8][200];
-    private float[][] rcz = new float[8][200];
-    private int[][] rspark = new int[8][200];
-    private int[][][] rx = new int[8][4][7];
-    private int[][][] ry = new int[8][4][7];
-    private int[][][] rz = new int[8][4][7];
-    private int[][][] scx = new int[8][20][30];
-    private int[][][] scz = new int[8][20][30];
-    private float[][][] smag = new float[8][20][30];
-    private int[][] sprk = new int[8][200];
-    private int[][] squash = new int[6][8];
-    private int[][] srx = new int[8][200];
-    private int[][] sry = new int[8][200];
-    private int[][] srz = new int[8][200];
-    private int[][][] sspark = new int[8][20][30];
+    private final float[][] rcx = new float[8][200];
+    private final float[][] rcy = new float[8][200];
+    private final float[][] rcz = new float[8][200];
+    private final int[][] rspark = new int[8][200];
+    private final int[][][] rx = new int[8][4][7];
+    private final int[][][] ry = new int[8][4][7];
+    private final int[][][] rz = new int[8][4][7];
+    private final int[][][] scx = new int[8][20][30];
+    private final int[][][] scz = new int[8][20][30];
+    private final float[][][] smag = new float[8][20][30];
+    private final int[][] sprk = new int[8][200];
+    private final int[][] squash = new int[6][8];
+    private final int[][] srx = new int[8][200];
+    private final int[][] sry = new int[8][200];
+    private final int[][] srz = new int[8][200];
+    private final int[][][] sspark = new int[8][20][30];
     ContO[] starcar = new ContO[8];
-    private int[][][] sx = new int[8][20][30];
-    private int[][][] sy = new int[8][20][30];
-    private int[][][] sz = new int[8][20][30];
+    private final int[][][] sx = new int[8][20][30];
+    private final int[][][] sy = new int[8][20][30];
+    private final int[][][] sz = new int[8][20][30];
     int wasted = 0;
     int whenwasted = 0;
-    private int[][] wxz = new int[300][8];
-    private int[][] wzy = new int[300][8];
-    private int[][] x = new int[300][8];
-    private int[][] xy = new int[300][8];
-    private int[][] xz = new int[300][8];
-    private int[][] y = new int[300][8];
-    private int[][] z = new int[300][8];
-    private int[][] zy = new int[300][8];
+    private final int[][] wxz = new int[300][8];
+    private final int[][] wzy = new int[300][8];
+    private final int[][] x = new int[300][8];
+    private final int[][] xy = new int[300][8];
+    private final int[][] xz = new int[300][8];
+    private final int[][] y = new int[300][8];
+    private final int[][] z = new int[300][8];
+    private final int[][] zy = new int[300][8];
 
     Record(final Medium medium) {
         m = medium;
@@ -109,16 +109,19 @@ class Record {
 
     private void chipx(final int i, float f, final ContO conto, final Mad mad) {
         if (Math.abs(f) > 100.0F) {
-            if (f > 100.0F)
+            if (f > 100.0F) {
                 f -= 100.0F;
-            if (f < -100.0F)
+            }
+            if (f < -100.0F) {
                 f += 100.0F;
+            }
             for (int i68 = 0; i68 < conto.npl; i68++) {
                 float f69 = 0.0F;
                 for (int i70 = 0; i70 < conto.p[i68].n; i70++)
-                    if (conto.p[i68].wz == 0 && py(conto.keyx[i], conto.p[i68].ox[i70], conto.keyz[i],
-                            conto.p[i68].oz[i70]) < mad.cd.clrad[mad.cn])
+                    if (conto.p[i68].wz == 0
+                            && py(conto.keyx[i], conto.p[i68].ox[i70], conto.keyz[i], conto.p[i68].oz[i70]) < mad.cd.clrad[mad.cn]) {
                         f69 = f / 20.0F * m.random();
+                    }
                 if (f69 != 0.0F && Math.abs(f69) >= 1.0F) {
                     conto.p[i68].chip = 1;
                     conto.p[i68].ctmag = f69;
@@ -129,16 +132,19 @@ class Record {
 
     private void chipz(final int i, float f, final ContO conto, final Mad mad) {
         if (Math.abs(f) > 100.0F) {
-            if (f > 100.0F)
+            if (f > 100.0F) {
                 f -= 100.0F;
-            if (f < -100.0F)
+            }
+            if (f < -100.0F) {
                 f += 100.0F;
+            }
             for (int i71 = 0; i71 < conto.npl; i71++) {
                 float f72 = 0.0F;
                 for (int i73 = 0; i73 < conto.p[i71].n; i73++)
-                    if (conto.p[i71].wz == 0 && py(conto.keyx[i], conto.p[i71].ox[i73], conto.keyz[i],
-                            conto.p[i71].oz[i73]) < mad.cd.clrad[mad.cn])
+                    if (conto.p[i71].wz == 0
+                            && py(conto.keyx[i], conto.p[i71].ox[i73], conto.keyz[i], conto.p[i71].oz[i73]) < mad.cd.clrad[mad.cn]) {
                         f72 = f / 20.0F * m.random();
+                    }
                 if (f72 != 0.0F && Math.abs(f72) >= 1.0F) {
                     conto.p[i71].chip = 1;
                     conto.p[i71].ctmag = f72;
@@ -171,7 +177,7 @@ class Record {
                 hlastcheck[i7] = lastcheck[i7];
             }
             for (int i9 = 0; i9 < 8; i9++) {
-                for (int i10 = 0; i10 < 20; i10++)
+                for (int i10 = 0; i10 < 20; i10++) {
                     for (int i11 = 0; i11 < 30; i11++) {
                         hsspark[i9][i10][i11] = sspark[i9][i10][i11];
                         hsx[i9][i10][i11] = sx[i9][i10][i11];
@@ -181,6 +187,7 @@ class Record {
                         hscx[i9][i10][i11] = scx[i9][i10][i11];
                         hscz[i9][i10][i11] = scz[i9][i10][i11];
                     }
+                }
                 for (int i12 = 0; i12 < 200; i12++) {
                     hrspark[i9][i12] = rspark[i9][i12];
                     hsprk[i9][i12] = sprk[i9][i12];
@@ -192,8 +199,8 @@ class Record {
                     hrcz[i9][i12] = rcz[i9][i12];
                 }
             }
-            for (int i13 = 0; i13 < 8; i13++)
-                for (int i14 = 0; i14 < 4; i14++)
+            for (int i13 = 0; i13 < 8; i13++) {
+                for (int i14 = 0; i14 < 4; i14++) {
                     for (int i15 = 0; i15 < 7; i15++) {
                         hry[i13][i14][i15] = ry[i13][i14][i15];
                         hmagy[i13][i14][i15] = magy[i13][i14][i15];
@@ -202,9 +209,13 @@ class Record {
                         hrz[i13][i14][i15] = rz[i13][i14][i15];
                         hmagz[i13][i14][i15] = magz[i13][i14][i15];
                     }
-            for (int i16 = 0; i16 < 8; i16++)
-                for (int i17 = 0; i17 < 7; i17++)
+                }
+            }
+            for (int i16 = 0; i16 < 8; i16++) {
+                for (int i17 = 0; i17 < 7; i17++) {
                     hmtouch[i16][i17] = mtouch[i16][i17];
+                }
+            }
             hcaught = true;
         }
     }
@@ -222,21 +233,26 @@ class Record {
             conto.m.checkpoint = checkpoint[i30];
             conto.m.lastcheck = lastcheck[i30];
         }
-        if (i30 == 0)
+        if (i30 == 0) {
             cntdest[i] = 0;
-        if (dest[i] == i30)
+        }
+        if (dest[i] == i30) {
             cntdest[i] = 7;
-        if (i30 == 0 && dest[i] < -1)
+        }
+        if (i30 == 0 && dest[i] < -1) {
             for (int i31 = 0; i31 < conto.npl; i31++)
-                if (conto.p[i31].wz == 0 || conto.p[i31].gr == -17 || conto.p[i31].gr == -16)
+                if (conto.p[i31].wz == 0 || conto.p[i31].gr == -17 || conto.p[i31].gr == -16) {
                     conto.p[i31].embos = 13;
+                }
+        }
         if (cntdest[i] != 0) {
             for (int i32 = 0; i32 < conto.npl; i32++)
-                if (conto.p[i32].wz == 0 || conto.p[i32].gr == -17 || conto.p[i32].gr == -16)
+                if (conto.p[i32].wz == 0 || conto.p[i32].gr == -17 || conto.p[i32].gr == -16) {
                     conto.p[i32].embos = 1;
+                }
             cntdest[i]--;
         }
-        for (int i33 = 0; i33 < 20; i33++)
+        for (int i33 = 0; i33 < 20; i33++) {
             for (int i34 = 0; i34 < 30; i34++)
                 if (sspark[i][i33][i34] == i30) {
                     conto.stg[i33] = 1;
@@ -247,6 +263,7 @@ class Record {
                     conto.scx[i33] = scx[i][i33][i34];
                     conto.scz[i33] = scz[i][i33][i34];
                 }
+        }
         for (int i35 = 0; i35 < 200; i35++)
             if (rspark[i][i35] == i30) {
                 conto.sprk = sprk[i][i35];
@@ -257,15 +274,19 @@ class Record {
                 conto.rcy = rcy[i][i35];
                 conto.rcz = rcz[i][i35];
             }
-        for (int i36 = 0; i36 < 4; i36++)
+        for (int i36 = 0; i36 < 4; i36++) {
             for (int i37 = 0; i37 < 7; i37++) {
-                if (ry[i][i36][i37] == i30)
+                if (ry[i][i36][i37] == i30) {
                     regy(i36, magy[i][i36][i37], mtouch[i][i37], conto, mad);
-                if (rx[i][i36][i37] == i30)
+                }
+                if (rx[i][i36][i37] == i30) {
                     regx(i36, magx[i][i36][i37], conto, mad);
-                if (rz[i][i36][i37] == i30)
+                }
+                if (rz[i][i36][i37] == i30) {
                     regz(i36, magz[i][i36][i37], conto, mad);
+                }
             }
+        }
     }
 
     void playh(final ContO conto, final Mad mad, final int i, final int i38, final int i39) {
@@ -281,21 +302,26 @@ class Record {
             conto.m.checkpoint = hcheckpoint[i38];
             conto.m.lastcheck = hlastcheck[i38];
         }
-        if (i38 == 0)
+        if (i38 == 0) {
             cntdest[i] = 0;
-        if (hdest[i] == i38)
+        }
+        if (hdest[i] == i38) {
             cntdest[i] = 7;
-        if (i38 == 0 && hdest[i] < -1)
+        }
+        if (i38 == 0 && hdest[i] < -1) {
             for (int i40 = 0; i40 < conto.npl; i40++)
-                if (conto.p[i40].wz == 0 || conto.p[i40].gr == -17 || conto.p[i40].gr == -16)
+                if (conto.p[i40].wz == 0 || conto.p[i40].gr == -17 || conto.p[i40].gr == -16) {
                     conto.p[i40].embos = 13;
+                }
+        }
         if (cntdest[i] != 0) {
             for (int i41 = 0; i41 < conto.npl; i41++)
-                if (conto.p[i41].wz == 0 || conto.p[i41].gr == -17 || conto.p[i41].gr == -16)
+                if (conto.p[i41].wz == 0 || conto.p[i41].gr == -17 || conto.p[i41].gr == -16) {
                     conto.p[i41].embos = 1;
+                }
             cntdest[i]--;
         }
-        for (int i42 = 0; i42 < 20; i42++)
+        for (int i42 = 0; i42 < 20; i42++) {
             for (int i43 = 0; i43 < 30; i43++)
                 if (hsspark[i][i42][i43] == i38) {
                     conto.stg[i42] = 1;
@@ -306,6 +332,7 @@ class Record {
                     conto.scx[i42] = hscx[i][i42][i43];
                     conto.scz[i42] = hscz[i][i42][i43];
                 }
+        }
         for (int i44 = 0; i44 < 200; i44++)
             if (hrspark[i][i44] == i38) {
                 conto.sprk = hsprk[i][i44];
@@ -316,21 +343,25 @@ class Record {
                 conto.rcy = hrcy[i][i44];
                 conto.rcz = hrcz[i][i44];
             }
-        for (int i45 = 0; i45 < 4; i45++)
+        for (int i45 = 0; i45 < 4; i45++) {
             for (int i46 = 0; i46 < 7; i46++) {
-                if (hry[i][i45][i46] == i38 && lastfr != i38)
+                if (hry[i][i45][i46] == i38 && lastfr != i38) {
                     regy(i45, hmagy[i][i45][i46], hmtouch[i][i46], conto, mad);
+                }
                 if (hrx[i][i45][i46] == i38)
-                    if (lastfr != i38)
+                    if (lastfr != i38) {
                         regx(i45, hmagx[i][i45][i46], conto, mad);
-                    else
+                    } else {
                         chipx(i45, hmagx[i][i45][i46], conto, mad);
+                    }
                 if (hrz[i][i45][i46] == i38)
-                    if (lastfr != i38)
+                    if (lastfr != i38) {
                         regz(i45, hmagz[i][i45][i46], conto, mad);
-                    else
+                    } else {
                         chipz(i45, hmagz[i][i45][i46], conto, mad);
+                    }
             }
+        }
         lastfr = i38;
     }
 
@@ -339,8 +370,9 @@ class Record {
     }
 
     void rec(final ContO conto, final int i, final int i18, final int i19, final int i20, final int i21) {
-        if (i == i21)
+        if (i == i21) {
             caught++;
+        }
         if (cntf == 50) {
             for (int i22 = 0; i22 < 5; i22++) {
                 car[i22][i] = new ContO(car[i22 + 1][i], 0, 0, 0, 0);
@@ -349,11 +381,13 @@ class Record {
             car[5][i] = new ContO(conto, 0, 0, 0, 0);
             squash[5][i] = i18;
             cntf = 0;
-        } else
+        } else {
             cntf++;
+        }
         fix[i]--;
-        if (i20 != 0)
+        if (i20 != 0) {
             dest[i]--;
+        }
         if (dest[i] == 230)
             if (i == i21) {
                 cotchinow(i21);
@@ -398,11 +432,13 @@ class Record {
                 scx[i][i25][ns[i][i25]] = conto.scx[i25];
                 scz[i][i25][ns[i][i25]] = conto.scz[i25];
                 ns[i][i25]++;
-                if (ns[i][i25] == 30)
+                if (ns[i][i25] == 30) {
                     ns[i][i25] = 0;
+                }
             }
-            for (int i26 = 0; i26 < 30; i26++)
+            for (int i26 = 0; i26 < 30; i26++) {
                 sspark[i][i25][i26]--;
+            }
         }
         if (conto.sprk != 0) {
             rspark[i][nr[i]] = 300;
@@ -414,25 +450,29 @@ class Record {
             rcy[i][nr[i]] = conto.rcy;
             rcz[i][nr[i]] = conto.rcz;
             nr[i]++;
-            if (nr[i] == 200)
+            if (nr[i] == 200) {
                 nr[i] = 0;
+            }
         }
-        for (int i27 = 0; i27 < 200; i27++)
+        for (int i27 = 0; i27 < 200; i27++) {
             rspark[i][i27]--;
-        for (int i28 = 0; i28 < 4; i28++)
+        }
+        for (int i28 = 0; i28 < 4; i28++) {
             for (int i29 = 0; i29 < 7; i29++) {
                 ry[i][i28][i29]--;
                 rx[i][i28][i29]--;
                 rz[i][i28][i29]--;
             }
+        }
     }
 
     void recx(final int i, final float f, final int i48) {
         rx[i48][i][nry[i48][i]] = 300;
         magx[i48][i][nry[i48][i]] = (int) f;
         nrx[i48][i]++;
-        if (nrx[i48][i] == 7)
+        if (nrx[i48][i] == 7) {
             nrx[i48][i] = 0;
+        }
     }
 
     void recy(final int i, final float f, final boolean bool, final int i47) {
@@ -440,29 +480,33 @@ class Record {
         magy[i47][i][nry[i47][i]] = (int) f;
         mtouch[i47][nry[i47][i]] = bool;
         nry[i47][i]++;
-        if (nry[i47][i] == 7)
+        if (nry[i47][i] == 7) {
             nry[i47][i] = 0;
+        }
     }
 
     void recz(final int i, final float f, final int i49) {
         rz[i49][i][nry[i49][i]] = 300;
         magz[i49][i][nry[i49][i]] = (int) f;
         nrz[i49][i]++;
-        if (nrz[i49][i] == 7)
+        if (nrz[i49][i] == 7) {
             nrz[i49][i] = 0;
+        }
     }
 
     private void regx(final int i, float f, final ContO conto, final Mad mad) {
         if (Math.abs(f) > 100.0F) {
-            if (f > 100.0F)
+            if (f > 100.0F) {
                 f -= 100.0F;
-            if (f < -100.0F)
+            }
+            if (f < -100.0F) {
                 f += 100.0F;
+            }
             for (int i62 = 0; i62 < conto.npl; i62++) {
                 float f63 = 0.0F;
                 for (int i64 = 0; i64 < conto.p[i62].n; i64++)
-                    if (conto.p[i62].wz == 0 && py(conto.keyx[i], conto.p[i62].ox[i64], conto.keyz[i],
-                            conto.p[i62].oz[i64]) < mad.cd.clrad[mad.cn]) {
+                    if (conto.p[i62].wz == 0
+                            && py(conto.keyx[i], conto.p[i62].ox[i64], conto.keyz[i], conto.p[i62].oz[i64]) < mad.cd.clrad[mad.cn]) {
                         f63 = f / 20.0F * m.random();
                         conto.p[i62].oz[i64] -= f63 * m.sin(conto.xz) * m.cos(conto.zy);
                         conto.p[i62].ox[i64] += f63 * m.cos(conto.xz) * m.cos(conto.xy);
@@ -473,34 +517,40 @@ class Record {
                         conto.p[i62].ctmag = f63;
                     }
                     if (!conto.p[i62].nocol && conto.p[i62].glass != 1) {
-                        if (conto.p[i62].bfase > 20 && conto.p[i62].hsb[1] > 0.2)
+                        if (conto.p[i62].bfase > 20 && conto.p[i62].hsb[1] > 0.2) {
                             conto.p[i62].hsb[1] = 0.2F;
-                        if (conto.p[i62].bfase > 30) {
-                            if (conto.p[i62].hsb[2] < 0.5)
-                                conto.p[i62].hsb[2] = 0.5F;
-                            if (conto.p[i62].hsb[1] > 0.1)
-                                conto.p[i62].hsb[1] = 0.1F;
                         }
-                        if (conto.p[i62].bfase > 40)
+                        if (conto.p[i62].bfase > 30) {
+                            if (conto.p[i62].hsb[2] < 0.5) {
+                                conto.p[i62].hsb[2] = 0.5F;
+                            }
+                            if (conto.p[i62].hsb[1] > 0.1) {
+                                conto.p[i62].hsb[1] = 0.1F;
+                            }
+                        }
+                        if (conto.p[i62].bfase > 40) {
                             conto.p[i62].hsb[1] = 0.05F;
+                        }
                         if (conto.p[i62].bfase > 50) {
-                            if (conto.p[i62].hsb[2] > 0.8)
+                            if (conto.p[i62].hsb[2] > 0.8) {
                                 conto.p[i62].hsb[2] = 0.8F;
+                            }
                             conto.p[i62].hsb[0] = 0.075F;
                             conto.p[i62].hsb[1] = 0.05F;
                         }
-                        if (conto.p[i62].bfase > 60)
+                        if (conto.p[i62].bfase > 60) {
                             conto.p[i62].hsb[0] = 0.05F;
+                        }
                         conto.p[i62].bfase += Math.abs(f63);
                         new Color(conto.p[i62].c[0], conto.p[i62].c[1], conto.p[i62].c[2]);
-                        final Color color = Color.getHSBColor(conto.p[i62].hsb[0], conto.p[i62].hsb[1],
-                                conto.p[i62].hsb[2]);
+                        final Color color = Color.getHSBColor(conto.p[i62].hsb[0], conto.p[i62].hsb[1], conto.p[i62].hsb[2]);
                         conto.p[i62].c[0] = color.getRed();
                         conto.p[i62].c[1] = color.getGreen();
                         conto.p[i62].c[2] = color.getBlue();
                     }
-                    if (conto.p[i62].glass == 1)
+                    if (conto.p[i62].glass == 1) {
                         conto.p[i62].gr += Math.abs(f63 * 1.5);
+                    }
                 }
             }
         }
@@ -514,31 +564,35 @@ class Record {
             int i52 = conto.zy;
             int i53 = conto.xy;
             for (/**/; i52 < 360; i52 += 360) {
-                
+
             }
             for (/**/; i52 > 360; i52 -= 360) {
-                
+
             }
-            if (i52 < 210 && i52 > 150)
+            if (i52 < 210 && i52 > 150) {
                 i50 = -1;
-            if (i52 > 330 || i52 < 30)
+            }
+            if (i52 > 330 || i52 < 30) {
                 i50 = 1;
+            }
             for (/**/; i53 < 360; i53 += 360) {
-                
+
             }
             for (/**/; i53 > 360; i53 -= 360) {
-                
+
             }
-            if (i53 < 210 && i53 > 150)
+            if (i53 < 210 && i53 > 150) {
                 i51 = -1;
-            if (i53 > 330 || i53 < 30)
+            }
+            if (i53 > 330 || i53 < 30) {
                 i51 = 1;
-            if (i51 * i50 == 0 || bool)
+            }
+            if (i51 * i50 == 0 || bool) {
                 for (int i54 = 0; i54 < conto.npl; i54++) {
                     float f55 = 0.0F;
                     for (int i56 = 0; i56 < conto.p[i54].n; i56++)
-                        if (conto.p[i54].wz == 0 && py(conto.keyx[i], conto.p[i54].ox[i56], conto.keyz[i],
-                                conto.p[i54].oz[i56]) < mad.cd.clrad[mad.cn]) {
+                        if (conto.p[i54].wz == 0
+                                && py(conto.keyx[i], conto.p[i54].ox[i56], conto.keyz[i], conto.p[i54].oz[i56]) < mad.cd.clrad[mad.cn]) {
                             f55 = f / 20.0F * m.random();
                             conto.p[i54].oz[i56] += f55 * m.sin(i52);
                             conto.p[i54].ox[i56] -= f55 * m.sin(i53);
@@ -549,36 +603,43 @@ class Record {
                             conto.p[i54].ctmag = f55;
                         }
                         if (!conto.p[i54].nocol && conto.p[i54].glass != 1) {
-                            if (conto.p[i54].bfase > 20 && conto.p[i54].hsb[1] > 0.2)
+                            if (conto.p[i54].bfase > 20 && conto.p[i54].hsb[1] > 0.2) {
                                 conto.p[i54].hsb[1] = 0.2F;
-                            if (conto.p[i54].bfase > 30) {
-                                if (conto.p[i54].hsb[2] < 0.5)
-                                    conto.p[i54].hsb[2] = 0.5F;
-                                if (conto.p[i54].hsb[1] > 0.1)
-                                    conto.p[i54].hsb[1] = 0.1F;
                             }
-                            if (conto.p[i54].bfase > 40)
+                            if (conto.p[i54].bfase > 30) {
+                                if (conto.p[i54].hsb[2] < 0.5) {
+                                    conto.p[i54].hsb[2] = 0.5F;
+                                }
+                                if (conto.p[i54].hsb[1] > 0.1) {
+                                    conto.p[i54].hsb[1] = 0.1F;
+                                }
+                            }
+                            if (conto.p[i54].bfase > 40) {
                                 conto.p[i54].hsb[1] = 0.05F;
+                            }
                             if (conto.p[i54].bfase > 50) {
-                                if (conto.p[i54].hsb[2] > 0.8)
+                                if (conto.p[i54].hsb[2] > 0.8) {
                                     conto.p[i54].hsb[2] = 0.8F;
+                                }
                                 conto.p[i54].hsb[0] = 0.075F;
                                 conto.p[i54].hsb[1] = 0.05F;
                             }
-                            if (conto.p[i54].bfase > 60)
+                            if (conto.p[i54].bfase > 60) {
                                 conto.p[i54].hsb[0] = 0.05F;
+                            }
                             conto.p[i54].bfase += f55;
                             new Color(conto.p[i54].c[0], conto.p[i54].c[1], conto.p[i54].c[2]);
-                            final Color color = Color.getHSBColor(conto.p[i54].hsb[0], conto.p[i54].hsb[1],
-                                    conto.p[i54].hsb[2]);
+                            final Color color = Color.getHSBColor(conto.p[i54].hsb[0], conto.p[i54].hsb[1], conto.p[i54].hsb[2]);
                             conto.p[i54].c[0] = color.getRed();
                             conto.p[i54].c[1] = color.getGreen();
                             conto.p[i54].c[2] = color.getBlue();
                         }
-                        if (conto.p[i54].glass == 1)
+                        if (conto.p[i54].glass == 1) {
                             conto.p[i54].gr += Math.abs(f55 * 1.5);
+                        }
                     }
                 }
+            }
             if (i51 * i50 == -1) {
                 int i57 = 0;
                 int i58 = 1;
@@ -587,9 +648,8 @@ class Record {
                     for (int i61 = 0; i61 < conto.p[i59].n; i61++)
                         if (conto.p[i59].wz == 0) {
                             f60 = f / 15.0F * m.random();
-                            if ((Math
-                                    .abs(conto.p[i59].oy[i61] - mad.cd.flipy[mad.cn]
-                                            - squash[0][mad.im]) < mad.cd.msquash[mad.cn] * 3
+                            if ((Math.abs(conto.p[i59].oy[i61] - mad.cd.flipy[mad.cn]
+                                    - squash[0][mad.im]) < mad.cd.msquash[mad.cn] * 3
                                     || conto.p[i59].oy[i61] < mad.cd.flipy[mad.cn] + squash[0][mad.im])
                                     && squash[0][mad.im] < mad.cd.msquash[mad.cn]) {
                                 conto.p[i59].oy[i61] += f60;
@@ -597,10 +657,11 @@ class Record {
                                 i58++;
                             }
                         }
-                    if (conto.p[i59].glass == 1)
+                    if (conto.p[i59].glass == 1) {
                         conto.p[i59].gr += 5;
-                    else if (f60 != 0.0F)
+                    } else if (f60 != 0.0F) {
                         conto.p[i59].bfase += f60;
+                    }
                     if (Math.abs(f60) >= 1.0F) {
                         conto.p[i59].chip = 1;
                         conto.p[i59].ctmag = f60;
@@ -613,15 +674,17 @@ class Record {
 
     private void regz(final int i, float f, final ContO conto, final Mad mad) {
         if (Math.abs(f) > 100.0F) {
-            if (f > 100.0F)
+            if (f > 100.0F) {
                 f -= 100.0F;
-            if (f < -100.0F)
+            }
+            if (f < -100.0F) {
                 f += 100.0F;
+            }
             for (int i65 = 0; i65 < conto.npl; i65++) {
                 float f66 = 0.0F;
                 for (int i67 = 0; i67 < conto.p[i65].n; i67++)
-                    if (conto.p[i65].wz == 0 && py(conto.keyx[i], conto.p[i65].ox[i67], conto.keyz[i],
-                            conto.p[i65].oz[i67]) < mad.cd.clrad[mad.cn]) {
+                    if (conto.p[i65].wz == 0
+                            && py(conto.keyx[i], conto.p[i65].ox[i67], conto.keyz[i], conto.p[i65].oz[i67]) < mad.cd.clrad[mad.cn]) {
                         f66 = f / 20.0F * m.random();
                         conto.p[i65].oz[i67] += f66 * m.cos(conto.xz) * m.cos(conto.zy);
                         conto.p[i65].ox[i67] += f66 * m.sin(conto.xz) * m.cos(conto.xy);
@@ -632,34 +695,40 @@ class Record {
                         conto.p[i65].ctmag = f66;
                     }
                     if (!conto.p[i65].nocol && conto.p[i65].glass != 1) {
-                        if (conto.p[i65].bfase > 20 && conto.p[i65].hsb[1] > 0.2)
+                        if (conto.p[i65].bfase > 20 && conto.p[i65].hsb[1] > 0.2) {
                             conto.p[i65].hsb[1] = 0.2F;
-                        if (conto.p[i65].bfase > 30) {
-                            if (conto.p[i65].hsb[2] < 0.5)
-                                conto.p[i65].hsb[2] = 0.5F;
-                            if (conto.p[i65].hsb[1] > 0.1)
-                                conto.p[i65].hsb[1] = 0.1F;
                         }
-                        if (conto.p[i65].bfase > 40)
+                        if (conto.p[i65].bfase > 30) {
+                            if (conto.p[i65].hsb[2] < 0.5) {
+                                conto.p[i65].hsb[2] = 0.5F;
+                            }
+                            if (conto.p[i65].hsb[1] > 0.1) {
+                                conto.p[i65].hsb[1] = 0.1F;
+                            }
+                        }
+                        if (conto.p[i65].bfase > 40) {
                             conto.p[i65].hsb[1] = 0.05F;
+                        }
                         if (conto.p[i65].bfase > 50) {
-                            if (conto.p[i65].hsb[2] > 0.8)
+                            if (conto.p[i65].hsb[2] > 0.8) {
                                 conto.p[i65].hsb[2] = 0.8F;
+                            }
                             conto.p[i65].hsb[0] = 0.075F;
                             conto.p[i65].hsb[1] = 0.05F;
                         }
-                        if (conto.p[i65].bfase > 60)
+                        if (conto.p[i65].bfase > 60) {
                             conto.p[i65].hsb[0] = 0.05F;
+                        }
                         conto.p[i65].bfase += Math.abs(f66);
                         new Color(conto.p[i65].c[0], conto.p[i65].c[1], conto.p[i65].c[2]);
-                        final Color color = Color.getHSBColor(conto.p[i65].hsb[0], conto.p[i65].hsb[1],
-                                conto.p[i65].hsb[2]);
+                        final Color color = Color.getHSBColor(conto.p[i65].hsb[0], conto.p[i65].hsb[1], conto.p[i65].hsb[2]);
                         conto.p[i65].c[0] = color.getRed();
                         conto.p[i65].c[1] = color.getGreen();
                         conto.p[i65].c[2] = color.getBlue();
                     }
-                    if (conto.p[i65].glass == 1)
+                    if (conto.p[i65].glass == 1) {
                         conto.p[i65].gr += Math.abs(f66 * 1.5);
+                    }
                 }
             }
         }
@@ -673,25 +742,29 @@ class Record {
         closefinish = 0;
         powered = 0;
         for (int i = 0; i < 8; i++) {
-            if (prepit)
+            if (prepit) {
                 starcar[i] = new ContO(contos[i], 0, 0, 0, 0);
+            }
             fix[i] = -1;
             dest[i] = -1;
             cntdest[i] = 0;
         }
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 6; i++) {
             for (int i0 = 0; i0 < 8; i0++) {
                 car[i][i0] = new ContO(contos[i0], 0, 0, 0, 0);
                 squash[i][i0] = 0;
             }
+        }
         for (int i = 0; i < 8; i++) {
             nr[i] = 0;
-            for (int i1 = 0; i1 < 200; i1++)
+            for (int i1 = 0; i1 < 200; i1++) {
                 rspark[i][i1] = -1;
+            }
             for (int i2 = 0; i2 < 20; i2++) {
                 ns[i][i2] = 0;
-                for (int i3 = 0; i3 < 30; i3++)
+                for (int i3 = 0; i3 < 30; i3++) {
                     sspark[i][i2][i3] = -1;
+                }
             }
             for (int i4 = 0; i4 < 4; i4++) {
                 nry[i][i4] = 0;

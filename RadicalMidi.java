@@ -116,10 +116,11 @@ class RadicalMidi implements RadicalMusic {
     public void setPaused(final boolean paused) {
         if (this.paused != paused && sequencer != null && sequencer.isOpen()) {
             this.paused = paused;
-            if (paused)
+            if (paused) {
                 sequencer.stop();
-            else
+            } else {
                 sequencer.start();
+            }
         }
     }
 

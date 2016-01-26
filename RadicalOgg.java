@@ -5,10 +5,6 @@ import org.newdawn.easyogg.OggClip;
 class RadicalOgg implements RadicalMusic {
 
     private boolean paused;
-    private boolean loaded;
-    private boolean playing;
-    private String s;
-
     private OggClip ogg;
 
     /**
@@ -22,9 +18,6 @@ class RadicalOgg implements RadicalMusic {
      *            the file name of the file to load.
      */
     public RadicalOgg(final String fn) {
-        loaded = false;
-        playing = false;
-        s = fn;
         try {
             ogg = new OggClip(fn);
         } catch (final IOException e) {
@@ -56,10 +49,11 @@ class RadicalOgg implements RadicalMusic {
     @Override
     public void setPaused(final boolean paused) {
         this.paused = paused;
-        if (paused)
+        if (paused) {
             ogg.pause();
-        else
+        } else {
             ogg.resume();
+        }
     }
 
     /**

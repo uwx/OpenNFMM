@@ -22,18 +22,17 @@ import java.net.Socket;
 import java.util.Date;
 
 class Login implements Runnable {
-    private int[] bgmy = {
+    private final int[] bgmy = {
             0, 400, 800
     };
     private int btn = 0;
-    private boolean btroom = false;
-    private int[] bw = {
+    private final int[] bw = {
             0, 0, 0, 0, 0, 0
     };
-    private int[] bx = {
+    private final int[] bx = {
             0, 0, 0, 0, 0, 0
     };
-    private int[] by = {
+    private final int[] by = {
             0, 0, 0, 0, 0, 0
     };
     private int cax = 0;
@@ -41,12 +40,11 @@ class Login implements Runnable {
     private boolean checknote = false;
     String clanapv = "";
     private int cntcl = 0;
-    private int cntgame = 0;
     private Thread connector;
     private boolean contrb = false;
     private BufferedReader din;
     private PrintWriter dout;
-    private DatagramSocket[] dSocket = new DatagramSocket[3];
+    private final DatagramSocket[] dSocket = new DatagramSocket[3];
     private int errcnt = 0;
     int fase = 0;
     int fclan = 0;
@@ -56,19 +54,17 @@ class Login implements Runnable {
     int gamec = -1;
     private String gmaker = "";
     private boolean gotcai = false;
-    private int groom = 0;
-    private GameSparker gs;
-    private String gservern = "";
-    private InetAddress[] IPAddress = new InetAddress[3];
+    private final GameSparker gs;
+    private final InetAddress[] IPAddress = new InetAddress[3];
     boolean jflk = false;
     boolean justlog = false;
     private String lemail = "";
     private String lnick = "";
     private String lpass = "";
-    private int lrgfase = 0;
+    private final int lrgfase = 0;
     private int lxm = 0;
     private int lym = 0;
-    private Medium m;
+    private final Medium m;
     private String msg = "";
     private int ncnt = 0;
     int nconf = 0;
@@ -87,25 +83,25 @@ class Login implements Runnable {
     private int oym = 0;
     private int pend = 0;
     private boolean pendb = false;
-    private boolean[] pessd = {
+    private final boolean[] pessd = {
             false, false, false, false, false, false
     };
-    private Graphics2D rd;
+    private final Graphics2D rd;
     private int recom = 0;
     private boolean resofaso = false;
-    private int[] rmps = {
+    private final int[] rmps = {
             0, 0, 0, 0, 0
     };
-    private int[] rmwt = {
+    private final int[] rmwt = {
             0, 0, 0, 0, 0
     };
-    private int[] serverdone = {
+    private final int[] serverdone = {
             -1, -1, -1
     };
     String[] servers = {
             "multiplayer.needformadness.com", "avenger.needformadness.com", "ghostrider.needformadness.com"
     };
-    private long[] servestart = {
+    private final long[] servestart = {
             0L, 0L, 0L
     };
     private boolean showtf = false;
@@ -118,18 +114,19 @@ class Login implements Runnable {
     private int trans = 0;
     private int xrl = 0;
     private int xrr = 0;
-    private xtGraphics xt;
+    private final xtGraphics xt;
 
-    Login(final Medium medium, final Graphics2D graphics2d, final xtGraphics xtgraphics,
-            final GameSparker gamesparker) {
+    Login(final Medium medium, final Graphics2D graphics2d, final xtGraphics xtgraphics, final GameSparker gamesparker) {
         m = medium;
         rd = graphics2d;
         xt = xtgraphics;
         gs = gamesparker;
-        if (xt.playingame != -1)
+        if (xt.playingame != -1) {
             fase = 18;
-        if (xt.nofull)
+        }
+        if (xt.nofull) {
             nservers = 1;
+        }
     }
 
     public void checkgamealerts() {
@@ -145,18 +142,18 @@ class Login implements Runnable {
                     final String string12 = getSvalue(string, 2);
                     final int i13 = getvalue(string, 3);
                     boolean bool = false;
-                    if (!string12.equals(xt.servername) || i13 != xt.servport - 7070)
+                    if (!string12.equals(xt.servername) || i13 != xt.servport - 7070) {
                         for (int i14 = 0; i14 < nservers; i14++)
-                            if (string12.equals(snames[i14]) && xt.delays[i14] < 300)
+                            if (string12.equals(snames[i14]) && xt.delays[i14] < 300) {
                                 bool = true;
+                            }
+                    }
                     if (bool) {
                         gmaker = getSvalue(string, 1);
-                        if (gmaker.equals(xt.nickname))
+                        if (gmaker.equals(xt.nickname)) {
                             gmaker = "You";
-                        groom = i13;
-                        gservern = string12;
+                        }
                         gamec = i;
-                        cntgame = 0;
                     }
                 }
             }
@@ -164,7 +161,7 @@ class Login implements Runnable {
             din.close();
             dout.close();
         } catch (final Exception exception) {
-            
+
         }
     }
 
@@ -182,20 +179,24 @@ class Login implements Runnable {
 
     void ctachm(final int i, final int i47, final int i48, final Control control, final Lobby lobby) {
         int i49 = -1;
-        if (fase != 2 && fase != 4 && fase != 6 && fase != 8 && fase != 9)
+        if (fase != 2 && fase != 4 && fase != 6 && fase != 8 && fase != 9) {
             for (int i50 = 0; i50 < btn; i50++) {
-                if (Math.abs(i - bx[i50]) < bw[i50] / 2 + 12 && Math.abs(i47 - by[i50]) < 14 && (i48 == 1 || i48 == 11))
+                if (Math.abs(i - bx[i50]) < bw[i50] / 2 + 12 && Math.abs(i47 - by[i50]) < 14
+                        && (i48 == 1 || i48 == 11)) {
                     pessd[i50] = true;
-                else
+                } else {
                     pessd[i50] = false;
+                }
                 if (Math.abs(i - bx[i50]) < bw[i50] / 2 + 12 && Math.abs(i47 - by[i50]) < 14 && i48 <= -1) {
                     gs.mouses = 0;
                     i49 = i50;
                 }
                 if (fase == 12 && Math.abs(i - bx[i50]) < bw[i50] / 2 + 12 && Math.abs(i47 - by[i50]) < 14
-                        && (i50 == 3 || i50 == 4) && (i != lxm || i47 != lym))
+                        && (i50 == 3 || i50 == 4) && (i != lxm || i47 != lym)) {
                     opselect = i50 - 3;
+                }
             }
+        }
         if (i49 == 0) {
             gs.tnick.setVisible(false);
             gs.tpass.setVisible(false);
@@ -228,8 +229,9 @@ class Login implements Runnable {
                     gs.editlink(xt.nickname, false);
                     cntcl = 10;
                 }
-            } else
+            } else {
                 cntcl--;
+            }
             if (i49 == i51) {
                 i49 = -1;
                 if (xt.sc[0] >= 16) {
@@ -250,14 +252,16 @@ class Login implements Runnable {
             if (xt.acexp == 0 || contrb) {
                 if (control.up) {
                     opselect--;
-                    if (opselect == -1)
+                    if (opselect == -1) {
                         opselect = 1;
+                    }
                     control.up = false;
                 }
                 if (control.down) {
                     opselect++;
-                    if (opselect == 2)
+                    if (opselect == 2) {
                         opselect = 0;
+                    }
                     control.down = false;
                 }
                 if (control.enter) {
@@ -269,8 +273,9 @@ class Login implements Runnable {
                     fase = 15;
                     i49 = -1;
                 }
-                if (!xt.logged && i49 == i51 + 3)
+                if (!xt.logged && i49 == i51 + 3) {
                     gs.editlink(xt.nickname, true);
+                }
             } else {
                 if (xt.acexp > 0) {
                     if (i49 == i51 + 1 || control.enter) {
@@ -336,13 +341,15 @@ class Login implements Runnable {
                 }
             }
         if (fase == 13 || fase == 14 || fase == 15 || fase == 16 || fase == 17) {
-            if (control.exit)
+            if (control.exit) {
                 i49 = 3;
+            }
             if (i49 == i51 + 1) {
-                if (fase == 15)
+                if (fase == 15) {
                     opselect = 1;
-                else
+                } else {
                     opselect = 0;
+                }
                 if (fase == 16 || fase == 17) {
                     if (connector != null) {
                         connector.stop();
@@ -356,7 +363,7 @@ class Login implements Runnable {
                         dout.close();
                         dout = null;
                     } catch (final Exception exception) {
-                        
+
                     }
                     fase = 12;
                     connector = new Thread(this);
@@ -367,13 +374,14 @@ class Login implements Runnable {
                         connector.stop();
                         connector = null;
                     }
-                    for (int i52 = 0; i52 < nservers; i52++)
+                    for (int i52 = 0; i52 < nservers; i52++) {
                         try {
                             dSocket[i52].close();
                             dSocket[i52] = null;
                         } catch (final Exception exception) {
-                            
+
                         }
+                    }
                     socketson = false;
                     fase = 12;
                     connector = new Thread(this);
@@ -389,9 +397,9 @@ class Login implements Runnable {
                 pessd[4] = true;
             }
             if (i49 == i51 + 2)
-                if (xt.nofull)
+                if (xt.nofull) {
                     nflk = 30;
-                else {
+                } else {
                     xt.server = servers[1];
                     xt.servername = snames[1];
                     xt.servport = 7067;
@@ -408,19 +416,22 @@ class Login implements Runnable {
             }
             if (control.up) {
                 opselect--;
-                if (opselect == -1)
+                if (opselect == -1) {
                     opselect = 4;
+                }
                 control.up = false;
             }
             if (control.down) {
                 opselect++;
-                if (opselect == 5)
+                if (opselect == 5) {
                     opselect = 0;
+                }
                 control.down = false;
             }
             for (int i54 = 0; i54 < 5; i54++)
-                if (i > 175 && i47 > 230 + i54 * 20 + 14 && i < 625 && i47 < 250 + i54 * 20 + 14 && i48 == 1)
+                if (i > 175 && i47 > 230 + i54 * 20 + 14 && i < 625 && i47 < 250 + i54 * 20 + 14 && i48 == 1) {
                     opselect = i54;
+                }
             if (i49 == i51 + 2) {
                 xt.servport = 7071 + opselect;
                 xt.lan = false;
@@ -483,8 +494,9 @@ class Login implements Runnable {
                     connector.start();
                 }
             if (i49 == 3) {
-                if (gs.tnick.getText().equals("Nickname") || msg.startsWith("This"))
+                if (gs.tnick.getText().equals("Nickname") || msg.startsWith("This")) {
                     gs.tnick.setText("");
+                }
                 msg = "Login to access the multiplayer madness!";
                 gs.tnick.setForeground(new Color(0, 0, 0));
                 fase = 3;
@@ -505,8 +517,9 @@ class Login implements Runnable {
                 pessd[2] = true;
                 xt.autolog = false;
             }
-            if (control.exit)
+            if (control.exit) {
                 i49 = 3;
+            }
             if (i49 == 2)
                 if (gs.tnick.getText().equals("")) {
                     msg = "Enter your Nickname!";
@@ -523,18 +536,20 @@ class Login implements Runnable {
                     connector = new Thread(this);
                     connector.start();
                 }
-            if (i49 == 3)
+            if (i49 == 3) {
                 gs.regnew();
+            }
         }
         if (fase == 5) {
             if (control.enter) {
                 i49 = 1;
                 pessd[1] = true;
             }
-            if (control.exit)
+            if (control.exit) {
                 i49 = 2;
+            }
             if (i49 != 1) {
-                
+
             }
             if (i49 == 2) {
                 fase = lrgfase;
@@ -550,8 +565,9 @@ class Login implements Runnable {
                 i49 = 2;
                 pessd[2] = true;
             }
-            if (control.exit)
+            if (control.exit) {
                 i49 = 3;
+            }
             if (i49 == 2) {
                 nflk = 0;
                 if (gs.temail.getText().equals("")) {
@@ -564,10 +580,12 @@ class Login implements Runnable {
                     int i56 = 0;
                     for (/**/ ; i55 < string.length(); i55++) {
                         final String string57 = new StringBuilder().append("").append(string.charAt(i55)).toString();
-                        if (string57.equals("@") && i56 == 0 && i55 != 0)
+                        if (string57.equals("@") && i56 == 0 && i55 != 0) {
                             i56 = 1;
-                        if (string57.equals(".") && i56 == 1 && i55 != string.length() - 1)
+                        }
+                        if (string57.equals(".") && i56 == 1 && i55 != string.length() - 1) {
                             i56 = 2;
+                        }
                     }
                     if (i56 != 2) {
                         msg = "Please type in your Email Address correctly!";
@@ -637,13 +655,14 @@ class Login implements Runnable {
     }
 
     void endcons() {
-        for (int i = 0; i < nservers; i++)
+        for (int i = 0; i < nservers; i++) {
             try {
                 dSocket[i].close();
                 dSocket[i] = null;
             } catch (final Exception exception) {
-                
+
             }
+        }
         try {
             socket.close();
             socket = null;
@@ -652,23 +671,24 @@ class Login implements Runnable {
             dout.close();
             dout = null;
         } catch (final Exception exception) {
-            
+
         }
     }
 
     void exitfromlobby() {
-        if (!xt.lan)
+        if (!xt.lan) {
             opselect = 0;
-        else
+        } else {
             opselect = 1;
+        }
         for (int i = 0; i < nservers; i++) {
             serverdone[i] = -1;
             servestart[i] = 0L;
         }
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 6; i++) {
             pessd[i] = false;
+        }
         gotcai = false;
-        btroom = false;
         m.crs = true;
         m.x = -335;
         m.y = 0;
@@ -701,10 +721,11 @@ class Login implements Runnable {
                     || string67.equals("^") || string67.equals("&") || string67.equals("*") || string67.equals("+")
                     || string67.equals("=") || string67.equals(">") || string67.equals("<") || string67.equals("/")
                     || string67.equals("'") || string67.equals(";") || string67.equals(":")
-                    || string67.equals("\u00a0"))
+                    || string67.equals("\u00a0")) {
                 i66 = i;
-            else
+            } else {
                 string65 = new StringBuilder().append(string65).append(string67).toString();
+            }
         }
         if (i66 != -1) {
             textfield.setText(string65);
@@ -717,14 +738,14 @@ class Login implements Runnable {
             socket = new Socket(servers[0], 7061);
             din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             dout = new PrintWriter(socket.getOutputStream(), true);
-            dout.println(new StringBuilder().append("101|20|").append(xt.nickname).append("|").append(xt.nickey)
-                    .append("|").append(xt.servername).append("|").append(xt.servport - 7070).append("|").toString());
+            dout.println(new StringBuilder().append("101|20|").append(xt.nickname).append("|").append(xt.nickey).append("|").append(xt.servername).append("|").append(xt.servport
+                    - 7070).append("|").toString());
             din.readLine();
             socket.close();
             din.close();
             dout.close();
         } catch (final Exception exception) {
-            
+
         }
     }
 
@@ -740,8 +761,9 @@ class Login implements Runnable {
                 string78 = new StringBuilder().append("").append(string.charAt(i75)).toString();
                 if (string78.equals("|")) {
                     i76++;
-                    if (i77 == 1 || i76 > i)
+                    if (i77 == 1 || i76 > i) {
                         i77 = 2;
+                    }
                 } else if (i76 == i) {
                     string79 = new StringBuilder().append(string79).append(string78).toString();
                     i77 = 1;
@@ -749,7 +771,7 @@ class Login implements Runnable {
             }
             string74 = string79;
         } catch (final Exception exception) {
-            
+
         }
         return string74;
     }
@@ -766,18 +788,20 @@ class Login implements Runnable {
                 string72 = new StringBuilder().append("").append(string.charAt(i69)).toString();
                 if (string72.equals("|")) {
                     i70++;
-                    if (i71 == 1 || i70 > i)
+                    if (i71 == 1 || i70 > i) {
                         i71 = 2;
+                    }
                 } else if (i70 == i) {
                     string73 = new StringBuilder().append(string73).append(string72).toString();
                     i71 = 1;
                 }
             }
-            if (string73.equals(""))
+            if (string73.equals("")) {
                 string73 = "-1";
+            }
             i68 = Integer.valueOf(string73).intValue();
         } catch (final Exception exception) {
-            
+
         }
         return i68;
     }
@@ -800,17 +824,18 @@ class Login implements Runnable {
         gs.keplo.setForeground(new Color(0, 0, 0));
         gs.keplo.setBackground(new Color(193, 181, 142));
         gs.requestFocus();
-        if (gs.tnick.getText().equals(""))
+        if (gs.tnick.getText().equals("")) {
             gs.tnick.setText("Nickname");
-        for (int i = 0; i < 6; i++)
+        }
+        for (int i = 0; i < 6; i++) {
             pessd[i] = false;
+        }
         nflk = 0;
         ncnt = 0;
         errcnt = 0;
         onf = false;
         ond = false;
         msg = "";
-        btroom = false;
         gotcai = false;
         m.crs = true;
         m.x = -335;
@@ -846,8 +871,9 @@ class Login implements Runnable {
         for (int i = 0; i < 3; i++) {
             rd.drawImage(xt.bgmain, 65, bgmy[i], null);
             bgmy[i] -= 4;
-            if (bgmy[i] <= -400)
+            if (bgmy[i] <= -400) {
                 bgmy[i] = 800;
+            }
         }
         rd.setComposite(AlphaComposite.getInstance(3, 0.2F));
         rd.drawImage(xt.bggo, 0, 0, null);
@@ -857,19 +883,23 @@ class Login implements Runnable {
         rd.fillRect(0, 0, 65, 450);
         rd.fillRect(735, 0, 65, 450);
         float f = 1.0F - (flipo - 10) / 80.0F;
-        if (f > 1.0F)
+        if (f > 1.0F) {
             f = 1.0F;
-        if (f < 0.0F)
+        }
+        if (f < 0.0F) {
             f = 0.0F;
+        }
         rd.setComposite(AlphaComposite.getInstance(3, f));
-        if (flipo > 10)
-            rd.drawImage(xt.logomadnes, 96 + (int) (2.0 - Math.random() * 4.0), 11 + (int) (2.0 - Math.random() * 4.0),
-                    null);
-        else
+        if (flipo > 10) {
+            rd.drawImage(xt.logomadnes, 96 + (int) (2.0 - Math.random() * 4.0), 11
+                    + (int) (2.0 - Math.random() * 4.0), null);
+        } else {
             rd.drawImage(xt.logomadnes, 96, 11, null);
+        }
         flipo++;
-        if (flipo > 50)
+        if (flipo > 50) {
             flipo = 0;
+        }
         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
         drawSbutton(xt.exit, 690, 17);
         rd.setComposite(AlphaComposite.getInstance(3, 0.25F));
@@ -885,17 +915,22 @@ class Login implements Runnable {
             int i26 = i;
             int i27 = contos[xt.sc[0]].p[0].oy[0];
             int i28 = i27;
-            for (int i29 = 0; i29 < contos[xt.sc[0]].npl; i29++)
+            for (int i29 = 0; i29 < contos[xt.sc[0]].npl; i29++) {
                 for (int i30 = 0; i30 < contos[xt.sc[0]].p[i29].n; i30++) {
-                    if (contos[xt.sc[0]].p[i29].oz[i30] < i)
+                    if (contos[xt.sc[0]].p[i29].oz[i30] < i) {
                         i = contos[xt.sc[0]].p[i29].oz[i30];
-                    if (contos[xt.sc[0]].p[i29].oz[i30] > i26)
+                    }
+                    if (contos[xt.sc[0]].p[i29].oz[i30] > i26) {
                         i26 = contos[xt.sc[0]].p[i29].oz[i30];
-                    if (contos[xt.sc[0]].p[i29].oy[i30] < i27)
+                    }
+                    if (contos[xt.sc[0]].p[i29].oy[i30] < i27) {
                         i27 = contos[xt.sc[0]].p[i29].oy[i30];
-                    if (contos[xt.sc[0]].p[i29].oy[i30] > i28)
+                    }
+                    if (contos[xt.sc[0]].p[i29].oy[i30] > i28) {
                         i28 = contos[xt.sc[0]].p[i29].oy[i30];
+                    }
                 }
+            }
             cax = (i26 + i) / 2;
             cay = (i28 + i27) / 2;
             gotcai = true;
@@ -911,12 +946,14 @@ class Login implements Runnable {
         rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         if (!pendb) {
             pend += 2;
-            if (pend > 80)
+            if (pend > 80) {
                 pendb = true;
+            }
         } else {
             pend -= 2;
-            if (pend < -10)
+            if (pend < -10) {
                 pendb = false;
+            }
         }
         rd.setFont(new Font("Arial", 1, 13));
         ftm = rd.getFontMetrics();
@@ -925,16 +962,16 @@ class Login implements Runnable {
         rd.setColor(color2k(90, 90, 90));
         rd.drawString(new StringBuilder().append("").append(xt.cd.names[xt.sc[0]]).append("").toString(), 409
                 - ftm.stringWidth(new StringBuilder().append("").append(xt.cd.names[xt.sc[0]]).append("").toString())
-                        / 2,
-                81);
+                        / 2, 81);
         rd.drawString("Nickname", 239 - ftm.stringWidth("Nickname") / 2, 81);
         drawbutton(xt.change, 570, 98);
         drawSbutton(xt.logout, 239, 135);
         rd.setColor(new Color(98, 56, 0));
         rd.drawString("Edit my Account", 239 - ftm.stringWidth("Edit my Account") / 2, 168);
-        if (ond)
-            rd.drawLine(239 - ftm.stringWidth("Edit my Account") / 2, 169,
-                    239 - ftm.stringWidth("Edit my Account") / 2 + ftm.stringWidth("Edit my Account"), 169);
+        if (ond) {
+            rd.drawLine(239 - ftm.stringWidth("Edit my Account") / 2, 169, 239 - ftm.stringWidth("Edit my Account") / 2
+                    + ftm.stringWidth("Edit my Account"), 169);
+        }
         if (fase == 12 || fase == 13 || fase == 14 || fase == 15) {
             final int i = srvtrn;
             if (i < nservers && serverdone[i] != -1) {
@@ -964,8 +1001,8 @@ class Login implements Runnable {
                 if (opselect == 1 && !pessd[4]) {
                     rd.setComposite(AlphaComposite.getInstance(3, 0.25F));
                     rd.setColor(new Color(203, 227, 253));
-                    rd.fillRect(387 - xt.pln.getWidth(ob) / 2, 285 - xt.pln.getHeight(ob) - 5, xt.pln.getWidth(ob) + 26,
-                            26);
+                    rd.fillRect(387 - xt.pln.getWidth(ob) / 2, 285 - xt.pln.getHeight(ob) - 5, xt.pln.getWidth(ob)
+                            + 26, 26);
                     rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
                 }
                 drawbutton(xt.pln, 400, 285 - xt.pln.getHeight(ob) / 2);
@@ -978,18 +1015,15 @@ class Login implements Runnable {
                 rd.drawRoundRect(165, 219, 470, 135, 20, 20);
                 if (xt.acexp > 0) {
                     rd.setColor(new Color(0, 0, 0));
-                    rd.drawString(new StringBuilder().append("Dear ").append(xt.nickname).append(",").toString(), 185,
-                            245);
-                    rd.drawString(new StringBuilder().append("Your account is due to expire in ").append(xt.acexp)
-                            .append(" days.").toString(), 185, 265);
+                    rd.drawString(new StringBuilder().append("Dear ").append(xt.nickname).append(",").toString(), 185, 245);
+                    rd.drawString(new StringBuilder().append("Your account is due to expire in ").append(xt.acexp).append(" days.").toString(), 185, 265);
                     rd.drawString("Renew your registration soon!", 185, 295);
                     stringbutton("Renew my Account Registration now!", 345, 332, 0);
                     stringbutton("Renew Later", 524, 332, 0);
                 }
                 if (xt.acexp == -1) {
                     rd.setColor(new Color(0, 0, 0));
-                    rd.drawString(new StringBuilder().append("Dear ").append(xt.nickname).append(",").toString(), 185,
-                            245);
+                    rd.drawString(new StringBuilder().append("Dear ").append(xt.nickname).append(",").toString(), 185, 245);
                     rd.drawString("Your Need for Madness account registration has expired.", 185, 265);
                     rd.drawString("Please renew your registration.", 185, 295);
                     stringbutton("Renew my account registration now!", 362, 332, 0);
@@ -997,8 +1031,7 @@ class Login implements Runnable {
                 }
                 if (xt.acexp == -2) {
                     rd.setColor(new Color(0, 0, 0));
-                    rd.drawString(new StringBuilder().append("Dear ").append(xt.nickname).append(",").toString(), 185,
-                            245);
+                    rd.drawString(new StringBuilder().append("Dear ").append(xt.nickname).append(",").toString(), 185, 245);
                     rd.drawString("Trial accounts are not allowed to access the downloaded game.", 185, 265);
                     rd.drawString("You can only play the game online using your trial account.", 185, 295);
                     stringbutton("Play the multiplayer online!", 362, 332, 0);
@@ -1015,10 +1048,11 @@ class Login implements Runnable {
                 }
             }
         if (fase == 15) {
-            if (trans < 100)
+            if (trans < 100) {
                 rd.drawImage(xt.pln, 400 - xt.pln.getWidth(ob) / 2, 315 - xt.pln.getHeight(ob) / 2 - 12 - trans, null);
-            else
+            } else {
                 rd.drawImage(xt.pln, 400 - xt.pln.getWidth(ob) / 2, 215 - xt.pln.getHeight(ob) / 2 - 12, null);
+            }
             if (trans >= 100) {
                 rd.setColor(color2k(255, 255, 255));
                 rd.fillRoundRect(165, 219, 470, 150, 20, 20);
@@ -1031,46 +1065,43 @@ class Login implements Runnable {
                         rd.setFont(new Font("Arial", 1, 13));
                         ftm = rd.getFontMetrics();
                         rd.setColor(new Color(200, 0, 0));
-                        rd.drawString("Sorry. You did not allow the game full permissions when you started it.", 175,
-                                242);
+                        rd.drawString("Sorry. You did not allow the game full permissions when you started it.", 175, 242);
                         rd.setFont(new Font("Arial", 0, 13));
                         ftm = rd.getFontMetrics();
                         rd.setColor(new Color(0, 0, 0));
-                        rd.drawString("(You didn't click 'Run' at the prompt that came up at the start of the game).",
-                                175, 262);
+                        rd.drawString("(You didn't click 'Run' at the prompt that came up at the start of the game).", 175, 262);
                         rd.drawString("Because of this the game will not be able to create LAN connections!", 175, 288);
                         rd.setFont(new Font("Arial", 1, 13));
                         ftm = rd.getFontMetrics();
-                        rd.drawString("Please restart the game and allow Java full permissions to be able to", 175,
-                                315);
+                        rd.drawString("Please restart the game and allow Java full permissions to be able to", 175, 315);
                         rd.drawString("play LAN games!", 175, 332);
                         rd.setFont(new Font("Arial", 0, 13));
                         ftm = rd.getFontMetrics();
                         rd.drawString("(Close ALL browser windows including this one then", 295, 332);
-                        rd.drawString("start the game again but click 'Run' when asked to 'run this application'. )",
-                                175, 349);
+                        rd.drawString("start the game again but click 'Run' when asked to 'run this application'. )", 175, 349);
                     }
-                    if (nflk != 0)
+                    if (nflk != 0) {
                         nflk--;
+                    }
                 } else {
                     rd.drawString("Play a multiplayer game across your Local Area Network (LAN).", 179, 245);
                     rd.drawString("Experience the game live with zero delay and 100% real-time action!", 179, 262);
                     rd.setFont(new Font("Arial", 0, 13));
                     ftm = rd.getFontMetrics();
-                    rd.drawString("This is for if there is more then one computer connected to your network or", 179,
-                            292);
+                    rd.drawString("This is for if there is more then one computer connected to your network or", 179, 292);
                     rd.drawString("if you are in a computer lab or in an internet caf\u00e9.", 179, 309);
-                    rd.drawString("You can also invite your friends to come over with their Laptop PCs or Macs", 179,
-                            335);
+                    rd.drawString("You can also invite your friends to come over with their Laptop PCs or Macs", 179, 335);
                     rd.drawString("to log on to your internet connection/network and play with you!", 179, 352);
                 }
                 drawbutton(xt.cancel, 583, 395);
                 drawbutton(xt.play, 400, 395);
-            } else
+            } else {
                 trans += 10;
+            }
         }
-        if (resofaso)
+        if (resofaso) {
             resofaso = false;
+        }
     }
 
     void multistart(final ContO[] contos, final int i, final int i38, final boolean bool) {
@@ -1079,8 +1110,9 @@ class Login implements Runnable {
         for (int i39 = 0; i39 < 3; i39++) {
             rd.drawImage(xt.bgmain, 65, bgmy[i39], null);
             bgmy[i39] -= 4;
-            if (bgmy[i39] <= -400)
+            if (bgmy[i39] <= -400) {
                 bgmy[i39] = 800;
+            }
         }
         rd.setComposite(AlphaComposite.getInstance(3, 0.2F));
         rd.drawImage(xt.bggo, 0, 0, null);
@@ -1090,19 +1122,23 @@ class Login implements Runnable {
         rd.fillRect(0, 0, 65, 450);
         rd.fillRect(735, 0, 65, 450);
         float f = 1.0F - (flipo - 10) / 80.0F;
-        if (f > 1.0F)
+        if (f > 1.0F) {
             f = 1.0F;
-        if (f < 0.0F)
+        }
+        if (f < 0.0F) {
             f = 0.0F;
+        }
         rd.setComposite(AlphaComposite.getInstance(3, f));
-        if (flipo > 10)
-            rd.drawImage(xt.logomadnes, 96 + (int) (2.0 - Math.random() * 4.0), 11 + (int) (2.0 - Math.random() * 4.0),
-                    null);
-        else
+        if (flipo > 10) {
+            rd.drawImage(xt.logomadnes, 96 + (int) (2.0 - Math.random() * 4.0), 11
+                    + (int) (2.0 - Math.random() * 4.0), null);
+        } else {
             rd.drawImage(xt.logomadnes, 96, 11, null);
+        }
         flipo++;
-        if (flipo > 50)
+        if (flipo > 50) {
             flipo = 0;
+        }
         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
         int i40 = 0;
         if (i != oxm || i38 != oym) {
@@ -1110,8 +1146,9 @@ class Login implements Runnable {
             oxm = i;
             oym = i38;
         }
-        if (bool)
+        if (bool) {
             i40 = 2;
+        }
         rd.setComposite(AlphaComposite.getInstance(3, 0.3F));
         rd.drawImage(xt.dude[i40], 87, 76, null);
         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
@@ -1128,27 +1165,31 @@ class Login implements Runnable {
             rd.fillRoundRect(246, 83, 180, 96, 20, 20);
             rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
             rd.setColor(color2k(90, 90, 90));
-            rd.drawString(new StringBuilder().append("").append(xt.cd.names[xt.sc[0]]).append("").toString(),
-                    336 - ftm.stringWidth(
-                            new StringBuilder().append("").append(xt.cd.names[xt.sc[0]]).append("").toString()) / 2,
-                    81);
+            rd.drawString(new StringBuilder().append("").append(xt.cd.names[xt.sc[0]]).append("").toString(), 336
+                    - ftm.stringWidth(new StringBuilder().append("").append(xt.cd.names[xt.sc[0]]).append("").toString())
+                            / 2, 81);
             rd.drawRoundRect(246, 83, 180, 96, 20, 20);
             if (!gotcai) {
                 int i41 = contos[xt.sc[0]].p[0].oz[0];
                 int i42 = i41;
                 int i43 = contos[xt.sc[0]].p[0].oy[0];
                 int i44 = i43;
-                for (int i45 = 0; i45 < contos[xt.sc[0]].npl; i45++)
+                for (int i45 = 0; i45 < contos[xt.sc[0]].npl; i45++) {
                     for (int i46 = 0; i46 < contos[xt.sc[0]].p[i45].n; i46++) {
-                        if (contos[xt.sc[0]].p[i45].oz[i46] < i41)
+                        if (contos[xt.sc[0]].p[i45].oz[i46] < i41) {
                             i41 = contos[xt.sc[0]].p[i45].oz[i46];
-                        if (contos[xt.sc[0]].p[i45].oz[i46] > i42)
+                        }
+                        if (contos[xt.sc[0]].p[i45].oz[i46] > i42) {
                             i42 = contos[xt.sc[0]].p[i45].oz[i46];
-                        if (contos[xt.sc[0]].p[i45].oy[i46] < i43)
+                        }
+                        if (contos[xt.sc[0]].p[i45].oy[i46] < i43) {
                             i43 = contos[xt.sc[0]].p[i45].oy[i46];
-                        if (contos[xt.sc[0]].p[i45].oy[i46] > i44)
+                        }
+                        if (contos[xt.sc[0]].p[i45].oy[i46] > i44) {
                             i44 = contos[xt.sc[0]].p[i45].oy[i46];
+                        }
                     }
+                }
                 cax = (i42 + i41) / 2;
                 cay = (i44 + i43) / 2;
                 gotcai = true;
@@ -1164,12 +1205,14 @@ class Login implements Runnable {
             rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
             if (!pendb) {
                 pend += 2;
-                if (pend > 80)
+                if (pend > 80) {
                     pendb = true;
+                }
             } else {
                 pend -= 2;
-                if (pend < -10)
+                if (pend < -10) {
                     pendb = false;
+                }
             }
             drawbutton(xt.change, 497, 98);
         }
@@ -1194,29 +1237,34 @@ class Login implements Runnable {
                     msg = ". | Checking Nickname | .";
                     ncnt = 5;
                 }
-                if (ncnt != 0)
+                if (ncnt != 0) {
                     ncnt--;
+                }
                 pessd[2] = true;
             }
             if (fase == 1 && !gs.tnick.isShowing()) {
                 gs.tnick.setVisible(true);
                 gs.tnick.requestFocus();
-                if (gs.tnick.getText().equals("Nickname"))
+                if (gs.tnick.getText().equals("Nickname")) {
                     gs.tnick.select(8, 8);
+                }
             }
             if (errcnt != 0) {
                 errcnt--;
-                if (errcnt == 0)
+                if (errcnt == 0) {
                     gs.tnick.setForeground(new Color(0, 0, 0));
+                }
             }
             drawbutton(xt.play, 400, 285);
             if (nflk > 0) {
                 if (gs.tnick.getText().equals("")) {
                     gs.tnick.setText("Nickname");
-                    if (nflk == 1)
+                    if (nflk == 1) {
                         gs.tnick.select(8, 8);
-                } else
+                    }
+                } else {
                     gs.tnick.setText("");
+                }
                 nflk--;
             }
             drawbutton(xt.login, 400, 340);
@@ -1230,10 +1278,12 @@ class Login implements Runnable {
                 fixtext(gs.tnick);
                 lnick = gs.tnick.getText();
             }
-            if (xt.msgcheck(gs.tnick.getText()))
+            if (xt.msgcheck(gs.tnick.getText())) {
                 gs.tnick.setText("");
-            if (gs.tnick.getText().toLowerCase().indexOf("madbot") != -1)
+            }
+            if (gs.tnick.getText().toLowerCase().indexOf("madbot") != -1) {
                 gs.tnick.setText("");
+            }
         }
         if (fase == 3 || fase == 4) {
             rd.drawImage(xt.ntrg, 97, 388, null);
@@ -1244,10 +1294,12 @@ class Login implements Runnable {
             rd.setColor(color2k(90, 90, 90));
             rd.drawRoundRect(246, 212, 308, 142, 20, 20);
             rd.setColor(new Color(0, 0, 0));
-            if (nflk % 4 != 0 || nflk == 0)
+            if (nflk % 4 != 0 || nflk == 0) {
                 rd.drawString(msg, 400 - ftm.stringWidth(msg) / 2, 205);
-            if (nflk != 0)
+            }
+            if (nflk != 0) {
                 nflk--;
+            }
             rd.drawString("Nickname:", 376 - ftm.stringWidth("Nickname:") - 14, 237);
             rd.drawString("Password:", 376 - ftm.stringWidth("Password:") - 14, 267);
             if (fase == 4) {
@@ -1267,8 +1319,9 @@ class Login implements Runnable {
                     msg = ". | Logging In | .";
                     ncnt = 5;
                 }
-                if (ncnt != 0)
+                if (ncnt != 0) {
                     ncnt--;
+                }
                 pessd[2] = true;
             }
             if (fase == 3) {
@@ -1276,13 +1329,15 @@ class Login implements Runnable {
                 if (!gs.applejava) {
                     if (!gs.tpass.isShowing()) {
                         gs.tpass.setVisible(true);
-                        if (!gs.tnick.getText().equals(""))
+                        if (!gs.tnick.getText().equals("")) {
                             gs.tpass.requestFocus();
+                        }
                     }
                     if (!gs.tnick.isShowing()) {
                         gs.tnick.setVisible(true);
-                        if (gs.tnick.getText().equals(""))
+                        if (gs.tnick.getText().equals("")) {
                             gs.tnick.requestFocus();
+                        }
                     }
                 }
             }
@@ -1295,14 +1350,15 @@ class Login implements Runnable {
                 }
             }
             drawbutton(xt.login, 400, 315);
-            if (onf)
+            if (onf) {
                 rd.setColor(color2k(0, 72, 255));
-            else
+            } else {
                 rd.setColor(color2k(120, 120, 120));
+            }
             rd.setFont(new Font("Arial", 1, 11));
             ftm = rd.getFontMetrics();
-            rd.drawString("Forgot your nickname or password?",
-                    400 - ftm.stringWidth("Forgot your nickname or password?") / 2, 345);
+            rd.drawString("Forgot your nickname or password?", 400
+                    - ftm.stringWidth("Forgot your nickname or password?") / 2, 345);
             rd.setColor(new Color(0, 0, 0));
             rd.setFont(new Font("Arial", 1, 12));
             ftm = rd.getFontMetrics();
@@ -1323,8 +1379,9 @@ class Login implements Runnable {
                 lpass = gs.tpass.getText();
             }
             if (fase == 3 && (!gs.tpass.getText().equals("") && !gs.tnick.getText().equals("") || !gs.applejava)
-                    && !gs.keplo.isShowing())
+                    && !gs.keplo.isShowing()) {
                 gs.keplo.setVisible(true);
+            }
             gs.movefield(gs.keplo, 376, 275, 129, 23);
         }
         if (fase == 5) {
@@ -1339,17 +1396,20 @@ class Login implements Runnable {
                 fixtext(gs.tnick);
                 lnick = gs.tnick.getText();
             }
-            if (!gs.tnick.isShowing())
+            if (!gs.tnick.isShowing()) {
                 gs.tnick.setVisible(true);
+            }
             drawbutton(xt.register, 400, 325);
             drawbutton(xt.cancel, 400, 375);
         }
         if (fase == 7 || fase == 8) {
             rd.setColor(new Color(0, 0, 0));
-            if (nflk % 4 != 0 || nflk == 0)
+            if (nflk % 4 != 0 || nflk == 0) {
                 rd.drawString(msg, 400 - ftm.stringWidth(msg) / 2, 205);
-            if (nflk != 0)
+            }
+            if (nflk != 0) {
                 nflk--;
+            }
             rd.drawString("Your Email:", 344 - ftm.stringWidth("Your Email:") - 14, 241);
             if (fase == 8) {
                 if (msg.equals(". . . | Checking Email | . . .") && ncnt == 0) {
@@ -1368,8 +1428,9 @@ class Login implements Runnable {
                     msg = ". | Checking Email | .";
                     ncnt = 5;
                 }
-                if (ncnt != 0)
+                if (ncnt != 0) {
                     ncnt--;
+                }
                 pessd[2] = true;
             }
             if (fase == 7) {
@@ -1381,8 +1442,9 @@ class Login implements Runnable {
             }
             if (errcnt != 0) {
                 errcnt--;
-                if (errcnt == 0)
+                if (errcnt == 0) {
                     gs.temail.setForeground(new Color(0, 0, 0));
+                }
             }
             drawbutton(xt.sdets, 400, 280);
             drawbutton(xt.cancel, 400, 375);
@@ -1422,7 +1484,7 @@ class Login implements Runnable {
                 din.close();
                 dout.close();
             } catch (final Exception exception) {
-                
+
             }
             gs.tnick.setEnabled(true);
             if (i == -1) {
@@ -1431,8 +1493,9 @@ class Login implements Runnable {
             }
             if (i == 0) {
                 xt.nickname = gs.tnick.getText();
-                if (i15 != -1)
+                if (i15 != -1) {
                     xt.nfreeplays = 0;
+                }
                 gs.tnick.setVisible(false);
                 gs.tpass.setVisible(false);
                 gs.temail.setVisible(false);
@@ -1469,8 +1532,7 @@ class Login implements Runnable {
                 socket = new Socket(servers[0], 7061);
                 din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 dout = new PrintWriter(socket.getOutputStream(), true);
-                dout.println(new StringBuilder().append("1|").append(gs.tnick.getText()).append("|")
-                        .append(gs.tpass.getText()).append("|").toString());
+                dout.println(new StringBuilder().append("1|").append(gs.tnick.getText()).append("|").append(gs.tpass.getText()).append("|").toString());
                 string = din.readLine();
                 if (string != null) {
                     i = getvalue(string, 0);
@@ -1491,7 +1553,7 @@ class Login implements Runnable {
                 din.close();
                 dout.close();
             } catch (final Exception exception) {
-                
+
             }
             gs.tnick.setEnabled(true);
             gs.tpass.setEnabled(true);
@@ -1509,22 +1571,26 @@ class Login implements Runnable {
                 gs.keplo.setVisible(false);
                 gs.requestFocus();
                 gs.setloggedcookie();
-                btroom = false;
                 xt.logged = true;
                 xt.gotlog = true;
-                if (i == 0)
+                if (i == 0) {
                     xt.acexp = 0;
-                if (i > 10)
+                }
+                if (i > 10) {
                     xt.acexp = i - 10;
-                if (i == 3)
+                }
+                if (i == 3) {
                     xt.acexp = -1;
+                }
                 if (i == -167) {
                     xt.logged = false;
-                    if (i16 != -1)
+                    if (i16 != -1) {
                         xt.nfreeplays = 0;
+                    }
                 }
-                if (xt.logged)
+                if (xt.logged) {
                     xt.backlog = xt.nickname;
+                }
                 fase = 12;
                 justlog = true;
                 checknotifcations();
@@ -1553,16 +1619,16 @@ class Login implements Runnable {
                 socket = new Socket(servers[0], 7061);
                 din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 dout = new PrintWriter(socket.getOutputStream(), true);
-                dout.println(new StringBuilder().append("2|").append(gs.temail.getText().toLowerCase()).append("|")
-                        .toString());
+                dout.println(new StringBuilder().append("2|").append(gs.temail.getText().toLowerCase()).append("|").toString());
                 final String string = din.readLine();
-                if (string != null)
+                if (string != null) {
                     i = getvalue(string, 0);
+                }
                 socket.close();
                 din.close();
                 dout.close();
             } catch (final Exception exception) {
-                
+
             }
             gs.temail.setEnabled(true);
             if (i == -1) {
@@ -1572,8 +1638,7 @@ class Login implements Runnable {
             if (i == 0) {
                 showtf = false;
                 gs.temail.setVisible(false);
-                msg = new StringBuilder().append("Please check your Email: ").append(gs.temail.getText())
-                        .append(" to login.").toString();
+                msg = new StringBuilder().append("Please check your Email: ").append(gs.temail.getText()).append(" to login.").toString();
                 gs.temail.setText("");
                 gs.tnick.setText("");
                 gs.tpass.setText("");
@@ -1588,7 +1653,7 @@ class Login implements Runnable {
             gs.setCursor(new Cursor(0));
         }
         if ((fase == 12 || fase == 13 || fase == 14 || fase == 15) && !socketson) {
-            for (int i = 0; i < nservers; i++)
+            for (int i = 0; i < nservers; i++) {
                 try {
                     serverdone[i] = -1;
                     IPAddress[i] = InetAddress.getByName(servers[i]);
@@ -1596,20 +1661,21 @@ class Login implements Runnable {
                 } catch (final Exception exception) {
                     serverdone[i] = 5;
                 }
+            }
             srvtrn = 0;
             socketson = true;
         }
         while (fase == 12 || fase == 13 || fase == 14 || fase == 15) {
             if (srvtrn < nservers) {
                 for (/**/ ; serverdone[srvtrn] < xt.cntptrys; serverdone[srvtrn]++) {
-                    if (serverdone[srvtrn] == -1)
+                    if (serverdone[srvtrn] == -1) {
                         serverdone[srvtrn] = 0;
+                    }
                     Date date = new Date();
                     servestart[srvtrn] = date.getTime();
                     try {
                         final byte[] is = new byte[4];
-                        final DatagramPacket datagrampacket = new DatagramPacket(is, is.length, IPAddress[srvtrn],
-                                7000);
+                        final DatagramPacket datagrampacket = new DatagramPacket(is, is.length, IPAddress[srvtrn], 7000);
                         final String string = new StringBuilder().append("").append(xt.nickname).append("|").toString();
                         final byte[] is17 = string.getBytes();
                         datagrampacket.setData(is17);
@@ -1618,8 +1684,9 @@ class Login implements Runnable {
                         final String string18 = new String(datagrampacket.getData());
                         if (string18.startsWith("OK")) {
                             date = new Date();
-                            if (date.getTime() - servestart[srvtrn] < xt.delays[srvtrn])
+                            if (date.getTime() - servestart[srvtrn] < xt.delays[srvtrn]) {
                                 xt.delays[srvtrn] = (int) (date.getTime() - servestart[srvtrn]);
+                            }
                         }
                     } catch (final Exception exception) {
                         xt.delays[srvtrn] = 6000;
@@ -1630,21 +1697,22 @@ class Login implements Runnable {
             }
             try {
                 if (connector != null) {
-                    
+
                 }
                 Thread.sleep(5L);
             } catch (final InterruptedException interruptedexception) {
-                
+
             }
         }
         if (fase != 12 && fase != 13 && fase != 14 && fase != 15 && fase != 5 && socketson) {
-            for (int i = 0; i < nservers; i++)
+            for (int i = 0; i < nservers; i++) {
                 try {
                     dSocket[i].close();
                     dSocket[i] = null;
                 } catch (final Exception exception) {
-                    
+
                 }
+            }
             socketson = false;
         }
         if (fase == 16 || fase == 17) {
@@ -1657,7 +1725,7 @@ class Login implements Runnable {
                 din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 dout = new PrintWriter(socket.getOutputStream(), true);
             } catch (final Exception exception) {
-                
+
             }
             while ((fase == 16 || fase == 17) && i != 3) {
                 String string = "";
@@ -1665,10 +1733,11 @@ class Login implements Runnable {
                     try {
                         dout.println("10|");
                         final String string21 = din.readLine();
-                        if (string21 == null)
+                        if (string21 == null) {
                             bool = true;
-                        else
+                        } else {
                             string = string21;
+                        }
                     } catch (final Exception exception) {
                         bool = true;
                     }
@@ -1681,7 +1750,7 @@ class Login implements Runnable {
                             dout.close();
                             dout = null;
                         } catch (final Exception exception) {
-                            
+
                         }
                         try {
                             socket = new Socket(xt.server, 7067);
@@ -1689,21 +1758,23 @@ class Login implements Runnable {
                             dout = new PrintWriter(socket.getOutputStream(), true);
                             dout.println("10|");
                             final String string22 = din.readLine();
-                            if (string22 != null)
+                            if (string22 != null) {
                                 bool = false;
-                            else
+                            } else {
                                 string = string22;
+                            }
                         } catch (final Exception exception) {
                             bool = true;
                         }
                     }
-                    if (bool)
+                    if (bool) {
                         try {
                             socket.close();
                             socket = null;
                         } catch (final Exception exception) {
-                            
+
                         }
+                    }
                 }
                 if (!bool) {
                     for (int i23 = 0; i23 < 5; i23++) {
@@ -1720,21 +1791,23 @@ class Login implements Runnable {
                         opselect = recom;
                         i20 = recom;
                     }
-                    if (fase == 16)
+                    if (fase == 16) {
                         fase = 17;
+                    }
                 } else {
                     msg = "Failed to connect to this Server!";
                     i++;
                 }
-                if (i != 3)
+                if (i != 3) {
                     try {
                         if (connector != null) {
-                            
+
                         }
                         Thread.sleep(2000L);
                     } catch (final InterruptedException interruptedexception) {
-                        
+
                     }
+                }
             }
             try {
                 socket.close();
@@ -1744,10 +1817,11 @@ class Login implements Runnable {
                 dout.close();
                 dout = null;
             } catch (final Exception exception) {
-                
+
             }
-            if (i == 3)
+            if (i == 3) {
                 resofaso = true;
+            }
         }
     }
 
