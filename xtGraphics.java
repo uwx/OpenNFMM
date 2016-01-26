@@ -4195,7 +4195,7 @@ class xtGraphics extends Panel implements Runnable {
     void inishstageselect(final CheckPoints checkpoints) {
         chrono.reset();
         if (checkpoints.stage == -2 && (cd.msloaded != 1 || !logged)) {
-            checkpoints.stage = (int) (Math.random() * 27.0) + 1;
+            checkpoints.stage = (int) (Math.random() * nTracks) + 1;
             checkpoints.top20 = 0;
         }
         if (checkpoints.stage > nTracks) {
@@ -4208,7 +4208,7 @@ class xtGraphics extends Panel implements Runnable {
                     bool = true;
                 }
             if (!bool) {
-                checkpoints.stage = (int) (Math.random() * 27.0) + 1;
+                checkpoints.stage = (int) (Math.random() * nTracks) + 1;
             }
         }
         /*if (gmode == 1) {
@@ -4223,7 +4223,7 @@ class xtGraphics extends Panel implements Runnable {
             if (unlocked != nTracks || justwon2) {
                 checkpoints.stage = unlocked/* + 10*/;
             } else if (winner/* || checkpoints.stage < 11*/) {
-                checkpoints.stage = (int) (Math.random() * 27.0)/* + 11*/;
+                checkpoints.stage = (int) (Math.random() * nTracks) + 1;
             }
         app.sgame.setBackground(new Color(0, 0, 0));
         app.sgame.setForeground(new Color(47, 179, 255));
