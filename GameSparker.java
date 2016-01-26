@@ -917,13 +917,7 @@ class GameSparker extends JPanel
                 xtgraphics.fase = 5;
             }
             if (checkpoints.stage > 0) {
-                int i146 = checkpoints.stage;
-                if (i146 > 27) {
-                    i146 -= 27;
-                } else if (i146 > 10) {
-                    i146 -= 10;
-                }
-                xtgraphics.asay = "" + "Stage " + i146 + ":  " + checkpoints.name + " ";
+                xtgraphics.asay = "" + "Stage " + checkpoints.stage + ":  " + checkpoints.name + " ";
             } else {
                 xtgraphics.asay = "" + "Custom Stage:  " + checkpoints.name + " ";
             }
