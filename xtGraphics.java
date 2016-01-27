@@ -8238,7 +8238,7 @@ class xtGraphics extends Panel implements Runnable {
             // get boss car if player is not in the mad party
             if (sc[0] != 7 + (i + 1) / 2 && i != nTracks) {
                 sc[6] = 7 + (i + 1) / 2;
-                while (sc[6] >= nCars) {
+                if (sc[6] >= nCars) {
                     sc[6] = nCars - 1; // you could put -= 5 or something here
                 }
                 lastcar--; //boss car won't be randomized
