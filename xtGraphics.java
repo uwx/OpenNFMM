@@ -8250,19 +8250,36 @@ class xtGraphics extends Panel implements Runnable {
                 //if (bool)
                 //    f = 17.0F;
 
-                sc[j] = (int) (Math.random() * (24.0F + 8.0F * (i / (float) nCars)));
+                //randomize car
+                sc[j] = (int) (Math.random() * (7 + (i + 1) / 2));
                 while (sc[j] >= nCars) {
                     sc[j] -= Math.random() * 5F;
                 }
                 System.out.println("sc of " + j + " is " + sc[j]);
 
-                for (int dupecar = 1; dupecar < lastcar; dupecar++)
-                    if (j != dupecar && sc[j] == sc[j])
-                        if (sc[dupecar] > 0) {
-                            sc[dupecar]--;
-                        } else {
-                            sc[dupecar]++;
+                // check for dupe cars - OLD
+                /*for (int dupecar = 0; dupecar < lastcar; dupecar++) //1 for just AI dupe check, 0 to check player as well
+                    if (j != dupecar && sc[j] == sc[dupecar]) {
+                        if (sc[j] > 0)
+                            sc[j]--;
+                        else sc[j]++;
+                    }*/
+
+                // check for dupe cars - NEW
+                for (int dupecar = 0; dupecar < lastcar; dupecar++)
+                    if (j != dupecar && sc[j] == sc[dupecar]) {
+                        int tries = 10; //the max number of iterations it will go through to avoid getting a dupe car
+                        while (tries-- > 0) {
+                            //randomize car
+                            sc[j] = (int) (Math.random() * (7 + (i + 1) / 2));
+                            while (sc[j] >= nCars) {
+                                sc[j] -= Math.random() * 5F;
+                            }
+                            //if the car is not a dupe, we're done
+                            if (sc[j] != sc[dupecar])
+                                break;
                         }
+                    }
             }
         }
         for (int j = 0; j < nplayers; j++) {
