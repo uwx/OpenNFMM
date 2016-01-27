@@ -15,22 +15,18 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.net.URI;
-import java.util.Date;
 
 import javax.swing.JOptionPane;
 
 class Madness extends Panel {
-    private static long advtime = 0L;
     static int anti = 1;
     private static GameSparker applet;
     private static CarMaker cm;
     private static DisplayMode defdisp;
-    static int endadv = 0;
     static String fpath = "";
     private static Frame frame;
     static DisplayMode fulldisp;
@@ -47,47 +43,6 @@ class Madness extends Panel {
     static int textid = 0;
     private static int updateon = 0;
     static String upfile = "";
-
-    static void advopen() {
-        try {
-            final File file = new File("" + "" + fpath + "data/user.data");
-            if (file.exists()) {
-                final Date date = new Date();
-                final long l = date.getTime();
-                if (advtime == 0L || l - advtime > 120000L) {
-                    final String string = System.getProperty("os.name").toLowerCase();
-                    if (string.indexOf("win") != -1) {
-                        final File file26 = new File("" + "" + fpath + "data/adv.bat");
-                        boolean bool = false;
-                        if (!file26.exists()) {
-                            bool = true;
-                        } else if (file26.length() != 81L) {
-                            bool = true;
-                        }
-                        if (bool) {
-                            final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file26));
-                            bufferedwriter.write("cd %programfiles%\\Internet Explorer");
-                            bufferedwriter.newLine();
-                            bufferedwriter.write("iexplore -k http://www.needformadness.com/");
-                            bufferedwriter.newLine();
-                            bufferedwriter.close();
-                        }
-                        final Process process = Runtime.getRuntime().exec(file26.getAbsolutePath());
-                        final DataInputStream datainputstream = new DataInputStream(process.getInputStream());
-                        while (datainputstream.readLine() != null) {
-
-                        }
-                    } else {
-                        openurl("http://www.needformadness.com/");
-                    }
-                    advtime = l;
-                    endadv = 1;
-                }
-            }
-        } catch (final Exception exception) {
-
-        }
-    }
 
     static void carmaker() {
         /*try {
@@ -186,9 +141,6 @@ class Madness extends Panel {
 
     private static void exitsequance() {
         if (updateon == 0 || updateon == 3) {
-            if (endadv == 1) {
-                endadv = 2;
-            }
             //if (updateon != 3)
             /*try {
             	applet.stop();

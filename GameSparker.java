@@ -1315,12 +1315,6 @@ class GameSparker extends JPanel
         //cardefine.stopallnow();
         //udpmistro.UDPquit();
         System.gc();
-        if (Madness.endadv == 2) {
-            Madness.advopen();
-            //if (gamer != null)
-            //  gamer.interrupt();
-            //gamer = null;
-        }
     }
 
     private byte loadpaintick = 50;
