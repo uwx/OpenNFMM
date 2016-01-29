@@ -352,18 +352,18 @@ class GameSparker extends JPanel
             cmsg.addKeyListener(new KeyListener() {
 
                 @Override
-                public void keyPressed(final KeyEvent arg0) {
-                    if (arg0.getKeyCode() == 10 && u[0] != null) {
+                public void keyPressed(final KeyEvent e) {
+                    if (e.getKeyCode() == 10 && u[0] != null) {
                         u[0].enter = true;
                     }
                 }
 
                 @Override
-                public void keyReleased(final KeyEvent arg0) {
+                public void keyReleased(final KeyEvent e) {
                 }
 
                 @Override
-                public void keyTyped(final KeyEvent arg0) {
+                public void keyTyped(final KeyEvent e) {
                 }
             });
         }
