@@ -904,7 +904,7 @@ class ContO {
         }
     }
 
-    ContO(final ContO conto78, final int i, final int i79, final int i80, final int i81) {
+    ContO(final ContO conto78, final int toX, final int toY, final int toZ, final int i81) {
         keyx = new int[4];
         keyz = new int[4];
         sprkat = 0;
@@ -960,9 +960,9 @@ class ContO {
             }
             p[i82] = new Plane(m, t, conto78.p[i82].ox, conto78.p[i82].oz, conto78.p[i82].oy, conto78.p[i82].n, conto78.p[i82].oc, conto78.p[i82].glass, conto78.p[i82].gr, conto78.p[i82].fs, conto78.p[i82].wx, conto78.p[i82].wy, conto78.p[i82].wz, conto78.disline, conto78.p[i82].bfase, conto78.p[i82].road, conto78.p[i82].light, conto78.p[i82].solo, conto78.p[i82].randomcolor, conto78.p[i82].randoutline, conto78.p[i82].customstroke, conto78.p[i82].strokewidth, conto78.p[i82].strokecap, conto78.p[i82].strokejoin, conto78.p[i82].strokemtlimit);
         }
-        x = i;
-        y = i79;
-        z = i80;
+        x = toX;
+        y = toY;
+        z = toZ;
         xz = 0;
         xy = 0;
         zy = 0;
