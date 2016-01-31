@@ -56,7 +56,7 @@ class UDPMistro implements Runnable {
         int i89 = 0;
         String string90 = "";
         for (/**/; i89 < string.length(); i89++) {
-            string90 = "" + "" + string.charAt(i89);
+            string90 = "" + string.charAt(i89);
             if (string90.equals(",")) {
                 i++;
             }
@@ -73,7 +73,7 @@ class UDPMistro implements Runnable {
             String string87 = "";
             String string88 = "";
             for (/**/; i84 < string.length() && i86 != 2; i84++) {
-                string87 = "" + "" + string.charAt(i84);
+                string87 = "" + string.charAt(i84);
                 if (string87.equals(",")) {
                     i85++;
                     if (i86 == 1 || i85 > i) {
@@ -99,7 +99,7 @@ class UDPMistro implements Runnable {
             String string81 = "";
             String string82 = "";
             for (/**/; wx < string.length() && i80 != 2; wx++) {
-                string81 = "" + "" + string.charAt(wx);
+                string81 = "" + string.charAt(wx);
                 if (string81.equals(",")) {
                     i79++;
                     if (i80 == 1 || i79 > i) {
@@ -208,91 +208,91 @@ class UDPMistro implements Runnable {
                 final String string34 = getSvalue(string, 0);
                 if (string34.length() == 16) {
                     String string35 = "";
-                    string35 = "" + "" + string34.charAt(0);
+                    string35 = "" + string34.charAt(0);
                     if (string35.equals("0")) {
                         control.left = false;
                     } else {
                         control.left = true;
                     }
-                    string35 = "" + "" + string34.charAt(1);
+                    string35 = "" + string34.charAt(1);
                     if (string35.equals("0")) {
                         control.right = false;
                     } else {
                         control.right = true;
                     }
-                    string35 = "" + "" + string34.charAt(2);
+                    string35 = "" + string34.charAt(2);
                     if (string35.equals("0")) {
                         control.up = false;
                     } else {
                         control.up = true;
                     }
-                    string35 = "" + "" + string34.charAt(3);
+                    string35 = "" + string34.charAt(3);
                     if (string35.equals("0")) {
                         control.down = false;
                     } else {
                         control.down = true;
                     }
-                    string35 = "" + "" + string34.charAt(4);
+                    string35 = "" + string34.charAt(4);
                     if (string35.equals("0")) {
                         control.handb = false;
                     } else {
                         control.handb = true;
                     }
-                    string35 = "" + "" + string34.charAt(5);
+                    string35 = "" + string34.charAt(5);
                     if (string35.equals("0")) {
                         mad.newcar = false;
                     } else {
                         mad.newcar = true;
                     }
-                    string35 = "" + "" + string34.charAt(6);
+                    string35 = "" + string34.charAt(6);
                     if (string35.equals("0")) {
                         mad.mtouch = false;
                     } else {
                         mad.mtouch = true;
                     }
-                    string35 = "" + "" + string34.charAt(7);
+                    string35 = "" + string34.charAt(7);
                     if (string35.equals("0")) {
                         mad.wtouch = false;
                     } else {
                         mad.wtouch = true;
                     }
-                    string35 = "" + "" + string34.charAt(8);
+                    string35 = "" + string34.charAt(8);
                     if (string35.equals("0")) {
                         mad.pushed = false;
                     } else {
                         mad.pushed = true;
                     }
-                    string35 = "" + "" + string34.charAt(9);
+                    string35 = "" + string34.charAt(9);
                     if (string35.equals("0")) {
                         mad.gtouch = false;
                     } else {
                         mad.gtouch = true;
                     }
-                    string35 = "" + "" + string34.charAt(10);
+                    string35 = "" + string34.charAt(10);
                     if (string35.equals("0")) {
                         mad.pl = false;
                     } else {
                         mad.pl = true;
                     }
-                    string35 = "" + "" + string34.charAt(11);
+                    string35 = "" + string34.charAt(11);
                     if (string35.equals("0")) {
                         mad.pr = false;
                     } else {
                         mad.pr = true;
                     }
-                    string35 = "" + "" + string34.charAt(12);
+                    string35 = "" + string34.charAt(12);
                     if (string35.equals("0")) {
                         mad.pd = false;
                     } else {
                         mad.pd = true;
                     }
-                    string35 = "" + "" + string34.charAt(13);
+                    string35 = "" + string34.charAt(13);
                     if (string35.equals("0")) {
                         mad.pu = false;
                     } else {
                         mad.pu = true;
                     }
-                    string35 = "" + "" + string34.charAt(14);
+                    string35 = "" + string34.charAt(14);
                     if (string35.equals("0")) {
                         mad.dest = false;
                     } else {
@@ -419,7 +419,7 @@ class UDPMistro implements Runnable {
             for (int i21 = 0; i21 < nplayers; i21++) {
                 boolean bool = false;
                 if (info[i21][0].length() > 16) {
-                    final String string = "" + "" + info[i21][0].charAt(15);
+                    final String string = "" + info[i21][0].charAt(15);
                     if (!string.equals("0")) {
                         bool = true;
                     }

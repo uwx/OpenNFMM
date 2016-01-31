@@ -579,7 +579,7 @@ class Login implements Runnable {
                     int i55 = 0;
                     int i56 = 0;
                     for (/**/ ; i55 < string.length(); i55++) {
-                        final String string57 = "" + "" + string.charAt(i55);
+                        final String string57 = "" + string.charAt(i55);
                         if (string57.equals("@") && i56 == 0 && i55 != 0) {
                             i56 = 1;
                         }
@@ -714,7 +714,7 @@ class Login implements Runnable {
         int i = 0;
         int i66 = -1;
         for (/**/ ; i < string.length(); i++) {
-            final String string67 = "" + "" + string.charAt(i);
+            final String string67 = "" + string.charAt(i);
             if (string67.equals("|") || string67.equals(",") || string67.equals("(") || string67.equals(")")
                     || string67.equals("#") || string67.equals(string64) || string67.equals("!") || string67.equals("?")
                     || string67.equals(" ") || string67.equals("~") || string67.equals("$") || string67.equals("%")
@@ -758,7 +758,7 @@ class Login implements Runnable {
             String string78 = "";
             String string79 = "";
             for (/**/ ; i75 < string.length() && i77 != 2; i75++) {
-                string78 = "" + "" + string.charAt(i75);
+                string78 = "" + string.charAt(i75);
                 if (string78.equals("|")) {
                     i76++;
                     if (i77 == 1 || i76 > i) {
@@ -785,7 +785,7 @@ class Login implements Runnable {
             String string72 = "";
             String string73 = "";
             for (/**/ ; i69 < string.length() && i71 != 2; i69++) {
-                string72 = "" + "" + string.charAt(i69);
+                string72 = "" + string.charAt(i69);
                 if (string72.equals("|")) {
                     i70++;
                     if (i71 == 1 || i70 > i) {
@@ -960,8 +960,8 @@ class Login implements Runnable {
         rd.setColor(new Color(0, 0, 0));
         rd.drawString(xt.nickname, 239 - ftm.stringWidth(xt.nickname) / 2, 105);
         rd.setColor(color2k(90, 90, 90));
-        rd.drawString("" + "" + xt.cd.names[xt.sc[0]] + "", 409
-                - ftm.stringWidth("" + "" + xt.cd.names[xt.sc[0]] + "") / 2, 81);
+        rd.drawString("" + xt.cd.names[xt.sc[0]] + "", 409
+                - ftm.stringWidth("" + xt.cd.names[xt.sc[0]] + "") / 2, 81);
         rd.drawString("Nickname", 239 - ftm.stringWidth("Nickname") / 2, 81);
         drawbutton(xt.change, 570, 98);
         drawSbutton(xt.logout, 239, 135);
@@ -1164,8 +1164,8 @@ class Login implements Runnable {
             rd.fillRoundRect(246, 83, 180, 96, 20, 20);
             rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
             rd.setColor(color2k(90, 90, 90));
-            rd.drawString("" + "" + xt.cd.names[xt.sc[0]] + "", 336
-                    - ftm.stringWidth("" + "" + xt.cd.names[xt.sc[0]] + "") / 2, 81);
+            rd.drawString("" + xt.cd.names[xt.sc[0]] + "", 336
+                    - ftm.stringWidth("" + xt.cd.names[xt.sc[0]] + "") / 2, 81);
             rd.drawRoundRect(246, 83, 180, 96, 20, 20);
             if (!gotcai) {
                 int i41 = contos[xt.sc[0]].p[0].oz[0];
@@ -1674,7 +1674,7 @@ class Login implements Runnable {
                     try {
                         final byte[] is = new byte[4];
                         final DatagramPacket datagrampacket = new DatagramPacket(is, is.length, IPAddress[srvtrn], 7000);
-                        final String string = "" + "" + xt.nickname + "|";
+                        final String string = "" + xt.nickname + "|";
                         final byte[] is17 = string.getBytes();
                         datagrampacket.setData(is17);
                         dSocket[srvtrn].send(datagrampacket);

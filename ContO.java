@@ -182,7 +182,7 @@ class ContO {
             final DataInputStream datainputstream = new DataInputStream(new ByteArrayInputStream(is));
             String string17;
             while ((string17 = datainputstream.readLine()) != null) {
-                string = "" + "" + string17.trim();
+                string = "" + string17.trim();
                 if (npl < 10000 /* 210 */) {
                     if (string.startsWith("<p>")) {
                         bool = true;
@@ -1946,7 +1946,7 @@ class ContO {
         int i263 = 0;
         String string264 = "";
         for (int i265 = string.length() + 1; i265 < string262.length(); i265++) {
-            final String string266 = "" + "" + string262.charAt(i265);
+            final String string266 = "" + string262.charAt(i265);
             if (string266.equals(",") || string266.equals(")")) {
                 i263++;
                 i265++;

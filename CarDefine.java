@@ -817,7 +817,7 @@ class CarDefine implements Runnable {
         int i22 = 0;
         String string23 = "";
         for (int i24 = string.length() + 1; i24 < string21.length(); i24++) {
-            final String string25 = "" + "" + string21.charAt(i24);
+            final String string25 = "" + string21.charAt(i24);
             if (string25.equals(",") || string25.equals(")")) {
                 i22++;
                 i24++;
@@ -833,7 +833,7 @@ class CarDefine implements Runnable {
         String string27 = "";
         int i28 = 0;
         for (int i29 = string.length() + 1; i29 < string26.length() && i28 <= i; i29++) {
-            final String string30 = "" + "" + string26.charAt(i29);
+            final String string30 = "" + string26.charAt(i29);
             if (string30.equals(",") || string30.equals(")")) {
                 i28++;
             } else if (i28 == i) {
@@ -852,7 +852,7 @@ class CarDefine implements Runnable {
             String string35 = "";
             String string36 = "";
             for (/**/; i32 < string.length() && i34 != 2; i32++) {
-                string35 = "" + "" + string.charAt(i32);
+                string35 = "" + string.charAt(i32);
                 if (string35.equals("|")) {
                     i33++;
                     if (i34 == 1 || i33 > i) {
@@ -882,7 +882,7 @@ class CarDefine implements Runnable {
             String string41 = "";
             String string42 = "";
             for (/**/; i38 < string.length() && i40 != 2; i38++) {
-                string41 = "" + "" + string.charAt(i38);
+                string41 = "" + string.charAt(i38);
                 if (string41.equals("|")) {
                     i39++;
                     if (i40 == 1 || i39 > i) {
@@ -1027,7 +1027,7 @@ class CarDefine implements Runnable {
                             + gs.tnick.getText() + ".txt?reqlo=" + (int) (Math.random() * 1000.0) + "");
                     final BufferedReader carReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
                     while ((line = carReader.readLine()) != null) {
-                        line = "" + "" + line.trim();
+                        line = "" + line.trim();
                         if (line.startsWith("mycars")) {
                             boolean bool = true;
                             while (bool && nl < 700) {
@@ -1047,7 +1047,7 @@ class CarDefine implements Runnable {
                     }
                     carReader.close();
                 } catch (final Exception exception) {
-                    final String string43 = "" + "" + exception;
+                    final String string43 = "" + exception;
                     if (string43.indexOf("FileNotFound") != -1) {
                         action = -1;
                     } else {
@@ -1220,7 +1220,7 @@ class CarDefine implements Runnable {
                             + ".txt");
                     final BufferedReader top20Reader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
                     while ((line = top20Reader.readLine()) != null) {
-                        line = "" + "" + line.trim();
+                        line = "" + line.trim();
                         if (line.startsWith("cars")) {
                             boolean bool = true;
                             while (bool && nl < 20) {
@@ -1281,7 +1281,7 @@ class CarDefine implements Runnable {
                             + ".txt?reqlo=" + (int) (Math.random() * 1000.0) + "");
                     final BufferedReader carListReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
                     while ((line = carListReader.readLine()) != null) {
-                        line = "" + "" + line.trim();
+                        line = "" + line.trim();
                         if (line.startsWith("mycars")) {
                             boolean bool = true;
                             while (bool && nl < 20) {
@@ -1301,7 +1301,7 @@ class CarDefine implements Runnable {
                     }
                     carListReader.close();
                 } catch (final Exception exception) {
-                    final String string45 = "" + "" + exception;
+                    final String string45 = "" + exception;
                     if (string45.indexOf("FileNotFound") != -1) {
                         action = -2;
                     } else {
@@ -1586,7 +1586,7 @@ class CarDefine implements Runnable {
                     + ".txt?reqlo=" + (int) (Math.random() * 1000.0) + "");
             final BufferedReader stageReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
             while ((line = stageReader.readLine()) != null) {
-                line = "" + "" + line.trim();
+                line = "" + line.trim();
                 if (line.startsWith("mystages")) {
                     boolean bool = true;
                     while (bool && i < 700) {
@@ -1606,7 +1606,7 @@ class CarDefine implements Runnable {
             }
             stageReader.close();
         } catch (final Exception exception) {
-            final String string61 = "" + "" + exception;
+            final String string61 = "" + exception;
             if (string61.indexOf("FileNotFound") != -1) {
                 msloaded = -2;
             } else {
@@ -1660,7 +1660,7 @@ class CarDefine implements Runnable {
             final URL url = new URL("" + "http://multiplayer.needformadness.com/tracks/top20/" + string65 + ".txt");
             final BufferedReader top20Reader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
             while ((line = top20Reader.readLine()) != null) {
-                line = "" + "" + line.trim();
+                line = "" + line.trim();
                 if (line.startsWith("stages")) {
                     boolean bool = true;
                     while (bool && i64 < 20) {
@@ -1685,7 +1685,7 @@ class CarDefine implements Runnable {
             }
             top20Reader.close();
         } catch (final Exception exception) {
-            final String string67 = "" + "" + exception;
+            final String string67 = "" + exception;
             if (string67.indexOf("FileNotFound") != -1) {
                 msloaded = -2;
             } else {
@@ -1731,7 +1731,7 @@ class CarDefine implements Runnable {
                 }
                 clanStageReader.close();
             } catch (final Exception exception) {
-                final String string70 = "" + "" + exception;
+                final String string70 = "" + exception;
                 if (string70.indexOf("FileNotFound") != -1) {
                     msloaded = -2;
                 } else {
@@ -1778,9 +1778,9 @@ class CarDefine implements Runnable {
         gs.mstgs.removeAll();
         gs.mstgs.add(gs.rd, "Select Stage");
         int i = 0;
-        final File file = new File("" + "" + Madness.fpath + "mystages/");
+        final File file = new File("" + Madness.fpath + "mystages/");
         if (file.exists()) {
-            final String[] strings = new File("" + "" + Madness.fpath + "mystages/").list();
+            final String[] strings = new File("" + Madness.fpath + "mystages/").list();
             for (final String string : strings)
                 if (string.toLowerCase().endsWith(".txt") && i < 200) {
                     gs.mstgs.add(gs.rd, string.substring(0, string.length() - 4));
@@ -1811,9 +1811,9 @@ class CarDefine implements Runnable {
             include[i] = false;
         }
         nlcars = 16;
-        final File file = new File("" + "" + Madness.fpath + "mycars/");
+        final File file = new File("" + Madness.fpath + "mycars/");
         if (file.exists()) {
-            final String[] strings = new File("" + "" + Madness.fpath + "mycars/").list();
+            final String[] strings = new File("" + Madness.fpath + "mycars/").list();
             for (final String string : strings)
                 if (string.toLowerCase().endsWith(".rad") && nlcars < 56
                         && loadcar(string.substring(0, string.length() - 4), nlcars) == nlcars) {
@@ -1828,7 +1828,7 @@ class CarDefine implements Runnable {
 
     int loadcar(final String string, int i) {
         try {
-            final File file = new File("" + "" + Madness.fpath + "mycars/" + string + ".rad");
+            final File file = new File("" + Madness.fpath + "mycars/" + string + ".rad");
             if (file.exists()) {
                 String string73 = "";
                 final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));

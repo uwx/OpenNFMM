@@ -55,7 +55,7 @@ class udpOnline implements Runnable {
             String string22 = "";
             String string23 = "";
             for (/**/; i19 < string.length() && i21 != 2; i19++) {
-                string22 = "" + "" + string.charAt(i19);
+                string22 = "" + string.charAt(i19);
                 if (string22.equals("|")) {
                     i20++;
                     if (i21 == 1 || i20 > i) {
@@ -82,7 +82,7 @@ class udpOnline implements Runnable {
             String string16 = "";
             String string17 = "";
             for (/**/; i13 < string.length() && i15 != 2; i13++) {
-                string16 = "" + "" + string.charAt(i13);
+                string16 = "" + string.charAt(i13);
                 if (string16.equals("|")) {
                     i14++;
                     if (i15 == 1 || i14 > i) {
@@ -114,7 +114,7 @@ class udpOnline implements Runnable {
         }
         if (nu == 0 && um.diledelay == 0) {
             um.sendat = sendat;
-            string = "" + "" + sendat;
+            string = "" + sendat;
             string = string.substring(string.length() - 3, string.length());
             um.sendcheck = string;
             um.diledelay = 100;
@@ -122,7 +122,7 @@ class udpOnline implements Runnable {
         try {
             final byte[] is = new byte[4];
             final DatagramPacket datagrampacket = new DatagramPacket(is, is.length, IPAddress, gameport);
-            final String string2 = "" + "" + string + "|" + um.im + "|" + um.frame[um.im][0] + "|" + um.info[um.im][0]
+            final String string2 = "" + string + "|" + um.im + "|" + um.frame[um.im][0] + "|" + um.info[um.im][0]
                     + "|";
             final byte[] is3 = string2.getBytes();
             datagrampacket.setData(is3);

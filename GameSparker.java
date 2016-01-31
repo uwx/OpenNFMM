@@ -452,7 +452,7 @@ class GameSparker extends JPanel
         try {
             ZipInputStream zipinputstream;
             if (!bool) {
-                final File file = new File("" + "" + Madness.fpath + "data/models.zip");
+                final File file = new File("" + Madness.fpath + "data/models.zip");
                 zipinputstream = new ZipInputStream(new FileInputStream(file));
             } else {
                 final URL url = new URL("http://multiplayer.needformadness.com/data/models.zip");
@@ -537,7 +537,7 @@ class GameSparker extends JPanel
                 if (checkpoints.stage == -1) {
                     customStagePath = "" + "mystages/" + checkpoints.name + "";
                 }
-                final File customStageFile = new File("" + "" + Madness.fpath + "" + customStagePath + ".txt");
+                final File customStageFile = new File("" + Madness.fpath + "" + customStagePath + ".txt");
                 stageDataReader = new BufferedReader(new InputStreamReader(new DataInputStream(new FileInputStream(customStageFile))));
             } else if (checkpoints.stage > 0) {
                 final URL url = new URL("" + "http://multiplayer.needformadness.com/stages/" + checkpoints.stage
@@ -854,7 +854,7 @@ class GameSparker extends JPanel
         } catch (final Exception exception) {
             checkpoints.stage = -3;
             System.out.println("" + "Error in stage " + checkpoints.stage);
-            System.out.println("" + "" + exception);
+            System.out.println("" + exception);
             System.out.println("" + "At line: " + string);
         }
         if (checkpoints.nsp < 2) {
@@ -1005,7 +1005,7 @@ class GameSparker extends JPanel
             }
             String string164;
             while ((string164 = datainputstream.readLine()) != null) {
-                string153 = "" + "" + string164.trim();
+                string153 = "" + string164.trim();
                 if (string153.startsWith("snap")) {
                     medium.setsnap(getint("snap", string153, 0), getint("snap", string153, 1), getint("snap", string153, 2));
                 }
@@ -1172,7 +1172,7 @@ class GameSparker extends JPanel
         } catch (final Exception exception) {
             bool = false;
             System.out.println("" + "Error in stage " + checkpoints.stage);
-            System.out.println("" + "" + exception);
+            System.out.println("" + exception);
             System.out.println("" + "At line: " + string153);
         }
         if (checkpoints.nsp < 2) {
@@ -1302,7 +1302,7 @@ class GameSparker extends JPanel
             }
         } else {
             try {
-                Runtime.getRuntime().exec("" + "" + Madness.urlopen() + " " + string + "");
+                Runtime.getRuntime().exec("" + Madness.urlopen() + " " + string + "");
             } catch (final Exception exception) {
 
             }
@@ -1399,7 +1399,7 @@ class GameSparker extends JPanel
                 graphics2d.setColor(new Color(0, 0, 0));
                 graphics2d.fillRect(getWidth() / 2 - 153, 5, 80, 16);
                 graphics2d.setColor(new Color(121, 135, 152));
-                String string = "" + "" + (int) (apmult * 100.0F) + "%";
+                String string = "" + (int) (apmult * 100.0F) + "%";
                 if (reqmult == 0.0F) {
                     string = "Original";
                 }
@@ -1465,7 +1465,7 @@ class GameSparker extends JPanel
     private void readcookies(final xtGraphics xtgraphics, final CarDefine cardefine, final ContO[] contos) {
         xtgraphics.nickname = "";
         try {
-            final File file = new File("" + "" + Madness.fpath + "data/user.data");
+            final File file = new File("" + Madness.fpath + "data/user.data");
             final String[] strings = {
                     "", "", "", "", ""
             };
@@ -1621,13 +1621,13 @@ class GameSparker extends JPanel
             snbts.add(rd, "" + "    " + i + "    ");
         }
         for (int i = 0; i < 2; i++) {
-            swait.add(rd, "" + "" + (i + 2) + " Minutes");
+            swait.add(rd, "" + (i + 2) + " Minutes");
         }
         for (int i = 0; i < 15; i++) {
-            slaps.add(rd, "" + "" + (i + 1) + "");
+            slaps.add(rd, "" + (i + 1) + "");
         }
         for (int i = 0; i < 14; i++) {
-            ilaps.add(rd, "" + "" + (i + 2) + " Laps");
+            ilaps.add(rd, "" + (i + 2) + " Laps");
         }
         sclass.add(rd, "All Classes");
         sclass.add(rd, "Class C Cars");
@@ -1660,7 +1660,7 @@ class GameSparker extends JPanel
         sendtyp.add(rd, "Share a Relative Date");
         senditem.add(rd, "Suddenly the King becomes Santa's Little Helper");
         for (int i = 0; i < 6; i++) {
-            clanlev.add(rd, "" + "" + (i + 1) + "");
+            clanlev.add(rd, "" + (i + 1) + "");
         }
         clanlev.add(rd, "7 - Admin");
         hidefields();
@@ -3275,7 +3275,7 @@ class GameSparker extends JPanel
     private void setupini() {
         Madness.inisetup = true;
         try {
-            final File file = new File("" + "" + Madness.fpath + "Madness.ini");
+            final File file = new File("" + Madness.fpath + "Madness.ini");
             if (file.exists()) {
                 final String[] liness = new String[40];
                 int i = 0;

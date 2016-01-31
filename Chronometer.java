@@ -183,7 +183,7 @@ class Chronometer {
                 } else {
                     colorSnap(250, 250, 250);
                 }
-            rd.drawString("" + "" + (i + 1), x + 22 - ftm.stringWidth("" + "" + (i + 1)) / 2, y + 20 * pos + 15);
+            rd.drawString("" + (i + 1), x + 22 - ftm.stringWidth("" + (i + 1)) / 2, y + 20 * pos + 15);
             String currentTime;
             String lapTime;
             if (i == current - 1 && running && !paused) {

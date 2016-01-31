@@ -109,7 +109,7 @@ class Madness extends Panel {
         frame = new Frame("Need for Madness");
         frame.setBackground(new Color(0, 0, 0));
         frame.setIgnoreRepaint(true);
-        frame.setIconImage(Toolkit.getDefaultToolkit().createImage("" + "" + fpath + "data/icon.gif"));
+        frame.setIconImage(Toolkit.getDefaultToolkit().createImage("" + fpath + "data/icon.gif"));
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(final WindowEvent windowevent) {
@@ -249,7 +249,7 @@ class Madness extends Panel {
         String string29 = "";
         int i30 = 0;
         for (int i31 = string.length() + 1; i31 < string28.length() && i30 <= i; i31++) {
-            final String string32 = "" + "" + string28.charAt(i31);
+            final String string32 = "" + string28.charAt(i31);
             if (string32.equals(",") || string32.equals(")")) {
                 i30++;
             } else if (i30 == i) {
@@ -277,7 +277,7 @@ class Madness extends Panel {
                         f2 = f5;
                     }
                 }
-                strings[i3] = "" + "" + displaymodes[i4].getWidth() + " x " + displaymodes[i4].getHeight()
+                strings[i3] = "" + displaymodes[i4].getWidth() + " x " + displaymodes[i4].getHeight()
                         + " Resolution   -   " + displaymodes[i4].getBitDepth() + " Bits   -   "
                         + displaymodes[i4].getRefreshRate() + " Refresh Rate";
                 is[i3] = i4;
@@ -290,7 +290,7 @@ class Madness extends Panel {
             strings6[i7] = stringbuilder + strings6[i7] + "     <  Recommended";
         }
         try {
-            final File file = new File("" + "" + fpath + "data/fullScreen.data");
+            final File file = new File("" + fpath + "data/fullScreen.data");
             if (file.exists()) {
                 final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
                 String string;
@@ -332,9 +332,9 @@ class Madness extends Panel {
         }
         if (i13 != -1) {
             try {
-                final File file = new File("" + "" + fpath + "data/fullScreen.data");
+                final File file = new File("" + fpath + "data/fullScreen.data");
                 final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
-                bufferedwriter.write("" + "" + i + "");
+                bufferedwriter.write("" + i + "");
                 bufferedwriter.newLine();
                 bufferedwriter.close();
             } catch (final Exception exception) {
@@ -393,7 +393,7 @@ class Madness extends Panel {
                     final File file = new File("data/manar.ok");
                     if (!file.exists()) {
                         final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
-                        bufferedwriter.write("" + "" + (int) (Math.random() * 1000.0) + "");
+                        bufferedwriter.write("" + (int) (Math.random() * 1000.0) + "");
                         bufferedwriter.newLine();
                         bufferedwriter.close();
                     }
@@ -401,12 +401,12 @@ class Madness extends Panel {
 
                 }
             } else {
-                final File file = new File("" + "" + fpath + "data/models.zip");
+                final File file = new File("" + fpath + "data/models.zip");
                 if (!file.exists()) {
                     fpath = "";
                 }
             }
-        frame.setIconImage(Toolkit.getDefaultToolkit().createImage("" + "" + fpath + "data/icon.png"));
+        frame.setIconImage(Toolkit.getDefaultToolkit().createImage("" + fpath + "data/icon.png"));
         applet = new GameSparker();
         frame.addWindowListener(new WindowAdapter() {
             @Override
@@ -440,7 +440,7 @@ class Madness extends Panel {
             }
         } else {
             try {
-                Runtime.getRuntime().exec("" + "" + urlopen() + " " + string + "");
+                Runtime.getRuntime().exec("" + urlopen() + " " + string + "");
             } catch (final Exception exception) {
 
             }
