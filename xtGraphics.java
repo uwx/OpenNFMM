@@ -5476,101 +5476,69 @@ class xtGraphics extends Panel implements Runnable {
         } else {
             if (i == 1) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 240, 8400, 135, false, false);
-            }
-            if (i == 2) {
+            } else if (i == 2) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 190, 9000, 145, false, false);
-            }
-            if (i == 3) {
+            } else if (i == 3) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 170, 8500, 145, false, false);
-            }
-            if (i == 4) {
+            } else if (i == 4) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 205, 7500, 125, false, false);
-            }
-            if (i == 5) {
+            } else if (i == 5) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 170, 7900, 125, false, false);
-            }
-            if (i == 6) {
+            } else if (i == 6) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 370, 7900, 125, false, false);
-            }
-            if (i == 7) {
+            } else if (i == 7) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 205, 7500, 125, false, false);
-            }
-            if (i == 8) {
+            } else if (i == 8) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 230, 7900, 125, false, false);
-            }
-            if (i == 9) {
+            } else if (i == 9) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 180, 7900, 125, false, false);
-            }
-            if (i == 10) {
+            } else if (i == 10) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 280, 8100, 145, false, false);
-            }
-            if (i == 11) {
+            } else if (i == 11) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 120, 8000, 125, false, false);
-            }
-            if (i == 12) {
+            } else if (i == 12) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 260, 7200, 125, false, false);
-            }
-            if (i == 13) {
+            } else if (i == 13) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 270, 8000, 125, false, false);
-            }
-            if (i == 14) {
+            } else if (i == 14) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 190, 8000, 125, false, false);
-            }
-            if (i == 15) {
+            } else if (i == 15) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 162, 7800, 125, false, false);
-            }
-            if (i == 16) {
+            } else if (i == 16) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 220, 7600, 125, false, false);
-            }
-            if (i == 17) {
+            } else if (i == 17) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 300, 7500, 125, false, false);
-            }
-            if (i == 18) {
+            } else if (i == 18) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 200, 7900, 125, false, false);
-            }
-            if (i == 19) {
+            } else if (i == 19) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 200, 7900, 125, false, false);
-            }
-            if (i == 20) {
+            } else if (i == 20) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 232, 7300, 125, false, false);
-            }
-            if (i == 21) {
+            } else if (i == 21) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 370, 7900, 125, false, false);
-            }
-            if (i == 22) {
+            } else if (i == 22) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 290, 7900, 125, false, false);
-            }
-            if (i == 23) {
+            } else if (i == 23) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 222, 7600, 125, false, false);
-            }
-            if (i == 24) {
+            } else if (i == 24) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 230, 8000, 125, false, false);
-            }
-            if (i == 25) {
+            } else if (i == 25) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 220, 8000, 125, false, false);
-            }
-            if (i == 26) {
+            } else if (i == 26) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 261, 8000, 125, false, false);
-            }
-            if (i == 27) {
+            } else if (i == 27) {
                 strack = new RadicalMod("music/party.zip", 400, 7600, 125, false, false);
-            }
-            if (i == 28) {
+            } else if (i == 28) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 182, 8000, 125, false, false);
-            }
-            if (i == 29) {
+            } else if (i == 29) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 220, 8000, 125, false, false);
-            }
-            if (i == 30) {
+            } else if (i == 30) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 200, 8000, 125, false, false);
-            }
-            if (i == 31) {
+            } else if (i == 31) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 350, 7900, 125, false, false);
-            }
-            if (i == 32) {
+            } else if (i == 32) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 310, 8000, 125, false, false);
-            }
-            if (i > 32) {
+            } else if (i > 32) {
                 strack = new RadicalMod("" + "music/stage" + i + ".zip", 550, 8000, 125, false, false);
             }
         }
