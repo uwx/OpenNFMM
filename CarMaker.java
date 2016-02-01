@@ -1772,14 +1772,14 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                     rd.setColor(new Color(0, 0, 0));
                                     rd.drawRect(250, 270, 200, 7);
                                     repaint();
-                                    try {
+                                    /*try {
                                         if (thredo != null) {
 
                                         }
                                         Thread.sleep(10L);
                                     } catch (final InterruptedException interruptedexception) {
 
-                                    }
+                                    }*/
                                 }
                                 printwriter.println("QUITX1111");
                                 rd.setColor(new Color(225, 225, 225));

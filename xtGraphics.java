@@ -5464,7 +5464,10 @@ class xtGraphics extends Panel implements Runnable {
     }
 
     void loadstrack(final int i, final String string, final int i52) {
-        if (new File("music/stage" + i + ".mid").exists()) {
+        File f = new File("music/stage" + i + ".mod");
+        if (f.exists()) {
+            strack = new RadicalBASS(f);
+        } else if (new File("music/stage" + i + ".mid").exists()) {
             strack = new RadicalMidi("music/stage" + i + ".mid");
         } else if (new File("music/stage" + i + ".mp3").exists()) {
             strack = new RadicalMp3("music/stage" + i + ".mp3");

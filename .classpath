@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding=".settings/|bin/|data/|libraries/|music/|mystages/|stages/|mycars/" kind="src" path=""/>
+	<classpathentry excluding=".settings/|bin/|data/|libraries/|music/|mystages/|stages/|mycars/" kind="src" path="">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="NFMM/libraries/dlls"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="libraries/dragshotMod.jar"/>
 	<classpathentry kind="lib" path="libraries/easyogg.jar"/>
 	<classpathentry kind="lib" path="libraries/jl1.0.1.jar"/>
 	<classpathentry kind="lib" path="libraries/jogg-0.0.7.jar"/>
 	<classpathentry kind="lib" path="libraries/jorbis-0.0.15.jar"/>
+	<classpathentry kind="lib" path="libraries/NativeBass.jar" sourcepath="libraries/bass_src.zip"/>
+	<classpathentry kind="lib" path="libraries/NativeBass-Examples.jar" sourcepath="libraries/bass_examples.zip"/>
 	<classpathentry kind="output" path=""/>
 </classpath>

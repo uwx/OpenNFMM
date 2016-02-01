@@ -151,9 +151,9 @@ class ContO {
         final float[] fs = {
                 1.0F, 1.0F, 1.0F
         };
-        final int[] is3 = new int[100];
-        final int[] is4 = new int[100];
-        final int[] is5 = new int[100];
+        final int[] is3 = new int[8000];
+        final int[] is4 = new int[8000];
+        final int[] is5 = new int[8000];
         final int[] is6 = {
                 0, 0, 0
         };
