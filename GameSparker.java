@@ -1667,6 +1667,7 @@ class GameSparker extends JPanel
     }
 
     public GameSparker() {
+        BASSLoader.initializeBASS();
         initApplet();
         setBorder(BorderFactory.createLineBorder(Color.black));
         //
