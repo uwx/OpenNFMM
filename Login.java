@@ -738,7 +738,7 @@ class Login implements Runnable {
             socket = new Socket(servers[0], 7061);
             din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             dout = new PrintWriter(socket.getOutputStream(), true);
-            dout.println("" + "101|20|" + xt.nickname + "|" + xt.nickey + "|" + xt.servername + "|"
+            dout.println("101|20|" + xt.nickname + "|" + xt.nickey + "|" + xt.servername + "|"
                     + (xt.servport - 7070) + "|");
             din.readLine();
             socket.close();
@@ -1014,15 +1014,15 @@ class Login implements Runnable {
                 rd.drawRoundRect(165, 219, 470, 135, 20, 20);
                 if (xt.acexp > 0) {
                     rd.setColor(new Color(0, 0, 0));
-                    rd.drawString("" + "Dear " + xt.nickname + ",", 185, 245);
-                    rd.drawString("" + "Your account is due to expire in " + xt.acexp + " days.", 185, 265);
+                    rd.drawString("Dear " + xt.nickname + ",", 185, 245);
+                    rd.drawString("Your account is due to expire in " + xt.acexp + " days.", 185, 265);
                     rd.drawString("Renew your registration soon!", 185, 295);
                     stringbutton("Renew my Account Registration now!", 345, 332, 0);
                     stringbutton("Renew Later", 524, 332, 0);
                 }
                 if (xt.acexp == -1) {
                     rd.setColor(new Color(0, 0, 0));
-                    rd.drawString("" + "Dear " + xt.nickname + ",", 185, 245);
+                    rd.drawString("Dear " + xt.nickname + ",", 185, 245);
                     rd.drawString("Your Need for Madness account registration has expired.", 185, 265);
                     rd.drawString("Please renew your registration.", 185, 295);
                     stringbutton("Renew my account registration now!", 362, 332, 0);
@@ -1030,7 +1030,7 @@ class Login implements Runnable {
                 }
                 if (xt.acexp == -2) {
                     rd.setColor(new Color(0, 0, 0));
-                    rd.drawString("" + "Dear " + xt.nickname + ",", 185, 245);
+                    rd.drawString("Dear " + xt.nickname + ",", 185, 245);
                     rd.drawString("Trial accounts are not allowed to access the downloaded game.", 185, 265);
                     rd.drawString("You can only play the game online using your trial account.", 185, 295);
                     stringbutton("Play the multiplayer online!", 362, 332, 0);
@@ -1468,7 +1468,7 @@ class Login implements Runnable {
                 socket = new Socket(servers[0], 7061);
                 din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 dout = new PrintWriter(socket.getOutputStream(), true);
-                dout.println("" + "0|" + gs.tnick.getText() + "|");
+                dout.println("0|" + gs.tnick.getText() + "|");
                 final String string = din.readLine();
                 if (string != null) {
                     i = getvalue(string, 0);
@@ -1530,7 +1530,7 @@ class Login implements Runnable {
                 socket = new Socket(servers[0], 7061);
                 din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 dout = new PrintWriter(socket.getOutputStream(), true);
-                dout.println("" + "1|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|");
+                dout.println("1|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|");
                 string = din.readLine();
                 if (string != null) {
                     i = getvalue(string, 0);
@@ -1617,7 +1617,7 @@ class Login implements Runnable {
                 socket = new Socket(servers[0], 7061);
                 din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 dout = new PrintWriter(socket.getOutputStream(), true);
-                dout.println("" + "2|" + gs.temail.getText().toLowerCase() + "|");
+                dout.println("2|" + gs.temail.getText().toLowerCase() + "|");
                 final String string = din.readLine();
                 if (string != null) {
                     i = getvalue(string, 0);
@@ -1636,7 +1636,7 @@ class Login implements Runnable {
             if (i == 0) {
                 showtf = false;
                 gs.temail.setVisible(false);
-                msg = "" + "Please check your Email: " + gs.temail.getText() + " to login.";
+                msg = "Please check your Email: " + gs.temail.getText() + " to login.";
                 gs.temail.setText("");
                 gs.tnick.setText("");
                 gs.tpass.setText("");

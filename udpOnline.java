@@ -27,7 +27,7 @@ class udpOnline implements Runnable {
             errd = false;
             IPAddress = InetAddress.getByName(string);
         } catch (final Exception exception) {
-            System.out.println("" + "Error preparing for UDP Connection: " + exception);
+            System.out.println("Error preparing for UDP Connection: " + exception);
         }
     }
 

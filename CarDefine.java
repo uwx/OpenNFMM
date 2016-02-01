@@ -511,7 +511,7 @@ class CarDefine implements Runnable {
             }
             statReader.close();
         } catch (final Exception exception) {
-            System.out.println("" + "Error Loading Car Stat: " + exception);
+            System.out.println("Error Loading Car Stat: " + exception);
         }
         if (bool && bool3) {
             int i13 = 0;
@@ -962,7 +962,7 @@ class CarDefine implements Runnable {
                     final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println("" + "9|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|" + names[ac]
+                    printwriter.println("9|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|" + names[ac]
                             + "|");
                     final String string = bufferedreader.readLine();
                     if (string != null) {
@@ -987,7 +987,7 @@ class CarDefine implements Runnable {
                     final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println("" + "1|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|");
+                    printwriter.println("1|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|");
                     final String string = bufferedreader.readLine();
                     if (string != null) {
                         reco = servervalue(string, 0);
@@ -1023,7 +1023,7 @@ class CarDefine implements Runnable {
                 nl = 0;
                 String line = "";
                 try {
-                    final URL url = new URL("" + "http://multiplayer.needformadness.com/cars/lists/"
+                    final URL url = new URL("http://multiplayer.needformadness.com/cars/lists/"
                             + gs.tnick.getText() + ".txt?reqlo=" + (int) (Math.random() * 1000.0) + "");
                     final BufferedReader carReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
                     while ((line = carReader.readLine()) != null) {
@@ -1110,7 +1110,7 @@ class CarDefine implements Runnable {
                     final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println("" + "8|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|" + acname + "|");
+                    printwriter.println("8|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|" + acname + "|");
                     final String string = bufferedreader.readLine();
                     if (string != null) {
                         i = servervalue(string, 0);
@@ -1216,7 +1216,7 @@ class CarDefine implements Runnable {
                     if (loadlist == 24) {
                         string44 = "AC";
                     }
-                    final URL url = new URL("" + "http://multiplayer.needformadness.com/cars/top20/" + string44
+                    final URL url = new URL("http://multiplayer.needformadness.com/cars/top20/" + string44
                             + ".txt");
                     final BufferedReader top20Reader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
                     while ((line = top20Reader.readLine()) != null) {
@@ -1277,7 +1277,7 @@ class CarDefine implements Runnable {
                 nl = 0;
                 String line = "";
                 try {
-                    final URL url = new URL("" + "http://multiplayer.needformadness.com/cars/lists/" + viewname
+                    final URL url = new URL("http://multiplayer.needformadness.com/cars/lists/" + viewname
                             + ".txt?reqlo=" + (int) (Math.random() * 1000.0) + "");
                     final BufferedReader carListReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
                     while ((line = carListReader.readLine()) != null) {
@@ -1346,7 +1346,7 @@ class CarDefine implements Runnable {
                     if (loadnames[nl - 1].equals(names[i46])) {
                         i = -1;
                     }
-                if (fails.indexOf("" + "|" + loadnames[nl - 1] + "|") != -1) {
+                if (fails.indexOf("|" + loadnames[nl - 1] + "|") != -1) {
                     i = -1;
                 }
                 if (i != -1) {
@@ -1390,7 +1390,7 @@ class CarDefine implements Runnable {
                     final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println("" + "19|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|" + onstage
+                    printwriter.println("19|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|" + onstage
                             + "|");
                     final String string = bufferedreader.readLine();
                     if (string != null) {
@@ -1420,7 +1420,7 @@ class CarDefine implements Runnable {
                     final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println("" + "1|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|");
+                    printwriter.println("1|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|");
                     final String string = bufferedreader.readLine();
                     if (string != null) {
                         reco = servervalue(string, 0);
@@ -1464,7 +1464,7 @@ class CarDefine implements Runnable {
                         final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                         final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                         final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                        printwriter.println("" + "18|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|" + onstage
+                        printwriter.println("18|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|" + onstage
                                 + "|");
                         final String string = bufferedreader.readLine();
                         if (string != null) {
@@ -1497,7 +1497,7 @@ class CarDefine implements Runnable {
 
     private int loadonlinecar(final String string, int i) {
         try {
-            String string52 = "" + "http://multiplayer.needformadness.com/cars/" + string + ".radq";
+            String string52 = "http://multiplayer.needformadness.com/cars/" + string + ".radq";
             string52 = string52.replace(' ', '_');
             final URL url = new URL(string52);
             final int i53 = url.openConnection().getContentLength();
@@ -1582,7 +1582,7 @@ class CarDefine implements Runnable {
         int i = 0;
         String line = "";
         try {
-            final URL url = new URL("" + "http://multiplayer.needformadness.com/tracks/lists/" + gs.tnick.getText()
+            final URL url = new URL("http://multiplayer.needformadness.com/tracks/lists/" + gs.tnick.getText()
                     + ".txt?reqlo=" + (int) (Math.random() * 1000.0) + "");
             final BufferedReader stageReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
             while ((line = stageReader.readLine()) != null) {
@@ -1657,7 +1657,7 @@ class CarDefine implements Runnable {
             if (i == 4) {
                 string65 = "M";
             }
-            final URL url = new URL("" + "http://multiplayer.needformadness.com/tracks/top20/" + string65 + ".txt");
+            final URL url = new URL("http://multiplayer.needformadness.com/tracks/top20/" + string65 + ".txt");
             final BufferedReader top20Reader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
             while ((line = top20Reader.readLine()) != null) {
                 line = "" + line.trim();
@@ -1697,7 +1697,7 @@ class CarDefine implements Runnable {
             gs.mstgs.removeAll();
             gs.mstgs.add(gs.rd, "Select Stage");
             for (int i68 = 0; i68 < i64; i68++) {
-                gs.mstgs.add(gs.rd, "" + "N#" + (i68 + 1) + " " + strings[i68]);
+                gs.mstgs.add(gs.rd, "N#" + (i68 + 1) + " " + strings[i68]);
             }
             gs.mstgs.select(0);
             gs.mstgs.setVisible(true);
@@ -1718,7 +1718,7 @@ class CarDefine implements Runnable {
             int i = 0;
             String line = "";
             try {
-                final URL url = new URL("" + "http://multiplayer.needformadness.com/clans/" + string + "/stages.txt");
+                final URL url = new URL("http://multiplayer.needformadness.com/clans/" + string + "/stages.txt");
                 BufferedReader clanStageReader;
                 for (clanStageReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream()))); (line = clanStageReader.readLine()) != null
                         && i < 700; i++) {
@@ -1881,7 +1881,7 @@ class CarDefine implements Runnable {
             }
         } catch (final Exception exception) {
             i = -1;
-            System.out.println("" + "Error Loading Car: " + exception);
+            System.out.println("Error Loading Car: " + exception);
         }
         System.gc();
         return i;

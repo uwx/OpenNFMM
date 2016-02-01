@@ -313,7 +313,7 @@ class ContO {
                             if (keyz[i9] < 0) {
                                 string19 = "BACK";
                             }
-                            err = "" + "Wheels Error:\n" + string19
+                            err = "Wheels Error:\n" + string19
                                     + " Wheels floor is too far below the center of Y Axis of the car!    \n\nPlease decrease the Y value of the "
                                     + string19 + " Wheels or decrease its height.     \n \n";
                             errd = true;
@@ -325,7 +325,7 @@ class ContO {
                             if (keyz[i9] < 0) {
                                 string20 = "BACK";
                             }
-                            err = "" + "Wheels Error:\n" + string20
+                            err = "Wheels Error:\n" + string20
                                     + " Wheels floor is too far above the center of Y Axis of the car!    \n\nPlease increase the Y value of the "
                                     + string20 + " Wheels or increase its height.     \n \n";
                             errd = true;
@@ -337,7 +337,7 @@ class ContO {
                             if (keyz[i9] < 0) {
                                 string21 = "BACK";
                             }
-                            err = "" + "Wheels Error:\n" + string21
+                            err = "Wheels Error:\n" + string21
                                     + " Wheels are too far apart!    \n\nPlease decrease the \u00b1X value of the "
                                     + string21 + " Wheels.     \n \n";
                             errd = true;
@@ -359,7 +359,7 @@ class ContO {
                             if (keyz[i9] < 0) {
                                 string22 = "BACK";
                             }
-                            err = "" + "Wheels Error:\nWidth of the " + string22
+                            err = "Wheels Error:\nWidth of the " + string22
                                     + " Wheels is too large!    \n\nPlease decrease the width of the " + string22
                                     + " Wheels.     \n \n";
                             errd = true;
@@ -527,7 +527,7 @@ class ContO {
             if (exception instanceof RuntimeException)
                 throw new RuntimeException(exception);
             else if (!errd) {
-                err = "" + "Error While Loading 3D Model\n\nLine:     " + string + "\n\nError Detail:\n" + exception
+                err = "Error While Loading 3D Model\n\nLine:     " + string + "\n\nError Detail:\n" + exception
                         + "           \n \n";
                 System.out.println(err);
                 errd = true;

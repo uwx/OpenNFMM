@@ -489,7 +489,7 @@ class GameSparker extends JPanel
             if (exception instanceof RuntimeException)
                 throw new RuntimeException(exception);
             else {
-                System.out.println("" + "Error Reading Models: " + exception);
+                System.out.println("Error Reading Models: " + exception);
             }
         }
         System.gc();
@@ -533,14 +533,14 @@ class GameSparker extends JPanel
         try {
             BufferedReader stageDataReader;
             if (xtgraphics.multion == 0 && checkpoints.stage != -2) {
-                String customStagePath = "" + "stages/" + checkpoints.stage + "";
+                String customStagePath = "stages/" + checkpoints.stage + "";
                 if (checkpoints.stage == -1) {
-                    customStagePath = "" + "mystages/" + checkpoints.name + "";
+                    customStagePath = "mystages/" + checkpoints.name + "";
                 }
                 final File customStageFile = new File("" + Madness.fpath + "" + customStagePath + ".txt");
                 stageDataReader = new BufferedReader(new InputStreamReader(new DataInputStream(new FileInputStream(customStageFile))));
             } else if (checkpoints.stage > 0) {
-                final URL url = new URL("" + "http://multiplayer.needformadness.com/stages/" + checkpoints.stage
+                final URL url = new URL("http://multiplayer.needformadness.com/stages/" + checkpoints.stage
                         + ".txt");
                 stageDataReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
             } else {
@@ -663,7 +663,7 @@ class GameSparker extends JPanel
                                 checkpoints.typ[checkpoints.n] = -4;
                             }
                             if (string.indexOf("out") != -1) {
-                                System.out.println("" + "out: " + checkpoints.n);
+                                System.out.println("out: " + checkpoints.n);
                             }
                             checkpoints.n++;
                             notb = nob + 1;
@@ -853,9 +853,9 @@ class GameSparker extends JPanel
             trackers.devidetrackers(k, i - k, m, l - m);
         } catch (final Exception exception) {
             checkpoints.stage = -3;
-            System.out.println("" + "Error in stage " + checkpoints.stage);
+            System.out.println("Error in stage " + checkpoints.stage);
             System.out.println("" + exception);
-            System.out.println("" + "At line: " + string);
+            System.out.println("At line: " + string);
         }
         if (checkpoints.nsp < 2) {
             checkpoints.stage = -3;
@@ -917,9 +917,9 @@ class GameSparker extends JPanel
                 xtgraphics.fase = 5;
             }
             if (checkpoints.stage > 0) {
-                xtgraphics.asay = "" + "Stage " + checkpoints.stage + ":  " + checkpoints.name + " ";
+                xtgraphics.asay = "Stage " + checkpoints.stage + ":  " + checkpoints.name + " ";
             } else {
-                xtgraphics.asay = "" + "Custom Stage:  " + checkpoints.name + " ";
+                xtgraphics.asay = "Custom Stage:  " + checkpoints.name + " ";
             }
             record.reset(stageContos);
         } else if (xtgraphics.fase == 2) {
@@ -965,11 +965,11 @@ class GameSparker extends JPanel
         try {
             DataInputStream datainputstream;
             if (checkpoints.stage > 0) {
-                final URL url = new URL("" + "http://multiplayer.needformadness.com/stages/" + checkpoints.stage
+                final URL url = new URL("http://multiplayer.needformadness.com/stages/" + checkpoints.stage
                         + ".txt");
                 datainputstream = new DataInputStream(url.openStream());
             } else {
-                String string154 = "" + "http://multiplayer.needformadness.com/tracks/" + checkpoints.name + ".radq";
+                String string154 = "http://multiplayer.needformadness.com/tracks/" + checkpoints.name + ".radq";
                 string154 = string154.replace(' ', '_');
                 final URL url = new URL(string154);
                 final int i155 = url.openConnection().getContentLength();
@@ -1079,7 +1079,7 @@ class GameSparker extends JPanel
                             checkpoints.typ[checkpoints.n] = -4;
                         }
                         if (string153.indexOf("out") != -1) {
-                            System.out.println("" + "out: " + checkpoints.n);
+                            System.out.println("out: " + checkpoints.n);
                         }
                         checkpoints.n++;
                     }
@@ -1171,9 +1171,9 @@ class GameSparker extends JPanel
             medium.newstars();
         } catch (final Exception exception) {
             bool = false;
-            System.out.println("" + "Error in stage " + checkpoints.stage);
+            System.out.println("Error in stage " + checkpoints.stage);
             System.out.println("" + exception);
-            System.out.println("" + "At line: " + string153);
+            System.out.println("At line: " + string153);
         }
         if (checkpoints.nsp < 2) {
             bool = false;
@@ -1608,17 +1608,17 @@ class GameSparker extends JPanel
         ilaps.add(rd, "Laps");
         ilaps.add(rd, "1 Lap");
         for (int i = 0; i < xtGraphics.nTracks; i++) {
-            snfmm.add(rd, "" + " Stage " + (i + 1) + "");
+            snfmm.add(rd, " Stage " + (i + 1) + "");
         }
         /*for (int i = 0; i < 10; i++)
         	snfm1.add(rd, "" + (" Stage ") + (i + 1) + (""));
         for (int i = 0; i < 17; i++)
         	snfm2.add(rd, "" + (" Stage ") + (i + 1) + (""));*/
         for (int i = 0; i < 7; i++) {
-            snpls.add(rd, "" + "    " + (i + 2) + "");
+            snpls.add(rd, "    " + (i + 2) + "");
         }
         for (int i = 0; i < 7; i++) {
-            snbts.add(rd, "" + "    " + i + "    ");
+            snbts.add(rd, "    " + i + "    ");
         }
         for (int i = 0; i < 2; i++) {
             swait.add(rd, "" + (i + 2) + " Minutes");

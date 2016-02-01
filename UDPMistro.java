@@ -453,7 +453,7 @@ class UDPMistro implements Runnable {
                     }
             }
             if (i20 == 10) {
-                final String string = "" + "3|" + pgame + "|alive|";
+                final String string = "3|" + pgame + "|alive|";
                 String string22 = "";
                 if (i19 == 0) {
                     try {
@@ -553,7 +553,7 @@ class UDPMistro implements Runnable {
 
                 }
             }
-            final String string = "" + "3|" + pgame + "|finish|";
+            final String string = "3|" + pgame + "|finish|";
             try {
                 dout.println(string);
                 din.readLine();
