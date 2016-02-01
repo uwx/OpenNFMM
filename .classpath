@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding=".settings/|bin/|data/|libraries/|music/|mystages/|stages/|mycars/" kind="src" path="">
-		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="NFMM/libraries/dlls"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry excluding=".settings/|bin/|data/|libraries/|music/|mystages/|stages/|mycars/|libraries/dlls/win32/|libraries/dlls/win64/" kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="libraries/dragshotMod.jar"/>
 	<classpathentry kind="lib" path="libraries/easyogg.jar"/>
