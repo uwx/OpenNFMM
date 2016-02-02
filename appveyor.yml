@@ -27,6 +27,7 @@ on_success:
  - cmd: For /f "tokens=1-2 delims=/:" %%a in ('time /t') do (set mytime=%%a%%b)
  - git checkout -f javadocs
 # - git rm --cached -r -f .
+ - cmd: rd /s /q doc
  - cmd: mkdir doc
  - cmd: SET PATH="C:\Program Files\Java\jdk1.8.0\bin"
  - cmd: javadoc -d doc -classpath "libraries\dragshotMod.jar;libraries\easyogg.jar;libraries\jl1.0.1.jar;libraries\jogg-0.0.7.jar;libraries\jorbis-0.0.15.jar;libraries/NativeBass.jar;libraries/NativeBass-Examples.jar;%CD%" -sourcepath "%CD%" *.java
