@@ -230,8 +230,7 @@ class RadicalBASS implements RadicalMusic {
 
     @Override
     public int getType() {
-        // TODO Auto-generated method stub
-        return 0;
+        return TYPE_BASS;
     }
 
     @Override

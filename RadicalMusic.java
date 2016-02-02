@@ -2,6 +2,7 @@
 interface RadicalMusic {
 
     //SuperClip sClip = null;
+    static final int TYPE_BASS = 4;
     static final int TYPE_OGG = 3;
     static final int TYPE_MP3 = 2;
     static final int TYPE_MIDI = 1;
