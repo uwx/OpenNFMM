@@ -4580,10 +4580,10 @@ public class StageMaker extends Applet implements Runnable {
                     }
                     if (track.playing && track.loaded == 2) {
                         if (button("      Stop      ", 110, 495, 2, false)) {
-                            track.stop();
+                            track.setPaused(true);
                         }
                         if (!ltrackname.equals(tracks.getSelectedItem())) {
-                            track.stop();
+                            track.setPaused(true);
                         }
                         if (xm > 10 && xm < 210 && ym > 516 && ym < 534) {
                             if (mousePressed == 1) {

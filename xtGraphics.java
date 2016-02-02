@@ -117,8 +117,6 @@ class xtGraphics extends Panel implements Runnable {
     private Image chat;
     private soundClip checkpoint;
     private Image chil;
-    private final Chronometer chrono;
-    private boolean chronostart;
     String clan = "";
     boolean clanchat = false;
     int clangame = 0;
@@ -516,8 +514,6 @@ class xtGraphics extends Panel implements Runnable {
             }
         }
         badmac = false;
-        chrono = new Chronometer(this);
-        chronostart = false;
     }
 
     private void arrow(final int i, final int i216, final CheckPoints checkpoints, final boolean bool) {
@@ -2130,7 +2126,7 @@ class xtGraphics extends Panel implements Runnable {
                 app.mcars.show = false;
                 if (multion != 0) {
                     fase = 1177;
-                    intertrack.stop();
+                    intertrack.setPaused(true);
                 } else if (testdrive != 3 && testdrive != 4) {
                     fase = 3;
                 } else {
@@ -2200,7 +2196,7 @@ class xtGraphics extends Panel implements Runnable {
             cd.viewname = cd.createdby[sc[0] - 16];
             m.crs = false;
             fase = 1177;
-            intertrack.stop();
+            intertrack.setPaused(true);
             sc[0] = onmsc;
             if (sc[0] >= 16 && cd.lastload != 2 || sc[0] >= 36) {
                 sc[0] = 15;
@@ -3186,10 +3182,10 @@ class xtGraphics extends Panel implements Runnable {
     }
 
     void finish(final CheckPoints checkpoints, final ContO[] contos, final Control control, final int i, final int i141, final boolean bool) {
-        if (chronostart) {
+        /*if (chronostart) {
             chrono.stop();
             chronostart = false;
-        }
+        }*/
         if (!badmac) {
             rd.drawImage(fleximg, 0, 0, null);
         } else {
@@ -3226,9 +3222,6 @@ class xtGraphics extends Panel implements Runnable {
                 }
             }
             rd.setColor(new Color(193, 106, 0));
-            rd.drawString("Your time: " + chrono.getTotalTime(), 380
-                    - ftm.stringWidth("Your time: " + chrono.getTotalTime()), 200);
-            rd.drawString("Best lap: " + chrono.getBestLapTime(), 420, 200);
         } else {
             rd.drawImage(gameov, 315, 117, null);
             drawcs(167, "Finished Watching Game!  At Stage" + string + "", 255, 161, 85, 3);
@@ -4194,7 +4187,6 @@ class xtGraphics extends Panel implements Runnable {
     }
 
     void inishstageselect(final CheckPoints checkpoints) {
-        chrono.reset();
         if (checkpoints.stage == -2 && (cd.msloaded != 1 || !logged)) {
             checkpoints.stage = (int) (ThreadLocalRandom.current().nextDouble() * nTracks) + 1;
             checkpoints.top20 = 0;
@@ -7184,10 +7176,6 @@ class xtGraphics extends Panel implements Runnable {
     }
 
     void pausedgame(final int i, final Control control, final Record record) {
-        if (chronostart) {
-            chronostart = false;
-            chrono.pause();
-        }
         if (!badmac) {
             rd.drawImage(fleximg, 0, 0, null);
         } else {
@@ -7251,34 +7239,28 @@ class xtGraphics extends Panel implements Runnable {
         rd.drawImage(paused, 281, 8, null);
         if (control.enter || control.handb) {
             if (opselect == 0) {
-                chronostart = true;
-                chrono.resume();
                 if (loadedt && !mutem) {
-                    strack.resume();
+                    strack.setPaused(false);
                 }
                 fase = 0;
             }
             if (opselect == 1)
                 if (record.caught >= 300) {
                     if (loadedt && !mutem) {
-                        strack.resume();
+                        strack.setPaused(false);
                     }
                     fase = -1;
                 } else {
                     fase = -8;
                 }
             if (opselect == 2) {
-                chronostart = false;
-                chrono.stop();
                 if (loadedt) {
-                    strack.stop();
+                    strack.setPaused(true);
                 }
                 oldfase = -7;
                 fase = 11;
             }
             if (opselect == 3) {
-                chronostart = false;
-                chrono.stop();
                 if (loadedt) {
                     strack.unload();
                 }
@@ -7512,10 +7494,10 @@ class xtGraphics extends Panel implements Runnable {
                 mutem = control.mutem;
                 if (mutem) {
                     if (loadedt) {
-                        strack.stop();
+                        strack.setPaused(true);
                     }
                 } else if (loadedt) {
-                    strack.resume();
+                    strack.setPaused(false);
                 }
             }
         }
@@ -8818,7 +8800,7 @@ class xtGraphics extends Panel implements Runnable {
                     fase = 5;
                     control.handb = false;
                     control.enter = false;
-                    intertrack.stop();
+                    intertrack.setPaused(true);
                     intertrack.unload();
                 }
                 if (checkpoints.stage > 0) {
@@ -8877,7 +8859,7 @@ class xtGraphics extends Panel implements Runnable {
                 fase = 5;
                 control.handb = false;
                 control.enter = false;
-                intertrack.stop();
+                intertrack.setPaused(true);
                 intertrack.unload();
             }
         }
@@ -8896,22 +8878,11 @@ class xtGraphics extends Panel implements Runnable {
             hidos();
             app.tnick.setVisible(false);
             app.tpass.setVisible(false);
-            intertrack.stop();
+            intertrack.setPaused(true);
         }
     }
 
     void stat(final Mad mad, final ContO conto, final CheckPoints checkpoints, final Control control, final boolean bool) {
-        if (!chronostart)
-            if (starcnt == 0) {
-                chrono.setLaps(checkpoints.nlaps);
-                chrono.start();
-                chronostart = true;
-            }
-        if (control.radar) {
-            chrono.paint(10, 260, 1);
-        } else {
-            chrono.paint(10, 50, 1);
-        }
         if (holdit) {
             int i = 250;
             if (fase == 7001)
@@ -8937,7 +8908,7 @@ class xtGraphics extends Panel implements Runnable {
             if (control.enter || control.exit) {
                 if (fase == 0) {
                     if (loadedt) {
-                        strack.stop();
+                        strack.setPaused(true);
                     }
                     fase = -6;
                 } else if (starcnt == 0 && control.chatup == 0 && (multion < 2 || !lan))
@@ -9087,9 +9058,6 @@ class xtGraphics extends Panel implements Runnable {
                 if (!holdit) {
                     for (int i = 0; i < nplayers; i++)
                         if (checkpoints.clear[i] == checkpoints.nlaps * checkpoints.nsp && checkpoints.pos[i] == 0) {
-                            if (chronostart) {
-                                chrono.pause();
-                            }
                             // it is stopped later on
                             if (clangame == 0) {
                                 if (i == im) {
@@ -9714,9 +9682,6 @@ class xtGraphics extends Panel implements Runnable {
                         tcnt = 15;
                     }
                     clear = mad.clear;
-                    if (checkpoints.nlaps > 0 && clear % checkpoints.nsp == 0) {
-                        chrono.performLap();
-                    }
                     if (!mutes) {
                         checkpoint.play();
                     }

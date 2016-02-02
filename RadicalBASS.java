@@ -257,9 +257,9 @@ class RadicalBASS implements RadicalMusic {
     @Override
     public void setPaused(final boolean pause) {
         if (pause)
-            resume();
-        else
             stop();
+        else
+            resume();
 
     }
 
