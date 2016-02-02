@@ -299,3 +299,5 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 /target/
+/mycars/
+/mystages/
