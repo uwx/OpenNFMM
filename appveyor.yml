@@ -33,4 +33,4 @@ on_success:
 #
  - git add doc/*
  - git commit -m "Generated Javadocs at %mydate%_%mytime% [skip ci]"
- - git push origin javadocs
+ - git push origin master
