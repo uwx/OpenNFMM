@@ -1,8 +1,10 @@
 # Appveyor doesn't have JDK 8 by default in PATH so we must set it
 
 build_script:
- - cmd: "C:\\Program Files\\Java\\jdk1.8.0\\bin\\javac" -classpath "libraries\\jl1.0.1.jar" javazoom/jl/player/PausablePlayer.java
- - cmd: "C:\\Program Files\\Java\\jdk1.8.0\\bin\\javac" -classpath "libraries\\dragshotMod.jar;libraries\\easyogg.jar;libraries\\jl1.0.1.jar;libraries\\jogg-0.0.7.jar;libraries\\jorbis-0.0.15.jar;libraries/NativeBass.jar;libraries/NativeBass-Examples.jar;%CD%" *.java -Xlint:deprecation
+ - cmd: SET tempath=%PATH%
+ - cmd: SET PATH="C:\Program Files\Java\jdk1.8.0\bin"
+ - cmd: javac -classpath "libraries\jl1.0.1.jar" javazoom/jl/player/PausablePlayer.java
+ - cmd: javac -classpath "libraries\dragshotMod.jar;libraries\easyogg.jar;libraries\jl1.0.1.jar;libraries\jogg-0.0.7.jar;libraries\jorbis-0.0.15.jar;libraries/NativeBass.jar;libraries/NativeBass-Examples.jar;%CD%" *.java -Xlint:deprecation
 
 environment:
   access_token:
@@ -18,7 +20,7 @@ skip_commits:
 on_success:
  - cmd: SET PATH=%tempath%
  - git config --global credential.helper store
- - ps: Add-Content "$env:USERPROFILE\\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+ - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
  - git config --global user.email "bbbbbbenes@outlook.com.br"
  - git config --global user.name "Appveyor Automated Build"
  - cmd: For /f "tokens=2-4 delims=/ " %%a in ('date /t') do (set mydate=%%c-%%a-%%b)
@@ -26,7 +28,9 @@ on_success:
  - git checkout --orphan javadocs
  - git rm --cached -r .
  - cmd: mkdir doc
- - cmd: "C:\\Program Files\\Java\\jdk1.8.0\\bin\\javadoc" -d doc -sourcepath %CD%
+ - cmd: SET PATH="C:\Program Files\Java\jdk1.8.0\bin"
+ - cmd: javadoc -d doc -sourcepath %CD%
+ - cmd: SET PATH=%tempath%
  - git add doc/*
  - git commit -m "Generated Javadocs at %mydate%_%mytime% [skip ci]"
  - git push origin javadocs
