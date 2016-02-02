@@ -26,7 +26,7 @@ class CheckPoints {
     int nfix = 0;
     int nlaps = 0;
     /**
-     * "<strong>No</strong> <strong>T</strong>rees or <strong>B</strong>umps"<br/>
+     * "<strong>No</strong> <strong>T</strong>rees or <strong>B</strong>umps"<br>
      * Setting this to true will disable trees and bumps.
      */
     boolean notb = false;

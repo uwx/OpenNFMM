@@ -98,9 +98,9 @@ public class StageMaker extends Applet implements Runnable {
      * */
 
     /**
-     * ----------------- ATTACH POINTS <br/>
-     * ------------------ INCREMENT THIS WHEN YOU WANT A NEW PART<br/>
-     * Attach points are: x1, z1, x2, z2<br/>
+     * ----------------- ATTACH POINTS <br>
+     * ------------------ INCREMENT THIS WHEN YOU WANT A NEW PART<br>
+     * Attach points are: x1, z1, x2, z2<br>
      */
     private final int[][] atp = {
             {
@@ -268,7 +268,7 @@ public class StageMaker extends Applet implements Runnable {
     };
 
     /**
-     * ------------------ PART DESCRIPTIONS, INCREMENT WHEN YOU WANT A NEW PART<br/>
+     * ------------------ PART DESCRIPTIONS, INCREMENT WHEN YOU WANT A NEW PART<br>
      * ------------------ OR THE GAME WILL CRASH WHEN YOU READ THEM
      */
     private final String[] discp = {
@@ -1499,7 +1499,7 @@ public class StageMaker extends Applet implements Runnable {
     }
 
     /**
-     * ------------------ ADD NEW PARTS HERE<br/>
+     * ------------------ ADD NEW PARTS HERE<br>
      * ------------------ THE NAMES IN QUOTES ARE THE NAMES THAT ARE DISPLAYED
      */
     private void partcustom() {
