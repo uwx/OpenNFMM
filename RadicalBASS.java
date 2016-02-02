@@ -65,7 +65,7 @@ class RadicalBASS implements RadicalMusic {
     private int chan;
     private long bpp; //Bytes per pixel
     private final long[] loop = new long[2]; //Loop start & end
-    private HSYNC lsync; //Looping sync
+    //private HSYNC lsync; //Looping sync
 
     private BufferedImage wavebuf = null;
 

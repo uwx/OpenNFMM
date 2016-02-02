@@ -394,7 +394,6 @@ class CarDefine implements Runnable {
     String tnickey = "";
     String tclan = "";
     String tclankey = "";
-    private final int loadlist = 0;
     private final int[] adds = {
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
@@ -1145,78 +1144,6 @@ class CarDefine implements Runnable {
                 String line = "";
                 try {
                     String string44 = "all";
-                    if (loadlist == 1) {
-                        string44 = "Wall";
-                    }
-                    if (loadlist == 2) {
-                        string44 = "WA";
-                    }
-                    if (loadlist == 3) {
-                        string44 = "WAB";
-                    }
-                    if (loadlist == 4) {
-                        string44 = "WB";
-                    }
-                    if (loadlist == 5) {
-                        string44 = "WBC";
-                    }
-                    if (loadlist == 6) {
-                        string44 = "WC";
-                    }
-                    if (loadlist == 7) {
-                        string44 = "Mall";
-                    }
-                    if (loadlist == 8) {
-                        string44 = "MA";
-                    }
-                    if (loadlist == 9) {
-                        string44 = "MAB";
-                    }
-                    if (loadlist == 10) {
-                        string44 = "MB";
-                    }
-                    if (loadlist == 11) {
-                        string44 = "MBC";
-                    }
-                    if (loadlist == 12) {
-                        string44 = "MC";
-                    }
-                    if (loadlist == 13) {
-                        string44 = "Sall";
-                    }
-                    if (loadlist == 14) {
-                        string44 = "SA";
-                    }
-                    if (loadlist == 15) {
-                        string44 = "SAB";
-                    }
-                    if (loadlist == 16) {
-                        string44 = "SB";
-                    }
-                    if (loadlist == 17) {
-                        string44 = "SBC";
-                    }
-                    if (loadlist == 18) {
-                        string44 = "SC";
-                    }
-                    if (loadlist == 19) {
-                        string44 = "Aall";
-                    }
-                    if (loadlist == 20) {
-                        string44 = "AA";
-                    }
-                    if (loadlist == 21) {
-                        string44 = "AAB";
-                    }
-                    if (loadlist == 22) {
-                        string44 = "AB";
-                    }
-                    if (loadlist == 23) {
-                        string44 = "ABC";
-                    }
-                    if (loadlist == 24) {
-                        string44 = "AC";
-                    }
                     final URL url = new URL("http://multiplayer.needformadness.com/cars/top20/" + string44
                             + ".txt");
                     final BufferedReader top20Reader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));

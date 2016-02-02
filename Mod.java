@@ -7,31 +7,18 @@ import java.io.DataInputStream;
 import java.io.IOException;
 
 class Mod {
-    private static final int voice_28ch = FOURCC("28CH");
+    /*private static final int voice_28ch = FOURCC("28CH");
     private static final int voice_6chn = FOURCC("6CHN");
     private static final int voice_8chn = FOURCC("8CHN");
     private static final int voiceFlt4 = FOURCC("FLT4");
     private static final int voiceFlt8 = FOURCC("FLT8");
     private static final int voiceMk = FOURCC("M.K.");
     private static final int voiceMk2 = FOURCC("M!K!");
-    private static final int voiceMk3 = FOURCC("M&K!");
+    private static final int voiceMk3 = FOURCC("M&K!");*/
 
     static final int FOURCC(final String string) {
         return string.charAt(3) & 0xff | (string.charAt(2) & 0xff) << 8 | (string.charAt(1) & 0xff) << 16
                 | (string.charAt(0) & 0xff) << 24;
-    }
-
-    private static final String readText(final DataInputStream datainputstream, final int i) throws IOException {
-        final byte[] is = new byte[i];
-        datainputstream.readFully(is, 0, i);
-        for (int i12 = i - 1; i12 >= 0; i12--)
-            if (is[i12] != 0)
-                return new String(is, 0, 0, i12 + 1);
-        return "";
-    }
-
-    private static final int readu16(final DataInputStream datainputstream) throws IOException {
-        return datainputstream.readShort() & 0xffff;
     }
 
     private static final int readu8(final DataInputStream datainputstream) throws IOException {

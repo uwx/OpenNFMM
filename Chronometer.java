@@ -20,8 +20,6 @@ class Chronometer {
 
     private long delay;
 
-    private long end;
-
     private FontMetrics ftm;
 
     private int laps;
@@ -49,7 +47,6 @@ class Chronometer {
         xt = pxt;
         rd = xt.rd;
         start = 0L;
-        end = 0L;
         laps = 0;
         current = 0;
         bestlap = 1;
@@ -225,7 +222,6 @@ class Chronometer {
     void reset() {
         if (!running) {
             start = 0L;
-            end = 0L;
             laps = 0;
             current = 0;
             bestlap = 1;
@@ -271,7 +267,6 @@ class Chronometer {
             performLap();
         }
         current--;
-        end = System.currentTimeMillis();
         delay = 0L;
         pausetime = 0L;
         running = false;
