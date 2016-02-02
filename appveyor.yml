@@ -25,16 +25,20 @@ on_success:
  - git config --global user.name "Appveyor Automated Build"
  - cmd: For /f "tokens=2-4 delims=/ " %%a in ('date /t') do (set mydate=%%c-%%a-%%b)
  - cmd: For /f "tokens=1-2 delims=/:" %%a in ('time /t') do (set mytime=%%a%%b)
- - git branch -d javadocs
- - git checkout --orphan javadocs
- - git rm --cached -r -f .
- - git pull
-# - git checkout -f javadocs
- - cmd: rd /s /q doc
+# - git branch -d javadocs
+# - git checkout --orphan javadocs
+# - git rm --cached -r -f .
+# - git pull
+# - 
+# - cmd: rd /s /q doc
  - cmd: mkdir doc
  - cmd: SET PATH="C:\Program Files\Java\jdk1.8.0\bin"
  - cmd: javadoc -d doc -classpath "libraries\dragshotMod.jar;libraries\easyogg.jar;libraries\jl1.0.1.jar;libraries\jogg-0.0.7.jar;libraries\jorbis-0.0.15.jar;libraries/NativeBass.jar;libraries/NativeBass-Examples.jar;%CD%" -sourcepath "%CD%" *.java
  - cmd: SET PATH=%tempath%
  - git add doc/*
+ - git stash
+# - git checkout other-branch
+ - git checkout -f javadocs
+ - git stash pop
  - git commit -m "Generated Javadocs at %mydate%_%mytime% [skip ci]"
  - git push origin javadocs
