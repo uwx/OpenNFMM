@@ -5,19 +5,26 @@ import jouvieje.bass.exceptions.BassException;
 
 public class BASSLoader {
 
+    private static final String os = System.getProperty("os.name").toLowerCase();
+    private static final String x64 = System.getProperty("sun.arch.data.model").equals("64") ? "64" : "32";
+    private static final boolean isUnix = os.indexOf("nix") == 0 || os.indexOf("nux") == 0;
+    private static final boolean isWindows = os.indexOf("win") == 0;
+    private static final boolean isMac = os.indexOf("mac") == 0;
+    private static final String workingDirectory = ".";
+
     static void initializeBASS() {
         System.out.println(System.getProperty("java.library.path"));
 
         try {
-            if (Madness.isUnix) {
+            if (isUnix) {
                 System.out.println("running on a unix system");
-                appendToPath(Madness.workingDirectory + "/libraries/dlls/linux" + Madness.x64 + "/");
-            } else if (Madness.isMac)  {
+                appendToPath(workingDirectory + "/libraries/dlls/linux" + x64 + "/");
+            } else if (isMac)  {
                 System.out.println("running on a mac system");
-                appendToPath(Madness.workingDirectory + "/libraries/dlls/mac/");
-            } else if (Madness.isWindows) {
+                appendToPath(workingDirectory + "/libraries/dlls/mac/");
+            } else if (isWindows) {
                 System.out.println("running on a windows system");
-                appendToPath(Madness.workingDirectory + "\\libraries\\dlls\\win" + Madness.x64 + "\\");
+                appendToPath(workingDirectory + "\\libraries\\dlls\\win" + x64 + "\\");
             }
         } catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
         }
@@ -28,7 +35,7 @@ public class BASSLoader {
     //private static final String workingDirectory = System.getProperty("user.dir");
 
     private static void appendToPath(final String s) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-        System.setProperty( "java.library.path", System.getProperty("java.library.path") + (Madness.isWindows ? ";" : ":") + s );
+        System.setProperty( "java.library.path", System.getProperty("java.library.path") + (isWindows ? ";" : ":") + s );
 
         Field fieldSysPath = ClassLoader.class.getDeclaredField( "sys_paths" );
         fieldSysPath.setAccessible( true );
