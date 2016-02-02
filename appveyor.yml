@@ -29,7 +29,7 @@ on_success:
  - git rm --cached -r -f .
  - cmd: mkdir doc
  - cmd: SET PATH="C:\Program Files\Java\jdk1.8.0\bin"
- - cmd: javadoc -d doc -sourcepath %CD%
+ - cmd: javadoc -d doc -sourcepath %CD% *.java
  - cmd: SET PATH=%tempath%
  - git add doc/*
  - git commit -m "Generated Javadocs at %mydate%_%mytime% [skip ci]"
