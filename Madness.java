@@ -369,6 +369,15 @@ class Madness extends Panel {
     }
 
     public static void main(final String[] strings) {
+        if (isWindows) {
+            System.setProperty("sun.java2d.opengl","false");
+            System.setProperty("sun.java2d.d3d","true");
+        } else if (isMac || isUnix) {
+            System.setProperty("sun.java2d.opengl","true");
+            System.setProperty("sun.java2d.d3d","false");
+        }
+
+
         System.runFinalizersOnExit(true);
         frame = new Frame("Need for Madness");
         frame.setBackground(new Color(0, 0, 0));
@@ -415,6 +424,11 @@ class Madness extends Panel {
             }
         });
         frame.add("Center", applet);
+
+        System.out.println("Accelerated BufferedImage: " + applet.offImage.getCapabilities(applet.getGraphicsConfiguration()).isAccelerated());
+        System.out.println("Hardware Acceleration: " + applet.getGraphicsConfiguration().getBufferCapabilities().isPageFlipping());
+        System.out.println("True VolatileImage: " + applet.offImage.getCapabilities(applet.getGraphicsConfiguration()).isTrueVolatile());
+
         frame.setVisible(true);
         frame.setMinimumSize(new Dimension(930, 586));
         frame.setSize(930, 586);
@@ -515,5 +529,12 @@ class Madness extends Panel {
         }
         return string;
     }
+
+    private static final String os = System.getProperty("os.name").toLowerCase();
+    static final String x64 = System.getProperty("sun.arch.data.model").equals("64") ? "64" : "32";
+    static final boolean isUnix = os.indexOf("nix") == 0 || os.indexOf("nux") == 0;
+    static final boolean isWindows = os.indexOf("win") == 0;
+    static final boolean isMac = os.indexOf("mac") == 0;
+    static final String workingDirectory = ".";
 
 }
