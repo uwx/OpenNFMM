@@ -1,0 +1,66 @@
+This Agreement constitutes the entire and only agreement between the parties
+and all other prior negotiations, agreements, representations and
+understandings are superseded hereby. Also, it shall be construed and enforced
+in accordance with the laws of the United States of America... ok no, it won't.
+Don't worry.
+
+Well, this is the part where we speak about terms and
+conditions of use of the apps posted here under that... license or whatever it
+actually is (it isn't that close to one).
+
+In order to make things easier for
+everyone, I've disclosed the terms in four sections, to be presented below.
+
+  What you must know beforehand
+
+    These terms are ALWAYS in effect. From the
+	very moment you do anything of the activities mentioned in the next section, it
+	is implied that you've read and accepted these terms.
+
+    The applications
+	posted here are free apps. Not exactly free in the meaning that you can get
+	until the last character of its sources and show them as a big exponents of the
+	open software initiative; but free in the way that you can download and use
+	them for free for whatever they were made to, or something related you found
+	them useful for.
+
+    They will be available all the time, at zero-cost forever... well, at least
+    while this server (also free) is up and working (Note to self: add mirrrors).
+
+  What you can do
+
+	You can download, use and share the apps covered under this license, totally
+	free of charge.
+
+    You may use the apps covered under this license, or part of their codes, in a
+    project of yours if you feel like it. This applies for both commercial and
+	non-comercial projects.
+
+  What you must keep on mind
+
+    The apps are delivered AS THEY ARE. They're meant to do the tasks they were
+    designed for, but there's no implied or explicit warranty unless the opposite
+    is stated. No exceptions.
+
+    In case you are interested into, or manage to use any app covered under this
+    license (or part of their codes), please let me know about it. I want to join
+    the hype too.
+
+    You will mention me and the stuff you used from here, in case you use it. No
+    ripoffs, I will find them.
+
+    For closed-source apps, you may prefer to use a decompiler in order to get usable
+	sources. If that fails, you can try requesting the sources via e-mail. If you
+	provide enough evidence of the existence and activity of your project, I might
+	decide to provide you of the codes you need.
+
+  What you shouldn't do
+
+	You may not use the apps for activities like piracy, any sort of exploit abuses
+	nor infringing the law. I'm not responsible for any inappropriate use of
+	anything posted here. If you do something wrong and get caught, that's your
+	problem, not mine.
+
+    You may not monetize with these apps. No selling, for either them or part of
+    their codes. Using them in the development of your own own commercial projects
+    is fine though.
