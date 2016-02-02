@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
+import java.util.Arrays;
 import java.util.Random;
 
 class ContO {
@@ -1403,28 +1404,9 @@ class ContO {
                         }
                     dsprk(graphics2d, true);
                 }
-                final int[] is = new int[npl];
-                final int[] is138 = new int[npl];
-                for (int i139 = 0; i139 < npl; i139++) {
-                    is[i139] = 0;
-                }
-                for (int i140 = 0; i140 < npl; i140++) {
-                    for (int i141 = i140 + 1; i141 < npl; i141++)
-                        if (p[i140].av != p[i141].av) {
-                            if (p[i140].av < p[i141].av) {
-                                is[i140]++;
-                            } else {
-                                is[i141]++;
-                            }
-                        } else if (i140 > i141) {
-                            is[i140]++;
-                        } else {
-                            is[i141]++;
-                        }
-                    is138[is[i140]] = i140;
-                }
+                Arrays.sort(p, 0, npl);
                 for (int i142 = 0; i142 < npl; i142++) {
-                    p[is138[i142]].d(graphics2d, x - m.x, y - m.y, z - m.z, xz, xy, zy, wxz, wzy, noline, i126);
+                    p[i142].d(graphics2d, x - m.x, y - m.y, z - m.z, xz, xy, zy, wxz, wzy, noline, i126);
                 }
                 if (shadow) {
                     for (int i143 = 0; i143 < 20; i143++)

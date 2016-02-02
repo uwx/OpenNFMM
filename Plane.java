@@ -8,7 +8,7 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.util.concurrent.ThreadLocalRandom;
 
-class Plane {
+class Plane implements Comparable<Plane> {
     int av = 0;
     int bfase = 0;
     int[] c = new int[3];
@@ -1282,5 +1282,17 @@ class Plane {
             i162 = m.cz;
         }
         return (i162 - m.focusPoint) * (m.cy - i) / i162 + i;
+    }
+
+    @Override
+    public int compareTo(Plane o) {
+        if (av != o.av) {
+            if (av < o.av) {
+                return 1;
+            } else {
+                return -1;
+            }
+        }
+        return 0;
     }
 }
