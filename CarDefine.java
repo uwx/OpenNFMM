@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.URL;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -1024,7 +1025,7 @@ class CarDefine implements Runnable {
                 String line = "";
                 try {
                     final URL url = new URL("http://multiplayer.needformadness.com/cars/lists/"
-                            + gs.tnick.getText() + ".txt?reqlo=" + (int) (Math.random() * 1000.0) + "");
+                            + gs.tnick.getText() + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
                     final BufferedReader carReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
                     while ((line = carReader.readLine()) != null) {
                         line = "" + line.trim();
@@ -1278,7 +1279,7 @@ class CarDefine implements Runnable {
                 String line = "";
                 try {
                     final URL url = new URL("http://multiplayer.needformadness.com/cars/lists/" + viewname
-                            + ".txt?reqlo=" + (int) (Math.random() * 1000.0) + "");
+                            + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
                     final BufferedReader carListReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
                     while ((line = carListReader.readLine()) != null) {
                         line = "" + line.trim();
@@ -1583,7 +1584,7 @@ class CarDefine implements Runnable {
         String line = "";
         try {
             final URL url = new URL("http://multiplayer.needformadness.com/tracks/lists/" + gs.tnick.getText()
-                    + ".txt?reqlo=" + (int) (Math.random() * 1000.0) + "");
+                    + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
             final BufferedReader stageReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
             while ((line = stageReader.readLine()) != null) {
                 line = "" + line.trim();

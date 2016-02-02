@@ -35,6 +35,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.URL;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -411,12 +412,12 @@ public class StageMaker extends Applet implements Runnable {
     // 			false, false, false, false, false, false, false, false, false, false, false };
     private final Checkbox pfog = new Checkbox("Linked Blend");
     private boolean pgen = false;
-    private float phd = 2L + Math.round(Math.random() * 4.0);
+    private float phd = 2L + Math.round(ThreadLocalRandom.current().nextDouble() * 4.0);
     private boolean preop = false;
     private final Smenu ptyp = new Smenu(40);
     private final int[] pubt = new int[20];
     private final Smenu pubtyp = new Smenu(40);
-    private float pwd = 2L + Math.round(Math.random() * 4.0);
+    private float pwd = 2L + Math.round(ThreadLocalRandom.current().nextDouble() * 4.0);
     private final int[] rcheckp = {
             0, 1, 2, 3, 4, 12, 13, 37
     };
@@ -461,7 +462,7 @@ public class StageMaker extends Applet implements Runnable {
     private int trackvol = 200;
     private String tstage = ""
             + "snap(0,0,0)\r\nsky(191,215,255)\r\nclouds(255,255,255,5,-1000)\r\nfog(195,207,230)\r\nground(192,194,202)\r\ntexture(0,0,0,50)\r\nfadefrom(5000)\r\ndensity(5)\n\rmountains("
-            + (int) (Math.random() * 100000.0) + ")\r\nnlaps(5)\r\n\r\n";
+            + (int) (ThreadLocalRandom.current().nextDouble() * 100000.0) + ")\r\nnlaps(5)\r\n\r\n";
     private String ttstage = "";
     private final String[] undos = new String[5000];
     private boolean up = false;
@@ -1237,7 +1238,7 @@ public class StageMaker extends Applet implements Runnable {
                 }
             }
             zipinputstream.close();
-            bco[bumppart] = new ContO((int) (10000.0 * Math.random()), (int) pwd, (int) phd, m, t, 0, 0, 0);
+            bco[bumppart] = new ContO((int) (10000.0 * ThreadLocalRandom.current().nextDouble()), (int) pwd, (int) phd, m, t, 0, 0, 0);
         } catch (final Exception exception) {
             JOptionPane.showMessageDialog(null, "Unable to load file 'data/models.zip'!\nError:\n"
                     + exception, "Stage Maker", 1);
@@ -1334,7 +1335,7 @@ public class StageMaker extends Applet implements Runnable {
                 stagename = srch.getText();
                 tstage = ""
                         + "snap(0,0,0)\r\nsky(191,215,255)\r\nclouds(255,255,255,5,-1000)\r\nfog(195,207,230)\r\nground(192,194,202)\r\ntexture(0,0,0,50)\r\nfadefrom(5000)\r\ndensity(5)\r\nmountains("
-                        + (int) (Math.random() * 100000.0) + ")\r\nnlaps(5)\r\n\r\n";
+                        + (int) (ThreadLocalRandom.current().nextDouble() * 100000.0) + ")\r\nnlaps(5)\r\n\r\n";
                 if (strtyp.getSelectedIndex() == 1) {
                     bstage = "set(48,0,0,0)\r\n";
                 } else {
@@ -2615,7 +2616,7 @@ public class StageMaker extends Applet implements Runnable {
                 }
                 if (selectedPartType == PART_BUMP) {
                     if (!pgen) {
-                        int i = (int) (10000.0 * Math.random());
+                        int i = (int) (10000.0 * ThreadLocalRandom.current().nextDouble());
                         if (fgen != 0) {
                             i = fgen;
                             fgen = 0;
@@ -2631,8 +2632,8 @@ public class StageMaker extends Applet implements Runnable {
                     rot = 0;
                 } else if (pgen) {
                     pgen = false;
-                    pwd = 2L + Math.round(Math.random() * 4.0);
-                    phd = 2L + Math.round(Math.random() * 4.0);
+                    pwd = 2L + Math.round(ThreadLocalRandom.current().nextDouble() * 4.0);
+                    phd = 2L + Math.round(ThreadLocalRandom.current().nextDouble() * 4.0);
                 }
                 if (selectedPart == 30 || selectedPart == 31 || selectedPart == 32 || selectedPart == 54) {
                     if (rot == -90) {
@@ -3458,8 +3459,8 @@ public class StageMaker extends Applet implements Runnable {
                         arrng = false;
                     } else {
                         pgen = false;
-                        pwd = 2L + Math.round(Math.random() * 4.0);
-                        phd = 2L + Math.round(Math.random() * 4.0);
+                        pwd = 2L + Math.round(ThreadLocalRandom.current().nextDouble() * 4.0);
+                        phd = 2L + Math.round(ThreadLocalRandom.current().nextDouble() * 4.0);
                     }
                 if (selectedPart == 31) {
                     rd.setFont(new Font("Arial", 1, 12));
@@ -3664,8 +3665,8 @@ public class StageMaker extends Applet implements Runnable {
                     }
                 } else if (button("  Generate New  ", 110, 348, 3, true)) {
                     pgen = false;
-                    pwd = 2L + Math.round(Math.random() * 4.0);
-                    phd = 2L + Math.round(Math.random() * 4.0);
+                    pwd = 2L + Math.round(ThreadLocalRandom.current().nextDouble() * 4.0);
+                    phd = 2L + Math.round(ThreadLocalRandom.current().nextDouble() * 4.0);
                 }
                 if (button(">", 191, 348, 3, true) && (selectedPartType == PART_ROADS || selectedPartType == PART_RAMPS
                         || selectedPartType == PART_OBSTACLES || selectedPartType == PART_TREES
@@ -4353,7 +4354,7 @@ public class StageMaker extends Applet implements Runnable {
                         mgen.setVisible(true);
                     }
                     if (button("  Generate New  ", 512, 525, 3, true)) {
-                        m.mgen = (int) (Math.random() * 100000.0);
+                        m.mgen = (int) (ThreadLocalRandom.current().nextDouble() * 100000.0);
                         mgen.setText("" + m.mgen + "");
                         if (ttstage.equals("")) {
                             ttstage = tstage;
@@ -5097,7 +5098,7 @@ public class StageMaker extends Applet implements Runnable {
                                     repaint();
                                     try {
                                         String string = "http://multiplayer.needformadness.com/tracks/"
-                                                + mystages[i] + ".radq?reqlo=" + (int) (Math.random() * 1000.0) + "";
+                                                + mystages[i] + ".radq?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "";
                                         string = string.replace(' ', '_');
                                         URL url = new URL(string);
                                         int i145 = url.openConnection().getContentLength();
@@ -5255,7 +5256,7 @@ public class StageMaker extends Applet implements Runnable {
                         String string = "";
                         try {
                             String string161 = "http://multiplayer.needformadness.com/tracks/" + mystages[i]
-                                    + ".txt?reqlo=" + (int) (Math.random() * 1000.0) + "";
+                                    + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "";
                             string161 = string161.replace(' ', '_');
                             final URL url = new URL(string161);
                             final DataInputStream datainputstream = new DataInputStream(url.openStream());
@@ -5309,7 +5310,7 @@ public class StageMaker extends Applet implements Runnable {
                     String string = "";
                     try {
                         final URL url = new URL("http://multiplayer.needformadness.com/tracks/lists/"
-                                + tnick.getText() + ".txt?reqlo=" + (int) (Math.random() * 1000.0) + "");
+                                + tnick.getText() + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
                         final DataInputStream datainputstream = new DataInputStream(url.openStream());
                         while ((string = datainputstream.readLine()) != null) {
                             string = "" + string.trim();
@@ -5983,12 +5984,12 @@ public class StageMaker extends Applet implements Runnable {
         for (int i301 = 0; i301 < nob; i301++)
             if (co[i301].colok == 26 || co[i301].colok == 39) {
                 boolean bool302 = false;
-                if (Math.random() > Math.random()) {
+                if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                     bool302 = true;
                     if (co[i301].colok == 39)
-                        if (Math.random() > Math.random()) {
+                        if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                             bool302 = false;
-                        } else if (Math.random() > Math.random()) {
+                        } else if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                             bool302 = false;
                         }
                 }

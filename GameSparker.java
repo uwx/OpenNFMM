@@ -37,6 +37,7 @@ import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URL;
 import java.util.Date;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -1352,8 +1353,8 @@ class GameSparker extends JPanel
         int i = 0;
         int i97 = 0;
         if (moto == 1 && shaka > 0) {
-            i = (int) ((shaka * 2 * Math.random() - shaka) * apmult);
-            i97 = (int) ((shaka * 2 * Math.random() - shaka) * apmult);
+            i = (int) ((shaka * 2 * ThreadLocalRandom.current().nextDouble() - shaka) * apmult);
+            i97 = (int) ((shaka * 2 * ThreadLocalRandom.current().nextDouble() - shaka) * apmult);
             shaka--;
         }
         if (!Madness.fullscreen) {
@@ -2640,7 +2641,7 @@ class GameSparker extends JPanel
                         udpmistro.UDPConnectOnline(xtgraphics.server, xtgraphics.gameport, xtgraphics.nplayers, xtgraphics.im);
                     }
                     if (xtgraphics.multion >= 2) {
-                        xtgraphics.im = (int) (Math.random() * xtgraphics.nplayers);
+                        xtgraphics.im = (int) (ThreadLocalRandom.current().nextDouble() * xtgraphics.nplayers);
                         xtgraphics.starcnt = 0;
                     }
                 }

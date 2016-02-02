@@ -17,6 +17,7 @@ import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Date;
+import java.util.concurrent.ThreadLocalRandom;
 
 class Lobby implements Runnable {
     int addstage = 0;
@@ -2475,7 +2476,7 @@ class Lobby implements Runnable {
                                             	gs.sgame.setVisible(true);
                                             	remstage = 0;
                                             	if (loadstage == 0) {
-                                            		int i164 = (int) (Math.random() * 3.0);
+                                            		int i164 = (int) (ThreadLocalRandom.current().nextDouble() * 3.0);
                                             		if (i164 == 3)
                                             			i164 = 2;
                                             		gs.sgame.select(i164);
@@ -4698,8 +4699,8 @@ class Lobby implements Runnable {
                 }
                 rd.setComposite(AlphaComposite.getInstance(3, f));
                 if (lg.flipo > 10) {
-                    rd.drawImage(xt.logomadnes, 97 + (int) (2.0 - Math.random() * 4.0), 36
-                            + (int) (2.0 - Math.random() * 4.0), null);
+                    rd.drawImage(xt.logomadnes, 97 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), 36
+                            + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), null);
                 } else {
                     rd.drawImage(xt.logomadnes, 97, 36, null);
                 }

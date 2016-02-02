@@ -24,6 +24,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.URL;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -460,7 +461,7 @@ class xtGraphics extends Panel implements Runnable {
     private Image top20s;
     private final Image[] trackbg = new Image[2];
     private int trkl = 0;
-    private int trklim = (int) (Math.random() * 40.0);
+    private int trklim = (int) (ThreadLocalRandom.current().nextDouble() * 40.0);
     private final int[] trkx = {
             65, 735
     };
@@ -3336,7 +3337,7 @@ class xtGraphics extends Panel implements Runnable {
                         drawcs(200, "And:", 255, 247, 165, 3);
                     }
                     rd.setColor(new Color(236, 226, 202));
-                    if (Math.random() > 0.5) {
+                    if (ThreadLocalRandom.current().nextDouble() > 0.5) {
                         rd.setComposite(AlphaComposite.getInstance(3, 0.5F));
                         rd.fillRect(226, 211, 344, 125);
                         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
@@ -3362,7 +3363,7 @@ class xtGraphics extends Panel implements Runnable {
                     rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
                     contos[i144].d(rd);
                     rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-                    if (Math.random() < 0.5) {
+                    if (ThreadLocalRandom.current().nextDouble() < 0.5) {
                         rd.setComposite(AlphaComposite.getInstance(3, 0.4F));
                         rd.setColor(new Color(236, 226, 202));
                         for (int i146 = 0; i146 < 30; i146++) {
@@ -3410,7 +3411,7 @@ class xtGraphics extends Panel implements Runnable {
                 }
                 rd.setColor(new Color(0, 0, 0));
                 rd.fillRect(0, 255, 800, 62);
-                rd.drawImage(radicalplay, radpx + (int) (8.0 * Math.random() - 4.0), 255, null);
+                rd.drawImage(radicalplay, radpx + (int) (8.0 * ThreadLocalRandom.current().nextDouble() - 4.0), 255, null);
                 if (radpx != 212) {
                     radpx += 40;
                     if (radpx > 800) {
@@ -3546,7 +3547,7 @@ class xtGraphics extends Panel implements Runnable {
                     }
                 }
                 if (checkpoints.stage == nTracks && gmode == 0) {
-                    checkpoints.stage = (int) (Math.random() * nTracks) + 1;
+                    checkpoints.stage = (int) (ThreadLocalRandom.current().nextDouble() * nTracks) + 1;
                 }
                 fase = 102;
             } else if (cd.haltload == 1) {
@@ -3585,8 +3586,8 @@ class xtGraphics extends Panel implements Runnable {
             int i301 = 0;
             int i302 = 0;
             int i303 = 0;
-            int i304 = (int) (Math.random() * 128.0);
-            int i305 = (int) (5.0 + Math.random() * 15.0);
+            int i304 = (int) (ThreadLocalRandom.current().nextDouble() * 128.0);
+            int i305 = (int) (5.0 + ThreadLocalRandom.current().nextDouble() * 15.0);
             for (int i306 = 0; i306 < 360000; i306++) {
                 final Color color = new Color(flexpix[i306]);
                 int i309;
@@ -3614,8 +3615,8 @@ class xtGraphics extends Panel implements Runnable {
                 final int i313 = (int) ((i310 * 17 + i309 + i311 + i304) / 22.0F);
                 final int i314 = (int) ((i311 * 17 + i309 + i310 + i304) / 24.0F);
                 if (--i305 == 0) {
-                    i304 = (int) (Math.random() * 128.0);
-                    i305 = (int) (5.0 + Math.random() * 15.0);
+                    i304 = (int) (ThreadLocalRandom.current().nextDouble() * 128.0);
+                    i305 = (int) (5.0 + ThreadLocalRandom.current().nextDouble() * 15.0);
                 }
                 final Color color315 = new Color(i312, i313, i314);
                 flexpix[i306] = color315.getRGB();
@@ -3787,10 +3788,10 @@ class xtGraphics extends Panel implements Runnable {
         if (i49 == 0) {
             if (dudo > 0) {
                 if (aflk) {
-                    if (Math.random() > Math.random()) {
-                        duds = (int) (Math.random() * 3.0);
+                    if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
+                        duds = (int) (ThreadLocalRandom.current().nextDouble() * 3.0);
                     } else {
-                        duds = (int) (Math.random() * 2.0);
+                        duds = (int) (ThreadLocalRandom.current().nextDouble() * 2.0);
                     }
                     aflk = false;
                 } else {
@@ -4195,11 +4196,11 @@ class xtGraphics extends Panel implements Runnable {
     void inishstageselect(final CheckPoints checkpoints) {
         chrono.reset();
         if (checkpoints.stage == -2 && (cd.msloaded != 1 || !logged)) {
-            checkpoints.stage = (int) (Math.random() * nTracks) + 1;
+            checkpoints.stage = (int) (ThreadLocalRandom.current().nextDouble() * nTracks) + 1;
             checkpoints.top20 = 0;
         }
         if (checkpoints.stage > nTracks) {
-            checkpoints.stage = (int) (Math.random() * nTracks) + 1;
+            checkpoints.stage = (int) (ThreadLocalRandom.current().nextDouble() * nTracks) + 1;
         }
         if (checkpoints.stage == -2) {
             boolean bool = false;
@@ -4208,14 +4209,14 @@ class xtGraphics extends Panel implements Runnable {
                     bool = true;
                 }
             if (!bool) {
-                checkpoints.stage = (int) (Math.random() * nTracks) + 1;
+                checkpoints.stage = (int) (ThreadLocalRandom.current().nextDouble() * nTracks) + 1;
             }
         }
         /*if (gmode == 1) {
         	if (unlocked[0] != 11 || justwon1)
         		checkpoints.stage = unlocked[0];
         	else if (winner || checkpoints.stage > 11)
-        		checkpoints.stage = (int) (Math.random() * 11.0) + 1;
+        		checkpoints.stage = (int) (ThreadLocalRandom.current().nextDouble() * 11.0) + 1;
         	if (checkpoints.stage == 11)
         		checkpoints.stage = 27;
         }*/
@@ -4223,7 +4224,7 @@ class xtGraphics extends Panel implements Runnable {
             if (unlocked != nTracks || justwon2) {
                 checkpoints.stage = unlocked/* + 10*/;
             } else if (winner/* || checkpoints.stage < 11*/) {
-                checkpoints.stage = (int) (Math.random() * nTracks) + 1;
+                checkpoints.stage = (int) (ThreadLocalRandom.current().nextDouble() * nTracks) + 1;
             }
         app.sgame.setBackground(new Color(0, 0, 0));
         app.sgame.setForeground(new Color(47, 179, 255));
@@ -4311,10 +4312,10 @@ class xtGraphics extends Panel implements Runnable {
         if (flipo != 1 && flipo != 16) {
             if (dudo > 0) {
                 if (aflk)
-                    if (Math.random() > Math.random()) {
-                        duds = (int) (Math.random() * 3.0);
+                    if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
+                        duds = (int) (ThreadLocalRandom.current().nextDouble() * 3.0);
                     } else {
-                        duds = (int) (Math.random() * 2.0);
+                        duds = (int) (ThreadLocalRandom.current().nextDouble() * 2.0);
                     }
                 dudo--;
             } else {
@@ -5701,11 +5702,11 @@ class xtGraphics extends Panel implements Runnable {
                 bgmy[0] = 0;
                 bgmy[1] = 400;
                 for (int i36 = 0; i36 < 4; i36++) {
-                    ovw[i36] = (int) (50.0 + 150.0 * Math.random());
-                    ovh[i36] = (int) (50.0 + 150.0 * Math.random());
-                    ovy[i36] = (int) (400.0 * Math.random());
-                    ovx[i36] = (int) (Math.random() * 670.0);
-                    ovsx[i36] = (int) (5.0 + Math.random() * 10.0);
+                    ovw[i36] = (int) (50.0 + 150.0 * ThreadLocalRandom.current().nextDouble());
+                    ovh[i36] = (int) (50.0 + 150.0 * ThreadLocalRandom.current().nextDouble());
+                    ovy[i36] = (int) (400.0 * ThreadLocalRandom.current().nextDouble());
+                    ovx[i36] = (int) (ThreadLocalRandom.current().nextDouble() * 670.0);
+                    ovsx[i36] = (int) (5.0 + ThreadLocalRandom.current().nextDouble() * 10.0);
                 }
                 lmode = i;
             }
@@ -5717,11 +5718,11 @@ class xtGraphics extends Panel implements Runnable {
                 rd.fillOval(65 + ovx[i37] - ovh[i37] / 2, 25 + ovy[i37] - ovh[i37] / 2, ovw[i37], ovh[i37]);
                 ovx[i37] -= ovsx[i37];
                 if (ovx[i37] + ovw[i37] * 1.5 / 2.0 < 0.0) {
-                    ovw[i37] = (int) (50.0 + 150.0 * Math.random());
-                    ovh[i37] = (int) (50.0 + 150.0 * Math.random());
-                    ovy[i37] = (int) (400.0 * Math.random());
+                    ovw[i37] = (int) (50.0 + 150.0 * ThreadLocalRandom.current().nextDouble());
+                    ovh[i37] = (int) (50.0 + 150.0 * ThreadLocalRandom.current().nextDouble());
+                    ovy[i37] = (int) (400.0 * ThreadLocalRandom.current().nextDouble());
                     ovx[i37] = (int) (670.0 + ovw[i37] * 1.5 / 2.0);
-                    ovsx[i37] = (int) (5.0 + Math.random() * 10.0);
+                    ovsx[i37] = (int) (5.0 + ThreadLocalRandom.current().nextDouble() * 10.0);
                 }
             }
         }
@@ -5773,8 +5774,8 @@ class xtGraphics extends Panel implements Runnable {
         rd.drawImage(dude[0], 351 + gxdu, 28 + gydu, null);
         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
         if (movly == 0) {
-            gxdu = (int) (5.0 - 11.0 * Math.random());
-            gydu = (int) (5.0 - 11.0 * Math.random());
+            gxdu = (int) (5.0 - 11.0 * ThreadLocalRandom.current().nextDouble());
+            gydu = (int) (5.0 - 11.0 * ThreadLocalRandom.current().nextDouble());
         }
         movly++;
         if (movly == 2) {
@@ -5953,8 +5954,8 @@ class xtGraphics extends Panel implements Runnable {
         rd.drawImage(dude[0], 351 + gxdu, 28 + gydu, null);
         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
         if (movly == 0) {
-        	gxdu = (int) (5.0 - 11.0 * Math.random());
-        	gydu = (int) (5.0 - 11.0 * Math.random());
+        	gxdu = (int) (5.0 - 11.0 * ThreadLocalRandom.current().nextDouble());
+        	gydu = (int) (5.0 - 11.0 * ThreadLocalRandom.current().nextDouble());
         }
         movly++;
         if (movly == 2)
@@ -7146,7 +7147,7 @@ class xtGraphics extends Panel implements Runnable {
                     }
                 }
             }
-            if (Math.random() > Math.random()) {
+            if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                 dudo = 250;
             } else {
                 dudo = 428;
@@ -7350,7 +7351,7 @@ class xtGraphics extends Panel implements Runnable {
     }
 
     private void pingstat() {
-        final int i = (int) (100.0 * Math.random());
+        final int i = (int) (100.0 * ThreadLocalRandom.current().nextDouble());
         try {
             final URL url = new URL("http://c.statcounter.com/9994681/0/14bb645e/1/?reco=" + i + "");
             url.openConnection().setConnectTimeout(5000);
@@ -7571,7 +7572,7 @@ class xtGraphics extends Panel implements Runnable {
         rd.setColor(new Color(0, 0, 0));
         rd.fillRect(65, 135, 670, 59);
         if (pin != 0) {
-            rd.drawImage(radicalplay, radpx + (int) (8.0 * Math.random() - 4.0), 135, null);
+            rd.drawImage(radicalplay, radpx + (int) (8.0 * ThreadLocalRandom.current().nextDouble() - 4.0), 135, null);
         } else {
             rd.drawImage(radicalplay, 212, 135, null);
         }
@@ -7861,7 +7862,7 @@ class xtGraphics extends Panel implements Runnable {
             if (multion == 3) {
                 ransay = 4;
             } else if (ransay == 0) {
-                ransay = 1 + (int) (Math.random() * 3.0);
+                ransay = 1 + (int) (ThreadLocalRandom.current().nextDouble() * 3.0);
             } else {
                 ransay++;
                 if (ransay > 3) {
@@ -8222,9 +8223,9 @@ class xtGraphics extends Panel implements Runnable {
                 //    f = 17.0F;
 
                 //randomize car
-                sc[j] = (int) (Math.random() * (7 + (i + 1) / 2));
+                sc[j] = (int) (ThreadLocalRandom.current().nextDouble() * (7 + (i + 1) / 2));
                 while (sc[j] >= nCars) {
-                    sc[j] -= Math.random() * 5F;
+                    sc[j] -= ThreadLocalRandom.current().nextDouble() * 5F;
                 }
                 System.out.println("sc of " + j + " is " + sc[j]);
 
@@ -8242,9 +8243,9 @@ class xtGraphics extends Panel implements Runnable {
                         int tries = 10; //the max number of iterations it will go through to avoid getting a dupe car
                         while (tries-- > 0) {
                             //randomize car
-                            sc[j] = (int) (Math.random() * (7 + (i + 1) / 2));
+                            sc[j] = (int) (ThreadLocalRandom.current().nextDouble() * (7 + (i + 1) / 2));
                             while (sc[j] >= nCars) {
-                                sc[j] -= Math.random() * 5F;
+                                sc[j] -= ThreadLocalRandom.current().nextDouble() * 5F;
                             }
                             //if the car is not a dupe, we're done
                             if (sc[j] != sc[dupecar])
@@ -8502,9 +8503,9 @@ class xtGraphics extends Panel implements Runnable {
 
                             }
                             //if (nfmtab == 0)
-                            //	app.snfm1.select(1 + (int) (Math.random() * 10.0));
+                            //	app.snfm1.select(1 + (int) (ThreadLocalRandom.current().nextDouble() * 10.0));
                             //if (nfmtab == 1)
-                            //	app.snfm2.select(1 + (int) (Math.random() * 17.0));
+                            //	app.snfm2.select(1 + (int) (ThreadLocalRandom.current().nextDouble() * 17.0));
                         }
                     }
                 if (cd.staction == 3) {
@@ -9803,7 +9804,7 @@ class xtGraphics extends Panel implements Runnable {
         trkl++;
         if (trkl > trklim) {
             i = 1;
-            trklim = (int) (Math.random() * 40.0);
+            trklim = (int) (ThreadLocalRandom.current().nextDouble() * 40.0);
             trkl = 0;
         }
         if (bool) {

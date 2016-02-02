@@ -6,6 +6,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.util.concurrent.ThreadLocalRandom;
 
 class Plane {
     int av = 0;
@@ -87,14 +88,14 @@ class Plane {
         }
         if (i4 == -15) {
             if (is2[0] == 211) {
-                final int i15 = (int) (Math.random() * 40.0 - 20.0);
-                final int i16 = (int) (Math.random() * 40.0 - 20.0);
+                final int i15 = (int) (ThreadLocalRandom.current().nextDouble() * 40.0 - 20.0);
+                final int i16 = (int) (ThreadLocalRandom.current().nextDouble() * 40.0 - 20.0);
                 for (int i17 = 0; i17 < n; i17++) {
                     ox[i17] += i15;
                     oz[i17] += i16;
                 }
             }
-            final int i18 = (int) (185.0 + Math.random() * 20.0);
+            final int i18 = (int) (185.0 + ThreadLocalRandom.current().nextDouble() * 20.0);
             is2[0] = (217 + i18) / 2;
             if (is2[0] == 211) {
                 is2[0] = 210;
@@ -102,14 +103,14 @@ class Plane {
             is2[1] = (189 + i18) / 2;
             is2[2] = (132 + i18) / 2;
             for (int i19 = 0; i19 < n; i19++) {
-                if (Math.random() > Math.random()) {
-                    ox[i19] += (int) (8.0 * Math.random() - 4.0);
+                if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
+                    ox[i19] += (int) (8.0 * ThreadLocalRandom.current().nextDouble() - 4.0);
                 }
-                if (Math.random() > Math.random()) {
-                    oy[i19] += (int) (8.0 * Math.random() - 4.0);
+                if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
+                    oy[i19] += (int) (8.0 * ThreadLocalRandom.current().nextDouble() - 4.0);
                 }
-                if (Math.random() > Math.random()) {
-                    oz[i19] += (int) (8.0 * Math.random() - 4.0);
+                if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
+                    oz[i19] += (int) (8.0 * ThreadLocalRandom.current().nextDouble() - 4.0);
                 }
             }
         }
@@ -826,9 +827,9 @@ class Plane {
             int i115 = color.getGreen();
             int i116 = color.getBlue();
             if (randomcolor) { //before the dim
-                i114 = (int) (Math.random() * 255);
-                i115 = (int) (Math.random() * 255);
-                i116 = (int) (Math.random() * 255);
+                i114 = (int) (ThreadLocalRandom.current().nextDouble() * 255);
+                i115 = (int) (ThreadLocalRandom.current().nextDouble() * 255);
+                i116 = (int) (ThreadLocalRandom.current().nextDouble() * 255);
             }
             if (m.lightson && (light != 0 || (gr == -11 || gr == -12) && i36 == -1)) {
                 i114 = oc[0];
@@ -873,9 +874,9 @@ class Plane {
                         i115 = 0;
                         i116 = 0;
                         if (randoutline) {
-                            i114 = (int) (Math.random() * 255);
-                            i115 = (int) (Math.random() * 255);
-                            i116 = (int) (Math.random() * 255);
+                            i114 = (int) (ThreadLocalRandom.current().nextDouble() * 255);
+                            i115 = (int) (ThreadLocalRandom.current().nextDouble() * 255);
+                            i116 = (int) (ThreadLocalRandom.current().nextDouble() * 255);
                         }
                         if (m.lightson && light != 0) {
                             i114 = oc[0] / 2;
@@ -1010,7 +1011,7 @@ class Plane {
                     graphics2d.setColor(new Color(i114, i115, i116));
                     graphics2d.drawPolygon(is85, is86, n);
                 } else if (m.cpflik && m.hit == 5000) {
-                    i115 = (int) (Math.random() * 115.0);
+                    i115 = (int) (ThreadLocalRandom.current().nextDouble() * 115.0);
                     i114 = i115 * 2 - 54;
                     if (i114 < 0) {
                         i114 = 0;

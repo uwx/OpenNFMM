@@ -20,6 +20,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Date;
+import java.util.concurrent.ThreadLocalRandom;
 
 class Login implements Runnable {
     private final int[] bgmy = {
@@ -891,8 +892,8 @@ class Login implements Runnable {
         }
         rd.setComposite(AlphaComposite.getInstance(3, f));
         if (flipo > 10) {
-            rd.drawImage(xt.logomadnes, 96 + (int) (2.0 - Math.random() * 4.0), 11
-                    + (int) (2.0 - Math.random() * 4.0), null);
+            rd.drawImage(xt.logomadnes, 96 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), 11
+                    + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), null);
         } else {
             rd.drawImage(xt.logomadnes, 96, 11, null);
         }
@@ -1129,8 +1130,8 @@ class Login implements Runnable {
         }
         rd.setComposite(AlphaComposite.getInstance(3, f));
         if (flipo > 10) {
-            rd.drawImage(xt.logomadnes, 96 + (int) (2.0 - Math.random() * 4.0), 11
-                    + (int) (2.0 - Math.random() * 4.0), null);
+            rd.drawImage(xt.logomadnes, 96 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), 11
+                    + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), null);
         } else {
             rd.drawImage(xt.logomadnes, 96, 11, null);
         }

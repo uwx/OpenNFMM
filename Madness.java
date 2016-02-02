@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.net.URI;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.JOptionPane;
 
@@ -393,7 +394,7 @@ class Madness extends Panel {
                     final File file = new File("data/manar.ok");
                     if (!file.exists()) {
                         final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
-                        bufferedwriter.write("" + (int) (Math.random() * 1000.0) + "");
+                        bufferedwriter.write("" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
                         bufferedwriter.newLine();
                         bufferedwriter.close();
                     }

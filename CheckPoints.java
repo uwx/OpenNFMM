@@ -1,3 +1,5 @@
+import java.util.concurrent.ThreadLocalRandom;
+
 /* CheckPoints - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -44,7 +46,7 @@ class CheckPoints {
     int pubt = 0;
     boolean[] roted = new boolean[5];
     boolean[] special = new boolean[5];
-    int stage = (int) (Math.random() * 27.0) + 1;
+    int stage = (int) (ThreadLocalRandom.current().nextDouble() * 27.0) + 1;
     int top20 = 0;
     String trackname = "";
     int trackvol = 200;

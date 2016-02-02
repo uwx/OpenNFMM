@@ -40,6 +40,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.URL;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -1434,7 +1435,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     }
                     if (i == 8) {
                         for (int i270 = 0; i270 < 5; i270++) {
-                            phys[i270] = (int) (Math.random() * 100.0);
+                            phys[i270] = (int) (ThreadLocalRandom.current().nextDouble() * 100.0);
                         }
                     }
                     if (i == 9) {
@@ -1465,7 +1466,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     }
                     if (i == 12) {
                         for (int i273 = 0; i273 < 6; i273++) {
-                            phys[i273 + 5] = (int) (Math.random() * 100.0);
+                            phys[i273 + 5] = (int) (ThreadLocalRandom.current().nextDouble() * 100.0);
                         }
                     }
                     if (i == 13) {
@@ -1499,32 +1500,32 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         }
                     }
                     if (i == 6) {
-                        int i276 = (int) (150.0 + 600.0 * Math.random());
+                        int i276 = (int) (150.0 + 600.0 * ThreadLocalRandom.current().nextDouble());
                         boolean bool = false;
                         boolean bool277 = false;
-                        if (Math.random() > Math.random()) {
+                        if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                             bool = true;
                         }
-                        if (Math.random() > Math.random()) {
+                        if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                             bool277 = true;
                         }
                         final int[] is = {
                                 -101, -101, -101, -101
                         };
-                        is[0] = (int) (Math.random() * 4.0);
-                        if (Math.random() > Math.random()) {
+                        is[0] = (int) (ThreadLocalRandom.current().nextDouble() * 4.0);
+                        if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                             if (bool277) {
                                 is[1] = is[0] + 1;
                             } else {
                                 is[1] = is[0] - 1;
                             }
-                            if (Math.random() > Math.random()) {
+                            if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                                 if (bool277) {
                                     is[2] = is[1] + 1;
                                 } else {
                                     is[2] = is[1] - 1;
                                 }
-                                if (Math.random() > Math.random())
+                                if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble())
                                     if (bool277) {
                                         is[3] = is[2] + 1;
                                     } else {
@@ -1532,7 +1533,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                     }
                             }
                         }
-                        if (Math.random() > Math.random()) {
+                        if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                             crashup = false;
                         } else {
                             crashup = true;
@@ -1563,16 +1564,16 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                             }
                     }
                     if (i == 8) {
-                        if (Math.random() > Math.random()) {
+                        if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                             crashup = false;
                         } else {
                             crashup = true;
                         }
-                        roofsqsh((int) (230.0 + Math.random() * 80.0));
+                        roofsqsh((int) (230.0 + ThreadLocalRandom.current().nextDouble() * 80.0));
                     }
                     if (i == 9 || i == 7) {
                         setupo();
-                        if (Math.random() > Math.random()) {
+                        if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                             crashleft = false;
                         } else {
                             crashleft = true;
@@ -2842,7 +2843,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             int i324 = 1;
             for (int i325 = 0; i325 < o.npl; i325++) {
                 float f326 = 0.0F;
-                if (Math.random() > 0.9) {
+                if (ThreadLocalRandom.current().nextDouble() > 0.9) {
                     f326 = f / 15.0F * m.random();
                 }
                 for (int i327 = 0; i327 < o.p[i325].n; i327++)
@@ -4339,7 +4340,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         if (o.keyz[3] >= 0 || o.keyx[3] <= 0) {
                             pfase = -1;
                         }
-                        if (Math.random() > Math.random()) {
+                        if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                             crashleft = false;
                         } else {
                             crashleft = true;
@@ -4645,9 +4646,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                 boolean bool118 = false;
                                 while (hitmag < 17000) {
                                     if (bool118) {
-                                        regx(i117, (int) (150.0 + 600.0 * Math.random()), true);
+                                        regx(i117, (int) (150.0 + 600.0 * ThreadLocalRandom.current().nextDouble()), true);
                                     } else {
-                                        regz(i117, (int) (150.0 + 600.0 * Math.random()), true);
+                                        regz(i117, (int) (150.0 + 600.0 * ThreadLocalRandom.current().nextDouble()), true);
                                     }
                                     if (++i117 == i114) {
                                         o.xz += 45;
@@ -4675,9 +4676,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                 boolean bool121 = false;
                                 while (hitmag < 17000) {
                                     if (bool121) {
-                                        regx(i120, (int) (150.0 + 600.0 * Math.random()), true);
+                                        regx(i120, (int) (150.0 + 600.0 * ThreadLocalRandom.current().nextDouble()), true);
                                     } else {
-                                        regz(i120, (int) (150.0 + 600.0 * Math.random()), true);
+                                        regz(i120, (int) (150.0 + 600.0 * ThreadLocalRandom.current().nextDouble()), true);
                                     }
                                     if (++i120 == i114) {
                                         o.xz += 45;
@@ -4721,9 +4722,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                 boolean bool127 = false;
                                 while (actmag < i123) {
                                     if (bool127) {
-                                        regx(i126, (int) (150.0 + 600.0 * Math.random()), true);
+                                        regx(i126, (int) (150.0 + 600.0 * ThreadLocalRandom.current().nextDouble()), true);
                                     } else {
-                                        regz(i126, (int) (150.0 + 600.0 * Math.random()), true);
+                                        regz(i126, (int) (150.0 + 600.0 * ThreadLocalRandom.current().nextDouble()), true);
                                     }
                                     if (++i126 == i114) {
                                         if (bool127) {
@@ -4750,9 +4751,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                     boolean bool130 = false;
                                     while (hitmag < 17000) {
                                         if (bool130) {
-                                            regx(i129, (int) (150.0 + 600.0 * Math.random()), true);
+                                            regx(i129, (int) (150.0 + 600.0 * ThreadLocalRandom.current().nextDouble()), true);
                                         } else {
-                                            regz(i129, (int) (150.0 + 600.0 * Math.random()), true);
+                                            regz(i129, (int) (150.0 + 600.0 * ThreadLocalRandom.current().nextDouble()), true);
                                         }
                                         if (++i129 == i114) {
                                             o.xz += 45;
@@ -5072,7 +5073,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         String string = "";
                         try {
                             String string144 = "http://multiplayer.needformadness.com/cars/" + mycars[i143]
-                                    + ".txt?reqlo=" + (int) (Math.random() * 1000.0) + "";
+                                    + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "";
                             string144 = string144.replace(' ', '_');
                             final URL url = new URL(string144);
                             final DataInputStream datainputstream = new DataInputStream(url.openStream());
@@ -5110,7 +5111,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     String string = "";
                     try {
                         final URL url = new URL("http://multiplayer.needformadness.com/cars/lists/"
-                                + tnick.getText() + ".txt?reqlo=" + (int) (Math.random() * 1000.0) + "");
+                                + tnick.getText() + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
                         final DataInputStream datainputstream = new DataInputStream(url.openStream());
                         while ((string = datainputstream.readLine()) != null) {
                             string = "" + string.trim();
@@ -5247,7 +5248,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                     repaint();
                                     try {
                                         String string155 = "http://multiplayer.needformadness.com/cars/"
-                                                + mycars[i148] + ".radq?reqlo=" + (int) (Math.random() * 1000.0) + "";
+                                                + mycars[i148] + ".radq?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "";
                                         string155 = string155.replace(' ', '_');
                                         final URL url = new URL(string155);
                                         final int i156 = url.openConnection().getContentLength();
