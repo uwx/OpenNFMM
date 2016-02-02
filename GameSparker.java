@@ -1700,7 +1700,7 @@ class GameSparker extends JPanel
         // 40 - 25 fps (fast)
         // 33 - 30 fps (faster)
         // 25 - 40 fps (fastest)
-        final Timer timer = new Timer(40, this);
+        final Timer timer = new Timer(46, this);
         timer.start();
         /*Timer counter = new Timer(1, count);
         counter.start();*/
