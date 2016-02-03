@@ -33,6 +33,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.io.StringReader;
 import java.net.Socket;
 import java.net.URL;
 import java.util.concurrent.ThreadLocalRandom;
@@ -1580,16 +1581,16 @@ public class StageMaker extends Applet implements Runnable {
         boolean bool185 = true;
         String string186 = "";
         try {
-            DataInputStream datainputstream;
+            BufferedReader bufferedreader;
             if (i == 3) {
                 final File file = new File("mystages/" + stagename + ".txt");
-                datainputstream = new DataInputStream(new FileInputStream(file));
+                bufferedreader = new BufferedReader(new FileReader(file));
                 nundo = 0;
             } else {
-                datainputstream = new DataInputStream(new ByteArrayInputStream(string.getBytes()));
+                bufferedreader = new BufferedReader(new InputStreamReader(new DataInputStream(new ByteArrayInputStream(string.getBytes()))));
             }
             String string187;
-            while ((string187 = datainputstream.readLine()) != null) {
+            while ((string187 = bufferedreader.readLine()) != null) {
                 string186 = "" + string187.trim();
                 if (string186.startsWith("sky")) {
                     csky[0] = getint("sky", string186, 0);
@@ -1970,7 +1971,7 @@ public class StageMaker extends Applet implements Runnable {
                     }
                 }
             }
-            datainputstream.close();
+            bufferedreader.close();
             m.newpolys(i182, i181 - i182, i184, i183 - i184, t, nob);
             m.newclouds(i182, i181, i184, i183);
             m.newmountains(i182, i181, i184, i183);
@@ -4874,9 +4875,9 @@ public class StageMaker extends Applet implements Runnable {
                                     if (i135 == 0) {
                                         String string136 = " Publishing Stage ";
                                         final String string137 = "" + tstage + "\r\n" + bstage + "";
-                                        final DataInputStream datainputstream = new DataInputStream(new ByteArrayInputStream(string137.getBytes()));
+                                        final BufferedReader stagebufferedreader = new BufferedReader(new StringReader(string137));
                                         String string139;
-                                        while ((string139 = datainputstream.readLine()) != null) {
+                                        while ((string139 = stagebufferedreader.readLine()) != null) {
                                             string139 = string139.trim();
                                             printwriter.println(string139);
                                             rd.setColor(new Color(225, 225, 225));
@@ -5259,8 +5260,8 @@ public class StageMaker extends Applet implements Runnable {
                                     + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "";
                             string161 = string161.replace(' ', '_');
                             final URL url = new URL(string161);
-                            final DataInputStream datainputstream = new DataInputStream(url.openStream());
-                            while ((string = datainputstream.readLine()) != null) {
+                            final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
+                            while ((string = bufferedreader.readLine()) != null) {
                                 string = "" + string.trim();
                                 if (string.startsWith("details")) {
                                     maker[i] = getSvalue("details", string, 0);
@@ -5311,8 +5312,8 @@ public class StageMaker extends Applet implements Runnable {
                     try {
                         final URL url = new URL("http://multiplayer.needformadness.com/tracks/lists/"
                                 + tnick.getText() + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
-                        final DataInputStream datainputstream = new DataInputStream(url.openStream());
-                        while ((string = datainputstream.readLine()) != null) {
+                        final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
+                        while ((string = bufferedreader.readLine()) != null) {
                             string = "" + string.trim();
                             if (string.startsWith("mystages")) {
                                 boolean bool = true;
@@ -5332,7 +5333,7 @@ public class StageMaker extends Applet implements Runnable {
                             setCursor(new Cursor(0));
                             logged = -1;
                         }
-                        datainputstream.close();
+                        bufferedreader.close();
                     } catch (final Exception exception) {
                         final String string162 = "" + exception;
                         if (string162.indexOf("FileNotFound") != -1) {
