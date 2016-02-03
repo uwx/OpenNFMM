@@ -1571,10 +1571,6 @@ class GameSparker extends JPanel
         openurl("http://multiplayer.needformadness.com/registernew.pl");
     }
 
-    public void regprom() {
-
-    }
-
     private void makeMenus() {
         rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
