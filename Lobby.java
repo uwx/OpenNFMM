@@ -541,42 +541,6 @@ class Lobby implements Runnable {
                                         }
                                     } else if (!xt.clan.equals("")) {
                                         if (gs.warb.sel != 0/* && gb.loadwbgames == 2*/) {//CHECK
-                                            if (gs.wgame.getSelectedIndex() == 1 && gs.vnpls.sel != 0
-                                                    && cancreate == 2) {
-                                                if (i308 == 4) {
-                                                    if (invo) {
-                                                        invo = false;
-                                                    }
-                                                    msg = "| Creating Game |";
-                                                    /*gplayers = "" + ("#warb#") + (gb.warb)
-                                                    		 + ("#") + (gb.warbnum) + ("#")
-                                                    		 + (gb.gameturn + 1) + ("#") + (xt.clan)
-                                                    		 + ("#") + (gb.vclan) + ("#") + (gb.ascore)
-                                                    		 + ("#") + (gb.vscore) + ("#")
-                                                    		 + (this.gs.vtyp.sel + 1) + ("#");
-                                                    gstage = gb.wbstage[gb.gameturn];
-                                                    gstagelaps = gb.wblaps[gb.gameturn];
-                                                    gcars = gb.wbcars[gb.gameturn] - 1;
-                                                    gclass = gb.wbclass[gb.gameturn];
-                                                    gfix = gb.wbfix[gb.gameturn];*/
-                                                    gnpls = 8;
-                                                    if (gs.vnpls.sel == 1) {
-                                                        gnpls = 4;
-                                                    }
-                                                    if (gs.vnpls.sel == 2) {
-                                                        gnpls = 6;
-                                                    }
-                                                    gwait = 120;
-                                                    gnotp = 0;
-                                                    gs.wgame.setVisible(false);
-                                                    gs.pgame.setVisible(false);
-                                                    gs.vnpls.setVisible(false);
-                                                    gs.vtyp.setVisible(false);
-                                                    gs.warb.setVisible(false);
-                                                    gs.requestFocus();
-                                                    chalngd = -5;
-                                                }
-                                            }
                                             if (gs.wgame.getSelectedIndex() == 2 && gs.pgame.sel != 0 && i308 == 4) {
                                                 if (invo) {
                                                     invo = false;
