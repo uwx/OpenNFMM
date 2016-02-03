@@ -1132,7 +1132,7 @@ public class StageMaker extends Applet implements Runnable {
         tnick.setBackground(new Color(255, 255, 255));
         tnick.setForeground(new Color(0, 0, 0));
         tpass.setFont(new Font("Arial", 1, 13));
-        tpass.setEchoCharacter('*');
+        tpass.setEchoChar('*');
         tpass.setBackground(new Color(255, 255, 255));
         tpass.setForeground(new Color(0, 0, 0));
         pubtyp.setFont(new Font("Arial", 1, 13));
