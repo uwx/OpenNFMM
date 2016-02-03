@@ -42,7 +42,7 @@ class xtGraphics extends Panel implements Runnable {
      */
     static final int nCars = 16;
     int acexp = 0;
-    private final String[][] adj = {
+    private final static String[][] adj = {
             {
                     "Cool", "Alright", "Nice"
             }, {
@@ -88,7 +88,7 @@ class xtGraphics extends Panel implements Runnable {
     private float bgf = 0.0F;
     Image bggo;
     Image bgmain;
-    private final int[] bgmy = {
+    private final static int[] bgmy = {
             0, -400
     };
     private boolean bgup = false;
@@ -121,7 +121,7 @@ class xtGraphics extends Panel implements Runnable {
     int clangame = 0;
     String clankey = "";
     private int clear = 0;
-    private final String[][] cnames = {
+    private final static String[][] cnames = {
             {
                     "", "", "", "", "", "", "Game Chat  "
             }, {
@@ -129,7 +129,7 @@ class xtGraphics extends Panel implements Runnable {
             }
     };
     private int cntan = 0;
-    private final int[] cntchatp = {
+    private final static int[] cntchatp = {
             0, 0
     };
     private final Image[] cntdn = new Image[4];
@@ -149,7 +149,7 @@ class xtGraphics extends Panel implements Runnable {
     int[] delays = {
             600, 600, 600
     };
-    private final int[] dested = {
+    private final static int[] dested = {
             0, 0, 0, 0, 0, 0, 0, 0
     };
     private BufferedReader din;
@@ -160,7 +160,7 @@ class xtGraphics extends Panel implements Runnable {
     private Image dmg;
     int dnload = 0;
     private PrintWriter dout;
-    private final int dropf = 0;
+    private final static int dropf = 0;
     private int dskflg = 0;
     Image[] dude = new Image[3];
     private int dudo = 0;
@@ -170,7 +170,7 @@ class xtGraphics extends Panel implements Runnable {
     Image exit;
     private Image exitgame;
     int exitm = 0;
-    private final String[] exlm = {
+    private final static String[] exlm = {
             "!", "!!", "!!!"
     };
     int fase = 111;
@@ -187,7 +187,7 @@ class xtGraphics extends Panel implements Runnable {
     int flipo = 0;
     private boolean flk = false;
     private int flkat = 0;
-    private final int[] floater = {
+    private final static int[] floater = {
             0, 0
     };
     private int flyr = 0;
@@ -234,7 +234,7 @@ class xtGraphics extends Panel implements Runnable {
     int laptime = 0;
     private int lcarx = 0;
     private int lcarz = 0;
-    private final String[] lcmsg = {
+    private final static String[] lcmsg = {
             "", ""
     };
     private int lcn = 0;
@@ -266,11 +266,11 @@ class xtGraphics extends Panel implements Runnable {
     private int minsl = 0;
     Image mload;
     private int mouson = -1;
-    private final int[] movepos = {
+    private final static int[] movepos = {
             0, 0
     };
     private int movly = 0;
-    private final int[] msgflk = {
+    private final static int[] msgflk = {
             0, 0
     };
     boolean mtop = false;
@@ -319,19 +319,19 @@ class xtGraphics extends Panel implements Runnable {
     int osc = 10;
     private Image osped;
     private final Image[] ostar = new Image[2];
-    private final int[] ovh = {
+    private final static int[] ovh = {
             0, 0, 0, 0
     };
-    private final int[] ovsx = {
+    private final static int[] ovsx = {
             0, 0, 0, 0
     };
-    private final int[] ovw = {
+    private final static int[] ovw = {
             0, 0, 0, 0
     };
-    private final int[] ovx = {
+    private final static int[] ovx = {
             0, 0, 0, 0
     };
-    private final int[] ovy = {
+    private final static int[] ovy = {
             0, 0, 0, 0
     };
     private Image owas;
@@ -346,18 +346,18 @@ class xtGraphics extends Panel implements Runnable {
             "", "", "", "", "", "", "", ""
     };
     private int pcontin = 0;
-    private final boolean[] pengs = new boolean[5];
-    private final int[] pgady = {
+    private final static boolean[] pengs = new boolean[5];
+    private final static int[] pgady = {
             0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    private final boolean[] pgas = {
+    private final static boolean[] pgas = {
             false, false, false, false, false, false, false, false, false
     };
     private Image pgate;
-    private final int[] pgatx = {
+    private final static int[] pgatx = {
             211, 240, 280, 332, 399, 466, 517, 558, 586
     };
-    private final int[] pgaty = {
+    private final static int[] pgaty = {
             193, 213, 226, 237, 244, 239, 228, 214, 196
     };
     private int pin = 60;
@@ -370,7 +370,7 @@ class xtGraphics extends Panel implements Runnable {
     Image pls;
     private Image plus;
     private int pnext = 0;
-    private final int[] pointc = {
+    private final static int[] pointc = {
             6, 6
     };
     private Image pos;
@@ -407,7 +407,7 @@ class xtGraphics extends Panel implements Runnable {
     private Image select;
     private Image selectcar;
     private int sendstat = 0;
-    private final String[][] sentn = {
+    private final static String[][] sentn = {
             {
                     "", "", "", "", "", "", ""
             }, {
@@ -424,7 +424,7 @@ class xtGraphics extends Panel implements Runnable {
     private int skflg = 0;
     private final soundClip[] skid = new soundClip[3];
     private boolean skidup = false;
-    private final int[] smokey = new int[94132];
+    private final static int[] smokey = new int[94132];
     int[] sndsize = {
             39, 128, 23, 58, 106, 140, 81, 135, 38, 141, 106, 76, 56, 116, 92, 208, 70, 80, 152, 102, 27, 65, 52, 30,
             151, 129, 80, 44, 57, 123, 202, 210, 111
@@ -452,12 +452,12 @@ class xtGraphics extends Panel implements Runnable {
     private final Image[] trackbg = new Image[2];
     private int trkl = 0;
     private int trklim = (int) (ThreadLocalRandom.current().nextDouble() * 40.0);
-    private final int[] trkx = {
+    private final static int[] trkx = {
             65, 735
     };
     private soundClip two;
     int unlocked = 1;
-    private final int[] updatec = {
+    private final static int[] updatec = {
             -1, -1
     };
     Image upgrade;
