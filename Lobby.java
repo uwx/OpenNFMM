@@ -35,7 +35,6 @@ class Lobby implements Runnable {
     private final int[] cac = {
             -1, -1, -1, -1, -1, -1, -1, -1, -1
     };
-    private final int cancreate = 0;
     private final int[] cax = {
             0, 0, 0, 0, 0, 0, 0, 0, 0
     };
