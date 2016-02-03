@@ -1342,9 +1342,9 @@ public class StageMaker extends Applet implements Runnable {
                 } else {
                     bstage = "set(47,0,0,0)\r\n";
                 }
-                final StringBuilder stringbuilder = new StringBuilder();
-                final StageMaker stagemaker238 = this;
-                stagemaker238.bstage = stringbuilder + stagemaker238.bstage
+
+
+                this.bstage = "" + this.bstage
                         + "\r\nmaxl(3,-7200,-4800)\r\nmaxb(3,-7200,-4800)\r\nmaxr(3,7200,-4800)\r\nmaxt(3,7200,-4800)\r\n";
                 savefile();
                 strtyp.setVisible(false);
@@ -1598,9 +1598,9 @@ public class StageMaker extends Applet implements Runnable {
                     csky[2] = getint("sky", string186, 2);
                     m.setsky(csky[0], csky[1], csky[2]);
                     if (i == 3) {
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker188 = this;
-                        stagemaker188.tstage = stringbuilder + stagemaker188.tstage + "" + string186 + "\r\n";
+
+
+                        this.tstage = "" + this.tstage + "" + string186 + "\r\n";
                     }
                 }
                 if (string186.startsWith("ground")) {
@@ -1609,17 +1609,17 @@ public class StageMaker extends Applet implements Runnable {
                     cgrnd[2] = getint("ground", string186, 2);
                     m.setgrnd(cgrnd[0], cgrnd[1], cgrnd[2]);
                     if (i == 3) {
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker189 = this;
-                        stagemaker189.tstage = stringbuilder + stagemaker189.tstage + "" + string186 + "\r\n";
+
+
+                        this.tstage = "" + this.tstage + "" + string186 + "\r\n";
                     }
                 }
                 if (string186.startsWith("polys")) {
                     m.setpolys(getint("polys", string186, 0), getint("polys", string186, 1), getint("polys", string186, 2));
                     if (i == 3) {
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker190 = this;
-                        stagemaker190.tstage = stringbuilder + stagemaker190.tstage + "" + string186 + "\r\n";
+
+
+                        this.tstage = "" + this.tstage + "" + string186 + "\r\n";
                     }
                 }
                 if (string186.startsWith("fog")) {
@@ -1628,9 +1628,9 @@ public class StageMaker extends Applet implements Runnable {
                     cfade[2] = getint("fog", string186, 2);
                     m.setfade(cfade[0], cfade[1], cfade[2]);
                     if (i == 3) {
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker191 = this;
-                        stagemaker191.tstage = stringbuilder + stagemaker191.tstage + "" + string186 + "\r\n";
+
+
+                        this.tstage = "" + this.tstage + "" + string186 + "\r\n";
                     }
                 }
                 if (string186.startsWith("texture")) {
@@ -1640,9 +1640,9 @@ public class StageMaker extends Applet implements Runnable {
                     texture[3] = getint("texture", string186, 3);
                     m.setexture(texture[0], texture[1], texture[2], texture[3]);
                     if (i == 3) {
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker192 = this;
-                        stagemaker192.tstage = stringbuilder + stagemaker192.tstage + "" + string186 + "\r\n";
+
+
+                        this.tstage = "" + this.tstage + "" + string186 + "\r\n";
                     }
                 }
                 if (string186.startsWith("clouds")) {
@@ -1653,17 +1653,17 @@ public class StageMaker extends Applet implements Runnable {
                     cldd[4] = getint("clouds", string186, 4);
                     m.setcloads(cldd[0], cldd[1], cldd[2], cldd[3], cldd[4]);
                     if (i == 3) {
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker193 = this;
-                        stagemaker193.tstage = stringbuilder + stagemaker193.tstage + "" + string186 + "\r\n";
+
+
+                        this.tstage = "" + this.tstage + "" + string186 + "\r\n";
                     }
                 }
                 if (i != 2 && string186.startsWith("snap")) {
                     m.setsnap(getint("snap", string186, 0), getint("snap", string186, 1), getint("snap", string186, 2));
                     if (i == 3) {
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker194 = this;
-                        stagemaker194.tstage = stringbuilder + stagemaker194.tstage + "" + string186 + "\r\n";
+
+
+                        this.tstage = "" + this.tstage + "" + string186 + "\r\n";
                     }
                 }
                 if (string186.startsWith("density")) {
@@ -1675,34 +1675,34 @@ public class StageMaker extends Applet implements Runnable {
                         m.fogd = 30;
                     }
                     if (i == 3) {
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker195 = this;
-                        stagemaker195.tstage = stringbuilder + stagemaker195.tstage + "" + string186 + "\r\n";
+
+
+                        this.tstage = "" + this.tstage + "" + string186 + "\r\n";
                     }
                 }
                 if (string186.startsWith("mountains")) {
                     m.mgen = getint("mountains", string186, 0);
                     if (i == 3) {
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker196 = this;
-                        stagemaker196.tstage = stringbuilder + stagemaker196.tstage + "" + string186 + "\r\n";
+
+
+                        this.tstage = "" + this.tstage + "" + string186 + "\r\n";
                     }
                 }
                 if (string186.startsWith("fadefrom")) {
                     m.fadfrom(getint("fadefrom", string186, 0));
                     origfade = m.fade[0];
                     if (i == 3) {
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker197 = this;
-                        stagemaker197.tstage = stringbuilder + stagemaker197.tstage + "" + string186 + "\r\n";
+
+
+                        this.tstage = "" + this.tstage + "" + string186 + "\r\n";
                     }
                 }
                 if (string186.startsWith("lightson")) {
                     m.lightson = true;
                     if (i == 3) {
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker198 = this;
-                        stagemaker198.tstage = stringbuilder + stagemaker198.tstage + "" + string186 + "\r\n";
+
+
+                        this.tstage = "" + this.tstage + "" + string186 + "\r\n";
                     }
                 }
                 if (string186.startsWith("nlaps")) {
@@ -1714,9 +1714,9 @@ public class StageMaker extends Applet implements Runnable {
                         cp.nlaps = 15;
                     }
                     if (i == 3) {
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker199 = this;
-                        stagemaker199.tstage = stringbuilder + stagemaker199.tstage + "" + string186 + "\r\n";
+
+
+                        this.tstage = "" + this.tstage + "" + string186 + "\r\n";
                     }
                 }
                 if (string186.startsWith("soundtrack")) {
@@ -1724,9 +1724,9 @@ public class StageMaker extends Applet implements Runnable {
                     trackvol = getint("soundtrack", string186, 1);
                     tracksize = getint("soundtrack", string186, 2);
                     if (i == 3) {
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker200 = this;
-                        stagemaker200.tstage = stringbuilder + stagemaker200.tstage + "" + string186 + "\r\n";
+
+
+                        this.tstage = "" + this.tstage + "" + string186 + "\r\n";
                     }
                 }
                 if (string186.startsWith("set")) {
@@ -1762,14 +1762,14 @@ public class StageMaker extends Applet implements Runnable {
                     nob++;
                     if (i == 3) {
                         if (bool185) {
-                            final StringBuilder stringbuilder = new StringBuilder();
-                            final StageMaker stagemaker202 = this;
-                            stagemaker202.bstage = stringbuilder + stagemaker202.bstage + "\r\n";
+
+
+                            this.bstage = "" + this.bstage + "\r\n";
                             bool185 = false;
                         }
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker203 = this;
-                        stagemaker203.bstage = stringbuilder + stagemaker203.bstage + "" + string186 + "\r\n";
+
+
+                        this.bstage = "" + this.bstage + "" + string186 + "\r\n";
                     }
                     if (m.loadnew) {
                         m.loadnew = false;
@@ -1804,14 +1804,14 @@ public class StageMaker extends Applet implements Runnable {
                     nob++;
                     if (i == 3) {
                         if (bool185) {
-                            final StringBuilder stringbuilder = new StringBuilder();
-                            final StageMaker stagemaker206 = this;
-                            stagemaker206.bstage = stringbuilder + stagemaker206.bstage + "\r\n";
+
+
+                            this.bstage = "" + this.bstage + "\r\n";
                             bool185 = false;
                         }
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker207 = this;
-                        stagemaker207.bstage = stringbuilder + stagemaker207.bstage + "" + string186 + "\r\n";
+
+
+                        this.bstage = "" + this.bstage + "" + string186 + "\r\n";
                     }
                 }
                 if (string186.startsWith("fix")) {
@@ -1840,14 +1840,14 @@ public class StageMaker extends Applet implements Runnable {
                     nob++;
                     if (i == 3) {
                         if (bool185) {
-                            final StringBuilder stringbuilder = new StringBuilder();
-                            final StageMaker stagemaker209 = this;
-                            stagemaker209.bstage = stringbuilder + stagemaker209.bstage + "\r\n";
+
+
+                            this.bstage = "" + this.bstage + "\r\n";
                             bool185 = false;
                         }
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker210 = this;
-                        stagemaker210.bstage = stringbuilder + stagemaker210.bstage + "" + string186 + "\r\n";
+
+
+                        this.bstage = "" + this.bstage + "" + string186 + "\r\n";
                     }
                 }
                 if (string186.startsWith("pile")) {
@@ -1860,14 +1860,14 @@ public class StageMaker extends Applet implements Runnable {
                     nob++;
                     if (i == 3) {
                         if (bool185) {
-                            final StringBuilder stringbuilder = new StringBuilder();
-                            final StageMaker stagemaker211 = this;
-                            stagemaker211.bstage = stringbuilder + stagemaker211.bstage + "\r\n";
+
+
+                            this.bstage = "" + this.bstage + "\r\n";
                             bool185 = false;
                         }
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker212 = this;
-                        stagemaker212.bstage = stringbuilder + stagemaker212.bstage + "" + string186 + "\r\n";
+
+
+                        this.bstage = "" + this.bstage + "" + string186 + "\r\n";
                     }
                 }
                 if (string186.startsWith("maxr")) {
@@ -1885,14 +1885,14 @@ public class StageMaker extends Applet implements Runnable {
                     }
                     if (i == 3) {
                         if (bool) {
-                            final StringBuilder stringbuilder = new StringBuilder();
-                            final StageMaker stagemaker217 = this;
-                            stagemaker217.bstage = stringbuilder + stagemaker217.bstage + "\r\n";
+
+
+                            this.bstage = "" + this.bstage + "\r\n";
                             bool = false;
                         }
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker218 = this;
-                        stagemaker218.bstage = stringbuilder + stagemaker218.bstage + "" + string186 + "\r\n";
+
+
+                        this.bstage = "" + this.bstage + "" + string186 + "\r\n";
                     }
                 }
                 if (string186.startsWith("maxl")) {
@@ -1910,14 +1910,14 @@ public class StageMaker extends Applet implements Runnable {
                     }
                     if (i == 3) {
                         if (bool) {
-                            final StringBuilder stringbuilder = new StringBuilder();
-                            final StageMaker stagemaker223 = this;
-                            stagemaker223.bstage = stringbuilder + stagemaker223.bstage + "\r\n";
+
+
+                            this.bstage = "" + this.bstage + "\r\n";
                             bool = false;
                         }
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker224 = this;
-                        stagemaker224.bstage = stringbuilder + stagemaker224.bstage + "" + string186 + "\r\n";
+
+
+                        this.bstage = "" + this.bstage + "" + string186 + "\r\n";
                     }
                 }
                 if (string186.startsWith("maxt")) {
@@ -1935,14 +1935,14 @@ public class StageMaker extends Applet implements Runnable {
                     }
                     if (i == 3) {
                         if (bool) {
-                            final StringBuilder stringbuilder = new StringBuilder();
-                            final StageMaker stagemaker229 = this;
-                            stagemaker229.bstage = stringbuilder + stagemaker229.bstage + "\r\n";
+
+
+                            this.bstage = "" + this.bstage + "\r\n";
                             bool = false;
                         }
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker230 = this;
-                        stagemaker230.bstage = stringbuilder + stagemaker230.bstage + "" + string186 + "\r\n";
+
+
+                        this.bstage = "" + this.bstage + "" + string186 + "\r\n";
                     }
                 }
                 if (string186.startsWith("maxb")) {
@@ -1960,14 +1960,14 @@ public class StageMaker extends Applet implements Runnable {
                     }
                     if (i == 3) {
                         if (bool) {
-                            final StringBuilder stringbuilder = new StringBuilder();
-                            final StageMaker stagemaker235 = this;
-                            stagemaker235.bstage = stringbuilder + stagemaker235.bstage + "\r\n";
+
+
+                            this.bstage = "" + this.bstage + "\r\n";
                             bool = false;
                         }
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final StageMaker stagemaker236 = this;
-                        stagemaker236.bstage = stringbuilder + stagemaker236.bstage + "" + string186 + "\r\n";
+
+
+                        this.bstage = "" + this.bstage + "" + string186 + "\r\n";
                     }
                 }
             }
@@ -2001,9 +2001,9 @@ public class StageMaker extends Applet implements Runnable {
             errd = 4;
         }
         if (i == 3 && bstage.indexOf("set(47,0,0,0)") == -1 && bstage.indexOf("set(48,0,0,0)") == -1) {
-            final StringBuilder stringbuilder = new StringBuilder();
-            final StageMaker stagemaker237 = this;
-            stagemaker237.bstage = stringbuilder + stagemaker237.bstage + "set(47,0,0,0)\r\n";
+
+
+            this.bstage = "" + this.bstage + "set(47,0,0,0)\r\n";
         }
     }
 
@@ -5589,22 +5589,22 @@ public class StageMaker extends Applet implements Runnable {
                 + texture[3] + ")\r\nfadefrom(" + origfade + ")\r\ndensity(" + ((m.fogd + 1) / 2 - 1)
                 + ")\r\nmountains(" + m.mgen + ")\r\nnlaps(" + cp.nlaps + ")\r\n";
         if (!trackname.equals("")) {
-            final StringBuilder stringbuilder = new StringBuilder();
-            final StageMaker stagemaker239 = this;
-            stagemaker239.tstage = stringbuilder + stagemaker239.tstage + "soundtrack(" + trackname + "," + trackvol
+
+
+            this.tstage = "" + this.tstage + "soundtrack(" + trackname + "," + trackvol
                     + "," + tracksize + ")\r\n";
         }
         for (int i = 0; i < 3; i++) {
             snap[i] = (int) (m.snap[i] / 1.2F + 50.0F);
         }
         if (snap[0] + snap[1] + snap[2] <= 110) {
-            final StringBuilder stringbuilder = new StringBuilder();
-            final StageMaker stagemaker240 = this;
-            stagemaker240.tstage = stringbuilder + stagemaker240.tstage + "lightson()\r\n";
+
+
+            this.tstage = "" + this.tstage + "lightson()\r\n";
         }
-        final StringBuilder stringbuilder = new StringBuilder();
-        final StageMaker stagemaker241 = this;
-        stagemaker241.tstage = stringbuilder + stagemaker241.tstage + "\r\n";
+
+
+        this.tstage = "" + this.tstage + "\r\n";
     }
 
     private void sortstage() {
@@ -6081,19 +6081,19 @@ public class StageMaker extends Applet implements Runnable {
                 if (is[is242[i313]] == 6) {
                     string = "pr";
                 }
-                final StringBuilder stringbuilder = new StringBuilder();
-                final StageMaker stagemaker314 = this;
+
+
                 System.out.println("placing");
                 System.out.println("roof2: " + co[is242[i313]].roofat);
                 if (co[is242[i313]].roofat == 250) {
 
                 }
                 if (!floats) {
-                    stagemaker314.bstage = stringbuilder + stagemaker314.bstage + "set(" + (co[is242[i313]].colok + 10)
+                    this.bstage = "" + this.bstage + "set(" + (co[is242[i313]].colok + 10)
                             + "," + co[is242[i313]].x + "," + co[is242[i313]].z + "," + co[is242[i313]].roofat + ")"
                             + string + "\r\n";
                 } else {
-                    stagemaker314.bstage = stringbuilder + stagemaker314.bstage + "set(" + (co[is242[i313]].colok + 10)
+                    this.bstage = "" + this.bstage + "set(" + (co[is242[i313]].colok + 10)
                             + "," + co[is242[i313]].x + "," + co[is242[i313]].z + "," + co[is242[i313]].y + ","
                             + co[is242[i313]].roofat + ")" + string + "\r\n";
                 }
@@ -6106,14 +6106,14 @@ public class StageMaker extends Applet implements Runnable {
                 if (co[is242[i313]].wh != 0) {
                     string = "r";
                 }
-                final StringBuilder stringbuilder = new StringBuilder();
-                final StageMaker stagemaker315 = this;
+
+
                 if (floats) {
-                    stagemaker315.bstage = stringbuilder + stagemaker315.bstage + "chk(" + (co[is242[i313]].colok + 10)
+                    this.bstage = "" + this.bstage + "chk(" + (co[is242[i313]].colok + 10)
                             + "," + co[is242[i313]].x + "," + co[is242[i313]].z + "," + co[is242[i313]].y + ","
                             + co[is242[i313]].roofat + ")" + string + "\r\n";
                 } else {
-                    stagemaker315.bstage = stringbuilder + stagemaker315.bstage + "chk(" + (co[is242[i313]].colok + 10)
+                    this.bstage = "" + this.bstage + "chk(" + (co[is242[i313]].colok + 10)
                             + "," + co[is242[i313]].x + "," + co[is242[i313]].z + "," + co[is242[i313]].roofat + ")"
                             + string + "\r\n";
                 }
@@ -6126,33 +6126,33 @@ public class StageMaker extends Applet implements Runnable {
                 if (co[is242[i313]].wh != 0) {
                     string = "r";
                 }
-                final StringBuilder stringbuilder = new StringBuilder();
-                final StageMaker stagemaker316 = this;
-                //   stagemaker316.bstage = stringbuilder + (stagemaker316.bstage) + ("chk(")
+
+
+                //   this.bstage = "" + (this.bstage) + ("chk(")
                 //		 + (co[is242[i313]].colok + 10) + (",") + (co[is242[i313]].x) + (",")
                 //		 + (co[is242[i313]].z) + (",") + (co[is242[i313]].y) + (",") + (co[is242[i313]].roofat)
                 //		 + (")") + (string) + ("\r\n");
                 if (floats) {
-                    stagemaker316.bstage = stringbuilder + stagemaker316.bstage + "chk(" + (co[is242[i313]].colok + 10)
+                    this.bstage = "" + this.bstage + "chk(" + (co[is242[i313]].colok + 10)
                             + "," + co[is242[i313]].x + "," + co[is242[i313]].z + "," + co[is242[i313]].y + ","
                             + co[is242[i313]].roofat + ")" + string + "\r\n";
                 } else {
-                    stagemaker316.bstage = stringbuilder + stagemaker316.bstage + "chk(" + (co[is242[i313]].colok + 10)
+                    this.bstage = "" + this.bstage + "chk(" + (co[is242[i313]].colok + 10)
                             + "," + co[is242[i313]].x + "," + co[is242[i313]].z + "," + co[is242[i313]].roofat + ")"
                             + string + "\r\n";
                 }
             }
             if (co[is242[i313]].colok == 31) {
-                final StringBuilder stringbuilder = new StringBuilder();
-                final StageMaker stagemaker317 = this;
-                stagemaker317.bstage = stringbuilder + stagemaker317.bstage + "fix(" + (co[is242[i313]].colok + 10)
+
+
+                this.bstage = "" + this.bstage + "fix(" + (co[is242[i313]].colok + 10)
                         + "," + co[is242[i313]].x + "," + co[is242[i313]].z + "," + co[is242[i313]].y + ","
                         + co[is242[i313]].roofat + ")\r\n";
             }
             if (co[is242[i313]].colok == bumppart) {
-                final StringBuilder stringbuilder = new StringBuilder();
-                final StageMaker stagemaker318 = this;
-                stagemaker318.bstage = stringbuilder + stagemaker318.bstage + "pile(" + co[is242[i313]].srz + ","
+
+
+                this.bstage = "" + this.bstage + "pile(" + co[is242[i313]].srz + ","
                         + co[is242[i313]].srx + "," + co[is242[i313]].sry + "," + co[is242[i313]].x + ","
                         + co[is242[i313]].z + ")\r\n";
             }
@@ -6183,9 +6183,9 @@ public class StageMaker extends Applet implements Runnable {
         i324 -= i322;
         i325 += i322;
         final int i327 = i324 + 2400;
-        final StringBuilder stringbuilder = new StringBuilder();
-        final StageMaker stagemaker328 = this;
-        stagemaker328.bstage = stringbuilder + stagemaker328.bstage + "\r\nmaxl(" + i326 + "," + i319 + "," + i327
+
+
+        this.bstage = "" + this.bstage + "\r\nmaxl(" + i326 + "," + i319 + "," + i327
                 + ")\r\nmaxb(" + i321 + "," + i324 + "," + i323 + ")\r\nmaxr(" + i326 + "," + i320 + "," + i327
                 + ")\r\nmaxt(" + i321 + "," + i325 + "," + i323 + ")\r\n";
     }
