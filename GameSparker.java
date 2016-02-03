@@ -964,11 +964,11 @@ class GameSparker extends JPanel
         int i152 = 100;
         String string153 = "";
         try {
-            DataInputStream datainputstream;
+            BufferedReader datainputstream;
             if (checkpoints.stage > 0) {
                 final URL url = new URL("http://multiplayer.needformadness.com/stages/" + checkpoints.stage
                         + ".txt");
-                datainputstream = new DataInputStream(url.openStream());
+                datainputstream = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
             } else {
                 String string154 = "http://multiplayer.needformadness.com/tracks/" + checkpoints.name + ".radq";
                 string154 = string154.replace(' ', '_');
@@ -1002,7 +1002,7 @@ class GameSparker extends JPanel
                 }
                 zipinputstream.close();
                 datainputstream156.close();
-                datainputstream = new DataInputStream(new ByteArrayInputStream(is161));
+                datainputstream = new BufferedReader(new InputStreamReader(new DataInputStream(new ByteArrayInputStream(is161))));
             }
             String string164;
             while ((string164 = datainputstream.readLine()) != null) {
