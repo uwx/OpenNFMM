@@ -114,7 +114,6 @@ class xtGraphics extends Panel implements Runnable {
     private int cfase = 0;
     Image cgame;
     Image change;
-    private Image chat;
     private soundClip checkpoint;
     private Image chil;
     String clan = "";
@@ -122,7 +121,6 @@ class xtGraphics extends Panel implements Runnable {
     int clangame = 0;
     String clankey = "";
     private int clear = 0;
-    private Image cmc;
     private final String[][] cnames = {
             {
                     "", "", "", "", "", "", "Game Chat  "
@@ -130,7 +128,6 @@ class xtGraphics extends Panel implements Runnable {
                     "", "", "", "", "", "", "Your Clan's Chat  "
             }
     };
-    private Image cnmc;
     private int cntan = 0;
     private final int[] cntchatp = {
             0, 0
@@ -197,7 +194,6 @@ class xtGraphics extends Panel implements Runnable {
     private int flyrdest = 0;
     int forstart = 0;
     FontMetrics ftm;
-    private Image gac;
     String gaclan = "";
     private Image gamefinished;
     private Image gameh;
@@ -282,7 +278,6 @@ class xtGraphics extends Panel implements Runnable {
     int multion = 0;
     private boolean mutem = false;
     boolean mutes = false;
-    private Image myc;
     int ndisco = 0;
     boolean newparts = false;
     private final Image[] next = new Image[2];
@@ -318,7 +313,6 @@ class xtGraphics extends Panel implements Runnable {
     private Image opos;
     int opselect = 0;
     private Image opti;
-    private Image opti2;
     private Image opwr;
     private final Image[] orank = new Image[8];
     private Image ory;
@@ -368,7 +362,6 @@ class xtGraphics extends Panel implements Runnable {
     };
     private int pin = 60;
     Image play;
-    private Image players;
     int playingame = -1;
     Image pln;
     String[] plnames = {
@@ -456,7 +449,6 @@ class xtGraphics extends Panel implements Runnable {
     private boolean tflk = false;
     private soundClip three;
     private soundClip tires;
-    private Image top20s;
     private final Image[] trackbg = new Image[2];
     private int trkl = 0;
     private int trklim = (int) (ThreadLocalRandom.current().nextDouble() * 40.0);
@@ -2703,7 +2695,7 @@ class xtGraphics extends Panel implements Runnable {
                     opselect = 2;
                     shaded = true;
                 }
-                if (dropf == 0 && overon(348, 346, 102, 22, i, i182)) {
+                if (overon(348, 346, 102, 22, i, i182)) {
                     opselect = 3;
                     shaded = true;
                 }
@@ -2722,7 +2714,7 @@ class xtGraphics extends Panel implements Runnable {
                 if (overon(333, 318 + dropf, 132, 22, i, i182)) {
                     opselect = 2;
                 }
-                if (dropf == 0 && overon(348, 346, 102, 22, i, i182)) {
+                if (overon(348, 346, 102, 22, i, i182)) {
                     opselect = 3;
                 }
                 lxm = i;
@@ -4927,9 +4919,6 @@ class xtGraphics extends Panel implements Runnable {
                 if (string.equals("options.png")) {
                     opti = loadimage(is, mediatracker, toolkit);
                 }
-                if (string.equals("options2.png")) {
-                    opti2 = loadimage(is, mediatracker, toolkit);
-                }
                 if (string.equals("opback.png")) {
                     opback = loadimage(is, mediatracker, toolkit);
                 }
@@ -5026,17 +5015,8 @@ class xtGraphics extends Panel implements Runnable {
                 if (string.equals("exit.gif")) {
                     exit = loadBimage(is, mediatracker, toolkit, 0);
                 }
-                if (string.equals("chat.gif")) {
-                    chat = loadBimage(is, mediatracker, toolkit, 0);
-                }
-                if (string.equals("players.gif")) {
-                    players = loadBimage(is, mediatracker, toolkit, 0);
-                }
                 if (string.equals("roomp.gif")) {
                     roomp = loadBimage(is, mediatracker, toolkit, 0);
-                }
-                if (string.equals("cnmc.gif")) {
-                    cnmc = loadBimage(is, mediatracker, toolkit, 0);
                 }
                 if (string.equals("ready.gif")) {
                     redy = loadBimage(is, mediatracker, toolkit, 0);
@@ -5092,23 +5072,11 @@ class xtGraphics extends Panel implements Runnable {
                 if (string.equals("pbc.gif")) {
                     bc[1] = loadimage(is, mediatracker, toolkit);
                 }
-                if (string.equals("cmc.gif")) {
-                    cmc = loadimage(is, mediatracker, toolkit);
-                }
-                if (string.equals("myc.gif")) {
-                    myc = loadimage(is, mediatracker, toolkit);
-                }
-                if (string.equals("gac.gif")) {
-                    gac = loadimage(is, mediatracker, toolkit);
-                }
                 if (string.equals("yac.gif")) {
                     yac = loadimage(is, mediatracker, toolkit);
                 }
                 if (string.equals("ycmc.gif")) {
                     ycmc = loadimage(is, mediatracker, toolkit);
-                }
-                if (string.equals("top20s.gif")) {
-                    top20s = loadimage(is, mediatracker, toolkit);
                 }
                 dnload += 2;
             }
