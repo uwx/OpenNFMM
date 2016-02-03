@@ -1,4 +1,5 @@
 
+
 import static jouvieje.bass.Bass.BASS_ChannelGetLength;
 import static jouvieje.bass.Bass.BASS_ChannelGetLevel;
 import static jouvieje.bass.Bass.BASS_ChannelGetPosition;
@@ -13,6 +14,7 @@ import static jouvieje.bass.Bass.BASS_Init;
 import static jouvieje.bass.Bass.BASS_MusicFree;
 import static jouvieje.bass.Bass.BASS_MusicLoad;
 import static jouvieje.bass.Bass.BASS_Pause;
+import static jouvieje.bass.Bass.BASS_SetVolume;
 import static jouvieje.bass.Bass.BASS_Start;
 import static jouvieje.bass.Bass.BASS_StreamCreateFile;
 import static jouvieje.bass.Bass.BASS_StreamFree;
@@ -46,7 +48,7 @@ class RadicalBASS implements RadicalMusic {
     }
 
     private final void printfExit(final String format, final Object... args) {
-        String s = String.format(format, args);
+        final String s = String.format(format, args);
         System.out.println(s);
         end();
     }
@@ -57,8 +59,6 @@ class RadicalBASS implements RadicalMusic {
     private final int WIDTH = 600; //Display width
     private final int HEIGHT = 201; //Height (odd number for centre line)
 
-    private Thread scan = null;
-    private boolean killScan = false;
 
     private int chan;
     private long bpp; //Bytes per pixel
@@ -95,20 +95,16 @@ class RadicalBASS implements RadicalMusic {
             //Start a file playing
             end();
         }
+
+        BASS_SetVolume(0.1F);
         //Set update timer (10hz)
         //timer.start();
     }
 
     private boolean playFile() {
-        //int result = getFileChooser().showOpenDialog(CustLoop.this);
-        /*if(result != JFileChooser.APPROVE_OPTION) {
-            return false;
-        }*/
-
         HSTREAM stream = null;
         HMUSIC music = null;
 
-        //String file = getFileChooser().getSelectedFile().getPath();
         if ((stream = BASS_StreamCreateFile(false, file.getPath(), 0, 0, 0)) == null && (music = BASS_MusicLoad(false, file.getPath(), 0, 0, BASS_MUSIC_RAMPS | BASS_MUSIC_POSRESET | BASS_MUSIC_PRESCAN, 0)) == null) {
             error("Can't play file");
             return false; // Can't load the file
@@ -122,67 +118,6 @@ class RadicalBASS implements RadicalMusic {
         }
         BASS_ChannelSetSync(chan, BASS_SYNC_END | BASS_SYNC_MIXTIME, 0, loopSyncProc, null); //Set sync to loop at end
         BASS_ChannelPlay(chan, false); //Start playing
-
-        /*
-         * Jouvieje note:
-         * Open a second time the music and scan it
-         */
-        {
-            final HSTREAM stream2;
-            final HMUSIC music2;
-
-            stream2 = BASS_StreamCreateFile(false, file.getPath(), 0, 0, BASS_STREAM_DECODE);
-            if (stream2 == null) {
-                music2 = BASS_MusicLoad(false, file.getPath(), 0, 0, BASS_MUSIC_DECODE, 0);
-            } else {
-                music2 = null;
-            }
-
-            final int chan2 = stream2 != null ? stream2.asInt() : music2 != null ? music2.asInt() : 0;
-
-            scan = new Thread() {
-                @Override
-                public void run() {
-                    int cpos = 0;
-                    final long[] peak = new long[2];
-                    wavebuf = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
-
-                    while (!killScan) {
-                        final long level = BASS_ChannelGetLevel(chan2); //Scan peaks
-
-                        int pos = (int) (BASS_ChannelGetPosition(chan2, BASS_POS_BYTE) / bpp);
-                        if (peak[0] < (level & 0x0000FFFF)) {
-                            peak[0] = level & 0x0000FFFF; //Set left peak
-                        }
-                        if (peak[1] < (level & 0xFFFF0000) >> 16) {
-                            peak[1] = (level & 0xFFFF0000) >> 16; //Set right peak
-                        }
-                        if (BASS_ChannelIsActive(chan2) == BASS_ACTIVE_STOPPED) {
-                            pos = -1; //Reached the end
-                        }
-                        /*else
-                            pos = (int)(BASS_ChannelGetPosition(chan2, BASS_POS_BYTE) / bpp);*/
-
-                        if (pos > cpos) {
-                            for (int a = 0; a < peak[0] * (HEIGHT / 2) / 32768; a++) {
-                                wavebuf.setRGB(cpos, HEIGHT / 2 - 1 - a, getIndexColor(1 + a)); //Draw left peak
-                            }
-                            for (int a = 0; a < peak[1] * (HEIGHT / 2) / 32768; a++) {
-                                wavebuf.setRGB(cpos, HEIGHT / 2 + 1 + a, getIndexColor(1 + a)); //Draw right peak
-                            }
-                            if (pos >= WIDTH) {
-                                break; //Gone off end of display
-                            }
-                            cpos = pos;
-                            peak[0] = peak[1] = 0;
-                        }
-                    }
-                    BASS_StreamFree(stream2); //Free the decoder
-                    BASS_MusicFree(music2); //Jouvieje note: Missing line from c example ?
-                }
-            };
-            scan.start();
-        }
         return true;
     }
 
@@ -195,16 +130,6 @@ class RadicalBASS implements RadicalMusic {
             return;
         deinit = true;
 
-        //timer.stop();
-        if (scan != null && scan.isAlive()) {
-            killScan = true;
-            while (scan.isAlive()) {
-                try {
-                    Thread.sleep(5);
-                } catch (final InterruptedException e) {
-                }
-            }
-        }
         BASS_Free();
     }
 
@@ -219,7 +144,7 @@ class RadicalBASS implements RadicalMusic {
 
     private final File file;
     private boolean started = false;
-    private boolean paused = false;
+    private final boolean paused = false;
 
     public RadicalBASS(final File songFile) {
         file = songFile;
@@ -254,10 +179,11 @@ class RadicalBASS implements RadicalMusic {
 
     @Override
     public void setPaused(final boolean pause) {
-        if (pause)
+        if (pause) {
             stop();
-        else
+        } else {
             resume();
+        }
 
     }
 
