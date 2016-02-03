@@ -6,8 +6,10 @@ import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -180,9 +182,9 @@ class ContO {
         int strokemtlimit = 10;
 
         try {
-            final DataInputStream datainputstream = new DataInputStream(new ByteArrayInputStream(is));
+            final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(new DataInputStream(new ByteArrayInputStream(is))));
             String string17;
-            while ((string17 = datainputstream.readLine()) != null) {
+            while ((string17 = bufferedreader.readLine()) != null) {
                 string = "" + string17.trim();
                 if (npl < 10000 /* 210 */) {
                     if (string.startsWith("<p>")) {
@@ -523,7 +525,7 @@ class ContO {
                     colok++;
                 }
             }
-            datainputstream.close();
+            bufferedreader.close();
         } catch (final Exception exception) {
             if (exception instanceof RuntimeException)
                 throw new RuntimeException(exception);
