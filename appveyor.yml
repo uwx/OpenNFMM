@@ -19,18 +19,19 @@ skip_commits:
 # Note: AppVeyor checkout only the last commit and not the entire branch. So you may have to checkout the wanted branch: git checkout master
 on_success:
  - cmd: SET PATH=%tempath%
+ - git checkout master
  - git config --global credential.helper store
  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
  - git config --global user.email "bbbbbbenes@outlook.com.br"
  - git config --global user.name "Appveyor Automated Build"
  - cmd: For /f "tokens=2-4 delims=/ " %%a in ('date /t') do (set mydate=%%c-%%a-%%b)
  - cmd: For /f "tokens=1-2 delims=/:" %%a in ('time /t') do (set mytime=%%a%%b)
- - git checkout --orphan javadocs
- - git rm --cached -r -f .
+#
  - cmd: mkdir doc
  - cmd: SET PATH="C:\Program Files\Java\jdk1.8.0\bin"
- - cmd: javadoc -d doc -sourcepath %CD% *.java
+ - cmd: javadoc -d doc -classpath "libraries\dragshotMod.jar;libraries\easyogg.jar;libraries\jl1.0.1.jar;libraries\jogg-0.0.7.jar;libraries\jorbis-0.0.15.jar;libraries/NativeBass.jar;libraries/NativeBass-Examples.jar;%CD%" -sourcepath "%CD%" *.java
  - cmd: SET PATH=%tempath%
+#
  - git add doc/*
  - git commit -m "Generated Javadocs at %mydate%_%mytime% [skip ci]"
- - git push origin javadocs
+ - git push origin master
