@@ -10,7 +10,6 @@ import ds.nfm.ModuleSlayer;
 
 class RadicalMod implements RadicalMusic {
     private static String name = "";
-    private static String filename = "";
     SuperClip sClip;
     boolean playing;
     int loaded;
@@ -37,7 +36,6 @@ class RadicalMod implements RadicalMusic {
         final int i_3 = 22000;
         i_0 = (int) (i_0 / 8000F * 2.0F * i_3);
         i = (int) (i * 0.8F);
-        filename = string.replace("mystages/mymusic/", "");
         try {
             Module module;
             if (!bool_2) {
@@ -60,9 +58,6 @@ class RadicalMod implements RadicalMusic {
                 sClip = new SuperClip(is, moduleslayer.oln, i_3);
                 sClip.rollBackPos = moduleslayer.rollBackPos;
                 sClip.rollBackTrig = moduleslayer.oln - moduleslayer.rollBackTrig;
-                if (bool_2) {
-                    filename = "Length: " + getTimer(sClip.stream.available() / 44100);
-                }
                 loaded = 2;
             }
         } catch (final Exception exception) {
@@ -82,7 +77,6 @@ class RadicalMod implements RadicalMusic {
         pmod = "";
         loaded = 1;
         imod = string;
-        filename = string;
         loadimod(false);
     }
 
@@ -172,7 +166,6 @@ class RadicalMod implements RadicalMusic {
         loaded = 1;
         pmod = string;
         loadpmod(true);
-        filename = string;
     }
 
     @Override

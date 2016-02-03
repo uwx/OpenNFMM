@@ -30,11 +30,9 @@ import static jouvieje.bass.examples.util.Device.forceNoSoundDevice;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.lang.reflect.Field;
 
 import jouvieje.bass.BassInit;
 import jouvieje.bass.callbacks.SYNCPROC;
-import jouvieje.bass.exceptions.BassException;
 import jouvieje.bass.structures.HMUSIC;
 import jouvieje.bass.structures.HSTREAM;
 import jouvieje.bass.structures.HSYNC;
