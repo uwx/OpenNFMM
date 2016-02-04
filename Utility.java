@@ -28,10 +28,10 @@ class Utility {
     }
 
     /**
-     * Allan please add comments
-     * @param string
-     * @param i
-     * @return
+     * Gets a value from a string like: a|b|c|0|1|2|
+     * @param string the string to get the value from
+     * @param i the value position
+     * @return the value at the position
      */
     public static int getServerValue(final String string, final int i) {
         int i437 = -1;
@@ -68,8 +68,9 @@ class Utility {
      *
      * @param i
      *            The 3D X point
-     * @param i161
+     * @param i338
      *            The 3D Y point
+     * @param m the Medium
      * @return The 2D X coordinate.
      */
     static int xs(final int i, int i338, final Medium m) {
@@ -84,8 +85,9 @@ class Utility {
      *
      * @param i
      *            The 3D Z point
-     * @param i161
+     * @param i339
      *            The 3D Y point
+     * @param m the Medium
      * @return The 2D Y coordinate.
      */
     static int ys(final int i, int i339, final Medium m) {

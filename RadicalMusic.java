@@ -34,11 +34,15 @@ interface RadicalMusic {
 
     /**
      * Sets the paused state. Music may not immediately pause.
+     *
+     * @param true to pause, false to resume.
      */
     void setPaused(boolean pause);
 
     /**
      * Returns the paused state.
+     *
+     * @return the paused state.
      */
     boolean isPaused();
 }
