@@ -24,6 +24,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -8157,7 +8159,7 @@ class xtGraphics extends Panel implements Runnable {
         if (i != 0) {
             int lastcar = nplayers;
 
-            // get boss car if player is not in the mad party
+            // get boss car if player is not in the mad party, since that one has no boss car (you play as dr monstaa)
             if (sc[0] != 7 + (i + 1) / 2 && i != nTracks) {
                 sc[6] = 7 + (i + 1) / 2;
                 if (sc[6] >= nCars) {
@@ -8166,47 +8168,42 @@ class xtGraphics extends Panel implements Runnable {
                 lastcar--; //boss car won't be randomized
             }
 
+            // DEBUG: Prints the range of possible cars to the console
+            //System.out.println("Minimum car: " + cd.names[(i - 1) / 2] + ", maximum car: " + cd.names[nplayers + ((i - 1) / 2)] + ", therefore: " + (((i - 1) / 2) - (nplayers + ((i - 1) / 2))) + " car difference");
+
+            // create a list of car ids, each item completely unique
+            ArrayList<Integer> list = new ArrayList<Integer>();
+            for (int k = (i - 1) / 2; k < nplayers + ((i - 1) / 2); k++) {
+                if (k == sc[0])
+                    continue;
+                list.add(new Integer(k));
+            }
+            // randomize the order of this list (shuffle it like a deck of cards)
+            Collections.shuffle(list);
+
+            // which item of the list should be picked
+            int k = 0;
+
             for (int j = 1; j < lastcar; j++) {
 
-                //float f = 10.0F;
-                //if (bool)
-                //    f = 17.0F;
+                // get an item from the "deck" - this can be any item as long as it's unique
+                sc[j] = list.get(k);
+                k++;
 
-                //randomize car
-                sc[j] = (int) (ThreadLocalRandom.current().nextDouble() * (7 + (i + 1) / 2));
+                // if there are more cars than tracks, reduce the car index number until it fits.
+                // unfortunately i have no idea how to make this work properly so we'll just have to ignore the duplicates here
                 while (sc[j] >= nCars) {
+                    System.out.println("Car " + j + " is out of bounds");
                     sc[j] -= ThreadLocalRandom.current().nextDouble() * 5F;
                 }
                 System.out.println("sc of " + j + " is " + sc[j]);
-
-                // check for dupe cars - OLD
-                /*for (int dupecar = 0; dupecar < lastcar; dupecar++) //1 for just AI dupe check, 0 to check player as well
-                    if (j != dupecar && sc[j] == sc[dupecar]) {
-                        if (sc[j] > 0)
-                            sc[j]--;
-                        else sc[j]++;
-                    }*/
-
-                // check for dupe cars - NEW
-                for (int dupecar = 0; dupecar < lastcar; dupecar++)
-                    if (j != dupecar && sc[j] == sc[dupecar]) {
-                        int tries = 10; //the max number of iterations it will go through to avoid getting a dupe car
-                        while (tries-- > 0) {
-                            //randomize car
-                            sc[j] = (int) (ThreadLocalRandom.current().nextDouble() * (7 + (i + 1) / 2));
-                            while (sc[j] >= nCars) {
-                                sc[j] -= ThreadLocalRandom.current().nextDouble() * 5F;
-                            }
-                            //if the car is not a dupe, we're done
-                            if (sc[j] != sc[dupecar])
-                                break;
-                        }
-                    }
             }
         }
+        // this error will never be thrown in a deployment environment
+        // it is only here for extra safety
         for (int j = 0; j < nplayers; j++) {
             if (sc[j] > nCars)
-                throw new RuntimeException("there are too many tracks and not enough cars");
+                throw new Error("there are too many tracks and not enough cars");
         }
     }
 
@@ -9175,8 +9172,7 @@ class xtGraphics extends Panel implements Runnable {
                         wasay = true;
                         say = " Arrow now pointing at >  CARS";
                         if (multion == 1) {
-                            final StringBuilder stringbuilder = new StringBuilder();
-                            say = stringbuilder + say + "    Press [S] to toggle Radar!";
+                            say = say + "    Press [S] to toggle Radar!";
                         }
                         tcnt = -5;
                     }
@@ -9184,8 +9180,7 @@ class xtGraphics extends Panel implements Runnable {
                         wasay = false;
                         say = " Arrow now pointing at >  TRACK";
                         if (multion == 1) {
-                            final StringBuilder stringbuilder = new StringBuilder();
-                            say = stringbuilder + say + "    Press [S] to toggle Radar!";
+                            say = say + "    Press [S] to toggle Radar!";
                         }
                         tcnt = -5;
                         cntan = 20;
@@ -9457,9 +9452,7 @@ class xtGraphics extends Panel implements Runnable {
                         loop = "Hanged " + loop;
                     }
                     if (loop != "") {
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final xtGraphics xtgraphics193 = this;
-                        xtgraphics193.asay = stringbuilder + xtgraphics193.asay + " " + loop;
+                        asay = asay + " " + loop;
                     }
                     i = 0;
                     mad.travxy = Math.abs(mad.travxy);
@@ -9498,43 +9491,27 @@ class xtGraphics extends Panel implements Runnable {
                     }
                     if (i != 0) {
                         if (loop == "" && spin == "") {
-                            final StringBuilder stringbuilder = new StringBuilder();
-                            final xtGraphics xtgraphics195 = this;
-                            xtgraphics195.asay = stringbuilder + xtgraphics195.asay + " " + i;
+                            asay = asay + " " + i;
                             if (bool194) {
-                                final StringBuilder stringbuilder196 = new StringBuilder();
-                                final xtGraphics xtgraphics197 = this;
-                                xtgraphics197.asay = stringbuilder196 + xtgraphics197.asay + " and beyond";
+                                asay = asay + " and beyond";
                             }
                         } else {
                             if (spin != "")
                                 if (loop == "") {
-                                    final StringBuilder stringbuilder = new StringBuilder();
-                                    final xtGraphics xtgraphics198 = this;
-                                    xtgraphics198.asay = stringbuilder + xtgraphics198.asay + " " + spin;
+                                    asay = asay + " " + spin;
                                 } else {
-                                    final StringBuilder stringbuilder = new StringBuilder();
-                                    final xtGraphics xtgraphics199 = this;
-                                    xtgraphics199.asay = stringbuilder + xtgraphics199.asay + " with " + spin;
+                                    asay = asay + " with " + spin;
                                 }
-                            final StringBuilder stringbuilder = new StringBuilder();
-                            final xtGraphics xtgraphics200 = this;
-                            xtgraphics200.asay = stringbuilder + xtgraphics200.asay + " by " + i;
+                            asay = asay + " by " + i;
                             if (bool194) {
-                                final StringBuilder stringbuilder201 = new StringBuilder();
-                                final xtGraphics xtgraphics202 = this;
-                                xtgraphics202.asay = stringbuilder201 + xtgraphics202.asay + " and beyond";
+                                asay = asay + " and beyond";
                             }
                         }
                     } else if (spin != "")
                         if (loop == "") {
-                            final StringBuilder stringbuilder = new StringBuilder();
-                            final xtGraphics xtgraphics203 = this;
-                            xtgraphics203.asay = stringbuilder + xtgraphics203.asay + " " + spin;
+                            asay = asay + " " + spin;
                         } else {
-                            final StringBuilder stringbuilder = new StringBuilder();
-                            final xtGraphics xtgraphics204 = this;
-                            xtgraphics204.asay = stringbuilder + xtgraphics204.asay + " by " + spin;
+                            asay = asay + " by " + spin;
                         }
                     if (asay != "") {
                         auscnt -= 15;
