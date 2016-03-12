@@ -7734,6 +7734,7 @@ class xtGraphics extends Panel implements Runnable {
         rd.setColor(new Color(0, 0, 100));
         rd.drawString("" + (int) f255, 62, 245);
         rd.drawString("" + (int) f256, 132, 245);
+        rd.drawString("AAAAA " + (int) mad.speed, 232, 245);
     }
 
     void replyn() {

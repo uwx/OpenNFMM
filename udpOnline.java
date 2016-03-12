@@ -18,14 +18,39 @@ class udpOnline implements Runnable {
     boolean started = false;
     private final UDPMistro um;
 
-    udpOnline(final UDPMistro udpmistro, final String string, final int i, final int i0, final int i1) {
+    /**
+     * Creates a new udpOnline using a network computer name.
+     * @param udpmistro
+     * @param computerName
+     * @param port
+     * @param thisUdpOlineID
+     * @param connectionPortModifier
+     */
+    // TODO GETBYNAME() ALSO WORKS WITH IPS, FUCK
+    udpOnline(final UDPMistro udpmistro, final String computerName, final int port, final int thisUdpOlineID, final int connectionPortModifier) {
         um = udpmistro;
-        gameport = i;
-        nu = i0;
+        gameport = port;
+        nu = thisUdpOlineID;
         try {
-            dSocket = new DatagramSocket(7010 + i1 + nu);
+            dSocket = new DatagramSocket(7010 + connectionPortModifier + nu);
             errd = false;
-            IPAddress = InetAddress.getByName(string);
+            IPAddress = InetAddress.getByName(computerName);
+        } catch (final Exception exception) {
+            System.out.println("Error preparing for UDP Connection: " + exception);
+        }
+    }
+
+    udpOnline(final UDPMistro udpmistro, final String ip, final int port, final int thisUdpOlineID, final int connectionPortModifier, boolean useIP) {
+        um = udpmistro;
+        gameport = port;
+        nu = thisUdpOlineID;
+        try {
+            dSocket = new DatagramSocket(7010 + connectionPortModifier + nu);
+            errd = false;
+            if (useIP)
+                IPAddress = InetAddress.getByAddress(Utility.ipToBytes(ip));
+            else
+                IPAddress = InetAddress.getByName(ip);
         } catch (final Exception exception) {
             System.out.println("Error preparing for UDP Connection: " + exception);
         }

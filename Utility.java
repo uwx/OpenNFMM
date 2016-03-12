@@ -66,51 +66,74 @@ class Utility {
     /**
      * Turns a 3D XY coordinate into a 2D X perspective coordinate.
      *
-     * @param i
+     * @param x3d
      *            The 3D X point
-     * @param i338
+     * @param y3d
      *            The 3D Y point
      * @param m the Medium
      * @return The 2D X coordinate.
      */
-    static int xs(final int i, int i338, final Medium m) {
-        if (i338 < m.cz) {
-            i338 = m.cz;
+    static int xs(final int x3d, int y3d, final Medium m) {
+        if (y3d < m.cz) {
+            y3d = m.cz;
         }
-        return (i338 - m.focusPoint) * (m.cx - i) / i338 + i;
+        return (y3d - m.focusPoint) * (m.cx - x3d) / y3d + x3d;
     }
 
     /**
      * Turns a 3D ZY coordinate into a 2D Y perspective coordinate.
      *
-     * @param i
+     * @param z3d
      *            The 3D Z point
-     * @param i339
+     * @param y3d
      *            The 3D Y point
      * @param m the Medium
      * @return The 2D Y coordinate.
      */
-    static int ys(final int i, int i339, final Medium m) {
-        if (i339 < m.cz) {
-            i339 = m.cz;
+    static int ys(final int z3d, int y3d, final Medium m) {
+        if (y3d < m.cz) {
+            y3d = m.cz;
         }
-        return (i339 - m.focusPoint) * (m.cy - i) / i339 + i;
+        return (y3d - m.focusPoint) * (m.cy - z3d) / y3d + z3d;
     }
 
     // alt
 
-    static int altXs(final int i, int i260, final Medium m) {
-        if (i260 < 50) {
-            i260 = 50;
+    /**
+     * A variant of {@link Utility#xs(int, int, Medium)}.
+     *
+     * @see Utility#xs(int, int, Medium)
+     * @param x3d
+     *            The 3D X point
+     * @param y3d
+     *            The 3D Y point
+     * @param m the Medium
+     * @return The 2D X coordinate.
+     */
+    static int altXs(final int x3d, int y3d, final Medium m) {
+        if (y3d < 50) {
+            y3d = 50;
         }
-        return (i260 - m.focusPoint) * (m.cx - i) / i260 + i;
+        return (y3d - m.focusPoint) * (m.cx - x3d) / y3d + x3d;
     }
 
-    static int altYs(final int i, int i261, final Medium m) {
-        if (i261 < 50) {
-            i261 = 50;
+
+    /**
+     * A variant of {@link Utility#ys(int, int, Medium)}.
+     *
+     * @see Utility#ys(int, int, Medium)
+     * @param z3d
+     *            The 3D Z point
+     * @param y3d
+     *            The 3D Y point
+     * @param m the Medium
+     * @return The 2D Y coordinate.
+     */
+    static int altYs(final int z3d, int y3d, final Medium m) {
+        if (y3d < 50) {
+            y3d = 50;
         }
-        return (i261 - m.focusPoint) * (m.cy - i) / i261 + i;
+        return (y3d - m.focusPoint) * (m.cy - z3d) / y3d + z3d;
     }
 
     // medium
@@ -121,10 +144,38 @@ class Utility {
     	return (i272 - m.focusPoint) * (m.cx - i) / i272 + i;
     }*/
 
-    static int mediumYs(final int i, int i273, final Medium m) {
-        if (i273 < 10) {
-            i273 = 10;
+    /**
+     * A variant of {@link Utility#ys(int, int, Medium)}.
+     *
+     * @see Utility#ys(int, int, Medium)
+     * @param z3d
+     *            The 3D Z point
+     * @param y3d
+     *            The 3D Y point
+     * @param m the Medium
+     * @return The 2D Y coordinate.
+     */
+    static int mediumYs(final int z3d, int y3d, final Medium m) {
+        if (y3d < 10) {
+            y3d = 10;
         }
-        return (i273 - m.focusPoint) * (m.cy - i) / i273 + i;
+        return (y3d - m.focusPoint) * (m.cy - z3d) / y3d + z3d;
+    }
+
+    /**
+     * Converts an IP Adress to a byte array.
+     *
+     * @author Rafael
+     * @param ip a String containing an IP address in the format: ABC.DEF.GHI.JKL
+     * @return a byte array with the values of the IP, useful for {@link java.net.InetAddress#getByAddress(byte[]) InetAddress.getByAddress}
+     */
+    public static byte[] ipToBytes(String ip) {
+        byte[] ipBytes = new byte[4];
+        int i = 0;
+        for (String quarter : ip.split("\\.")) {
+            ipBytes[i] = (byte) (Integer.parseInt(quarter) & 0xFF);
+            i++;
+        }
+        return ipBytes;
     }
 }

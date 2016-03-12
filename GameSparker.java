@@ -33,15 +33,24 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.Socket;
+import java.net.SocketException;
 import java.net.URI;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -3403,8 +3412,118 @@ class GameSparker extends JPanel
                     view = 0;
                 }
             }
+            if (e.getKeyCode() == KeyEvent.VK_F1) {
+                try {
+                    Thread t = new Thread(new HostServer(6999, 2));
+                    Thread t2 = new Thread(new ClientServer(xtgraphics, this, checkpoints));
+                    t.start();
+
+                    // connect 2 local server
+                    String ip = getMyIP();
+                    int port = 6999;
+
+                    xtgraphics.localserver = ip;
+                    xtgraphics.server = ip;
+                    xtgraphics.servport = port;
+
+                    t2.start();
+
+                    Socket socket = new Socket(ip, port);
+                    System.out.println("connecting to local server at " + ip + ":" + port);
+                    BufferedReader din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                    PrintWriter dout = new PrintWriter(socket.getOutputStream(), true);
+                    String data = getMyIP() + "|" + xtgraphics.sc[0];
+                    System.out.println("sending data to lobby 2: " + data);
+
+                    synchronized (ClientServer.threadLock) {
+                        dout.println(data);
+                    }
+
+                    socket.close();
+                    din.close();
+                    dout.flush();
+                    dout.close();
+                    socket = null;
+                    din = null;
+                    dout = null;
+
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
+            if (e.getKeyCode() == KeyEvent.VK_F2) {
+                try {
+                    Thread t2 = new Thread(new ClientServer(xtgraphics, this, checkpoints));
+
+                    String s = JOptionPane.showInputDialog("enter server ip:port");
+                    String ip = s.substring(0, s.indexOf(":"));
+                    int port = Integer.parseInt(s.substring(s.indexOf(":") + 1, s.length()));
+
+                    xtgraphics.localserver = ip;
+                    xtgraphics.server = ip;
+                    xtgraphics.servport = port;
+
+                    t2.start(); //should be ready to accept after sending
+
+                    Socket socket = new Socket(ip, port);
+                    System.out.println("connecting to local server at " + ip + ":" + port);
+                    BufferedReader din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                    PrintWriter dout = new PrintWriter(socket.getOutputStream(), true);
+                    String data = getMyIP() + "|" + xtgraphics.sc[0];
+                    System.out.println("sending data to lobby 2: " + data);
+
+                    synchronized (ClientServer.threadLock) {
+                        dout.println(data);
+                    }
+
+                    socket.close();
+                    din.close();
+                    dout.flush();
+                    dout.close();
+                    socket = null;
+                    din = null;
+                    dout = null;
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+            }
         }
     }
+
+    /**
+     * WARNING LOOPBACK DANGER
+     *
+     * @return Local IP
+     * @throws SocketException If an I/O error occurs
+     * @throws UnknownHostException
+     */
+    private static String getMyIP() throws SocketException, UnknownHostException {
+
+
+
+/*
+        Enumeration<NetworkInterface> e = NetworkInterface.getNetworkInterfaces();
+        while(e.hasMoreElements())
+        {
+            NetworkInterface n = (NetworkInterface) e.nextElement();
+            Enumeration<InetAddress> ee = n.getInetAddresses();
+            while (ee.hasMoreElements())
+            {
+                InetAddress i = (InetAddress) ee.nextElement();
+                System.out.println(i.getHostAddress());
+            }
+        }
+
+        System.out.println("abc");
+        System.out.println("" + InetAddress.getLocalHost().getHostAddress());*/
+
+        return InetAddress.getLocalHost().getHostAddress();
+    }
+
+    /*public static void main(String[]a) throws SocketException, UnknownHostException {
+        getMyIP();
+    }*/
 
     @Override
     public void keyReleased(final KeyEvent e) {

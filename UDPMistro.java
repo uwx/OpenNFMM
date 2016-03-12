@@ -849,7 +849,7 @@ class UDPMistro implements Runnable {
             lcframe[i3] = 0;
         }
         for (int i5 = 0; i5 < 20; i5++) {
-            udpc[i5] = new udpOnline(this, string, i + im, i5, porturn);
+            udpc[i5] = new udpOnline(this, string, i + im, i5, porturn, true);
         }
         if (porturn == 0) {
             porturn = 20;
