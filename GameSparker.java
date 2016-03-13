@@ -1221,6 +1221,8 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	public void paintComponent(final Graphics graphics) {
 	    rd = (Graphics2D) graphics;
 	    xtGraphics.rd = rd;
+	    rd.translate(apx, apy);
+	    rd.setClip(0, 0, 800, 450);
 	    
 	    rd.setColor(Color.BLACK);
 	    rd.fillRect(0, 0, getWidth(), getHeight());
@@ -1236,13 +1238,13 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				apy = (int) (getHeight() / 2 - 225.0F * apmult);
 			}
 		}
-		int i = 0;
-		int i_97_ = 0;
-		if (moto == 1 && shaka > 0) {
-			i = (int) ((shaka * 2 * Math.random() - shaka) * apmult);
-			i_97_ = (int) ((shaka * 2 * Math.random() - shaka) * apmult);
-			shaka--;
-		}
+		//int i = 0;
+		//int i_97_ = 0;
+		//if (moto == 1 && shaka > 0) {
+			//i = (int) ((shaka * 2 * Math.random() - shaka) * apmult);
+			//i_97_ = (int) ((shaka * 2 * Math.random() - shaka) * apmult);
+			//shaka--;
+		//}
 		if (!Madness.fullscreen) {
 			if (showsize != 0) {
 				if (showsize == 100 || showsize == 70)
