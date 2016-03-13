@@ -483,7 +483,43 @@ public class Madness extends Panel {
 				exitsequance();
 			}
 		});
-		GLG2DCanvas appcanvas = new GLG2DCanvas(applet);
+		GLG2DCanvas appcanvas = new GLG2DCanvas(applet) {
+
+            /**
+           * 
+           */
+          private static final long serialVersionUID = -7138627224373885372L;
+
+          @Override
+            protected GLG2DSimpleEventListener createG2DListener(JComponent drawingComponent) {
+              return new GLG2DSimpleEventListener(drawingComponent) {
+                @Override
+                protected GLGraphics2D createGraphics2D(GLAutoDrawable drawable) {
+                  return new GLShaderGraphics2D() {
+                    @Override
+                    protected void createDrawingHelpers() {
+
+                      shapeHelper = new DepthShaker();
+                      
+                      imageHelper = new GL2ES2ImageDrawer();
+                      stringHelper = new GL2StringDrawer();
+
+                      colorHelper = new GL2ColorHelper();
+                      matrixHelper = new GL2Transformhelper();
+
+                      addG2DDrawingHelper(shapeHelper);
+                      addG2DDrawingHelper(imageHelper);
+                      addG2DDrawingHelper(stringHelper);
+                      addG2DDrawingHelper(colorHelper);
+                      addG2DDrawingHelper(matrixHelper);
+                      
+                      
+                    }
+                  };
+                }
+              };
+            }
+      };
 		frame.setContentPane(appcanvas);
 		
 		//frame.add("Center", applet);
