@@ -2,9 +2,9 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 final class Madness$2 extends WindowAdapter {
-	@Override
-	public void windowClosing(final WindowEvent paramWindowEvent) {
-	}
+    @Override
+    public void windowClosing(final WindowEvent paramWindowEvent) {
+    }
 }
 
 /*

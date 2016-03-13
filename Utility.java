@@ -1,5 +1,4 @@
 
-
 public class Utility {
 
     /**
@@ -21,8 +20,9 @@ public class Utility {
                 i_263_++;
                 i_265_++;
             }
-            if (i_263_ == i)
+            if (i_263_ == i) {
                 string_264_ = new StringBuilder().append(string_264_).append(string_262_.charAt(i_265_)).toString();
+            }
         }
         return Float.valueOf(string_264_).intValue();
     }
@@ -45,15 +45,17 @@ public class Utility {
                 string_441_ = new StringBuilder().append("").append(string.charAt(i_438_)).toString();
                 if (string_441_.equals("|")) {
                     i_439_++;
-                    if (i_440_ == 1 || i_439_ > i)
+                    if (i_440_ == 1 || i_439_ > i) {
                         i_440_ = 2;
+                    }
                 } else if (i_439_ == i) {
                     string_442_ = new StringBuilder().append(string_442_).append(string_441_).toString();
                     i_440_ = 1;
                 }
             }
-            if (string_442_.equals(""))
+            if (string_442_.equals("")) {
                 string_442_ = "-1";
+            }
             i_437_ = Integer.valueOf(string_442_).intValue();
         } catch (final Exception exception) {
             /* empty */
@@ -70,9 +72,10 @@ public class Utility {
      *            The 3D Y point
      * @return The 2D X coordinate.
      */
-    public static int xs(final int i, int i_338_, Medium m) {
-        if (i_338_ < m.cz)
+    public static int xs(final int i, int i_338_, final Medium m) {
+        if (i_338_ < m.cz) {
             i_338_ = m.cz;
+        }
         return (i_338_ - m.focus_point) * (m.cx - i) / i_338_ + i;
     }
 
@@ -85,23 +88,26 @@ public class Utility {
      *            The 3D Y point
      * @return The 2D Y coordinate.
      */
-    public static int ys(final int i, int i_339_, Medium m) {
-        if (i_339_ < m.cz)
+    public static int ys(final int i, int i_339_, final Medium m) {
+        if (i_339_ < m.cz) {
             i_339_ = m.cz;
+        }
         return (i_339_ - m.focus_point) * (m.cy - i) / i_339_ + i;
     }
 
     // alt
 
-    public static int altXs(final int i, int i_260_, Medium m) {
-        if (i_260_ < 50)
+    public static int altXs(final int i, int i_260_, final Medium m) {
+        if (i_260_ < 50) {
             i_260_ = 50;
+        }
         return (i_260_ - m.focus_point) * (m.cx - i) / i_260_ + i;
     }
 
-    public static int altYs(final int i, int i_261_, Medium m) {
-        if (i_261_ < 50)
+    public static int altYs(final int i, int i_261_, final Medium m) {
+        if (i_261_ < 50) {
             i_261_ = 50;
+        }
         return (i_261_ - m.focus_point) * (m.cy - i) / i_261_ + i;
     }
 
@@ -113,9 +119,10 @@ public class Utility {
     	return (i_272_ - m.focus_point) * (m.cx - i) / i_272_ + i;
     }*/
 
-    static public int mediumYs(final int i, int i_273_, Medium m) {
-        if (i_273_ < 10)
+    static public int mediumYs(final int i, int i_273_, final Medium m) {
+        if (i_273_ < 10) {
             i_273_ = 10;
+        }
         return (i_273_ - m.focus_point) * (m.cy - i) / i_273_ + i;
     }
 }
