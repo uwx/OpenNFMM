@@ -1642,39 +1642,25 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
     public GameSparker() {
         initApplet();
         setBorder(BorderFactory.createLineBorder(Color.black));
-        //
+
         setBackground(new Color(0, 0, 0));
 
-        //rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-        //rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         setLayout(null);
-        //dr = new DebugRunner();
-        //dr.start();
-
+        
         makeMenus();
         initialize();
         addKeyListener(this);
         addMouseListener(this);
         addMouseMotionListener(this);
 
-        //removeGLEventListener(arg0);
-
         setFocusable(true);
         requestFocusInWindow();
-        //ActionListener animate =
-        /*ActionListener count = new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                counted++;
-            }
-        };*/
+
         // 40 - 25 fps (fast)
         // 33 - 30 fps (faster)
         // 25 - 40 fps (fastest)
-        final Timer timer = new Timer(40, this);
+        final Timer timer = new Timer(46, this);
         timer.start();
-        /*Timer counter = new Timer(1, count);
-        counter.start();*/
-        //timer.setDelay(delay);
     }
 
     //allan please remove this soon
