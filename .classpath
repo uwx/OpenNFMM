@@ -22,7 +22,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry excluding="src/main/java/|src/test/java/|libraries/|music/|mystages/|stages/|target/|data/|data/the_cars/|data/the_cars/Ultimato/|mycars/" kind="src" path=""/>
+	<classpathentry excluding="src/main/java/|src/test/java/|libraries/|music/|mystages/|stages/|target/" kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>

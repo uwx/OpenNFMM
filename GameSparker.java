@@ -13,6 +13,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
+import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -36,25 +37,13 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
-import org.jogamp.glg2d.GLG2DCanvas;
-
-import com.jogamp.opengl.GLAutoDrawable;
-import com.jogamp.opengl.GLCapabilities;
-import com.jogamp.opengl.GLDrawableFactory;
-import com.jogamp.opengl.GLEventListener;
-import com.jogamp.opengl.GLProfile;
-import com.jogamp.opengl.util.awt.AWTGLReadBufferUtil;
-
-public class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMotionListener, ActionListener, GLEventListener {
+public class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMotionListener, ActionListener {
 	/**
 	 *
 	 */
@@ -1550,43 +1539,27 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		//dr = new DebugRunner();
 		//dr.start();
 
-		//offImage = new BufferedImage(800, 450, BufferedImage.TYPE_INT_ARGB);
-		//if (offImage != null)
-		//	rd = offImage.createGraphics();
-
-		/*GLCapabilities caps = GLG2DCanvas.getDefaultCapabalities();
-	    caps.setFBO(true);
-	    caps.setOnscreen(false);
-	    GLAutoDrawable offscreen = GLDrawableFactory.getFactory(GLProfile.getGL2ES1()).createOffscreenAutoDrawable(null, caps, null, 800, 450);
-
-	    AWTGLReadBufferUtil util = new AWTGLReadBufferUtil(GLG2DCanvas.getDefaultCapabalities().getGLProfile(), false);
-	    offImage = util.readPixelsToBufferedImage(offscreen.getContext().getGL(), true);
-
-	    offscreen.getContext().getGL().*/
-
-		/*
-	    GLG2DCanvas canvas = new GLG2DCanvas(this);
-	    canvas.setGLDrawing(true);
-*/
-		//GLPixelBuffer glp = new GLPixelBuffer(null, true, 800, 450, 1, null, false);
-
-		GLCapabilities caps = GLG2DCanvas.getDefaultCapabalities();
-        caps.setFBO(true);
-        caps.setOnscreen(false);
-        GLAutoDrawable offscreen = GLDrawableFactory.getFactory(GLProfile.getGL2ES1()).createOffscreenAutoDrawable(null, caps, null, 800, 450);
-
-        offscreen.addGLEventListener(this);
-
-	    /*JComponent comp = createComponent();
-
-	    JRootPane p = new JRootPane();
-	    p.setContentPane(comp);*/
-
-	    //offscreen.addGLEventListener(new GLG2DSimpleEventListener(comp));
-	    //offscreen.addGLEventListener(new GLG2DHeadlessListener(comp));
-	   // offscreen.addGLEventListener(new ImageCopier());
-
-
+		offImage = new BufferedImage(800, 450, BufferedImage.TYPE_INT_ARGB);
+		if (offImage != null)
+			rd = offImage.createGraphics();
+		makeMenus();
+		initialize();
+		addKeyListener(this);
+		addMouseListener(this);
+		addMouseMotionListener(this);
+		setFocusable(true);
+		requestFocusInWindow();
+		//ActionListener animate =
+        /*ActionListener count = new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                counted++;
+            }
+        };*/
+		// 40 - 25 fps (fast)
+        // 33 - 30 fps (faster)
+		// 25 - 40 fps (fastest)
+        Timer timer = new Timer(40, this);
+        timer.start();
         /*Timer counter = new Timer(1, count);
         counter.start();*/
         //timer.setDelay(delay);
@@ -3299,53 +3272,4 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	public void actionPerformed(ActionEvent e) {
 		repaint();
 	}
-
-    @Override
-    public void init(GLAutoDrawable drawable) {
-
-        AWTGLReadBufferUtil util = new AWTGLReadBufferUtil(GLG2DCanvas.getDefaultCapabalities().getGLProfile(), false);
-        offImage = util.readPixelsToBufferedImage(drawable.getContext().getGL(), true);
-        rd = offImage.createGraphics();
-
-        makeMenus();
-        initialize();
-        addKeyListener(this);
-        addMouseListener(this);
-        addMouseMotionListener(this);
-        setFocusable(true);
-        requestFocusInWindow();
-        //ActionListener animate =
-        /*ActionListener count = new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                counted++;
-            }
-        };*/
-        // 40 - 25 fps (fast)
-        // 33 - 30 fps (faster)
-        // 25 - 40 fps (fastest)
-        Timer timer = new Timer(40, this);
-        timer.start();
-
-    }
-
-    @Override
-    public void dispose(GLAutoDrawable drawable) {
-    }
-
-    @Override
-    public void display(GLAutoDrawable drawable) {
-      AWTGLReadBufferUtil util = new AWTGLReadBufferUtil(GLG2DCanvas.getDefaultCapabalities().getGLProfile(), false);
-      offImage = util.readPixelsToBufferedImage(drawable.getContext().getGL(), true);
-      rd = offImage.createGraphics();
-      SwingUtilities.invokeLater(new Runnable() {
-        @Override
-        public void run() {
-            Madness.applet.paintComponent(offImage.createGraphics());
-        }
-      });
-    }
-
-    @Override
-    public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
-    }
 }
