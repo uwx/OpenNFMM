@@ -13,9 +13,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
-import java.awt.Toolkit;
-
-import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -38,12 +35,25 @@ import java.util.Date;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import com.jogamp.opengl.GLAutoDrawable;
+import com.jogamp.opengl.awt.GLJPanel;
 import javax.swing.BorderFactory;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.Timer;
+
+import org.jogamp.glg2d.GLG2DPanel;
+import org.jogamp.glg2d.GLG2DSimpleEventListener;
+import org.jogamp.glg2d.GLGraphics2D;
+import org.jogamp.glg2d.impl.gl2.GL2ColorHelper;
+import org.jogamp.glg2d.impl.gl2.GL2StringDrawer;
+import org.jogamp.glg2d.impl.gl2.GL2Transformhelper;
+import org.jogamp.glg2d.impl.shader.GL2ES2ImageDrawer;
+import org.jogamp.glg2d.impl.shader.GL2ES2ImagePipeline;
+import org.jogamp.glg2d.impl.shader.GLShaderGraphics2D;
 
 public class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMotionListener, ActionListener {
 	/**
@@ -320,7 +330,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		temail.setFont(new Font("Arial", 1, 13));
 		cmsg = new JTextField("");
 		if (System.getProperty("java.vendor").toLowerCase().indexOf("oracle") != -1)
-			cmsg.addKeyListener( /* TYPE_ERROR */ new GameSparker$1(this));
+			cmsg.addKeyListener( /* TYPE_ERROR */ null);
 		mmsg = new JTextArea("", 200, 20);
 
 		cmsg.setFont(new Font("Tahoma", 0, 11));
@@ -1558,6 +1568,12 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		addKeyListener(this);
 		addMouseListener(this);
 		addMouseMotionListener(this);
+		
+		
+
+		
+		//removeGLEventListener(arg0);
+		
 		setFocusable(true);
 		requestFocusInWindow();
 		//ActionListener animate =
@@ -3283,4 +3299,5 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	public void actionPerformed(ActionEvent e) {
 		repaint();
 	}
+	
 }

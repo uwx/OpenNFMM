@@ -6,10 +6,12 @@ import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.DisplayMode;
-import java.awt.Frame;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Panel;
+import java.awt.RenderingHints.Key;
+import java.awt.Shape;
+import java.awt.Stroke;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -22,10 +24,27 @@ import java.io.FileWriter;
 import java.net.URI;
 import java.util.Date;
 
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import org.jogamp.glg2d.G2DDrawingHelper;
 import org.jogamp.glg2d.GLG2DCanvas;
+import org.jogamp.glg2d.GLG2DImageHelper;
+import org.jogamp.glg2d.GLG2DShapeHelper;
+import org.jogamp.glg2d.GLG2DSimpleEventListener;
+import org.jogamp.glg2d.GLGraphics2D;
+import org.jogamp.glg2d.impl.gl2.GL2ColorHelper;
+import org.jogamp.glg2d.impl.gl2.GL2StringDrawer;
+import org.jogamp.glg2d.impl.gl2.GL2Transformhelper;
+import org.jogamp.glg2d.impl.shader.GL2ES2ImageDrawer;
+import org.jogamp.glg2d.impl.shader.GL2ES2ImagePipeline;
+import org.jogamp.glg2d.impl.shader.GL2ES2ShapeDrawer;
+import org.jogamp.glg2d.impl.shader.GLShaderGraphics2D;
+
+import com.jogamp.opengl.GL2;
+import com.jogamp.opengl.GLAutoDrawable;
+import com.sun.prism.ps.Shader;
 
 public class Madness extends Panel {
 	static long advtime = 0L;
@@ -464,7 +483,9 @@ public class Madness extends Panel {
 				exitsequance();
 			}
 		});
-		frame.setContentPane(new GLG2DCanvas(applet));
+		GLG2DCanvas appcanvas = new GLG2DCanvas(applet);
+		frame.setContentPane(appcanvas);
+		
 		//frame.add("Center", applet);
 		frame.setVisible(true);
 		frame.setMinimumSize(new Dimension(930, 586));
@@ -564,5 +585,101 @@ public class Madness extends Panel {
 			string = "open";
 		return string;
 	}
+	
+	static class DepthShaker extends GL2ES2ShapeDrawer implements GLG2DShapeHelper {
+	    double shiftX;
+	    double shiftY;
+
+	    double theta = 0;
+
+	    GL2 gl;
+	    
+	    //GLG2DShapeHelper parent = new GL2ES2ShapeDrawer();
+
+	    @Override
+	    public void dispose() {
+	    }
+
+	    @Override
+	    public void pop(GLGraphics2D parentG2d) {
+	      gl.glTranslated(-shiftX, -shiftY, 0);
+	    }
+
+	    @Override
+	    public void push(GLGraphics2D newG2d) {
+	      gl.glTranslated(shiftX, shiftY, 0);
+	    }
+
+	    @Override
+	    public void resetHints() {
+	    }
+
+	    @Override
+	    public void setHint(Key key, Object value) {
+	    }
+
+	    @Override
+	    public void setG2D(GLGraphics2D g2d) {
+	      theta += 0.2;
+	      shiftX = Math.round(Math.sin(theta) * 100) / 100d * 1;
+	      shiftY = Math.round(Math.cos(theta) * 100) / 100d * 1;
+
+	      gl = g2d.getGLContext().getGL().getGL2();
+	    }
+
+        @Override
+        public void draw(Shape arg0) {
+        }
+
+        /*@Override
+        public void drawArc(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, boolean arg6) {
+            parent.drawArc(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
+        }
+
+        @Override
+        public void drawLine(int arg0, int arg1, int arg2, int arg3) {
+            parent.drawLine(arg0, arg1, arg2, arg3);
+        }
+
+        @Override
+        public void drawOval(int arg0, int arg1, int arg2, int arg3, boolean arg4) {
+            parent.drawOval(arg0, arg1, arg2, arg3, arg4);
+        }
+
+        @Override
+        public void drawPolygon(int[] arg0, int[] arg1, int arg2, boolean arg3) {
+            parent.drawPolygon(arg0, arg1, arg2, arg3);
+        }
+
+        @Override
+        public void drawPolyline(int[] arg0, int[] arg1, int arg2) {
+            parent.drawPolyline(arg0, arg1, arg2);
+        }
+
+        @Override
+        public void drawRect(int arg0, int arg1, int arg2, int arg3, boolean arg4) {
+            parent.drawRect(arg0, arg1, arg2, arg3, arg4);
+        }
+
+        @Override
+        public void drawRoundRect(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, boolean arg6) {
+            parent.drawRoundRect(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
+        }
+
+        @Override
+        public void fill(Shape arg0) {
+            parent.fill(arg0);
+        }
+
+        @Override
+        public Stroke getStroke() {
+            return parent.getStroke();
+        }
+
+        @Override
+        public void setStroke(Stroke arg0) {
+            parent.setStroke(arg0);
+        }*/
+	  }
 
 }
