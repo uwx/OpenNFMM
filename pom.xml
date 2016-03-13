@@ -10,16 +10,23 @@
 
 
 	<dependencies>
-	  <dependency>
-	    <groupId>org.jogamp.glg2d</groupId>
-	    <artifactId>glg2d</artifactId>
-	    <version>0.3-SNAPSHOT</version>
-	  </dependency>
+
+		<dependency>
+		    <groupId>com.github.brandonborkholder</groupId>
+		    <artifactId>glg2d</artifactId>
+		    <version>869a6fac5f457b25204191c1d82ae4789c944af4</version>
+		</dependency>
+
 	</dependencies>
 	<repositories>
-	  <repository>
-	    <id>glg2d-repo</id>
-	    <url>http://brandonborkholder.github.com/glg2d/maven2/</url>
-	  </repository>
+	  	<repository>
+	        <id>glg2d-repo</id>
+	        <url>http://brandonborkholder.github.com/glg2d/maven2/</url>
+	    </repository>
+	  	<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+		
 	</repositories>
 </project>
