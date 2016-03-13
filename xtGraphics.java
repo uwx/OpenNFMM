@@ -3283,62 +3283,11 @@ public class xtGraphics extends Panel implements Runnable {
 	}
 
 	public void fleximage(final Image image, final int i, final int i_299_) {
-		if (!badmac) {
-			if (i == 0) {
-				flexpix = new int[360000];
-				final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, 800, 450, flexpix, 0, 800);
-				try {
-					pixelgrabber.grabPixels();
-				} catch (final InterruptedException interruptedexception) {
-					/* empty */
-				}
-			}
-			int i_300_ = 0;
-			int i_301_ = 0;
-			int i_302_ = 0;
-			int i_303_ = 0;
-			int i_304_ = (int) (Math.random() * 128.0);
-			int i_305_ = (int) (5.0 + Math.random() * 15.0);
-			for (int i_306_ = 0; i_306_ < 360000; i_306_++) {
-				final Color color = new Color(flexpix[i_306_]);
-				int i_309_;
-				int i_310_;
-				int i_311_;
-				if (i_300_ == 0) {
-					i_309_ = color.getRed();
-					i_301_ = i_309_;
-					i_310_ = color.getGreen();
-					i_302_ = i_310_;
-					i_311_ = color.getBlue();
-					i_303_ = i_311_;
-				} else {
-					i_309_ = (int) ((color.getRed() + i_301_ * 0.38F * i) / (1.0F + 0.38F * i));
-					i_301_ = i_309_;
-					i_310_ = (int) ((color.getGreen() + i_302_ * 0.38F * i) / (1.0F + 0.38F * i));
-					i_302_ = i_310_;
-					i_311_ = (int) ((color.getBlue() + i_303_ * 0.38F * i) / (1.0F + 0.38F * i));
-					i_303_ = i_311_;
-				}
-				if (++i_300_ == 800)
-					i_300_ = 0;
-				final int i_312_ = (int) ((i_309_ * 17 + i_310_ + i_311_ + i_304_) / 21.0F);
-				final int i_313_ = (int) ((i_310_ * 17 + i_309_ + i_311_ + i_304_) / 22.0F);
-				final int i_314_ = (int) ((i_311_ * 17 + i_309_ + i_310_ + i_304_) / 24.0F);
-				if (--i_305_ == 0) {
-					i_304_ = (int) (Math.random() * 128.0);
-					i_305_ = (int) (5.0 + Math.random() * 15.0);
-				}
-				final Color color_315_ = new Color(i_312_, i_313_, i_314_);
-				flexpix[i_306_] = color_315_.getRGB();
-			}
-			fleximg = createImage(new MemoryImageSource(800, 450, flexpix, 0, 800));
-			rd.drawImage(fleximg, 0, 0, null);
-		} else {
-			rd.setColor(new Color(0, 0, 0));
-			rd.setComposite(AlphaComposite.getInstance(3, 0.1F));
-			rd.fillRect(0, 0, 800, 450);
-			rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
-		}
+	
+		rd.setColor(new Color(0, 0, 0));
+		rd.setComposite(AlphaComposite.getInstance(3, 0.1F));
+		rd.fillRect(0, 0, 800, 450);
+		rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
 	}
 
 	public Image getImage(final String string) {
@@ -6508,12 +6457,8 @@ public class xtGraphics extends Panel implements Runnable {
 			chronostart = false;
 			chrono.pause();
 		}
-		if (!badmac)
-			rd.drawImage(fleximg, 0, 0, null);
-		else {
-			rd.setColor(new Color(30, 67, 110));
-			rd.fillRect(281, 8, 237, 188);
-		}
+		rd.setColor(new Color(30, 67, 110));
+		rd.fillRect(281, 8, 237, 188);
 		if (control.up) {
 			opselect--;
 			if (opselect == -1)
