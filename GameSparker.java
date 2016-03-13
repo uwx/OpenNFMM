@@ -1221,6 +1221,9 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	public void paintComponent(final Graphics graphics) {
 	    rd = (Graphics2D) graphics;
 	    xtGraphics.rd = rd;
+
+        paintButtons(); //before translate
+	    
 	    rd.translate(apx, apy);
 	    rd.setClip(0, 0, 800, 450);
 	    
@@ -1245,7 +1248,12 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			//i_97_ = (int) ((shaka * 2 * Math.random() - shaka) * apmult);
 			//shaka--;
 		//}
-		if (!Madness.fullscreen) {
+		rd.dispose();
+        rd = null;
+	}
+
+    private void paintButtons() {
+        if (!Madness.fullscreen) {
 			if (showsize != 0) {
 				if (showsize == 100 || showsize == 70)
 				    rd.clearRect(0, 0, getWidth(), getHeight());
@@ -1339,9 +1347,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			cropit(graphics2d, i, i_97_);
 		} else
 			graphics2d.drawImage(offImage, apx, apy, this);*/
-		rd.dispose();
-        rd = null;
-	}
+    }
 
 	public void readcookies(final xtGraphics var_xtGraphics, final CarDefine cardefine, final ContO[] contos) {
 		var_xtGraphics.nickname = "";
