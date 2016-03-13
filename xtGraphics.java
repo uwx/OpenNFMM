@@ -337,7 +337,7 @@ public class xtGraphics extends Panel implements Runnable {
 	int radpx = 212;
 	Image[] rank = new Image[8];
 	int ransay = 0;
-	Graphics2D rd;
+	static Graphics2D rd;
 	Image redy;
 	Image register;
 	boolean remi = false;
@@ -699,7 +699,7 @@ public class xtGraphics extends Panel implements Runnable {
 	public void cantgo(final Control control) {
 		pnext = 0;
 		trackbg(false);
-		rd.drawImage(br, 65, 25, null);
+		//rd.drawImage(br, 65, 25, null);
 		rd.drawImage(select, 338, 35, null);
 		rd.setFont(new Font("Arial", 1, 13));
 		ftm = rd.getFontMetrics();
@@ -1722,9 +1722,9 @@ public class xtGraphics extends Panel implements Runnable {
 						rd.setFont(new Font("Arial", 1, 10));
 						ftm = rd.getFontMetrics();
 						rd.drawString("Hue  | ", 97, 70);
-						rd.drawImage(brt, 137, 63, null);
+						//rd.drawImage(brt, 137, 63, null);
 						rd.drawString("Hue  | ", 647, 70);
-						rd.drawImage(brt, 687, 63, null);
+						//rd.drawImage(brt, 687, 63, null);
 						rd.drawString("Intensity", 121, 219);
 						rd.drawString("Intensity", 671, 219);
 						rd.drawString("Reset", 110, 257);
@@ -4168,51 +4168,12 @@ public class xtGraphics extends Panel implements Runnable {
 	}
 
 	public void jflexo() {
-		if (!badmac) {
-			final int[] is = new int[360000];
-			final PixelGrabber pixelgrabber = new PixelGrabber(app.offImage, 0, 0, 800, 450, is, 0, 800);
-			try {
-				pixelgrabber.grabPixels();
-			} catch (final InterruptedException interruptedexception) {
-				/* empty */
-			}
-			int i = 0;
-			int i_353_ = 0;
-			int i_354_ = 0;
-			int i_355_ = 0;
-			for (int i_356_ = 0; i_356_ < 360000; i_356_++) {
-				final Color color = new Color(is[i_356_]);
-				int i_359_;
-				int i_360_;
-				int i_361_;
-				if (i_355_ == 0) {
-					i_359_ = color.getRed();
-					i = i_359_;
-					i_360_ = color.getGreen();
-					i_354_ = i_360_;
-					i_361_ = color.getBlue();
-					i_353_ = i_361_;
-				} else {
-					i_359_ = (color.getRed() + i * 10) / 11;
-					i = i_359_;
-					i_360_ = (color.getGreen() + i_354_ * 10) / 11;
-					i_354_ = i_360_;
-					i_361_ = (color.getBlue() + i_353_ * 10) / 11;
-					i_353_ = i_361_;
-				}
-				if (++i_355_ == 800)
-					i_355_ = 0;
-				final Color color_362_ = new Color(i_359_, i_360_, i_361_);
-				is[i_356_] = color_362_.getRGB();
-			}
-			final Image image = createImage(new MemoryImageSource(800, 450, is, 0, 800));
-			rd.drawImage(image, 0, 0, null);
-		} else {
-			rd.setColor(new Color(0, 0, 0));
-			rd.setComposite(AlphaComposite.getInstance(3, 0.5F));
-			rd.fillRect(0, 0, 800, 450);
-			rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
-		}
+		
+		rd.setColor(new Color(0, 0, 0));
+		rd.setComposite(AlphaComposite.getInstance(3, 0.5F));
+		rd.fillRect(0, 0, 800, 450);
+		rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
+		
 	}
 
 	public void levelhigh(final int i, final int i_91_, final int i_92_, final int i_93_, final int i_94_) {
@@ -4670,7 +4631,7 @@ public class xtGraphics extends Panel implements Runnable {
 	public void loadingstage(final int i, final boolean bool) {
 
 		trackbg(true);
-		rd.drawImage(br, 65, 25, null);
+		////rd.drawImage(br, 65, 25, null);
 		rd.setColor(new Color(212, 214, 138));
 		rd.fillRoundRect(265, 201, 270, 26, 20, 40);
 		rd.setColor(new Color(57, 64, 8));
@@ -6646,53 +6607,11 @@ public class xtGraphics extends Panel implements Runnable {
 	}
 
 	public void pauseimage(final Image image) {
-		if (!badmac) {
-			final int[] is = new int[360000];
-			final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, 800, 450, is, 0, 800);
-			try {
-				pixelgrabber.grabPixels();
-			} catch (final InterruptedException interruptedexception) {
-				/* empty */
-			}
-			int i = 0;
-			int i_343_ = 0;
-			int i_344_ = 0;
-			int i_345_ = 0;
-			for (int i_346_ = 0; i_346_ < 360000; i_346_++) {
-				final Color color = new Color(is[i_346_]);
-				int i_347_;
-				if (i_345_ == 0) {
-					i_347_ = (color.getRed() + color.getGreen() + color.getBlue()) / 3;
-					i_344_ = i_347_;
-				} else {
-					i_347_ = (color.getRed() + color.getGreen() + color.getBlue() + i_344_ * 30) / 33;
-					i_344_ = i_347_;
-				}
-				if (++i_345_ == 800)
-					i_345_ = 0;
-				if (i_346_ > 800 * (8 + i_343_) + 281 && i_343_ < 188) {
-					final int i_348_ = (i_347_ + 60) / 3;
-					final int i_349_ = (i_347_ + 135) / 3;
-					final int i_350_ = (i_347_ + 220) / 3;
-					if (++i == 237) {
-						i_343_++;
-						i = 0;
-					}
-					final Color color_351_ = new Color(i_348_, i_349_, i_350_);
-					is[i_346_] = color_351_.getRGB();
-				} else {
-					final Color color_352_ = new Color(i_347_, i_347_, i_347_);
-					is[i_346_] = color_352_.getRGB();
-				}
-			}
-			fleximg = createImage(new MemoryImageSource(800, 450, is, 0, 800));
-			rd.drawImage(fleximg, 0, 0, null);
-		} else {
-			rd.setColor(new Color(0, 0, 0));
-			rd.setComposite(AlphaComposite.getInstance(3, 0.5F));
-			rd.fillRect(0, 0, 800, 450);
-			rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
-		}
+		
+		rd.setColor(new Color(0, 0, 0));
+		rd.setComposite(AlphaComposite.getInstance(3, 0.5F));
+		rd.fillRect(0, 0, 800, 450);
+		rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
 	}
 
 	public void pingstat() {
@@ -7701,7 +7620,7 @@ public class xtGraphics extends Panel implements Runnable {
 
 	public void stageselect(final CheckPoints checkpoints, final Control control, final int i, final int i_39_,
 			final boolean bool) {
-		rd.drawImage(br, 65, 25, null);
+		//rd.drawImage(br, 65, 25, null);
 		rd.drawImage(select, 338, 35, null);
 		if (testdrive != 3 && testdrive != 4) {
 			if (checkpoints.stage > 0 && cd.staction == 0) {

@@ -13,6 +13,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
+import java.awt.Toolkit;
+
 import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -83,7 +85,6 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	int nob = 0;
 	int notb = 0;
 	JCheckBox notp;
-	BufferedImage offImage;
 	boolean onbar = false;
 	boolean oncarm = false;
 	boolean onfulls = false;
@@ -1218,9 +1219,11 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 
 	@Override
 	public void paintComponent(final Graphics graphics) {
-		final Graphics2D graphics2d = (Graphics2D) graphics;
-		graphics.setColor(Color.BLACK);
-		graphics.fillRect(0, 0, getWidth(), getHeight());
+	    rd = (Graphics2D) graphics;
+	    xtGraphics.rd = rd;
+	    
+	    rd.setColor(Color.BLACK);
+	    rd.fillRect(0, 0, getWidth(), getHeight());
 		gameTick();
 		if (lastw != getWidth() || lasth != getHeight()) {
 			lastw = getWidth();
@@ -1243,7 +1246,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		if (!Madness.fullscreen) {
 			if (showsize != 0) {
 				if (showsize == 100 || showsize == 70)
-					graphics2d.clearRect(0, 0, getWidth(), getHeight());
+				    rd.clearRect(0, 0, getWidth(), getHeight());
 				float f = (getWidth() - 40) / 800.0F - 1.0F;
 				if (f > (getHeight() - 70) / 450.0F - 1.0F)
 					f = (getHeight() - 70) / 450.0F - 1.0F;
@@ -1253,50 +1256,50 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					f = 0.0F;
 				apmult = 1.0F + f * reqmult;
 				if (!oncarm)
-					graphics2d.drawImage(carmaker[0], 50, 14, this);
+				    rd.drawImage(carmaker[0], 50, 14, this);
 				else
-					graphics2d.drawImage(carmaker[1], 50, 14, this);
+				    rd.drawImage(carmaker[1], 50, 14, this);
 				if (!onstgm)
-					graphics2d.drawImage(stagemaker[0], getWidth() - 208, 14, this);
+				    rd.drawImage(stagemaker[0], getWidth() - 208, 14, this);
 				else
-					graphics2d.drawImage(stagemaker[1], getWidth() - 208, 14, this);
-				graphics2d.drawImage(sizebar, getWidth() / 2 - 230, 23, this);
-				graphics2d.drawImage(blb, (int) (getWidth() / 2 - 222 + 141.0F * reqmult), 23, this);
-				graphics2d.drawImage(chkbx[smooth], getWidth() / 2 - 53, 23, this);
-				graphics2d.setFont(new Font("Arial", 1, 11));
-				graphics2d.setColor(new Color(74, 99, 125));
-				graphics2d.drawString("Screen Size:", getWidth() / 2 - 224, 17);
-				graphics2d.drawString("Smooth", getWidth() / 2 - 36, 34);
-				graphics2d.drawImage(fulls, getWidth() / 2 + 27, 15, this);
-				graphics2d.setColor(new Color(94, 126, 159));
-				graphics2d.drawString("Fullscreen", getWidth() / 2 + 63, 30);
-				graphics2d.drawImage(chkbx[Madness.anti], getWidth() / 2 + 135, 9, this);
-				graphics2d.drawString("Antialiasing", getWidth() / 2 + 152, 20);
-				graphics2d.drawImage(chkbx[moto], getWidth() / 2 + 135, 26, this);
-				graphics2d.drawString("Motion Effects", getWidth() / 2 + 152, 37);
-				graphics2d.setColor(new Color(0, 0, 0));
-				graphics2d.fillRect(getWidth() / 2 - 153, 5, 80, 16);
-				graphics2d.setColor(new Color(121, 135, 152));
+				    rd.drawImage(stagemaker[1], getWidth() - 208, 14, this);
+				rd.drawImage(sizebar, getWidth() / 2 - 230, 23, this);
+				rd.drawImage(blb, (int) (getWidth() / 2 - 222 + 141.0F * reqmult), 23, this);
+				rd.drawImage(chkbx[smooth], getWidth() / 2 - 53, 23, this);
+				rd.setFont(new Font("Arial", 1, 11));
+				rd.setColor(new Color(74, 99, 125));
+				rd.drawString("Screen Size:", getWidth() / 2 - 224, 17);
+				rd.drawString("Smooth", getWidth() / 2 - 36, 34);
+				rd.drawImage(fulls, getWidth() / 2 + 27, 15, this);
+				rd.setColor(new Color(94, 126, 159));
+				rd.drawString("Fullscreen", getWidth() / 2 + 63, 30);
+				rd.drawImage(chkbx[Madness.anti], getWidth() / 2 + 135, 9, this);
+				rd.drawString("Antialiasing", getWidth() / 2 + 152, 20);
+				rd.drawImage(chkbx[moto], getWidth() / 2 + 135, 26, this);
+				rd.drawString("Motion Effects", getWidth() / 2 + 152, 37);
+				rd.setColor(new Color(0, 0, 0));
+				rd.fillRect(getWidth() / 2 - 153, 5, 80, 16);
+				rd.setColor(new Color(121, 135, 152));
 				String string = new StringBuilder().append("").append((int) (apmult * 100.0F)).append("%").toString();
 				if (reqmult == 0.0F)
 					string = "Original";
 				if (reqmult == 1.0F)
 					string = "Maximum";
-				graphics2d.drawString(string, getWidth() / 2 - 150, 17);
+				rd.drawString(string, getWidth() / 2 - 150, 17);
 				if (!oncarm && !onstgm)
 					showsize--;
 				if (showsize == 0) {
-					graphics2d.setColor(new Color(0, 0, 0));
-					graphics2d.fillRect(getWidth() / 2 - 260, 0, 520, 40);
-					graphics2d.fillRect(50, 14, 142, 23);
-					graphics2d.fillRect(getWidth() - 208, 14, 158, 23);
+					rd.setColor(new Color(0, 0, 0));
+					rd.fillRect(getWidth() / 2 - 260, 0, 520, 40);
+					rd.fillRect(50, 14, 142, 23);
+					rd.fillRect(getWidth() - 208, 14, 158, 23);
 				}
 			}
 			apx = (int) (getWidth() / 2 - 400.0F * apmult);
 			apy = (int) (getHeight() / 2 - 225.0F * apmult - 50.0F);
 			if (apy < 50)
 				apy = 50;
-			if (apmult > 1.0F) {
+			/*if (apmult > 1.0F) {
 				if (smooth == 1) {
 					graphics2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
 							RenderingHints.VALUE_INTERPOLATION_BILINEAR);
@@ -1326,14 +1329,16 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				graphics2d.drawImage(offImage, apx + i, apy + i_97_, this);
 				cropit(graphics2d, i, i_97_);
 			} else
-				graphics2d.drawImage(offImage, apx, apy, this);
-		} else if (moto == 1) {
+				graphics2d.drawImage(offImage, apx, apy, this);*/
+		}/* else if (moto == 1) {
 			graphics2d.setComposite(AlphaComposite.getInstance(3, mvect / 100.0F));
 			rd.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_SPEED);
 			graphics2d.drawImage(offImage, apx + i, apy + i_97_, this);
 			cropit(graphics2d, i, i_97_);
 		} else
-			graphics2d.drawImage(offImage, apx, apy, this);
+			graphics2d.drawImage(offImage, apx, apy, this);*/
+		rd.dispose();
+        rd = null;
 	}
 
 	public void readcookies(final xtGraphics var_xtGraphics, final CarDefine cardefine, final ContO[] contos) {
@@ -1443,6 +1448,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	}
 
 	public void makeMenus() {
+	    rd = (Graphics2D) new BufferedImage(800, 450, BufferedImage.TYPE_INT_ARGB).getGraphics();
 		rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		sgame.add(rd, " NFM 1     ");
@@ -1539,9 +1545,6 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		//dr = new DebugRunner();
 		//dr.start();
 
-		offImage = new BufferedImage(800, 450, BufferedImage.TYPE_INT_ARGB);
-		if (offImage != null)
-			rd = offImage.createGraphics();
 		makeMenus();
 		initialize();
 		addKeyListener(this);
@@ -2828,8 +2831,8 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					rd.drawImage(var_xtGraphics.mdness, 289, 30, null);
 					rd.drawImage(var_xtGraphics.dude[0], 135, 10, null);
 				}
-				if (i_6_ >= 0)
-					var_xtGraphics.fleximage(offImage, i_6_, checkpoints.stage);
+				//if (i_6_ >= 0)
+				//	var_xtGraphics.fleximage(offImage, i_6_, checkpoints.stage);
 				if (++i_6_ == 7) {
 					var_xtGraphics.fase = -5;
 					rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
@@ -2839,7 +2842,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			}
 			if (var_xtGraphics.fase == -6) {
 				//repaint();
-				var_xtGraphics.pauseimage(offImage);
+				//var_xtGraphics.pauseimage(offImage);
 				var_xtGraphics.fase = -7;
 				mouses = 0;
 			}
