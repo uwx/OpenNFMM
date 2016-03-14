@@ -4684,7 +4684,7 @@ public class StageMaker extends Applet implements Runnable {
                         if (errd == 0) {
                             int i = 0;
                             for (int i134 = 0; i134 < nms; i134++)
-                                if (mystages[i134].equals(stagename) && maker[i134].toLowerCase().equals(tnick.getText().toLowerCase())) {
+                                if (mystages[i134].equals(stagename) && maker[i134].equalsIgnoreCase(tnick.getText())) {
                                     i = JOptionPane.showConfirmDialog(null, "Replace your already online stage '" + stagename + "' with this one?", "Stage Maker", 0);
                                 }
                             if (i == 0) {
@@ -4853,7 +4853,7 @@ public class StageMaker extends Applet implements Runnable {
                             rd.drawLine(550, 145 + i * 20, 550, 157 + i * 20);
                             rd.drawLine(650, 145 + i * 20, 650, 157 + i * 20);
                             boolean bool = false;
-                            if (maker[i].toLowerCase().equals(tnick.getText().toLowerCase())) {
+                            if (maker[i].equalsIgnoreCase(tnick.getText())) {
                                 bool = true;
                                 rd.setColor(new Color(0, 64, 0));
                                 rd.drawString("You", 400 - ftm.stringWidth("You") / 2, 156 + i * 20);

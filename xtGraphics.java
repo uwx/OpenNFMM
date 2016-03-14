@@ -1608,7 +1608,7 @@ class xtGraphics extends Panel implements Runnable {
                     			if (cd.reco == 3)
                     				acexp = -1;
                     			if (cd.reco == 111)
-                    				if (!backlog.toLowerCase().equals(nickname.toLowerCase()))
+                    				if (!backlog.equalsIgnoreCase(nickname))
                     					acexp = -3;
                     				else
                     					acexp = 0;
@@ -6809,7 +6809,7 @@ class xtGraphics extends Panel implements Runnable {
                             if (clangame != 0) {
                                 int i82;
                                 int i83;
-                                if (pclan[i77].toLowerCase().equals(gaclan.toLowerCase())) {
+                                if (pclan[i77].equalsIgnoreCase(gaclan)) {
                                     i82 = 255;
                                     i83 = 128;
                                     i81 = 0;
@@ -7583,7 +7583,7 @@ class xtGraphics extends Panel implements Runnable {
             for (int i248 = 0; i248 < nplayers; i248++)
                 if (i248 != im && checkpoints.dested[i248] == 0) {
                     if (clangame != 0) {
-                        if (pclan[i248].toLowerCase().equals(gaclan.toLowerCase())) {
+                        if (pclan[i248].equalsIgnoreCase(gaclan)) {
                             i = 159;
                             i246 = 80;
                             i247 = 0;
@@ -7637,7 +7637,7 @@ class xtGraphics extends Panel implements Runnable {
         int i250 = 0;
         int i251 = 0;
         if (clangame != 0) {
-            if (pclan[im].toLowerCase().equals(gaclan.toLowerCase())) {
+            if (pclan[im].equalsIgnoreCase(gaclan)) {
                 i = 159;
                 i250 = 80;
                 i251 = 0;
@@ -8244,7 +8244,7 @@ class xtGraphics extends Panel implements Runnable {
                         acexp = -1;
                     }
                     if (cd.reco == 111)
-                        if (!backlog.toLowerCase().equals(nickname.toLowerCase())) {
+                        if (!backlog.equalsIgnoreCase(nickname)) {
                             acexp = -3;
                         } else {
                             acexp = 0;
@@ -8865,7 +8865,7 @@ class xtGraphics extends Panel implements Runnable {
                     if (checkpoints.dested[i] == 0)
                         if (string.equals("")) {
                             string = pclan[i];
-                        } else if (!string.toLowerCase().equals(pclan[i].toLowerCase())) {
+                        } else if (!string.equalsIgnoreCase(pclan[i])) {
                             bool184 = false;
                             break;
                         }
@@ -8875,7 +8875,7 @@ class xtGraphics extends Panel implements Runnable {
                 String string187 = "";
                 if (bool184) {
                     for (int i = 0; i < nplayers; i++)
-                        if (!string.toLowerCase().equals(pclan[i].toLowerCase())) {
+                        if (!string.equalsIgnoreCase(pclan[i])) {
                             string185 = pclan[i];
                             break;
                         }
@@ -8883,11 +8883,11 @@ class xtGraphics extends Panel implements Runnable {
                         bool186 = true;
                         string187 = "Clan " + string185 + " wasted, nobody won becuase this is a racing only game!";
                     }
-                    if (clangame == 4 && !string.toLowerCase().equals(gaclan.toLowerCase())) {
+                    if (clangame == 4 && !string.equalsIgnoreCase(gaclan)) {
                         bool186 = true;
                         string187 = "Clan " + string185 + " wasted, nobody won becuase " + string + " should have raced in this racing vs wasting game!";
                     }
-                    if (clangame == 5 && string.toLowerCase().equals(gaclan.toLowerCase())) {
+                    if (clangame == 5 && string.equalsIgnoreCase(gaclan)) {
                         bool186 = true;
                         string187 = "Clan " + string185 + " wasted, nobody won becuase " + string + " should have raced in this racing vs wasting game!";
                     }
@@ -8898,11 +8898,11 @@ class xtGraphics extends Panel implements Runnable {
                             bool186 = true;
                             string187 = "" + plnames[i] + " of clan " + pclan[i] + " finished first, nobody won becuase this is a wasting only game!";
                         }
-                        if (clangame == 4 && pclan[i].toLowerCase().equals(gaclan.toLowerCase())) {
+                        if (clangame == 4 && pclan[i].equalsIgnoreCase(gaclan)) {
                             bool186 = true;
                             string187 = "" + plnames[i] + " of clan " + pclan[i] + " finished first, nobody won becuase " + pclan[i] + " should have wasted in this racing vs wasting game!";
                         }
-                        if (clangame == 5 && !pclan[i].toLowerCase().equals(gaclan.toLowerCase())) {
+                        if (clangame == 5 && !pclan[i].equalsIgnoreCase(gaclan)) {
                             bool186 = true;
                             string187 = "" + plnames[i] + " of clan " + pclan[i] + " finished first, nobody won becuase " + pclan[i] + " should have wasted in this racing vs wasting game!";
                         }
@@ -9005,7 +9005,7 @@ class xtGraphics extends Panel implements Runnable {
                                     }
                                     winner = false;
                                 }
-                            } else if (pclan[i].toLowerCase().equals(pclan[im].toLowerCase())) {
+                            } else if (pclan[i].equalsIgnoreCase(pclan[im])) {
                                 drawhi(youwon, 70);
                                 if (aflk) {
                                     drawcs(120, "Your clan " + pclan[im] + " finished first, nice job!", 0, 0, 0, 0);
