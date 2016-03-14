@@ -182,8 +182,7 @@ class Login implements Runnable {
         int i49 = -1;
         if (fase != 2 && fase != 4 && fase != 6 && fase != 8 && fase != 9) {
             for (int i50 = 0; i50 < btn; i50++) {
-                if (Math.abs(i - bx[i50]) < bw[i50] / 2 + 12 && Math.abs(i47 - by[i50]) < 14
-                        && (i48 == 1 || i48 == 11)) {
+                if (Math.abs(i - bx[i50]) < bw[i50] / 2 + 12 && Math.abs(i47 - by[i50]) < 14 && (i48 == 1 || i48 == 11)) {
                     pessd[i50] = true;
                 } else {
                     pessd[i50] = false;
@@ -192,8 +191,7 @@ class Login implements Runnable {
                     gs.mouses = 0;
                     i49 = i50;
                 }
-                if (fase == 12 && Math.abs(i - bx[i50]) < bw[i50] / 2 + 12 && Math.abs(i47 - by[i50]) < 14
-                        && (i50 == 3 || i50 == 4) && (i != lxm || i47 != lym)) {
+                if (fase == 12 && Math.abs(i - bx[i50]) < bw[i50] / 2 + 12 && Math.abs(i47 - by[i50]) < 14 && (i50 == 3 || i50 == 4) && (i != lxm || i47 != lym)) {
                     opselect = i50 - 3;
                 }
             }
@@ -482,8 +480,7 @@ class Login implements Runnable {
                 pessd[2] = true;
             }
             if (i49 == 2)
-                if (gs.tnick.getText().equals("Fyre") || gs.tnick.getText().equals("Nickname")
-                        || gs.tnick.getText().equals("")) {
+                if (gs.tnick.getText().equals("Fyre") || gs.tnick.getText().equals("Nickname") || gs.tnick.getText().equals("")) {
                     msg = "Type in any Nickname to play...";
                     gs.tnick.setText("Nickname");
                     nflk = 30;
@@ -716,13 +713,7 @@ class Login implements Runnable {
         int i66 = -1;
         for (/**/ ; i < string.length(); i++) {
             final String string67 = "" + string.charAt(i);
-            if (string67.equals("|") || string67.equals(",") || string67.equals("(") || string67.equals(")")
-                    || string67.equals("#") || string67.equals(string64) || string67.equals("!") || string67.equals("?")
-                    || string67.equals(" ") || string67.equals("~") || string67.equals("$") || string67.equals("%")
-                    || string67.equals("^") || string67.equals("&") || string67.equals("*") || string67.equals("+")
-                    || string67.equals("=") || string67.equals(">") || string67.equals("<") || string67.equals("/")
-                    || string67.equals("'") || string67.equals(";") || string67.equals(":")
-                    || string67.equals("\u00a0")) {
+            if (string67.equals("|") || string67.equals(",") || string67.equals("(") || string67.equals(")") || string67.equals("#") || string67.equals(string64) || string67.equals("!") || string67.equals("?") || string67.equals(" ") || string67.equals("~") || string67.equals("$") || string67.equals("%") || string67.equals("^") || string67.equals("&") || string67.equals("*") || string67.equals("+") || string67.equals("=") || string67.equals(">") || string67.equals("<") || string67.equals("/") || string67.equals("'") || string67.equals(";") || string67.equals(":") || string67.equals("\u00a0")) {
                 i66 = i;
             } else {
                 string65 = "" + string65 + string67;
@@ -739,8 +730,7 @@ class Login implements Runnable {
             socket = new Socket(servers[0], 7061);
             din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             dout = new PrintWriter(socket.getOutputStream(), true);
-            dout.println("101|20|" + xt.nickname + "|" + xt.nickey + "|" + xt.servername + "|"
-                    + (xt.servport - 7070) + "|");
+            dout.println("101|20|" + xt.nickname + "|" + xt.nickey + "|" + xt.servername + "|" + (xt.servport - 7070) + "|");
             din.readLine();
             socket.close();
             din.close();
@@ -892,8 +882,7 @@ class Login implements Runnable {
         }
         rd.setComposite(AlphaComposite.getInstance(3, f));
         if (flipo > 10) {
-            rd.drawImage(xt.logomadnes, 96 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), 11
-                    + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), null);
+            rd.drawImage(xt.logomadnes, 96 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), 11 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), null);
         } else {
             rd.drawImage(xt.logomadnes, 96, 11, null);
         }
@@ -961,16 +950,14 @@ class Login implements Runnable {
         rd.setColor(new Color(0, 0, 0));
         rd.drawString(xt.nickname, 239 - ftm.stringWidth(xt.nickname) / 2, 105);
         rd.setColor(color2k(90, 90, 90));
-        rd.drawString("" + xt.cd.names[xt.sc[0]] + "", 409
-                - ftm.stringWidth("" + xt.cd.names[xt.sc[0]] + "") / 2, 81);
+        rd.drawString("" + xt.cd.names[xt.sc[0]] + "", 409 - ftm.stringWidth("" + xt.cd.names[xt.sc[0]] + "") / 2, 81);
         rd.drawString("Nickname", 239 - ftm.stringWidth("Nickname") / 2, 81);
         drawbutton(xt.change, 570, 98);
         drawSbutton(xt.logout, 239, 135);
         rd.setColor(new Color(98, 56, 0));
         rd.drawString("Edit my Account", 239 - ftm.stringWidth("Edit my Account") / 2, 168);
         if (ond) {
-            rd.drawLine(239 - ftm.stringWidth("Edit my Account") / 2, 169, 239 - ftm.stringWidth("Edit my Account") / 2
-                    + ftm.stringWidth("Edit my Account"), 169);
+            rd.drawLine(239 - ftm.stringWidth("Edit my Account") / 2, 169, 239 - ftm.stringWidth("Edit my Account") / 2 + ftm.stringWidth("Edit my Account"), 169);
         }
         if (fase == 12 || fase == 13 || fase == 14 || fase == 15) {
             final int i = srvtrn;
@@ -1001,8 +988,7 @@ class Login implements Runnable {
                 if (opselect == 1 && !pessd[4]) {
                     rd.setComposite(AlphaComposite.getInstance(3, 0.25F));
                     rd.setColor(new Color(203, 227, 253));
-                    rd.fillRect(387 - xt.pln.getWidth(ob) / 2, 285 - xt.pln.getHeight(ob) - 5, xt.pln.getWidth(ob)
-                            + 26, 26);
+                    rd.fillRect(387 - xt.pln.getWidth(ob) / 2, 285 - xt.pln.getHeight(ob) - 5, xt.pln.getWidth(ob) + 26, 26);
                     rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
                 }
                 drawbutton(xt.pln, 400, 285 - xt.pln.getHeight(ob) / 2);
@@ -1130,8 +1116,7 @@ class Login implements Runnable {
         }
         rd.setComposite(AlphaComposite.getInstance(3, f));
         if (flipo > 10) {
-            rd.drawImage(xt.logomadnes, 96 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), 11
-                    + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), null);
+            rd.drawImage(xt.logomadnes, 96 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), 11 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), null);
         } else {
             rd.drawImage(xt.logomadnes, 96, 11, null);
         }
@@ -1165,8 +1150,7 @@ class Login implements Runnable {
             rd.fillRoundRect(246, 83, 180, 96, 20, 20);
             rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
             rd.setColor(color2k(90, 90, 90));
-            rd.drawString("" + xt.cd.names[xt.sc[0]] + "", 336
-                    - ftm.stringWidth("" + xt.cd.names[xt.sc[0]] + "") / 2, 81);
+            rd.drawString("" + xt.cd.names[xt.sc[0]] + "", 336 - ftm.stringWidth("" + xt.cd.names[xt.sc[0]] + "") / 2, 81);
             rd.drawRoundRect(246, 83, 180, 96, 20, 20);
             if (!gotcai) {
                 int i41 = contos[xt.sc[0]].p[0].oz[0];
@@ -1356,8 +1340,7 @@ class Login implements Runnable {
             }
             rd.setFont(new Font("Arial", 1, 11));
             ftm = rd.getFontMetrics();
-            rd.drawString("Forgot your nickname or password?", 400
-                    - ftm.stringWidth("Forgot your nickname or password?") / 2, 345);
+            rd.drawString("Forgot your nickname or password?", 400 - ftm.stringWidth("Forgot your nickname or password?") / 2, 345);
             rd.setColor(new Color(0, 0, 0));
             rd.setFont(new Font("Arial", 1, 12));
             ftm = rd.getFontMetrics();
@@ -1377,8 +1360,7 @@ class Login implements Runnable {
                 fixtext(gs.tpass);
                 lpass = gs.tpass.getText();
             }
-            if (fase == 3 && (!gs.tpass.getText().equals("") && !gs.tnick.getText().equals("") || !gs.applejava)
-                    && !gs.keplo.isShowing()) {
+            if (fase == 3 && (!gs.tpass.getText().equals("") && !gs.tnick.getText().equals("") || !gs.applejava) && !gs.keplo.isShowing()) {
                 gs.keplo.setVisible(true);
             }
             gs.movefield(gs.keplo, 376, 275, 129, 23);

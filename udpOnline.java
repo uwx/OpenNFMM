@@ -122,8 +122,7 @@ class udpOnline implements Runnable {
         try {
             final byte[] is = new byte[4];
             final DatagramPacket datagrampacket = new DatagramPacket(is, is.length, IPAddress, gameport);
-            final String string2 = "" + string + "|" + um.im + "|" + um.frame[um.im][0] + "|" + um.info[um.im][0]
-                    + "|";
+            final String string2 = "" + string + "|" + um.im + "|" + um.frame[um.im][0] + "|" + um.info[um.im][0] + "|";
             final byte[] is3 = string2.getBytes();
             datagrampacket.setData(is3);
             dSocket.send(datagrampacket);

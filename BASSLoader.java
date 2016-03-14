@@ -19,7 +19,7 @@ public class BASSLoader {
             if (isUnix) {
                 System.out.println("running on a unix system");
                 appendToPath(workingDirectory + "/libraries/dlls/linux" + x64 + "/");
-            } else if (isMac)  {
+            } else if (isMac) {
                 System.out.println("running on a mac system");
                 appendToPath(workingDirectory + "/libraries/dlls/mac/");
             } else if (isWindows) {
@@ -35,13 +35,12 @@ public class BASSLoader {
     //private static final String workingDirectory = System.getProperty("user.dir");
 
     private static void appendToPath(final String s) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-        System.setProperty( "java.library.path", System.getProperty("java.library.path") + (isWindows ? ";" : ":") + s );
+        System.setProperty("java.library.path", System.getProperty("java.library.path") + (isWindows ? ";" : ":") + s);
 
-        Field fieldSysPath = ClassLoader.class.getDeclaredField( "sys_paths" );
-        fieldSysPath.setAccessible( true );
-        fieldSysPath.set( null, null );
+        final Field fieldSysPath = ClassLoader.class.getDeclaredField("sys_paths");
+        fieldSysPath.setAccessible(true);
+        fieldSysPath.set(null, null);
     }
-
 
     private static void init() {
         /*
@@ -69,7 +68,7 @@ public class BASSLoader {
     }
 
     private static final void printfExit(final String format, final Object... args) {
-        String s = String.format(format, args);
+        final String s = String.format(format, args);
         System.out.println(s);
     }
 }

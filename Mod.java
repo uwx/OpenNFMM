@@ -34,8 +34,7 @@ class Mod {
     int trackShift;
 
     static final int FOURCC(final String string) {
-        return string.charAt(3) & 0xff | (string.charAt(2) & 0xff) << 8 | (string.charAt(1) & 0xff) << 16
-                | (string.charAt(0) & 0xff) << 24;
+        return string.charAt(3) & 0xff | (string.charAt(2) & 0xff) << 8 | (string.charAt(1) & 0xff) << 16 | (string.charAt(0) & 0xff) << 24;
     }
 
     private static final int readu8(final DataInputStream datainputstream) throws IOException {

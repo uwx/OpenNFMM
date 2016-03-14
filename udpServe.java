@@ -155,8 +155,7 @@ class udpServe implements Runnable {
                             i12 = 0;
                         }
                         lsframe[i11] = um.frame[i11][i12];
-                        final String string15 = "" + string0 + "|" + i11 + "|" + um.frame[i11][i12] + "|"
-                                + um.info[i11][i12] + "|";
+                        final String string15 = "" + string0 + "|" + i11 + "|" + um.frame[i11][i12] + "|" + um.info[i11][i12] + "|";
                         final byte[] is16 = string15.getBytes();
                         final DatagramPacket datagrampacket17 = new DatagramPacket(is16, is16.length, inetaddress, i10);
                         dSocket.send(datagrampacket17);

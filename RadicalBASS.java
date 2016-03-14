@@ -1,9 +1,5 @@
 
-
 import static jouvieje.bass.Bass.BASS_ChannelGetLength;
-import static jouvieje.bass.Bass.BASS_ChannelGetLevel;
-import static jouvieje.bass.Bass.BASS_ChannelGetPosition;
-import static jouvieje.bass.Bass.BASS_ChannelIsActive;
 import static jouvieje.bass.Bass.BASS_ChannelPlay;
 import static jouvieje.bass.Bass.BASS_ChannelSeconds2Bytes;
 import static jouvieje.bass.Bass.BASS_ChannelSetPosition;
@@ -11,26 +7,20 @@ import static jouvieje.bass.Bass.BASS_ChannelSetSync;
 import static jouvieje.bass.Bass.BASS_Free;
 import static jouvieje.bass.Bass.BASS_GetVersion;
 import static jouvieje.bass.Bass.BASS_Init;
-import static jouvieje.bass.Bass.BASS_MusicFree;
 import static jouvieje.bass.Bass.BASS_MusicLoad;
 import static jouvieje.bass.Bass.BASS_Pause;
 import static jouvieje.bass.Bass.BASS_SetVolume;
 import static jouvieje.bass.Bass.BASS_Start;
 import static jouvieje.bass.Bass.BASS_StreamCreateFile;
-import static jouvieje.bass.Bass.BASS_StreamFree;
-import static jouvieje.bass.defines.BASS_ACTIVE.BASS_ACTIVE_STOPPED;
-import static jouvieje.bass.defines.BASS_MUSIC.BASS_MUSIC_DECODE;
 import static jouvieje.bass.defines.BASS_MUSIC.BASS_MUSIC_POSRESET;
 import static jouvieje.bass.defines.BASS_MUSIC.BASS_MUSIC_PRESCAN;
 import static jouvieje.bass.defines.BASS_MUSIC.BASS_MUSIC_RAMPS;
 import static jouvieje.bass.defines.BASS_POS.BASS_POS_BYTE;
-import static jouvieje.bass.defines.BASS_STREAM.BASS_STREAM_DECODE;
 import static jouvieje.bass.defines.BASS_SYNC.BASS_SYNC_END;
 import static jouvieje.bass.defines.BASS_SYNC.BASS_SYNC_MIXTIME;
 import static jouvieje.bass.examples.util.Device.forceFrequency;
 import static jouvieje.bass.examples.util.Device.forceNoSoundDevice;
 
-import java.awt.image.BufferedImage;
 import java.io.File;
 
 import jouvieje.bass.BassInit;
@@ -59,13 +49,10 @@ class RadicalBASS implements RadicalMusic {
     private final int WIDTH = 600; //Display width
     private final int HEIGHT = 201; //Height (odd number for centre line)
 
-
     private int chan;
     private long bpp; //Bytes per pixel
     private final long[] loop = new long[2]; //Loop start & end
     //private HSYNC lsync; //Looping sync
-
-    private BufferedImage wavebuf = null;
 
     private final SYNCPROC loopSyncProc = new SYNCPROC() {
         @Override
@@ -131,13 +118,6 @@ class RadicalBASS implements RadicalMusic {
         deinit = true;
 
         BASS_Free();
-    }
-
-    private int getIndexColor(final int index) {
-        if (index == 0)
-            return 0;
-        final int r = 255 * index / (HEIGHT / 2);
-        return (r << 16) + (255 - r << 8);
     }
 
     /* Graphical stuff */

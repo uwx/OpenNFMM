@@ -754,10 +754,7 @@ class UDPMistro implements Runnable {
         final StringBuilder stringbuilder = new StringBuilder();
         final String[] strings = info[i41];
         final int i74 = 0;
-        strings[i74] = stringbuilder + strings[i74] + "," + conto.x + "," + conto.y + "," + conto.z + "," + conto.xz
-                + "," + conto.xy + "," + conto.zy + "," + (int) (mad.speed * 100.0F) + "," + (int) (mad.power * 100.0F)
-                + "," + mad.mxz + "," + mad.pzy + "," + mad.pxy + "," + mad.txz + "," + mad.loop + "," + conto.wxz + ","
-                + mad.pcleared + "," + mad.clear + "," + mad.nlaps + "," + (int) (f * 100.0F) + "," + i + ",";
+        strings[i74] = stringbuilder + strings[i74] + "," + conto.x + "," + conto.y + "," + conto.z + "," + conto.xz + "," + conto.xy + "," + conto.zy + "," + (int) (mad.speed * 100.0F) + "," + (int) (mad.power * 100.0F) + "," + mad.mxz + "," + mad.pzy + "," + mad.pxy + "," + mad.txz + "," + mad.loop + "," + conto.wxz + "," + mad.pcleared + "," + mad.clear + "," + mad.nlaps + "," + (int) (f * 100.0F) + "," + i + ",";
         while (info[i41][0].length() < 110) {
             final StringBuilder stringbuilder75 = new StringBuilder();
             final String[] strings76 = info[i41];

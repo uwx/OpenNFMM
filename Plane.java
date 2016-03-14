@@ -314,8 +314,7 @@ class Plane implements Comparable<Plane> {
                 final int i52 = (int) (Math.abs(is37[0] - is37[1]) / 3 * (0.5 - m.random()));
                 is[2] = (is[0] + is[1]) / 2 + i51;
                 is37[2] = (is37[0] + is37[1]) / 2 + i52;
-                int i53 = (int) ((Math.abs(is[0] - is[1]) + Math.abs(is37[0] - is37[1])) / 1.5
-                        * (m.random() / 2.0F + 0.5));
+                int i53 = (int) ((Math.abs(is[0] - is[1]) + Math.abs(is37[0] - is37[1])) / 1.5 * (m.random() / 2.0F + 0.5));
                 is38[2] = (is38[0] + is38[1]) / 2 - i45 * i46 * i53;
                 rot(is, is38, i, i29, i32, 3);
                 rot(is38, is37, i29, i30, i33, 3);
@@ -533,8 +532,7 @@ class Plane implements Comparable<Plane> {
             for (int i70 = 0; i70 < 3; i70++) {
                 for (int i71 = 0; i71 < 3; i71++)
                     if (i71 != i70) {
-                        projf *= (float) (Math.sqrt((is[i70] - is[i71]) * (is[i70] - is[i71])
-                                + (is37[i70] - is37[i71]) * (is37[i70] - is37[i71])) / 100.0);
+                        projf *= (float) (Math.sqrt((is[i70] - is[i71]) * (is[i70] - is[i71]) + (is37[i70] - is37[i71]) * (is37[i70] - is37[i71])) / 100.0);
                     }
             }
             projf = projf / 3.0F;
@@ -632,8 +630,7 @@ class Plane implements Comparable<Plane> {
             }
             if (i93 == 0 || i94 == 0) {
                 bool84 = false;
-            } else if (i93 < 3 && i94 < 3 && (i36 / i93 > 15 && i36 / i94 > 15 || bool)
-                    && (!m.lightson || light == 0)) {
+            } else if (i93 < 3 && i94 < 3 && (i36 / i93 > 15 && i36 / i94 > 15 || bool) && (!m.lightson || light == 0)) {
                 bool84 = false;
             }
         }
@@ -712,8 +709,7 @@ class Plane implements Comparable<Plane> {
             final int i110 = (i103 + i104) / 2;
             final int i111 = (i105 + i106) / 2;
             final int i112 = (i107 + i108) / 2;
-            av = (int) Math.sqrt((m.cy - i110) * (m.cy - i110) + (m.cx - i111) * (m.cx - i111) + i112 * i112
-                    + i98 * i98 * i98);
+            av = (int) Math.sqrt((m.cy - i110) * (m.cy - i110) + (m.cx - i111) * (m.cx - i111) + i112 * i112 + i98 * i98 * i98);
             if (m.trk == 0 && (av > m.fade[disline] || av == 0)) {
                 bool84 = false;
             }
@@ -735,8 +731,7 @@ class Plane implements Comparable<Plane> {
             if (master == 2 && av > 1500 && !m.crs) {
                 bool84 = false;
             }
-            if ((gr == -14 || gr == -15 || gr == -12) && (av > 11000 || bool72 || i97 == -111 || m.resdown == 2)
-                    && m.trk != 2 && m.trk != 3) {
+            if ((gr == -14 || gr == -15 || gr == -12) && (av > 11000 || bool72 || i97 == -111 || m.resdown == 2) && m.trk != 2 && m.trk != 3) {
                 bool84 = false;
             }
             if (gr == -11 && av > 11000 && m.trk != 2 && m.trk != 3) {
@@ -1080,9 +1075,7 @@ class Plane implements Comparable<Plane> {
         for (int i26 = 0; i26 < 3; i26++) {
             for (int i27 = 0; i27 < 3; i27++)
                 if (i27 != i26) {
-                    deltaf *= (float) (Math.sqrt((ox[i27] - ox[i26]) * (ox[i27] - ox[i26])
-                            + (oy[i27] - oy[i26]) * (oy[i27] - oy[i26]) + (oz[i27] - oz[i26]) * (oz[i27] - oz[i26]))
-                            / 100.0);
+                    deltaf *= (float) (Math.sqrt((ox[i27] - ox[i26]) * (ox[i27] - ox[i26]) + (oy[i27] - oy[i26]) * (oy[i27] - oy[i26]) + (oz[i27] - oz[i26]) * (oz[i27] - oz[i26])) / 100.0);
                 }
         }
         deltaf = deltaf / 3.0F;
@@ -1093,8 +1086,7 @@ class Plane implements Comparable<Plane> {
         for (int i = 0; i < 3; i++) {
             for (int i28 = 0; i28 < 3; i28++)
                 if (i28 != i) {
-                    projf *= (float) (Math.sqrt((ox[i] - ox[i28]) * (ox[i] - ox[i28])
-                            + (oz[i] - oz[i28]) * (oz[i] - oz[i28])) / 100.0);
+                    projf *= (float) (Math.sqrt((ox[i] - ox[i28]) * (ox[i] - ox[i28]) + (oz[i] - oz[i28]) * (oz[i] - oz[i28])) / 100.0);
                 }
         }
         projf = projf / 3.0F;
@@ -1185,23 +1177,17 @@ class Plane implements Comparable<Plane> {
             for (int i147 = t.sect[i145][i146].length - 1; i147 >= 0; i147--) {
                 final int i148 = t.sect[i145][i146][i147];
                 int i149 = 0;
-                if (Math.abs(t.zy[i148]) != 90 && Math.abs(t.xy[i148]) != 90 && t.rady[i148] != 801
-                        && Math.abs(i143 - (t.x[i148] - m.x)) < t.radx[i148]
-                        && Math.abs(i144 - (t.z[i148] - m.z)) < t.radz[i148] && (!t.decor[i148] || m.resdown != 2)) {
+                if (Math.abs(t.zy[i148]) != 90 && Math.abs(t.xy[i148]) != 90 && t.rady[i148] != 801 && Math.abs(i143 - (t.x[i148] - m.x)) < t.radx[i148] && Math.abs(i144 - (t.z[i148] - m.z)) < t.radz[i148] && (!t.decor[i148] || m.resdown != 2)) {
                     i149++;
                 }
                 if (i149 != 0) {
                     for (int i150 = 0; i150 < n; i150++) {
                         is127[i150] = t.y[i148] - m.y;
                         if (t.zy[i148] != 0) {
-                            is127[i150] += (is126[i150] - (t.z[i148] - m.z - t.radz[i148])) * m.sin(t.zy[i148])
-                                    / m.sin(90 - t.zy[i148])
-                                    - t.radz[i148] * m.sin(t.zy[i148]) / m.sin(90 - t.zy[i148]);
+                            is127[i150] += (is126[i150] - (t.z[i148] - m.z - t.radz[i148])) * m.sin(t.zy[i148]) / m.sin(90 - t.zy[i148]) - t.radz[i148] * m.sin(t.zy[i148]) / m.sin(90 - t.zy[i148]);
                         }
                         if (t.xy[i148] != 0) {
-                            is127[i150] += (is[i150] - (t.x[i148] - m.x - t.radx[i148])) * m.sin(t.xy[i148])
-                                    / m.sin(90 - t.xy[i148])
-                                    - t.radx[i148] * m.sin(t.xy[i148]) / m.sin(90 - t.xy[i148]);
+                            is127[i150] += (is[i150] - (t.x[i148] - m.x - t.radx[i148])) * m.sin(t.xy[i148]) / m.sin(90 - t.xy[i148]) - t.radx[i148] * m.sin(t.xy[i148]) / m.sin(90 - t.xy[i148]);
                         }
                     }
                     i129 = (int) (t.c[i148][0] / 1.5);
@@ -1221,8 +1207,7 @@ class Plane implements Comparable<Plane> {
         } else {
             for (int i153 = 0; i153 < m.nsp; i153++) {
                 for (int i154 = 0; i154 < n; i154++)
-                    if (Math.abs(is[i154] - m.spx[i153]) < m.sprad[i153]
-                            && Math.abs(is126[i154] - m.spz[i153]) < m.sprad[i153]) {
+                    if (Math.abs(is[i154] - m.spx[i153]) < m.sprad[i153] && Math.abs(is126[i154] - m.spz[i153]) < m.sprad[i153]) {
                         bool = false;
                     }
             }
@@ -1285,13 +1270,12 @@ class Plane implements Comparable<Plane> {
     }
 
     @Override
-    public int compareTo(Plane o) {
+    public int compareTo(final Plane o) {
         if (av != o.av) {
-            if (av < o.av) {
+            if (av < o.av)
                 return 1;
-            } else {
+            else
                 return -1;
-            }
         }
         return 0;
     }

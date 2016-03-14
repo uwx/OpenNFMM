@@ -304,10 +304,7 @@ class ContO {
                 if (string.startsWith("w(") && i9 < 4) {
                     keyx[i9] = (int) (getvalue("w", string, 0) * f * fs[0]);
                     keyz[i9] = (int) (getvalue("w", string, 2) * f * fs[2]);
-                    wheels.make(m, t, p, npl, (int) (getvalue("w", string, 0) * f * f2
-                            * fs[0]), (int) (getvalue("w", string, 1) * f * fs[1]), (int) (getvalue("w", string, 2) * f
-                                    * fs[2]), getvalue("w", string, 3), (int) (getvalue("w", string, 4) * f
-                                            * f2), (int) (getvalue("w", string, 5) * f), i12);
+                    wheels.make(m, t, p, npl, (int) (getvalue("w", string, 0) * f * f2 * fs[0]), (int) (getvalue("w", string, 1) * f * fs[1]), (int) (getvalue("w", string, 2) * f * fs[2]), getvalue("w", string, 3), (int) (getvalue("w", string, 4) * f * f2), (int) (getvalue("w", string, 5) * f), i12);
                     npl += 19;
                     if (m.loadnew) {
                         wh += (int) (getvalue("w", string, 5) * f);
@@ -316,9 +313,7 @@ class ContO {
                             if (keyz[i9] < 0) {
                                 string19 = "BACK";
                             }
-                            err = "Wheels Error:\n" + string19
-                                    + " Wheels floor is too far below the center of Y Axis of the car!    \n\nPlease decrease the Y value of the "
-                                    + string19 + " Wheels or decrease its height.     \n \n";
+                            err = "Wheels Error:\n" + string19 + " Wheels floor is too far below the center of Y Axis of the car!    \n\nPlease decrease the Y value of the " + string19 + " Wheels or decrease its height.     \n \n";
                             errd = true;
                             keyz[i9] = 0;
                             keyx[i9] = 0;
@@ -328,9 +323,7 @@ class ContO {
                             if (keyz[i9] < 0) {
                                 string20 = "BACK";
                             }
-                            err = "Wheels Error:\n" + string20
-                                    + " Wheels floor is too far above the center of Y Axis of the car!    \n\nPlease increase the Y value of the "
-                                    + string20 + " Wheels or increase its height.     \n \n";
+                            err = "Wheels Error:\n" + string20 + " Wheels floor is too far above the center of Y Axis of the car!    \n\nPlease increase the Y value of the " + string20 + " Wheels or increase its height.     \n \n";
                             errd = true;
                             keyz[i9] = 0;
                             keyx[i9] = 0;
@@ -340,9 +333,7 @@ class ContO {
                             if (keyz[i9] < 0) {
                                 string21 = "BACK";
                             }
-                            err = "Wheels Error:\n" + string21
-                                    + " Wheels are too far apart!    \n\nPlease decrease the \u00b1X value of the "
-                                    + string21 + " Wheels.     \n \n";
+                            err = "Wheels Error:\n" + string21 + " Wheels are too far apart!    \n\nPlease decrease the \u00b1X value of the " + string21 + " Wheels.     \n \n";
                             errd = true;
                             keyz[i9] = 0;
                             keyx[i9] = 0;
@@ -362,9 +353,7 @@ class ContO {
                             if (keyz[i9] < 0) {
                                 string22 = "BACK";
                             }
-                            err = "Wheels Error:\nWidth of the " + string22
-                                    + " Wheels is too large!    \n\nPlease decrease the width of the " + string22
-                                    + " Wheels.     \n \n";
+                            err = "Wheels Error:\nWidth of the " + string22 + " Wheels is too large!    \n\nPlease decrease the width of the " + string22 + " Wheels.     \n \n";
                             errd = true;
                             keyz[i9] = 0;
                             keyx[i9] = 0;
@@ -530,8 +519,7 @@ class ContO {
             if (exception instanceof RuntimeException)
                 throw new RuntimeException(exception);
             else if (!errd) {
-                err = "Error While Loading 3D Model\n\nLine:     " + string + "\n\nError Detail:\n" + exception
-                        + "           \n \n";
+                err = "Error While Loading 3D Model\n\nLine:     " + string + "\n\nError Detail:\n" + exception + "           \n \n";
                 System.out.println(err);
                 errd = true;
             }
@@ -607,10 +595,8 @@ class ContO {
                             i40 -= p[i27].n;
                         }
                         if (i28 == 1) {
-                            int i41 = Math.abs((int) (Math.atan((double) (p[i27].oz[i38] - p[i27].oz[i39])
-                                    / (double) (p[i27].oy[i38] - p[i27].oy[i39])) / 0.017453292519943295));
-                            int i42 = Math.abs((int) (Math.atan((double) (p[i27].oz[i40] - p[i27].oz[i39])
-                                    / (double) (p[i27].oy[i40] - p[i27].oy[i39])) / 0.017453292519943295));
+                            int i41 = Math.abs((int) (Math.atan((double) (p[i27].oz[i38] - p[i27].oz[i39]) / (double) (p[i27].oy[i38] - p[i27].oy[i39])) / 0.017453292519943295));
+                            int i42 = Math.abs((int) (Math.atan((double) (p[i27].oz[i40] - p[i27].oz[i39]) / (double) (p[i27].oy[i40] - p[i27].oy[i39])) / 0.017453292519943295));
                             if (i41 > 45) {
                                 i41 = 90 - i41;
                             } else {
@@ -622,10 +608,8 @@ class ContO {
                             }
                         }
                         if (i28 == 2) {
-                            int i43 = Math.abs((int) (Math.atan((double) (p[i27].oz[i38] - p[i27].oz[i39])
-                                    / (double) (p[i27].ox[i38] - p[i27].ox[i39])) / 0.017453292519943295));
-                            int i44 = Math.abs((int) (Math.atan((double) (p[i27].oz[i40] - p[i27].oz[i39])
-                                    / (double) (p[i27].ox[i40] - p[i27].ox[i39])) / 0.017453292519943295));
+                            int i43 = Math.abs((int) (Math.atan((double) (p[i27].oz[i38] - p[i27].oz[i39]) / (double) (p[i27].ox[i38] - p[i27].ox[i39])) / 0.017453292519943295));
+                            int i44 = Math.abs((int) (Math.atan((double) (p[i27].oz[i40] - p[i27].oz[i39]) / (double) (p[i27].ox[i40] - p[i27].ox[i39])) / 0.017453292519943295));
                             if (i43 > 45) {
                                 i43 = 90 - i43;
                             } else {
@@ -637,10 +621,8 @@ class ContO {
                             }
                         }
                         if (i28 == 3) {
-                            int i45 = Math.abs((int) (Math.atan((double) (p[i27].oy[i38] - p[i27].oy[i39])
-                                    / (double) (p[i27].ox[i38] - p[i27].ox[i39])) / 0.017453292519943295));
-                            int i46 = Math.abs((int) (Math.atan((double) (p[i27].oy[i40] - p[i27].oy[i39])
-                                    / (double) (p[i27].ox[i40] - p[i27].ox[i39])) / 0.017453292519943295));
+                            int i45 = Math.abs((int) (Math.atan((double) (p[i27].oy[i38] - p[i27].oy[i39]) / (double) (p[i27].ox[i38] - p[i27].ox[i39])) / 0.017453292519943295));
+                            int i46 = Math.abs((int) (Math.atan((double) (p[i27].oy[i40] - p[i27].oy[i39]) / (double) (p[i27].ox[i40] - p[i27].ox[i39])) / 0.017453292519943295));
                             if (i45 > 45) {
                                 i45 = 90 - i45;
                             } else {
@@ -779,8 +761,7 @@ class ContO {
                             final int i67 = (i29 + i30) / 2;
                             final int i68 = (i31 + i32) / 2;
                             final int i69 = (i33 + i34) / 2;
-                            if (i28 == 1 && (i65 <= i31 && i65 >= i32 && i66 <= i33 && i66 >= i34
-                                    || i68 <= i59 && i68 >= i60 && i69 <= i61 && i69 >= i62)) {
+                            if (i28 == 1 && (i65 <= i31 && i65 >= i32 && i66 <= i33 && i66 >= i34 || i68 <= i59 && i68 >= i60 && i69 <= i61 && i69 >= i62)) {
                                 if (i57 < i30) {
                                     bool53 = true;
                                 }
@@ -788,8 +769,7 @@ class ContO {
                                     bool54 = true;
                                 }
                             }
-                            if (i28 == 2 && (i64 <= i29 && i64 >= i30 && i66 <= i33 && i66 >= i34
-                                    || i67 <= i57 && i67 >= i58 && i69 <= i61 && i69 >= i62)) {
+                            if (i28 == 2 && (i64 <= i29 && i64 >= i30 && i66 <= i33 && i66 >= i34 || i67 <= i57 && i67 >= i58 && i69 <= i61 && i69 >= i62)) {
                                 if (i59 < i32) {
                                     bool53 = true;
                                 }
@@ -797,8 +777,7 @@ class ContO {
                                     bool54 = true;
                                 }
                             }
-                            if (i28 == 3 && (i64 <= i29 && i64 >= i30 && i65 <= i31 && i65 >= i32
-                                    || i67 <= i57 && i67 >= i58 && i68 <= i59 && i68 >= i60)) {
+                            if (i28 == 3 && (i64 <= i29 && i64 >= i30 && i65 <= i31 && i65 >= i32 || i67 <= i57 && i67 >= i58 && i68 <= i59 && i68 >= i60)) {
                                 if (i61 < i34) {
                                     bool53 = true;
                                 }
@@ -846,8 +825,7 @@ class ContO {
                                 for (int i75 = 0; i75 < p[i73].n; i75++) {
                                     bools[i75] = false;
                                     for (int i76 = 0; i76 < p[i27].n; i76++)
-                                        if (p[i27].ox[i76] == p[i73].ox[i75] && p[i27].oy[i76] == p[i73].oy[i75]
-                                                && p[i27].oz[i76] == p[i73].oz[i75]) {
+                                        if (p[i27].ox[i76] == p[i73].ox[i75] && p[i27].oy[i76] == p[i73].oy[i75] && p[i27].oz[i76] == p[i73].oz[i75]) {
                                             bools[i75] = true;
                                             bool74 = true;
                                         }
@@ -1207,8 +1185,7 @@ class ContO {
             is113[5] = is98[i110];
             is113[4] = is98[i110 + 1];
             is113[3] = is98[i111];
-            for (f100 = (float) ((0.17 - f108) * random.nextDouble()); Math.abs(f107 - f100) < 0.03
-                    - f108 * 0.176F; f100 = (float) ((0.17 - f108) * random.nextDouble())) {
+            for (f100 = (float) ((0.17 - f108) * random.nextDouble()); Math.abs(f107 - f100) < 0.03 - f108 * 0.176F; f100 = (float) ((0.17 - f108) * random.nextDouble())) {
 
             }
             f107 = f100;
@@ -1329,9 +1306,7 @@ class ContO {
         final int i124 = m.cz + (int) ((x - m.x - m.cx) * m.sin(m.xz) + (z - m.z - m.cz) * m.cos(m.xz));
         final int i125 = m.cz + (int) ((y - m.y - m.cy) * m.sin(m.zy) + (i124 - m.cz) * m.cos(m.zy));
         int i126 = xs(i + maxR, i125) - xs(i - maxR, i125);
-        if (xs(i + maxR * 2, i125) > m.iw && xs(i - maxR * 2, i125) < m.w && i125 > -maxR
-                && (i125 < m.fade[disline] + maxR || m.trk != 0) && (i126 > disp || m.trk != 0)
-                && (!decor || m.resdown != 2 && m.trk != 1)) {
+        if (xs(i + maxR * 2, i125) > m.iw && xs(i - maxR * 2, i125) < m.w && i125 > -maxR && (i125 < m.fade[disline] + maxR || m.trk != 0) && (i126 > disp || m.trk != 0) && (!decor || m.resdown != 2 && m.trk != 1)) {
             if (shadow)
                 if (!m.crs) {
                     if (i125 < 2000) {
@@ -1353,10 +1328,7 @@ class ContO {
                             }
                             for (int i129 = t.sect[i127][i128].length - 1; i129 >= 0; i129--) {
                                 final int i130 = t.sect[i127][i128][i129];
-                                if (Math.abs(t.zy[i130]) != 90 && Math.abs(t.xy[i130]) != 90
-                                        && Math.abs(x - t.x[i130]) < t.radx[i130] + maxR
-                                        && Math.abs(z - t.z[i130]) < t.radz[i130] + maxR
-                                        && (!t.decor[i130] || m.resdown != 2)) {
+                                if (Math.abs(t.zy[i130]) != 90 && Math.abs(t.xy[i130]) != 90 && Math.abs(x - t.x[i130]) < t.radx[i130] + maxR && Math.abs(z - t.z[i130]) < t.radz[i130] + maxR && (!t.decor[i130] || m.resdown != 2)) {
                                     bool = true;
                                     break;
                                 }
@@ -1367,10 +1339,8 @@ class ContO {
                                 p[i131].s(graphics2d, x - m.x, y - m.y, z - m.z, xz, xy, zy, 0);
                             }
                         } else {
-                            final int i132 = m.cy
-                                    + (int) ((m.ground - m.cy) * m.cos(m.zy) - (i124 - m.cz) * m.sin(m.zy));
-                            final int i133 = m.cz
-                                    + (int) ((m.ground - m.cy) * m.sin(m.zy) + (i124 - m.cz) * m.cos(m.zy));
+                            final int i132 = m.cy + (int) ((m.ground - m.cy) * m.cos(m.zy) - (i124 - m.cz) * m.sin(m.zy));
+                            final int i133 = m.cz + (int) ((m.ground - m.cy) * m.sin(m.zy) + (i124 - m.cz) * m.cos(m.zy));
                             if (ys(i132 + maxR, i133) > 0 && ys(i132 - maxR, i133) < m.h) {
                                 for (int i134 = 0; i134 < npl; i134++) {
                                     p[i134].s(graphics2d, x - m.x, y - m.y, z - m.z, xz, xy, zy, 1);
@@ -1398,8 +1368,7 @@ class ContO {
                     i126 = -1;
                 }
                 if (shadow) {
-                    dist = (int) Math.sqrt((m.x + m.cx - x) * (m.x + m.cx - x) + (m.z - z) * (m.z - z)
-                            + (m.y + m.cy - y) * (m.y + m.cy - y));
+                    dist = (int) Math.sqrt((m.x + m.cx - x) * (m.x + m.cx - x) + (m.z - z) * (m.z - z) + (m.y + m.cy - y) * (m.y + m.cy - y));
                     for (int i137 = 0; i137 < 20; i137++)
                         if (stg[i137] != 0) {
                             pdust(i137, graphics2d, true);
@@ -1417,8 +1386,7 @@ class ContO {
                         }
                     dsprk(graphics2d, false);
                 }
-                dist = (int) (Math.sqrt((int) Math.sqrt((m.x + m.cx - x) * (m.x + m.cx - x) + (m.z - z) * (m.z - z)
-                        + (m.y + m.cy - y) * (m.y + m.cy - y))) * grounded);
+                dist = (int) (Math.sqrt((int) Math.sqrt((m.x + m.cx - x) * (m.x + m.cx - x) + (m.z - z) * (m.z - z) + (m.y + m.cy - y) * (m.y + m.cy - y))) * grounded);
             }
         }
         if (shadow && dist == 0) {
@@ -1441,8 +1409,7 @@ class ContO {
             int i = (int) (Math.sqrt(rcx * rcx + rcy * rcy + rcz * rcz) / 10.0);
             if (i > 5) {
                 boolean bool240 = false;
-                if (dist < Math.sqrt((m.x + m.cx - srx) * (m.x + m.cx - srx) + (m.y + m.cy - sry) * (m.y + m.cy - sry)
-                        + (m.z - srz) * (m.z - srz))) {
+                if (dist < Math.sqrt((m.x + m.cx - srx) * (m.x + m.cx - srx) + (m.y + m.cy - sry) * (m.y + m.cy - sry) + (m.z - srz) * (m.z - srz))) {
                     bool240 = true;
                 }
                 if (i > 33) {
@@ -1506,12 +1473,9 @@ class ContO {
                 int i247 = m.cz + (int) ((rx[i] - m.x - m.cx) * m.sin(m.xz) + (rz[i] - m.z - m.cz) * m.cos(m.xz));
                 final int i248 = m.cy + (int) ((ry[i] - m.y - m.cy) * m.cos(m.zy) - (i247 - m.cz) * m.sin(m.zy));
                 i247 = m.cz + (int) ((ry[i] - m.y - m.cy) * m.sin(m.zy) + (i247 - m.cz) * m.cos(m.zy));
-                final int i249 = m.cx + (int) ((rx[i] - m.x - m.cx + vrx[i]) * m.cos(m.xz)
-                        - (rz[i] - m.z - m.cz + vrz[i]) * m.sin(m.xz));
-                int i250 = m.cz + (int) ((rx[i] - m.x - m.cx + vrx[i]) * m.sin(m.xz)
-                        + (rz[i] - m.z - m.cz + vrz[i]) * m.cos(m.xz));
-                final int i251 = m.cy
-                        + (int) ((ry[i] - m.y - m.cy + vry[i]) * m.cos(m.zy) - (i250 - m.cz) * m.sin(m.zy));
+                final int i249 = m.cx + (int) ((rx[i] - m.x - m.cx + vrx[i]) * m.cos(m.xz) - (rz[i] - m.z - m.cz + vrz[i]) * m.sin(m.xz));
+                int i250 = m.cz + (int) ((rx[i] - m.x - m.cx + vrx[i]) * m.sin(m.xz) + (rz[i] - m.z - m.cz + vrz[i]) * m.cos(m.xz));
+                final int i251 = m.cy + (int) ((ry[i] - m.y - m.cy + vry[i]) * m.cos(m.zy) - (i250 - m.cz) * m.sin(m.zy));
                 i250 = m.cz + (int) ((ry[i] - m.y - m.cy + vry[i]) * m.sin(m.zy) + (i250 - m.cz) * m.cos(m.zy));
                 final int i252 = xs(i246, i247);
                 final int i253 = ys(i248, i247);
@@ -1922,8 +1886,7 @@ class ContO {
     }
 
     public int getpy(final int i, final int i267, final int i268) {
-        return (i - x) / 10 * ((i - x) / 10) + (i267 - y) / 10 * ((i267 - y) / 10)
-                + (i268 - z) / 10 * ((i268 - z) / 10);
+        return (i - x) / 10 * ((i - x) / 10) + (i267 - y) / 10 * ((i267 - y) / 10) + (i268 - z) / 10 * ((i268 - z) / 10);
     }
 
     private int getvalue(final String string, final String string262, final int i) {
@@ -1989,24 +1952,17 @@ class ContO {
                 final int i157 = t.sect[i154][i155][i156];
                 int i158 = 0;
                 for (int i159 = 0; i159 < 4; i159++)
-                    if (Math.abs(t.zy[i157]) != 90 && Math.abs(t.xy[i157]) != 90 && t.rady[i157] != 801
-                            && Math.abs(is[i159] - (t.x[i157] - m.x)) < t.radx[i157]
-                            && Math.abs(is147[i159] - (t.z[i157] - m.z)) < t.radz[i157]
-                            && (!t.decor[i157] || m.resdown != 2)) {
+                    if (Math.abs(t.zy[i157]) != 90 && Math.abs(t.xy[i157]) != 90 && t.rady[i157] != 801 && Math.abs(is[i159] - (t.x[i157] - m.x)) < t.radx[i157] && Math.abs(is147[i159] - (t.z[i157] - m.z)) < t.radz[i157] && (!t.decor[i157] || m.resdown != 2)) {
                         i158++;
                     }
                 if (i158 > 2) {
                     for (int i160 = 0; i160 < 4; i160++) {
                         is146[i160] = t.y[i157] - m.y;
                         if (t.zy[i157] != 0) {
-                            is146[i160] += (is147[i160] - (t.z[i157] - m.z - t.radz[i157])) * m.sin(t.zy[i157])
-                                    / m.sin(90 - t.zy[i157])
-                                    - t.radz[i157] * m.sin(t.zy[i157]) / m.sin(90 - t.zy[i157]);
+                            is146[i160] += (is147[i160] - (t.z[i157] - m.z - t.radz[i157])) * m.sin(t.zy[i157]) / m.sin(90 - t.zy[i157]) - t.radz[i157] * m.sin(t.zy[i157]) / m.sin(90 - t.zy[i157]);
                         }
                         if (t.xy[i157] != 0) {
-                            is146[i160] += (is[i160] - (t.x[i157] - m.x - t.radx[i157])) * m.sin(t.xy[i157])
-                                    / m.sin(90 - t.xy[i157])
-                                    - t.radx[i157] * m.sin(t.xy[i157]) / m.sin(90 - t.xy[i157]);
+                            is146[i160] += (is[i160] - (t.x[i157] - m.x - t.radx[i157])) * m.sin(t.xy[i157]) / m.sin(90 - t.xy[i157]) - t.radx[i157] * m.sin(t.xy[i157]) / m.sin(90 - t.xy[i157]);
                         }
                     }
                     i150 = (int) (t.c[i157][0] / 1.5);
@@ -2056,8 +2012,7 @@ class ContO {
 
     private void pdust(final int i, final Graphics2D graphics2d, final boolean bool) {
         if (bool) {
-            sav[i] = (int) Math.sqrt((m.x + m.cx - sx[i]) * (m.x + m.cx - sx[i])
-                    + (m.y + m.cy - sy[i]) * (m.y + m.cy - sy[i]) + (m.z - sz[i]) * (m.z - sz[i]));
+            sav[i] = (int) Math.sqrt((m.x + m.cx - sx[i]) * (m.x + m.cx - sx[i]) + (m.y + m.cy - sy[i]) * (m.y + m.cy - sy[i]) + (m.z - sz[i]) * (m.z - sz[i]));
         }
         if (bool && sav[i] > dist || !bool && sav[i] <= dist) {
             if (stg[i] == 1) {
@@ -2089,9 +2044,7 @@ class ContO {
                 }
                 for (int i212 = 0; i212 < t.sect[i210][i211].length; i212++) {
                     final int i213 = t.sect[i210][i211][i212];
-                    if (Math.abs(t.zy[i213]) != 90 && Math.abs(t.xy[i213]) != 90
-                            && Math.abs(sx[i] - t.x[i213]) < t.radx[i213]
-                            && Math.abs(sz[i] - t.z[i213]) < t.radz[i213]) {
+                    if (Math.abs(t.zy[i213]) != 90 && Math.abs(t.xy[i213]) != 90 && Math.abs(sx[i] - t.x[i213]) < t.radx[i213] && Math.abs(sz[i] - t.z[i213]) < t.radz[i213]) {
                         if (t.skd[i213] == 0) {
                             sbln[i] = 0.2F;
                         }
@@ -2136,8 +2089,7 @@ class ContO {
             }
             final int i220 = m.cx + (int) ((sx[i] - m.x - m.cx) * m.cos(m.xz) - (sz[i] - m.z - m.cz) * m.sin(m.xz));
             int i221 = m.cz + (int) ((sx[i] - m.x - m.cx) * m.sin(m.xz) + (sz[i] - m.z - m.cz) * m.cos(m.xz));
-            final int i222 = m.cy
-                    + (int) ((sy[i] - m.y - m.cy - smag[i][7]) * m.cos(m.zy) - (i221 - m.cz) * m.sin(m.zy));
+            final int i222 = m.cy + (int) ((sy[i] - m.y - m.cy - smag[i][7]) * m.cos(m.zy) - (i221 - m.cz) * m.sin(m.zy));
             i221 = m.cz + (int) ((sy[i] - m.y - m.cy - smag[i][7]) * m.sin(m.zy) + (i221 - m.cz) * m.cos(m.zy));
             sx[i] += scx[i] / (stg[i] + 1);
             sz[i] += scz[i] / (stg[i] + 1);
