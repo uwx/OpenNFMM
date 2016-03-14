@@ -130,6 +130,34 @@ class GameSparker extends JPanel
     private int xm = 0;
     private int ym = 0;
 
+    //allan please remove this soon
+    private Date date;
+    private int clicknowtime;
+    private xtGraphics xtgraphics;
+    private ContO[] contos;
+    private ContO[] stageContos;
+    private Mad[] mads;
+    private Medium medium;
+    private Trackers trackers;
+    private CheckPoints checkpoints;
+    private CarDefine cardefine;
+    private Login login = null;
+    private Lobby lobby = null;
+    //private Globe globe = null;
+    private final UDPMistro udpmistro = new UDPMistro();
+    private boolean bool = false;
+    private Record record;
+    private int recordtime;
+    private int finishrecording;
+    private int wastedpoint;
+    private boolean flashingscreen;
+    private long l1;
+    private float f2;
+    private boolean bool3;
+    private int i4;
+    private int i5;
+    private float f;
+
     private void catchlink() {
         if (!lostfcs)
             if (xm > 65 && xm < 735 && ym > 135 && ym < 194 || xm > 275 && xm < 525 && ym > 265 && ym < 284) {
@@ -1703,34 +1731,6 @@ class GameSparker extends JPanel
         counter.start();*/
         //timer.setDelay(delay);
     }
-
-    //allan please remove this soon
-    private Date date;
-    private int clicknowtime;
-    private xtGraphics xtgraphics;
-    private ContO[] contos;
-    private ContO[] stageContos;
-    private Mad[] mads;
-    private Medium medium;
-    private Trackers trackers;
-    private CheckPoints checkpoints;
-    private CarDefine cardefine;
-    private Login login = null;
-    private Lobby lobby = null;
-    //private Globe globe = null;
-    private final UDPMistro udpmistro = new UDPMistro();
-    private boolean bool = false;
-    private Record record;
-    private int recordtime;
-    private int finishrecording;
-    private int wastedpoint;
-    private boolean flashingscreen;
-    private long l1;
-    private float f2;
-    private boolean bool3;
-    private int i4;
-    private int i5;
-    private float f;
 
     //@Override
     private void initialize() {
