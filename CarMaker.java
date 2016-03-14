@@ -3634,21 +3634,21 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                 try {
                                     final int i31 = fcol.indexOf(",", 0);
                                     final int i32 = fcol.indexOf(",", i31 + 1);
-                                    is29[0] = Integer.valueOf(fcol.substring(1, i31)).intValue();
+                                    is29[0] = Integer.parseInt(fcol.substring(1, i31));
                                     if (is29[0] < 0) {
                                         is29[0] = 0;
                                     }
                                     if (is29[0] > 255) {
                                         is29[0] = 255;
                                     }
-                                    is29[1] = Integer.valueOf(fcol.substring(i31 + 1, i32)).intValue();
+                                    is29[1] = Integer.parseInt(fcol.substring(i31 + 1, i32));
                                     if (is29[1] < 0) {
                                         is29[1] = 0;
                                     }
                                     if (is29[1] > 255) {
                                         is29[1] = 255;
                                     }
-                                    is29[2] = Integer.valueOf(fcol.substring(i32 + 1, fcol.length() - 1)).intValue();
+                                    is29[2] = Integer.parseInt(fcol.substring(i32 + 1, fcol.length() - 1));
                                     if (is29[2] < 0) {
                                         is29[2] = 0;
                                     }
@@ -3672,21 +3672,21 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                 try {
                                     final int i35 = scol.indexOf(",", 0);
                                     final int i36 = scol.indexOf(",", i35 + 1);
-                                    is33[0] = Integer.valueOf(scol.substring(1, i35)).intValue();
+                                    is33[0] = Integer.parseInt(scol.substring(1, i35));
                                     if (is33[0] < 0) {
                                         is33[0] = 0;
                                     }
                                     if (is33[0] > 255) {
                                         is33[0] = 255;
                                     }
-                                    is33[1] = Integer.valueOf(scol.substring(i35 + 1, i36)).intValue();
+                                    is33[1] = Integer.parseInt(scol.substring(i35 + 1, i36));
                                     if (is33[1] < 0) {
                                         is33[1] = 0;
                                     }
                                     if (is33[1] > 255) {
                                         is33[1] = 255;
                                     }
-                                    is33[2] = Integer.valueOf(scol.substring(i36 + 1, scol.length() - 1)).intValue();
+                                    is33[2] = Integer.parseInt(scol.substring(i36 + 1, scol.length() - 1));
                                     if (is33[2] < 0) {
                                         is33[2] = 0;
                                     }
@@ -3713,7 +3713,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         if (i37 != -1) {
                             i37++;
                             try {
-                                scale[0] = Integer.valueOf(editor.getText().substring(i37 + 7, editor.getText().indexOf(")", i37))).intValue();
+                                scale[0] = Integer.parseInt(editor.getText().substring(i37 + 7, editor.getText().indexOf(")", i37)));
                             } catch (final Exception exception) {
                                 scale[0] = 100;
                             }
@@ -3724,7 +3724,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         if (i37 != -1) {
                             i37++;
                             try {
-                                scale[1] = Integer.valueOf(editor.getText().substring(i37 + 7, editor.getText().indexOf(")", i37))).intValue();
+                                scale[1] = Integer.parseInt(editor.getText().substring(i37 + 7, editor.getText().indexOf(")", i37)));
                             } catch (final Exception exception) {
                                 scale[1] = 100;
                             }
@@ -3735,7 +3735,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         if (i37 != -1) {
                             i37++;
                             try {
-                                scale[2] = Integer.valueOf(editor.getText().substring(i37 + 7, editor.getText().indexOf(")", i37))).intValue();
+                                scale[2] = Integer.parseInt(editor.getText().substring(i37 + 7, editor.getText().indexOf(")", i37)));
                             } catch (final Exception exception) {
                                 scale[2] = 100;
                             }
@@ -5115,7 +5115,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                         }
                                         final ZipEntry zipentry = zipinputstream.getNextEntry();
                                         if (zipentry != null) {
-                                            int i160 = Integer.valueOf(zipentry.getName()).intValue();
+                                            int i160 = Integer.parseInt(zipentry.getName());
                                             final byte[] is161 = new byte[i160];
                                             int i162 = 0;
                                             int i163;
@@ -5351,7 +5351,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             if (string379.equals("")) {
                 string379 = "-1";
             }
-            i374 = Integer.valueOf(string379).intValue();
+            i374 = Integer.parseInt(string379);
         } catch (final Exception exception) {
 
         }

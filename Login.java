@@ -790,7 +790,7 @@ class Login implements Runnable {
             if (string73.equals("")) {
                 string73 = "-1";
             }
-            i68 = Integer.valueOf(string73).intValue();
+            i68 = Integer.parseInt(string73);
         } catch (final Exception exception) {
 
         }

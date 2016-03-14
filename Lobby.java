@@ -976,7 +976,7 @@ class Lobby implements Runnable {
             if (string346.equals("")) {
                 string346 = "-1";
             }
-            i341 = Integer.valueOf(string346).intValue();
+            i341 = Integer.parseInt(string346);
         } catch (final Exception exception) {
 
         }
@@ -1062,7 +1062,7 @@ class Lobby implements Runnable {
             if (string334.equals("")) {
                 string334 = "-1";
             }
-            i329 = Integer.valueOf(string334).intValue();
+            i329 = Integer.parseInt(string334);
         } catch (final Exception exception) {
 
         }

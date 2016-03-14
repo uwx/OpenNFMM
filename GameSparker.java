@@ -302,7 +302,7 @@ class GameSparker extends JPanel
                 string2 = string2 + string4.charAt(k);
             }
         }
-        return Integer.valueOf(string2).intValue();
+        return Integer.parseInt(string2);
     }
 
     private String getstring(final String string, final String string2, final int i) {
@@ -592,7 +592,7 @@ class GameSparker extends JPanel
                     zipinputstream = new ZipInputStream(new ByteArrayInputStream(is2));
                 }
                 final ZipEntry zipentry = zipinputstream.getNextEntry();
-                int n = Integer.valueOf(zipentry.getName()).intValue();
+                int n = Integer.parseInt(zipentry.getName());
                 final byte[] is2 = new byte[n];
                 int o = 0;
                 int p;
@@ -1010,7 +1010,7 @@ class GameSparker extends JPanel
                     zipinputstream = new ZipInputStream(new ByteArrayInputStream(is157));
                 }
                 final ZipEntry zipentry = zipinputstream.getNextEntry();
-                int i160 = Integer.valueOf(zipentry.getName()).intValue();
+                int i160 = Integer.parseInt(zipentry.getName());
                 final byte[] is161 = new byte[i160];
                 int i162 = 0;
                 int i163;

@@ -3664,7 +3664,7 @@ class xtGraphics extends Panel implements Runnable {
             if (string442.equals("")) {
                 string442 = "-1";
             }
-            i437 = Integer.valueOf(string442).intValue();
+            i437 = Integer.parseInt(string442);
         } catch (final Exception exception) {
 
         }

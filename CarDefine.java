@@ -15,7 +15,8 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-class CarDefine implements Runnable {
+final class CarDefine implements Runnable {
+
     private final Trackers t;
     private final GameSparker gs;
     private final ContO[] bco;
@@ -866,7 +867,7 @@ class CarDefine implements Runnable {
             if (string36.equals("")) {
                 string36 = "-1";
             }
-            i31 = Integer.valueOf(string36).intValue();
+            i31 = Integer.parseInt(string36);
         } catch (final Exception exception) {
 
         }
@@ -1442,7 +1443,7 @@ class CarDefine implements Runnable {
             }
             final ZipEntry zipentry = zipinputstream.getNextEntry();
             if (zipentry != null) {
-                int i57 = Integer.valueOf(zipentry.getName()).intValue();
+                int i57 = Integer.parseInt(zipentry.getName());
                 final byte[] is58 = new byte[i57];
                 int i59 = 0;
                 int i60;

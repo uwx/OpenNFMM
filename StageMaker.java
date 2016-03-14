@@ -1009,7 +1009,7 @@ public class StageMaker extends Applet implements Runnable {
                 string356 = "" + string356 + string354.charAt(i357);
             }
         }
-        return Integer.valueOf(string356).intValue();
+        return Integer.parseInt(string356);
     }
 
     private String getstring(final String string, final String string349, final int i) {
@@ -3361,7 +3361,7 @@ public class StageMaker extends Applet implements Runnable {
                         fixh.select(0, 0);
                     }
                     try {
-                        hf = Integer.valueOf(fixh.getText()).intValue();
+                        hf = Integer.parseInt(fixh.getText());
                         if (hf > 8000) {
                             hf = 8000;
                             fixh.setText("8000");
@@ -4221,7 +4221,7 @@ public class StageMaker extends Applet implements Runnable {
                     }
                     if (!mgen.getText().equals("" + m.mgen + "")) {
                         try {
-                            final int i107 = Integer.valueOf(mgen.getText()).intValue();
+                            final int i107 = Integer.parseInt(mgen.getText());
                             m.mgen = i107;
                             if (ttstage.equals("")) {
                                 ttstage = tstage;
@@ -4941,7 +4941,7 @@ public class StageMaker extends Applet implements Runnable {
                                         final ZipEntry zipentry = zipinputstream.getNextEntry();
                                         if (zipentry != null) {
                                             String string149 = "";
-                                            int i150 = Integer.valueOf(zipentry.getName()).intValue();
+                                            int i150 = Integer.parseInt(zipentry.getName());
                                             final byte[] is151 = new byte[i150];
                                             int i152 = 0;
                                             int i153;
@@ -5366,7 +5366,7 @@ public class StageMaker extends Applet implements Runnable {
             if (string364.equals("")) {
                 string364 = "-1";
             }
-            i359 = Integer.valueOf(string364).intValue();
+            i359 = Integer.parseInt(string364);
         } catch (final Exception exception) {
 
         }

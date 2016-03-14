@@ -113,7 +113,7 @@ class UDPMistro implements Runnable {
             if (string82.equals("")) {
                 string82 = "-1";
             }
-            i78 = Integer.valueOf(string82).intValue();
+            i78 = Integer.parseInt(string82);
         } catch (final Exception exception) {
 
         }

@@ -74,7 +74,7 @@ class udpServe implements Runnable {
             if (string23.equals("")) {
                 string23 = "-1";
             }
-            i18 = Integer.valueOf(string23).intValue();
+            i18 = Integer.parseInt(string23);
         } catch (final Exception exception) {
 
         }

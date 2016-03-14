@@ -1,5 +1,10 @@
 
-class Utility {
+final class Utility {
+
+    /**
+     * This is an utility class, so it can't be inherited.
+     */
+    private Utility() { }
 
     /**
      * Gets a value from a string in format:
@@ -56,7 +61,7 @@ class Utility {
             if (string442.equals("")) {
                 string442 = "-1";
             }
-            i437 = Integer.valueOf(string442).intValue();
+            i437 = Integer.parseInt(string442);
         } catch (final Exception exception) {
 
         }

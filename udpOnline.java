@@ -96,7 +96,7 @@ class udpOnline implements Runnable {
             if (string17.equals("")) {
                 string17 = "-1";
             }
-            i12 = Integer.valueOf(string17).intValue();
+            i12 = Integer.parseInt(string17);
         } catch (final Exception exception) {
 
         }
