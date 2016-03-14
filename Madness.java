@@ -1,7 +1,4 @@
-
-/* Madness - Decompiled by JODE
- * Visit http://jode.sourceforge.net/
- */
+/* Madness - Decompiled by JODE Visit http://jode.sourceforge.net/ */
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Dimension;
@@ -34,9 +31,6 @@ class Madness extends Panel {
     static boolean fullscreen = false;
     static boolean inisetup = false;
     private static GraphicsDevice myDevice;
-    /**
-     *
-     */
     private static final long serialVersionUID = 8881840450218558380L;
     private static StageMaker sm;
     static String testcar = "";
@@ -46,10 +40,7 @@ class Madness extends Panel {
     static String upfile = "";
 
     static void carmaker() {
-        /*try {
-        	applet.stop();
-        } catch (final Exception ex) {
-        }*/
+        /* try { applet.stop(); } catch (final Exception ex) { } */
         try {
             cm.stop();
         } catch (final Exception ex) {
@@ -62,12 +53,8 @@ class Madness extends Panel {
         try {
             Thread.sleep(400L);
         } catch (final Exception exception) {
-
         }
-        /*try {
-        	applet.destroy();
-        } catch (final Exception ex) {
-        }*/
+        /* try { applet.destroy(); } catch (final Exception ex) { } */
         try {
             cm.destroy();
         } catch (final Exception ex) {
@@ -93,7 +80,6 @@ class Madness extends Panel {
         try {
             Thread.sleep(400L);
         } catch (final Exception exception) {
-
         }
         cm = new CarMaker();
         frame.add("Center", cm);
@@ -123,13 +109,11 @@ class Madness extends Panel {
             try {
                 myDevice.setDisplayMode(defdisp);
             } catch (final Exception exception) {
-
             }
             if (myDevice.isDisplayChangeSupported()) {
                 try {
                     myDevice.setFullScreenWindow(null);
                 } catch (final Exception exception) {
-
                 }
             }
         }
@@ -143,10 +127,7 @@ class Madness extends Panel {
     private static void exitsequance() {
         if (updateon == 0 || updateon == 3) {
             //if (updateon != 3)
-            /*try {
-            	applet.stop();
-            } catch (final Exception ex) {
-            }*/
+            /* try { applet.stop(); } catch (final Exception ex) { } */
             try {
                 sm.stop();
             } catch (final Exception ex) {
@@ -159,12 +140,8 @@ class Madness extends Panel {
             try {
                 Thread.sleep(200L);
             } catch (final Exception exception) {
-
             }
-            /*try {
-            	applet.destroy();
-            } catch (final Exception ex) {
-            }*/
+            /* try { applet.destroy(); } catch (final Exception ex) { } */
             try {
                 cm.destroy();
             } catch (final Exception ex) {
@@ -190,10 +167,7 @@ class Madness extends Panel {
     }
 
     static void game() {
-        /*try {
-        	applet.stop();
-        } catch (final Exception ex) {
-        }*/
+        /* try { applet.stop(); } catch (final Exception ex) { } */
         try {
             cm.stop();
         } catch (final Exception ex) {
@@ -206,12 +180,8 @@ class Madness extends Panel {
         try {
             Thread.sleep(400L);
         } catch (final Exception exception) {
-
         }
-        /*try {
-        	applet.destroy();
-        } catch (final Exception ex) {
-        }*/
+        /* try { applet.destroy(); } catch (final Exception ex) { } */
         try {
             cm.destroy();
         } catch (final Exception ex) {
@@ -237,7 +207,6 @@ class Madness extends Panel {
         try {
             Thread.sleep(400L);
         } catch (final Exception exception) {
-
         }
         applet = new GameSparker();
         frame.add("Center", applet);
@@ -251,7 +220,7 @@ class Madness extends Panel {
         int i30 = 0;
         for (int i31 = string.length() + 1; i31 < string28.length() && i30 <= i; i31++) {
             final String string32 = "" + string28.charAt(i31);
-            if (string32.equals(",") || string32.equals(")")) {
+            if (",".equals(string32) || ")".equals(string32)) {
                 i30++;
             } else if (i30 == i) {
                 string29 = "" + string29 + string32;
@@ -268,7 +237,7 @@ class Madness extends Panel {
         final float f = (float) defdisp.getWidth() / (float) defdisp.getHeight();
         float f2 = -1.0F;
         int i3 = 0;
-        for (int i4 = 0; i4 < displaymodes.length; i4++)
+        for (int i4 = 0; i4 < displaymodes.length; i4++) {
             if (displaymodes[i4].getWidth() >= 800 && displaymodes[i4].getBitDepth() >= 16 && i3 < 100) {
                 if (displaymodes[i4].getWidth() < 900) {
                     float f5 = (float) displaymodes[i4].getWidth() / (float) displaymodes[i4].getHeight();
@@ -282,6 +251,7 @@ class Madness extends Panel {
                 is[i3] = i4;
                 i3++;
             }
+        }
         if (f2 != -1.0F) {
             final StringBuilder stringbuilder = new StringBuilder();
             final String[] strings6 = strings;
@@ -312,22 +282,24 @@ class Madness extends Panel {
                 bufferedreader.close();
             }
         } catch (final Exception exception) {
-
         }
         final String[] strings10 = new String[i3];
-        for (int i11 = 0; i11 < i3; i11++) {
-            strings10[i11] = strings[i11];
+        try {
+            System.arraycopy(strings, 0, strings10, 0, i3);
+        } catch (IndexOutOfBoundsException e) {
+            throw new ArrayIndexOutOfBoundsException(e.getMessage());
         }
         final String[] strings12 = strings10;
         final Object object = JOptionPane.showInputDialog(null, "Choose a screen resolution setting below and click OK to try it.\nExit Fullscreen by pressing [Esc].\n\nIMPORTANT: If the game does not display properly in Fullscreen press [Esc]      \nand try a different resolution setting below,", "Fullscreen Options", 1, null, strings12, strings12[i]);
         int i13 = -1;
         if (object != null) {
-            for (int i14 = 0; i14 < i3; i14++)
+            for (int i14 = 0; i14 < i3; i14++) {
                 if (object.equals(strings12[i14])) {
                     i13 = is[i14];
                     i = i14;
                     break;
                 }
+            }
         }
         if (i13 != -1) {
             try {
@@ -337,7 +309,6 @@ class Madness extends Panel {
                 bufferedwriter.newLine();
                 bufferedwriter.close();
             } catch (final Exception exception) {
-
             }
             fullscreen = true;
             frame.dispose();
@@ -353,13 +324,11 @@ class Madness extends Panel {
                 try {
                     myDevice.setFullScreenWindow(frame);
                 } catch (final Exception exception) {
-
                 }
                 if (myDevice.isDisplayChangeSupported()) {
                     try {
                         myDevice.setDisplayMode(displaymodes[i13]);
                     } catch (final Exception exception) {
-
                     }
                 }
             }
@@ -385,8 +354,8 @@ class Madness extends Panel {
                 fpath = "" + fpath + " " + string;
             }
         }
-        if (!fpath.equals(""))
-            if (fpath.equals("manar")) {
+        if (!"".equals(fpath)) {
+            if ("manar".equals(fpath)) {
                 fpath = "";
                 try {
                     final File file = new File("data/manar.ok");
@@ -397,7 +366,6 @@ class Madness extends Panel {
                         bufferedwriter.close();
                     }
                 } catch (final Exception exception) {
-
                 }
             } else {
                 final File file = new File("" + fpath + "data/models.zip");
@@ -405,6 +373,7 @@ class Madness extends Panel {
                     fpath = "";
                 }
             }
+        }
         frame.setIconImage(Toolkit.getDefaultToolkit().createImage("" + fpath + "data/icon.png"));
         applet = new GameSparker();
         frame.addWindowListener(new WindowAdapter() {
@@ -435,22 +404,17 @@ class Madness extends Panel {
             try {
                 Desktop.getDesktop().browse(new URI(string));
             } catch (final Exception exception) {
-
             }
         } else {
             try {
                 Runtime.getRuntime().exec("" + urlopen() + " " + string + "");
             } catch (final Exception exception) {
-
             }
         }
     }
 
     static void stagemaker() {
-        /*try {
-        	applet.stop();
-        } catch (final Exception ex) {
-        }*/
+        /* try { applet.stop(); } catch (final Exception ex) { } */
         try {
             cm.stop();
         } catch (final Exception ex) {
@@ -463,12 +427,8 @@ class Madness extends Panel {
         try {
             Thread.sleep(400L);
         } catch (final Exception exception) {
-
         }
-        /*try {
-        	applet.destroy();
-        } catch (final Exception ex) {
-        }*/
+        /* try { applet.destroy(); } catch (final Exception ex) { } */
         try {
             cm.destroy();
         } catch (final Exception ex) {
@@ -494,7 +454,6 @@ class Madness extends Panel {
         try {
             Thread.sleep(400L);
         } catch (final Exception exception) {
-
         }
         sm = new StageMaker();
         frame.add("Center", sm);
@@ -506,13 +465,12 @@ class Madness extends Panel {
     static String urlopen() {
         String string = "explorer";
         final String string27 = System.getProperty("os.name").toLowerCase();
-        if (string27.indexOf("linux") != -1 || string27.indexOf("unix") != -1 || string27.equals("aix")) {
+        if (string27.contains("linux") || string27.contains("unix") || "aix".equals(string27)) {
             string = "xdg-open";
         }
-        if (string27.indexOf("mac") != -1) {
+        if (string27.contains("mac")) {
             string = "open";
         }
         return string;
     }
-
 }

@@ -1,7 +1,4 @@
-/* Trackers - Decompiled by JODE extended
- * DragShot Software
- * JODE (c) 1998-2001 Jochen Hoenicke
- */
+/** Trackers - Decompiled by JODE extended DragShot Software JODE (c) 1998-2001 Jochen Hoenicke. */
 class Trackers {
     int[][] c = new int[95000][3];
     int[] dam = new int[95000];
@@ -50,26 +47,30 @@ class Trackers {
                     }
                 }
                 if (i3 == 0 || i4 == 0 || i3 == ncx - 1 || i4 == ncz - 1) {
-                    for (int i10 = 0; i10 < nt; i10++)
+                    for (int i10 = 0; i10 < nt; i10++) {
                         if (dam[i10] == 167) {
                             is[i7] = i10;
                             i7++;
                         }
+                    }
                 }
                 if (i7 == 0) {
                     is[i7] = 0;
                     i7++;
                 }
                 sect[i3][i4] = new int[i7];
-                for (int i11 = 0; i11 < i7; i11++) {
-                    sect[i3][i4][i11] = is[i11];
+                try {
+                    System.arraycopy(is, 0, sect[i3][i4], 0, i7);
+                } catch (IndexOutOfBoundsException e) {
+                    throw new ArrayIndexOutOfBoundsException(e.getMessage());
                 }
             }
         }
-        for (int i12 = 0; i12 < nt; i12++)
+        for (int i12 = 0; i12 < nt; i12++) {
             if (dam[i12] == 167) {
                 dam[i12] = 1;
             }
+        }
         ncx--;
         ncz--;
     }

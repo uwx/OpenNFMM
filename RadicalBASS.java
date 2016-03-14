@@ -1,4 +1,3 @@
-
 import static jouvieje.bass.Bass.BASS_ChannelPlay;
 import static jouvieje.bass.Bass.BASS_ChannelSetPosition;
 import static jouvieje.bass.Bass.BASS_ChannelSetSync;
@@ -29,17 +28,18 @@ import jouvieje.bass.structures.HSYNC;
 import jouvieje.bass.utils.Pointer;
 
 class RadicalBASS implements RadicalMusic {
-
     static boolean init = false;
     private boolean deinit = false;
 
-    //private final int WIDTH = 600; //Display width
-    //private final int HEIGHT = 201; //Height (odd number for centre line)
+    /**
+     *Private final int WIDTH = 600; //Display width
+     *private final int HEIGHT = 201; //Height (odd number for centre line).
+     */
 
     private int chan;
-    //private long bpp; //Bytes per pixel
-    private final long[] loop = new long[2]; //Loop start & end
-    //private HSYNC lsync; //Looping sync
+    /** Private long bpp; //Bytes per pixel Loop start & end. */
+    private final long[] loop = new long[2];
+    /** Private HSYNC lsync; //Looping sync. */
 
     private final SYNCPROC loopSyncProc = new SYNCPROC() {
         @Override
@@ -49,8 +49,7 @@ class RadicalBASS implements RadicalMusic {
             }
         }
     };
-    
-    /* display error messages */
+        /** Display error messages. */
     private final void error(final String text) {
         System.err.println("RadicalBASS error: " + text);
     }
@@ -62,8 +61,9 @@ class RadicalBASS implements RadicalMusic {
     }
 
     public void run() {
-        if (!init)
+        if (!init) {
             return;
+        }
 
         // check the correct BASS was loaded
         if ((BASS_GetVersion() & 0xFFFF0000) >> 16 != BassInit.BASSVERSION()) {
@@ -111,14 +111,15 @@ class RadicalBASS implements RadicalMusic {
     }
 
     public void end() {
-        if (!init || deinit)
+        if (!init || deinit) {
             return;
+        }
         deinit = true;
 
         BASS_Free();
     }
 
-    /* Graphical stuff */
+    /** Graphical stuff. */
 
     private final File file;
     private boolean started = false;
@@ -162,7 +163,6 @@ class RadicalBASS implements RadicalMusic {
         } else {
             resume();
         }
-
     }
 
     @Override
@@ -188,5 +188,4 @@ class RadicalBASS implements RadicalMusic {
         }
         return fileChooser;
     }*/
-
 }

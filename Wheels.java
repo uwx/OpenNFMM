@@ -1,6 +1,4 @@
-/* Wheels - Decompiled by JODE
- * Visit http://jode.sourceforge.net/
- */
+/** Wheels - Decompiled by JODE Visit http://jode.sourceforge.net/ */
 
 class Wheels {
     private float depth = 3.0F;

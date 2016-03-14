@@ -3,7 +3,6 @@ import java.io.IOException;
 import org.newdawn.easyogg.OggClip;
 
 class RadicalOgg implements RadicalMusic {
-
     private boolean paused;
     private OggClip ogg;
 
@@ -28,24 +27,18 @@ class RadicalOgg implements RadicalMusic {
 
     @Deprecated
     @Override
-    /**
-     * Resumes playback of the midi.
-     */
+    /** Resumes playback of the midi. */
     public void resume() {
         ogg.resume();
     }
 
-    /**
-     * Begins playing the midi.
-     */
+    /** Begins playing the midi. */
     @Override
     public void play() {
         ogg.loop();
     }
 
-    /**
-     * Sets the paused state. Music may not immediately pause.
-     */
+    /** Sets the paused state. Music may not immediately pause. */
     @Override
     public void setPaused(final boolean paused) {
         this.paused = paused;
@@ -56,26 +49,20 @@ class RadicalOgg implements RadicalMusic {
         }
     }
 
-    /**
-     * Returns the paused state.
-     */
+    /** Returns the paused state. */
     @Override
     public boolean isPaused() {
         return paused;
     }
 
-    /**
-     * Stops the midi sequencer.
-     */
+    /** Stops the midi sequencer. */
     @Override
     @Deprecated
     public void stop() {
         ogg.pause();
     }
 
-    /**
-     * Closes the midi sequencer.
-     */
+    /** Closes the midi sequencer. */
     @Override
     public void unload() {
         ogg.stop();

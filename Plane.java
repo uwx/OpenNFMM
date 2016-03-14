@@ -1,7 +1,4 @@
-
-/* Plane - Decompiled by JODE
- * Visit http://jode.sourceforge.net/
- */
+/* Plane - Decompiled by JODE Visit http://jode.sourceforge.net/ */
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -83,8 +80,10 @@ class Plane implements Comparable<Plane> {
             oy[i13] = is1[i13];
             oz[i13] = is0[i13];
         }
-        for (int i14 = 0; i14 < 3; i14++) {
-            oc[i14] = is2[i14];
+        try {
+            System.arraycopy(is2, 0, oc, 0, 3);
+        } catch (IndexOutOfBoundsException e) {
+            throw new ArrayIndexOutOfBoundsException(e.getMessage());
         }
         if (i4 == -15) {
             if (is2[0] == 211) {
@@ -139,8 +138,10 @@ class Plane implements Comparable<Plane> {
             }
         }
         if (i3 == 3) {
-            for (int i23 = 0; i23 < 3; i23++) {
-                c[i23] = is2[i23];
+            try {
+                System.arraycopy(is2, 0, c, 0, 3);
+            } catch (IndexOutOfBoundsException e) {
+                throw new ArrayIndexOutOfBoundsException(e.getMessage());
             }
         }
         disline = i9;
@@ -188,12 +189,13 @@ class Plane implements Comparable<Plane> {
     }
 
     void d(final Graphics2D graphics2d, final int i, final int i29, final int i30, final int i31, final int i32, final int i33, final int i34, final int i35, boolean bool, final int i36) {
-        if (master == 1)
+        if (master == 1) {
             if (av > 1500 && !m.crs) {
                 n = 12;
             } else {
                 n = 20;
             }
+        }
         final int[] is = new int[n];
         final int[] is37 = new int[n];
         final int[] is38 = new int[n];
@@ -268,7 +270,6 @@ class Plane implements Comparable<Plane> {
             if (embos == 16) {
                 pa = (int) (m.random() * n);
                 for (pb = (int) (m.random() * n); pa == pb; pb = (int) (m.random() * n)) {
-
                 }
             }
             if (embos >= 16) {
@@ -276,7 +277,6 @@ class Plane implements Comparable<Plane> {
                 int i46 = 1;
                 int i47;
                 for (i47 = Math.abs(i33); i47 > 270; i47 -= 360) {
-
                 }
                 i47 = Math.abs(i47);
                 if (i47 > 90) {
@@ -284,7 +284,6 @@ class Plane implements Comparable<Plane> {
                 }
                 int i48;
                 for (i48 = Math.abs(i32); i48 > 270; i48 -= 360) {
-
                 }
                 i48 = Math.abs(i48);
                 if (i48 > 90) {
@@ -298,18 +297,20 @@ class Plane implements Comparable<Plane> {
                 is[1] = ox[pb] + i;
                 is38[1] = oy[pb] + i29;
                 is37[1] = oz[pb] + i30;
-                while (Math.abs(is[0] - is[1]) > 100)
+                while (Math.abs(is[0] - is[1]) > 100) {
                     if (is[1] > is[0]) {
                         is[1] -= 30;
                     } else {
                         is[1] += 30;
                     }
-                while (Math.abs(is37[0] - is37[1]) > 100)
+                }
+                while (Math.abs(is37[0] - is37[1]) > 100) {
                     if (is37[1] > is37[0]) {
                         is37[1] -= 30;
                     } else {
                         is37[1] += 30;
                     }
+                }
                 final int i51 = (int) (Math.abs(is[0] - is[1]) / 3 * (0.5 - m.random()));
                 final int i52 = (int) (Math.abs(is37[0] - is37[1]) / 3 * (0.5 - m.random()));
                 is[2] = (is[0] + is[1]) / 2 + i51;
@@ -354,18 +355,20 @@ class Plane implements Comparable<Plane> {
                 is[1] = ox[pb] + i;
                 is38[1] = oy[pb] + i29;
                 is37[1] = oz[pb] + i30;
-                while (Math.abs(is[0] - is[1]) > 100)
+                while (Math.abs(is[0] - is[1]) > 100) {
                     if (is[1] > is[0]) {
                         is[1] -= 30;
                     } else {
                         is[1] += 30;
                     }
-                while (Math.abs(is37[0] - is37[1]) > 100)
+                }
+                while (Math.abs(is37[0] - is37[1]) > 100) {
                     if (is37[1] > is37[0]) {
                         is37[1] -= 30;
                     } else {
                         is37[1] += 30;
                     }
+                }
                 is[2] = (is[0] + is[1]) / 2 + i51;
                 is37[2] = (is37[0] + is37[1]) / 2 + i52;
                 i53 *= 0.8;
@@ -530,10 +533,11 @@ class Plane implements Comparable<Plane> {
         if ((i32 != 0 || i33 != 0 || i31 != 0) && m.trk != 2) {
             projf = 1.0F;
             for (int i70 = 0; i70 < 3; i70++) {
-                for (int i71 = 0; i71 < 3; i71++)
+                for (int i71 = 0; i71 < 3; i71++) {
                     if (i71 != i70) {
                         projf *= (float) (Math.sqrt((is[i70] - is[i71]) * (is[i70] - is[i71]) + (is37[i70] - is37[i71]) * (is37[i70] - is37[i71])) / 100.0);
                     }
+                }
             }
             projf = projf / 3.0F;
         }
@@ -549,12 +553,13 @@ class Plane implements Comparable<Plane> {
         int i77 = 0;
         int i78 = 1;
         for (int i79 = 0; i79 < n; i79++) {
-            for (int i80 = i79; i80 < n; i80++)
+            for (int i80 = i79; i80 < n; i80++) {
                 if (i79 != i80 && Math.abs(is73[i79] - is73[i80]) - Math.abs(is74[i79] - is74[i80]) < i75) {
                     i78 = i79;
                     i77 = i80;
                     i75 = Math.abs(is73[i79] - is73[i80]) - Math.abs(is74[i79] - is74[i80]);
                 }
+            }
         }
         if (is74[i77] < is74[i78]) {
             final int i81 = i77;
@@ -564,12 +569,13 @@ class Plane implements Comparable<Plane> {
         if (spy(is[i77], is37[i77]) > spy(is[i78], is37[i78])) {
             bool72 = true;
             int i82 = 0;
-            for (int i83 = 0; i83 < n; i83++)
+            for (int i83 = 0; i83 < n; i83++) {
                 if (is37[i83] < 50 && is38[i83] > m.cy) {
                     bool72 = false;
                 } else if (is38[i83] == is38[0]) {
                     i82++;
                 }
+            }
             if (i82 == n && is38[0] > m.cy) {
                 bool72 = false;
             }
@@ -618,7 +624,7 @@ class Plane implements Comparable<Plane> {
             int i93 = 0;
             int i94 = 0;
             for (int i95 = 0; i95 < n; i95++) {
-                for (int i96 = i95; i96 < n; i96++)
+                for (int i96 = i95; i96 < n; i96++) {
                     if (i95 != i96) {
                         if (Math.abs(is85[i95] - is85[i96]) > i93) {
                             i93 = Math.abs(is85[i95] - is85[i96]);
@@ -627,6 +633,7 @@ class Plane implements Comparable<Plane> {
                             i94 = Math.abs(is86[i95] - is86[i96]);
                         }
                     }
+                }
             }
             if (i93 == 0 || i94 == 0) {
                 bool84 = false;
@@ -776,19 +783,21 @@ class Plane implements Comparable<Plane> {
                 }
                 if (gr == -11 || gr == -12) {
                     f = 0.6F;
-                    if (i36 == -1)
+                    if (i36 == -1) {
                         if (m.cpflik || m.nochekflk && !m.lastcheck) {
                             f = 1.0F;
                         } else {
                             f = 0.76F;
                         }
+                    }
                 }
-                if (gr == -13 && i36 == -1)
+                if (gr == -13 && i36 == -1) {
                     if (m.cpflik) {
                         f = 0.0F;
                     } else {
                         f = 0.76F;
                     }
+                }
                 if (gr == -6) {
                     f = 0.62F;
                 }
@@ -850,12 +859,13 @@ class Plane implements Comparable<Plane> {
                 }
             }
             if (m.trk == 0) {
-                for (int i117 = 0; i117 < 16; i117++)
+                for (int i117 = 0; i117 < 16; i117++) {
                     if (av > m.fade[i117]) {
                         i114 = (i114 * m.fogd + m.cfade[0]) / (m.fogd + 1);
                         i115 = (i115 * m.fogd + m.cfade[1]) / (m.fogd + 1);
                         i116 = (i116 * m.fogd + m.cfade[2]) / (m.fogd + 1);
                     }
+                }
             }
             graphics2d.setColor(new Color(i114, i115, i116));
             graphics2d.fillPolygon(is85, is86, n);
@@ -978,7 +988,7 @@ class Plane implements Comparable<Plane> {
                 graphics2d.setColor(new Color(i114, i115, i116));
                 graphics2d.drawPolygon(is85, is86, n);
             }
-            if (gr == -10)
+            if (gr == -10) {
                 if (m.trk == 0) {
                     i114 = c[0];
                     i115 = c[1];
@@ -997,12 +1007,13 @@ class Plane implements Comparable<Plane> {
                             i116 = 255;
                         }
                     }
-                    for (int i118 = 0; i118 < 16; i118++)
+                    for (int i118 = 0; i118 < 16; i118++) {
                         if (av > m.fade[i118]) {
                             i114 = (i114 * m.fogd + m.cfade[0]) / (m.fogd + 1);
                             i115 = (i115 * m.fogd + m.cfade[1]) / (m.fogd + 1);
                             i116 = (i116 * m.fogd + m.cfade[2]) / (m.fogd + 1);
                         }
+                    }
                     graphics2d.setColor(new Color(i114, i115, i116));
                     graphics2d.drawPolygon(is85, is86, n);
                 } else if (m.cpflik && m.hit == 5000) {
@@ -1031,6 +1042,7 @@ class Plane implements Comparable<Plane> {
                     graphics2d.setColor(new Color(i114, i115, i116));
                     graphics2d.drawPolygon(is85, is86, n);
                 }
+            }
             if (gr == -18 && m.trk == 0) {
                 i114 = c[0];
                 i115 = c[1];
@@ -1046,12 +1058,13 @@ class Plane implements Comparable<Plane> {
                     }
                     i116 = 255;
                 }
-                for (int i119 = 0; i119 < 16; i119++)
+                for (int i119 = 0; i119 < 16; i119++) {
                     if (av > m.fade[i119]) {
                         i114 = (i114 * m.fogd + m.cfade[0]) / (m.fogd + 1);
                         i115 = (i115 * m.fogd + m.cfade[1]) / (m.fogd + 1);
                         i116 = (i116 * m.fogd + m.cfade[2]) / (m.fogd + 1);
                     }
+                }
                 graphics2d.setColor(new Color(i114, i115, i116));
                 graphics2d.drawPolygon(is85, is86, n);
             }
@@ -1073,10 +1086,11 @@ class Plane implements Comparable<Plane> {
         }
         deltaf = 1.0F;
         for (int i26 = 0; i26 < 3; i26++) {
-            for (int i27 = 0; i27 < 3; i27++)
+            for (int i27 = 0; i27 < 3; i27++) {
                 if (i27 != i26) {
                     deltaf *= (float) (Math.sqrt((ox[i27] - ox[i26]) * (ox[i27] - ox[i26]) + (oy[i27] - oy[i26]) * (oy[i27] - oy[i26]) + (oz[i27] - oz[i26]) * (oz[i27] - oz[i26])) / 100.0);
                 }
+            }
         }
         deltaf = deltaf / 3.0F;
     }
@@ -1084,10 +1098,11 @@ class Plane implements Comparable<Plane> {
     void loadprojf() {
         projf = 1.0F;
         for (int i = 0; i < 3; i++) {
-            for (int i28 = 0; i28 < 3; i28++)
+            for (int i28 = 0; i28 < 3; i28++) {
                 if (i28 != i) {
                     projf *= (float) (Math.sqrt((ox[i] - ox[i28]) * (ox[i] - ox[i28]) + (oz[i] - oz[i28]) * (oz[i] - oz[i28])) / 100.0);
                 }
+            }
         }
         projf = projf / 3.0F;
     }
@@ -1206,10 +1221,11 @@ class Plane implements Comparable<Plane> {
             i131 = 57;
         } else {
             for (int i153 = 0; i153 < m.nsp; i153++) {
-                for (int i154 = 0; i154 < n; i154++)
+                for (int i154 = 0; i154 < n; i154++) {
                     if (Math.abs(is[i154] - m.spx[i153]) < m.sprad[i153] && Math.abs(is126[i154] - m.spz[i153]) < m.sprad[i153]) {
                         bool = false;
                     }
+                }
             }
         }
         if (bool) {
@@ -1240,12 +1256,13 @@ class Plane implements Comparable<Plane> {
             }
         }
         if (bool) {
-            for (int i160 = 0; i160 < 16; i160++)
+            for (int i160 = 0; i160 < 16; i160++) {
                 if (av > m.fade[i160]) {
                     i129 = (i129 * m.fogd + m.cfade[0]) / (m.fogd + 1);
                     i130 = (i130 * m.fogd + m.cfade[1]) / (m.fogd + 1);
                     i131 = (i131 * m.fogd + m.cfade[2]) / (m.fogd + 1);
                 }
+            }
             graphics2d.setColor(new Color(i129, i130, i131));
             graphics2d.fillPolygon(is151, is152, n);
         }
@@ -1272,10 +1289,11 @@ class Plane implements Comparable<Plane> {
     @Override
     public int compareTo(final Plane o) {
         if (av != o.av) {
-            if (av < o.av)
+            if (av < o.av) {
                 return 1;
-            else
+            } else {
                 return -1;
+            }
         }
         return 0;
     }

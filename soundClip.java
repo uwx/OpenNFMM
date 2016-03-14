@@ -1,8 +1,4 @@
-
-/* soundClip - Decompiled by JODE extended
- * DragShot Software
- * JODE (c) 1998-2001 Jochen Hoenicke
- */
+/* soundClip - Decompiled by JODE extended DragShot Software JODE (c) 1998-2001 Jochen Hoenicke */
 import java.io.ByteArrayInputStream;
 
 import javax.sound.sampled.AudioInputStream;
@@ -32,7 +28,7 @@ class soundClip {
     }
 
     void checkopen() {
-        if (loaded && clip.isOpen() && lfrpo != -2)
+        if (loaded && clip.isOpen() && lfrpo != -2) {
             if (cntcheck == 0) {
                 final int i = clip.getFramePosition();
                 if (lfrpo == i && !clip.isRunning()) {
@@ -40,7 +36,6 @@ class soundClip {
                         clip.close();
                         sound.reset();
                     } catch (final Exception exception) {
-
                     }
                     lfrpo = -1;
                 } else {
@@ -49,6 +44,7 @@ class soundClip {
             } else {
                 cntcheck--;
             }
+        }
     }
 
     void loop() {
@@ -57,7 +53,6 @@ class soundClip {
                 try {
                     clip.open(sound);
                 } catch (final Exception exception) {
-
                 }
             }
             clip.loop(70);
@@ -72,7 +67,6 @@ class soundClip {
                 try {
                     clip.open(sound);
                 } catch (final Exception exception) {
-
                 }
                 clip.loop(0);
             } else {

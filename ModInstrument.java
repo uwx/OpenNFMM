@@ -1,7 +1,4 @@
-/* ModInstrument - Decompiled by JODE extended
- * DragShot Software
- * JODE (c) 1998-2001 Jochen Hoenicke
- */
+/** ModInstrument - Decompiled by JODE extended DragShot Software JODE (c) 1998-2001 Jochen Hoenicke. */
 class ModInstrument {
     int finetuneRate;
     int finetuneValue;

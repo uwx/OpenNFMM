@@ -1,7 +1,4 @@
-
-/* MouseHandler - Decompiled by JODE
- * Visit http://jode.sourceforge.net/
- */
+/* MouseHandler - Decompiled by JODE Visit http://jode.sourceforge.net/ */
 import java.awt.PopupMenu;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

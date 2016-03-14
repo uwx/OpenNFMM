@@ -1,7 +1,4 @@
-
-/* Medium - Decompiled by JODE
- * Visit http://jode.sourceforge.net/
- */
+/* Medium - Decompiled by JODE Visit http://jode.sourceforge.net/ */
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.Random;
@@ -162,7 +159,7 @@ class Medium {
     }
 
     void adjstfade(final float f, final float f271, final int i, final GameSparker gamesparker) {
-        if (resdown != 2)
+        if (resdown != 2) {
             if (f == 5.0F) {
                 if (resdown == 0 && rescnt == 0) {
                     gamesparker.moto = 0;
@@ -183,6 +180,7 @@ class Medium {
             } else {
                 rescnt = 10;
             }
+        }
     }
 
     void around(final ContO conto, final boolean bool) {
@@ -303,8 +301,6 @@ class Medium {
             vxz -= 360;
         }
         xz = -vxz - 90;
-        if (-y - cy < 0) {
-        }
         Math.sqrt((trz - z + cz) * (trz - z + cz) + (trx - x - cx) * (trx - x - cx));
         if (cpflik) {
             cpflik = false;
@@ -314,11 +310,9 @@ class Medium {
     }
 
     float cos(int i) {
-        for (/**/; i >= 360; i -= 360) {
-
+        for (; i >= 360; i -= 360) {
         }
-        for (/**/; i < 0; i += 360) {
-
+        for (; i < 0; i += 360) {
         }
         return tcos[i];
     }
@@ -645,12 +639,13 @@ class Medium {
                             int i134 = clc[i][1][i122 / 2][0];
                             int i135 = clc[i][1][i122 / 2][1];
                             int i136 = clc[i][1][i122 / 2][2];
-                            for (int i137 = 0; i137 < 16; i137++)
+                            for (int i137 = 0; i137 < 16; i137++) {
                                 if (i133 > fade[i137]) {
                                     i134 = (i134 * fogd + cfade[0]) / (fogd + 1);
                                     i135 = (i135 * fogd + cfade[1]) / (fogd + 1);
                                     i136 = (i136 * fogd + cfade[2]) / (fogd + 1);
                                 }
+                            }
                             graphics2d.setColor(new Color(i134, i135, i136));
                             graphics2d.fillPolygon(is111, is112, 6);
                         }
@@ -731,12 +726,13 @@ class Medium {
                             int i150 = clc[i][0][i138 / 2][0];
                             int i151 = clc[i][0][i138 / 2][1];
                             int i152 = clc[i][0][i138 / 2][2];
-                            for (int i153 = 0; i153 < 16; i153++)
+                            for (int i153 = 0; i153 < 16; i153++) {
                                 if (i149 > fade[i153]) {
                                     i150 = (i150 * fogd + cfade[0]) / (fogd + 1);
                                     i151 = (i151 * fogd + cfade[1]) / (fogd + 1);
                                     i152 = (i152 * fogd + cfade[2]) / (fogd + 1);
                                 }
+                            }
                             graphics2d.setColor(new Color(i150, i151, i152));
                             graphics2d.fillPolygon(is111, is112, 6);
                         }
@@ -781,12 +777,13 @@ class Medium {
                         int i163 = clds[0];
                         int i164 = clds[1];
                         int i165 = clds[2];
-                        for (int i166 = 0; i166 < 16; i166++)
+                        for (int i166 = 0; i166 < 16; i166++) {
                             if (i162 > fade[i166]) {
                                 i163 = (i163 * fogd + cfade[0]) / (fogd + 1);
                                 i164 = (i164 * fogd + cfade[1]) / (fogd + 1);
                                 i165 = (i165 * fogd + cfade[2]) / (fogd + 1);
                             }
+                        }
                         graphics2d.setColor(new Color(i163, i164, i165));
                         graphics2d.fillPolygon(is111, is112, 12);
                     }
@@ -1031,7 +1028,6 @@ class Medium {
             fvect += 2;
         }
         for (vxz += 2; vxz > 360; vxz -= 360) {
-
         }
         int i12 = -vxz + 90;
         int i13 = 0;
@@ -1052,17 +1048,13 @@ class Medium {
         if (i16 != 0) {
             i17 = (int) (90 + i13 - Math.atan((double) i16 / (double) (conto.y - i15 - cy)) / 0.017453292519943295);
         }
-        for (/**/; i12 < 0; i12 += 360) {
-
+        for (; i12 < 0; i12 += 360) {
         }
-        for (/**/; i12 > 360; i12 -= 360) {
-
+        for (; i12 > 360; i12 -= 360) {
         }
-        for (/**/; i14 < 0; i14 += 360) {
-
+        for (; i14 < 0; i14 += 360) {
         }
-        for (/**/; i14 > 360; i14 -= 360) {
-
+        for (; i14 > 360; i14 -= 360) {
         }
         if ((Math.abs(i12 - i14) < 30 || Math.abs(i12 - i14) > 330) && i11 == 3) {
             if (Math.abs(i12 - xz) > 7 && Math.abs(i12 - xz) < 353) {
@@ -1265,7 +1257,7 @@ class Medium {
             }
         }
         for (int i71 = i; i71 < i48; i71++) {
-            for (int i72 = i49; i72 < i50; i72++)
+            for (int i72 = i49; i72 < i50; i72++) {
                 if (is[i71 - i][i72 - i49] != 0) {
                     final int i73 = i71 + i72 * nrw;
                     final int[] is74 = new int[8];
@@ -1322,6 +1314,7 @@ class Medium {
                         graphics2d.fillPolygon(is78, is79, 8);
                     }
                 }
+            }
         }
     }
 
@@ -1545,12 +1538,13 @@ class Medium {
             is173[i174] = 0;
         }
         for (int i183 = 0; i183 < nmt; i183++) {
-            for (int i184 = i183 + 1; i184 < nmt; i184++)
+            for (int i184 = i183 + 1; i184 < nmt; i184++) {
                 if (is[i183] < is[i184]) {
                     is173[i183]++;
                 } else {
                     is173[i184]++;
                 }
+            }
             mrd[is173[i183]] = i183;
         }
     }
@@ -1581,19 +1575,18 @@ class Medium {
             cgpx[i41] = sgpx + i39 * 1200 + (int) (random.nextDouble() * 1000.0 - 500.0);
             cgpz[i41] = sgpz + i40 * 1200 + (int) (random.nextDouble() * 1000.0 - 500.0);
             if (trackers != null) {
-                for (int i42 = 0; i42 < trackers.nt; i42++)
+                for (int i42 = 0; i42 < trackers.nt; i42++) {
                     if (trackers.zy[i42] == 0 && trackers.xy[i42] == 0) {
                         if (trackers.radx[i42] < trackers.radz[i42] && Math.abs(cgpz[i41] - trackers.z[i42]) < trackers.radz[i42]) {
-                            for (/**/; Math.abs(cgpx[i41] - trackers.x[i42]) < trackers.radx[i42]; cgpx[i41] += random.nextDouble() * trackers.radx[i42] * 2.0 - trackers.radx[i42]) {
-
+                            for (; Math.abs(cgpx[i41] - trackers.x[i42]) < trackers.radx[i42]; cgpx[i41] += random.nextDouble() * trackers.radx[i42] * 2.0 - trackers.radx[i42]) {
                             }
                         }
                         if (trackers.radz[i42] < trackers.radx[i42] && Math.abs(cgpx[i41] - trackers.x[i42]) < trackers.radx[i42]) {
-                            for (/**/; Math.abs(cgpz[i41] - trackers.z[i42]) < trackers.radz[i42]; cgpz[i41] += random.nextDouble() * trackers.radz[i42] * 2.0 - trackers.radz[i42]) {
-
+                            for (; Math.abs(cgpz[i41] - trackers.z[i42]) < trackers.radz[i42]; cgpz[i41] += random.nextDouble() * trackers.radz[i42] * 2.0 - trackers.radz[i42]) {
                             }
                         }
                     }
+                }
             }
             if (++i39 == nrw) {
                 i39 = 0;
@@ -1715,7 +1708,7 @@ class Medium {
         } else {
             cntrn--;
         }
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++) {
             if (diup[i]) {
                 rand[i]++;
                 if (rand[i] == 10) {
@@ -1727,6 +1720,7 @@ class Medium {
                     rand[i] = 9;
                 }
             }
+        }
         trn++;
         if (trn == 3) {
             trn = 0;
@@ -1957,11 +1951,9 @@ class Medium {
     }
 
     float sin(int i) {
-        for (/**/; i >= 360; i -= 360) {
-
+        for (; i >= 360; i -= 360) {
         }
-        for (/**/; i < 0; i += 360) {
-
+        for (; i < 0; i += 360) {
         }
         return tsin[i];
     }
@@ -2024,11 +2016,9 @@ class Medium {
         }
         final int i2 = (int) Math.sqrt((conto.z - z) * (conto.z - z) + (conto.x - x - cx) * (conto.x - x - cx));
         final int i3 = (int) (90 + i0 - Math.atan((double) i2 / (double) (conto.y - y - cy)) / 0.017453292519943295);
-        for (/**/; i1 < 0; i1 += 360) {
-
+        for (; i1 < 0; i1 += 360) {
         }
-        for (/**/; i1 > 360; i1 -= 360) {
-
+        for (; i1 > 360; i1 -= 360) {
         }
         xz = i1;
         zy += (i3 - zy) / 5;
