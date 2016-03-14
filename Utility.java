@@ -1,9 +1,5 @@
-
 final class Utility {
-
-    /**
-     * This is an utility class, so it can't be inherited.
-     */
+    /** This is an utility class, so it can't be inherited. */
     private Utility() { }
 
     /**
@@ -21,12 +17,12 @@ final class Utility {
         String string264 = "";
         for (int i265 = string.length() + 1; i265 < string262.length(); i265++) {
             final String string266 = "" + string262.charAt(i265);
-            if (string266.equals(",") || string266.equals(")")) {
+            if (",".equals(string266) || ")".equals(string266)) {
                 i263++;
                 i265++;
             }
             if (i263 == i) {
-                string264 = "" + string264 + string262.charAt(i265);
+                string264 = string264 + string262.charAt(i265);
             }
         }
         return Float.valueOf(string264).intValue();
@@ -48,22 +44,21 @@ final class Utility {
             String string442 = "";
             for (; i438 < string.length() && i440 != 2; i438++) {
                 string441 = "" + string.charAt(i438);
-                if (string441.equals("|")) {
+                if ("|".equals(string441)) {
                     i439++;
                     if (i440 == 1 || i439 > i) {
                         i440 = 2;
                     }
                 } else if (i439 == i) {
-                    string442 = "" + string442 + string441;
+                    string442 = string442 + string441;
                     i440 = 1;
                 }
             }
-            if (string442.equals("")) {
+            if ("".equals(string442)) {
                 string442 = "-1";
             }
             i437 = Integer.parseInt(string442);
         } catch (final Exception exception) {
-
         }
         return i437;
     }
@@ -102,7 +97,7 @@ final class Utility {
         return (i339 - m.focusPoint) * (m.cy - i) / i339 + i;
     }
 
-    // alt
+    /** Alt. */
 
     static int altXs(final int i, int i260, final Medium m) {
         if (i260 < 50) {
@@ -120,7 +115,7 @@ final class Utility {
 
     // medium
 
-    /*static public int mediumXs(final int i, int i272) {
+    /**Static public int mediumXs(final int i, int i272) {
     	if (i272 < m.cz)
     		i272 = m.cz;
     	return (i272 - m.focusPoint) * (m.cx - i) / i272 + i;

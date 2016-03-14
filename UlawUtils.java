@@ -1,6 +1,4 @@
-/* UlawUtils - Decompiled by JODE
- * Visit http://jode.sourceforge.net/
- */
+/** UlawUtils - Decompiled by JODE Visit http://jode.sourceforge.net/ */
 
 final class UlawUtils {
     private static final byte[] s2uLut = {
@@ -365,26 +363,24 @@ final class UlawUtils {
             125, 126
     };
 
-    /**
-     * This is an utility class, so it can't be inherited.
-     */
+    /** This is an utility class, so it can't be inherited. */
     private UlawUtils() { }
 
-    public static final byte linear2ulaw(final byte i) {
+    public static byte linear2ulaw(final byte i) {
         return s2uLut[((i & 0xff) << 5) + 15];
     }
 
-    public static final byte linear2ulaw(final int i) {
+    public static byte linear2ulaw(final int i) {
         return s2uLut[i >> 3];
     }
 
-    static final byte linear2ulawclip(int i) {
+    static byte linear2ulawclip(int i) {
         if (i < -32767) {
             i = -32767;
         }
         if (i > 32767) {
             i = 32767;
         }
-        return s2uLut[i >> 3 & 0x1fff];
+        return s2uLut[(i >> 3) & 0x1fff];
     }
 }

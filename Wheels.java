@@ -1,16 +1,14 @@
-/* Wheels - Decompiled by JODE
- * Visit http://jode.sourceforge.net/
- */
+/** Wheels - Decompiled by JODE Visit http://jode.sourceforge.net/ */
 
 class Wheels {
     private float depth = 3.0F;
-    int ground = 0;
-    int mast = 0;
+    int ground;
+    int mast;
     private final int[] rc = {
             120, 120, 120
     };
     private float size = 2.0F;
-    int sparkat = 0;
+    int sparkat;
 
     public Wheels() {
         sparkat = 0;

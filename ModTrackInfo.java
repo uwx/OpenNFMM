@@ -1,7 +1,4 @@
-/* ModTrackInfo - Decompiled by JODE extended
- * DragShot Software
- * JODE (c) 1998-2001 Jochen Hoenicke
- */
+/** ModTrackInfo - Decompiled by JODE extended DragShot Software JODE (c) 1998-2001 Jochen Hoenicke. */
 class ModTrackInfo {
     int[] arp;
     int arpindex;

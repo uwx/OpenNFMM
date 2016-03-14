@@ -1,4 +1,3 @@
-
 // Credits to DragShot
 // for his shit
 
@@ -47,7 +46,7 @@ class RadicalMod implements RadicalMusic {
             }
             if (module.isLoaded()) {
                 name = module.getName();
-                if (name.trim().equals("")) {
+                if ("".equals(name.trim())) {
                     name = "Untitled";
                 }
                 final ModuleSlayer moduleslayer = ModuleLoader.prepareSlayer(module, i_0, i, i_1);
@@ -83,10 +82,11 @@ class RadicalMod implements RadicalMusic {
     String getTimer(int secs) {
         final int mins = secs / 60;
         secs %= 60;
-        if (secs >= 10)
+        if (secs >= 10) {
             return "" + mins + ":" + secs;
-        else
+        } else {
             return "" + mins + ":0" + secs;
+        }
     }
 
     private void loadimod(final boolean bool) {
@@ -101,7 +101,7 @@ class RadicalMod implements RadicalMusic {
                 final Module module = ModuleLoader.loadMod(imod);
                 if (module.isLoaded()) {
                     name = module.getName();
-                    if (name.trim().equals("")) {
+                    if ("".equals(name.trim())) {
                         name = "Untitled";
                     }
                     final ModuleSlayer moduleslayer = ModuleLoader.prepareSlayer(module, i, i_6, i_7);
@@ -135,7 +135,7 @@ class RadicalMod implements RadicalMusic {
                 final Module module = ModuleLoader.loadMod(pmod);
                 if (module.isLoaded()) {
                     name = module.getName();
-                    if (name.trim().equals("")) {
+                    if ("".equals(name.trim())) {
                         name = "Untitled";
                     }
                     final ModuleSlayer moduleslayer = ModuleLoader.prepareSlayer(module, i, i_10, i_11);
@@ -235,13 +235,12 @@ class RadicalMod implements RadicalMusic {
 
     @Override
     public void setPaused(final boolean pause) {
-        if (pause)
+        if (pause) {
             if (playing && loaded == 2) {
                 sClip.stop();
                 playing = false;
-            } else {
             }
-        else if (!playing && loaded == 2) {
+        } else if (!playing && loaded == 2) {
             sClip.resume();
             if (sClip.stoped == 0) {
                 playing = true;
@@ -258,5 +257,4 @@ class RadicalMod implements RadicalMusic {
     public int getType() {
         return RadicalMusic.TYPE_MOD;
     }
-
 }

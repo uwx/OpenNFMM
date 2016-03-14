@@ -1,7 +1,4 @@
-
-/* Medium - Decompiled by JODE
- * Visit http://jode.sourceforge.net/
- */
+/* Medium - Decompiled by JODE Visit http://jode.sourceforge.net/ */
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.Random;
@@ -9,57 +6,57 @@ import java.util.concurrent.ThreadLocalRandom;
 
 class Medium {
     int adv = 500;
-    private long atrx = 0L;
-    private long atrz = 0L;
-    private int bcxz = 0;
-    private boolean[] bst = null;
-    boolean bt = false;
+    private long atrx;
+    private long atrz;
+    private int bcxz;
+    private boolean[] bst;
+    boolean bt;
     int[] cfade = {
             255, 220, 220
     };
-    private int[] cgpx = null;
-    private int[] cgpz = null;
+    private int[] cgpx;
+    private int[] cgpz;
     int[] cgrnd = {
             205, 200, 200
     };
     int checkpoint = -1;
-    private int[][][] clax = null;
-    private int[][][] clay = null;
-    private int[][][] claz = null;
-    private int[][][][] clc = null;
+    private int[][][] clax;
+    private int[][][] clay;
+    private int[][][] claz;
+    private int[][][][] clc;
     private final int[] cldd = {
             210, 210, 210, 1, -1000
     };
     private final int[] clds = {
             210, 210, 210
     };
-    private int[] clx = null;
-    private int[] clz = null;
-    private int[] cmx = null;
-    private int cntrn = 0;
-    boolean cpflik = false;
+    private int[] clx;
+    private int[] clz;
+    private int[] cmx;
+    private int cntrn;
+    boolean cpflik;
     int[] cpol = {
             215, 210, 210
     };
     int[] crgrnd = {
             205, 200, 200
     };
-    boolean crs = false;
+    boolean crs;
     int[] csky = {
             170, 220, 255
     };
     int cx = 400;
     int cy = 225;
     int cz = 50;
-    boolean darksky = false;
+    boolean darksky;
     private final boolean[] diup = {
             false, false, false
     };
-    float elecr = 0.0F;
+    float elecr;
     int[] fade = {
             3000, 4500, 6000, 7500, 9000, 10500, 12000, 13500, 15000, 16500, 18000, 19500, 21000, 22500, 24000, 25500
     };
-    int fallen = 0;
+    int fallen;
     private float fo = 1.0F;
     int focusPoint = 400;
     int fogd = 7;
@@ -68,51 +65,51 @@ class Medium {
     int ground = 250;
     int h = 450;
     int hit = 45000;
-    int ih = 0;
-    int iw = 0;
-    boolean lastcheck = false;
-    int lastmaf = 0;
+    int ih;
+    int iw;
+    boolean lastcheck;
+    int lastmaf;
     int lightn = -1;
-    boolean lightson = false;
+    boolean lightson;
     private int lilo = 217;
-    boolean loadnew = false;
-    boolean lton = false;
+    boolean loadnew;
+    boolean lton;
     int mgen = (int) (ThreadLocalRandom.current().nextDouble() * 100000.0);
-    private int[] mrd = null;
-    private int[][][] mtc = null;
-    private int[][] mtx = null;
-    private int[][] mty = null;
-    private int[][] mtz = null;
-    int ncl = 0;
-    private int nmt = 0;
-    private int[] nmv = null;
-    private int noc = 0;
-    boolean nochekflk = false;
-    int noelec = 0;
-    int nrnd = 0;
-    int nrw = 0;
-    int nsp = 0;
-    private int nst = 0;
-    private int[][] ogpx = null;
-    private int[][] ogpz = null;
+    private int[] mrd;
+    private int[][][] mtc;
+    private int[][] mtx;
+    private int[][] mty;
+    private int[][] mtz;
+    int ncl;
+    private int nmt;
+    private int[] nmv;
+    private int noc;
+    boolean nochekflk;
+    int noelec;
+    int nrnd;
+    int nrw;
+    int nsp;
+    private int nst;
+    private int[][] ogpx;
+    private int[][] ogpz;
     private final int[] ogrnd = {
             205, 200, 200
     };
     private final int[] osky = {
             170, 220, 255
     };
-    private float[] pcv = null;
-    private int[] pmx = null;
+    private float[] pcv;
+    private int[] pmx;
     int ptcnt = -10;
-    int ptr = 0;
-    private float[][] pvr = null;
+    int ptr;
+    private float[][] pvr;
     private final int[] rand = {
             0, 0, 0
     };
     int rescnt = 5;
-    int resdown = 0;
-    private int sgpx = 0;
-    private int sgpz = 0;
+    int resdown;
+    private int sgpx;
+    private int sgpz;
     private final int skyline = -300;
     int[] snap = {
             0, 0, 0
@@ -120,28 +117,28 @@ class Medium {
     int[] sprad = new int[7];
     int[] spx = new int[7];
     int[] spz = new int[7];
-    private int[][][] stc = null;
-    private int[] stx = null;
-    private int[] stz = null;
+    private int[][][] stc;
+    private int[] stx;
+    private int[] stz;
     private final float[] tcos = new float[360];
-    private boolean td = false;
+    private boolean td;
     private final int[] texture = {
             0, 0, 0, 50
     };
-    int trk = 0;
-    private int trn = 0;
-    long trx = 0L;
-    long trz = 0L;
+    int trk;
+    private int trn;
+    long trx;
+    long trz;
     private final float[] tsin = new float[360];
-    private int[] twn = null;
-    boolean vert = false;
+    private int[] twn;
+    boolean vert;
     int vxz = 180;
     int w = 800;
-    int x = 0;
-    int xz = 0;
-    int y = 0;
-    int z = 0;
-    int zy = 0;
+    int x;
+    int xz;
+    int y;
+    int z;
+    int zy;
 
     public Medium() {
         for (int i = 0; i < 360; i++) {
@@ -162,7 +159,7 @@ class Medium {
     }
 
     void adjstfade(final float f, final float f271, final int i, final GameSparker gamesparker) {
-        if (resdown != 2)
+        if (resdown != 2) {
             if (f == 5.0F) {
                 if (resdown == 0 && rescnt == 0) {
                     gamesparker.moto = 0;
@@ -183,6 +180,7 @@ class Medium {
             } else {
                 rescnt = 10;
             }
+        }
     }
 
     void around(final ContO conto, final boolean bool) {
@@ -231,7 +229,7 @@ class Medium {
             i4 = -180;
         }
         final int i6 = (int) Math.sqrt((conto.z - z + cz) * (conto.z - z + cz) + (conto.x - x - cx) * (conto.x - x - cx));
-        int i7 = (int) (90 + i4 - Math.atan((double) i6 / (double) (conto.y - i5 - cy)) / 0.017453292519943295);
+        int i7 = (int) (90 + i4 - Math.atan((double) i6 / (conto.y - i5 - cy)) / 0.017453292519943295);
         xz = -vxz + 90;
         if (bool) {
             i7 -= 15;
@@ -303,22 +301,14 @@ class Medium {
             vxz -= 360;
         }
         xz = -vxz - 90;
-        if (-y - cy < 0) {
-        }
         Math.sqrt((trz - z + cz) * (trz - z + cz) + (trx - x - cx) * (trx - x - cx));
-        if (cpflik) {
-            cpflik = false;
-        } else {
-            cpflik = true;
-        }
+        cpflik = !cpflik;
     }
 
     float cos(int i) {
-        for (/**/; i >= 360; i -= 360) {
-
+        for (; i >= 360; i -= 360) {
         }
-        for (/**/; i < 0; i += 360) {
-
+        for (; i < 0; i += 360) {
         }
         return tcos[i];
     }
@@ -645,12 +635,13 @@ class Medium {
                             int i134 = clc[i][1][i122 / 2][0];
                             int i135 = clc[i][1][i122 / 2][1];
                             int i136 = clc[i][1][i122 / 2][2];
-                            for (int i137 = 0; i137 < 16; i137++)
+                            for (int i137 = 0; i137 < 16; i137++) {
                                 if (i133 > fade[i137]) {
                                     i134 = (i134 * fogd + cfade[0]) / (fogd + 1);
                                     i135 = (i135 * fogd + cfade[1]) / (fogd + 1);
                                     i136 = (i136 * fogd + cfade[2]) / (fogd + 1);
                                 }
+                            }
                             graphics2d.setColor(new Color(i134, i135, i136));
                             graphics2d.fillPolygon(is111, is112, 6);
                         }
@@ -731,12 +722,13 @@ class Medium {
                             int i150 = clc[i][0][i138 / 2][0];
                             int i151 = clc[i][0][i138 / 2][1];
                             int i152 = clc[i][0][i138 / 2][2];
-                            for (int i153 = 0; i153 < 16; i153++)
+                            for (int i153 = 0; i153 < 16; i153++) {
                                 if (i149 > fade[i153]) {
                                     i150 = (i150 * fogd + cfade[0]) / (fogd + 1);
                                     i151 = (i151 * fogd + cfade[1]) / (fogd + 1);
                                     i152 = (i152 * fogd + cfade[2]) / (fogd + 1);
                                 }
+                            }
                             graphics2d.setColor(new Color(i150, i151, i152));
                             graphics2d.fillPolygon(is111, is112, 6);
                         }
@@ -781,12 +773,13 @@ class Medium {
                         int i163 = clds[0];
                         int i164 = clds[1];
                         int i165 = clds[2];
-                        for (int i166 = 0; i166 < 16; i166++)
+                        for (int i166 = 0; i166 < 16; i166++) {
                             if (i162 > fade[i166]) {
                                 i163 = (i163 * fogd + cfade[0]) / (fogd + 1);
                                 i164 = (i164 * fogd + cfade[1]) / (fogd + 1);
                                 i165 = (i165 * fogd + cfade[2]) / (fogd + 1);
                             }
+                        }
                         graphics2d.setColor(new Color(i163, i164, i165));
                         graphics2d.fillPolygon(is111, is112, 12);
                     }
@@ -1031,14 +1024,13 @@ class Medium {
             fvect += 2;
         }
         for (vxz += 2; vxz > 360; vxz -= 360) {
-
         }
         int i12 = -vxz + 90;
         int i13 = 0;
         if (conto.x - x - cx > 0) {
             i13 = 180;
         }
-        int i14 = -(int) (90 + i13 + Math.atan((double) (conto.z - z) / (double) (conto.x - x - cx)) / 0.017453292519943295);
+        int i14 = -(int) (90 + i13 + Math.atan((double) (conto.z - z) / (conto.x - x - cx)) / 0.017453292519943295);
         int i15 = y;
         i13 = 0;
         if (i15 > 0) {
@@ -1050,19 +1042,15 @@ class Medium {
         final int i16 = (int) Math.sqrt((conto.z - z + cz) * (conto.z - z + cz) + (conto.x - x - cx) * (conto.x - x - cx));
         int i17 = 25;
         if (i16 != 0) {
-            i17 = (int) (90 + i13 - Math.atan((double) i16 / (double) (conto.y - i15 - cy)) / 0.017453292519943295);
+            i17 = (int) (90 + i13 - Math.atan((double) i16 / (conto.y - i15 - cy)) / 0.017453292519943295);
         }
-        for (/**/; i12 < 0; i12 += 360) {
-
+        for (; i12 < 0; i12 += 360) {
         }
-        for (/**/; i12 > 360; i12 -= 360) {
-
+        for (; i12 > 360; i12 -= 360) {
         }
-        for (/**/; i14 < 0; i14 += 360) {
-
+        for (; i14 < 0; i14 += 360) {
         }
-        for (/**/; i14 > 360; i14 -= 360) {
-
+        for (; i14 > 360; i14 -= 360) {
         }
         if ((Math.abs(i12 - i14) < 30 || Math.abs(i12 - i14) > 330) && i11 == 3) {
             if (Math.abs(i12 - xz) > 7 && Math.abs(i12 - xz) < 353) {
@@ -1265,7 +1253,7 @@ class Medium {
             }
         }
         for (int i71 = i; i71 < i48; i71++) {
-            for (int i72 = i49; i72 < i50; i72++)
+            for (int i72 = i49; i72 < i50; i72++) {
                 if (is[i71 - i][i72 - i49] != 0) {
                     final int i73 = i71 + i72 * nrw;
                     final int[] is74 = new int[8];
@@ -1322,6 +1310,7 @@ class Medium {
                         graphics2d.fillPolygon(is78, is79, 8);
                     }
                 }
+            }
         }
     }
 
@@ -1545,12 +1534,13 @@ class Medium {
             is173[i174] = 0;
         }
         for (int i183 = 0; i183 < nmt; i183++) {
-            for (int i184 = i183 + 1; i184 < nmt; i184++)
+            for (int i184 = i183 + 1; i184 < nmt; i184++) {
                 if (is[i183] < is[i184]) {
                     is173[i183]++;
                 } else {
                     is173[i184]++;
                 }
+            }
             mrd[is173[i183]] = i183;
         }
     }
@@ -1581,19 +1571,18 @@ class Medium {
             cgpx[i41] = sgpx + i39 * 1200 + (int) (random.nextDouble() * 1000.0 - 500.0);
             cgpz[i41] = sgpz + i40 * 1200 + (int) (random.nextDouble() * 1000.0 - 500.0);
             if (trackers != null) {
-                for (int i42 = 0; i42 < trackers.nt; i42++)
+                for (int i42 = 0; i42 < trackers.nt; i42++) {
                     if (trackers.zy[i42] == 0 && trackers.xy[i42] == 0) {
                         if (trackers.radx[i42] < trackers.radz[i42] && Math.abs(cgpz[i41] - trackers.z[i42]) < trackers.radz[i42]) {
-                            for (/**/; Math.abs(cgpx[i41] - trackers.x[i42]) < trackers.radx[i42]; cgpx[i41] += random.nextDouble() * trackers.radx[i42] * 2.0 - trackers.radx[i42]) {
-
+                            for (; Math.abs(cgpx[i41] - trackers.x[i42]) < trackers.radx[i42]; cgpx[i41] += random.nextDouble() * trackers.radx[i42] * 2.0 - trackers.radx[i42]) {
                             }
                         }
                         if (trackers.radz[i42] < trackers.radx[i42] && Math.abs(cgpx[i41] - trackers.x[i42]) < trackers.radx[i42]) {
-                            for (/**/; Math.abs(cgpz[i41] - trackers.z[i42]) < trackers.radz[i42]; cgpz[i41] += random.nextDouble() * trackers.radz[i42] * 2.0 - trackers.radz[i42]) {
-
+                            for (; Math.abs(cgpz[i41] - trackers.z[i42]) < trackers.radz[i42]; cgpz[i41] += random.nextDouble() * trackers.radz[i42] * 2.0 - trackers.radz[i42]) {
                             }
                         }
                     }
+                }
             }
             if (++i39 == nrw) {
                 i39 = 0;
@@ -1692,11 +1681,7 @@ class Medium {
                     stc[i][1][i214] = (stc[i][0][i214] + csky[i214]) / 2;
                 }
                 twn[i] = (int) (4.0 * random.nextDouble());
-                if (random.nextDouble() > 0.8) {
-                    bst[i] = true;
-                } else {
-                    bst[i] = false;
-                }
+                bst[i] = random.nextDouble() > 0.8;
             }
         }
     }
@@ -1705,17 +1690,13 @@ class Medium {
         if (cntrn == 0) {
             for (int i = 0; i < 3; i++) {
                 rand[i] = (int) (10.0 * ThreadLocalRandom.current().nextDouble());
-                if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
-                    diup[i] = false;
-                } else {
-                    diup[i] = true;
-                }
+                diup[i] = ThreadLocalRandom.current().nextDouble() <= ThreadLocalRandom.current().nextDouble();
             }
             cntrn = 20;
         } else {
             cntrn--;
         }
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++) {
             if (diup[i]) {
                 rand[i]++;
                 if (rand[i] == 10) {
@@ -1727,6 +1708,7 @@ class Medium {
                     rand[i] = 9;
                 }
             }
+        }
         trn++;
         if (trn == 3) {
             trn = 0;
@@ -1943,11 +1925,7 @@ class Medium {
         }
         final float[] fs = new float[3];
         Color.RGBtoHSB(csky[0], csky[1], csky[2], fs);
-        if (fs[2] < 0.6) {
-            darksky = true;
-        } else {
-            darksky = false;
-        }
+        darksky = fs[2] < 0.6;
     }
 
     void setsnap(final int i, final int i247, final int i248) {
@@ -1957,11 +1935,9 @@ class Medium {
     }
 
     float sin(int i) {
-        for (/**/; i >= 360; i -= 360) {
-
+        for (; i >= 360; i -= 360) {
         }
-        for (/**/; i < 0; i += 360) {
-
+        for (; i < 0; i += 360) {
         }
         return tsin[i];
     }
@@ -2001,7 +1977,7 @@ class Medium {
             i23 = -180;
         }
         final int i25 = (int) Math.sqrt((i21 - z + cz) * (i21 - z + cz) + (i19 - x - cx) * (i19 - x - cx));
-        final int i26 = (int) (90 + i23 - Math.atan((double) i25 / (double) (i20 - i24 - cy)) / 0.017453292519943295);
+        final int i26 = (int) (90 + i23 - Math.atan((double) i25 / (i20 - i24 - cy)) / 0.017453292519943295);
         xz = -vxz + 90;
         zy += (i26 - zy) / 10;
     }
@@ -2017,18 +1993,16 @@ class Medium {
         if (conto.x - x - cx > 0) {
             i0 = 180;
         }
-        int i1 = -(int) (90 + i0 + Math.atan((double) (conto.z - z) / (double) (conto.x - x - cx)) / 0.017453292519943295);
+        int i1 = -(int) (90 + i0 + Math.atan((double) (conto.z - z) / (conto.x - x - cx)) / 0.017453292519943295);
         i0 = 0;
         if (conto.y - y - cy < 0) {
             i0 = -180;
         }
         final int i2 = (int) Math.sqrt((conto.z - z) * (conto.z - z) + (conto.x - x - cx) * (conto.x - x - cx));
-        final int i3 = (int) (90 + i0 - Math.atan((double) i2 / (double) (conto.y - y - cy)) / 0.017453292519943295);
-        for (/**/; i1 < 0; i1 += 360) {
-
+        final int i3 = (int) (90 + i0 - Math.atan((double) i2 / (conto.y - y - cy)) / 0.017453292519943295);
+        for (; i1 < 0; i1 += 360) {
         }
-        for (/**/; i1 > 360; i1 -= 360) {
-
+        for (; i1 > 360; i1 -= 360) {
         }
         xz = i1;
         zy += (i3 - zy) / 5;

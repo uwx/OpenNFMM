@@ -1,13 +1,9 @@
-
-/* Mod - Decompiled by JODE extended
- * DragShot Software
- * JODE (c) 1998-2001 Jochen Hoenicke
- */
+/* Mod - Decompiled by JODE extended DragShot Software JODE (c) 1998-2001 Jochen Hoenicke */
 import java.io.DataInputStream;
 import java.io.IOException;
 
 class Mod {
-    /*private static final int voice_28ch = FOURCC("28CH");
+    /**Private static final int voice_28ch = FOURCC("28CH");
     private static final int voice_6chn = FOURCC("6CHN");
     private static final int voice_8chn = FOURCC("8CHN");
     private static final int voiceFlt4 = FOURCC("FLT4");
@@ -33,11 +29,11 @@ class Mod {
 
     int trackShift;
 
-    static final int FOURCC(final String string) {
-        return string.charAt(3) & 0xff | (string.charAt(2) & 0xff) << 8 | (string.charAt(1) & 0xff) << 16 | (string.charAt(0) & 0xff) << 24;
+    static int FOURCC(final String string) {
+        return (string.charAt(3) & 0xff) | ((string.charAt(2) & 0xff) << 8) | ((string.charAt(1) & 0xff) << 16) | ((string.charAt(0) & 0xff) << 24);
     }
 
-    private static final int readu8(final DataInputStream datainputstream) throws IOException {
+    private static int readu8(final DataInputStream datainputstream) throws IOException {
         return datainputstream.readByte() & 0xff;
     }
 
@@ -71,15 +67,16 @@ class Mod {
             songRepeatPatterns = songLengthPatterns;
         }
         numpatterns = 0;
-        for (final byte position : positions)
+        for (final byte position : positions) {
             if (position > numpatterns) {
                 numpatterns = position;
             }
+        }
         numpatterns++;
     }
 
     @Override
     public String toString() {
-        return "" + name + " (" + numtracks + " tracks, " + numpatterns + " patterns, " + insts.length + " samples)";
+        return name + " (" + numtracks + " tracks, " + numpatterns + " patterns, " + insts.length + " samples)";
     }
 }

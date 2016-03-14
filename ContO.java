@@ -1,7 +1,4 @@
-
-/* ContO - Decompiled by JODE
- * Visit http://jode.sourceforge.net/
- */
+/* ContO - Decompiled by JODE Visit http://jode.sourceforge.net/ */
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -17,10 +14,10 @@ class ContO {
     int checkpoint;
     int colok;
     private int[] dam;
-    boolean decor = false;
+    boolean decor;
     int disline = 14;
-    int disp = 0;
-    int dist = 0;
+    int disp;
+    int dist;
     private final int[] edl;
     private final int[] edr;
     private final int[] elc;
@@ -30,15 +27,15 @@ class ContO {
     int fcnt;
     int[] fcol;
     boolean fix;
-    int grat = 0;
+    int grat;
     float grounded = 1.0F;
     int[] keyx;
     int[] keyz;
     Medium m;
-    int maxR = 0;
-    boolean noline = false;
+    int maxR;
+    boolean noline;
     private boolean[] notwall;
-    int npl = 0;
+    int npl;
     float[] osmag;
     Plane[] p;
     private boolean[] rbef;
@@ -56,7 +53,7 @@ class ContO {
     int[] scol;
     int[] scx;
     int[] scz;
-    boolean shadow = false;
+    boolean shadow;
     private int[] skd;
     private float[][] smag;
     int sprk;
@@ -85,14 +82,14 @@ class ContO {
     private float[] vry;
     private float[] vrz;
     int wh;
-    int wxz = 0;
-    int wzy = 0;
-    int x = 0;
-    int xy = 0;
-    int xz = 0;
-    int y = 0;
-    int z = 0;
-    int zy = 0;
+    int wxz;
+    int wzy;
+    int x;
+    int xy;
+    int xz;
+    int y;
+    int z;
+    int zy;
 
     ContO(final byte[] is, final Medium medium, final Trackers trackers) {
         keyx = new int[4];
@@ -185,7 +182,7 @@ class ContO {
             final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(new DataInputStream(new ByteArrayInputStream(is))));
             String string17;
             while ((string17 = bufferedreader.readLine()) != null) {
-                string = "" + string17.trim();
+                string = string17.trim();
                 if (npl < 10000 /* 210 */) {
                     if (string.startsWith("<p>")) {
                         bool = true;
@@ -516,9 +513,9 @@ class ContO {
             }
             bufferedreader.close();
         } catch (final Exception exception) {
-            if (exception instanceof RuntimeException)
+            if (exception instanceof RuntimeException) {
                 throw new RuntimeException(exception);
-            else if (!errd) {
+            } else if (!errd) {
                 err = "Error While Loading 3D Model\n\nLine:     " + string + "\n\nError Detail:\n" + exception + "           \n \n";
                 System.out.println(err);
                 errd = true;
@@ -595,8 +592,8 @@ class ContO {
                             i40 -= p[i27].n;
                         }
                         if (i28 == 1) {
-                            int i41 = Math.abs((int) (Math.atan((double) (p[i27].oz[i38] - p[i27].oz[i39]) / (double) (p[i27].oy[i38] - p[i27].oy[i39])) / 0.017453292519943295));
-                            int i42 = Math.abs((int) (Math.atan((double) (p[i27].oz[i40] - p[i27].oz[i39]) / (double) (p[i27].oy[i40] - p[i27].oy[i39])) / 0.017453292519943295));
+                            int i41 = Math.abs((int) (Math.atan((double) (p[i27].oz[i38] - p[i27].oz[i39]) / (p[i27].oy[i38] - p[i27].oy[i39])) / 0.017453292519943295));
+                            int i42 = Math.abs((int) (Math.atan((double) (p[i27].oz[i40] - p[i27].oz[i39]) / (p[i27].oy[i40] - p[i27].oy[i39])) / 0.017453292519943295));
                             if (i41 > 45) {
                                 i41 = 90 - i41;
                             } else {
@@ -608,8 +605,8 @@ class ContO {
                             }
                         }
                         if (i28 == 2) {
-                            int i43 = Math.abs((int) (Math.atan((double) (p[i27].oz[i38] - p[i27].oz[i39]) / (double) (p[i27].ox[i38] - p[i27].ox[i39])) / 0.017453292519943295));
-                            int i44 = Math.abs((int) (Math.atan((double) (p[i27].oz[i40] - p[i27].oz[i39]) / (double) (p[i27].ox[i40] - p[i27].ox[i39])) / 0.017453292519943295));
+                            int i43 = Math.abs((int) (Math.atan((double) (p[i27].oz[i38] - p[i27].oz[i39]) / (p[i27].ox[i38] - p[i27].ox[i39])) / 0.017453292519943295));
+                            int i44 = Math.abs((int) (Math.atan((double) (p[i27].oz[i40] - p[i27].oz[i39]) / (p[i27].ox[i40] - p[i27].ox[i39])) / 0.017453292519943295));
                             if (i43 > 45) {
                                 i43 = 90 - i43;
                             } else {
@@ -621,8 +618,8 @@ class ContO {
                             }
                         }
                         if (i28 == 3) {
-                            int i45 = Math.abs((int) (Math.atan((double) (p[i27].oy[i38] - p[i27].oy[i39]) / (double) (p[i27].ox[i38] - p[i27].ox[i39])) / 0.017453292519943295));
-                            int i46 = Math.abs((int) (Math.atan((double) (p[i27].oy[i40] - p[i27].oy[i39]) / (double) (p[i27].ox[i40] - p[i27].ox[i39])) / 0.017453292519943295));
+                            int i45 = Math.abs((int) (Math.atan((double) (p[i27].oy[i38] - p[i27].oy[i39]) / (p[i27].ox[i38] - p[i27].ox[i39])) / 0.017453292519943295));
+                            int i46 = Math.abs((int) (Math.atan((double) (p[i27].oy[i40] - p[i27].oy[i39]) / (p[i27].ox[i40] - p[i27].ox[i39])) / 0.017453292519943295));
                             if (i45 > 45) {
                                 i45 = 90 - i45;
                             } else {
@@ -653,7 +650,7 @@ class ContO {
                             p[i27].oz[i51] = is49[i52];
                         }
                     }
-                    if (i28 == 1)
+                    if (i28 == 1) {
                         if (Math.abs(p[i27].oz[0] - p[i27].oz[1]) > Math.abs(p[i27].oy[0] - p[i27].oy[1])) {
                             if (p[i27].oz[0] > p[i27].oz[1]) {
                                 if (p[i27].oy[1] > p[i27].oy[2]) {
@@ -677,7 +674,8 @@ class ContO {
                         } else {
                             p[i27].fs = -1;
                         }
-                    if (i28 == 2)
+                    }
+                    if (i28 == 2) {
                         if (Math.abs(p[i27].oz[0] - p[i27].oz[1]) > Math.abs(p[i27].ox[0] - p[i27].ox[1])) {
                             if (p[i27].oz[0] > p[i27].oz[1]) {
                                 if (p[i27].ox[1] > p[i27].ox[2]) {
@@ -701,7 +699,8 @@ class ContO {
                         } else {
                             p[i27].fs = 1;
                         }
-                    if (i28 == 3)
+                    }
+                    if (i28 == 3) {
                         if (Math.abs(p[i27].oy[0] - p[i27].oy[1]) > Math.abs(p[i27].ox[0] - p[i27].ox[1])) {
                             if (p[i27].oy[0] > p[i27].oy[1]) {
                                 if (p[i27].ox[1] > p[i27].ox[2]) {
@@ -725,6 +724,7 @@ class ContO {
                         } else {
                             p[i27].fs = -1;
                         }
+                    }
                     boolean bool53 = false;
                     boolean bool54 = false;
                     for (int i55 = 0; i55 < npl; i55++) {
@@ -761,7 +761,7 @@ class ContO {
                             final int i67 = (i29 + i30) / 2;
                             final int i68 = (i31 + i32) / 2;
                             final int i69 = (i33 + i34) / 2;
-                            if (i28 == 1 && (i65 <= i31 && i65 >= i32 && i66 <= i33 && i66 >= i34 || i68 <= i59 && i68 >= i60 && i69 <= i61 && i69 >= i62)) {
+                            if (i28 == 1 && ((i65 <= i31 && i65 >= i32 && i66 <= i33 && i66 >= i34) || (i68 <= i59 && i68 >= i60 && i69 <= i61 && i69 >= i62))) {
                                 if (i57 < i30) {
                                     bool53 = true;
                                 }
@@ -769,7 +769,7 @@ class ContO {
                                     bool54 = true;
                                 }
                             }
-                            if (i28 == 2 && (i64 <= i29 && i64 >= i30 && i66 <= i33 && i66 >= i34 || i67 <= i57 && i67 >= i58 && i69 <= i61 && i69 >= i62)) {
+                            if (i28 == 2 && ((i64 <= i29 && i64 >= i30 && i66 <= i33 && i66 >= i34) || (i67 <= i57 && i67 >= i58 && i69 <= i61 && i69 >= i62))) {
                                 if (i59 < i32) {
                                     bool53 = true;
                                 }
@@ -777,7 +777,7 @@ class ContO {
                                     bool54 = true;
                                 }
                             }
-                            if (i28 == 3 && (i64 <= i29 && i64 >= i30 && i65 <= i31 && i65 >= i32 || i67 <= i57 && i67 >= i58 && i68 <= i59 && i68 >= i60)) {
+                            if (i28 == 3 && ((i64 <= i29 && i64 >= i30 && i65 <= i31 && i65 >= i32) || (i67 <= i57 && i67 >= i58 && i68 <= i59 && i68 >= i60))) {
                                 if (i61 < i34) {
                                     bool53 = true;
                                 }
@@ -790,10 +790,7 @@ class ContO {
                             break;
                         }
                     }
-                    boolean bool70 = false;
-                    if (bool53 && !bool54) {
-                        bool70 = true;
-                    }
+                    boolean bool70 = bool53 && !bool54;
                     if (bool54 && !bool53) {
                         p[i27].fs *= -1;
                         bool70 = true;
@@ -818,20 +815,21 @@ class ContO {
                             i71 = (i33 + i34) / 2;
                             i72 = i71;
                         }
-                        for (int i73 = 0; i73 < npl; i73++)
+                        for (int i73 = 0; i73 < npl; i73++) {
                             if (i73 != i27) {
                                 boolean bool74 = false;
                                 final boolean[] bools = new boolean[p[i73].n];
                                 for (int i75 = 0; i75 < p[i73].n; i75++) {
                                     bools[i75] = false;
-                                    for (int i76 = 0; i76 < p[i27].n; i76++)
+                                    for (int i76 = 0; i76 < p[i27].n; i76++) {
                                         if (p[i27].ox[i76] == p[i73].ox[i75] && p[i27].oy[i76] == p[i73].oy[i75] && p[i27].oz[i76] == p[i73].oz[i75]) {
                                             bools[i75] = true;
                                             bool74 = true;
                                         }
+                                    }
                                 }
                                 if (bool74) {
-                                    for (int i77 = 0; i77 < p[i73].n; i77++)
+                                    for (int i77 = 0; i77 < p[i73].n; i77++) {
                                         if (!bools[i77]) {
                                             if (i28 == 1) {
                                                 if (p[i73].ox[i77] > i71) {
@@ -858,26 +856,31 @@ class ContO {
                                                 }
                                             }
                                         }
+                                    }
                                 }
                             }
-                        if (i28 == 1)
+                        }
+                        if (i28 == 1) {
                             if ((i71 + i72) / 2 > (i29 + i30) / 2) {
                                 p[i27].fs *= -1;
                             } else if ((i71 + i72) / 2 == (i29 + i30) / 2 && (i29 + i30) / 2 < 0) {
                                 p[i27].fs *= -1;
                             }
-                        if (i28 == 2)
+                        }
+                        if (i28 == 2) {
                             if ((i71 + i72) / 2 > (i31 + i32) / 2) {
                                 p[i27].fs *= -1;
                             } else if ((i71 + i72) / 2 == (i31 + i32) / 2 && (i31 + i32) / 2 < 0) {
                                 p[i27].fs *= -1;
                             }
-                        if (i28 == 3)
+                        }
+                        if (i28 == 3) {
                             if ((i71 + i72) / 2 > (i33 + i34) / 2) {
                                 p[i27].fs *= -1;
                             } else if ((i71 + i72) / 2 == (i33 + i34) / 2 && (i33 + i34) / 2 < 0) {
                                 p[i27].fs *= -1;
                             }
+                        }
                     }
                     p[i27].deltafntyp();
                 }
@@ -1186,24 +1189,25 @@ class ContO {
             is113[4] = is98[i110 + 1];
             is113[3] = is98[i111];
             for (f100 = (float) ((0.17 - f108) * random.nextDouble()); Math.abs(f107 - f100) < 0.03 - f108 * 0.176F; f100 = (float) ((0.17 - f108) * random.nextDouble())) {
-
             }
             f107 = f100;
-            for (int i115 = 0; i115 < 3; i115++)
+            for (int i115 = 0; i115 < 3; i115++) {
                 if (m.trk == 2) {
                     is106[i115] = (int) (390.0F / (2.2F + f100 - f108));
                 } else {
                     is106[i115] = (int) ((m.cpol[i115] + m.cgrnd[i115]) / (2.2F + f100 - f108));
                 }
+            }
             p[i109] = new Plane(m, t, is112, is114, is113, 6, is106, 3, -8, 0, 0, 0, 0, disline, 0, true, 0, false, false, false, false, 1, 0, 0, 10);
         }
         f100 = (float) (0.02 * random.nextDouble());
-        for (int i116 = 0; i116 < 3; i116++)
+        for (int i116 = 0; i116 < 3; i116++) {
             if (m.trk == 2) {
                 is106[i116] = (int) (390.0F / (2.15F + f100));
             } else {
                 is106[i116] = (int) ((m.cpol[i116] + m.cgrnd[i116]) / (2.15F + f100));
             }
+        }
         p[4] = new Plane(m, t, is96, is97, is98, 8, is106, 3, -8, 0, 0, 0, 0, disline, 0, true, 0, false, false, false, false, 1, 0, 0, 10);
         final int[] is117 = new int[2];
         final int[] is118 = new int[2];
@@ -1232,7 +1236,7 @@ class ContO {
             }
             if (i119 == 0) {
                 is118[0] = t.z[t.nt] - t.radz[t.nt];
-                t.zy[t.nt] = (int) (Math.atan((double) t.rady[t.nt] / (double) t.radz[t.nt]) / 0.017453292519943295);
+                t.zy[t.nt] = (int) (Math.atan((double) t.rady[t.nt] / t.radz[t.nt]) / 0.017453292519943295);
                 if (t.zy[t.nt] > 40) {
                     t.zy[t.nt] = 40;
                 }
@@ -1240,7 +1244,7 @@ class ContO {
             }
             if (i119 == 1) {
                 is117[0] = t.x[t.nt] - t.radx[t.nt];
-                t.xy[t.nt] = (int) (Math.atan((double) t.rady[t.nt] / (double) t.radx[t.nt]) / 0.017453292519943295);
+                t.xy[t.nt] = (int) (Math.atan((double) t.rady[t.nt] / t.radx[t.nt]) / 0.017453292519943295);
                 if (t.xy[t.nt] > 40) {
                     t.xy[t.nt] = 40;
                 }
@@ -1248,7 +1252,7 @@ class ContO {
             }
             if (i119 == 2) {
                 is118[1] = t.z[t.nt] + t.radz[t.nt];
-                t.zy[t.nt] = -(int) (Math.atan((double) t.rady[t.nt] / (double) t.radz[t.nt]) / 0.017453292519943295);
+                t.zy[t.nt] = -(int) (Math.atan((double) t.rady[t.nt] / t.radz[t.nt]) / 0.017453292519943295);
                 if (t.zy[t.nt] < -40) {
                     t.zy[t.nt] = -40;
                 }
@@ -1256,7 +1260,7 @@ class ContO {
             }
             if (i119 == 3) {
                 is117[1] = t.x[t.nt] + t.radx[t.nt];
-                t.xy[t.nt] = -(int) (Math.atan((double) t.rady[t.nt] / (double) t.radx[t.nt]) / 0.017453292519943295);
+                t.xy[t.nt] = -(int) (Math.atan((double) t.rady[t.nt] / t.radx[t.nt]) / 0.017453292519943295);
                 if (t.xy[t.nt] < -40) {
                     t.xy[t.nt] = -40;
                 }
@@ -1265,8 +1269,10 @@ class ContO {
             t.x[t.nt] += x;
             t.z[t.nt] += z;
             t.y[t.nt] += y;
-            for (int i121 = 0; i121 < 3; i121++) {
-                t.c[t.nt][i121] = p[i119].oc[i121];
+            try {
+                System.arraycopy(p[i119].oc, 0, t.c[t.nt], 0, 3);
+            } catch (IndexOutOfBoundsException e) {
+                throw new ArrayIndexOutOfBoundsException(e.getMessage());
             }
             t.skd[t.nt] = 2;
             t.dam[t.nt] = 1;
@@ -1288,8 +1294,10 @@ class ContO {
         t.z[t.nt] = (is118[0] + is118[1]) / 2 + z;
         t.zy[t.nt] = 0;
         t.xy[t.nt] = 0;
-        for (int i123 = 0; i123 < 3; i123++) {
-            t.c[t.nt][i123] = p[4].oc[i123];
+        try {
+            System.arraycopy(p[4].oc, 0, t.c[t.nt], 0, 3);
+        } catch (IndexOutOfBoundsException e) {
+            throw new ArrayIndexOutOfBoundsException(e.getMessage());
         }
         t.skd[t.nt] = 4;
         t.dam[t.nt] = 1;
@@ -1306,8 +1314,8 @@ class ContO {
         final int i124 = m.cz + (int) ((x - m.x - m.cx) * m.sin(m.xz) + (z - m.z - m.cz) * m.cos(m.xz));
         final int i125 = m.cz + (int) ((y - m.y - m.cy) * m.sin(m.zy) + (i124 - m.cz) * m.cos(m.zy));
         int i126 = xs(i + maxR, i125) - xs(i - maxR, i125);
-        if (xs(i + maxR * 2, i125) > m.iw && xs(i - maxR * 2, i125) < m.w && i125 > -maxR && (i125 < m.fade[disline] + maxR || m.trk != 0) && (i126 > disp || m.trk != 0) && (!decor || m.resdown != 2 && m.trk != 1)) {
-            if (shadow)
+        if (xs(i + maxR * 2, i125) > m.iw && xs(i - maxR * 2, i125) < m.w && i125 > -maxR && (i125 < m.fade[disline] + maxR || m.trk != 0) && (i126 > disp || m.trk != 0) && (!decor || (m.resdown != 2 && m.trk != 1))) {
+            if (shadow) {
                 if (!m.crs) {
                     if (i125 < 2000) {
                         boolean bool = false;
@@ -1356,6 +1364,7 @@ class ContO {
                         p[i135].s(graphics2d, x - m.x, y - m.y, z - m.z, xz, xy, zy, 2);
                     }
                 }
+            }
             final int i136 = m.cy + (int) ((y - m.y - m.cy) * m.cos(m.zy) - (i124 - m.cz) * m.sin(m.zy));
             if (ys(i136 + maxR, i125) > m.ih && ys(i136 - maxR, i125) < m.h) {
                 if (elec && m.noelec == 0) {
@@ -1369,10 +1378,11 @@ class ContO {
                 }
                 if (shadow) {
                     dist = (int) Math.sqrt((m.x + m.cx - x) * (m.x + m.cx - x) + (m.z - z) * (m.z - z) + (m.y + m.cy - y) * (m.y + m.cy - y));
-                    for (int i137 = 0; i137 < 20; i137++)
+                    for (int i137 = 0; i137 < 20; i137++) {
                         if (stg[i137] != 0) {
                             pdust(i137, graphics2d, true);
                         }
+                    }
                     dsprk(graphics2d, true);
                 }
                 Arrays.sort(p, 0, npl);
@@ -1380,24 +1390,27 @@ class ContO {
                     p[i142].d(graphics2d, x - m.x, y - m.y, z - m.z, xz, xy, zy, wxz, wzy, noline, i126);
                 }
                 if (shadow) {
-                    for (int i143 = 0; i143 < 20; i143++)
+                    for (int i143 = 0; i143 < 20; i143++) {
                         if (stg[i143] != 0) {
                             pdust(i143, graphics2d, false);
                         }
+                    }
                     dsprk(graphics2d, false);
                 }
                 dist = (int) (Math.sqrt((int) Math.sqrt((m.x + m.cx - x) * (m.x + m.cx - x) + (m.z - z) * (m.z - z) + (m.y + m.cy - y) * (m.y + m.cy - y))) * grounded);
             }
         }
         if (shadow && dist == 0) {
-            for (int i144 = 0; i144 < 20; i144++)
+            for (int i144 = 0; i144 < 20; i144++) {
                 if (stg[i144] != 0) {
                     stg[i144] = 0;
                 }
-            for (int i145 = 0; i145 < 100; i145++)
+            }
+            for (int i145 = 0; i145 < 100; i145++) {
                 if (rtg[i145] != 0) {
                     rtg[i145] = 0;
                 }
+            }
             if (sprk != 0) {
                 sprk = 0;
             }
@@ -1408,10 +1421,7 @@ class ContO {
         if (bool && sprk != 0) {
             int i = (int) (Math.sqrt(rcx * rcx + rcy * rcy + rcz * rcz) / 10.0);
             if (i > 5) {
-                boolean bool240 = false;
-                if (dist < Math.sqrt((m.x + m.cx - srx) * (m.x + m.cx - srx) + (m.y + m.cy - sry) * (m.y + m.cy - sry) + (m.z - srz) * (m.z - srz))) {
-                    bool240 = true;
-                }
+                boolean bool240 = dist < Math.sqrt((m.x + m.cx - srx) * (m.x + m.cx - srx) + (m.y + m.cy - sry) * (m.y + m.cy - sry) + (m.z - srz) * (m.z - srz));
                 if (i > 33) {
                     i = 33;
                 }
@@ -1428,8 +1438,8 @@ class ContO {
                 }
             }
         }
-        for (int i = 0; i < 100; i++)
-            if (rtg[i] != 0 && (rbef[i] && bool || !rbef[i] && !bool)) {
+        for (int i = 0; i < 100; i++) {
+            if (rtg[i] != 0 && ((rbef[i] && bool) || (!rbef[i] && !bool))) {
                 if (rtg[i] == 1) {
                     if (sprk < 5) {
                         rx[i] = srx + 3 - (int) (m.random() * 6.7);
@@ -1500,12 +1510,13 @@ class ContO {
                     int i256 = 255;
                     int i257 = 197 - 30 * rtg[i];
                     int i258 = 0;
-                    for (int i259 = 0; i259 < 16; i259++)
+                    for (int i259 = 0; i259 < 16; i259++) {
                         if (i247 > m.fade[i259]) {
                             i256 = (i256 * m.fogd + m.cfade[0]) / (m.fogd + 1);
                             i257 = (i257 * m.fogd + m.cfade[1]) / (m.fogd + 1);
                             i258 = (i258 * m.fogd + m.cfade[2]) / (m.fogd + 1);
                         }
+                    }
                     graphics2d.setColor(new Color(i256, i257, i258));
                     graphics2d.drawLine(i252, i253, i254, i255);
                     vrx[i] = vrx[i] * 0.8F;
@@ -1518,16 +1529,14 @@ class ContO {
                     }
                 }
             }
+        }
         if (sprk != 0) {
             sprk = 0;
         }
     }
 
     void dust(final int i, final float f, final float f199, final float f200, final int i201, final int i202, final float f203, final int i204, final boolean bool) {
-        boolean bool205 = false;
-        if (i204 > 5 && (i == 0 || i == 2)) {
-            bool205 = true;
-        }
+        boolean bool205 = i204 > 5 && (i == 0 || i == 2);
         if (i204 < -5 && (i == 1 || i == 3)) {
             bool205 = true;
         }
@@ -1894,12 +1903,12 @@ class ContO {
         String string264 = "";
         for (int i265 = string.length() + 1; i265 < string262.length(); i265++) {
             final String string266 = "" + string262.charAt(i265);
-            if (string266.equals(",") || string266.equals(")")) {
+            if (",".equals(string266) || ")".equals(string266)) {
                 i263++;
                 i265++;
             }
             if (i263 == i) {
-                string264 = "" + string264 + string262.charAt(i265);
+                string264 = string264 + string262.charAt(i265);
             }
         }
         return Integer.parseInt(string264);
@@ -1912,7 +1921,6 @@ class ContO {
         int i148 = 1;
         int i149;
         for (i149 = Math.abs(zy); i149 > 270; i149 -= 360) {
-
         }
         i149 = Math.abs(i149);
         if (i149 > 90) {
@@ -1951,10 +1959,11 @@ class ContO {
             for (int i156 = t.sect[i154][i155].length - 1; i156 >= 0; i156--) {
                 final int i157 = t.sect[i154][i155][i156];
                 int i158 = 0;
-                for (int i159 = 0; i159 < 4; i159++)
+                for (int i159 = 0; i159 < 4; i159++) {
                     if (Math.abs(t.zy[i157]) != 90 && Math.abs(t.xy[i157]) != 90 && t.rady[i157] != 801 && Math.abs(is[i159] - (t.x[i157] - m.x)) < t.radx[i157] && Math.abs(is147[i159] - (t.z[i157] - m.z)) < t.radz[i157] && (!t.decor[i157] || m.resdown != 2)) {
                         i158++;
                     }
+                }
                 if (i158 > 2) {
                     for (int i160 = 0; i160 < 4; i160++) {
                         is146[i160] = t.y[i157] - m.y;
@@ -1999,12 +2008,13 @@ class ContO {
             bool = false;
         }
         if (bool) {
-            for (int i166 = 0; i166 < 16; i166++)
+            for (int i166 = 0; i166 < 16; i166++) {
                 if (i > m.fade[i166]) {
                     i150 = (i150 * m.fogd + m.cfade[0]) / (m.fogd + 1);
                     i151 = (i151 * m.fogd + m.cfade[1]) / (m.fogd + 1);
                     i152 = (i152 * m.fogd + m.cfade[2]) / (m.fogd + 1);
                 }
+            }
             graphics2d.setColor(new Color(i150, i151, i152));
             graphics2d.fillPolygon(is, is146, 4);
         }
@@ -2014,7 +2024,7 @@ class ContO {
         if (bool) {
             sav[i] = (int) Math.sqrt((m.x + m.cx - sx[i]) * (m.x + m.cx - sx[i]) + (m.y + m.cy - sy[i]) * (m.y + m.cy - sy[i]) + (m.z - sz[i]) * (m.z - sz[i]));
         }
-        if (bool && sav[i] > dist || !bool && sav[i] <= dist) {
+        if ((bool && sav[i] > dist) || (!bool && sav[i] <= dist)) {
             if (stg[i] == 1) {
                 sbln[i] = 0.6F;
                 boolean bool208 = false;
@@ -2141,12 +2151,13 @@ class ContO {
                 int i231 = srgb[i][0];
                 int i232 = srgb[i][1];
                 int i233 = srgb[i][2];
-                for (int i234 = 0; i234 < 16; i234++)
+                for (int i234 = 0; i234 < 16; i234++) {
                     if (sav[i] > m.fade[i234]) {
                         i231 = (i231 * m.fogd + m.cfade[0]) / (m.fogd + 1);
                         i232 = (i232 * m.fogd + m.cfade[1]) / (m.fogd + 1);
                         i233 = (i233 * m.fogd + m.cfade[2]) / (m.fogd + 1);
                     }
+                }
                 graphics2d.setColor(new Color(i231, i232, i233));
                 final float f = sbln[i] - stg[i] * (sbln[i] / 8.0F);
                 graphics2d.setComposite(AlphaComposite.getInstance(3, f));
