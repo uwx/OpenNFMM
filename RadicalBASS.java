@@ -30,17 +30,6 @@ import jouvieje.bass.utils.Pointer;
 
 class RadicalBASS implements RadicalMusic {
 
-    /* display error messages */
-    private final void error(final String text) {
-        System.err.println("RadicalBASS error: " + text);
-    }
-
-    private final void printfExit(final String format, final Object... args) {
-        final String s = String.format(format, args);
-        System.out.println(s);
-        end();
-    }
-
     static boolean init = false;
     private boolean deinit = false;
 
@@ -60,6 +49,17 @@ class RadicalBASS implements RadicalMusic {
             }
         }
     };
+    
+    /* display error messages */
+    private final void error(final String text) {
+        System.err.println("RadicalBASS error: " + text);
+    }
+
+    private final void printfExit(final String format, final Object... args) {
+        final String s = String.format(format, args);
+        System.out.println(s);
+        end();
+    }
 
     public void run() {
         if (!init)

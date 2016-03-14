@@ -546,9 +546,6 @@ class Login implements Runnable {
             if (control.exit) {
                 i49 = 2;
             }
-            if (i49 != 1) {
-
-            }
             if (i49 == 2) {
                 fase = lrgfase;
                 if (fase == 12) {
