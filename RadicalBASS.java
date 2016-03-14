@@ -1,7 +1,5 @@
 
-import static jouvieje.bass.Bass.BASS_ChannelGetLength;
 import static jouvieje.bass.Bass.BASS_ChannelPlay;
-import static jouvieje.bass.Bass.BASS_ChannelSeconds2Bytes;
 import static jouvieje.bass.Bass.BASS_ChannelSetPosition;
 import static jouvieje.bass.Bass.BASS_ChannelSetSync;
 import static jouvieje.bass.Bass.BASS_Free;
@@ -46,11 +44,11 @@ class RadicalBASS implements RadicalMusic {
     static boolean init = false;
     private boolean deinit = false;
 
-    private final int WIDTH = 600; //Display width
-    private final int HEIGHT = 201; //Height (odd number for centre line)
+    //private final int WIDTH = 600; //Display width
+    //private final int HEIGHT = 201; //Height (odd number for centre line)
 
     private int chan;
-    private long bpp; //Bytes per pixel
+    //private long bpp; //Bytes per pixel
     private final long[] loop = new long[2]; //Loop start & end
     //private HSYNC lsync; //Looping sync
 
@@ -99,10 +97,10 @@ class RadicalBASS implements RadicalMusic {
 
         chan = stream != null ? stream.asInt() : music != null ? music.asInt() : 0;
 
-        bpp = (int) (BASS_ChannelGetLength(chan, BASS_POS_BYTE) / WIDTH); //Bytes per pixel
+        /*bpp = (int) (BASS_ChannelGetLength(chan, BASS_POS_BYTE) / WIDTH); //Bytes per pixel
         if (bpp < BASS_ChannelSeconds2Bytes(chan, 0.02f)) { //Minimum 20ms per pixel (BASS_ChannelGetLevel scans 20ms)
             bpp = (int) BASS_ChannelSeconds2Bytes(chan, 0.02f);
-        }
+        }*/
         BASS_ChannelSetSync(chan, BASS_SYNC_END | BASS_SYNC_MIXTIME, 0, loopSyncProc, null); //Set sync to loop at end
         BASS_ChannelPlay(chan, false); //Start playing
         return true;
