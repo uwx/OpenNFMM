@@ -1,87 +1,89 @@
-/** Control - Decompiled by JODE Visit http://jode.sourceforge.net/ */
+/* Control - Decompiled by JODE
+ * Visit http://jode.sourceforge.net/
+ */
 
 class Control {
-    private int acr;
-    private int actwait;
-    private int acuracy;
-    private boolean afta;
-    private boolean agressed;
-    private float aim;
-    private int apunch;
-    boolean arrace;
-    private int attack;
-    private int avoidnlev;
-    private boolean bulistc;
-    int chatup;
+    private int acr = 0;
+    private int actwait = 0;
+    private int acuracy = 0;
+    private boolean afta = false;
+    private boolean agressed = false;
+    private float aim = 0.0F;
+    private int apunch = 0;
+    boolean arrace = false;
+    private int attack = 0;
+    private int avoidnlev = 0;
+    private boolean bulistc = false;
+    int chatup = 0;
     private int clrnce = 5;
-    private int cntrn;
-    boolean down;
-    boolean enter;
-    boolean exit;
-    private boolean exitattack;
-    private int flycnt;
-    private boolean forget;
+    private int cntrn = 0;
+    boolean down = false;
+    boolean enter = false;
+    boolean exit = false;
+    private boolean exitattack = false;
+    private int flycnt = 0;
+    private boolean forget = false;
     private final int[] fpnt = new int[5];
-    private int frad;
-    private int frx;
-    private int frz;
-    private boolean gowait;
-    boolean handb;
-    private int hold;
-    private boolean lastl;
-    boolean left;
-    int lookback;
-    private boolean lrbare;
-    private boolean lrcomp;
-    private int lrdirect;
-    private int lrstart;
-    private boolean lrswt;
+    private int frad = 0;
+    private int frx = 0;
+    private int frz = 0;
+    private boolean gowait = false;
+    boolean handb = false;
+    private int hold = 0;
+    private boolean lastl = false;
+    boolean left = false;
+    int lookback = 0;
+    private boolean lrbare = false;
+    private boolean lrcomp = false;
+    private int lrdirect = 0;
+    private int lrstart = 0;
+    private boolean lrswt = false;
     private int lwall = -1;
     private final Medium m;
-    int multion;
+    int multion = 0;
     private float mustland = 0.5F;
-    boolean mutem;
-    boolean mutes;
-    private boolean onced;
-    private boolean oncel;
-    private boolean oncer;
-    private boolean onceu;
-    private int oupnt;
-    private int oxy;
-    private int ozy;
-    private int pan;
-    private boolean perfection;
-    boolean radar;
-    private int rampp;
-    private int randtcnt;
-    private int revstart;
-    boolean right;
-    private int runbul;
+    boolean mutem = false;
+    boolean mutes = false;
+    private boolean onced = false;
+    private boolean oncel = false;
+    private boolean oncer = false;
+    private boolean onceu = false;
+    private int oupnt = 0;
+    private int oxy = 0;
+    private int ozy = 0;
+    private int pan = 0;
+    private boolean perfection = false;
+    boolean radar = false;
+    private int rampp = 0;
+    private int randtcnt = 0;
+    private int revstart = 0;
+    boolean right = false;
+    private int runbul = 0;
     private int saftey = 30;
     private float skiplev = 1.0F;
-    private int statusque;
-    private int stcnt;
-    private int stuntf;
-    private int swat;
-    private int trfix;
-    private int trickfase;
+    private int statusque = 0;
+    private int stcnt = 0;
+    private int stuntf = 0;
+    private int swat = 0;
+    private int trfix = 0;
+    private int trickfase = 0;
     private float trickprf = 0.5F;
-    private int turncnt;
-    private int turntyp;
-    private boolean udbare;
-    private boolean udcomp;
-    private int uddirect;
-    private int udstart;
-    private boolean udswt;
-    boolean up;
-    private int upcnt;
-    private int upwait;
-    private boolean usebounce;
+    private int turncnt = 0;
+    private int turntyp = 0;
+    private boolean udbare = false;
+    private boolean udcomp = false;
+    private int uddirect = 0;
+    private int udstart = 0;
+    private boolean udswt = false;
+    boolean up = false;
+    private int upcnt = 0;
+    private int upwait = 0;
+    private boolean usebounce = false;
     int wall = -1;
-    private boolean wlastl;
-    private int wtx;
-    private int wtz;
-    boolean zyinv;
+    private boolean wlastl = false;
+    private int wtx = 0;
+    private int wtz = 0;
+    boolean zyinv = false;
 
     Control(final Medium medium) {
         m = medium;
@@ -117,7 +119,7 @@ class Control {
         down = false;
         handb = false;
         if (!mad.dest) {
-            if (mad.mtouch) {
+            if (mad.mtouch)
                 if (stcnt > statusque) {
                     acuracy = (7 - checkpoints.pos[mad.im]) * checkpoints.pos[0] * (6 - checkpoints.stage * 2);
                     if (acuracy < 0 || checkpoints.stage == -1) {
@@ -201,13 +203,12 @@ class Control {
                             skiplev = f;
                         }
                     }
-                    if (checkpoints.stage == 18) {
+                    if (checkpoints.stage == 18)
                         if (mad.pcleared >= 10 && mad.pcleared <= 24) {
                             skiplev = 1.0F;
                         } else {
                             skiplev = 0.0F;
                         }
-                    }
                     if (checkpoints.stage == 21) {
                         skiplev = 0.0F;
                         if (mad.pcleared == 5) {
@@ -303,9 +304,12 @@ class Control {
                         if (checkpoints.stage == 7 || checkpoints.stage == 9 || checkpoints.stage == 10 || checkpoints.stage == 16 || checkpoints.stage == 17 || checkpoints.stage == 19 || checkpoints.stage == 20 || checkpoints.stage == 21 || checkpoints.stage == 22 || checkpoints.stage == 24 || checkpoints.stage == 26 || checkpoints.stage == 27) {
                             agressed = true;
                         }
-                        if (checkpoints.stage == -1) {
-                            agressed = m.random() > m.random();
-                        }
+                        if (checkpoints.stage == -1)
+                            if (m.random() > m.random()) {
+                                agressed = true;
+                            } else {
+                                agressed = false;
+                            }
                         cntrn = 5;
                     } else {
                         cntrn--;
@@ -357,14 +361,13 @@ class Control {
                     if (checkpoints.stage == 19 && mad.pcleared == 3) {
                         stuntf = 2;
                     }
-                    if (checkpoints.stage == 20) {
+                    if (checkpoints.stage == 20)
                         if (checkpoints.pos[0] < checkpoints.pos[mad.im] || Math.abs(checkpoints.clear[0] - mad.clear) >= 2 || mad.clear < 2) {
                             stuntf = 4;
                             saftey = 10;
                         } else {
                             stuntf = 3;
                         }
-                    }
                     if (checkpoints.stage == 21 && mad.pcleared == 21) {
                         stuntf = 1;
                     }
@@ -436,7 +439,11 @@ class Control {
                     if (checkpoints.stage == 27) {
                         trickprf = -1.0F;
                     }
-                    usebounce = m.random() > mad.power / 100.0F;
+                    if (m.random() > mad.power / 100.0F) {
+                        usebounce = true;
+                    } else {
+                        usebounce = false;
+                    }
                     if (checkpoints.stage == 9) {
                         usebounce = false;
                     }
@@ -446,7 +453,11 @@ class Control {
                     if (checkpoints.stage == 20 || checkpoints.stage == 24) {
                         usebounce = false;
                     }
-                    perfection = m.random() <= (float) mad.hitmag / mad.cd.maxmag[mad.cn];
+                    if (m.random() > (float) mad.hitmag / (float) mad.cd.maxmag[mad.cn]) {
+                        perfection = false;
+                    } else {
+                        perfection = true;
+                    }
                     if (100.0F * mad.hitmag / mad.cd.maxmag[mad.cn] > 60.0F) {
                         perfection = true;
                     }
@@ -470,7 +481,10 @@ class Control {
                         if (checkpoints.stage == -1 && m.random() > m.random()) {
                             bool = false;
                         }
-                        boolean bool4 = checkpoints.stage == 13 && mad.cn == 9;
+                        boolean bool4 = false;
+                        if (checkpoints.stage == 13 && mad.cn == 9) {
+                            bool4 = true;
+                        }
                         if (checkpoints.stage == 18 && mad.cn == 11) {
                             bool4 = true;
                         }
@@ -537,24 +551,28 @@ class Control {
                                 i5 = 80;
                             }
                         }
-                        for (int i6 = 0; i6 < 7; i6++) {
+                        for (int i6 = 0; i6 < 7; i6++)
                             if (i6 != mad.im && checkpoints.clear[i6] != -1) {
                                 int i7 = conto.xz;
                                 if (zyinv) {
                                     i7 += 180;
                                 }
-                                for (; i7 < 0; i7 += 360) {
+                                for (/**/; i7 < 0; i7 += 360) {
+
                                 }
-                                for (; i7 > 180; i7 -= 360) {
+                                for (/**/; i7 > 180; i7 -= 360) {
+
                                 }
                                 int i8 = 0;
                                 if (checkpoints.opx[i6] - conto.x >= 0) {
                                     i8 = 180;
                                 }
                                 int i9;
-                                for (i9 = (int) (90 + i8 + Math.atan((double) (checkpoints.opz[i6] - conto.z) / (checkpoints.opx[i6] - conto.x)) / 0.017453292519943295); i9 < 0; i9 += 360) {
+                                for (i9 = (int) (90 + i8 + Math.atan((double) (checkpoints.opz[i6] - conto.z) / (double) (checkpoints.opx[i6] - conto.x)) / 0.017453292519943295); i9 < 0; i9 += 360) {
+
                                 }
-                                for (; i9 > 180; i9 -= 360) {
+                                for (/**/; i9 > 180; i9 -= 360) {
+
                                 }
                                 int i10 = Math.abs(i7 - i9);
                                 if (i10 > 180) {
@@ -582,7 +600,7 @@ class Control {
                                 if (checkpoints.stage == 19 && (mad.pcleared == 13 || mad.pcleared == 33 || bool4) && i11 < 12000) {
                                     i11 = 12000;
                                 }
-                                if (checkpoints.stage == 21) {
+                                if (checkpoints.stage == 21)
                                     if (bulistc) {
                                         i11 = 8000;
                                         i10 = 10;
@@ -590,7 +608,6 @@ class Control {
                                     } else if (i11 < 6000) {
                                         i11 = 6000;
                                     }
-                                }
                                 if (checkpoints.stage == 22 && bulistc) {
                                     i11 = 6000;
                                     i10 = 10;
@@ -650,13 +667,12 @@ class Control {
                                     if (i6 != 0 && bool4) {
                                         f14 = 0.0F;
                                     }
-                                    if (bool4 && checkpoints.stage == 3 && i6 == 0) {
+                                    if (bool4 && checkpoints.stage == 3 && i6 == 0)
                                         if (checkpoints.wasted >= 2) {
                                             f14 *= 0.5F;
                                         } else {
                                             f14 = 0.0F;
                                         }
-                                    }
                                     if ((checkpoints.stage == 3 || checkpoints.stage == 9) && i6 == 4) {
                                         f14 = 0.0F;
                                     }
@@ -675,36 +691,33 @@ class Control {
                                     if (checkpoints.stage == 9 && mad.cn == 15) {
                                         f14 = 0.0F;
                                     }
-                                    if (checkpoints.stage == 9 && bulistc) {
+                                    if (checkpoints.stage == 9 && bulistc)
                                         if (i6 == 0) {
                                             f14 = 1.0F;
                                         } else {
                                             f14 = 0.0F;
                                         }
-                                    }
                                     if (checkpoints.stage == 9 && (checkpoints.pos[i6] == 4 || checkpoints.pos[i6] == 3)) {
                                         f14 = 0.0F;
                                     }
-                                    if (checkpoints.stage == 13) {
-                                        if (mad.cn == 9 || (mad.cn == 13 && bulistc)) {
+                                    if (checkpoints.stage == 13)
+                                        if (mad.cn == 9 || mad.cn == 13 && bulistc) {
                                             f14 *= 2.0F;
                                         } else {
                                             f14 *= 0.5F;
                                         }
-                                    }
                                     if (checkpoints.stage == 16) {
                                         f14 = 0.0F;
                                     }
                                     if (checkpoints.stage == 17 && mad.im == 6 && i6 == 0) {
                                         f14 *= 1.5;
                                     }
-                                    if (checkpoints.stage == 18) {
-                                        if (mad.cn == 11 || (mad.cn == 13 && bulistc)) {
+                                    if (checkpoints.stage == 18)
+                                        if (mad.cn == 11 || mad.cn == 13 && bulistc) {
                                             f14 *= 1.5F;
                                         } else {
                                             f14 = 0.0F;
                                         }
-                                    }
                                     if (checkpoints.stage == 19) {
                                         if (i6 != 0) {
                                             f14 *= 0.5;
@@ -758,7 +771,7 @@ class Control {
                                         if (mad.cn == 13 && i6 == 0) {
                                             f14 = 1.0F;
                                         }
-                                        if (checkpoints.pos[mad.im] == 0 || (checkpoints.pos[mad.im] == 1 && checkpoints.pos[0] == 0)) {
+                                        if (checkpoints.pos[mad.im] == 0 || checkpoints.pos[mad.im] == 1 && checkpoints.pos[0] == 0) {
                                             f14 = 0.0F;
                                         }
                                         if (checkpoints.clear[mad.im] - checkpoints.clear[0] >= 5 && i6 == 0) {
@@ -777,13 +790,12 @@ class Control {
                                         if (checkpoints.stage == 13 && mad.cn == 9 && m.random() > m.random()) {
                                             aim = 1.0F;
                                         }
-                                        if (checkpoints.stage == 14) {
+                                        if (checkpoints.stage == 14)
                                             if (i6 == 0 && checkpoints.pos[0] < checkpoints.pos[mad.im]) {
                                                 aim = 1.5F;
                                             } else {
                                                 aim = m.random();
                                             }
-                                        }
                                         if (checkpoints.stage == 15) {
                                             aim = m.random() * 1.5F;
                                         }
@@ -796,7 +808,7 @@ class Control {
                                         if (checkpoints.stage == 19 && (mad.pcleared == 13 || mad.pcleared == 33)) {
                                             aim = 1.0F;
                                         }
-                                        if (checkpoints.stage == 21) {
+                                        if (checkpoints.stage == 21)
                                             if (bulistc) {
                                                 aim = 0.7F;
                                                 if (attack > 150) {
@@ -805,7 +817,6 @@ class Control {
                                             } else {
                                                 aim = m.random();
                                             }
-                                        }
                                         if (checkpoints.stage == 22) {
                                             if (m.random() > m.random()) {
                                                 aim = 0.7F;
@@ -820,9 +831,13 @@ class Control {
                                         if (checkpoints.stage == 25) {
                                             aim = m.random() * 1.5F;
                                             attack = attack / 2;
-                                            exitattack = m.random() > m.random();
+                                            if (m.random() > m.random()) {
+                                                exitattack = true;
+                                            } else {
+                                                exitattack = false;
+                                            }
                                         }
-                                        if (checkpoints.stage == 26) {
+                                        if (checkpoints.stage == 26)
                                             if (mad.cn == 13) {
                                                 aim = 0.76F;
                                                 attack = 150;
@@ -832,7 +847,6 @@ class Control {
                                                     attack = attack / 3;
                                                 }
                                             }
-                                        }
                                         if (checkpoints.stage == -1 && m.random() > m.random()) {
                                             aim = m.random() * 1.5F;
                                         }
@@ -845,9 +859,11 @@ class Control {
                                     acuracy = 0;
                                 }
                             }
-                        }
                     }
-                    boolean bool = checkpoints.stage == 6 || checkpoints.stage == 8;
+                    boolean bool = false;
+                    if (checkpoints.stage == 6 || checkpoints.stage == 8) {
+                        bool = true;
+                    }
                     if (checkpoints.stage == 9 && mad.cn == 15) {
                         bool = true;
                     }
@@ -946,7 +962,6 @@ class Control {
                 } else {
                     stcnt++;
                 }
-            }
             boolean bool = false;
             if (usebounce) {
                 bool = mad.wtouch;
@@ -961,14 +976,13 @@ class Control {
                     attack = 0;
                 }
                 if (attack == 0) {
-                    if (upcnt < 30) {
+                    if (upcnt < 30)
                         if (revstart <= 0) {
                             up = true;
                         } else {
                             down = true;
                             revstart--;
                         }
-                    }
                     if (upcnt < 25 + actwait) {
                         upcnt++;
                     } else {
@@ -1007,11 +1021,10 @@ class Control {
                             boolean bool20 = false;
                             if (checkpoints.typ[i19] > 0) {
                                 int i21 = 0;
-                                for (int i22 = 0; i22 < checkpoints.n; i22++) {
+                                for (int i22 = 0; i22 < checkpoints.n; i22++)
                                     if (checkpoints.typ[i22] > 0 && i22 < i19) {
                                         i21++;
                                     }
-                                }
                                 bool20 = mad.clear != i21 + mad.nlaps * checkpoints.nsp;
                             }
                             while (checkpoints.typ[i19] == 0 || checkpoints.typ[i19] == -1 || checkpoints.typ[i19] == -3 || bool20) {
@@ -1022,20 +1035,18 @@ class Control {
                                 bool20 = false;
                                 if (checkpoints.typ[i19] > 0) {
                                     int i23 = 0;
-                                    for (int i24 = 0; i24 < checkpoints.n; i24++) {
+                                    for (int i24 = 0; i24 < checkpoints.n; i24++)
                                         if (checkpoints.typ[i24] > 0 && i24 < i19) {
                                             i23++;
                                         }
-                                    }
                                     bool20 = mad.clear != i23 + mad.nlaps * checkpoints.nsp;
                                 }
                             }
                         } else if (m.random() > skiplev) {
-                            while (checkpoints.typ[i] == -1) {
+                            while (checkpoints.typ[i] == -1)
                                 if (++i >= checkpoints.n) {
                                     i = 0;
                                 }
-                            }
                         }
                         if (checkpoints.stage == 18 && mad.pcleared == 73 && trfix == 0 && mad.clear != 0) {
                             i = 10;
@@ -1044,43 +1055,38 @@ class Control {
                             i = 27;
                         }
                         if (checkpoints.stage == 21) {
-                            if (mad.pcleared == 5 && trfix == 0 && mad.power < 70.0F) {
+                            if (mad.pcleared == 5 && trfix == 0 && mad.power < 70.0F)
                                 if (i <= 16) {
                                     i = 16;
                                 } else {
                                     i = 21;
                                 }
-                            }
                             if (mad.pcleared == 50) {
                                 i = 57;
                             }
                         }
                         if (checkpoints.stage == 22 && (mad.pcleared == 27 || mad.pcleared == 37)) {
-                            while (checkpoints.typ[i] == -1) {
+                            while (checkpoints.typ[i] == -1)
                                 if (++i >= checkpoints.n) {
                                     i = 0;
                                 }
-                            }
                         }
                         if (checkpoints.stage == 23) {
-                            while (checkpoints.typ[i] == -1) {
+                            while (checkpoints.typ[i] == -1)
                                 if (++i >= checkpoints.n) {
                                     i = 0;
                                 }
-                            }
                         }
                         if (checkpoints.stage == 24) {
-                            while (checkpoints.typ[i] == -1) {
+                            while (checkpoints.typ[i] == -1)
                                 if (++i >= checkpoints.n) {
                                     i = 0;
                                 }
-                            }
                             if (!mad.gtouch) {
-                                while (checkpoints.typ[i] == -2) {
+                                while (checkpoints.typ[i] == -2)
                                     if (++i >= checkpoints.n) {
                                         i = 0;
                                     }
-                                }
                             }
                             if (oupnt >= 68) {
                                 i = 70;
@@ -1089,12 +1095,11 @@ class Control {
                             }
                         }
                         if (checkpoints.stage == 25) {
-                            if ((mad.pcleared != 91 && checkpoints.pos[0] < checkpoints.pos[mad.im] && mad.cn != 13) || (checkpoints.pos[mad.im] == 0 && (mad.clear == 12 || mad.clear == 20))) {
-                                while (checkpoints.typ[i] == -4) {
+                            if (mad.pcleared != 91 && checkpoints.pos[0] < checkpoints.pos[mad.im] && mad.cn != 13 || checkpoints.pos[mad.im] == 0 && (mad.clear == 12 || mad.clear == 20)) {
+                                while (checkpoints.typ[i] == -4)
                                     if (++i >= checkpoints.n) {
                                         i = 0;
                                     }
-                                }
                             }
                             if (mad.pcleared == 9) {
                                 if (py(conto.x / 100, 297, conto.z / 100, 347) < 400) {
@@ -1147,13 +1152,12 @@ class Control {
                                 if (py(conto.x / 100, -112, conto.z / 100, 414) < 10000 || conto.z > 40000) {
                                     oupnt = 332;
                                 }
-                                if (oupnt != 331 && oupnt != 332) {
+                                if (oupnt != 331 && oupnt != 332)
                                     if (trfix != 1) {
                                         i = 38;
                                     } else {
                                         i = 39;
                                     }
-                                }
                                 if (oupnt == 331) {
                                     i = 71;
                                 }
@@ -1214,18 +1218,22 @@ class Control {
                                 if (zyinv) {
                                     i25 += 180;
                                 }
-                                for (; i25 < 0; i25 += 360) {
+                                for (/**/; i25 < 0; i25 += 360) {
+
                                 }
-                                for (; i25 > 180; i25 -= 360) {
+                                for (/**/; i25 > 180; i25 -= 360) {
+
                                 }
                                 int i26 = 0;
                                 if (checkpoints.opx[0] - conto.x >= 0) {
                                     i26 = 180;
                                 }
                                 int i27;
-                                for (i27 = (int) (90 + i26 + Math.atan((double) (checkpoints.opz[0] - conto.z) / (checkpoints.opx[0] - conto.x)) / 0.017453292519943295); i27 < 0; i27 += 360) {
+                                for (i27 = (int) (90 + i26 + Math.atan((double) (checkpoints.opz[0] - conto.z) / (double) (checkpoints.opx[0] - conto.x)) / 0.017453292519943295); i27 < 0; i27 += 360) {
+
                                 }
-                                for (; i27 > 180; i27 -= 360) {
+                                for (/**/; i27 > 180; i27 -= 360) {
+
                                 }
                                 int i28 = Math.abs(i25 - i27);
                                 if (i28 > 180) {
@@ -1252,7 +1260,7 @@ class Control {
                             }
                         }
                     } else {
-                        if ((checkpoints.stage != 25 && checkpoints.stage != 26) || runbul == 0) {
+                        if (checkpoints.stage != 25 && checkpoints.stage != 26 || runbul == 0) {
                             i -= 2;
                             if (i < 0) {
                                 i += checkpoints.n;
@@ -1260,11 +1268,10 @@ class Control {
                             if (checkpoints.stage == 9 && i > 76) {
                                 i = 76;
                             }
-                            while (checkpoints.typ[i] == -4) {
+                            while (checkpoints.typ[i] == -4)
                                 if (--i < 0) {
                                     i += checkpoints.n;
                                 }
-                            }
                         }
                         if (checkpoints.stage == 21) {
                             if (i >= 14 && i <= 19) {
@@ -1356,12 +1363,11 @@ class Control {
                         if (checkpoints.stage == 25) {
                             if (oupnt == -1) {
                                 int i30 = -10;
-                                for (int i31 = 0; i31 < checkpoints.n; i31++) {
+                                for (int i31 = 0; i31 < checkpoints.n; i31++)
                                     if ((checkpoints.typ[i31] == -2 || checkpoints.typ[i31] == -4) && (i31 < 50 || i31 > 54) && (py(conto.x / 100, checkpoints.x[i31] / 100, conto.z / 100, checkpoints.z[i31] / 100) < i30 || i30 == -10)) {
                                         i30 = py(conto.x / 100, checkpoints.x[i31] / 100, conto.z / 100, checkpoints.z[i31] / 100);
                                         oupnt = i31;
                                     }
-                                }
                                 oupnt--;
                                 if (i < 0) {
                                     oupnt += checkpoints.n;
@@ -1468,7 +1474,7 @@ class Control {
                                         gowait = false;
                                     }
                                 }
-                                if ((checkpoints.clear[0] >= 11 && !gowait) || (mad.power < 60.0F && checkpoints.clear[0] < 21)) {
+                                if (checkpoints.clear[0] >= 11 && !gowait || mad.power < 60.0F && checkpoints.clear[0] < 21) {
                                     bool32 = true;
                                     if (!exitattack) {
                                         oupnt = -1;
@@ -1484,12 +1490,11 @@ class Control {
                             if (bool32) {
                                 if (oupnt == -1) {
                                     int i33 = -10;
-                                    for (int i34 = 0; i34 < checkpoints.n; i34++) {
-                                        if (checkpoints.typ[i34] == -4 && ((py(conto.x / 100, checkpoints.x[i34] / 100, conto.z / 100, checkpoints.z[i34] / 100) < i33 && m.random() > 0.6) || i33 == -10)) {
+                                    for (int i34 = 0; i34 < checkpoints.n; i34++)
+                                        if (checkpoints.typ[i34] == -4 && (py(conto.x / 100, checkpoints.x[i34] / 100, conto.z / 100, checkpoints.z[i34] / 100) < i33 && m.random() > 0.6 || i33 == -10)) {
                                             i33 = py(conto.x / 100, checkpoints.x[i34] / 100, conto.z / 100, checkpoints.z[i34] / 100);
                                             oupnt = i34;
                                         }
-                                    }
                                     oupnt--;
                                     if (i < 0) {
                                         oupnt += checkpoints.n;
@@ -1513,7 +1518,7 @@ class Control {
                         mad.nofocus = true;
                     }
                     if (checkpoints.stage != 27) {
-                        if (checkpoints.stage == 10 || checkpoints.stage == 19 || (checkpoints.stage == 18 && mad.pcleared == 73) || checkpoints.stage == 26) {
+                        if (checkpoints.stage == 10 || checkpoints.stage == 19 || checkpoints.stage == 18 && mad.pcleared == 73 || checkpoints.stage == 26) {
                             forget = true;
                         }
                         if ((mad.missedcp == 0 || forget || trfix == 4) && trfix != 0) {
@@ -1524,19 +1529,22 @@ class Control {
                             if (trfix == 2) {
                                 int i36 = -10;
                                 int i37 = 0;
-                                for (int i38 = i35; i38 < checkpoints.fn; i38++) {
+                                for (int i38 = i35; i38 < checkpoints.fn; i38++)
                                     if (py(conto.x / 100, checkpoints.x[fpnt[i38]] / 100, conto.z / 100, checkpoints.z[fpnt[i38]] / 100) < i36 || i36 == -10) {
                                         i36 = py(conto.x / 100, checkpoints.x[fpnt[i38]] / 100, conto.z / 100, checkpoints.z[fpnt[i38]] / 100);
                                         i37 = i38;
                                     }
-                                }
                                 if (checkpoints.stage == 18 || checkpoints.stage == 22) {
                                     i37 = 1;
                                 }
                                 i = fpnt[i37];
-                                forget = checkpoints.special[i37];
+                                if (checkpoints.special[i37]) {
+                                    forget = true;
+                                } else {
+                                    forget = false;
+                                }
                             }
-                            for (int i39 = i35; i39 < checkpoints.fn; i39++) {
+                            for (int i39 = i35; i39 < checkpoints.fn; i39++)
                                 if (py(conto.x / 100, checkpoints.x[fpnt[i39]] / 100, conto.z / 100, checkpoints.z[fpnt[i39]] / 100) < 2000) {
                                     forget = false;
                                     actwait = 0;
@@ -1547,7 +1555,6 @@ class Control {
                                     rampp = 0;
                                     trfix = 3;
                                 }
-                            }
                             if (trfix == 3) {
                                 mad.nofocus = true;
                             }
@@ -1559,13 +1566,13 @@ class Control {
                             if (checkpoints.x[i] - conto.x >= 0) {
                                 i40 = 180;
                             }
-                            pan = (int) (90 + i40 + Math.atan((double) (checkpoints.z[i] - conto.z) / (checkpoints.x[i] - conto.x)) / 0.017453292519943295);
+                            pan = (int) (90 + i40 + Math.atan((double) (checkpoints.z[i] - conto.z) / (double) (checkpoints.x[i] - conto.x)) / 0.017453292519943295);
                         } else {
                             int i41 = 0;
                             if (wtx - conto.x >= 0) {
                                 i41 = 180;
                             }
-                            pan = (int) (90 + i41 + Math.atan((double) (wtz - conto.z) / (wtx - conto.x)) / 0.017453292519943295);
+                            pan = (int) (90 + i41 + Math.atan((double) (wtz - conto.z) / (double) (wtx - conto.x)) / 0.017453292519943295);
                         }
                         turncnt = 0;
                         randtcnt = (int) (acuracy * m.random());
@@ -1581,7 +1588,7 @@ class Control {
                     if (i43 - conto.x >= 0) {
                         i = 180;
                     }
-                    pan = (int) (90 + i + Math.atan((double) (i44 - conto.z) / (i43 - conto.x)) / 0.017453292519943295);
+                    pan = (int) (90 + i + Math.atan((double) (i44 - conto.z) / (double) (i43 - conto.x)) / 0.017453292519943295);
                     attack--;
                     if (attack <= 0) {
                         attack = 0;
@@ -1592,7 +1599,7 @@ class Control {
                     if (checkpoints.stage == 26 && mad.cn == 13 && (checkpoints.clear[0] == 4 || checkpoints.clear[0] == 13 || checkpoints.clear[0] == 21)) {
                         attack = 0;
                     }
-                    if (checkpoints.stage == 26 && mad.missedcp != 0 && (checkpoints.pos[mad.im] == 0 || (checkpoints.pos[mad.im] == 1 && checkpoints.pos[0] == 0))) {
+                    if (checkpoints.stage == 26 && mad.missedcp != 0 && (checkpoints.pos[mad.im] == 0 || checkpoints.pos[mad.im] == 1 && checkpoints.pos[0] == 0)) {
                         attack = 0;
                     }
                     if (checkpoints.stage == 26 && checkpoints.pos[0] > checkpoints.pos[mad.im] && mad.power < 80.0F) {
@@ -1603,18 +1610,22 @@ class Control {
                 if (zyinv) {
                     i += 180;
                 }
-                for (; i < 0; i += 360) {
+                for (/**/; i < 0; i += 360) {
+
                 }
-                for (; i > 180; i -= 360) {
+                for (/**/; i > 180; i -= 360) {
+
                 }
-                for (; pan < 0; pan += 360) {
+                for (/**/; pan < 0; pan += 360) {
+
                 }
-                for (; pan > 180; pan -= 360) {
+                for (/**/; pan > 180; pan -= 360) {
+
                 }
                 if (wall != -1 && hold == 0) {
                     clrnce = 0;
                 }
-                if (hold == 0) {
+                if (hold == 0)
                     if (Math.abs(i - pan) < 180) {
                         if (Math.abs(i - pan) > clrnce) {
                             if (i < pan) {
@@ -1656,7 +1667,6 @@ class Control {
                             }
                         }
                     }
-                }
                 if (checkpoints.stage == 24 && wall != -1) {
                     if (trackers.dam[wall] == 0 || mad.pcleared == 45) {
                         wall = -1;
@@ -1722,7 +1732,7 @@ class Control {
                                 udstart = 0;
                                 udswt = false;
                             }
-                        } else if ((m.random() > m.random() && stuntf != 1) || stuntf == 4 || stuntf == 6 || stuntf == 7 || stuntf == 17) {
+                        } else if (m.random() > m.random() && stuntf != 1 || stuntf == 4 || stuntf == 6 || stuntf == 7 || stuntf == 17) {
                             if ((m.random() > m.random() || stuntf == 2 || stuntf == 7) && stuntf != 4 && stuntf != 6) {
                                 uddirect = -1;
                             } else {
@@ -1777,13 +1787,12 @@ class Control {
                         }
                         if (trfix == 3 || trfix == 4) {
                             if (checkpoints.stage != 18 && checkpoints.stage != 8) {
-                                if (checkpoints.stage != 25 && lrdirect == -1) {
+                                if (checkpoints.stage != 25 && lrdirect == -1)
                                     if (checkpoints.stage != 19) {
                                         uddirect = -1;
                                     } else {
                                         uddirect = 1;
                                     }
-                                }
                                 lrdirect = 0;
                                 if ((checkpoints.stage == 19 || checkpoints.stage == 25) && uddirect == -1) {
                                     uddirect = 1;
@@ -1840,10 +1849,11 @@ class Control {
                             }
                             lrswt = false;
                         }
-                        handb = true;
                         if (lrdirect == -1) {
+                            handb = true;
                             left = true;
                         } else {
+                            handb = true;
                             right = true;
                         }
                     }
@@ -1856,10 +1866,11 @@ class Control {
                             }
                             udswt = false;
                         }
-                        handb = true;
                         if (uddirect == -1) {
+                            handb = true;
                             down = true;
                         } else {
+                            handb = true;
                             up = true;
                             if (apunch > 0) {
                                 down = true;
@@ -1895,7 +1906,7 @@ class Control {
                             swat = 2;
                         }
                     } else if (swat == 2) {
-                        if (mad.capsized && m.random() > mustland) {
+                        if (mad.capsized && m.random() > mustland)
                             if (udbare) {
                                 lrbare = true;
                                 udbare = false;
@@ -1903,14 +1914,15 @@ class Control {
                                 udbare = true;
                                 lrbare = false;
                             }
-                        }
                         swat = 3;
                     }
                     if (udbare) {
                         int i;
                         for (i = mad.pzy + 90; i < 0; i += 360) {
+
                         }
-                        for (; i > 180; i -= 360) {
+                        for (/**/; i > 180; i -= 360) {
+
                         }
                         i = Math.abs(i);
                         if (mad.lcomp - mad.rcomp < 5.0F && (onced || onceu)) {
@@ -1929,13 +1941,12 @@ class Control {
                                 }
                             } else {
                                 if (udcomp) {
-                                    if (perfection && Math.abs(i - 90) > 30) {
+                                    if (perfection && Math.abs(i - 90) > 30)
                                         if (i > 90) {
                                             up = true;
                                         } else {
                                             down = true;
                                         }
-                                    }
                                 } else if (m.random() > mustland) {
                                     up = true;
                                 }
@@ -1953,13 +1964,12 @@ class Control {
                             }
                         } else {
                             if (udcomp) {
-                                if (perfection && Math.abs(i - 90) > 30) {
+                                if (perfection && Math.abs(i - 90) > 30)
                                     if (i > 90) {
                                         up = true;
                                     } else {
                                         down = true;
                                     }
-                                }
                             } else if (m.random() > mustland) {
                                 down = true;
                             }
@@ -1971,9 +1981,11 @@ class Control {
                         if (zyinv) {
                             i += 180;
                         }
-                        for (; i < 0; i += 360) {
+                        for (/**/; i < 0; i += 360) {
+
                         }
-                        for (; i > 180; i -= 360) {
+                        for (/**/; i > 180; i -= 360) {
+
                         }
                         i = Math.abs(i);
                         if (mad.lcomp - mad.rcomp < 10.0F && (oncel || oncer)) {
@@ -1992,13 +2004,12 @@ class Control {
                                 }
                             } else {
                                 if (lrcomp) {
-                                    if (perfection && Math.abs(i - 90) > 30) {
+                                    if (perfection && Math.abs(i - 90) > 30)
                                         if (i > 90) {
                                             left = true;
                                         } else {
                                             right = true;
                                         }
-                                    }
                                 } else if (m.random() > mustland) {
                                     right = true;
                                 }
@@ -2016,13 +2027,12 @@ class Control {
                             }
                         } else {
                             if (lrcomp) {
-                                if (perfection && Math.abs(i - 90) > 30) {
+                                if (perfection && Math.abs(i - 90) > 30)
                                     if (i > 90) {
                                         left = true;
                                     } else {
                                         right = true;
                                     }
-                                }
                             } else if (m.random() > mustland) {
                                 left = true;
                             }
@@ -2101,12 +2111,11 @@ class Control {
         if (checkpoints.stage != 19 && checkpoints.stage != 26) {
             for (int i0 = 0; i0 < checkpoints.fn; i0++) {
                 int i1 = -10;
-                for (int i2 = 0; i2 < checkpoints.n; i2++) {
+                for (int i2 = 0; i2 < checkpoints.n; i2++)
                     if (py(checkpoints.fx[i0] / 100, checkpoints.x[i2] / 100, checkpoints.fz[i0] / 100, checkpoints.z[i2] / 100) < i1 || i1 == -10) {
                         i1 = py(checkpoints.fx[i0] / 100, checkpoints.x[i2] / 100, checkpoints.fz[i0] / 100, checkpoints.z[i2] / 100);
                         fpnt[i0] = i2;
                     }
-                }
             }
             for (int i3 = 0; i3 < checkpoints.fn; i3++) {
                 fpnt[i3] -= 4;

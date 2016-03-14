@@ -8,6 +8,7 @@ import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Sequencer;
 
 class RadicalMidi implements RadicalMusic {
+
     private BufferedInputStream is;
     private Sequencer sequencer;
     private boolean paused;
@@ -43,6 +44,7 @@ class RadicalMidi implements RadicalMusic {
             // Opens the device, indicating that it should now acquire any
             // system resources it requires and become operational.
             sequencer.open();
+
         } catch (final Exception ex) {
             System.out.println("Error loading Midi file \"" + fn + "\":");
             ex.printStackTrace();
@@ -50,15 +52,19 @@ class RadicalMidi implements RadicalMusic {
         try {
             // create a stream from a file
             is = new BufferedInputStream(fi);
+
         } catch (final Exception ex) {
             System.out.println("Error buffering Midi file \"" + fn + "\":");
             ex.printStackTrace();
         }
+
     }
 
     @Deprecated
     @Override
-    /** Resumes playback of the midi. */
+    /**
+     * Resumes playback of the midi.
+     */
     public void resume() {
         try {
             fi = new FileInputStream(new File(s));
@@ -73,9 +79,12 @@ class RadicalMidi implements RadicalMusic {
         play();
     }
 
-    /** Begins playing the midi. */
+    /**
+     * Begins playing the midi.
+     */
     @Override
     public void play() {
+
         try {
             // Sets the current sequence on which the sequencer operates.
             // The stream must point to MIDI file data.
@@ -100,7 +109,9 @@ class RadicalMidi implements RadicalMusic {
         }
     }
 
-    /** Sets the paused state. Music may not immediately pause. */
+    /**
+     * Sets the paused state. Music may not immediately pause.
+     */
     @Override
     public void setPaused(final boolean paused) {
         if (this.paused != paused && sequencer != null && sequencer.isOpen()) {
@@ -113,13 +124,17 @@ class RadicalMidi implements RadicalMusic {
         }
     }
 
-    /** Returns the paused state. */
+    /**
+     * Returns the paused state.
+     */
     @Override
     public boolean isPaused() {
         return paused;
     }
 
-    /** Stops the midi sequencer. */
+    /**
+     * Stops the midi sequencer.
+     */
     @Override
     @Deprecated
     public void stop() {
@@ -132,7 +147,9 @@ class RadicalMidi implements RadicalMusic {
         }
     }
 
-    /** Closes the midi sequencer. */
+    /**
+     * Closes the midi sequencer.
+     */
     @Override
     public void unload() {
         System.out.println("Stopping Midi file...");

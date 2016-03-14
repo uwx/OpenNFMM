@@ -37,9 +37,9 @@ class Record {
     private final int[][][] hscz = new int[8][20][30];
     private final float[][][] hsmag = new float[8][20][30];
     private final int[][] hsprk = new int[8][200];
-    /*private final int[] hsquash = {
+    private final int[] hsquash = {
             0, 0, 0, 0, 0, 0, 0, 0
-    };*/
+    };
     private final int[][] hsrx = new int[8][200];
     private final int[][] hsry = new int[8][200];
     private final int[][] hsrz = new int[8][200];
@@ -156,7 +156,7 @@ class Record {
             wasted = i;
             for (int i6 = 0; i6 < 8; i6++) {
                 starcar[i6] = new ContO(car[0][i6], 0, 0, 0, 0);
-                //hsquash[i6] = squash[0][i6];
+                hsquash[i6] = squash[0][i6];
                 hfix[i6] = fix[i6];
                 hdest[i6] = dest[i6];
             }

@@ -6,7 +6,8 @@ import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.PausablePlayer;
 
 class RadicalMp3 implements RadicalMusic {
-    /** BufferedInputStream is;. */
+
+    //BufferedInputStream is;
     private boolean paused;
     private FileInputStream fi;
 
@@ -36,12 +37,16 @@ class RadicalMp3 implements RadicalMusic {
 
     @Deprecated
     @Override
-    /** Resumes playback of the midi. */
+    /**
+     * Resumes playback of the midi.
+     */
     public void resume() {
         player.resume();
     }
 
-    /** Begins playing the midi. */
+    /**
+     * Begins playing the midi.
+     */
     @Override
     public void play() {
         try {
@@ -51,7 +56,9 @@ class RadicalMp3 implements RadicalMusic {
         }
     }
 
-    /** Sets the paused state. Music may not immediately pause. */
+    /**
+     * Sets the paused state. Music may not immediately pause.
+     */
     @Override
     public void setPaused(final boolean paused) {
         this.paused = paused;
@@ -62,20 +69,26 @@ class RadicalMp3 implements RadicalMusic {
         }
     }
 
-    /** Returns the paused state. */
+    /**
+     * Returns the paused state.
+     */
     @Override
     public boolean isPaused() {
         return paused;
     }
 
-    /** Stops the midi sequencer. */
+    /**
+     * Stops the midi sequencer.
+     */
     @Override
     @Deprecated
     public void stop() {
         player.pause();
     }
 
-    /** Closes the midi sequencer. */
+    /**
+     * Closes the midi sequencer.
+     */
     @Override
     public void unload() {
         player.close();

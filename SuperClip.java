@@ -1,3 +1,4 @@
+
 // Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3)
@@ -10,6 +11,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.SourceDataLine;
 
 class SuperClip implements Runnable {
+
     SuperClip(final byte abyte0[], final int i, final int j) {
         skiprate = 0;
         stoped = 1;
@@ -42,7 +44,7 @@ class SuperClip implements Runnable {
                 }
                 byte abyte0[] = new byte[j <= i ? j : i];
                 final int l = stream.read(abyte0, 0, abyte0.length);
-                if (l == -1 || (rollBackPos != 0 && j < rollBackTrig)) {
+                if (l == -1 || rollBackPos != 0 && j < rollBackTrig) {
                     flag = true;
                 }
                 if (flag) {
