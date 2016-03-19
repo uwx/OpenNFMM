@@ -1987,7 +1987,9 @@ class xtGraphics extends Panel implements Runnable {
                         }
                     }
                 }
-                if (!remi/* && cfase != 10 && cfase != 11 && cfase != 100 && cfase != 101*/) {
+                if (fase == 1407) {
+                    drawcs(385, "Waiting for other players to join...", 0, 64, 0, 3);
+                } else if (!remi/* && cfase != 10 && cfase != 11 && cfase != 100 && cfase != 101*/) {
                     rd.drawImage(contin[pcontin], 355, 385, null);
                     /*else {
                     	if (cfase == 11 && drawcarb(true, null, "Add to My Cars", 345, 385, i, i104, bool)
@@ -2115,7 +2117,7 @@ class xtGraphics extends Panel implements Runnable {
                     flipo = 20;
                 }
             }
-            if (cfase != 11 && cfase != 101 && i113 == 0 && flipo < 10 && (control.handb || control.enter)) {
+            if (cfase != 11 && cfase != 101 && i113 == 0 && flipo < 10 && fase != 1407 && (control.handb || control.enter)) {
                 m.crs = false;
                 app.mcars.show = false;
                 if (multion != 0) {

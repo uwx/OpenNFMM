@@ -1854,7 +1854,7 @@ class GameSparker extends JPanel
                 mouses = 0;
                 u[0].falseo(0);
             }
-        if (xtgraphics.fase == -9) {
+        if (xtgraphics.fase == -9 || xtgraphics.fase == 1409) {
             if (xtgraphics.loadedt) {
                 xtgraphics.mainbg(-101);
                 rd.setColor(new Color(0, 0, 0));
@@ -1876,7 +1876,10 @@ class GameSparker extends JPanel
                 checkmemory(xtgraphics);
                 xtgraphics.inishcarselect(contos);
                 clicknowtime = 0;
-                xtgraphics.fase = 7;
+                if (xtgraphics.fase == 1409)
+                    xtgraphics.fase = 1407;
+                else
+                    xtgraphics.fase = 7;
                 mvect = 50;
                 mouses = 0;
             }
@@ -1993,7 +1996,7 @@ class GameSparker extends JPanel
                 mouses = 2;
             }
         }
-        if (xtgraphics.fase == 7) {
+        if (xtgraphics.fase == 7 || xtgraphics.fase == 1407) {
             xtgraphics.carselect(u[0], contos, mads[0], xm, ym, moused);
             xtgraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2) {
@@ -3449,6 +3452,8 @@ class GameSparker extends JPanel
                     din = null;
                     dout = null;
 
+                    xtgraphics.fase = 1409;
+
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
@@ -3486,6 +3491,8 @@ class GameSparker extends JPanel
                     socket = null;
                     din = null;
                     dout = null;
+
+                    xtgraphics.fase = 1409;
                 } catch (IOException e1) {
                     // TODO Auto-generated catch block
                     e1.printStackTrace();

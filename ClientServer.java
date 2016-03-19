@@ -76,6 +76,11 @@ public class ClientServer implements Runnable {
             if (xtgraphics.im == -1)
                 xtgraphics.im = xtgraphics.nplayers - 1; //FIXED: both clients are im=0 so that causes the bindexception since they wanna be servers
             System.out.println("IM = " + xtgraphics.im);
+
+            for (int i = 0; i < xtgraphics.nplayers; i++) {
+                if (i != xtgraphics.im)
+                    xtgraphics.sc[i + 1] = getvalue(in, 4 + i);
+            }
             
             xtgraphics.fase = 22;
             xtgraphics.multion = 1; //0: singleplayer, 1: multiplayer, 2: watching game
