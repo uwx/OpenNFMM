@@ -1991,7 +1991,8 @@ class xtGraphics extends Panel implements Runnable {
                     }
                 }
                 if (fase == 1407 && GameSparker.localServerHasSelectedCar) {
-                    drawcs(385, "Waiting for other players to join...", 0, 64, 0, 3);
+                    rd.setFont(new Font("Arial", 1, 13));
+                    drawcs(385, "Waiting for other players to join...", 0, 128, 0, 0);
                 } else if (!remi/* && cfase != 10 && cfase != 11 && cfase != 100 && cfase != 101*/) {
                     rd.drawImage(contin[pcontin], 355, 385, null);
                     /*else {
@@ -2126,6 +2127,7 @@ class xtGraphics extends Panel implements Runnable {
                     control.enter = false;
                     
                     boolean canGo = true;
+                    String cantGoError = "";
                     if (GameSparker.isHostQuickLoad) { //if is client + host
                         //GameSparker.isHostQuickLoad = false;
 
@@ -2138,6 +2140,7 @@ class xtGraphics extends Panel implements Runnable {
                         } catch (IOException e) {
                             canGo = false;
                             e.printStackTrace();
+                            cantGoError = e.toString();
                         }
                     } else {
                         try {
@@ -2149,18 +2152,21 @@ class xtGraphics extends Panel implements Runnable {
                         } catch (IOException e) {
                             canGo = false;
                             e.printStackTrace();
+                            cantGoError = e.toString();
                         }
                     }
                     if (canGo) {
                         GameSparker.localServerHasSelectedCar = true;
                         //generic xt stuff
-                        m.crs = false;
+                        //m.crs = false;
                         app.mcars.show = false;
                         
                         if (sc[0] < 16 || cd.lastload == 2) {
                             app.setcarcookie(sc[0], cd.names[sc[0]], arnp, gmode, unlocked, mtop);
                         }
                         intertrack.setPaused(true);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Could not load multiplayer mode: " + cantGoError + "\nDetailed info available in the Java Console...");
                     }
                 } else if (cfase != 11 && cfase != 101 && i113 == 0 && flipo < 10) {
                     m.crs = false;
