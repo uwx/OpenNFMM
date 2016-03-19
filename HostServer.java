@@ -98,7 +98,8 @@ public class HostServer implements Runnable {
      *
      *
      */
-    public String processInput(final String s) {
+    public String processInput(final String s) { //TODO shutdown server after game starts (since it moves to UDP)
+                                                 //TODO change xt.servport, idk if it needs to equal this server's port
 
         System.out.println("teh data is " + s);
         
