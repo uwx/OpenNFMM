@@ -6,6 +6,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Arrays;
 
 public class ClientServer implements Runnable {
 
@@ -83,13 +84,24 @@ public class ClientServer implements Runnable {
             if (xtgraphics.im == -1) {
                 xtgraphics.im = xtgraphics.nplayers - 1; //FIXED: both clients are im=0 so that causes the bindexception since they wanna be servers
                 xtgraphics.sc[xtgraphics.im] = GameSparker.selectedCarStore;
+                for (int j = 0; j < 6; j++) {
+                    xtgraphics.allrnp[xtgraphics.im][j] = xtgraphics.arnp[j];
+                }
             }
             System.out.println("IM = " + xtgraphics.im);
 
-            for (int i = 0; i < xtgraphics.nplayers; i++) {
-                if (i != xtgraphics.im)
-                    xtgraphics.sc[i] = getvalue(in, 7 + i);
+            int valuepoint = 0;
+            for (int plrId = 0; plrId < xtgraphics.nplayers; plrId++) {
+                if (plrId != xtgraphics.im) {
+                    xtgraphics.sc[plrId] = getvalue(in, 7 + valuepoint);
+                    for (int curCol = 0; curCol < 6; curCol++) {
+                        xtgraphics.allrnp[plrId][curCol] = getvalue(in, 8 + valuepoint + curCol) / 100.0F;
+                    }
+                }
+                valuepoint += 7;
             }
+            System.out.println("ALLRNP = " + Arrays.deepToString(xtgraphics.allrnp));
+            System.out.println("SC = " + Arrays.toString(xtgraphics.sc));
             
             xtgraphics.multion = 1; //0: singleplayer, 1: multiplayer, 2: watching game
             gs.u[0].multion = 1;
@@ -111,14 +123,25 @@ public class ClientServer implements Runnable {
             if (xtgraphics.im == -1) {
                 xtgraphics.im = xtgraphics.nplayers - 1;
                 xtgraphics.sc[xtgraphics.im] = GameSparker.selectedCarStore;
+                for (int j = 0; j < 6; j++) {
+                    xtgraphics.allrnp[xtgraphics.im][j] = xtgraphics.arnp[j];
+                }
             }
             System.out.println("IM = " + xtgraphics.im);
-            for (int i = 0; i < xtgraphics.nplayers; i++) {
-                if (i != xtgraphics.im)
-                /*    xtgraphics.sc[0] = getvalue(in, 2 + i);
-                else*/
-                    xtgraphics.sc[i] = getvalue(in, 2 + i);
+            
+            int valuepoint = 0;
+            for (int plrId = 0; plrId < xtgraphics.nplayers; plrId++) {
+                if (plrId != xtgraphics.im) {
+                    xtgraphics.sc[plrId] = getvalue(in, 2 + valuepoint);
+                    for (int curCol = 0; curCol < 6; curCol++) {
+                        xtgraphics.allrnp[plrId][curCol] = getvalue(in, 3 + valuepoint + curCol) / 100.0F;
+                    }
+                }
+                valuepoint += 7;
             }
+            
+            System.out.println("ALLRNP = " + Arrays.deepToString(xtgraphics.allrnp));
+            System.out.println("SC = " + Arrays.toString(xtgraphics.sc));
         }
 
         return null;

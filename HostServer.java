@@ -70,6 +70,7 @@ public class HostServer implements Runnable {
     private short[][] clientIPs = new short[maxPlayers][4]; //using bytes was a stupid idea but no turning back now
     private int[] clientPorts = new int[maxPlayers];
     private int[] clientCars = new int[maxPlayers];
+    private int[][] clientCarColors = new int[maxPlayers][6]; 
     private int connectedClients = 0;
     private Socket clientNotifier;
     private BufferedReader din;
@@ -84,21 +85,13 @@ public class HostServer implements Runnable {
      * Format...
      *
      * connect:
-     * ---C|192.168.0.1 (ip)|0 (car)|
-     * ---or maybe
-     * 192.168.0.1 (ip)|0 (car)|
-     *
-     * returns:
-     *   when started: start|1 (stage)|5 (laps)|5 (fixes)|0/1 (notb)|
-     *   7 (num of players)|
-     *   for every player:
-     *     0 (car)|
+     * 192.168.0.1:7100 (ip:port)|0 (car)|arnp[0]|arnp[1]|arnp[2]|arnp[3]|arnp[4]|arnp[5]|
      *
      * notify:
      *   when started: start|1 (stage)|5 (laps)|5 (fixes)|0/1 (notb)|
-     *   7 (players)|
+     *   7 (num of players)|
      *   for every player:
-     *     0 (car)|
+     *     0 (car)|arnp[0]|arnp[1]|arnp[2]|arnp[3]|arnp[4]|arnp[5]|
      *
      *
      */
@@ -120,6 +113,8 @@ public class HostServer implements Runnable {
         clientPorts[connectedClients] = port;
         System.out.println("teh ip is 2 " + Arrays.toString(clientIPs[connectedClients]));
         clientCars[connectedClients] = getvalue(s,2);
+        for (int i = 0; i < 6; i++)
+            clientCarColors[connectedClients][i] = getvalue(s,3 + i);
 
         connectedClients++;
 
@@ -143,6 +138,8 @@ public class HostServer implements Runnable {
                     output.append(connectedClients + "|");
                     for (int j = 0; j < connectedClients; j++) {
                         output.append(clientCars[j] + "|");
+                        // car colors
+                        output.append((int) (clientCarColors[j][0]) + "|" + (int) (clientCarColors[j][1]) + "|" + (int) (clientCarColors[j][2]) + "|" + (int) (clientCarColors[j][3]) + "|" + (int) (clientCarColors[j][4]) + "|" + (int) (clientCarColors[j][5]) + "|");
                     }
 
 

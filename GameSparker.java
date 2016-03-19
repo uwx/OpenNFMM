@@ -3467,7 +3467,7 @@ class GameSparker extends JPanel
         System.out.println("connecting to local server at " + ip + ":" + port);
         BufferedReader din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         PrintWriter dout = new PrintWriter(socket.getOutputStream(), true);
-        String data = getMyIP() + ":" + clientport + "|" + selectedCarStore;
+        String data = getMyIP() + ":" + clientport + "|" + selectedCarStore + "|" + (int) (xtgraphics.arnp[0] * 100.0F) + "|" + (int) (xtgraphics.arnp[1] * 100.0F) + "|" + (int) (xtgraphics.arnp[2] * 100.0F) + "|" + (int) (xtgraphics.arnp[3] * 100.0F) + "|" + (int) (xtgraphics.arnp[4] * 100.0F) + "|" + (int) (xtgraphics.arnp[5] * 100.0F) + "|";
         System.out.println("sending data to lobby 2: " + data);
 
         synchronized (ClientServer.threadLock) {
