@@ -3419,38 +3419,13 @@ class GameSparker extends JPanel
             if (e.getKeyCode() == KeyEvent.VK_F1) {
                 try {
                     Thread t = new Thread(new HostServer(HostServer.SERVER_PORT, 2));
-                    int clientport = HostServer.NOTIFY_LISTEN_PORT + ThreadLocalRandom.current().nextInt(150);
-                    Thread t2 = new Thread(new ClientServer(xtgraphics, this, checkpoints, clientport));
                     t.start();
 
                     // connect 2 local server
                     String ip = getMyIP();
                     int port = HostServer.SERVER_PORT;
 
-                    xtgraphics.localserver = ip;
-                    xtgraphics.server = ip;
-                    xtgraphics.servport = port;
-
-                    t2.start();
-
-                    Socket socket = new Socket(ip, port);
-                    System.out.println("connecting to local server at " + ip + ":" + port);
-                    BufferedReader din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                    PrintWriter dout = new PrintWriter(socket.getOutputStream(), true);
-                    String data = getMyIP() + ":" + clientport + "|" + xtgraphics.sc[0];
-                    System.out.println("sending data to lobby 2: " + data);
-
-                    synchronized (ClientServer.threadLock) {
-                        dout.println(data);
-                    }
-
-                    socket.close();
-                    din.close();
-                    dout.flush();
-                    dout.close();
-                    socket = null;
-                    din = null;
-                    dout = null;
+                    makeClientServer(ip, port);
 
                     xtgraphics.fase = 1409;
 
@@ -3460,37 +3435,12 @@ class GameSparker extends JPanel
             }
             if (e.getKeyCode() == KeyEvent.VK_F2) {
                 try {
-                    int clientport = HostServer.NOTIFY_LISTEN_PORT + ThreadLocalRandom.current().nextInt(150);
-                    Thread t2 = new Thread(new ClientServer(xtgraphics, this, checkpoints, clientport));
 
                     String s = JOptionPane.showInputDialog("enter server ip:port");
                     String ip = s.substring(0, s.indexOf(":"));
                     int port = Integer.parseInt(s.substring(s.indexOf(":") + 1, s.length()));
 
-                    xtgraphics.localserver = ip;
-                    xtgraphics.server = ip;
-                    xtgraphics.servport = port;
-
-                    t2.start(); //should be ready to accept after sending
-
-                    Socket socket = new Socket(ip, port);
-                    System.out.println("connecting to local server at " + ip + ":" + port);
-                    BufferedReader din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                    PrintWriter dout = new PrintWriter(socket.getOutputStream(), true);
-                    String data = getMyIP() + ":" + clientport + "|" + xtgraphics.sc[0];
-                    System.out.println("sending data to lobby 2: " + data);
-
-                    synchronized (ClientServer.threadLock) {
-                        dout.println(data);
-                    }
-
-                    socket.close();
-                    din.close();
-                    dout.flush();
-                    dout.close();
-                    socket = null;
-                    din = null;
-                    dout = null;
+                    makeClientServer(ip, port);
 
                     xtgraphics.fase = 1409;
                 } catch (IOException e1) {
@@ -3499,6 +3449,36 @@ class GameSparker extends JPanel
                 }
             }
         }
+    }
+
+    private void makeClientServer(String ip, int port) throws UnknownHostException, IOException, SocketException {
+        int clientport = HostServer.NOTIFY_LISTEN_PORT + ThreadLocalRandom.current().nextInt(150);
+        Thread t2 = new Thread(new ClientServer(xtgraphics, this, checkpoints, clientport));
+        
+        xtgraphics.localserver = ip;
+        xtgraphics.server = ip;
+        xtgraphics.servport = port;
+
+        t2.start(); //should be ready to accept after sending
+
+        Socket socket = new Socket(ip, port);
+        System.out.println("connecting to local server at " + ip + ":" + port);
+        BufferedReader din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        PrintWriter dout = new PrintWriter(socket.getOutputStream(), true);
+        String data = getMyIP() + ":" + clientport + "|" + xtgraphics.sc[0];
+        System.out.println("sending data to lobby 2: " + data);
+
+        synchronized (ClientServer.threadLock) {
+            dout.println(data);
+        }
+
+        socket.close();
+        din.close();
+        dout.flush();
+        dout.close();
+        socket = null;
+        din = null;
+        dout = null;
     }
 
     /**

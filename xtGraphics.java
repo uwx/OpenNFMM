@@ -2117,10 +2117,13 @@ class xtGraphics extends Panel implements Runnable {
                     flipo = 20;
                 }
             }
-            if (cfase != 11 && cfase != 101 && i113 == 0 && flipo < 10 && fase != 1407 && (control.handb || control.enter)) {
+            if (cfase != 11 && cfase != 101 && i113 == 0 && flipo < 10 && (control.handb || control.enter)) {
                 m.crs = false;
                 app.mcars.show = false;
-                if (multion != 0) {
+                if (fase == 1407) {
+                    
+                    intertrack.setPaused(true);
+                } else if (multion != 0) {
                     fase = 1177;
                     intertrack.setPaused(true);
                 } else if (testdrive != 3 && testdrive != 4) {
