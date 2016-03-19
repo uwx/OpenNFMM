@@ -49,7 +49,7 @@ class RadicalBASS implements RadicalMusic {
             }
         }
     };
-    
+
     /* display error messages */
     private final void error(final String text) {
         System.err.println("RadicalBASS error: " + text);

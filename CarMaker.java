@@ -1706,11 +1706,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                     repaint();
                                     /*try {
                                         if (thredo != null) {
-                                    
+
                                         }
                                         Thread.sleep(10L);
                                     } catch (final InterruptedException interruptedexception) {
-                                    
+
                                     }*/
                                 }
                                 printwriter.println("QUITX1111");

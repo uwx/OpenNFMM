@@ -25,7 +25,7 @@ class RadicalMp3 implements RadicalMusic {
      *            the file name of the file to load.
      */
     public RadicalMp3(final String fn) {
-        File fl = new File(fn);
+        final File fl = new File(fn);
         try {
             fi = new FileInputStream(fl);
             player = new PausablePlayer(fi);

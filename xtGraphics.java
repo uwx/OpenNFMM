@@ -25,7 +25,6 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
@@ -7755,7 +7754,7 @@ class xtGraphics extends Panel implements Runnable {
             for (int i21 = 0; i21 < 2; i21++) {
                 Utility.smartFill(cnames[i21], "");
                 Utility.smartFill(sentn[i21], "");
-                
+
                 if (i21 == 0) {
                     cnames[i21][6] = "Game Chat  ";
                 } else {
@@ -7769,7 +7768,7 @@ class xtGraphics extends Panel implements Runnable {
             Utility.smartFill(cntchatp, 0);
             Utility.smartFill(msgflk, 0);
             Utility.smartFill(lcmsg, "");
-            
+
             if (multion == 3) {
                 ransay = 4;
             } else if (ransay == 0) {
