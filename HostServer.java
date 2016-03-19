@@ -65,21 +65,29 @@ public class HostServer implements Runnable {
             }
         }
     }
+    
+    void setMaxPlayers(int maxPlayers) {
+        this.maxPlayers = maxPlayers;
+        clientIPs = new short[maxPlayers][4];
+        clientPorts = new int[maxPlayers];
+        clientCars = new int[maxPlayers];
+        clientCarColors = new int[maxPlayers][6]; 
+    }
 
     private int maxPlayers = 8;
     private short[][] clientIPs = new short[maxPlayers][4]; //using bytes was a stupid idea but no turning back now
     private int[] clientPorts = new int[maxPlayers];
     private int[] clientCars = new int[maxPlayers];
     private int[][] clientCarColors = new int[maxPlayers][6]; 
-    private int connectedClients = 0;
+    int connectedClients = 0;
     private Socket clientNotifier;
     private BufferedReader din;
     private PrintWriter dout;
 
-    private int gameStage = 1;
-    private int gameLaps = 10;
-    private int gameFixes = 5;
-    private int gameNoTreesOrBumps = 0;
+    int gameStage = 1;
+    int gameLaps = 10;
+    int gameFixes = 5;
+    int gameNoTreesOrBumps = 0;
 
     /**
      * Format...

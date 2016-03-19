@@ -289,7 +289,7 @@ class GameSparker extends JPanel
         return Integer.valueOf(string2).intValue();
     }
 
-    private String getstring(final String string, final String string2, final int i) {
+    static String getstring(final String string, final String string2, final int i) {
         int j = 0;
         String string3 = "";
         for (int k = string.length() + 1; k < string2.length(); k++) {
@@ -1741,6 +1741,8 @@ class GameSparker extends JPanel
     private int i4;
     private int i5;
     private float f;
+    private JPanel serverPanel;
+    private boolean hasPanels = false;
 
     //@Override
     private void initialize() {
@@ -3417,8 +3419,9 @@ class GameSparker extends JPanel
                 }
             }
             if (e.getKeyCode() == KeyEvent.VK_F1) {
-                Thread t = new Thread(new HostServer(HostServer.SERVER_PORT, 2));
-                t.start();
+                // also moved
+                //Thread t = new Thread(new HostServer(HostServer.SERVER_PORT, 2));
+                //t.start();
 
                 // XXX moved to carselect
                 // connect 2 local server
@@ -3450,7 +3453,7 @@ class GameSparker extends JPanel
     static boolean isHostQuickLoad = false; //TODO this wille disable the prompt for server IP/port when you're host
     static boolean localServerHasSelectedCar = false; //if true, go to the "Waiting for players" msg instead of car select
     static int selectedCarStore = 0; // to avoid sc[0] being overriden
-
+    
     void makeClientServer(String ip, int port) throws UnknownHostException, IOException, SocketException {
         int clientport = HostServer.NOTIFY_LISTEN_PORT + ThreadLocalRandom.current().nextInt(150);
         Thread t2 = new Thread(new ClientServer(xtgraphics, this, checkpoints, clientport));

@@ -5,6 +5,7 @@
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
@@ -13,6 +14,8 @@ import java.awt.MediaTracker;
 import java.awt.Panel;
 import java.awt.RenderingHints;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.awt.image.MemoryImageSource;
@@ -31,7 +34,10 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 class xtGraphics extends Panel implements Runnable {
     /**
@@ -2130,18 +2136,58 @@ class xtGraphics extends Panel implements Runnable {
                     String cantGoError = "";
                     if (GameSparker.isHostQuickLoad) { //if is client + host
                         //GameSparker.isHostQuickLoad = false;
+                        
+                        JFrame f = new JFrame("LAN Server");
+                        f.getContentPane().setLayout(null);
 
-                        try {
-                            // connect 2 local server
-                            String ip = GameSparker.getMyIP();
-                            int port = HostServer.SERVER_PORT;
+                        f.setPreferredSize(new Dimension(800, 450));
+                        f.setSize(new Dimension(817, 492));
+                        
+                        JPanel p = ServerThing.makePanels(0, 0);
+                        f.getContentPane().add(p);
+                        f.setResizable(false);
 
-                            app.makeClientServer(ip, port);
-                        } catch (IOException e) {
-                            canGo = false;
-                            e.printStackTrace();
-                            cantGoError = e.toString();
-                        }
+                        ServerThing.btnStartServer.addActionListener(new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+
+                                try {
+
+                                    ServerThing.serverStatus.setText("Starting server");
+
+                                    JLabel buttonReplace = new JLabel("Server has been started");
+                                    buttonReplace.setBounds(10, 398, 502, 23);
+                                    p.remove(ServerThing.btnStartServer);
+                                    p.add(buttonReplace);
+                                    p.repaint();
+                                    
+                                    HostServer hostServer = new HostServer(HostServer.SERVER_PORT, ServerThing.selectedPlayers.getSelectedIndex() + 2);
+                                    hostServer.gameFixes = ServerThing.selectedFixes.getSelectedIndex() + 1;
+                                    hostServer.gameLaps = ServerThing.selectedLaps.getSelectedIndex() + 1;
+                                    hostServer.gameStage = ServerThing.selectedStage.getSelectedIndex() + 1;
+                                    hostServer.gameNoTreesOrBumps = ServerThing.checkbox.isSelected() ? 0 : 1; //inverted
+
+                                    Thread t = new Thread(hostServer);
+                                    t.start();
+                                    
+                                    // connect 2 self server
+                                    String ip = GameSparker.getMyIP();
+                                    int port = HostServer.SERVER_PORT;
+
+                                    app.makeClientServer(ip, port);
+
+                                    ServerThing.serverStatus.setText("Server now ready to accept connections at " + ip + ":" + port);
+                                    
+                                } catch (IOException ex) {
+                                    ex.printStackTrace();
+                                    ServerThing.serverStatus.setText("Could not create server: " + ex);
+                                } finally {
+                                    ServerThing.btnStartServer.removeActionListener(this);
+                                }
+                            }
+                        });
+                        
+                        f.setVisible(true);
                     } else {
                         try {
                             String s = JOptionPane.showInputDialog("enter server ip:port");
