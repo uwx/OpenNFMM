@@ -35,8 +35,10 @@ class udpOnline implements Runnable {
             dSocket = new DatagramSocket(7010 + connectionPortModifier + nu);
             errd = false;
             IPAddress = InetAddress.getByName(computerName);
+            System.out.println("Created UDP server at " + computerName + ":" + (7010 + connectionPortModifier + nu));
         } catch (final Exception exception) {
-            System.out.println("Error preparing for UDP Connection: " + exception);
+            System.out.println("Error preparing for UDP Connection: " + exception + "\nDatagram Socket port: " + (7010 + connectionPortModifier + nu) + "\nIP address: " + computerName);
+            //exception.printStackTrace();
         }
     }
 
@@ -51,8 +53,10 @@ class udpOnline implements Runnable {
                 IPAddress = InetAddress.getByAddress(Utility.ipToBytes(ip));
             else
                 IPAddress = InetAddress.getByName(ip);
+            System.out.println("Created UDP server at " + ip + ":" + (7010 + connectionPortModifier + nu));
         } catch (final Exception exception) {
-            System.out.println("Error preparing for UDP Connection: " + exception);
+            System.out.println("Error preparing for UDP Connection: " + exception + "\nDatagram Socket port: " + (7010 + connectionPortModifier + nu) + "\nIP address: " + ip);
+            exception.printStackTrace();
         }
     }
 

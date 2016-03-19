@@ -131,7 +131,7 @@ class GameSparker extends JPanel
     TextField temail;
     TextField tnick;
     TextField tpass;
-    private final Control[] u = new Control[8];
+    final Control[] u = new Control[8];
     private int view = 0;
     Smenu vnpls = new Smenu(5);
     Smenu vtyp = new Smenu(6);
@@ -3415,14 +3415,14 @@ class GameSparker extends JPanel
             }
             if (e.getKeyCode() == KeyEvent.VK_F1) {
                 try {
-                    Thread t = new Thread(new HostServer(6999, 2));
+                    Thread t = new Thread(new HostServer(HostServer.SERVER_PORT, 2));
                     int clientport = HostServer.NOTIFY_LISTEN_PORT + ThreadLocalRandom.current().nextInt(150);
                     Thread t2 = new Thread(new ClientServer(xtgraphics, this, checkpoints, clientport));
                     t.start();
 
                     // connect 2 local server
                     String ip = getMyIP();
-                    int port = 6999;
+                    int port = HostServer.SERVER_PORT;
 
                     xtgraphics.localserver = ip;
                     xtgraphics.server = ip;

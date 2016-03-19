@@ -74,10 +74,23 @@ public class ClientServer implements Runnable {
             ch.stage = getvalue(in, 2);
             xtgraphics.nplayers = getvalue(in, 3);
             if (xtgraphics.im == -1)
-                xtgraphics.im = xtgraphics.nplayers;
+                xtgraphics.im = xtgraphics.nplayers - 1; //FIXED: both clients are im=0 so that causes the bindexception since they wanna be servers
+            System.out.println("IM = " + xtgraphics.im);
             
             xtgraphics.fase = 22;
-            xtgraphics.multion = 2;
+            xtgraphics.multion = 1; //0: singleplayer, 1: multiplayer, 2: watching game
+            gs.u[0].multion = 1;
+            xtgraphics.lan = true;
+            
+            ch.nlaps = 5;
+            //ch.name = lobby.stagename;
+            ch.nfix = 5;
+            ch.notb = false;
+            
+            // TODO checkpoints.nlaps
+            // TODO checkpoints.nfix
+            // TODO checkpoints.notb
+            
             /*
              * TODO
              * xt.server = xt.localserver = stuff (we already know who it is since this clientserver was created...)
@@ -86,7 +99,8 @@ public class ClientServer implements Runnable {
         } else {
             xtgraphics.nplayers = getvalue(in, 1);
             if (xtgraphics.im == -1)
-                xtgraphics.im = xtgraphics.nplayers;
+                xtgraphics.im = xtgraphics.nplayers - 1;
+            System.out.println("IM = " + xtgraphics.im);
             for (int i = 0; i < xtgraphics.nplayers; i++) {
                 if (i != xtgraphics.im)
                 /*    xtgraphics.sc[0] = getvalue(in, 2 + i);

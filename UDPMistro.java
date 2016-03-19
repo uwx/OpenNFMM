@@ -793,7 +793,7 @@ class UDPMistro implements Runnable {
         }
         if (im != 0) {
             for (int i11 = 0; i11 < 20; i11++) {
-                udpc[i11] = new udpOnline(this, string, 7060 + im, i11, porturn);
+                udpc[i11] = new udpOnline(this, string, 7060 + im, i11, porturn, true);
             }
             if (porturn == 0) {
                 porturn = 20;
@@ -849,7 +849,7 @@ class UDPMistro implements Runnable {
             lcframe[i3] = 0;
         }
         for (int i5 = 0; i5 < 20; i5++) {
-            udpc[i5] = new udpOnline(this, string, i + im, i5, porturn, true);
+            udpc[i5] = new udpOnline(this, string, i + im, i5, porturn);
         }
         if (porturn == 0) {
             porturn = 20;

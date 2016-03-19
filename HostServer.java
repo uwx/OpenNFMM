@@ -13,8 +13,9 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 
 public class HostServer implements Runnable {
-    
-    static final int NOTIFY_LISTEN_PORT = 7000;
+
+    static final int NOTIFY_LISTEN_PORT = 7100;
+    static final int SERVER_PORT = 7251;
 
     InetAddress[] IPAddress = new InetAddress[3];
     DatagramSocket[] dSocket = new DatagramSocket[3];
@@ -24,19 +25,6 @@ public class HostServer implements Runnable {
     long[] servestart = {
             0L, 0L, 0L
     };
-
-    public static void main(final String[] args) throws IOException {
-
-        // login
-        /*int portNumber = 7061;
-        Thread t = new Thread(new HostServer(portNumber));
-        t.start();
-
-        portNumber = 7067;
-        t = new Thread(new HostServer(portNumber));
-        t.start();*/
-
-    }
 
     int port;
 
@@ -130,7 +118,7 @@ public class HostServer implements Runnable {
 
         connectedClients++;
 
-        for (int i = 0; i < connectedClients -1; i++) { //not this client
+        for (int i = 0; i < connectedClients; i++) {
             try {
                 //if (i != connectedClients - 1) {//is not this client
                     String ip = clientIPs[i][0] + "." + clientIPs[i][1] + "." + clientIPs[i][2] + "." + clientIPs[i][3];
@@ -165,6 +153,7 @@ public class HostServer implements Runnable {
             output.append(clientCars[j] + "|");
         }
 
+        // FIXME
         if (connectedClients >= maxPlayers) { //THE CURRENT PROBLEM: the client doesn't seem to be receiving this data or is ignoring it. is there a way to make it receive it without another socket?
             return "start|" + gameStage + "|" + output.toString();
         } else {
