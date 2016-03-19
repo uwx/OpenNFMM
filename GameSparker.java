@@ -3417,47 +3417,49 @@ class GameSparker extends JPanel
                 }
             }
             if (e.getKeyCode() == KeyEvent.VK_F1) {
-                try {
-                    Thread t = new Thread(new HostServer(HostServer.SERVER_PORT, 2));
-                    t.start();
+                Thread t = new Thread(new HostServer(HostServer.SERVER_PORT, 2));
+                t.start();
 
-                    // connect 2 local server
-                    String ip = getMyIP();
-                    int port = HostServer.SERVER_PORT;
+                // XXX moved to carselect
+                // connect 2 local server
+                //String ip = getMyIP();
+                //int port = HostServer.SERVER_PORT;
 
-                    makeClientServer(ip, port);
+                //makeClientServer(ip, port);
+                isHostQuickLoad = true;
+                localServerHasSelectedCar = false;
 
-                    xtgraphics.fase = 1409;
-
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
+                xtgraphics.fase = 1409;
             }
             if (e.getKeyCode() == KeyEvent.VK_F2) {
-                try {
+                // XXX moved to carselect
+                //String s = JOptionPane.showInputDialog("enter server ip:port");
+                //String ip = s.substring(0, s.indexOf(":"));
+                //int port = Integer.parseInt(s.substring(s.indexOf(":") + 1, s.length()));
 
-                    String s = JOptionPane.showInputDialog("enter server ip:port");
-                    String ip = s.substring(0, s.indexOf(":"));
-                    int port = Integer.parseInt(s.substring(s.indexOf(":") + 1, s.length()));
+                //makeClientServer(ip, port);
 
-                    makeClientServer(ip, port);
-
-                    xtgraphics.fase = 1409;
-                } catch (IOException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
+                isHostQuickLoad = false;
+                localServerHasSelectedCar = false;
+                
+                xtgraphics.fase = 1409;
             }
         }
     }
+    
+    static boolean isHostQuickLoad = false; //TODO this wille disable the prompt for server IP/port when you're host
+    static boolean localServerHasSelectedCar = false; //if true, go to the "Waiting for players" msg instead of car select
+    static int selectedCarStore = 0;
 
-    private void makeClientServer(String ip, int port) throws UnknownHostException, IOException, SocketException {
+    void makeClientServer(String ip, int port) throws UnknownHostException, IOException, SocketException {
         int clientport = HostServer.NOTIFY_LISTEN_PORT + ThreadLocalRandom.current().nextInt(150);
         Thread t2 = new Thread(new ClientServer(xtgraphics, this, checkpoints, clientport));
         
         xtgraphics.localserver = ip;
         xtgraphics.server = ip;
         xtgraphics.servport = port;
+        
+        selectedCarStore = xtgraphics.sc[0];
 
         t2.start(); //should be ready to accept after sending
 
@@ -3465,7 +3467,7 @@ class GameSparker extends JPanel
         System.out.println("connecting to local server at " + ip + ":" + port);
         BufferedReader din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         PrintWriter dout = new PrintWriter(socket.getOutputStream(), true);
-        String data = getMyIP() + ":" + clientport + "|" + xtgraphics.sc[0];
+        String data = getMyIP() + ":" + clientport + "|" + selectedCarStore;
         System.out.println("sending data to lobby 2: " + data);
 
         synchronized (ClientServer.threadLock) {
@@ -3488,7 +3490,7 @@ class GameSparker extends JPanel
      * @throws SocketException If an I/O error occurs
      * @throws UnknownHostException
      */
-    private static String getMyIP() throws SocketException, UnknownHostException {
+    static String getMyIP() throws SocketException, UnknownHostException {
 
 
 

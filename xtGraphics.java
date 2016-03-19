@@ -20,6 +20,7 @@ import java.awt.image.PixelGrabber;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -29,6 +30,8 @@ import java.util.Collections;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+
+import javax.swing.JOptionPane;
 
 class xtGraphics extends Panel implements Runnable {
     /**
@@ -1056,7 +1059,7 @@ class xtGraphics extends Panel implements Runnable {
             if (contos[sc[0]].wzy < -30) {
                 contos[sc[0]].wzy += 30;
             }
-            if (!remi) {
+            if (!remi && (fase != 1407 || !GameSparker.localServerHasSelectedCar)) {
                 if (sc[0] != minsl) {
                     rd.drawImage(back[pback], 95, 275, null);
                 }
@@ -1987,7 +1990,7 @@ class xtGraphics extends Panel implements Runnable {
                         }
                     }
                 }
-                if (fase == 1407) {
+                if (fase == 1407 && GameSparker.localServerHasSelectedCar) {
                     drawcs(385, "Waiting for other players to join...", 0, 64, 0, 3);
                 } else if (!remi/* && cfase != 10 && cfase != 11 && cfase != 100 && cfase != 101*/) {
                     rd.drawImage(contin[pcontin], 355, 385, null);
@@ -2099,7 +2102,7 @@ class xtGraphics extends Panel implements Runnable {
             }
             if (control.right) {
                 control.right = false;
-                if (sc[0] != maxsl && flipo == 0) {
+                if (sc[0] != maxsl && flipo == 0 && (fase != 1407 || !GameSparker.localServerHasSelectedCar)) {
                     if (flatrstart > 1) {
                         flatrstart = 0;
                     }
@@ -2109,7 +2112,7 @@ class xtGraphics extends Panel implements Runnable {
             }
             if (control.left) {
                 control.left = false;
-                if (sc[0] != minsl && flipo == 0) {
+                if (sc[0] != minsl && flipo == 0 && (fase != 1407 || !GameSparker.localServerHasSelectedCar)) {
                     if (flatrstart > 1) {
                         flatrstart = 0;
                     }
@@ -2117,45 +2120,86 @@ class xtGraphics extends Panel implements Runnable {
                     flipo = 20;
                 }
             }
-            if (cfase != 11 && cfase != 101 && i113 == 0 && flipo < 10 && (control.handb || control.enter)) {
-                m.crs = false;
-                app.mcars.show = false;
-                if (fase == 1407) {
+            if ((control.handb || control.enter)) {
+                if (fase == 1407 && !GameSparker.localServerHasSelectedCar) {
+                    control.handb = false;
+                    control.enter = false;
                     
-                    intertrack.setPaused(true);
-                } else if (multion != 0) {
-                    fase = 1177;
-                    intertrack.setPaused(true);
-                } else if (testdrive != 3 && testdrive != 4) {
-                    fase = 3;
-                } else {
-                    fase = -22;
-                }
-                if (sc[0] < 16 || cd.lastload == 2) {
-                    app.setcarcookie(sc[0], cd.names[sc[0]], arnp, gmode, unlocked, mtop);
-                }
-                if (cd.haltload != 0) {
-                    if (cd.haltload == 2) {
-                        cd.lcardate[1] = 0;
+                    boolean canGo = true;
+                    if (GameSparker.isHostQuickLoad) { //if is client + host
+                        //GameSparker.isHostQuickLoad = false;
+
+                        try {
+                            // connect 2 local server
+                            String ip = GameSparker.getMyIP();
+                            int port = HostServer.SERVER_PORT;
+
+                            app.makeClientServer(ip, port);
+                        } catch (IOException e) {
+                            canGo = false;
+                            e.printStackTrace();
+                        }
+                    } else {
+                        try {
+                            String s = JOptionPane.showInputDialog("enter server ip:port");
+                            String ip = s.substring(0, s.indexOf(":"));
+                            int port = Integer.parseInt(s.substring(s.indexOf(":") + 1, s.length()));
+    
+                            app.makeClientServer(ip, port);
+                        } catch (IOException e) {
+                            canGo = false;
+                            e.printStackTrace();
+                        }
                     }
-                    cd.lcardate[0] = 0;
-                    cd.haltload = 0;
+                    if (canGo) {
+                        GameSparker.localServerHasSelectedCar = true;
+                        //generic xt stuff
+                        m.crs = false;
+                        app.mcars.show = false;
+                        
+                        if (sc[0] < 16 || cd.lastload == 2) {
+                            app.setcarcookie(sc[0], cd.names[sc[0]], arnp, gmode, unlocked, mtop);
+                        }
+                        intertrack.setPaused(true);
+                    }
+                } else if (cfase != 11 && cfase != 101 && i113 == 0 && flipo < 10) {
+                    m.crs = false;
+                    app.mcars.show = false;
+                    if (multion != 0) {
+                        fase = 1177;
+                        intertrack.setPaused(true);
+                    } else if (testdrive != 3 && testdrive != 4) {
+                        fase = 3;
+                    } else {
+                        fase = -22;
+                    }
+                    if (sc[0] < 16 || cd.lastload == 2) {
+                        app.setcarcookie(sc[0], cd.names[sc[0]], arnp, gmode, unlocked, mtop);
+                    }
+                    if (cd.haltload != 0) {
+                        if (cd.haltload == 2) {
+                            cd.lcardate[1] = 0;
+                        }
+                        cd.lcardate[0] = 0;
+                        cd.haltload = 0;
+                    }
+                    if (gmode == 0) {
+                        osc = sc[0];
+                    }
+                    //if (gmode == 1)
+                    //  scm[0] = sc[0];
+                    if (gmode == 2) {
+                        scm = sc[0];
+                    }
+                    if (app.mycar.isShowing()) {
+                        app.mycar.setVisible(false);
+                    }
+                    flexpix = null;
+                    control.handb = false;
+                    control.enter = false;
                 }
-                if (gmode == 0) {
-                    osc = sc[0];
-                }
-                //if (gmode == 1)
-                //	scm[0] = sc[0];
-                if (gmode == 2) {
-                    scm = sc[0];
-                }
-                if (app.mycar.isShowing()) {
-                    app.mycar.setVisible(false);
-                }
-                flexpix = null;
-                control.handb = false;
-                control.enter = false;
             }
+            
         } else {
             pback = 0;
             pnext = 0;

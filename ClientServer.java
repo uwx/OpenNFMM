@@ -73,13 +73,15 @@ public class ClientServer implements Runnable {
             // first parameter after start - stage
             ch.stage = getvalue(in, 2);
             xtgraphics.nplayers = getvalue(in, 3);
-            if (xtgraphics.im == -1)
+            if (xtgraphics.im == -1) {
                 xtgraphics.im = xtgraphics.nplayers - 1; //FIXED: both clients are im=0 so that causes the bindexception since they wanna be servers
+                xtgraphics.sc[xtgraphics.im] = GameSparker.selectedCarStore;
+            }
             System.out.println("IM = " + xtgraphics.im);
 
             for (int i = 0; i < xtgraphics.nplayers; i++) {
                 if (i != xtgraphics.im)
-                    xtgraphics.sc[i + 1] = getvalue(in, 4 + i);
+                    xtgraphics.sc[i] = getvalue(in, 4 + i);
             }
             
             xtgraphics.fase = 22;
@@ -103,14 +105,16 @@ public class ClientServer implements Runnable {
              */
         } else {
             xtgraphics.nplayers = getvalue(in, 1);
-            if (xtgraphics.im == -1)
+            if (xtgraphics.im == -1) {
                 xtgraphics.im = xtgraphics.nplayers - 1;
+                xtgraphics.sc[xtgraphics.im] = GameSparker.selectedCarStore;
+            }
             System.out.println("IM = " + xtgraphics.im);
             for (int i = 0; i < xtgraphics.nplayers; i++) {
                 if (i != xtgraphics.im)
                 /*    xtgraphics.sc[0] = getvalue(in, 2 + i);
                 else*/
-                    xtgraphics.sc[i + 1] = getvalue(in, 2 + i);
+                    xtgraphics.sc[i] = getvalue(in, 2 + i);
             }
         }
 
