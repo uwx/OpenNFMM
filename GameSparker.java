@@ -45,6 +45,7 @@ import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -3415,7 +3416,8 @@ class GameSparker extends JPanel
             if (e.getKeyCode() == KeyEvent.VK_F1) {
                 try {
                     Thread t = new Thread(new HostServer(6999, 2));
-                    Thread t2 = new Thread(new ClientServer(xtgraphics, this, checkpoints));
+                    int clientport = HostServer.NOTIFY_LISTEN_PORT + ThreadLocalRandom.current().nextInt(150);
+                    Thread t2 = new Thread(new ClientServer(xtgraphics, this, checkpoints, clientport));
                     t.start();
 
                     // connect 2 local server
@@ -3432,7 +3434,7 @@ class GameSparker extends JPanel
                     System.out.println("connecting to local server at " + ip + ":" + port);
                     BufferedReader din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     PrintWriter dout = new PrintWriter(socket.getOutputStream(), true);
-                    String data = getMyIP() + "|" + xtgraphics.sc[0];
+                    String data = getMyIP() + ":" + clientport + "|" + xtgraphics.sc[0];
                     System.out.println("sending data to lobby 2: " + data);
 
                     synchronized (ClientServer.threadLock) {
@@ -3453,7 +3455,8 @@ class GameSparker extends JPanel
             }
             if (e.getKeyCode() == KeyEvent.VK_F2) {
                 try {
-                    Thread t2 = new Thread(new ClientServer(xtgraphics, this, checkpoints));
+                    int clientport = HostServer.NOTIFY_LISTEN_PORT + ThreadLocalRandom.current().nextInt(150);
+                    Thread t2 = new Thread(new ClientServer(xtgraphics, this, checkpoints, clientport));
 
                     String s = JOptionPane.showInputDialog("enter server ip:port");
                     String ip = s.substring(0, s.indexOf(":"));
@@ -3469,7 +3472,7 @@ class GameSparker extends JPanel
                     System.out.println("connecting to local server at " + ip + ":" + port);
                     BufferedReader din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     PrintWriter dout = new PrintWriter(socket.getOutputStream(), true);
-                    String data = getMyIP() + "|" + xtgraphics.sc[0];
+                    String data = getMyIP() + ":" + clientport + "|" + xtgraphics.sc[0];
                     System.out.println("sending data to lobby 2: " + data);
 
                     synchronized (ClientServer.threadLock) {

@@ -18,26 +18,13 @@ public class ClientServer implements Runnable {
             0L, 0L, 0L
     };
 
-    public static void main(final String[] args) throws IOException {
-
-        // login
-        /*int portNumber = 7061;
-        Thread t = new Thread(new HostServer(portNumber));
-        t.start();
-
-        portNumber = 7067;
-        t = new Thread(new HostServer(portNumber));
-        t.start();*/
-
-    }
-
     int port;
     private GameSparker gs;
     private CheckPoints ch;
     static Object threadLock = new Object();
 
-    public ClientServer(xtGraphics xtgraphics, GameSparker gs, CheckPoints ch) {
-        this.port = HostServer.NOTIFY_LISTEN_PORT;
+    public ClientServer(xtGraphics xtgraphics, GameSparker gs, CheckPoints ch, int port) {
+        this.port = port;
         this.xtgraphics = xtgraphics;
         this.gs = gs;
         this.ch = ch;
@@ -86,8 +73,11 @@ public class ClientServer implements Runnable {
             // first parameter after start - stage
             ch.stage = getvalue(in, 2);
             xtgraphics.nplayers = getvalue(in, 3);
-
+            if (xtgraphics.im == -1)
+                xtgraphics.im = xtgraphics.nplayers;
+            
             xtgraphics.fase = 22;
+            xtgraphics.multion = 2;
             /*
              * TODO
              * xt.server = xt.localserver = stuff (we already know who it is since this clientserver was created...)

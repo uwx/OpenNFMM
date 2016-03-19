@@ -13,8 +13,9 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 
 public class HostServer implements Runnable {
-
+    
     static final int NOTIFY_LISTEN_PORT = 7000;
+
     InetAddress[] IPAddress = new InetAddress[3];
     DatagramSocket[] dSocket = new DatagramSocket[3];
     int[] serverdone = {
@@ -79,6 +80,7 @@ public class HostServer implements Runnable {
 
     private int maxPlayers = 8;
     private short[][] clientIPs = new short[maxPlayers][4]; //using bytes was a stupid idea but no turning back now
+    private int[] clientPorts = new int[maxPlayers];
     private int[] clientCars = new int[maxPlayers];
     private int connectedClients = 0;
     private int gameStage = 1;
@@ -111,11 +113,18 @@ public class HostServer implements Runnable {
     public String processInput(final String s) {
 
         System.out.println("teh data is " + s);
-        String[] ipAddr = getstring(s,1).split("\\.");
+        
+        String preipS = getstring(s,1);
+        String ipish = preipS.substring(0, preipS.indexOf(":"));
+        int port = Integer.parseInt(preipS.substring(preipS.indexOf(":") + 1, preipS.length()));
+        
+        String[] ipAddr = ipish.split("\\.");
+                
         System.out.println("teh ip is " + Arrays.toString(ipAddr));
         for (int i = 0; i < 4; i++) {
             clientIPs[connectedClients][i] = Short.parseShort(ipAddr[i])/*(byte) (Integer.parseInt(ipAddr[i]) & 0xFF)*/; //(byte) (Integer.parseInt(quarter) & 0xFF)
         }
+        clientPorts[connectedClients] = port;
         System.out.println("teh ip is 2 " + Arrays.toString(clientIPs[connectedClients]));
         clientCars[connectedClients] = getvalue(s,2);
 
@@ -125,8 +134,8 @@ public class HostServer implements Runnable {
             try {
                 //if (i != connectedClients - 1) {//is not this client
                     String ip = clientIPs[i][0] + "." + clientIPs[i][1] + "." + clientIPs[i][2] + "." + clientIPs[i][3];
-                    clientNotifier = new Socket(ip, NOTIFY_LISTEN_PORT); //notify port is 7000
-                    System.out.println("notifying to client at " + ip + ":" + NOTIFY_LISTEN_PORT);
+                    clientNotifier = new Socket(ip, clientPorts[i]); //notify port is 7000
+                    System.out.println("notifying to client at " + ip + ":" + clientPorts[i]);
                     din = new BufferedReader(new InputStreamReader(clientNotifier.getInputStream()));
                     dout = new PrintWriter(clientNotifier.getOutputStream(), true);
 
@@ -156,7 +165,7 @@ public class HostServer implements Runnable {
             output.append(clientCars[j] + "|");
         }
 
-        if (connectedClients >= maxPlayers) {
+        if (connectedClients >= maxPlayers) { //THE CURRENT PROBLEM: the client doesn't seem to be receiving this data or is ignoring it. is there a way to make it receive it without another socket?
             return "start|" + gameStage + "|" + output.toString();
         } else {
             return "" + output.toString();
