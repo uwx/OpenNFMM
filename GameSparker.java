@@ -3449,7 +3449,7 @@ class GameSparker extends JPanel
     
     static boolean isHostQuickLoad = false; //TODO this wille disable the prompt for server IP/port when you're host
     static boolean localServerHasSelectedCar = false; //if true, go to the "Waiting for players" msg instead of car select
-    static int selectedCarStore = 0;
+    static int selectedCarStore = 0; // to avoid sc[0] being overriden
 
     void makeClientServer(String ip, int port) throws UnknownHostException, IOException, SocketException {
         int clientport = HostServer.NOTIFY_LISTEN_PORT + ThreadLocalRandom.current().nextInt(150);

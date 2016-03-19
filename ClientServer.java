@@ -72,7 +72,14 @@ public class ClientServer implements Runnable {
         if (in.startsWith("start|")) {
             // first parameter after start - stage
             ch.stage = getvalue(in, 2);
-            xtgraphics.nplayers = getvalue(in, 3);
+
+            ch.nlaps = getvalue(in, 3);
+            //ch.name = lobby.stagename;
+            ch.nfix = getvalue(in, 4);
+            ch.notb = getvalue(in, 5) == 1;
+            
+            xtgraphics.nplayers = getvalue(in, 6);
+            
             if (xtgraphics.im == -1) {
                 xtgraphics.im = xtgraphics.nplayers - 1; //FIXED: both clients are im=0 so that causes the bindexception since they wanna be servers
                 xtgraphics.sc[xtgraphics.im] = GameSparker.selectedCarStore;
@@ -81,18 +88,14 @@ public class ClientServer implements Runnable {
 
             for (int i = 0; i < xtgraphics.nplayers; i++) {
                 if (i != xtgraphics.im)
-                    xtgraphics.sc[i] = getvalue(in, 4 + i);
+                    xtgraphics.sc[i] = getvalue(in, 7 + i);
             }
             
-            xtgraphics.fase = 22;
             xtgraphics.multion = 1; //0: singleplayer, 1: multiplayer, 2: watching game
             gs.u[0].multion = 1;
             xtgraphics.lan = true;
             
-            ch.nlaps = 5;
-            //ch.name = lobby.stagename;
-            ch.nfix = 5;
-            ch.notb = false;
+            xtgraphics.fase = 22;
             
             // TODO checkpoints.nlaps
             // TODO checkpoints.nfix

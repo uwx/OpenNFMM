@@ -71,10 +71,14 @@ public class HostServer implements Runnable {
     private int[] clientPorts = new int[maxPlayers];
     private int[] clientCars = new int[maxPlayers];
     private int connectedClients = 0;
-    private int gameStage = 1;
     private Socket clientNotifier;
     private BufferedReader din;
     private PrintWriter dout;
+
+    private int gameStage = 1;
+    private int gameLaps = 10;
+    private int gameFixes = 5;
+    private int gameNoTreesOrBumps = 0;
 
     /**
      * Format...
@@ -85,13 +89,13 @@ public class HostServer implements Runnable {
      * 192.168.0.1 (ip)|0 (car)|
      *
      * returns:
-     *   when started: start|1| (stage)
+     *   when started: start|1 (stage)|5 (laps)|5 (fixes)|0/1 (notb)|
      *   7 (num of players)|
      *   for every player:
      *     0 (car)|
      *
      * notify:
-     *   when started: start|1| (stage)
+     *   when started: start|1 (stage)|5 (laps)|5 (fixes)|0/1 (notb)|
      *   7 (players)|
      *   for every player:
      *     0 (car)|
@@ -131,6 +135,10 @@ public class HostServer implements Runnable {
                     StringBuilder output = new StringBuilder();
                     if (connectedClients >= maxPlayers) {
                         output.append("start|" + gameStage + "|");
+                        
+                        output.append(gameLaps + "|"); //yes, only on game start
+                        output.append(gameFixes + "|");
+                        output.append(gameNoTreesOrBumps + "|");
                     }
                     output.append(connectedClients + "|");
                     for (int j = 0; j < connectedClients; j++) {
@@ -155,6 +163,7 @@ public class HostServer implements Runnable {
         }
 
         // FIXME
+        // ignore this
         if (connectedClients >= maxPlayers) { //THE CURRENT PROBLEM: the client doesn't seem to be receiving this data or is ignoring it. is there a way to make it receive it without another socket?
             return "start|" + gameStage + "|" + output.toString();
         } else {
