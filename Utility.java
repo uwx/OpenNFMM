@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 final class Utility {
 
@@ -131,5 +132,264 @@ final class Utility {
             i273 = 10;
         }
         return (i273 - m.focusPoint) * (m.cy - i) / i273 + i;
+    }
+    
+    /**
+     * Probably not the cleanest thing I've written, just use a loop or smartFill instead
+     * 
+     * @author Rafael
+     * @param arr An array containing an array
+     * @param val The value to set the underlying variables of the underlying arrays' items to
+     */
+    @Deprecated
+    static <T> void deepFill(final T[] arr, final Object val) {
+        if (arr != null && arr.length > 0) {
+            if (arr[0] instanceof int[])
+                for (T key : arr)
+                    Arrays.fill((int[]) key, (int) val);
+            else if (arr[0] instanceof short[])
+                for (T key : arr)
+                    Arrays.fill((short[]) key, (short) val);
+            else if (arr[0] instanceof byte[])
+                for (T key : arr)
+                    Arrays.fill((byte[]) key, (byte) val);
+            else if (arr[0] instanceof long[])
+                for (T key : arr)
+                    Arrays.fill((long[]) key, (long) val);
+            else if (arr[0] instanceof float[])
+                for (T key : arr)
+                    Arrays.fill((float[]) key, (float) val);
+            else if (arr[0] instanceof double[])
+                for (T key : arr)
+                    Arrays.fill((double[]) key, (double) val);
+            else if (arr[0] instanceof Object[])
+                for (T key : arr)
+                    deepFill((Object[]) key, val);
+        }
+    }
+    
+    /**
+     * From the Java Programmer's FAQ Part B Sect 6: <br>
+     * <br>
+     * Initialize a smaller piece of the array and use the System.arraycopy 
+     * call to fill in the rest of the array in an expanding binary fashion.
+     * <br><br>
+     * "allows a much shorter loop by handing some of the work off to the
+     * System class, which (if the JVM you're using is smart enough) can be
+     * turned into a memset operation"
+     */
+    public static void smartFill(byte[] array, byte value) 
+    {
+      int len = array.length;
+
+      if (len > 0)
+      {
+        array[0] = value;
+      }
+
+      for (int i = 1; i < len; i += i) 
+      {
+        System.arraycopy(array, 0, array, i, ((len - i) < i) ? (len - i) : i);
+      }
+    }
+    
+    /**
+     * From the Java Programmer's FAQ Part B Sect 6: <br>
+     * <br>
+     * Initialize a smaller piece of the array and use the System.arraycopy 
+     * call to fill in the rest of the array in an expanding binary fashion.
+     * <br><br>
+     * "allows a much shorter loop by handing some of the work off to the
+     * System class, which (if the JVM you're using is smart enough) can be
+     * turned into a memset operation"
+     */
+    public static void smartFill(short[] array, short value) 
+    {
+      int len = array.length;
+
+      if (len > 0)
+      {
+        array[0] = value;
+      }
+
+      for (int i = 1; i < len; i += i) 
+      {
+        System.arraycopy(array, 0, array, i, ((len - i) < i) ? (len - i) : i);
+      }
+    }
+    
+    /**
+     * From the Java Programmer's FAQ Part B Sect 6: <br>
+     * <br>
+     * Initialize a smaller piece of the array and use the System.arraycopy 
+     * call to fill in the rest of the array in an expanding binary fashion.
+     * <br><br>
+     * "allows a much shorter loop by handing some of the work off to the
+     * System class, which (if the JVM you're using is smart enough) can be
+     * turned into a memset operation"
+     */
+    public static void smartFill(char[] array, char value) 
+    {
+      int len = array.length;
+
+      if (len > 0)
+      {
+        array[0] = value;
+      }
+
+      for (int i = 1; i < len; i += i) 
+      {
+        System.arraycopy(array, 0, array, i, ((len - i) < i) ? (len - i) : i);
+      }
+    }
+    
+    /**
+     * From the Java Programmer's FAQ Part B Sect 6: <br>
+     * <br>
+     * Initialize a smaller piece of the array and use the System.arraycopy 
+     * call to fill in the rest of the array in an expanding binary fashion.
+     * <br><br>
+     * "allows a much shorter loop by handing some of the work off to the
+     * System class, which (if the JVM you're using is smart enough) can be
+     * turned into a memset operation"
+     */
+    public static void smartFill(int[] array, int value) 
+    {
+      int len = array.length;
+
+      if (len > 0)
+      {
+        array[0] = value;
+      }
+
+      for (int i = 1; i < len; i += i) 
+      {
+        System.arraycopy(array, 0, array, i, ((len - i) < i) ? (len - i) : i);
+      }
+    }
+    
+    /**
+     * From the Java Programmer's FAQ Part B Sect 6: <br>
+     * <br>
+     * Initialize a smaller piece of the array and use the System.arraycopy 
+     * call to fill in the rest of the array in an expanding binary fashion.
+     * <br><br>
+     * "allows a much shorter loop by handing some of the work off to the
+     * System class, which (if the JVM you're using is smart enough) can be
+     * turned into a memset operation"
+     */
+    public static void smartFill(long[] array, long value) 
+    {
+      int len = array.length;
+
+      if (len > 0)
+      {
+        array[0] = value;
+      }
+
+      for (int i = 1; i < len; i += i) 
+      {
+        System.arraycopy(array, 0, array, i, ((len - i) < i) ? (len - i) : i);
+      }
+    }
+    
+    /**
+     * From the Java Programmer's FAQ Part B Sect 6: <br>
+     * <br>
+     * Initialize a smaller piece of the array and use the System.arraycopy 
+     * call to fill in the rest of the array in an expanding binary fashion.
+     * <br><br>
+     * "allows a much shorter loop by handing some of the work off to the
+     * System class, which (if the JVM you're using is smart enough) can be
+     * turned into a memset operation"
+     */
+    public static void smartFill(float[] array, float value) 
+    {
+      int len = array.length;
+
+      if (len > 0)
+      {
+        array[0] = value;
+      }
+
+      for (int i = 1; i < len; i += i) 
+      {
+        System.arraycopy(array, 0, array, i, ((len - i) < i) ? (len - i) : i);
+      }
+    }
+    
+    /**
+     * From the Java Programmer's FAQ Part B Sect 6: <br>
+     * <br>
+     * Initialize a smaller piece of the array and use the System.arraycopy 
+     * call to fill in the rest of the array in an expanding binary fashion.
+     * <br><br>
+     * "allows a much shorter loop by handing some of the work off to the
+     * System class, which (if the JVM you're using is smart enough) can be
+     * turned into a memset operation"
+     */
+    public static void smartFill(double[] array, double value) 
+    {
+      int len = array.length;
+
+      if (len > 0)
+      {
+        array[0] = value;
+      }
+
+      for (int i = 1; i < len; i += i) 
+      {
+        System.arraycopy(array, 0, array, i, ((len - i) < i) ? (len - i) : i);
+      }
+    }
+    
+    /**
+     * From the Java Programmer's FAQ Part B Sect 6: <br>
+     * <br>
+     * Initialize a smaller piece of the array and use the System.arraycopy 
+     * call to fill in the rest of the array in an expanding binary fashion.
+     * <br><br>
+     * "allows a much shorter loop by handing some of the work off to the
+     * System class, which (if the JVM you're using is smart enough) can be
+     * turned into a memset operation"
+     */
+    public static void smartFill(Object[] array, Object value) 
+    {
+      int len = array.length;
+
+      if (len > 0)
+      {
+        array[0] = value;
+      }
+
+      for (int i = 1; i < len; i += i) 
+      {
+        System.arraycopy(array, 0, array, i, ((len - i) < i) ? (len - i) : i);
+      }
+    }
+    
+    /**
+     * From the Java Programmer's FAQ Part B Sect 6: <br>
+     * <br>
+     * Initialize a smaller piece of the array and use the System.arraycopy 
+     * call to fill in the rest of the array in an expanding binary fashion.
+     * <br><br>
+     * "allows a much shorter loop by handing some of the work off to the
+     * System class, which (if the JVM you're using is smart enough) can be
+     * turned into a memset operation"
+     */
+    public static void smartFill(boolean[] array, boolean value) 
+    {
+      int len = array.length;
+
+      if (len > 0)
+      {
+        array[0] = value;
+      }
+
+      for (int i = 1; i < len; i += i) 
+      {
+        System.arraycopy(array, 0, array, i, ((len - i) < i) ? (len - i) : i);
+      }
     }
 }

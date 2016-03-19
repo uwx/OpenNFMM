@@ -25,6 +25,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
@@ -492,9 +493,7 @@ class xtGraphics extends Panel implements Runnable {
         hello = getImage("data/hello.gif");
         sign = getImage("data/sign.gif");
         loadbar = getImage("data/loadbar.gif");
-        for (int i = 0; i < 5; i++) {
-            pengs[i] = false;
-        }
+        Utility.smartFill(pengs, false);
         nofull = false;
         final SecurityManager securitymanager = System.getSecurityManager();
         if (securitymanager != null) {
@@ -1075,10 +1074,8 @@ class xtGraphics extends Panel implements Runnable {
             }
             if (i113 != 0) {
                 if (gatey == 300) {
-                    for (int i117 = 0; i117 < 9; i117++) {
-                        pgas[i117] = false;
-                        pgady[i117] = 0;
-                    }
+                    Utility.smartFill(pgas, false);
+                    Utility.smartFill(pgady, 0);
                     pgas[0] = true;
                 }
                 for (int i118 = 0; i118 < 9; i118++) {
@@ -7741,11 +7738,9 @@ class xtGraphics extends Panel implements Runnable {
         holdcnt = 0;
         holdit = false;
         winner = false;
-        for (int i20 = 0; i20 < 8; i20++) {
-            dested[i20] = 0;
-            isbot[i20] = false;
-            dcrashes[i20] = 0;
-        }
+        Utility.smartFill(dested, 0);
+        Utility.smartFill(isbot, false);
+        Utility.smartFill(dcrashes, 0);
         runtyp = 0;
         discon = 0;
         dnload = 0;
@@ -7758,23 +7753,23 @@ class xtGraphics extends Panel implements Runnable {
         }
         if (fase == 22) {
             for (int i21 = 0; i21 < 2; i21++) {
-                for (int i22 = 0; i22 < 7; i22++) {
-                    cnames[i21][i22] = "";
-                    sentn[i21][i22] = "";
-                }
+                Utility.smartFill(cnames[i21], "");
+                Utility.smartFill(sentn[i21], "");
+                
                 if (i21 == 0) {
                     cnames[i21][6] = "Game Chat  ";
                 } else {
-                    cnames[i21][6] = "" + clan + "'s Chat  ";
+                    cnames[i21][6] = clan + "'s Chat  ";
                 }
-                updatec[i21] = -1;
-                movepos[i21] = 0;
-                pointc[i21] = 6;
-                floater[i21] = 0;
-                cntchatp[i21] = 0;
-                msgflk[i21] = 0;
-                lcmsg[i21] = "";
             }
+            Utility.smartFill(updatec, -1);
+            Utility.smartFill(movepos, 0);
+            Utility.smartFill(pointc, 6);
+            Utility.smartFill(floater, 0);
+            Utility.smartFill(cntchatp, 0);
+            Utility.smartFill(msgflk, 0);
+            Utility.smartFill(lcmsg, "");
+            
             if (multion == 3) {
                 ransay = 4;
             } else if (ransay == 0) {
