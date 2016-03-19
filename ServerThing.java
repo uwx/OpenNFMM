@@ -109,14 +109,14 @@ public class ServerThing {
         serverStatus.setBounds(10, 425, 780, 14);
         panel.add(serverStatus);
         
-        JLabel serverInfo = new JLabel("Info N/A");
+        serverInfo = new JLabel("Info N/A");
         serverInfo.setVerticalAlignment(SwingConstants.TOP);
         serverInfo.setBounds(633, 11, 157, 153);
         panel.add(serverInfo);
         
         return panel;
     }
-
+    
     static final ArrayList<String> stageList = new ArrayList<String>();
     static JPanel panel;
     static JComboBox<Integer> selectedPlayers;
@@ -126,6 +126,7 @@ public class ServerThing {
     static JLabel serverStatus;
     static JCheckBox checkbox;
     static JButton btnStartServer;
+    static JLabel serverInfo;
     
     private static void findStages() throws IOException {
         for (int i = 1; i <= 32; i++) {

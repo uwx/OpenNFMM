@@ -38,6 +38,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 class xtGraphics extends Panel implements Runnable {
     /**
@@ -2161,7 +2162,8 @@ class xtGraphics extends Panel implements Runnable {
                                     p.add(buttonReplace);
                                     p.repaint();
                                     
-                                    HostServer hostServer = new HostServer(HostServer.SERVER_PORT, ServerThing.selectedPlayers.getSelectedIndex() + 2);
+                                    int maxPlayers = ServerThing.selectedPlayers.getSelectedIndex() + 2;
+                                    HostServer hostServer = new HostServer(HostServer.SERVER_PORT, maxPlayers);
                                     hostServer.gameFixes = ServerThing.selectedFixes.getSelectedIndex() + 1;
                                     hostServer.gameLaps = ServerThing.selectedLaps.getSelectedIndex() + 1;
                                     hostServer.gameStage = ServerThing.selectedStage.getSelectedIndex() + 1;
@@ -2169,6 +2171,14 @@ class xtGraphics extends Panel implements Runnable {
 
                                     Thread t = new Thread(hostServer);
                                     t.start();
+                                    
+                                    Timer timer = new Timer(500, new ActionListener() {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            ServerThing.serverInfo.setText("<html>Players: " + hostServer.connectedClients + "/" + maxPlayers + "<br>Game status: " + (hostServer.connectedClients >= maxPlayers ? "Started" : "Waiting for players") + "</html>");
+                                        } 
+                                    });
+                                    timer.start();
                                     
                                     // connect 2 self server
                                     String ip = GameSparker.getMyIP();
