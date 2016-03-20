@@ -30,16 +30,38 @@ import jouvieje.bass.utils.Pointer;
 
 class RadicalBASS implements RadicalMusic {
 
+    /**
+     * Displays error messages
+     * 
+     * @param text The error message to be displayed
+     */
+    private final void error(final String text) {
+        System.err.println("RadicalBASS error: " + text);
+    }
+
+    /**
+     * Prints a formatted message then ends playback
+     * 
+     * @param format String to be formatted
+     * @param args Formatting arguments
+     */
+    private final void printfExit(final String format, final Object... args) {
+        System.out.println(String.format(format, args));
+        end();
+    }
+
     static boolean init = false;
     private boolean deinit = false;
 
-    //private final int WIDTH = 600; //Display width
-    //private final int HEIGHT = 201; //Height (odd number for centre line)
-
+    /**
+     * The channel that NativeBASS will play to
+     */
     private int chan;
-    //private long bpp; //Bytes per pixel
-    private final long[] loop = new long[2]; //Loop start & end
-    //private HSYNC lsync; //Looping sync
+    
+    /**
+     * Loop start & end
+     */
+    private final long[] loop = new long[2];
 
     private final SYNCPROC loopSyncProc = new SYNCPROC() {
         @Override
@@ -49,17 +71,6 @@ class RadicalBASS implements RadicalMusic {
             }
         }
     };
-
-    /* display error messages */
-    private final void error(final String text) {
-        System.err.println("RadicalBASS error: " + text);
-    }
-
-    private final void printfExit(final String format, final Object... args) {
-        final String s = String.format(format, args);
-        System.out.println(s);
-        end();
-    }
 
     public void run() {
         if (!init)
@@ -97,10 +108,6 @@ class RadicalBASS implements RadicalMusic {
 
         chan = stream != null ? stream.asInt() : music != null ? music.asInt() : 0;
 
-        /*bpp = (int) (BASS_ChannelGetLength(chan, BASS_POS_BYTE) / WIDTH); //Bytes per pixel
-        if (bpp < BASS_ChannelSeconds2Bytes(chan, 0.02f)) { //Minimum 20ms per pixel (BASS_ChannelGetLevel scans 20ms)
-            bpp = (int) BASS_ChannelSeconds2Bytes(chan, 0.02f);
-        }*/
         BASS_ChannelSetSync(chan, BASS_SYNC_END | BASS_SYNC_MIXTIME, 0, loopSyncProc, null); //Set sync to loop at end
         BASS_ChannelPlay(chan, false); //Start playing
         return true;
