@@ -1,36 +1,24 @@
 
-
-import static jouvieje.bass.Bass.BASS_ChannelGetLength;
-import static jouvieje.bass.Bass.BASS_ChannelGetLevel;
-import static jouvieje.bass.Bass.BASS_ChannelGetPosition;
-import static jouvieje.bass.Bass.BASS_ChannelIsActive;
 import static jouvieje.bass.Bass.BASS_ChannelPlay;
-import static jouvieje.bass.Bass.BASS_ChannelSeconds2Bytes;
 import static jouvieje.bass.Bass.BASS_ChannelSetPosition;
 import static jouvieje.bass.Bass.BASS_ChannelSetSync;
 import static jouvieje.bass.Bass.BASS_Free;
 import static jouvieje.bass.Bass.BASS_GetVersion;
 import static jouvieje.bass.Bass.BASS_Init;
-import static jouvieje.bass.Bass.BASS_MusicFree;
 import static jouvieje.bass.Bass.BASS_MusicLoad;
 import static jouvieje.bass.Bass.BASS_Pause;
 import static jouvieje.bass.Bass.BASS_SetVolume;
 import static jouvieje.bass.Bass.BASS_Start;
 import static jouvieje.bass.Bass.BASS_StreamCreateFile;
-import static jouvieje.bass.Bass.BASS_StreamFree;
-import static jouvieje.bass.defines.BASS_ACTIVE.BASS_ACTIVE_STOPPED;
-import static jouvieje.bass.defines.BASS_MUSIC.BASS_MUSIC_DECODE;
 import static jouvieje.bass.defines.BASS_MUSIC.BASS_MUSIC_POSRESET;
 import static jouvieje.bass.defines.BASS_MUSIC.BASS_MUSIC_PRESCAN;
 import static jouvieje.bass.defines.BASS_MUSIC.BASS_MUSIC_RAMPS;
 import static jouvieje.bass.defines.BASS_POS.BASS_POS_BYTE;
-import static jouvieje.bass.defines.BASS_STREAM.BASS_STREAM_DECODE;
 import static jouvieje.bass.defines.BASS_SYNC.BASS_SYNC_END;
 import static jouvieje.bass.defines.BASS_SYNC.BASS_SYNC_MIXTIME;
 import static jouvieje.bass.examples.util.Device.forceFrequency;
 import static jouvieje.bass.examples.util.Device.forceNoSoundDevice;
 
-import java.awt.image.BufferedImage;
 import java.io.File;
 
 import jouvieje.bass.BassInit;
@@ -42,30 +30,38 @@ import jouvieje.bass.utils.Pointer;
 
 class RadicalBASS implements RadicalMusic {
 
-    /* display error messages */
+    /**
+     * Displays error messages
+     * 
+     * @param text The error message to be displayed
+     */
     private final void error(final String text) {
         System.err.println("RadicalBASS error: " + text);
     }
 
+    /**
+     * Prints a formatted message then ends playback
+     * 
+     * @param format String to be formatted
+     * @param args Formatting arguments
+     */
     private final void printfExit(final String format, final Object... args) {
-        final String s = String.format(format, args);
-        System.out.println(s);
+        System.out.println(String.format(format, args));
         end();
     }
 
     static boolean init = false;
     private boolean deinit = false;
 
-    private final int WIDTH = 600; //Display width
-    private final int HEIGHT = 201; //Height (odd number for centre line)
-
-
+    /**
+     * The channel that NativeBASS will play to
+     */
     private int chan;
-    private long bpp; //Bytes per pixel
-    private final long[] loop = new long[2]; //Loop start & end
-    //private HSYNC lsync; //Looping sync
-
-    private BufferedImage wavebuf = null;
+    
+    /**
+     * Loop start & end
+     */
+    private final long[] loop = new long[2];
 
     private final SYNCPROC loopSyncProc = new SYNCPROC() {
         @Override
@@ -112,10 +108,6 @@ class RadicalBASS implements RadicalMusic {
 
         chan = stream != null ? stream.asInt() : music != null ? music.asInt() : 0;
 
-        bpp = (int) (BASS_ChannelGetLength(chan, BASS_POS_BYTE) / WIDTH); //Bytes per pixel
-        if (bpp < BASS_ChannelSeconds2Bytes(chan, 0.02f)) { //Minimum 20ms per pixel (BASS_ChannelGetLevel scans 20ms)
-            bpp = (int) BASS_ChannelSeconds2Bytes(chan, 0.02f);
-        }
         BASS_ChannelSetSync(chan, BASS_SYNC_END | BASS_SYNC_MIXTIME, 0, loopSyncProc, null); //Set sync to loop at end
         BASS_ChannelPlay(chan, false); //Start playing
         return true;
@@ -131,13 +123,6 @@ class RadicalBASS implements RadicalMusic {
         deinit = true;
 
         BASS_Free();
-    }
-
-    private int getIndexColor(final int index) {
-        if (index == 0)
-            return 0;
-        final int r = 255 * index / (HEIGHT / 2);
-        return (r << 16) + (255 - r << 8);
     }
 
     /* Graphical stuff */
