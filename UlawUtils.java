@@ -365,6 +365,12 @@ final class UlawUtils {
             125, 126
     };
 
+    /**
+     * This is an utility class, so it can't be inherited.
+     */
+    private UlawUtils() {
+    }
+
     public static final byte linear2ulaw(final byte i) {
         return s2uLut[((i & 0xff) << 5) + 15];
     }

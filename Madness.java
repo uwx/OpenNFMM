@@ -297,7 +297,7 @@ class Madness extends Panel {
                     string = string.trim();
                     int i8 = i;
                     try {
-                        i8 = Integer.valueOf(string).intValue();
+                        i8 = Integer.parseInt(string);
                     } catch (final Exception exception) {
                         i8 = i;
                     }

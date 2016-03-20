@@ -60,7 +60,7 @@ class soundClip {
 
                 }
             }
-            clip.loop(70);
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
             lfrpo = -2;
             cntcheck = 0;
         }

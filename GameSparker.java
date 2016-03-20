@@ -136,6 +136,34 @@ class GameSparker extends JPanel
     private int xm = 0;
     private int ym = 0;
 
+    //allan please remove this soon
+    private Date date;
+    private int clicknowtime;
+    private xtGraphics xtgraphics;
+    private ContO[] contos;
+    private ContO[] stageContos;
+    private Mad[] mads;
+    private Medium medium;
+    private Trackers trackers;
+    private CheckPoints checkpoints;
+    private CarDefine cardefine;
+    private Login login = null;
+    private Lobby lobby = null;
+    //private Globe globe = null;
+    private final UDPMistro udpmistro = new UDPMistro();
+    private boolean bool = false;
+    private Record record;
+    private int recordtime;
+    private int finishrecording;
+    private int wastedpoint;
+    private boolean flashingscreen;
+    private long l1;
+    private float f2;
+    private boolean bool3;
+    private int i4;
+    private int i5;
+    private float f;
+
     private void catchlink() {
         if (!lostfcs)
             if (xm > 65 && xm < 735 && ym > 135 && ym < 194 || xm > 275 && xm < 525 && ym > 265 && ym < 284) {
@@ -280,7 +308,7 @@ class GameSparker extends JPanel
                 string2 = string2 + string4.charAt(k);
             }
         }
-        return Integer.valueOf(string2).intValue();
+        return Integer.parseInt(string2);
     }
 
     static String getstring(final String string, final String string2, final int i) {
@@ -570,7 +598,7 @@ class GameSparker extends JPanel
                     zipinputstream = new ZipInputStream(new ByteArrayInputStream(is2));
                 }
                 final ZipEntry zipentry = zipinputstream.getNextEntry();
-                int n = Integer.valueOf(zipentry.getName()).intValue();
+                int n = Integer.parseInt(zipentry.getName());
                 final byte[] is2 = new byte[n];
                 int o = 0;
                 int p;
@@ -988,7 +1016,7 @@ class GameSparker extends JPanel
                     zipinputstream = new ZipInputStream(new ByteArrayInputStream(is157));
                 }
                 final ZipEntry zipentry = zipinputstream.getNextEntry();
-                int i160 = Integer.valueOf(zipentry.getName()).intValue();
+                int i160 = Integer.parseInt(zipentry.getName());
                 final byte[] is161 = new byte[i160];
                 int i162 = 0;
                 int i163;
@@ -1693,34 +1721,6 @@ class GameSparker extends JPanel
         counter.start();*/
         //timer.setDelay(delay);
     }
-
-    //allan please remove this soon
-    private Date date;
-    private int clicknowtime;
-    private xtGraphics xtgraphics;
-    private ContO[] contos;
-    private ContO[] stageContos;
-    private Mad[] mads;
-    private Medium medium;
-    private Trackers trackers;
-    private CheckPoints checkpoints;
-    private CarDefine cardefine;
-    private Login login = null;
-    private Lobby lobby = null;
-    //private Globe globe = null;
-    private final UDPMistro udpmistro = new UDPMistro();
-    private boolean bool = false;
-    private Record record;
-    private int recordtime;
-    private int finishrecording;
-    private int wastedpoint;
-    private boolean flashingscreen;
-    private long l1;
-    private float f2;
-    private boolean bool3;
-    private int i4;
-    private int i5;
-    private float f;
 
     //@Override
     private void initialize() {

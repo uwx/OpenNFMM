@@ -16,14 +16,6 @@ class Mod {
     private static final int voiceMk2 = FOURCC("M!K!");
     private static final int voiceMk3 = FOURCC("M&K!");*/
 
-    static final int FOURCC(final String string) {
-        return string.charAt(3) & 0xff | (string.charAt(2) & 0xff) << 8 | (string.charAt(1) & 0xff) << 16 | (string.charAt(0) & 0xff) << 24;
-    }
-
-    private static final int readu8(final DataInputStream datainputstream) throws IOException {
-        return datainputstream.readByte() & 0xff;
-    }
-
     ModInstrument[] insts;
     private String name;
     private int numpatterns;
@@ -40,6 +32,14 @@ class Mod {
     private int songRepeatPatterns;
 
     int trackShift;
+
+    static final int FOURCC(final String string) {
+        return string.charAt(3) & 0xff | (string.charAt(2) & 0xff) << 8 | (string.charAt(1) & 0xff) << 16 | (string.charAt(0) & 0xff) << 24;
+    }
+
+    private static final int readu8(final DataInputStream datainputstream) throws IOException {
+        return datainputstream.readByte() & 0xff;
+    }
 
     public String getName() {
         return name;

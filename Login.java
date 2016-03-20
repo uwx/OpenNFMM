@@ -546,9 +546,6 @@ class Login implements Runnable {
             if (control.exit) {
                 i49 = 2;
             }
-            if (i49 != 1) {
-
-            }
             if (i49 == 2) {
                 fase = lrgfase;
                 if (fase == 12) {
@@ -790,7 +787,7 @@ class Login implements Runnable {
             if (string73.equals("")) {
                 string73 = "-1";
             }
-            i68 = Integer.valueOf(string73).intValue();
+            i68 = Integer.parseInt(string73);
         } catch (final Exception exception) {
 
         }

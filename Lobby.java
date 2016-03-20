@@ -715,7 +715,7 @@ class Lobby implements Runnable {
                                 if (!gplyrs[i321].equals("") && gplyrs[i321].indexOf(pnames[im]) == -1) {
                                     bool = true;
                                 }
-                            } else if (!xt.clan.toLowerCase().equals(gaclan[i321].toLowerCase()) && !xt.clan.toLowerCase().equals(gvclan[i321].toLowerCase())) {
+                            } else if (!xt.clan.equalsIgnoreCase(gaclan[i321]) && !xt.clan.equalsIgnoreCase(gvclan[i321])) {
                                 bool = true;
                             }
                             if (control.enter && wait[i321] > 0 && pgames[im] == -1 && !bool) {
@@ -976,7 +976,7 @@ class Lobby implements Runnable {
             if (string346.equals("")) {
                 string346 = "-1";
             }
-            i341 = Integer.valueOf(string346).intValue();
+            i341 = Integer.parseInt(string346);
         } catch (final Exception exception) {
 
         }
@@ -1062,7 +1062,7 @@ class Lobby implements Runnable {
             if (string334.equals("")) {
                 string334 = "-1";
             }
-            i329 = Integer.valueOf(string334).intValue();
+            i329 = Integer.parseInt(string334);
         } catch (final Exception exception) {
 
         }
@@ -1299,7 +1299,7 @@ class Lobby implements Runnable {
                                     if (invos[i118].equals(pnames[i116]) && !bool117) {
                                         bool117 = true;
                                     }
-                                if (i114 != -1 && !pclan[i116].toLowerCase().equals(gaclan[i114].toLowerCase()) && !pclan[i116].toLowerCase().equals(gvclan[i114].toLowerCase())) {
+                                if (i114 != -1 && !pclan[i116].equalsIgnoreCase(gaclan[i114]) && !pclan[i116].equalsIgnoreCase(gvclan[i114])) {
                                     bool117 = true;
                                 }
                             }
@@ -1910,7 +1910,7 @@ class Lobby implements Runnable {
                                                                 if (gplyrs[is137[i149]].equals("") || gplyrs[is137[i149]].indexOf(pnames[im]) != -1) {
                                                                     bool152 = true;
                                                                 }
-                                                            } else if (xt.clan.toLowerCase().equals(gaclan[is137[i149]].toLowerCase()) || xt.clan.toLowerCase().equals(gvclan[is137[i149]].toLowerCase())) {
+                                                            } else if (xt.clan.equalsIgnoreCase(gaclan[is137[i149]]) || xt.clan.equalsIgnoreCase(gvclan[is137[i149]])) {
                                                                 bool152 = true;
                                                             }
                                                             if (bool152) {
@@ -1974,7 +1974,7 @@ class Lobby implements Runnable {
                                                 if (gplyrs[is137[i149]].equals("") || gplyrs[is137[i149]].indexOf(pnames[im]) != -1) {
                                                     bool153 = true;
                                                 }
-                                            } else if (xt.clan.toLowerCase().equals(gaclan[is137[i149]].toLowerCase()) || xt.clan.toLowerCase().equals(gvclan[is137[i149]].toLowerCase())) {
+                                            } else if (xt.clan.equalsIgnoreCase(gaclan[is137[i149]]) || xt.clan.equalsIgnoreCase(gvclan[is137[i149]])) {
                                                 bool153 = true;
                                             }
                                             if (bool153) {
@@ -3154,7 +3154,7 @@ class Lobby implements Runnable {
                                         if (gwtyp[i193] == 2) {
                                             boolean bool208 = false;
                                             for (int i209 = 0; i209 < prnpo; i209++)
-                                                if (!strings[i209].toLowerCase().equals(string.toLowerCase()) && pdam[i209] < 55 && pdam[i209] != -17) {
+                                                if (!strings[i209].equalsIgnoreCase(string) && pdam[i209] < 55 && pdam[i209] != -17) {
                                                     bool208 = true;
                                                     break;
                                                 }
@@ -3166,7 +3166,7 @@ class Lobby implements Runnable {
                                         if (gwtyp[i193] == 3) {
                                             boolean bool210 = true;
                                             for (int i211 = 0; i211 < prnpo; i211++)
-                                                if (!strings[i211].toLowerCase().equals(string.toLowerCase()) && pdam[i211] < 55 && pdam[i211] != -17) {
+                                                if (!strings[i211].equalsIgnoreCase(string) && pdam[i211] < 55 && pdam[i211] != -17) {
                                                     bool210 = false;
                                                     break;
                                                 }
@@ -3176,10 +3176,10 @@ class Lobby implements Runnable {
                                             }
                                         }
                                         if (gwtyp[i193] == 4)
-                                            if (string.toLowerCase().equals(gaclan[i193].toLowerCase())) {
+                                            if (string.equalsIgnoreCase(gaclan[i193])) {
                                                 boolean bool212 = true;
                                                 for (int i213 = 0; i213 < prnpo; i213++)
-                                                    if (!strings[i213].toLowerCase().equals(string.toLowerCase()) && pdam[i213] < 55 && pdam[i213] != -17) {
+                                                    if (!strings[i213].equalsIgnoreCase(string) && pdam[i213] < 55 && pdam[i213] != -17) {
                                                         bool212 = false;
                                                         break;
                                                     }
@@ -3190,7 +3190,7 @@ class Lobby implements Runnable {
                                             } else {
                                                 boolean bool214 = false;
                                                 for (int i215 = 0; i215 < prnpo; i215++)
-                                                    if (!strings[i215].toLowerCase().equals(string.toLowerCase()) && pdam[i215] < 55 && pdam[i215] != -17) {
+                                                    if (!strings[i215].equalsIgnoreCase(string) && pdam[i215] < 55 && pdam[i215] != -17) {
                                                         bool214 = true;
                                                         break;
                                                     }
@@ -3200,10 +3200,10 @@ class Lobby implements Runnable {
                                                 }
                                             }
                                         if (gwtyp[i193] == 5)
-                                            if (!string.toLowerCase().equals(gaclan[i193].toLowerCase())) {
+                                            if (!string.equalsIgnoreCase(gaclan[i193])) {
                                                 boolean bool216 = true;
                                                 for (int i217 = 0; i217 < prnpo; i217++)
-                                                    if (!strings[i217].toLowerCase().equals(string.toLowerCase()) && pdam[i217] < 55 && pdam[i217] != -17) {
+                                                    if (!strings[i217].equalsIgnoreCase(string) && pdam[i217] < 55 && pdam[i217] != -17) {
                                                         bool216 = false;
                                                         break;
                                                     }
@@ -3214,7 +3214,7 @@ class Lobby implements Runnable {
                                             } else {
                                                 boolean bool218 = false;
                                                 for (int i219 = 0; i219 < prnpo; i219++)
-                                                    if (!strings[i219].toLowerCase().equals(string.toLowerCase()) && pdam[i219] < 55 && pdam[i219] != -17) {
+                                                    if (!strings[i219].equalsIgnoreCase(string) && pdam[i219] < 55 && pdam[i219] != -17) {
                                                         bool218 = true;
                                                         break;
                                                     }
@@ -3226,10 +3226,10 @@ class Lobby implements Runnable {
                                     } else {
                                         string198 = "No one finished first - no one survived!";
                                     }
-                                    if (string.toLowerCase().equals(gaclan[i193].toLowerCase())) {
+                                    if (string.equalsIgnoreCase(gaclan[i193])) {
                                         i203 = 1;
                                     }
-                                    if (string.toLowerCase().equals(gvclan[i193].toLowerCase())) {
+                                    if (string.equalsIgnoreCase(gvclan[i193])) {
                                         i204 = 1;
                                     }
                                 }
@@ -3288,13 +3288,13 @@ class Lobby implements Runnable {
                                     rd.fillRect(237, 54 + i220 * 42, 170, 40);
                                     rd.setColor(color2k(200, 200, 200));
                                     if (gwarb[i193] != 0) {
-                                        if (pclan[i222].toLowerCase().equals(gaclan[i193].toLowerCase())) {
+                                        if (pclan[i222].equalsIgnoreCase(gaclan[i193])) {
                                             rd.setColor(new Color(255, 128, 0));
                                         }
-                                        if (pclan[i222].toLowerCase().equals(gvclan[i193].toLowerCase())) {
+                                        if (pclan[i222].equalsIgnoreCase(gvclan[i193])) {
                                             rd.setColor(new Color(0, 128, 255));
                                         }
-                                        if (wait[i193] == -1 && prevloaded == 1 && string.toLowerCase().equals(pclan[i222].toLowerCase()) && nflk == 0) {
+                                        if (wait[i193] == -1 && prevloaded == 1 && string.equalsIgnoreCase(pclan[i222]) && nflk == 0) {
                                             rd.setColor(new Color(0, 0, 0));
                                         }
                                     } else if (wait[i193] == -1 && prevloaded == 1) {
@@ -3435,7 +3435,7 @@ class Lobby implements Runnable {
                                         if (!gplyrs[i193].equals("") && gplyrs[i193].indexOf(pnames[im]) == -1) {
                                             bool237 = true;
                                         }
-                                    } else if (!xt.clan.toLowerCase().equals(gaclan[i193].toLowerCase()) && !xt.clan.toLowerCase().equals(gvclan[i193].toLowerCase())) {
+                                    } else if (!xt.clan.equalsIgnoreCase(gaclan[i193]) && !xt.clan.equalsIgnoreCase(gvclan[i193])) {
                                         bool237 = true;
                                     }
                                     if (i > 237 && i < 407 && i99 > 54 + i236 * 42 && i99 < 94 + i236 * 42 && !bool237) {
@@ -3575,10 +3575,10 @@ class Lobby implements Runnable {
                                             int i245 = mnpls[i193] / 2;
                                             for (int i246 = 0; i246 < npo; i246++)
                                                 if (pgames[i246] == gnum[i193]) {
-                                                    if (pclan[i246].toLowerCase().equals(gaclan[i193].toLowerCase()) && --i244 < 0) {
+                                                    if (pclan[i246].equalsIgnoreCase(gaclan[i193]) && --i244 < 0) {
                                                         i244 = 0;
                                                     }
-                                                    if (pclan[i246].toLowerCase().equals(gvclan[i193].toLowerCase()) && --i245 < 0) {
+                                                    if (pclan[i246].equalsIgnoreCase(gvclan[i193]) && --i245 < 0) {
                                                         i245 = 0;
                                                     }
                                                 }
@@ -3603,7 +3603,7 @@ class Lobby implements Runnable {
                                             rd.setColor(new Color(0, 128, 255));
                                             rd.drawRect(562, 112, 138, 31);
                                             if (pgames[im] != ongame) {
-                                                if (xt.clan.toLowerCase().equals(gaclan[i193].toLowerCase()) || xt.clan.toLowerCase().equals(gvclan[i193].toLowerCase())) {
+                                                if (xt.clan.equalsIgnoreCase(gaclan[i193]) || xt.clan.equalsIgnoreCase(gvclan[i193])) {
                                                     stringbutton("    Join this Game    ", 561, 200, 0);
                                                 } else {
                                                     rd.setColor(new Color(128, 73, 0));
@@ -5007,7 +5007,7 @@ class Lobby implements Runnable {
                     }
                 boolean bool46 = false;
                 if (gwarb[i44] != 0) {
-                    if (xt.clan.toLowerCase().equals(gaclan[i44].toLowerCase()) || xt.clan.toLowerCase().equals(gvclan[i44].toLowerCase())) {
+                    if (xt.clan.equalsIgnoreCase(gaclan[i44]) || xt.clan.equalsIgnoreCase(gvclan[i44])) {
                         bool46 = true;
                     }
                 } else {
@@ -5493,7 +5493,7 @@ class Lobby implements Runnable {
                         if (gwarb[i95] != 0) {
                             xt.clangame = gwtyp[i95];
                             xt.gaclan = gaclan[i95];
-                            if (xt.clan.toLowerCase().equals(gaclan[i95].toLowerCase()) || xt.clan.toLowerCase().equals(gvclan[i95].toLowerCase())) {
+                            if (xt.clan.equalsIgnoreCase(gaclan[i95]) || xt.clan.equalsIgnoreCase(gvclan[i95])) {
                                 xt.clanchat = true;
                             }
                             for (int i97 = 0; i97 < xt.nplayers; i97++) {
@@ -5634,7 +5634,7 @@ class Lobby implements Runnable {
                         if (gplyrs[i295].equals("") || gplyrs[i295].indexOf(pnames[im]) != -1) {
                             bool299 = true;
                         }
-                    } else if (xt.clan.toLowerCase().equals(gaclan[i295].toLowerCase()) || xt.clan.toLowerCase().equals(gvclan[i295].toLowerCase())) {
+                    } else if (xt.clan.equalsIgnoreCase(gaclan[i295]) || xt.clan.equalsIgnoreCase(gvclan[i295])) {
                         bool299 = true;
                     }
                     if (bool299) {

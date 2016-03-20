@@ -2,8 +2,11 @@ language: java
 
 sudo: false
 
-jdk:
-  - oraclejdk8
+os:
+  - linux
+
+before_install:
+  - jdk_switcher use oraclejdk8
 
 script:
   - javac -classpath "libraries/jl1.0.1.jar" javazoom/jl/player/PausablePlayer.java

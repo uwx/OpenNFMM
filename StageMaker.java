@@ -1009,7 +1009,7 @@ public class StageMaker extends Applet implements Runnable {
                 string356 = "" + string356 + string354.charAt(i357);
             }
         }
-        return Integer.valueOf(string356).intValue();
+        return Integer.parseInt(string356);
     }
 
     private String getstring(final String string, final String string349, final int i) {
@@ -3361,7 +3361,7 @@ public class StageMaker extends Applet implements Runnable {
                         fixh.select(0, 0);
                     }
                     try {
-                        hf = Integer.valueOf(fixh.getText()).intValue();
+                        hf = Integer.parseInt(fixh.getText());
                         if (hf > 8000) {
                             hf = 8000;
                             fixh.setText("8000");
@@ -4221,7 +4221,7 @@ public class StageMaker extends Applet implements Runnable {
                     }
                     if (!mgen.getText().equals("" + m.mgen + "")) {
                         try {
-                            final int i107 = Integer.valueOf(mgen.getText()).intValue();
+                            final int i107 = Integer.parseInt(mgen.getText());
                             m.mgen = i107;
                             if (ttstage.equals("")) {
                                 ttstage = tstage;
@@ -4684,7 +4684,7 @@ public class StageMaker extends Applet implements Runnable {
                         if (errd == 0) {
                             int i = 0;
                             for (int i134 = 0; i134 < nms; i134++)
-                                if (mystages[i134].equals(stagename) && maker[i134].toLowerCase().equals(tnick.getText().toLowerCase())) {
+                                if (mystages[i134].equals(stagename) && maker[i134].equalsIgnoreCase(tnick.getText())) {
                                     i = JOptionPane.showConfirmDialog(null, "Replace your already online stage '" + stagename + "' with this one?", "Stage Maker", 0);
                                 }
                             if (i == 0) {
@@ -4853,7 +4853,7 @@ public class StageMaker extends Applet implements Runnable {
                             rd.drawLine(550, 145 + i * 20, 550, 157 + i * 20);
                             rd.drawLine(650, 145 + i * 20, 650, 157 + i * 20);
                             boolean bool = false;
-                            if (maker[i].toLowerCase().equals(tnick.getText().toLowerCase())) {
+                            if (maker[i].equalsIgnoreCase(tnick.getText())) {
                                 bool = true;
                                 rd.setColor(new Color(0, 64, 0));
                                 rd.drawString("You", 400 - ftm.stringWidth("You") / 2, 156 + i * 20);
@@ -4941,7 +4941,7 @@ public class StageMaker extends Applet implements Runnable {
                                         final ZipEntry zipentry = zipinputstream.getNextEntry();
                                         if (zipentry != null) {
                                             String string149 = "";
-                                            int i150 = Integer.valueOf(zipentry.getName()).intValue();
+                                            int i150 = Integer.parseInt(zipentry.getName());
                                             final byte[] is151 = new byte[i150];
                                             int i152 = 0;
                                             int i153;
@@ -5366,7 +5366,7 @@ public class StageMaker extends Applet implements Runnable {
             if (string364.equals("")) {
                 string364 = "-1";
             }
-            i359 = Integer.valueOf(string364).intValue();
+            i359 = Integer.parseInt(string364);
         } catch (final Exception exception) {
 
         }

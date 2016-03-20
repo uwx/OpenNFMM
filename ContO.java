@@ -1902,7 +1902,7 @@ class ContO {
                 string264 = "" + string264 + string262.charAt(i265);
             }
         }
-        return Float.valueOf(string264).intValue();
+        return Integer.parseInt(string264);
     }
 
     private void lowshadow(final Graphics2D graphics2d, final int i) {
