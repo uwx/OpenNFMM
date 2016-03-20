@@ -3,7 +3,7 @@
 [![Oracle Java JDK 8+ Support](https://img.shields.io/badge/java-JDK_8-ff69b4.svg)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 [![Licensed under the MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 [![Github Issues](http://githubbadges.herokuapp.com/chrishansen69/OpenNFMM/issues.svg)](https://github.com/chrishansen69/OpenNFMM/issues)
-[![Pending Pull Requests](http://githubbadges.herokuapp.com/chrishansen69/OpenNFMM/pulls.svg)](https://github.com/chrishansen69/OpenNFMM/pulls)
+[![Pending Pull Requests](http://githubbadges.herokuapp.com/chrishansen69/OpenNFMM/pulls.svg)](https://github.com/chrishansen69/OpenNFMM/pulls) [![Project maintained as of 2016](https://img.shields.io/maintenance/yes/2016.svg)](https://github.com/chrishansen69/OpenNFMM/)
 
 A very mad car game, taken to the next level...
 
