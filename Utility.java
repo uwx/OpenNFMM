@@ -117,7 +117,6 @@ class Utility {
         return (y3d - m.focusPoint) * (m.cx - x3d) / y3d + x3d;
     }
 
-
     /**
      * A variant of {@link Utility#ys(int, int, Medium)}.
      *
@@ -169,10 +168,10 @@ class Utility {
      * @param ip a String containing an IP address in the format: ABC.DEF.GHI.JKL
      * @return a byte array with the values of the IP, useful for {@link java.net.InetAddress#getByAddress(byte[]) InetAddress.getByAddress}
      */
-    public static byte[] ipToBytes(String ip) {
-        byte[] ipBytes = new byte[4];
+    public static byte[] ipToBytes(final String ip) {
+        final byte[] ipBytes = new byte[4];
         int i = 0;
-        for (String quarter : ip.split("\\.")) {
+        for (final String quarter : ip.split("\\.")) {
             ipBytes[i] = (byte) (Integer.parseInt(quarter) & 0xFF);
             i++;
         }

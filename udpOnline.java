@@ -42,17 +42,18 @@ class udpOnline implements Runnable {
         }
     }
 
-    udpOnline(final UDPMistro udpmistro, final String ip, final int port, final int thisUdpOlineID, final int connectionPortModifier, boolean useIP) {
+    udpOnline(final UDPMistro udpmistro, final String ip, final int port, final int thisUdpOlineID, final int connectionPortModifier, final boolean useIP) {
         um = udpmistro;
         gameport = port;
         nu = thisUdpOlineID;
         try {
             dSocket = new DatagramSocket(7010 + connectionPortModifier + nu);
             errd = false;
-            if (useIP)
+            if (useIP) {
                 IPAddress = InetAddress.getByAddress(Utility.ipToBytes(ip));
-            else
+            } else {
                 IPAddress = InetAddress.getByName(ip);
+            }
             System.out.println("Created UDP server at " + ip + ":" + (7010 + connectionPortModifier + nu));
         } catch (final Exception exception) {
             System.out.println("Error preparing for UDP Connection: " + exception + "\nDatagram Socket port: " + (7010 + connectionPortModifier + nu) + "\nIP address: " + ip);
@@ -151,8 +152,7 @@ class udpOnline implements Runnable {
         try {
             final byte[] is = new byte[4];
             final DatagramPacket datagrampacket = new DatagramPacket(is, is.length, IPAddress, gameport);
-            final String string2 = "" + string + "|" + um.im + "|" + um.frame[um.im][0] + "|" + um.info[um.im][0]
-                    + "|";
+            final String string2 = "" + string + "|" + um.im + "|" + um.frame[um.im][0] + "|" + um.info[um.im][0] + "|";
             final byte[] is3 = string2.getBytes();
             datagrampacket.setData(is3);
             dSocket.send(datagrampacket);

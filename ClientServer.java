@@ -20,11 +20,11 @@ public class ClientServer implements Runnable {
     };
 
     int port;
-    private GameSparker gs;
-    private CheckPoints ch;
+    private final GameSparker gs;
+    private final CheckPoints ch;
     static Object threadLock = new Object();
 
-    public ClientServer(xtGraphics xtgraphics, GameSparker gs, CheckPoints ch, int port) {
+    public ClientServer(final xtGraphics xtgraphics, final GameSparker gs, final CheckPoints ch, final int port) {
         this.port = port;
         this.xtgraphics = xtgraphics;
         this.gs = gs;
@@ -66,8 +66,9 @@ public class ClientServer implements Runnable {
         }
     }
 
-    private xtGraphics xtgraphics;
-    private String processInput(String in) {
+    private final xtGraphics xtgraphics;
+
+    private String processInput(final String in) {
         System.out.println("client received " + in);
 
         if (in.startsWith("start|")) {
@@ -78,9 +79,9 @@ public class ClientServer implements Runnable {
             //ch.name = lobby.stagename;
             ch.nfix = getvalue(in, 4);
             ch.notb = getvalue(in, 5) == 1;
-            
+
             xtgraphics.nplayers = getvalue(in, 6);
-            
+
             if (xtgraphics.im == -1) {
                 xtgraphics.im = xtgraphics.nplayers - 1; //FIXED: both clients are im=0 so that causes the bindexception since they wanna be servers
                 xtgraphics.sc[xtgraphics.im] = GameSparker.selectedCarStore;
@@ -102,17 +103,17 @@ public class ClientServer implements Runnable {
             }
             System.out.println("ALLRNP = " + Arrays.deepToString(xtgraphics.allrnp));
             System.out.println("SC = " + Arrays.toString(xtgraphics.sc));
-            
+
             xtgraphics.multion = 1; //0: singleplayer, 1: multiplayer, 2: watching game
             gs.u[0].multion = 1;
             xtgraphics.lan = true;
-            
+
             xtgraphics.fase = 22;
-            
+
             // TODO checkpoints.nlaps
             // TODO checkpoints.nfix
             // TODO checkpoints.notb
-            
+
             /*
              * TODO
              * xt.server = xt.localserver = stuff (we already know who it is since this clientserver was created...)
@@ -128,7 +129,7 @@ public class ClientServer implements Runnable {
                 }
             }
             System.out.println("IM = " + xtgraphics.im);
-            
+
             int valuepoint = 0;
             for (int plrId = 0; plrId < xtgraphics.nplayers; plrId++) {
                 if (plrId != xtgraphics.im) {
@@ -139,14 +140,13 @@ public class ClientServer implements Runnable {
                 }
                 valuepoint += 7;
             }
-            
+
             System.out.println("ALLRNP = " + Arrays.deepToString(xtgraphics.allrnp));
             System.out.println("SC = " + Arrays.toString(xtgraphics.sc));
         }
 
         return null;
     }
-
 
     public static int getvalue(final String string, final int i) {
         return HostServer.getvalue(string, i);

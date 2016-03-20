@@ -278,9 +278,7 @@ class Madness extends Panel {
                         f2 = f5;
                     }
                 }
-                strings[i3] = "" + displaymodes[i4].getWidth() + " x " + displaymodes[i4].getHeight()
-                        + " Resolution   -   " + displaymodes[i4].getBitDepth() + " Bits   -   "
-                        + displaymodes[i4].getRefreshRate() + " Refresh Rate";
+                strings[i3] = "" + displaymodes[i4].getWidth() + " x " + displaymodes[i4].getHeight() + " Resolution   -   " + displaymodes[i4].getBitDepth() + " Bits   -   " + displaymodes[i4].getRefreshRate() + " Refresh Rate";
                 is[i3] = i4;
                 i3++;
             }

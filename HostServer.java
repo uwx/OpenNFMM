@@ -1,15 +1,12 @@
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.util.Arrays;
 
 public class HostServer implements Runnable {
@@ -65,20 +62,20 @@ public class HostServer implements Runnable {
             }
         }
     }
-    
-    void setMaxPlayers(int maxPlayers) {
+
+    void setMaxPlayers(final int maxPlayers) {
         this.maxPlayers = maxPlayers;
         clientIPs = new short[maxPlayers][4];
         clientPorts = new int[maxPlayers];
         clientCars = new int[maxPlayers];
-        clientCarColors = new int[maxPlayers][6]; 
+        clientCarColors = new int[maxPlayers][6];
     }
 
     private int maxPlayers = 8;
     private short[][] clientIPs = new short[maxPlayers][4]; //using bytes was a stupid idea but no turning back now
     private int[] clientPorts = new int[maxPlayers];
     private int[] clientCars = new int[maxPlayers];
-    private int[][] clientCarColors = new int[maxPlayers][6]; 
+    private int[][] clientCarColors = new int[maxPlayers][6];
     int connectedClients = 0;
     private Socket clientNotifier;
     private BufferedReader din;
@@ -107,73 +104,71 @@ public class HostServer implements Runnable {
                                                  //TODO change xt.servport, idk if it needs to equal this server's port
 
         System.out.println("teh data is " + s);
-        
-        String preipS = getstring(s,1);
-        String ipish = preipS.substring(0, preipS.indexOf(":"));
-        int port = Integer.parseInt(preipS.substring(preipS.indexOf(":") + 1, preipS.length()));
-        
-        String[] ipAddr = ipish.split("\\.");
-                
+
+        final String preipS = getstring(s, 1);
+        final String ipish = preipS.substring(0, preipS.indexOf(":"));
+        final int port = Integer.parseInt(preipS.substring(preipS.indexOf(":") + 1, preipS.length()));
+
+        final String[] ipAddr = ipish.split("\\.");
+
         System.out.println("teh ip is " + Arrays.toString(ipAddr));
         for (int i = 0; i < 4; i++) {
             clientIPs[connectedClients][i] = Short.parseShort(ipAddr[i])/*(byte) (Integer.parseInt(ipAddr[i]) & 0xFF)*/; //(byte) (Integer.parseInt(quarter) & 0xFF)
         }
         clientPorts[connectedClients] = port;
         System.out.println("teh ip is 2 " + Arrays.toString(clientIPs[connectedClients]));
-        clientCars[connectedClients] = getvalue(s,2);
-        for (int i = 0; i < 6; i++)
-            clientCarColors[connectedClients][i] = getvalue(s,3 + i);
+        clientCars[connectedClients] = getvalue(s, 2);
+        for (int i = 0; i < 6; i++) {
+            clientCarColors[connectedClients][i] = getvalue(s, 3 + i);
+        }
 
         connectedClients++;
 
         for (int i = 0; i < connectedClients; i++) {
             try {
                 //if (i != connectedClients - 1) {//is not this client
-                    String ip = clientIPs[i][0] + "." + clientIPs[i][1] + "." + clientIPs[i][2] + "." + clientIPs[i][3];
-                    clientNotifier = new Socket(ip, clientPorts[i]); //notify port is 7000
-                    System.out.println("notifying to client at " + ip + ":" + clientPorts[i]);
-                    din = new BufferedReader(new InputStreamReader(clientNotifier.getInputStream()));
-                    dout = new PrintWriter(clientNotifier.getOutputStream(), true);
+                final String ip = clientIPs[i][0] + "." + clientIPs[i][1] + "." + clientIPs[i][2] + "." + clientIPs[i][3];
+                clientNotifier = new Socket(ip, clientPorts[i]); //notify port is 7000
+                System.out.println("notifying to client at " + ip + ":" + clientPorts[i]);
+                din = new BufferedReader(new InputStreamReader(clientNotifier.getInputStream()));
+                dout = new PrintWriter(clientNotifier.getOutputStream(), true);
 
-                    StringBuilder output = new StringBuilder();
-                    if (connectedClients >= maxPlayers) {
-                        output.append("start|" + gameStage + "|");
-                        
-                        output.append(gameLaps + "|"); //yes, only on game start
-                        output.append(gameFixes + "|");
-                        output.append(gameNoTreesOrBumps + "|");
-                    }
-                    output.append(connectedClients + "|");
-                    for (int j = 0; j < connectedClients; j++) {
-                        output.append(clientCars[j] + "|");
-                        // car colors
-                        output.append((int) (clientCarColors[j][0]) + "|" + (int) (clientCarColors[j][1]) + "|" + (int) (clientCarColors[j][2]) + "|" + (int) (clientCarColors[j][3]) + "|" + (int) (clientCarColors[j][4]) + "|" + (int) (clientCarColors[j][5]) + "|");
-                    }
+                final StringBuilder output = new StringBuilder();
+                if (connectedClients >= maxPlayers) {
+                    output.append("start|" + gameStage + "|");
 
+                    output.append(gameLaps + "|"); //yes, only on game start
+                    output.append(gameFixes + "|");
+                    output.append(gameNoTreesOrBumps + "|");
+                }
+                output.append(connectedClients + "|");
+                for (int j = 0; j < connectedClients; j++) {
+                    output.append(clientCars[j] + "|");
+                    // car colors
+                    output.append(clientCarColors[j][0] + "|" + clientCarColors[j][1] + "|" + clientCarColors[j][2] + "|" + clientCarColors[j][3] + "|" + clientCarColors[j][4] + "|" + clientCarColors[j][5] + "|");
+                }
 
-                    dout.println(output.toString());
+                dout.println(output.toString());
 
-
-                    closeSockets();
+                closeSockets();
                 //}
-            } catch (IOException e) {
+            } catch (final IOException e) {
                 System.err.println("Failed to notify client id " + i);
                 e.printStackTrace();
             }
         }
 
-        StringBuilder output = new StringBuilder(connectedClients + "|");
+        final StringBuilder output = new StringBuilder(connectedClients + "|");
         for (int j = 0; j < connectedClients - 1; j++) { // not this client
             output.append(clientCars[j] + "|");
         }
 
         // FIXME
         // ignore this
-        if (connectedClients >= maxPlayers) { //THE CURRENT PROBLEM: the client doesn't seem to be receiving this data or is ignoring it. is there a way to make it receive it without another socket?
+        if (connectedClients >= maxPlayers)
             return "start|" + gameStage + "|" + output.toString();
-        } else {
+        else
             return "" + output.toString();
-        }
     }
 
     private void closeSockets() throws IOException {
@@ -203,15 +198,17 @@ public class HostServer implements Runnable {
                 string_72_ = new StringBuilder().append("").append(string.charAt(i_69_)).toString();
                 if (string_72_.equals("|")) {
                     i_70_++;
-                    if (i_71_ == 1 || i_70_ > i)
+                    if (i_71_ == 1 || i_70_ > i) {
                         i_71_ = 2;
+                    }
                 } else if (i_70_ == i) {
                     cur_str = new StringBuilder().append(cur_str).append(string_72_).toString();
                     i_71_ = 1;
                 }
             }
-            if (cur_str.equals(""))
+            if (cur_str.equals("")) {
                 cur_str = null;
+            }
             s = cur_str;
         } catch (final Exception exception) {
             /* empty */

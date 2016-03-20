@@ -37,21 +37,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.InetAddress;
-import java.net.NetworkInterface;
 import java.net.Socket;
 import java.net.SocketException;
 import java.net.URI;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.Date;
-import java.util.Enumeration;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import javax.swing.BorderFactory;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -167,15 +163,13 @@ class GameSparker extends JPanel
             if (x < 0) {
                 graphics2d.fillRect(apx + x, apy - (int) (25.0F * apmult), Math.abs(x), (int) (500.0F * apmult));
             } else {
-                graphics2d.fillRect(apx + (int) (800.0F * apmult), apy
-                        - (int) (25.0F * apmult), x, (int) (500.0F * apmult));
+                graphics2d.fillRect(apx + (int) (800.0F * apmult), apy - (int) (25.0F * apmult), x, (int) (500.0F * apmult));
             }
         if (y != 0)
             if (y < 0) {
                 graphics2d.fillRect(apx - (int) (25.0F * apmult), apy + y, (int) (850.0F * apmult), Math.abs(y));
             } else {
-                graphics2d.fillRect(apx - (int) (25.0F * apmult), apy
-                        + (int) (450.0F * apmult), (int) (850.0F * apmult), y);
+                graphics2d.fillRect(apx - (int) (25.0F * apmult), apy + (int) (450.0F * apmult), (int) (850.0F * apmult), y);
             }
     }
 
@@ -551,8 +545,7 @@ class GameSparker extends JPanel
                 final File customStageFile = new File("" + Madness.fpath + "" + customStagePath + ".txt");
                 stageDataReader = new BufferedReader(new InputStreamReader(new DataInputStream(new FileInputStream(customStageFile))));
             } else if (checkpoints.stage > 0) {
-                final URL url = new URL("http://multiplayer.needformadness.com/stages/" + checkpoints.stage
-                        + ".txt");
+                final URL url = new URL("http://multiplayer.needformadness.com/stages/" + checkpoints.stage + ".txt");
                 stageDataReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
             } else {
                 String stagelink = "http://multiplayer.needformadness.com/tracks/" + checkpoints.name + ".radq";
@@ -654,8 +647,7 @@ class GameSparker extends JPanel
                             medium.loadnew = true;
                         }
                         setindex += partskips - 10;
-                        stageContos[nob] = new ContO(baseContos[setindex], getint("set", string, 1), medium.ground
-                                - baseContos[setindex].grat, getint("set", string, 2), getint("set", string, 3));
+                        stageContos[nob] = new ContO(baseContos[setindex], getint("set", string, 1), medium.ground - baseContos[setindex].grat, getint("set", string, 2), getint("set", string, 3));
                         if (string.indexOf(")p") != -1) {
                             checkpoints.x[checkpoints.n] = getint("set", string, 1);
                             checkpoints.z[checkpoints.n] = getint("set", string, 2);
@@ -768,9 +760,8 @@ class GameSparker extends JPanel
                     i = o;
                     final int p = getint("maxr", string, 2);
                     for (int q = 0; q < n; q++) {
-                        stageContos[nob] = new ContO(baseContos[29 + partskips], o, medium.ground
-                                - baseContos[29 + partskips].grat, //29 may need to be 85 or xtgraphics.nCars - 16
-                                q * 4800 + p, 0);
+                        stageContos[nob] = new ContO(baseContos[29 + partskips], o, medium.ground - baseContos[29 + partskips].grat, //29 may need to be 85 or xtgraphics.nCars - 16
+                        q * 4800 + p, 0);
                         nob++;
                     }
                     trackers.y[trackers.nt] = -5000;
@@ -792,8 +783,7 @@ class GameSparker extends JPanel
                     k = o;
                     final int p = getint("maxl", string, 2);
                     for (int q = 0; q < n; q++) {
-                        stageContos[nob] = new ContO(baseContos[29 + partskips], o, medium.ground
-                                - baseContos[29 + partskips].grat, q * 4800 + p, 180);
+                        stageContos[nob] = new ContO(baseContos[29 + partskips], o, medium.ground - baseContos[29 + partskips].grat, q * 4800 + p, 180);
                         nob++;
                     }
                     trackers.y[trackers.nt] = -5000;
@@ -815,8 +805,7 @@ class GameSparker extends JPanel
                     l = o;
                     final int p = getint("maxt", string, 2);
                     for (int q = 0; q < n; q++) {
-                        stageContos[nob] = new ContO(baseContos[29 + partskips], q * 4800 + p, medium.ground
-                                - baseContos[29 + partskips].grat, o, 90);
+                        stageContos[nob] = new ContO(baseContos[29 + partskips], q * 4800 + p, medium.ground - baseContos[29 + partskips].grat, o, 90);
                         nob++;
                     }
                     trackers.y[trackers.nt] = -5000;
@@ -838,8 +827,7 @@ class GameSparker extends JPanel
                     m = o;
                     final int p = getint("maxb", string, 2);
                     for (int q = 0; q < n; q++) {
-                        stageContos[nob] = new ContO(baseContos[29 + partskips], q * 4800 + p, medium.ground
-                                - baseContos[29 + partskips].grat, o, -90);
+                        stageContos[nob] = new ContO(baseContos[29 + partskips], q * 4800 + p, medium.ground - baseContos[29 + partskips].grat, o, -90);
                         nob++;
                     }
                     trackers.y[trackers.nt] = -5000;
@@ -903,8 +891,7 @@ class GameSparker extends JPanel
                 if (xtgraphics.fase == 22) {
                     xtgraphics.colorCar(baseContos[xtgraphics.sc[j]], j);
                 }
-                stageContos[j] = new ContO(baseContos[xtgraphics.sc[j]], xtgraphics.xstart[j], 250
-                        - baseContos[xtgraphics.sc[j]].grat, xtgraphics.zstart[j], 0);
+                stageContos[j] = new ContO(baseContos[xtgraphics.sc[j]], xtgraphics.xstart[j], 250 - baseContos[xtgraphics.sc[j]].grat, xtgraphics.zstart[j], 0);
                 mads[j].reseto(xtgraphics.sc[j], stageContos[j], checkpoints);
             }
             if (xtgraphics.fase == 2 || xtgraphics.fase == -22) {
@@ -976,8 +963,7 @@ class GameSparker extends JPanel
         try {
             BufferedReader datainputstream;
             if (checkpoints.stage > 0) {
-                final URL url = new URL("http://multiplayer.needformadness.com/stages/" + checkpoints.stage
-                        + ".txt");
+                final URL url = new URL("http://multiplayer.needformadness.com/stages/" + checkpoints.stage + ".txt");
                 datainputstream = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
             } else {
                 String string154 = "http://multiplayer.needformadness.com/tracks/" + checkpoints.name + ".radq";
@@ -1069,8 +1055,7 @@ class GameSparker extends JPanel
                 if (string153.startsWith("set")) {
                     int i165 = getint("set", string153, 0);
                     i165 += partskips - 10;
-                    contos[nob] = new ContO(contos147[i165], getint("set", string153, 1), medium.ground
-                            - contos147[i165].grat, getint("set", string153, 2), getint("set", string153, 3));
+                    contos[nob] = new ContO(contos147[i165], getint("set", string153, 1), medium.ground - contos147[i165].grat, getint("set", string153, 2), getint("set", string153, 3));
                     contos[nob].t.nt = 0;
                     if (string153.indexOf(")p") != -1) {
                         checkpoints.x[checkpoints.n] = getint("chk", string153, 1);
@@ -1439,18 +1424,15 @@ class GameSparker extends JPanel
                     if (moto == 1) {
                         graphics2d.setComposite(AlphaComposite.getInstance(3, mvect / 100.0F));
                         rd.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_SPEED);
-                        graphics2d.drawImage(offImage, apx + i, apy
-                                + i97, (int) (800.0F * apmult), (int) (450.0F * apmult), this);
+                        graphics2d.drawImage(offImage, apx + i, apy + i97, (int) (800.0F * apmult), (int) (450.0F * apmult), this);
                         cropit(graphics2d, i, i97);
                     } else {
-                        graphics2d.drawImage(offImage, apx, apy, (int) (800.0F * apmult), (int) (450.0F
-                                * apmult), this);
+                        graphics2d.drawImage(offImage, apx, apy, (int) (800.0F * apmult), (int) (450.0F * apmult), this);
                     }
                 } else if (moto == 1) {
                     graphics2d.setComposite(AlphaComposite.getInstance(3, mvect / 100.0F));
                     rd.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_SPEED);
-                    graphics2d.drawImage(offImage, apx + i, apy
-                            + i97, (int) (800.0F * apmult), (int) (450.0F * apmult), this);
+                    graphics2d.drawImage(offImage, apx + i, apy + i97, (int) (800.0F * apmult), (int) (450.0F * apmult), this);
                     cropit(graphics2d, i, i97);
                 } else {
                     graphics2d.drawImage(offImage, apx, apy, (int) (800.0F * apmult), (int) (450.0F * apmult), this);
@@ -1550,10 +1532,8 @@ class GameSparker extends JPanel
                     }
                 }
                 if (i198 == 6 && xtgraphics.osc >= 0 && xtgraphics.osc <= 15) {
-                    final Color color = Color.getHSBColor(xtgraphics.arnp[0], xtgraphics.arnp[1], 1.0F
-                            - xtgraphics.arnp[2]);
-                    final Color color200 = Color.getHSBColor(xtgraphics.arnp[3], xtgraphics.arnp[4], 1.0F
-                            - xtgraphics.arnp[5]);
+                    final Color color = Color.getHSBColor(xtgraphics.arnp[0], xtgraphics.arnp[1], 1.0F - xtgraphics.arnp[2]);
+                    final Color color200 = Color.getHSBColor(xtgraphics.arnp[3], xtgraphics.arnp[4], 1.0F - xtgraphics.arnp[5]);
                     for (int i201 = 0; i201 < contos[xtgraphics.osc].npl; i201++)
                         if (contos[xtgraphics.osc].p[i201].colnum == 1) {
                             contos[xtgraphics.osc].p[i201].c[0] = color.getRed();
@@ -1741,8 +1721,6 @@ class GameSparker extends JPanel
     private int i4;
     private int i5;
     private float f;
-    private JPanel serverPanel;
-    private boolean hasPanels = false;
 
     //@Override
     private void initialize() {
@@ -1878,10 +1856,11 @@ class GameSparker extends JPanel
                 checkmemory(xtgraphics);
                 xtgraphics.inishcarselect(contos);
                 clicknowtime = 0;
-                if (xtgraphics.fase == 1409)
+                if (xtgraphics.fase == 1409) {
                     xtgraphics.fase = 1407;
-                else
+                } else {
                     xtgraphics.fase = 7;
+                }
                 mvect = 50;
                 mouses = 0;
             }
@@ -2840,8 +2819,7 @@ class GameSparker extends JPanel
                 record.hcaught = false;
             }
             u[0].falseo(3);
-            if (record.hcaught && record.wasted == 0 && record.whenwasted != 229
-                    && (checkpoints.stage == 1 || checkpoints.stage == 2) && xtgraphics.looped != 0) {
+            if (record.hcaught && record.wasted == 0 && record.whenwasted != 229 && (checkpoints.stage == 1 || checkpoints.stage == 2) && xtgraphics.looped != 0) {
                 record.hcaught = false;
             }
             if (record.hcaught) {
@@ -3095,8 +3073,7 @@ class GameSparker extends JPanel
         if (xtgraphics.fase == -4) {
             if (recordtime == 0) {
                 xtgraphics.sendwin(checkpoints);
-                if (xtgraphics.winner && xtgraphics.multion == 0 && xtgraphics.gmode != 0
-                        && checkpoints.stage != xtGraphics.nTracks && checkpoints.stage == xtgraphics.unlocked) {
+                if (xtgraphics.winner && xtgraphics.multion == 0 && xtgraphics.gmode != 0 && checkpoints.stage != xtGraphics.nTracks && checkpoints.stage == xtgraphics.unlocked) {
                     xtgraphics.unlocked++;
                     setcarcookie(xtgraphics.sc[0], cardefine.names[xtgraphics.sc[0]], xtgraphics.arnp, xtgraphics.gmode, xtgraphics.unlocked, false);
                     xtgraphics.unlocked--;
@@ -3233,9 +3210,7 @@ class GameSparker extends JPanel
                 bufferedreader.close();
             }
             if (gamemode == 0) {
-                lines[1] = "lastcar(" + i + "," + (int) (fs[0] * 100.0F) + "," + (int) (fs[1] * 100.0F) + ","
-                        + (int) (fs[2] * 100.0F) + "," + (int) (fs[3] * 100.0F) + "," + (int) (fs[4] * 100.0F) + ","
-                        + (int) (fs[5] * 100.0F) + "," + string + ")";
+                lines[1] = "lastcar(" + i + "," + (int) (fs[0] * 100.0F) + "," + (int) (fs[1] * 100.0F) + "," + (int) (fs[2] * 100.0F) + "," + (int) (fs[3] * 100.0F) + "," + (int) (fs[4] * 100.0F) + "," + (int) (fs[5] * 100.0F) + "," + string + ")";
             }
             if (gamemode == 1 || gamemode == 2) {
                 lines[2] = "saved(" + i + "," + is + ")";
@@ -3340,7 +3315,7 @@ class GameSparker extends JPanel
     		gamer = new Thread(this);
     	gamer.start();
     }
-
+    
     @Override
     public void stop() {
     	if (exwist && gamer != null) {
@@ -3444,24 +3419,24 @@ class GameSparker extends JPanel
 
                 isHostQuickLoad = false;
                 localServerHasSelectedCar = false;
-                
+
                 xtgraphics.fase = 1409;
             }
         }
     }
-    
+
     static boolean isHostQuickLoad = false; //TODO this wille disable the prompt for server IP/port when you're host
     static boolean localServerHasSelectedCar = false; //if true, go to the "Waiting for players" msg instead of car select
     static int selectedCarStore = 0; // to avoid sc[0] being overriden
-    
-    void makeClientServer(String ip, int port) throws UnknownHostException, IOException, SocketException {
-        int clientport = HostServer.NOTIFY_LISTEN_PORT + ThreadLocalRandom.current().nextInt(150);
-        Thread t2 = new Thread(new ClientServer(xtgraphics, this, checkpoints, clientport));
-        
+
+    void makeClientServer(final String ip, final int port) throws UnknownHostException, IOException, SocketException {
+        final int clientport = HostServer.NOTIFY_LISTEN_PORT + ThreadLocalRandom.current().nextInt(150);
+        final Thread t2 = new Thread(new ClientServer(xtgraphics, this, checkpoints, clientport));
+
         xtgraphics.localserver = ip;
         xtgraphics.server = ip;
         xtgraphics.servport = port;
-        
+
         selectedCarStore = xtgraphics.sc[0];
 
         t2.start(); //should be ready to accept after sending
@@ -3470,7 +3445,7 @@ class GameSparker extends JPanel
         System.out.println("connecting to local server at " + ip + ":" + port);
         BufferedReader din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         PrintWriter dout = new PrintWriter(socket.getOutputStream(), true);
-        String data = getMyIP() + ":" + clientport + "|" + selectedCarStore + "|" + (int) (xtgraphics.arnp[0] * 100.0F) + "|" + (int) (xtgraphics.arnp[1] * 100.0F) + "|" + (int) (xtgraphics.arnp[2] * 100.0F) + "|" + (int) (xtgraphics.arnp[3] * 100.0F) + "|" + (int) (xtgraphics.arnp[4] * 100.0F) + "|" + (int) (xtgraphics.arnp[5] * 100.0F) + "|";
+        final String data = getMyIP() + ":" + clientport + "|" + selectedCarStore + "|" + (int) (xtgraphics.arnp[0] * 100.0F) + "|" + (int) (xtgraphics.arnp[1] * 100.0F) + "|" + (int) (xtgraphics.arnp[2] * 100.0F) + "|" + (int) (xtgraphics.arnp[3] * 100.0F) + "|" + (int) (xtgraphics.arnp[4] * 100.0F) + "|" + (int) (xtgraphics.arnp[5] * 100.0F) + "|";
         System.out.println("sending data to lobby 2: " + data);
 
         synchronized (ClientServer.threadLock) {
@@ -3495,9 +3470,7 @@ class GameSparker extends JPanel
      */
     static String getMyIP() throws SocketException, UnknownHostException {
 
-
-
-/*
+        /*
         Enumeration<NetworkInterface> e = NetworkInterface.getNetworkInterfaces();
         while(e.hasMoreElements())
         {
@@ -3509,7 +3482,7 @@ class GameSparker extends JPanel
                 System.out.println(i.getHostAddress());
             }
         }
-
+        
         System.out.println("abc");
         System.out.println("" + InetAddress.getLocalHost().getHostAddress());*/
 

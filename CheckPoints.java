@@ -109,8 +109,7 @@ class CheckPoints {
                             if (++i5 >= n) {
                                 i5 = 0;
                             }
-                        if (py(contos[i3].x / 100, x[i5] / 100, contos[i3].z / 100, z[i5] / 100) > py(contos[i4].x
-                                / 100, x[i5] / 100, contos[i4].z / 100, z[i5] / 100)) {
+                        if (py(contos[i3].x / 100, x[i5] / 100, contos[i3].z / 100, z[i5] / 100) > py(contos[i4].x / 100, x[i5] / 100, contos[i4].z / 100, z[i5] / 100)) {
                             pos[i3]++;
                         } else {
                             pos[i4]++;
@@ -125,13 +124,10 @@ class CheckPoints {
                                 if (pos[i7] == 1) {
                                     postwo = i7;
                                 }
-                            if (py(opx[i0] / 100, opx[postwo] / 100, opz[i0] / 100, opz[postwo] / 100) < 14000
-                                    && clear[i0] - clear[postwo] == 1) {
+                            if (py(opx[i0] / 100, opx[postwo] / 100, opz[i0] / 100, opz[postwo] / 100) < 14000 && clear[i0] - clear[postwo] == 1) {
                                 catchfin = 30;
                             }
-                        } else if (pos[i0] == 1
-                                && py(opx[i0] / 100, opx[i6] / 100, opz[i0] / 100, opz[i6] / 100) < 14000
-                                && clear[i6] - clear[i0] == 1) {
+                        } else if (pos[i0] == 1 && py(opx[i0] / 100, opx[i6] / 100, opz[i0] / 100, opz[i6] / 100) < 14000 && clear[i6] - clear[i0] == 1) {
                             catchfin = 30;
                             postwo = i6;
                         }

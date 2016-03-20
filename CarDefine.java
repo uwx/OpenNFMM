@@ -962,8 +962,7 @@ class CarDefine implements Runnable {
                     final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println("9|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|" + names[ac]
-                            + "|");
+                    printwriter.println("9|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|" + names[ac] + "|");
                     final String string = bufferedreader.readLine();
                     if (string != null) {
                         i = servervalue(string, 0);
@@ -1023,8 +1022,7 @@ class CarDefine implements Runnable {
                 nl = 0;
                 String line = "";
                 try {
-                    final URL url = new URL("http://multiplayer.needformadness.com/cars/lists/"
-                            + gs.tnick.getText() + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
+                    final URL url = new URL("http://multiplayer.needformadness.com/cars/lists/" + gs.tnick.getText() + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
                     final BufferedReader carReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
                     while ((line = carReader.readLine()) != null) {
                         line = "" + line.trim();
@@ -1143,9 +1141,8 @@ class CarDefine implements Runnable {
                 nl = 0;
                 String line = "";
                 try {
-                    String string44 = "all";
-                    final URL url = new URL("http://multiplayer.needformadness.com/cars/top20/" + string44
-                            + ".txt");
+                    final String string44 = "all";
+                    final URL url = new URL("http://multiplayer.needformadness.com/cars/top20/" + string44 + ".txt");
                     final BufferedReader top20Reader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
                     while ((line = top20Reader.readLine()) != null) {
                         line = "" + line.trim();
@@ -1205,8 +1202,7 @@ class CarDefine implements Runnable {
                 nl = 0;
                 String line = "";
                 try {
-                    final URL url = new URL("http://multiplayer.needformadness.com/cars/lists/" + viewname
-                            + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
+                    final URL url = new URL("http://multiplayer.needformadness.com/cars/lists/" + viewname + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
                     final BufferedReader carListReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
                     while ((line = carListReader.readLine()) != null) {
                         line = "" + line.trim();
@@ -1318,8 +1314,7 @@ class CarDefine implements Runnable {
                     final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println("19|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|" + onstage
-                            + "|");
+                    printwriter.println("19|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|" + onstage + "|");
                     final String string = bufferedreader.readLine();
                     if (string != null) {
                         i = servervalue(string, 0);
@@ -1392,8 +1387,7 @@ class CarDefine implements Runnable {
                         final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                         final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                         final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                        printwriter.println("18|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|" + onstage
-                                + "|");
+                        printwriter.println("18|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|" + onstage + "|");
                         final String string = bufferedreader.readLine();
                         if (string != null) {
                             i = servervalue(string, 0);
@@ -1510,8 +1504,7 @@ class CarDefine implements Runnable {
         int i = 0;
         String line = "";
         try {
-            final URL url = new URL("http://multiplayer.needformadness.com/tracks/lists/" + gs.tnick.getText()
-                    + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
+            final URL url = new URL("http://multiplayer.needformadness.com/tracks/lists/" + gs.tnick.getText() + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
             final BufferedReader stageReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
             while ((line = stageReader.readLine()) != null) {
                 line = "" + line.trim();
@@ -1648,8 +1641,7 @@ class CarDefine implements Runnable {
             try {
                 final URL url = new URL("http://multiplayer.needformadness.com/clans/" + string + "/stages.txt");
                 BufferedReader clanStageReader;
-                for (clanStageReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream()))); (line = clanStageReader.readLine()) != null
-                        && i < 700; i++) {
+                for (clanStageReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream()))); (line = clanStageReader.readLine()) != null && i < 700; i++) {
                     lines[i] = line;
                 }
                 if (i > 0) {
@@ -1743,8 +1735,7 @@ class CarDefine implements Runnable {
         if (file.exists()) {
             final String[] strings = new File("" + Madness.fpath + "mycars/").list();
             for (final String string : strings)
-                if (string.toLowerCase().endsWith(".rad") && nlcars < 56
-                        && loadcar(string.substring(0, string.length() - 4), nlcars) == nlcars) {
+                if (string.toLowerCase().endsWith(".rad") && nlcars < 56 && loadcar(string.substring(0, string.length() - 4), nlcars) == nlcars) {
                     nlcars++;
                 }
         }
