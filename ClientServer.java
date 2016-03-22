@@ -43,6 +43,7 @@ public class ClientServer implements Runnable {
             System.out.println("made a socket in port " + port);
             while (true) {
                 final Socket clientSocket = serverSocket.accept();
+                @SuppressWarnings("unused")
                 final PrintWriter _UNUSED_ = new PrintWriter(clientSocket.getOutputStream(), true); //TODO FIXME XXX WHATEVER
                 final BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 

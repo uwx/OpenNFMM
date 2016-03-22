@@ -35,7 +35,7 @@ class RadicalBASS implements RadicalMusic {
      * 
      * @param text The error message to be displayed
      */
-    private final void error(final String text) {
+    private static final void error(final String text) {
         System.err.println("RadicalBASS error: " + text);
     }
 
@@ -59,7 +59,7 @@ class RadicalBASS implements RadicalMusic {
     private int chan;
     
     /**
-     * Loop start & end
+     * Loop start {@literal &} end
      */
     private final long[] loop = new long[2];
 

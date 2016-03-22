@@ -31,7 +31,7 @@ class Utility {
                 string264 = "" + string264 + string262.charAt(i265);
             }
         }
-        return Float.valueOf(string264).intValue();
+        return Integer.parseInt(string264);
     }
 
     /**
@@ -63,7 +63,7 @@ class Utility {
             if (string442.equals("")) {
                 string442 = "-1";
             }
-            i437 = Integer.valueOf(string442).intValue();
+            i437 = Integer.parseInt(string442);
         } catch (final Exception exception) {
 
         }
