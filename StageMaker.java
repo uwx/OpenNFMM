@@ -2723,7 +2723,7 @@ public class StageMaker extends Applet implements Runnable {
                                 i29 -= 90;
                             }
                             rot(is27, is28, co[i26].x, co[i26].z, i29, 2);
-                            if (selectedPart <= 54) {
+                            if (selectedPart <= maxpart) {
                                 int i30 = py(is27[0], is22[0], is28[0], is23[0]);
                                 if (i30 < i19 && i30 != 0) {
                                     i19 = i30;
