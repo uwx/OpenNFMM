@@ -102,9 +102,6 @@ class Madness extends Panel {
         cm.start();
     }
 
-    private static void checknupdate(final int i) {
-        /* :D */ }
-
     static void exitfullscreen() {
         frame.dispose();
         frame = new Frame("Need for Madness");
@@ -427,7 +424,6 @@ class Madness extends Panel {
             Thread.sleep(1000L);
         } catch (final InterruptedException e) {
         }
-        checknupdate(36);
     }
 
     static void openurl(final String string) {
