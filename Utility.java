@@ -30,7 +30,7 @@ final class Utility {
                 string264 = "" + string264 + string262.charAt(i265);
             }
         }
-        return Float.valueOf(string264).intValue();
+        return (int) Float.parseFloat(string264);
     }
 
     /**

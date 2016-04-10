@@ -1082,9 +1082,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                 final int i239 = string237.indexOf(',', i238 + 1);
                                 final int i240 = string237.indexOf(')', i239 + 1);
                                 if (i238 != -1 && i239 != -1 && i240 != -1) {
-                                    int i241 = Float.valueOf(string237.substring(2, i238)).intValue();
-                                    int i242 = Float.valueOf(string237.substring(i238 + 1, i239)).intValue();
-                                    int i243 = Float.valueOf(string237.substring(i239 + 1, i240)).intValue();
+                                    int i241 = (int) Float.parseFloat(string237.substring(2, i238));
+                                    int i242 = (int) Float.parseFloat(string237.substring(i238 + 1, i239));
+                                    int i243 = (int) Float.parseFloat(string237.substring(i239 + 1, i240));
                                     if (i == 10) {
                                         final int i244 = i242;
                                         i242 = i243;
@@ -1157,30 +1157,30 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     }
                     int i248 = 0;
                     try {
-                        int i249 = Float.valueOf(wv[10].getText()).intValue();
+                        int i249 = (int) Float.parseFloat(wv[10].getText());
                         if (i249 <= 0) {
                             i248 = 1;
                         }
-                        i249 = Float.valueOf(wv[2].getText()).intValue();
+                        i249 = (int) Float.parseFloat(wv[2].getText());
                         if (i249 >= 0) {
                             i248 = 2;
                         }
-                        i249 = Float.valueOf(wv[8].getText()).intValue();
+                        i249 = (int) Float.parseFloat(wv[8].getText());
                         if (i249 <= 0) {
                             i248 = 3;
                         }
-                        i249 = Float.valueOf(wv[0].getText()).intValue();
+                        i249 = (int) Float.parseFloat(wv[0].getText());
                         if (i249 <= 0) {
                             i248 = 4;
                         }
-                        i249 = Float.valueOf(wv[15].getText()).intValue();
+                        i249 = (int) Float.parseFloat(wv[15].getText());
                         if (i249 > 40) {
                             wv[15].setText("40");
                         }
                         if (i249 < -40) {
                             wv[15].setText("-40");
                         }
-                        i249 = Float.valueOf(wv[7].getText()).intValue();
+                        i249 = (int) Float.parseFloat(wv[7].getText());
                         if (i249 > 40) {
                             wv[7].setText("40");
                         }
@@ -1949,7 +1949,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                 string366 = "" + string366 + string364.charAt(i367);
             }
         }
-        return Float.valueOf(string366).intValue();
+        return (int) Float.parseFloat(string366);
     }
 
     @Override
@@ -2279,7 +2279,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                 }
                 string = bufferedreader.readLine();
                 if (string != null) {
-                    sthm = Float.valueOf(string).intValue();
+                    sthm = (int) Float.parseFloat(string);
                     cthm = sthm;
                 }
                 bufferedreader.close();
@@ -2466,7 +2466,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                 if (i392 != -1) {
                     string391 = string391.substring(0, i392);
                 }
-                i386 = Float.valueOf(string391).intValue() - 1;
+                i386 = (int) Float.parseFloat(string391) - 1;
                 if (i386 < 0) {
                     i386 = 0;
                 }

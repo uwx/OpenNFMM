@@ -827,7 +827,7 @@ final class CarDefine implements Runnable {
                 string23 = "" + string23 + string21.charAt(i24);
             }
         }
-        return Float.valueOf(string23).intValue();
+        return (int) Float.parseFloat(string23);
     }
 
     private String getSvalue(final String string, final String string26, final int i) {
