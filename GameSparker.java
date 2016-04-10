@@ -158,291 +158,6 @@ class GameSparker extends JPanel
     private int i5;
     private float f;
 
-    private void catchlink() {
-        if (!lostfcs)
-            if (xm > 65 && xm < 735 && ym > 135 && ym < 194 || xm > 275 && xm < 525 && ym > 265 && ym < 284) {
-                setCursor(new Cursor(12));
-                if (mouses == 2) {
-                    openurl("http://www.radicalplay.com/");
-                }
-            } else {
-                setCursor(new Cursor(0));
-            }
-    }
-
-    private void checkmemory(final xtGraphics xtgraphics) {
-        if (applejava || Runtime.getRuntime().freeMemory() / 1048576L < 50L) {
-            xtgraphics.badmac = true;
-        }
-    }
-
-    private void cropit(final Graphics2D graphics2d, final int x, final int y) {
-        if (x != 0 || y != 0) {
-            graphics2d.setComposite(AlphaComposite.getInstance(3, 1.0F));
-            graphics2d.setColor(new Color(0, 0, 0));
-        }
-        if (x != 0)
-            if (x < 0) {
-                graphics2d.fillRect(apx + x, apy - (int) (25.0F * apmult), Math.abs(x), (int) (500.0F * apmult));
-            } else {
-                graphics2d.fillRect(apx + (int) (800.0F * apmult), apy - (int) (25.0F * apmult), x, (int) (500.0F * apmult));
-            }
-        if (y != 0)
-            if (y < 0) {
-                graphics2d.fillRect(apx - (int) (25.0F * apmult), apy + y, (int) (850.0F * apmult), Math.abs(y));
-            } else {
-                graphics2d.fillRect(apx - (int) (25.0F * apmult), apy + (int) (450.0F * apmult), (int) (850.0F * apmult), y);
-            }
-    }
-
-    void drawms() {
-        openm = false;
-        if (gmode.draw(rd, xm, ym, moused, 450, true)) {
-            openm = true;
-        }
-        if (swait.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-        if (slaps.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-        if (snpls.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-        if (snbts.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-        if (scars.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-        if (sgame.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-        //if (snfm1.draw(rd, xm, ym, moused, 450, false))
-        //	openm = true;
-        //if (snfm2.draw(rd, xm, ym, moused, 450, false))
-        //	openm = true;
-        if (snfmm.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-        if (mstgs.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-        if (mcars.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-        if (pgame.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-        if (vnpls.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-        if (vtyp.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-        if (warb.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-        if (wgame.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-        if (rooms.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-        if (sendtyp.draw(rd, xm, ym, moused, 450, true)) {
-            openm = true;
-        }
-        if (senditem.draw(rd, xm, ym, moused, 450, true)) {
-            openm = true;
-        }
-        if (datat.draw(rd, xm, ym, moused, 450, true)) {
-            openm = true;
-        }
-        if (clanlev.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-        if (clcars.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-        if (ilaps.draw(rd, xm, ym, moused, 450, true)) {
-            openm = true;
-        }
-        if (icars.draw(rd, xm, ym, moused, 450, true)) {
-            openm = true;
-        }
-        if (proitem.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-        if (sfix.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-        if (sclass.draw(rd, xm, ym, moused, 450, false)) {
-            openm = true;
-        }
-    }
-
-    void editlink(final String accountid, final boolean isLogged) {
-        String logged = "";
-        if (isLogged) {
-            logged = "?display=upgrade";
-        }
-        openurl("http://multiplayer.needformadness.com/edit.pl" + logged + "#" + accountid + "");
-    }
-
-    private int getint(final String string, final String string4, final int i) {
-        int j = 0;
-        String string2 = "";
-        for (int k = string.length() + 1; k < string4.length(); k++) {
-            final String string3 = "" + string4.charAt(k);
-            if (string3.equals(",") || string3.equals(")")) {
-                j++;
-                k++;
-            }
-            if (j == i) {
-                string2 = string2 + string4.charAt(k);
-            }
-        }
-        return Integer.parseInt(string2);
-    }
-
-    private String getstring(final String string, final String string2, final int i) {
-        int j = 0;
-        String string3 = "";
-        for (int k = string.length() + 1; k < string2.length(); k++) {
-            final String string4 = "" + string2.charAt(k);
-            if (string4.equals(",") || string4.equals(")")) {
-                j++;
-                k++;
-            }
-            if (j == i) {
-                string3 = string3 + string2.charAt(k);
-            }
-        }
-        return string3;
-    }
-
-    private void hidefields() {
-        ilaps.setVisible(false);
-        icars.setVisible(false);
-        proitem.setVisible(false);
-        clcars.setVisible(false);
-        clanlev.setVisible(false);
-        mmsg.setVisible(false);
-        datat.setVisible(false);
-        senditem.setVisible(false);
-        sendtyp.setVisible(false);
-        rooms.setVisible(false);
-        mcars.setVisible(false);
-        mstgs.setVisible(false);
-        gmode.setVisible(false);
-        sclass.setVisible(false);
-        scars.setVisible(false);
-        sfix.setVisible(false);
-        mycar.setVisible(false);
-        notp.setVisible(false);
-        keplo.setVisible(false);
-        tnick.setVisible(false);
-        tpass.setVisible(false);
-        temail.setVisible(false);
-        cmsg.setVisible(false);
-        sgame.setVisible(false);
-        wgame.setVisible(false);
-        pgame.setVisible(false);
-        vnpls.setVisible(false);
-        vtyp.setVisible(false);
-        warb.setVisible(false);
-        slaps.setVisible(false);
-        //snfm1.setVisible(false);
-        snfmm.setVisible(false);
-        //snfm2.setVisible(false);
-        snpls.setVisible(false);
-        snbts.setVisible(false);
-        swait.setVisible(false);
-    }
-
-    //@Override
-    private void initApplet() {
-        setBackground(new Color(0, 0, 0));
-        //offImage = createImage(800, 450);
-        //if (offImage != null)
-        //	rd = (Graphics2D) offImage.getGraphics();
-        setLayout(null);
-        tnick = new TextField("Nickbname");
-        tnick.setFont(new Font("Arial", 1, 13));
-        tpass = new TextField("");
-        tpass.setFont(new Font("Arial", 1, 13));
-        tpass.setEchoChar('*');
-        temail = new TextField("");
-        temail.setFont(new Font("Arial", 1, 13));
-        cmsg = new TextField("");
-        if (System.getProperty("java.vendor").toLowerCase().indexOf("oracle") != -1) {
-            cmsg.addKeyListener(new KeyListener() {
-
-                @Override
-                public void keyPressed(final KeyEvent e) {
-                    if (e.getKeyCode() == 10 && u[0] != null) {
-                        u[0].enter = true;
-                    }
-                }
-
-                @Override
-                public void keyReleased(final KeyEvent e) {
-                }
-
-                @Override
-                public void keyTyped(final KeyEvent e) {
-                }
-            });
-        }
-        mmsg = new TextArea("", 200, 20, 3);
-        cmsg.setFont(new Font("Tahoma", 0, 11));
-        mmsg.setFont(new Font("Tahoma", 0, 11));
-        mycar = new Checkbox("Sword of Justice Game!");
-        notp = new Checkbox("No Trees & Piles");
-        keplo = new Checkbox("Stay logged in");
-        keplo.setState(true);
-        add(tnick);
-        add(tpass);
-        add(temail);
-        add(cmsg);
-        add(mmsg);
-        add(mycar);
-        add(notp);
-        add(keplo);
-        sgame.setFont(new Font("Arial", 1, 13));
-        wgame.setFont(new Font("Arial", 1, 13));
-        warb.setFont(new Font("Arial", 1, 13));
-        pgame.setFont(new Font("Arial", 1, 12));
-        vnpls.setFont(new Font("Arial", 1, 13));
-        vtyp.setFont(new Font("Arial", 1, 13));
-        snfmm.setFont(new Font("Arial", 1, 13));
-        //snfm1.setFont(new Font("Arial", 1, 13));
-        //snfm2.setFont(new Font("Arial", 1, 13));
-        mstgs.setFont(new Font("Arial", 1, 13));
-        mcars.setFont(new Font("Arial", 1, 13));
-        slaps.setFont(new Font("Arial", 1, 13));
-        snpls.setFont(new Font("Arial", 0, 13));
-        snbts.setFont(new Font("Arial", 0, 13));
-        swait.setFont(new Font("Arial", 0, 12));
-        sclass.setFont(new Font("Arial", 1, 12));
-        scars.setFont(new Font("Arial", 1, 12));
-        sfix.setFont(new Font("Arial", 1, 12));
-        mycar.setFont(new Font("Arial", 1, 12));
-        notp.setFont(new Font("Arial", 1, 12));
-        keplo.setFont(new Font("Arial", 1, 12));
-        gmode.setFont(new Font("Arial", 1, 13));
-        rooms.setFont(new Font("Arial", 1, 13));
-        sendtyp.setFont(new Font("Arial", 1, 12));
-        senditem.setFont(new Font("Arial", 1, 12));
-        datat.setFont(new Font("Arial", 1, 12));
-        clanlev.setFont(new Font("Arial", 1, 12));
-        clcars.setFont(new Font("Arial", 1, 12));
-        clcars.alphad = true;
-        ilaps.setFont(new Font("Arial", 1, 13));
-        icars.setFont(new Font("Arial", 1, 12));
-        proitem.setFont(new Font("Arial", 1, 12));
-    }
-
     /**
      * List of car .rad files.<br>
      * <strong>ALL CAR MODELS IN THE ZIP FILE SHOULD BE PUT HERE OR THINGS WILL GO WRONG!</strong><br>
@@ -1209,6 +924,291 @@ class GameSparker extends JPanel
         return bool;
     }
 
+    private void catchlink() {
+        if (!lostfcs)
+            if (xm > 65 && xm < 735 && ym > 135 && ym < 194 || xm > 275 && xm < 525 && ym > 265 && ym < 284) {
+                setCursor(new Cursor(12));
+                if (mouses == 2) {
+                    openurl("http://www.radicalplay.com/");
+                }
+            } else {
+                setCursor(new Cursor(0));
+            }
+    }
+
+    private void checkmemory(final xtGraphics xtgraphics) {
+        if (applejava || Runtime.getRuntime().freeMemory() / 1048576L < 50L) {
+            xtgraphics.badmac = true;
+        }
+    }
+
+    private void cropit(final Graphics2D graphics2d, final int x, final int y) {
+        if (x != 0 || y != 0) {
+            graphics2d.setComposite(AlphaComposite.getInstance(3, 1.0F));
+            graphics2d.setColor(new Color(0, 0, 0));
+        }
+        if (x != 0)
+            if (x < 0) {
+                graphics2d.fillRect(apx + x, apy - (int) (25.0F * apmult), Math.abs(x), (int) (500.0F * apmult));
+            } else {
+                graphics2d.fillRect(apx + (int) (800.0F * apmult), apy - (int) (25.0F * apmult), x, (int) (500.0F * apmult));
+            }
+        if (y != 0)
+            if (y < 0) {
+                graphics2d.fillRect(apx - (int) (25.0F * apmult), apy + y, (int) (850.0F * apmult), Math.abs(y));
+            } else {
+                graphics2d.fillRect(apx - (int) (25.0F * apmult), apy + (int) (450.0F * apmult), (int) (850.0F * apmult), y);
+            }
+    }
+
+    void drawms() {
+        openm = false;
+        if (gmode.draw(rd, xm, ym, moused, 450, true)) {
+            openm = true;
+        }
+        if (swait.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+        if (slaps.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+        if (snpls.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+        if (snbts.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+        if (scars.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+        if (sgame.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+        //if (snfm1.draw(rd, xm, ym, moused, 450, false))
+        //  openm = true;
+        //if (snfm2.draw(rd, xm, ym, moused, 450, false))
+        //  openm = true;
+        if (snfmm.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+        if (mstgs.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+        if (mcars.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+        if (pgame.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+        if (vnpls.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+        if (vtyp.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+        if (warb.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+        if (wgame.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+        if (rooms.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+        if (sendtyp.draw(rd, xm, ym, moused, 450, true)) {
+            openm = true;
+        }
+        if (senditem.draw(rd, xm, ym, moused, 450, true)) {
+            openm = true;
+        }
+        if (datat.draw(rd, xm, ym, moused, 450, true)) {
+            openm = true;
+        }
+        if (clanlev.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+        if (clcars.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+        if (ilaps.draw(rd, xm, ym, moused, 450, true)) {
+            openm = true;
+        }
+        if (icars.draw(rd, xm, ym, moused, 450, true)) {
+            openm = true;
+        }
+        if (proitem.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+        if (sfix.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+        if (sclass.draw(rd, xm, ym, moused, 450, false)) {
+            openm = true;
+        }
+    }
+
+    void editlink(final String accountid, final boolean isLogged) {
+        String logged = "";
+        if (isLogged) {
+            logged = "?display=upgrade";
+        }
+        openurl("http://multiplayer.needformadness.com/edit.pl" + logged + "#" + accountid + "");
+    }
+
+    private int getint(final String string, final String string4, final int i) {
+        int j = 0;
+        String string2 = "";
+        for (int k = string.length() + 1; k < string4.length(); k++) {
+            final String string3 = "" + string4.charAt(k);
+            if (string3.equals(",") || string3.equals(")")) {
+                j++;
+                k++;
+            }
+            if (j == i) {
+                string2 = string2 + string4.charAt(k);
+            }
+        }
+        return Integer.parseInt(string2);
+    }
+
+    private String getstring(final String string, final String string2, final int i) {
+        int j = 0;
+        String string3 = "";
+        for (int k = string.length() + 1; k < string2.length(); k++) {
+            final String string4 = "" + string2.charAt(k);
+            if (string4.equals(",") || string4.equals(")")) {
+                j++;
+                k++;
+            }
+            if (j == i) {
+                string3 = string3 + string2.charAt(k);
+            }
+        }
+        return string3;
+    }
+
+    private void hidefields() {
+        ilaps.setVisible(false);
+        icars.setVisible(false);
+        proitem.setVisible(false);
+        clcars.setVisible(false);
+        clanlev.setVisible(false);
+        mmsg.setVisible(false);
+        datat.setVisible(false);
+        senditem.setVisible(false);
+        sendtyp.setVisible(false);
+        rooms.setVisible(false);
+        mcars.setVisible(false);
+        mstgs.setVisible(false);
+        gmode.setVisible(false);
+        sclass.setVisible(false);
+        scars.setVisible(false);
+        sfix.setVisible(false);
+        mycar.setVisible(false);
+        notp.setVisible(false);
+        keplo.setVisible(false);
+        tnick.setVisible(false);
+        tpass.setVisible(false);
+        temail.setVisible(false);
+        cmsg.setVisible(false);
+        sgame.setVisible(false);
+        wgame.setVisible(false);
+        pgame.setVisible(false);
+        vnpls.setVisible(false);
+        vtyp.setVisible(false);
+        warb.setVisible(false);
+        slaps.setVisible(false);
+        //snfm1.setVisible(false);
+        snfmm.setVisible(false);
+        //snfm2.setVisible(false);
+        snpls.setVisible(false);
+        snbts.setVisible(false);
+        swait.setVisible(false);
+    }
+
+    //@Override
+    private void initApplet() {
+        setBackground(new Color(0, 0, 0));
+        //offImage = createImage(800, 450);
+        //if (offImage != null)
+        //  rd = (Graphics2D) offImage.getGraphics();
+        setLayout(null);
+        tnick = new TextField("Nickbname");
+        tnick.setFont(new Font("Arial", 1, 13));
+        tpass = new TextField("");
+        tpass.setFont(new Font("Arial", 1, 13));
+        tpass.setEchoChar('*');
+        temail = new TextField("");
+        temail.setFont(new Font("Arial", 1, 13));
+        cmsg = new TextField("");
+        if (System.getProperty("java.vendor").toLowerCase().indexOf("oracle") != -1) {
+            cmsg.addKeyListener(new KeyListener() {
+
+                @Override
+                public void keyPressed(final KeyEvent e) {
+                    if (e.getKeyCode() == 10 && u[0] != null) {
+                        u[0].enter = true;
+                    }
+                }
+
+                @Override
+                public void keyReleased(final KeyEvent e) {
+                }
+
+                @Override
+                public void keyTyped(final KeyEvent e) {
+                }
+            });
+        }
+        mmsg = new TextArea("", 200, 20, 3);
+        cmsg.setFont(new Font("Tahoma", 0, 11));
+        mmsg.setFont(new Font("Tahoma", 0, 11));
+        mycar = new Checkbox("Sword of Justice Game!");
+        notp = new Checkbox("No Trees & Piles");
+        keplo = new Checkbox("Stay logged in");
+        keplo.setState(true);
+        add(tnick);
+        add(tpass);
+        add(temail);
+        add(cmsg);
+        add(mmsg);
+        add(mycar);
+        add(notp);
+        add(keplo);
+        sgame.setFont(new Font("Arial", 1, 13));
+        wgame.setFont(new Font("Arial", 1, 13));
+        warb.setFont(new Font("Arial", 1, 13));
+        pgame.setFont(new Font("Arial", 1, 12));
+        vnpls.setFont(new Font("Arial", 1, 13));
+        vtyp.setFont(new Font("Arial", 1, 13));
+        snfmm.setFont(new Font("Arial", 1, 13));
+        //snfm1.setFont(new Font("Arial", 1, 13));
+        //snfm2.setFont(new Font("Arial", 1, 13));
+        mstgs.setFont(new Font("Arial", 1, 13));
+        mcars.setFont(new Font("Arial", 1, 13));
+        slaps.setFont(new Font("Arial", 1, 13));
+        snpls.setFont(new Font("Arial", 0, 13));
+        snbts.setFont(new Font("Arial", 0, 13));
+        swait.setFont(new Font("Arial", 0, 12));
+        sclass.setFont(new Font("Arial", 1, 12));
+        scars.setFont(new Font("Arial", 1, 12));
+        sfix.setFont(new Font("Arial", 1, 12));
+        mycar.setFont(new Font("Arial", 1, 12));
+        notp.setFont(new Font("Arial", 1, 12));
+        keplo.setFont(new Font("Arial", 1, 12));
+        gmode.setFont(new Font("Arial", 1, 13));
+        rooms.setFont(new Font("Arial", 1, 13));
+        sendtyp.setFont(new Font("Arial", 1, 12));
+        senditem.setFont(new Font("Arial", 1, 12));
+        datat.setFont(new Font("Arial", 1, 12));
+        clanlev.setFont(new Font("Arial", 1, 12));
+        clcars.setFont(new Font("Arial", 1, 12));
+        clcars.alphad = true;
+        ilaps.setFont(new Font("Arial", 1, 13));
+        icars.setFont(new Font("Arial", 1, 12));
+        proitem.setFont(new Font("Arial", 1, 12));
+    }
+    
     void madlink() {
         openurl("http://www.needformadness.com/");
     }
