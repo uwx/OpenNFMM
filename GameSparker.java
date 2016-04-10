@@ -1690,7 +1690,6 @@ class GameSparker extends JPanel
             rd = offImage.createGraphics();
         }
         
-        
         makeMenus();
         initialize();
         addKeyListener(this);
