@@ -960,7 +960,7 @@ class GameSparker extends JPanel
             if (sgame.getSelectedIndex() == 3 || sgame.getSelectedIndex() == 4) {
                 checkpoints.name = mstgs.getSelectedItem();
             } else {
-                final int i148 = mstgs.getSelectedItem().indexOf(" ") + 1;
+                final int i148 = mstgs.getSelectedItem().indexOf(' ') + 1;
                 if (i148 > 0) {
                     checkpoints.name = mstgs.getSelectedItem().substring(i148);
                 }

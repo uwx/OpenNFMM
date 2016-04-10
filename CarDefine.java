@@ -1271,7 +1271,7 @@ final class CarDefine implements Runnable {
                     if (loadnames[nl - 1].equals(names[i46])) {
                         i = -1;
                     }
-                if (fails.indexOf("|" + loadnames[nl - 1] + "|") != -1) {
+                if (fails.indexOf('|' + loadnames[nl - 1] + "|") != -1) {
                     i = -1;
                 }
                 if (i != -1) {

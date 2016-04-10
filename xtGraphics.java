@@ -8678,7 +8678,7 @@ class xtGraphics extends Panel implements Runnable {
                 }
                 if (nfmtab == 3 || nfmtab == 4) {
                     String string = "";
-                    final int i43 = app.mstgs.getSelectedItem().indexOf(" ") + 1;
+                    final int i43 = app.mstgs.getSelectedItem().indexOf(' ') + 1;
                     if (i43 > 0) {
                         string = app.mstgs.getSelectedItem().substring(i43);
                     }

@@ -4003,8 +4003,8 @@ class Lobby implements Runnable {
                                             }
                                         rd.setFont(new Font("Tahoma", 0, 11));
                                         for (int i276 = 0; i276 < 7; i276++) {
-                                            if (bools[i276] && i276 == 0 && strings[i276].indexOf(" ") != -1) {
-                                                strings[i276] = "..." + strings[i276].substring(strings[i276].indexOf(" "), strings[i276].length()) + "";
+                                            if (bools[i276] && i276 == 0 && strings[i276].indexOf(' ') != -1) {
+                                                strings[i276] = "..." + strings[i276].substring(strings[i276].indexOf(' '), strings[i276].length()) + "";
                                             }
                                             rd.drawString(strings[i276], i261 + 88, 299 + i276 * 14);
                                         }
@@ -4655,7 +4655,7 @@ class Lobby implements Runnable {
                 String string6 = "Nonex";
                 try {
                     string6 = InetAddress.getLocalHost().getHostName();
-                    if (string6.indexOf("|") != -1) {
+                    if (string6.indexOf('|') != -1) {
                         string6 = InetAddress.getLocalHost().getHostAddress();
                     }
                 } catch (final Exception exception) {

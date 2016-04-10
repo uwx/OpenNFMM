@@ -37,6 +37,7 @@ import java.io.StringReader;
 import java.net.Socket;
 import java.net.URL;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.IntStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -2773,7 +2774,7 @@ public class StageMaker extends Applet implements Runnable {
                                         }
                                     }
                             }
-                            if (selectedPart > 12 && selectedPart < 33 || selectedPart == 35 || selectedPart == 36 || selectedPart >= 39 && selectedPart <= 54) {
+                            if (selectedPart > 12 && selectedPart < 33 || selectedPart == 35 || selectedPart == 36 || selectedPart >= 39 && selectedPart <= 54) { //FIXME - possible overlook on my part?
                                 if ((rot == 0 || rot == 180 || selectedPart == 26 || selectedPart == 15) && (i29 == 0 || i29 == 180 || selectedPart == 26 || selectedPart == 15)) {
                                     if (Math.abs(is27[0] - is22[0]) < 200) {
                                         i20 = is27[0] - is22[0];
@@ -5817,7 +5818,7 @@ public class StageMaker extends Applet implements Runnable {
                 }
             }
         for (int i308 = 0; i308 < nob; i308++)
-            if (co[i308].colok >= 55 && co[i308].colok <= maxpart || co[i308].colok == bumppart) {
+            if (co[i308].colok >= 55 && co[i308].colok <= maxpart || co[i308].colok == bumppart) { //TODO: this has to be changed for new placeable checkpoints/non-set()s
                 is242[i243] = i308;
                 i243++;
             }
