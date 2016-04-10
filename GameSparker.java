@@ -466,6 +466,10 @@ class GameSparker extends JPanel
             "roll3", "roll4", "roll5", "roll6", "opile1", "opile2", "aircheckpoint", "tree1", "tree2", "tree3", "tree4",
             "tree5", "tree6", "tree7", "tree8", "cac1", "cac2", "cac3", "8sroad", "8soffroad"
     };
+    
+    private BufferedImage tribuffer;
+    private Graphics2D tg;
+    
     /**
      * The ContO index which track parts start at. Raise this number if you want to have 99 cars or more.
      */
@@ -1335,18 +1339,13 @@ class GameSparker extends JPanel
         System.gc();
     }
 
-    private byte loadpaintick = 50;
 
     @Override
-    public void paintComponent(final Graphics graphics) {
-        final Graphics2D graphics2d = (Graphics2D) graphics;
-        if (moto == 0 || loadpaintick > 0) { //REQUIRED
-            graphics.setColor(Color.BLACK);
-            graphics.fillRect(0, 0, getWidth(), getHeight());
-            if (loadpaintick > 0) {
-                loadpaintick--;
-            }
-        }
+    public void paintComponent(final Graphics g) {
+        final Graphics2D g2 = (Graphics2D) g;
+        g.setColor(Color.BLACK);
+        g.fillRect(0, 0, getWidth(), getHeight());
+        
         try {
             gameTick();
         } catch (final Exception e) {
@@ -1377,7 +1376,7 @@ class GameSparker extends JPanel
         if (!Madness.fullscreen) {
             if (showsize != 0) {
                 if (showsize == 100 || showsize == 70) {
-                    graphics2d.clearRect(0, 0, getWidth(), getHeight());
+                    g2.clearRect(0, 0, getWidth(), getHeight());
                 }
                 float f = (getWidth() - 40) / 800.0F - 1.0F;
                 if (f > (getHeight() - 70) / 450.0F - 1.0F) {
@@ -1391,32 +1390,32 @@ class GameSparker extends JPanel
                 }
                 apmult = 1.0F + f * reqmult;
                 if (!oncarm) {
-                    graphics2d.drawImage(carmaker[0], 50, 14, this);
+                    g2.drawImage(carmaker[0], 50, 14, this);
                 } else {
-                    graphics2d.drawImage(carmaker[1], 50, 14, this);
+                    g2.drawImage(carmaker[1], 50, 14, this);
                 }
                 if (!onstgm) {
-                    graphics2d.drawImage(stagemaker[0], getWidth() - 208, 14, this);
+                    g2.drawImage(stagemaker[0], getWidth() - 208, 14, this);
                 } else {
-                    graphics2d.drawImage(stagemaker[1], getWidth() - 208, 14, this);
+                    g2.drawImage(stagemaker[1], getWidth() - 208, 14, this);
                 }
-                graphics2d.drawImage(sizebar, getWidth() / 2 - 230, 23, this);
-                graphics2d.drawImage(blb, (int) (getWidth() / 2 - 222 + 141.0F * reqmult), 23, this);
-                graphics2d.drawImage(chkbx[smooth], getWidth() / 2 - 53, 23, this);
-                graphics2d.setFont(new Font("Arial", 1, 11));
-                graphics2d.setColor(new Color(74, 99, 125));
-                graphics2d.drawString("Screen Size:", getWidth() / 2 - 224, 17);
-                graphics2d.drawString("Smooth", getWidth() / 2 - 36, 34);
-                graphics2d.drawImage(fulls, getWidth() / 2 + 27, 15, this);
-                graphics2d.setColor(new Color(94, 126, 159));
-                graphics2d.drawString("Fullscreen", getWidth() / 2 + 63, 30);
-                graphics2d.drawImage(chkbx[Madness.anti], getWidth() / 2 + 135, 9, this);
-                graphics2d.drawString("Antialiasing", getWidth() / 2 + 152, 20);
-                graphics2d.drawImage(chkbx[moto], getWidth() / 2 + 135, 26, this);
-                graphics2d.drawString("Motion Effects", getWidth() / 2 + 152, 37);
-                graphics2d.setColor(new Color(0, 0, 0));
-                graphics2d.fillRect(getWidth() / 2 - 153, 5, 80, 16);
-                graphics2d.setColor(new Color(121, 135, 152));
+                g2.drawImage(sizebar, getWidth() / 2 - 230, 23, this);
+                g2.drawImage(blb, (int) (getWidth() / 2 - 222 + 141.0F * reqmult), 23, this);
+                g2.drawImage(chkbx[smooth], getWidth() / 2 - 53, 23, this);
+                g2.setFont(new Font("Arial", 1, 11));
+                g2.setColor(new Color(74, 99, 125));
+                g2.drawString("Screen Size:", getWidth() / 2 - 224, 17);
+                g2.drawString("Smooth", getWidth() / 2 - 36, 34);
+                g2.drawImage(fulls, getWidth() / 2 + 27, 15, this);
+                g2.setColor(new Color(94, 126, 159));
+                g2.drawString("Fullscreen", getWidth() / 2 + 63, 30);
+                g2.drawImage(chkbx[Madness.anti], getWidth() / 2 + 135, 9, this);
+                g2.drawString("Antialiasing", getWidth() / 2 + 152, 20);
+                g2.drawImage(chkbx[moto], getWidth() / 2 + 135, 26, this);
+                g2.drawString("Motion Effects", getWidth() / 2 + 152, 37);
+                g2.setColor(new Color(0, 0, 0));
+                g2.fillRect(getWidth() / 2 - 153, 5, 80, 16);
+                g2.setColor(new Color(121, 135, 152));
                 String string = "" + (int) (apmult * 100.0F) + "%";
                 if (reqmult == 0.0F) {
                     string = "Original";
@@ -1424,15 +1423,15 @@ class GameSparker extends JPanel
                 if (reqmult == 1.0F) {
                     string = "Maximum";
                 }
-                graphics2d.drawString(string, getWidth() / 2 - 150, 17);
+                g2.drawString(string, getWidth() / 2 - 150, 17);
                 if (!oncarm && !onstgm) {
                     showsize--;
                 }
                 if (showsize == 0) {
-                    graphics2d.setColor(new Color(0, 0, 0));
-                    graphics2d.fillRect(getWidth() / 2 - 260, 0, 520, 40);
-                    graphics2d.fillRect(50, 14, 142, 23);
-                    graphics2d.fillRect(getWidth() - 208, 14, 158, 23);
+                    g2.setColor(new Color(0, 0, 0));
+                    g2.fillRect(getWidth() / 2 - 260, 0, 520, 40);
+                    g2.fillRect(50, 14, 142, 23);
+                    g2.fillRect(getWidth() - 208, 14, 158, 23);
                 }
             }
             apx = (int) (getWidth() / 2 - 400.0F * apmult);
@@ -1442,38 +1441,40 @@ class GameSparker extends JPanel
             }
             if (apmult > 1.0F) {
                 if (smooth == 1) {
-                    graphics2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+                    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
                     if (moto == 1) {
-                        graphics2d.setComposite(AlphaComposite.getInstance(3, mvect / 100.0F));
                         rd.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_SPEED);
-                        graphics2d.drawImage(offImage, apx + i, apy + i97, (int) (800.0F * apmult), (int) (450.0F * apmult), this);
-                        cropit(graphics2d, i, i97);
+                        g2.drawImage(tribuffer, apx + i, apy + i97, (int) (800.0F * apmult), (int) (450.0F * apmult), this);
+                        cropit(g2, i, i97);
+                        tg.setComposite(AlphaComposite.getInstance(3, mvect / 100.0F));
+                        tg.drawImage(offImage, 0, 0, null);
                     } else {
-                        graphics2d.drawImage(offImage, apx, apy, (int) (800.0F * apmult), (int) (450.0F * apmult), this);
+                        g2.drawImage(offImage, apx, apy, (int) (800.0F * apmult), (int) (450.0F * apmult), this);
                     }
                 } else if (moto == 1) {
-                    graphics2d.setComposite(AlphaComposite.getInstance(3, mvect / 100.0F));
                     rd.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_SPEED);
-                    graphics2d.drawImage(offImage, apx + i, apy + i97, (int) (800.0F * apmult), (int) (450.0F * apmult), this);
-                    cropit(graphics2d, i, i97);
+                    g2.drawImage(tribuffer, apx + i, apy + i97, (int) (800.0F * apmult), (int) (450.0F * apmult), this);
+                    cropit(g2, i, i97);
                 } else {
-                    graphics2d.drawImage(offImage, apx, apy, (int) (800.0F * apmult), (int) (450.0F * apmult), this);
+                    g2.drawImage(offImage, apx, apy, (int) (800.0F * apmult), (int) (450.0F * apmult), this);
                 }
             } else if (moto == 1) {
-                graphics2d.setComposite(AlphaComposite.getInstance(3, mvect / 100.0F));
                 rd.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_SPEED);
-                graphics2d.drawImage(offImage, apx + i, apy + i97, this);
-                cropit(graphics2d, i, i97);
+                g2.drawImage(tribuffer, apx + i, apy + i97, this);
+                cropit(g2, i, i97);
+                tg.setComposite(AlphaComposite.getInstance(3, mvect / 100.0F));
+                tg.drawImage(offImage, 0, 0, null);
             } else {
-                graphics2d.drawImage(offImage, apx, apy, this);
+                g2.drawImage(offImage, apx, apy, this);
             }
         } else if (moto == 1) {
-            graphics2d.setComposite(AlphaComposite.getInstance(3, mvect / 100.0F));
             rd.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_SPEED);
-            graphics2d.drawImage(offImage, apx + i, apy + i97, this);
-            cropit(graphics2d, i, i97);
+            g2.drawImage(tribuffer, apx + i, apy + i97, this);
+            cropit(g2, i, i97);
+            tg.setComposite(AlphaComposite.getInstance(3, mvect / 100.0F));
+            tg.drawImage(offImage, 0, 0, null);
         } else {
-            graphics2d.drawImage(offImage, apx, apy, this);
+            g2.drawImage(offImage, apx, apy, this);
         }
     }
 
@@ -1520,18 +1521,13 @@ class GameSparker extends JPanel
                     xtgraphics.unlocked = i;
                 }
             }
-            /*if (strings[3].startsWith("NFM2")) {
-            	int i = getint("NFM2", strings[3], 0);
-            	if (i >= 0 && i < 16) {
-            		xtgraphics.scm[1] = i;
-            		xtgraphics.firstime = false;
-            	}
-            	i = getint("NFM2", strings[3], 1);
-            }*/
             if (strings[4].startsWith("graphics")) {
                 int i = getint("graphics", strings[4], 0);
                 if (i >= 0 && i <= 1) {
                     moto = i;
+                    if (i == 1) {
+                        makeTriBuffer();
+                    }
                 }
                 i = getint("graphics", strings[4], 1);
                 if (i >= 0 && i <= 1) {
@@ -1685,6 +1681,7 @@ class GameSparker extends JPanel
         //rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         //rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         setLayout(null);
+        setOpaque(true);
         //dr = new DebugRunner();
         //dr.start();
 
@@ -1692,6 +1689,8 @@ class GameSparker extends JPanel
         if (offImage != null) {
             rd = offImage.createGraphics();
         }
+        
+        
         makeMenus();
         initialize();
         addKeyListener(this);
@@ -3527,8 +3526,15 @@ class GameSparker extends JPanel
             if (x > getWidth() / 2 + 133 && x < getWidth() / 2 + 231 && y > 24 && y < 41 && !onbar) {
                 if (moto == 0) {
                     moto = 1;
+                    
+                    // create a new triple buffer
+                    makeTriBuffer();
                 } else {
                     moto = 0;
+                    
+                    // dispose of the triple buffer
+                    tg.dispose();
+                    tribuffer.flush();
                 }
                 showsize = 60;
             }
@@ -3542,6 +3548,13 @@ class GameSparker extends JPanel
                 Madness.stagemaker();
             }
             onbar = false;
+        }
+    }
+
+    private void makeTriBuffer() {
+        tribuffer = new BufferedImage(800, 450, BufferedImage.TYPE_INT_ARGB);
+        if (tribuffer != null) {
+            tg = tribuffer.createGraphics();
         }
     }
 
