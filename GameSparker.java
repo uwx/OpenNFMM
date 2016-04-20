@@ -36,6 +36,8 @@ import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
@@ -51,6 +53,14 @@ class GameSparker extends JPanel
      *
      */
     private static final long serialVersionUID = -5976860556958716653L;
+
+    private static final Comparator<int[]> contoComparator = new Comparator<int[]>() {
+        @Override
+        public int compare(final int[] arg0, final int[] arg1) {
+            return Integer.compare(arg1[1], arg0[1]);
+        }
+    };
+    
     private float apmult = 1.0F;
     boolean applejava = false;
     private int apx = 0;
@@ -2024,38 +2034,16 @@ class GameSparker extends JPanel
                 if (medium.hit == 5000 && mvect < 40) {
                     mvect++;
                 }
-                int j = 0;
-                final int[] is = new int[1000];
-                for (int k = xtgraphics.nplayers; k < notb; k++)
-                    if (stageContos[k].dist != 0) {
-                        is[j] = k;
-                        j++;
-                    } else {
-                        stageContos[k].d(rd);
-                    }
-                final int[] is2 = new int[j];
-                for (int k = 0; k < j; k++) {
-                    is2[k] = 0;
+                final int[][] ai = new int[notb][2];
+                for (int k7 = 0; k7 < notb; k7++) {
+                    ai[k7][0] = k7;
+                    ai[k7][1] = stageContos[k7].dist;
                 }
-                for (int k = 0; k < j; k++) {
-                    for (int l = k + 1; l < j; l++)
-                        if (stageContos[is[k]].dist != stageContos[is[l]].dist) {
-                            if (stageContos[is[k]].dist < stageContos[is[l]].dist) {
-                                is2[k]++;
-                            } else {
-                                is2[l]++;
-                            }
-                        } else if (l > k) {
-                            is2[k]++;
-                        } else {
-                            is2[l]++;
-                        }
-                }
-                for (int k = 0; k < j; k++) {
-                    for (int l = 0; l < j; l++)
-                        if (is2[l] == k) {
-                            stageContos[is[l]].d(rd);
-                        }
+
+                Arrays.sort(ai, contoComparator);
+
+                for (int i14 = 0; i14 < notb; i14++) {
+                    stageContos[ai[i14][0]].d(rd);
                 }
             }
             if (!openm) {
@@ -2408,32 +2396,19 @@ class GameSparker extends JPanel
                     mads[player].newcar = false;
                 }
             medium.d(rd);
-            int j = 0;
-            final int[] is = new int[10000];
-            for (int k = 0; k < nob; k++)
-                if (stageContos[k].dist != 0) {
-                    is[j] = k;
-                    j++;
-                } else {
-                    stageContos[k].d(rd);
-                }
-            final int[] is2 = new int[j];
-            final int[] is3 = new int[j];
-            for (int k = 0; k < j; k++) {
-                is2[k] = 0;
+
+            final int[][] ai = new int[notb][2];
+            for (int k7 = 0; k7 < notb; k7++) {
+                ai[k7][0] = k7;
+                ai[k7][1] = stageContos[k7].dist;
             }
-            for (int k = 0; k < j; k++) {
-                for (int l = k + 1; l < j; l++)
-                    if (stageContos[is[k]].dist < stageContos[is[l]].dist) {
-                        is2[k]++;
-                    } else {
-                        is2[l]++;
-                    }
-                is3[is2[k]] = k;
+
+            Arrays.sort(ai, contoComparator);
+
+            for (int i14 = 0; i14 < notb; i14++) {
+                stageContos[ai[i14][0]].d(rd);
             }
-            for (int k = 0; k < j; k++) {
-                stageContos[is[is3[k]]].d(rd);
-            }
+            
             if (xtgraphics.starcnt == 0) {
                 for (int k = 0; k < xtgraphics.nplayers; k++) {
                     for (int l = 0; l < xtgraphics.nplayers; l++)
