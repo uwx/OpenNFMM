@@ -2397,15 +2397,15 @@ class GameSparker extends JPanel
                 }
             medium.d(rd);
 
-            final int[][] ai = new int[notb][2];
-            for (int k7 = 0; k7 < notb; k7++) {
+            final int[][] ai = new int[nob][2];
+            for (int k7 = 0; k7 < nob; k7++) {
                 ai[k7][0] = k7;
                 ai[k7][1] = stageContos[k7].dist;
             }
 
             Arrays.sort(ai, contoComparator);
 
-            for (int i14 = 0; i14 < notb; i14++) {
+            for (int i14 = 0; i14 < nob; i14++) {
                 stageContos[ai[i14][0]].d(rd);
             }
             
