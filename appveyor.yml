@@ -13,7 +13,7 @@ build_script:
 
 environment:
   access_token:
-   secure: G8waKkParfgirZh3PKxylzY7tRDL4expH+CRtNjsh3FpKrfnzPld2nYsn+FQtn07
+   secure: wShbQfYcfaf2ZgU8dFgLTVJglCyGiK9/BHWcEbVZ4sU8SqxokPc4pFfl1ZY4qtlO
 
 skip_commits:
   # Regex for matching commit message
