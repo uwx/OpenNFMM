@@ -889,7 +889,7 @@ class xtGraphics extends Panel implements Runnable {
         	String string = "Top 20 Cars";
         	int i105 = cd.loadlist;
         	String string106 = "Weekly";
-        	while (i105 > 6 && !Thread.currentThread().isInterrupted()) {
+        	while (i105 > 6) {
         		i105 -= 6;
         		if (string106.equals("Semi-Annual"))
         			string106 = "Annual";
@@ -1120,7 +1120,7 @@ class xtGraphics extends Panel implements Runnable {
                     	int i119 = cd.loadlist;
                     	String string = "Top 20 Cars";
                     	String string120 = "Weekly";
-                    	while (i119 > 6 && !Thread.currentThread().isInterrupted()) {
+                    	while (i119 > 6) {
                     		i119 -= 6;
                     		if (string120.equals("Semi-Annual"))
                     			string120 = "Annual";
@@ -3701,7 +3701,7 @@ class xtGraphics extends Panel implements Runnable {
         final int[] is = {
                 m.snap[0], m.snap[1], m.snap[2]
         };
-        while (is[0] + is[1] + is[2] < -30 && !Thread.currentThread().isInterrupted()) {
+        while (is[0] + is[1] + is[2] < -30) {
             for (int i45 = 0; i45 < 3; i45++)
                 if (is[i45] < 50) {
                     is[i45]++;
@@ -5195,7 +5195,7 @@ class xtGraphics extends Panel implements Runnable {
         final int[] is327 = {
                 m.snap[0], m.snap[1], m.snap[2]
         };
-        while (is327[0] + is327[1] + is327[2] < -30 && !Thread.currentThread().isInterrupted()) {
+        while (is327[0] + is327[1] + is327[2] < -30) {
             for (int i328 = 0; i328 < 3; i328++)
                 if (is327[i328] < 50) {
                     is327[i328]++;
@@ -7633,7 +7633,7 @@ class xtGraphics extends Panel implements Runnable {
     public void run() {
         if (!Thread.currentThread().isInterrupted()) {
             boolean bool = false;
-            while (runtyp > 0 && !Thread.currentThread().isInterrupted()) {
+            while (runtyp > 0) {
                 if (runtyp >= 1 && runtyp <= 140) {
                     hipnoload(runtyp, false);
                 }
@@ -7658,7 +7658,7 @@ class xtGraphics extends Panel implements Runnable {
             final boolean[] bools = {
                     true, true
             };
-            while ((runtyp == -101 || sendstat == 1) && !lan && !Thread.currentThread().isInterrupted()) {
+            while ((runtyp == -101 || sendstat == 1) && !lan) {
                 String string = "3|" + playingame + "|" + updatec[0] + "|";
                 if (clanchat) {
                     string = "" + string + "" + updatec[1] + "|" + clan + "|" + clankey + "|";
@@ -9181,11 +9181,11 @@ class xtGraphics extends Panel implements Runnable {
                     spin = "";
                     asay = "";
                     int i = 0;
-                    while (mad.travzy > 225 && !Thread.currentThread().isInterrupted()) {
+                    while (mad.travzy > 225) {
                         mad.travzy -= 360;
                         i++;
                     }
-                    while (mad.travzy < -225 && !Thread.currentThread().isInterrupted()) {
+                    while (mad.travzy < -225) {
                         mad.travzy += 360;
                         i--;
                     }
@@ -9230,7 +9230,7 @@ class xtGraphics extends Panel implements Runnable {
                     }
                     i = 0;
                     mad.travxy = Math.abs(mad.travxy);
-                    while (mad.travxy > 270 && !Thread.currentThread().isInterrupted()) {
+                    while (mad.travxy > 270) {
                         mad.travxy -= 360;
                         i++;
                     }
@@ -9255,7 +9255,7 @@ class xtGraphics extends Panel implements Runnable {
                     i = 0;
                     boolean bool194 = false;
                     mad.travxz = Math.abs(mad.travxz);
-                    while (mad.travxz > 90 && !Thread.currentThread().isInterrupted()) {
+                    while (mad.travxz > 90) {
                         mad.travxz -= 180;
                         i += 180;
                         if (i > 900) {
