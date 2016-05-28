@@ -747,7 +747,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                     JOptionPane.showMessageDialog(null, "Failed to export car, unknown reason!\n", "Car Maker", 1);
                                 }
                             } catch (final Exception exception) {
-                                JOptionPane.showMessageDialog(null, "" + "Unable to create exported file! Error Deatials:\n" + exception, "Car Maker", 1);
+                                JOptionPane.showMessageDialog(null, "Unable to create exported file! Error Deatials:\n" + exception, "Car Maker", 1);
                             }
                             setCursor(new Cursor(0));
                         }
@@ -1191,16 +1191,16 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 
                     }
                     if (i248 == 1) {
-                        JOptionPane.showMessageDialog(null, "" + "ERROR:\nThe Z location value of the FRONT Wheels must be greater then zero! (it should have a +ve value)\nZ :  '" + wv[10].getText() + "'  is less or equal to zero, where it should have +ve value!", "Car Maker", 1);
+                        JOptionPane.showMessageDialog(null, "ERROR:\nThe Z location value of the FRONT Wheels must be greater then zero! (it should have a +ve value)\nZ :  '" + wv[10].getText() + "'  is less or equal to zero, where it should have +ve value!", "Car Maker", 1);
                     }
                     if (i248 == 2) {
-                        JOptionPane.showMessageDialog(null, "" + "ERROR:\nThe Z location value of the BACK Wheels must be smaller then zero! (it should have a -ve value)\nZ :  '" + wv[2].getText() + "'  is bigger or equal to zero, where it should have -ve value!", "Car Maker", 1);
+                        JOptionPane.showMessageDialog(null, "ERROR:\nThe Z location value of the BACK Wheels must be smaller then zero! (it should have a -ve value)\nZ :  '" + wv[2].getText() + "'  is bigger or equal to zero, where it should have -ve value!", "Car Maker", 1);
                     }
                     if (i248 == 3) {
-                        JOptionPane.showMessageDialog(null, "" + "ERROR:\nThe \u00b1X location value of the FRONT or BACK Wheels must be greater then zero! (it should have a +ve value)\n\u00b1X :  '" + wv[8].getText() + "'  is less or equal to zero, where it should have +ve value!", "Car Maker", 1);
+                        JOptionPane.showMessageDialog(null, "ERROR:\nThe \u00b1X location value of the FRONT or BACK Wheels must be greater then zero! (it should have a +ve value)\n\u00b1X :  '" + wv[8].getText() + "'  is less or equal to zero, where it should have +ve value!", "Car Maker", 1);
                     }
                     if (i248 == 4) {
-                        JOptionPane.showMessageDialog(null, "" + "ERROR:\nThe \u00b1X location value of the FRONT or BACK Wheels must be greater then zero! (it should have a +ve value)\n\u00b1X :  '" + wv[0].getText() + "'  is less or equal to zero, whenr it should have +ve value!", "Car Maker", 1);
+                        JOptionPane.showMessageDialog(null, "ERROR:\nThe \u00b1X location value of the FRONT or BACK Wheels must be greater then zero! (it should have a +ve value)\n\u00b1X :  '" + wv[0].getText() + "'  is less or equal to zero, whenr it should have +ve value!", "Car Maker", 1);
                     }
                     if (i248 == 0) {
                         final String string = "" + editor.getText() + "\n";
@@ -1764,11 +1764,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                             bool = true;
                         }
                         if (i295 == 11) {
-                            JOptionPane.showMessageDialog(null, "" + "Error Creating Car!\nReason:\nCar scale size is too large!\nPlease use the \u2018Scale All\u2019 option in the \u2018Scale & Align\u2019 tab to resize your car to suitable size.       \nCompare it to other NFM cars using the \u2018Compare Car...\u2019 option.\nCurrently you car needs to be scaled down by " + (int) ((o.maxR / 400.0F - 1.0F) * 100.0F) + "%.\n", "Car Maker", 1);
+                            JOptionPane.showMessageDialog(null, "Error Creating Car!\nReason:\nCar scale size is too large!\nPlease use the \u2018Scale All\u2019 option in the \u2018Scale & Align\u2019 tab to resize your car to suitable size.       \nCompare it to other NFM cars using the \u2018Compare Car...\u2019 option.\nCurrently you car needs to be scaled down by " + (int) ((o.maxR / 400.0F - 1.0F) * 100.0F) + "%.\n", "Car Maker", 1);
                             bool = true;
                         }
                         if (i295 == 12) {
-                            JOptionPane.showMessageDialog(null, "" + "Error Creating Car!\nReason:\nCar scale size is too small!\nPlease use the \u2018Scale All\u2019 option in the \u2018Scale & Align\u2019 tab to resize your car to suitable size.       \nCompare it to other NFM cars using the \u2018Compare Car...\u2019 option.\nCurrently you car needs to be scaled up by " + (int) ((120.0F / o.maxR - 1.0F) * 100.0F) + "%.\n", "Car Maker", 1);
+                            JOptionPane.showMessageDialog(null, "Error Creating Car!\nReason:\nCar scale size is too small!\nPlease use the \u2018Scale All\u2019 option in the \u2018Scale & Align\u2019 tab to resize your car to suitable size.       \nCompare it to other NFM cars using the \u2018Compare Car...\u2019 option.\nCurrently you car needs to be scaled up by " + (int) ((120.0F / o.maxR - 1.0F) * 100.0F) + "%.\n", "Car Maker", 1);
                             bool = true;
                         }
                         if (i295 == 13) {

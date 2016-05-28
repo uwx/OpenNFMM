@@ -2,12 +2,12 @@
 import static jouvieje.bass.Bass.BASS_ChannelPlay;
 import static jouvieje.bass.Bass.BASS_ChannelSetPosition;
 import static jouvieje.bass.Bass.BASS_ChannelSetSync;
+import static jouvieje.bass.Bass.BASS_ErrorGetCode;
 import static jouvieje.bass.Bass.BASS_Free;
 import static jouvieje.bass.Bass.BASS_GetVersion;
 import static jouvieje.bass.Bass.BASS_Init;
 import static jouvieje.bass.Bass.BASS_MusicLoad;
 import static jouvieje.bass.Bass.BASS_Pause;
-import static jouvieje.bass.Bass.BASS_SetVolume;
 import static jouvieje.bass.Bass.BASS_Start;
 import static jouvieje.bass.Bass.BASS_StreamCreateFile;
 import static jouvieje.bass.defines.BASS_MUSIC.BASS_MUSIC_POSRESET;
@@ -35,10 +35,16 @@ class RadicalBASS implements RadicalMusic {
      * 
      * @param text The error message to be displayed
      */
-    private static final void error(final String text) {
-        System.err.println("RadicalBASS error: " + text);
-    }
+    private final void error(final String text) {
+        
+        final int errCode = BASS_ErrorGetCode();
+        String errStr = "Unknown error";
 
+        if (errCode == 0) { errStr = "BASS_OK"; } else if (errCode == 1) { errStr = "BASS_ERROR_MEM"; } else if (errCode == 2) { errStr = "BASS_ERROR_FILEOPEN"; } else if (errCode == 3) { errStr = "BASS_ERROR_DRIVER"; } else if (errCode == 4) { errStr = "BASS_ERROR_BUFLOST"; } else if (errCode == 5) { errStr = "BASS_ERROR_HANDLE"; } else if (errCode == 6) { errStr = "BASS_ERROR_FORMAT"; } else if (errCode == 7) { errStr = "BASS_ERROR_POSITION"; } else if (errCode == 8) { errStr = "BASS_ERROR_INIT"; } else if (errCode == 9) { errStr = "BASS_ERROR_START"; } else if (errCode == 10) { errStr = "BASS_ERROR_SSL"; } else if (errCode == 14) { errStr = "BASS_ERROR_ALREADY"; } else if (errCode == 18) { errStr = "BASS_ERROR_NOCHAN"; } else if (errCode == 19) { errStr = "BASS_ERROR_ILLTYPE"; } else if (errCode == 20) { errStr = "BASS_ERROR_ILLPARAM"; } else if (errCode == 21) { errStr = "BASS_ERROR_NO3D"; } else if (errCode == 22) { errStr = "BASS_ERROR_NOEAX"; } else if (errCode == 23) { errStr = "BASS_ERROR_DEVICE"; } else if (errCode == 24) { errStr = "BASS_ERROR_NOPLAY"; } else if (errCode == 25) { errStr = "BASS_ERROR_FREQ"; } else if (errCode == 27) { errStr = "BASS_ERROR_NOTFILE"; } else if (errCode == 29) { errStr = "BASS_ERROR_NOHW"; } else if (errCode == 31) { errStr = "BASS_ERROR_EMPTY"; } else if (errCode == 32) { errStr = "BASS_ERROR_NONET"; } else if (errCode == 33) { errStr = "BASS_ERROR_CREATE"; } else if (errCode == 34) { errStr = "BASS_ERROR_NOFX"; } else if (errCode == 37) { errStr = "BASS_ERROR_NOTAVAIL"; } else if (errCode == 38) { errStr = "BASS_ERROR_DECODE"; } else if (errCode == 39) { errStr = "BASS_ERROR_DX"; } else if (errCode == 40) { errStr = "BASS_ERROR_TIMEOUT"; } else if (errCode == 41) { errStr = "BASS_ERROR_FILEFORM"; } else if (errCode == 42) { errStr = "BASS_ERROR_SPEAKER"; } else if (errCode == 43) { errStr = "BASS_ERROR_VERSION"; } else if (errCode == 44) { errStr = "BASS_ERROR_CODEC"; } else if (errCode == 45) { errStr = "BASS_ERROR_ENDED"; } else if (errCode == 46) { errStr = "BASS_ERROR_BUSY"; } else if (errCode == -1) { errStr = "BASS_ERROR_UNKNOWN "; }
+        
+        System.err.println("BASS error: " + text + "\nError code: " + errCode + "\nError data: " + errStr);
+    }
+    
     /**
      * Prints a formatted message then ends playback
      * 
@@ -57,25 +63,33 @@ class RadicalBASS implements RadicalMusic {
      * The channel that NativeBASS will play to
      */
     private int chan;
-    
-    /**
-     * Loop start {@literal &} end
-     */
-    private final long[] loop = new long[2];
 
-    private final SYNCPROC loopSyncProc = new SYNCPROC() {
+    /** Prevents BASS_Free errors */
+    private static boolean bassLibLoaded = false;
+
+    /** Looping sync */
+    private static final SYNCPROC loopSyncProc = new SYNCPROC() {
         @Override
         public void SYNCPROC(final HSYNC handle, final int channel, final int data, final Pointer user) {
-            if (!BASS_ChannelSetPosition(channel, loop[0], BASS_POS_BYTE)) { //Try seeking to loop start
-                BASS_ChannelSetPosition(channel, 0, BASS_POS_BYTE); //Failed, go to start of file instead
-            }
+            BASS_ChannelSetPosition(channel, 0, BASS_POS_BYTE); //Go to start of file
         }
     };
 
-    public void run() {
+    /**
+     * Load the media file
+     */
+    private void run() {
+        System.out.println("BASS init state: " + init);
+        System.out.println("BASS loaded: " + bassLibLoaded);
+        
         if (!init)
             return;
-
+        
+        if (bassLibLoaded) {
+            /* The device has already been initialized. BASS_Free must be called before it can be initialized again. */
+            freeResources();
+        }
+        
         // check the correct BASS was loaded
         if ((BASS_GetVersion() & 0xFFFF0000) >> 16 != BassInit.BASSVERSION()) {
             printfExit("An incorrect version of BASS.DLL was loaded");
@@ -87,16 +101,18 @@ class RadicalBASS implements RadicalMusic {
             error("Can't initialize device");
             end();
         }
+        bassLibLoaded = true;
+        
         if (!playFile()) {
             //Start a file playing
             end();
         }
-
-        BASS_SetVolume(0.1F);
-        //Set update timer (10hz)
-        //timer.start();
     }
 
+    /**
+     * Begins playback
+     * @return false if the file can't be played to the channel, true otherwise
+     */
     private boolean playFile() {
         HSTREAM stream = null;
         HMUSIC music = null;
@@ -117,20 +133,30 @@ class RadicalBASS implements RadicalMusic {
         return deinit;
     }
 
-    public void end() {
+    private void end() {
         if (!init || deinit)
             return;
         deinit = true;
 
-        BASS_Free();
+        freeResources();
     }
 
+    private void freeResources() {
+        BASS_Free();
+        bassLibLoaded = false;
+    }
+    
     /* Graphical stuff */
 
     private final File file;
     private boolean started = false;
     private final boolean paused = false;
 
+    /**
+     * Constructs a new RadicalBASS
+     * 
+     * @param songFile a media file supported by BASS
+     */
     public RadicalBASS(final File songFile) {
         file = songFile;
         //run();

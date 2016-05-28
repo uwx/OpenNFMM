@@ -462,7 +462,7 @@ public class StageMaker extends Applet implements Runnable {
     private final Smenu tracks = new Smenu(2000);
     private int tracksize = 111;
     private int trackvol = 200;
-    private String tstage = "" + "snap(0,0,0)\r\nsky(191,215,255)\r\nclouds(255,255,255,5,-1000)\r\nfog(195,207,230)\r\nground(192,194,202)\r\ntexture(0,0,0,50)\r\nfadefrom(5000)\r\ndensity(5)\n\rmountains(" + (int) (ThreadLocalRandom.current().nextDouble() * 100000.0) + ")\r\nnlaps(5)\r\n\r\n";
+    private String tstage = "snap(0,0,0)\r\nsky(191,215,255)\r\nclouds(255,255,255,5,-1000)\r\nfog(195,207,230)\r\nground(192,194,202)\r\ntexture(0,0,0,50)\r\nfadefrom(5000)\r\ndensity(5)\n\rmountains(" + (int) (ThreadLocalRandom.current().nextDouble() * 100000.0) + ")\r\nnlaps(5)\r\n\r\n";
     private String ttstage = "";
     private final String[] undos = new String[5000];
     private boolean up = false;
@@ -1323,7 +1323,7 @@ public class StageMaker extends Applet implements Runnable {
             final File file = new File("mystages/" + srch.getText() + ".txt");
             if (!file.exists()) {
                 stagename = srch.getText();
-                tstage = "" + "snap(0,0,0)\r\nsky(191,215,255)\r\nclouds(255,255,255,5,-1000)\r\nfog(195,207,230)\r\nground(192,194,202)\r\ntexture(0,0,0,50)\r\nfadefrom(5000)\r\ndensity(5)\r\nmountains(" + (int) (ThreadLocalRandom.current().nextDouble() * 100000.0) + ")\r\nnlaps(5)\r\n\r\n";
+                tstage = "snap(0,0,0)\r\nsky(191,215,255)\r\nclouds(255,255,255,5,-1000)\r\nfog(195,207,230)\r\nground(192,194,202)\r\ntexture(0,0,0,50)\r\nfadefrom(5000)\r\ndensity(5)\r\nmountains(" + (int) (ThreadLocalRandom.current().nextDouble() * 100000.0) + ")\r\nnlaps(5)\r\n\r\n";
                 if (strtyp.getSelectedIndex() == 1) {
                     bstage = "set(48,0,0,0)\r\n";
                 } else {
@@ -2249,7 +2249,7 @@ public class StageMaker extends Applet implements Runnable {
                         }
                     if (button("      Delete Stage      ", 475, 336 + i0, 0, false))
                         if (!stagename.equals("")) {
-                            if (JOptionPane.showConfirmDialog(null, "" + "Are you sure you want to permanently delete this stage?\n\n" + stagename + "\n\n", "Stage Maker", 0) == 0) {
+                            if (JOptionPane.showConfirmDialog(null, "Are you sure you want to permanently delete this stage?\n\n" + stagename + "\n\n", "Stage Maker", 0) == 0) {
                                 delstage(stagename);
                             }
                         } else {
@@ -2947,7 +2947,7 @@ public class StageMaker extends Applet implements Runnable {
                                         }
                                     }
                                     if (errd != 0) {
-                                        JOptionPane.showMessageDialog(null, "" + "Error!  Unable to place part!\nReason:\n" + errlo[errd - 1] + "\n\n", "Stage Maker", 0);
+                                        JOptionPane.showMessageDialog(null, "Error!  Unable to place part!\nReason:\n" + errlo[errd - 1] + "\n\n", "Stage Maker", 0);
                                         if (bool) {
                                             nundo--;
                                             bstage = undos[nundo];
@@ -4521,7 +4521,7 @@ public class StageMaker extends Applet implements Runnable {
                                 JOptionPane.showMessageDialog(null, "Failed to load '" + tracks.getSelectedItem() + "', please make sure it is a valid MOD Track!", "Stage Maker", 1);
                             }
                         }
-                        if (button("   X Delete   ", 258, 495, 2, false) && JOptionPane.showConfirmDialog(null, "" + "Are you sure you want to permanently delete this MOD Track from your Play List?\n\n" + tracks.getSelectedItem() + "\n\n>  If you delete this Track from the Play List you will not be able to use it for other stages as well!     \n\n", "Stage Maker", 0) == 0) {
+                        if (button("   X Delete   ", 258, 495, 2, false) && JOptionPane.showConfirmDialog(null, "Are you sure you want to permanently delete this MOD Track from your Play List?\n\n" + tracks.getSelectedItem() + "\n\n>  If you delete this Track from the Play List you will not be able to use it for other stages as well!     \n\n", "Stage Maker", 0) == 0) {
                             deltrack();
                         }
                     }
@@ -4619,7 +4619,7 @@ public class StageMaker extends Applet implements Runnable {
                             Madness.testdrive = witho.getSelectedIndex() + 3;
                             Madness.game();
                         } else {
-                            JOptionPane.showMessageDialog(null, "" + "Error!  This stage is not ready for a test drive!\nReason:\n" + errlo[errd - 1] + "\n\n", "Stage Maker", 0);
+                            JOptionPane.showMessageDialog(null, "Error!  This stage is not ready for a test drive!\nReason:\n" + errlo[errd - 1] + "\n\n", "Stage Maker", 0);
                         }
                     }
                 }
@@ -4801,7 +4801,7 @@ public class StageMaker extends Applet implements Runnable {
                                     bool = true;
                                 }
                                 if (i135 == 4) {
-                                    JOptionPane.showMessageDialog(null, "" + "Unable to publish stage.\nReason:\nStage name used (" + stagename + ").\nThe name '" + stagename + "' is already used by another published stage.\nPlease rename your stage.\n\n", "Stage Maker", 1);
+                                    JOptionPane.showMessageDialog(null, "Unable to publish stage.\nReason:\nStage name used (" + stagename + ").\nThe name '" + stagename + "' is already used by another published stage.\nPlease rename your stage.\n\n", "Stage Maker", 1);
                                     bool = true;
                                 }
                                 if (i135 == 5) {
@@ -4832,7 +4832,7 @@ public class StageMaker extends Applet implements Runnable {
                                 }
                             }
                         } else {
-                            JOptionPane.showMessageDialog(null, "" + "Error!  This stage is not ready for publishing!\nReason:\n" + errlo[errd - 1] + "\n\n", "Stage Maker", 0);
+                            JOptionPane.showMessageDialog(null, "Error!  This stage is not ready for publishing!\nReason:\n" + errlo[errd - 1] + "\n\n", "Stage Maker", 0);
                         }
                     }
                 }
@@ -4995,7 +4995,7 @@ public class StageMaker extends Applet implements Runnable {
                                                         if (file.length() == i145) {
                                                             i143 = 1;
                                                         } else {
-                                                            i143 = JOptionPane.showConfirmDialog(null, "" + "Another track named '" + string149 + "' already exists in your Sound Tracks folder!\nReplace it with the one attached to this stage?", "Stage Maker", 0);
+                                                            i143 = JOptionPane.showConfirmDialog(null, "Another track named '" + string149 + "' already exists in your Sound Tracks folder!\nReplace it with the one attached to this stage?", "Stage Maker", 0);
                                                         }
                                                     if (i143 == 0) {
                                                         datainputstream = new DataInputStream(url.openStream());
@@ -5817,7 +5817,7 @@ public class StageMaker extends Applet implements Runnable {
                     i243++;
                 }
             }
-        for (int i308 = 0; i308 < nob; i308++)
+        for (int i308 = 0; i308 < nob; i308++) //FIXME: Does this cause duplicate parts?
             if (co[i308].colok >= 55 && co[i308].colok <= maxpart || co[i308].colok == bumppart) { //TODO: this has to be changed for new placeable checkpoints/non-set()s
                 is242[i243] = i308;
                 i243++;
