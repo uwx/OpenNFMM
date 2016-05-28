@@ -1533,7 +1533,7 @@ class GameSparker extends JPanel
             }
             if (strings[4].startsWith("graphics")) {
                 int i = getint("graphics", strings[4], 0);
-                if (i >= 0 && i <= 1) {
+                if (i == 0 || i == 1) {
                     moto = i;
                     if (i == 1) {
                         makeTriBuffer();
@@ -3529,6 +3529,8 @@ class GameSparker extends JPanel
         tribuffer = new BufferedImage(800, 450, BufferedImage.TYPE_INT_ARGB);
         if (tribuffer != null) {
             tg = tribuffer.createGraphics();
+        } else {
+            throw new IllegalAccessError("failed to create TriBuffer image");
         }
     }
 
