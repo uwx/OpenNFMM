@@ -86,7 +86,7 @@ class GameSparker extends JPanel
     Smenu mcars = new Smenu(707);
     private int mload = 1;
     private TextArea mmsg;
-    int moto = 1;
+    int moto = 0;
     private boolean moused = false;
     int mouses = 0;
     private int mousew = 0;
