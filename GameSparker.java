@@ -2035,7 +2035,7 @@ class GameSparker extends JPanel
                     mvect++;
                 }
                 final int[][] ai = new int[notb][2];
-                for (int k7 = 0; k7 < notb; k7++) {
+                for (int k7 = xtgraphics.nplayers; k7 < notb; k7++) {
                     ai[k7][0] = k7;
                     ai[k7][1] = stageContos[k7].dist;
                 }
