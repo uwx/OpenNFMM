@@ -366,7 +366,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         }
         final String string304 = "" + editor.getText() + "\n";
         int i = 0;
-        int i305 = string304.indexOf("\n", 0);
+        int i305 = string304.indexOf('\n', 0);
         boolean bool306 = false;
         boolean bool307 = false;
         boolean bool308 = false;
@@ -374,7 +374,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             String string309 = string304.substring(i, i305);
             string309 = string309.trim();
             i = i305 + 1;
-            i305 = string304.indexOf("\n", i);
+            i305 = string304.indexOf('\n', i);
             if (string309.startsWith("stat(")) {
                 bool306 = true;
                 try {
@@ -821,12 +821,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     }
                     string199 = "" + string199 + "\n\n";
                     int i200 = 0;
-                    int i201 = string.indexOf("\n", 0);
+                    int i201 = string.indexOf('\n', 0);
                     while (i201 != -1 && i200 < string.length()) {
                         String string202 = string.substring(i200, i201);
                         string202 = string202.trim();
                         i200 = i201 + 1;
-                        i201 = string.indexOf("\n", i200);
+                        i201 = string.indexOf('\n', i200);
                         if (string202.startsWith("fs(-")) {
                             string202 = "fs(" + string202.substring(4, string202.length()) + "";
                         } else if (string202.startsWith("fs(")) {
@@ -893,7 +893,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         JOptionPane.showMessageDialog(null, "Car Maker will attempt now to find the first and second colors automatically.\nPlease make sure that they are the correct colors!\n\nPlease note that these are also the colors that will be editable in the multiplayer game.      ", "Car Maker", 1);
                         final String string = "" + editor.getText() + "\n";
                         int i207 = 0;
-                        int i208 = string.indexOf("\n", 0);
+                        int i208 = string.indexOf('\n', 0);
                         int i209 = 0;
                         String string210 = "";
                         String string211 = "";
@@ -901,7 +901,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                             String string212 = string.substring(i207, i208);
                             string212 = string212.trim();
                             i207 = i208 + 1;
-                            i208 = string.indexOf("\n", i207);
+                            i208 = string.indexOf('\n', i207);
                             if (string212.startsWith("c(")) {
                                 final String string213 = string212.substring(1, string212.indexOf(')') + 1);
                                 if (i209 == 1 && !string213.equals(string211)) {
@@ -981,7 +981,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     if (i219 != -1) {
                         i219++;
                         final int i220 = editor.getText().indexOf(')', i219);
-                        final int i221 = editor.getText().indexOf("\n", i219);
+                        final int i221 = editor.getText().indexOf('\n', i219);
                         if (i221 > i220) {
                             editor.replaceRange("ScaleX(" + scale[0] + ")", i219, i220 + 1);
                         } else {
@@ -1011,7 +1011,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     if (i224 != -1) {
                         i224++;
                         final int i225 = editor.getText().indexOf(')', i224);
-                        final int i226 = editor.getText().indexOf("\n", i224);
+                        final int i226 = editor.getText().indexOf('\n', i224);
                         if (i226 > i225) {
                             editor.replaceRange("ScaleY(" + scale[1] + ")", i224, i225 + 1);
                         } else {
@@ -1041,7 +1041,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     if (i229 != -1) {
                         i229++;
                         final int i230 = editor.getText().indexOf(')', i229);
-                        final int i231 = editor.getText().indexOf("\n", i229);
+                        final int i231 = editor.getText().indexOf('\n', i229);
                         if (i231 > i230) {
                             editor.replaceRange("ScaleZ(" + scale[2] + ")", i229, i230 + 1);
                         } else {
@@ -1071,12 +1071,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         final String string = "" + editor.getText() + "\n";
                         String string234 = "";
                         int i235 = 0;
-                        int i236 = string.indexOf("\n", 0);
+                        int i236 = string.indexOf('\n', 0);
                         while (i236 != -1 && i235 < string.length()) {
                             String string237 = string.substring(i235, i236);
                             string237 = string237.trim();
                             i235 = i236 + 1;
-                            i236 = string.indexOf("\n", i235);
+                            i236 = string.indexOf('\n', i235);
                             if (string237.startsWith("p(")) {
                                 final int i238 = string237.indexOf(',', 0);
                                 final int i239 = string237.indexOf(',', i238 + 1);
@@ -1206,12 +1206,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         final String string = "" + editor.getText() + "\n";
                         String string250 = "";
                         int i251 = 0;
-                        int i252 = string.indexOf("\n", 0);
+                        int i252 = string.indexOf('\n', 0);
                         while (i252 != -1 && i251 < string.length()) {
                             String string253 = string.substring(i251, i252);
                             string253 = string253.trim();
                             i251 = i252 + 1;
-                            i252 = string.indexOf("\n", i251);
+                            i252 = string.indexOf('\n', i251);
                             if (!string253.startsWith("rims(") && !string253.startsWith("gwgr(") && !string253.startsWith("w(")) {
                                 string250 = "" + string250 + "" + string253 + "\n";
                             } else {
@@ -1323,12 +1323,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         final String string = "" + editor.getText() + "\n";
                         String string263 = "";
                         int i264 = 0;
-                        int i265 = string.indexOf("\n", 0);
+                        int i265 = string.indexOf('\n', 0);
                         while (i265 != -1 && i264 < string.length()) {
                             String string266 = string.substring(i264, i265);
                             string266 = string266.trim();
                             i264 = i265 + 1;
-                            i265 = string.indexOf("\n", i264);
+                            i265 = string.indexOf('\n', i264);
                             if (!string266.startsWith("stat(")) {
                                 string263 = "" + string263 + "" + string266 + "\n";
                             } else {
@@ -1608,12 +1608,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         final String string = "" + editor.getText() + "\n";
                         String string285 = "";
                         int i286 = 0;
-                        int i287 = string.indexOf("\n", 0);
+                        int i287 = string.indexOf('\n', 0);
                         while (i287 != -1 && i286 < string.length()) {
                             String string288 = string.substring(i286, i287);
                             string288 = string288.trim();
                             i286 = i287 + 1;
-                            i287 = string.indexOf("\n", i286);
+                            i287 = string.indexOf('\n', i286);
                             if (!string288.startsWith("handling(")) {
                                 string285 = "" + string285 + "" + string288 + "\n";
                             } else {
@@ -1666,10 +1666,10 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         int i292 = 0;
                         String string = "" + editor.getText() + "\n";
                         int i293 = 0;
-                        int i294 = string.indexOf("\n", 0);
+                        int i294 = string.indexOf('\n', 0);
                         while (i294 != -1 && i293 < string.length()) {
                             i293 = i294 + 1;
-                            i294 = string.indexOf("\n", i293);
+                            i294 = string.indexOf('\n', i293);
                             i292++;
                         }
                         int i295 = -1;
@@ -1687,13 +1687,13 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                 int i297 = 0;
                                 string = "" + editor.getText() + "\n";
                                 i293 = 0;
-                                i294 = string.indexOf("\n", 0);
+                                i294 = string.indexOf('\n', 0);
                                 while (i294 != -1 && i293 < string.length()) {
                                     String string298 = string.substring(i293, i294);
                                     string298 = string298.trim();
                                     printwriter.println(string298);
                                     i293 = i294 + 1;
-                                    i294 = string.indexOf("\n", i293);
+                                    i294 = string.indexOf('\n', i293);
                                     i297++;
                                     rd.setColor(new Color(225, 225, 225));
                                     rd.fillRect(11, 141, 679, 401);
@@ -3833,7 +3833,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         int i55 = 0;
                         final String string56 = "" + editor.getText() + "\n";
                         int i57 = 0;
-                        int i58 = string56.indexOf("\n", 0);
+                        int i58 = string56.indexOf('\n', 0);
                         int i59 = 0;
                         int i60 = 15;
                         int i61 = 20;
@@ -3842,7 +3842,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                             String string63 = string56.substring(i57, i58);
                             string63 = string63.trim();
                             i57 = i58 + 1;
-                            i58 = string56.indexOf("\n", i57);
+                            i58 = string56.indexOf('\n', i57);
                             try {
                                 if (string63.startsWith("rims(")) {
                                     string62 = "(" + getvalue("rims", string63, 0) + "," + getvalue("rims", string63, 1) + "," + getvalue("rims", string63, 2) + ")";
@@ -4019,12 +4019,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         statdef = false;
                         final String string = "" + editor.getText() + "\n";
                         int i66 = 0;
-                        int i67 = string.indexOf("\n", 0);
+                        int i67 = string.indexOf('\n', 0);
                         while (i67 != -1 && i66 < string.length()) {
                             String string68 = string.substring(i66, i67);
                             string68 = string68.trim();
                             i66 = i67 + 1;
-                            i67 = string.indexOf("\n", i66);
+                            i67 = string.indexOf('\n', i66);
                             try {
                                 if (string68.startsWith("stat(")) {
                                     int i69 = 0;
@@ -4222,12 +4222,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         if (pfase == 0) {
                             final String string = "" + editor.getText() + "\n";
                             int i88 = 0;
-                            int i89 = string.indexOf("\n", 0);
+                            int i89 = string.indexOf('\n', 0);
                             while (i89 != -1 && i88 < string.length()) {
                                 String string90 = string.substring(i88, i89);
                                 string90 = string90.trim();
                                 i88 = i89 + 1;
-                                i89 = string.indexOf("\n", i88);
+                                i89 = string.indexOf('\n', i88);
                                 try {
                                     if (string90.startsWith("physics(")) {
                                         for (int i91 = 0; i91 < 11; i91++) {
@@ -4645,12 +4645,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         final String string = "" + editor.getText() + "\n";
                         String string131 = "";
                         int i132 = 0;
-                        int i133 = string.indexOf("\n", 0);
+                        int i133 = string.indexOf('\n', 0);
                         while (i133 != -1 && i132 < string.length()) {
                             String string134 = string.substring(i132, i133);
                             string134 = string134.trim();
                             i132 = i133 + 1;
-                            i133 = string.indexOf("\n", i132);
+                            i133 = string.indexOf('\n', i132);
                             if (!string134.startsWith("physics(")) {
                                 string131 = "" + string131 + "" + string134 + "\n";
                             } else {
@@ -4691,12 +4691,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     if (dtab != dtabed) {
                         final String string = "" + editor.getText() + "\n";
                         int i137 = 0;
-                        int i138 = string.indexOf("\n", 0);
+                        int i138 = string.indexOf('\n', 0);
                         while (i138 != -1 && i137 < string.length()) {
                             String string139 = string.substring(i137, i138);
                             string139 = string139.trim();
                             i137 = i138 + 1;
-                            i138 = string.indexOf("\n", i137);
+                            i138 = string.indexOf('\n', i137);
                             if (string139.startsWith("handling(")) {
                                 try {
                                     handling = getvalue("handling", string139, 0);
@@ -5127,12 +5127,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                             string164 = "" + string164 + "\n";
                                             String string165 = "";
                                             int i166 = 0;
-                                            int i167 = string164.indexOf("\n", 0);
+                                            int i167 = string164.indexOf('\n', 0);
                                             while (i167 != -1 && i166 < string164.length()) {
                                                 String string168 = string164.substring(i166, i167);
                                                 string168 = string168.trim();
                                                 i166 = i167 + 1;
-                                                i167 = string164.indexOf("\n", i166);
+                                                i167 = string164.indexOf('\n', i166);
                                                 if (!string168.startsWith("carmaker(") && !string168.startsWith("publish(")) {
                                                     string165 = "" + string165 + "" + string168 + "\n";
                                                 } else {

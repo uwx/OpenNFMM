@@ -4954,12 +4954,12 @@ public class StageMaker extends Applet implements Runnable {
                                             string154 = "" + string154 + "\n";
                                             String string155 = "";
                                             int i156 = 0;
-                                            int i157 = string154.indexOf("\n", 0);
+                                            int i157 = string154.indexOf('\n', 0);
                                             while (i157 != -1 && i156 < string154.length()) {
                                                 String string158 = string154.substring(i156, i157);
                                                 string158 = string158.trim();
                                                 i156 = i157 + 1;
-                                                i157 = string154.indexOf("\n", i156);
+                                                i157 = string154.indexOf('\n', i156);
                                                 if (!string158.startsWith("stagemaker(") && !string158.startsWith("publish(")) {
                                                     string155 = "" + string155 + "" + string158 + "\r\n";
                                                 } else {
