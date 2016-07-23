@@ -3,6 +3,8 @@ package nfm.open;
  * DragShot Software
  * JODE (c) 1998-2001 Jochen Hoenicke
  */
+import nfm.open.music.RadicalMod;
+
 import java.applet.Applet;
 import java.awt.AlphaComposite;
 import java.awt.Checkbox;

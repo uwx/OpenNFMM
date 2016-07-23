@@ -1,4 +1,4 @@
-package nfm.open;
+package nfm.open.music;
 // Credits to DragShot
 // for his shit
 
@@ -8,12 +8,12 @@ import ds.nfm.Module;
 import ds.nfm.ModuleLoader;
 import ds.nfm.ModuleSlayer;
 
-class RadicalMod implements RadicalMusic {
+public class RadicalMod implements RadicalMusic {
     private static String name = "";
-    SuperClip sClip;
-    boolean playing;
-    int loaded;
-    int rvol;
+    public SuperClip sClip;
+    public boolean playing;
+    public int loaded;
+    public int rvol;
     private String imod;
     private String pmod;
 
@@ -255,8 +255,8 @@ class RadicalMod implements RadicalMusic {
     }
 
     @Override
-    public int getType() {
-        return RadicalMusic.TYPE_MOD;
+    public Type getType() {
+        return RadicalMusic.Type.TYPE_MOD;
     }
 
 }

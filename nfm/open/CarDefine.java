@@ -1,5 +1,5 @@
 package nfm.open;
-/* nfm.open.CarDefine - Decompiled by JODE
+/* CarDefine - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 import java.io.BufferedReader;

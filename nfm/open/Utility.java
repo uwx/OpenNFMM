@@ -1,6 +1,11 @@
 package nfm.open;
 
-final class Utility {
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+
+public final class Utility {
 
     /**
      * This is an utility class, so it can't be inherited.
@@ -134,4 +139,43 @@ final class Utility {
         }
         return (i273 - m.focusPoint) * (m.cy - i) / i273 + i;
     }
+
+    /**
+     * Unsafe subclass of ByteArrayOutputStream that doesn't copy array on output
+     *
+     * @author http://stackoverflow.com/users/80002/mark
+     */
+    public static class UnsafeByteArrayOutputStream extends ByteArrayOutputStream {
+
+        public UnsafeByteArrayOutputStream() {
+        }
+
+        public UnsafeByteArrayOutputStream(final int size) {
+            super(size);
+        }
+
+        public int getByteCount() {
+            return count;
+        }
+
+        public byte[] getDataBuffer() {
+            return buf;
+        }
+    }
+
+    /* for proper .length access and stuff */
+    public static UnsafeByteArrayOutputStream streamNoSize(final ZipInputStream zipinputstream, final ZipEntry zipentry, final int entrySize) throws IOException {
+        final UnsafeByteArrayOutputStream bytes = new UnsafeByteArrayOutputStream(entrySize < 0 ? 8192 : entrySize);
+        System.out.println(zipentry.getName() + "; size = " + zipentry.getSize());
+
+        while (true) {
+            final int b = zipinputstream.read();
+            if (b == -1) {
+                break;
+            }
+            bytes.write(b);
+        }
+        return bytes;
+    }
+
 }

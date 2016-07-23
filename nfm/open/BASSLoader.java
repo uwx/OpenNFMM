@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 
 import jouvieje.bass.BassInit;
 import jouvieje.bass.exceptions.BassException;
+import nfm.open.music.RadicalBASS;
 
 class BASSLoader {
 

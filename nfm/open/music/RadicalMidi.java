@@ -1,34 +1,31 @@
-package nfm.open;
-
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+package nfm.open.music;
 
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Sequencer;
+import java.io.*;
 
-class RadicalMidi implements RadicalMusic {
+/**
+ * The Class RadicalMidi.
+ */
+public class RadicalMidi implements RadicalMusic {
 
     private BufferedInputStream is;
+
     private Sequencer sequencer;
+
     private boolean paused;
+
     private final String s;
+
     private FileInputStream fi;
     //File fl;
 
     //String filePath;
 
     /**
-     * Sets up the nfm.open.RadicalMidi for playback. Use load() to load the file; Use
-     * play() to play (and loop) the file; use setPaused(true/false) to
-     * pause/resume the file; Use unload() to unload the file, then (preferably)
-     * set nfm.open.RadicalMidi to null; Use playMidi() or playMidi(int gain) or
-     * playMidi(int gain, int loops) to manually play a midi file.
+     * Sets up the RadicalMidi for playback. Use load() to load the file; Use play() to play (and loop) the file; use setPaused(true/false) to pause/resume the file; Use unload() to unload the file, then (preferably) set RadicalMidi to null; Use playMidi() or playMidi(int gain) or playMidi(int gain, int loops) to manually play a midi file.
      *
-     * @param fn
-     *            the file name of the file to load.
+     * @param fn the file name of the file to load.
      */
     public RadicalMidi(final String fn) {
         // then it must be a midi!
@@ -42,7 +39,6 @@ class RadicalMidi implements RadicalMusic {
         try {
             // Obtains the default Sequencer connected to a default device.
             sequencer = MidiSystem.getSequencer();
-
             // Opens the device, indicating that it should now acquire any
             // system resources it requires and become operational.
             sequencer.open();
@@ -54,7 +50,6 @@ class RadicalMidi implements RadicalMusic {
         try {
             // create a stream from a file
             is = new BufferedInputStream(fi);
-
         } catch (final Exception ex) {
             System.out.println("Error buffering Midi file \"" + fn + "\":");
             ex.printStackTrace();
@@ -62,6 +57,9 @@ class RadicalMidi implements RadicalMusic {
 
     }
 
+    /* (non-Javadoc)
+     * @see com.trashers.skyline.singleplayer.RadicalMusic#resume()
+     */
     @Deprecated
     @Override
     /**
@@ -102,7 +100,7 @@ class RadicalMidi implements RadicalMusic {
             System.out.println("There is a mistake in your Midi code,");
             System.out.println("please re-check!");
             ex.printStackTrace();
-        } catch (final java.lang.IllegalStateException ex) {
+        } catch (final IllegalStateException ex) {
             System.out.println("Error playing Midi file " + s + ", check if the file exists!");
             ex.printStackTrace();
         } catch (final Exception ex) {
@@ -113,6 +111,8 @@ class RadicalMidi implements RadicalMusic {
 
     /**
      * Sets the paused state. Music may not immediately pause.
+     *
+     * @param paused the new paused
      */
     @Override
     public void setPaused(final boolean paused) {
@@ -128,6 +128,8 @@ class RadicalMidi implements RadicalMusic {
 
     /**
      * Returns the paused state.
+     *
+     * @return true, if is paused
      */
     @Override
     public boolean isPaused() {
@@ -171,8 +173,11 @@ class RadicalMidi implements RadicalMusic {
         System.gc();
     }
 
+    /* (non-Javadoc)
+     * @see com.trashers.skyline.singleplayer.RadicalMusic#getType()
+     */
     @Override
-    public int getType() {
-        return TYPE_MIDI;
+    public Type getType() {
+        return Type.TYPE_MIDI;
     }
 }

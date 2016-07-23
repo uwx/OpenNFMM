@@ -2,6 +2,8 @@ package nfm.open;
 /* nfm.open.xtGraphics - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
+import nfm.open.music.*;
+
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -4626,7 +4628,11 @@ class xtGraphics extends Panel implements Runnable {
         runner = new Thread(this);
         runner.start();
         loadimages();
-        intertrack = new RadicalMod("music/interface.zip");
+        try {
+            intertrack = new RadicalBASS(new File("music/interface.zip"));
+        } catch (Exception e) {
+            intertrack = new RadicalMod("music/interface.zip");
+        }
         dnload += 44;
         loadsounds();
     }
@@ -5395,94 +5401,8 @@ class xtGraphics extends Panel implements Runnable {
     }
 
     void loadstrack(final int i, final String string, final int i52) {
-        final File f = new File("music/stage" + i + ".mod");
-        if (f.exists()) {
-            strack = new RadicalBASS(f);
-        } else if (new File("music/stage" + i + ".mid").exists()) {
-            strack = new RadicalMidi("music/stage" + i + ".mid");
-        } else if (new File("music/stage" + i + ".mp3").exists()) {
-            strack = new RadicalMp3("music/stage" + i + ".mp3");
-        } else if (new File("music/stage" + i + ".ogg").exists()) {
-            strack = new RadicalOgg("music/stage" + i + ".ogg");
-        } else {
-            if (i == 1) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 240, 8400, 135, false, false);
-            } else if (i == 2) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 190, 9000, 145, false, false);
-            } else if (i == 3) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 170, 8500, 145, false, false);
-            } else if (i == 4) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 205, 7500, 125, false, false);
-            } else if (i == 5) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 170, 7900, 125, false, false);
-            } else if (i == 6) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 370, 7900, 125, false, false);
-            } else if (i == 7) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 205, 7500, 125, false, false);
-            } else if (i == 8) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 230, 7900, 125, false, false);
-            } else if (i == 9) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 180, 7900, 125, false, false);
-            } else if (i == 10) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 280, 8100, 145, false, false);
-            } else if (i == 11) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 120, 8000, 125, false, false);
-            } else if (i == 12) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 260, 7200, 125, false, false);
-            } else if (i == 13) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 270, 8000, 125, false, false);
-            } else if (i == 14) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 190, 8000, 125, false, false);
-            } else if (i == 15) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 162, 7800, 125, false, false);
-            } else if (i == 16) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 220, 7600, 125, false, false);
-            } else if (i == 17) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 300, 7500, 125, false, false);
-            } else if (i == 18) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 200, 7900, 125, false, false);
-            } else if (i == 19) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 200, 7900, 125, false, false);
-            } else if (i == 20) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 232, 7300, 125, false, false);
-            } else if (i == 21) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 370, 7900, 125, false, false);
-            } else if (i == 22) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 290, 7900, 125, false, false);
-            } else if (i == 23) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 222, 7600, 125, false, false);
-            } else if (i == 24) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 230, 8000, 125, false, false);
-            } else if (i == 25) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 220, 8000, 125, false, false);
-            } else if (i == 26) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 261, 8000, 125, false, false);
-            } else if (i == 27) {
-                strack = new RadicalMod("music/party.zip", 400, 7600, 125, false, false);
-            } else if (i == 28) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 182, 8000, 125, false, false);
-            } else if (i == 29) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 220, 8000, 125, false, false);
-            } else if (i == 30) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 200, 8000, 125, false, false);
-            } else if (i == 31) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 350, 7900, 125, false, false);
-            } else if (i == 32) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 310, 8000, 125, false, false);
-            } else if (i > 32) {
-                strack = new RadicalMod("music/stage" + i + ".zip", 550, 8000, 125, false, false);
-            }
-        }
-        if (i < 0)
-            if (!string.equals("")) {
-                if (i != -2) {
-                    strack = new RadicalMod("mystages/mymusic/" + string + ".zip", i52, 8000, 125, false, false);
-                } else {
-                    strack = new RadicalMod(string, i52, 8000, 125, false, true);
-                }
-            } else {
-                strack = new RadicalMod();
-            }
+        strack = TrackZipLoader.loadLegacy(i, string, i52);
+
         loadedt = true;
     }
 

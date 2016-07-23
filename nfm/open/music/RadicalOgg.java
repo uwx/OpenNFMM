@@ -1,20 +1,13 @@
-package nfm.open;
+package nfm.open.music;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
-import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.PausablePlayer;
+import org.newdawn.easyogg.OggClip;
 
-class RadicalMp3 implements RadicalMusic {
+class RadicalOgg implements RadicalMusic {
 
-    //BufferedInputStream is;
     private boolean paused;
-    private FileInputStream fi;
-
-    private PausablePlayer player;
-    String filePath;
+    private OggClip ogg;
 
     /**
      * Sets up the nfm.open.RadicalMidi for playback. Use load() to load the file; Use
@@ -26,14 +19,12 @@ class RadicalMp3 implements RadicalMusic {
      * @param fn
      *            the file name of the file to load.
      */
-    public RadicalMp3(final String fn) {
-        final File fl = new File(fn);
+    public RadicalOgg(final String fn) {
         try {
-            fi = new FileInputStream(fl);
-            player = new PausablePlayer(fi);
-        } catch (JavaLayerException | FileNotFoundException ex) {
-            System.out.println("Error loading Mp3!");
-            ex.printStackTrace();
+            ogg = new OggClip(fn);
+        } catch (final IOException e) {
+            System.out.println("Error loading Ogg!");
+            e.printStackTrace();
         }
     }
 
@@ -43,7 +34,7 @@ class RadicalMp3 implements RadicalMusic {
      * Resumes playback of the midi.
      */
     public void resume() {
-        player.resume();
+        ogg.resume();
     }
 
     /**
@@ -51,11 +42,7 @@ class RadicalMp3 implements RadicalMusic {
      */
     @Override
     public void play() {
-        try {
-            player.play();
-        } catch (final JavaLayerException e) {
-            e.printStackTrace();
-        }
+        ogg.loop();
     }
 
     /**
@@ -65,9 +52,9 @@ class RadicalMp3 implements RadicalMusic {
     public void setPaused(final boolean paused) {
         this.paused = paused;
         if (paused) {
-            player.pause();
+            ogg.pause();
         } else {
-            player.resume();
+            ogg.resume();
         }
     }
 
@@ -85,7 +72,7 @@ class RadicalMp3 implements RadicalMusic {
     @Override
     @Deprecated
     public void stop() {
-        player.pause();
+        ogg.pause();
     }
 
     /**
@@ -93,12 +80,13 @@ class RadicalMp3 implements RadicalMusic {
      */
     @Override
     public void unload() {
-        player.close();
+        ogg.stop();
+        ogg.close();
         System.gc();
     }
 
     @Override
-    public int getType() {
-        return RadicalMusic.TYPE_MP3;
+    public Type getType() {
+        return Type.TYPE_OGG;
     }
 }

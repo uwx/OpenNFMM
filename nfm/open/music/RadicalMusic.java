@@ -1,26 +1,31 @@
-package nfm.open;
+package nfm.open.music;
 
-interface RadicalMusic {
+/**
+ * The Interface RadicalMusic.
+ */
+public interface RadicalMusic {
 
-    //nfm.open.SuperClip sClip = null;
-    int TYPE_BASS = 4;
-    int TYPE_OGG = 3;
-    int TYPE_MP3 = 2;
-    int TYPE_MIDI = 1;
-    int TYPE_MOD = 0;
+    enum Type {
+        TYPE_BASS, TYPE_OGG, TYPE_MP3, TYPE_MIDI, TYPE_MOD, TYPE_UNKNOWN
+    }
 
-    int getType();
+    /**
+     * Gets the type.
+     *
+     * @return the type
+     */
+    Type getType();
 
-    @Deprecated
     /**
      * Pauses the file playback. Deprecated: Use setPaused instead.
      */
+    @Deprecated
     void stop();
 
-    @Deprecated
     /**
      * Resumes playback of the file. Deprecated: Use setPaused instead.
      */
+    @Deprecated
     void resume();
 
     /**
@@ -36,14 +41,14 @@ interface RadicalMusic {
     /**
      * Sets the paused state. Music may not immediately pause.
      *
-     * @param pause true to pause, false to resume.
+     * @param pause the new paused
      */
     void setPaused(boolean pause);
 
     /**
      * Returns the paused state.
      *
-     * @return the paused state.
+     * @return true, if is paused
      */
     boolean isPaused();
 }

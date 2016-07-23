@@ -1,8 +1,8 @@
-package nfm.open;
+package nfm.open.music;
 // Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3)
-// Source File Name:   nfm.open.SuperClip.java
+// Source File Name:   nfm.open.music.SuperClip.java
 
 import java.io.ByteArrayInputStream;
 
@@ -10,7 +10,7 @@ import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.SourceDataLine;
 
-class SuperClip implements Runnable {
+public class SuperClip implements Runnable {
 
     SuperClip(final byte[] abyte0, final int i, final int j) {
         skiprate = 0;
@@ -118,9 +118,9 @@ class SuperClip implements Runnable {
 
     private int skiprate;
     private Thread cliper;
-    int stoped;
+    public int stoped;
     private SourceDataLine source;
-    ByteArrayInputStream stream;
-    int rollBackPos;
-    int rollBackTrig;
+    public ByteArrayInputStream stream;
+    public int rollBackPos;
+    public int rollBackTrig;
 }
