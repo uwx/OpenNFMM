@@ -6,10 +6,9 @@ class Utility {
      * Gets a value from a string in format:
      * string(value1,value2,value3...)
      *
-     *
-     * @param string The variable name (e.g: foo(bar) = foo)
+     * @param string      The variable name (e.g: foo(bar) = foo)
      * @param string_262_ The string (single line) to get the value from
-     * @param i The position of the value (starting from 0)
+     * @param i           The position of the value (starting from 0)
      * @return An integer containing the value
      */
     public static int getvalue(final String string, final String string_262_, final int i) {
@@ -29,6 +28,7 @@ class Utility {
 
     /**
      * Allan please add comments
+     *
      * @param string
      * @param i
      * @return
@@ -64,10 +64,8 @@ class Utility {
     /**
      * Turns a 3D XY coordinate into a 2D X perspective coordinate.
      *
-     * @param i
-     *            The 3D X point
-     * @param i_338_
-     *            The 3D Y point
+     * @param i      The 3D X point
+     * @param i_338_ The 3D Y point
      * @return The 2D X coordinate.
      */
     public static int xs(final int i, int i_338_, Medium m) {
@@ -79,10 +77,8 @@ class Utility {
     /**
      * Turns a 3D ZY coordinate into a 2D Y perspective coordinate.
      *
-     * @param i
-     *            The 3D Z point
-     * @param i_339_
-     *            The 3D Y point
+     * @param i      The 3D Z point
+     * @param i_339_ The 3D Y point
      * @return The 2D Y coordinate.
      */
     public static int ys(final int i, int i_339_, Medium m) {
@@ -108,7 +104,7 @@ class Utility {
     // medium
 
     /*static public int mediumXs(final int i, int i_272_) {
-    	if (i_272_ < m.cz)
+        if (i_272_ < m.cz)
     		i_272_ = m.cz;
     	return (i_272_ - m.focus_point) * (m.cx - i) / i_272_ + i;
     }*/

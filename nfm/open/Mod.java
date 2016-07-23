@@ -3,228 +3,223 @@ package nfm.open;
  * DragShot Software
  * JODE (c) 1998-2001 Jochen Hoenicke
  */
-import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
-import java.io.EOFException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+
+import java.io.*;
 import java.net.URL;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 class Mod {
-	private static final int voice_28ch = FOURCC("28CH");
-	private static final int voice_6chn = FOURCC("6CHN");
-	private static final int voice_8chn = FOURCC("8CHN");
-	private static final int voice_flt4 = FOURCC("FLT4");
-	private static final int voice_flt8 = FOURCC("FLT8");
-	private static final int voice_mk = FOURCC("M.K.");
-	private static final int voice_mk2 = FOURCC("M!K!");
-	private static final int voice_mk3 = FOURCC("M&K!");
-	private static final int[] voice_31_list = { voice_mk, voice_mk2, voice_mk3, voice_flt4, voice_flt8, voice_8chn, voice_6chn,
-			voice_28ch };
-	
-	static int FOURCC(final String string) {
-		return string.charAt(3) & 0xff | (string.charAt(2) & 0xff) << 8 | (string.charAt(1) & 0xff) << 16
-				| (string.charAt(0) & 0xff) << 24;
-	}
+    private static final int voice_28ch = FOURCC("28CH");
+    private static final int voice_6chn = FOURCC("6CHN");
+    private static final int voice_8chn = FOURCC("8CHN");
+    private static final int voice_flt4 = FOURCC("FLT4");
+    private static final int voice_flt8 = FOURCC("FLT8");
+    private static final int voice_mk = FOURCC("M.K.");
+    private static final int voice_mk2 = FOURCC("M!K!");
+    private static final int voice_mk3 = FOURCC("M&K!");
+    private static final int[] voice_31_list = {voice_mk, voice_mk2, voice_mk3, voice_flt4, voice_flt8, voice_8chn, voice_6chn,
+            voice_28ch};
 
-	private static ModInstrument readInstrument(final DataInputStream datainputstream) throws IOException {
-		final ModInstrument modinstrument = new ModInstrument();
-		modinstrument.name = readText(datainputstream, 22);
-		modinstrument.sample_length = readu16(datainputstream) << 1;
-		modinstrument.samples = new byte[modinstrument.sample_length + 8];
-		modinstrument.finetune_value = (byte) (readu8(datainputstream) << 4);
-		modinstrument.volume = readu8(datainputstream);
-		modinstrument.repeat_point = readu16(datainputstream) << 1;
-		modinstrument.repeat_length = readu16(datainputstream) << 1;
-		if (modinstrument.repeat_point > modinstrument.sample_length)
-			modinstrument.repeat_point = modinstrument.sample_length;
-		if (modinstrument.repeat_point + modinstrument.repeat_length > modinstrument.sample_length)
-			modinstrument.repeat_length = modinstrument.sample_length - modinstrument.repeat_point;
-		return modinstrument;
-	}
+    static int FOURCC(final String string) {
+        return string.charAt(3) & 0xff | (string.charAt(2) & 0xff) << 8 | (string.charAt(1) & 0xff) << 16
+                | (string.charAt(0) & 0xff) << 24;
+    }
 
-	private static void readSampleData(final DataInputStream datainputstream, final ModInstrument modinstrument)
-			throws IOException {
-		datainputstream.readFully(modinstrument.samples, 0, modinstrument.sample_length);
-		if (modinstrument.repeat_length > 3)
-			System.arraycopy(modinstrument.samples, modinstrument.repeat_point, modinstrument.samples,
-					modinstrument.sample_length, 8);
-	}
+    private static ModInstrument readInstrument(final DataInputStream datainputstream) throws IOException {
+        final ModInstrument modinstrument = new ModInstrument();
+        modinstrument.name = readText(datainputstream, 22);
+        modinstrument.sample_length = readu16(datainputstream) << 1;
+        modinstrument.samples = new byte[modinstrument.sample_length + 8];
+        modinstrument.finetune_value = (byte) (readu8(datainputstream) << 4);
+        modinstrument.volume = readu8(datainputstream);
+        modinstrument.repeat_point = readu16(datainputstream) << 1;
+        modinstrument.repeat_length = readu16(datainputstream) << 1;
+        if (modinstrument.repeat_point > modinstrument.sample_length)
+            modinstrument.repeat_point = modinstrument.sample_length;
+        if (modinstrument.repeat_point + modinstrument.repeat_length > modinstrument.sample_length)
+            modinstrument.repeat_length = modinstrument.sample_length - modinstrument.repeat_point;
+        return modinstrument;
+    }
 
-	private static String readText(final DataInputStream datainputstream, final int i) throws IOException {
-		final byte[] is = new byte[i];
-		datainputstream.readFully(is, 0, i);
-		for (int i_12_ = i - 1; i_12_ >= 0; i_12_--)
-			if (is[i_12_] != 0)
-				return new String(is, 0, 0, i_12_ + 1);
-		return "";
-	}
+    private static void readSampleData(final DataInputStream datainputstream, final ModInstrument modinstrument)
+            throws IOException {
+        datainputstream.readFully(modinstrument.samples, 0, modinstrument.sample_length);
+        if (modinstrument.repeat_length > 3)
+            System.arraycopy(modinstrument.samples, modinstrument.repeat_point, modinstrument.samples,
+                    modinstrument.sample_length, 8);
+    }
 
-	private static int readu16(final DataInputStream datainputstream) throws IOException {
-		return datainputstream.readShort() & 0xffff;
-	}
+    private static String readText(final DataInputStream datainputstream, final int i) throws IOException {
+        final byte[] is = new byte[i];
+        datainputstream.readFully(is, 0, i);
+        for (int i_12_ = i - 1; i_12_ >= 0; i_12_--)
+            if (is[i_12_] != 0)
+                return new String(is, 0, 0, i_12_ + 1);
+        return "";
+    }
 
-	private static int readu8(final DataInputStream datainputstream) throws IOException {
-		return datainputstream.readByte() & 0xff;
-	}
+    private static int readu16(final DataInputStream datainputstream) throws IOException {
+        return datainputstream.readShort() & 0xffff;
+    }
 
-	ModInstrument[] insts;
-	private boolean loaded = false;
-	private String name;
-	private int numpatterns;
-	int numtracks;
+    private static int readu8(final DataInputStream datainputstream) throws IOException {
+        return datainputstream.readByte() & 0xff;
+    }
 
-	byte[][] patterns;
+    ModInstrument[] insts;
+    private boolean loaded = false;
+    private String name;
+    private int numpatterns;
+    int numtracks;
 
-	byte[] positions;
+    byte[][] patterns;
 
-	boolean s3m;
+    byte[] positions;
 
-	int song_length_patterns;
+    boolean s3m;
 
-	private int song_repeat_patterns;
+    int song_length_patterns;
 
-	int track_shift;
+    private int song_repeat_patterns;
 
-	public Mod(final byte[] is) {
-		try {
-			final ZipInputStream zipinputstream = new ZipInputStream(new ByteArrayInputStream(is));
-			final ZipEntry zipentry = zipinputstream.getNextEntry();
-			int i = (int) zipentry.getSize();
-			final byte[] is_4_ = new byte[i];
-			int i_5_ = 0;
-			int i_6_;
-			for (/**/; i > 0; i -= i_6_) {
-				i_6_ = zipinputstream.read(is_4_, i_5_, i);
-				i_5_ += i_6_;
-			}
-			LoadMod(new ByteArrayInputStream(is_4_));
-			loaded = true;
-		} catch (final Exception exception) {
-			loaded = false;
-		}
-	}
+    int track_shift;
 
-	public Mod(final String string) {
-		try {
-			final File file = new File(string);
-			final ZipInputStream zipinputstream = new ZipInputStream(new FileInputStream(file));
-			final ZipEntry zipentry = zipinputstream.getNextEntry();
-			int i = (int) zipentry.getSize();
-			final byte[] is = new byte[i];
-			int i_0_ = 0;
-			int i_1_;
-			for (/**/; i > 0; i -= i_1_) {
-				i_1_ = zipinputstream.read(is, i_0_, i);
-				i_0_ += i_1_;
-			}
-			LoadMod(new ByteArrayInputStream(is));
-			zipinputstream.close();
-			loaded = true;
-		} catch (final Exception exception) {
-			loaded = false;
-		}
-	}
+    public Mod(final byte[] is) {
+        try {
+            final ZipInputStream zipinputstream = new ZipInputStream(new ByteArrayInputStream(is));
+            final ZipEntry zipentry = zipinputstream.getNextEntry();
+            int i = (int) zipentry.getSize();
+            final byte[] is_4_ = new byte[i];
+            int i_5_ = 0;
+            int i_6_;
+            for (/**/; i > 0; i -= i_6_) {
+                i_6_ = zipinputstream.read(is_4_, i_5_, i);
+                i_5_ += i_6_;
+            }
+            LoadMod(new ByteArrayInputStream(is_4_));
+            loaded = true;
+        } catch (final Exception exception) {
+            loaded = false;
+        }
+    }
 
-	public Mod(final URL url) {
-		try {
-			final ZipInputStream zipinputstream = new ZipInputStream(new DataInputStream(url.openStream()));
-			final ZipEntry zipentry = zipinputstream.getNextEntry();
-			int i = (int) zipentry.getSize();
-			final byte[] is = new byte[i];
-			int i_2_ = 0;
-			int i_3_;
-			for (/**/; i > 0; i -= i_3_) {
-				i_3_ = zipinputstream.read(is, i_2_, i);
-				i_2_ += i_3_;
-			}
-			LoadMod(new ByteArrayInputStream(is));
-			zipinputstream.close();
-			loaded = true;
-		} catch (final Exception exception) {
-			loaded = false;
-		}
-	}
+    public Mod(final String string) {
+        try {
+            final File file = new File(string);
+            final ZipInputStream zipinputstream = new ZipInputStream(new FileInputStream(file));
+            final ZipEntry zipentry = zipinputstream.getNextEntry();
+            int i = (int) zipentry.getSize();
+            final byte[] is = new byte[i];
+            int i_0_ = 0;
+            int i_1_;
+            for (/**/; i > 0; i -= i_1_) {
+                i_1_ = zipinputstream.read(is, i_0_, i);
+                i_0_ += i_1_;
+            }
+            LoadMod(new ByteArrayInputStream(is));
+            zipinputstream.close();
+            loaded = true;
+        } catch (final Exception exception) {
+            loaded = false;
+        }
+    }
 
-	public String getName() {
-		return name;
-	}
+    public Mod(final URL url) {
+        try {
+            final ZipInputStream zipinputstream = new ZipInputStream(new DataInputStream(url.openStream()));
+            final ZipEntry zipentry = zipinputstream.getNextEntry();
+            int i = (int) zipentry.getSize();
+            final byte[] is = new byte[i];
+            int i_2_ = 0;
+            int i_3_;
+            for (/**/; i > 0; i -= i_3_) {
+                i_3_ = zipinputstream.read(is, i_2_, i);
+                i_2_ += i_3_;
+            }
+            LoadMod(new ByteArrayInputStream(is));
+            zipinputstream.close();
+            loaded = true;
+        } catch (final Exception exception) {
+            loaded = false;
+        }
+    }
 
-	public int getNumPatterns() {
-		return numpatterns;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public int getNumTracks() {
-		return numtracks;
-	}
+    public int getNumPatterns() {
+        return numpatterns;
+    }
 
-	private void LoadMod(final InputStream inputstream) throws IOException {
-		final DataInputStream datainputstream = new DataInputStream(inputstream);
-		int i = 15;
-		numtracks = 4;
-		name = readText(datainputstream, 20);
-		datainputstream.mark(1068);
-		datainputstream.skip(1060L);
-		final int i_7_ = datainputstream.readInt();
-		datainputstream.reset();
-		for (int aVoice_31_list : voice_31_list)
-			if (i_7_ == aVoice_31_list) {
-				i = 31;
-				break;
-			}
-		if (i == 31)
-			if (i_7_ == voice_8chn)
-				numtracks = 8;
-			else if (i_7_ == voice_6chn)
-				numtracks = 6;
-			else if (i_7_ == voice_28ch)
-				numtracks = 28;
-		insts = new ModInstrument[i];
-		for (int i_9_ = 0; i_9_ < i; i_9_++)
-			insts[i_9_] = readInstrument(datainputstream);
-		readSequence(datainputstream);
-		datainputstream.skipBytes(4);
-		readPatterns(datainputstream);
-		try {
-			for (int i_10_ = 0; i_10_ < i; i_10_++)
-				readSampleData(datainputstream, insts[i_10_]);
-		} catch (final EOFException eofexception) {
-			System.out.println("Warning: EOF on MOD file");
-		}
-		datainputstream.close();
-		inputstream.close();
-	}
+    public int getNumTracks() {
+        return numtracks;
+    }
 
-	private void readPatterns(final DataInputStream datainputstream) throws IOException {
-		final int i = numtracks * 4 * 64;
-		patterns = new byte[numpatterns][];
-		for (int i_11_ = 0; i_11_ < numpatterns; i_11_++) {
-			patterns[i_11_] = new byte[i];
-			datainputstream.readFully(patterns[i_11_], 0, i);
-		}
-	}
+    private void LoadMod(final InputStream inputstream) throws IOException {
+        final DataInputStream datainputstream = new DataInputStream(inputstream);
+        int i = 15;
+        numtracks = 4;
+        name = readText(datainputstream, 20);
+        datainputstream.mark(1068);
+        datainputstream.skip(1060L);
+        final int i_7_ = datainputstream.readInt();
+        datainputstream.reset();
+        for (int aVoice_31_list : voice_31_list)
+            if (i_7_ == aVoice_31_list) {
+                i = 31;
+                break;
+            }
+        if (i == 31)
+            if (i_7_ == voice_8chn)
+                numtracks = 8;
+            else if (i_7_ == voice_6chn)
+                numtracks = 6;
+            else if (i_7_ == voice_28ch)
+                numtracks = 28;
+        insts = new ModInstrument[i];
+        for (int i_9_ = 0; i_9_ < i; i_9_++)
+            insts[i_9_] = readInstrument(datainputstream);
+        readSequence(datainputstream);
+        datainputstream.skipBytes(4);
+        readPatterns(datainputstream);
+        try {
+            for (int i_10_ = 0; i_10_ < i; i_10_++)
+                readSampleData(datainputstream, insts[i_10_]);
+        } catch (final EOFException eofexception) {
+            System.out.println("Warning: EOF on MOD file");
+        }
+        datainputstream.close();
+        inputstream.close();
+    }
 
-	private void readSequence(final DataInputStream datainputstream) throws IOException {
-		positions = new byte[128];
-		song_length_patterns = readu8(datainputstream);
-		song_repeat_patterns = readu8(datainputstream);
-		datainputstream.readFully(positions, 0, 128);
-		if (song_repeat_patterns > song_length_patterns)
-			song_repeat_patterns = song_length_patterns;
-		numpatterns = 0;
-		for (byte position : positions)
-			if (position > numpatterns)
-				numpatterns = position;
-		numpatterns++;
-	}
+    private void readPatterns(final DataInputStream datainputstream) throws IOException {
+        final int i = numtracks * 4 * 64;
+        patterns = new byte[numpatterns][];
+        for (int i_11_ = 0; i_11_ < numpatterns; i_11_++) {
+            patterns[i_11_] = new byte[i];
+            datainputstream.readFully(patterns[i_11_], 0, i);
+        }
+    }
 
-	@Override
-	public String toString() {
-		return name + " (" + numtracks + " tracks, " + numpatterns +
-				" patterns, " + insts.length + " samples)";
-	}
+    private void readSequence(final DataInputStream datainputstream) throws IOException {
+        positions = new byte[128];
+        song_length_patterns = readu8(datainputstream);
+        song_repeat_patterns = readu8(datainputstream);
+        datainputstream.readFully(positions, 0, 128);
+        if (song_repeat_patterns > song_length_patterns)
+            song_repeat_patterns = song_length_patterns;
+        numpatterns = 0;
+        for (byte position : positions)
+            if (position > numpatterns)
+                numpatterns = position;
+        numpatterns++;
+    }
+
+    @Override
+    public String toString() {
+        return name + " (" + numtracks + " tracks, " + numpatterns +
+                " patterns, " + insts.length + " samples)";
+    }
 }

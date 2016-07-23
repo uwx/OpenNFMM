@@ -1,98 +1,97 @@
 package nfm.open;
 
-import java.io.IOException;
-
 import org.newdawn.easyogg.OggClip;
+
+import java.io.IOException;
 
 class RadicalOgg implements RadicalMusic {
 
-	private boolean paused;
-	private final boolean loaded;
-	private final boolean playing;
-	private final String s;
+    private boolean paused;
+    private final boolean loaded;
+    private final boolean playing;
+    private final String s;
 
-	private final OggClip ogg;
+    private final OggClip ogg;
 
-	/**
-	 * Sets up the nfm.open.RadicalMidi for playback. Use load() to load the file; Use
-	 * play() to play (and loop) the file; use setPaused(true/false) to
-	 * pause/resume the file; Use unload() to unload the file, then (preferably)
-	 * set nfm.open.RadicalMidi to null; Use playMidi() or playMidi(int gain) or
-	 * playMidi(int gain, int loops) to manually play a midi file.
-	 *
-	 * @param fn
-	 *            the file name of the file to load.
-	 */
-	public RadicalOgg(final String fn) {
-		loaded = false;
-		playing = false;
-		s = fn;
-		try {
-			ogg = new OggClip(fn);
-		} catch (final IOException e) {
-			System.out.println("Error loading Ogg!");
-			e.printStackTrace();
-		}
-	}
+    /**
+     * Sets up the nfm.open.RadicalMidi for playback. Use load() to load the file; Use
+     * play() to play (and loop) the file; use setPaused(true/false) to
+     * pause/resume the file; Use unload() to unload the file, then (preferably)
+     * set nfm.open.RadicalMidi to null; Use playMidi() or playMidi(int gain) or
+     * playMidi(int gain, int loops) to manually play a midi file.
+     *
+     * @param fn the file name of the file to load.
+     */
+    public RadicalOgg(final String fn) {
+        loaded = false;
+        playing = false;
+        s = fn;
+        try {
+            ogg = new OggClip(fn);
+        } catch (final IOException e) {
+            System.out.println("Error loading Ogg!");
+            e.printStackTrace();
+        }
+    }
 
-	@Deprecated
-	@Override
-	/**
-	 * Resumes playback of the midi.
-	 */
-	public void resume() {
-		ogg.resume();
-	}
+    @Deprecated
+    @Override
+    /**
+     * Resumes playback of the midi.
+     */
+    public void resume() {
+        ogg.resume();
+    }
 
-	/**
-	 * Begins playing the midi.
-	 */
-	@Override
-	public void play() {
-		ogg.loop();
-	}
+    /**
+     * Begins playing the midi.
+     */
+    @Override
+    public void play() {
+        ogg.loop();
+    }
 
-	/**
-	 * Sets the paused state. Music may not immediately pause.
-	 */
-	@Override
-	public void setPaused(final boolean paused) {
-		this.paused = paused;
-		if (paused)
-			ogg.pause();
-		else
-			ogg.resume();
-	}
+    /**
+     * Sets the paused state. Music may not immediately pause.
+     */
+    @Override
+    public void setPaused(final boolean paused) {
+        this.paused = paused;
+        if (paused)
+            ogg.pause();
+        else
+            ogg.resume();
+    }
 
-	/**
-	 * Returns the paused state.
-	 */
-	@Override
-	public boolean isPaused() {
-		return paused;
-	}
+    /**
+     * Returns the paused state.
+     */
+    @Override
+    public boolean isPaused() {
+        return paused;
+    }
 
-	/**
-	 * Stops the midi sequencer.
-	 */
-	@Override
-	@Deprecated
-	public void stop() {
-		ogg.pause();
-	}
+    /**
+     * Stops the midi sequencer.
+     */
+    @Override
+    @Deprecated
+    public void stop() {
+        ogg.pause();
+    }
 
-	/**
-	 * Closes the midi sequencer.
-	 */
-	@Override
-	public void unload() {
-		ogg.stop();
-		ogg.close();
-		System.gc();
-	}
+    /**
+     * Closes the midi sequencer.
+     */
+    @Override
+    public void unload() {
+        ogg.stop();
+        ogg.close();
+        System.gc();
+    }
 
-	@Override
-	public int getType() {
-		return RadicalMusic.TYPE_OGG;
-	}
+    @Override
+    public int getType() {
+        return RadicalMusic.TYPE_OGG;
+    }
 }
