@@ -1,12 +1,12 @@
 package nfm.open;
 
-public interface RadicalMusic {
+interface RadicalMusic {
 
 	//nfm.open.SuperClip sClip = null;
-	static final int TYPE_OGG = 3;
-	static final int TYPE_MP3 = 2;
-	static final int TYPE_MIDI = 1;
-	static final int TYPE_MOD = 0;
+	int TYPE_OGG = 3;
+	int TYPE_MP3 = 2;
+	int TYPE_MIDI = 1;
+	int TYPE_MOD = 0;
 
 	int getType();
 

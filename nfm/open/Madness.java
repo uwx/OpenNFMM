@@ -24,27 +24,27 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
-public class Madness extends Panel {
-	static long advtime = 0L;
+class Madness extends Panel {
+	private static long advtime = 0L;
 	static int anti = 1;
-	static GameSparker applet;
-	static CarMaker cm;
-	static DisplayMode defdisp;
+	private static GameSparker applet;
+	private static CarMaker cm;
+	private static DisplayMode defdisp;
 	static int endadv = 0;
 	static String fpath = "";
-	static Frame frame;
+	private static Frame frame;
 	static boolean fullscreen = false;
 	static boolean inisetup = false;
-	static GraphicsDevice myDevice;
+	private static GraphicsDevice myDevice;
 	/**
 	 *
 	 */
 	private static final long serialVersionUID = 8881840450218558380L;
-	static StageMaker sm;
+	private static StageMaker sm;
 	static String testcar = "";
 	static int testdrive = 0;
 	static int textid = 0;
-	static int updateon = 0;
+	private static final int updateon = 0;
 
 	public static void advopen() {
 		try {
@@ -57,7 +57,7 @@ public class Madness extends Panel {
 					final String string = System.getProperty("os.name").toLowerCase();
 					if (string.contains("win")) {
 						final File file_26_ = new File(
-								new StringBuilder().append("").append(fpath).append("data/adv.bat").toString());
+								"" + fpath + "data/adv.bat");
 						boolean bool = false;
 						if (!file_26_.exists())
 							bool = true;
@@ -94,11 +94,11 @@ public class Madness extends Panel {
 		}*/
 		try {
 			cm.stop();
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		try {
 			sm.stop();
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		frame.removeAll();
 		try {
@@ -112,23 +112,23 @@ public class Madness extends Panel {
 		}*/
 		try {
 			cm.destroy();
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		try {
 			sm.destroy();
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		try {
 			applet = null;
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		try {
 			cm = null;
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		try {
 			sm = null;
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		System.gc();
 		System.runFinalization();
@@ -144,16 +144,13 @@ public class Madness extends Panel {
 		cm.start();
 	}
 
-	public static void checknupdate(final int i) {
-		/* :D */ }
-
 	public static void exitfullscreen() {
 		frame.dispose();
 		frame = new Frame("Need for nfm.open.Madness");
 		frame.setBackground(new Color(0, 0, 0));
 		frame.setIgnoreRepaint(true);
 		frame.setIconImage(Toolkit.getDefaultToolkit()
-				.createImage(new StringBuilder().append("").append(fpath).append("data/icon.gif").toString()));
+				.createImage("" + fpath + "data/icon.gif"));
 		frame.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(final WindowEvent windowevent) {
@@ -182,7 +179,7 @@ public class Madness extends Panel {
 		fullscreen = false;
 	}
 
-	public static void exitsequance() {
+	private static void exitsequance() {
 		if (updateon == 0 || updateon == 3) {
 			if (endadv == 1)
 				endadv = 2;
@@ -193,11 +190,11 @@ public class Madness extends Panel {
 				}*/
 			try {
 				sm.stop();
-			} catch (final Exception ex) {
+			} catch (final Exception ignored) {
 			}
 			try {
 				cm.stop();
-			} catch (final Exception ex) {
+			} catch (final Exception ignored) {
 			}
 			frame.removeAll();
 			try {
@@ -211,23 +208,23 @@ public class Madness extends Panel {
 			}*/
 			try {
 				cm.destroy();
-			} catch (final Exception ex) {
+			} catch (final Exception ignored) {
 			}
 			try {
 				sm.destroy();
-			} catch (final Exception ex) {
+			} catch (final Exception ignored) {
 			}
 			try {
 				applet = null;
-			} catch (final Exception ex) {
+			} catch (final Exception ignored) {
 			}
 			try {
 				cm = null;
-			} catch (final Exception ex) {
+			} catch (final Exception ignored) {
 			}
 			try {
 				sm = null;
-			} catch (final Exception ex) {
+			} catch (final Exception ignored) {
 			}
 			System.exit(0);
 		}
@@ -240,11 +237,11 @@ public class Madness extends Panel {
 		}*/
 		try {
 			cm.stop();
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		try {
 			sm.stop();
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		frame.removeAll();
 		try {
@@ -258,23 +255,23 @@ public class Madness extends Panel {
 		}*/
 		try {
 			cm.destroy();
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		try {
 			sm.destroy();
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		try {
 			applet = null;
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		try {
 			cm = null;
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		try {
 			sm = null;
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		System.gc();
 		System.runFinalization();
@@ -294,11 +291,11 @@ public class Madness extends Panel {
 		String string_29_ = "";
 		int i_30_ = 0;
 		for (int i_31_ = string.length() + 1; i_31_ < string_28_.length() && i_30_ <= i; i_31_++) {
-			final String string_32_ = new StringBuilder().append("").append(string_28_.charAt(i_31_)).toString();
+			final String string_32_ = "" + string_28_.charAt(i_31_);
 			if (string_32_.equals(",") || string_32_.equals(")"))
 				i_30_++;
 			else if (i_30_ == i)
-				string_29_ = new StringBuilder().append(string_29_).append(string_32_).toString();
+				string_29_ = string_29_ + string_32_;
 		}
 		return string_29_;
 	}
@@ -357,16 +354,14 @@ public class Madness extends Panel {
 			/* empty */
 		}
 		final String[] strings_10_ = new String[i_3_];
-		for (int i_11_ = 0; i_11_ < i_3_; i_11_++)
-			strings_10_[i_11_] = strings[i_11_];
-		final String[] strings_12_ = strings_10_;
+		System.arraycopy(strings, 0, strings_10_, 0, i_3_);
 		final Object object = JOptionPane.showInputDialog(null,
 				"Choose a screen resolution setting below and click OK to try it.\nExit Fullscreen by pressing [Esc].\n\nIMPORTANT: If the game does not display properly in Fullscreen press [Esc]      \nand try a different resolution setting below,",
-				"Fullscreen Options", 1, null, strings_12_, strings_12_[i]);
+				"Fullscreen Options", 1, null, strings_10_, strings_10_[i]);
 		int i_13_ = -1;
 		if (object != null)
 			for (int i_14_ = 0; i_14_ < i_3_; i_14_++)
-				if (object.equals(strings_12_[i_14_])) {
+				if (object.equals(strings_10_[i_14_])) {
 					i_13_ = is[i_14_];
 					i = i_14_;
 					break;
@@ -374,9 +369,9 @@ public class Madness extends Panel {
 		if (i_13_ != -1) {
 			try {
 				final File file = new File(
-						new StringBuilder().append("").append(fpath).append("data/full_screen.data").toString());
+						"" + fpath + "data/full_screen.data");
 				final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
-				bufferedwriter.write(new StringBuilder().append("").append(i).append("").toString());
+				bufferedwriter.write("" + i + "");
 				bufferedwriter.newLine();
 				bufferedwriter.close();
 			} catch (final Exception exception) {
@@ -416,15 +411,13 @@ public class Madness extends Panel {
 		frame.setIgnoreRepaint(true);
 		fpath = "";
 		boolean bool = false;
-		final String[] strings_0_ = strings;
-		final int i = strings_0_.length;
-		for (int i_1_ = 0; i_1_ < i; i_1_++) {
-			final String string = strings_0_[i_1_];
+		final int i = strings.length;
+		for (final String string : strings) {
 			if (!bool) {
-				fpath = new StringBuilder().append(fpath).append(string).toString();
+				fpath = fpath + string;
 				bool = true;
 			} else
-				fpath = new StringBuilder().append(fpath).append(" ").append(string).toString();
+				fpath = fpath + " " + string;
 		}
 		if (!fpath.equals(""))
 			if (fpath.equals("manar")) {
@@ -433,8 +426,8 @@ public class Madness extends Panel {
 					final File file = new File("data/manar.ok");
 					if (!file.exists()) {
 						final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
-						bufferedwriter.write(new StringBuilder().append("").append((int) (Math.random() * 1000.0))
-								.append("").toString());
+						bufferedwriter.write("" + (int) (Math.random() * 1000.0) +
+								"");
 						bufferedwriter.newLine();
 						bufferedwriter.close();
 					}
@@ -443,12 +436,12 @@ public class Madness extends Panel {
 				}
 			} else {
 				final File file = new File(
-						new StringBuilder().append("").append(fpath).append("data/models.zip").toString());
+						"" + fpath + "data/models.zip");
 				if (!file.exists())
 					fpath = "";
 			}
 		frame.setIconImage(Toolkit.getDefaultToolkit()
-				.createImage(new StringBuilder().append("").append(fpath).append("data/icon.png").toString()));
+				.createImage("" + fpath + "data/icon.png"));
 		applet = new GameSparker();
 		frame.addWindowListener(new WindowAdapter() {
 			@Override
@@ -468,9 +461,8 @@ public class Madness extends Panel {
 		defdisp = myDevice.getDisplayMode();
 		try {
 			Thread.sleep(1000L);
-		} catch (final InterruptedException e) {
+		} catch (final InterruptedException ignored) {
 		}
-		checknupdate(36);
 	}
 
 	public static void openurl(final String string) {
@@ -482,8 +474,8 @@ public class Madness extends Panel {
 			}
 		else
 			try {
-				Runtime.getRuntime().exec(new StringBuilder().append("").append(urlopen()).append(" ").append(string)
-						.append("").toString());
+				Runtime.getRuntime().exec("" + urlopen() + " " + string +
+						"");
 			} catch (final Exception exception) {
 				/* empty */
 			}
@@ -496,11 +488,11 @@ public class Madness extends Panel {
 		}*/
 		try {
 			cm.stop();
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		try {
 			sm.stop();
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		frame.removeAll();
 		try {
@@ -514,23 +506,23 @@ public class Madness extends Panel {
 		}*/
 		try {
 			cm.destroy();
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		try {
 			sm.destroy();
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		try {
 			applet = null;
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		try {
 			cm = null;
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		try {
 			sm = null;
-		} catch (final Exception ex) {
+		} catch (final Exception ignored) {
 		}
 		System.gc();
 		System.runFinalization();
@@ -549,9 +541,9 @@ public class Madness extends Panel {
 	public static String urlopen() {
 		String string = "explorer";
 		final String string_27_ = System.getProperty("os.name").toLowerCase();
-		if (string_27_.indexOf("linux") != -1 || string_27_.indexOf("unix") != -1 || string_27_.equals("aix"))
+		if (string_27_.contains("linux") || string_27_.contains("unix") || string_27_.equals("aix"))
 			string = "xdg-open";
-		if (string_27_.indexOf("mac") != -1)
+		if (string_27_.contains("mac"))
 			string = "open";
 		return string;
 	}

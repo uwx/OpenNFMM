@@ -4,26 +4,26 @@ package nfm.open;
  * DragShot Software
  * JODE (c) 1998-2001 Jochen Hoenicke
  */
-public class Trackers {
-	int[][] c = new int[95000][3];
-	int[] dam = new int[95000];
-	boolean[] decor = new boolean[95000];
+class Trackers {
+	final int[][] c = new int[95000][3];
+	final int[] dam = new int[95000];
+	final boolean[] decor = new boolean[95000];
 	int ncx = 0;
 	int ncz = 0;
-	boolean[] notwall = new boolean[95000];
+	final boolean[] notwall = new boolean[95000];
 	int nt = 0;
-	int[] radx = new int[95000];
-	int[] rady = new int[95000];
-	int[] radz = new int[95000];
+	final int[] radx = new int[95000];
+	final int[] rady = new int[95000];
+	final int[] radz = new int[95000];
 	int[][][] sect = null;
-	int[] skd = new int[95000];
+	final int[] skd = new int[95000];
 	int sx = 0;
 	int sz = 0;
-	int[] x = new int[95000];
-	int[] xy = new int[95000];
-	int[] y = new int[95000];
-	int[] z = new int[95000];
-	int[] zy = new int[95000];
+	final int[] x = new int[95000];
+	final int[] xy = new int[95000];
+	final int[] y = new int[95000];
+	final int[] z = new int[95000];
+	final int[] zy = new int[95000];
 
 	public void devidetrackers(final int i, final int i_0_, final int i_1_, final int i_2_) {
 		sect = null;
@@ -60,8 +60,7 @@ public class Trackers {
 					i_7_++;
 				}
 				sect[i_3_][i_4_] = new int[i_7_];
-				for (int i_11_ = 0; i_11_ < i_7_; i_11_++)
-					sect[i_3_][i_4_][i_11_] = is[i_11_];
+				System.arraycopy(is, 0, sect[i_3_][i_4_], 0, i_7_);
 			}
 		for (int i_12_ = 0; i_12_ < nt; i_12_++)
 			if (dam[i_12_] == 167)
@@ -70,7 +69,7 @@ public class Trackers {
 		ncz--;
 	}
 
-	public int py(final int i, final int i_13_, final int i_14_, final int i_15_) {
+	private int py(final int i, final int i_13_, final int i_14_, final int i_15_) {
 		return (i - i_13_) * (i - i_13_) + (i_14_ - i_15_) * (i_14_ - i_15_);
 	}
 }

@@ -4,96 +4,96 @@ package nfm.open;
  */
 import java.awt.Color;
 
-public class Record {
-	ContO[][] car = new ContO[6][8];
+class Record {
+	final ContO[][] car = new ContO[6][8];
 	int caught = 0;
-	int[] checkpoint = new int[300];
+	private final int[] checkpoint = new int[300];
 	int closefinish = 0;
-	int[] cntdest = new int[8];
-	int cntf = 50;
-	int[] dest = new int[8];
-	int[] fix = new int[8];
+	final int[] cntdest = new int[8];
+	private int cntf = 50;
+	final int[] dest = new int[8];
+	final int[] fix = new int[8];
 	boolean hcaught = false;
-	int[] hcheckpoint = new int[300];
-	int[] hdest = { -1, -1, -1, -1, -1, -1, -1, -1 };
-	int[] hfix = { -1, -1, -1, -1, -1, -1, -1, -1 };
-	boolean[] hlastcheck = new boolean[300];
-	int[][][] hmagx = new int[8][4][7];
-	int[][][] hmagy = new int[8][4][7];
-	int[][][] hmagz = new int[8][4][7];
-	boolean[][] hmtouch = new boolean[8][7];
-	float[][] hrcx = new float[8][200];
-	float[][] hrcy = new float[8][200];
-	float[][] hrcz = new float[8][200];
-	int[][] hrspark = new int[8][200];
-	int[][][] hrx = new int[8][4][7];
-	int[][][] hry = new int[8][4][7];
-	int[][][] hrz = new int[8][4][7];
-	int[][][] hscx = new int[8][20][30];
-	int[][][] hscz = new int[8][20][30];
-	float[][][] hsmag = new float[8][20][30];
-	int[][] hsprk = new int[8][200];
-	int[] hsquash = { 0, 0, 0, 0, 0, 0, 0, 0 };
-	int[][] hsrx = new int[8][200];
-	int[][] hsry = new int[8][200];
-	int[][] hsrz = new int[8][200];
-	int[][][] hsspark = new int[8][20][30];
-	int[][][] hsx = new int[8][20][30];
-	int[][][] hsy = new int[8][20][30];
-	int[][][] hsz = new int[8][20][30];
-	int[][] hwxz = new int[300][8];
-	int[][] hwzy = new int[300][8];
-	int[][] hx = new int[300][8];
-	int[][] hxy = new int[300][8];
-	int[][] hxz = new int[300][8];
-	int[][] hy = new int[300][8];
-	int[][] hz = new int[300][8];
-	int[][] hzy = new int[300][8];
-	boolean[] lastcheck = new boolean[300];
-	int lastfr = 0;
-	Medium m;
-	int[][][] magx = new int[8][4][7];
-	int[][][] magy = new int[8][4][7];
-	int[][][] magz = new int[8][4][7];
-	boolean[][] mtouch = new boolean[8][7];
-	int[] nr = new int[8];
-	int[][] nrx = new int[8][4];
-	int[][] nry = new int[8][4];
-	int[][] nrz = new int[8][4];
-	int[][] ns = new int[8][20];
-	ContO[] ocar = new ContO[8];
+	private final int[] hcheckpoint = new int[300];
+	private final int[] hdest = { -1, -1, -1, -1, -1, -1, -1, -1 };
+	final int[] hfix = { -1, -1, -1, -1, -1, -1, -1, -1 };
+	private final boolean[] hlastcheck = new boolean[300];
+	private final int[][][] hmagx = new int[8][4][7];
+	private final int[][][] hmagy = new int[8][4][7];
+	private final int[][][] hmagz = new int[8][4][7];
+	private final boolean[][] hmtouch = new boolean[8][7];
+	private final float[][] hrcx = new float[8][200];
+	private final float[][] hrcy = new float[8][200];
+	private final float[][] hrcz = new float[8][200];
+	private final int[][] hrspark = new int[8][200];
+	private final int[][][] hrx = new int[8][4][7];
+	private final int[][][] hry = new int[8][4][7];
+	private final int[][][] hrz = new int[8][4][7];
+	private final int[][][] hscx = new int[8][20][30];
+	private final int[][][] hscz = new int[8][20][30];
+	private final float[][][] hsmag = new float[8][20][30];
+	private final int[][] hsprk = new int[8][200];
+	private final int[] hsquash = { 0, 0, 0, 0, 0, 0, 0, 0 };
+	private final int[][] hsrx = new int[8][200];
+	private final int[][] hsry = new int[8][200];
+	private final int[][] hsrz = new int[8][200];
+	private final int[][][] hsspark = new int[8][20][30];
+	private final int[][][] hsx = new int[8][20][30];
+	private final int[][][] hsy = new int[8][20][30];
+	private final int[][][] hsz = new int[8][20][30];
+	private final int[][] hwxz = new int[300][8];
+	private final int[][] hwzy = new int[300][8];
+	private final int[][] hx = new int[300][8];
+	private final int[][] hxy = new int[300][8];
+	private final int[][] hxz = new int[300][8];
+	private final int[][] hy = new int[300][8];
+	private final int[][] hz = new int[300][8];
+	private final int[][] hzy = new int[300][8];
+	private final boolean[] lastcheck = new boolean[300];
+	private int lastfr = 0;
+	private final Medium m;
+	private final int[][][] magx = new int[8][4][7];
+	private final int[][][] magy = new int[8][4][7];
+	private final int[][][] magz = new int[8][4][7];
+	private final boolean[][] mtouch = new boolean[8][7];
+	private final int[] nr = new int[8];
+	private final int[][] nrx = new int[8][4];
+	private final int[][] nry = new int[8][4];
+	private final int[][] nrz = new int[8][4];
+	private final int[][] ns = new int[8][20];
+	final ContO[] ocar = new ContO[8];
 	int powered = 0;
-	boolean prepit = true;
-	float[][] rcx = new float[8][200];
-	float[][] rcy = new float[8][200];
-	float[][] rcz = new float[8][200];
-	int[][] rspark = new int[8][200];
-	int[][][] rx = new int[8][4][7];
-	int[][][] ry = new int[8][4][7];
-	int[][][] rz = new int[8][4][7];
-	int[][][] scx = new int[8][20][30];
-	int[][][] scz = new int[8][20][30];
-	float[][][] smag = new float[8][20][30];
-	int[][] sprk = new int[8][200];
-	int[][] squash = new int[6][8];
-	int[][] srx = new int[8][200];
-	int[][] sry = new int[8][200];
-	int[][] srz = new int[8][200];
-	int[][][] sspark = new int[8][20][30];
-	ContO[] starcar = new ContO[8];
-	int[][][] sx = new int[8][20][30];
-	int[][][] sy = new int[8][20][30];
-	int[][][] sz = new int[8][20][30];
+	private boolean prepit = true;
+	private final float[][] rcx = new float[8][200];
+	private final float[][] rcy = new float[8][200];
+	private final float[][] rcz = new float[8][200];
+	private final int[][] rspark = new int[8][200];
+	private final int[][][] rx = new int[8][4][7];
+	private final int[][][] ry = new int[8][4][7];
+	private final int[][][] rz = new int[8][4][7];
+	private final int[][][] scx = new int[8][20][30];
+	private final int[][][] scz = new int[8][20][30];
+	private final float[][][] smag = new float[8][20][30];
+	private final int[][] sprk = new int[8][200];
+	private final int[][] squash = new int[6][8];
+	private final int[][] srx = new int[8][200];
+	private final int[][] sry = new int[8][200];
+	private final int[][] srz = new int[8][200];
+	private final int[][][] sspark = new int[8][20][30];
+	final ContO[] starcar = new ContO[8];
+	private final int[][][] sx = new int[8][20][30];
+	private final int[][][] sy = new int[8][20][30];
+	private final int[][][] sz = new int[8][20][30];
 	int wasted = 0;
 	int whenwasted = 0;
-	int[][] wxz = new int[300][8];
-	int[][] wzy = new int[300][8];
-	int[][] x = new int[300][8];
-	int[][] xy = new int[300][8];
-	int[][] xz = new int[300][8];
-	int[][] y = new int[300][8];
-	int[][] z = new int[300][8];
-	int[][] zy = new int[300][8];
+	private final int[][] wxz = new int[300][8];
+	private final int[][] wzy = new int[300][8];
+	private final int[][] x = new int[300][8];
+	private final int[][] xy = new int[300][8];
+	private final int[][] xz = new int[300][8];
+	private final int[][] y = new int[300][8];
+	private final int[][] z = new int[300][8];
+	private final int[][] zy = new int[300][8];
 
 	public Record(final Medium medium) {
 		m = medium;
@@ -101,7 +101,7 @@ public class Record {
 		cotchinow(0);
 	}
 
-	public void chipx(final int i, float f, final ContO conto, final Mad mad) {
+	private void chipx(final int i, float f, final ContO conto, final Mad mad) {
 		if (Math.abs(f) > 100.0F) {
 			if (f > 100.0F)
 				f -= 100.0F;
@@ -121,7 +121,7 @@ public class Record {
 		}
 	}
 
-	public void chipz(final int i, float f, final ContO conto, final Mad mad) {
+	private void chipz(final int i, float f, final ContO conto, final Mad mad) {
 		if (Math.abs(f) > 100.0F) {
 			if (f > 100.0F)
 				f -= 100.0F;
@@ -197,8 +197,7 @@ public class Record {
 						hmagz[i_13_][i_14_][i_15_] = magz[i_13_][i_14_][i_15_];
 					}
 			for (int i_16_ = 0; i_16_ < 8; i_16_++)
-				for (int i_17_ = 0; i_17_ < 7; i_17_++)
-					hmtouch[i_16_][i_17_] = mtouch[i_16_][i_17_];
+				System.arraycopy(mtouch[i_16_], 0, hmtouch[i_16_], 0, 7);
 			hcaught = true;
 		}
 	}
@@ -328,7 +327,7 @@ public class Record {
 		lastfr = i_38_;
 	}
 
-	public int py(final int i, final int i_74_, final int i_75_, final int i_76_) {
+	private int py(final int i, final int i_74_, final int i_75_, final int i_76_) {
 		return (i - i_74_) * (i - i_74_) + (i_75_ - i_76_) * (i_75_ - i_76_);
 	}
 
@@ -447,7 +446,7 @@ public class Record {
 			nrz[i_49_][i] = 0;
 	}
 
-	public void regx(final int i, float f, final ContO conto, final Mad mad) {
+	private void regx(final int i, float f, final ContO conto, final Mad mad) {
 		if (Math.abs(f) > 100.0F) {
 			if (f > 100.0F)
 				f -= 100.0F;
@@ -501,7 +500,7 @@ public class Record {
 		}
 	}
 
-	public void regy(final int i, float f, final boolean bool, final ContO conto, final Mad mad) {
+	private void regy(final int i, float f, final boolean bool, final ContO conto, final Mad mad) {
 		if (f > 100.0F) {
 			f -= 100.0F;
 			int i_50_ = 0;
@@ -606,7 +605,7 @@ public class Record {
 		}
 	}
 
-	public void regz(final int i, float f, final ContO conto, final Mad mad) {
+	private void regz(final int i, float f, final ContO conto, final Mad mad) {
 		if (Math.abs(f) > 100.0F) {
 			if (f > 100.0F)
 				f -= 100.0F;

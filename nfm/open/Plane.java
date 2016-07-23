@@ -7,60 +7,60 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
-public class Plane {
+class Plane {
 	int av = 0;
 	int bfase = 0;
-	int[] c = new int[3];
+	final int[] c = new int[3];
 	int chip = 0;
 	int colnum = 0;
-	int[] cox = new int[3];
-	int[] coy = new int[3];
-	int[] coz = new int[3];
+	private final int[] cox = new int[3];
+	private final int[] coy = new int[3];
+	private final int[] coz = new int[3];
 	float ctmag = 0.0F;
-	int cxy = 0;
-	int cxz = 0;
-	int czy = 0;
-	float deltaf = 1.0F;
-	int disline = 7;
-	int dx = 0;
-	int dy = 0;
-	int dz = 0;
+	private int cxy = 0;
+	private int cxz = 0;
+	private int czy = 0;
+	private float deltaf = 1.0F;
+	private int disline = 7;
+	private int dx = 0;
+	private int dy = 0;
+	private int dz = 0;
 	int embos = 0;
 	int flx = 0;
 	int fs = 0;
 	int glass = 0;
 	int gr = 0;
-	float[] hsb = new float[3];
+	final float[] hsb = new float[3];
 	int light = 0;
-	Medium m;
+	private final Medium m;
 	int master = 0;
 	int n;
 	boolean nocol = false;
-	int[] oc = new int[3];
-	int[] ox;
-	int[] oy;
-	int[] oz;
-	int pa = 0;
-	int pb = 0;
-	float projf = 1.0F;
+	final int[] oc = new int[3];
+	final int[] ox;
+	final int[] oy;
+	final int[] oz;
+	private int pa = 0;
+	private int pb = 0;
+	private float projf = 1.0F;
 	boolean road = false;
 	boolean solo = false;
-	Trackers t;
-	int typ = 0;
-	int vx = 0;
-	int vy = 0;
-	int vz = 0;
+	private final Trackers t;
+	private int typ = 0;
+	private int vx = 0;
+	private int vy = 0;
+	private int vz = 0;
 	int wx = 0;
 	int wy = 0;
 	int wz = 0;
 
-    boolean customstroke;
-    int strokewidth;
-    int strokecap;
-    int strokejoin;
-    int strokemtlimit;
-    boolean randomcolor;
-    boolean randoutline;
+    final boolean customstroke;
+    final int strokewidth;
+    final int strokecap;
+    final int strokejoin;
+    final int strokemtlimit;
+    final boolean randomcolor;
+    final boolean randoutline;
 
 	public Plane(final Medium medium, final Trackers trackers, final int[] is, final int[] is_0_, final int[] is_1_,
 			final int i, final int[] is_2_, final int i_3_, final int i_4_, final int i_5_, final int i_6_,
@@ -86,8 +86,7 @@ public class Plane {
 			oy[i_13_] = is_1_[i_13_];
 			oz[i_13_] = is_0_[i_13_];
 		}
-		for (int i_14_ = 0; i_14_ < 3; i_14_++)
-			oc[i_14_] = is_2_[i_14_];
+		System.arraycopy(is_2_, 0, oc, 0, 3);
 		if (i_4_ == -15) {
 			if (is_2_[0] == 211) {
 				final int i_15_ = (int) (Math.random() * 40.0 - 20.0);
@@ -129,8 +128,7 @@ public class Plane {
 			for (int i_22_ = 0; i_22_ < 3; i_22_++)
 				c[i_22_] = (int) (m.crgrnd[i_22_] * 0.925F);
 		if (i_3_ == 3)
-			for (int i_23_ = 0; i_23_ < 3; i_23_++)
-				c[i_23_] = is_2_[i_23_];
+			System.arraycopy(is_2_, 0, c, 0, 3);
 		disline = i_9_;
 		bfase = i_10_;
 		glass = i_3_;
@@ -1086,17 +1084,17 @@ public class Plane {
 		}
 	}
 
-	public int spy(final int i, final int i_170_) {
+	private int spy(final int i, final int i_170_) {
 		return (int) Math.sqrt((i - m.cx) * (i - m.cx) + i_170_ * i_170_);
 	}
 
-	public int xs(final int i, int i_161_) {
+	private int xs(final int i, int i_161_) {
 		if (i_161_ < m.cz)
 			i_161_ = m.cz;
 		return (i_161_ - m.focus_point) * (m.cx - i) / i_161_ + i;
 	}
 
-	public int ys(final int i, int i_162_) {
+	private int ys(final int i, int i_162_) {
 		if (i_162_ < m.cz)
 			i_162_ = m.cz;
 		return (i_162_ - m.focus_point) * (m.cy - i) / i_162_ + i;

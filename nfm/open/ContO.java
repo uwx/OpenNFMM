@@ -10,55 +10,55 @@ import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.util.Random;
 
-public class ContO {
+class ContO {
 	int checkpoint;
 	int colok;
-	int[] dam;
+	private int[] dam;
 	boolean decor = false;
 	int disline = 14;
 	int disp = 0;
 	int dist = 0;
-	int[] edl;
-	int[] edr;
-	int[] elc;
+	private final int[] edl;
+	private final int[] edr;
+	private final int[] elc;
 	boolean elec;
 	String err;
 	boolean errd;
 	int fcnt;
-	int[] fcol;
+	final int[] fcol;
 	boolean fix;
 	int grat = 0;
 	float grounded = 1.0F;
-	int[] keyx;
-	int[] keyz;
-	Medium m;
+	final int[] keyx;
+	final int[] keyz;
+	final Medium m;
 	int maxR = 0;
 	boolean noline = false;
-	boolean[] notwall;
+	private boolean[] notwall;
 	int npl = 0;
 	float[] osmag;
-	Plane[] p;
-	boolean[] rbef;
+	final Plane[] p;
+	private boolean[] rbef;
 	float rcx;
 	float rcy;
 	float rcz;
 	int roofat;
 	boolean roted;
-	int[] rtg;
-	int[] rx;
-	int[] ry;
-	int[] rz;
-	int[] sav;
-	float[] sbln;
-	int[] scol;
+	private int[] rtg;
+	private int[] rx;
+	private int[] ry;
+	private int[] rz;
+	private int[] sav;
+	private float[] sbln;
+	final int[] scol;
 	int[] scx;
 	int[] scz;
 	boolean shadow = false;
-	int[] skd;
-	float[][] smag;
+	private int[] skd;
+	private float[][] smag;
 	int sprk;
-	int sprkat;
-	int[][] srgb;
+	private int sprkat;
+	private int[][] srgb;
 	int srx;
 	int sry;
 	int srz;
@@ -66,21 +66,21 @@ public class ContO {
 	int[] sx;
 	int[] sy;
 	int[] sz;
-	Trackers t;
-	int[][] tc;
+	final Trackers t;
+	private int[][] tc;
 	int tnt;
-	int[] tradx;
-	int[] trady;
-	int[] tradz;
-	int[] tx;
-	int[] txy;
-	int[] ty;
-	int[] tz;
-	int[] tzy;
-	int ust;
-	float[] vrx;
-	float[] vry;
-	float[] vrz;
+	private int[] tradx;
+	private int[] trady;
+	private int[] tradz;
+	private int[] tx;
+	private int[] txy;
+	private int[] ty;
+	private int[] tz;
+	private int[] tzy;
+	private int ust;
+	private float[] vrx;
+	private float[] vry;
+	private float[] vrz;
 	int wh;
 	int wxz = 0;
 	int wzy = 0;
@@ -171,7 +171,7 @@ public class ContO {
 			final DataInputStream datainputstream = new DataInputStream(new ByteArrayInputStream(is));
 			String string_17_;
 			while ((string_17_ = datainputstream.readLine()) != null) {
-				string = new StringBuilder().append("").append(string_17_.trim()).toString();
+				string = "" + string_17_.trim();
 				if (npl < 10000 /* 210 */) {
 					if (string.startsWith("<p>")) {
 						bool = true;
@@ -281,9 +281,9 @@ public class ContO {
 							String string_19_ = "FRONT";
 							if (keyz[i_9_] < 0)
 								string_19_ = "BACK";
-							err = new StringBuilder().append("nfm.open.Wheels Error:\n").append(string_19_)
-									.append(" nfm.open.Wheels floor is too far below the center of Y Axis of the car!    \n\nPlease decrease the Y value of the ")
-									.append(string_19_).append(" nfm.open.Wheels or decrease its height.     \n \n").toString();
+							err = "nfm.open.Wheels Error:\n" + string_19_ +
+									" nfm.open.Wheels floor is too far below the center of Y Axis of the car!    \n\nPlease decrease the Y value of the " +
+									string_19_ + " nfm.open.Wheels or decrease its height.     \n \n";
 							errd = true;
 							keyz[i_9_] = 0;
 							keyx[i_9_] = 0;
@@ -292,9 +292,9 @@ public class ContO {
 							String string_20_ = "FRONT";
 							if (keyz[i_9_] < 0)
 								string_20_ = "BACK";
-							err = new StringBuilder().append("nfm.open.Wheels Error:\n").append(string_20_)
-									.append(" nfm.open.Wheels floor is too far above the center of Y Axis of the car!    \n\nPlease increase the Y value of the ")
-									.append(string_20_).append(" nfm.open.Wheels or increase its height.     \n \n").toString();
+							err = "nfm.open.Wheels Error:\n" + string_20_ +
+									" nfm.open.Wheels floor is too far above the center of Y Axis of the car!    \n\nPlease increase the Y value of the " +
+									string_20_ + " nfm.open.Wheels or increase its height.     \n \n";
 							errd = true;
 							keyz[i_9_] = 0;
 							keyx[i_9_] = 0;
@@ -303,9 +303,9 @@ public class ContO {
 							String string_21_ = "FRONT";
 							if (keyz[i_9_] < 0)
 								string_21_ = "BACK";
-							err = new StringBuilder().append("nfm.open.Wheels Error:\n").append(string_21_)
-									.append(" nfm.open.Wheels are too far apart!    \n\nPlease decrease the \u00b1X value of the ")
-									.append(string_21_).append(" nfm.open.Wheels.     \n \n").toString();
+							err = "nfm.open.Wheels Error:\n" + string_21_ +
+									" nfm.open.Wheels are too far apart!    \n\nPlease decrease the \u00b1X value of the " +
+									string_21_ + " nfm.open.Wheels.     \n \n";
 							errd = true;
 							keyz[i_9_] = 0;
 							keyx[i_9_] = 0;
@@ -323,9 +323,9 @@ public class ContO {
 							String string_22_ = "FRONT";
 							if (keyz[i_9_] < 0)
 								string_22_ = "BACK";
-							err = new StringBuilder().append("nfm.open.Wheels Error:\nWidth of the ").append(string_22_)
-									.append(" nfm.open.Wheels is too large!    \n\nPlease decrease the width of the ")
-									.append(string_22_).append(" nfm.open.Wheels.     \n \n").toString();
+							err = "nfm.open.Wheels Error:\nWidth of the " + string_22_ +
+									" nfm.open.Wheels is too large!    \n\nPlease decrease the width of the " +
+									string_22_ + " nfm.open.Wheels.     \n \n";
 							errd = true;
 							keyz[i_9_] = 0;
 							keyx[i_9_] = 0;
@@ -461,8 +461,8 @@ public class ContO {
 			datainputstream.close();
 		} catch (final Exception exception) {
 			if (!errd) {
-				err = new StringBuilder().append("Error While Loading 3D Model\n\nLine:     ").append(string)
-						.append("\n\nError Detail:\n").append(exception).append("           \n \n").toString();
+				err = "Error While Loading 3D Model\n\nLine:     " + string +
+						"\n\nError Detail:\n" + exception + "           \n \n";
 				System.out.println(err);
 				errd = true;
 			}
@@ -882,10 +882,7 @@ public class ContO {
 				t.skd[t.nt] = conto_78_.skd[i_84_];
 				t.dam[t.nt] = conto_78_.dam[i_84_];
 				t.notwall[t.nt] = conto_78_.notwall[i_84_];
-				if (decor)
-					t.decor[t.nt] = true;
-				else
-					t.decor[t.nt] = false;
+				t.decor[t.nt] = decor;
 				int i_86_ = Math.abs(i_81_);
 				if (i_86_ == 180)
 					i_86_ = 0;
@@ -1151,8 +1148,7 @@ public class ContO {
 			t.x[t.nt] += x;
 			t.z[t.nt] += z;
 			t.y[t.nt] += y;
-			for (int i_121_ = 0; i_121_ < 3; i_121_++)
-				t.c[t.nt][i_121_] = p[i_119_].oc[i_121_];
+			System.arraycopy(p[i_119_].oc, 0, t.c[t.nt], 0, 3);
 			t.skd[t.nt] = 2;
 			t.dam[t.nt] = 1;
 			t.notwall[t.nt] = false;
@@ -1172,8 +1168,7 @@ public class ContO {
 		t.z[t.nt] = (is_118_[0] + is_118_[1]) / 2 + z;
 		t.zy[t.nt] = 0;
 		t.xy[t.nt] = 0;
-		for (int i_123_ = 0; i_123_ < 3; i_123_++)
-			t.c[t.nt][i_123_] = p[4].oc[i_123_];
+		System.arraycopy(p[4].oc, 0, t.c[t.nt], 0, 3);
 		t.skd[t.nt] = 4;
 		t.dam[t.nt] = 1;
 		t.notwall[t.nt] = false;
@@ -1292,7 +1287,7 @@ public class ContO {
 		}
 	}
 
-	public void dsprk(final Graphics2D graphics2d, final boolean bool) {
+	private void dsprk(final Graphics2D graphics2d, final boolean bool) {
 		if (bool && sprk != 0) {
 			int i = (int) (Math.sqrt(rcx * rcx + rcy * rcy + rcz * rcz) / 10.0);
 			if (i > 5) {
@@ -1435,7 +1430,7 @@ public class ContO {
 		}
 	}
 
-	public void electrify(final Graphics2D graphics2d) {
+	private void electrify(final Graphics2D graphics2d) {
 		for (int i = 0; i < 4; i++) {
 			if (elc[i] == 0) {
 				edl[i] = (int) (380.0F - m.random() * 760.0F);
@@ -1553,7 +1548,7 @@ public class ContO {
 		}
 	}
 
-	public void fixit(final Graphics2D graphics2d) {
+	private void fixit(final Graphics2D graphics2d) {
 		if (fcnt == 1)
 			for (int i = 0; i < npl; i++) {
 				p[i].hsb[0] = 0.57F;
@@ -1708,22 +1703,22 @@ public class ContO {
 				+ (i_268_ - z) / 10 * ((i_268_ - z) / 10);
 	}
 
-	public int getvalue(final String string, final String string_262_, final int i) {
+	private int getvalue(final String string, final String string_262_, final int i) {
 		int i_263_ = 0;
 		String string_264_ = "";
 		for (int i_265_ = string.length() + 1; i_265_ < string_262_.length(); i_265_++) {
-			final String string_266_ = new StringBuilder().append("").append(string_262_.charAt(i_265_)).toString();
+			final String string_266_ = "" + string_262_.charAt(i_265_);
 			if (string_266_.equals(",") || string_266_.equals(")")) {
 				i_263_++;
 				i_265_++;
 			}
 			if (i_263_ == i)
-				string_264_ = new StringBuilder().append(string_264_).append(string_262_.charAt(i_265_)).toString();
+				string_264_ = string_264_ + string_262_.charAt(i_265_);
 		}
 		return Float.valueOf(string_264_).intValue();
 	}
 
-	public void lowshadow(final Graphics2D graphics2d, final int i) {
+	private void lowshadow(final Graphics2D graphics2d, final int i) {
 		final int[] is = new int[4];
 		final int[] is_146_ = new int[4];
 		final int[] is_147_ = new int[4];
@@ -1821,7 +1816,7 @@ public class ContO {
 		}
 	}
 
-	public void pdust(final int i, final Graphics2D graphics2d, final boolean bool) {
+	private void pdust(final int i, final Graphics2D graphics2d, final boolean bool) {
 		if (bool)
 			sav[i] = (int) Math.sqrt((m.x + m.cx - sx[i]) * (m.x + m.cx - sx[i])
 					+ (m.y + m.cy - sy[i]) * (m.y + m.cy - sy[i]) + (m.z - sz[i]) * (m.z - sz[i]));
@@ -1952,12 +1947,12 @@ public class ContO {
 		}
 	}
 
-	public int py(final int i, final int i_269_, final int i_270_, final int i_271_) {
+	private int py(final int i, final int i_269_, final int i_270_, final int i_271_) {
 		return (i - i_269_) * (i - i_269_) + (i_270_ - i_271_) * (i_270_ - i_271_);
 	}
 
-	public void rot(final int[] is, final int[] is_272_, final int i, final int i_273_, final int i_274_,
-			final int i_275_) {
+	private void rot(final int[] is, final int[] is_272_, final int i, final int i_273_, final int i_274_,
+					 final int i_275_) {
 		if (i_274_ != 0)
 			for (int i_276_ = 0; i_276_ < i_275_; i_276_++) {
 				final int i_277_ = is[i_276_];
@@ -1994,13 +1989,13 @@ public class ContO {
 		rcz = f_239_;
 	}
 
-	public int xs(final int i, int i_260_) {
+	private int xs(final int i, int i_260_) {
 		if (i_260_ < 50)
 			i_260_ = 50;
 		return (i_260_ - m.focus_point) * (m.cx - i) / i_260_ + i;
 	}
 
-	public int ys(final int i, int i_261_) {
+	private int ys(final int i, int i_261_) {
 		if (i_261_ < 50)
 			i_261_ = 50;
 		return (i_261_ - m.focus_point) * (m.cy - i) / i_261_ + i;

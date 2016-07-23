@@ -7,16 +7,16 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.Date;
 
-public class udpOnline implements Runnable {
-	Thread con;
-	DatagramSocket dSocket;
-	boolean errd = false;
-	int gameport = 7001;
-	InetAddress IPAddress;
-	int nu = 0;
+class udpOnline implements Runnable {
+	private Thread con;
+	private DatagramSocket dSocket;
+	private boolean errd = false;
+	private int gameport = 7001;
+	private InetAddress IPAddress;
+	private int nu = 0;
 	long sendat = 0L;
 	boolean started = false;
-	UDPMistro um;
+	private final UDPMistro um;
 
 	public udpOnline(final UDPMistro udpmistro, final String string, final int i, final int i_0_, final int i_1_) {
 		um = udpmistro;
@@ -28,7 +28,7 @@ public class udpOnline implements Runnable {
 			IPAddress = InetAddress.getByName(string);
 		} catch (final Exception exception) {
 			System.out.println(
-					new StringBuilder().append("Error preparing for UDP Connection: ").append(exception).toString());
+					"Error preparing for UDP Connection: " + exception);
 		}
 	}
 
@@ -47,7 +47,7 @@ public class udpOnline implements Runnable {
 		started = false;
 	}
 
-	public String getSvalue(final String string, final int i) {
+	private String getSvalue(final String string, final int i) {
 		String string_18_ = "";
 		try {
 			int i_19_ = 0;
@@ -56,13 +56,13 @@ public class udpOnline implements Runnable {
 			String string_22_ = "";
 			String string_23_ = "";
 			for (/**/; i_19_ < string.length() && i_21_ != 2; i_19_++) {
-				string_22_ = new StringBuilder().append("").append(string.charAt(i_19_)).toString();
+				string_22_ = "" + string.charAt(i_19_);
 				if (string_22_.equals("|")) {
 					i_20_++;
 					if (i_21_ == 1 || i_20_ > i)
 						i_21_ = 2;
 				} else if (i_20_ == i) {
-					string_23_ = new StringBuilder().append(string_23_).append(string_22_).toString();
+					string_23_ = string_23_ + string_22_;
 					i_21_ = 1;
 				}
 			}
@@ -73,7 +73,7 @@ public class udpOnline implements Runnable {
 		return string_18_;
 	}
 
-	public int getvalue(final String string, final int i) {
+	private int getvalue(final String string, final int i) {
 		int i_12_ = -1;
 		try {
 			int i_13_ = 0;
@@ -82,19 +82,19 @@ public class udpOnline implements Runnable {
 			String string_16_ = "";
 			String string_17_ = "";
 			for (/**/; i_13_ < string.length() && i_15_ != 2; i_13_++) {
-				string_16_ = new StringBuilder().append("").append(string.charAt(i_13_)).toString();
+				string_16_ = "" + string.charAt(i_13_);
 				if (string_16_.equals("|")) {
 					i_14_++;
 					if (i_15_ == 1 || i_14_ > i)
 						i_15_ = 2;
 				} else if (i_14_ == i) {
-					string_17_ = new StringBuilder().append(string_17_).append(string_16_).toString();
+					string_17_ = string_17_ + string_16_;
 					i_15_ = 1;
 				}
 			}
 			if (string_17_.equals(""))
 				string_17_ = "-1";
-			i_12_ = Integer.valueOf(string_17_).intValue();
+			i_12_ = Integer.valueOf(string_17_);
 		} catch (final Exception exception) {
 			/* empty */
 		}
@@ -111,7 +111,7 @@ public class udpOnline implements Runnable {
 			string = "MAGNITUDE";
 		if (nu == 0 && um.diledelay == 0) {
 			um.sendat = sendat;
-			string = new StringBuilder().append("").append(sendat).toString();
+			string = "" + sendat;
 			string = string.substring(string.length() - 3, string.length());
 			um.sendcheck = string;
 			um.diledelay = 100;
@@ -119,8 +119,8 @@ public class udpOnline implements Runnable {
 		try {
 			final byte[] is = new byte[4];
 			final DatagramPacket datagrampacket = new DatagramPacket(is, is.length, IPAddress, gameport);
-			final String string_2_ = new StringBuilder().append("").append(string).append("|").append(um.im).append("|")
-					.append(um.frame[um.im][0]).append("|").append(um.info[um.im][0]).append("|").toString();
+			final String string_2_ = "" + string + "|" + um.im + "|" +
+					um.frame[um.im][0] + "|" + um.info[um.im][0] + "|";
 			final byte[] is_3_ = string_2_.getBytes();
 			datagrampacket.setData(is_3_);
 			dSocket.send(datagrampacket);
@@ -154,8 +154,7 @@ public class udpOnline implements Runnable {
 			}
 			if (nu == 0 && um.diledelay != 0 && um.sendcheck.equals(string)) {
 				date = new Date();
-				for (int i = 4; i > 0; i--)
-					um.ldelays[i] = um.ldelays[i - 1];
+				System.arraycopy(um.ldelays, 0, um.ldelays, 1, 4);
 				um.ldelays[0] = (int) (date.getTime() - um.sendat);
 				um.delay = 0;
 				for (int i = 0; i < 5; i++)

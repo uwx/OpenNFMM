@@ -10,14 +10,14 @@ import javazoom.jl.player.PausablePlayer;
 class RadicalMp3 implements RadicalMusic {
 
 	//BufferedInputStream is;
-	boolean paused;
-	boolean loaded;
-	boolean playing;
-	String s;
-	FileInputStream fi;
-	File fl;
+	private boolean paused;
+	private final boolean loaded;
+	private final boolean playing;
+	private final String s;
+	private FileInputStream fi;
+	private final File fl;
 
-	PausablePlayer player;
+	private PausablePlayer player;
 	String filePath;
 
 	/**

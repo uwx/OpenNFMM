@@ -8,34 +8,34 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 
-public class Smenu {
+class Smenu {
 	boolean alphad = false;
-	Color bcol = new Color(255, 255, 255);
+	private Color bcol = new Color(255, 255, 255);
 	boolean carsel = false;
-	boolean dis = false;
-	Color fcol = new Color(0, 0, 0);
-	boolean flksel = false;
-	Font font = new Font("Arial", 1, 13);
-	FontMetrics ftm;
-	int h = 0;
+	private boolean dis = false;
+	private Color fcol = new Color(0, 0, 0);
+	private boolean flksel = false;
+	private final Font font = new Font("Arial", 1, 13);
+	private FontMetrics ftm;
+	private int h = 0;
 	int[] iroom;
 	int kmoused = 0;
 	int maxl = 0;
 	int no = 0;
-	boolean om = false;
-	boolean onsc = false;
+	private boolean om = false;
+	private boolean onsc = false;
 	boolean open = false;
-	String[] opts;
-	boolean revup = false;
+	final String[] opts;
+	private boolean revup = false;
 	boolean rooms = false;
-	int scra = 0;
-	int scro = 0;
+	private int scra = 0;
+	private int scro = 0;
 	int sel = 0;
 	boolean show = false;
-	String[] sopts;
+	final String[] sopts;
 	int w = 0;
-	int x = 0;
-	int y = 0;
+	private int x = 0;
+	private int y = 0;
 
 	public Smenu(final int i) {
 		opts = new String[i];
@@ -60,7 +60,7 @@ public class Smenu {
 			}
 			if (i != string.length()) {
 				string = string.substring(0, i - 3);
-				string = new StringBuilder().append(string).append("...").toString();
+				string = string + "...";
 			}
 		}
 		sopts[no] = string;
@@ -98,10 +98,7 @@ public class Smenu {
 			boolean bool_6_) {
 		boolean bool_7_ = false;
 		if (revup) {
-			if (bool_6_)
-				bool_6_ = false;
-			else
-				bool_6_ = true;
+			bool_6_ = !bool_6_;
 			revup = false;
 		}
 		if (show) {
@@ -199,7 +196,7 @@ public class Smenu {
 									open = false;
 								}
 							}
-							if (rooms && sopts[i_15_].indexOf("10 / 10") != -1)
+							if (rooms && sopts[i_15_].contains("10 / 10"))
 								graphics2d.setColor(new Color(255, 0, 0));
 							graphics2d.drawString(sopts[i_15_], x + 4, y + 38 + scro + i_15_ * (ftm.getHeight() + 2));
 						}
@@ -452,10 +449,6 @@ public class Smenu {
 
 	public void setBackground(final Color color) {
 		bcol = color;
-	}
-
-	public void setFont(final Font font) {
-		// font = font;
 	}
 
 	public void setForeground(final Color color) {

@@ -2,87 +2,87 @@ package nfm.open;/* nfm.open.Control - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 
-public class Control {
-	int acr = 0;
-	int actwait = 0;
-	int acuracy = 0;
-	boolean afta = false;
-	boolean agressed = false;
-	float aim = 0.0F;
-	int apunch = 0;
+class Control {
+	private int acr = 0;
+	private int actwait = 0;
+	private int acuracy = 0;
+	private boolean afta = false;
+	private boolean agressed = false;
+	private float aim = 0.0F;
+	private int apunch = 0;
 	boolean arrace = false;
-	int attack = 0;
-	int avoidnlev = 0;
-	boolean bulistc = false;
+	private int attack = 0;
+	private int avoidnlev = 0;
+	private boolean bulistc = false;
 	int chatup = 0;
-	int clrnce = 5;
-	int cntrn = 0;
+	private int clrnce = 5;
+	private int cntrn = 0;
 	boolean down = false;
 	boolean enter = false;
 	boolean exit = false;
-	boolean exitattack = false;
-	int flycnt = 0;
-	boolean forget = false;
-	int[] fpnt = new int[5];
-	int frad = 0;
-	int frx = 0;
-	int frz = 0;
-	boolean gowait = false;
+	private boolean exitattack = false;
+	private int flycnt = 0;
+	private boolean forget = false;
+	private final int[] fpnt = new int[5];
+	private int frad = 0;
+	private int frx = 0;
+	private int frz = 0;
+	private boolean gowait = false;
 	boolean handb = false;
-	int hold = 0;
-	boolean lastl = false;
+	private int hold = 0;
+	private boolean lastl = false;
 	boolean left = false;
 	int lookback = 0;
-	boolean lrbare = false;
-	boolean lrcomp = false;
-	int lrdirect = 0;
-	int lrstart = 0;
-	boolean lrswt = false;
-	int lwall = -1;
-	Medium m;
+	private boolean lrbare = false;
+	private boolean lrcomp = false;
+	private int lrdirect = 0;
+	private int lrstart = 0;
+	private boolean lrswt = false;
+	private int lwall = -1;
+	private final Medium m;
 	int multion = 0;
-	float mustland = 0.5F;
+	private float mustland = 0.5F;
 	boolean mutem = false;
 	boolean mutes = false;
-	boolean onced = false;
-	boolean oncel = false;
-	boolean oncer = false;
-	boolean onceu = false;
-	int oupnt = 0;
-	int oxy = 0;
-	int ozy = 0;
-	int pan = 0;
-	boolean perfection = false;
+	private boolean onced = false;
+	private boolean oncel = false;
+	private boolean oncer = false;
+	private boolean onceu = false;
+	private int oupnt = 0;
+	private int oxy = 0;
+	private int ozy = 0;
+	private int pan = 0;
+	private boolean perfection = false;
 	boolean radar = false;
-	int rampp = 0;
-	int randtcnt = 0;
-	int revstart = 0;
+	private int rampp = 0;
+	private int randtcnt = 0;
+	private int revstart = 0;
 	boolean right = false;
-	int runbul = 0;
-	int saftey = 30;
-	float skiplev = 1.0F;
-	int statusque = 0;
-	int stcnt = 0;
-	int stuntf = 0;
-	int swat = 0;
-	int trfix = 0;
-	int trickfase = 0;
-	float trickprf = 0.5F;
-	int turncnt = 0;
-	int turntyp = 0;
-	boolean udbare = false;
-	boolean udcomp = false;
-	int uddirect = 0;
-	int udstart = 0;
-	boolean udswt = false;
+	private int runbul = 0;
+	private int saftey = 30;
+	private float skiplev = 1.0F;
+	private int statusque = 0;
+	private int stcnt = 0;
+	private int stuntf = 0;
+	private int swat = 0;
+	private int trfix = 0;
+	private int trickfase = 0;
+	private float trickprf = 0.5F;
+	private int turncnt = 0;
+	private int turntyp = 0;
+	private boolean udbare = false;
+	private boolean udcomp = false;
+	private int uddirect = 0;
+	private int udstart = 0;
+	private boolean udswt = false;
 	boolean up = false;
-	int upcnt = 0;
-	int upwait = 0;
-	boolean usebounce = false;
+	private int upcnt = 0;
+	private int upwait = 0;
+	private boolean usebounce = false;
 	int wall = -1;
-	boolean wlastl = false;
-	int wtx = 0;
-	int wtz = 0;
+	private boolean wlastl = false;
+	private int wtx = 0;
+	private int wtz = 0;
 	boolean zyinv = false;
 
 	public Control(final Medium medium) {
@@ -264,10 +264,7 @@ public class Control {
 								|| checkpoints.stage == 24 || checkpoints.stage == 26 || checkpoints.stage == 27)
 							agressed = true;
 						if (checkpoints.stage == -1)
-							if (m.random() > m.random())
-								agressed = true;
-							else
-								agressed = false;
+							agressed = m.random() > m.random();
 						cntrn = 5;
 					} else
 						cntrn--;
@@ -366,20 +363,14 @@ public class Control {
 						trickprf = 0.5F;
 					if (checkpoints.stage == 27)
 						trickprf = -1.0F;
-					if (m.random() > mad.power / 100.0F)
-						usebounce = true;
-					else
-						usebounce = false;
+					usebounce = m.random() > mad.power / 100.0F;
 					if (checkpoints.stage == 9)
 						usebounce = false;
 					if (checkpoints.stage == 14 || checkpoints.stage == 16)
 						usebounce = true;
 					if (checkpoints.stage == 20 || checkpoints.stage == 24)
 						usebounce = false;
-					if (m.random() > (float) mad.hitmag / (float) mad.cd.maxmag[mad.cn])
-						perfection = false;
-					else
-						perfection = true;
+					perfection = m.random() <= (float) mad.hitmag / (float) mad.cd.maxmag[mad.cn];
 					if (100.0F * mad.hitmag / mad.cd.maxmag[mad.cn] > 60.0F)
 						perfection = true;
 					if (checkpoints.stage == 3 && mad.cn == 6)
@@ -682,10 +673,7 @@ public class Control {
 										if (checkpoints.stage == 25) {
 											aim = m.random() * 1.5F;
 											attack = attack / 2;
-											if (m.random() > m.random())
-												exitattack = true;
-											else
-												exitattack = false;
+											exitattack = m.random() > m.random();
 										}
 										if (checkpoints.stage == 26)
 											if (mad.cn == 13) {
@@ -1322,10 +1310,7 @@ public class Control {
 								if (checkpoints.stage == 18 || checkpoints.stage == 22)
 									i_37_ = 1;
 								i = fpnt[i_37_];
-								if (checkpoints.special[i_37_])
-									forget = true;
-								else
-									forget = false;
+								forget = checkpoints.special[i_37_];
 							}
 							for (int i_39_ = i_35_; i_39_ < checkpoints.fn; i_39_++)
 								if (py(conto.x / 100, checkpoints.x[fpnt[i_39_]] / 100, conto.z / 100,
@@ -1771,11 +1756,11 @@ public class Control {
 		}
 	}
 
-	public int py(final int i, final int i_47_, final int i_48_, final int i_49_) {
+	private int py(final int i, final int i_47_, final int i_48_, final int i_49_) {
 		return (i - i_47_) * (i - i_47_) + (i_48_ - i_49_) * (i_48_ - i_49_);
 	}
 
-	public int pys(final int i, final int i_50_, final int i_51_, final int i_52_) {
+	private int pys(final int i, final int i_50_, final int i_51_, final int i_52_) {
 		return (int) Math.sqrt((i - i_50_) * (i - i_50_) + (i_51_ - i_52_) * (i_51_ - i_52_));
 	}
 

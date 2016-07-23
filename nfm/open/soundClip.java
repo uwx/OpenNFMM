@@ -9,14 +9,14 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
-public class soundClip {
-	Clip clip = null;
-	int cntcheck = 0;
-	int lfrpo = -1;
-	boolean loaded = false;
+class soundClip {
+	private Clip clip = null;
+	private int cntcheck = 0;
+	private int lfrpo = -1;
+	private boolean loaded = false;
 	int rollBackPos;
 	int rollBackTrig;
-	AudioInputStream sound;
+	private AudioInputStream sound;
 
 	public soundClip(final byte[] is) {
 		try {
@@ -26,7 +26,7 @@ public class soundClip {
 			clip = AudioSystem.getClip();
 			loaded = true;
 		} catch (final Exception exception) {
-			System.out.println(new StringBuilder().append("Loading Clip error: ").append(exception).toString());
+			System.out.println("Loading Clip error: " + exception);
 			loaded = false;
 		}
 	}

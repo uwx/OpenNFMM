@@ -6,47 +6,47 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.Random;
 
-public class Medium {
+class Medium {
 	int adv = 500;
-	long atrx = 0L;
-	long atrz = 0L;
-	int bcxz = 0;
-	boolean[] bst = null;
+	private long atrx = 0L;
+	private long atrz = 0L;
+	private int bcxz = 0;
+	private boolean[] bst = null;
 	boolean bt = false;
-	int[] cfade = { 255, 220, 220 };
-	int[] cgpx = null;
-	int[] cgpz = null;
-	int[] cgrnd = { 205, 200, 200 };
+	final int[] cfade = { 255, 220, 220 };
+	private int[] cgpx = null;
+	private int[] cgpz = null;
+	final int[] cgrnd = { 205, 200, 200 };
 	int checkpoint = -1;
-	int[][][] clax = null;
-	int[][][] clay = null;
-	int[][][] claz = null;
-	int[][][][] clc = null;
-	int[] cldd = { 210, 210, 210, 1, -1000 };
-	int[] clds = { 210, 210, 210 };
-	int[] clx = null;
-	int[] clz = null;
-	int[] cmx = null;
-	int cntrn = 0;
+	private int[][][] clax = null;
+	private int[][][] clay = null;
+	private int[][][] claz = null;
+	private int[][][][] clc = null;
+	private final int[] cldd = { 210, 210, 210, 1, -1000 };
+	private final int[] clds = { 210, 210, 210 };
+	private int[] clx = null;
+	private int[] clz = null;
+	private int[] cmx = null;
+	private int cntrn = 0;
 	boolean cpflik = false;
-	int[] cpol = { 215, 210, 210 };
-	int[] crgrnd = { 205, 200, 200 };
+	final int[] cpol = { 215, 210, 210 };
+	final int[] crgrnd = { 205, 200, 200 };
 	boolean crs = false;
-	int[] csky = { 170, 220, 255 };
+	final int[] csky = { 170, 220, 255 };
 	int cx = 400;
 	int cy = 225;
 	int cz = 50;
 	boolean darksky = false;
-	boolean[] diup = { false, false, false };
+	private final boolean[] diup = { false, false, false };
 	float elecr = 0.0F;
-	int[] fade = { 3000, 4500, 6000, 7500, 9000, 10500, 12000, 13500, 15000, 16500, 18000, 19500, 21000, 22500, 24000,
+	final int[] fade = { 3000, 4500, 6000, 7500, 9000, 10500, 12000, 13500, 15000, 16500, 18000, 19500, 21000, 22500, 24000,
 			25500 };
 	int fallen = 0;
-	float fo = 1.0F;
+	private float fo = 1.0F;
 	int focus_point = 400;
 	int fogd = 7;
-	int fvect = 200;
-	float gofo = (float) (0.33000001311302185 + Math.random() * 1.34);
+	private int fvect = 200;
+	private float gofo = (float) (0.33000001311302185 + Math.random() * 1.34);
 	int ground = 250;
 	int h = 450;
 	int hit = 45000;
@@ -56,56 +56,56 @@ public class Medium {
 	int lastmaf = 0;
 	int lightn = -1;
 	boolean lightson = false;
-	int lilo = 217;
+	private int lilo = 217;
 	boolean loadnew = false;
 	boolean lton = false;
 	int mgen = (int) (Math.random() * 100000.0);
-	int[] mrd = null;
-	int[][][] mtc = null;
-	int[][] mtx = null;
-	int[][] mty = null;
-	int[][] mtz = null;
+	private int[] mrd = null;
+	private int[][][] mtc = null;
+	private int[][] mtx = null;
+	private int[][] mty = null;
+	private int[][] mtz = null;
 	int ncl = 0;
-	int nmt = 0;
-	int[] nmv = null;
-	int noc = 0;
+	private int nmt = 0;
+	private int[] nmv = null;
+	private int noc = 0;
 	boolean nochekflk = false;
 	int noelec = 0;
 	int nrnd = 0;
 	int nrw = 0;
 	int nsp = 0;
-	int nst = 0;
-	int[][] ogpx = null;
-	int[][] ogpz = null;
-	int[] ogrnd = { 205, 200, 200 };
-	int[] osky = { 170, 220, 255 };
-	float[] pcv = null;
-	int[] pmx = null;
+	private int nst = 0;
+	private int[][] ogpx = null;
+	private int[][] ogpz = null;
+	private final int[] ogrnd = { 205, 200, 200 };
+	private final int[] osky = { 170, 220, 255 };
+	private float[] pcv = null;
+	private int[] pmx = null;
 	int ptcnt = -10;
 	int ptr = 0;
-	float[][] pvr = null;
-	int[] rand = { 0, 0, 0 };
+	private float[][] pvr = null;
+	private final int[] rand = { 0, 0, 0 };
 	int rescnt = 5;
 	int resdown = 0;
-	int sgpx = 0;
-	int sgpz = 0;
-	int skyline = -300;
-	int[] snap = { 0, 0, 0 };
-	int[] sprad = new int[7];
-	int[] spx = new int[7];
-	int[] spz = new int[7];
-	int[][][] stc = null;
-	int[] stx = null;
-	int[] stz = null;
-	float[] tcos = new float[360];
-	boolean td = false;
-	int[] texture = { 0, 0, 0, 50 };
+	private int sgpx = 0;
+	private int sgpz = 0;
+	private final int skyline = -300;
+	final int[] snap = { 0, 0, 0 };
+	final int[] sprad = new int[7];
+	final int[] spx = new int[7];
+	final int[] spz = new int[7];
+	private int[][][] stc = null;
+	private int[] stx = null;
+	private int[] stz = null;
+	private final float[] tcos = new float[360];
+	private boolean td = false;
+	private final int[] texture = { 0, 0, 0, 50 };
 	int trk = 0;
-	int trn = 0;
+	private int trn = 0;
 	long trx = 0L;
 	long trz = 0L;
-	float[] tsin = new float[360];
-	int[] twn = null;
+	private final float[] tsin = new float[360];
+	private int[] twn = null;
 	boolean vert = false;
 	int vxz = 180;
 	int w = 800;
@@ -257,10 +257,7 @@ public class Medium {
 		if (-y - cy < 0) {
 		}
 		Math.sqrt((trz - z + cz) * (trz - z + cz) + (trx - x - cx) * (trx - x - cx));
-		if (cpflik)
-			cpflik = false;
-		else
-			cpflik = true;
+		cpflik = !cpflik;
 	}
 
 	public float cos(int i) {
@@ -473,7 +470,7 @@ public class Medium {
 		}
 	}
 
-	public void drawclouds(final Graphics2D graphics2d) {
+	private void drawclouds(final Graphics2D graphics2d) {
 		for (int i = 0; i < noc; i++) {
 			final int i_104_ = cx + (int) ((clx[i] - x / 20 - cx) * cos(xz) - (clz[i] - z / 20 - cz) * sin(xz));
 			final int i_105_ = cz + (int) ((clx[i] - x / 20 - cx) * sin(xz) + (clz[i] - z / 20 - cz) * cos(xz));
@@ -699,7 +696,7 @@ public class Medium {
 		}
 	}
 
-	public void drawmountains(final Graphics2D graphics2d) {
+	private void drawmountains(final Graphics2D graphics2d) {
 		for (int i = 0; i < nmt; i++) {
 			final int i_185_ = mrd[i];
 			final int i_186_ = cx
@@ -775,7 +772,7 @@ public class Medium {
 		}
 	}
 
-	public void drawstars(final Graphics2D graphics2d) {
+	private void drawstars(final Graphics2D graphics2d) {
 		for (int i = 0; i < nst; i++) {
 			int i_215_ = cx + (int) (stx[i] * cos(xz) - stz[i] * sin(xz));
 			final int i_216_ = cz + (int) (stx[i] * sin(xz) + stz[i] * cos(xz));
@@ -1034,7 +1031,7 @@ public class Medium {
 			fvect += 2;
 	}
 
-	public void groundpolys(final Graphics2D graphics2d) {
+	private void groundpolys(final Graphics2D graphics2d) {
 		int i = (x - sgpx) / 1200 - 12;
 		if (i < 0)
 			i = 0;
@@ -1522,10 +1519,7 @@ public class Medium {
 					stc[i][1][i_214_] = (stc[i][0][i_214_] + csky[i_214_]) / 2;
 				}
 				twn[i] = (int) (4.0 * random.nextDouble());
-				if (random.nextDouble() > 0.8)
-					bst[i] = true;
-				else
-					bst[i] = false;
+				bst[i] = random.nextDouble() > 0.8;
 			}
 		}
 	}
@@ -1534,10 +1528,7 @@ public class Medium {
 		if (cntrn == 0) {
 			for (int i = 0; i < 3; i++) {
 				rand[i] = (int) (10.0 * Math.random());
-				if (Math.random() > Math.random())
-					diup[i] = false;
-				else
-					diup[i] = true;
+				diup[i] = Math.random() <= Math.random();
 			}
 			cntrn = 20;
 		} else
@@ -1558,8 +1549,8 @@ public class Medium {
 		return rand[trn] / 10.0F;
 	}
 
-	public void rot(final int[] is, final int[] is_274_, final int i, final int i_275_, final int i_276_,
-			final int i_277_) {
+	private void rot(final int[] is, final int[] is_274_, final int i, final int i_275_, final int i_276_,
+					 final int i_277_) {
 		if (i_276_ != 0)
 			for (int i_278_ = 0; i_278_ < i_277_; i_278_++) {
 				final int i_279_ = is[i_278_];
@@ -1722,10 +1713,7 @@ public class Medium {
 			csky[2] = 0;
 		final float[] fs = new float[3];
 		Color.RGBtoHSB(csky[0], csky[1], csky[2], fs);
-		if (fs[2] < 0.6)
-			darksky = true;
-		else
-			darksky = false;
+		darksky = fs[2] < 0.6;
 	}
 
 	public void setsnap(final int i, final int i_247_, final int i_248_) {
@@ -1809,13 +1797,13 @@ public class Medium {
 			td = true;
 	}
 
-	public int xs(final int i, int i_272_) {
+	private int xs(final int i, int i_272_) {
 		if (i_272_ < cz)
 			i_272_ = cz;
 		return (i_272_ - focus_point) * (cx - i) / i_272_ + i;
 	}
 
-	public int ys(final int i, int i_273_) {
+	private int ys(final int i, int i_273_) {
 		if (i_273_ < 10)
 			i_273_ = 10;
 		return (i_273_ - focus_point) * (cy - i) / i_273_ + i;

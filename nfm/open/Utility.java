@@ -1,6 +1,6 @@
 package nfm.open;
 
-public class Utility {
+class Utility {
 
     /**
      * Gets a value from a string in format:
@@ -16,13 +16,13 @@ public class Utility {
         int i_263_ = 0;
         String string_264_ = "";
         for (int i_265_ = string.length() + 1; i_265_ < string_262_.length(); i_265_++) {
-            final String string_266_ = new StringBuilder().append("").append(string_262_.charAt(i_265_)).toString();
+            final String string_266_ = "" + string_262_.charAt(i_265_);
             if (string_266_.equals(",") || string_266_.equals(")")) {
                 i_263_++;
                 i_265_++;
             }
             if (i_263_ == i)
-                string_264_ = new StringBuilder().append(string_264_).append(string_262_.charAt(i_265_)).toString();
+                string_264_ = string_264_ + string_262_.charAt(i_265_);
         }
         return Float.valueOf(string_264_).intValue();
     }
@@ -42,19 +42,19 @@ public class Utility {
             String string_441_ = "";
             String string_442_ = "";
             for ( /**/ ; i_438_ < string.length() && i_440_ != 2; i_438_++) {
-                string_441_ = new StringBuilder().append("").append(string.charAt(i_438_)).toString();
+                string_441_ = "" + string.charAt(i_438_);
                 if (string_441_.equals("|")) {
                     i_439_++;
                     if (i_440_ == 1 || i_439_ > i)
                         i_440_ = 2;
                 } else if (i_439_ == i) {
-                    string_442_ = new StringBuilder().append(string_442_).append(string_441_).toString();
+                    string_442_ = string_442_ + string_441_;
                     i_440_ = 1;
                 }
             }
             if (string_442_.equals(""))
                 string_442_ = "-1";
-            i_437_ = Integer.valueOf(string_442_).intValue();
+            i_437_ = Integer.valueOf(string_442_);
         } catch (final Exception exception) {
             /* empty */
         }
@@ -66,7 +66,7 @@ public class Utility {
      *
      * @param i
      *            The 3D X point
-     * @param i_161_
+     * @param i_338_
      *            The 3D Y point
      * @return The 2D X coordinate.
      */
@@ -81,7 +81,7 @@ public class Utility {
      *
      * @param i
      *            The 3D Z point
-     * @param i_161_
+     * @param i_339_
      *            The 3D Y point
      * @return The 2D Y coordinate.
      */

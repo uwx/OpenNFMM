@@ -2,8 +2,8 @@ package nfm.open;/* nfm.open.UlawUtils - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 
-public final class UlawUtils {
-	public static final byte[] s2u_lut = { -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17,
+final class UlawUtils {
+	private static final byte[] s2u_lut = { -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17,
 			-17, -18, -18, -19, -19, -20, -20, -21, -21, -22, -22, -23, -23, -24, -24, -25, -25, -26, -26, -27, -27,
 			-28, -28, -29, -29, -30, -30, -31, -31, -32, -32, -33, -33, -33, -33, -34, -34, -34, -34, -35, -35, -35,
 			-35, -36, -36, -36, -36, -37, -37, -37, -37, -38, -38, -38, -38, -39, -39, -39, -39, -40, -40, -40, -40,
@@ -363,15 +363,15 @@ public final class UlawUtils {
 			105, 105, 106, 106, 107, 107, 108, 108, 109, 109, 110, 110, 111, 111, 112, 113, 114, 115, 116, 117, 118,
 			119, 120, 121, 122, 123, 124, 125, 126 };
 
-	public static final byte linear2ulaw(final byte i) {
+	public static byte linear2ulaw(final byte i) {
 		return s2u_lut[((i & 0xff) << 5) + 15];
 	}
 
-	public static final byte linear2ulaw(final int i) {
+	public static byte linear2ulaw(final int i) {
 		return s2u_lut[i >> 3];
 	}
 
-	public static final byte linear2ulawclip(int i) {
+	public static byte linear2ulawclip(int i) {
 		if (i < -32767)
 			i = -32767;
 		if (i > 32767)

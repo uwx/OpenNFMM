@@ -9,15 +9,15 @@ import ds.nfm.ModuleLoader;
 import ds.nfm.ModuleSlayer;
 
 class RadicalMod implements RadicalMusic {
-	static String name = "";
-	static String filename = "";
-	static boolean nonempty = false;
+	private static String name = "";
+	private static String filename = "";
+	private static boolean nonempty = false;
 	SuperClip sClip;
 	boolean playing;
 	int loaded;
 	int rvol;
-	String imod;
-	String pmod;
+	private String imod;
+	private String pmod;
 
 	public RadicalMod() {
 		playing = false;
@@ -64,14 +64,13 @@ class RadicalMod implements RadicalMusic {
 				sClip.rollBackPos = moduleslayer.rollBackPos;
 				sClip.rollBackTrig = moduleslayer.oln - moduleslayer.rollBackTrig;
 				if (bool_2)
-					filename = new StringBuilder().append("Length: ").append(getTimer(sClip.stream.available() / 44100))
-							.toString();
+					filename = "Length: " + getTimer(sClip.stream.available() / 44100);
 				loaded = 2;
 			}
 		} catch (final Exception exception) {
 			exception.printStackTrace();
-			System.out.println(new StringBuilder().append("Error downloading and making nfm.open.Mod: ")
-					.append(exception.toString()).toString());
+			System.out.println("Error downloading and making nfm.open.Mod: " +
+					exception.toString());
 			loaded = 0;
 			nonempty = false;
 		}
@@ -92,16 +91,16 @@ class RadicalMod implements RadicalMusic {
 		loadimod(false);
 	}
 
-	String getTimer(int secs) {
+	private String getTimer(int secs) {
 		final int mins = secs / 60;
 		secs %= 60;
 		if (secs >= 10)
-			return new StringBuilder().append(mins).append(":").append(secs).toString();
+			return String.valueOf(mins) + ":" + secs;
 		else
-			return new StringBuilder().append(mins).append(":0").append(secs).toString();
+			return String.valueOf(mins) + ":0" + secs;
 	}
 
-	public void loadimod(final boolean bool) {
+	private void loadimod(final boolean bool) {
 		if (loaded == 1) {
 			final int i = 44000;
 			int i_6 = 160;
@@ -125,7 +124,7 @@ class RadicalMod implements RadicalMusic {
 				}
 			} catch (final Exception exception) {
 				System.out.println(
-						new StringBuilder().append("Error making a imod: ").append(exception.toString()).toString());
+						"Error making a imod: " + exception.toString());
 				loaded = 0;
 				nonempty = false;
 			}
@@ -134,7 +133,7 @@ class RadicalMod implements RadicalMusic {
 		}
 	}
 
-	public void loadpmod(final boolean bool) {
+	private void loadpmod(final boolean bool) {
 		if (loaded == 1) {
 			final int i = 44000;
 			int i_10 = 160;
@@ -158,7 +157,7 @@ class RadicalMod implements RadicalMusic {
 				}
 			} catch (final Exception exception) {
 				System.out.println(
-						new StringBuilder().append("Error making a imod: ").append(exception.toString()).toString());
+						"Error making a imod: " + exception.toString());
 				loaded = 0;
 				nonempty = false;
 			}
@@ -167,7 +166,7 @@ class RadicalMod implements RadicalMusic {
 		}
 	}
 
-	public RadicalMod(final String string, final boolean bool) {
+	public RadicalMod(final String string) {
 		playing = false;
 		loaded = 0;
 		rvol = 0;
@@ -198,7 +197,7 @@ class RadicalMod implements RadicalMusic {
 			try {
 				sClip.close();
 				sClip = null;
-			} catch (final Exception exception) {
+			} catch (final Exception ignored) {
 			}
 			System.gc();
 			loaded = 1;
@@ -214,11 +213,11 @@ class RadicalMod implements RadicalMusic {
 		try {
 			sClip.close();
 			sClip = null;
-		} catch (final Exception exception) {
+		} catch (final Exception ignored) {
 		}
 		try {
 			imod = null;
-		} catch (final Exception exception) {
+		} catch (final Exception ignored) {
 		}
 		System.gc();
 		loaded = 0;

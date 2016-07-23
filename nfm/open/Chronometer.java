@@ -10,39 +10,39 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.text.DecimalFormat;
 
-public class Chronometer {
+class Chronometer {
 
-	int bestlap;
+	private int bestlap;
 
-	int current;
+	private int current;
 
-	DecimalFormat dc;
+	private final DecimalFormat dc;
 
-	long delay;
+	private long delay;
 
-	long end;
+	private long end;
 
-	FontMetrics ftm;
+	private FontMetrics ftm;
 
-	int laps;
+	private int laps;
 
-	long lapsplits[];
+	private long[] lapsplits;
 
-	long laptimes[];
+	private long[] laptimes;
 
-	boolean paused;
+	private boolean paused;
 
-	long pausetime;
+	private long pausetime;
 
-	Graphics2D rd;
+	private final Graphics2D rd;
 
-	boolean ready;
+	private boolean ready;
 
-	boolean running;
+	private boolean running;
 
-	long start;
+	private long start;
 
-	xtGraphics xt;
+	private final xtGraphics xt;
 
 	public Chronometer(final xtGraphics pxt) {
 		System.out.println("nfm.open.Chronometer ready");
@@ -109,12 +109,12 @@ public class Chronometer {
 		return getTime(laptimes[bestlap - 1]);
 	}
 
-	public String getTime(final long time) {
+	private String getTime(final long time) {
 		final long cent = time % 1000L / 10L;
 		final int secs = (int) (time / 1000L % 60L);
 		final int mins = (int) (time / 1000L / 60L);
-		return new StringBuilder().append(dc.format(mins)).append(":").append(dc.format(secs)).append(".")
-				.append(dc.format(cent)).toString();
+		return dc.format(mins) + ":" + dc.format(secs) + "." +
+				dc.format(cent);
 	}
 
 	public String getTotalTime() {
@@ -170,8 +170,8 @@ public class Chronometer {
 					colorSet(250, 250, 250, 220);
 				else
 					colorSnap(250, 250, 250);
-			rd.drawString(new StringBuilder().append("").append(i + 1).toString(),
-					x + 22 - ftm.stringWidth(new StringBuilder().append("").append(i + 1).toString()) / 2,
+			rd.drawString("" + (i + 1),
+					x + 22 - ftm.stringWidth("" + (i + 1)) / 2,
 					y + 20 * pos + 15);
 			String currentTime;
 			String lapTime;

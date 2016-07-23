@@ -2,12 +2,12 @@ package nfm.open;/* nfm.open.Wheels - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 
-public class Wheels {
-	float depth = 3.0F;
+class Wheels {
+	private float depth = 3.0F;
 	int ground = 0;
 	int mast = 0;
-	int[] rc = { 120, 120, 120 };
-	float size = 2.0F;
+	private final int[] rc = { 120, 120, 120 };
+	private float size = 2.0F;
 	int sparkat = 0;
 
 	public Wheels() {
@@ -164,7 +164,7 @@ public class Wheels {
 		is[3] = (int) (i_4_ + 4.0F * f);
 		is_11_[3] = (int) (i_5_ - 9.1923F * f_15_);
 		is_12_[3] = (int) (i_6_ - 9.1923F * f_15_);
-		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 4, is_13_, 0, i_10_, 1 * i_16_, i_14_, i_5_, i_6_,
+		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 4, is_13_, 0, i_10_, i_16_, i_14_, i_5_, i_6_,
 				7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
 		i++;
 		is[0] = (int) (i_4_ - 4.0F * f);
@@ -179,7 +179,7 @@ public class Wheels {
 		is[3] = (int) (i_4_ + 4.0F * f);
 		is_11_[3] = (int) (i_5_ - 9.1923F * f_15_);
 		is_12_[3] = (int) (i_6_ - 9.1923F * f_15_);
-		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 4, is_13_, 0, i_10_, 1 * i_16_, i_14_, i_5_, i_6_,
+		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 4, is_13_, 0, i_10_, i_16_, i_14_, i_5_, i_6_,
 				7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
 		i++;
 		is[0] = (int) (i_4_ - 4.0F * f);
@@ -209,7 +209,7 @@ public class Wheels {
 		is[3] = (int) (i_4_ + 4.0F * f);
 		is_11_[3] = (int) (i_5_ + 9.1923F * f_15_);
 		is_12_[3] = (int) (i_6_ - 9.1923F * f_15_);
-		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 4, is_13_, 0, i_10_, 1 * i_16_, i_14_, i_5_, i_6_,
+		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 4, is_13_, 0, i_10_, i_16_, i_14_, i_5_, i_6_,
 				7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
 		i++;
 		is[0] = (int) (i_4_ - 4.0F * f);
@@ -224,7 +224,7 @@ public class Wheels {
 		is[3] = (int) (i_4_ + 4.0F * f);
 		is_11_[3] = (int) (i_5_ + 9.1923F * f_15_);
 		is_12_[3] = (int) (i_6_ - 9.1923F * f_15_);
-		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 4, is_13_, 0, i_10_, 1 * i_16_, i_14_, i_5_, i_6_,
+		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 4, is_13_, 0, i_10_, i_16_, i_14_, i_5_, i_6_,
 				7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
 		i++;
 		is[0] = (int) (i_4_ - 4.0F * f);
@@ -254,7 +254,7 @@ public class Wheels {
 		is[3] = (int) (i_4_ + 4.0F * f);
 		is_11_[3] = (int) (i_5_ + 9.1923F * f_15_);
 		is_12_[3] = (int) (i_6_ + 9.1923F * f_15_);
-		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 4, is_13_, 0, i_10_, 1 * i_16_, i_14_, i_5_, i_6_,
+		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 4, is_13_, 0, i_10_, i_16_, i_14_, i_5_, i_6_,
 				7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
 		i++;
 		is[0] = (int) (i_4_ - 4.0F * f);
@@ -269,7 +269,7 @@ public class Wheels {
 		is[3] = (int) (i_4_ + 4.0F * f);
 		is_11_[3] = (int) (i_5_ + 9.1923F * f_15_);
 		is_12_[3] = (int) (i_6_ + 9.1923F * f_15_);
-		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 4, is_13_, 0, i_10_, 1 * i_16_, i_14_, i_5_, i_6_,
+		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 4, is_13_, 0, i_10_, i_16_, i_14_, i_5_, i_6_,
 				7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
 		i++;
 		is[0] = (int) (i_4_ - 4.0F * f);
@@ -299,7 +299,7 @@ public class Wheels {
 		is[3] = (int) (i_4_ + 4.0F * f);
 		is_11_[3] = (int) (i_5_ - 9.1923F * f_15_);
 		is_12_[3] = (int) (i_6_ + 9.1923F * f_15_);
-		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 4, is_13_, 0, i_10_, 1 * i_16_, i_14_, i_5_, i_6_,
+		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 4, is_13_, 0, i_10_, i_16_, i_14_, i_5_, i_6_,
 				7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
 		i++;
 		is[0] = (int) (i_4_ - 4.0F * f);
@@ -314,7 +314,7 @@ public class Wheels {
 		is[3] = (int) (i_4_ + 4.0F * f);
 		is_11_[3] = (int) (i_5_ - 9.1923F * f_15_);
 		is_12_[3] = (int) (i_6_ + 9.1923F * f_15_);
-		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 4, is_13_, 0, i_10_, 1 * i_16_, i_14_, i_5_, i_6_,
+		planes[i] = new Plane(medium, trackers, is, is_12_, is_11_, 4, is_13_, 0, i_10_, i_16_, i_14_, i_5_, i_6_,
 				7, 0, false, 0, true, false, false, false, 1, 0, 0, 10);
 		i++;
 	}

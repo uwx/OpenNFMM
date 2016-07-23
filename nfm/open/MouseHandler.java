@@ -7,7 +7,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 class MouseHandler extends MouseAdapter {
-	int id;
+	private final int id;
 	private final PopupMenu popupMenu;
 
 	public MouseHandler(final PopupMenu popupmenu, final int i) {

@@ -6,7 +6,7 @@ package nfm.open;
 
 import java.io.IOException;
 
-public class ModSlayer {
+class ModSlayer {
 
 	static final String COPYRIGHT = "";
 
@@ -31,17 +31,17 @@ public class ModSlayer {
 	static final int EFF_TREMOLO = 64;
 	static final int EFF_VIBRATO = 8;
 	static final int EFF_VOL_SLIDE = 1;
-	static final int loud_vol_adj[] = { 0, 0, 1, 2, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28,
+	private static final int[] loud_vol_adj = { 0, 0, 1, 2, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28,
 			30, 32, 34, 36, 38, 40, 42, 44, 46, 47, 48, 49, 50, 51, 52, 53, 53, 54, 55, 55, 56, 56, 57, 57, 58, 58, 59,
 			59, 60, 60, 61, 61, 61, 62, 62, 62, 63, 63, 63, 63, 63, 63 };
 	static final int MAX_SAMPLES = 100;
 	static final int MAX_TRACKS = 32;
 	static final int MIDCRATE = 8448;
 	static final int MIX_BUF_SIZE = 2048;
-	static final int normal_vol_adj[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+	private static final int[] normal_vol_adj = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
 			22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48,
 			49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 63 };
-	static final int period_set[] = { 1712, 1616, 1525, 1440, 1359, 1283, 1211, 1143, 1078, 1018, 961, 907, 856, 808,
+	private static final int[] period_set = { 1712, 1616, 1525, 1440, 1359, 1283, 1211, 1143, 1078, 1018, 961, 907, 856, 808,
 			763, 720, 679, 641, 605, 571, 539, 509, 480, 453, 428, 404, 381, 360, 340, 321, 303, 286, 270, 254, 240,
 			227, 214, 202, 191, 180, 170, 160, 151, 143, 135, 127, 120, 113, 107, 101, 95, 90, 85, 80, 76, 71, 67, 64,
 			60, 57, 53, 50, 48, 45, 42, 40, 38, 36, 34, 32, 30, 28, 27, 25, 24, 22, 21, 20, 19, 18, 17, 16, 15, 14 };
@@ -53,11 +53,11 @@ public class ModSlayer {
 	static final int S3M_INSTR2 = Mod.FOURCC("SCRS");
 	static final int S3M_MAGIC1 = 4122;
 	static final int S3M_MAGIC2 = Mod.FOURCC("SCRM");
-	static final int sintable[] = { 0, 25, 50, 74, 98, 120, 142, 162, 180, 197, 212, 225, 236, 244, 250, 254, 255, 254,
+	private static final int[] sintable = { 0, 25, 50, 74, 98, 120, 142, 162, 180, 197, 212, 225, 236, 244, 250, 254, 255, 254,
 			250, 244, 236, 225, 212, 197, 180, 162, 142, 120, 98, 74, 50, 25 };
 	static final String VERSION = "1.0";
 
-	public static void intToBytes16(final int ai[], final byte abyte0[], final int i, final int j) {
+	private static void intToBytes16(final int ai[], final byte abyte0[], final int i, final int j) {
 		int k = j;
 		for (int l = 0; l < i; l++) {
 			abyte0[k++] = (byte) (ai[l] >> 8);
@@ -66,33 +66,33 @@ public class ModSlayer {
 
 	}
 
-	public boolean bit16;
-	int bpm;
-	int bpm_samples;
-	int break_row;
-	int def_bpm;
-	int def_tempo;
-	public int gain;
-	public boolean loud;
-	int mixspeed;
-	Mod mod;
-	boolean mod_done;
-	public int nloops;
-	int numtracks;
-	int olav;
-	int oln;
-	int order_pos;
-	public int oversample;
-	byte patt[];
-	int pattofs;
-	int row;
-	public int samplingrate;
-	int tempo;
-	int tempo_wait;
-	ModTrackInfo tracks[];
-	int vol_adj[];
-	int vol_shift;
-	byte vol_table[];
+	private boolean bit16;
+	private int bpm;
+	private int bpm_samples;
+	private int break_row;
+	private final int def_bpm;
+	private final int def_tempo;
+	private final int gain;
+	private final boolean loud;
+	private int mixspeed;
+	private final Mod mod;
+	private boolean mod_done;
+	private int nloops;
+	private int numtracks;
+	private int olav;
+	private int oln;
+	private int order_pos;
+	private final int oversample;
+	private byte[] patt;
+	private int pattofs;
+	private int row;
+	private final int samplingrate;
+	private int tempo;
+	private int tempo_wait;
+	private ModTrackInfo[] tracks;
+	private int[] vol_adj;
+	private int vol_shift;
+	private byte[] vol_table;
 
 	ModSlayer(final Mod mod1, final int i, final int j, final int k) {
 		mod_done = false;
@@ -108,7 +108,7 @@ public class ModSlayer {
 		def_bpm = k;
 	}
 
-	final void beattrack(final ModTrackInfo modtrackinfo) {
+	private void beattrack(final ModTrackInfo modtrackinfo) {
 		if (modtrackinfo.period_low_limit == 0)
 			modtrackinfo.period_low_limit = 1;
 		if ((modtrackinfo.effect & 1) != 0) {
@@ -160,7 +160,7 @@ public class ModSlayer {
 		}
 	}
 
-	final int get_track(final ModTrackInfo modtrackinfo, final byte abyte0[], int i) {
+	private int get_track(final ModTrackInfo modtrackinfo, final byte abyte0[], int i) {
 		int j = abyte0[i] & 0xf0;
 		int k = (abyte0[i++] & 0xf) << 8;
 		k |= abyte0[i++] & 0xff;
@@ -307,14 +307,14 @@ public class ModSlayer {
 		return i;
 	}
 
-	final void make_vol_table8() {
+	private void make_vol_table8() {
 		vol_table = new byte[16640];
 		for (int i = 0; i < 16640; i++)
 			vol_table[i] = (byte) (vol_adj[i >> 8] * (byte) i >> 8 + vol_shift);
 
 	}
 
-	final void mixtrack_16_mono(final ModTrackInfo modtrackinfo, final int ai[], int i, int j) {
+	private void mixtrack_16_mono(final ModTrackInfo modtrackinfo, final int ai[], int i, int j) {
 		final byte abyte0[] = modtrackinfo.samples;
 		int k = modtrackinfo.position;
 		final int j1 = vol_adj[modtrackinfo.volume] * gain >> vol_shift + 8;
@@ -365,7 +365,7 @@ public class ModSlayer {
 		}
 	}
 
-	final void startplaying(final boolean flag) {
+	private void startplaying(final boolean flag) {
 		vol_adj = flag ? loud_vol_adj : normal_vol_adj;
 		mixspeed = samplingrate * oversample;
 		order_pos = 0;
@@ -404,7 +404,7 @@ public class ModSlayer {
 			make_vol_table8();
 	}
 
-	public byte[] turnbytesNorm(final boolean flag) throws IOException {
+	public byte[] turnbytesNorm(final boolean flag) {
 		bit16 = true;
 		startplaying(loud);
 		final int ai[] = new int[mixspeed];
@@ -469,7 +469,7 @@ public class ModSlayer {
 		return abyte0;
 	}
 
-	public byte[] turnbytesUlaw() throws IOException {
+	public byte[] turnbytesUlaw() {
 		bit16 = true;
 		startplaying(loud);
 		final int ai[] = new int[mixspeed];
@@ -526,7 +526,7 @@ public class ModSlayer {
 		return abyte0;
 	}
 
-	final void updatetracks() {
+	private void updatetracks() {
 		tempo_wait = tempo;
 		if (row >= 64) {
 			if (order_pos >= mod.song_length_patterns) {

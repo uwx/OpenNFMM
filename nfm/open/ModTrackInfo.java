@@ -5,7 +5,7 @@ package nfm.open;
  * JODE (c) 1998-2001 Jochen Hoenicke
  */
 class ModTrackInfo {
-	int[] arp;
+	final int[] arp;
 	int arpindex;
 	int effect;
 	int error;

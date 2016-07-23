@@ -4,53 +4,53 @@ package nfm.open;
  */
 import java.awt.Color;
 
-public class Mad {
+class Mad {
 	boolean btab = false;
 	int capcnt = 0;
 	boolean capsized = false;
-	boolean[] caught = new boolean[8];
-	CarDefine cd;
+	private final boolean[] caught = new boolean[8];
+	final CarDefine cd;
 	int clear = 0;
 	int cn = 0;
 	int cntdest = 0;
-	int cntouch = 0;
-	boolean colidim = false;
-	int[][] crank = new int[4][4];
+	private int cntouch = 0;
+	private boolean colidim = false;
+	private final int[][] crank = new int[4][4];
 	int cxz = 0;
-	int dcnt = 0;
+	private int dcnt = 0;
 	float dcomp = 0.0F;
 	boolean dest = false;
-	boolean[] dominate = new boolean[8];
-	float drag = 0.5F;
-	int fixes = -1;
-	int focus = -1;
-	float forca = 0.0F;
+	private final boolean[] dominate = new boolean[8];
+	private final float drag = 0.5F;
+	private int fixes = -1;
+	private int focus = -1;
+	private float forca = 0.0F;
 	boolean ftab = false;
-	int fxz = 0;
+	private int fxz = 0;
 	boolean gtouch = false;
 	int hitmag = 0;
 	int im = 0;
 	int lastcolido = 0;
 	float lcomp = 0.0F;
-	int[][] lcrank = new int[4][4];
+	private final int[][] lcrank = new int[4][4];
 	int loop = 0;
-	int lxz = 0;
-	Medium m;
+	private int lxz = 0;
+	private final Medium m;
 	int missedcp = 0;
 	boolean mtouch = false;
 	int mxz = 0;
-	int nbsq = 0;
+	private int nbsq = 0;
 	boolean newcar = false;
 	int newedcar = 0;
 	int nlaps = 0;
-	int nmlt = 1;
+	private int nmlt = 1;
 	boolean nofocus = false;
 	int outshakedam = 0;
-	int pan = 0;
+	private int pan = 0;
 	int pcleared = 0;
 	boolean pd = false;
 	boolean pl = false;
-	int pmlt = 1;
+	private int pmlt = 1;
 	int point = 0;
 	float power = 75.0F;
 	float powerup = 0.0F;
@@ -60,19 +60,19 @@ public class Mad {
 	int pxy = 0;
 	int pzy = 0;
 	float rcomp = 0.0F;
-	Record rpd;
-	int rpdcatch = 0;
+	private final Record rpd;
+	private int rpdcatch = 0;
 	boolean rtab = false;
-	float[] scx = new float[4];
-	float[] scy = new float[4];
-	float[] scz = new float[4];
+	final float[] scx = new float[4];
+	final float[] scy = new float[4];
+	final float[] scz = new float[4];
 	int shakedam = 0;
 	int skid = 0;
 	float speed = 0.0F;
 	int squash = 0;
-	int srfcnt = 0;
+	private int srfcnt = 0;
 	boolean surfer = false;
-	float tilt = 0.0F;
+	private float tilt = 0.0F;
 	int travxy = 0;
 	int travxz = 0;
 	int travzy = 0;
@@ -80,8 +80,8 @@ public class Mad {
 	int txz = 0;
 	float ucomp = 0.0F;
 	boolean wtouch = false;
-	xtGraphics xt;
-	int xtpower = 0;
+	private final xtGraphics xt;
+	private int xtpower = 0;
 
 	public Mad(final CarDefine cardefine, final Medium medium, final Record record, final xtGraphics var_xtGraphics,
 			final int i) {
@@ -124,15 +124,9 @@ public class Mad {
 			if (!caught[mad_118_.im] && (speed != 0.0F || mad_118_.speed != 0.0F)) {
 				if (Math.abs(power * speed * cd.moment[cn]) != Math
 						.abs(mad_118_.power * mad_118_.speed * cd.moment[mad_118_.cn])) {
-					if (Math.abs(power * speed * cd.moment[cn]) > Math
-							.abs(mad_118_.power * mad_118_.speed * cd.moment[mad_118_.cn]))
-						dominate[mad_118_.im] = true;
-					else
-						dominate[mad_118_.im] = false;
-				} else if (cd.moment[cn] > cd.moment[mad_118_.cn])
-					dominate[mad_118_.im] = true;
-				else
-					dominate[mad_118_.im] = false;
+					dominate[mad_118_.im] = Math.abs(power * speed * cd.moment[cn]) > Math
+							.abs(mad_118_.power * mad_118_.speed * cd.moment[mad_118_.cn]);
+				} else dominate[mad_118_.im] = cd.moment[cn] > cd.moment[mad_118_.cn];
 				caught[mad_118_.im] = true;
 			}
 		} else if (caught[mad_118_.im])
@@ -242,7 +236,7 @@ public class Mad {
 		}
 	}
 
-	public void distruct(final ContO conto) {
+	private void distruct(final ContO conto) {
 		for (int i = 0; i < conto.npl; i++)
 			if (conto.p[i].wz == 0 || conto.p[i].gr == -17 || conto.p[i].gr == -16)
 				conto.p[i].embos = 1;
@@ -1545,11 +1539,11 @@ public class Mad {
 		}
 	}
 
-	public int py(final int i, final int i_145_, final int i_146_, final int i_147_) {
+	private int py(final int i, final int i_145_, final int i_146_, final int i_147_) {
 		return (i - i_145_) * (i - i_145_) + (i_146_ - i_147_) * (i_146_ - i_147_);
 	}
 
-	public int regx(final int i, float f, final ContO conto) {
+	private int regx(final int i, float f, final ContO conto) {
 		int i_110_ = 0;
 		boolean bool = true;
 		if (xt.multion == 1 && xt.im != im)
@@ -1617,7 +1611,7 @@ public class Mad {
 		return i_110_;
 	}
 
-	public int regy(final int i, float f, final ContO conto) {
+	private int regy(final int i, float f, final ContO conto) {
 		int i_97_ = 0;
 		boolean bool = true;
 		if (xt.multion == 1 && xt.im != im)
@@ -1742,7 +1736,7 @@ public class Mad {
 		return i_97_;
 	}
 
-	public int regz(final int i, float f, final ContO conto) {
+	private int regz(final int i, float f, final ContO conto) {
 		int i_114_ = 0;
 		boolean bool = true;
 		if (xt.multion == 1 && xt.im != im)
@@ -1900,8 +1894,8 @@ public class Mad {
 			fixes = 1;
 	}
 
-	public void rot(final float[] fs, final float[] fs_134_, final int i, final int i_135_, final int i_136_,
-			final int i_137_) {
+	private void rot(final float[] fs, final float[] fs_134_, final int i, final int i_135_, final int i_136_,
+					 final int i_137_) {
 		if (i_136_ != 0)
 			for (int i_138_ = 0; i_138_ < i_137_; i_138_++) {
 				final float f = fs[i_138_];
@@ -1911,8 +1905,8 @@ public class Mad {
 			}
 	}
 
-	public int rpy(final float f, final float f_140_, final float f_141_, final float f_142_, final float f_143_,
-			final float f_144_) {
+	private int rpy(final float f, final float f_140_, final float f_141_, final float f_142_, final float f_143_,
+					final float f_144_) {
 		return (int) ((f - f_140_) * (f - f_140_) + (f_141_ - f_142_) * (f_141_ - f_142_)
 				+ (f_143_ - f_144_) * (f_143_ - f_144_));
 	}

@@ -21,83 +21,83 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Date;
 
-public class Login implements Runnable {
-	int[] bgmy = { 0, 400, 800 };
-	int btn = 0;
-	boolean btroom = false;
-	int[] bw = { 0, 0, 0, 0, 0, 0 };
-	int[] bx = { 0, 0, 0, 0, 0, 0 };
-	int[] by = { 0, 0, 0, 0, 0, 0 };
-	int cax = 0;
-	int cay = 0;
-	boolean checknote = false;
+class Login implements Runnable {
+	private final int[] bgmy = { 0, 400, 800 };
+	private int btn = 0;
+	private boolean btroom = false;
+	private final int[] bw = { 0, 0, 0, 0, 0, 0 };
+	private final int[] bx = { 0, 0, 0, 0, 0, 0 };
+	private final int[] by = { 0, 0, 0, 0, 0, 0 };
+	private int cax = 0;
+	private int cay = 0;
+	private boolean checknote = false;
 	String clanapv = "";
-	int cntcl = 0;
-	int cntgame = 0;
-	Thread connector;
-	boolean contrb = false;
-	BufferedReader din;
-	PrintWriter dout;
-	DatagramSocket[] dSocket = new DatagramSocket[3];
-	int errcnt = 0;
+	private int cntcl = 0;
+	private int cntgame = 0;
+	private Thread connector;
+	private boolean contrb = false;
+	private BufferedReader din;
+	private PrintWriter dout;
+	private final DatagramSocket[] dSocket = new DatagramSocket[3];
+	private int errcnt = 0;
 	int fase = 0;
 	int fclan = 0;
 	int flipo = 0;
 	int fplayer = 0;
-	FontMetrics ftm;
+	private FontMetrics ftm;
 	int gamec = -1;
-	String gmaker = "";
-	boolean gotcai = false;
-	int groom = 0;
-	GameSparker gs;
-	String gservern = "";
-	InetAddress[] IPAddress = new InetAddress[3];
+	private String gmaker = "";
+	private boolean gotcai = false;
+	private int groom = 0;
+	private final GameSparker gs;
+	private String gservern = "";
+	private final InetAddress[] IPAddress = new InetAddress[3];
 	boolean jflk = false;
 	boolean justlog = false;
-	String lemail = "";
-	String lnick = "";
-	String lpass = "";
-	int lrgfase = 0;
-	int lxm = 0;
-	int lym = 0;
-	Medium m;
-	String msg = "";
-	int ncnt = 0;
+	private String lemail = "";
+	private String lnick = "";
+	private String lpass = "";
+	private final int lrgfase = 0;
+	private int lxm = 0;
+	private int lym = 0;
+	private final Medium m;
+	private String msg = "";
+	private int ncnt = 0;
 	int nconf = 0;
 	int ncreq = 0;
-	int nflk = 0;
+	private int nflk = 0;
 	int nfreq = 0;
-	boolean nickero = false;
+	private boolean nickero = false;
 	int nmsgs = 0;
 	int nservers = 2;
-	ImageObserver ob;
-	boolean ond = false;
-	boolean onf = false;
-	boolean onr = false;
-	int opselect = 0;
-	int oxm = 0;
-	int oym = 0;
-	int pend = 0;
-	boolean pendb = false;
-	boolean[] pessd = { false, false, false, false, false, false };
-	Graphics2D rd;
-	int recom = 0;
-	boolean resofaso = false;
-	int[] rmps = { 0, 0, 0, 0, 0 };
-	int[] rmwt = { 0, 0, 0, 0, 0 };
-	int[] serverdone = { -1, -1, -1 };
-	String[] servers = { "multiplayer.needformadness.com", "avenger.needformadness.com",
+	private ImageObserver ob;
+	private boolean ond = false;
+	private boolean onf = false;
+	private boolean onr = false;
+	private int opselect = 0;
+	private int oxm = 0;
+	private int oym = 0;
+	private int pend = 0;
+	private boolean pendb = false;
+	private final boolean[] pessd = { false, false, false, false, false, false };
+	private final Graphics2D rd;
+	private int recom = 0;
+	private boolean resofaso = false;
+	private final int[] rmps = { 0, 0, 0, 0, 0 };
+	private final int[] rmwt = { 0, 0, 0, 0, 0 };
+	private final int[] serverdone = { -1, -1, -1 };
+	final String[] servers = { "multiplayer.needformadness.com", "avenger.needformadness.com",
 			"ghostrider.needformadness.com" };
-	long[] servestart = { 0L, 0L, 0L };
-	boolean showtf = false;
-	String[] snames = { "Dominion", "Avenger", "Ghostrider" };
-	Socket socket;
-	boolean socketson = false;
-	int srvtrn = 0;
-	int trans = 0;
-	int xrl = 0;
-	int xrr = 0;
-	xtGraphics xt;
+	private final long[] servestart = { 0L, 0L, 0L };
+	private boolean showtf = false;
+	final String[] snames = { "Dominion", "Avenger", "Ghostrider" };
+	private Socket socket;
+	private boolean socketson = false;
+	private int srvtrn = 0;
+	private int trans = 0;
+	private int xrl = 0;
+	private int xrr = 0;
+	private final xtGraphics xt;
 
 	public Login(final Medium medium, final Graphics2D graphics2d, final xtGraphics var_xtGraphics,
 			final GameSparker gamesparker) {
@@ -147,10 +147,7 @@ public class Login implements Runnable {
 		}
 	}
 
-	public void checknotifcations() {
-	}
-
-	public Color color2k(final int i, final int i_62_, final int i_63_) {
+	private Color color2k(final int i, final int i_62_, final int i_63_) {
 		final Color color = new Color(i, i_62_, i_63_);
 		final float[] fs = new float[3];
 		Color.RGBtoHSB(color.getRed(), color.getGreen(), color.getBlue(), fs);
@@ -163,11 +160,8 @@ public class Login implements Runnable {
 		int i_49_ = -1;
 		if (fase != 2 && fase != 4 && fase != 6 && fase != 8 && fase != 9)
 			for (int i_50_ = 0; i_50_ < btn; i_50_++) {
-				if (Math.abs(i - bx[i_50_]) < bw[i_50_] / 2 + 12 && Math.abs(i_47_ - by[i_50_]) < 14
-						&& (i_48_ == 1 || i_48_ == 11))
-					pessd[i_50_] = true;
-				else
-					pessd[i_50_] = false;
+				pessd[i_50_] = Math.abs(i - bx[i_50_]) < bw[i_50_] / 2 + 12 && Math.abs(i_47_ - by[i_50_]) < 14
+						&& (i_48_ == 1 || i_48_ == 11);
 				if (Math.abs(i - bx[i_50_]) < bw[i_50_] / 2 + 12 && Math.abs(i_47_ - by[i_50_]) < 14 && i_48_ <= -1) {
 					gs.mouses = 0;
 					i_49_ = i_50_;
@@ -543,8 +537,7 @@ public class Login implements Runnable {
 					int i_55_ = 0;
 					int i_56_ = 0;
 					for (/**/ ; i_55_ < string.length(); i_55_++) {
-						final String string_57_ = new StringBuilder().append("").append(string.charAt(i_55_))
-								.toString();
+						final String string_57_ = "" + string.charAt(i_55_);
 						if (string_57_.equals("@") && i_56_ == 0 && i_55_ != 0)
 							i_56_ = 1;
 						if (string_57_.equals(".") && i_56_ == 1 && i_55_ != string.length() - 1)
@@ -577,7 +570,7 @@ public class Login implements Runnable {
 		control.exit = false;
 	}
 
-	public void drawbutton(final Image image, final int i, final int i_59_) {
+	private void drawbutton(final Image image, final int i, final int i_59_) {
 		bx[btn] = i;
 		by[btn] = i_59_;
 		bw[btn] = image.getWidth(ob);
@@ -597,7 +590,7 @@ public class Login implements Runnable {
 		btn++;
 	}
 
-	public void drawSbutton(final Image image, final int i, final int i_58_) {
+	private void drawSbutton(final Image image, final int i, final int i_58_) {
 		bx[btn] = i;
 		by[btn] = i_58_;
 		bw[btn] = image.getWidth(ob);
@@ -667,7 +660,7 @@ public class Login implements Runnable {
 		connector.start();
 	}
 
-	public void fixtext(final TextField textfield) {
+	private void fixtext(final TextField textfield) {
 		String string = textfield.getText();
 		string = string.replace('\"', '#');
 		final String string_64_ = "\\";
@@ -675,7 +668,7 @@ public class Login implements Runnable {
 		int i = 0;
 		int i_66_ = -1;
 		for (/**/ ; i < string.length(); i++) {
-			final String string_67_ = new StringBuilder().append("").append(string.charAt(i)).toString();
+			final String string_67_ = "" + string.charAt(i);
 			if (string_67_.equals("|") || string_67_.equals(",") || string_67_.equals("(") || string_67_.equals(")")
 					|| string_67_.equals("#") || string_67_.equals(string_64_) || string_67_.equals("!")
 					|| string_67_.equals("?") || string_67_.equals(" ") || string_67_.equals("~")
@@ -686,7 +679,7 @@ public class Login implements Runnable {
 					|| string_67_.equals(":") || string_67_.equals("\u00a0"))
 				i_66_ = i;
 			else
-				string_65_ = new StringBuilder().append(string_65_).append(string_67_).toString();
+				string_65_ = string_65_ + string_67_;
 		}
 		if (i_66_ != -1) {
 			textfield.setText(string_65_);
@@ -699,8 +692,8 @@ public class Login implements Runnable {
 			socket = new Socket(servers[0], 7061);
 			din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			dout = new PrintWriter(socket.getOutputStream(), true);
-			dout.println(new StringBuilder().append("101|20|").append(xt.nickname).append("|").append(xt.nickey)
-					.append("|").append(xt.servername).append("|").append(xt.servport - 7070).append("|").toString());
+			dout.println("101|20|" + xt.nickname + "|" + xt.nickey +
+					"|" + xt.servername + "|" + (xt.servport - 7070) + "|");
 			din.readLine();
 			socket.close();
 			din.close();
@@ -710,7 +703,7 @@ public class Login implements Runnable {
 		}
 	}
 
-	public String getSvalue(final String string, final int i) {
+	private String getSvalue(final String string, final int i) {
 		String string_74_ = "";
 		try {
 			int i_75_ = 0;
@@ -719,13 +712,13 @@ public class Login implements Runnable {
 			String string_78_ = "";
 			String string_79_ = "";
 			for (/**/ ; i_75_ < string.length() && i_77_ != 2; i_75_++) {
-				string_78_ = new StringBuilder().append("").append(string.charAt(i_75_)).toString();
+				string_78_ = "" + string.charAt(i_75_);
 				if (string_78_.equals("|")) {
 					i_76_++;
 					if (i_77_ == 1 || i_76_ > i)
 						i_77_ = 2;
 				} else if (i_76_ == i) {
-					string_79_ = new StringBuilder().append(string_79_).append(string_78_).toString();
+					string_79_ = string_79_ + string_78_;
 					i_77_ = 1;
 				}
 			}
@@ -736,7 +729,7 @@ public class Login implements Runnable {
 		return string_74_;
 	}
 
-	public int getvalue(final String string, final int i) {
+	private int getvalue(final String string, final int i) {
 		int i_68_ = -1;
 		try {
 			int i_69_ = 0;
@@ -745,19 +738,19 @@ public class Login implements Runnable {
 			String string_72_ = "";
 			String string_73_ = "";
 			for (/**/ ; i_69_ < string.length() && i_71_ != 2; i_69_++) {
-				string_72_ = new StringBuilder().append("").append(string.charAt(i_69_)).toString();
+				string_72_ = "" + string.charAt(i_69_);
 				if (string_72_.equals("|")) {
 					i_70_++;
 					if (i_71_ == 1 || i_70_ > i)
 						i_71_ = 2;
 				} else if (i_70_ == i) {
-					string_73_ = new StringBuilder().append(string_73_).append(string_72_).toString();
+					string_73_ = string_73_ + string_72_;
 					i_71_ = 1;
 				}
 			}
 			if (string_73_.equals(""))
 				string_73_ = "-1";
-			i_68_ = Integer.valueOf(string_73_).intValue();
+			i_68_ = Integer.valueOf(string_73_);
 		} catch (final Exception exception) {
 			/* empty */
 		}
@@ -905,8 +898,8 @@ public class Login implements Runnable {
 		rd.setColor(new Color(0, 0, 0));
 		rd.drawString(xt.nickname, 239 - ftm.stringWidth(xt.nickname) / 2, 105);
 		rd.setColor(color2k(90, 90, 90));
-		rd.drawString(new StringBuilder().append("").append(xt.cd.names[xt.sc[0]]).append("").toString(), 409
-				- ftm.stringWidth(new StringBuilder().append("").append(xt.cd.names[xt.sc[0]]).append("").toString())
+		rd.drawString("" + xt.cd.names[xt.sc[0]] + "", 409
+				- ftm.stringWidth("" + xt.cd.names[xt.sc[0]] + "")
 						/ 2,
 				81);
 		rd.drawString("Nickname", 239 - ftm.stringWidth("Nickname") / 2, 81);
@@ -960,17 +953,17 @@ public class Login implements Runnable {
 				rd.drawRoundRect(165, 219, 470, 135, 20, 20);
 				if (xt.acexp > 0) {
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString(new StringBuilder().append("Dear ").append(xt.nickname).append(",").toString(), 185,
+					rd.drawString("Dear " + xt.nickname + ",", 185,
 							245);
-					rd.drawString(new StringBuilder().append("Your account is due to expire in ").append(xt.acexp)
-							.append(" days.").toString(), 185, 265);
+					rd.drawString("Your account is due to expire in " + xt.acexp +
+							" days.", 185, 265);
 					rd.drawString("Renew your registration soon!", 185, 295);
 					stringbutton("Renew my Account Registration now!", 345, 332, 0);
 					stringbutton("Renew Later", 524, 332, 0);
 				}
 				if (xt.acexp == -1) {
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString(new StringBuilder().append("Dear ").append(xt.nickname).append(",").toString(), 185,
+					rd.drawString("Dear " + xt.nickname + ",", 185,
 							245);
 					rd.drawString("Your Need for nfm.open.Madness account registration has expired.", 185, 265);
 					rd.drawString("Please renew your registration.", 185, 295);
@@ -979,7 +972,7 @@ public class Login implements Runnable {
 				}
 				if (xt.acexp == -2) {
 					rd.setColor(new Color(0, 0, 0));
-					rd.drawString(new StringBuilder().append("Dear ").append(xt.nickname).append(",").toString(), 185,
+					rd.drawString("Dear " + xt.nickname + ",", 185,
 							245);
 					rd.drawString("Trial accounts are not allowed to access the downloaded game.", 185, 265);
 					rd.drawString("You can only play the game online using your trial account.", 185, 295);
@@ -1110,9 +1103,9 @@ public class Login implements Runnable {
 			rd.fillRoundRect(246, 83, 180, 96, 20, 20);
 			rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
 			rd.setColor(color2k(90, 90, 90));
-			rd.drawString(new StringBuilder().append("").append(xt.cd.names[xt.sc[0]]).append("").toString(),
+			rd.drawString("" + xt.cd.names[xt.sc[0]] + "",
 					336 - ftm.stringWidth(
-							new StringBuilder().append("").append(xt.cd.names[xt.sc[0]]).append("").toString()) / 2,
+							"" + xt.cd.names[xt.sc[0]] + "") / 2,
 					81);
 			rd.drawRoundRect(246, 83, 180, 96, 20, 20);
 			if (!gotcai) {
@@ -1214,7 +1207,7 @@ public class Login implements Runnable {
 			}
 			if (xt.msgcheck(gs.tnick.getText()))
 				gs.tnick.setText("");
-			if (gs.tnick.getText().toLowerCase().indexOf("madbot") != -1)
+			if (gs.tnick.getText().toLowerCase().contains("madbot"))
 				gs.tnick.setText("");
 		}
 		if (fase == 3 || fase == 4) {
@@ -1379,7 +1372,6 @@ public class Login implements Runnable {
 	@Override
 	public void run() {
 		if (checknote) {
-			checknotifcations();
 			checknote = false;
 		}
 		if (fase == 2) {
@@ -1390,7 +1382,7 @@ public class Login implements Runnable {
 				socket = new Socket(servers[0], 7061);
 				din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 				dout = new PrintWriter(socket.getOutputStream(), true);
-				dout.println(new StringBuilder().append("0|").append(gs.tnick.getText()).append("|").toString());
+				dout.println("0|" + gs.tnick.getText() + "|");
 				final String string = din.readLine();
 				if (string != null) {
 					i = getvalue(string, 0);
@@ -1451,8 +1443,8 @@ public class Login implements Runnable {
 				socket = new Socket(servers[0], 7061);
 				din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 				dout = new PrintWriter(socket.getOutputStream(), true);
-				dout.println(new StringBuilder().append("1|").append(gs.tnick.getText()).append("|")
-						.append(gs.tpass.getText()).append("|").toString());
+				dout.println("1|" + gs.tnick.getText() + "|" +
+						gs.tpass.getText() + "|");
 				string = din.readLine();
 				if (string != null) {
 					i = getvalue(string, 0);
@@ -1509,7 +1501,6 @@ public class Login implements Runnable {
 					xt.backlog = xt.nickname;
 				fase = 12;
 				justlog = true;
-				checknotifcations();
 				System.gc();
 			}
 			if (i == 1) {
@@ -1535,8 +1526,7 @@ public class Login implements Runnable {
 				socket = new Socket(servers[0], 7061);
 				din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 				dout = new PrintWriter(socket.getOutputStream(), true);
-				dout.println(new StringBuilder().append("2|").append(gs.temail.getText().toLowerCase()).append("|")
-						.toString());
+				dout.println("2|" + gs.temail.getText().toLowerCase() + "|");
 				final String string = din.readLine();
 				if (string != null)
 					i = getvalue(string, 0);
@@ -1554,8 +1544,8 @@ public class Login implements Runnable {
 			if (i == 0) {
 				showtf = false;
 				gs.temail.setVisible(false);
-				msg = new StringBuilder().append("Please check your Email: ").append(gs.temail.getText())
-						.append(" to login.").toString();
+				msg = "Please check your Email: " + gs.temail.getText() +
+						" to login.";
 				gs.temail.setText("");
 				gs.tnick.setText("");
 				gs.tpass.setText("");
@@ -1592,7 +1582,7 @@ public class Login implements Runnable {
 						final byte[] is = new byte[4];
 						final DatagramPacket datagrampacket = new DatagramPacket(is, is.length, IPAddress[srvtrn],
 								7000);
-						final String string = new StringBuilder().append("").append(xt.nickname).append("|").toString();
+						final String string = "" + xt.nickname + "|";
 						final byte[] is_17_ = string.getBytes();
 						datagrampacket.setData(is_17_);
 						dSocket[srvtrn].send(datagrampacket);
@@ -1741,7 +1731,7 @@ public class Login implements Runnable {
 		endcons();
 	}
 
-	public void stringbutton(final String string, final int i, final int i_60_, final int i_61_) {
+	private void stringbutton(final String string, final int i, final int i_60_, final int i_61_) {
 		rd.setFont(new Font("Arial", 1, 12));
 		ftm = rd.getFontMetrics();
 		bx[btn] = i;

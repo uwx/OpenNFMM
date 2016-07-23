@@ -2,16 +2,16 @@ package nfm.open;/* nfm.open.CheckPoints - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 
-public class CheckPoints {
+class CheckPoints {
 	int catchfin = 0;
-	int[] clear = { 0, 0, 0, 0, 0, 0, 0, 0 };
-	int[] dested = { 0, 0, 0, 0, 0, 0, 0, 0 };
+	final int[] clear = { 0, 0, 0, 0, 0, 0, 0, 0 };
+	final int[] dested = { 0, 0, 0, 0, 0, 0, 0, 0 };
 	int fn = 0;
-	int[] fx = new int[5];
-	int[] fy = new int[5];
-	int[] fz = new int[5];
+	final int[] fx = new int[5];
+	final int[] fy = new int[5];
+	final int[] fz = new int[5];
 	boolean haltall = false;
-	float[] magperc = { 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F };
+	final float[] magperc = { 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F };
 	String maker = "";
 	int n = 0;
 	String name = "hogan rewish";
@@ -20,27 +20,27 @@ public class CheckPoints {
 	boolean notb = false;
 	int nsp = 0;
 	int nto = 0;
-	int[] omxz = new int[8];
-	int[] onscreen = new int[8];
-	int[] opx = new int[8];
-	int[] opz = new int[8];
+	final int[] omxz = new int[8];
+	final int[] onscreen = new int[8];
+	final int[] opx = new int[8];
+	final int[] opz = new int[8];
 	int pcleared = 0;
 	int pcs = 0;
-	int[] pos = { 7, 7, 7, 7, 7, 7, 7, 7 };
-	int postwo = 0;
+	final int[] pos = { 7, 7, 7, 7, 7, 7, 7, 7 };
+	private int postwo = 0;
 	float prox = 0.0F;
 	int pubt = 0;
-	boolean[] roted = new boolean[5];
-	boolean[] special = new boolean[5];
+	final boolean[] roted = new boolean[5];
+	final boolean[] special = new boolean[5];
 	int stage = (int) (Math.random() * 27.0) + 1;
 	int top20 = 0;
 	String trackname = "";
 	int trackvol = 200;
-	int[] typ = new int[10000];
+	final int[] typ = new int[10000];
 	int wasted = 0;
-	int[] x = new int[10000];
-	int[] y = new int[10000];
-	int[] z = new int[10000];
+	final int[] x = new int[10000];
+	final int[] y = new int[10000];
+	final int[] z = new int[10000];
 
 	public void calprox() {
 		int i = 0;
@@ -124,7 +124,7 @@ public class CheckPoints {
 		}
 	}
 
-	public int py(final int i, final int i_11_, final int i_12_, final int i_13_) {
+	private int py(final int i, final int i_11_, final int i_12_, final int i_13_) {
 		return (i - i_11_) * (i - i_11_) + (i_12_ - i_13_) * (i_12_ - i_13_);
 	}
 }

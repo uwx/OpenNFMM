@@ -4,10 +4,9 @@ package nfm.open;// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
 // Source File Name:   nfm.open.SuperClip.java
 
 import java.io.ByteArrayInputStream;
-import java.io.PrintStream;
 import javax.sound.sampled.*;
 
-public class SuperClip
+class SuperClip
     implements Runnable
 {
 
@@ -77,7 +76,7 @@ public class SuperClip
                 Thread _tmp = cliper;
                 Thread.sleep(200L);
             }
-            catch(InterruptedException interruptedexception) { }
+            catch(InterruptedException ignored) { }
         }
         source.stop();
         source.close();
@@ -94,7 +93,7 @@ public class SuperClip
             {
                 stream.reset();
             }
-            catch(Exception exception) { }
+            catch(Exception ignored) { }
             cliper = new Thread(this);
             cliper.start();
         }
@@ -127,15 +126,15 @@ public class SuperClip
             stream.close();
             stream = null;
         }
-        catch(Exception exception) { }
+        catch(Exception ignored) { }
     }
 
-    int skiprate;
-    Thread cliper;
+    private int skiprate;
+    private Thread cliper;
     int stoped;
-    SourceDataLine source;
+    private SourceDataLine source;
     ByteArrayInputStream stream;
     int rollBackPos;
     int rollBackTrig;
-    boolean changeGain;
+    private final boolean changeGain;
 }

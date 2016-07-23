@@ -6,13 +6,13 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-public class udpServe implements Runnable {
-	DatagramSocket dSocket;
-	int im = 0;
-	int[] lsframe = { -1, -1, -1, -1, -1, -1, -1, -1 };
-	int mport = 7060;
-	Thread servo;
-	UDPMistro um;
+class udpServe implements Runnable {
+	private DatagramSocket dSocket;
+	private int im = 0;
+	private final int[] lsframe = { -1, -1, -1, -1, -1, -1, -1, -1 };
+	private int mport = 7060;
+	private Thread servo;
+	private final UDPMistro um;
 
 	public udpServe(final UDPMistro udpmistro, final int i) {
 		um = udpmistro;
@@ -22,7 +22,7 @@ public class udpServe implements Runnable {
 		servo.start();
 	}
 
-	public String getSvalue(final String string, final int i) {
+	private String getSvalue(final String string, final int i) {
 		String string_24_ = "";
 		try {
 			int i_25_ = 0;
@@ -31,13 +31,13 @@ public class udpServe implements Runnable {
 			String string_28_ = "";
 			String string_29_ = "";
 			for (/**/; i_25_ < string.length() && i_27_ != 2; i_25_++) {
-				string_28_ = new StringBuilder().append("").append(string.charAt(i_25_)).toString();
+				string_28_ = "" + string.charAt(i_25_);
 				if (string_28_.equals("|")) {
 					i_26_++;
 					if (i_27_ == 1 || i_26_ > i)
 						i_27_ = 2;
 				} else if (i_26_ == i) {
-					string_29_ = new StringBuilder().append(string_29_).append(string_28_).toString();
+					string_29_ = string_29_ + string_28_;
 					i_27_ = 1;
 				}
 			}
@@ -48,7 +48,7 @@ public class udpServe implements Runnable {
 		return string_24_;
 	}
 
-	public int getvalue(final String string, final int i) {
+	private int getvalue(final String string, final int i) {
 		int i_18_ = -1;
 		try {
 			int i_19_ = 0;
@@ -57,19 +57,19 @@ public class udpServe implements Runnable {
 			String string_22_ = "";
 			String string_23_ = "";
 			for (/**/; i_19_ < string.length() && i_21_ != 2; i_19_++) {
-				string_22_ = new StringBuilder().append("").append(string.charAt(i_19_)).toString();
+				string_22_ = "" + string.charAt(i_19_);
 				if (string_22_.equals("|")) {
 					i_20_++;
 					if (i_21_ == 1 || i_20_ > i)
 						i_21_ = 2;
 				} else if (i_20_ == i) {
-					string_23_ = new StringBuilder().append(string_23_).append(string_22_).toString();
+					string_23_ = string_23_ + string_22_;
 					i_21_ = 1;
 				}
 			}
 			if (string_23_.equals(""))
 				string_23_ = "-1";
-			i_18_ = Integer.valueOf(string_23_).intValue();
+			i_18_ = Integer.valueOf(string_23_);
 		} catch (final Exception exception) {
 			/* empty */
 		}
@@ -81,7 +81,7 @@ public class udpServe implements Runnable {
 		try {
 			dSocket = new DatagramSocket(mport);
 			final byte[] is = new byte[128];
-			for (;;) {
+			while (true) {
 				final DatagramPacket datagrampacket = new DatagramPacket(is, is.length);
 				dSocket.receive(datagrampacket);
 				final String string = new String(datagrampacket.getData());
@@ -140,9 +140,9 @@ public class udpServe implements Runnable {
 						if (i_12_ == -1)
 							i_12_ = 0;
 						lsframe[i_11_] = um.frame[i_11_][i_12_];
-						final String string_15_ = new StringBuilder().append("").append(string_0_).append("|")
-								.append(i_11_).append("|").append(um.frame[i_11_][i_12_]).append("|")
-								.append(um.info[i_11_][i_12_]).append("|").toString();
+						final String string_15_ = "" + string_0_ + "|" +
+								i_11_ + "|" + um.frame[i_11_][i_12_] + "|" +
+								um.info[i_11_][i_12_] + "|";
 						final byte[] is_16_ = string_15_.getBytes();
 						final DatagramPacket datagrampacket_17_ = new DatagramPacket(is_16_, is_16_.length, inetaddress,
 								i_10_);

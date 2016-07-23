@@ -18,159 +18,159 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Date;
 
-public class Lobby implements Runnable {
+class Lobby implements Runnable {
 	int addstage = 0;
-	int britchl = 0;
-	int btn = 0;
-	int[] bw = { 0, 0, 0, 0, 0, 0, 0, 0 };
-	int[] bx = { 0, 0, 0, 0, 0, 0, 0, 0 };
-	int[] by = { 0, 0, 0, 0, 0, 0, 0, 0 };
-	int[] cac = { -1, -1, -1, -1, -1, -1, -1, -1, -1 };
-	int cancreate = 0;
-	int[] cax = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-	int[] cay = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-	CarDefine cd;
-	int cflk = 0;
-	String chalby = "";
-	int chalngd = -1;
-	int clicked = -1;
-	int cmonp = -1;
-	String[] cnames = { "", "", "", "", "", "", "" };
+	private int britchl = 0;
+	private int btn = 0;
+	private final int[] bw = { 0, 0, 0, 0, 0, 0, 0, 0 };
+	private final int[] bx = { 0, 0, 0, 0, 0, 0, 0, 0 };
+	private final int[] by = { 0, 0, 0, 0, 0, 0, 0, 0 };
+	private final int[] cac = { -1, -1, -1, -1, -1, -1, -1, -1, -1 };
+	private final int cancreate = 0;
+	private final int[] cax = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+	private final int[] cay = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+	private final CarDefine cd;
+	private int cflk = 0;
+	private String chalby = "";
+	private int chalngd = -1;
+	private int clicked = -1;
+	private int cmonp = -1;
+	private final String[] cnames = { "", "", "", "", "", "", "" };
 	int cntchkn = 0;
-	Thread connector;
-	int conon = 0;
-	int ctime = 0;
-	BufferedReader din;
-	String[] dinvi = { "", "", "", "", "", "", "", "" };
-	int dispcar = -1;
-	ContO dispco = null;
-	PrintWriter dout;
+	private Thread connector;
+	private int conon = 0;
+	private int ctime = 0;
+	private BufferedReader din;
+	private final String[] dinvi = { "", "", "", "", "", "", "", "" };
+	private int dispcar = -1;
+	private ContO dispco = null;
+	private PrintWriter dout;
 	int fase = 0;
-	int flks = 0;
-	int forcar = -1;
-	boolean fstart = false;
-	FontMetrics ftm;
-	String[] gaclan = new String[500];
-	int[] gameturn = new int[500];
-	int[] gascore = new int[500];
+	private int flks = 0;
+	private int forcar = -1;
+	private boolean fstart = false;
+	private FontMetrics ftm;
+	private final String[] gaclan = new String[500];
+	private final int[] gameturn = new int[500];
+	private final int[] gascore = new int[500];
 	//Globe gb;
-	int gcars;
-	int gclass = 0;
-	int[] gclss = new int[500];
-	int[] gcrs = new int[500];
-	int gfix = 0;
-	int[] gfx = new int[500];
-	String[] gmaker = new String[500];
-	int gnbts = 0;
-	int[] gnlaps = new int[500];
-	int gnotp = 0;
-	int gnpls = 8;
-	int[] gntb = new int[500];
-	int[] gnum = new int[500];
-	String gplayers = "";
-	String[] gplyrs = new String[500];
+	private int gcars;
+	private int gclass = 0;
+	private final int[] gclss = new int[500];
+	private final int[] gcrs = new int[500];
+	private int gfix = 0;
+	private final int[] gfx = new int[500];
+	private final String[] gmaker = new String[500];
+	private int gnbts = 0;
+	private final int[] gnlaps = new int[500];
+	private int gnotp = 0;
+	private int gnpls = 8;
+	private final int[] gntb = new int[500];
+	final int[] gnum = new int[500];
+	private String gplayers = "";
+	private final String[] gplyrs = new String[500];
 	boolean grprsd = false;
-	GameSparker gs;
-	int gstage = 0;
+	private final GameSparker gs;
+	private int gstage = 0;
 	int gstagelaps = 0;
 	String gstagename = "";
-	String[] gstages = new String[500];
-	int[] gstgn = new int[500];
-	String[] gvclan = new String[500];
-	int[] gvscore = new int[500];
-	int gwait = 0;
-	int[] gwarb = new int[500];
-	String[] gwarbnum = new String[500];
-	int[] gwtyp = new int[500];
-	int im = 0;
-	boolean invo = false;
-	String[] invos = { "", "", "", "", "", "", "", "" };
-	boolean inwab = false;
-	boolean jflexo = false;
-	int join = -1;
-	boolean lanlogged = true;
+	final String[] gstages = new String[500];
+	final int[] gstgn = new int[500];
+	private final String[] gvclan = new String[500];
+	private final int[] gvscore = new int[500];
+	private int gwait = 0;
+	private final int[] gwarb = new int[500];
+	private final String[] gwarbnum = new String[500];
+	private final int[] gwtyp = new int[500];
+	private int im = 0;
+	private boolean invo = false;
+	private final String[] invos = { "", "", "", "", "", "", "", "" };
+	private boolean inwab = false;
+	private boolean jflexo = false;
+	private int join = -1;
+	private boolean lanlogged = true;
 	int laps = 3;
-	String lapsname = "";
-	Login lg;
-	boolean lloaded = false;
-	String lmsg = "| Searching/Waiting for other LAN Players |";
+	private String lapsname = "";
+	private final Login lg;
+	private boolean lloaded = false;
+	private String lmsg = "| Searching/Waiting for other LAN Players |";
 	int loadstage = 0;
 	boolean loadwarb = false;
-	int longame = -1;
-	int lspos = 0;
-	int lspos2 = 0;
+	private int longame = -1;
+	private int lspos = 0;
+	private int lspos2 = 0;
 	int lspos3 = 0;
-	int lxm = 0;
-	int lym = 0;
-	Medium m;
-	int[] mnbts = new int[500];
-	int[] mnpls = new int[500];
-	boolean mousedout = false;
-	int mousonp = -1;
-	int mrot = 0;
-	int mscro = 125;
-	int mscro2 = 145;
+	private int lxm = 0;
+	private int lym = 0;
+	private final Medium m;
+	private final int[] mnbts = new int[500];
+	private final int[] mnpls = new int[500];
+	private boolean mousedout = false;
+	private int mousonp = -1;
+	private int mrot = 0;
+	private int mscro = 125;
+	private int mscro2 = 145;
 	int mscro3 = 345;
-	String msg = "";
+	private String msg = "";
 	int msload = 0;
-	int ncnt = 0;
+	private int ncnt = 0;
 	int nfix = 0;
-	int nflk = 0;
+	private int nflk = 0;
 	int ngm = 0;
 	boolean notb = false;
-	int[] npls = new int[500];
-	int npo = 0;
-	ImageObserver ob;
+	private final int[] npls = new int[500];
+	private int npo = 0;
+	private ImageObserver ob;
 	int ongame = -1;
-	int onjoin = -1;
-	int ontyp = 0;
-	int opengame = 0;
-	int opselect = 0;
-	int pback = 0;
-	int pbtn = 0;
-	String[] pcarnames = new String[200];
-	int[] pcars = new int[200];
-	String[] pclan = new String[200];
-	float[][] pcols = new float[200][6];
-	int pcurs = 0;
-	int[] pdam = { 50, 50, 50, 50, 50, 50, 50, 50 };
-	int pend = 0;
-	boolean pendb = false;
-	boolean[] pessd = { false, false, false, false, false, false, false, false };
-	int[] pgames = new int[200];
+	private int onjoin = -1;
+	private int ontyp = 0;
+	private int opengame = 0;
+	private int opselect = 0;
+	private int pback = 0;
+	private int pbtn = 0;
+	private final String[] pcarnames = new String[200];
+	private final int[] pcars = new int[200];
+	private final String[] pclan = new String[200];
+	private final float[][] pcols = new float[200][6];
+	private int pcurs = 0;
+	private final int[] pdam = { 50, 50, 50, 50, 50, 50, 50, 50 };
+	private int pend = 0;
+	private boolean pendb = false;
+	private final boolean[] pessd = { false, false, false, false, false, false, false, false };
+	private final int[] pgames = new int[200];
 	int pgamesel = 0;
-	int[] plap = { 6, 6, 6, 6, 6, 6, 6, 6 };
+	private final int[] plap = { 6, 6, 6, 6, 6, 6, 6, 6 };
 	int plsndt = 0;
-	String[] pnames = new String[200];
-	int[] ppos = { 6, 6, 6, 6, 6, 6, 6, 6 };
-	int[] ppow = { 50, 50, 50, 50, 50, 50, 50, 50 };
-	boolean pre1 = false;
-	boolean pre2 = false;
+	private final String[] pnames = new String[200];
+	private final int[] ppos = { 6, 6, 6, 6, 6, 6, 6, 6 };
+	private final int[] ppow = { 50, 50, 50, 50, 50, 50, 50, 50 };
+	private boolean pre1 = false;
+	private boolean pre2 = false;
 	int prereq = 0;
-	int prevloaded = -1;
-	String[] prnames = { "", "", "", "", "", "", "", "" };
-	int prnpo = 0;
-	long ptime = 0L;
-	Graphics2D rd;
-	boolean regnow = false;
-	int remstage = 0;
-	int rerr = 0;
-	String[] sentn = { "", "", "", "", "", "", "" };
-	int sflk = 0;
-	int sgflag = 0;
-	Socket socket;
-	int spos = 0;
-	int spos2 = 0;
-	int spos3 = 28;
+	private int prevloaded = -1;
+	private final String[] prnames = { "", "", "", "", "", "", "", "" };
+	private int prnpo = 0;
+	private long ptime = 0L;
+	private final Graphics2D rd;
+	private boolean regnow = false;
+	private int remstage = 0;
+	private int rerr = 0;
+	private final String[] sentn = { "", "", "", "", "", "", "" };
+	private int sflk = 0;
+	private int sgflag = 0;
+	private Socket socket;
+	private int spos = 0;
+	private int spos2 = 0;
+	private int spos3 = 28;
 	int stage = 0;
 	String stagename = "";
-	String stuntname = "";
-	int updatec = -1;
-	int[] wait = new int[500];
-	int waitlink = 0;
+	private String stuntname = "";
+	private int updatec = -1;
+	private final int[] wait = new int[500];
+	private int waitlink = 0;
 	int warbsel = 0;
-	String wastename = "";
-	xtGraphics xt;
+	private String wastename = "";
+	private final xtGraphics xt;
 	boolean zeromsw = false;
 
 	public Lobby(final Medium medium, final Graphics2D graphics2d, final Login login/*, final Globe globe*/,
@@ -234,7 +234,7 @@ public class Lobby implements Runnable {
 		gs.sgame.add(rd, " Monthly Top 20 ");*/
 	}
 
-	public Color color2k(final int i, final int i_327_, final int i_328_) {
+	private Color color2k(final int i, final int i_327_, final int i_328_) {
 		final Color color = new Color(i, i_327_, i_328_);
 		final float[] fs = new float[3];
 		Color.RGBtoHSB(color.getRed(), color.getGreen(), color.getBlue(), fs);
@@ -247,11 +247,8 @@ public class Lobby implements Runnable {
 		int i_308_ = -1;
 		if (fase == 1 || fase == 4)
 			for (int i_309_ = 0; i_309_ < btn; i_309_++) {
-				if (Math.abs(xm - bx[i_309_]) < bw[i_309_] / 2 + 12 && Math.abs(ym - by[i_309_]) < 14
-						&& (i_307_ == 1 || i_307_ == 11))
-					pessd[i_309_] = true;
-				else
-					pessd[i_309_] = false;
+				pessd[i_309_] = Math.abs(xm - bx[i_309_]) < bw[i_309_] / 2 + 12 && Math.abs(ym - by[i_309_]) < 14
+						&& (i_307_ == 1 || i_307_ == 11);
 				if (Math.abs(xm - bx[i_309_]) < bw[i_309_] / 2 + 12 && Math.abs(ym - by[i_309_]) < 14
 						&& i_307_ <= -1) {
 					i_308_ = i_309_;
@@ -604,10 +601,7 @@ public class Lobby implements Runnable {
 											i_316_++;
 									if (i_316_ < gnpls - 1) {
 										if (i_308_ == 4)
-											if (!invo)
-												invo = true;
-											else
-												invo = false;
+											invo = !invo;
 									} else
 										i_312_ = 6;
 									if (i_308_ == i_312_ - 2) {
@@ -647,8 +641,7 @@ public class Lobby implements Runnable {
 										gplayers = "";
 										if (i_316_ != 0) {
 											gnpls = i_316_ + 1;
-											gplayers = new StringBuilder().append("").append(pnames[im]).append("#")
-													.toString();
+											gplayers = "" + pnames[im] + "#";
 											for (int i_318_ = 0; i_318_ < i_316_; i_318_++) {
 												final StringBuilder stringbuilder = new StringBuilder();
 												final Lobby lobby_319_ = this;
@@ -669,7 +662,7 @@ public class Lobby implements Runnable {
 							if (i_308_ == i_312_ && !xt.lan && !gs.cmsg.getText().equals("Type here...")
 									&& !gs.cmsg.getText().equals("")) {
 								String string = gs.cmsg.getText().replace('|', ':');
-								if (string.toLowerCase().indexOf(gs.tpass.getText().toLowerCase()) != -1)
+								if (string.toLowerCase().contains(gs.tpass.getText().toLowerCase()))
 									string = " ";
 								if (!xt.msgcheck(string) && updatec > -12) {
 									for (int i_320_ = 0; i_320_ < 6; i_320_++) {
@@ -694,7 +687,7 @@ public class Lobby implements Runnable {
 									i_321_ = i_322_;
 							boolean bool = false;
 							if (gwarb[i_321_] == 0) {
-								if (!gplyrs[i_321_].equals("") && gplyrs[i_321_].indexOf(pnames[im]) == -1)
+								if (!gplyrs[i_321_].equals("") && !gplyrs[i_321_].contains(pnames[im]))
 									bool = true;
 							} else if (!xt.clan.toLowerCase().equals(gaclan[i_321_].toLowerCase())
 									&& !xt.clan.toLowerCase().equals(gvclan[i_321_].toLowerCase()))
@@ -740,10 +733,7 @@ public class Lobby implements Runnable {
 											stage = gstgn[i_321_];
 											stagename = gstages[i_321_];
 											nfix = gfx[i_321_];
-											if (gntb[i_321_] == 1)
-												notb = true;
-											else
-												notb = false;
+											notb = gntb[i_321_] == 1;
 											gs.setCursor(new Cursor(3));
 											conon = 3;
 										} else
@@ -753,10 +743,7 @@ public class Lobby implements Runnable {
 											stage = gstgn[i_321_];
 											stagename = gstages[i_321_];
 											nfix = gfx[i_321_];
-											if (gntb[i_321_] == 1)
-												notb = true;
-											else
-												notb = false;
+											notb = gntb[i_321_] == 1;
 											gs.setCursor(new Cursor(3));
 											conon = 3;
 										}
@@ -764,7 +751,7 @@ public class Lobby implements Runnable {
 								if (i_308_ == 2 && !xt.lan && !gs.cmsg.getText().equals("Type here...")
 										&& !gs.cmsg.getText().equals("")) {
 									String string = gs.cmsg.getText().replace('|', ':');
-									if (string.toLowerCase().indexOf(gs.tpass.getText().toLowerCase()) != -1)
+									if (string.toLowerCase().contains(gs.tpass.getText().toLowerCase()))
 										string = " ";
 									if (!xt.msgcheck(string) && updatec > -12) {
 										for (int i_323_ = 0; i_323_ < 6; i_323_++) {
@@ -787,10 +774,7 @@ public class Lobby implements Runnable {
 									join = ongame;
 									msg = "| Joining Game |";
 									spos = 0;
-								} else if (!invo)
-									invo = true;
-								else
-									invo = false;
+								} else invo = !invo;
 							if (pbtn == 2 && (i_308_ == 1 || i_308_ == 2)) {
 								fase = 2;
 								m.ptr = 0;
@@ -824,10 +808,7 @@ public class Lobby implements Runnable {
 									join = ongame;
 									msg = "| Joining Game |";
 									spos = 0;
-								} else if (!invo)
-									invo = true;
-								else
-									invo = false;
+								} else invo = !invo;
 						}
 				} else if (ontyp != 76) {
 					if (i_308_ == 0)
@@ -874,7 +855,7 @@ public class Lobby implements Runnable {
 		control.exit = false;
 	}
 
-	public void drawSbutton(final Image image, final int i, final int i_324_) {
+	private void drawSbutton(final Image image, final int i, final int i_324_) {
 		bx[btn] = i;
 		by[btn] = i_324_;
 		bw[btn] = image.getWidth(ob);
@@ -894,7 +875,7 @@ public class Lobby implements Runnable {
 		btn++;
 	}
 
-	public String getHSvalue(final String string, final int i) {
+	private String getHSvalue(final String string, final int i) {
 		String string_347_ = "";
 		try {
 			int i_348_ = 0;
@@ -903,13 +884,13 @@ public class Lobby implements Runnable {
 			String string_351_ = "";
 			String string_352_ = "";
 			for (/**/ ; i_348_ < string.length() && i_350_ != 2; i_348_++) {
-				string_351_ = new StringBuilder().append("").append(string.charAt(i_348_)).toString();
+				string_351_ = "" + string.charAt(i_348_);
 				if (string_351_.equals("#")) {
 					i_349_++;
 					if (i_350_ == 1 || i_349_ > i)
 						i_350_ = 2;
 				} else if (i_349_ == i) {
-					string_352_ = new StringBuilder().append(string_352_).append(string_351_).toString();
+					string_352_ = string_352_ + string_351_;
 					i_350_ = 1;
 				}
 			}
@@ -920,7 +901,7 @@ public class Lobby implements Runnable {
 		return string_347_;
 	}
 
-	public int getHvalue(final String string, final int i) {
+	private int getHvalue(final String string, final int i) {
 		int i_341_ = -1;
 		try {
 			int i_342_ = 0;
@@ -929,26 +910,26 @@ public class Lobby implements Runnable {
 			String string_345_ = "";
 			String string_346_ = "";
 			for (/**/ ; i_342_ < string.length() && i_344_ != 2; i_342_++) {
-				string_345_ = new StringBuilder().append("").append(string.charAt(i_342_)).toString();
+				string_345_ = "" + string.charAt(i_342_);
 				if (string_345_.equals("#")) {
 					i_343_++;
 					if (i_344_ == 1 || i_343_ > i)
 						i_344_ = 2;
 				} else if (i_343_ == i) {
-					string_346_ = new StringBuilder().append(string_346_).append(string_345_).toString();
+					string_346_ = string_346_ + string_345_;
 					i_344_ = 1;
 				}
 			}
 			if (string_346_.equals(""))
 				string_346_ = "-1";
-			i_341_ = Integer.valueOf(string_346_).intValue();
+			i_341_ = Integer.valueOf(string_346_);
 		} catch (final Exception exception) {
 			/* empty */
 		}
 		return i_341_;
 	}
 
-	public String getSevervalue(final String string, final int i) {
+	private String getSevervalue(final String string, final int i) {
 		String string_353_ = "";
 		if (!string.equals(""))
 			try {
@@ -958,13 +939,13 @@ public class Lobby implements Runnable {
 				String string_357_ = "";
 				String string_358_ = "";
 				for (/**/ ; i_354_ < string.length() && i_356_ != 2; i_354_++) {
-					string_357_ = new StringBuilder().append("").append(string.charAt(i_354_)).toString();
+					string_357_ = "" + string.charAt(i_354_);
 					if (string_357_.equals("|")) {
 						i_355_++;
 						if (i_356_ == 1 || i_355_ > i)
 							i_356_ = 2;
 					} else if (i_355_ == i) {
-						string_358_ = new StringBuilder().append(string_358_).append(string_357_).toString();
+						string_358_ = string_358_ + string_357_;
 						i_356_ = 1;
 					}
 				}
@@ -975,7 +956,7 @@ public class Lobby implements Runnable {
 		return string_353_;
 	}
 
-	public String getSvalue(final String string, final int i) {
+	private String getSvalue(final String string, final int i) {
 		String string_335_ = "";
 		try {
 			int i_336_ = 0;
@@ -984,13 +965,13 @@ public class Lobby implements Runnable {
 			String string_339_ = "";
 			String string_340_ = "";
 			for (/**/ ; i_336_ < string.length() && i_338_ != 2; i_336_++) {
-				string_339_ = new StringBuilder().append("").append(string.charAt(i_336_)).toString();
+				string_339_ = "" + string.charAt(i_336_);
 				if (string_339_.equals("|")) {
 					i_337_++;
 					if (i_338_ == 1 || i_337_ > i)
 						i_338_ = 2;
 				} else if (i_337_ == i) {
-					string_340_ = new StringBuilder().append(string_340_).append(string_339_).toString();
+					string_340_ = string_340_ + string_339_;
 					i_338_ = 1;
 				}
 			}
@@ -1001,7 +982,7 @@ public class Lobby implements Runnable {
 		return string_335_;
 	}
 
-	public int getvalue(final String string, final int i) {
+	private int getvalue(final String string, final int i) {
 		int i_329_ = -1;
 		try {
 			int i_330_ = 0;
@@ -1010,26 +991,26 @@ public class Lobby implements Runnable {
 			String string_333_ = "";
 			String string_334_ = "";
 			for (/**/ ; i_330_ < string.length() && i_332_ != 2; i_330_++) {
-				string_333_ = new StringBuilder().append("").append(string.charAt(i_330_)).toString();
+				string_333_ = "" + string.charAt(i_330_);
 				if (string_333_.equals("|")) {
 					i_331_++;
 					if (i_332_ == 1 || i_331_ > i)
 						i_332_ = 2;
 				} else if (i_331_ == i) {
-					string_334_ = new StringBuilder().append(string_334_).append(string_333_).toString();
+					string_334_ = string_334_ + string_333_;
 					i_332_ = 1;
 				}
 			}
 			if (string_334_.equals(""))
 				string_334_ = "-1";
-			i_329_ = Integer.valueOf(string_334_).intValue();
+			i_329_ = Integer.valueOf(string_334_);
 		} catch (final Exception exception) {
 			/* empty */
 		}
 		return i_329_;
 	}
 
-	public void hideinputs() {
+	private void hideinputs() {
 		gs.cmsg.setVisible(false);
 		gs.swait.setVisible(false);
 		gs.snpls.setVisible(false);
@@ -1062,8 +1043,8 @@ public class Lobby implements Runnable {
 		gs.mycar.setBackground(color2k(255, 255, 255));
 		gs.mycar.setForeground(new Color(0, 0, 0));
 		gs.rooms.removeAll();
-		gs.rooms.add(rd, new StringBuilder().append("").append(xt.servername).append(" :: ").append(xt.servport - 7070)
-				.append("").toString());
+		gs.rooms.add(rd, "" + xt.servername + " :: " + (xt.servport - 7070) +
+				"");
 		gs.rooms.select(0);
 		gs.requestFocus();
 		cd.loadready();
@@ -1131,8 +1112,8 @@ public class Lobby implements Runnable {
 		connector.start();
 	}
 
-	public void lobby(int i, int i_99_, boolean bool, final int i_100_, final CheckPoints checkpoints,
-			final Control control, final ContO[] contos) {
+	public void lobby(int i, int i_99_, boolean bool, final int i_100_,
+					  final Control control, final ContO[] contos) {
 		pre1 = false;
 		pre2 = false;
 		int i_101_ = 0;
@@ -1199,8 +1180,8 @@ public class Lobby implements Runnable {
 												}
 												bool_112_ = true;
 												if (control.handb) {
-													gs.cmsg.setText(new StringBuilder().append(gs.cmsg.getText())
-															.append("").append(pnames[i_109_]).toString());
+													gs.cmsg.setText(gs.cmsg.getText() +
+															"" + pnames[i_109_]);
 													control.handb = false;
 												}
 											}
@@ -1298,8 +1279,8 @@ public class Lobby implements Runnable {
 										}
 										bool_119_ = true;
 										if (control.handb) {
-											gs.cmsg.setText(new StringBuilder().append(gs.cmsg.getText()).append("")
-													.append(pnames[i_116_]).toString());
+											gs.cmsg.setText(gs.cmsg.getText() + "" +
+													pnames[i_116_]);
 											control.handb = false;
 										}
 									}
@@ -1374,9 +1355,8 @@ public class Lobby implements Runnable {
 													}
 													bool_129_ = true;
 													if (control.handb) {
-														gs.cmsg.setText(new StringBuilder()
-																.append(this.gs.cmsg.getText()).append("")
-																.append(this.pnames[i_123_]).toString());
+														gs.cmsg.setText(this.gs.cmsg.getText() + "" +
+																this.pnames[i_123_]);
 														control.handb = false;
 													}
 												}
@@ -1664,10 +1644,10 @@ public class Lobby implements Runnable {
 									rd.setFont(new Font("Arial", 1, 12));
 									ftm = rd.getFontMetrics();
 									rd.drawString(
-											new StringBuilder().append("[  ").append(i_106_)
-													.append(" Players Connected  ]").toString(),
-											472 - ftm.stringWidth(new StringBuilder().append("[  ").append(i_106_)
-													.append(" Players Connected  ]").toString()) / 2,
+											"[  " + i_106_ +
+													" Players Connected  ]",
+											472 - ftm.stringWidth("[  " + i_106_ +
+													" Players Connected  ]") / 2,
 											295);
 									drawSbutton(xt.cgame, 472, 325);
 								}
@@ -1682,7 +1662,7 @@ public class Lobby implements Runnable {
 									pessd[5] = true;
 								control.enter = false;
 								String string = gs.cmsg.getText().replace('|', ':');
-								if (string.toLowerCase().indexOf(gs.tpass.getText().toLowerCase()) != -1)
+								if (string.toLowerCase().contains(gs.tpass.getText().toLowerCase()))
 									string = " ";
 								if (!xt.msgcheck(string) && updatec > -12) {
 									for (int i_136_ = 0; i_136_ < 6; i_136_++) {
@@ -1828,8 +1808,7 @@ public class Lobby implements Runnable {
 															boolean bool_152_ = false;
 															if (gwarb[is_137_[i_149_]] == 0) {
 																if (this.gplyrs[is_137_[i_149_]].equals("")
-																		|| this.gplyrs[is_137_[i_149_]]
-																				.indexOf(this.pnames[this.im]) != -1)
+																		|| this.gplyrs[is_137_[i_149_]].contains(this.pnames[this.im]))
 																	bool_152_ = true;
 															} else if (this.xt.clan.toLowerCase()
 																	.equals(this.gaclan[is_137_[i_149_]].toLowerCase())
@@ -1877,11 +1856,11 @@ public class Lobby implements Runnable {
 										rd.drawString("|", 525, 105 + 24 * i_149_ - i_105_);
 										rd.drawString("|", 584, 105 + 24 * i_149_ - i_105_);
 										if (wait[is_137_[i_149_]] > 0) {
-											rd.drawString(new StringBuilder().append("").append(npls[is_137_[i_149_]])
-													.append(" / ").append(mnpls[is_137_[i_149_]]).append("").toString(),
-													556 - ftm.stringWidth(new StringBuilder().append("")
-															.append(npls[is_137_[i_149_]]).append(" / ")
-															.append(mnpls[is_137_[i_149_]]).append("").toString()) / 2,
+											rd.drawString("" + npls[is_137_[i_149_]] +
+															" / " + mnpls[is_137_[i_149_]] + "",
+													556 - ftm.stringWidth("" +
+															npls[is_137_[i_149_]] + " / " +
+															mnpls[is_137_[i_149_]] + "") / 2,
 													105 + 24 * i_149_ - i_105_);
 											rd.setFont(new Font("Arial", 0, 12));
 											rd.setColor(new Color(80, 128, 0));
@@ -1900,7 +1879,7 @@ public class Lobby implements Runnable {
 											boolean bool_153_ = false;
 											if (gwarb[is_137_[i_149_]] == 0) {
 												if (gplyrs[is_137_[i_149_]].equals("")
-														|| gplyrs[is_137_[i_149_]].indexOf(pnames[im]) != -1)
+														|| gplyrs[is_137_[i_149_]].contains(pnames[im]))
 													bool_153_ = true;
 											} else
 												if (xt.clan.toLowerCase().equals(gaclan[is_137_[i_149_]].toLowerCase())
@@ -1915,10 +1894,10 @@ public class Lobby implements Runnable {
 														105 + 24 * i_149_ - i_105_);
 										} else {
 											rd.drawString(
-													new StringBuilder().append("").append(npls[is_137_[i_149_]])
-															.append("").toString(),
-													556 - ftm.stringWidth(new StringBuilder().append("")
-															.append(npls[is_137_[i_149_]]).append("").toString()) / 2,
+													"" + npls[is_137_[i_149_]] +
+															"",
+													556 - ftm.stringWidth("" +
+															npls[is_137_[i_149_]] + "") / 2,
 													105 + 24 * i_149_ - i_105_);
 											rd.setFont(new Font("Arial", 0, 12));
 											ftm = rd.getFontMetrics();
@@ -2110,19 +2089,18 @@ public class Lobby implements Runnable {
 										rd.setFont(new Font("Arial", 1, 13));
 										ftm = rd.getFontMetrics();
 										rd.drawString(
-												new StringBuilder().append("You have been invited by ").append(chalby)
-														.append(" to join a game!").toString(),
+												"You have been invited by " + chalby +
+														" to join a game!",
 												472 - ftm.stringWidth(
-														new StringBuilder().append("You have been invited by ")
-																.append(chalby).append(" to join a game!").toString())
+														"You have been invited by " +
+																chalby + " to join a game!")
 														/ 2,
 												95);
 										rd.setColor(new Color(117, 67, 0));
 										rd.drawString(
 												chalby, 472
-														- ftm.stringWidth(new StringBuilder()
-																.append("You have been invited by ").append(chalby)
-																.append(" to join a game!").toString()) / 2
+														- ftm.stringWidth("You have been invited by " + chalby +
+														" to join a game!") / 2
 												+ ftm.stringWidth("You have been invited by "), 95);
 									}
 									if (cflk != 0)
@@ -2131,37 +2109,36 @@ public class Lobby implements Runnable {
 									rd.setFont(new Font("Arial", 1, 12));
 									ftm = rd.getFontMetrics();
 									rd.drawString(
-											new StringBuilder().append("Stage:  ").append(gstages[i_158_])
-													.append(" ,  Laps: ").append(gnlaps[i_158_]).append("").toString(),
-											472 - ftm.stringWidth(new StringBuilder().append("Stage:  ")
-													.append(gstages[i_158_]).append(" ,  Laps: ").append(gnlaps[i_158_])
-													.append("").toString()) / 2,
+											"Stage:  " + gstages[i_158_] +
+													" ,  Laps: " + gnlaps[i_158_] + "",
+											472 - ftm.stringWidth("Stage:  " +
+													gstages[i_158_] + " ,  Laps: " + gnlaps[i_158_] +
+													"") / 2,
 											130);
 									rd.setColor(new Color(62, 98, 0));
 									rd.drawString(gstages[i_158_], 472 - ftm
-											.stringWidth(new StringBuilder().append("Stage:  ").append(gstages[i_158_])
-													.append(" ,  Laps: ").append(gnlaps[i_158_]).append("").toString())
+											.stringWidth("Stage:  " + gstages[i_158_] +
+													" ,  Laps: " + gnlaps[i_158_] + "")
 											/ 2 + ftm.stringWidth("Stage:  "), 130);
 									rd.drawString(
-											new StringBuilder().append("").append(gnlaps[i_158_]).append("").toString(),
-											472 - ftm.stringWidth(new StringBuilder().append("Stage:  ")
-													.append(gstages[i_158_]).append(" ,  Laps: ").append(gnlaps[i_158_])
-													.append("").toString()) / 2
-													+ ftm.stringWidth(new StringBuilder().append("Stage:  ")
-															.append(gstages[i_158_]).append(" ,  Laps: ").toString()),
+											"" + gnlaps[i_158_] + "",
+											472 - ftm.stringWidth("Stage:  " +
+													gstages[i_158_] + " ,  Laps: " + gnlaps[i_158_] +
+													"") / 2
+													+ ftm.stringWidth("Stage:  " +
+													gstages[i_158_] + " ,  Laps: "),
 											130);
 									rd.setColor(new Color(0, 0, 0));
 									rd.drawString(
-											new StringBuilder().append("Players:  ").append(mnpls[i_158_]).append("")
-													.toString(),
-											472 - ftm.stringWidth(new StringBuilder().append("Players:  ")
-													.append(mnpls[i_158_]).append("").toString()) / 2,
+											"Players:  " + mnpls[i_158_] + "",
+											472 - ftm.stringWidth("Players:  " +
+													mnpls[i_158_] + "") / 2,
 											150);
 									rd.setColor(new Color(62, 98, 0));
 									rd.drawString(
-											new StringBuilder().append("").append(mnpls[i_158_]).append("").toString(),
-											472 - ftm.stringWidth(new StringBuilder().append("Players:  ")
-													.append(mnpls[i_158_]).append("").toString()) / 2
+											"" + mnpls[i_158_] + "",
+											472 - ftm.stringWidth("Players:  " +
+													mnpls[i_158_] + "") / 2
 													+ ftm.stringWidth("Players:  "),
 											150);
 									final Date date = new Date();
@@ -2174,9 +2151,9 @@ public class Lobby implements Runnable {
 									rd.setColor(new Color(0, 0, 0));
 									rd.setFont(new Font("Arial", 0, 12));
 									ftm = rd.getFontMetrics();
-									rd.drawString(new StringBuilder().append("(").append(ctime).append(" )").toString(),
-											472 - ftm.stringWidth(new StringBuilder().append("(").append(ctime)
-													.append(" )").toString()) / 2,
+									rd.drawString("(" + ctime + " )",
+											472 - ftm.stringWidth("(" + ctime +
+													" )") / 2,
 											170);
 									if (ctime == 0) {
 										ongame = longame;
@@ -2477,20 +2454,20 @@ public class Lobby implements Runnable {
 													rd.setFont(new Font("Arial", 1, 12));
 													ftm = rd.getFontMetrics();
 													rd.drawString(
-															new StringBuilder().append("").append(gstagename)
-																	.append("  -  Laps:              ").toString(),
-															472 - ftm.stringWidth(new StringBuilder().append("")
-																	.append(this.gstagename)
-																	.append("  -  Laps:              ").toString()) / 2,
+															"" + gstagename +
+																	"  -  Laps:              ",
+															472 - ftm.stringWidth("" +
+																	this.gstagename +
+																	"  -  Laps:              ") / 2,
 															155);
 													if (!gs.slaps.isShowing()) {
 														gs.slaps.setVisible(true);
 														gs.slaps.select(gstagelaps - 1);
 													}
 													gs.slaps.move(472
-															+ ftm.stringWidth(new StringBuilder().append("")
-																	.append(this.gstagename)
-																	.append("  -  Laps:              ").toString()) / 2
+															+ ftm.stringWidth("" +
+															this.gstagename +
+															"  -  Laps:              ") / 2
 															- 35, 138);
 													if (gs.slaps.getSelectedIndex() != gstagelaps - 1) {
 														gstagelaps = gs.slaps.getSelectedIndex() + 1;
@@ -2715,8 +2692,8 @@ public class Lobby implements Runnable {
 												gs.movefield(gs.mycar, 410, -2000, 150, 17);
 											if (!gs.mycar.isShowing()) {
 												gs.mycar.setVisible(true);
-												gs.mycar.setLabel(new StringBuilder().append("")
-														.append(cd.names[xt.sc[0]]).append(" Game!").toString());
+												gs.mycar.setLabel("" +
+														cd.names[xt.sc[0]] + " Game!");
 												if (gclass <= -2)
 													gs.mycar.setState(true);
 												else
@@ -2753,23 +2730,19 @@ public class Lobby implements Runnable {
 											int i_171_ = 0;
 											for (int i_172_ = 0; i_172_ < 7; i_172_++)
 												if (!invos[i_172_].equals("")) {
-													string = new StringBuilder().append(string).append(invos[i_172_])
-															.toString();
+													string = string + invos[i_172_];
 													if (++i_171_ != i_169_)
 														if (i_171_ == i_169_ - 1)
-															string = new StringBuilder().append(string).append(" and ")
-																	.toString();
+															string = string + " and ";
 														else
-															string = new StringBuilder().append(string).append(", ")
-																	.toString();
+															string = string + ", ";
 												}
 										}
 										rd.setColor(new Color(0, 0, 0));
 										if (i_169_ < gnpls - 1) {
 											rd.setFont(new Font("Arial", 1, 13));
-											rd.drawString(new StringBuilder()
-													.append("Private Game, only specific players allowed to join?  ")
-													.append(i_169_).append("/").append(gnpls - 1).append("").toString(),
+											rd.drawString("Private Game, only specific players allowed to join?  " +
+															i_169_ + "/" + (gnpls - 1) + "",
 													330, 180);
 											stringbutton("<   Select   ", 281, 180, 2);
 											rd.setFont(new Font("Tahoma", 0, 11));
@@ -2779,11 +2752,11 @@ public class Lobby implements Runnable {
 											rd.setFont(new Font("Arial", 1, 13));
 											ftm = rd.getFontMetrics();
 											rd.drawString(
-													new StringBuilder().append("").append(i_169_)
-															.append(" Allowed Players Selected").toString(),
+													"" + i_169_ +
+															" Allowed Players Selected",
 													472 - ftm
-															.stringWidth(new StringBuilder().append("").append(i_169_)
-																	.append(" Allowed Players Selected").toString())
+															.stringWidth("" + i_169_ +
+																	" Allowed Players Selected")
 															/ 2,
 													180);
 											rd.setFont(new Font("Tahoma", 0, 11));
@@ -2931,9 +2904,8 @@ public class Lobby implements Runnable {
 									string = "Car battle";
 								if (gwarb[i_193_] == 3)
 									string = "Stage battle";
-								rd.drawString(new StringBuilder().append("").append(string).append(" between ")
-										.append(gaclan[i_193_]).append(" and ").append(gvclan[i_193_]).append("")
-										.toString(), 243, 14);
+								rd.drawString("" + string + " between " +
+										gaclan[i_193_] + " and " + gvclan[i_193_] + "", 243, 14);
 							}
 							String string = "";
 							String string_197_ = "";
@@ -2947,20 +2919,15 @@ public class Lobby implements Runnable {
 										else
 											string_199_ = "Private Game";
 										if (gfx[i_193_] == 1)
-											string_199_ = new StringBuilder().append(string_199_).append(" | 4 Fixes")
-													.toString();
+											string_199_ = string_199_ + " | 4 Fixes";
 										if (gfx[i_193_] == 2)
-											string_199_ = new StringBuilder().append(string_199_).append(" | 3 Fixes")
-													.toString();
+											string_199_ = string_199_ + " | 3 Fixes";
 										if (gfx[i_193_] == 3)
-											string_199_ = new StringBuilder().append(string_199_).append(" | 2 Fixes")
-													.toString();
+											string_199_ = string_199_ + " | 2 Fixes";
 										if (gfx[i_193_] == 4)
-											string_199_ = new StringBuilder().append(string_199_).append(" | 1 Fix")
-													.toString();
+											string_199_ = string_199_ + " | 1 Fix";
 										if (gfx[i_193_] == 5)
-											string_199_ = new StringBuilder().append(string_199_).append(" | No Fixing")
-													.toString();
+											string_199_ = string_199_ + " | No Fixing";
 										String string_200_ = "";
 										if (gclss[i_193_] > -2) {
 											if (gcrs[i_193_] == 1)
@@ -2979,15 +2946,14 @@ public class Lobby implements Runnable {
 											if (gclss[i_193_] == 5)
 												string_201_ = "Class A";
 											if (!string_200_.equals("") && !string_201_.equals(""))
-												string_200_ = new StringBuilder().append(string_200_).append(" | ")
-														.append(string_201_).toString();
+												string_200_ = string_200_ + " | " +
+														string_201_;
 											else
-												string_200_ = new StringBuilder().append(string_200_)
-														.append(string_201_).toString();
+												string_200_ = string_200_ +
+														string_201_;
 										} else
-											string_200_ = new StringBuilder().append("")
-													.append(cd.names[Math.abs(this.gclss[i_193_] + 2)]).append("")
-													.toString();
+											string_200_ = "" +
+													cd.names[Math.abs(this.gclss[i_193_] + 2)] + "";
 										if (string_200_.equals("")) {
 											rd.drawString("Type:", 243, 23);
 											rd.setColor(new Color(80, 128, 0));
@@ -3000,44 +2966,34 @@ public class Lobby implements Runnable {
 											rd.drawString(string_200_, 279, 28);
 										}
 									} else {
-										String string_202_ = new StringBuilder().append("Game #")
-												.append(gameturn[i_193_]).append("").toString();
+										String string_202_ = "Game #" +
+												gameturn[i_193_] + "";
 										if (gcrs[i_193_] == 1)
-											string_202_ = new StringBuilder().append(string_202_).append(" | Clan Cars")
-													.toString();
+											string_202_ = string_202_ + " | Clan Cars";
 										if (gcrs[i_193_] == 2)
-											string_202_ = new StringBuilder().append(string_202_).append(" | Game Cars")
-													.toString();
+											string_202_ = string_202_ + " | Game Cars";
 										if (gclss[i_193_] == 1)
-											string_202_ = new StringBuilder().append(string_202_).append(" | Class C")
-													.toString();
+											string_202_ = string_202_ + " | Class C";
 										if (gclss[i_193_] == 2)
-											string_202_ = new StringBuilder().append(string_202_)
-													.append(" | Class B & C").toString();
+											string_202_ = string_202_ +
+													" | Class B & C";
 										if (gclss[i_193_] == 3)
-											string_202_ = new StringBuilder().append(string_202_).append(" | Class B")
-													.toString();
+											string_202_ = string_202_ + " | Class B";
 										if (gclss[i_193_] == 4)
-											string_202_ = new StringBuilder().append(string_202_)
-													.append(" | Class A & B").toString();
+											string_202_ = string_202_ +
+													" | Class A & B";
 										if (gclss[i_193_] == 5)
-											string_202_ = new StringBuilder().append(string_202_).append(" | Class A")
-													.toString();
+											string_202_ = string_202_ + " | Class A";
 										if (gfx[i_193_] == 1)
-											string_202_ = new StringBuilder().append(string_202_).append(" | 4 Fixes")
-													.toString();
+											string_202_ = string_202_ + " | 4 Fixes";
 										if (gfx[i_193_] == 2)
-											string_202_ = new StringBuilder().append(string_202_).append(" | 3 Fixes")
-													.toString();
+											string_202_ = string_202_ + " | 3 Fixes";
 										if (gfx[i_193_] == 3)
-											string_202_ = new StringBuilder().append(string_202_).append(" | 2 Fixes")
-													.toString();
+											string_202_ = string_202_ + " | 2 Fixes";
 										if (gfx[i_193_] == 4)
-											string_202_ = new StringBuilder().append(string_202_).append(" | 1 Fix")
-													.toString();
+											string_202_ = string_202_ + " | 1 Fix";
 										if (gfx[i_193_] == 5)
-											string_202_ = new StringBuilder().append(string_202_).append(" | No Fixing")
-													.toString();
+											string_202_ = string_202_ + " | No Fixing";
 										rd.setColor(new Color(80, 128, 0));
 										rd.drawString(string_202_, 243, 28);
 									}
@@ -3098,8 +3054,8 @@ public class Lobby implements Runnable {
 													break;
 												}
 											if (!bool_208_) {
-												string_198_ = new StringBuilder().append("").append(string)
-														.append(" should have raced in this game!").toString();
+												string_198_ = "" + string +
+														" should have raced in this game!";
 												string = "";
 											}
 										}
@@ -3112,8 +3068,8 @@ public class Lobby implements Runnable {
 													break;
 												}
 											if (!bool_210_) {
-												string_198_ = new StringBuilder().append("").append(string)
-														.append(" should have wasted in this game!").toString();
+												string_198_ = "" + string +
+														" should have wasted in this game!";
 												string = "";
 											}
 										}
@@ -3127,8 +3083,8 @@ public class Lobby implements Runnable {
 														break;
 													}
 												if (!bool_212_) {
-													string_198_ = new StringBuilder().append("").append(string)
-															.append(" should have wasted in this game!").toString();
+													string_198_ = "" + string +
+															" should have wasted in this game!";
 													string = "";
 												}
 											} else {
@@ -3140,8 +3096,8 @@ public class Lobby implements Runnable {
 														break;
 													}
 												if (!bool_214_) {
-													string_198_ = new StringBuilder().append("").append(string)
-															.append(" should have raced in this game!").toString();
+													string_198_ = "" + string +
+															" should have raced in this game!";
 													string = "";
 												}
 											}
@@ -3155,8 +3111,8 @@ public class Lobby implements Runnable {
 														break;
 													}
 												if (!bool_216_) {
-													string_198_ = new StringBuilder().append("").append(string)
-															.append(" should have wasted in this game!").toString();
+													string_198_ = "" + string +
+															" should have wasted in this game!";
 													string = "";
 												}
 											} else {
@@ -3168,8 +3124,8 @@ public class Lobby implements Runnable {
 														break;
 													}
 												if (!bool_218_) {
-													string_198_ = new StringBuilder().append("").append(string)
-															.append(" should have raced in this game!").toString();
+													string_198_ = "" + string +
+															" should have raced in this game!";
 													string = "";
 												}
 											}
@@ -3180,28 +3136,27 @@ public class Lobby implements Runnable {
 									if (string.toLowerCase().equals(gvclan[i_193_].toLowerCase()))
 										i_204_ = 1;
 								}
-								rd.drawString(new StringBuilder().append("").append(gaclan[i_193_]).append(" : ")
-										.append(gascore[i_193_] + i_203_).append("     |     ").append(gvclan[i_193_])
-										.append(" : ").append(gvscore[i_193_] + i_204_).append("").toString(),
-										474 - ftm.stringWidth(new StringBuilder().append("").append(gaclan[i_193_])
-												.append(" : ").append(gascore[i_193_]).append("     |     ")
-												.append(gvclan[i_193_]).append(" : ").append(gvscore[i_193_]).append("")
-												.toString()) / 2,
+								rd.drawString("" + gaclan[i_193_] + " : " +
+												(gascore[i_193_] + i_203_) + "     |     " + gvclan[i_193_] +
+												" : " + (gvscore[i_193_] + i_204_) + "",
+										474 - ftm.stringWidth("" + gaclan[i_193_] +
+												" : " + gascore[i_193_] + "     |     " +
+												gvclan[i_193_] + " : " + gvscore[i_193_] + "") / 2,
 										28);
 								if (gwarb[i_193_] == 1) {
 									if (gascore[i_193_] + i_203_ >= 5)
-										string_197_ = new StringBuilder().append("").append(gaclan[i_193_])
-												.append(" wins the war!").toString();
+										string_197_ = "" + gaclan[i_193_] +
+												" wins the war!";
 									if (gvscore[i_193_] + i_204_ >= 5)
-										string_197_ = new StringBuilder().append("").append(gvclan[i_193_])
-												.append(" wins the war!").toString();
+										string_197_ = "" + gvclan[i_193_] +
+												" wins the war!";
 								} else {
 									if (gascore[i_193_] + i_203_ >= 3)
-										string_197_ = new StringBuilder().append("").append(gaclan[i_193_])
-												.append(" wins the battle!").toString();
+										string_197_ = "" + gaclan[i_193_] +
+												" wins the battle!";
 									if (gvscore[i_193_] + i_204_ >= 3)
-										string_197_ = new StringBuilder().append("").append(gvclan[i_193_])
-												.append(" wins the battle!").toString();
+										string_197_ = "" + gvclan[i_193_] +
+												" wins the battle!";
 								}
 							}
 							rd.setColor(color2k(200, 200, 200));
@@ -3376,7 +3331,7 @@ public class Lobby implements Runnable {
 										if (!gplyrs[i_193_].equals(""))
 											bool_237_ = true;
 									} else if (gwarb[i_193_] == 0) {
-										if (!gplyrs[i_193_].equals("") && gplyrs[i_193_].indexOf(pnames[im]) == -1)
+										if (!gplyrs[i_193_].equals("") && !gplyrs[i_193_].contains(pnames[im]))
 											bool_237_ = true;
 									} else if (!xt.clan.toLowerCase().equals(gaclan[i_193_].toLowerCase())
 											&& !xt.clan.toLowerCase().equals(gvclan[i_193_].toLowerCase()))
@@ -3424,10 +3379,9 @@ public class Lobby implements Runnable {
 								rd.setFont(new Font("Arial", 1, 12));
 								ftm = rd.getFontMetrics();
 								rd.drawString(
-										new StringBuilder().append("Plus ").append(mnbts[i_193_]).append(" MadBots!")
-												.toString(),
-										322 - ftm.stringWidth(new StringBuilder().append("Plus ").append(mnbts[i_193_])
-												.append(" MadBots!").toString()) / 2,
+										"Plus " + mnbts[i_193_] + " MadBots!",
+										322 - ftm.stringWidth("Plus " + mnbts[i_193_] +
+												" MadBots!") / 2,
 										73 + mnpls[i_193_] * 42);
 							}
 							if (dispcar == -1 || conon != 1) {
@@ -3445,18 +3399,17 @@ public class Lobby implements Runnable {
 												if (mnpls[i_193_] - npls[i_193_] == 1)
 													string_238_ = "";
 												rd.drawString(
-														new StringBuilder().append("Waiting for ")
-																.append(mnpls[i_193_] - npls[i_193_])
-																.append(" more player").append(string_238_)
-																.append(" to join to start.")
-																.toString(),
+														"Waiting for " +
+																(mnpls[i_193_] - npls[i_193_]) +
+																" more player" + string_238_ +
+																" to join to start.",
 														561 - ftm
 																.stringWidth(
-																		new StringBuilder().append("Waiting for ")
-																				.append(mnpls[i_193_]
-																						- this.npls[i_193_])
-																		.append(" more player").append(string_238_)
-																		.append(" to join to start.").toString())
+																		"Waiting for " +
+																				(mnpls[i_193_]
+																						- this.npls[i_193_]) +
+																				" more player" + string_238_ +
+																				" to join to start.")
 																/ 2,
 														98);
 												rd.setFont(new Font("Arial", 0, 12));
@@ -3471,29 +3424,27 @@ public class Lobby implements Runnable {
 															bool_240_ = true;
 													if (bool_240_) {
 														i_239_ = 144;
-														rd.drawString(new StringBuilder().append("")
-																.append(this.gmaker[i_193_])
-																.append(" can start this game at anytime.").toString(),
-																561 - ftm.stringWidth(new StringBuilder().append("")
-																		.append(this.gmaker[i_193_])
-																		.append(" can start this game at anytime.")
-																		.toString()) / 2,
+														rd.drawString("" +
+																		this.gmaker[i_193_] +
+																		" can start this game at anytime.",
+																561 - ftm.stringWidth("" +
+																		this.gmaker[i_193_] +
+																		" can start this game at anytime.") / 2,
 																124);
 													}
 												}
 												if (npls[i_193_] > 1) {
-													String string_242_ = new StringBuilder().append("")
-															.append(wait[i_193_]).append(" seconds").toString();
+													String string_242_ = "" +
+															wait[i_193_] + " seconds";
 													if (wait[i_193_] > 60)
-														string_242_ = new StringBuilder().append("")
-																.append((int) (wait[i_193_] / 60.0F * 100.0F) / 100.0F)
-																.append(" minutes").toString();
+														string_242_ = "" +
+																(int) (wait[i_193_] / 60.0F * 100.0F) / 100.0F +
+																" minutes";
 													rd.drawString(
-															new StringBuilder().append("(Waiting ").append(string_242_)
-																	.append(" maximum! )").toString(),
-															561 - ftm.stringWidth(new StringBuilder()
-																	.append("(Waiting ").append(string_242_)
-																	.append(" maximum! )").toString()) / 2,
+															"(Waiting " + string_242_ +
+																	" maximum! )",
+															561 - ftm.stringWidth("(Waiting " + string_242_ +
+																	" maximum! )") / 2,
 															i_239_);
 												}
 											} else {
@@ -3508,11 +3459,10 @@ public class Lobby implements Runnable {
 													ptime = l;
 												}
 												if (pgames[im] == ongame || nflk != 0) {
-													rd.drawString(new StringBuilder().append("Game starts in ")
-															.append(wait[i_193_]).append(" seconds!").toString(),
-															561 - ftm.stringWidth(new StringBuilder()
-																	.append("Game starts in ").append(this.wait[i_193_])
-																	.append(" seconds!").toString()) / 2,
+													rd.drawString("Game starts in " +
+																	wait[i_193_] + " seconds!",
+															561 - ftm.stringWidth("Game starts in " + this.wait[i_193_] +
+																	" seconds!") / 2,
 															124);
 													if (pgames[im] != ongame)
 														nflk--;
@@ -3521,7 +3471,7 @@ public class Lobby implements Runnable {
 											}
 											if (pgames[im] != ongame) {
 												if (gplyrs[i_193_].equals("")
-														|| gplyrs[i_193_].indexOf(pnames[im]) != -1)
+														|| gplyrs[i_193_].contains(pnames[im]))
 													stringbutton("    Join this Game    ", 561, 182, 0);
 												else {
 													rd.setFont(new Font("Arial", 1, 12));
@@ -3560,15 +3510,12 @@ public class Lobby implements Runnable {
 											if (mnpls[i_193_] - npls[i_193_] == 1)
 												string_243_ = "";
 											rd.drawString(
-													new StringBuilder().append("Waiting for ")
-															.append(mnpls[i_193_] - npls[i_193_]).append(" clan member")
-															.append(string_243_).append(
-																	" to join to start.")
-															.toString(),
-													561 - ftm.stringWidth(new StringBuilder().append("Waiting for ")
-															.append(mnpls[i_193_] - npls[i_193_]).append(" clan member")
-															.append(string_243_).append(" to join to start.")
-															.toString()) / 2,
+													"Waiting for " +
+															(mnpls[i_193_] - npls[i_193_]) + " clan member" +
+															string_243_ + " to join to start.",
+													561 - ftm.stringWidth("Waiting for " +
+															(mnpls[i_193_] - npls[i_193_]) + " clan member" +
+															string_243_ + " to join to start.") / 2,
 													72);
 											int i_244_ = mnpls[i_193_] / 2;
 											int i_245_ = mnpls[i_193_] / 2;
@@ -3583,14 +3530,14 @@ public class Lobby implements Runnable {
 												}
 											rd.setFont(new Font("Arial", 0, 12));
 											ftm = rd.getFontMetrics();
-											rd.drawString(new StringBuilder().append("(").append(i_244_).append(" of ")
-													.append(gaclan[i_193_]).append("  &  ").append(i_245_)
-													.append(" of ").append(gvclan[i_193_]).append(" )").toString(),
+											rd.drawString("(" + i_244_ + " of " +
+															gaclan[i_193_] + "  &  " + i_245_ +
+															" of " + gvclan[i_193_] + " )",
 													561 - ftm
-															.stringWidth(new StringBuilder().append("(").append(i_244_)
-																	.append(" of ").append(gaclan[i_193_])
-																	.append("  &  ").append(i_245_).append(" of ")
-																	.append(gvclan[i_193_]).append(" )").toString())
+															.stringWidth("(" + i_244_ +
+																	" of " + gaclan[i_193_] +
+																	"  &  " + i_245_ + " of " +
+																	gvclan[i_193_] + " )")
 															/ 2,
 													87);
 											rd.drawString(gaclan[i_193_], 491 - ftm.stringWidth(gaclan[i_193_]) / 2,
@@ -3603,24 +3550,21 @@ public class Lobby implements Runnable {
 											if (gwarb[i_193_] > 1)
 												string_247_ = "Battle";
 											rd.drawString(
-													new StringBuilder().append("").append(string_247_).append(" Score")
-															.toString(),
+													"" + string_247_ + " Score",
 													561 - ftm
-															.stringWidth(new StringBuilder().append("")
-																	.append(string_247_).append(" Score").toString())
+															.stringWidth("" +
+																	string_247_ + " Score")
 															/ 2,
 													107);
 											rd.drawString(
-													new StringBuilder().append("").append(gascore[i_193_]).append("")
-															.toString(),
-													491 - ftm.stringWidth(new StringBuilder().append("")
-															.append(gascore[i_193_]).append("").toString()) / 2,
+													"" + gascore[i_193_] + "",
+													491 - ftm.stringWidth("" +
+															gascore[i_193_] + "") / 2,
 													139);
 											rd.drawString(
-													new StringBuilder().append("").append(gvscore[i_193_]).append("")
-															.toString(),
-													631 - ftm.stringWidth(new StringBuilder().append("")
-															.append(gascore[i_193_]).append("").toString()) / 2,
+													"" + gvscore[i_193_] + "",
+													631 - ftm.stringWidth("" +
+															gascore[i_193_] + "") / 2,
 													139);
 											rd.drawRect(421, 111, 280, 33);
 											rd.drawLine(561, 111, 561, 144);
@@ -3705,12 +3649,12 @@ public class Lobby implements Runnable {
 														561 - ftm.stringWidth("This is Racers VS Wasters game!") / 2,
 														161);
 												rd.drawString(
-														new StringBuilder().append("").append(gaclan[i_193_])
-																.append(" wastes & ").append(gvclan[i_193_])
-																.append(" races.").toString(),
-														561 - ftm.stringWidth(new StringBuilder().append("")
-																.append(gaclan[i_193_]).append(" wastes & ")
-																.append(gvclan[i_193_]).append(" races.").toString())
+														"" + gaclan[i_193_] +
+																" wastes & " + gvclan[i_193_] +
+																" races.",
+														561 - ftm.stringWidth("" +
+																gaclan[i_193_] + " wastes & " +
+																gvclan[i_193_] + " races.")
 																/ 2,
 														176);
 											}
@@ -3726,12 +3670,12 @@ public class Lobby implements Runnable {
 														561 - ftm.stringWidth("This is Racers VS Wasters game!") / 2,
 														161);
 												rd.drawString(
-														new StringBuilder().append("").append(gaclan[i_193_])
-																.append(" races & ").append(gvclan[i_193_])
-																.append(" wastes.").toString(),
-														561 - ftm.stringWidth(new StringBuilder().append("")
-																.append(gaclan[i_193_]).append(" races & ")
-																.append(gvclan[i_193_]).append(" wastes.").toString())
+														"" + gaclan[i_193_] +
+																" races & " + gvclan[i_193_] +
+																" wastes.",
+														561 - ftm.stringWidth("" +
+																gaclan[i_193_] + " races & " +
+																gvclan[i_193_] + " wastes.")
 																/ 2,
 														176);
 											}
@@ -3788,27 +3732,23 @@ public class Lobby implements Runnable {
 														if (ppos[i_252_] == 2)
 															string_253_ = "rd";
 														rd.drawString(
-																new StringBuilder().append("")
-																		.append(this.ppos[i_252_] + 1)
-																		.append("").append(
-																				string_253_)
-																		.toString(),
-																515 - ftm.stringWidth(new StringBuilder().append("")
-																		.append(this.ppos[i_252_] + 1).append("")
-																		.append(string_253_).toString()) / 2,
+																"" +
+																		(this.ppos[i_252_] + 1) +
+																		"" + string_253_,
+																515 - ftm.stringWidth("" +
+																		(this.ppos[i_252_] + 1) + "" +
+																		string_253_) / 2,
 																83 + 11 * i_220_);
 														rd.setColor(new Color(128, 73, 0));
 														if (plap[i_252_] > gnlaps[i_193_] - 1)
 															plap[i_252_] = this.gnlaps[i_193_] - 1;
 														rd.drawString(
-																new StringBuilder().append("")
-																		.append(this.plap[i_252_] + 1).append(" / ")
-																		.append(this.gnlaps[i_193_]).append("")
-																		.toString(),
-																560 - ftm.stringWidth(new StringBuilder().append("")
-																		.append(this.plap[i_252_] + 1).append(" / ")
-																		.append(this.gnlaps[i_193_]).append("")
-																		.toString()) / 2,
+																"" +
+																		(this.plap[i_252_] + 1) + " / " +
+																		this.gnlaps[i_193_] + "",
+																560 - ftm.stringWidth("" +
+																		(this.plap[i_252_] + 1) + " / " +
+																		this.gnlaps[i_193_] + "") / 2,
 																83 + 11 * i_220_);
 														rd.setColor(new Color(0, 128, 255));
 														rd.drawRect(582, 76 + 11 * i_220_, 56, 6);
@@ -3883,12 +3823,11 @@ public class Lobby implements Runnable {
 															i_254_);
 												else {
 													rd.drawString(
-															new StringBuilder().append("Game Finished!    Winner:  ")
-																	.append(string_255_).append("").toString(),
+															"Game Finished!    Winner:  " +
+																	string_255_ + "",
 															561 - ftm
-																	.stringWidth(new StringBuilder()
-																			.append("Game Finished!    Winner:  ")
-																			.append(string_255_).append("").toString())
+																	.stringWidth("Game Finished!    Winner:  " +
+																			string_255_ + "")
 																	/ 2,
 															i_254_);
 													if (nflk == 0) {
@@ -3897,13 +3836,10 @@ public class Lobby implements Runnable {
 													} else
 														nflk--;
 													rd.drawString(
-															new StringBuilder().append("")
-																	.append(string_255_).append(
-																			"")
-															.toString(), 561
-																	- ftm.stringWidth(new StringBuilder()
-																			.append("Game Finished!    Winner:  ")
-																			.append(string_255_).append("").toString())
+															"" +
+																	string_255_ + "", 561
+																	- ftm.stringWidth("Game Finished!    Winner:  " +
+																	string_255_ + "")
 																	/ 2
 																	+ ftm.stringWidth("Game Finished!    Winner:  "),
 															i_254_);
@@ -3914,15 +3850,14 @@ public class Lobby implements Runnable {
 												String string_257_ = "    ";
 												int i_258_ = 0;
 												if (!lapsname.equals("")) {
-													string_257_ = new StringBuilder().append(string_257_)
-															.append("Fastest lap: ").append(lapsname).append("    ")
-															.toString();
+													string_257_ = string_257_ +
+															"Fastest lap: " + lapsname + "    ";
 													i_258_++;
 												}
 												if (!wastename.equals("")) {
-													string_257_ = new StringBuilder().append(string_257_)
-															.append("Deadliest waster: ").append(wastename)
-															.append("    ").toString();
+													string_257_ = string_257_ +
+															"Deadliest waster: " + wastename +
+															"    ";
 													i_258_++;
 												}
 												if (i_258_ == 2) {
@@ -3930,20 +3865,19 @@ public class Lobby implements Runnable {
 														rd.drawString(string_257_,
 																561 - this.ftm.stringWidth(string_257_) / 2, 199);
 														rd.drawString(
-																new StringBuilder().append("Best stunt: ")
-																		.append(this.stuntname).append("").toString(),
-																561 - ftm.stringWidth(new StringBuilder()
-																		.append("Best stunt: ").append(this.stuntname)
-																		.append("").toString()) / 2,
+																"Best stunt: " +
+																		this.stuntname + "",
+																561 - ftm.stringWidth("Best stunt: " + this.stuntname +
+																		"") / 2,
 																213);
 													} else
 														rd.drawString(string_257_,
 																561 - this.ftm.stringWidth(string_257_) / 2, 206);
 												} else {
 													if (!stuntname.equals(""))
-														string_257_ = new StringBuilder().append(string_257_)
-																.append("Best stunt: ").append(this.stuntname)
-																.append("    ").toString();
+														string_257_ = string_257_ +
+																"Best stunt: " + this.stuntname +
+																"    ";
 													rd.drawString(string_257_, 561 - ftm.stringWidth(string_257_) / 2,
 															206);
 												}
@@ -3958,22 +3892,20 @@ public class Lobby implements Runnable {
 															206);
 												} else {
 													rd.drawString(
-															new StringBuilder().append("Game Finished!    ")
-																	.append(string).append("  Wins!").toString(),
-															561 - ftm.stringWidth(new StringBuilder()
-																	.append("Game Finished!    ").append(string)
-																	.append("  Wins!").toString()) / 2,
+															"Game Finished!    " +
+																	string + "  Wins!",
+															561 - ftm.stringWidth("Game Finished!    " + string +
+																	"  Wins!") / 2,
 															196);
 													if (nflk == 0) {
 														rd.setColor(new Color(255, 176, 67));
 														nflk = 3;
 													} else
 														nflk--;
-													rd.drawString(new StringBuilder().append("").append(string)
-															.append("").toString(), 561
-																	- ftm.stringWidth(new StringBuilder()
-																			.append("Game Finished!    ").append(string)
-																			.append("  Wins!").toString()) / 2
+													rd.drawString("" + string +
+																	"", 561
+																	- ftm.stringWidth("Game Finished!    " + string +
+																	"  Wins!") / 2
 																	+ ftm.stringWidth("Game Finished!    "),
 															196);
 												}
@@ -4027,8 +3959,7 @@ public class Lobby implements Runnable {
 								rd.setColor(new Color(0, 0, 0));
 								rd.setFont(new Font("Arial", 1, 10));
 								ftm = rd.getFontMetrics();
-								rd.drawString(new StringBuilder().append("Laps: ").append(gnlaps[i_193_]).append("")
-										.toString(), 660, 235);
+								rd.drawString("Laps: " + gnlaps[i_193_] + "", 660, 235);
 								if (i > 415 && i < 708 && i_99_ > 222 && i_99_ < 262
 										&& (wait[i_193_] > 0 || gstgn[i_193_] < 0) && conon == 1) {
 									stringbutton("       Preview Stage       ", 562, 247, 0);
@@ -4073,8 +4004,8 @@ public class Lobby implements Runnable {
 											int i_268_ = 0;
 											int i_269_ = 0;
 											for (/**/ ; i_265_ < sentn[i_264_].length(); i_265_++) {
-												final String string_270_ = new StringBuilder().append("")
-														.append(sentn[i_264_].charAt(i_265_)).toString();
+												final String string_270_ = "" +
+														sentn[i_264_].charAt(i_265_);
 												if (string_270_.equals(" ")) {
 													i_266_ = i_267_;
 													i_268_ = i_265_;
@@ -4083,9 +4014,7 @@ public class Lobby implements Runnable {
 													i_269_ = 0;
 												if (i_269_ <= 1) {
 													final StringBuilder stringbuilder = new StringBuilder();
-													final String[] strings_271_ = strings;
-													final int i_272_ = i_264_;
-													strings_271_[i_272_] = stringbuilder.append(strings_271_[i_272_])
+													strings[i_264_] = stringbuilder.append(strings[i_264_])
 															.append(string_270_).toString();
 													i_267_++;
 													if (ftm.stringWidth(strings[i_264_]) > i_262_ - 94)
@@ -4114,20 +4043,18 @@ public class Lobby implements Runnable {
 										for (int i_275_ = 0; i_275_ < 7; i_275_++)
 											if (!string_274_.equals(strings_263_[i_275_])) {
 												rd.drawString(
-														new StringBuilder().append(strings_263_[i_275_]).append(":")
-																.toString(),
-														i_261_ + 84 - ftm.stringWidth(new StringBuilder()
-																.append(strings_263_[i_275_]).append(":").toString()),
+														strings_263_[i_275_] + ":",
+														i_261_ + 84 - ftm.stringWidth(strings_263_[i_275_] + ":"),
 														299 + i_275_ * 14);
 												string_274_ = strings_263_[i_275_];
 											}
 										rd.setFont(new Font("Tahoma", 0, 11));
 										for (int i_276_ = 0; i_276_ < 7; i_276_++) {
-											if (bools[i_276_] && i_276_ == 0 && strings[i_276_].indexOf(" ") != -1)
-												strings[i_276_] = new StringBuilder().append("...")
-														.append(strings[i_276_].substring(strings[i_276_].indexOf(" "),
-																strings[i_276_].length()))
-														.append("").toString();
+											if (bools[i_276_] && i_276_ == 0 && strings[i_276_].contains(" "))
+												strings[i_276_] = "..." +
+														strings[i_276_].substring(strings[i_276_].indexOf(" "),
+																strings[i_276_].length()) +
+														"";
 											rd.drawString(strings[i_276_], i_261_ + 88, 299 + i_276_ * 14);
 										}
 									} else
@@ -4142,7 +4069,7 @@ public class Lobby implements Runnable {
 										pessd[btn] = true;
 										control.enter = false;
 										String string_277_ = gs.cmsg.getText().replace('|', ':');
-										if (string_277_.toLowerCase().indexOf(gs.tpass.getText().toLowerCase()) != -1)
+										if (string_277_.toLowerCase().contains(gs.tpass.getText().toLowerCase()))
 											string_277_ = " ";
 										if (!xt.msgcheck(string_277_) && updatec > -12) {
 											for (int i_278_ = 0; i_278_ < 6; i_278_++) {
@@ -4297,21 +4224,19 @@ public class Lobby implements Runnable {
 										ftm = rd.getFontMetrics();
 										if (!cd.createdby[forcar - 16].equals(xt.nickname)) {
 											rd.drawString(
-													new StringBuilder().append("Created by :  ")
-															.append(cd.createdby[forcar - 16]).append(
-																	"")
-															.toString(),
-													561 - ftm.stringWidth(new StringBuilder().append("Created by :  ")
-															.append(cd.createdby[forcar - 16]).append("").toString())
+													"Created by :  " +
+															cd.createdby[forcar - 16] + "",
+													561 - ftm.stringWidth("Created by :  " +
+															cd.createdby[forcar - 16] + "")
 															/ 2,
 													347);
 											final int i_284_ = ftm.stringWidth(cd.createdby[forcar - 16]);
 											final int i_285_ = 561
-													- ftm.stringWidth(new StringBuilder().append("Created by :  ")
-															.append(cd.createdby[forcar - 16]).append("").toString())
+													- ftm.stringWidth("Created by :  " +
+													cd.createdby[forcar - 16] + "")
 													/ 2
-													+ ftm.stringWidth(new StringBuilder().append("Created by :  ")
-															.append(cd.createdby[forcar - 16]).append("").toString())
+													+ ftm.stringWidth("Created by :  " +
+													cd.createdby[forcar - 16] + "")
 													- i_284_;
 											rd.drawLine(i_285_, 349, i_285_ + i_284_ - 2, 349);
 											if (i > i_285_ - 2 && i < i_285_ + i_284_ && i_99_ > 334 && i_99_ < 351) {
@@ -4342,16 +4267,14 @@ public class Lobby implements Runnable {
 										if (cd.cclass[forcar] == 4)
 											string_286_ = "Class A ,  ";
 										if (cd.publish[forcar - 16] == 0)
-											string_286_ = new StringBuilder().append(string_286_).append("Private Car")
-													.toString();
+											string_286_ = string_286_ + "Private Car";
 										if (cd.publish[forcar - 16] == 1) {
-											string_286_ = new StringBuilder().append(string_286_).append("Public Car")
-													.toString();
+											string_286_ = string_286_ + "Public Car";
 											rd.setColor(new Color(0, 64, 128));
 										}
 										if (cd.publish[forcar - 16] == 2) {
-											string_286_ = new StringBuilder().append(string_286_)
-													.append("Super Public Car").toString();
+											string_286_ = string_286_ +
+													"Super Public Car";
 											rd.setColor(new Color(0, 64, 128));
 										}
 										rd.drawString(string_286_, 561 - ftm.stringWidth(string_286_) / 2, 367);
@@ -4369,11 +4292,11 @@ public class Lobby implements Runnable {
 														395);
 											if (cd.action == 7)
 												rd.drawString(
-														new StringBuilder().append("").append(cd.names[cd.ac])
-																.append(" has been added to your cars!").toString(),
-														561 - ftm.stringWidth(new StringBuilder().append("")
-																.append(cd.names[this.cd.ac])
-																.append(" has been added to your cars!").toString())
+														"" + cd.names[cd.ac] +
+																" has been added to your cars!",
+														561 - ftm.stringWidth("" +
+																cd.names[this.cd.ac] +
+																" has been added to your cars!")
 																/ 2,
 														395);
 											if (cd.action == -7)
@@ -4446,43 +4369,43 @@ public class Lobby implements Runnable {
 							i_290_ = 10;
 							string = "Custom Cars";
 							if (ontyp > 10)
-								string = new StringBuilder().append(string).append(", ").toString();
+								string = string + ", ";
 						}
 						if (ontyp >= 20) {
 							i_290_ = 20;
 							string = "Game Cars";
 							if (ontyp > 20)
-								string = new StringBuilder().append(string).append(", ").toString();
+								string = string + ", ";
 						}
 						if (ontyp >= 30) {
 							i_290_ = 30;
 							string = "Clan Cars";
 							if (ontyp > 30)
-								string = new StringBuilder().append(string).append(", ").toString();
+								string = string + ", ";
 						}
 						if (ontyp - i_290_ == 1)
-							string = new StringBuilder().append(string).append("Class C").toString();
+							string = string + "Class C";
 						if (ontyp - i_290_ == 2)
-							string = new StringBuilder().append(string).append("Class B & C").toString();
+							string = string + "Class B & C";
 						if (ontyp - i_290_ == 3)
-							string = new StringBuilder().append(string).append("Class B").toString();
+							string = string + "Class B";
 						if (ontyp - i_290_ == 4)
-							string = new StringBuilder().append(string).append("Class A & B").toString();
+							string = string + "Class A & B";
 						if (ontyp - i_290_ == 5)
-							string = new StringBuilder().append(string).append("Class A").toString();
+							string = string + "Class A";
 						if (ontyp <= -2)
 							if (Math.abs(ontyp + 2) == 13)
-								string = new StringBuilder().append(" ").append(cd.names[Math.abs(ontyp + 2)])
-										.append("  Game").toString();
+								string = " " + cd.names[Math.abs(ontyp + 2)] +
+										"  Game";
 							else
-								string = new StringBuilder().append("").append(cd.names[Math.abs(ontyp + 2)])
-										.append(" Game").toString();
+								string = "" + cd.names[Math.abs(ontyp + 2)] +
+										" Game";
 						rd.setColor(new Color(0, 0, 0));
 						rd.setFont(new Font("Arial", 1, 13));
 						ftm = rd.getFontMetrics();
-						rd.drawString(new StringBuilder().append(": :   ").append(string).append("   : :").toString(),
+						rd.drawString(": :   " + string + "   : :",
 								400 - ftm.stringWidth(
-										new StringBuilder().append(": :   ").append(string).append("   : :").toString())
+										": :   " + string + "   : :")
 										/ 2,
 								175);
 						string = "a";
@@ -4497,27 +4420,26 @@ public class Lobby implements Runnable {
 						if (ontyp - i_290_ == 5)
 							string = "a class A";
 						if (i_290_ == 0)
-							string = new StringBuilder().append(string).append(" car").toString();
+							string = string + " car";
 						if (i_290_ == 10)
-							string = new StringBuilder().append(string).append(" custom car").toString();
+							string = string + " custom car";
 						if (i_290_ == 20)
-							string = new StringBuilder().append(string).append(" game car").toString();
+							string = string + " game car";
 						if (i_290_ == 30)
-							string = new StringBuilder().append(string).append(" clan car").toString();
+							string = string + " clan car";
 						if (ontyp <= -2)
 							if (Math.abs(ontyp + 2) == 13)
-								string = new StringBuilder().append(" ").append(cd.names[Math.abs(ontyp + 2)])
-										.append(" ").toString();
+								string = " " + cd.names[Math.abs(ontyp + 2)] +
+										" ";
 							else
-								string = new StringBuilder().append("").append(cd.names[Math.abs(ontyp + 2)]).append("")
-										.toString();
+								string = "" + cd.names[Math.abs(ontyp + 2)] + "";
 						rd.drawString(
-								new StringBuilder().append("To join this game you need to have ").append(string)
-										.append("!").toString(),
-								400 - ftm.stringWidth(new StringBuilder().append("To join this game you need to have ")
-										.append(string).append("!").toString()) / 2,
+								"To join this game you need to have " + string +
+										"!",
+								400 - ftm.stringWidth("To join this game you need to have " +
+										string + "!") / 2,
 								206);
-						stringbutton(new StringBuilder().append("  Get ").append(string).append(" now  ").toString(),
+						stringbutton("  Get " + string + " now  ",
 								400, 247, 0);
 						stringbutton("  Cancel X  ", 593, 259, 2);
 						//if (gb.open > 0 && gb.upo)
@@ -4744,34 +4666,31 @@ public class Lobby implements Runnable {
 							stage = gstgn[i_3_];
 							stagename = gstages[i_3_];
 							nfix = gfx[i_3_];
-							if (gntb[i_3_] == 1)
-								notb = true;
-							else
-								notb = false;
+							notb = gntb[i_3_] == 1;
 						}
 			}
-			String string = new StringBuilder().append("").append(xt.sc[0]).append("").toString();
+			String string = "" + xt.sc[0] + "";
 			if (xt.sc[0] >= xtGraphics.nCars)
-				string = new StringBuilder().append("C").append(cd.names[xt.sc[0]]).append("").toString();
-			String string_4_ = new StringBuilder().append("1|").append(xt.nickname).append(":").append(xt.nickey)
-					.append("|").append(xt.clan).append("|").append(xt.clankey).append("|").append(string).append("|")
-					.append(join).append("|").append((int) (xt.arnp[0] * 100.0F)).append("|")
-					.append((int) (xt.arnp[1] * 100.0F)).append("|").append((int) (xt.arnp[2] * 100.0F)).append("|")
-					.append((int) (xt.arnp[3] * 100.0F)).append("|").append((int) (xt.arnp[4] * 100.0F)).append("|")
-					.append((int) (xt.arnp[5] * 100.0F)).append("|").append(ongame).append("|").toString();
+				string = "C" + cd.names[xt.sc[0]] + "";
+			String string_4_ = "1|" + xt.nickname + ":" + xt.nickey +
+					"|" + xt.clan + "|" + xt.clankey + "|" + string + "|" +
+					join + "|" + (int) (xt.arnp[0] * 100.0F) + "|" +
+					(int) (xt.arnp[1] * 100.0F) + "|" + (int) (xt.arnp[2] * 100.0F) + "|" +
+					(int) (xt.arnp[3] * 100.0F) + "|" + (int) (xt.arnp[4] * 100.0F) + "|" +
+					(int) (xt.arnp[5] * 100.0F) + "|" + ongame + "|";
 			if (!xt.lan) {
-				string_4_ = new StringBuilder().append(string_4_).append("").append(updatec).append("|").toString();
+				string_4_ = string_4_ + "" + updatec + "|";
 				if (updatec <= -11) {
 					for (int i_5_ = 0; i_5_ < -updatec - 10; i_5_++)
-						string_4_ = new StringBuilder().append(string_4_).append("").append(cnames[6 - i_5_])
-								.append("|").append(sentn[6 - i_5_]).append("|").toString();
+						string_4_ = string_4_ + "" + cnames[6 - i_5_] +
+								"|" + sentn[6 - i_5_] + "|";
 					updatec = -2;
 				}
 			} else {
 				String string_6_ = "Nonex";
 				try {
 					string_6_ = InetAddress.getLocalHost().getHostName();
-					if (string_6_.indexOf("|") != -1)
+					if (string_6_.contains("|"))
 						string_6_ = InetAddress.getLocalHost().getHostAddress();
 				} catch (final Exception exception) {
 					string_6_ = "Nonex";
@@ -4779,33 +4698,31 @@ public class Lobby implements Runnable {
 				int i_7_ = 0;
 				if (xt.logged)
 					i_7_ = 1;
-				string_4_ = new StringBuilder().append(string_4_).append("").append(string_6_).append("|").append(i_7_)
-						.append("|").toString();
+				string_4_ = string_4_ + "" + string_6_ + "|" + i_7_ +
+						"|";
 			}
 			if (fstart) {
-				string_4_ = new StringBuilder().append(string_4_).append("3|").toString();
+				string_4_ = string_4_ + "3|";
 				bool = true;
 			}
 			if (chalngd == -5 && !fstart) {
-				string_4_ = new StringBuilder().append(string_4_).append("11|").append(gstage).append("|")
-						.append(gstagename).append("|").append(gstagelaps).append("|").append(gnpls).append("|")
-						.append(gwait).append("|").append(pnames[im]).append("|").append(gcars).append("|")
-						.append(gclass).append("|").append(gfix).append("|").append(gnotp).append("|").append(gplayers)
-						.append("|").toString();
+				string_4_ = string_4_ + "11|" + gstage + "|" +
+						gstagename + "|" + gstagelaps + "|" + gnpls + "|" +
+						gwait + "|" + pnames[im] + "|" + gcars + "|" +
+						gclass + "|" + gfix + "|" + gnotp + "|" + gplayers +
+						"|";
 				if (xt.lan)
-					string_4_ = new StringBuilder().append(string_4_).append("").append(gnbts).append("|").toString();
+					string_4_ = string_4_ + "" + gnbts + "|";
 			}
 			if (ongame != -1 && chalngd != -5 && !fstart) {
 				boolean bool_8_ = false;
 				for (int i_9_ = 0; i_9_ < 7; i_9_++)
 					if (!invos[i_9_].equals("") && !dinvi[i_9_].equals(invos[i_9_])) {
 						if (!bool_8_) {
-							string_4_ = new StringBuilder().append(string_4_).append("2|").append(ongame).append("|")
-									.toString();
+							string_4_ = string_4_ + "2|" + ongame + "|";
 							bool_8_ = true;
 						}
-						string_4_ = new StringBuilder().append(string_4_).append("").append(invos[i_9_]).append("|")
-								.toString();
+						string_4_ = string_4_ + "" + invos[i_9_] + "|";
 						dinvi[i_9_] = invos[i_9_];
 					}
 			}
@@ -5118,8 +5035,8 @@ public class Lobby implements Runnable {
 					if (i_48_ != xt.servport - 7070) {
 						final int i_49_ = getvalue(string_10_, i_18_ + i_48_);
 						if (i_49_ != -1) {
-							gs.rooms.sopts[i_47_] = new StringBuilder().append("Room ").append(i_48_).append("  ::  ")
-									.append(i_49_).append("").toString();
+							gs.rooms.sopts[i_47_] = "Room " + i_48_ + "  ::  " +
+									i_49_ + "";
 							gs.rooms.opts[i_47_] = "";
 							gs.rooms.iroom[i_47_] = i_48_;
 							i_47_++;
@@ -5127,8 +5044,7 @@ public class Lobby implements Runnable {
 					}
 				for (int i_50_ = 0; i_50_ < lg.nservers; i_50_++)
 					if (!xt.server.equals(lg.servers[i_50_]) && xt.delays[i_50_] < 300) {
-						gs.rooms.sopts[i_47_] = new StringBuilder().append(":: ").append(lg.snames[i_50_]).append("")
-								.toString();
+						gs.rooms.sopts[i_47_] = ":: " + lg.snames[i_50_] + "";
 						gs.rooms.opts[i_47_] = "";
 						gs.rooms.iroom[i_47_] = 1000 + i_50_;
 						i_47_++;
@@ -5201,7 +5117,7 @@ public class Lobby implements Runnable {
 			int i_57_ = 20;
 			xt.playingame = -1;
 			while (i_57_ != 0) {
-				final String string = new StringBuilder().append("2|").append(i).append("|").toString();
+				final String string = "2|" + i + "|";
 				String string_58_ = "";
 				boolean bool = false;
 				try {
@@ -5376,7 +5292,7 @@ public class Lobby implements Runnable {
 						socket = new Socket(lg.servers[0], 7061);
 						din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 						dout = new PrintWriter(socket.getOutputStream(), true);
-						dout.println(new StringBuilder().append("7|").append(xt.nfreeplays).append("|").toString());
+						dout.println("7|" + xt.nfreeplays + "|");
 						final String string = din.readLine();
 						xt.hours = getvalue(string, 0);
 						socket.close();
@@ -5400,7 +5316,7 @@ public class Lobby implements Runnable {
 			int i_78_ = 20;
 			xt.playingame = -1;
 			while (i_78_ != 0) {
-				final String string = new StringBuilder().append("4|").append(ongame).append("|").toString();
+				final String string = "4|" + ongame + "|";
 				String string_79_ = "";
 				boolean bool = false;
 				try {
@@ -5620,16 +5536,15 @@ public class Lobby implements Runnable {
 								}
 								ptime = l;
 							}
-							string = new StringBuilder().append(" (waiting ").append(wait[i_295_])
-									.append(" seconds maximum)").toString();
+							string = " (waiting " + wait[i_295_] +
+									" seconds maximum)";
 							if (wait[i_295_] > 60)
-								string = new StringBuilder().append(" (waiting ")
-										.append((int) (this.wait[i_295_] / 60.0F * 100.0F) / 100.0F)
-										.append(" minutes maximum)").toString();
+								string = " (waiting " +
+										(int) (this.wait[i_295_] / 60.0F * 100.0F) / 100.0F +
+										" minutes maximum)";
 						}
-						rd.drawString(new StringBuilder().append("Waiting for ").append(mnpls[i_295_] - npls[i_295_])
-								.append(" more players to join to start this game").append(string).append("!")
-								.toString(), 95, 15);
+						rd.drawString("Waiting for " + (mnpls[i_295_] - npls[i_295_]) +
+								" more players to join to start this game" + string + "!", 95, 15);
 						rd.setFont(new Font("Arial", 0, 12));
 						if (!gmaker[i_295_].equals("Coach Insano") && !gmaker[i_295_].equals(pnames[im])) {
 							boolean bool_297_ = false;
@@ -5637,8 +5552,8 @@ public class Lobby implements Runnable {
 								if (pgames[i_298_] == ongame && gmaker[i_295_].equals(pnames[i_298_]))
 									bool_297_ = true;
 							if (bool_297_)
-								rd.drawString(new StringBuilder().append("").append(gmaker[i_295_])
-										.append(" can start this game at anytime (the game creator)...").toString(), 95,
+								rd.drawString("" + gmaker[i_295_] +
+												" can start this game at anytime (the game creator)...", 95,
 										31);
 						}
 					} else {
@@ -5654,10 +5569,10 @@ public class Lobby implements Runnable {
 						}
 						if (pgames[im] == ongame || nflk != 0) {
 							rd.drawString(
-									new StringBuilder().append("Game starts in ").append(wait[i_295_])
-											.append(" seconds!").toString(),
-									400 - ftm.stringWidth(new StringBuilder().append("Game starts in ")
-											.append(wait[i_295_]).append(" seconds!").toString()) / 2,
+									"Game starts in " + wait[i_295_] +
+											" seconds!",
+									400 - ftm.stringWidth("Game starts in " +
+											wait[i_295_] + " seconds!") / 2,
 									23);
 							if (pgames[im] != ongame)
 								nflk--;
@@ -5665,12 +5580,12 @@ public class Lobby implements Runnable {
 							nflk = 3;
 					}
 				} else
-					rd.drawString(new StringBuilder().append("Waiting for ").append(mnpls[i_295_] - npls[i_295_])
-							.append(" clan members to join to start this game!").toString(), 95, 23);
+					rd.drawString("Waiting for " + (mnpls[i_295_] - npls[i_295_]) +
+							" clan members to join to start this game!", 95, 23);
 				if (pgames[im] != ongame) {
 					boolean bool_299_ = false;
 					if (gwarb[i_295_] == 0) {
-						if (gplyrs[i_295_].equals("") || gplyrs[i_295_].indexOf(pnames[im]) != -1)
+						if (gplyrs[i_295_].equals("") || gplyrs[i_295_].contains(pnames[im]))
 							bool_299_ = true;
 					} else if (xt.clan.toLowerCase().equals(gaclan[i_295_].toLowerCase())
 							|| xt.clan.toLowerCase().equals(gvclan[i_295_].toLowerCase()))
@@ -5697,10 +5612,10 @@ public class Lobby implements Runnable {
 		if (checkpoints.stage > 10 && checkpoints.stage <= 27)
 			string = new StringBuilder().append("Stage ").append(checkpoints.stage - 10).append(" NFM 2").toString();
 		if (checkpoints.stage > 27)*/
-		string = new StringBuilder().append("Stage "+checkpoints.stage).toString();
-		xt.drawcs(85, new StringBuilder().append("Previewing ").append(string).append("  >").toString(), 255, 138, 0,
+		string = "Stage " + checkpoints.stage;
+		xt.drawcs(85, "Previewing " + string + "  >", 255, 138, 0,
 				5);
-		xt.drawcs(105, new StringBuilder().append("| ").append(checkpoints.name).append(" |").toString(), 255, 176, 85,
+		xt.drawcs(105, "| " + checkpoints.name + " |", 255, 176, 85,
 				5);
 		rd.drawImage(xt.back[pback], 532, 285, null);
 		if (plsndt == 0) {
@@ -5723,7 +5638,7 @@ public class Lobby implements Runnable {
 			xt.drawcs(190, "Loading Soundtrack, please wait...", 255, 138, 0, 5);
 		if (checkpoints.stage < 0) {
 			rd.setColor(new Color(255, 138, 0));
-			rd.drawString(new StringBuilder().append("Created by: ").append(checkpoints.maker).append("").toString(),
+			rd.drawString("Created by: " + checkpoints.maker + "",
 					85, 413);
 			if (checkpoints.pubt > 0) {
 				if (checkpoints.pubt == 2)
@@ -5822,7 +5737,7 @@ public class Lobby implements Runnable {
 		}
 	}
 
-	public void stringbutton(final String string, final int i, final int i_325_, final int i_326_) {
+	private void stringbutton(final String string, final int i, final int i_325_, final int i_326_) {
 		rd.setFont(new Font("Arial", 1, 12));
 		ftm = rd.getFontMetrics();
 		bx[btn] = i;
