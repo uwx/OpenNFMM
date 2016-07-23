@@ -1,4 +1,4 @@
-package nfm.open;/* nfm.open.UlawUtils - Decompiled by JODE
+package nfm.open;/* UlawUtils - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 

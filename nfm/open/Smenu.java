@@ -1,5 +1,5 @@
 package nfm.open;
-/* nfm.open.Smenu - Decompiled by JODE
+/* Smenu - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 import java.awt.AlphaComposite;

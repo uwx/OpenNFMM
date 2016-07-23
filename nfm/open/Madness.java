@@ -1,5 +1,5 @@
 package nfm.open;
-/* nfm.open.Madness - Decompiled by JODE
+/* Madness - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 import java.awt.Color;
@@ -104,7 +104,7 @@ class Madness extends Panel {
 
     static void exitfullscreen() {
         frame.dispose();
-        frame = new Frame("Need for nfm.open.Madness");
+        frame = new Frame("Need for Madness");
         frame.setBackground(new Color(0, 0, 0));
         frame.setIgnoreRepaint(true);
         frame.setIconImage(Toolkit.getDefaultToolkit().createImage("" + fpath + "data/icon.gif"));
@@ -332,7 +332,7 @@ class Madness extends Panel {
             }
             fullscreen = true;
             frame.dispose();
-            frame = new Frame("Fullscreen Need for nfm.open.Madness");
+            frame = new Frame("Fullscreen Need for Madness");
             frame.setBackground(new Color(0, 0, 0));
             frame.setUndecorated(true);
             frame.setResizable(false);
@@ -360,7 +360,7 @@ class Madness extends Panel {
 
     public static void main(final String[] strings) {
         System.runFinalizersOnExit(true);
-        frame = new Frame("Need for nfm.open.Madness");
+        frame = new Frame("Need for Madness");
         frame.setBackground(new Color(0, 0, 0));
         frame.setIgnoreRepaint(true);
         fpath = "";

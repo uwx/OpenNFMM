@@ -1,4 +1,4 @@
-package nfm.open;/* nfm.open.Wheels - Decompiled by JODE
+package nfm.open;/* Wheels - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 

@@ -1,5 +1,5 @@
 package nfm.open;
-/* nfm.open.udpOnline - Decompiled by JODE
+/* udpOnline - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 import java.net.DatagramPacket;

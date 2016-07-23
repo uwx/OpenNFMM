@@ -1,4 +1,4 @@
-package nfm.open;/* nfm.open.Control - Decompiled by JODE
+package nfm.open;/* Control - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 

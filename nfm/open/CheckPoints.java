@@ -2,7 +2,7 @@ package nfm.open;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-/* nfm.open.CheckPoints - Decompiled by JODE
+/* CheckPoints - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 

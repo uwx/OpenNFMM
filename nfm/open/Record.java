@@ -1,5 +1,5 @@
 package nfm.open;
-/* nfm.open.Record - Decompiled by JODE
+/* Record - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 import java.awt.Color;

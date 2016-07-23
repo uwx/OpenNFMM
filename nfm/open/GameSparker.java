@@ -1,5 +1,5 @@
 package nfm.open;
-/* nfm.open.GameSparker - Decompiled by JODE
+/* GameSparker - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 import java.awt.AlphaComposite;
@@ -117,8 +117,8 @@ class GameSparker extends JPanel
     final Smenu slaps = new Smenu(17);
     private int smooth = 1;
     final Smenu snbts = new Smenu(8);
-    //nfm.open.Smenu snfm1 = new nfm.open.Smenu(12);
-    //nfm.open.Smenu snfm2 = new nfm.open.Smenu(19);
+    //Smenu snfm1 = new Smenu(12);
+    //Smenu snfm2 = new Smenu(19);
     final Smenu snfmm = new Smenu(xtGraphics.nTracks + 2);
     final Smenu snpls = new Smenu(9);
     private final Image[] stagemaker = new Image[2];
@@ -191,7 +191,7 @@ class GameSparker extends JPanel
     private Graphics2D tg;
     
     /**
-     * The nfm.open.ContO index which track parts start at. Raise this number if you want to have 99 cars or more.
+     * The ContO index which track parts start at. Raise this number if you want to have 99 cars or more.
      */
     static private final int partskips = 100;//was 56
 
@@ -1730,7 +1730,7 @@ class GameSparker extends JPanel
         //lobby = null;
         //globe = null;
         //boolean bool = false;
-        //final nfm.open.UDPMistro udpmistro = new nfm.open.UDPMistro();
+        //final UDPMistro udpmistro = new UDPMistro();
         record = new Record(medium);
         loadbase(contos, medium, trackers, xtgraphics, false);
         stageContos = new ContO[10000];
@@ -3198,7 +3198,7 @@ class GameSparker extends JPanel
     private void setupini() {
         Madness.inisetup = true;
         try {
-            final File file = new File("" + Madness.fpath + "nfm.open.Madness.ini");
+            final File file = new File("" + Madness.fpath + "Madness.ini");
             if (file.exists()) {
                 final String[] liness = new String[40];
                 int i = 0;

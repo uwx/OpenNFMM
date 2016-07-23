@@ -1,5 +1,5 @@
 package nfm.open;
-/* nfm.open.Mad - Decompiled by JODE
+/* Mad - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 import java.awt.Color;

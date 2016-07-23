@@ -1,5 +1,5 @@
 package nfm.open;
-/* nfm.open.Lobby - Decompiled by JODE
+/* Lobby - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 import java.awt.AlphaComposite;

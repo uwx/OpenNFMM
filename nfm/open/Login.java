@@ -1,5 +1,5 @@
 package nfm.open;
-/* nfm.open.Login - Decompiled by JODE
+/* Login - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 import java.awt.AlphaComposite;
@@ -236,7 +236,7 @@ class Login implements Runnable {
                 gs.setloggedcookie();
                 xt.cd.msloaded = 0;
                 xt.cd.lastload = 0;
-                msg = "nfm.open.Login to access the multiplayer madness!";
+                msg = "Login to access the multiplayer madness!";
                 fase = 3;
             }
         }
@@ -293,7 +293,7 @@ class Login implements Runnable {
                         }
                         xt.logged = false;
                         xt.cd.lastload = 0;
-                        msg = "nfm.open.Login to access the multiplayer madness!";
+                        msg = "Login to access the multiplayer madness!";
                         fase = 3;
                     }
                 }
@@ -310,7 +310,7 @@ class Login implements Runnable {
                         }
                         xt.logged = false;
                         xt.cd.lastload = 0;
-                        msg = "nfm.open.Login to access the multiplayer madness!";
+                        msg = "Login to access the multiplayer madness!";
                         fase = 3;
                     }
                 }
@@ -327,7 +327,7 @@ class Login implements Runnable {
                         }
                         xt.logged = false;
                         xt.cd.lastload = 0;
-                        msg = "nfm.open.Login to access the multiplayer madness!";
+                        msg = "Login to access the multiplayer madness!";
                         fase = 3;
                     }
                 }
@@ -488,7 +488,7 @@ class Login implements Runnable {
                 if (gs.tnick.getText().equals("Nickname") || msg.startsWith("This")) {
                     gs.tnick.setText("");
                 }
-                msg = "nfm.open.Login to access the multiplayer madness!";
+                msg = "Login to access the multiplayer madness!";
                 gs.tnick.setForeground(new Color(0, 0, 0));
                 fase = 3;
                 i49 = -1;
@@ -840,7 +840,7 @@ class Login implements Runnable {
             connector = new Thread(this);
             connector.start();
         } else {
-            msg = "nfm.open.Login to access the multiplayer madness!";
+            msg = "Login to access the multiplayer madness!";
             gs.tnick.setText(xt.nickname);
             fase = 3;
         }
@@ -1000,7 +1000,7 @@ class Login implements Runnable {
                 if (xt.acexp == -1) {
                     rd.setColor(new Color(0, 0, 0));
                     rd.drawString("Dear " + xt.nickname + ",", 185, 245);
-                    rd.drawString("Your Need for nfm.open.Madness account registration has expired.", 185, 265);
+                    rd.drawString("Your Need for Madness account registration has expired.", 185, 265);
                     rd.drawString("Please renew your registration.", 185, 295);
                     stringbutton("Renew my account registration now!", 362, 332, 0);
                     stringbutton("Cancel", 524, 332, 0);
@@ -1484,7 +1484,7 @@ class Login implements Runnable {
                 fase = 1;
             }
             if (i == 2) {
-                msg = "Nickname registerd.  Please use another or click 'nfm.open.Login' bellow to login to this Nickname.";
+                msg = "Nickname registerd.  Please use another or click 'Login' bellow to login to this Nickname.";
                 nickero = true;
                 gs.tnick.setForeground(new Color(255, 0, 0));
                 gs.tnick.requestFocus();

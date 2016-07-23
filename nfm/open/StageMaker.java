@@ -1,5 +1,5 @@
 package nfm.open;
-/* nfm.open.StageMaker - Decompiled by JODE extended
+/* StageMaker - Decompiled by JODE extended
  * DragShot Software
  * JODE (c) 1998-2001 Jochen Hoenicke
  */
@@ -5126,7 +5126,7 @@ public class StageMaker extends Applet implements Runnable {
                     rd.drawString("The maximum number of stages your account can have at once is 20 stages.", 400 - ftm.stringWidth("The maximum number of stages your account can have at once is 20 stages.") / 2, 180);
                     rd.setFont(new Font("Arial", 1, 13));
                     ftm = rd.getFontMetrics();
-                    rd.drawString("nfm.open.Login to Retrieve your Account Stages", 400 - ftm.stringWidth("nfm.open.Login to Retrieve your Account Stages") / 2, 220);
+                    rd.drawString("Login to Retrieve your Account Stages", 400 - ftm.stringWidth("Login to Retrieve your Account Stages") / 2, 220);
                     rd.drawString("Nickname:", 376 - ftm.stringWidth("Nickname:") - 14, 266);
                     if (!tnick.isShowing()) {
                         tnick.setVisible(true);
@@ -5137,7 +5137,7 @@ public class StageMaker extends Applet implements Runnable {
                         tpass.setVisible(true);
                     }
                     movefield(tpass, 376, 280, 129, 23);
-                    if (button("       nfm.open.Login       ", 400, 340, 0, true)) {
+                    if (button("       Login       ", 400, 340, 0, true)) {
                         setCursor(new Cursor(3));
                         int i = -1;
                         try {

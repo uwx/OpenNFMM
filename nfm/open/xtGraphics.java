@@ -1,5 +1,5 @@
 package nfm.open;
-/* nfm.open.xtGraphics - Decompiled by JODE
+/* xtGraphics - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 import nfm.open.music.*;
@@ -420,7 +420,7 @@ class xtGraphics extends Panel implements Runnable {
             }
     };
     String server = "multiplayer.needformadness.com";
-    String servername = "nfm.open.Madness";
+    String servername = "Madness";
     int servport = 7071;
     private boolean shaded = false;
     private float shload = 0.0F;
@@ -1630,9 +1630,9 @@ class xtGraphics extends Panel implements Runnable {
                     		drawcs(195, "Logging in to your account...", 0, 0, 0, 3);
                     	if (cd.action == 0) {
                     		if (cd.reco == -5)
-                    			drawcs(171, "nfm.open.Login to Add this Car to your Account", 0, 0, 0, 3);
+                    			drawcs(171, "Login to Add this Car to your Account", 0, 0, 0, 3);
                     		if (cd.reco == -2)
-                    			drawcs(171, "nfm.open.Login to Retrieve your Account Cars", 0, 0, 0, 3);
+                    			drawcs(171, "Login to Retrieve your Account Cars", 0, 0, 0, 3);
                     		if (cd.reco == -1)
                     			drawcs(171, "Unable to connect to server, try again later!", 0, 8, 0, 3);
                     		if (cd.reco == 1)
@@ -1687,7 +1687,7 @@ class xtGraphics extends Panel implements Runnable {
                     			}
                     		}
                     		if (cd.reco != -177) {
-                    			if (drawcarb(true, null, "       nfm.open.Login       ", 347, 247, i, i104, bool)
+                    			if (drawcarb(true, null, "       Login       ", 347, 247, i, i104, bool)
                     					&& tcnt > 5) {
                     				tcnt = 0;
                     				if (!app.tnick.getText().equals("") && !app.tpass.getText().equals("")) {
@@ -2461,9 +2461,9 @@ class xtGraphics extends Panel implements Runnable {
             rd.setFont(new Font("Arial", 1, 11));
             ftm = rd.getFontMetrics();
             drawcs(365, "All code is licensed under the BSD license, unless noted otherwise.", 66, 98, 0, 3);
-            drawcs(380, "Need for nfm.open.Madness Multiplayer created by Omar Waly, copyright (c) Radical Play 2005-2015. All rights reserved.", 66, 98, 0, 3);
+            drawcs(380, "Need for Madness Multiplayer created by Omar Waly, copyright (c) Radical Play 2005-2015. All rights reserved.", 66, 98, 0, 3);
             drawcs(395, "OpenNFMM copyright (c) C. Hansen 2015. Some rights reserved.", 66, 98, 0, 3);
-            drawcs(410, "Dual nfm.open.Mod Engine copyright (c) Dany Fernandez Diaz (DragShot) 2015. Some rights reserved.", 66, 98, 0, 3);
+            drawcs(410, "Dual Mod Engine copyright (c) Dany Fernandez Diaz (DragShot) 2015. Some rights reserved.", 66, 98, 0, 3);
 
             if (i23 > 354 && i23 < 410 && i < 665) {
                 app.setCursor(new Cursor(12));
@@ -8159,9 +8159,9 @@ class xtGraphics extends Panel implements Runnable {
                     drawdprom(145, 170);
                     if (cd.reco == -2)
                         if (lfrom == 0) {
-                            drawcs(171, "nfm.open.Login to Retrieve your Account Stages", 0, 0, 0, 3);
+                            drawcs(171, "Login to Retrieve your Account Stages", 0, 0, 0, 3);
                         } else {
-                            drawcs(171, "nfm.open.Login to add this stage to your account.", 0, 0, 0, 3);
+                            drawcs(171, "Login to add this stage to your account.", 0, 0, 0, 3);
                         }
                     if (cd.reco == -1) {
                         drawcs(171, "Unable to connect to server, try again later!", 0, 8, 0, 3);
@@ -8226,7 +8226,7 @@ class xtGraphics extends Panel implements Runnable {
                         }
                     }
                     if (cd.reco != -177) {
-                        if ((drawcarb(true, null, "       nfm.open.Login       ", 347, 247, i, i39, bool) || control.handb || control.enter) && tcnt > 5) {
+                        if ((drawcarb(true, null, "       Login       ", 347, 247, i, i39, bool) || control.handb || control.enter) && tcnt > 5) {
                             tcnt = 0;
                             if (!app.tnick.getText().equals("") && !app.tpass.getText().equals("")) {
                                 autolog = false;

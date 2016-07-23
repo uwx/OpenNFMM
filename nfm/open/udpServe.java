@@ -1,5 +1,5 @@
 package nfm.open;
-/* nfm.open.udpServe - Decompiled by JODE
+/* udpServe - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 import java.net.DatagramPacket;

@@ -82,7 +82,7 @@ public final class Utility {
      *            The 3D X point
      * @param i338
      *            The 3D Y point
-     * @param m the nfm.open.Medium
+     * @param m the Medium
      * @return The 2D X coordinate.
      */
     static int xs(final int i, int i338, final Medium m) {
@@ -99,7 +99,7 @@ public final class Utility {
      *            The 3D Z point
      * @param i339
      *            The 3D Y point
-     * @param m the nfm.open.Medium
+     * @param m the Medium
      * @return The 2D Y coordinate.
      */
     static int ys(final int i, int i339, final Medium m) {

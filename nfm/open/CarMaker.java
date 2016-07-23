@@ -345,7 +345,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
          * >= 0 || (o).keyx[3] <= 0) bool = false; if (!bool) {
          * JOptionPane.showMessageDialog(null, "" + (
          * "Car is not ready for ") + (string) + (
-         * "!\nReason:\nCar nfm.open.Wheels not defined or not defined correctly!\nPlease go to the \u2018Wheels\u2019 tab and use  [ Apply ]  and  [ Save ]  to define correctly.\n"
+         * "!\nReason:\nCar Wheels not defined or not defined correctly!\nPlease go to the \u2018Wheels\u2019 tab and use  [ Apply ]  and  [ Save ]  to define correctly.\n"
          * ), "Car Maker", 1); return false; }
          */
         if (o.npl <= 0) {
@@ -1144,7 +1144,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     if (defnow) {
                         defnow = false;
                         repaint();
-                        JOptionPane.showMessageDialog(null, "Car Maker will setup default Front and Back nfm.open.Wheels positions and adjustments.\n\nEnter the desired positions and adjustments then press ' Apply ' to view!\nDon't forget to press ' Save ' when finished!", "Car Maker", 1);
+                        JOptionPane.showMessageDialog(null, "Car Maker will setup default Front and Back Wheels positions and adjustments.\n\nEnter the desired positions and adjustments then press ' Apply ' to view!\nDon't forget to press ' Save ' when finished!", "Car Maker", 1);
                     }
                     int i248 = 0;
                     try {
@@ -1182,16 +1182,16 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 
                     }
                     if (i248 == 1) {
-                        JOptionPane.showMessageDialog(null, "ERROR:\nThe Z location value of the FRONT nfm.open.Wheels must be greater then zero! (it should have a +ve value)\nZ :  '" + wv[10].getText() + "'  is less or equal to zero, where it should have +ve value!", "Car Maker", 1);
+                        JOptionPane.showMessageDialog(null, "ERROR:\nThe Z location value of the FRONT Wheels must be greater then zero! (it should have a +ve value)\nZ :  '" + wv[10].getText() + "'  is less or equal to zero, where it should have +ve value!", "Car Maker", 1);
                     }
                     if (i248 == 2) {
-                        JOptionPane.showMessageDialog(null, "ERROR:\nThe Z location value of the BACK nfm.open.Wheels must be smaller then zero! (it should have a -ve value)\nZ :  '" + wv[2].getText() + "'  is bigger or equal to zero, where it should have -ve value!", "Car Maker", 1);
+                        JOptionPane.showMessageDialog(null, "ERROR:\nThe Z location value of the BACK Wheels must be smaller then zero! (it should have a -ve value)\nZ :  '" + wv[2].getText() + "'  is bigger or equal to zero, where it should have -ve value!", "Car Maker", 1);
                     }
                     if (i248 == 3) {
-                        JOptionPane.showMessageDialog(null, "ERROR:\nThe \u00b1X location value of the FRONT or BACK nfm.open.Wheels must be greater then zero! (it should have a +ve value)\n\u00b1X :  '" + wv[8].getText() + "'  is less or equal to zero, where it should have +ve value!", "Car Maker", 1);
+                        JOptionPane.showMessageDialog(null, "ERROR:\nThe \u00b1X location value of the FRONT or BACK Wheels must be greater then zero! (it should have a +ve value)\n\u00b1X :  '" + wv[8].getText() + "'  is less or equal to zero, where it should have +ve value!", "Car Maker", 1);
                     }
                     if (i248 == 4) {
-                        JOptionPane.showMessageDialog(null, "ERROR:\nThe \u00b1X location value of the FRONT or BACK nfm.open.Wheels must be greater then zero! (it should have a +ve value)\n\u00b1X :  '" + wv[0].getText() + "'  is less or equal to zero, whenr it should have +ve value!", "Car Maker", 1);
+                        JOptionPane.showMessageDialog(null, "ERROR:\nThe \u00b1X location value of the FRONT or BACK Wheels must be greater then zero! (it should have a +ve value)\n\u00b1X :  '" + wv[0].getText() + "'  is less or equal to zero, whenr it should have +ve value!", "Car Maker", 1);
                     }
                     if (i248 == 0) {
                         final String string = "" + editor.getText() + "\n";
@@ -1721,7 +1721,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                             bool = true;
                         }
                         if (i295 == 8) {
-                            JOptionPane.showMessageDialog(null, "Error Creating Car!\nReason:\nCar nfm.open.Wheels not defined or not defined correctly!\nPlease go to the \u2018Wheels\u2019 tab and use  [ Apply ]  and  [ Save ]  to define correctly.", "Car Maker", 1);
+                            JOptionPane.showMessageDialog(null, "Error Creating Car!\nReason:\nCar Wheels not defined or not defined correctly!\nPlease go to the \u2018Wheels\u2019 tab and use  [ Apply ]  and  [ Save ]  to define correctly.", "Car Maker", 1);
                             bool = true;
                         }
                         if (i295 == 9) {
@@ -3355,7 +3355,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                 rd.setFont(new Font("Arial", 1, 12));
                 ftm = rd.getFontMetrics();
                 final String[] strings = {
-                        "3D Controls", "Color Edit", "Scale & Align", "nfm.open.Wheels", "Stats & Class", "Physics", "Test Drive"
+                        "3D Controls", "Color Edit", "Scale & Align", "Wheels", "Stats & Class", "Physics", "Test Drive"
                 };
                 final int[] is = {
                         0, 0, 100, 90
@@ -3865,7 +3865,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         mouseon = -1;
                     }
                     rd.setColor(new Color(0, 0, 0));
-                    rd.drawString("BACK nfm.open.Wheels :", 12, 424);
+                    rd.drawString("BACK Wheels :", 12, 424);
                     rd.drawString("\u00b1X :", 12, 449);
                     movefield(wv[0], 35, 433, 40, 22);
                     rd.drawString("Y :", 86, 449);
@@ -3898,7 +3898,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     movefield(wv[7], 282, 523, 40, 22);
                     stringbutton("   Apply   ", 300, 440, 0, aplyd1);
                     stringbutton("   Save   ", 300, 477, 0, changed2);
-                    rd.drawString("FRONT nfm.open.Wheels :", 362, 424);
+                    rd.drawString("FRONT Wheels :", 362, 424);
                     rd.drawString("\u00b1X :", 362, 449);
                     movefield(wv[8], 385, 433, 40, 22);
                     rd.drawString("Y :", 436, 449);
@@ -4749,7 +4749,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                 }
                 if (dtab == 5 && pfase == -1) {
                     repaint();
-                    JOptionPane.showMessageDialog(null, "Car nfm.open.Wheels not defined or not defined correctly.\nBefore defining the car Physics car nfm.open.Wheels must be defined correctly!\nPlease go to the \u2018Wheels\u2019 tab and use  [ Apply ]  and  [ Save ]  to define correctly.\n", "Car Maker", 1);
+                    JOptionPane.showMessageDialog(null, "Car Wheels not defined or not defined correctly.\nBefore defining the car Physics car Wheels must be defined correctly!\nPlease go to the \u2018Wheels\u2019 tab and use  [ Apply ]  and  [ Save ]  to define correctly.\n", "Car Maker", 1);
                     dtab = 3;
                 }
             }
@@ -4798,7 +4798,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     rd.drawString("The maximum number of cars your account can have at once is 20 cars.", 350 - ftm.stringWidth("The maximum number of cars your account can have at once is 20 cars.") / 2, 180);
                     rd.setFont(new Font("Arial", 1, 13));
                     ftm = rd.getFontMetrics();
-                    rd.drawString("nfm.open.Login to Retrieve your Account Cars", 350 - ftm.stringWidth("nfm.open.Login to Retrieve your Account Cars") / 2, 220);
+                    rd.drawString("Login to Retrieve your Account Cars", 350 - ftm.stringWidth("Login to Retrieve your Account Cars") / 2, 220);
                     rd.drawString("Nickname:", 326 - ftm.stringWidth("Nickname:") - 14, 266);
                     movefield(tnick, 326, 250, 129, 22);
                     if (!tnick.isShowing()) {
@@ -4809,7 +4809,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     if (!tpass.isShowing()) {
                         tpass.setVisible(true);
                     }
-                    stringbutton("       nfm.open.Login       ", 350, 340, 0, true);
+                    stringbutton("       Login       ", 350, 340, 0, true);
                     rd.setFont(new Font("Arial", 1, 13));
                     ftm = rd.getFontMetrics();
                     rd.drawString("Not registered yet?", 350 - ftm.stringWidth("Not registered yet?") / 2, 450);
@@ -5325,7 +5325,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         o.grounded = 1.0F;
         o.noline = false;
         o.decor = false;
-        if (o.errd && (!o.err.startsWith("nfm.open.Wheels Error:") || forwheels)) {
+        if (o.errd && (!o.err.startsWith("Wheels Error:") || forwheels)) {
             JOptionPane.showMessageDialog(null, o.err, "Car Maker", 0);
         }
         if (o.maxR == 0) {

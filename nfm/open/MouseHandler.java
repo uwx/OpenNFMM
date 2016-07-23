@@ -1,5 +1,5 @@
 package nfm.open;
-/* nfm.open.MouseHandler - Decompiled by JODE
+/* MouseHandler - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 import java.awt.PopupMenu;

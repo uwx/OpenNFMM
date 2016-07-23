@@ -62,7 +62,7 @@ public class RadicalMod implements RadicalMusic {
             }
         } catch (final Exception exception) {
             exception.printStackTrace();
-            System.out.println("Error downloading and making nfm.open.Mod: " + exception);
+            System.out.println("Error downloading and making Mod: " + exception);
             loaded = 0;
         }
         System.runFinalization();

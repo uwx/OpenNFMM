@@ -1,5 +1,5 @@
 package nfm.open;
-/* nfm.open.UDPMistro - Decompiled by JODE extended
+/* UDPMistro - Decompiled by JODE extended
  * DragShot Software
  * JODE (c) 1998-2001 Jochen Hoenicke
  */

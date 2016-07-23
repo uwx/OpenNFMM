@@ -1,6 +1,6 @@
 package nfm.open;
 
-/* nfm.open.ModInstrument - Decompiled by JODE extended
+/* ModInstrument - Decompiled by JODE extended
  * DragShot Software
  * JODE (c) 1998-2001 Jochen Hoenicke
  */

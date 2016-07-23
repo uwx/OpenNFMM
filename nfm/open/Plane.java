@@ -1,5 +1,5 @@
 package nfm.open;
-/* nfm.open.Plane - Decompiled by JODE
+/* Plane - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 import java.awt.BasicStroke;

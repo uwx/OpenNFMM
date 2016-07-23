@@ -1,6 +1,6 @@
 package nfm.open;
 
-/* nfm.open.Trackers - Decompiled by JODE extended
+/* Trackers - Decompiled by JODE extended
  * DragShot Software
  * JODE (c) 1998-2001 Jochen Hoenicke
  */

@@ -1,5 +1,5 @@
 package nfm.open;
-/* nfm.open.Medium - Decompiled by JODE
+/* Medium - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 import java.awt.Color;

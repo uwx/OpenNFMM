@@ -1,5 +1,5 @@
 package nfm.open;
-/* nfm.open.ContO - Decompiled by JODE
+/* ContO - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
 import java.awt.AlphaComposite;
@@ -130,7 +130,7 @@ class ContO {
         wh = 0;
         m = medium;
         t = trackers;
-        // p = new nfm.open.Plane[286];
+        // p = new Plane[286];
         p = new Plane[10000];
         // int[] is0 = new int[286];
         final int[] is0 = new int[10000];
@@ -313,7 +313,7 @@ class ContO {
                             if (keyz[i9] < 0) {
                                 string19 = "BACK";
                             }
-                            err = "nfm.open.Wheels Error:\n" + string19 + " nfm.open.Wheels floor is too far below the center of Y Axis of the car!    \n\nPlease decrease the Y value of the " + string19 + " nfm.open.Wheels or decrease its height.     \n \n";
+                            err = "Wheels Error:\n" + string19 + " Wheels floor is too far below the center of Y Axis of the car!    \n\nPlease decrease the Y value of the " + string19 + " Wheels or decrease its height.     \n \n";
                             errd = true;
                             keyz[i9] = 0;
                             keyx[i9] = 0;
@@ -323,7 +323,7 @@ class ContO {
                             if (keyz[i9] < 0) {
                                 string20 = "BACK";
                             }
-                            err = "nfm.open.Wheels Error:\n" + string20 + " nfm.open.Wheels floor is too far above the center of Y Axis of the car!    \n\nPlease increase the Y value of the " + string20 + " nfm.open.Wheels or increase its height.     \n \n";
+                            err = "Wheels Error:\n" + string20 + " Wheels floor is too far above the center of Y Axis of the car!    \n\nPlease increase the Y value of the " + string20 + " Wheels or increase its height.     \n \n";
                             errd = true;
                             keyz[i9] = 0;
                             keyx[i9] = 0;
@@ -333,16 +333,16 @@ class ContO {
                             if (keyz[i9] < 0) {
                                 string21 = "BACK";
                             }
-                            err = "nfm.open.Wheels Error:\n" + string21 + " nfm.open.Wheels are too far apart!    \n\nPlease decrease the \u00b1X value of the " + string21 + " nfm.open.Wheels.     \n \n";
+                            err = "Wheels Error:\n" + string21 + " Wheels are too far apart!    \n\nPlease decrease the \u00b1X value of the " + string21 + " Wheels.     \n \n";
                             errd = true;
                             keyz[i9] = 0;
                             keyx[i9] = 0;
                         }
                         if (Math.abs(keyz[i9]) > 700) {
                             if (keyz[i9] < 0) {
-                                err = "nfm.open.Wheels Error:\nBACK nfm.open.Wheels are too far backwards from the center of the Z Axis!    \n\nPlease increase the -Z value of the BACK nfm.open.Wheels.     \n \n";
+                                err = "Wheels Error:\nBACK Wheels are too far backwards from the center of the Z Axis!    \n\nPlease increase the -Z value of the BACK Wheels.     \n \n";
                             } else {
-                                err = "nfm.open.Wheels Error:\nFRONT nfm.open.Wheels are too far forwards from the center of the Z Axis!    \n\nPlease decrease the +Z value of the FRONT nfm.open.Wheels.     \n \n";
+                                err = "Wheels Error:\nFRONT Wheels are too far forwards from the center of the Z Axis!    \n\nPlease decrease the +Z value of the FRONT Wheels.     \n \n";
                             }
                             errd = true;
                             keyz[i9] = 0;
@@ -353,7 +353,7 @@ class ContO {
                             if (keyz[i9] < 0) {
                                 string22 = "BACK";
                             }
-                            err = "nfm.open.Wheels Error:\nWidth of the " + string22 + " nfm.open.Wheels is too large!    \n\nPlease decrease the width of the " + string22 + " nfm.open.Wheels.     \n \n";
+                            err = "Wheels Error:\nWidth of the " + string22 + " Wheels is too large!    \n\nPlease decrease the width of the " + string22 + " Wheels.     \n \n";
                             errd = true;
                             keyz[i9] = 0;
                             keyx[i9] = 0;
