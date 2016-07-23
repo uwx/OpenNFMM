@@ -24,6 +24,28 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="NativeBass.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libraries/NativeBass.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/libraries/bass_src.zip!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="NativeBass-Examples.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libraries/NativeBass-Examples.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/libraries/bass_examples.zip!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="easyogg.jar">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/libraries/easyogg.jar!/" />
