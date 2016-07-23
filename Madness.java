@@ -33,7 +33,6 @@ public class Madness extends Panel {
 	static int endadv = 0;
 	static String fpath = "";
 	static Frame frame;
-	static DisplayMode fulldisp;
 	static boolean fullscreen = false;
 	static boolean inisetup = false;
 	static GraphicsDevice myDevice;
@@ -46,18 +45,17 @@ public class Madness extends Panel {
 	static int testdrive = 0;
 	static int textid = 0;
 	static int updateon = 0;
-	static String upfile = "";
 
 	public static void advopen() {
 		try {
 			final File file = new File(
-					new StringBuilder().append("").append(fpath).append("data/user.data").toString());
+					"" + fpath + "data/user.data");
 			if (file.exists()) {
 				final Date date = new Date();
 				final long l = date.getTime();
 				if (advtime == 0L || l - advtime > 120000L) {
 					final String string = System.getProperty("os.name").toLowerCase();
-					if (string.indexOf("win") != -1) {
+					if (string.contains("win")) {
 						final File file_26_ = new File(
 								new StringBuilder().append("").append(fpath).append("data/adv.bat").toString());
 						boolean bool = false;
@@ -323,30 +321,27 @@ public class Madness extends Panel {
 						f_2_ = f_5_;
 					}
 				}
-				strings[i_3_] = new StringBuilder().append("").append(displaymodes[i_4_].getWidth()).append(" x ")
-						.append(displaymodes[i_4_].getHeight()).append(" Resolution   -   ")
-						.append(displaymodes[i_4_].getBitDepth()).append(" Bits   -   ")
-						.append(displaymodes[i_4_].getRefreshRate()).append(" Refresh Rate").toString();
+				strings[i_3_] = "" + displaymodes[i_4_].getWidth() + " x " +
+						displaymodes[i_4_].getHeight() + " Resolution   -   " +
+						displaymodes[i_4_].getBitDepth() + " Bits   -   " +
+						displaymodes[i_4_].getRefreshRate() + " Refresh Rate";
 				is[i_3_] = i_4_;
 				i_3_++;
 			}
 		if (f_2_ != -1.0F) {
-			final StringBuilder stringbuilder = new StringBuilder();
-			final String[] strings_6_ = strings;
-			final int i_7_ = i;
-			strings_6_[i_7_] = stringbuilder.append(strings_6_[i_7_]).append("     <  Recommended").toString();
+			strings[i] = strings[i] + "     <  Recommended";
 		}
 		try {
 			final File file = new File(
-					new StringBuilder().append("").append(fpath).append("data/full_screen.data").toString());
+					"" + fpath + "data/full_screen.data");
 			if (file.exists()) {
 				final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
 				String string;
 				for (boolean bool = false; (string = bufferedreader.readLine()) != null && !bool; bool = true) {
 					string = string.trim();
-					int i_8_ = i;
+					int i_8_;
 					try {
-						i_8_ = Integer.valueOf(string).intValue();
+						i_8_ = Integer.parseInt(string);
 					} catch (final Exception exception) {
 						i_8_ = i;
 					}

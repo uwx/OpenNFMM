@@ -159,9 +159,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 	}
 
 	public void drawms() {
-		openm = false;
-		if (gmode.draw(rd, xm, ym, moused, 450, true))
-			openm = true;
+		openm = gmode.draw(rd, xm, ym, moused, 450, true);
 		if (swait.draw(rd, xm, ym, moused, 450, false))
 			openm = true;
 		if (slaps.draw(rd, xm, ym, moused, 450, false))
@@ -317,7 +315,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		temail = new TextField("");
 		temail.setFont(new Font("Arial", 1, 13));
 		cmsg = new TextField("");
-		if (System.getProperty("java.vendor").toLowerCase().indexOf("oracle") != -1)
+		if (System.getProperty("java.vendor").toLowerCase().contains("oracle"))
 			cmsg.addKeyListener(new KeyListener() {
 
                 @Override
@@ -490,13 +488,11 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		try {
 			DataInputStream datainputstream;
 			if (var_xtGraphics.multion == 0 && checkpoints.stage != -2) {
-				String string_112_ = new StringBuilder().append("stages/").append(checkpoints.stage).append("")
-						.toString();
+				String string_112_ = "stages/" + checkpoints.stage + "";
 				if (checkpoints.stage == -1)
-					string_112_ = new StringBuilder().append("mystages/").append(checkpoints.name).append("")
-							.toString();
-				final File file = new File(new StringBuilder().append("").append(Madness.fpath).append("")
-						.append(string_112_).append(".txt").toString());
+					string_112_ = "mystages/" + checkpoints.name + "";
+				final File file = new File("" + Madness.fpath + "" +
+						string_112_ + ".txt");
 				datainputstream = new DataInputStream(new FileInputStream(file));
 			} else if (checkpoints.stage > 0) {
 				final URL url = new URL(new StringBuilder().append("http://multiplayer.needformadness.com/stages/")
@@ -539,7 +535,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			}
 			String string_123_;
 			while ((string_123_ = datainputstream.readLine()) != null) {
-				string = new StringBuilder().append("").append(string_123_.trim()).toString();
+				string = string_123_.trim();
 				if (string.startsWith("snap"))
 					medium.setsnap(getint("snap", string, 0), getint("snap", string, 1), getint("snap", string, 2));
 				if (string.startsWith("sky")) {
@@ -592,20 +588,20 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 						contos[nob] = new ContO(contos_108_[i_124_], getint("set", string, 1),
 								medium.ground - contos_108_[i_124_].grat, getint("set", string, 2),
 								getint("set", string, 3));
-						if (string.indexOf(")p") != -1) {
+						if (string.contains(")p")) {
 							checkpoints.x[checkpoints.n] = getint("set", string, 1);
 							checkpoints.z[checkpoints.n] = getint("set", string, 2);
 							checkpoints.y[checkpoints.n] = 0;
 							checkpoints.typ[checkpoints.n] = 0;
-							if (string.indexOf(")pt") != -1)
+							if (string.contains(")pt"))
 								checkpoints.typ[checkpoints.n] = -1;
-							if (string.indexOf(")pr") != -1)
+							if (string.contains(")pr"))
 								checkpoints.typ[checkpoints.n] = -2;
-							if (string.indexOf(")po") != -1)
+							if (string.contains(")po"))
 								checkpoints.typ[checkpoints.n] = -3;
-							if (string.indexOf(")ph") != -1)
+							if (string.contains(")ph"))
 								checkpoints.typ[checkpoints.n] = -4;
-							if (string.indexOf("out") != -1)
+							if (string.contains("out"))
 								System.out
 										.println(new StringBuilder().append("out: ").append(checkpoints.n).toString());
 							checkpoints.n++;
@@ -652,10 +648,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 						contos[nob].roted = true;
 					} else
 						checkpoints.roted[checkpoints.fn] = false;
-					if (string.indexOf(")s") != -1)
-						checkpoints.special[checkpoints.fn] = true;
-					else
-						checkpoints.special[checkpoints.fn] = false;
+					checkpoints.special[checkpoints.fn] = string.indexOf(")s") != -1;
 					checkpoints.fn++;
 					nob++;
 					notb = nob;
@@ -803,10 +796,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 				medium.lightn = 0;
 			else
 				medium.lightn = -1;
-			if (checkpoints.stage == 1 || checkpoints.stage == 11)
-				medium.nochekflk = false;
-			else
-				medium.nochekflk = true;
+			medium.nochekflk = !(checkpoints.stage == 1 || checkpoints.stage == 11);
 			for (int i_144_ = 0; i_144_ < var_xtGraphics.nplayers; i_144_++)
 				u[i_144_].reset(checkpoints, var_xtGraphics.sc[i_144_]);
 			var_xtGraphics.resetstat(checkpoints.stage);
@@ -1037,10 +1027,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 						contos[nob].roted = true;
 					} else
 						checkpoints.roted[checkpoints.fn] = false;
-					if (string_153_.indexOf(")s") != -1)
-						checkpoints.special[checkpoints.fn] = true;
-					else
-						checkpoints.special[checkpoints.fn] = false;
+					checkpoints.special[checkpoints.fn] = string_153_.indexOf(")s") != -1;
 					checkpoints.fn++;
 					nob++;
 				}
@@ -1115,11 +1102,6 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		openurl("http://www.needformadness.com/");
 	}
 
-	public void mouseW(final int i) {
-		if (!exwist)
-			mousew += i * 4;
-	}
-
 	public void movefield(final Component component, int i, int i_99_, final int i_100_, final int i_101_) {
 		if (i_100_ == 360 || i_100_ == 576) {
 			i = (int) (i * apmult + apx + component.getWidth() / 2 * (apmult - 1.0F));
@@ -1130,39 +1112,6 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		}
 		if (component.getX() != i || component.getY() != i_99_)
 			component.setBounds(i, i_99_, i_100_, i_101_);
-	}
-
-	public void movefielda(final TextArea textarea, int i, int i_105_, final int i_106_, final int i_107_) {
-		if (applejava) {
-			if (xm > i && xm < i + i_106_ && ym > i_105_ && ym < i_105_ + i_107_ || !textarea.getText().equals(" ")) {
-				if (!textarea.isShowing()) {
-					textarea.setVisible(true);
-					textarea.requestFocus();
-				}
-				if (i_106_ == 360 || i_106_ == 576) {
-					i = (int) (i * apmult + apx + textarea.getWidth() / 2 * (apmult - 1.0F));
-					i_105_ = (int) (i_105_ * apmult + apy + 12.0F * (apmult - 1.0F));
-				} else {
-					i = (int) (i * apmult + apx);
-					i_105_ = (int) (i_105_ * apmult + apy + 12.0F * (apmult - 1.0F));
-				}
-				if (textarea.getX() != i || textarea.getY() != i_105_)
-					textarea.setBounds(i, i_105_, i_106_, i_107_);
-			} else {
-				if (textarea.isShowing()) {
-					textarea.setVisible(false);
-					requestFocus();
-				}
-				rd.setColor(textarea.getBackground());
-				rd.fillRect(i, i_105_, i_106_ - 1, i_107_ - 1);
-				rd.setColor(textarea.getBackground().darker());
-				rd.drawRect(i, i_105_, i_106_ - 1, i_107_ - 1);
-			}
-		} else {
-			if (!textarea.isShowing())
-				textarea.setVisible(true);
-			movefield(textarea, i, i_105_, i_106_, i_107_);
-		}
 	}
 
 	public void movefieldd(final TextField textfield, int i, int i_102_, final int i_103_, final int i_104_,
@@ -1521,9 +1470,9 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 		for (int i = 0; i < 2; i++)
 			swait.add(rd, new StringBuilder().append("").append(i + 2).append(" Minutes").toString());
 		for (int i = 0; i < 15; i++)
-			slaps.add(rd, new StringBuilder().append("").append(i + 1).append("").toString());
+			slaps.add(rd, "" + (i + 1) + "");
 		for (int i = 0; i < 14; i++)
-			ilaps.add(rd, new StringBuilder().append("").append(i + 2).append(" Laps").toString());
+			ilaps.add(rd, "" + (i + 2) + " Laps");
 		sclass.add(rd, "All Classes");
 		sclass.add(rd, "Class C Cars");
 		sclass.add(rd, "Class B & C Cars");
@@ -2645,10 +2594,7 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 					requestFocus();
 				}
 				if (record.hcaught) {
-					if (medium.random() > 0.45)
-						medium.vert = false;
-					else
-						medium.vert = true;
+					medium.vert = medium.random() <= 0.45;
 					medium.adv = (int) (900.0F * medium.random());
 					medium.vxz = (int) (360.0F * medium.random());
 					i_6_ = 0;
@@ -3117,25 +3063,13 @@ public class GameSparker extends JPanel implements KeyListener, MouseListener, M
 			if (e.getKeyCode() == KeyEvent.VK_X)
 				u[0].lookback = 1;
 			if (e.getKeyCode() == KeyEvent.VK_M)
-				if (u[0].mutem)
-					u[0].mutem = false;
-				else
-					u[0].mutem = true;
+				u[0].mutem = !u[0].mutem;
 			if (e.getKeyCode() == KeyEvent.VK_N)
-				if (u[0].mutes)
-					u[0].mutes = false;
-				else
-					u[0].mutes = true;
+				u[0].mutes = !u[0].mutes;
 			if (e.getKeyCode() == KeyEvent.VK_A)
-				if (u[0].arrace)
-					u[0].arrace = false;
-				else
-					u[0].arrace = true;
+				u[0].arrace = !u[0].arrace;
 			if (e.getKeyCode() == KeyEvent.VK_S)
-				if (u[0].radar)
-					u[0].radar = false;
-				else
-					u[0].radar = true;
+				u[0].radar = !u[0].radar;
 			if (e.getKeyCode() == KeyEvent.VK_V) {
 				view++;
 				if (view == 3)
