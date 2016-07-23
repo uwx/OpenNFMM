@@ -1365,9 +1365,6 @@ class GameSparker extends JPanel
         }
         if (!Madness.fullscreen) {
             if (showsize != 0) {
-                if (showsize == 100 || showsize == 70) {
-                    g2.clearRect(0, 0, getWidth(), getHeight()); // TODO remove this
-                }
                 float f = (getWidth() - 40) / 800.0F - 1.0F;
                 if (f > (getHeight() - 70) / 450.0F - 1.0F) {
                     f = (getHeight() - 70) / 450.0F - 1.0F;
