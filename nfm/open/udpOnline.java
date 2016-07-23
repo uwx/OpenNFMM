@@ -34,7 +34,7 @@ class udpOnline implements Runnable {
     void closeSocket() {
         try {
             dSocket.close();
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         dSocket = null;
@@ -52,7 +52,7 @@ class udpOnline implements Runnable {
             int i19 = 0;
             int i20 = 0;
             int i21 = 0;
-            String string22 = "";
+            String string22;
             String string23 = "";
             for (/**/; i19 < string.length() && i21 != 2; i19++) {
                 string22 = "" + string.charAt(i19);
@@ -67,7 +67,7 @@ class udpOnline implements Runnable {
                 }
             }
             string18 = string23;
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return string18;
@@ -79,7 +79,7 @@ class udpOnline implements Runnable {
             int i13 = 0;
             int i14 = 0;
             int i15 = 0;
-            String string16 = "";
+            String string16;
             String string17 = "";
             for (/**/; i13 < string.length() && i15 != 2; i13++) {
                 string16 = "" + string.charAt(i13);
@@ -97,7 +97,7 @@ class udpOnline implements Runnable {
                 string17 = "-1";
             }
             i12 = Integer.parseInt(string17);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return i12;
@@ -159,9 +159,7 @@ class udpOnline implements Runnable {
             }
             if (nu == 0 && um.diledelay != 0 && um.sendcheck.equals(string)) {
                 date = new Date();
-                for (int i = 4; i > 0; i--) {
-                    um.ldelays[i] = um.ldelays[i - 1];
-                }
+                System.arraycopy(um.ldelays, 0, um.ldelays, 1, 4);
                 um.ldelays[0] = (int) (date.getTime() - um.sendat);
                 um.delay = 0;
                 for (int i = 0; i < 5; i++)
@@ -176,7 +174,7 @@ class udpOnline implements Runnable {
         } catch (final Exception exception) {
             try {
                 dSocket.close();
-            } catch (final Exception exception11) {
+            } catch (final Exception ignored) {
 
             }
             dSocket = null;
@@ -191,14 +189,14 @@ class udpOnline implements Runnable {
             try {
                 dSocket = new DatagramSocket(7020 + nu);
                 errd = false;
-            } catch (final Exception exception) {
+            } catch (final Exception ignored) {
 
             }
         }
         try {
             con = new Thread(this);
             con.start();
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
     }

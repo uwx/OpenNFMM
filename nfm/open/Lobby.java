@@ -82,7 +82,7 @@ class Lobby implements Runnable {
     private int gnotp = 0;
     private int gnpls = 8;
     private final int[] gntb = new int[500];
-    int[] gnum = new int[500];
+    final int[] gnum = new int[500];
     private String gplayers = "";
     private final String[] gplyrs = new String[500];
     boolean grprsd = false;
@@ -90,8 +90,8 @@ class Lobby implements Runnable {
     private int gstage = 0;
     int gstagelaps = 0;
     String gstagename = "";
-    String[] gstages = new String[500];
-    int[] gstgn = new int[500];
+    final String[] gstages = new String[500];
+    final int[] gstgn = new int[500];
     private final String[] gvclan = new String[500];
     private final int[] gvscore = new int[500];
     private int gwait = 0;
@@ -276,11 +276,7 @@ class Lobby implements Runnable {
         int i308 = -1;
         if (fase == 1 || fase == 4) {
             for (int i309 = 0; i309 < btn; i309++) {
-                if (Math.abs(xm - bx[i309]) < bw[i309] / 2 + 12 && Math.abs(ym - by[i309]) < 14 && (i307 == 1 || i307 == 11)) {
-                    pessd[i309] = true;
-                } else {
-                    pessd[i309] = false;
-                }
+                pessd[i309] = Math.abs(xm - bx[i309]) < bw[i309] / 2 + 12 && Math.abs(ym - by[i309]) < 14 && (i307 == 1 || i307 == 11);
                 if (Math.abs(xm - bx[i309]) < bw[i309] / 2 + 12 && Math.abs(ym - by[i309]) < 14 && i307 <= -1) {
                     i308 = i309;
                     gs.mouses = 0;
@@ -410,7 +406,7 @@ class Lobby implements Runnable {
                                     din = null;
                                     dout.close();
                                     dout = null;
-                                } catch (final Exception exception) {
+                                } catch (final Exception ignored) {
 
                                 }
                                 hideinputs();
@@ -615,11 +611,7 @@ class Lobby implements Runnable {
                                         }
                                     if (i316 < gnpls - 1) {
                                         if (i308 == 4)
-                                            if (!invo) {
-                                                invo = true;
-                                            } else {
-                                                invo = false;
-                                            }
+                                            invo = !invo;
                                     } else {
                                         i312 = 6;
                                     }
@@ -667,9 +659,7 @@ class Lobby implements Runnable {
                                             gnpls = i316 + 1;
                                             gplayers = "" + pnames[im] + "#";
                                             for (int i318 = 0; i318 < i316; i318++) {
-                                                final StringBuilder stringbuilder = new StringBuilder();
-                                                final Lobby lobby319 = this;
-                                                lobby319.gplayers = stringbuilder + lobby319.gplayers + invos[i318] + "#";
+                                                gplayers = gplayers + invos[i318] + "#";
                                             }
                                         }
                                         gs.sclass.setVisible(false);
@@ -684,7 +674,7 @@ class Lobby implements Runnable {
                             }
                             if (i308 == i312 && !xt.lan && !gs.cmsg.getText().equals("Type here...") && !gs.cmsg.getText().equals("")) {
                                 String string = gs.cmsg.getText().replace('|', ':');
-                                if (string.toLowerCase().indexOf(gs.tpass.getText().toLowerCase()) != -1) {
+                                if (string.toLowerCase().contains(gs.tpass.getText().toLowerCase())) {
                                     string = " ";
                                 }
                                 if (!xt.msgcheck(string) && updatec > -12) {
@@ -712,7 +702,7 @@ class Lobby implements Runnable {
                                 }
                             boolean bool = false;
                             if (gwarb[i321] == 0) {
-                                if (!gplyrs[i321].equals("") && gplyrs[i321].indexOf(pnames[im]) == -1) {
+                                if (!gplyrs[i321].equals("") && !gplyrs[i321].contains(pnames[im])) {
                                     bool = true;
                                 }
                             } else if (!xt.clan.equalsIgnoreCase(gaclan[i321]) && !xt.clan.equalsIgnoreCase(gvclan[i321])) {
@@ -761,11 +751,7 @@ class Lobby implements Runnable {
                                             stage = gstgn[i321];
                                             stagename = gstages[i321];
                                             nfix = gfx[i321];
-                                            if (gntb[i321] == 1) {
-                                                notb = true;
-                                            } else {
-                                                notb = false;
-                                            }
+                                            notb = gntb[i321] == 1;
                                             gs.setCursor(new Cursor(3));
                                             conon = 3;
                                         } else {
@@ -776,18 +762,14 @@ class Lobby implements Runnable {
                                             stage = gstgn[i321];
                                             stagename = gstages[i321];
                                             nfix = gfx[i321];
-                                            if (gntb[i321] == 1) {
-                                                notb = true;
-                                            } else {
-                                                notb = false;
-                                            }
+                                            notb = gntb[i321] == 1;
                                             gs.setCursor(new Cursor(3));
                                             conon = 3;
                                         }
                                     }
                                 if (i308 == 2 && !xt.lan && !gs.cmsg.getText().equals("Type here...") && !gs.cmsg.getText().equals("")) {
                                     String string = gs.cmsg.getText().replace('|', ':');
-                                    if (string.toLowerCase().indexOf(gs.tpass.getText().toLowerCase()) != -1) {
+                                    if (string.toLowerCase().contains(gs.tpass.getText().toLowerCase())) {
                                         string = " ";
                                     }
                                     if (!xt.msgcheck(string) && updatec > -12) {
@@ -813,11 +795,7 @@ class Lobby implements Runnable {
                                     join = ongame;
                                     msg = "| Joining Game |";
                                     spos = 0;
-                                } else if (!invo) {
-                                    invo = true;
-                                } else {
-                                    invo = false;
-                                }
+                                } else invo = !invo;
                             if (pbtn == 2 && (i308 == 1 || i308 == 2)) {
                                 fase = 2;
                                 m.ptr = 0;
@@ -851,11 +829,7 @@ class Lobby implements Runnable {
                                     join = ongame;
                                     msg = "| Joining Game |";
                                     spos = 0;
-                                } else if (!invo) {
-                                    invo = true;
-                                } else {
-                                    invo = false;
-                                }
+                                } else invo = !invo;
                         }
                 } else if (ontyp != 76) {
                     if (i308 == 0)
@@ -932,7 +906,7 @@ class Lobby implements Runnable {
             int i348 = 0;
             int i349 = 0;
             int i350 = 0;
-            String string351 = "";
+            String string351;
             String string352 = "";
             for (/**/ ; i348 < string.length() && i350 != 2; i348++) {
                 string351 = "" + string.charAt(i348);
@@ -947,7 +921,7 @@ class Lobby implements Runnable {
                 }
             }
             string347 = string352;
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return string347;
@@ -959,7 +933,7 @@ class Lobby implements Runnable {
             int i342 = 0;
             int i343 = 0;
             int i344 = 0;
-            String string345 = "";
+            String string345;
             String string346 = "";
             for (/**/ ; i342 < string.length() && i344 != 2; i342++) {
                 string345 = "" + string.charAt(i342);
@@ -977,7 +951,7 @@ class Lobby implements Runnable {
                 string346 = "-1";
             }
             i341 = Integer.parseInt(string346);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return i341;
@@ -990,7 +964,7 @@ class Lobby implements Runnable {
                 int i354 = 0;
                 int i355 = 0;
                 int i356 = 0;
-                String string357 = "";
+                String string357;
                 String string358 = "";
                 for (/**/ ; i354 < string.length() && i356 != 2; i354++) {
                     string357 = "" + string.charAt(i354);
@@ -1018,7 +992,7 @@ class Lobby implements Runnable {
             int i336 = 0;
             int i337 = 0;
             int i338 = 0;
-            String string339 = "";
+            String string339;
             String string340 = "";
             for (/**/ ; i336 < string.length() && i338 != 2; i336++) {
                 string339 = "" + string.charAt(i336);
@@ -1033,7 +1007,7 @@ class Lobby implements Runnable {
                 }
             }
             string335 = string340;
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return string335;
@@ -1045,7 +1019,7 @@ class Lobby implements Runnable {
             int i330 = 0;
             int i331 = 0;
             int i332 = 0;
-            String string333 = "";
+            String string333;
             String string334 = "";
             for (/**/ ; i330 < string.length() && i332 != 2; i330++) {
                 string333 = "" + string.charAt(i330);
@@ -1063,7 +1037,7 @@ class Lobby implements Runnable {
                 string334 = "-1";
             }
             i329 = Integer.parseInt(string334);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return i329;
@@ -1162,7 +1136,7 @@ class Lobby implements Runnable {
             socket = new Socket(xt.server, xt.servport);
             din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             dout = new PrintWriter(socket.getOutputStream(), true);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         conon = 1;
@@ -1170,7 +1144,7 @@ class Lobby implements Runnable {
         connector.start();
     }
 
-    void lobby(int i, int i99, boolean bool, final int i100, final CheckPoints checkpoints, final Control control, final ContO[] contos) {
+    void lobby(int i, int i99, boolean bool, final int i100, final Control control, final ContO[] contos) {
         pre1 = false;
         pre2 = false;
         int i101 = 0;
@@ -1240,7 +1214,6 @@ class Lobby implements Runnable {
                                                     rd.fillRect(70, 53 + 30 * i106 - i105, 116, 29);
                                                     i107 = i109;
                                                 }
-                                                bool112 = true;
                                                 if (control.handb) {
                                                     gs.cmsg.setText("" + gs.cmsg.getText() + "" + pnames[i109]);
                                                     control.handb = false;
@@ -1338,7 +1311,6 @@ class Lobby implements Runnable {
                                             	gb.upo = true;
                                             }*/
                                         }
-                                        bool119 = true;
                                         if (control.handb) {
                                             gs.cmsg.setText("" + gs.cmsg.getText() + "" + pnames[i116]);
                                             control.handb = false;
@@ -1417,7 +1389,6 @@ class Lobby implements Runnable {
                                                         rd.fillRect(70, 53 + 30 * i106 - i105, 116, 29);
                                                         i107 = i123;
                                                     }
-                                                    bool129 = true;
                                                     if (control.handb) {
                                                         gs.cmsg.setText("" + gs.cmsg.getText() + "" + pnames[i123]);
                                                         control.handb = false;
@@ -1749,7 +1720,7 @@ class Lobby implements Runnable {
                                 }
                                 control.enter = false;
                                 String string = gs.cmsg.getText().replace('|', ':');
-                                if (string.toLowerCase().indexOf(gs.tpass.getText().toLowerCase()) != -1) {
+                                if (string.toLowerCase().contains(gs.tpass.getText().toLowerCase())) {
                                     string = " ";
                                 }
                                 if (!xt.msgcheck(string) && updatec > -12) {
@@ -1907,7 +1878,7 @@ class Lobby implements Runnable {
                                                         if (i >= 641 && i <= 689 && i99 > 92 + 24 * i149 - i105 && i99 < 110 + 24 * i149 - i105 && wait[is137[i149]] > 0) {
                                                             boolean bool152 = false;
                                                             if (gwarb[is137[i149]] == 0) {
-                                                                if (gplyrs[is137[i149]].equals("") || gplyrs[is137[i149]].indexOf(pnames[im]) != -1) {
+                                                                if (gplyrs[is137[i149]].equals("") || gplyrs[is137[i149]].contains(pnames[im])) {
                                                                     bool152 = true;
                                                                 }
                                                             } else if (xt.clan.equalsIgnoreCase(gaclan[is137[i149]]) || xt.clan.equalsIgnoreCase(gvclan[is137[i149]])) {
@@ -1971,7 +1942,7 @@ class Lobby implements Runnable {
                                             rd.setColor(new Color(0, 0, 0));
                                             boolean bool153 = false;
                                             if (gwarb[is137[i149]] == 0) {
-                                                if (gplyrs[is137[i149]].equals("") || gplyrs[is137[i149]].indexOf(pnames[im]) != -1) {
+                                                if (gplyrs[is137[i149]].equals("") || gplyrs[is137[i149]].contains(pnames[im])) {
                                                     bool153 = true;
                                                 }
                                             } else if (xt.clan.equalsIgnoreCase(gaclan[is137[i149]]) || xt.clan.equalsIgnoreCase(gvclan[is137[i149]])) {
@@ -2994,7 +2965,7 @@ class Lobby implements Runnable {
                             if (conon == 1) {
                                 if (wait[i193] > 0)
                                     if (gwarb[i193] == 0) {
-                                        String string199 = "";
+                                        String string199;
                                         if (gplyrs[i193].equals("")) {
                                             string199 = "Public Game";
                                         } else {
@@ -3432,7 +3403,7 @@ class Lobby implements Runnable {
                                             bool237 = true;
                                         }
                                     } else if (gwarb[i193] == 0) {
-                                        if (!gplyrs[i193].equals("") && gplyrs[i193].indexOf(pnames[im]) == -1) {
+                                        if (!gplyrs[i193].equals("") && !gplyrs[i193].contains(pnames[im])) {
                                             bool237 = true;
                                         }
                                     } else if (!xt.clan.equalsIgnoreCase(gaclan[i193]) && !xt.clan.equalsIgnoreCase(gvclan[i193])) {
@@ -3537,7 +3508,7 @@ class Lobby implements Runnable {
                                                 }
                                             }
                                             if (pgames[im] != ongame) {
-                                                if (gplyrs[i193].equals("") || gplyrs[i193].indexOf(pnames[im]) != -1) {
+                                                if (gplyrs[i193].equals("") || gplyrs[i193].contains(pnames[im])) {
                                                     stringbutton("    Join this Game    ", 561, 182, 0);
                                                 } else {
                                                     rd.setFont(new Font("Arial", 1, 12));
@@ -3968,10 +3939,7 @@ class Lobby implements Runnable {
                                                     i269 = 0;
                                                 }
                                                 if (i269 <= 1) {
-                                                    final StringBuilder stringbuilder = new StringBuilder();
-                                                    final String[] strings271 = strings;
-                                                    final int i272 = i264;
-                                                    strings271[i272] = stringbuilder + strings271[i272] + string270;
+                                                    strings[i264] = strings[i264] + string270;
                                                     i267++;
                                                     if (ftm.stringWidth(strings[i264]) > i262 - 94)
                                                         if (i266 != 0) {
@@ -4020,7 +3988,7 @@ class Lobby implements Runnable {
                                         pessd[btn] = true;
                                         control.enter = false;
                                         String string277 = gs.cmsg.getText().replace('|', ':');
-                                        if (string277.toLowerCase().indexOf(gs.tpass.getText().toLowerCase()) != -1) {
+                                        if (string277.toLowerCase().contains(gs.tpass.getText().toLowerCase())) {
                                             string277 = " ";
                                         }
                                         if (!xt.msgcheck(string277) && updatec > -12) {
@@ -4481,7 +4449,7 @@ class Lobby implements Runnable {
                     din = null;
                     dout.close();
                     dout = null;
-                } catch (final Exception exception) {
+                } catch (final Exception ignored) {
 
                 }
             }
@@ -4630,11 +4598,7 @@ class Lobby implements Runnable {
                             stage = gstgn[i3];
                             stagename = gstages[i3];
                             nfix = gfx[i3];
-                            if (gntb[i3] == 1) {
-                                notb = true;
-                            } else {
-                                notb = false;
-                            }
+                            notb = gntb[i3] == 1;
                         }
                 }
             }
@@ -4652,7 +4616,7 @@ class Lobby implements Runnable {
                     updatec = -2;
                 }
             } else {
-                String string6 = "Nonex";
+                String string6;
                 try {
                     string6 = InetAddress.getLocalHost().getHostName();
                     if (string6.indexOf('|') != -1) {
@@ -4708,7 +4672,7 @@ class Lobby implements Runnable {
                     din = null;
                     dout.close();
                     dout = null;
-                } catch (final Exception exception) {
+                } catch (final Exception ignored) {
 
                 }
                 try {
@@ -4720,7 +4684,7 @@ class Lobby implements Runnable {
                     if (string10 != null) {
                         bool11 = false;
                     }
-                } catch (final Exception exception) {
+                } catch (final Exception ignored) {
 
                 }
             }
@@ -4728,7 +4692,7 @@ class Lobby implements Runnable {
                 try {
                     socket.close();
                     socket = null;
-                } catch (final Exception exception) {
+                } catch (final Exception ignored) {
 
                 }
                 conon = 0;
@@ -5115,7 +5079,7 @@ class Lobby implements Runnable {
 
                 }
                 Thread.sleep(i56);
-            } catch (final InterruptedException interruptedexception) {
+            } catch (final InterruptedException ignored) {
 
             }
         }
@@ -5143,7 +5107,7 @@ class Lobby implements Runnable {
                         din = null;
                         dout.close();
                         dout = null;
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                     try {
@@ -5155,7 +5119,7 @@ class Lobby implements Runnable {
                         if (string58 != null) {
                             bool = false;
                         }
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                 }
@@ -5163,7 +5127,7 @@ class Lobby implements Runnable {
                     try {
                         socket.close();
                         socket = null;
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                     conon = 0;
@@ -5224,7 +5188,7 @@ class Lobby implements Runnable {
 
                                         }
                                         Thread.sleep(100L);
-                                    } catch (final InterruptedException interruptedexception) {
+                                    } catch (final InterruptedException ignored) {
 
                                     }
                                     for (int i68 = 16; i68 < 56; i68++)
@@ -5298,7 +5262,7 @@ class Lobby implements Runnable {
 
                     }
                     Thread.sleep(1000L);
-                } catch (final InterruptedException interruptedexception) {
+                } catch (final InterruptedException ignored) {
 
                 }
             }
@@ -5309,7 +5273,7 @@ class Lobby implements Runnable {
                 din = null;
                 dout.close();
                 dout = null;
-            } catch (final Exception exception) {
+            } catch (final Exception ignored) {
 
             }
             if (xt.playingame != -1) {
@@ -5328,7 +5292,7 @@ class Lobby implements Runnable {
                         din = null;
                         dout.close();
                         dout = null;
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                 }
@@ -5364,7 +5328,7 @@ class Lobby implements Runnable {
                         din = null;
                         dout.close();
                         dout = null;
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                     try {
@@ -5376,7 +5340,7 @@ class Lobby implements Runnable {
                         if (string79 != null) {
                             bool = false;
                         }
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                 }
@@ -5384,7 +5348,7 @@ class Lobby implements Runnable {
                     try {
                         socket.close();
                         socket = null;
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                     conon = 0;
@@ -5442,7 +5406,7 @@ class Lobby implements Runnable {
 
                                         }
                                         Thread.sleep(100L);
-                                    } catch (final InterruptedException interruptedexception) {
+                                    } catch (final InterruptedException ignored) {
 
                                     }
                                     for (int i89 = 16; i89 < 56; i89++)
@@ -5518,7 +5482,7 @@ class Lobby implements Runnable {
 
                     }
                     Thread.sleep(1000L);
-                } catch (final InterruptedException interruptedexception) {
+                } catch (final InterruptedException ignored) {
 
                 }
             }
@@ -5529,7 +5493,7 @@ class Lobby implements Runnable {
                 din = null;
                 dout.close();
                 dout = null;
-            } catch (final Exception exception) {
+            } catch (final Exception ignored) {
 
             }
             if (xt.playingame != -1) {
@@ -5631,7 +5595,7 @@ class Lobby implements Runnable {
                 if (pgames[im] != ongame) {
                     boolean bool299 = false;
                     if (gwarb[i295] == 0) {
-                        if (gplyrs[i295].equals("") || gplyrs[i295].indexOf(pnames[im]) != -1) {
+                        if (gplyrs[i295].equals("") || gplyrs[i295].contains(pnames[im])) {
                             bool299 = true;
                         }
                     } else if (xt.clan.equalsIgnoreCase(gaclan[i295]) || xt.clan.equalsIgnoreCase(gvclan[i295])) {
@@ -5653,7 +5617,7 @@ class Lobby implements Runnable {
         rd.setFont(new Font("Arial", 1, 11));
         xt.ftm = rd.getFontMetrics();
         ftm = rd.getFontMetrics();
-        String string = "";
+        String string;
         /*if (checkpoints.stage < 0)
         	string = "Custom Stage";
         if (checkpoints.stage > 0 && checkpoints.stage <= 10)
@@ -5790,7 +5754,7 @@ class Lobby implements Runnable {
             din = null;
             dout.close();
             dout = null;
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         if (connector != null) {

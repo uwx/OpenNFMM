@@ -30,7 +30,7 @@ class udpServe implements Runnable {
             int i25 = 0;
             int i26 = 0;
             int i27 = 0;
-            String string28 = "";
+            String string28;
             String string29 = "";
             for (/**/; i25 < string.length() && i27 != 2; i25++) {
                 string28 = "" + string.charAt(i25);
@@ -45,7 +45,7 @@ class udpServe implements Runnable {
                 }
             }
             string24 = string29;
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return string24;
@@ -57,7 +57,7 @@ class udpServe implements Runnable {
             int i19 = 0;
             int i20 = 0;
             int i21 = 0;
-            String string22 = "";
+            String string22;
             String string23 = "";
             for (/**/; i19 < string.length() && i21 != 2; i19++) {
                 string22 = "" + string.charAt(i19);
@@ -75,7 +75,7 @@ class udpServe implements Runnable {
                 string23 = "-1";
             }
             i18 = Integer.parseInt(string23);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return i18;
@@ -161,7 +161,7 @@ class udpServe implements Runnable {
                         dSocket.send(datagrampacket17);
                     }
             }
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
     }
@@ -170,7 +170,7 @@ class udpServe implements Runnable {
         try {
             dSocket.close();
             dSocket = null;
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         if (servo != null) {

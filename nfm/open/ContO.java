@@ -28,19 +28,19 @@ class ContO {
     String err;
     boolean errd;
     int fcnt;
-    int[] fcol;
+    final int[] fcol;
     boolean fix;
     int grat = 0;
     float grounded = 1.0F;
-    int[] keyx;
-    int[] keyz;
-    Medium m;
+    final int[] keyx;
+    final int[] keyz;
+    final Medium m;
     int maxR = 0;
     boolean noline = false;
     private boolean[] notwall;
     int npl = 0;
     float[] osmag;
-    Plane[] p;
+    final Plane[] p;
     private boolean[] rbef;
     float rcx;
     float rcy;
@@ -53,7 +53,7 @@ class ContO {
     private int[] rz;
     private int[] sav;
     private float[] sbln;
-    int[] scol;
+    final int[] scol;
     int[] scx;
     int[] scz;
     boolean shadow = false;
@@ -69,7 +69,7 @@ class ContO {
     int[] sx;
     int[] sy;
     int[] sz;
-    Trackers t;
+    final Trackers t;
     private int[][] tc;
     int tnt;
     private int[] tradx;
@@ -972,11 +972,7 @@ class ContO {
                 t.skd[t.nt] = conto78.skd[i84];
                 t.dam[t.nt] = conto78.dam[i84];
                 t.notwall[t.nt] = conto78.notwall[i84];
-                if (decor) {
-                    t.decor[t.nt] = true;
-                } else {
-                    t.decor[t.nt] = false;
-                }
+                t.decor[t.nt] = decor;
                 int i86 = Math.abs(i81);
                 if (i86 == 180) {
                     i86 = 0;
@@ -1265,9 +1261,7 @@ class ContO {
             t.x[t.nt] += x;
             t.z[t.nt] += z;
             t.y[t.nt] += y;
-            for (int i121 = 0; i121 < 3; i121++) {
-                t.c[t.nt][i121] = p[i119].oc[i121];
-            }
+            System.arraycopy(p[i119].oc, 0, t.c[t.nt], 0, 3);
             t.skd[t.nt] = 2;
             t.dam[t.nt] = 1;
             t.notwall[t.nt] = false;
@@ -1288,9 +1282,7 @@ class ContO {
         t.z[t.nt] = (is118[0] + is118[1]) / 2 + z;
         t.zy[t.nt] = 0;
         t.xy[t.nt] = 0;
-        for (int i123 = 0; i123 < 3; i123++) {
-            t.c[t.nt][i123] = p[4].oc[i123];
-        }
+        System.arraycopy(p[4].oc, 0, t.c[t.nt], 0, 3);
         t.skd[t.nt] = 4;
         t.dam[t.nt] = 1;
         t.notwall[t.nt] = false;

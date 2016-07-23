@@ -5,25 +5,25 @@ package nfm.open;
  * JODE (c) 1998-2001 Jochen Hoenicke
  */
 class Trackers {
-    int[][] c = new int[95000][3];
-    int[] dam = new int[95000];
-    boolean[] decor = new boolean[95000];
+    final int[][] c = new int[95000][3];
+    final int[] dam = new int[95000];
+    final boolean[] decor = new boolean[95000];
     int ncx = 0;
     int ncz = 0;
-    boolean[] notwall = new boolean[95000];
+    final boolean[] notwall = new boolean[95000];
     int nt = 0;
-    int[] radx = new int[95000];
-    int[] rady = new int[95000];
-    int[] radz = new int[95000];
+    final int[] radx = new int[95000];
+    final int[] rady = new int[95000];
+    final int[] radz = new int[95000];
     int[][][] sect = null;
-    int[] skd = new int[95000];
+    final int[] skd = new int[95000];
     int sx = 0;
     int sz = 0;
-    int[] x = new int[95000];
-    int[] xy = new int[95000];
-    int[] y = new int[95000];
-    int[] z = new int[95000];
-    int[] zy = new int[95000];
+    final int[] x = new int[95000];
+    final int[] xy = new int[95000];
+    final int[] y = new int[95000];
+    final int[] z = new int[95000];
+    final int[] zy = new int[95000];
 
     void devidetrackers(final int i, final int i0, final int i1, final int i2) {
         sect = null;
@@ -63,9 +63,7 @@ class Trackers {
                     i7++;
                 }
                 sect[i3][i4] = new int[i7];
-                for (int i11 = 0; i11 < i7; i11++) {
-                    sect[i3][i4][i11] = is[i11];
-                }
+                System.arraycopy(is, 0, sect[i3][i4], 0, i7);
             }
         }
         for (int i12 = 0; i12 < nt; i12++)

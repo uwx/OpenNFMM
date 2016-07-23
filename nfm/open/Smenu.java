@@ -24,14 +24,14 @@ class Smenu {
     private boolean om = false;
     private boolean onsc = false;
     boolean open = false;
-    String[] opts;
+    final String[] opts;
     private boolean revup = false;
     boolean rooms = false;
     private int scra = 0;
     private int scro = 0;
     int sel = 0;
     boolean show = false;
-    String[] sopts;
+    final String[] sopts;
     int w = 0;
     private int x = 0;
     private int y = 0;
@@ -103,11 +103,7 @@ class Smenu {
     boolean draw(final Graphics2D graphics2d, final int i, final int i4, final boolean bool, final int i5, boolean bool6) {
         boolean bool7 = false;
         if (revup) {
-            if (bool6) {
-                bool6 = false;
-            } else {
-                bool6 = true;
-            }
+            bool6 = !bool6;
             revup = false;
         }
         if (show) {
@@ -208,7 +204,7 @@ class Smenu {
                                     open = false;
                                 }
                             }
-                            if (rooms && sopts[i15].indexOf("10 / 10") != -1) {
+                            if (rooms && sopts[i15].contains("10 / 10")) {
                                 graphics2d.setColor(new Color(255, 0, 0));
                             }
                             graphics2d.drawString(sopts[i15], x + 4, y + 38 + scro + i15 * (ftm.getHeight() + 2));
@@ -469,7 +465,7 @@ class Smenu {
         bcol = color;
     }
 
-    public void setFont(final Font font) {
+    public void setFont() {
         // font = font;
     }
 
@@ -477,7 +473,7 @@ class Smenu {
         fcol = color;
     }
 
-    void setSize(final int i, final int i2) {
+    void setSize(final int i) {
         w = i;
     }
 

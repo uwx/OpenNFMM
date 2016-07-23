@@ -99,14 +99,14 @@ class Login implements Runnable {
     private final int[] serverdone = {
             -1, -1, -1
     };
-    String[] servers = {
+    final String[] servers = {
             "multiplayer.needformadness.com", "avenger.needformadness.com", "ghostrider.needformadness.com"
     };
     private final long[] servestart = {
             0L, 0L, 0L
     };
     private boolean showtf = false;
-    String[] snames = {
+    final String[] snames = {
             "Dominion", "Avenger", "Ghostrider"
     };
     private Socket socket;
@@ -161,12 +161,9 @@ class Login implements Runnable {
             socket.close();
             din.close();
             dout.close();
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
-    }
-
-    private void checknotifcations() {
     }
 
     private Color color2k(final int i, final int i62, final int i63) {
@@ -182,11 +179,7 @@ class Login implements Runnable {
         int i49 = -1;
         if (fase != 2 && fase != 4 && fase != 6 && fase != 8 && fase != 9) {
             for (int i50 = 0; i50 < btn; i50++) {
-                if (Math.abs(i - bx[i50]) < bw[i50] / 2 + 12 && Math.abs(i47 - by[i50]) < 14 && (i48 == 1 || i48 == 11)) {
-                    pessd[i50] = true;
-                } else {
-                    pessd[i50] = false;
-                }
+                pessd[i50] = Math.abs(i - bx[i50]) < bw[i50] / 2 + 12 && Math.abs(i47 - by[i50]) < 14 && (i48 == 1 || i48 == 11);
                 if (Math.abs(i - bx[i50]) < bw[i50] / 2 + 12 && Math.abs(i47 - by[i50]) < 14 && i48 <= -1) {
                     gs.mouses = 0;
                     i49 = i50;
@@ -361,7 +354,7 @@ class Login implements Runnable {
                         din = null;
                         dout.close();
                         dout = null;
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                     fase = 12;
@@ -377,7 +370,7 @@ class Login implements Runnable {
                         try {
                             dSocket[i52].close();
                             dSocket[i52] = null;
-                        } catch (final Exception exception) {
+                        } catch (final Exception ignored) {
 
                         }
                     }
@@ -654,7 +647,7 @@ class Login implements Runnable {
             try {
                 dSocket[i].close();
                 dSocket[i] = null;
-            } catch (final Exception exception) {
+            } catch (final Exception ignored) {
 
             }
         }
@@ -665,7 +658,7 @@ class Login implements Runnable {
             din = null;
             dout.close();
             dout = null;
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
     }
@@ -732,7 +725,7 @@ class Login implements Runnable {
             socket.close();
             din.close();
             dout.close();
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
     }
@@ -743,7 +736,7 @@ class Login implements Runnable {
             int i75 = 0;
             int i76 = 0;
             int i77 = 0;
-            String string78 = "";
+            String string78;
             String string79 = "";
             for (/**/ ; i75 < string.length() && i77 != 2; i75++) {
                 string78 = "" + string.charAt(i75);
@@ -758,7 +751,7 @@ class Login implements Runnable {
                 }
             }
             string74 = string79;
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return string74;
@@ -770,7 +763,7 @@ class Login implements Runnable {
             int i69 = 0;
             int i70 = 0;
             int i71 = 0;
-            String string72 = "";
+            String string72;
             String string73 = "";
             for (/**/ ; i69 < string.length() && i71 != 2; i69++) {
                 string72 = "" + string.charAt(i69);
@@ -788,7 +781,7 @@ class Login implements Runnable {
                 string73 = "-1";
             }
             i68 = Integer.parseInt(string73);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return i68;
@@ -1261,7 +1254,7 @@ class Login implements Runnable {
             if (xt.msgcheck(gs.tnick.getText())) {
                 gs.tnick.setText("");
             }
-            if (gs.tnick.getText().toLowerCase().indexOf("madbot") != -1) {
+            if (gs.tnick.getText().toLowerCase().contains("madbot")) {
                 gs.tnick.setText("");
             }
         }
@@ -1437,7 +1430,6 @@ class Login implements Runnable {
     @Override
     public void run() {
         if (checknote) {
-            checknotifcations();
             checknote = false;
         }
         if (fase == 2) {
@@ -1461,7 +1453,7 @@ class Login implements Runnable {
                 socket.close();
                 din.close();
                 dout.close();
-            } catch (final Exception exception) {
+            } catch (final Exception ignored) {
 
             }
             gs.tnick.setEnabled(true);
@@ -1505,7 +1497,7 @@ class Login implements Runnable {
             gs.setCursor(new Cursor(3));
             int i = -1;
             int i16 = -1;
-            String string = "";
+            String string;
             try {
                 socket = new Socket(servers[0], 7061);
                 din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -1530,7 +1522,7 @@ class Login implements Runnable {
                 socket.close();
                 din.close();
                 dout.close();
-            } catch (final Exception exception) {
+            } catch (final Exception ignored) {
 
             }
             gs.tnick.setEnabled(true);
@@ -1571,7 +1563,6 @@ class Login implements Runnable {
                 }
                 fase = 12;
                 justlog = true;
-                checknotifcations();
                 System.gc();
             }
             if (i == 1) {
@@ -1605,7 +1596,7 @@ class Login implements Runnable {
                 socket.close();
                 din.close();
                 dout.close();
-            } catch (final Exception exception) {
+            } catch (final Exception ignored) {
 
             }
             gs.temail.setEnabled(true);
@@ -1678,7 +1669,7 @@ class Login implements Runnable {
 
                 }
                 Thread.sleep(5L);
-            } catch (final InterruptedException interruptedexception) {
+            } catch (final InterruptedException ignored) {
 
             }
         }
@@ -1687,7 +1678,7 @@ class Login implements Runnable {
                 try {
                     dSocket[i].close();
                     dSocket[i] = null;
-                } catch (final Exception exception) {
+                } catch (final Exception ignored) {
 
                 }
             }
@@ -1702,7 +1693,7 @@ class Login implements Runnable {
                 socket = new Socket(xt.server, 7067);
                 din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 dout = new PrintWriter(socket.getOutputStream(), true);
-            } catch (final Exception exception) {
+            } catch (final Exception ignored) {
 
             }
             while ((fase == 16 || fase == 17) && i != 3) {
@@ -1727,7 +1718,7 @@ class Login implements Runnable {
                             din = null;
                             dout.close();
                             dout = null;
-                        } catch (final Exception exception) {
+                        } catch (final Exception ignored) {
 
                         }
                         try {
@@ -1749,7 +1740,7 @@ class Login implements Runnable {
                         try {
                             socket.close();
                             socket = null;
-                        } catch (final Exception exception) {
+                        } catch (final Exception ignored) {
 
                         }
                     }
@@ -1782,7 +1773,7 @@ class Login implements Runnable {
 
                         }
                         Thread.sleep(2000L);
-                    } catch (final InterruptedException interruptedexception) {
+                    } catch (final InterruptedException ignored) {
 
                     }
                 }
@@ -1794,7 +1785,7 @@ class Login implements Runnable {
                 din = null;
                 dout.close();
                 dout = null;
-            } catch (final Exception exception) {
+            } catch (final Exception ignored) {
 
             }
             if (i == 3) {

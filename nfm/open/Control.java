@@ -305,11 +305,7 @@ class Control {
                             agressed = true;
                         }
                         if (checkpoints.stage == -1)
-                            if (m.random() > m.random()) {
-                                agressed = true;
-                            } else {
-                                agressed = false;
-                            }
+                            agressed = m.random() > m.random();
                         cntrn = 5;
                     } else {
                         cntrn--;
@@ -439,11 +435,7 @@ class Control {
                     if (checkpoints.stage == 27) {
                         trickprf = -1.0F;
                     }
-                    if (m.random() > mad.power / 100.0F) {
-                        usebounce = true;
-                    } else {
-                        usebounce = false;
-                    }
+                    usebounce = m.random() > mad.power / 100.0F;
                     if (checkpoints.stage == 9) {
                         usebounce = false;
                     }
@@ -453,11 +445,7 @@ class Control {
                     if (checkpoints.stage == 20 || checkpoints.stage == 24) {
                         usebounce = false;
                     }
-                    if (m.random() > (float) mad.hitmag / (float) mad.cd.maxmag[mad.cn]) {
-                        perfection = false;
-                    } else {
-                        perfection = true;
-                    }
+                    perfection = m.random() <= (float) mad.hitmag / (float) mad.cd.maxmag[mad.cn];
                     if (100.0F * mad.hitmag / mad.cd.maxmag[mad.cn] > 60.0F) {
                         perfection = true;
                     }
@@ -831,11 +819,7 @@ class Control {
                                         if (checkpoints.stage == 25) {
                                             aim = m.random() * 1.5F;
                                             attack = attack / 2;
-                                            if (m.random() > m.random()) {
-                                                exitattack = true;
-                                            } else {
-                                                exitattack = false;
-                                            }
+                                            exitattack = m.random() > m.random();
                                         }
                                         if (checkpoints.stage == 26)
                                             if (mad.cn == 13) {
@@ -962,7 +946,7 @@ class Control {
                 } else {
                     stcnt++;
                 }
-            boolean bool = false;
+            boolean bool;
             if (usebounce) {
                 bool = mad.wtouch;
             } else {
@@ -1538,11 +1522,7 @@ class Control {
                                     i37 = 1;
                                 }
                                 i = fpnt[i37];
-                                if (checkpoints.special[i37]) {
-                                    forget = true;
-                                } else {
-                                    forget = false;
-                                }
+                                forget = checkpoints.special[i37];
                             }
                             for (int i39 = i35; i39 < checkpoints.fn; i39++)
                                 if (py(conto.x / 100, checkpoints.x[fpnt[i39]] / 100, conto.z / 100, checkpoints.z[fpnt[i39]] / 100) < 2000) {

@@ -14,12 +14,12 @@ class Medium {
     private int bcxz = 0;
     private boolean[] bst = null;
     boolean bt = false;
-    int[] cfade = {
+    final int[] cfade = {
             255, 220, 220
     };
     private int[] cgpx = null;
     private int[] cgpz = null;
-    int[] cgrnd = {
+    final int[] cgrnd = {
             205, 200, 200
     };
     int checkpoint = -1;
@@ -38,14 +38,14 @@ class Medium {
     private int[] cmx = null;
     private int cntrn = 0;
     boolean cpflik = false;
-    int[] cpol = {
+    final int[] cpol = {
             215, 210, 210
     };
-    int[] crgrnd = {
+    final int[] crgrnd = {
             205, 200, 200
     };
     boolean crs = false;
-    int[] csky = {
+    final int[] csky = {
             170, 220, 255
     };
     int cx = 400;
@@ -56,7 +56,7 @@ class Medium {
             false, false, false
     };
     float elecr = 0.0F;
-    int[] fade = {
+    final int[] fade = {
             3000, 4500, 6000, 7500, 9000, 10500, 12000, 13500, 15000, 16500, 18000, 19500, 21000, 22500, 24000, 25500
     };
     int fallen = 0;
@@ -114,12 +114,12 @@ class Medium {
     private int sgpx = 0;
     private int sgpz = 0;
     private final int skyline = -300;
-    int[] snap = {
+    final int[] snap = {
             0, 0, 0
     };
-    int[] sprad = new int[7];
-    int[] spx = new int[7];
-    int[] spz = new int[7];
+    final int[] sprad = new int[7];
+    final int[] spx = new int[7];
+    final int[] spz = new int[7];
     private int[][][] stc = null;
     private int[] stx = null;
     private int[] stz = null;
@@ -306,11 +306,7 @@ class Medium {
         if (-y - cy < 0) {
         }
         Math.sqrt((trz - z + cz) * (trz - z + cz) + (trx - x - cx) * (trx - x - cx));
-        if (cpflik) {
-            cpflik = false;
-        } else {
-            cpflik = true;
-        }
+        cpflik = !cpflik;
     }
 
     float cos(int i) {
@@ -560,7 +556,7 @@ class Medium {
                 final int[][] is110 = new int[3][12];
                 final int[] is111 = new int[12];
                 final int[] is112 = new int[12];
-                boolean bool116 = true;
+                boolean bool116;
                 for (int i120 = 0; i120 < 3; i120++) {
                     for (int i121 = 0; i121 < 12; i121++) {
                         is[i120][i121] = clax[i][i120][i121] + clx[i] - x / 20;
@@ -818,7 +814,7 @@ class Medium {
                 rot(is192, is193, cy, cz, zy, nmv[i185] * 2);
                 final int[] is196 = new int[4];
                 final int[] is197 = new int[4];
-                boolean bool201 = true;
+                boolean bool201;
                 for (int i202 = 0; i202 < nmv[i185] - 1; i202++) {
                     int i203 = 0;
                     int i204 = 0;
@@ -1482,9 +1478,9 @@ class Medium {
         final int[] is = new int[nmt];
         final int[] is173 = new int[nmt];
         for (int i174 = 0; i174 < nmt; i174++) {
-            int i175 = 85;
-            float f = 0.5F;
-            float f176 = 0.5F;
+            int i175;
+            float f;
+            float f176;
             is[i174] = (int) (10000.0 + random.nextDouble() * 10000.0);
             final int i177 = (int) (random.nextDouble() * 360.0);
             if (random.nextDouble() > random.nextDouble()) {
@@ -1692,11 +1688,7 @@ class Medium {
                     stc[i][1][i214] = (stc[i][0][i214] + csky[i214]) / 2;
                 }
                 twn[i] = (int) (4.0 * random.nextDouble());
-                if (random.nextDouble() > 0.8) {
-                    bst[i] = true;
-                } else {
-                    bst[i] = false;
-                }
+                bst[i] = random.nextDouble() > 0.8;
             }
         }
     }
@@ -1705,11 +1697,7 @@ class Medium {
         if (cntrn == 0) {
             for (int i = 0; i < 3; i++) {
                 rand[i] = (int) (10.0 * ThreadLocalRandom.current().nextDouble());
-                if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
-                    diup[i] = false;
-                } else {
-                    diup[i] = true;
-                }
+                diup[i] = ThreadLocalRandom.current().nextDouble() <= ThreadLocalRandom.current().nextDouble();
             }
             cntrn = 20;
         } else {
@@ -1943,11 +1931,7 @@ class Medium {
         }
         final float[] fs = new float[3];
         Color.RGBtoHSB(csky[0], csky[1], csky[2], fs);
-        if (fs[2] < 0.6) {
-            darksky = true;
-        } else {
-            darksky = false;
-        }
+        darksky = fs[2] < 0.6;
     }
 
     void setsnap(final int i, final int i247, final int i248) {

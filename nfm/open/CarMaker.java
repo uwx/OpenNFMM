@@ -255,7 +255,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
     private final Trackers t = new Trackers();
     private int tab = 0;
     private int tabed = -1;
-    boolean tested = false;
+    private boolean tested = false;
     private Thread thredo;
     private final TextField tnick = new TextField("", 15);
     private boolean tomany = false;
@@ -322,7 +322,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                 } else {
                     textcomponent.setText("" + textcomponent.getText().substring(0, textcomponent.getSelectionStart()) + string399 + textcomponent.getText().substring(textcomponent.getSelectionEnd(), textcomponent.getText().length()));
                 }
-            } catch (final Exception exception) {
+            } catch (final Exception ignored) {
 
             }
         }
@@ -479,11 +479,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
     private void ctachm() {
         int i = -1;
         for (int i174 = 0; i174 < btn; i174++) {
-            if (Math.abs(xm - bx[i174]) < bw[i174] / 2 + 12 && Math.abs(ym - by[i174]) < 14 && mouses == 1) {
-                pessd[i174] = true;
-            } else {
-                pessd[i174] = false;
-            }
+            pessd[i174] = Math.abs(xm - bx[i174]) < bw[i174] / 2 + 12 && Math.abs(ym - by[i174]) < 14 && mouses == 1;
             if (Math.abs(xm - bx[i174]) < bw[i174] / 2 + 12 && Math.abs(ym - by[i174]) < 14 && mouses == -1) {
                 i = i174;
             }
@@ -551,7 +547,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         if (filedialog.getFile() != null) {
                             file = new File("" + filedialog.getDirectory() + "" + filedialog.getFile() + "");
                         }
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                     if (file != null) {
@@ -688,7 +684,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         if (filedialog.getFile() != null) {
                             file = new File("" + filedialog.getDirectory() + "" + filedialog.getFile() + "");
                         }
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                     if (file != null) {
@@ -761,11 +757,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         }
         if (tab == 1) {
             if (i == 0)
-                if (prefs) {
-                    prefs = false;
-                } else {
-                    prefs = true;
-                }
+                prefs = !prefs;
             if (i == 1 || i == 2) {
                 savefile();
                 if (i == 2) {
@@ -785,7 +777,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 
                             }
                             Thread.sleep(100L);
-                        } catch (final InterruptedException interruptedexception) {
+                        } catch (final InterruptedException ignored) {
 
                         }
                     }
@@ -921,7 +913,6 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         }
                         if (i209 == 1) {
                             string210 = "" + string210 + "2ndColor(0,0,255)\n\n\n";
-                            i209 = 2;
                         }
                         final int i214 = editor.getText().indexOf("<p>", 0);
                         editor.insert(string210, i214);
@@ -1129,7 +1120,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         editor.setText(string234);
                         setupo();
                         changed2 = true;
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                 }
@@ -1187,7 +1178,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         if (i249 < -40) {
                             wv[7].setText("-40");
                         }
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                     if (i248 == 1) {
@@ -1340,15 +1331,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         string263 = "" + string263 + "\n\n\nstat(" + stat[0] + "," + stat[1] + "," + stat[2] + "," + stat[3] + "," + stat[4] + ")\n\n\n\n";
                         editor.setText(string263);
                         savefile();
-                        for (int i267 = 0; i267 < 5; i267++) {
-                            rstat[i267] = stat[i267];
-                        }
+                        System.arraycopy(stat, 0, rstat, 0, 5);
                         changed2 = false;
                     }
                     if (i == 12) {
-                        for (int i268 = 0; i268 < 5; i268++) {
-                            stat[i268] = rstat[i268];
-                        }
+                        System.arraycopy(rstat, 0, stat, 0, 5);
                     }
                     i206 = 13;
                 }
@@ -1374,9 +1361,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         }
                     }
                     if (i == 9) {
-                        for (int i271 = 0; i271 < 5; i271++) {
-                            phys[i271] = rphys[i271];
-                        }
+                        System.arraycopy(rphys, 0, phys, 0, 5);
                     }
                     if (i == 10) {
                         pfase = 1;
@@ -1405,9 +1390,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         }
                     }
                     if (i == 13) {
-                        for (int i274 = 0; i274 < 6; i274++) {
-                            phys[i274 + 5] = rphys[i274 + 5];
-                        }
+                        System.arraycopy(rphys, 5, phys, 5, 6);
                     }
                     if (i == 14) {
                         pfase = 0;
@@ -1468,11 +1451,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                     }
                             }
                         }
-                        if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
-                            crashup = false;
-                        } else {
-                            crashup = true;
-                        }
+                        crashup = ThreadLocalRandom.current().nextDouble() <= ThreadLocalRandom.current().nextDouble();
                         for (int i278 = 0; i278 < 4; i278++)
                             if (is[i278] != -101) {
                                 if (is[i278] >= 4) {
@@ -1499,25 +1478,15 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                             }
                     }
                     if (i == 8) {
-                        if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
-                            crashup = false;
-                        } else {
-                            crashup = true;
-                        }
+                        crashup = ThreadLocalRandom.current().nextDouble() <= ThreadLocalRandom.current().nextDouble();
                         roofsqsh((int) (230.0 + ThreadLocalRandom.current().nextDouble() * 80.0));
                     }
                     if (i == 9 || i == 7) {
                         setupo();
-                        if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
-                            crashleft = false;
-                        } else {
-                            crashleft = true;
-                        }
+                        crashleft = ThreadLocalRandom.current().nextDouble() <= ThreadLocalRandom.current().nextDouble();
                     }
                     if (i == 10) {
-                        for (int i279 = 0; i279 < 3; i279++) {
-                            crash[i279] = rcrash[i279];
-                        }
+                        System.arraycopy(rcrash, 0, crash, 0, 3);
                     }
                     if (i == 11) {
                         setupo();
@@ -1855,10 +1824,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
     }
 
     private void drawms() {
-        openm = false;
-        if (pubtyp.draw(rd, xm, ym, mousdr, 550, false)) {
-            openm = true;
-        }
+        openm = pubtyp.draw(rd, xm, ym, mousdr, 550, false);
         if (fontsel.draw(rd, xm, ym, mousdr, 550, true)) {
             openm = true;
         }
@@ -1916,7 +1882,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         mediatracker.addImage(image, 0);
         try {
             mediatracker.waitForID(0);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return image;
@@ -1987,11 +1953,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         }
         rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         setLayout(null);
-        slcar.setFont(new Font("Arial", 1, 13));
+        slcar.setFont();
         slcar.add(rd, "Select a Car...         ");
         slcar.setForeground(new Color(63, 80, 110));
         slcar.setBackground(new Color(209, 217, 230));
-        fontsel.setFont(new Font("Arial", 1, 12));
+        fontsel.setFont();
         fontsel.add(rd, "Arial");
         fontsel.add(rd, "Dialog");
         fontsel.add(rd, "DialogInput");
@@ -2001,7 +1967,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         fontsel.add(rd, "Verdana");
         fontsel.setBackground(new Color(63, 80, 110));
         fontsel.setForeground(new Color(209, 217, 230));
-        ctheme.setFont(new Font("Arial", 1, 12));
+        ctheme.setFont();
         ctheme.add(rd, "Default");
         ctheme.add(rd, "Author");
         ctheme.add(rd, "Dos");
@@ -2012,7 +1978,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         ctheme.add(rd, "Ocean");
         ctheme.setBackground(new Color(63, 80, 110));
         ctheme.setForeground(new Color(209, 217, 230));
-        compcar.setFont(new Font("Arial", 1, 12));
+        compcar.setFont();
         compcar.add(rd, "Compare Car...");
         compcar.add(rd, "Tornado Shark");
         compcar.add(rd, "Formula 7");
@@ -2033,7 +1999,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         compcar.add(rd, " -  None  - ");
         compcar.setBackground(new Color(63, 80, 110));
         compcar.setForeground(new Color(209, 217, 230));
-        cls.setFont(new Font("Arial", 1, 12));
+        cls.setFont();
         cls.add(rd, "Class A");
         cls.add(rd, "Class A & B");
         cls.add(rd, "Class B");
@@ -2041,7 +2007,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         cls.add(rd, "Class C");
         cls.setBackground(new Color(63, 80, 110));
         cls.setForeground(new Color(209, 217, 230));
-        simcar.setFont(new Font("Arial", 1, 12));
+        simcar.setFont();
         simcar.add(rd, "Tornado Shark");
         simcar.add(rd, "Formula 7");
         simcar.add(rd, "Wow Caninaro");
@@ -2060,12 +2026,12 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         simcar.add(rd, "DR Monstaa");
         simcar.setBackground(new Color(63, 80, 110));
         simcar.setForeground(new Color(209, 217, 230));
-        witho.setFont(new Font("Arial", 1, 12));
+        witho.setFont();
         witho.add(rd, "With other cars");
         witho.add(rd, "Alone");
         witho.setBackground(new Color(63, 80, 110));
         witho.setForeground(new Color(209, 217, 230));
-        engine.setFont(new Font("Arial", 1, 12));
+        engine.setFont();
         engine.add(rd, "Normal Engine");
         engine.add(rd, "V8 Engine");
         engine.add(rd, "Retro Engine");
@@ -2102,7 +2068,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         tpass.setEchoChar('*');
         tpass.setBackground(new Color(255, 255, 255));
         tpass.setForeground(new Color(0, 0, 0));
-        pubtyp.setFont(new Font("Arial", 1, 13));
+        pubtyp.setFont();
         pubtyp.add(rd, "Private");
         pubtyp.add(rd, "Public");
         pubtyp.add(rd, "Super Public");
@@ -2241,9 +2207,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             final BufferedReader bufferedreader = new BufferedReader(new FileReader(file));
             String string;
             while ((string = bufferedreader.readLine()) != null) {
-                final StringBuilder stringbuilder = new StringBuilder();
-                final CarMaker carmaker300 = this;
-                carmaker300.lastedo = stringbuilder + carmaker300.lastedo + "" + string + "\n";
+                lastedo = lastedo + "" + string + "\n";
             }
             loadedfile = true;
             bufferedreader.close();
@@ -2284,7 +2248,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                 }
                 bufferedreader.close();
             }
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
     }
@@ -2432,7 +2396,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             int i387 = 2;
             int i388 = 0;
             int i389 = 0;
-            String string390 = "";
+            String string390;
             String string391 = "";
             boolean bool = false;
             for (/**/; i387 < string.length() && i389 != 2; i387++) {
@@ -2460,7 +2424,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                 string391 = "0";
             }
             if (multf10) {
-                i386 = (int) (Float.valueOf(string391).floatValue() * 10.0F);
+                i386 = (int) (Float.valueOf(string391) * 10.0F);
             } else {
                 final int i392 = string391.indexOf('/', 0);
                 if (i392 != -1) {
@@ -2471,7 +2435,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     i386 = 0;
                 }
             }
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return i386;
@@ -2498,13 +2462,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         }
         final int i396 = ftm.stringWidth(string);
         final int i397 = 4;
-        boolean bool = false;
+        boolean bool;
         boolean bool398 = false;
-        if (Math.abs(xm - i) < i396 / 2 + 12 && Math.abs(ym - i395 + 5) < 10 && mouses == 1) {
-            bool = true;
-        } else {
-            bool = false;
-        }
+        bool = Math.abs(xm - i) < i396 / 2 + 12 && Math.abs(ym - i395 + 5) < 10 && mouses == 1;
         if (Math.abs(xm - i) < i396 / 2 + 12 && Math.abs(ym - i395 + 5) < 10 && mouses == -1) {
             mouses = 0;
             bool398 = true;
@@ -3024,7 +2984,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     rd.drawString("Select Car to Edit", 350 - ftm.stringWidth("Select Car to Edit") / 2, 230 + i2);
                     slcar.move(250, 240 + i2);
                     if (slcar.getWidth() != 200) {
-                        slcar.setSize(200, 21);
+                        slcar.setSize(200);
                     }
                     if (!slcar.isShowing()) {
                         slcar.setVisible(true);
@@ -3110,7 +3070,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     rd.drawString("Select Car to Export", 350 - ftm.stringWidth("Select Car to Export") / 2, 230 + i2);
                     slcar.move(250, 240 + i2);
                     if (slcar.getWidth() != 200) {
-                        slcar.setSize(200, 21);
+                        slcar.setSize(200);
                     }
                     if (!slcar.isShowing()) {
                         slcar.setVisible(true);
@@ -3240,7 +3200,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                 String string = "";
                 try {
                     string = editor.getSelectedText();
-                } catch (final Exception exception) {
+                } catch (final Exception ignored) {
 
                 }
                 if (!string.equals("")) {
@@ -3280,10 +3240,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     if (!rplc.isShowing()) {
                         rplc.setVisible(true);
                     }
-                    bool9 = false;
-                    if (!srch.getText().equals("") && !rplc.getText().equals("")) {
-                        bool9 = true;
-                    }
+                    bool9 = !srch.getText().equals("") && !rplc.getText().equals("");
                     stringbutton(" Replace ", 376, 526, 2, bool9);
                 } else {
                     if (srch.isShowing()) {
@@ -3877,15 +3834,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                     }
                                     i55++;
                                 }
-                            } catch (final Exception exception) {
+                            } catch (final Exception ignored) {
 
                             }
                         }
-                        if (i55 != 4) {
-                            defnow = true;
-                        } else {
-                            defnow = false;
-                        }
+                        defnow = i55 != 4;
                         wv[0].setText("" + i39 + "");
                         wv[1].setText("" + i41 + "");
                         wv[2].setText("" + i43 + "");
@@ -4075,9 +4028,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                             }
                                         }
                                     }
-                                    for (int i73 = 0; i73 < 5; i73++) {
-                                        rstat[i73] = stat[i73];
-                                    }
+                                    System.arraycopy(stat, 0, rstat, 0, 5);
                                     statdef = true;
                                 }
                             } catch (final Exception exception) {
@@ -4144,9 +4095,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         if (carsel != simcar.getSelectedIndex()) {
                             carsel = simcar.getSelectedIndex();
                             if (carsel != 16) {
-                                for (int i79 = 0; i79 < 5; i79++) {
-                                    stat[i79] = carstat[carsel][i79];
-                                }
+                                System.arraycopy(carstat[carsel], 0, stat, 0, 5);
                             }
                             requestFocus();
                         }
@@ -4213,11 +4162,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         if (o.keyz[3] >= 0 || o.keyx[3] <= 0) {
                             pfase = -1;
                         }
-                        if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
-                            crashleft = false;
-                        } else {
-                            crashleft = true;
-                        }
+                        crashleft = ThreadLocalRandom.current().nextDouble() <= ThreadLocalRandom.current().nextDouble();
                         engsel = 0;
                         if (pfase == 0) {
                             final String string = "" + editor.getText() + "\n";
@@ -4239,9 +4184,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                                 phys[i91] = 0;
                                             }
                                         }
-                                        for (int i92 = 0; i92 < 11; i92++) {
-                                            rphys[i92] = phys[i92];
-                                        }
+                                        System.arraycopy(phys, 0, rphys, 0, 11);
                                         for (int i93 = 0; i93 < 3; i93++) {
                                             crash[i93] = getvalue("physics", string90, i93 + 11);
                                             if (crash[i93] > 100) {
@@ -4251,9 +4194,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                                 crash[i93] = 0;
                                             }
                                         }
-                                        for (int i94 = 0; i94 < 3; i94++) {
-                                            rcrash[i94] = crash[i94];
-                                        }
+                                        System.arraycopy(crash, 0, rcrash, 0, 3);
                                         engsel = getvalue("physics", string90, 14);
                                         if (engsel > 4) {
                                             engsel = 0;
@@ -4262,7 +4203,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                             engsel = 0;
                                         }
                                     }
-                                } catch (final Exception exception) {
+                                } catch (final Exception ignored) {
                                 }
                             }
                         }
@@ -4493,7 +4434,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 
                             }
                             Thread.sleep(100L);
-                        } catch (final InterruptedException interruptedexception) {
+                        } catch (final InterruptedException ignored) {
 
                         }
                         for (int i112 = 0; i112 < 4; i112++) {
@@ -4523,11 +4464,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                         o.xz += 45;
                                         o.zy += 45;
                                         i117 = 0;
-                                        if (bool118) {
-                                            bool118 = false;
-                                        } else {
-                                            bool118 = true;
-                                        }
+                                        bool118 = !bool118;
                                         if (i116 == actmag) {
                                             crash[0] += 10;
                                         }
@@ -4553,11 +4490,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                         o.xz += 45;
                                         o.zy += 45;
                                         i120 = 0;
-                                        if (bool121) {
-                                            bool121 = false;
-                                        } else {
-                                            bool121 = true;
-                                        }
+                                        bool121 = !bool121;
                                     }
                                 }
                                 f += (float) actmag / (float) hitmag;
@@ -4596,11 +4529,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                         regz(i126, (int) (150.0 + 600.0 * ThreadLocalRandom.current().nextDouble()), true);
                                     }
                                     if (++i126 == i114) {
-                                        if (bool127) {
-                                            bool127 = false;
-                                        } else {
-                                            bool127 = true;
-                                        }
+                                        bool127 = !bool127;
                                         i126 = 0;
                                         if (i125 == actmag) {
                                             crash[0] += 10;
@@ -4628,11 +4557,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                             o.xz += 45;
                                             o.zy += 45;
                                             i129 = 0;
-                                            if (bool130) {
-                                                bool130 = false;
-                                            } else {
-                                                bool130 = true;
-                                            }
+                                            bool130 = !bool130;
                                         }
                                     }
                                     f += (float) actmag / (float) hitmag;
@@ -4662,12 +4587,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         string131 = "" + string131 + "\n\n\nphysics(" + phys[0] + "," + phys[1] + "," + phys[2] + "," + phys[3] + "," + phys[4] + "," + phys[5] + "," + phys[6] + "," + phys[7] + "," + phys[8] + "," + phys[9] + "," + phys[10] + "," + crash[0] + "," + crash[1] + "," + crash[2] + "," + engsel + "," + actmag + ")\n\n\n\n";
                         editor.setText(string131);
                         savefile();
-                        for (int i135 = 0; i135 < 11; i135++) {
-                            rphys[i135] = phys[i135];
-                        }
-                        for (int i136 = 0; i136 < 3; i136++) {
-                            rcrash[i136] = crash[i136];
-                        }
+                        System.arraycopy(phys, 0, rphys, 0, 11);
+                        System.arraycopy(crash, 0, rcrash, 0, 3);
                         pfase = 5;
                     }
                     if (pfase == 5) {
@@ -4706,7 +4627,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                     if (handling < 50) {
                                         handling = 50;
                                     }
-                                } catch (final Exception exception) {
+                                } catch (final Exception ignored) {
 
                                 }
                             }
@@ -4767,11 +4688,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         } else {
                             o.p[i142].gr = 1;
                         }
-                    if (pflk) {
-                        pflk = false;
-                    } else {
-                        pflk = true;
-                    }
+                    pflk = !pflk;
                     if (prflk < 40) {
                         prflk++;
                     }
@@ -4923,7 +4840,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         pubt[i143] = -1;
                         clas[i143] = 0;
                         nad[i143] = 0;
-                        String string = "";
+                        String string;
                         try {
                             String string144 = "http://multiplayer.needformadness.com/cars/" + mycars[i143] + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "";
                             string144 = string144.replace(' ', '_');
@@ -4946,7 +4863,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                     }
                                 }
                             }
-                        } catch (final Exception exception) {
+                        } catch (final Exception ignored) {
 
                         }
                     }
@@ -4959,7 +4876,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     rd.drawString("Loading your account car list...", 350 - ftm.stringWidth("Loading your account car list...") / 2, 220);
                     repaint();
                     nmc = 0;
-                    String string = "";
+                    String string;
                     try {
                         final URL url = new URL("http://multiplayer.needformadness.com/cars/lists/" + tnick.getText() + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
                         final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
@@ -4987,7 +4904,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         bufferedreader.close();
                     } catch (final Exception exception) {
                         final String string147 = "" + exception;
-                        if (string147.indexOf("FileNotFound") != -1) {
+                        if (string147.contains("FileNotFound")) {
                             setCursor(new Cursor(0));
                             logged = -1;
                         } else {
@@ -5250,7 +5167,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 
                     }
                     Thread.sleep(i);
-                } catch (final InterruptedException interruptedexception) {
+                } catch (final InterruptedException ignored) {
 
                 }
             }
@@ -5295,7 +5212,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                 final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
                 bufferedwriter.write(string);
                 bufferedwriter.close();
-            } catch (final Exception exception) {
+            } catch (final Exception ignored) {
 
             }
         }
@@ -5307,7 +5224,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             int i381 = 0;
             int i382 = 0;
             int i383 = 0;
-            String string384 = "";
+            String string384;
             String string385 = "";
             for (/**/; i381 < string.length() && i383 != 2; i381++) {
                 string384 = "" + string.charAt(i381);
@@ -5322,7 +5239,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                 }
             }
             string380 = string385;
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return string380;
@@ -5334,7 +5251,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             int i375 = 0;
             int i376 = 0;
             int i377 = 0;
-            String string378 = "";
+            String string378;
             String string379 = "";
             for (/**/; i375 < string.length() && i377 != 2; i375++) {
                 string378 = "" + string.charAt(i375);
@@ -5352,7 +5269,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                 string379 = "-1";
             }
             i374 = Integer.parseInt(string379);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return i374;
@@ -5434,7 +5351,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
     private void stringbutton(final String string, final int i, final int i393, final int i394, final boolean bool) {
         rd.setFont(new Font("Arial", 1, 12));
         ftm = rd.getFontMetrics();
-        if (string.indexOf("Publish") != -1) {
+        if (string.contains("Publish")) {
             rd.setFont(new Font("Arial", 1, 13));
             ftm = rd.getFontMetrics();
         }

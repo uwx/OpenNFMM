@@ -46,7 +46,7 @@ final class Utility {
             int i438 = 0;
             int i439 = 0;
             int i440 = 0;
-            String string441 = "";
+            String string441;
             String string442 = "";
             for (; i438 < string.length() && i440 != 2; i438++) {
                 string441 = "" + string.charAt(i438);
@@ -64,7 +64,7 @@ final class Utility {
                 string442 = "-1";
             }
             i437 = Integer.parseInt(string442);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return i437;

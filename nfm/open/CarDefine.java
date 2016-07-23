@@ -24,7 +24,7 @@ final class CarDefine implements Runnable {
     private Thread carloader;
     private Thread actionloader;
     private Thread stageaction;
-    int[][] swits = {
+    final int[][] swits = {
             {
                     50, 185, 282
             }, {
@@ -139,7 +139,7 @@ final class CarDefine implements Runnable {
                     0, 0, 0
             }
     };
-    float[][] acelf = {
+    final float[][] acelf = {
             {
                     11.0F, 5.0F, 3.0F
             }, {
@@ -254,138 +254,138 @@ final class CarDefine implements Runnable {
                     0.0F, 0.0F, 0.0F
             }
     };
-    int[] handb = {
+    final int[] handb = {
             7, 10, 7, 15, 12, 8, 9, 10, 5, 7, 8, 10, 8, 12, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    float[] airs = {
+    final float[] airs = {
             1.0F, 1.2F, 0.95F, 1.0F, 2.2F, 1.0F, 0.9F, 0.8F, 1.0F, 0.9F, 1.15F, 0.8F, 1.0F, 0.3F, 1.3F, 1.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F
     };
-    int[] airc = {
+    final int[] airc = {
             70, 30, 40, 40, 30, 50, 40, 90, 40, 50, 75, 10, 50, 0, 100, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    int[] turn = {
+    final int[] turn = {
             6, 9, 5, 7, 8, 7, 5, 5, 9, 7, 7, 4, 6, 5, 7, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    float[] grip = {
+    final float[] grip = {
             20.0F, 27.0F, 18.0F, 22.0F, 19.0F, 20.0F, 25.0F, 20.0F, 19.0F, 24.0F, 22.5F, 25.0F, 30.0F, 27.0F, 25.0F,
             27.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F
     };
-    float[] bounce = {
+    final float[] bounce = {
             1.2F, 1.05F, 1.3F, 1.15F, 1.3F, 1.2F, 1.15F, 1.1F, 1.2F, 1.1F, 1.15F, 0.8F, 1.05F, 0.8F, 1.1F, 1.15F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F
     };
-    float[] simag = {
+    final float[] simag = {
             0.9F, 0.85F, 1.05F, 0.9F, 0.85F, 0.9F, 1.05F, 0.9F, 1.0F, 1.05F, 0.9F, 1.1F, 0.9F, 1.3F, 0.9F, 1.15F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F
     };
-    float[] moment = {
+    final float[] moment = {
             1.3F, 0.75F, 1.4F, 1.2F, 1.1F, 1.38F, 1.43F, 1.48F, 1.35F, 1.7F, 1.42F, 2.0F, 1.26F, 3.0F, 1.5F, 2.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F
     };
-    float[] comprad = {
+    final float[] comprad = {
             0.5F, 0.4F, 0.8F, 0.5F, 0.4F, 0.5F, 0.5F, 0.5F, 0.5F, 0.8F, 0.5F, 1.5F, 0.5F, 0.8F, 0.5F, 0.8F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F
     };
-    int[] push = {
+    final int[] push = {
             2, 2, 3, 3, 2, 2, 2, 4, 2, 2, 2, 4, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    int[] revpush = {
+    final int[] revpush = {
             2, 3, 2, 2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    int[] lift = {
+    final int[] lift = {
             0, 30, 0, 20, 0, 30, 0, 0, 20, 0, 0, 0, 10, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    int[] revlift = {
+    final int[] revlift = {
             0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    int[] powerloss = {
+    final int[] powerloss = {
             2500000, 2500000, 3500000, 2500000, 4000000, 2500000, 3200000, 3200000, 2750000, 5500000, 2750000, 4500000,
             3500000, 16700000, 3000000, 5500000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    int[] flipy = {
+    final int[] flipy = {
             -50, -60, -92, -44, -60, -57, -54, -60, -77, -57, -82, -85, -28, -100, -63, -127, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    int[] msquash = {
+    final int[] msquash = {
             7, 4, 7, 2, 8, 4, 6, 4, 3, 8, 4, 10, 3, 20, 3, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    int[] clrad = {
+    final int[] clrad = {
             3300, 1700, 4700, 3000, 2000, 4500, 3500, 5000, 10000, 15000, 4000, 7000, 10000, 15000, 5500, 5000, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0
     };
-    float[] dammult = {
+    final float[] dammult = {
             0.75F, 0.8F, 0.45F, 0.8F, 0.42F, 0.7F, 0.72F, 0.6F, 0.58F, 0.41F, 0.67F, 0.45F, 0.61F, 0.25F, 0.38F, 0.52F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F
     };
-    int[] maxmag = {
+    final int[] maxmag = {
             7600, 4200, 7200, 6000, 6000, 15000, 17200, 17000, 18000, 11000, 19000, 10700, 13000, 45000, 5800, 18000, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0
     };
-    float[] dishandle = {
+    final float[] dishandle = {
             0.65F, 0.6F, 0.55F, 0.77F, 0.62F, 0.9F, 0.6F, 0.72F, 0.45F, 0.8F, 0.95F, 0.4F, 0.87F, 0.42F, 1.0F, 0.95F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F
     };
-    float[] outdam = {
+    final float[] outdam = {
             0.68F, 0.35F, 0.8F, 0.5F, 0.42F, 0.76F, 0.82F, 0.76F, 0.72F, 0.62F, 0.79F, 0.95F, 0.77F, 1.0F, 0.85F, 1.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F
     };
-    int[] cclass = {
+    final int[] cclass = {
             0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    String[] names = {
+    final String[] names = {
             "Tornado Shark", "Formula 7", "Wow Caninaro", "La Vita Crab", "Nimi", "MAX Revenge", "Lead Oxide",
             "Kool Kat", "Drifter X", "Sword of Justice", "High Rider", "EL KING", "Mighty Eight", "M A S H E E N",
             "Radical One", "DR Monstaa", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
             "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
     };
-    int[] enginsignature = {
+    final int[] enginsignature = {
             0, 1, 2, 1, 0, 3, 2, 2, 1, 0, 3, 4, 1, 4, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
     int lastload = 0;
-    int nlcars = 0;
+    private int nlcars = 0;
     int nlocars = 0;
     private int xnlocars = 0;
-    boolean[] include = new boolean[40];
-    String[] createdby = new String[40];
-    int[] publish = new int[40];
-    String[] loadnames = new String[20];
+    private final boolean[] include = new boolean[40];
+    final String[] createdby = new String[40];
+    final int[] publish = new int[40];
+    final String[] loadnames = new String[20];
     int nl = 0;
     int action = 0;
     private boolean carlon = false;
     int reco = -2;
-    int[] lcardate = {
+    final int[] lcardate = {
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
     int haltload = 0;
@@ -404,7 +404,7 @@ final class CarDefine implements Runnable {
     private int roundslot = 0;
     String lastcar = "";
     int msloaded = 0;
-    int[] top20adds = new int[20];
+    final int[] top20adds = new int[20];
 
     CarDefine(final ContO[] contos, final Medium medium, final Trackers trackers, final GameSparker gamesparker) {
         bco = contos;
@@ -417,7 +417,7 @@ final class CarDefine implements Runnable {
         names[i2] = string;
         boolean bool = false;
         boolean bool3 = false;
-        String line = "";
+        String line;
         final int[] statValues = {
                 128, 128, 128, 128, 128
         };
@@ -499,7 +499,7 @@ final class CarDefine implements Runnable {
                             i12 = 50;
                         }
                         dishandle[i2] = i12 / 200.0F;
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                 }
@@ -850,7 +850,7 @@ final class CarDefine implements Runnable {
             int i32 = 0;
             int i33 = 0;
             int i34 = 0;
-            String string35 = "";
+            String string35;
             String string36 = "";
             for (/**/; i32 < string.length() && i34 != 2; i32++) {
                 string35 = "" + string.charAt(i32);
@@ -868,7 +868,7 @@ final class CarDefine implements Runnable {
                 string36 = "-1";
             }
             i31 = Integer.parseInt(string36);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return i31;
@@ -880,7 +880,7 @@ final class CarDefine implements Runnable {
             int i38 = 0;
             int i39 = 0;
             int i40 = 0;
-            String string41 = "";
+            String string41;
             String string42 = "";
             for (/**/; i38 < string.length() && i40 != 2; i38++) {
                 string41 = "" + string.charAt(i38);
@@ -895,7 +895,7 @@ final class CarDefine implements Runnable {
                 }
             }
             string37 = string42;
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return string37;
@@ -1021,7 +1021,7 @@ final class CarDefine implements Runnable {
             if (action == 3) {
                 final String[] strings = new String[700];
                 nl = 0;
-                String line = "";
+                String line;
                 try {
                     final URL url = new URL("http://multiplayer.needformadness.com/cars/lists/" + gs.tnick.getText() + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
                     final BufferedReader carReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
@@ -1047,7 +1047,7 @@ final class CarDefine implements Runnable {
                     carReader.close();
                 } catch (final Exception exception) {
                     final String string43 = "" + exception;
-                    if (string43.indexOf("FileNotFound") != -1) {
+                    if (string43.contains("FileNotFound")) {
                         action = -1;
                     } else {
                         action = -2;
@@ -1140,7 +1140,7 @@ final class CarDefine implements Runnable {
             }
             if (action == 11) {
                 nl = 0;
-                String line = "";
+                String line;
                 try {
                     final String string44 = "all";
                     final URL url = new URL("http://multiplayer.needformadness.com/cars/top20/" + string44 + ".txt");
@@ -1201,7 +1201,7 @@ final class CarDefine implements Runnable {
             }
             if (action == 101) {
                 nl = 0;
-                String line = "";
+                String line;
                 try {
                     final URL url = new URL("http://multiplayer.needformadness.com/cars/lists/" + viewname + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
                     final BufferedReader carListReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
@@ -1227,7 +1227,7 @@ final class CarDefine implements Runnable {
                     carListReader.close();
                 } catch (final Exception exception) {
                     final String string45 = "" + exception;
-                    if (string45.indexOf("FileNotFound") != -1) {
+                    if (string45.contains("FileNotFound")) {
                         action = -2;
                     } else {
                         action = -1;
@@ -1271,7 +1271,7 @@ final class CarDefine implements Runnable {
                     if (loadnames[nl - 1].equals(names[i46])) {
                         i = -1;
                     }
-                if (fails.indexOf('|' + loadnames[nl - 1] + "|") != -1) {
+                if (fails.contains('|' + loadnames[nl - 1] + "|")) {
                     i = -1;
                 }
                 if (i != -1) {
@@ -1288,9 +1288,7 @@ final class CarDefine implements Runnable {
                             i = i49;
                         }
                     if (loadonlinecar(loadnames[nl - 1], i) == -1) {
-                        final StringBuilder stringbuilder = new StringBuilder();
-                        final CarDefine cardefine50 = this;
-                        cardefine50.fails = stringbuilder + cardefine50.fails + "|" + loadnames[nl - 1] + "|";
+                        fails = fails + "|" + loadnames[nl - 1] + "|";
                     } else {
                         lcardate[i - 36]++;
                     }
@@ -1301,7 +1299,7 @@ final class CarDefine implements Runnable {
 
                     }
                     Thread.sleep(20L);
-                } catch (final InterruptedException interruptedexception) {
+                } catch (final InterruptedException ignored) {
 
                 }
             }
@@ -1329,7 +1327,7 @@ final class CarDefine implements Runnable {
                 if (i == 0) {
                     try {
                         gs.mstgs.remove(onstage);
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                     gs.mstgs.select(0);
@@ -1503,7 +1501,7 @@ final class CarDefine implements Runnable {
     void loadmystages(final CheckPoints checkpoints) {
         final String[] strings = new String[700];
         int i = 0;
-        String line = "";
+        String line;
         try {
             final URL url = new URL("http://multiplayer.needformadness.com/tracks/lists/" + gs.tnick.getText() + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
             final BufferedReader stageReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
@@ -1529,7 +1527,7 @@ final class CarDefine implements Runnable {
             stageReader.close();
         } catch (final Exception exception) {
             final String string61 = "" + exception;
-            if (string61.indexOf("FileNotFound") != -1) {
+            if (string61.contains("FileNotFound")) {
                 msloaded = -2;
             } else {
                 msloaded = -1;
@@ -1570,7 +1568,7 @@ final class CarDefine implements Runnable {
     void loadtop20(final int i) {
         final String[] strings = new String[20];
         int i64 = 0;
-        String line = "";
+        String line;
         try {
             String string65 = "A";
             if (i == 3) {
@@ -1608,7 +1606,7 @@ final class CarDefine implements Runnable {
             top20Reader.close();
         } catch (final Exception exception) {
             final String string67 = "" + exception;
-            if (string67.indexOf("FileNotFound") != -1) {
+            if (string67.contains("FileNotFound")) {
                 msloaded = -2;
             } else {
                 msloaded = -1;
@@ -1638,7 +1636,7 @@ final class CarDefine implements Runnable {
         if (!string.equals("")) {
             final String[] lines = new String[700];
             int i = 0;
-            String line = "";
+            String line;
             try {
                 final URL url = new URL("http://multiplayer.needformadness.com/clans/" + string + "/stages.txt");
                 BufferedReader clanStageReader;
@@ -1653,7 +1651,7 @@ final class CarDefine implements Runnable {
                 clanStageReader.close();
             } catch (final Exception exception) {
                 final String string70 = "" + exception;
-                if (string70.indexOf("FileNotFound") != -1) {
+                if (string70.contains("FileNotFound")) {
                     msloaded = -2;
                 } else {
                     msloaded = -1;

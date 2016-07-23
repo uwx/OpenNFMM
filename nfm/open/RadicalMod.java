@@ -51,7 +51,7 @@ class RadicalMod implements RadicalMusic {
                     name = "Untitled";
                 }
                 final ModuleSlayer moduleslayer = ModuleLoader.prepareSlayer(module, i_0, i, i_1);
-                final byte is[] = moduleslayer.turnbytesNorm(bool);
+                final byte[] is = moduleslayer.turnbytesNorm(bool);
                 if (bool) {
                     rvol = moduleslayer.olav;
                 }
@@ -105,7 +105,7 @@ class RadicalMod implements RadicalMusic {
                         name = "Untitled";
                     }
                     final ModuleSlayer moduleslayer = ModuleLoader.prepareSlayer(module, i, i_6, i_7);
-                    final byte is[] = moduleslayer.turnbytesNorm(bool);
+                    final byte[] is = moduleslayer.turnbytesNorm(bool);
                     if (bool) {
                         rvol = moduleslayer.olav;
                     }
@@ -139,7 +139,7 @@ class RadicalMod implements RadicalMusic {
                         name = "Untitled";
                     }
                     final ModuleSlayer moduleslayer = ModuleLoader.prepareSlayer(module, i, i_10, i_11);
-                    final byte is[] = moduleslayer.turnbytesNorm(bool);
+                    final byte[] is = moduleslayer.turnbytesNorm(bool);
                     if (bool) {
                         rvol = moduleslayer.olav;
                     }
@@ -187,7 +187,7 @@ class RadicalMod implements RadicalMusic {
             try {
                 sClip.close();
                 sClip = null;
-            } catch (final Exception exception) {
+            } catch (final Exception ignored) {
             }
             System.gc();
             loaded = 1;
@@ -203,11 +203,11 @@ class RadicalMod implements RadicalMusic {
         try {
             sClip.close();
             sClip = null;
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
         }
         try {
             imod = null;
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
         }
         System.gc();
         loaded = 0;

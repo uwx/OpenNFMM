@@ -371,15 +371,15 @@ final class UlawUtils {
     private UlawUtils() {
     }
 
-    public static final byte linear2ulaw(final byte i) {
+    public static byte linear2ulaw(final byte i) {
         return s2uLut[((i & 0xff) << 5) + 15];
     }
 
-    public static final byte linear2ulaw(final int i) {
+    public static byte linear2ulaw(final int i) {
         return s2uLut[i >> 3];
     }
 
-    static final byte linear2ulawclip(int i) {
+    static byte linear2ulawclip(int i) {
         if (i < -32767) {
             i = -32767;
         }

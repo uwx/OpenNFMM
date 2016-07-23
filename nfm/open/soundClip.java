@@ -39,7 +39,7 @@ class soundClip {
                     try {
                         clip.close();
                         sound.reset();
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                     lfrpo = -1;
@@ -56,7 +56,7 @@ class soundClip {
             if (!clip.isOpen()) {
                 try {
                     clip.open(sound);
-                } catch (final Exception exception) {
+                } catch (final Exception ignored) {
 
                 }
             }
@@ -71,7 +71,7 @@ class soundClip {
             if (!clip.isOpen()) {
                 try {
                     clip.open(sound);
-                } catch (final Exception exception) {
+                } catch (final Exception ignored) {
 
                 }
                 clip.loop(0);

@@ -22,7 +22,7 @@ class UDPMistro implements Runnable {
     int im = 0;
     //boolean[] isbot = new boolean[7];
     //int[] lcframe = new int[7];
-    int[] ldelays = new int[5];
+    final int[] ldelays = new int[5];
     //int[] lframe = new int[7];
     int nplayers = 0;
     //int[] out = new int[7];
@@ -42,19 +42,19 @@ class UDPMistro implements Runnable {
     //fixed for 8 player games
     private final udpServe[] usrv = new udpServe[13];
 
-    String[][] info = new String[14][3];
-    int[][] frame = new int[14][3];
-    int[] lframe = new int[8];
-    int[] force = new int[8];
-    int[] lcframe = new int[8];
-    boolean[] isbot = new boolean[8];
-    int[] gocnt = new int[8];
-    int[] out = new int[8];
+    final String[][] info = new String[14][3];
+    final int[][] frame = new int[14][3];
+    final int[] lframe = new int[8];
+    final int[] force = new int[8];
+    final int[] lcframe = new int[8];
+    final boolean[] isbot = new boolean[8];
+    final int[] gocnt = new int[8];
+    final int[] out = new int[8];
 
     private int getncoms(final String string) {
         int i = 0;
         int i89 = 0;
-        String string90 = "";
+        String string90;
         for (/**/; i89 < string.length(); i89++) {
             string90 = "" + string.charAt(i89);
             if (string90.equals(",")) {
@@ -70,7 +70,7 @@ class UDPMistro implements Runnable {
             int i84 = 0;
             int i85 = 0;
             int i86 = 0;
-            String string87 = "";
+            String string87;
             String string88 = "";
             for (/**/; i84 < string.length() && i86 != 2; i84++) {
                 string87 = "" + string.charAt(i84);
@@ -85,7 +85,7 @@ class UDPMistro implements Runnable {
                 }
             }
             string83 = string88;
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return string83;
@@ -96,7 +96,7 @@ class UDPMistro implements Runnable {
         try {
             int i79 = 0;
             int i80 = 0;
-            String string81 = "";
+            String string81;
             String string82 = "";
             for (/**/; wx < string.length() && i80 != 2; wx++) {
                 string81 = "" + string.charAt(wx);
@@ -114,7 +114,7 @@ class UDPMistro implements Runnable {
                 string82 = "-1";
             }
             i78 = Integer.parseInt(string82);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return i78;
@@ -207,97 +207,37 @@ class UDPMistro implements Runnable {
                 final String string = info[i][i29];
                 final String string34 = getSvalue(string, 0);
                 if (string34.length() == 16) {
-                    String string35 = "";
+                    String string35;
                     string35 = "" + string34.charAt(0);
-                    if (string35.equals("0")) {
-                        control.left = false;
-                    } else {
-                        control.left = true;
-                    }
+                    control.left = !string35.equals("0");
                     string35 = "" + string34.charAt(1);
-                    if (string35.equals("0")) {
-                        control.right = false;
-                    } else {
-                        control.right = true;
-                    }
+                    control.right = !string35.equals("0");
                     string35 = "" + string34.charAt(2);
-                    if (string35.equals("0")) {
-                        control.up = false;
-                    } else {
-                        control.up = true;
-                    }
+                    control.up = !string35.equals("0");
                     string35 = "" + string34.charAt(3);
-                    if (string35.equals("0")) {
-                        control.down = false;
-                    } else {
-                        control.down = true;
-                    }
+                    control.down = !string35.equals("0");
                     string35 = "" + string34.charAt(4);
-                    if (string35.equals("0")) {
-                        control.handb = false;
-                    } else {
-                        control.handb = true;
-                    }
+                    control.handb = !string35.equals("0");
                     string35 = "" + string34.charAt(5);
-                    if (string35.equals("0")) {
-                        mad.newcar = false;
-                    } else {
-                        mad.newcar = true;
-                    }
+                    mad.newcar = !string35.equals("0");
                     string35 = "" + string34.charAt(6);
-                    if (string35.equals("0")) {
-                        mad.mtouch = false;
-                    } else {
-                        mad.mtouch = true;
-                    }
+                    mad.mtouch = !string35.equals("0");
                     string35 = "" + string34.charAt(7);
-                    if (string35.equals("0")) {
-                        mad.wtouch = false;
-                    } else {
-                        mad.wtouch = true;
-                    }
+                    mad.wtouch = !string35.equals("0");
                     string35 = "" + string34.charAt(8);
-                    if (string35.equals("0")) {
-                        mad.pushed = false;
-                    } else {
-                        mad.pushed = true;
-                    }
+                    mad.pushed = !string35.equals("0");
                     string35 = "" + string34.charAt(9);
-                    if (string35.equals("0")) {
-                        mad.gtouch = false;
-                    } else {
-                        mad.gtouch = true;
-                    }
+                    mad.gtouch = !string35.equals("0");
                     string35 = "" + string34.charAt(10);
-                    if (string35.equals("0")) {
-                        mad.pl = false;
-                    } else {
-                        mad.pl = true;
-                    }
+                    mad.pl = !string35.equals("0");
                     string35 = "" + string34.charAt(11);
-                    if (string35.equals("0")) {
-                        mad.pr = false;
-                    } else {
-                        mad.pr = true;
-                    }
+                    mad.pr = !string35.equals("0");
                     string35 = "" + string34.charAt(12);
-                    if (string35.equals("0")) {
-                        mad.pd = false;
-                    } else {
-                        mad.pd = true;
-                    }
+                    mad.pd = !string35.equals("0");
                     string35 = "" + string34.charAt(13);
-                    if (string35.equals("0")) {
-                        mad.pu = false;
-                    } else {
-                        mad.pu = true;
-                    }
+                    mad.pu = !string35.equals("0");
                     string35 = "" + string34.charAt(14);
-                    if (string35.equals("0")) {
-                        mad.dest = false;
-                    } else {
-                        mad.dest = true;
-                    }
+                    mad.dest = !string35.equals("0");
                 } else if (string34.equals("disco")) {
                     is[i] = 3;
                     mad.hitmag = mad.cd.maxmag[mad.cn] + 100;
@@ -409,7 +349,7 @@ class UDPMistro implements Runnable {
 
                 }
                 Thread.sleep(5L);
-            } catch (final InterruptedException interruptedexception) {
+            } catch (final InterruptedException ignored) {
 
             }
         }
@@ -454,7 +394,7 @@ class UDPMistro implements Runnable {
             }
             if (i20 == 10) {
                 final String string = "3|" + pgame + "|alive|";
-                String string22 = "";
+                String string22;
                 if (i19 == 0) {
                     try {
                         dout.println(string);
@@ -474,7 +414,7 @@ class UDPMistro implements Runnable {
                         din = null;
                         dout.close();
                         dout = null;
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                     try {
@@ -486,7 +426,7 @@ class UDPMistro implements Runnable {
                         if (string22 != null) {
                             i19 = 0;
                         }
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                 }
@@ -494,7 +434,7 @@ class UDPMistro implements Runnable {
                     try {
                         socket.close();
                         socket = null;
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                     i19 = 2;
@@ -508,7 +448,7 @@ class UDPMistro implements Runnable {
 
                 }
                 Thread.sleep(1000L);
-            } catch (final InterruptedException interruptedexception) {
+            } catch (final InterruptedException ignored) {
 
             }
         }
@@ -534,7 +474,7 @@ class UDPMistro implements Runnable {
 
                 }
                 Thread.sleep(5L);
-            } catch (final InterruptedException interruptedexception) {
+            } catch (final InterruptedException ignored) {
 
             }
         }
@@ -549,7 +489,7 @@ class UDPMistro implements Runnable {
                 try {
                     usrv[i27].stopServe();
                     usrv[i27] = null;
-                } catch (final Exception exception) {
+                } catch (final Exception ignored) {
 
                 }
             }
@@ -563,7 +503,7 @@ class UDPMistro implements Runnable {
                 din = null;
                 dout.close();
                 dout = null;
-            } catch (final Exception exception) {
+            } catch (final Exception ignored) {
 
             }
             System.gc();
@@ -576,91 +516,88 @@ class UDPMistro implements Runnable {
     void setinfo(final Mad mad, final ContO conto, final Control control, final int i, final float f, final boolean bool, final int i41) {
         info[i41][0] = "";
         if (control.left) {
-            info[i41][0] = "" +info[i41][0] + "1";
+            info[i41][0] = info[i41][0] + "1";
         } else {
-            info[i41][0] = "" +info[i41][0] + "0";
+            info[i41][0] = info[i41][0] + "0";
         }
         if (control.right) {
-            info[i41][0] = "" +info[i41][0] + "1";
+            info[i41][0] = info[i41][0] + "1";
         } else {
-            info[i41][0] = "" +info[i41][0] + "0";
+            info[i41][0] = info[i41][0] + "0";
         }
         if (control.up) {
-            info[i41][0] = "" +info[i41][0] + "1";
+            info[i41][0] = info[i41][0] + "1";
         } else {
-            info[i41][0] = "" +info[i41][0] + "0";
+            info[i41][0] = info[i41][0] + "0";
         }
         if (control.down) {
-            info[i41][0] = "" +info[i41][0] + "1";
+            info[i41][0] = info[i41][0] + "1";
         } else {
-            info[i41][0] = "" +info[i41][0] + "0";
+            info[i41][0] = info[i41][0] + "0";
         }
         if (control.handb) {
-            info[i41][0] = "" +info[i41][0] + "1";
+            info[i41][0] = info[i41][0] + "1";
         } else {
-            info[i41][0] = "" +info[i41][0] + "0";
+            info[i41][0] = info[i41][0] + "0";
         }
         if (mad.newcar) {
-            info[i41][0] = "" +info[i41][0] + "1";
+            info[i41][0] = info[i41][0] + "1";
         } else {
-            info[i41][0] = "" +info[i41][0] + "0";
+            info[i41][0] = info[i41][0] + "0";
         }
         if (mad.mtouch) {
-            info[i41][0] = "" +info[i41][0] + "1";
+            info[i41][0] = info[i41][0] + "1";
         } else {
-            info[i41][0] = "" +info[i41][0] + "0";
+            info[i41][0] = info[i41][0] + "0";
         }
         if (mad.wtouch) {
-            info[i41][0] = "" +info[i41][0] + "1";
+            info[i41][0] = info[i41][0] + "1";
         } else {
-            info[i41][0] = "" +info[i41][0] + "0";
+            info[i41][0] = info[i41][0] + "0";
         }
         if (mad.pushed) {
-            info[i41][0] = "" +info[i41][0] + "1";
+            info[i41][0] = info[i41][0] + "1";
         } else {
-            info[i41][0] = "" +info[i41][0] + "0";
+            info[i41][0] = info[i41][0] + "0";
         }
         if (mad.gtouch) {
-            info[i41][0] = "" +info[i41][0] + "1";
+            info[i41][0] = info[i41][0] + "1";
         } else {
-            info[i41][0] = "" +info[i41][0] + "0";
+            info[i41][0] = info[i41][0] + "0";
         }
         if (mad.pl) {
-            info[i41][0] = "" +info[i41][0] + "1";
+            info[i41][0] = info[i41][0] + "1";
         } else {
-            info[i41][0] = "" +info[i41][0] + "0";
+            info[i41][0] = info[i41][0] + "0";
         }
         if (mad.pr) {
-            info[i41][0] = "" +info[i41][0] + "1";
+            info[i41][0] = info[i41][0] + "1";
         } else {
-            info[i41][0] = "" +info[i41][0] + "0";
+            info[i41][0] = info[i41][0] + "0";
         }
         if (mad.pd) {
-            info[i41][0] = "" +info[i41][0] + "1";
+            info[i41][0] = info[i41][0] + "1";
         } else {
-            info[i41][0] = "" +info[i41][0] + "0";
+            info[i41][0] = info[i41][0] + "0";
         }
         if (mad.pu) {
-            info[i41][0] = "" +info[i41][0] + "1";
+            info[i41][0] = info[i41][0] + "1";
         } else {
-            info[i41][0] = "" +info[i41][0] + "0";
+            info[i41][0] = info[i41][0] + "0";
         }
         if (mad.dest) {
-            info[i41][0] = "" +info[i41][0] + "1";
+            info[i41][0] = info[i41][0] + "1";
         } else {
-            info[i41][0] = "" +info[i41][0] + "0";
+            info[i41][0] = info[i41][0] + "0";
         }
         if (bool) {
-            info[i41][0] = "" +info[i41][0] + "1";
+            info[i41][0] = info[i41][0] + "1";
         } else {
-            info[i41][0] = "" +info[i41][0] + "0";
+            info[i41][0] = info[i41][0] + "0";
         }
-        info[i41][0] = "" +info[i41][0] + "," + conto.x + "," + conto.y + "," + conto.z + "," + conto.xz + "," + conto.xy + "," + conto.zy + "," + (int) (mad.speed * 100.0F) + "," + (int) (mad.power * 100.0F) + "," + mad.mxz + "," + mad.pzy + "," + mad.pxy + "," + mad.txz + "," + mad.loop + "," + conto.wxz + "," + mad.pcleared + "," + mad.clear + "," + mad.nlaps + "," + (int) (f * 100.0F) + "," + i + ",";
+        info[i41][0] = info[i41][0] + "," + conto.x + "," + conto.y + "," + conto.z + "," + conto.xz + "," + conto.xy + "," + conto.zy + "," + (int) (mad.speed * 100.0F) + "," + (int) (mad.power * 100.0F) + "," + mad.mxz + "," + mad.pzy + "," + mad.pxy + "," + mad.txz + "," + mad.loop + "," + conto.wxz + "," + mad.pcleared + "," + mad.clear + "," + mad.nlaps + "," + (int) (f * 100.0F) + "," + i + ",";
         while (info[i41][0].length() < 110) {
-            final StringBuilder stringbuilder75 = new StringBuilder();
-            final String[] strings76 = info[i41];
-            final int i77 = 0;
-            strings76[i77] = stringbuilder75 + strings76[i77] + "|";
+            info[i41][0] = info[i41][0] + "|";
         }
         if (runon == 2) {
             mad.hitmag = mad.cd.maxmag[mad.cn] + 100;
@@ -713,7 +650,7 @@ class UDPMistro implements Runnable {
                 socket = new Socket(xtserver, xtservport);
                 din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 dout = new PrintWriter(socket.getOutputStream(), true);
-            } catch (final Exception exception) {
+            } catch (final Exception ignored) {
 
             }
             runon = 4;
@@ -765,7 +702,7 @@ class UDPMistro implements Runnable {
         runner.start();
     }
 
-    void UDPLanServer(final int i, final String string, final int i13, final int i14) {
+    void UDPLanServer(final String string, final int i13, final int i14) {
         xtserver = string;
         xtservport = i13;
         pgame = i14;

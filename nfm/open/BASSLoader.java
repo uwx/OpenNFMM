@@ -5,7 +5,7 @@ import java.lang.reflect.Field;
 import jouvieje.bass.BassInit;
 import jouvieje.bass.exceptions.BassException;
 
-public class BASSLoader {
+class BASSLoader {
 
     private static final String os = System.getProperty("os.name").toLowerCase();
     private static final String x64 = System.getProperty("sun.arch.data.model").equals("64") ? "64" : "32";
@@ -28,7 +28,7 @@ public class BASSLoader {
                 System.out.println("running on a windows system");
                 appendToPath(workingDirectory + "\\libraries\\dlls\\win" + x64 + "\\");
             }
-        } catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
+        } catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException ignored) {
         }
 
         init();
@@ -69,7 +69,7 @@ public class BASSLoader {
         RadicalBASS.init = true;
     }
 
-    private static final void printfExit(final String format, final Object... args) {
+    private static void printfExit(final String format, final Object... args) {
         final String s = String.format(format, args);
         System.out.println(s);
     }

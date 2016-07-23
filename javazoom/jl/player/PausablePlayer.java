@@ -32,16 +32,11 @@ public class PausablePlayer {
     /**
      * Starts playback (resumes if paused)
      */
-    public void play() throws JavaLayerException {
+    public void play() {
         synchronized (playerLock) {
             switch (playerStatus) {
                 case NOTSTARTED:
-                    final Runnable r = new Runnable() {
-                        @Override
-                        public void run() {
-                            playInternal();
-                        }
-                    };
+                    final Runnable r = () -> playInternal();
                     final Thread t = new Thread(r);
                     t.setDaemon(true);
                     t.setPriority(Thread.MAX_PRIORITY);
@@ -131,7 +126,7 @@ public class PausablePlayer {
     }
 
     // demo how to use
-    public static void test(final String[] argv) {
+    public static void test() {
         try {
             final FileInputStream input = new FileInputStream("myfile.mp3");
             final PausablePlayer player = new PausablePlayer(input);

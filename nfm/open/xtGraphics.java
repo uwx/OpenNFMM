@@ -26,6 +26,7 @@ import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -60,12 +61,12 @@ class xtGraphics extends Panel implements Runnable {
     private boolean aflk = false;
     private final soundClip[] air = new soundClip[6];
     private boolean aird = false;
-    float[][] allrnp = new float[8][6];
+    final float[][] allrnp = new float[8][6];
     private int alocked = -1;
     private int ana = 0;
     private final GameSparker app;
     private Image arn;
-    float[] arnp = {
+    final float[] arnp = {
             0.5F, 0.0F, 0.0F, 1.0F, 0.5F, 0.0F
     };
     private boolean arrace = false;
@@ -75,7 +76,7 @@ class xtGraphics extends Panel implements Runnable {
     Image asu;
     private int auscnt = 45;
     boolean autolog = false;
-    Image[] back = new Image[2];
+    final Image[] back = new Image[2];
     String backlog = "";
     boolean badmac = false;
     private final Image[] bc = new Image[2];
@@ -112,7 +113,7 @@ class xtGraphics extends Panel implements Runnable {
     private Image carsbg;
     private Image carsbgc;
     Image ccar;
-    CarDefine cd;
+    final CarDefine cd;
     private int cfase = 0;
     Image cgame;
     Image change;
@@ -137,7 +138,7 @@ class xtGraphics extends Panel implements Runnable {
     private final Image[] cntdn = new Image[4];
     private int cntflock = 0;
     private int cntovn = 0;
-    int cntptrys = 5;
+    final int cntptrys = 5;
     private int cntwis = 0;
     private Image congrd;
     private final Image[] contin = new Image[2];
@@ -145,10 +146,10 @@ class xtGraphics extends Panel implements Runnable {
     private boolean crashup = false;
     Image crd;
     private int crshturn = 0;
-    int[] dcrashes = {
+    final int[] dcrashes = {
             0, 0, 0, 0, 0, 0, 0, 0
     };
-    int[] delays = {
+    final int[] delays = {
             600, 600, 600
     };
     private final static int[] dested = {
@@ -164,7 +165,7 @@ class xtGraphics extends Panel implements Runnable {
     private PrintWriter dout;
     private final static int dropf = 0;
     private int dskflg = 0;
-    Image[] dude = new Image[3];
+    final Image[] dude = new Image[3];
     private int dudo = 0;
     private int duds = 0;
     private final soundClip[] dustskid = new soundClip[3];
@@ -217,7 +218,7 @@ class xtGraphics extends Panel implements Runnable {
     int hours = 8;
     int im = 0;
     RadicalMusic intertrack;
-    boolean[] isbot = new boolean[8];
+    final boolean[] isbot = new boolean[8];
     boolean justwon1 = false;
     private boolean justwon2 = false;
     private int kbload = 0;
@@ -259,7 +260,7 @@ class xtGraphics extends Panel implements Runnable {
     private int lsc = -1;
     private int lxm = -10;
     private int lym = -10;
-    Medium m;
+    private final Medium m;
     /**
      * Max car select selected car (don't change)
      */
@@ -344,7 +345,7 @@ class xtGraphics extends Panel implements Runnable {
     private Image oyouwon;
     private Image paused;
     private int pback = 0;
-    String[] pclan = {
+    final String[] pclan = {
             "", "", "", "", "", "", "", ""
     };
     private int pcontin = 0;
@@ -366,7 +367,7 @@ class xtGraphics extends Panel implements Runnable {
     Image play;
     int playingame = -1;
     Image pln;
-    String[] plnames = {
+    final String[] plnames = {
             "", "", "", "", "", "", "", ""
     };
     Image pls;
@@ -389,7 +390,7 @@ class xtGraphics extends Panel implements Runnable {
     private int radpx = 212;
     private final Image[] rank = new Image[8];
     private int ransay = 0;
-    Graphics2D rd;
+    private final Graphics2D rd;
     Image redy;
     Image register;
     private boolean remi = false;
@@ -400,7 +401,7 @@ class xtGraphics extends Panel implements Runnable {
     private int runtyp = 0;
     private Image sarrow;
     private String say = "";
-    int[] sc = {
+    final int[] sc = {
             0, 0, 0, 0, 0, 0, 0, 0
     };
     int scm = 0;
@@ -427,7 +428,7 @@ class xtGraphics extends Panel implements Runnable {
     private final soundClip[] skid = new soundClip[3];
     private boolean skidup = false;
     private final static int[] smokey = new int[94132];
-    int[] sndsize = {
+    final int[] sndsize = {
             39, 128, 23, 58, 106, 140, 81, 135, 38, 141, 106, 76, 56, 116, 92, 208, 70, 80, 152, 102, 27, 65, 52, 30,
             151, 129, 80, 44, 57, 123, 202, 210, 111
     };
@@ -471,7 +472,7 @@ class xtGraphics extends Panel implements Runnable {
     private Image wasting;
     private Image wgame;
     boolean winner = true;
-    int[] xstart = {
+    final int[] xstart = {
             0, -350, 350, 0, -350, 350, 0, 0
     };
     private Image yac;
@@ -480,7 +481,7 @@ class xtGraphics extends Panel implements Runnable {
     private Image yourwasted;
     private Image youwastedem;
     private Image youwon;
-    int[] zstart = {
+    final int[] zstart = {
             -760, -380, -380, 0, 380, 380, 760, 0
     };
 
@@ -502,7 +503,7 @@ class xtGraphics extends Panel implements Runnable {
                 securitymanager.checkConnect("needformadness.com", -1);
             } catch (final Exception exception) {
                 final String string = "" + exception;
-                if (string.indexOf("access denied") != -1) {
+                if (string.contains("access denied")) {
                     nofull = true;
                 }
             }
@@ -791,7 +792,7 @@ class xtGraphics extends Panel implements Runnable {
         final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i340, i, is, 0, i340);
         try {
             pixelgrabber.grabPixels();
-        } catch (final InterruptedException interruptedexception) {
+        } catch (final InterruptedException ignored) {
 
         }
         final Color color = new Color(247, 255, 165);
@@ -799,8 +800,7 @@ class xtGraphics extends Panel implements Runnable {
             if (is[i341] != is[i340 * i - 1]) {
                 is[i341] = color.getRGB();
             }
-        final Image image342 = createImage(new MemoryImageSource(i340, i, is, 0, i340));
-        return image342;
+        return createImage(new MemoryImageSource(i340, i, is, 0, i340));
     }
 
     void cantgo(final Control control) {
@@ -851,13 +851,13 @@ class xtGraphics extends Panel implements Runnable {
             final PixelGrabber pixelgrabber = new PixelGrabber(carsbg, 0, 0, 670, 400, flexpix, 0, 670);
             try {
                 pixelgrabber.grabPixels();
-            } catch (final InterruptedException interruptedexception) {
+            } catch (final InterruptedException ignored) {
 
             }
         }
     }
 
-    void carselect(final Control control, final ContO[] contos, final Mad mad, final int i, final int i104, final boolean bool) {
+    void carselect(final Control control, final ContO[] contos, final int i, final int i104, final boolean bool) {
         rd.setColor(new Color(0, 0, 0));
         rd.fillRect(0, 0, 65, 450);
         rd.fillRect(735, 0, 65, 450);
@@ -2121,7 +2121,7 @@ class xtGraphics extends Panel implements Runnable {
                     fase = -22;
                 }
                 if (sc[0] < 16 || cd.lastload == 2) {
-                    app.setcarcookie(sc[0], cd.names[sc[0]], arnp, gmode, unlocked, mtop);
+                    app.setcarcookie(sc[0], cd.names[sc[0]], arnp, gmode, unlocked);
                 }
                 if (cd.haltload != 0) {
                     if (cd.haltload == 2) {
@@ -2265,7 +2265,7 @@ class xtGraphics extends Panel implements Runnable {
     }
 
     void colorCar(final ContO conto, final int i) {
-        if (plnames[i].indexOf("MadBot") == -1) {
+        if (!plnames[i].contains("MadBot")) {
             for (int i132 = 0; i132 < conto.npl; i132++) {
                 if (conto.p[i132].colnum == 1) {
                     final Color color = Color.getHSBColor(allrnp[i][0], allrnp[i][1], 1.0F - allrnp[i][2]);
@@ -2763,7 +2763,7 @@ class xtGraphics extends Panel implements Runnable {
         final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i378, i, is, 0, i378);
         try {
             pixelgrabber.grabPixels();
-        } catch (final InterruptedException interruptedexception) {
+        } catch (final InterruptedException ignored) {
 
         }
         for (int i379 = 0; i379 < i378 * i; i379++) {
@@ -2792,8 +2792,7 @@ class xtGraphics extends Panel implements Runnable {
             final Color color383 = new Color(i380, i381, i382);
             is[i379] = color383.getRGB();
         }
-        final Image image384 = createImage(new MemoryImageSource(i378, i, is, 0, i378));
-        return image384;
+        return createImage(new MemoryImageSource(i378, i, is, 0, i378));
     }
 
     boolean drawcarb(final boolean bool, final Image image, final String string, final int i, int i429, final int i430, final int i431, final boolean bool432) {
@@ -2891,21 +2890,21 @@ class xtGraphics extends Panel implements Runnable {
             rd.drawString(string, 400 - ftm.stringWidth(string) / 2 + 1, i + 1);
         }
         if (i215 == 2) {
-            i212 = (i212 * 2 + m.csky[0] * 1) / 3;
+            i212 = (i212 * 2 + m.csky[0]) / 3;
             if (i212 > 255) {
                 i212 = 255;
             }
             if (i212 < 0) {
                 i212 = 0;
             }
-            i213 = (i213 * 2 + m.csky[1] * 1) / 3;
+            i213 = (i213 * 2 + m.csky[1]) / 3;
             if (i213 > 255) {
                 i213 = 255;
             }
             if (i213 < 0) {
                 i213 = 0;
             }
-            i214 = (i214 * 2 + m.csky[2] * 1) / 3;
+            i214 = (i214 * 2 + m.csky[2]) / 3;
             if (i214 > 255) {
                 i214 = 255;
             }
@@ -3034,7 +3033,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    private void drawstat(final int i, int i206, final boolean bool, final float f) {
+    private void drawstat(final int i, int i206, final float f) {
         final int[] is = new int[4];
         final int[] is207 = new int[4];
         if (i206 > i) {
@@ -3412,11 +3411,7 @@ class xtGraphics extends Panel implements Runnable {
                 }
                 pin = 0;
             }
-            if (aflk) {
-                aflk = false;
-            } else {
-                aflk = true;
-            }
+            aflk = !aflk;
         }
         if (multion != 0 && checkpoints.stage == -2 && i142 != 0) {
             drawcs(i142 + 17, "Created by: " + checkpoints.maker + "", 255, 161, 85, 3);
@@ -3542,14 +3537,14 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    void fleximage(final Image image, final int i, final int i299) {
+    void fleximage(final Image image, final int i) {
         if (!badmac) {
             if (i == 0) {
                 flexpix = new int[360000];
                 final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, 800, 450, flexpix, 0, 800);
                 try {
                     pixelgrabber.grabPixels();
-                } catch (final InterruptedException interruptedexception) {
+                } catch (final InterruptedException ignored) {
 
                 }
             }
@@ -3608,7 +3603,7 @@ class xtGraphics extends Panel implements Runnable {
         mediatracker.addImage(image, 0);
         try {
             mediatracker.waitForID(0);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return image;
@@ -3620,7 +3615,7 @@ class xtGraphics extends Panel implements Runnable {
             int i444 = 0;
             int i445 = 0;
             int i446 = 0;
-            String string447 = "";
+            String string447;
             String string448 = "";
             for (; i444 < string.length() && i446 != 2; i444++) {
                 string447 = "" + string.charAt(i444);
@@ -3635,7 +3630,7 @@ class xtGraphics extends Panel implements Runnable {
                 }
             }
             string443 = string448;
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return string443;
@@ -3647,7 +3642,7 @@ class xtGraphics extends Panel implements Runnable {
             int i438 = 0;
             int i439 = 0;
             int i440 = 0;
-            String string441 = "";
+            String string441;
             String string442 = "";
             for (; i438 < string.length() && i440 != 2; i438++) {
                 string441 = "" + string.charAt(i438);
@@ -3665,7 +3660,7 @@ class xtGraphics extends Panel implements Runnable {
                 string442 = "-1";
             }
             i437 = Integer.parseInt(string442);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return i437;
@@ -3914,7 +3909,6 @@ class xtGraphics extends Panel implements Runnable {
         ftm = rd.getFontMetrics();
         int i50 = i - 1;
         if (i50 < 0) {
-            i50 = 32;
         }
         if (!bool) {
             //unnecessary
@@ -4273,11 +4267,7 @@ class xtGraphics extends Panel implements Runnable {
         rd.setColor(new Color(0, 0, 0));
         rd.fillRect(735, 0, 65, 450);
         rd.fillRect(65, 425, 670, 25);
-        if (aflk) {
-            aflk = false;
-        } else {
-            aflk = true;
-        }
+        aflk = !aflk;
         if (flipo != 1 && flipo != 16) {
             if (dudo > 0) {
                 if (aflk)
@@ -4493,7 +4483,7 @@ class xtGraphics extends Panel implements Runnable {
             final PixelGrabber pixelgrabber = new PixelGrabber(app.offImage, 0, 0, 800, 450, is, 0, 800);
             try {
                 pixelgrabber.grabPixels();
-            } catch (final InterruptedException interruptedexception) {
+            } catch (final InterruptedException ignored) {
 
             }
             int i = 0;
@@ -4577,7 +4567,7 @@ class xtGraphics extends Panel implements Runnable {
         mediatracker.addImage(image, 0);
         try {
             mediatracker.waitForID(0);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         final int i368 = image.getHeight(ob);
@@ -4586,7 +4576,7 @@ class xtGraphics extends Panel implements Runnable {
         final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i369, i368, is370, 0, i369);
         try {
             pixelgrabber.grabPixels();
-        } catch (final InterruptedException interruptedexception) {
+        } catch (final InterruptedException ignored) {
 
         }
         for (int i371 = 0; i371 < i369 * i368; i371++)
@@ -4646,7 +4636,7 @@ class xtGraphics extends Panel implements Runnable {
         mediatracker.addImage(image, 0);
         try {
             mediatracker.waitForID(0);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return image;
@@ -5099,7 +5089,7 @@ class xtGraphics extends Panel implements Runnable {
         rd.fillRect(287, 371, 26 + (int) (shload / kbload * 200.0F), 10);
     }
 
-    void loadingstage(final int i, final boolean bool) {
+    void loadingstage(final boolean bool) {
 
         trackbg(true);
         rd.drawImage(br, 65, 25, null);
@@ -5155,7 +5145,7 @@ class xtGraphics extends Panel implements Runnable {
         if (multion == 0 && app.applejava) {
             try {
                 Thread.sleep(1000L);
-            } catch (final InterruptedException interruptedexception) {
+            } catch (final InterruptedException ignored) {
 
             }
         }
@@ -5164,7 +5154,7 @@ class xtGraphics extends Panel implements Runnable {
         } else if (im != 0) {
             try {
                 Thread.sleep(1000L);
-            } catch (final InterruptedException interruptedexception) {
+            } catch (final InterruptedException ignored) {
 
             }
         }
@@ -5182,7 +5172,7 @@ class xtGraphics extends Panel implements Runnable {
         final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i325, i324, is, 0, i325);
         try {
             pixelgrabber.grabPixels();
-        } catch (final InterruptedException interruptedexception) {
+        } catch (final InterruptedException ignored) {
 
         }
         if (i < 0) {
@@ -5260,8 +5250,7 @@ class xtGraphics extends Panel implements Runnable {
                 final Color color335 = new Color(i332, i333, i334);
                 is[i329] = color335.getRGB();
             }
-        final Image image336 = createImage(new MemoryImageSource(i325, i324, is, 0, i325));
-        return image336;
+        return createImage(new MemoryImageSource(i325, i324, is, 0, i325));
     }
 
     private Image loadsnap(final Image image) {
@@ -5271,7 +5260,7 @@ class xtGraphics extends Panel implements Runnable {
         final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i316, i, is, 0, i316);
         try {
             pixelgrabber.grabPixels();
-        } catch (final InterruptedException interruptedexception) {
+        } catch (final InterruptedException ignored) {
 
         }
         for (int i317 = 0; i317 < i316 * i; i317++) {
@@ -5502,7 +5491,7 @@ class xtGraphics extends Panel implements Runnable {
         mediatracker.addImage(image, 0);
         try {
             mediatracker.waitForID(0);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         final int i = image.getHeight(ob);
@@ -5511,7 +5500,7 @@ class xtGraphics extends Panel implements Runnable {
         final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i364, i, is365, 0, i364);
         try {
             pixelgrabber.grabPixels();
-        } catch (final InterruptedException interruptedexception) {
+        } catch (final InterruptedException ignored) {
 
         }
         for (int i366 = 0; i366 < i364 * i; i366++) {
@@ -5862,13 +5851,13 @@ class xtGraphics extends Panel implements Runnable {
             //app.repaint();
             try {
                 Thread.sleep(200L);
-            } catch (final InterruptedException interruptedexception) {
+            } catch (final InterruptedException ignored) {
 
             }
         }
     }
 
-    void maini2(final Control control, final int i, final int i98, final int i99) {
+    void maini2() {
         mainbg(1);
         multion = 0;
         clangame = 0;
@@ -5882,21 +5871,21 @@ class xtGraphics extends Panel implements Runnable {
         final PixelGrabber pixelgrabber = new PixelGrabber(carsbg, 0, 0, 670, 400, is, 0, 670);
         try {
             pixelgrabber.grabPixels();
-        } catch (final InterruptedException interruptedexception) {
+        } catch (final InterruptedException ignored) {
 
         }
         final int[] is387 = new int[20700];
         final PixelGrabber pixelgrabber388 = new PixelGrabber(image, 0, 0, 92, 225, is387, 0, 92);
         try {
             pixelgrabber388.grabPixels();
-        } catch (final InterruptedException interruptedexception) {
+        } catch (final InterruptedException ignored) {
 
         }
         final int[] is389 = new int[2112];
         final PixelGrabber pixelgrabber390 = new PixelGrabber(image386, 0, 0, 88, 24, is389, 0, 88);
         try {
             pixelgrabber390.grabPixels();
-        } catch (final InterruptedException interruptedexception) {
+        } catch (final InterruptedException ignored) {
 
         }
         for (int i = 0; i < 670; i++) {
@@ -5997,7 +5986,7 @@ class xtGraphics extends Panel implements Runnable {
                 "nigger", "pussy", "gay", "homo", "you punk", "i will kill you"
         };
         for (final String string2 : strings)
-            if (string.indexOf(string2) != -1) {
+            if (string.contains(string2)) {
                 bool = true;
             }
         if (string.startsWith("ass ")) {
@@ -6030,7 +6019,7 @@ class xtGraphics extends Panel implements Runnable {
             }
         if (!bool422) {
             for (final String string2 : strings)
-                if (string419.indexOf(string2) != -1) {
+                if (string419.contains(string2)) {
                     bool = true;
                 }
         }
@@ -6051,7 +6040,7 @@ class xtGraphics extends Panel implements Runnable {
             }
         if (!bool422) {
             for (final String string2 : strings)
-                if (string419.indexOf(string2) != -1) {
+                if (string419.contains(string2)) {
                     bool = true;
                 }
         }
@@ -6072,7 +6061,7 @@ class xtGraphics extends Panel implements Runnable {
             }
         if (!bool422) {
             for (final String string2 : strings)
-                if (string419.indexOf(string2) != -1) {
+                if (string419.contains(string2)) {
                     bool = true;
                 }
         }
@@ -6093,7 +6082,7 @@ class xtGraphics extends Panel implements Runnable {
             }
         if (!bool422) {
             for (final String string2 : strings)
-                if (string419.indexOf(string2) != -1) {
+                if (string419.contains(string2)) {
                     bool = true;
                 }
         }
@@ -6114,7 +6103,7 @@ class xtGraphics extends Panel implements Runnable {
             }
         if (!bool422) {
             for (final String string2 : strings)
-                if (string419.indexOf(string2) != -1) {
+                if (string419.contains(string2)) {
                     bool = true;
                 }
         }
@@ -6348,7 +6337,7 @@ class xtGraphics extends Panel implements Runnable {
                             }
                             if (!string.equals("")) {
                                 string = string.replace('|', ':');
-                                if (string.toLowerCase().indexOf(app.tpass.getText().toLowerCase()) != -1) {
+                                if (string.toLowerCase().contains(app.tpass.getText().toLowerCase())) {
                                     string = " ";
                                 }
                                 if (!msgcheck(string) && updatec[i57] > -12) {
@@ -6537,7 +6526,7 @@ class xtGraphics extends Panel implements Runnable {
                                 din = null;
                                 dout.close();
                                 dout = null;
-                            } catch (final Exception exception) {
+                            } catch (final Exception ignored) {
 
                             }
                         }
@@ -6603,7 +6592,7 @@ class xtGraphics extends Panel implements Runnable {
                     if (lan) {
                         boolean bool72 = true;
                         for (int i73 = 0; i73 < nplayers; i73++)
-                            if (dested[i73] == 0 && plnames[i73].indexOf("MadBot") == -1) {
+                            if (dested[i73] == 0 && !plnames[i73].contains("MadBot")) {
                                 bool72 = false;
                             }
                         if (bool72) {
@@ -6905,7 +6894,7 @@ class xtGraphics extends Panel implements Runnable {
                         runtyp = -101;
                         runner = new Thread(this);
                         runner.start();
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                 }
@@ -6946,7 +6935,7 @@ class xtGraphics extends Panel implements Runnable {
         return i292 > i && i292 < i + i290 && i293 > i289 && i293 < i289 + i291;
     }
 
-    void pausedgame(final int i, final Control control, final Record record) {
+    void pausedgame(final Control control, final Record record) {
         if (!badmac) {
             rd.drawImage(fleximg, 0, 0, null);
         } else {
@@ -7058,7 +7047,7 @@ class xtGraphics extends Panel implements Runnable {
             final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, 800, 450, is, 0, 800);
             try {
                 pixelgrabber.grabPixels();
-            } catch (final InterruptedException interruptedexception) {
+            } catch (final InterruptedException ignored) {
 
             }
             int i = 0;
@@ -7113,12 +7102,12 @@ class xtGraphics extends Panel implements Runnable {
             mediatracker.addImage(image, 0);
             mediatracker.waitForID(0);
             mediatracker.removeImage(image, 0);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
     }
 
-    void playsounds(final Mad mad, final Control control, final int i) {
+    void playsounds(final Mad mad, final Control control) {
         if ((fase == 0 || fase == 7001) && starcnt < 35 && cntwis != 8 && !mutes) {
             boolean bool = control.up && mad.speed > 0.0F || control.down && mad.speed < 10.0F;
             boolean bool257 = mad.skid == 1 && control.handb || Math.abs(mad.scz[0] - (mad.scz[1] + mad.scz[0] + mad.scz[2] + mad.scz[3]) / 4.0F) > 1.0F || Math.abs(mad.scx[0] - (mad.scx[1] + mad.scx[0] + mad.scx[2] + mad.scx[3]) / 4.0F) > 1.0F;
@@ -7289,15 +7278,14 @@ class xtGraphics extends Panel implements Runnable {
         final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i337, i, is, 0, i337);
         try {
             pixelgrabber.grabPixels();
-        } catch (final InterruptedException interruptedexception) {
+        } catch (final InterruptedException ignored) {
 
         }
         for (int i338 = 0; i338 < i337 * i; i338++)
             if (is[i338] != is[i337 * i - 1]) {
                 is[i338] = -16777216;
             }
-        final Image image339 = createImage(new MemoryImageSource(i337, i, is, 0, i337));
-        return image339;
+        return createImage(new MemoryImageSource(i337, i, is, 0, i337));
     }
 
     private int py(final int i, final int i281, final int i282, final int i283) {
@@ -7647,13 +7635,12 @@ class xtGraphics extends Panel implements Runnable {
 
                     }
                     Thread.sleep(20L);
-                } catch (final InterruptedException interruptedexception) {
+                } catch (final InterruptedException ignored) {
 
                 }
             }
             if (bool) {
                 pingstat();
-                bool = false;
             }
             final boolean[] bools = {
                     true, true
@@ -7703,7 +7690,7 @@ class xtGraphics extends Panel implements Runnable {
                         din = null;
                         dout.close();
                         dout = null;
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                     try {
@@ -7715,7 +7702,7 @@ class xtGraphics extends Panel implements Runnable {
                         if (string14 != null) {
                             bool13 = false;
                         }
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                 }
@@ -7723,7 +7710,7 @@ class xtGraphics extends Panel implements Runnable {
                     try {
                         socket.close();
                         socket = null;
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                     runtyp = 0;
@@ -7775,7 +7762,7 @@ class xtGraphics extends Panel implements Runnable {
 
                     }
                     Thread.sleep(1000L);
-                } catch (final InterruptedException interruptedexception) {
+                } catch (final InterruptedException ignored) {
 
                 }
             }
@@ -7792,7 +7779,7 @@ class xtGraphics extends Panel implements Runnable {
                     din = null;
                     dout.close();
                     dout = null;
-                } catch (final Exception exception) {
+                } catch (final Exception ignored) {
 
                 }
                 runtyp = 0;
@@ -7847,9 +7834,9 @@ class xtGraphics extends Panel implements Runnable {
         runner.start();
     }
 
-    void setbots(final boolean[] bools, final int[][] is) {
+    void setbots(final boolean[] bools) {
         for (int i = 0; i < nplayers; i++)
-            if (plnames[i].indexOf("MadBot") != -1) {
+            if (plnames[i].contains("MadBot")) {
                 bools[i] = true;
                 isbot[i] = true;
             }
@@ -7897,13 +7884,13 @@ class xtGraphics extends Panel implements Runnable {
         mediatracker.addImage(image, 0);
         try {
             mediatracker.waitForID(0);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, 466, 202, smokey, 0, 466);
         try {
             pixelgrabber.grabPixels();
-        } catch (final InterruptedException interruptedexception) {
+        } catch (final InterruptedException ignored) {
 
         }
         for (int i = 0; i < 94132; i++)
@@ -7965,13 +7952,14 @@ class xtGraphics extends Panel implements Runnable {
             //System.out.println("Minimum car: " + cd.names[(i - 1) / 2] + ", maximum car: " + cd.names[nplayers + ((i - 1) / 2)] + ", therefore: " + (((i - 1) / 2) - (nplayers + ((i - 1) / 2))) + " car difference");
 
             // create a list of car ids, each item completely unique
-            final ArrayList<Integer> list = new ArrayList<Integer>();
+            final ArrayList<Integer> list = new ArrayList<>();
             for (int k = (i - 1) / 2; k < nplayers + (i - 1) / 2; k++) {
                 if (k == sc[0]) {
                     continue;
                 }
-                list.add(new Integer(k));
+                list.add(k);
             }
+
             // randomize the order of this list (shuffle it like a deck of cards)
             Collections.shuffle(list);
 
@@ -8089,13 +8077,13 @@ class xtGraphics extends Panel implements Runnable {
                     cd.staction = 0;
                 }
                 int i42 = 0;
-                app.sgame.setSize(131, 22);
+                app.sgame.setSize(131);
                 //if (app.sgame.getSelectedIndex() == 0)
                 //	i42 = 400 - (app.sgame.getWidth() + 6 + app.snfm1.getWidth()) / 2;
                 //if (app.sgame.getSelectedIndex() == 1)
                 //	i42 = 400 - (app.sgame.getWidth() + 6 + app.snfm2.getWidth()) / 2;
                 if (app.sgame.getSelectedIndex() == 2) {
-                    app.mstgs.setSize(338, 22);
+                    app.mstgs.setSize(338);
                     if (bool40)
                         if (logged) {
                             if (cd.msloaded != 1) {
@@ -8119,7 +8107,7 @@ class xtGraphics extends Panel implements Runnable {
                     i42 = 400 - (app.sgame.getWidth() + 6 + app.mstgs.getWidth()) / 2;
                 }
                 if (app.sgame.getSelectedIndex() == 3) {
-                    app.mstgs.setSize(338, 22);
+                    app.mstgs.setSize(338);
                     if (bool40 && cd.msloaded != 3) {
                         app.mstgs.removeAll();
                         app.mstgs.add(rd, "Loading Top20 list, please wait...");
@@ -8129,7 +8117,7 @@ class xtGraphics extends Panel implements Runnable {
                     i42 = 400 - (app.sgame.getWidth() + 6 + app.mstgs.getWidth()) / 2;
                 }
                 if (app.sgame.getSelectedIndex() == 4) {
-                    app.mstgs.setSize(338, 22);
+                    app.mstgs.setSize(338);
                     if (bool40 && cd.msloaded != 4) {
                         app.mstgs.removeAll();
                         app.mstgs.add(rd, "Loading Top20 list, please wait...");
@@ -8144,7 +8132,7 @@ class xtGraphics extends Panel implements Runnable {
                         app.tpass.setVisible(false);
                         cd.staction = 0;
                     }
-                    app.mstgs.setSize(338, 22);
+                    app.mstgs.setSize(338);
                     if (bool40 && cd.msloaded != 2) {
                         app.mstgs.removeAll();
                         app.mstgs.add(rd, "Loading Stage Maker stages, please wait...");
@@ -8157,7 +8145,6 @@ class xtGraphics extends Panel implements Runnable {
                     app.sgame.setVisible(true);
                 }
                 app.sgame.move(i42, 62);
-                i42 += app.sgame.getWidth() + 6;
                 /*if (nfmtab == 0) {
                 	if (!app.snfm1.isShowing()) {
                 		app.snfm1.setVisible(true);
@@ -8239,7 +8226,7 @@ class xtGraphics extends Panel implements Runnable {
                             //app.repaint();
                             try {
                                 Thread.sleep(5000L);
-                            } catch (final InterruptedException interruptedexception) {
+                            } catch (final InterruptedException ignored) {
 
                             }
                             //if (nfmtab == 0)
@@ -8786,7 +8773,7 @@ class xtGraphics extends Panel implements Runnable {
                     if (lan) {
                         bool188 = true;
                         for (int i = 0; i < nplayers; i++)
-                            if (i != im && dested[i] == 0 && plnames[i].indexOf("MadBot") == -1) {
+                            if (i != im && dested[i] == 0 && !plnames[i].contains("MadBot")) {
                                 bool188 = false;
                             }
                     }
@@ -9042,7 +9029,7 @@ class xtGraphics extends Panel implements Runnable {
                 rd.drawString("" + checkpoints.wasted + " / " + (nplayers - 1) + "", 150, 18);
                 rd.drawImage(pos, 42, 27, null);
                 rd.drawImage(rank[checkpoints.pos[mad.im]], 110, 28, null);
-                drawstat(cd.maxmag[mad.cn], mad.hitmag, mad.newcar, mad.power);
+                drawstat(cd.maxmag[mad.cn], mad.hitmag, mad.power);
                 if (control.radar && checkpoints.stage != 10) {
                     radarstat(mad, conto, checkpoints);
                 }
@@ -9225,7 +9212,7 @@ class xtGraphics extends Panel implements Runnable {
                     if (i < 0 && mad.ftab) {
                         loop = "Hanged " + loop;
                     }
-                    if (loop != "") {
+                    if (!Objects.equals(loop, "")) {
                         asay = asay + " " + loop;
                     }
                     i = 0;
@@ -9235,7 +9222,7 @@ class xtGraphics extends Panel implements Runnable {
                         i++;
                     }
                     if (i == 0 && mad.rtab)
-                        if (loop == "") {
+                        if (Objects.equals(loop, "")) {
                             spin = "Tabletop";
                         } else {
                             spin = "Flipside";
@@ -9264,14 +9251,14 @@ class xtGraphics extends Panel implements Runnable {
                         }
                     }
                     if (i != 0) {
-                        if (loop == "" && spin == "") {
+                        if (Objects.equals(loop, "") && Objects.equals(spin, "")) {
                             asay = asay + " " + i;
                             if (bool194) {
                                 asay = asay + " and beyond";
                             }
                         } else {
-                            if (spin != "")
-                                if (loop == "") {
+                            if (!Objects.equals(spin, ""))
+                                if (Objects.equals(loop, "")) {
                                     asay = asay + " " + spin;
                                 } else {
                                     asay = asay + " with " + spin;
@@ -9281,19 +9268,19 @@ class xtGraphics extends Panel implements Runnable {
                                 asay = asay + " and beyond";
                             }
                         }
-                    } else if (spin != "")
-                        if (loop == "") {
+                    } else if (!Objects.equals(spin, ""))
+                        if (Objects.equals(loop, "")) {
                             asay = asay + " " + spin;
                         } else {
                             asay = asay + " by " + spin;
                         }
-                    if (asay != "") {
+                    if (!Objects.equals(asay, "")) {
                         auscnt -= 15;
                     }
-                    if (loop != "") {
+                    if (!Objects.equals(loop, "")) {
                         auscnt -= 25;
                     }
-                    if (spin != "") {
+                    if (!Objects.equals(spin, "")) {
                         auscnt -= 25;
                     }
                     if (i != 0) {
@@ -9331,11 +9318,7 @@ class xtGraphics extends Panel implements Runnable {
                             } else {
                                 say = "Power To The MAX";
                             }
-                            if (skidup) {
-                                skidup = false;
-                            } else {
-                                skidup = true;
-                            }
+                            skidup = !skidup;
                         }
                     }
                 }
@@ -9344,11 +9327,7 @@ class xtGraphics extends Panel implements Runnable {
                         say = "Car Fixed";
                         tcnt = 0;
                     }
-                    if (crashup) {
-                        crashup = false;
-                    } else {
-                        crashup = true;
-                    }
+                    crashup = !crashup;
                 }
                 for (int i = 0; i < nplayers; i++)
                     if (dested[i] != checkpoints.dested[i] && i != im) {
@@ -9471,7 +9450,7 @@ class xtGraphics extends Panel implements Runnable {
                 din = null;
                 dout.close();
                 dout = null;
-            } catch (final Exception exception) {
+            } catch (final Exception ignored) {
 
             }
         }

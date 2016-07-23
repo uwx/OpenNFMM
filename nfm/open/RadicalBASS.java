@@ -36,7 +36,7 @@ class RadicalBASS implements RadicalMusic {
      * 
      * @param text The error message to be displayed
      */
-    private final void error(final String text) {
+    private void error(final String text) {
         
         final int errCode = BASS_ErrorGetCode();
         String errStr = "Unknown error";
@@ -52,7 +52,7 @@ class RadicalBASS implements RadicalMusic {
      * @param format String to be formatted
      * @param args Formatting arguments
      */
-    private final void printfExit(final String format, final Object... args) {
+    private void printfExit(final String format, final Object... args) {
         System.out.println(String.format(format, args));
         end();
     }
@@ -69,11 +69,8 @@ class RadicalBASS implements RadicalMusic {
     private static boolean bassLibLoaded = false;
 
     /** Looping sync */
-    private static final SYNCPROC loopSyncProc = new SYNCPROC() {
-        @Override
-        public void SYNCPROC(final HSYNC handle, final int channel, final int data, final Pointer user) {
-            BASS_ChannelSetPosition(channel, 0, BASS_POS_BYTE); //Go to start of file
-        }
+    private static final SYNCPROC loopSyncProc = (handle, channel, data, user) -> {
+        BASS_ChannelSetPosition(channel, 0, BASS_POS_BYTE); //Go to start of file
     };
 
     /**
@@ -115,7 +112,7 @@ class RadicalBASS implements RadicalMusic {
      * @return false if the file can't be played to the channel, true otherwise
      */
     private boolean playFile() {
-        HSTREAM stream = null;
+        HSTREAM stream;
         HMUSIC music = null;
 
         if ((stream = BASS_StreamCreateFile(false, file.getPath(), 0, 0, 0)) == null && (music = BASS_MusicLoad(false, file.getPath(), 0, 0, BASS_MUSIC_RAMPS | BASS_MUSIC_POSRESET | BASS_MUSIC_PRESCAN, 0)) == null) {

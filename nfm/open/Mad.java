@@ -9,7 +9,7 @@ class Mad {
     int capcnt = 0;
     boolean capsized = false;
     private final boolean[] caught = new boolean[8];
-    CarDefine cd;
+    final CarDefine cd;
     int clear = 0;
     int cn = 0;
     int cntdest = 0;
@@ -62,9 +62,9 @@ class Mad {
     private final Record rpd;
     private int rpdcatch = 0;
     boolean rtab = false;
-    float[] scx = new float[4];
-    float[] scy = new float[4];
-    float[] scz = new float[4];
+    final float[] scx = new float[4];
+    final float[] scy = new float[4];
+    final float[] scz = new float[4];
     int shakedam = 0;
     int skid = 0;
     float speed = 0.0F;
@@ -122,16 +122,8 @@ class Mad {
         if (rpy(conto.x, conto119.x, conto.y, conto119.y, conto.z, conto119.z) < (conto.maxR * conto.maxR + conto119.maxR * conto119.maxR) * 1.5) {
             if (!caught[mad118.im] && (speed != 0.0F || mad118.speed != 0.0F)) {
                 if (Math.abs(power * speed * cd.moment[cn]) != Math.abs(mad118.power * mad118.speed * cd.moment[mad118.cn])) {
-                    if (Math.abs(power * speed * cd.moment[cn]) > Math.abs(mad118.power * mad118.speed * cd.moment[mad118.cn])) {
-                        dominate[mad118.im] = true;
-                    } else {
-                        dominate[mad118.im] = false;
-                    }
-                } else if (cd.moment[cn] > cd.moment[mad118.cn]) {
-                    dominate[mad118.im] = true;
-                } else {
-                    dominate[mad118.im] = false;
-                }
+                    dominate[mad118.im] = Math.abs(power * speed * cd.moment[cn]) > Math.abs(mad118.power * mad118.speed * cd.moment[mad118.cn]);
+                } else dominate[mad118.im] = cd.moment[cn] > cd.moment[mad118.cn];
                 caught[mad118.im] = true;
             }
         } else if (caught[mad118.im]) {
@@ -617,7 +609,7 @@ class Mad {
         rot(fs23, fs22, conto.y, conto.z, pzy, 4);
         rot(fs, fs22, conto.x, conto.z, conto.xz, 4);
         boolean bool25 = false;
-        double d = 0.0;
+        double d;
         final int i26 = (int) ((scx[0] + scx[1] + scx[2] + scx[3]) / 4.0F);
         final int i27 = (int) ((scz[0] + scz[1] + scz[2] + scz[3]) / 4.0F);
         for (int i28 = 0; i28 < 4; i28++) {

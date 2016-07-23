@@ -12,7 +12,7 @@ import javax.sound.sampled.SourceDataLine;
 
 class SuperClip implements Runnable {
 
-    SuperClip(final byte abyte0[], final int i, final int j) {
+    SuperClip(final byte[] abyte0, final int i, final int j) {
         skiprate = 0;
         stoped = 1;
         source = null;
@@ -42,7 +42,7 @@ class SuperClip implements Runnable {
                 if (j % 2 != 0) {
                     j++;
                 }
-                byte abyte0[] = new byte[j <= i ? j : i];
+                byte[] abyte0 = new byte[j <= i ? j : i];
                 final int l = stream.read(abyte0, 0, abyte0.length);
                 if (l == -1 || rollBackPos != 0 && j < rollBackTrig) {
                     flag = true;
@@ -70,7 +70,7 @@ class SuperClip implements Runnable {
             }
             try {
                 Thread.sleep(200L);
-            } catch (final InterruptedException interruptedexception) {
+            } catch (final InterruptedException ignored) {
             }
         }
         source.stop();
@@ -84,7 +84,7 @@ class SuperClip implements Runnable {
             stoped = 0;
             try {
                 stream.reset();
-            } catch (final Exception exception) {
+            } catch (final Exception ignored) {
             }
             cliper = new Thread(this);
             cliper.start();
@@ -112,7 +112,7 @@ class SuperClip implements Runnable {
         try {
             stream.close();
             stream = null;
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
         }
     }
 

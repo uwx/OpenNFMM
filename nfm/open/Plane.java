@@ -9,9 +9,9 @@ import java.awt.RenderingHints;
 import java.util.concurrent.ThreadLocalRandom;
 
 class Plane implements Comparable<Plane> {
-    int av = 0;
+    private int av = 0;
     int bfase = 0;
-    int[] c = new int[3];
+    final int[] c = new int[3];
     int chip = 0;
     int colnum = 0;
     private final int[] cox = new int[3];
@@ -31,16 +31,16 @@ class Plane implements Comparable<Plane> {
     int fs = 0;
     int glass = 0;
     int gr = 0;
-    float[] hsb = new float[3];
+    final float[] hsb = new float[3];
     int light = 0;
     private final Medium m;
     int master = 0;
     int n;
     boolean nocol = false;
-    int[] oc = new int[3];
-    int[] ox;
-    int[] oy;
-    int[] oz;
+    final int[] oc = new int[3];
+    final int[] ox;
+    final int[] oy;
+    final int[] oz;
     private int pa = 0;
     private int pb = 0;
     private float projf = 1.0F;
@@ -55,13 +55,13 @@ class Plane implements Comparable<Plane> {
     int wy = 0;
     int wz = 0;
 
-    boolean customstroke;
-    int strokewidth;
-    int strokecap;
-    int strokejoin;
-    int strokemtlimit;
-    boolean randomcolor;
-    boolean randoutline;
+    final boolean customstroke;
+    final int strokewidth;
+    final int strokecap;
+    final int strokejoin;
+    final int strokemtlimit;
+    final boolean randomcolor;
+    final boolean randoutline;
 
     Plane(final Medium medium, final Trackers trackers, final int[] is, final int[] is0, final int[] is1, final int i, final int[] is2, final int i3, final int i4, final int i5, final int i6, final int i7, final int i8, final int i9, final int i10, final boolean bool, final int i11, final boolean bool12, final boolean randomcolor, final boolean randoutline, final boolean customstroke, final int strokewidth, final int strokecap, final int strokejoin, final int strokemtlimit) {
         this.randoutline = randoutline;
@@ -83,9 +83,7 @@ class Plane implements Comparable<Plane> {
             oy[i13] = is1[i13];
             oz[i13] = is0[i13];
         }
-        for (int i14 = 0; i14 < 3; i14++) {
-            oc[i14] = is2[i14];
-        }
+        System.arraycopy(is2, 0, oc, 0, 3);
         if (i4 == -15) {
             if (is2[0] == 211) {
                 final int i15 = (int) (ThreadLocalRandom.current().nextDouble() * 40.0 - 20.0);
@@ -139,9 +137,7 @@ class Plane implements Comparable<Plane> {
             }
         }
         if (i3 == 3) {
-            for (int i23 = 0; i23 < 3; i23++) {
-                c[i23] = is2[i23];
-            }
+            System.arraycopy(is2, 0, c, 0, 3);
         }
         disline = i9;
         bfase = i10;

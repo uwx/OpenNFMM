@@ -5,20 +5,20 @@ package nfm.open;
 import java.awt.Color;
 
 class Record {
-    ContO[][] car = new ContO[6][8];
+    final ContO[][] car = new ContO[6][8];
     int caught = 0;
     private final int[] checkpoint = new int[300];
     int closefinish = 0;
-    int[] cntdest = new int[8];
+    final int[] cntdest = new int[8];
     private int cntf = 50;
-    int[] dest = new int[8];
-    int[] fix = new int[8];
+    final int[] dest = new int[8];
+    final int[] fix = new int[8];
     boolean hcaught = false;
     private final int[] hcheckpoint = new int[300];
     private final int[] hdest = {
             -1, -1, -1, -1, -1, -1, -1, -1
     };
-    int[] hfix = {
+    final int[] hfix = {
             -1, -1, -1, -1, -1, -1, -1, -1
     };
     private final boolean[] hlastcheck = new boolean[300];
@@ -67,7 +67,7 @@ class Record {
     private final int[][] nry = new int[8][4];
     private final int[][] nrz = new int[8][4];
     private final int[][] ns = new int[8][20];
-    ContO[] ocar = new ContO[8];
+    final ContO[] ocar = new ContO[8];
     int powered = 0;
     private boolean prepit = true;
     private final float[][] rcx = new float[8][200];
@@ -86,7 +86,7 @@ class Record {
     private final int[][] sry = new int[8][200];
     private final int[][] srz = new int[8][200];
     private final int[][][] sspark = new int[8][20][30];
-    ContO[] starcar = new ContO[8];
+    final ContO[] starcar = new ContO[8];
     private final int[][][] sx = new int[8][20][30];
     private final int[][][] sy = new int[8][20][30];
     private final int[][][] sz = new int[8][20][30];
@@ -210,9 +210,7 @@ class Record {
                 }
             }
             for (int i16 = 0; i16 < 8; i16++) {
-                for (int i17 = 0; i17 < 7; i17++) {
-                    hmtouch[i16][i17] = mtouch[i16][i17];
-                }
+                System.arraycopy(mtouch[i16], 0, hmtouch[i16], 0, 7);
             }
             hcaught = true;
         }

@@ -54,12 +54,7 @@ class GameSparker extends JPanel
      */
     private static final long serialVersionUID = -5976860556958716653L;
 
-    private static final Comparator<int[]> contoComparator = new Comparator<int[]>() {
-        @Override
-        public int compare(final int[] arg0, final int[] arg1) {
-            return Integer.compare(arg1[1], arg0[1]);
-        }
-    };
+    private static final Comparator<int[]> contoComparator = (arg0, arg1) -> Integer.compare(arg1[1], arg0[1]);
     
     private float apmult = 1.0F;
     boolean applejava = false;
@@ -75,7 +70,7 @@ class GameSparker extends JPanel
     private boolean exwist = false;
     private int fcscnt = 0;
     private Image fulls;
-    Smenu gmode = new Smenu(3);
+    final Smenu gmode = new Smenu(3);
     private final Smenu icars = new Smenu(5);
     private final Smenu ilaps = new Smenu(18);
     Checkbox keplo;
@@ -83,14 +78,14 @@ class GameSparker extends JPanel
     private int lastw = 0;
     private int lmxz = 0;
     private boolean lostfcs = false;
-    Smenu mcars = new Smenu(707);
+    final Smenu mcars = new Smenu(707);
     private int mload = 1;
     private TextArea mmsg;
     int moto = 0;
     private boolean moused = false;
     int mouses = 0;
     private int mousew = 0;
-    Smenu mstgs = new Smenu(707);
+    final Smenu mstgs = new Smenu(707);
     /**
      * Applies transparency to every polygon (20 is 20% opacity, 100 is 100% opacity)
      */
@@ -99,44 +94,44 @@ class GameSparker extends JPanel
     private int nob = 0;
     private int notb = 0;
     Checkbox notp;
-    BufferedImage offImage;
+    final BufferedImage offImage;
     private boolean onbar = false;
     private boolean oncarm = false;
     private boolean onfulls = false;
     private boolean onstgm = false;
     boolean openm = false;
-    Smenu pgame = new Smenu(11);
+    final Smenu pgame = new Smenu(11);
     private final Smenu proitem = new Smenu(707);
     Graphics2D rd;
     private float reqmult = 0.0F;
-    Smenu rooms = new Smenu(7);
-    Smenu scars = new Smenu(4);
-    Smenu sclass = new Smenu(7);
+    final Smenu rooms = new Smenu(7);
+    final Smenu scars = new Smenu(4);
+    final Smenu sclass = new Smenu(7);
     private final Smenu senditem = new Smenu(707);
     private final Smenu sendtyp = new Smenu(6);
-    Smenu sfix = new Smenu(7);
-    Smenu sgame = new Smenu(8);
+    final Smenu sfix = new Smenu(7);
+    final Smenu sgame = new Smenu(8);
     private int shaka = 0;
     private int showsize = 0;
     private Image sizebar;
-    Smenu slaps = new Smenu(17);
+    final Smenu slaps = new Smenu(17);
     private int smooth = 1;
-    Smenu snbts = new Smenu(8);
+    final Smenu snbts = new Smenu(8);
     //nfm.open.Smenu snfm1 = new nfm.open.Smenu(12);
     //nfm.open.Smenu snfm2 = new nfm.open.Smenu(19);
-    Smenu snfmm = new Smenu(xtGraphics.nTracks + 2);
-    Smenu snpls = new Smenu(9);
+    final Smenu snfmm = new Smenu(xtGraphics.nTracks + 2);
+    final Smenu snpls = new Smenu(9);
     private final Image[] stagemaker = new Image[2];
-    Smenu swait = new Smenu(6);
+    final Smenu swait = new Smenu(6);
     TextField temail;
     TextField tnick;
     TextField tpass;
     private final Control[] u = new Control[8];
     private int view = 0;
-    Smenu vnpls = new Smenu(5);
-    Smenu vtyp = new Smenu(6);
-    Smenu warb = new Smenu(102);
-    Smenu wgame = new Smenu(4);
+    final Smenu vnpls = new Smenu(5);
+    final Smenu vtyp = new Smenu(6);
+    final Smenu warb = new Smenu(102);
+    final Smenu wgame = new Smenu(4);
     private int xm = 0;
     private int ym = 0;
 
@@ -399,24 +394,24 @@ class GameSparker extends JPanel
                         }
                         setindex += partskips - 10;
                         stageContos[nob] = new ContO(baseContos[setindex], getint("set", string, 1), medium.ground - baseContos[setindex].grat, getint("set", string, 2), getint("set", string, 3));
-                        if (string.indexOf(")p") != -1) {
+                        if (string.contains(")p")) {
                             checkpoints.x[checkpoints.n] = getint("set", string, 1);
                             checkpoints.z[checkpoints.n] = getint("set", string, 2);
                             checkpoints.y[checkpoints.n] = 0;
                             checkpoints.typ[checkpoints.n] = 0;
-                            if (string.indexOf(")pt") != -1) {
+                            if (string.contains(")pt")) {
                                 checkpoints.typ[checkpoints.n] = -1;
                             }
-                            if (string.indexOf(")pr") != -1) {
+                            if (string.contains(")pr")) {
                                 checkpoints.typ[checkpoints.n] = -2;
                             }
-                            if (string.indexOf(")po") != -1) {
+                            if (string.contains(")po")) {
                                 checkpoints.typ[checkpoints.n] = -3;
                             }
-                            if (string.indexOf(")ph") != -1) {
+                            if (string.contains(")ph")) {
                                 checkpoints.typ[checkpoints.n] = -4;
                             }
-                            if (string.indexOf("out") != -1) {
+                            if (string.contains("out")) {
                                 System.out.println("out: " + checkpoints.n);
                             }
                             checkpoints.n++;
@@ -465,11 +460,7 @@ class GameSparker extends JPanel
                     } else {
                         checkpoints.roted[checkpoints.fn] = false;
                     }
-                    if (string.indexOf(")s") != -1) {
-                        checkpoints.special[checkpoints.fn] = true;
-                    } else {
-                        checkpoints.special[checkpoints.fn] = false;
-                    }
+                    checkpoints.special[checkpoints.fn] = string.indexOf(")s") != -1;
                     checkpoints.fn++;
                     nob++;
                     notb = nob;
@@ -620,11 +611,7 @@ class GameSparker extends JPanel
             } else {
                 medium.lightn = -1;
             }
-            if (checkpoints.stage == 1 || checkpoints.stage == 11) {
-                medium.nochekflk = false;
-            } else {
-                medium.nochekflk = true;
-            }
+            medium.nochekflk = !(checkpoints.stage == 1 || checkpoints.stage == 11);
             for (int n = 0; n < xtgraphics.nplayers; n++) {
                 u[n].reset(checkpoints, xtgraphics.sc[n]);
             }
@@ -808,24 +795,24 @@ class GameSparker extends JPanel
                     i165 += partskips - 10;
                     contos[nob] = new ContO(contos147[i165], getint("set", string153, 1), medium.ground - contos147[i165].grat, getint("set", string153, 2), getint("set", string153, 3));
                     contos[nob].t.nt = 0;
-                    if (string153.indexOf(")p") != -1) {
+                    if (string153.contains(")p")) {
                         checkpoints.x[checkpoints.n] = getint("chk", string153, 1);
                         checkpoints.z[checkpoints.n] = getint("chk", string153, 2);
                         checkpoints.y[checkpoints.n] = 0;
                         checkpoints.typ[checkpoints.n] = 0;
-                        if (string153.indexOf(")pt") != -1) {
+                        if (string153.contains(")pt")) {
                             checkpoints.typ[checkpoints.n] = -1;
                         }
-                        if (string153.indexOf(")pr") != -1) {
+                        if (string153.contains(")pr")) {
                             checkpoints.typ[checkpoints.n] = -2;
                         }
-                        if (string153.indexOf(")po") != -1) {
+                        if (string153.contains(")po")) {
                             checkpoints.typ[checkpoints.n] = -3;
                         }
-                        if (string153.indexOf(")ph") != -1) {
+                        if (string153.contains(")ph")) {
                             checkpoints.typ[checkpoints.n] = -4;
                         }
-                        if (string153.indexOf("out") != -1) {
+                        if (string153.contains("out")) {
                             System.out.println("out: " + checkpoints.n);
                         }
                         checkpoints.n++;
@@ -868,11 +855,7 @@ class GameSparker extends JPanel
                     } else {
                         checkpoints.roted[checkpoints.fn] = false;
                     }
-                    if (string153.indexOf(")s") != -1) {
-                        checkpoints.special[checkpoints.fn] = true;
-                    } else {
-                        checkpoints.special[checkpoints.fn] = false;
-                    }
+                    checkpoints.special[checkpoints.fn] = string153.indexOf(")s") != -1;
                     checkpoints.fn++;
                     nob++;
                 }
@@ -972,10 +955,7 @@ class GameSparker extends JPanel
     }
 
     void drawms() {
-        openm = false;
-        if (gmode.draw(rd, xm, ym, moused, 450, true)) {
-            openm = true;
-        }
+        openm = gmode.draw(rd, xm, ym, moused, 450, true);
         if (swait.draw(rd, xm, ym, moused, 450, false)) {
             openm = true;
         }
@@ -1151,7 +1131,7 @@ class GameSparker extends JPanel
         temail = new TextField("");
         temail.setFont(new Font("Arial", 1, 13));
         cmsg = new TextField("");
-        if (System.getProperty("java.vendor").toLowerCase().indexOf("oracle") != -1) {
+        if (System.getProperty("java.vendor").toLowerCase().contains("oracle")) {
             cmsg.addKeyListener(new KeyListener() {
 
                 @Override
@@ -1185,38 +1165,38 @@ class GameSparker extends JPanel
         add(mycar);
         add(notp);
         add(keplo);
-        sgame.setFont(new Font("Arial", 1, 13));
-        wgame.setFont(new Font("Arial", 1, 13));
-        warb.setFont(new Font("Arial", 1, 13));
-        pgame.setFont(new Font("Arial", 1, 12));
-        vnpls.setFont(new Font("Arial", 1, 13));
-        vtyp.setFont(new Font("Arial", 1, 13));
-        snfmm.setFont(new Font("Arial", 1, 13));
+        sgame.setFont();
+        wgame.setFont();
+        warb.setFont();
+        pgame.setFont();
+        vnpls.setFont();
+        vtyp.setFont();
+        snfmm.setFont();
         //snfm1.setFont(new Font("Arial", 1, 13));
         //snfm2.setFont(new Font("Arial", 1, 13));
-        mstgs.setFont(new Font("Arial", 1, 13));
-        mcars.setFont(new Font("Arial", 1, 13));
-        slaps.setFont(new Font("Arial", 1, 13));
-        snpls.setFont(new Font("Arial", 0, 13));
-        snbts.setFont(new Font("Arial", 0, 13));
-        swait.setFont(new Font("Arial", 0, 12));
-        sclass.setFont(new Font("Arial", 1, 12));
-        scars.setFont(new Font("Arial", 1, 12));
-        sfix.setFont(new Font("Arial", 1, 12));
+        mstgs.setFont();
+        mcars.setFont();
+        slaps.setFont();
+        snpls.setFont();
+        snbts.setFont();
+        swait.setFont();
+        sclass.setFont();
+        scars.setFont();
+        sfix.setFont();
         mycar.setFont(new Font("Arial", 1, 12));
         notp.setFont(new Font("Arial", 1, 12));
         keplo.setFont(new Font("Arial", 1, 12));
-        gmode.setFont(new Font("Arial", 1, 13));
-        rooms.setFont(new Font("Arial", 1, 13));
-        sendtyp.setFont(new Font("Arial", 1, 12));
-        senditem.setFont(new Font("Arial", 1, 12));
-        datat.setFont(new Font("Arial", 1, 12));
-        clanlev.setFont(new Font("Arial", 1, 12));
-        clcars.setFont(new Font("Arial", 1, 12));
+        gmode.setFont();
+        rooms.setFont();
+        sendtyp.setFont();
+        senditem.setFont();
+        datat.setFont();
+        clanlev.setFont();
+        clcars.setFont();
         clcars.alphad = true;
-        ilaps.setFont(new Font("Arial", 1, 13));
-        icars.setFont(new Font("Arial", 1, 12));
-        proitem.setFont(new Font("Arial", 1, 12));
+        ilaps.setFont();
+        icars.setFont();
+        proitem.setFont();
     }
     
     void madlink() {
@@ -1329,13 +1309,13 @@ class GameSparker extends JPanel
         if (Desktop.isDesktopSupported()) {
             try {
                 Desktop.getDesktop().browse(new URI(string));
-            } catch (final Exception exception) {
+            } catch (final Exception ignored) {
 
             }
         } else {
             try {
                 Runtime.getRuntime().exec("" + Madness.urlopen() + " " + string + "");
-            } catch (final Exception exception) {
+            } catch (final Exception ignored) {
 
             }
         }
@@ -1508,7 +1488,7 @@ class GameSparker extends JPanel
                 if (!xtgraphics.nickname.equals("")) {
                     xtgraphics.opselect = 1;
                 }
-                String string = "";
+                String string;
                 try {
                     string = getstring("lastuser", strings[0], 1);
                 } catch (final Exception exception) {
@@ -1576,7 +1556,7 @@ class GameSparker extends JPanel
                         }
                 }
             }
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
     }
@@ -1730,7 +1710,7 @@ class GameSparker extends JPanel
         rd.fillRect(0, 0, 800, 450);
         //repaint();
         requestFocus();
-        if (System.getProperty("java.vendor").toLowerCase().indexOf("apple") != -1) {
+        if (System.getProperty("java.vendor").toLowerCase().contains("apple")) {
             applejava = true;
         }
         medium = new Medium();
@@ -1936,7 +1916,7 @@ class GameSparker extends JPanel
             if (xtgraphics.testdrive == 3 || xtgraphics.testdrive == 4) {
                 Madness.stagemaker();
             }
-            xtgraphics.maini2(u[0], xm, ym, mouses);
+            xtgraphics.maini2();
             xtgraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2) {
                 mouses = 0;
@@ -1976,7 +1956,7 @@ class GameSparker extends JPanel
             }
         }
         if (xtgraphics.fase == 7) {
-            xtgraphics.carselect(u[0], contos, mads[0], xm, ym, moused);
+            xtgraphics.carselect(u[0], contos, xm, ym, moused);
             xtgraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2) {
                 mouses = 0;
@@ -2018,7 +1998,7 @@ class GameSparker extends JPanel
         }
         if (xtgraphics.fase == 2) {
             mvect = 100;
-            xtgraphics.loadingstage(checkpoints.stage, true);
+            xtgraphics.loadingstage(true);
             checkpoints.nfix = 0;
             checkpoints.notb = false;
             loadstage(stageContos, contos, medium, trackers, checkpoints, xtgraphics, mads, record);
@@ -2145,7 +2125,7 @@ class GameSparker extends JPanel
                     /*if (globe.open >= 2 && globe.open < 452)
                     	openm = true;
                     if (globe.open != 452)*/
-                    lobby.lobby(xm, ym, moused, mousew, checkpoints, u[0], contos);
+                    lobby.lobby(xm, ym, moused, mousew, u[0], contos);
                     /*else
                     	bool21 = true;
                     globe.dome(lobby.conon, xm, ym, moused, u[0]);*/
@@ -2264,7 +2244,7 @@ class GameSparker extends JPanel
                         lobby.fase = 4;
                         lobby.addstage = 0;
                     } else {
-                        xtgraphics.loadingstage(lobby.gstgn[j], false);
+                        xtgraphics.loadingstage(false);
                         trackers.nt = 0;
                         if (loadstagePreview(lobby.gstgn[j], lobby.gstages[j], stageContos, contos, medium, checkpoints)) {
                             lobby.loadstage = -lobby.gstgn[j];
@@ -2365,7 +2345,7 @@ class GameSparker extends JPanel
             loadstage(stageContos, contos, medium, trackers, checkpoints, xtgraphics, mads, record);
             if (checkpoints.stage != -3) {
                 if (xtgraphics.lan && xtgraphics.im == 0) {
-                    udpmistro.UDPLanServer(xtgraphics.nplayers, xtgraphics.server, xtgraphics.servport, xtgraphics.playingame);
+                    udpmistro.UDPLanServer(xtgraphics.server, xtgraphics.servport, xtgraphics.playingame);
                 }
                 u[0].falseo(2);
                 requestFocus();
@@ -2588,7 +2568,7 @@ class GameSparker extends JPanel
                     if (xtgraphics.lan) {
                         udpmistro.UDPConnectLan(xtgraphics.localserver, xtgraphics.nplayers, xtgraphics.im);
                         if (xtgraphics.im == 0) {
-                            xtgraphics.setbots(udpmistro.isbot, udpmistro.frame);
+                            xtgraphics.setbots(udpmistro.isbot);
                         }
                     } else {
                         udpmistro.UDPConnectOnline(xtgraphics.server, xtgraphics.gameport, xtgraphics.nplayers, xtgraphics.im);
@@ -2609,7 +2589,6 @@ class GameSparker extends JPanel
                     if (xtgraphics.lan) {
                         int k = checkpoints.stage;
                         if (k < 0) {
-                            k = 33;
                         }
                         if (xtgraphics.loadedt) {
                             xtgraphics.strack.play();
@@ -2800,11 +2779,7 @@ class GameSparker extends JPanel
                 requestFocus();
             }
             if (record.hcaught) {
-                if (medium.random() > 0.45) {
-                    medium.vert = false;
-                } else {
-                    medium.vert = true;
-                }
+                medium.vert = medium.random() <= 0.45;
                 medium.adv = (int) (900.0F * medium.random());
                 medium.vxz = (int) (360.0F * medium.random());
                 recordtime = 0;
@@ -3038,7 +3013,7 @@ class GameSparker extends JPanel
                 xtgraphics.sendwin(checkpoints);
                 if (xtgraphics.winner && xtgraphics.multion == 0 && xtgraphics.gmode != 0 && checkpoints.stage != xtGraphics.nTracks && checkpoints.stage == xtgraphics.unlocked) {
                     xtgraphics.unlocked++;
-                    setcarcookie(xtgraphics.sc[0], cardefine.names[xtgraphics.sc[0]], xtgraphics.arnp, xtgraphics.gmode, xtgraphics.unlocked, false);
+                    setcarcookie(xtgraphics.sc[0], cardefine.names[xtgraphics.sc[0]], xtgraphics.arnp, xtgraphics.gmode, xtgraphics.unlocked);
                     xtgraphics.unlocked--;
                 }
             }
@@ -3047,7 +3022,7 @@ class GameSparker extends JPanel
                 rd.drawImage(xtgraphics.dude[0], 135, 10, null);
             }
             if (recordtime >= 0) {
-                xtgraphics.fleximage(offImage, recordtime, checkpoints.stage);
+                xtgraphics.fleximage(offImage, recordtime);
             }
             if (++recordtime == 7) {
                 xtgraphics.fase = -5;
@@ -3062,7 +3037,7 @@ class GameSparker extends JPanel
             mouses = 0;
         }
         if (xtgraphics.fase == -7) {
-            xtgraphics.pausedgame(checkpoints.stage, u[0], record);
+            xtgraphics.pausedgame(u[0], record);
             if (recordtime != 0) {
                 recordtime = 0;
             }
@@ -3100,7 +3075,7 @@ class GameSparker extends JPanel
                 u[j].mutem = u[0].mutem;
                 u[j].mutes = u[0].mutes;
             }
-            xtgraphics.playsounds(mads[xtgraphics.im], u[j], checkpoints.stage);
+            xtgraphics.playsounds(mads[xtgraphics.im], u[j]);
         }
         date = new Date();
         final long l = date.getTime();
@@ -3158,7 +3133,7 @@ class GameSparker extends JPanel
 
     }
 
-    void setcarcookie(final int i, final String string, final float[] fs, final int gamemode, final int is, final boolean bool) {
+    void setcarcookie(final int i, final String string, final float[] fs, final int gamemode, final int is) {
         try {
             final File file = new File("" + Madness.fpath + "data/user.data");
             final String[] lines = {
@@ -3188,7 +3163,7 @@ class GameSparker extends JPanel
                 bufferedwriter.newLine();
             }
             bufferedwriter.close();
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
     }
@@ -3218,7 +3193,7 @@ class GameSparker extends JPanel
                 bufferedwriter.newLine();
             }
             bufferedwriter.close();
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
     }
@@ -3235,7 +3210,7 @@ class GameSparker extends JPanel
                 for (; (line = bufferedreader.readLine()) != null && i < 40; i++) {
                     liness[i] = line;
                     if (liness[i].startsWith("Class Path"))
-                        if (liness[i].indexOf("madapps.jar") != -1) {
+                        if (liness[i].contains("madapps.jar")) {
                             liness[i] = "Class Path=\\data\\madapps.jar;";
                         } else {
                             liness[i] = "Class Path=\\data\\madapp.jar;";
@@ -3252,7 +3227,7 @@ class GameSparker extends JPanel
                 }
                 bufferedwriter.close();
             }
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         Madness.inisetup = false;
@@ -3327,29 +3302,13 @@ class GameSparker extends JPanel
                 u[0].lookback = 1;
             }
             if (e.getKeyCode() == KeyEvent.VK_M)
-                if (u[0].mutem) {
-                    u[0].mutem = false;
-                } else {
-                    u[0].mutem = true;
-                }
+                u[0].mutem = !u[0].mutem;
             if (e.getKeyCode() == KeyEvent.VK_N)
-                if (u[0].mutes) {
-                    u[0].mutes = false;
-                } else {
-                    u[0].mutes = true;
-                }
+                u[0].mutes = !u[0].mutes;
             if (e.getKeyCode() == KeyEvent.VK_A)
-                if (u[0].arrace) {
-                    u[0].arrace = false;
-                } else {
-                    u[0].arrace = true;
-                }
+                u[0].arrace = !u[0].arrace;
             if (e.getKeyCode() == KeyEvent.VK_S)
-                if (u[0].radar) {
-                    u[0].radar = false;
-                } else {
-                    u[0].radar = true;
-                }
+                u[0].radar = !u[0].radar;
             if (e.getKeyCode() == KeyEvent.VK_V) {
                 view++;
                 if (view == 3) {
