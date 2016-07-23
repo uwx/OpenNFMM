@@ -545,7 +545,7 @@ class Mad {
 		rot(fs_23_, fs_22_, conto.y, conto.z, pzy, 4);
 		rot(fs, fs_22_, conto.x, conto.z, conto.xz, 4);
 		boolean bool_25_ = false;
-		double d = 0.0;
+		double d;
 		final int i_26_ = (int) ((scx[0] + scx[1] + scx[2] + scx[3]) / 4.0F);
 		final int i_27_ = (int) ((scz[0] + scz[1] + scz[2] + scz[3]) / 4.0F);
 		for (int i_28_ = 0; i_28_ < 4; i_28_++) {

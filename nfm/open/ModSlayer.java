@@ -4,8 +4,6 @@ package nfm.open;
 // Decompiler options: packimports(3)
 // Source File Name:   nfm.open.ModSlayer.java
 
-import java.io.IOException;
-
 class ModSlayer {
 
 	static final String COPYRIGHT = "";

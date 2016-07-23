@@ -39,7 +39,7 @@ class Utility {
             int i_438_ = 0;
             int i_439_ = 0;
             int i_440_ = 0;
-            String string_441_ = "";
+            String string_441_;
             String string_442_ = "";
             for ( /**/ ; i_438_ < string.length() && i_440_ != 2; i_438_++) {
                 string_441_ = "" + string.charAt(i_438_);

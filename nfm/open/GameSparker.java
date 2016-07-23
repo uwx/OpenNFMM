@@ -1334,7 +1334,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
 				var_xtGraphics.nickname = getstring("lastuser", strings[0], 0);
 				if (!var_xtGraphics.nickname.equals(""))
 					var_xtGraphics.opselect = 1;
-				String string = "";
+				String string;
 				try {
 					string = getstring("lastuser", strings[0], 1);
 				} catch (final Exception exception) {
@@ -2411,7 +2411,6 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
 						if (var_xtGraphics.lan) {
 							int i_72_ = checkpoints.stage;
 							if (i_72_ < 0)
-								i_72_ = 33;
 							if (var_xtGraphics.loadedt)
 								var_xtGraphics.strack.play();
 						}

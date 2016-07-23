@@ -896,7 +896,6 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						}
 						if (i_209_ == 1) {
 							string_210_ = string_210_ + "2ndColor(0,0,255)\n\n\n";
-							i_209_ = 2;
 						}
 						final int i_214_ = editor.getText().indexOf("<p>", 0);
 						editor.insertText(string_210_, i_214_);
@@ -2393,7 +2392,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			int i_387_ = 2;
 			int i_388_ = 0;
 			int i_389_ = 0;
-			String string_390_ = "";
+			String string_390_;
 			String string_391_ = "";
 			boolean bool = false;
 			for (/**/; i_387_ < string.length() && i_389_ != 2; i_387_++) {
@@ -2454,7 +2453,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 		}
 		final int i_396_ = ftm.stringWidth(string);
 		final int i_397_ = 4;
-		boolean bool = false;
+		boolean bool;
 		boolean bool_398_ = false;
 		bool = Math.abs(xm - i) < i_396_ / 2 + 12 && Math.abs(ym - i_395_ + 5) < 10 && mouses == 1;
 		if (Math.abs(xm - i) < i_396_ / 2 + 12 && Math.abs(ym - i_395_ + 5) < 10 && mouses == -1) {
@@ -4765,7 +4764,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 						pubt[i_143_] = -1;
 						clas[i_143_] = 0;
 						nad[i_143_] = 0;
-						String string = "";
+						String string;
 						try {
 							String string_144_ = new StringBuilder()
 									.append("http://multiplayer.needformadness.com/cars/").append(mycars[i_143_])
@@ -4803,7 +4802,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 							350 - ftm.stringWidth("Loading your account car list...") / 2, 220);
 					repaint();
 					nmc = 0;
-					String string = "";
+					String string;
 					try {
 						final URL url = new URL(new StringBuilder()
 								.append("http://multiplayer.needformadness.com/cars/lists/").append(tnick.getText())
@@ -5163,7 +5162,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			int i_381_ = 0;
 			int i_382_ = 0;
 			int i_383_ = 0;
-			String string_384_ = "";
+			String string_384_;
 			String string_385_ = "";
 			for (/**/; i_381_ < string.length() && i_383_ != 2; i_381_++) {
 				string_384_ = "" + string.charAt(i_381_);
@@ -5189,7 +5188,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
 			int i_375_ = 0;
 			int i_376_ = 0;
 			int i_377_ = 0;
-			String string_378_ = "";
+			String string_378_;
 			String string_379_ = "";
 			for (/**/; i_375_ < string.length() && i_377_ != 2; i_375_++) {
 				string_378_ = "" + string.charAt(i_375_);

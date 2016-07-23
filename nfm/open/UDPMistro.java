@@ -45,7 +45,7 @@ class UDPMistro implements Runnable {
 	private int getncoms(final String string) {
 		int i = 0;
 		int i_89_ = 0;
-		String string_90_ = "";
+		String string_90_;
 		for (/**/; i_89_ < string.length(); i_89_++) {
 			string_90_ = "" + string.charAt(i_89_);
 			if (string_90_.equals(","))
@@ -60,7 +60,7 @@ class UDPMistro implements Runnable {
 			int i_84_ = 0;
 			int i_85_ = 0;
 			int i_86_ = 0;
-			String string_87_ = "";
+			String string_87_;
 			String string_88_ = "";
 			for (/**/; i_84_ < string.length() && i_86_ != 2; i_84_++) {
 				string_87_ = "" + string.charAt(i_84_);
@@ -85,7 +85,7 @@ class UDPMistro implements Runnable {
 		try {
 			int i_79_ = 0;
 			int i_80_ = 0;
-			String string_81_ = "";
+			String string_81_;
 			String string_82_ = "";
 			for (/**/; wx < string.length() && i_80_ != 2; wx++) {
 				string_81_ = "" + string.charAt(wx);
@@ -175,7 +175,7 @@ class UDPMistro implements Runnable {
 				final String string = info[i][i_29_];
 				final String string_34_ = getSvalue(string, 0);
 				if (string_34_.length() == 16) {
-					String string_35_ = "";
+					String string_35_;
 					string_35_ = "" + string_34_.charAt(0);
 					control.left = !string_35_.equals("0");
 					string_35_ = "" + string_34_.charAt(1);
@@ -336,7 +336,7 @@ class UDPMistro implements Runnable {
 			}
 			if (i_20_ == 10) {
 				final String string = "3|" + pgame + "|alive|";
-				String string_22_ = "";
+				String string_22_;
 				if (i_19_ == 0)
 					try {
 						dout.println(string);

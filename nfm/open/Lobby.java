@@ -494,7 +494,7 @@ class Lobby implements Runnable {
 											}
 										}
 									} else if (!xt.clan.equals("")) {
-										int i_314_ = 4;
+										int i_314_;
 										if (gs.warb.sel != 0/* && gb.loadwbgames == 2*/) {//CHECK
 											if (gs.wgame.getSelectedIndex() == 1 && gs.vnpls.sel != 0
 													&& cancreate == 2) {
@@ -881,7 +881,7 @@ class Lobby implements Runnable {
 			int i_348_ = 0;
 			int i_349_ = 0;
 			int i_350_ = 0;
-			String string_351_ = "";
+			String string_351_;
 			String string_352_ = "";
 			for (/**/ ; i_348_ < string.length() && i_350_ != 2; i_348_++) {
 				string_351_ = "" + string.charAt(i_348_);
@@ -907,7 +907,7 @@ class Lobby implements Runnable {
 			int i_342_ = 0;
 			int i_343_ = 0;
 			int i_344_ = 0;
-			String string_345_ = "";
+			String string_345_;
 			String string_346_ = "";
 			for (/**/ ; i_342_ < string.length() && i_344_ != 2; i_342_++) {
 				string_345_ = "" + string.charAt(i_342_);
@@ -936,7 +936,7 @@ class Lobby implements Runnable {
 				int i_354_ = 0;
 				int i_355_ = 0;
 				int i_356_ = 0;
-				String string_357_ = "";
+				String string_357_;
 				String string_358_ = "";
 				for (/**/ ; i_354_ < string.length() && i_356_ != 2; i_354_++) {
 					string_357_ = "" + string.charAt(i_354_);
@@ -962,7 +962,7 @@ class Lobby implements Runnable {
 			int i_336_ = 0;
 			int i_337_ = 0;
 			int i_338_ = 0;
-			String string_339_ = "";
+			String string_339_;
 			String string_340_ = "";
 			for (/**/ ; i_336_ < string.length() && i_338_ != 2; i_336_++) {
 				string_339_ = "" + string.charAt(i_336_);
@@ -988,7 +988,7 @@ class Lobby implements Runnable {
 			int i_330_ = 0;
 			int i_331_ = 0;
 			int i_332_ = 0;
-			String string_333_ = "";
+			String string_333_;
 			String string_334_ = "";
 			for (/**/ ; i_330_ < string.length() && i_332_ != 2; i_330_++) {
 				string_333_ = "" + string.charAt(i_330_);
@@ -1178,7 +1178,6 @@ class Lobby implements Runnable {
 													rd.fillRect(70, 53 + 30 * i_106_ - i_105_, 116, 29);
 													i_107_ = i_109_;
 												}
-												bool_112_ = true;
 												if (control.handb) {
 													gs.cmsg.setText(gs.cmsg.getText() +
 															"" + pnames[i_109_]);
@@ -1277,7 +1276,6 @@ class Lobby implements Runnable {
 												gb.upo = true;
 											}*/
 										}
-										bool_119_ = true;
 										if (control.handb) {
 											gs.cmsg.setText(gs.cmsg.getText() + "" +
 													pnames[i_116_]);
@@ -1353,7 +1351,6 @@ class Lobby implements Runnable {
 														rd.fillRect(70, 53 + 30 * i_106_ - i_105_, 116, 29);
 														i_107_ = i_123_;
 													}
-													bool_129_ = true;
 													if (control.handb) {
 														gs.cmsg.setText(this.gs.cmsg.getText() + "" +
 																this.pnames[i_123_]);
@@ -2913,7 +2910,7 @@ class Lobby implements Runnable {
 							if (conon == 1) {
 								if (wait[i_193_] > 0)
 									if (gwarb[i_193_] == 0) {
-										String string_199_ = "";
+										String string_199_;
 										if (gplyrs[i_193_].equals(""))
 											string_199_ = "Public Game";
 										else
@@ -4687,7 +4684,7 @@ class Lobby implements Runnable {
 					updatec = -2;
 				}
 			} else {
-				String string_6_ = "Nonex";
+				String string_6_;
 				try {
 					string_6_ = InetAddress.getLocalHost().getHostName();
 					if (string_6_.contains("|"))
@@ -5604,7 +5601,7 @@ class Lobby implements Runnable {
 		rd.setFont(new Font("Arial", 1, 11));
 		xt.ftm = rd.getFontMetrics();
 		ftm = rd.getFontMetrics();
-		String string = "";
+		String string;
 		/*if (checkpoints.stage < 0)
 			string = "Custom Stage";
 		if (checkpoints.stage > 0 && checkpoints.stage <= 10)

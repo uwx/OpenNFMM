@@ -788,7 +788,7 @@ class Control {
 					statusque = (int) (20.0F * m.random());
 				} else
 					stcnt++;
-			boolean bool = false;
+			boolean bool;
 			if (usebounce)
 				bool = mad.wtouch;
 			else

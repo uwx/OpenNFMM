@@ -709,7 +709,7 @@ class Login implements Runnable {
 			int i_75_ = 0;
 			int i_76_ = 0;
 			int i_77_ = 0;
-			String string_78_ = "";
+			String string_78_;
 			String string_79_ = "";
 			for (/**/ ; i_75_ < string.length() && i_77_ != 2; i_75_++) {
 				string_78_ = "" + string.charAt(i_75_);
@@ -735,7 +735,7 @@ class Login implements Runnable {
 			int i_69_ = 0;
 			int i_70_ = 0;
 			int i_71_ = 0;
-			String string_72_ = "";
+			String string_72_;
 			String string_73_ = "";
 			for (/**/ ; i_69_ < string.length() && i_71_ != 2; i_69_++) {
 				string_72_ = "" + string.charAt(i_69_);
@@ -1438,7 +1438,7 @@ class Login implements Runnable {
 			gs.setCursor(new Cursor(3));
 			int i = -1;
 			int i_16_ = -1;
-			String string = "";
+			String string;
 			try {
 				socket = new Socket(servers[0], 7061);
 				din = new BufferedReader(new InputStreamReader(socket.getInputStream()));

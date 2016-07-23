@@ -483,7 +483,7 @@ class Medium {
 				final int[][] is_110_ = new int[3][12];
 				final int[] is_111_ = new int[12];
 				final int[] is_112_ = new int[12];
-				boolean bool_116_ = true;
+				boolean bool_116_;
 				for (int i_120_ = 0; i_120_ < 3; i_120_++) {
 					for (int i_121_ = 0; i_121_ < 12; i_121_++) {
 						is[i_120_][i_121_] = clax[i][i_120_][i_121_] + clx[i] - x / 20;
@@ -725,7 +725,7 @@ class Medium {
 				rot(is_192_, is_193_, cy, cz, zy, nmv[i_185_] * 2);
 				final int[] is_196_ = new int[4];
 				final int[] is_197_ = new int[4];
-				boolean bool_201_ = true;
+				boolean bool_201_;
 				for (int i_202_ = 0; i_202_ < nmv[i_185_] - 1; i_202_++) {
 					int i_203_ = 0;
 					int i_204_ = 0;
@@ -1320,9 +1320,9 @@ class Medium {
 		final int[] is = new int[nmt];
 		final int[] is_173_ = new int[nmt];
 		for (int i_174_ = 0; i_174_ < nmt; i_174_++) {
-			int i_175_ = 85;
-			float f = 0.5F;
-			float f_176_ = 0.5F;
+			int i_175_;
+			float f;
+			float f_176_;
 			is[i_174_] = (int) (10000.0 + random.nextDouble() * 10000.0);
 			final int i_177_ = (int) (random.nextDouble() * 360.0);
 			if (random.nextDouble() > random.nextDouble()) {

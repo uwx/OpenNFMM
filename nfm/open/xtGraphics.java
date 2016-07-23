@@ -24,6 +24,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.URL;
+import java.util.Objects;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -3350,7 +3351,7 @@ class xtGraphics extends Panel implements Runnable {
 			int i_444_ = 0;
 			int i_445_ = 0;
 			int i_446_ = 0;
-			String string_447_ = "";
+			String string_447_;
 			String string_448_ = "";
 			for ( /**/ ; i_444_ < string.length() && i_446_ != 2; i_444_++) {
 				string_447_ = "" + string.charAt(i_444_);
@@ -3376,7 +3377,7 @@ class xtGraphics extends Panel implements Runnable {
 			int i_438_ = 0;
 			int i_439_ = 0;
 			int i_440_ = 0;
-			String string_441_ = "";
+			String string_441_;
 			String string_442_ = "";
 			for ( /**/ ; i_438_ < string.length() && i_440_ != 2; i_438_++) {
 				string_441_ = "" + string.charAt(i_438_);
@@ -3612,7 +3613,6 @@ class xtGraphics extends Panel implements Runnable {
 		ftm = rd.getFontMetrics();
 		int i_50_ = i - 1;
 		if (i_50_ < 0)
-			i_50_ = 32;
 		if (!bool) {
 			//unnecessary
 			//drawcs(340 + i_49_, new StringBuilder().append("").append(sndsize[i_50_]).append(" KB").toString(), 0, 0, 0,
@@ -7181,7 +7181,6 @@ class xtGraphics extends Panel implements Runnable {
 			}
 			if (bool) {
 				pingstat();
-				bool = false;
 			}
 			final boolean[] bools = { true, true };
 			while ((runtyp == -101 || sendstat == 1) && !lan && !Thread.currentThread().isInterrupted()) {
@@ -7806,7 +7805,6 @@ class xtGraphics extends Panel implements Runnable {
 				if (!app.sgame.isShowing())
 					app.sgame.setVisible(true);
 				app.sgame.move(i_42_, 62);
-				i_42_ += app.sgame.getWidth() + 6;
 				/*if (nfmtab == 0) {
 					if (!app.snfm1.isShowing()) {
 						app.snfm1.setVisible(true);
@@ -8860,7 +8858,7 @@ class xtGraphics extends Panel implements Runnable {
 						loop = "Hanged " + loop;
 					if (i < 0 && mad.ftab)
 						loop = "Hanged " + loop;
-					if (loop != "") {
+					if (!Objects.equals(loop, "")) {
 						final StringBuilder stringbuilder = new StringBuilder();
 						final xtGraphics var_xtGraphics_193_ = this;
 						var_xtGraphics_193_.asay = stringbuilder.append(var_xtGraphics_193_.asay).append(" ")
@@ -8873,7 +8871,7 @@ class xtGraphics extends Panel implements Runnable {
 						i++;
 					}
 					if (i == 0 && mad.rtab)
-						if (loop == "")
+						if (Objects.equals(loop, ""))
 							spin = "Tabletop";
 						else
 							spin = "Flipside";
@@ -8897,7 +8895,7 @@ class xtGraphics extends Panel implements Runnable {
 						}
 					}
 					if (i != 0) {
-						if (loop == "" && spin == "") {
+						if (Objects.equals(loop, "") && Objects.equals(spin, "")) {
 							final StringBuilder stringbuilder = new StringBuilder();
 							final xtGraphics var_xtGraphics_195_ = this;
 							var_xtGraphics_195_.asay = stringbuilder.append(var_xtGraphics_195_.asay).append(" ")
@@ -8909,8 +8907,8 @@ class xtGraphics extends Panel implements Runnable {
 										.append(" and beyond").toString();
 							}
 						} else {
-							if (spin != "")
-								if (loop == "") {
+							if (!Objects.equals(spin, ""))
+								if (Objects.equals(loop, "")) {
 									final StringBuilder stringbuilder = new StringBuilder();
 									final xtGraphics var_xtGraphics_198_ = this;
 									var_xtGraphics_198_.asay = stringbuilder.append(var_xtGraphics_198_.asay)
@@ -8932,8 +8930,8 @@ class xtGraphics extends Panel implements Runnable {
 										.append(" and beyond").toString();
 							}
 						}
-					} else if (spin != "")
-						if (loop == "") {
+					} else if (!Objects.equals(spin, ""))
+						if (Objects.equals(loop, "")) {
 							final StringBuilder stringbuilder = new StringBuilder();
 							final xtGraphics var_xtGraphics_203_ = this;
 							var_xtGraphics_203_.asay = stringbuilder.append(var_xtGraphics_203_.asay).append(" ")
@@ -8944,11 +8942,11 @@ class xtGraphics extends Panel implements Runnable {
 							var_xtGraphics_204_.asay = stringbuilder.append(var_xtGraphics_204_.asay).append(" by ")
 									.append(spin).toString();
 						}
-					if (asay != "")
+					if (!Objects.equals(asay, ""))
 						auscnt -= 15;
-					if (loop != "")
+					if (!Objects.equals(loop, ""))
 						auscnt -= 25;
-					if (spin != "")
+					if (!Objects.equals(spin, ""))
 						auscnt -= 25;
 					if (i != 0)
 						auscnt -= 25;

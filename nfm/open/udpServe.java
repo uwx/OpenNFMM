@@ -28,7 +28,7 @@ class udpServe implements Runnable {
 			int i_25_ = 0;
 			int i_26_ = 0;
 			int i_27_ = 0;
-			String string_28_ = "";
+			String string_28_;
 			String string_29_ = "";
 			for (/**/; i_25_ < string.length() && i_27_ != 2; i_25_++) {
 				string_28_ = "" + string.charAt(i_25_);
@@ -54,7 +54,7 @@ class udpServe implements Runnable {
 			int i_19_ = 0;
 			int i_20_ = 0;
 			int i_21_ = 0;
-			String string_22_ = "";
+			String string_22_;
 			String string_23_ = "";
 			for (/**/; i_19_ < string.length() && i_21_ != 2; i_19_++) {
 				string_22_ = "" + string.charAt(i_19_);

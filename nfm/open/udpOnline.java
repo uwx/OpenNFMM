@@ -53,7 +53,7 @@ class udpOnline implements Runnable {
 			int i_19_ = 0;
 			int i_20_ = 0;
 			int i_21_ = 0;
-			String string_22_ = "";
+			String string_22_;
 			String string_23_ = "";
 			for (/**/; i_19_ < string.length() && i_21_ != 2; i_19_++) {
 				string_22_ = "" + string.charAt(i_19_);
@@ -79,7 +79,7 @@ class udpOnline implements Runnable {
 			int i_13_ = 0;
 			int i_14_ = 0;
 			int i_15_ = 0;
-			String string_16_ = "";
+			String string_16_;
 			String string_17_ = "";
 			for (/**/; i_13_ < string.length() && i_15_ != 2; i_13_++) {
 				string_16_ = "" + string.charAt(i_13_);

@@ -357,7 +357,7 @@ public class StageMaker extends Applet implements Runnable {
         rd.setFont(new Font("Arial", 1, 12));
         ftm = rd.getFontMetrics();
         final int i_383_ = ftm.stringWidth(string);
-        boolean bool_384_ = false;
+        boolean bool_384_;
         boolean bool_385_ = false;
         if (string.equals(" Cancel ") && epart && Math.abs(xm - i) < i_383_ / 2 + 12 && Math.abs(ym - i_381_ + 5) < 10)
             overcan = true;
@@ -1192,7 +1192,7 @@ public class StageMaker extends Applet implements Runnable {
         }
         final int i_388_ = ftm.stringWidth(string);
         final int i_389_ = 4;
-        boolean bool = false;
+        boolean bool;
         boolean bool_390_ = false;
         bool = Math.abs(xm - i) < i_388_ / 2 + 12 && Math.abs(ym - i_387_ + 5) < 10 && mousePressed == 1;
         if (Math.abs(xm - i) < i_388_ / 2 + 12 && Math.abs(ym - i_387_ + 5) < 10 && mousePressed == -1) {
@@ -2749,7 +2749,6 @@ public class StageMaker extends Applet implements Runnable {
                                             }
                                             if (rot == -90 && !bool_40_) {
                                                 rot = 0;
-                                                bool_40_ = true;
                                             }
                                         }
                                     }
@@ -3142,7 +3141,6 @@ public class StageMaker extends Applet implements Runnable {
                         }
                         if (rot == -90 && !bool) {
                             rot = 0;
-                            bool = true;
                         }
                         if (selectedPart == 30 || selectedPart == 31 || selectedPart == 32) {
                             if (rot == -90)
@@ -3314,7 +3312,6 @@ public class StageMaker extends Applet implements Runnable {
                         }
                         if (rot == -90 && !bool) {
                             rot = 0;
-                            bool = true;
                         }
                         if (selectedPart == 30 || selectedPart == 31 || selectedPart == 32) {
                             if (rot == -90)
@@ -3772,7 +3769,7 @@ public class StageMaker extends Applet implements Runnable {
                     rd.fillRect(70, 522, 112, 2);
                     rd.fillRect(70, 528, 112, 2);
                     float f = 0.0F;
-                    int i_92_ = 255;
+                    int i_92_;
                     for (int i_93_ = 0; i_93_ < 112; i_93_++) {
                         i_92_ = (int) (255.0F / (f + 1.0F));
                         if (i_92_ > 255)
@@ -3808,7 +3805,6 @@ public class StageMaker extends Applet implements Runnable {
                     rd.fillRect(295, 516, 112, 2);
                     rd.fillRect(295, 522, 112, 2);
                     f = 0.0F;
-                    i_92_ = 255;
                     for (int i_97_ = 0; i_97_ < 112; i_97_++) {
                         i_92_ = (int) (255.0F / (f + 1.0F));
                         if (i_92_ > 255)
@@ -4871,7 +4867,7 @@ public class StageMaker extends Applet implements Runnable {
                         maker[i] = "Unkown";
                         pubt[i] = -1;
                         nad[i] = 0;
-                        String string = "";
+                        String string;
                         try {
                             String string_161_ = new StringBuilder()
                                     .append("http://multiplayer.needformadness.com/tracks/").append(mystages[i])
@@ -4926,7 +4922,7 @@ public class StageMaker extends Applet implements Runnable {
                             400 - ftm.stringWidth("Loading your account's stage list...") / 2, 220);
                     repaint();
                     nms = 0;
-                    String string = "";
+                    String string;
                     try {
                         final URL url = new URL(new StringBuilder()
                                 .append("http://multiplayer.needformadness.com/tracks/lists/").append(tnick.getText())
@@ -5172,7 +5168,7 @@ public class StageMaker extends Applet implements Runnable {
             int i_360_ = 0;
             int i_361_ = 0;
             int i_362_ = 0;
-            String string_363_ = "";
+            String string_363_;
             String string_364_ = "";
             for (/**/; i_360_ < string.length() && i_362_ != 2; i_360_++) {
                 string_363_ = "" + string.charAt(i_360_);
