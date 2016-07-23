@@ -17,4 +17,4 @@ Keep in mind that __this is not the final version of the files__, and they are u
 # Some of the Features
 LAN multiplayer works, but there is no chat, no clans and no multiplayer dome. You do not require a full account to play, and the 3 game limit has been removed. I am not going to add online multiplayer, at least not until Omar closes down the official servers.
 
-The car and stage size limits have been hacked. There is one limit, which is sort of hardcoded into Medium, but I'd rather not mess with it.
+The car and stage size limits have been hacked. There is one limit, which is sort of hardcoded into nfm.open.Medium, but I'd rather not mess with it.
