@@ -77,7 +77,7 @@ class CheckPoints {
         if (!haltall) {
             pcleared = mads[i0].pcleared;
             for (int i2 = 0; i2 < i; i2++) {
-                magperc[i2] = (float) mads[i2].hitmag / (float) mads[i2].stat.maxmag[mads[i2].cn];
+                magperc[i2] = (float) mads[i2].hitmag / (float) mads[i2].stat.maxmag;
                 if (magperc[i2] > 1.0F) {
                     magperc[i2] = 1.0F;
                 }

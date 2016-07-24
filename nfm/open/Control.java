@@ -445,8 +445,8 @@ class Control {
                     if (checkpoints.stage == 20 || checkpoints.stage == 24) {
                         usebounce = false;
                     }
-                    perfection = m.random() <= (float) mad.hitmag / (float) mad.stat.maxmag[mad.cn];
-                    if (100.0F * mad.hitmag / mad.stat.maxmag[mad.cn] > 60.0F) {
+                    perfection = m.random() <= (float) mad.hitmag / (float) mad.stat.maxmag;
+                    if (100.0F * mad.hitmag / mad.stat.maxmag > 60.0F) {
                         perfection = true;
                     }
                     if (checkpoints.stage == 3 && mad.cn == 6) {
@@ -866,7 +866,7 @@ class Control {
                         if (checkpoints.stage == 26) {
                             i15 = 40;
                         }
-                        if (100.0F * mad.hitmag / mad.stat.maxmag[mad.cn] > i15) {
+                        if (100.0F * mad.hitmag / mad.stat.maxmag > i15) {
                             trfix = 1;
                         }
                         if (!bool) {
@@ -883,7 +883,7 @@ class Control {
                             if (checkpoints.stage == 26 && checkpoints.clear[mad.im] - checkpoints.clear[0] >= 5 && mad.cn != 10 && mad.cn != 12) {
                                 i16 = 50;
                             }
-                            if (100.0F * mad.hitmag / mad.stat.maxmag[mad.cn] > i16) {
+                            if (100.0F * mad.hitmag / mad.stat.maxmag > i16) {
                                 trfix = 2;
                             }
                         }
@@ -1615,7 +1615,7 @@ class Control {
                                 right = true;
                                 lastl = false;
                             }
-                            if (Math.abs(i - pan) > 50 && mad.speed > mad.stat.swits[mad.cn][0] && turntyp != 0) {
+                            if (Math.abs(i - pan) > 50 && mad.speed > mad.stat.swits[0] && turntyp != 0) {
                                 if (turntyp == 1) {
                                     down = true;
                                 }
@@ -1635,7 +1635,7 @@ class Control {
                             left = true;
                             lastl = true;
                         }
-                        if (Math.abs(i - pan) < 310 && mad.speed > mad.stat.swits[mad.cn][0] && turntyp != 0) {
+                        if (Math.abs(i - pan) < 310 && mad.speed > mad.stat.swits[0] && turntyp != 0) {
                             if (turntyp == 1) {
                                 down = true;
                             }
