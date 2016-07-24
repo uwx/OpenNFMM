@@ -240,7 +240,7 @@ class UDPMistro implements Runnable {
                     mad.dest = !string35.equals("0");
                 } else if (string34.equals("disco")) {
                     is[i] = 3;
-                    mad.hitmag = mad.cd.maxmag[mad.cn] + 100;
+                    mad.hitmag = mad.stat.maxmag[mad.cn] + 100;
                     force[i] = 7;
                 }
                 if (force[i] != 7) {
@@ -298,7 +298,7 @@ class UDPMistro implements Runnable {
                         mad.nlaps = getvalue(string, 0);
                     }
                     if (i36 > 18) {
-                        mad.hitmag = (int) (getvalue(string, 0) / 100.0F * mad.cd.maxmag[mad.cn]);
+                        mad.hitmag = (int) (getvalue(string, 0) / 100.0F * mad.stat.maxmag[mad.cn]);
                     }
                 }
                 lframe[i] = frame[i][i29];
@@ -600,7 +600,7 @@ class UDPMistro implements Runnable {
             info[i41][0] = info[i41][0] + "|";
         }
         if (runon == 2) {
-            mad.hitmag = mad.cd.maxmag[mad.cn] + 100;
+            mad.hitmag = mad.stat.maxmag[mad.cn] + 100;
         }
         frame[i41][0]++;
     }

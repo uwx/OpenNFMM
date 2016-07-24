@@ -16,7 +16,6 @@ import java.awt.Panel;
 import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 import java.awt.image.MemoryImageSource;
 import java.awt.image.PixelGrabber;
 import java.io.BufferedReader;
@@ -35,7 +34,7 @@ import java.util.zip.ZipInputStream;
 
 class xtGraphics extends Panel implements Runnable {
     /**
-     *
+     * Serialization UID
      */
     private static final long serialVersionUID = 1254986552635023147L;
     /**
@@ -47,6 +46,10 @@ class xtGraphics extends Panel implements Runnable {
      */
     static final int nCars = 16;
     int acexp = 0;
+
+    /**
+     * Stunt adjectives
+     */
     private final static String[][] adj = {
             {
                     "Cool", "Alright", "Nice"
@@ -297,7 +300,6 @@ class xtGraphics extends Panel implements Runnable {
     boolean nofull = false;
     int nplayers = 7;
     Image ntrg;
-    private ImageObserver ob;
     private final Image[] ocntdn = new Image[4];
     private Image odisco;
     private Image odmg;
@@ -788,8 +790,8 @@ class xtGraphics extends Panel implements Runnable {
     }
 
     private Image bressed(final Image image) {
-        final int i = image.getHeight(ob);
-        final int i340 = image.getWidth(ob);
+        final int i = image.getHeight(null);
+        final int i340 = image.getWidth(null);
         final int[] is = new int[i340 * i];
         final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i340, i, is, 0, i340);
         try {
@@ -859,7 +861,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    void carselect(final Control control, final ContO[] contos, final int i, final int i104, final boolean bool) {
+    void carselect(final Control control, final ContO[] cars, final int i, final int i104, final boolean bool) {
         rd.setColor(new Color(0, 0, 0));
         rd.fillRect(0, 0, 65, 450);
         rd.fillRect(735, 0, 65, 450);
@@ -889,7 +891,7 @@ class xtGraphics extends Panel implements Runnable {
         	rd.setFont(new Font("Arial", 1, 13));
         	ftm = rd.getFontMetrics();
         	String string = "Top 20 Cars";
-        	int i105 = cd.loadlist;
+        	int i105 = stat.loadlist;
         	String string106 = "Weekly";
         	while (i105 > 6) {
         		i105 -= 6;
@@ -919,12 +921,12 @@ class xtGraphics extends Panel implements Runnable {
         /*if (cfase == 101) {
         	rd.setFont(new Font("Arial", 1, 13));
         	ftm = rd.getFontMetrics();
-        	drawcs(69, "" + ("") + (cd.viewname) + ("'s account cars!"), 220,
+        	drawcs(69, "" + ("") + (stat.viewname) + ("'s account cars!"), 220,
         			112, 33, 3);
         }*/
         if (!remi) {
             rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
-            contos[sc[0]].d(rd);
+            cars[sc[0]].d(rd);
             rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         }
         /*if (cfase == 8) {
@@ -932,32 +934,32 @@ class xtGraphics extends Panel implements Runnable {
         	rd.setFont(new Font("Arial", 1, 13));
         	ftm = rd.getFontMetrics();
         	drawcs(195, "Removing Car...", 0, 0, 0, 3);
-        	if (cd.action != 10)
-        		if (cd.action != -10) {
+        	if (stat.action != 10)
+        		if (stat.action != -10) {
         			cfase = 5;
         			showtf = false;
         		} else
         			cfase = 9;
         }*/
         if (/*(multion != 0 || testdrive == 1 || testdrive == 2) && */lsc != sc[0]) {
-            if (contos[sc[0]].xy != 0) {
-                contos[sc[0]].xy = 0;
+            if (cars[sc[0]].xy != 0) {
+                cars[sc[0]].xy = 0;
             }
             boolean bool107 = false;
-            for (int i108 = 0; i108 < contos[sc[0]].npl && !bool107; i108++)
-                if (contos[sc[0]].p[i108].colnum == 1) {
+            for (int i108 = 0; i108 < cars[sc[0]].npl && !bool107; i108++)
+                if (cars[sc[0]].p[i108].colnum == 1) {
                     final float[] fs = new float[3];
-                    Color.RGBtoHSB(contos[sc[0]].p[i108].c[0], contos[sc[0]].p[i108].c[1], contos[sc[0]].p[i108].c[2], fs);
+                    Color.RGBtoHSB(cars[sc[0]].p[i108].c[0], cars[sc[0]].p[i108].c[1], cars[sc[0]].p[i108].c[2], fs);
                     arnp[0] = fs[0];
                     arnp[1] = fs[1];
                     arnp[2] = 1.0F - fs[2];
                     bool107 = true;
                 }
             bool107 = false;
-            for (int i109 = 0; i109 < contos[sc[0]].npl && !bool107; i109++)
-                if (contos[sc[0]].p[i109].colnum == 2) {
+            for (int i109 = 0; i109 < cars[sc[0]].npl && !bool107; i109++)
+                if (cars[sc[0]].p[i109].colnum == 2) {
                     final float[] fs = new float[3];
-                    Color.RGBtoHSB(contos[sc[0]].p[i109].c[0], contos[sc[0]].p[i109].c[1], contos[sc[0]].p[i109].c[2], fs);
+                    Color.RGBtoHSB(cars[sc[0]].p[i109].c[0], cars[sc[0]].p[i109].c[1], cars[sc[0]].p[i109].c[2], fs);
                     arnp[3] = fs[0];
                     arnp[4] = fs[1];
                     arnp[5] = 1.0F - fs[2];
@@ -965,28 +967,28 @@ class xtGraphics extends Panel implements Runnable {
                 }
             final Color color = Color.getHSBColor(arnp[0], arnp[1], 1.0F - arnp[2]);
             final Color color110 = Color.getHSBColor(arnp[3], arnp[4], 1.0F - arnp[5]);
-            for (int i111 = 0; i111 < contos[sc[0]].npl; i111++) {
-                if (contos[sc[0]].p[i111].colnum == 1) {
-                    contos[sc[0]].p[i111].hsb[0] = arnp[0];
-                    contos[sc[0]].p[i111].hsb[1] = arnp[1];
-                    contos[sc[0]].p[i111].hsb[2] = 1.0F - arnp[2];
-                    contos[sc[0]].p[i111].c[0] = color.getRed();
-                    contos[sc[0]].p[i111].c[1] = color.getGreen();
-                    contos[sc[0]].p[i111].c[2] = color.getBlue();
-                    contos[sc[0]].p[i111].oc[0] = color.getRed();
-                    contos[sc[0]].p[i111].oc[1] = color.getGreen();
-                    contos[sc[0]].p[i111].oc[2] = color.getBlue();
+            for (int i111 = 0; i111 < cars[sc[0]].npl; i111++) {
+                if (cars[sc[0]].p[i111].colnum == 1) {
+                    cars[sc[0]].p[i111].hsb[0] = arnp[0];
+                    cars[sc[0]].p[i111].hsb[1] = arnp[1];
+                    cars[sc[0]].p[i111].hsb[2] = 1.0F - arnp[2];
+                    cars[sc[0]].p[i111].c[0] = color.getRed();
+                    cars[sc[0]].p[i111].c[1] = color.getGreen();
+                    cars[sc[0]].p[i111].c[2] = color.getBlue();
+                    cars[sc[0]].p[i111].oc[0] = color.getRed();
+                    cars[sc[0]].p[i111].oc[1] = color.getGreen();
+                    cars[sc[0]].p[i111].oc[2] = color.getBlue();
                 }
-                if (contos[sc[0]].p[i111].colnum == 2) {
-                    contos[sc[0]].p[i111].hsb[0] = arnp[3];
-                    contos[sc[0]].p[i111].hsb[1] = arnp[4];
-                    contos[sc[0]].p[i111].hsb[2] = 1.0F - arnp[5];
-                    contos[sc[0]].p[i111].c[0] = color110.getRed();
-                    contos[sc[0]].p[i111].c[1] = color110.getGreen();
-                    contos[sc[0]].p[i111].c[2] = color110.getBlue();
-                    contos[sc[0]].p[i111].oc[0] = color110.getRed();
-                    contos[sc[0]].p[i111].oc[1] = color110.getGreen();
-                    contos[sc[0]].p[i111].oc[2] = color110.getBlue();
+                if (cars[sc[0]].p[i111].colnum == 2) {
+                    cars[sc[0]].p[i111].hsb[0] = arnp[3];
+                    cars[sc[0]].p[i111].hsb[1] = arnp[4];
+                    cars[sc[0]].p[i111].hsb[2] = 1.0F - arnp[5];
+                    cars[sc[0]].p[i111].c[0] = color110.getRed();
+                    cars[sc[0]].p[i111].c[1] = color110.getGreen();
+                    cars[sc[0]].p[i111].c[2] = color110.getBlue();
+                    cars[sc[0]].p[i111].oc[0] = color110.getRed();
+                    cars[sc[0]].p[i111].oc[1] = color110.getGreen();
+                    cars[sc[0]].p[i111].oc[2] = color110.getBlue();
                 }
             }
             lsc = sc[0];
@@ -1033,24 +1035,24 @@ class xtGraphics extends Panel implements Runnable {
             } else {
                 app.mcars.show = false;
             }
-            contos[sc[0]].z = 950;
+            cars[sc[0]].z = 950;
             if (sc[0] == 13) {
-                contos[sc[0]].z = 1000;
+                cars[sc[0]].z = 1000;
             }
-            contos[sc[0]].y = -34 - contos[sc[0]].grat;
-            contos[sc[0]].x = 0;
+            cars[sc[0]].y = -34 - cars[sc[0]].grat;
+            cars[sc[0]].x = 0;
             if (mouson >= 0 && mouson <= 3) {
-                contos[sc[0]].xz += 2;
+                cars[sc[0]].xz += 2;
             } else {
-                contos[sc[0]].xz += 5;
+                cars[sc[0]].xz += 5;
             }
-            if (contos[sc[0]].xz > 360) {
-                contos[sc[0]].xz -= 360;
+            if (cars[sc[0]].xz > 360) {
+                cars[sc[0]].xz -= 360;
             }
-            contos[sc[0]].zy = 0;
-            contos[sc[0]].wzy -= 10;
-            if (contos[sc[0]].wzy < -30) {
-                contos[sc[0]].wzy += 30;
+            cars[sc[0]].zy = 0;
+            cars[sc[0]].wzy -= 10;
+            if (cars[sc[0]].wzy < -30) {
+                cars[sc[0]].wzy += 30;
             }
             if (!remi) {
                 if (sc[0] != minsl) {
@@ -1111,15 +1113,15 @@ class xtGraphics extends Panel implements Runnable {
             } else {
                 if (flatrstart == 6) {
                     /*if (cfase == 10) {
-                    	/*if (cd.action == 13) {
+                    	/*if (stat.action == 13) {
                     		minsl = nCars + 20;
-                    		maxsl = cd.xnlocars - 1;
+                    		maxsl = stat.xnlocars - 1;
                     		i112 = nCars + 20;
-                    		cd.action = 0;
+                    		stat.action = 0;
                     		cfase = 11;
                     	}*/
-                    /*if (cd.action == 12) {
-                    	int i119 = cd.loadlist;
+                    /*if (stat.action == 12) {
+                    	int i119 = stat.loadlist;
                     	String string = "Top 20 Cars";
                     	String string120 = "Weekly";
                     	while (i119 > 6) {
@@ -1153,137 +1155,137 @@ class xtGraphics extends Panel implements Runnable {
                     	drawcs(195,
                     			"" + ("[  Loading ") + (string) + ("  ]"),
                     			0, 0, 0, 3);
-                    	if (cd.nl > 0 && cd.nl <= 20)
-                    		drawcs(235, "" + ("Loading :  ") + (cd.loadnames[cd.nl - 1])
+                    	if (stat.nl > 0 && stat.nl <= 20)
+                    		drawcs(235, "" + ("Loading :  ") + (stat.loadnames[stat.nl - 1])
                     				 + (""), 0, 0, 0, 3);
                     }*/
-                    /*if (cd.action == 11) {
+                    /*if (stat.action == 11) {
                     	drawprom(145, 170);
                     	drawcs(195, "Loading List, Please Wait...", 0, 0, 0, 3);
                     }*/
-                    /*if (cd.action == -1) {
+                    /*if (stat.action == -1) {
                     	drawprom(145, 170);
                     	drawcs(195, "Failed to Load List.", 0, 0, 0, 3);
                     	drawcs(225, "Unknown Error.  Please try again later.", 0, 0, 0, 3);
                     	if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool)) {
-                    		cd.action = 0;
+                    		stat.action = 0;
                     		cfase = basefase;
                     	}
                     }*/
-                    /*if (cd.action == 0 || cd.action == 14 || cd.action == 15 || cd.action == 16
-                    		|| cd.action == 17) {
+                    /*if (stat.action == 0 || stat.action == 14 || stat.action == 15 || stat.action == 16
+                    		|| stat.action == 17) {
                     	drawprom(65, 250);
                     	if (drawcarb(true, null, " X ", 557, 70, i, i104, bool)) {
-                    		cd.action = 0;
+                    		stat.action = 0;
                     		cfase = basefase;
                     	}
                     	drawcs(305, "The lists get updated every 24 hours!", 0, 0, 0, 3);
-                    	if (cd.action == 14 || cd.action == 15 || cd.action == 16 || cd.action == 17) {
+                    	if (stat.action == 14 || stat.action == 15 || stat.action == 16 || stat.action == 17) {
                     		if (!bool && cntflock == 20)
                     			cntflock = 0;
-                    		if (cd.action == 14)
+                    		if (stat.action == 14)
                     			drawcs(91, "Weekly Top 20 Cars", 0, 0, 0, 3);
-                    		if (cd.action == 15)
+                    		if (stat.action == 15)
                     			drawcs(91, "Monthly Top 20 Cars", 0, 0, 0, 3);
-                    		if (cd.action == 16)
+                    		if (stat.action == 16)
                     			drawcs(91, "Semi-Annual Top 20 Cars", 0, 0, 0, 3);
-                    		if (cd.action == 17)
+                    		if (stat.action == 17)
                     			drawcs(91, "Annual Top 20 Cars", 0, 0, 0, 3);
                     		if (drawcarb(true, null, "   All Cars, All Classes   ", 318, 105, i, i104, bool)
                     				&& cntflock == 0) {
-                    			cd.loadlist = 1 + (cd.action - 14) * 6;
-                    			cd.action = 11;
-                    			cd.sparkactionloader();
+                    			stat.loadlist = 1 + (stat.action - 14) * 6;
+                    			stat.action = 11;
+                    			stat.sparkactionloader();
                     		}
                     		if (drawcarb(true, null, "Class A Cars", 337, 135, i, i104, bool) && cntflock == 0) {
-                    			cd.loadlist = 2 + (cd.action - 14) * 6;
-                    			cd.action = 11;
-                    			cd.sparkactionloader();
+                    			stat.loadlist = 2 + (stat.action - 14) * 6;
+                    			stat.action = 11;
+                    			stat.sparkactionloader();
                     		}
                     		if (drawcarb(true, null, "Class A & B Cars", 337, 165, i, i104, bool)
                     				&& cntflock == 0) {
-                    			cd.loadlist = 3 + (cd.action - 14) * 6;
-                    			cd.action = 11;
-                    			cd.sparkactionloader();
+                    			stat.loadlist = 3 + (stat.action - 14) * 6;
+                    			stat.action = 11;
+                    			stat.sparkactionloader();
                     		}
                     		if (drawcarb(true, null, "Class B Cars", 337, 195, i, i104, bool) && cntflock == 0) {
-                    			cd.loadlist = 4 + (cd.action - 14) * 6;
-                    			cd.action = 11;
-                    			cd.sparkactionloader();
+                    			stat.loadlist = 4 + (stat.action - 14) * 6;
+                    			stat.action = 11;
+                    			stat.sparkactionloader();
                     		}
                     		if (drawcarb(true, null, "Class B & C Cars", 337, 225, i, i104, bool)
                     				&& cntflock == 0) {
-                    			cd.loadlist = 5 + (cd.action - 14) * 6;
-                    			cd.action = 11;
-                    			cd.sparkactionloader();
+                    			stat.loadlist = 5 + (stat.action - 14) * 6;
+                    			stat.action = 11;
+                    			stat.sparkactionloader();
                     		}
                     		if (drawcarb(true, null, "Class C Cars", 337, 255, i, i104, bool) && cntflock == 0) {
-                    			cd.loadlist = 6 + (cd.action - 14) * 6;
-                    			cd.action = 11;
-                    			cd.sparkactionloader();
+                    			stat.loadlist = 6 + (stat.action - 14) * 6;
+                    			stat.action = 11;
+                    			stat.sparkactionloader();
                     		}
                     	}
-                    	if (cd.action == 0) {
+                    	if (stat.action == 0) {
                     		drawcs(91, "Top 20 Most Added Public Custom Cars", 0, 0, 0, 3);
                     		if (drawcarb(true, null, "  Weekly Top 20  ", 338, 125, i, i104, bool))
-                    			cd.action = 14;
+                    			stat.action = 14;
                     		if (drawcarb(true, null, "  Monthly Top 20  ", 337, 165, i, i104, bool))
-                    			cd.action = 15;
+                    			stat.action = 15;
                     		if (drawcarb(true, null, "  Semi-Annual Top 20  ", 321, 205, i, i104, bool))
-                    			cd.action = 16;
+                    			stat.action = 16;
                     		if (drawcarb(true, null, "  Annual Top 20  ", 339, 245, i, i104, bool))
-                    			cd.action = 17;
+                    			stat.action = 17;
                     		if (cntflock != 20)
                     			cntflock = 20;
                     	}
                     }*/
                     //}
                     /*if (cfase == 100) {
-                    	if (cd.action == -1) {
+                    	if (stat.action == -1) {
                     		drawprom(145, 170);
                     		drawcs(195, "Failed to Load List.", 0, 0, 0, 3);
                     		drawcs(225, "Unknown Error.  Please try again later.", 0, 0, 0, 3);
                     		if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool))
-                    			if (sc[0] >= 16 && cd.lastload == 2 && sc[0] < 36)
+                    			if (sc[0] >= 16 && stat.lastload == 2 && sc[0] < 36)
                     				cfase = 3;
                     			else
                     				cfase = 0;
                     	}
-                    	if (cd.action == -2) {
+                    	if (stat.action == -2) {
                     		drawprom(145, 170);
                     		drawcs(195, "No account cars found.", 0, 0, 0, 3);
                     		drawcs(225,
-                    				"" + ("") + (cd.viewname)
+                    				"" + ("") + (stat.viewname)
                     						 + (" does not have any published or added cars."),
                     				0, 0, 0, 3);
                     		if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool))
-                    			if (sc[0] >= 16 && cd.lastload == 2 && sc[0] < 36)
+                    			if (sc[0] >= 16 && stat.lastload == 2 && sc[0] < 36)
                     				cfase = 3;
                     			else
                     				cfase = 0;
                     	}
-                    	if (cd.action == 100) {
-                    		cd.action = 101;
-                    		cd.sparkactionloader();
+                    	if (stat.action == 100) {
+                    		stat.action = 101;
+                    		stat.sparkactionloader();
                     	}
-                    	if (cd.action == 101) {
+                    	if (stat.action == 101) {
                     		drawprom(145, 170);
-                    		drawcs(195, "" + ("Loading ") + (cd.viewname)
+                    		drawcs(195, "" + ("Loading ") + (stat.viewname)
                     				 + ("'s account cars, please wait..."), 0, 0, 0, 3);
                     	}
-                    	if (cd.action == 102) {
+                    	if (stat.action == 102) {
                     		drawprom(145, 170);
-                    		drawcs(195, "" + ("Loading ") + (cd.viewname)
+                    		drawcs(195, "" + ("Loading ") + (stat.viewname)
                     				 + ("'s account cars, please wait..."), 0, 0, 0, 3);
-                    		if (cd.nl > 0 && cd.nl <= 20)
-                    			drawcs(235, "" + ("Loading :  ") + (cd.loadnames[cd.nl - 1])
+                    		if (stat.nl > 0 && stat.nl <= 20)
+                    			drawcs(235, "" + ("Loading :  ") + (stat.loadnames[stat.nl - 1])
                     					 + (""), 0, 0, 0, 3);
                     	}
-                    	if (cd.action == 103) {
+                    	if (stat.action == 103) {
                     		minsl = nCars + 20;
-                    		maxsl = cd.xnlocars - 1;
+                    		maxsl = stat.xnlocars - 1;
                     		i112 = nCars + 20;
-                    		cd.action = 0;
+                    		stat.action = 0;
                     		cfase = 101;
                     	}
                     }*/
@@ -1295,30 +1297,30 @@ class xtGraphics extends Panel implements Runnable {
                     		i122 = 0;
                     	}
                     	if (multion == 0 && drawcarb(false, cmc, "", 95, 70, i, i104, bool))
-                    		if (cd.lastload != 1)
+                    		if (stat.lastload != 1)
                     			cfase = 1;
                     		else {
                     			minsl = nCars;
-                    			maxsl = cd.nlcars - 1;
+                    			maxsl = stat.nlcars - 1;
                     			i112 = nCars;
                     			cfase = 3;
                     		}
                     	if (drawcarb(false, myc, "", i121, 105 + i122, i, i104, bool))
-                    		if (cd.lastload != 2) {
+                    		if (stat.lastload != 2) {
                     			cfase = 5;
                     			showtf = false;
                     			if (!logged) {
-                    				cd.action = 0;
-                    				cd.reco = -2;
+                    				stat.action = 0;
+                    				stat.reco = -2;
                     				tcnt = 5;
                     				cntflock = 0;
                     			} else {
-                    				cd.action = 3;
-                    				cd.sparkactionloader();
+                    				stat.action = 3;
+                    				stat.sparkactionloader();
                     			}
                     		} else {
                     			minsl = nCars;
-                    			maxsl = cd.nlocars - 1;
+                    			maxsl = stat.nlocars - 1;
                     			if (onmsc >= minsl && onmsc <= maxsl)
                     				i112 = onmsc;
                     			else
@@ -1327,7 +1329,7 @@ class xtGraphics extends Panel implements Runnable {
                     		}
                     	if ((multion == 0 || onjoin == -1) && drawcarb(false, top20s, "", i121,
                     			(i121 - 95) / 7 + 25 + i122, i, i104, bool)) {
-                    		cd.action = 0;
+                    		stat.action = 0;
                     		cfase = 10;
                     	}
                     	if (remi)
@@ -1337,23 +1339,23 @@ class xtGraphics extends Panel implements Runnable {
                     	if (autolog) {
                     		autolog = false;
                     		cfase = 5;
-                    		cd.action = 1;
-                    		cd.sparkactionloader();
-                    	} else if (cd.lastload != 2) {
+                    		stat.action = 1;
+                    		stat.sparkactionloader();
+                    	} else if (stat.lastload != 2) {
                     		cfase = 5;
                     		showtf = false;
                     		if (!logged) {
-                    			cd.action = 0;
-                    			cd.reco = -2;
+                    			stat.action = 0;
+                    			stat.reco = -2;
                     			tcnt = 5;
                     			cntflock = 0;
                     		} else {
-                    			cd.action = 3;
-                    			cd.sparkactionloader();
+                    			stat.action = 3;
+                    			stat.sparkactionloader();
                     		}
                     	} else {
                     		minsl = nCars;
-                    		maxsl = cd.nlocars - 1;
+                    		maxsl = stat.nlocars - 1;
                     		if (onmsc >= minsl && onmsc <= maxsl)
                     			i112 = onmsc;
                     		else
@@ -1365,7 +1367,7 @@ class xtGraphics extends Panel implements Runnable {
                     	drawcs(175, "Failed to remove car.  Unkown Error.  Try again laster.", 0, 0, 0, 3);
                     	if (drawcarb(true, null, "   OK   ", 371, 195, i, i104, bool)) {
                     		minsl = nCars;
-                    		maxsl = cd.nlocars - 1;
+                    		maxsl = stat.nlocars - 1;
                     		if (onmsc >= minsl && onmsc <= maxsl)
                     			i112 = onmsc;
                     		else
@@ -1385,9 +1387,9 @@ class xtGraphics extends Panel implements Runnable {
                     		i112 = nCars - 1;
                     		cfase = 8;
                     		onmsc = sc[0];
-                    		cd.ac = sc[0];
-                    		cd.action = 10;
-                    		cd.sparkactionloader();
+                    		stat.ac = sc[0];
+                    		stat.action = 10;
+                    		stat.sparkactionloader();
                     	}
                     	if (drawcarb(true, null, " No ", 408, 195, i, i104, bool))
                     		cfase = 3;
@@ -1412,7 +1414,7 @@ class xtGraphics extends Panel implements Runnable {
                     		if (!app.openm) {
                     			if (!app.mycar.isShowing()) {
                     				app.mycar.setVisible(true);
-                    				app.mycar.setState(cd.include[sc[0] - 16]);
+                    				app.mycar.setState(stat.include[sc[0] - 16]);
                     			}
                     		} else
                     			app.mycar.setVisible(false);
@@ -1421,26 +1423,26 @@ class xtGraphics extends Panel implements Runnable {
                     		rd.setColor(new Color(0, 0, 0));
                     		rd.drawRoundRect(305, 302, 190, 24, 7, 20);
                     		app.movefield(app.mycar, 334, 306, 150, 17);
-                    		if (app.mycar.getState() != cd.include[sc[0] - 16]) {
-                    			cd.include[sc[0] - 16] = app.mycar.getState();
+                    		if (app.mycar.getState() != stat.include[sc[0] - 16]) {
+                    			stat.include[sc[0] - 16] = app.mycar.getState();
                     			app.requestFocus();
                     		}
                     	}
                     	if ((multion == 0 || onjoin == -1) && drawcarb(false, top20s, "", i123,
                     			(i123 - 95) / 7 + 25 + i124, i, i104, bool)) {
-                    		cd.action = 0;
+                    		stat.action = 0;
                     		cfase = 10;
                     		if (app.mycar.isShowing())
                     			app.mycar.setVisible(false);
                     	}
-                    	if (cd.lastload == 2) {
+                    	if (stat.lastload == 2) {
                     		if (drawcarb(true, null, "X", 567, 135, i, i104, bool))
                     			cfase = 7;
                     		rd.setFont(new Font("Arial", 1, 12));
                     		ftm = rd.getFontMetrics();
                     		rd.setColor(new Color(0, 0, 0));
-                    		if (!cd.createdby[sc[0] - 16].equals(nickname))
-                    			bool114 = clink(cd.createdby[sc[0] - 16], i, i104, bool);
+                    		if (!stat.createdby[sc[0] - 16].equals(nickname))
+                    			bool114 = clink(stat.createdby[sc[0] - 16], i, i104, bool);
                     		else
                     			rd.drawString("Created by You", 241, 160);
                     	}
@@ -1466,36 +1468,36 @@ class xtGraphics extends Panel implements Runnable {
                     	}
                     }*/
                     /*if ((cfase == 11 || cfase == 101) && i112 == -1) {
-                    	if (cd.action == -9) {
+                    	if (stat.action == -9) {
                     		drawprom(145, 95);
                     		drawcs(175, "Unknown error!  Failed to add car.  Try again later.", 0, 0, 0, 3);
                     		if (drawcarb(true, null, " OK ", 379, 195, i, i104, bool))
-                    			cd.action = 0;
+                    			stat.action = 0;
                     	}
-                    	if (cd.action == -8) {
+                    	if (stat.action == -8) {
                     		drawprom(145, 95);
                     		drawcs(175, "Failed.  You already have 20 cars in your account!", 0, 0, 0, 3);
                     		if (drawcarb(true, null, " OK ", 379, 195, i, i104, bool))
-                    			cd.action = 0;
+                    			stat.action = 0;
                     	}
-                    	if (cd.action == -7) {
+                    	if (stat.action == -7) {
                     		drawprom(145, 95);
                     		drawcs(175, "You already have this car!", 0, 0, 0, 3);
                     		if (drawcarb(true, null, " OK ", 379, 195, i, i104, bool))
-                    			cd.action = 0;
+                    			stat.action = 0;
                     	}
-                    	if (cd.action == 7) {
+                    	if (stat.action == 7) {
                     		drawprom(145, 95);
                     		drawcs(175,
-                    				"" + ("") + (cd.names[cd.ac])
+                    				"" + ("") + (stat.names[stat.ac])
                     						 + (" has been successfully added to your cars!"),
                     				0, 0, 0, 3);
                     		if (drawcarb(true, null, " OK ", 379, 195, i, i104, bool))
-                    			cd.action = 0;
+                    			stat.action = 0;
                     	}
-                    	if (cd.action == 6) {
+                    	if (stat.action == 6) {
                     		drawprom(145, 95);
-                    		drawcs(195, "" + ("Adding ") + (cd.names[cd.ac])
+                    		drawcs(195, "" + ("Adding ") + (stat.names[stat.ac])
                     				 + (" to your cars..."), 0, 0, 0, 3);
                     	}
                     	int i125 = 95;
@@ -1504,24 +1506,24 @@ class xtGraphics extends Panel implements Runnable {
                     		i125 = 185;
                     		i126 = 0;
                     	}
-                    	if (onmsc >= 16 && (cd.lastload == 2 || cd.lastload == -2)) {
+                    	if (onmsc >= 16 && (stat.lastload == 2 || stat.lastload == -2)) {
                     		if (drawcarb(false, myc, "", i125, 105 + i126, i, i104, bool)) {
-                    			if (cd.lastload != 2) {
+                    			if (stat.lastload != 2) {
                     				cfase = 5;
                     				showtf = false;
                     				if (!logged) {
-                    					cd.action = 0;
-                    					cd.reco = -2;
+                    					stat.action = 0;
+                    					stat.reco = -2;
                     					tcnt = 5;
                     					cntflock = 0;
                     				} else {
-                    					cd.action = 3;
-                    					cd.sparkactionloader();
+                    					stat.action = 3;
+                    					stat.sparkactionloader();
                     				}
                     			} else {
-                    				cd.action = 0;
+                    				stat.action = 0;
                     				minsl = 16;
-                    				maxsl = cd.nlocars - 1;
+                    				maxsl = stat.nlocars - 1;
                     				if (onmsc >= minsl && onmsc <= maxsl)
                     					i112 = onmsc;
                     				else
@@ -1531,7 +1533,7 @@ class xtGraphics extends Panel implements Runnable {
                     			app.moused = false;
                     		}
                     	} else if (drawcarb(false, gac, "", i125, 105 + i126, i, i104, bool)) {
-                    		cd.action = 0;
+                    		stat.action = 0;
                     		minsl = 0;
                     		maxsl = nCars - 1;
                     		if (onmsc >= minsl && onmsc <= maxsl)
@@ -1542,32 +1544,32 @@ class xtGraphics extends Panel implements Runnable {
                     		app.moused = false;
                     	}
                     	if (drawcarb(false, top20s, "", i125, (i125 - 95) / 7 + 25 + i126, i, i104, bool)) {
-                    		cd.action = 0;
+                    		stat.action = 0;
                     		cfase = 10;
                     	}
-                    	if (cd.action == 0) {
+                    	if (stat.action == 0) {
                     		rd.setFont(new Font("Arial", 1, 12));
                     		ftm = rd.getFontMetrics();
                     		rd.setColor(new Color(0, 0, 0));
-                    		if (!cd.createdby[sc[0] - 16].equals(nickname))
-                    			bool114 = clink(cd.createdby[sc[0] - 16], i, i104, bool);
+                    		if (!stat.createdby[sc[0] - 16].equals(nickname))
+                    			bool114 = clink(stat.createdby[sc[0] - 16], i, i104, bool);
                     		else
                     			rd.drawString("Created by You", 241, 160);
                     		if (cfase != 101) {
                     			rd.setFont(new Font("Arial", 1, 11));
-                    			rd.drawString("" + ("Added by :  ") + (cd.adds[sc[0] - 36])
+                    			rd.drawString("" + ("Added by :  ") + (stat.adds[sc[0] - 36])
                     					 + (" Players"), 241, 180);
                     		}
                     	}
                     }*/
                     /*if (cfase == 5) {
                     	drawprom(145, 170);
-                    	if (cd.action == 5) {
+                    	if (stat.action == 5) {
                     		minsl = 16;
-                    		maxsl = cd.nlocars - 1;
-                    		if (cd.inslot != -1) {
-                    			onmsc = cd.inslot;
-                    			cd.inslot = -1;
+                    		maxsl = stat.nlocars - 1;
+                    		if (stat.inslot != -1) {
+                    			onmsc = stat.inslot;
+                    			stat.inslot = -1;
                     		}
                     		if (onmsc >= minsl && onmsc <= maxsl)
                     			i112 = onmsc;
@@ -1575,87 +1577,87 @@ class xtGraphics extends Panel implements Runnable {
                     			i112 = nCars;
                     		cfase = 3;
                     	}
-                    	if (cd.action == 4) {
+                    	if (stat.action == 4) {
                     		drawcs(195, "[  Loading Car  ]", 0, 0, 0, 3);
                     		drawcs(235, "" + ("Loading :  ") + (app.mcars.getSelectedItem())
                     				 + (""), 0, 0, 0, 3);
                     	}
-                    	if (cd.action == -2) {
+                    	if (stat.action == -2) {
                     		drawcs(195, "Unknown Connection Error", 0, 0, 0, 3);
                     		drawcs(225, "Failed to connect to server, try again later!", 0, 0, 0, 3);
                     		if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool))
                     			cfase = 0;
                     	}
-                    	if (cd.action == -1) {
+                    	if (stat.action == -1) {
                     		drawcs(195, "No published cars found...", 0, 0, 0, 3);
                     		drawcs(225, "You have no added cars to your account yet!", 0, 0, 0, 3);
                     		if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool))
                     			cfase = 0;
                     	}
-                    	if (cd.action == 2 || cd.action == 3) {
+                    	if (stat.action == 2 || stat.action == 3) {
                     		drawcs(195, "Loading your Account Cars list...", 0, 0, 0, 3);
-                    		if (cd.action == 2) {
+                    		if (stat.action == 2) {
                     			nickname = app.tnick.getText();
                     			backlog = nickname;
-                    			nickey = cd.tnickey;
-                    			clan = cd.tclan;
-                    			clankey = cd.tclankey;
+                    			nickey = stat.tnickey;
+                    			clan = stat.tclan;
+                    			clankey = stat.tclankey;
                     			app.setloggedcookie();
                     			logged = true;
                     			gotlog = true;
-                    			if (cd.reco == 0)
+                    			if (stat.reco == 0)
                     				acexp = 0;
-                    			if (cd.reco > 10)
-                    				acexp = cd.reco - 10;
-                    			if (cd.reco == 3)
+                    			if (stat.reco > 10)
+                    				acexp = stat.reco - 10;
+                    			if (stat.reco == 3)
                     				acexp = -1;
-                    			if (cd.reco == 111)
+                    			if (stat.reco == 111)
                     				if (!backlog.equalsIgnoreCase(nickname))
                     					acexp = -3;
                     				else
                     					acexp = 0;
                     			if (basefase == 0)
-                    				cd.action = 3;
+                    				stat.action = 3;
                     			if (basefase == 11) {
-                    				cd.action = 6;
+                    				stat.action = 6;
                     				cfase = 11;
                     			}
                     			if (basefase == 101) {
-                    				cd.action = 6;
+                    				stat.action = 6;
                     				cfase = 101;
                     			}
                     		}
                     	}
-                    	if (cd.action == 1)
+                    	if (stat.action == 1)
                     		drawcs(195, "Logging in to your account...", 0, 0, 0, 3);
-                    	if (cd.action == 0) {
-                    		if (cd.reco == -5)
+                    	if (stat.action == 0) {
+                    		if (stat.reco == -5)
                     			drawcs(171, "Login to Add this Car to your Account", 0, 0, 0, 3);
-                    		if (cd.reco == -2)
+                    		if (stat.reco == -2)
                     			drawcs(171, "Login to Retrieve your Account Cars", 0, 0, 0, 3);
-                    		if (cd.reco == -1)
+                    		if (stat.reco == -1)
                     			drawcs(171, "Unable to connect to server, try again later!", 0, 8, 0, 3);
-                    		if (cd.reco == 1)
+                    		if (stat.reco == 1)
                     			drawcs(171, "Sorry.  The Nickname you have entered is incorrect.", 0, 0, 0, 3);
-                    		if (cd.reco == 2)
+                    		if (stat.reco == 2)
                     			drawcs(171, "Sorry.  The Password you have entered is incorrect.", 0, 0, 0, 3);
-                    		if (cd.reco == -167 || cd.reco == -177) {
-                    			if (cd.reco == -167) {
+                    		if (stat.reco == -167 || stat.reco == -177) {
+                    			if (stat.reco == -167) {
                     				nickname = app.tnick.getText();
                     				backlog = nickname;
-                    				cd.reco = -177;
+                    				stat.reco = -177;
                     			}
                     			drawcs(171, "You are currently using a trial account.", 0, 0, 0, 3);
                     		}
-                    		if (cd.reco == -3 && (tcnt % 3 != 0 || tcnt > 20))
+                    		if (stat.reco == -3 && (tcnt % 3 != 0 || tcnt > 20))
                     			drawcs(171, "Please enter your Nickname!", 0, 0, 0, 3);
-                    		if (cd.reco == -4 && (tcnt % 3 != 0 || tcnt > 20))
+                    		if (stat.reco == -4 && (tcnt % 3 != 0 || tcnt > 20))
                     			drawcs(171, "Please enter your Password!", 0, 0, 0, 3);
                     		if (!showtf) {
                     			app.tnick.setVisible(true);
                     			app.tnick.setBackground(new Color(206, 237, 255));
-                    			if (cd.reco != 1) {
-                    				if (cd.reco != 2)
+                    			if (stat.reco != 1) {
+                    				if (stat.reco != 2)
                     					app.tnick.setText(nickname);
                     				app.tnick.setForeground(new Color(0, 0, 0));
                     			} else
@@ -1663,13 +1665,13 @@ class xtGraphics extends Panel implements Runnable {
                     			app.tnick.requestFocus();
                     			app.tpass.setVisible(true);
                     			app.tpass.setBackground(new Color(206, 237, 255));
-                    			if (cd.reco != 2) {
+                    			if (stat.reco != 2) {
                     				if (!autolog)
                     					app.tpass.setText("");
                     				app.tpass.setForeground(new Color(0, 0, 0));
                     			} else
                     				app.tpass.setForeground(new Color(255, 0, 0));
-                    			if (!app.tnick.getText().equals("") && cd.reco != 1)
+                    			if (!app.tnick.getText().equals("") && stat.reco != 1)
                     				app.tpass.requestFocus();
                     			showtf = true;
                     		}
@@ -1680,13 +1682,13 @@ class xtGraphics extends Panel implements Runnable {
                     		if (tcnt < 30) {
                     			tcnt++;
                     			if (tcnt == 30) {
-                    				if (cd.reco == 2)
+                    				if (stat.reco == 2)
                     					app.tpass.setText("");
                     				app.tnick.setForeground(new Color(0, 0, 0));
                     				app.tpass.setForeground(new Color(0, 0, 0));
                     			}
                     		}
-                    		if (cd.reco != -177) {
+                    		if (stat.reco != -177) {
                     			if (drawcarb(true, null, "       Login       ", 347, 247, i, i104, bool)
                     					&& tcnt > 5) {
                     				tcnt = 0;
@@ -1695,13 +1697,13 @@ class xtGraphics extends Panel implements Runnable {
                     					app.tnick.setVisible(false);
                     					app.tpass.setVisible(false);
                     					app.requestFocus();
-                    					cd.action = 1;
-                    					cd.sparkactionloader();
+                    					stat.action = 1;
+                    					stat.sparkactionloader();
                     				} else {
                     					if (app.tpass.getText().equals(""))
-                    						cd.reco = -4;
+                    						stat.reco = -4;
                     					if (app.tnick.getText().equals(""))
-                    						cd.reco = -3;
+                    						stat.reco = -3;
                     				}
                     			}
                     		} else if (drawcarb(true, null, "  Upgrade to have your own cars!  ", 284, 247, i, i104,
@@ -1743,10 +1745,10 @@ class xtGraphics extends Panel implements Runnable {
                     	drawprom(165, 70);
                     	drawcs(205, "Loading Car Maker Cars...", 0, 0, 0, 3);
                     	//app.repaint();
-                    	cd.loadcarmaker();
-                    	if (cd.nlcars > nCars) {
+                    	stat.loadcarmaker();
+                    	if (stat.nlcars > nCars) {
                     		minsl = nCars;
-                    		maxsl = cd.nlcars - 1;
+                    		maxsl = stat.nlcars - 1;
                     		i112 = nCars;
                     		cfase = 3;
                     	} else
@@ -1887,14 +1889,14 @@ class xtGraphics extends Panel implements Runnable {
                             if (mouson == -1) {
                                 if (i > 96 && i < 152 && i104 > 248 && i104 < 258) {
                                     final float[] fs = new float[3];
-                                    Color.RGBtoHSB(contos[sc[0]].fcol[0], contos[sc[0]].fcol[1], contos[sc[0]].fcol[2], fs);
+                                    Color.RGBtoHSB(cars[sc[0]].fcol[0], cars[sc[0]].fcol[1], cars[sc[0]].fcol[2], fs);
                                     arnp[0] = fs[0];
                                     arnp[1] = fs[1];
                                     arnp[2] = 1.0F - fs[2];
                                 }
                                 if (i > 646 && i < 702 && i104 > 248 && i104 < 258) {
                                     final float[] fs = new float[3];
-                                    Color.RGBtoHSB(contos[sc[0]].scol[0], contos[sc[0]].scol[1], contos[sc[0]].scol[2], fs);
+                                    Color.RGBtoHSB(cars[sc[0]].scol[0], cars[sc[0]].scol[1], cars[sc[0]].scol[2], fs);
                                     arnp[3] = fs[0];
                                     arnp[4] = fs[1];
                                     arnp[5] = 1.0F - fs[2];
@@ -1956,28 +1958,28 @@ class xtGraphics extends Panel implements Runnable {
                         if (cfase != 10 && cfase != 5 && i112 == -1) {
                             final Color color = Color.getHSBColor(arnp[0], arnp[1], 1.0F - arnp[2]);
                             final Color color130 = Color.getHSBColor(arnp[3], arnp[4], 1.0F - arnp[5]);
-                            for (int i131 = 0; i131 < contos[sc[0]].npl; i131++) {
-                                if (contos[sc[0]].p[i131].colnum == 1) {
-                                    contos[sc[0]].p[i131].hsb[0] = arnp[0];
-                                    contos[sc[0]].p[i131].hsb[1] = arnp[1];
-                                    contos[sc[0]].p[i131].hsb[2] = 1.0F - arnp[2];
-                                    contos[sc[0]].p[i131].c[0] = color.getRed();
-                                    contos[sc[0]].p[i131].c[1] = color.getGreen();
-                                    contos[sc[0]].p[i131].c[2] = color.getBlue();
-                                    contos[sc[0]].p[i131].oc[0] = color.getRed();
-                                    contos[sc[0]].p[i131].oc[1] = color.getGreen();
-                                    contos[sc[0]].p[i131].oc[2] = color.getBlue();
+                            for (int i131 = 0; i131 < cars[sc[0]].npl; i131++) {
+                                if (cars[sc[0]].p[i131].colnum == 1) {
+                                    cars[sc[0]].p[i131].hsb[0] = arnp[0];
+                                    cars[sc[0]].p[i131].hsb[1] = arnp[1];
+                                    cars[sc[0]].p[i131].hsb[2] = 1.0F - arnp[2];
+                                    cars[sc[0]].p[i131].c[0] = color.getRed();
+                                    cars[sc[0]].p[i131].c[1] = color.getGreen();
+                                    cars[sc[0]].p[i131].c[2] = color.getBlue();
+                                    cars[sc[0]].p[i131].oc[0] = color.getRed();
+                                    cars[sc[0]].p[i131].oc[1] = color.getGreen();
+                                    cars[sc[0]].p[i131].oc[2] = color.getBlue();
                                 }
-                                if (contos[sc[0]].p[i131].colnum == 2) {
-                                    contos[sc[0]].p[i131].hsb[0] = arnp[3];
-                                    contos[sc[0]].p[i131].hsb[1] = arnp[4];
-                                    contos[sc[0]].p[i131].hsb[2] = 1.0F - arnp[5];
-                                    contos[sc[0]].p[i131].c[0] = color130.getRed();
-                                    contos[sc[0]].p[i131].c[1] = color130.getGreen();
-                                    contos[sc[0]].p[i131].c[2] = color130.getBlue();
-                                    contos[sc[0]].p[i131].oc[0] = color130.getRed();
-                                    contos[sc[0]].p[i131].oc[1] = color130.getGreen();
-                                    contos[sc[0]].p[i131].oc[2] = color130.getBlue();
+                                if (cars[sc[0]].p[i131].colnum == 2) {
+                                    cars[sc[0]].p[i131].hsb[0] = arnp[3];
+                                    cars[sc[0]].p[i131].hsb[1] = arnp[4];
+                                    cars[sc[0]].p[i131].hsb[2] = 1.0F - arnp[5];
+                                    cars[sc[0]].p[i131].c[0] = color130.getRed();
+                                    cars[sc[0]].p[i131].c[1] = color130.getGreen();
+                                    cars[sc[0]].p[i131].c[2] = color130.getBlue();
+                                    cars[sc[0]].p[i131].oc[0] = color130.getRed();
+                                    cars[sc[0]].p[i131].oc[1] = color130.getGreen();
+                                    cars[sc[0]].p[i131].oc[2] = color130.getBlue();
                                 }
                             }
                         }
@@ -1987,26 +1989,26 @@ class xtGraphics extends Panel implements Runnable {
                     rd.drawImage(contin[pcontin], 355, 385, null);
                     /*else {
                     	if (cfase == 11 && drawcarb(true, null, "Add to My Cars", 345, 385, i, i104, bool)
-                    			&& cd.action == 0) {
-                    		cd.ac = sc[0];
+                    			&& stat.action == 0) {
+                    		stat.ac = sc[0];
                     		if (logged) {
-                    			cd.action = 6;
-                    			cd.sparkactionloader();
+                    			stat.action = 6;
+                    			stat.sparkactionloader();
                     		} else {
-                    			cd.reco = -5;
+                    			stat.reco = -5;
                     			cfase = 5;
                     			showtf = false;
                     		}
                     	}
                     	if (cfase == 101 && i112 == -1)
-                    		if (cd.publish[sc[0] - 16] == 1 || cd.publish[sc[0] - 16] == 2) {
-                    			if (drawcarb(true, null, "Add to My Cars", 345, 385, i, i104, bool) && cd.action == 0) {
-                    				cd.ac = sc[0];
+                    		if (stat.publish[sc[0] - 16] == 1 || stat.publish[sc[0] - 16] == 2) {
+                    			if (drawcarb(true, null, "Add to My Cars", 345, 385, i, i104, bool) && stat.action == 0) {
+                    				stat.ac = sc[0];
                     				if (logged) {
-                    					cd.action = 6;
-                    					cd.sparkactionloader();
+                    					stat.action = 6;
+                    					stat.sparkactionloader();
                     				} else {
-                    					cd.reco = -5;
+                    					stat.reco = -5;
                     					cfase = 5;
                     					showtf = false;
                     				}
@@ -2030,12 +2032,12 @@ class xtGraphics extends Panel implements Runnable {
             pnext = 0;
             gatey = 300;
             if (flipo > 10) {
-                contos[sc[0]].y -= 100;
+                cars[sc[0]].y -= 100;
                 if (nextc == 1) {
-                    contos[sc[0]].zy += 20;
+                    cars[sc[0]].zy += 20;
                 }
                 if (nextc == -1) {
-                    contos[sc[0]].zy -= 20;
+                    cars[sc[0]].zy -= 20;
                 }
             } else {
                 if (flipo == 10) {
@@ -2074,12 +2076,12 @@ class xtGraphics extends Panel implements Runnable {
                     if (cfase == 3 && cd.lastload == 2) {
                         app.mcars.select(cd.names[sc[0]]);
                     }
-                    contos[sc[0]].z = 950;
-                    contos[sc[0]].y = -34 - contos[sc[0]].grat - 1100;
-                    contos[sc[0]].x = 0;
-                    contos[sc[0]].zy = 0;
+                    cars[sc[0]].z = 950;
+                    cars[sc[0]].y = -34 - cars[sc[0]].grat - 1100;
+                    cars[sc[0]].x = 0;
+                    cars[sc[0]].zy = 0;
                 }
-                contos[sc[0]].y += 100;
+                cars[sc[0]].y += 100;
             }
             flipo--;
         }
@@ -2759,8 +2761,8 @@ class xtGraphics extends Panel implements Runnable {
     }
 
     private Image dodgen(final Image image) {
-        final int i = image.getHeight(ob);
-        final int i378 = image.getWidth(ob);
+        final int i = image.getHeight(null);
+        final int i378 = image.getWidth(null);
         final int[] is = new int[i378 * i];
         final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i378, i, is, 0, i378);
         try {
@@ -2808,7 +2810,7 @@ class xtGraphics extends Panel implements Runnable {
                 i435 = 112;
             }
         } else {
-            i435 = image.getWidth(ob);
+            i435 = image.getWidth(null);
         }
         int i436 = 0;
         if (i430 > i && i430 < i + i435 + 14 && i431 > i429 && i431 < i429 + 28) {
@@ -2933,17 +2935,16 @@ class xtGraphics extends Panel implements Runnable {
 
     private void drawhi(final Image image, final int i) {
         if (m.darksky) {
-            Color color = new Color(m.csky[0], m.csky[1], m.csky[2]);
             final float[] fs = new float[3];
             Color.RGBtoHSB(m.csky[0], m.csky[1], m.csky[2], fs);
             fs[2] = 0.6F;
-            color = Color.getHSBColor(fs[0], fs[1], fs[2]);
+            Color color = Color.getHSBColor(fs[0], fs[1], fs[2]);
             rd.setColor(color);
-            rd.fillRoundRect(390 - image.getWidth(ob) / 2, i - 2, image.getWidth(ob) + 20, image.getHeight(ob) + 2, 7, 20);
+            rd.fillRoundRect(390 - image.getWidth(null) / 2, i - 2, image.getWidth(null) + 20, image.getHeight(null) + 2, 7, 20);
             rd.setColor(new Color((int) (color.getRed() / 1.1), (int) (color.getGreen() / 1.1), (int) (color.getBlue() / 1.1)));
-            rd.drawRoundRect(390 - image.getWidth(ob) / 2, i - 2, image.getWidth(ob) + 20, image.getHeight(ob) + 2, 7, 20);
+            rd.drawRoundRect(390 - image.getWidth(null) / 2, i - 2, image.getWidth(null) + 20, image.getHeight(null) + 2, 7, 20);
         }
-        rd.drawImage(image, 400 - image.getWidth(ob) / 2, i, null);
+        rd.drawImage(image, 400 - image.getWidth(null) / 2, i, null);
     }
 
     public void drawlprom(final int i, final int i140) {
@@ -3170,10 +3171,8 @@ class xtGraphics extends Panel implements Runnable {
         if (!badmac) {
             rd.drawImage(fleximg, 0, 0, null);
         } else {
-            rd.setColor(new Color(0, 0, 0));
-            rd.setComposite(AlphaComposite.getInstance(3, 0.1F));
+            rd.setColor(new Color(0, 0, 0, 255 * 0.1f));
             rd.fillRect(0, 0, 800, 450);
-            rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
         }
         rd.setFont(new Font("Arial", 1, 11));
         ftm = rd.getFontMetrics();
@@ -3188,8 +3187,8 @@ class xtGraphics extends Panel implements Runnable {
         if (multion < 3) {
             if (winner) {
                 rd.drawImage(congrd, 265, 87, null);
-                drawcs(137, "You Won!  At Stage" + string + "", 255, 161, 85, 3);
-                drawcs(154, "" + checkpoints.name + "", 255, 115, 0, 3);
+                drawcs(137, "You Won!  At Stage" + string, 255, 161, 85, 3);
+                drawcs(154, checkpoints.name, 255, 115, 0, 3);
                 i142 = 154;
             } else {
                 rd.drawImage(gameov, 315, 117, null);
@@ -3197,8 +3196,8 @@ class xtGraphics extends Panel implements Runnable {
                     drawcs(167, "Sorry, You where Disconnected from Game!", 255, 161, 85, 3);
                     drawcs(184, "Please check your connection!", 255, 115, 0, 3);
                 } else {
-                    drawcs(167, "You Lost!  At Stage" + string + "", 255, 161, 85, 3);
-                    drawcs(184, "" + checkpoints.name + "", 255, 115, 0, 3);
+                    drawcs(167, "You Lost!  At Stage" + string, 255, 161, 85, 3);
+                    drawcs(184, checkpoints.name, 255, 115, 0, 3);
                     i142 = 184;
                 }
             }
@@ -3206,7 +3205,7 @@ class xtGraphics extends Panel implements Runnable {
         } else {
             rd.drawImage(gameov, 315, 117, null);
             drawcs(167, "Finished Watching Game!  At Stage" + string + "", 255, 161, 85, 3);
-            drawcs(184, "" + checkpoints.name + "", 255, 115, 0, 3);
+            drawcs(184, checkpoints.name, 255, 115, 0, 3);
             i142 = 184;
         }
         if (winner && multion == 0 && gmode != 0 && (checkpoints.stage == unlocked /*+ (gmode - 1) * 10*/ || checkpoints.stage == nTracks)) {
@@ -3934,7 +3933,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    void inishcarselect(final ContO[] contos) {
+    void inishcarselect(final ContO[] cars) {
         nplayers = 7;
         im = 0;
         xstart[0] = 0;
@@ -4111,27 +4110,27 @@ class xtGraphics extends Panel implements Runnable {
             }
             for (int i100 = 0; i100 < i; i100++) {
                 final float[] fs = new float[3];
-                Color.RGBtoHSB(contos[i100].fcol[0], contos[i100].fcol[1], contos[i100].fcol[2], fs);
-                for (int i101 = 0; i101 < contos[i100].npl; i101++)
-                    if (contos[i100].p[i101].colnum == 1) {
-                        contos[i100].p[i101].hsb[0] = fs[0];
-                        contos[i100].p[i101].hsb[1] = fs[1];
-                        contos[i100].p[i101].hsb[2] = fs[2];
-                        contos[i100].p[i101].oc[0] = contos[i100].fcol[0];
-                        contos[i100].p[i101].oc[1] = contos[i100].fcol[1];
-                        contos[i100].p[i101].oc[2] = contos[i100].fcol[2];
+                Color.RGBtoHSB(cars[i100].fcol[0], cars[i100].fcol[1], cars[i100].fcol[2], fs);
+                for (int i101 = 0; i101 < cars[i100].npl; i101++)
+                    if (cars[i100].p[i101].colnum == 1) {
+                        cars[i100].p[i101].hsb[0] = fs[0];
+                        cars[i100].p[i101].hsb[1] = fs[1];
+                        cars[i100].p[i101].hsb[2] = fs[2];
+                        cars[i100].p[i101].oc[0] = cars[i100].fcol[0];
+                        cars[i100].p[i101].oc[1] = cars[i100].fcol[1];
+                        cars[i100].p[i101].oc[2] = cars[i100].fcol[2];
                     }
-                Color.RGBtoHSB(contos[i100].scol[0], contos[i100].scol[1], contos[i100].scol[2], fs);
-                for (int i102 = 0; i102 < contos[i100].npl; i102++)
-                    if (contos[i100].p[i102].colnum == 2) {
-                        contos[i100].p[i102].hsb[0] = fs[0];
-                        contos[i100].p[i102].hsb[1] = fs[1];
-                        contos[i100].p[i102].hsb[2] = fs[2];
-                        contos[i100].p[i102].oc[0] = contos[i100].scol[0];
-                        contos[i100].p[i102].oc[1] = contos[i100].scol[1];
-                        contos[i100].p[i102].oc[2] = contos[i100].scol[2];
+                Color.RGBtoHSB(cars[i100].scol[0], cars[i100].scol[1], cars[i100].scol[2], fs);
+                for (int i102 = 0; i102 < cars[i100].npl; i102++)
+                    if (cars[i100].p[i102].colnum == 2) {
+                        cars[i100].p[i102].hsb[0] = fs[0];
+                        cars[i100].p[i102].hsb[1] = fs[1];
+                        cars[i100].p[i102].hsb[2] = fs[2];
+                        cars[i100].p[i102].oc[0] = cars[i100].scol[0];
+                        cars[i100].p[i102].oc[1] = cars[i100].scol[1];
+                        cars[i100].p[i102].oc[2] = cars[i100].scol[2];
                     }
-                contos[i100].xy = 0;
+                cars[i100].xy = 0;
             }
             for (int i103 = 0; i103 < 6; i103++) {
                 arnp[i103] = -1.0F;
@@ -4572,8 +4571,8 @@ class xtGraphics extends Panel implements Runnable {
         } catch (final Exception ignored) {
 
         }
-        final int i368 = image.getHeight(ob);
-        final int i369 = image.getWidth(ob);
+        final int i368 = image.getHeight(null);
+        final int i369 = image.getWidth(null);
         final int[] is370 = new int[i369 * i368];
         final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i369, i368, is370, 0, i369);
         try {
@@ -5172,8 +5171,8 @@ class xtGraphics extends Panel implements Runnable {
     }
 
     private Image loadopsnap(final Image image, int i, final int i323) {
-        final int i324 = image.getHeight(ob);
-        final int i325 = image.getWidth(ob);
+        final int i324 = image.getHeight(null);
+        final int i325 = image.getWidth(null);
         final int[] is = new int[i325 * i324];
         final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i325, i324, is, 0, i325);
         try {
@@ -5260,8 +5259,8 @@ class xtGraphics extends Panel implements Runnable {
     }
 
     private Image loadsnap(final Image image) {
-        final int i = image.getHeight(ob);
-        final int i316 = image.getWidth(ob);
+        final int i = image.getHeight(null);
+        final int i316 = image.getWidth(null);
         final int[] is = new int[i316 * i];
         final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i316, i, is, 0, i316);
         try {
@@ -5414,8 +5413,8 @@ class xtGraphics extends Panel implements Runnable {
         } catch (final Exception ignored) {
 
         }
-        final int i = image.getHeight(ob);
-        final int i364 = image.getWidth(ob);
+        final int i = image.getHeight(null);
+        final int i364 = image.getWidth(null);
         final int[] is365 = new int[i364 * i];
         final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i364, i, is365, 0, i364);
         try {
@@ -6846,8 +6845,8 @@ class xtGraphics extends Panel implements Runnable {
     }
 
     private boolean over(final Image image, final int i, final int i294, final int i295, final int i296) {
-        final int i297 = image.getHeight(ob);
-        final int i298 = image.getWidth(ob);
+        final int i297 = image.getHeight(null);
+        final int i298 = image.getWidth(null);
         return i > i295 - 5 && i < i295 + i298 + 5 && i294 > i296 - 5 && i294 < i296 + i297 + 5;
     }
 
@@ -7192,8 +7191,8 @@ class xtGraphics extends Panel implements Runnable {
     }
 
     private Image pressed(final Image image) {
-        final int i = image.getHeight(ob);
-        final int i337 = image.getWidth(ob);
+        final int i = image.getHeight(null);
+        final int i337 = image.getWidth(null);
         final int[] is = new int[i337 * i];
         final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, i337, i, is, 0, i337);
         try {
@@ -7869,7 +7868,7 @@ class xtGraphics extends Panel implements Runnable {
             }
 
             // DEBUG: Prints the range of possible cars to the console
-            //System.out.println("Minimum car: " + cd.names[(i - 1) / 2] + ", maximum car: " + cd.names[nplayers + ((i - 1) / 2)] + ", therefore: " + (((i - 1) / 2) - (nplayers + ((i - 1) / 2))) + " car difference");
+            //System.out.println("Minimum car: " + stat.names[(i - 1) / 2] + ", maximum car: " + stat.names[nplayers + ((i - 1) / 2)] + ", therefore: " + (((i - 1) / 2) - (nplayers + ((i - 1) / 2))) + " car difference");
 
             // create a list of car ids, each item completely unique
             final ArrayList<Integer> list = new ArrayList<>();

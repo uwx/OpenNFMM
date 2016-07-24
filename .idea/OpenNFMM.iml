@@ -13,17 +13,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
-      <library name="dragshotMod.jar">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/libraries/dragshotMod.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/libraries/dragshotMod.zip!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="NativeBass.jar">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/libraries/NativeBass.jar!/" />

@@ -5,7 +5,7 @@ import jouvieje.bass.callbacks.SYNCPROC;
 import jouvieje.bass.structures.HMUSIC;
 import jouvieje.bass.structures.HSTREAM;
 import jouvieje.bass.utils.BufferUtils;
-import Utility;
+import nfm.open.Utility;
 
 import java.io.File;
 import java.io.FileInputStream;

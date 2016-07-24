@@ -619,7 +619,7 @@ class Lobby implements Runnable {
                                         if (invo) {
                                             invo = false;
                                         }
-                                        if (gs.mycar.getState() && xt.sc[0] < 16) {
+                                        if (gs.mycar.getState() && xt.sc[0] < CarDefine.SIXTEEN) {
                                             gclass = -(xt.sc[0] + 2);
                                             gcars = 0;
                                         }
@@ -642,7 +642,7 @@ class Lobby implements Runnable {
                                             invo = false;
                                         }
                                         msg = "| Creating Game |";
-                                        if (gs.mycar.getState() && xt.sc[0] < 16) {
+                                        if (gs.mycar.getState() && xt.sc[0] < CarDefine.SIXTEEN) {
                                             gclass = -(xt.sc[0] + 2);
                                             gcars = 0;
                                         }
@@ -1850,7 +1850,7 @@ class Lobby implements Runnable {
                                 }
                                 int i148 = 0;
                                 for (int i149 = 0; i149 < ngm; i149++)
-                                    if (80 + 24 * i149 - i105 < 224 && 80 + 24 * i149 - i105 > 56) {
+                                    if (80 + 24 * i149 - i105 < 224 && 80 + 24 * i149 - i105 > CarDefine.FIFTY_SIX) {
                                         if (opselect == i149) {
                                             if (80 + 24 * i149 - i105 >= 224) {
                                                 opselect--;
@@ -1981,7 +1981,7 @@ class Lobby implements Runnable {
                                             if (80 + 24 * i149 - i105 >= 224) {
                                                 opselect--;
                                             }
-                                            if (80 + 24 * i149 - i105 <= 56) {
+                                            if (80 + 24 * i149 - i105 <= CarDefine.FIFTY_SIX) {
                                                 opselect++;
                                             }
                                         }
@@ -2264,7 +2264,7 @@ class Lobby implements Runnable {
                                             	if (sgflag != 3) {
                                             		gstage = 0;
                                             		if (xt.logged) {
-                                            			if (cd.msloaded != 1) {
+                                            			if (stat.msloaded != 1) {
                                             				gs.mstgs.removeAll();
                                             				gs.mstgs.add(this.rd,
                                             						"Loading your stages now, please wait...");
@@ -2275,7 +2275,7 @@ class Lobby implements Runnable {
                                             			gs.mstgs.removeAll();
                                             			gs.mstgs.add(rd, "You need to have a full account to access ");
                                             			gs.mstgs.select(0);
-                                            			cd.msloaded = 0;
+                                            			stat.msloaded = 0;
                                             		}
                                             		sgflag = 3;
                                             	}
@@ -2286,7 +2286,7 @@ class Lobby implements Runnable {
                                             	if (sgflag != 4) {
                                             		gstage = 0;
                                             		if (xt.logged) {
-                                            			if (cd.msloaded != 7) {
+                                            			if (stat.msloaded != 7) {
                                             				gs.mstgs.removeAll();
                                             				gs.mstgs.add(this.rd,
                                             						"Loading your stages now, please wait...");
@@ -2297,7 +2297,7 @@ class Lobby implements Runnable {
                                             			gs.mstgs.removeAll();
                                             			gs.mstgs.add(rd, "You need to have a full account to access ");
                                             			gs.mstgs.select(0);
-                                            			cd.msloaded = 0;
+                                            			stat.msloaded = 0;
                                             		}
                                             		sgflag = 4;
                                             	}
@@ -2308,7 +2308,7 @@ class Lobby implements Runnable {
                                             	if (sgflag != 5) {
                                             		gstage = 0;
                                             		if (xt.logged) {
-                                            			if (cd.msloaded != 3) {
+                                            			if (stat.msloaded != 3) {
                                             				gs.mstgs.removeAll();
                                             				gs.mstgs.add(this.rd,
                                             						"Loading your stages now, please wait...");
@@ -2319,7 +2319,7 @@ class Lobby implements Runnable {
                                             			gs.mstgs.removeAll();
                                             			gs.mstgs.add(rd, "You need to have a full account to access ");
                                             			gs.mstgs.select(0);
-                                            			cd.msloaded = 0;
+                                            			stat.msloaded = 0;
                                             		}
                                             		sgflag = 5;
                                             	}
@@ -2330,7 +2330,7 @@ class Lobby implements Runnable {
                                             	if (sgflag != 6) {
                                             		gstage = 0;
                                             		if (xt.logged) {
-                                            			if (cd.msloaded != 4) {
+                                            			if (stat.msloaded != 4) {
                                             				gs.mstgs.removeAll();
                                             				gs.mstgs.add(this.rd,
                                             						"Loading your stages now, please wait...");
@@ -2341,7 +2341,7 @@ class Lobby implements Runnable {
                                             			gs.mstgs.removeAll();
                                             			gs.mstgs.add(rd, "You need to have a full account to access ");
                                             			gs.mstgs.select(0);
-                                            			cd.msloaded = 0;
+                                            			stat.msloaded = 0;
                                             		}
                                             		sgflag = 6;
                                             	}
@@ -2541,12 +2541,12 @@ class Lobby implements Runnable {
                                             			472 - ftm.stringWidth("Removing stage from your account...")
                                             					/ 2,
                                             			175);
-                                            	if (cd.staction == 0) {
+                                            	if (stat.staction == 0) {
                                             		gstage = 0;
                                             		loadstage = 0;
                                             		remstage = 0;
                                             	}
-                                            	if (cd.staction == -1) {
+                                            	if (stat.staction == -1) {
                                             		remstage = 3;
                                             		gs.mouses = 0;
                                             	}
@@ -2564,9 +2564,9 @@ class Lobby implements Runnable {
                                             			155);
                                             	if (xt.drawcarb(true, null, " Yes ", 426, 175, i, i99, bool)) {
                                             		remstage = 2;
-                                            		cd.onstage = gs.mstgs.getSelectedItem();
-                                            		cd.staction = 1;
-                                            		cd.sparkstageaction();
+                                            		stat.onstage = gs.mstgs.getSelectedItem();
+                                            		stat.staction = 1;
+                                            		stat.sparkstageaction();
                                             		gs.mouses = 0;
                                             	}
                                             	if (xt.drawcarb(true, null, " No ", 480, 175, i, i99, bool)) {
@@ -2722,7 +2722,7 @@ class Lobby implements Runnable {
                                                 gs.notp.setState(true);
                                             }
                                         }
-                                        if (xt.sc[0] < 16) {
+                                        if (xt.sc[0] < CarDefine.SIXTEEN) {
                                             if (!gs.openm) {
                                                 gs.movefield(gs.mycar, 472 - (gs.scars.getWidth() + gs.sclass.getWidth() + gs.sfix.getWidth() + 16) / 2, 131, 150, 17);
                                             } else {
@@ -4120,7 +4120,7 @@ class Lobby implements Runnable {
                                     rd.drawImage(xt.statbo, 471 + i280, 327 + i281, null);
                                     rd.drawImage(xt.statbo, 471 + i280, 342 + i281, null);
                                     rd.setColor(new Color(0, 0, 0));
-                                    if (forcar < 16) {
+                                    if (forcar < CarDefine.SIXTEEN) {
                                         rd.setFont(new Font("Arial", 1, 12));
                                         ftm = rd.getFontMetrics();
                                         rd.drawString("Created by Radicalplay.com", 561 - ftm.stringWidth("Created by Radicalplay.com") / 2, 347);
@@ -4148,15 +4148,15 @@ class Lobby implements Runnable {
                                     } else {
                                         rd.setFont(new Font("Arial", 1, 12));
                                         ftm = rd.getFontMetrics();
-                                        if (!cd.createdby[forcar - 16].equals(xt.nickname)) {
-                                            rd.drawString("Created by :  " + cd.createdby[forcar - 16] + "", 561 - ftm.stringWidth("Created by :  " + cd.createdby[forcar - 16] + "") / 2, 347);
-                                            final int i284 = ftm.stringWidth(cd.createdby[forcar - 16]);
-                                            final int i285 = 561 - ftm.stringWidth("Created by :  " + cd.createdby[forcar - 16] + "") / 2 + ftm.stringWidth("Created by :  " + cd.createdby[forcar - 16] + "") - i284;
+                                        if (!cd.createdby[forcar - CarDefine.SIXTEEN].equals(xt.nickname)) {
+                                            rd.drawString("Created by :  " + cd.createdby[forcar - CarDefine.SIXTEEN] + "", 561 - ftm.stringWidth("Created by :  " + cd.createdby[forcar - CarDefine.SIXTEEN] + "") / 2, 347);
+                                            final int i284 = ftm.stringWidth(cd.createdby[forcar - CarDefine.SIXTEEN]);
+                                            final int i285 = 561 - ftm.stringWidth("Created by :  " + cd.createdby[forcar - CarDefine.SIXTEEN] + "") / 2 + ftm.stringWidth("Created by :  " + cd.createdby[forcar - CarDefine.SIXTEEN] + "") - i284;
                                             rd.drawLine(i285, 349, i285 + i284 - 2, 349);
                                             if (i > i285 - 2 && i < i285 + i284 && i99 > 334 && i99 < 351) {
                                                 if (bool) {
-                                                    /*if (!gb.proname.equals(cd.createdby[forcar - 16])) {
-                                                    	gb.proname = cd.createdby[this.forcar - 16];
+                                                    /*if (!gb.proname.equals(stat.createdby[forcar - CarDefine.SIXTEEN])) {
+                                                    	gb.proname = stat.createdby[this.forcar - CarDefine.SIXTEEN];
                                                     	gb.loadedp = false;
                                                     }
                                                     gb.tab = 1;
@@ -4185,14 +4185,14 @@ class Lobby implements Runnable {
                                         if (cd.cclass[forcar] == 4) {
                                             string286 = "Class A ,  ";
                                         }
-                                        if (cd.publish[forcar - 16] == 0) {
+                                        if (cd.publish[forcar - CarDefine.SIXTEEN] == 0) {
                                             string286 = "" + string286 + "Private Car";
                                         }
-                                        if (cd.publish[forcar - 16] == 1) {
+                                        if (cd.publish[forcar - CarDefine.SIXTEEN] == 1) {
                                             string286 = "" + string286 + "Public Car";
                                             rd.setColor(new Color(0, 64, 128));
                                         }
-                                        if (cd.publish[forcar - 16] == 2) {
+                                        if (cd.publish[forcar - CarDefine.SIXTEEN] == 2) {
                                             string286 = "" + string286 + "Super Public Car";
                                             rd.setColor(new Color(0, 64, 128));
                                         }
@@ -4200,7 +4200,7 @@ class Lobby implements Runnable {
                                         rd.setColor(new Color(0, 0, 0));
                                         rd.setFont(new Font("Arial", 0, 12));
                                         ftm = rd.getFontMetrics();
-                                        if (cd.publish[forcar - 16] == 1 || cd.publish[forcar - 16] == 2) {
+                                        if (cd.publish[forcar - CarDefine.SIXTEEN] == 1 || cd.publish[forcar - CarDefine.SIXTEEN] == 2) {
                                             if (cd.action == -9) {
                                                 rd.drawString("Failed to add car!  Unknown error!", 561 - ftm.stringWidth("Failed to add car!  Unknown error!") / 2, 395);
                                             }
@@ -4239,7 +4239,7 @@ class Lobby implements Runnable {
                                             }
                                             if (cd.action == 0 && xt.drawcarb(true, null, " Add to My Cars ", 503, 375, i, i99, bool))
                                                 if (xt.logged) {
-                                                    if (cd.lastload != 2 || forcar >= 36) {
+                                                    if (cd.lastload != 2 || forcar >= CarDefine.THIRTY_SIX) {
                                                         cd.action = 6;
                                                         cd.ac = forcar;
                                                         cd.sparkactionloader();
@@ -4526,21 +4526,21 @@ class Lobby implements Runnable {
                 if (i1 != -1) {
                     boolean bool = false;
                     ontyp = 0;
-                    if (gcrs[i1] == 1 && pcars[im] < 16) {
+                    if (gcrs[i1] == 1 && pcars[im] < CarDefine.SIXTEEN) {
                         bool = true;
                         ontyp = 10;
                         if (gclss[i1] > 0 && gclss[i1] <= 5) {
                             ontyp += gclss[i1];
                         }
                     }
-                    if (gcrs[i1] == 2 && pcars[im] >= 16) {
+                    if (gcrs[i1] == 2 && pcars[im] >= CarDefine.SIXTEEN) {
                         bool = true;
                         ontyp = 20;
                         if (gclss[i1] > 0 && gclss[i1] <= 5) {
                             ontyp += gclss[i1];
                         }
                     }
-                    if (gcrs[i1] == 1 && gwarb[i1] != 0 && xt.sc[0] != 36) {
+                    if (gcrs[i1] == 1 && gwarb[i1] != 0 && xt.sc[0] != CarDefine.THIRTY_SIX) {
                         bool = true;
                         ontyp = 30;
                         if (gclss[i1] > 0 && gclss[i1] <= 5) {
@@ -4721,7 +4721,7 @@ class Lobby implements Runnable {
                     pcarnames[i12] = string13.substring(1);
                     if (!pcarnames[i12].equals("")) {
                         int i14 = 0;
-                        for (int i15 = 16; i15 < 56; i15++)
+                        for (int i15 = CarDefine.SIXTEEN; i15 < CarDefine.FIFTY_SIX; i15++)
                             if (pcarnames[i12].equals(cd.names[i15])) {
                                 i14 = i15;
                                 break;
@@ -5167,7 +5167,7 @@ class Lobby implements Runnable {
                             string63 = string63.substring(1);
                             if (!string63.equals("")) {
                                 int i64 = 0;
-                                for (int i65 = 16; i65 < 56; i65++)
+                                for (int i65 = CarDefine.SIXTEEN; i65 < CarDefine.FIFTY_SIX; i65++)
                                     if (string63.equals(cd.names[i65])) {
                                         i64 = i65;
                                         break;
@@ -5191,7 +5191,7 @@ class Lobby implements Runnable {
                                     } catch (final InterruptedException ignored) {
 
                                     }
-                                    for (int i68 = 16; i68 < 56; i68++)
+                                    for (int i68 = CarDefine.SIXTEEN; i68 < CarDefine.FIFTY_SIX; i68++)
                                         if (string63.equals(cd.names[i68])) {
                                             i64 = i68;
                                         }
@@ -5385,7 +5385,7 @@ class Lobby implements Runnable {
                             string84 = string84.substring(1);
                             if (!string84.equals("")) {
                                 int i85 = 0;
-                                for (int i86 = 16; i86 < 56; i86++)
+                                for (int i86 = CarDefine.SIXTEEN; i86 < CarDefine.FIFTY_SIX; i86++)
                                     if (string84.equals(cd.names[i86])) {
                                         i85 = i86;
                                         break;
@@ -5409,7 +5409,7 @@ class Lobby implements Runnable {
                                     } catch (final InterruptedException ignored) {
 
                                     }
-                                    for (int i89 = 16; i89 < 56; i89++)
+                                    for (int i89 = CarDefine.SIXTEEN; i89 < CarDefine.FIFTY_SIX; i89++)
                                         if (string84.equals(cd.names[i89])) {
                                             i85 = i89;
                                         }

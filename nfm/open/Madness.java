@@ -29,8 +29,7 @@ class Madness extends Panel {
     private static CarMaker cm;
     private static DisplayMode defdisp;
     static String fpath = "";
-    private static Frame frame;
-    static DisplayMode fulldisp;
+    static Frame frame;
     static boolean fullscreen = false;
     static boolean inisetup = false;
     private static GraphicsDevice myDevice;
@@ -42,8 +41,6 @@ class Madness extends Panel {
     static String testcar = "";
     static int testdrive = 0;
     static int textid = 0;
-    private static final int updateon = 0;
-    static String upfile = "";
 
     static void carmaker() {
         /*try {
@@ -138,52 +135,50 @@ class Madness extends Panel {
     }
 
     private static void exitsequance() {
-        if (updateon == 0 || updateon == 3) {
-            //if (updateon != 3)
+        //if (updateon != 3)
             /*try {
             	applet.stop();
             } catch (final Exception ex) {
             }*/
-            try {
-                sm.stop();
-            } catch (final Exception ignored) {
-            }
-            try {
-                cm.stop();
-            } catch (final Exception ignored) {
-            }
-            frame.removeAll();
-            try {
-                Thread.sleep(200L);
-            } catch (final Exception ignored) {
+        try {
+            sm.stop();
+        } catch (final Exception ignored) {
+        }
+        try {
+            cm.stop();
+        } catch (final Exception ignored) {
+        }
+        frame.removeAll();
+        try {
+            Thread.sleep(200L);
+        } catch (final Exception ignored) {
 
-            }
+        }
             /*try {
             	applet.destroy();
             } catch (final Exception ex) {
             }*/
-            try {
-                cm.destroy();
-            } catch (final Exception ignored) {
-            }
-            try {
-                sm.destroy();
-            } catch (final Exception ignored) {
-            }
-            try {
-                applet = null;
-            } catch (final Exception ignored) {
-            }
-            try {
-                cm = null;
-            } catch (final Exception ignored) {
-            }
-            try {
-                sm = null;
-            } catch (final Exception ignored) {
-            }
-            System.exit(0);
+        try {
+            cm.destroy();
+        } catch (final Exception ignored) {
         }
+        try {
+            sm.destroy();
+        } catch (final Exception ignored) {
+        }
+        try {
+            applet = null;
+        } catch (final Exception ignored) {
+        }
+        try {
+            cm = null;
+        } catch (final Exception ignored) {
+        }
+        try {
+            sm = null;
+        } catch (final Exception ignored) {
+        }
+        System.exit(0);
     }
 
     static void game() {
@@ -241,20 +236,6 @@ class Madness extends Panel {
         frame.setVisible(true);
         //applet.init();
         //applet.start();
-    }
-
-    public static String getfuncSvalue(final String string, final String string28, final int i) {
-        String string29 = "";
-        int i30 = 0;
-        for (int i31 = string.length() + 1; i31 < string28.length() && i30 <= i; i31++) {
-            final String string32 = "" + string28.charAt(i31);
-            if (string32.equals(",") || string32.equals(")")) {
-                i30++;
-            } else if (i30 == i) {
-                string29 = "" + string29 + string32;
-            }
-        }
-        return string29;
     }
 
     static void gofullscreen() {
@@ -365,7 +346,6 @@ class Madness extends Panel {
         frame.setIgnoreRepaint(true);
         fpath = "";
         boolean bool = false;
-        final int i = strings.length;
         for (final String string : strings) {
             if (!bool) {
                 fpath = "" + fpath + string;

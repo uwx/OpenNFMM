@@ -9,7 +9,7 @@ class Mad {
     int capcnt = 0;
     boolean capsized = false;
     private final boolean[] caught = new boolean[8];
-    final CarDefine cd;
+    Stat stat;
     int clear = 0;
     int cn = 0;
     int cntdest = 0;
@@ -82,12 +82,16 @@ class Mad {
     private final xtGraphics xt;
     private int xtpower = 0;
 
-    Mad(final CarDefine cardefine, final Medium medium, final Record record, final xtGraphics xtgraphics, final int i) {
-        cd = cardefine;
+    Mad(final Stat stat, final Medium medium, final Record record, final xtGraphics xtgraphics, final int i) {
+        this.stat = stat;
         m = medium;
         rpd = record;
         xt = xtgraphics;
         im = i;
+    }
+
+    public void setStat(final Stat stat) {
+        this.stat = stat;
     }
 
     void colide(final ContO conto, final Mad mad118, final ContO conto119) {
@@ -100,14 +104,14 @@ class Mad {
         for (int i = 0; i < 4; i++) {
             fs[i] = conto.x + conto.keyx[i];
             if (capsized) {
-                fs120[i] = conto.y + cd.flipy[cn] + squash;
+                fs120[i] = conto.y + stat.flipy + squash;
             } else {
                 fs120[i] = conto.y + conto.grat;
             }
             fs121[i] = conto.z + conto.keyz[i];
             fs122[i] = conto119.x + conto119.keyx[i];
             if (capsized) {
-                fs123[i] = conto119.y + cd.flipy[mad118.cn] + mad118.squash;
+                fs123[i] = conto119.y + mad118.stat.flipy + mad118.squash;
             } else {
                 fs123[i] = conto119.y + conto119.grat;
             }
@@ -121,9 +125,9 @@ class Mad {
         rot(fs122, fs124, conto119.x, conto119.z, conto119.xz, 4);
         if (rpy(conto.x, conto119.x, conto.y, conto119.y, conto.z, conto119.z) < (conto.maxR * conto.maxR + conto119.maxR * conto119.maxR) * 1.5) {
             if (!caught[mad118.im] && (speed != 0.0F || mad118.speed != 0.0F)) {
-                if (Math.abs(power * speed * cd.moment[cn]) != Math.abs(mad118.power * mad118.speed * cd.moment[mad118.cn])) {
-                    dominate[mad118.im] = Math.abs(power * speed * cd.moment[cn]) > Math.abs(mad118.power * mad118.speed * cd.moment[mad118.cn]);
-                } else dominate[mad118.im] = cd.moment[cn] > cd.moment[mad118.cn];
+                if (Math.abs(power * speed * stat.moment) != Math.abs(mad118.power * mad118.speed * mad118.stat.moment)) {
+                    dominate[mad118.im] = Math.abs(power * speed * stat.moment) > Math.abs(mad118.power * mad118.speed * mad118.stat.moment);
+                } else dominate[mad118.im] = stat.moment > mad118.stat.moment;
                 caught[mad118.im] = true;
             }
         } else if (caught[mad118.im]) {
@@ -141,16 +145,16 @@ class Mad {
             }
             for (int i128 = 0; i128 < 4; i128++) {
                 for (int i129 = 0; i129 < 4; i129++)
-                    if (rpy(fs[i128], fs122[i129], fs120[i128], fs123[i129], fs121[i128], fs124[i129]) < (i126 + i127) * (cd.comprad[mad118.cn] + cd.comprad[cn])) {
-                        if (Math.abs(scx[i128] * cd.moment[cn]) > Math.abs(mad118.scx[i129] * cd.moment[mad118.cn])) {
-                            float f130 = mad118.scx[i129] * cd.revpush[cn];
+                    if (rpy(fs[i128], fs122[i129], fs120[i128], fs123[i129], fs121[i128], fs124[i129]) < (i126 + i127) * (mad118.stat.comprad + stat.comprad)) {
+                        if (Math.abs(scx[i128] * stat.moment) > Math.abs(mad118.scx[i129] * mad118.stat.moment)) {
+                            float f130 = mad118.scx[i129] * stat.revpush;
                             if (f130 > 300.0F) {
                                 f130 = 300.0F;
                             }
                             if (f130 < -300.0F) {
                                 f130 = -300.0F;
                             }
-                            float f131 = scx[i128] * cd.push[cn];
+                            float f131 = scx[i128] * stat.push;
                             if (f131 > 300.0F) {
                                 f131 = 300.0F;
                             }
@@ -161,17 +165,17 @@ class Mad {
                             if (im == xt.im) {
                                 mad118.colidim = true;
                             }
-                            i += mad118.regx(i129, f131 * cd.moment[cn] * f, conto119);
+                            i += mad118.regx(i129, f131 * stat.moment * f, conto119);
                             if (mad118.colidim) {
                                 mad118.colidim = false;
                             }
                             scx[i128] -= f130;
-                            i125 += regx(i128, -f130 * cd.moment[cn] * f, conto);
-                            scy[i128] -= cd.revlift[cn];
+                            i125 += regx(i128, -f130 * stat.moment * f, conto);
+                            scy[i128] -= stat.revlift;
                             if (im == xt.im) {
                                 mad118.colidim = true;
                             }
-                            i += mad118.regy(i129, cd.revlift[cn] * 7, conto119);
+                            i += mad118.regy(i129, stat.revlift * 7, conto119);
                             if (mad118.colidim) {
                                 mad118.colidim = false;
                             }
@@ -179,15 +183,15 @@ class Mad {
                                 conto119.sprk((fs[i128] + fs122[i129]) / 2.0F, (fs120[i128] + fs123[i129]) / 2.0F, (fs121[i128] + fs124[i129]) / 2.0F, (mad118.scx[i129] + scx[i128]) / 4.0F, (mad118.scy[i129] + scy[i128]) / 4.0F, (mad118.scz[i129] + scz[i128]) / 4.0F, 2);
                             }
                         }
-                        if (Math.abs(scz[i128] * cd.moment[cn]) > Math.abs(mad118.scz[i129] * cd.moment[mad118.cn])) {
-                            float f132 = mad118.scz[i129] * cd.revpush[cn];
+                        if (Math.abs(scz[i128] * stat.moment) > Math.abs(mad118.scz[i129] * mad118.stat.moment)) {
+                            float f132 = mad118.scz[i129] * stat.revpush;
                             if (f132 > 300.0F) {
                                 f132 = 300.0F;
                             }
                             if (f132 < -300.0F) {
                                 f132 = -300.0F;
                             }
-                            float f133 = scz[i128] * cd.push[cn];
+                            float f133 = scz[i128] * stat.push;
                             if (f133 > 300.0F) {
                                 f133 = 300.0F;
                             }
@@ -198,17 +202,17 @@ class Mad {
                             if (im == xt.im) {
                                 mad118.colidim = true;
                             }
-                            i += mad118.regz(i129, f133 * cd.moment[cn] * f, conto119);
+                            i += mad118.regz(i129, f133 * stat.moment * f, conto119);
                             if (mad118.colidim) {
                                 mad118.colidim = false;
                             }
                             scz[i128] -= f132;
-                            i125 += regz(i128, -f132 * cd.moment[cn] * f, conto);
-                            scy[i128] -= cd.revlift[cn];
+                            i125 += regz(i128, -f132 * stat.moment * f, conto);
+                            scy[i128] -= stat.revlift;
                             if (im == xt.im) {
                                 mad118.colidim = true;
                             }
-                            i += mad118.regy(i129, cd.revlift[cn] * 7, conto119);
+                            i += mad118.regy(i129, stat.revlift * 7, conto119);
                             if (mad118.colidim) {
                                 mad118.colidim = false;
                             }
@@ -222,7 +226,7 @@ class Mad {
                         if (mad118.im == xt.im) {
                             lastcolido = 70;
                         }
-                        mad118.scy[i129] -= cd.lift[cn];
+                        mad118.scy[i129] -= stat.lift;
                     }
             }
         }
@@ -282,7 +286,7 @@ class Mad {
             capsized = true;
         }
         if (capsized) {
-            i10 = cd.flipy[cn] + squash;
+            i10 = stat.flipy + squash;
         }
         control.zyinv = bool;
         float f = 0.0F;
@@ -342,15 +346,15 @@ class Mad {
                         if (ucomp > 10.0F) {
                             ucomp = 10.0F;
                         }
-                        ucomp *= cd.airs[cn];
+                        ucomp *= stat.airs;
                     }
                     if (ucomp < 20.0F) {
-                        ucomp += 0.5 * cd.airs[cn];
+                        ucomp += 0.5 * stat.airs;
                     }
-                    f = -cd.airc[cn] * m.sin(conto.xz) * i4;
-                    f11 = cd.airc[cn] * m.cos(conto.xz) * i4;
+                    f = -stat.airc * m.sin(conto.xz) * i4;
+                    f11 = stat.airc * m.cos(conto.xz) * i4;
                 } else if (ucomp != 0.0F && ucomp > -2.0F) {
-                    ucomp -= 0.5 * cd.airs[cn];
+                    ucomp -= 0.5 * stat.airs;
                 }
                 if (control.down) {
                     if (dcomp == 0.0F) {
@@ -361,38 +365,38 @@ class Mad {
                         if (dcomp > 10.0F) {
                             dcomp = 10.0F;
                         }
-                        dcomp *= cd.airs[cn];
+                        dcomp *= stat.airs;
                     }
                     if (dcomp < 20.0F) {
-                        dcomp += 0.5 * cd.airs[cn];
+                        dcomp += 0.5 * stat.airs;
                     }
-                    f12 = -cd.airc[cn];
+                    f12 = -stat.airc;
                 } else if (dcomp != 0.0F && ucomp > -2.0F) {
-                    dcomp -= 0.5 * cd.airs[cn];
+                    dcomp -= 0.5 * stat.airs;
                 }
                 if (control.left) {
                     if (lcomp == 0.0F) {
                         lcomp = 5.0F;
                     }
                     if (lcomp < 20.0F) {
-                        lcomp += 2.0F * cd.airs[cn];
+                        lcomp += 2.0F * stat.airs;
                     }
-                    f = -cd.airc[cn] * m.cos(conto.xz) * i;
-                    f11 = -cd.airc[cn] * m.sin(conto.xz) * i;
+                    f = -stat.airc * m.cos(conto.xz) * i;
+                    f11 = -stat.airc * m.sin(conto.xz) * i;
                 } else if (lcomp > 0.0F) {
-                    lcomp -= 2.0F * cd.airs[cn];
+                    lcomp -= 2.0F * stat.airs;
                 }
                 if (control.right) {
                     if (rcomp == 0.0F) {
                         rcomp = 5.0F;
                     }
                     if (rcomp < 20.0F) {
-                        rcomp += 2.0F * cd.airs[cn];
+                        rcomp += 2.0F * stat.airs;
                     }
-                    f = cd.airc[cn] * m.cos(conto.xz) * i;
-                    f11 = cd.airc[cn] * m.sin(conto.xz) * i;
+                    f = stat.airc * m.cos(conto.xz) * i;
+                    f11 = stat.airc * m.sin(conto.xz) * i;
                 } else if (rcomp > 0.0F) {
-                    rcomp -= 2.0F * cd.airs[cn];
+                    rcomp -= 2.0F * stat.airs;
                 }
                 pzy += (dcomp - ucomp) * m.cos(pxy);
                 if (bool) {
@@ -408,98 +412,98 @@ class Mad {
                 }
                 if (control.down)
                     if (speed > 0.0F) {
-                        speed -= cd.handb[cn] / 2;
+                        speed -= stat.handb / 2;
                     } else {
                         int i16 = 0;
                         for (int i17 = 0; i17 < 2; i17++)
-                            if (speed <= -(cd.swits[cn][i17] / 2 + f15 * cd.swits[cn][i17] / 196.0F)) {
+                            if (speed <= -(stat.swits[i17] / 2 + f15 * stat.swits[i17] / 196.0F)) {
                                 i16++;
                             }
                         if (i16 != 2) {
-                            speed -= cd.acelf[cn][i16] / 2.0F + f15 * cd.acelf[cn][i16] / 196.0F;
+                            speed -= stat.acelf[i16] / 2.0F + f15 * stat.acelf[i16] / 196.0F;
                         } else {
-                            speed = -(cd.swits[cn][1] / 2 + f15 * cd.swits[cn][1] / 196.0F);
+                            speed = -(stat.swits[1] / 2 + f15 * stat.swits[1] / 196.0F);
                         }
                     }
                 if (control.up)
                     if (speed < 0.0F) {
-                        speed += cd.handb[cn];
+                        speed += stat.handb;
                     } else {
                         int i18 = 0;
                         for (int i19 = 0; i19 < 3; i19++)
-                            if (speed >= cd.swits[cn][i19] / 2 + f15 * cd.swits[cn][i19] / 196.0F) {
+                            if (speed >= stat.swits[i19] / 2 + f15 * stat.swits[i19] / 196.0F) {
                                 i18++;
                             }
                         if (i18 != 3) {
-                            speed += cd.acelf[cn][i18] / 2.0F + f15 * cd.acelf[cn][i18] / 196.0F;
+                            speed += stat.acelf[i18] / 2.0F + f15 * stat.acelf[i18] / 196.0F;
                         } else {
-                            speed = cd.swits[cn][2] / 2 + f15 * cd.swits[cn][2] / 196.0F;
+                            speed = stat.swits[2] / 2 + f15 * stat.swits[2] / 196.0F;
                         }
                     }
-                if (control.handb && Math.abs(speed) > cd.handb[cn])
+                if (control.handb && Math.abs(speed) > stat.handb)
                     if (speed < 0.0F) {
-                        speed += cd.handb[cn];
+                        speed += stat.handb;
                     } else {
-                        speed -= cd.handb[cn];
+                        speed -= stat.handb;
                     }
                 if (loop == -1 && conto.y < 100) {
                     if (control.left) {
                         if (!pl) {
                             if (lcomp == 0.0F) {
-                                lcomp = 5.0F * cd.airs[cn];
+                                lcomp = 5.0F * stat.airs;
                             }
                             if (lcomp < 20.0F) {
-                                lcomp += 2.0F * cd.airs[cn];
+                                lcomp += 2.0F * stat.airs;
                             }
                         }
                     } else {
                         if (lcomp > 0.0F) {
-                            lcomp -= 2.0F * cd.airs[cn];
+                            lcomp -= 2.0F * stat.airs;
                         }
                         pl = false;
                     }
                     if (control.right) {
                         if (!pr) {
                             if (rcomp == 0.0F) {
-                                rcomp = 5.0F * cd.airs[cn];
+                                rcomp = 5.0F * stat.airs;
                             }
                             if (rcomp < 20.0F) {
-                                rcomp += 2.0F * cd.airs[cn];
+                                rcomp += 2.0F * stat.airs;
                             }
                         }
                     } else {
                         if (rcomp > 0.0F) {
-                            rcomp -= 2.0F * cd.airs[cn];
+                            rcomp -= 2.0F * stat.airs;
                         }
                         pr = false;
                     }
                     if (control.up) {
                         if (!pu) {
                             if (ucomp == 0.0F) {
-                                ucomp = 5.0F * cd.airs[cn];
+                                ucomp = 5.0F * stat.airs;
                             }
                             if (ucomp < 20.0F) {
-                                ucomp += 2.0F * cd.airs[cn];
+                                ucomp += 2.0F * stat.airs;
                             }
                         }
                     } else {
                         if (ucomp > 0.0F) {
-                            ucomp -= 2.0F * cd.airs[cn];
+                            ucomp -= 2.0F * stat.airs;
                         }
                         pu = false;
                     }
                     if (control.down) {
                         if (!pd) {
                             if (dcomp == 0.0F) {
-                                dcomp = 5.0F * cd.airs[cn];
+                                dcomp = 5.0F * stat.airs;
                             }
                             if (dcomp < 20.0F) {
-                                dcomp += 2.0F * cd.airs[cn];
+                                dcomp += 2.0F * stat.airs;
                             }
                         }
                     } else {
                         if (dcomp > 0.0F) {
-                            dcomp -= 2.0F * cd.airs[cn];
+                            dcomp -= 2.0F * stat.airs;
                         }
                         pd = false;
                     }
@@ -512,7 +516,7 @@ class Mad {
                     pxy += rcomp - lcomp;
                 }
             }
-        float f20 = 20.0F * speed / (154.0F * cd.simag[cn]);
+        float f20 = 20.0F * speed / (154.0F * stat.simag);
         if (f20 > 20.0F) {
             f20 = 20.0F;
         }
@@ -524,13 +528,13 @@ class Mad {
             conto.wzy -= 30;
         }
         if (control.right) {
-            conto.wxz -= cd.turn[cn];
+            conto.wxz -= stat.turn;
             if (conto.wxz < -36) {
                 conto.wxz = -36;
             }
         }
         if (control.left) {
-            conto.wxz += cd.turn[cn];
+            conto.wxz += stat.turn;
             if (conto.wxz > 36) {
                 conto.wxz = 36;
             }
@@ -547,14 +551,14 @@ class Mad {
                     conto.wxz++;
                 }
             } else {
-                if (Math.abs(conto.wxz) < cd.turn[cn] * 2) {
+                if (Math.abs(conto.wxz) < stat.turn * 2) {
                     conto.wxz = 0;
                 }
                 if (conto.wxz > 0) {
-                    conto.wxz -= cd.turn[cn] * 2;
+                    conto.wxz -= stat.turn * 2;
                 }
                 if (conto.wxz < 0) {
-                    conto.wxz += cd.turn[cn] * 2;
+                    conto.wxz += stat.turn * 2;
                 }
             }
         int i21 = (int) (3600.0F / (speed * speed));
@@ -653,12 +657,12 @@ class Mad {
             }
         }
         if (mtouch) {
-            float f35 = cd.grip[cn];
+            float f35 = stat.grip;
             f35 -= Math.abs(txz - conto.xz) * speed / 250.0F;
             if (control.handb) {
                 f35 -= Math.abs(txz - conto.xz) * 4;
             }
-            if (f35 < cd.grip[cn]) {
+            if (f35 < stat.grip) {
                 if (skid != 2) {
                     skid = 1;
                 }
@@ -679,7 +683,7 @@ class Mad {
                 i36 = 0;
                 i37 = 0;
                 i38 = 0;
-                f35 = cd.grip[cn] / 5.0F;
+                f35 = stat.grip / 5.0F;
                 if (speed > 0.0F) {
                     speed -= 2.0F;
                 } else {
@@ -731,29 +735,29 @@ class Mad {
                 } else {
                     scy[i41] = i38;
                 }
-                if (f35 < cd.grip[cn]) {
+                if (f35 < stat.grip) {
                     if (txz != conto.xz) {
                         dcnt++;
                     } else if (dcnt != 0) {
                         dcnt = 0;
                     }
-                    if (dcnt > 40.0F * f35 / cd.grip[cn] || capsized) {
+                    if (dcnt > 40.0F * f35 / stat.grip || capsized) {
                         float f42 = 1.0F;
                         if (i32 != 0) {
                             f42 = 1.2F;
                         }
                         if (m.random() > 0.65) {
-                            conto.dust(i41, fs[i41], fs23[i41], fs22[i41], (int) scx[i41], (int) scz[i41], f42 * cd.simag[cn], (int) tilt, capsized && mtouch);
+                            conto.dust(i41, fs[i41], fs23[i41], fs22[i41], (int) scx[i41], (int) scz[i41], f42 * stat.simag, (int) tilt, capsized && mtouch);
                             if (im == xt.im && !capsized) {
                                 xt.skid(i32, (float) Math.sqrt(scx[i41] * scx[i41] + scz[i41] * scz[i41]));
                             }
                         }
                     } else {
                         if (i32 == 1 && m.random() > 0.8) {
-                            conto.dust(i41, fs[i41], fs23[i41], fs22[i41], (int) scx[i41], (int) scz[i41], 1.1F * cd.simag[cn], (int) tilt, capsized && mtouch);
+                            conto.dust(i41, fs[i41], fs23[i41], fs22[i41], (int) scx[i41], (int) scz[i41], 1.1F * stat.simag, (int) tilt, capsized && mtouch);
                         }
                         if ((i32 == 2 || i32 == 3) && m.random() > 0.6) {
-                            conto.dust(i41, fs[i41], fs23[i41], fs22[i41], (int) scx[i41], (int) scz[i41], 1.15F * cd.simag[cn], (int) tilt, capsized && mtouch);
+                            conto.dust(i41, fs[i41], fs23[i41], fs22[i41], (int) scx[i41], (int) scz[i41], 1.15F * stat.simag, (int) tilt, capsized && mtouch);
                         }
                     }
                 } else if (dcnt != 0) {
@@ -764,11 +768,11 @@ class Mad {
                 }
                 if (i32 == 3) {
                     final int i43 = (int) (m.random() * 4.0F);
-                    scy[i43] = (float) (-100.0F * m.random() * (speed / cd.swits[cn][2]) * (cd.bounce[cn] - 0.3));
+                    scy[i43] = (float) (-100.0F * m.random() * (speed / stat.swits[2]) * (stat.bounce - 0.3));
                 }
                 if (i32 == 4) {
                     final int i44 = (int) (m.random() * 4.0F);
-                    scy[i44] = (float) (-150.0F * m.random() * (speed / cd.swits[cn][2]) * (cd.bounce[cn] - 0.3));
+                    scy[i44] = (float) (-150.0F * m.random() * (speed / stat.swits[2]) * (stat.bounce - 0.3));
                 }
                 f39 += scx[i41];
                 f40 += scz[i41];
@@ -823,7 +827,7 @@ class Mad {
                     } else {
                         f50 += 1.2;
                     }
-                    conto.dust(i49, fs[i49], fs23[i49], fs22[i49], (int) scx[i49], (int) scz[i49], f50 * cd.simag[cn], 0, capsized && mtouch);
+                    conto.dust(i49, fs[i49], fs23[i49], fs22[i49], (int) scx[i49], (int) scz[i49], f50 * stat.simag, 0, capsized && mtouch);
                 }
                 fs23[i49] = 250.0F;
                 bools47[i49] = true;
@@ -833,7 +837,7 @@ class Mad {
                 if (f51 > 0.4) {
                     f51 = 0.4F;
                 }
-                f51 += cd.bounce[cn];
+                f51 += stat.bounce;
                 if (f51 < 1.1) {
                     f51 = 1.1F;
                 }
@@ -881,7 +885,7 @@ class Mad {
                             } else {
                                 f59 += 1.2;
                             }
-                            conto.dust(i58, fs[i58], fs23[i58], fs22[i58], (int) scx[i58], (int) scz[i58], f59 * cd.simag[cn], 0, capsized && mtouch);
+                            conto.dust(i58, fs[i58], fs23[i58], fs22[i58], (int) scx[i58], (int) scz[i58], f59 * stat.simag, 0, capsized && mtouch);
                         }
                         fs23[i58] = trackers.y[i55];
                         if (capsized && (trackers.skd[i55] == 0 || trackers.skd[i55] == 1)) {
@@ -895,7 +899,7 @@ class Mad {
                         if (f60 > 0.4) {
                             f60 = 0.4F;
                         }
-                        f60 += cd.bounce[cn];
+                        f60 += stat.bounce;
                         if (f60 < 1.1) {
                             f60 = 1.1F;
                         }
@@ -931,7 +935,7 @@ class Mad {
                         if (bool25) {
                             f62 = 0.0F;
                         }
-                        f62 += cd.bounce[cn] - 0.2;
+                        f62 += stat.bounce - 0.2;
                         if (f62 < 1.1) {
                             f62 = 1.1F;
                         }
@@ -970,7 +974,7 @@ class Mad {
                         if (bool25) {
                             f64 = 0.0F;
                         }
-                        f64 += cd.bounce[cn] - 0.2;
+                        f64 += stat.bounce - 0.2;
                         if (f64 < 1.1) {
                             f64 = 1.1F;
                         }
@@ -1009,7 +1013,7 @@ class Mad {
                         if (bool25) {
                             f66 = 0.0F;
                         }
-                        f66 += cd.bounce[cn] - 0.2;
+                        f66 += stat.bounce - 0.2;
                         if (f66 < 1.1) {
                             f66 = 1.1F;
                         }
@@ -1048,7 +1052,7 @@ class Mad {
                         if (bool25) {
                             f68 = 0.0F;
                         }
-                        f68 += cd.bounce[cn] - 0.2;
+                        f68 += stat.bounce - 0.2;
                         if (f68 < 1.1) {
                             f68 = 1.1F;
                         }
@@ -1089,7 +1093,7 @@ class Mad {
                             }
                             if (!bool25 && i32 != 0) {
                                 final float f73 = 1.4F;
-                                conto.dust(i58, fs[i58], fs23[i58], fs22[i58], (int) scx[i58], (int) scz[i58], f73 * cd.simag[cn], 0, capsized && mtouch);
+                                conto.dust(i58, fs[i58], fs23[i58], fs22[i58], (int) scx[i58], (int) scz[i58], f73 * stat.simag, 0, capsized && mtouch);
                             }
                         }
                         fs23[i58] = trackers.y[i55] + ((f71 - trackers.y[i55]) * m.cos(-i69) - (f72 - trackers.z[i55]) * m.sin(-i69));
@@ -1124,7 +1128,7 @@ class Mad {
                             }
                             if (!bool25 && i32 != 0) {
                                 final float f78 = 1.4F;
-                                conto.dust(i58, fs[i58], fs23[i58], fs22[i58], (int) scx[i58], (int) scz[i58], f78 * cd.simag[cn], 0, capsized && mtouch);
+                                conto.dust(i58, fs[i58], fs23[i58], fs22[i58], (int) scx[i58], (int) scz[i58], f78 * stat.simag, 0, capsized && mtouch);
                             }
                         }
                         fs23[i58] = trackers.y[i55] + ((f76 - trackers.y[i55]) * m.cos(-i74) - (f77 - trackers.x[i55]) * m.sin(-i74));
@@ -1323,16 +1327,16 @@ class Mad {
             }
         }
         if (wtouch && !capsized) {
-            final float f87 = (float) (speed / cd.swits[cn][2] * 14.0F * (cd.bounce[cn] - 0.4));
+            final float f87 = (float) (speed / stat.swits[2] * 14.0F * (stat.bounce - 0.4));
             if (control.left && tilt < f87 && tilt >= 0.0F) {
                 tilt += 0.4;
             } else if (control.right && tilt > -f87 && tilt <= 0.0F) {
                 tilt -= 0.4;
-            } else if (Math.abs(tilt) > 3.0 * (cd.bounce[cn] - 0.4)) {
+            } else if (Math.abs(tilt) > 3.0 * (stat.bounce - 0.4)) {
                 if (tilt > 0.0F) {
-                    tilt -= 3.0 * (cd.bounce[cn] - 0.3);
+                    tilt -= 3.0 * (stat.bounce - 0.3);
                 } else {
-                    tilt += 3.0 * (cd.bounce[cn] - 0.3);
+                    tilt += 3.0 * (stat.bounce - 0.3);
                 }
             } else {
                 tilt = 0.0F;
@@ -1345,14 +1349,14 @@ class Mad {
             tilt = 0.0F;
         }
         if (wtouch && i32 == 2) {
-            conto.zy += (int) ((m.random() * 6.0F * speed / cd.swits[cn][2] - 3.0F * speed / cd.swits[cn][2]) * (cd.bounce[cn] - 0.3));
-            conto.xy += (int) ((m.random() * 6.0F * speed / cd.swits[cn][2] - 3.0F * speed / cd.swits[cn][2]) * (cd.bounce[cn] - 0.3));
+            conto.zy += (int) ((m.random() * 6.0F * speed / stat.swits[2] - 3.0F * speed / stat.swits[2]) * (stat.bounce - 0.3));
+            conto.xy += (int) ((m.random() * 6.0F * speed / stat.swits[2] - 3.0F * speed / stat.swits[2]) * (stat.bounce - 0.3));
         }
         if (wtouch && i32 == 1) {
-            conto.zy += (int) ((m.random() * 4.0F * speed / cd.swits[cn][2] - 2.0F * speed / cd.swits[cn][2]) * (cd.bounce[cn] - 0.3));
-            conto.xy += (int) ((m.random() * 4.0F * speed / cd.swits[cn][2] - 2.0F * speed / cd.swits[cn][2]) * (cd.bounce[cn] - 0.3));
+            conto.zy += (int) ((m.random() * 4.0F * speed / stat.swits[2] - 2.0F * speed / stat.swits[2]) * (stat.bounce - 0.3));
+            conto.xy += (int) ((m.random() * 4.0F * speed / stat.swits[2] - 2.0F * speed / stat.swits[2]) * (stat.bounce - 0.3));
         }
-        if (hitmag >= cd.maxmag[cn] && !dest) {
+        if (hitmag >= stat.maxmag && !dest) {
             distruct(conto);
             if (cntdest == 7) {
                 dest = true;
@@ -1656,7 +1660,7 @@ class Mad {
                     capcnt++;
                     if (capcnt == 30) {
                         speed = 0.0F;
-                        conto.y += cd.flipy[cn];
+                        conto.y += stat.flipy;
                         pxy += 180;
                         conto.xy += 180;
                         capcnt = 0;
@@ -1666,7 +1670,7 @@ class Mad {
             if (trcnt == 0 && speed != 0.0F)
                 if (xtpower == 0) {
                     if (power > 0.0F) {
-                        power -= power * power * power / cd.powerloss[cn];
+                        power -= power * power * power / stat.powerloss;
                     } else {
                         power = 0.0F;
                     }
@@ -1718,7 +1722,7 @@ class Mad {
         if (xt.lan && xt.multion >= 1 && xt.isbot[im]) {
             bool = true;
         }
-        f *= cd.dammult[cn];
+        f *= stat.dammult;
         if (Math.abs(f) > 100.0F) {
             rpd.recx(i, f, im);
             if (f > 100.0F) {
@@ -1734,7 +1738,7 @@ class Mad {
             for (int i111 = 0; i111 < conto.npl; i111++) {
                 float f112 = 0.0F;
                 for (int i113 = 0; i113 < conto.p[i111].n; i113++)
-                    if (conto.p[i111].wz == 0 && py(conto.keyx[i], conto.p[i111].ox[i113], conto.keyz[i], conto.p[i111].oz[i113]) < cd.clrad[cn]) {
+                    if (conto.p[i111].wz == 0 && py(conto.keyx[i], conto.p[i111].ox[i113], conto.keyz[i], conto.p[i111].oz[i113]) < stat.clrad) {
                         f112 = f / 20.0F * m.random();
                         conto.p[i111].oz[i113] -= f112 * m.sin(conto.xz) * m.cos(conto.zy);
                         conto.p[i111].ox[i113] += f112 * m.cos(conto.xz) * m.cos(conto.xy);
@@ -1798,7 +1802,7 @@ class Mad {
         if (xt.lan && xt.multion >= 1 && xt.isbot[im]) {
             bool = true;
         }
-        f *= cd.dammult[cn];
+        f *= stat.dammult;
         if (f > 100.0F) {
             rpd.recy(i, f, mtouch, im);
             f -= 100.0F;
@@ -1840,7 +1844,7 @@ class Mad {
                 for (int i102 = 0; i102 < conto.npl; i102++) {
                     float f103 = 0.0F;
                     for (int i104 = 0; i104 < conto.p[i102].n; i104++)
-                        if (conto.p[i102].wz == 0 && py(conto.keyx[i], conto.p[i102].ox[i104], conto.keyz[i], conto.p[i102].oz[i104]) < cd.clrad[cn]) {
+                        if (conto.p[i102].wz == 0 && py(conto.keyx[i], conto.p[i102].ox[i104], conto.keyz[i], conto.p[i102].oz[i104]) < stat.clrad) {
                             f103 = f / 20.0F * m.random();
                             conto.p[i102].oz[i104] += f103 * m.sin(i100);
                             conto.p[i102].ox[i104] -= f103 * m.sin(i101);
@@ -1898,7 +1902,7 @@ class Mad {
                         for (int i109 = 0; i109 < conto.p[i107].n; i109++)
                             if (conto.p[i107].wz == 0) {
                                 f108 = f / 15.0F * m.random();
-                                if ((Math.abs(conto.p[i107].oy[i109] - cd.flipy[cn] - squash) < cd.msquash[cn] * 3 || conto.p[i107].oy[i109] < cd.flipy[cn] + squash) && squash < cd.msquash[cn]) {
+                                if ((Math.abs(conto.p[i107].oy[i109] - stat.flipy - squash) < stat.msquash * 3 || conto.p[i107].oy[i109] < stat.flipy + squash) && squash < stat.msquash) {
                                     conto.p[i107].oy[i109] += f108;
                                     i105 += f108;
                                     i106++;
@@ -1939,7 +1943,7 @@ class Mad {
         if (xt.lan && xt.multion >= 1 && xt.isbot[im]) {
             bool = true;
         }
-        f *= cd.dammult[cn];
+        f *= stat.dammult;
         if (Math.abs(f) > 100.0F) {
             rpd.recz(i, f, im);
             if (f > 100.0F) {
@@ -1955,7 +1959,7 @@ class Mad {
             for (int i115 = 0; i115 < conto.npl; i115++) {
                 float f116 = 0.0F;
                 for (int i117 = 0; i117 < conto.p[i115].n; i117++)
-                    if (conto.p[i115].wz == 0 && py(conto.keyx[i], conto.p[i115].ox[i117], conto.keyz[i], conto.p[i115].oz[i117]) < cd.clrad[cn]) {
+                    if (conto.p[i115].wz == 0 && py(conto.keyx[i], conto.p[i115].ox[i117], conto.keyz[i], conto.p[i115].oz[i117]) < stat.clrad) {
                         f116 = f / 20.0F * m.random();
                         conto.p[i115].oz[i117] += f116 * m.cos(conto.xz) * m.cos(conto.zy);
                         conto.p[i115].ox[i117] += f116 * m.sin(conto.xz) * m.cos(conto.xy);
@@ -2023,7 +2027,7 @@ class Mad {
             scx[i1] = 0.0F;
             scz[i1] = 0.0F;
         }
-        forca = ((float) Math.sqrt(conto.keyz[0] * conto.keyz[0] + conto.keyx[0] * conto.keyx[0]) + (float) Math.sqrt(conto.keyz[1] * conto.keyz[1] + conto.keyx[1] * conto.keyx[1]) + (float) Math.sqrt(conto.keyz[2] * conto.keyz[2] + conto.keyx[2] * conto.keyx[2]) + (float) Math.sqrt(conto.keyz[3] * conto.keyz[3] + conto.keyx[3] * conto.keyx[3])) / 10000.0F * (float) (cd.bounce[cn] - 0.3);
+        forca = ((float) Math.sqrt(conto.keyz[0] * conto.keyz[0] + conto.keyx[0] * conto.keyx[0]) + (float) Math.sqrt(conto.keyz[1] * conto.keyz[1] + conto.keyx[1] * conto.keyx[1]) + (float) Math.sqrt(conto.keyz[2] * conto.keyz[2] + conto.keyx[2] * conto.keyx[2]) + (float) Math.sqrt(conto.keyz[3] * conto.keyz[3] + conto.keyx[3] * conto.keyx[3])) / 10000.0F * (float) (stat.bounce - 0.3);
         mtouch = false;
         wtouch = false;
         txz = 0;
