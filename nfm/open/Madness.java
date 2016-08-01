@@ -21,7 +21,7 @@ import java.io.FileWriter;
 import java.net.URI;
 import java.util.concurrent.ThreadLocalRandom;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 class Madness extends Panel {
     static int anti = 1;
@@ -29,7 +29,7 @@ class Madness extends Panel {
     private static CarMaker cm;
     private static DisplayMode defdisp;
     static String fpath = "";
-    static Frame frame;
+    static JFrame frame;
     static boolean fullscreen = false;
     static boolean inisetup = false;
     private static GraphicsDevice myDevice;
@@ -101,7 +101,7 @@ class Madness extends Panel {
 
     static void exitfullscreen() {
         frame.dispose();
-        frame = new Frame("Need for Madness");
+        frame = new JFrame("Need for Madness");
         frame.setBackground(new Color(0, 0, 0));
         frame.setIgnoreRepaint(true);
         frame.setIconImage(Toolkit.getDefaultToolkit().createImage("" + fpath + "data/icon.gif"));
@@ -313,7 +313,7 @@ class Madness extends Panel {
             }
             fullscreen = true;
             frame.dispose();
-            frame = new Frame("Fullscreen Need for Madness");
+            frame = new JFrame("Fullscreen Need for Madness");
             frame.setBackground(new Color(0, 0, 0));
             frame.setUndecorated(true);
             frame.setResizable(false);
@@ -341,9 +341,34 @@ class Madness extends Panel {
 
     public static void main(final String[] strings) {
         System.runFinalizersOnExit(true);
-        frame = new Frame("Need for Madness");
-        frame.setBackground(new Color(0, 0, 0));
+        frame = new JFrame("Need for Madness");
+        frame.setBackground(Color.black);
         frame.setIgnoreRepaint(true);
+        setFilePath(strings);
+        frame.setIconImage(Toolkit.getDefaultToolkit().createImage(fpath + "data/icon.png"));
+
+        applet = new GameSparker();
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(final WindowEvent windowevent) {
+                exitsequance();
+            }
+        });
+        frame.add("Center", applet);
+        frame.setVisible(true);
+        frame.setMinimumSize(new Dimension(930, 586));
+        frame.setSize(930, 586);
+        // frame.setExtendedState(6); - maximize
+        final GraphicsEnvironment graphicsenvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        myDevice = graphicsenvironment.getDefaultScreenDevice();
+        defdisp = myDevice.getDisplayMode();
+        try {
+            Thread.sleep(1000L);
+        } catch (final InterruptedException ignored) {
+        }
+    }
+
+    private static void setFilePath(String[] strings) {
         fpath = "";
         boolean bool = false;
         for (final String string : strings) {
@@ -374,28 +399,6 @@ class Madness extends Panel {
                     fpath = "";
                 }
             }
-        frame.setIconImage(Toolkit.getDefaultToolkit().createImage("" + fpath + "data/icon.png"));
-        applet = new GameSparker();
-        frame.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(final WindowEvent windowevent) {
-                exitsequance();
-            }
-        });
-        frame.add("Center", applet);
-        frame.setVisible(true);
-        frame.setMinimumSize(new Dimension(930, 586));
-        frame.setSize(930, 586);
-        frame.setExtendedState(6);
-        //applet.init();
-        //applet.start();
-        final GraphicsEnvironment graphicsenvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        myDevice = graphicsenvironment.getDefaultScreenDevice();
-        defdisp = myDevice.getDisplayMode();
-        try {
-            Thread.sleep(1000L);
-        } catch (final InterruptedException ignored) {
-        }
     }
 
     static void openurl(final String string) {

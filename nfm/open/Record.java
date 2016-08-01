@@ -118,7 +118,7 @@ class Record {
             for (int i68 = 0; i68 < conto.npl; i68++) {
                 float f69 = 0.0F;
                 for (int i70 = 0; i70 < conto.p[i68].n; i70++)
-                    if (conto.p[i68].wz == 0 && py(conto.keyx[i], conto.p[i68].ox[i70], conto.keyz[i], conto.p[i68].oz[i70]) < mad.stat.clrad[mad.cn]) {
+                    if (conto.p[i68].wz == 0 && py(conto.keyx[i], conto.p[i68].ox[i70], conto.keyz[i], conto.p[i68].oz[i70]) < mad.stat.clrad) {
                         f69 = f / 20.0F * m.random();
                     }
                 if (f69 != 0.0F && Math.abs(f69) >= 1.0F) {
@@ -140,7 +140,7 @@ class Record {
             for (int i71 = 0; i71 < conto.npl; i71++) {
                 float f72 = 0.0F;
                 for (int i73 = 0; i73 < conto.p[i71].n; i73++)
-                    if (conto.p[i71].wz == 0 && py(conto.keyx[i], conto.p[i71].ox[i73], conto.keyz[i], conto.p[i71].oz[i73]) < mad.stat.clrad[mad.cn]) {
+                    if (conto.p[i71].wz == 0 && py(conto.keyx[i], conto.p[i71].ox[i73], conto.keyz[i], conto.p[i71].oz[i73]) < mad.stat.clrad) {
                         f72 = f / 20.0F * m.random();
                     }
                 if (f72 != 0.0F && Math.abs(f72) >= 1.0F) {
@@ -501,7 +501,7 @@ class Record {
             for (int i62 = 0; i62 < conto.npl; i62++) {
                 float f63 = 0.0F;
                 for (int i64 = 0; i64 < conto.p[i62].n; i64++)
-                    if (conto.p[i62].wz == 0 && py(conto.keyx[i], conto.p[i62].ox[i64], conto.keyz[i], conto.p[i62].oz[i64]) < mad.stat.clrad[mad.cn]) {
+                    if (conto.p[i62].wz == 0 && py(conto.keyx[i], conto.p[i62].ox[i64], conto.keyz[i], conto.p[i62].oz[i64]) < mad.stat.clrad) {
                         f63 = f / 20.0F * m.random();
                         conto.p[i62].oz[i64] -= f63 * m.sin(conto.xz) * m.cos(conto.zy);
                         conto.p[i62].ox[i64] += f63 * m.cos(conto.xz) * m.cos(conto.xy);
@@ -586,7 +586,7 @@ class Record {
                 for (int i54 = 0; i54 < conto.npl; i54++) {
                     float f55 = 0.0F;
                     for (int i56 = 0; i56 < conto.p[i54].n; i56++)
-                        if (conto.p[i54].wz == 0 && py(conto.keyx[i], conto.p[i54].ox[i56], conto.keyz[i], conto.p[i54].oz[i56]) < mad.stat.clrad[mad.cn]) {
+                        if (conto.p[i54].wz == 0 && py(conto.keyx[i], conto.p[i54].ox[i56], conto.keyz[i], conto.p[i54].oz[i56]) < mad.stat.clrad) {
                             f55 = f / 20.0F * m.random();
                             conto.p[i54].oz[i56] += f55 * m.sin(i52);
                             conto.p[i54].ox[i56] -= f55 * m.sin(i53);
@@ -642,7 +642,7 @@ class Record {
                     for (int i61 = 0; i61 < conto.p[i59].n; i61++)
                         if (conto.p[i59].wz == 0) {
                             f60 = f / 15.0F * m.random();
-                            if ((Math.abs(conto.p[i59].oy[i61] - mad.stat.flipy[mad.cn] - squash[0][mad.im]) < mad.stat.msquash[mad.cn] * 3 || conto.p[i59].oy[i61] < mad.stat.flipy[mad.cn] + squash[0][mad.im]) && squash[0][mad.im] < mad.stat.msquash[mad.cn]) {
+                            if ((Math.abs(conto.p[i59].oy[i61] - mad.stat.flipy - squash[0][mad.im]) < mad.stat.msquash * 3 || conto.p[i59].oy[i61] < mad.stat.flipy + squash[0][mad.im]) && squash[0][mad.im] < mad.stat.msquash) {
                                 conto.p[i59].oy[i61] += f60;
                                 i57 += f60;
                                 i58++;
@@ -674,7 +674,7 @@ class Record {
             for (int i65 = 0; i65 < conto.npl; i65++) {
                 float f66 = 0.0F;
                 for (int i67 = 0; i67 < conto.p[i65].n; i67++)
-                    if (conto.p[i65].wz == 0 && py(conto.keyx[i], conto.p[i65].ox[i67], conto.keyz[i], conto.p[i65].oz[i67]) < mad.stat.clrad[mad.cn]) {
+                    if (conto.p[i65].wz == 0 && py(conto.keyx[i], conto.p[i65].ox[i67], conto.keyz[i], conto.p[i65].oz[i67]) < mad.stat.clrad) {
                         f66 = f / 20.0F * m.random();
                         conto.p[i65].oz[i67] += f66 * m.cos(conto.xz) * m.cos(conto.zy);
                         conto.p[i65].ox[i67] += f66 * m.sin(conto.xz) * m.cos(conto.xy);

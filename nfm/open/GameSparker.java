@@ -21,7 +21,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 class GameSparker extends JPanel
-        implements KeyListener, MouseListener, MouseMotionListener, ActionListener, FocusListener {
+        implements KeyListener, MouseListener, MouseMotionListener, FocusListener {
     /**
      *
      */
@@ -197,6 +197,10 @@ class GameSparker extends JPanel
      * {@link #tribuffer}'s Graphics2D object
      */
     private Graphics2D tg;
+
+    private final static GraphicsConfiguration gfxConfig = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
+
+    private boolean gameLoaded = false;
 
     /**
      * Loads models.zip
@@ -1175,12 +1179,7 @@ class GameSparker extends JPanel
     }
 
     //@Override
-    private void initApplet() {
-        setBackground(new Color(0, 0, 0));
-        //offImage = createImage(800, 450);
-        //if (offImage != null)
-        //  rd = (Graphics2D) offImage.getGraphics();
-        setLayout(null);
+    private void initFields() {
         tnick = new TextField("Nickbname");
         tnick.setFont(new Font("Arial", 1, 13));
         tpass = new TextField("");
@@ -1190,21 +1189,12 @@ class GameSparker extends JPanel
         temail.setFont(new Font("Arial", 1, 13));
         cmsg = new TextField("");
         if (System.getProperty("java.vendor").toLowerCase().contains("oracle")) {
-            cmsg.addKeyListener(new KeyListener() {
-
+            cmsg.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyPressed(final KeyEvent e) {
                     if (e.getKeyCode() == 10 && u[0] != null) {
                         u[0].enter = true;
                     }
-                }
-
-                @Override
-                public void keyReleased(final KeyEvent e) {
-                }
-
-                @Override
-                public void keyTyped(final KeyEvent e) {
                 }
             });
         }
@@ -1421,7 +1411,7 @@ class GameSparker extends JPanel
         final Graphics2D g2 = (Graphics2D) g;
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, getWidth(), getHeight());
-        
+
         try {
             gameTick();
         } catch (final Exception e) {
@@ -1746,56 +1736,60 @@ class GameSparker extends JPanel
 
     public GameSparker() {
         BASSLoader.initializeBASS();
-        initApplet();
+        initFields();
+
         setBorder(BorderFactory.createLineBorder(Color.black));
         //
-        setBackground(new Color(0, 0, 0));
-
-        //rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-        //rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        setLayout(null);
+        setBackground(Color.black);
         setOpaque(true);
-        //dr = new DebugRunner();
-        //dr.start();
+        //
+        setLayout(null);
 
-        offImage = new BufferedImage(800, 450, BufferedImage.TYPE_INT_ARGB);
-        if (offImage != null) {
-            rd = offImage.createGraphics();
+        BufferedImage _offImage;
+        try {
+            _offImage = gfxConfig.createCompatibleImage(800, 450, Transparency.OPAQUE);
+
+            if (_offImage == null)
+                throw new AssertionError("this should never happen");
+        } catch (final Exception e) { //fallback image creation
+            e.printStackTrace();
+
+            _offImage = new BufferedImage(800, 450, BufferedImage.TYPE_INT_RGB);
         }
+
+        offImage = _offImage;
+        rd = offImage.createGraphics();
         
         makeMenus();
-        initialize();
+
+        preloadGame();
+
+        new Thread(this::loadGame).start();
+
         addKeyListener(this);
         addMouseListener(this);
         addMouseMotionListener(this);
         addFocusListener(this);
         setFocusable(true);
         requestFocusInWindow();
-        //ActionListener animate =
-        /*ActionListener count = new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                counted++;
-            }
-        };*/
-        // 40 - 25 fps (fast)
-        // 33 - 30 fps (faster)
-        // 25 - 40 fps (fastest)
-        final Timer timer = new Timer(46, this);
+        setIgnoreRepaint(true);
+
+        // disable Swing's double buffering. we don't need it since we have our own offscreen image (offImage)
+        // this means we get a slight performance gain
+        // ("You may find that your numbers for direct rendering far exceed those for double-buffering" from https://docs.oracle.com/javase/tutorial/extra/fullscreen/doublebuf.html)
+        // for zero graphical loss.
+        setDoubleBuffered(false);
+
+        final Timer timer = new Timer(46, ae -> repaint());
+
         timer.start();
-        /*Timer counter = new Timer(1, count);
-        counter.start();*/
-        //timer.setDelay(delay);
     }
 
-    //@Override
-    private void initialize() {
-        rd.setColor(new Color(0, 0, 0));
-        rd.fillRect(0, 0, 800, 450);
-        //repaint();
-        requestFocus();
+    private void preloadGame() {
         if (System.getProperty("java.vendor").toLowerCase().contains("apple")) {
             applejava = true;
         }
+
         medium = new Medium();
         trackers = new Trackers();
         checkpoints = new CheckPoints();
@@ -1803,6 +1797,30 @@ class GameSparker extends JPanel
         contos = new ContO[stageRads.length];
         cardefine = new CarDefine(contos, medium, trackers, this);
         xtgraphics = new xtGraphics(medium, cardefine, rd, this);
+
+        record = new Record(medium);
+        mads = new Mad[8];
+        for (int i = 0; i < 8; i++) {
+            mads[i] = new Mad(null, medium, record, xtgraphics, i);
+            u[i] = new Control(medium);
+        }
+
+        date = new Date();
+        l1 = date.getTime();
+        f2 = 30.0F;
+        bool3 = false;
+        i4 = 530;
+        i5 = 0;
+        recordtime = 0;
+        clicknowtime = 0;
+        finishrecording = 0;
+        wastedpoint = 0;
+        flashingscreen = false;
+    }
+
+    //@Override
+    private void loadGame() {
+        requestFocus();
         sizebar = xtgraphics.getImage("data/sizebar.gif");
         blb = xtgraphics.getImage("data/b.gif");
         fulls = xtgraphics.getImage("data/fullscreen.gif");
@@ -1813,19 +1831,11 @@ class GameSparker extends JPanel
         stagemaker[0] = xtgraphics.getImage("data/stagemaker1.gif");
         stagemaker[1] = xtgraphics.getImage("data/stagemaker2.gif");
         xtgraphics.loaddata();
-        //login = null;
-        //lobby = null;
-        //globe = null;
-        //boolean bool = false;
-        //final UDPMistro udpmistro = new UDPMistro();
-        record = new Record(medium);
+
         loadbase();
+
         stageContos = new ContO[10000];
-        mads = new Mad[8];
-        for (int i = 0; i < 8; i++) {
-            mads[i] = new Mad(null, medium, record, xtgraphics, i);
-            u[i] = new Control(medium);
-        }
+
         f = 47.0F;
         readcookies(xtgraphics, cardefine, contos);
         xtgraphics.testdrive = Madness.testdrive;
@@ -1848,25 +1858,20 @@ class GameSparker extends JPanel
             setupini();
         }
         System.gc();
-        date = new Date();
-        l1 = date.getTime();
-        f2 = 30.0F;
-        bool3 = false;
-        i4 = 530;
-        i5 = 0;
-        recordtime = 0;
-        clicknowtime = 0;
-        finishrecording = 0;
-        wastedpoint = 0;
-        flashingscreen = false;
 
-        //while (!Thread.currentThread().isInterrupted()) {}
+        gameLoaded = true;
     }
 
     private void gameTick() {
 
         date = new Date();
         date.getTime();
+        if (xtgraphics.fase == 1111) {
+            xtgraphics.loading();
+            if (gameLoaded) {
+                xtgraphics.fase = 111;
+            }
+        }
         if (xtgraphics.fase == 111) {
             if (mouses == 1) {
                 clicknowtime = 800;
@@ -3151,7 +3156,6 @@ class GameSparker extends JPanel
             } else {
                 fcscnt--;
             }
-        //repaint();
         if (xtgraphics.im > -1 && xtgraphics.im < 8) {
             int j = 0;
             if (xtgraphics.multion == 2 || xtgraphics.multion == 3) {
@@ -3583,11 +3587,6 @@ class GameSparker extends JPanel
 
     @Override
     public void mouseExited(final MouseEvent e) {
-    }
-
-    @Override
-    public void actionPerformed(final ActionEvent e) {
-        repaint();
     }
 
     @Override

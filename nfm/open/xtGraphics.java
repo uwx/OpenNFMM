@@ -181,7 +181,7 @@ class xtGraphics extends Panel implements Runnable {
     private final static String[] exlm = {
             "!", "!!", "!!!"
     };
-    int fase = 111;
+    int fase = 1111;
     int fastestlap = 0;
     private soundClip firewasted;
     boolean firstime = true;
@@ -4623,9 +4623,9 @@ class xtGraphics extends Panel implements Runnable {
 
     void loaddata() {
         kbload = 637;
-        runtyp = 176;
-        runner = new Thread(this);
-        runner.start();
+        //runtyp = 176;
+        //runner = new Thread(this);
+        //runner.start();
         loadimages();
         try {
             intertrack = new RadicalBASS(new File("music/interface.zip"));
@@ -5067,7 +5067,7 @@ class xtGraphics extends Panel implements Runnable {
         System.gc();
     }
 
-    private void loading() {
+    void loading() {
         rd.setColor(new Color(0, 0, 0));
         rd.fillRect(0, 0, 800, 450);
         rd.drawImage(sign, 362, 35, this);
@@ -7544,10 +7544,10 @@ class xtGraphics extends Panel implements Runnable {
                 if (runtyp >= 1 && runtyp <= 140) {
                     hipnoload(runtyp, false);
                 }
-                if (runtyp == 176) {
-                    loading();
-                    bool = true;
-                }
+                //if (runtyp == 176) {
+                //    loading();
+                //    bool = true;
+                //}
                 //app.repaint();
                 try {
                     if (runner != null) {
