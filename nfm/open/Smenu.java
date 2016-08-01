@@ -641,6 +641,10 @@ public class Smenu {
         w = i;
         // XXX h = i2;
     }
+    public void setSize(final int i) {
+        w = i;
+        // XXX h = i2;
+    }
 
     /**
      * Sets the visible.

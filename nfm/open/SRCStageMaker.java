@@ -29,7 +29,7 @@ import static nfm.open.Utility.fEquals;
  * The Class StageMaker.
  */
 public class SRCStageMaker extends JPanel implements KeyListener, MouseListener, MouseMotionListener, MouseWheelListener {
-    private static final Gson PART_MENUS_GSON = new GsonBuilder().setVersion(1.7).enableComplexMapKeySerialization().setPrettyPrinting().create();
+    private static final Gson PART_MENUS_GSON = new GsonBuilder().enableComplexMapKeySerialization().setPrettyPrinting().create();
 
     //static {
     //    System.err.println("StageMaker is being initialized, fuck");
@@ -222,9 +222,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
 
     static class Menus {
         @SerializedName("menus")
-        @Since(1.7)
-        final
-        Map<String, Map<String, String>> menus = new LinkedHashMap<>();
+        final Map<String, Map<String, String>> menus = new LinkedHashMap<>();
 
         {
             final Map<String, String> menu = new LinkedHashMap<>();
@@ -336,513 +334,148 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     // ------------------ INCREMENT THIS FUCKING THING WHEN YOU WANT A NEW FUCKING PART
 
     // Attach points are: x1, z1, x2, z2
+
+    /**
+     * ----------------- ATTACH POINTS <br>
+     * ------------------ INCREMENT THIS WHEN YOU WANT A NEW PART<br>
+     * Attach points are: x1, z1, x2, z2<br>
+     */
     private static final int[][] atp = {
-            {
-                    0, 2800, 0, -2800
-            }, //road
-            {
-                    0, 2800, 0, -2800
-            }, //froad
-            {
-                    1520, 2830, -1520, -2830
-            }, //twister1
-            {
-                    -1520, 2830, 1520, -2830
-            }, //twister2
-            {
-                    0, -1750, 1750, 0
-            }, //turn
-            {
-                    0, 2800, 0, -2800
-            }, //offroad
-            {
-                    0, 2800, 0, -2800
-            }, //bumproad
-            {
-                    0, -1750, 1750, 0
-            }, //offturn
-            {
-                    0, 2800, 0, -2800
-            }, //nroad
-            {
-                    0, -1750, 1750, 0
-            }, //nturn
-            {
-                    0, 2800, 0, -2800
-            }, //roblend
-            {
-                    0, 2800, 0, -2800
-            }, //noblend
-            {
-                    0, 560, 0, -560
-            }, //rnblend
-            {
-                    0, 0, 0, 0
-            }, //roadend
-            {
-                    0, 0, 0, 0
-            }, //offroadend
-            {
-                    385, 980, 385, -980
-            }, //hpground
-            {
-                    0, 0, 0, -600
-            }, //ramp30
-            {
-                    0, 0, 0, 0
-            }, //cramp35
-            {
-                    0, 2164, 0, -2164
-            }, //dramp15
-            {
-                    0, 2164, 0, -2164
-            }, //dhilo15
-            {
-                    0, 3309, 0, -1680
-            }, //slide10
-            {
-                    0, 1680, 0, -3309
-            }, //takeoff
-            {
-                    350, 0, -350, 0
-            }, //sramp22
-            {
-                    0, 0, 0, 0
-            }, //offbump
-            {
-                    0, 0, 0, 0
-            }, //offramp
-            {
-                    0, 0, 0, 0
-            }, //sofframp
-            {
-                    1810, 980, 1810, -980
-            }, //halfpipe
-            {
-                    0, 0, 0, 0
-            }, //spikes
-            {
-                    0, 500, 0, -500
-            }, //rail
-            {
-                    0, 0, 0, 0
-            }, //thewall
-            {
-                    0, 0, 0, 0
-            }, //checkpoint
-            {
-                    0, 0, 0, 0
-            }, //fixpoint
-            {
-                    0, 0, 0, 0
-            }, //offcheckpoint
-
-            //skyline stuff
-            // ASSNUGGET
-            {
-                    0, 2800, 0, -2800
-            }, //tjunction
-            {
-                    0, 2800, 0, -2800
-            }, //xjunction
-            {
-                    0, 2800, 0, -2800
-            }, //highwaystraight
-            {
-                    0, -1400, -1400, 0
-            }, //highwayturn
-            {
-                    0, 5600, 0, -5600
-            }, //drawbridge
-            {
-                    0, 2800, 0, -2800
-            }, //tollbooth1
-            {
-                    0, 2800, 0, -2800
-            }, //tollbooth2
-            {
-                    0, 2800, 0, -2800
-            }, //highwayescape
-            {
-                    350, 0, -350, 0
-            }, //carrierjump
-            {
-                    0, 2800, 0, -2800
-            }, //dockstraight
-            {
-                    0, 2800, 0, -2800
-            }, //dockjump1
-            {
-                    0, 2800, 0, -2800
-            }, //dockjump2
-            {
-                    -2800, 0, 0, -2800
-            }, //dockinside
-            {
-                    -2800, 0, 0, -2800
-            }, //dockoutside
-            {
-                    0, -2800, 0, 2800
-            }, //canyonstraight
-            {
-                    0, 2800, 0, -2800
-            }, //canyonroadend1
-            {
-                    0, 5600, 0, -5600
-            }, //canyonbridge
-            {
-                    0, -1400, -1400, 0
-            }, //canyonedgeinside
-            {
-                    0, -1400, -1400, 0
-            }, //canyonedgeoutside
-            {
-                    0, 2800, -2800, 0
-            }, //canyontop
-            {
-                    0, 2800, 0, -2800
-            }, //canyoncheckpt
-            {
-                    0, 2800, 0, -2800
-            }, //canyonntrance1
-            {
-                    0, 2800, 0, -2800
-            }, //tunnelstraight
-            {
-                    0, -1400, -1400, 0
-            }, //tunnelturn
-            {
-                    0, 2100, 0, -2100
-            }, //buildingstraight
-            {
-                    0, -3309, 0, 1680
-            }, //buildingoverpass
-            {
-                    0, 700, 0, -700
-            }, //supeshop
-            {
-                    0, 700, 0, -700
-            }, //turbo
-            {
-                    0, 2800, 0, -2800
-            }, //understraight
-            {
-                    0, -2800, -2800, 0
-            }, //underturn
-            {
-                    0, 3600, 0, -3600
-            }, //underntrance
-            {
-                    0, 2800, 0, -2800
-            }, //subwaystraight
-            {
-                    0, 0, 0, 0
-            }, //subwaytrain
-            {
-                    0, -1400, -1400, 0
-            }, //subwayturn
-            {
-                    0, 2800, 0, -2800
-            }, //substation
-            {
-                    0, 1400, 1400, 0
-            }, //subarea2
-            {
-                    0, -700, 0, 700
-            }, //subarea3
-            {
-                    0, 0, 0, -700
-            }, //subentrance
-            {
-                    0, 2800, 0, -2800
-            }, //subarea1
-            {
-                    0, 0, 0, 0
-            }, //subtrain
-            {
-                    0, 0, 0, 0
-            }, //subtrain2
-            {
-                    0, 0, 0, 0
-            }, //house0
-            {
-                    0, 0, 0, 0
-            }, //house1
-            {
-                    0, 0, 0, 0
-            }, //house2
-            {
-                    0, 0, 0, 0
-            }, //condo1
-            {
-                    0, 0, 0, 0
-            }, //condo2
-            {
-                    0, 0, 0, 0
-            }, //skyscraper1
-            {
-                    0, 0, 0, 0
-            }, //skyscraper2
-            {
-                    0, 0, 0, 0
-            }, //skyscraper3
-            {
-                    0, 0, 0, 0
-            }, //warehouse1
-            {
-                    0, 2400, 0, -2400
-            }, //citywall1
-            {
-                    0, 2400, 0, -2400
-            }, //chainfence
-            {
-                    0, 2800, 0, -2800
-            }, //desertwall
-            {
-                    0, -2100, 2100, 0
-            }, //desertwallturn
-            {
-                    0, 2800, 0, -2800
-            }, //waterroute
-            {
-                    0, 2800, 0, -2800
-            }, //sewerjump
-            {
-                    0, 0, 0, 0
-            }, //tree
-            {
-                    0, 0, 0, 0
-            }, //streetlamp
-            {
-                    0, 1050, 0, -1050
-            }, //hatchback
-            {
-                    0, 2800, 0, -2800
-            }, //sedan
-            {
-                    0, 2800, 0, -2800
-            }, //sports
-            {
-                    0, 2800, 0, -2800
-            }, //coupe
-            {
-                    0, 5600, 0, -5600
-            }, //super
-            {
-                    0, 0, 0, 0
-            }, //dapigs
-            {
-                    0, 0, 0, 0
-            }, //rdblkpigs
-            {
-                    0, 0, 0, 0
-            }, //supapigs
-            {
-                    0, 0, 0, 0
-            }, //Rdblkgate1
-            {
-                    0, 0, 0, 0
-            }, //rdblkbarrier1
-            {
-                    0, 0, 0, 0
-            }, //spikestrip
-            {
-                    0, 5600, 0, -5600
-            }, //suspensionbridge
-            {
-                    0, 0, 0, 0
-            }, //roofjump
-            {
-                    0, 2800, 0, -2800
-            }, //urbanramp
-            {
-                    0, 2800, 0, -2800
-            }, //urbanstraight
-            {
-                    0, 2800, 0, -2800
-            }, //urbanX
-            {
-                    0, 2800, 0, -2800
-            }, //canyonroadend2
-            {
-                    0, 0, 0, -2800
-            }, //largedumpstaa
-            {
-                    0, -2800, 2800, 0
-            }, //urbanT
-            {
-                    0, -2800, 2800, 0
-            }, //urbanTurn
-            {
-                    0, -2800, 0, 0
-            }, //urbanEnd
-            {
-                    0, 0, 0, 0
-            }, //tunnelramp
-            {
-                    0, 2800, 0, -2800
-            }, //grandstand
-            {
-                    0, 0, 0, 0
-            }, //canyonntrance2
-            {
-                    0, 2800, 0, -2800
-            }, //rocktotunnel
-            {
-                    0, 2800, 0, -2800
-            }, //dirtWaterX
-            {
-                    -2800, 0, 0, -2800
-            }, { //docksTurban
-            0, 2800, 0, -2800
-    }, { //urbanlowramp
-            0, 2400, 0, -2400
-    }, { //waterwall
-            0, 2400, 0, -2400
-    }, { //canyonwall
-            0, 2400, 0, -2400
-    }, { //classicwall
-            0, 2400, 0, -2400
-    }, { //gpwall
-            0, 2400, 0, -2400
-    }, { //forrestwall
-            0, 0, 0, 0
-    }, { //advert1
-            0, 2800, 0, -2800
-    }, { //urbanXtunnel
-            0, 2800, 0, -2800
-    }, { //highway jump
-            0, 2800, 0, -2800
-    }, { //sewer end
-            0, -2800, 0, -2800
-    }, { //sewer turn
-            0, 5600, 0, -5600
-    }, { //snow bridge
-            0, 2800, 0, -2800
-    }, { //snow chk
-            0, -1400, -1400, 0
-    }, { //snow turn inside
-            0, -1400, -1400, 0
-    }, { //snow turn outside
-            0, 2800, 0, -2800
-    }, { //tunnel from canyon 1
-            0, 2800, 0, -2800
-    }, { //tunnel from canyon 2
-            0, 2800, 0, 0
-    }, { //snow end 1
-            0, -2800, 0, 0
-    }, { //snow end 2
-            0, -2800, 0, -2800
-    }, { //snow straight
-            0, 2800, 0, -2800
-    }, { //snowtop
-            0, 5600, 0, -5600
-    }, { //highway to snow
-            0, 5600, 0, -5600
-    },
-
-            // NFMM STUFF
-            {
-                    0, 2800, 0, -2800
-            }, {
-            0, 2800, 0, -2800
-    }, {
-            0, 1680, 0, -3309
-    }, {
-            0, 2800, 0, -2800
-    }, {
-            0, 2800, 0, -2800
-    }, {
-            0, 2800, 0, -2800
-    }, {
-            700, 1400, 700, -1400
-    }, {
-            0, -1480, 0, -1480
-    }, {
-            0, 0, 0, 0
-    }, {
-            350, 0, -350, 0
-    }, {
-            0, 0, 0, 0
-    }, {
-            700, 0, -700, 0
-    }, {
-            0, 0, 0, 0
-    }, {
-            0, -2198, 0, 1482
-    }, {
-            0, -1319, 0, 1391
-    }, {
-            0, -1894, 0, 2271
-    }, {
-            0, -826, 0, 839
-    }, {
-            0, -1400, 0, 1400
-    }, {
-            0, -1400, 0, 1400
-    }, {
-            0, 0, 0, 0
-    }, {
-            0, 0, 0, 0
-    }, {
-            0, 0, 0, 0
-    }, {
-            0, 0, 0, 0
-    }, {
-            0, 0, 0, 0
-    }, {
-            0, 0, 0, 0
-    }, {
-            0, 0, 0, 0
-    }, {
-            0, 0, 0, 0
-    }, {
-            0, 0, 0, 0
-    }, {
-            0, 0, 0, 0
-    }, {
-            0, 0, 0, 0
-    }, {
-            0, 0, 0, 0
-    }, {
-            0, 0, 0, 0
-    }, {
-            0, 0, 0, 0
-    }, {
-            0, 0, 0, 0
-    },
-
-            /*{ //housetest
+        {
+                0, 2800, 0, -2800
+        }, {
+                0, 2800, 0, -2800
+        }, {
+                1520, 2830, -1520, -2830
+        }, {
+                -1520, 2830, 1520, -2830
+        }, {
+                0, -1750, 1750, 0
+        }, {
+                0, 2800, 0, -2800
+        }, {
+                0, 2800, 0, -2800
+        }, {
+                0, -1750, 1750, 0
+        }, {
+                0, 2800, 0, -2800
+        }, {
+                0, -1750, 1750, 0
+        }, {
+                0, 2800, 0, -2800
+        }, {
+                0, 2800, 0, -2800
+        }, {
+                0, 560, 0, -560
+        }, {
                 0, 0, 0, 0
-            },*/ { //UFO
-            0, 0, 0, 0
-    }, { //AI node
-            0, 0, 0, 0
-    }, { //pedflag1
-            0, 0, 0, 0
-    }, { //pedflag2
-            0, 0, 0, 0
-    }, { //guideflag1
-            700, 0, -700, 0
-    }, { //guideflag2
-            700, 0, -700, 0
-    }, { //flag1
-            0, 0, 0, 0
-    }, { //flag2
-            0, 0, 0, 0
-    }, { //base1
-            0, 0, 0, 0
-    }, { //base2
-            0, 0, 0, 0
-    }, { //thing
-            0, 2800, 0, 2800
-    },
-
-            // ADD HERE IF NEEDED
-
-            { //road bump - ALWAYS LAST
-                    0, 0, 0, 0
-            }
+        }, {
+                0, 0, 0, 0
+        }, {
+                385, 980, 385, -980
+        }, {
+                0, 0, 0, -600
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 2164, 0, -2164
+        }, {
+                0, 2164, 0, -2164
+        }, {
+                0, 3309, 0, -1680
+        }, {
+                0, 1680, 0, -3309
+        }, {
+                350, 0, -350, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                1810, 980, 1810, -980
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 500, 0, -500
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 2800, 0, -2800
+        }, {
+                0, 2800, 0, -2800
+        }, {
+                0, 1680, 0, -3309
+        }, {
+                0, 2800, 0, -2800
+        }, {
+                0, 2800, 0, -2800
+        }, {
+                0, 2800, 0, -2800
+        }, {
+                700, 1400, 700, -1400
+        }, {
+                0, -1480, 0, -1480
+        }, {
+                0, 0, 0, 0
+        }, {
+                350, 0, -350, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                700, 0, -700, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, -2198, 0, 1482
+        }, {
+                0, -1319, 0, 1391
+        }, {
+                0, -1894, 0, 2271
+        }, {
+                0, -826, 0, 839
+        }, {
+                0, -1400, 0, 1400
+        }, {
+                0, -1400, 0, 1400
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 0, 0, 0
+        }, {
+                0, 0, 0, 0
+        }
     };
 
     private static int avon = 0;
