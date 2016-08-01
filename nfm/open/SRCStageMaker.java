@@ -145,18 +145,9 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     private static final class FontConstants {
 
         public static final Font arial_13 = new Font("Arial", 1, 13);
-        public static final Font arial_10 = new Font("Arial", 1, 10);
         public static final Font arial_12 = new Font("Arial", 1, 12);
         public static final Font arial_11 = new Font("Arial", 1, 11);
-        private static final Font arial_14 = new Font("Arial", 1, 14);
-        public static final Font sans_serif_26 = new Font("SansSerif", 1, 26);
-        public static final Font sans_serif_15 = new Font("SansSerif", 1, 15);
         public static final Font courier_13 = new Font("Courier New", 1, 13);
-        public static final Font courier_20 = new Font("Courier New", 1, 20);
-        public static final Font courier_cheat = courier_13.deriveFont(15.68F);
-        public static final Font courier_cheat_smaller = courier_13.deriveFont(12.68F);
-        public static final Font arial_17 = new Font("Arial", 1, 17);
-        public static final Font courier_6 = new Font("Courier New", 1, 6);
 
         static {
             if (rd == null) {
@@ -214,22 +205,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     private static final int OFFROAD_CHECKPOINT_SET_ID = 32; //42 - 10
     private static final int ONROAD_CHECKPOINT_SET_ID = 30; //40 - 10
     private static final int FIXHOOP_SET_ID = 31; //41 - 10
-    private static final int NODE_SET_ID = 176; // X - 10
-
-    public static final int BASE1 = 177; // X - 10
-    public static final int FLAG1 = 178; // X - 10
-    public static final int PEDESTAL_FLAG1 = 180; // X - 10
-    public static final int BASE2 = 181; // X - 10
-    public static final int FLAG2 = 182; // X - 10
-    public static final int PEDESTAL_FLAG2 = 184; // X - 10
-
-    private final static int[] CHECKPOINT_IDS = { // add checkpoints here
-            38, //tollbooth 1 TODO check sortstage for it
-            39, //tollbooth 2 TODO check sortstage for it
-            53, //canyoncheckpt
-            130, //snowcheckpt
-            NODE_SET_ID //be careful to use if-else-if instead of if-if-if to avoid duplicate node and chk
-    };
 
     /**
      * serialVersionUID for serial things
@@ -311,6 +286,9 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
         }
     }
 
+    private final static int[] CHECKPOINT_IDS = { // add checkpoints here
+    };
+
     private static int aMouseState;
 
     /**
@@ -343,7 +321,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     private static final byte PART_OBSTACLES = 2;
     private static final byte PART_CHECKPOINTS = 3;
     private static final byte PART_TREES = 5;
-    private static final boolean floats = true; // set to false for regular nfmm, set to true for skyline
+    private static final boolean floats = false; // set to false for regular nfmm, set to true for skyline
 
     private static boolean isPartBumps = false;
     private static boolean isPartFixhoops = false;
@@ -2786,116 +2764,116 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                         Medium.loadnew = false;
                     }
                 }
-                if (line.startsWith("base1")) {
-                    co[nob] = new SMContO(bco[BASE1], getint("base1", line, 0), getint("base1", line, 1), getint("base1", line, 2), 0);
-                    co[nob].declaredXZ = 0;
-                    co[nob].partID = BASE1;
-
-                    xnob++;
-                    nob++;
-                    if (readstagei == 3) {
-                        if (newline) {
-                            bstage = bstage + "\r\n";
-                            newline = false;
-                        }
-                        bstage = bstage + line + "\r\n";
-                    }
-                }
-                if (line.startsWith("base2")) {
-                    co[nob] = new SMContO(bco[BASE2], getint("base2", line, 0), getint("base2", line, 1), getint("base2", line, 2), 0);
-                    co[nob].declaredXZ = 0;
-                    co[nob].partID = BASE2;
-
-                    xnob++;
-                    nob++;
-                    if (readstagei == 3) {
-                        if (newline) {
-                            bstage = bstage + "\r\n";
-                            newline = false;
-                        }
-                        bstage = bstage + line + "\r\n";
-                    }
-                }
-                if (line.startsWith("ped_flag1")) {
-                    co[nob] = new SMContO(bco[PEDESTAL_FLAG1], getint("ped_flag1", line, 0), getint("ped_flag1", line, 1), getint("ped_flag1", line, 2), 0);
-                    co[nob].declaredXZ = 0;
-                    co[nob].partID = PEDESTAL_FLAG1;
-
-                    xnob++;
-                    nob++;
-                    if (readstagei == 3) {
-                        if (newline) {
-                            bstage = bstage + "\r\n";
-                            newline = false;
-                        }
-                        bstage = bstage + line + "\r\n";
-                    }
-                }
-                if (line.startsWith("ped_flag2")) {
-                    co[nob] = new SMContO(bco[PEDESTAL_FLAG2], getint("ped_flag2", line, 0), getint("ped_flag2", line, 1), getint("ped_flag2", line, 2), 0);
-                    co[nob].declaredXZ = 0;
-                    co[nob].partID = PEDESTAL_FLAG2;
-
-                    xnob++;
-                    nob++;
-                    if (readstagei == 3) {
-                        if (newline) {
-                            bstage = bstage + "\r\n";
-                            newline = false;
-                        }
-                        bstage = bstage + line + "\r\n";
-                    }
-                }
-                if (line.startsWith("node")) {
-                    /*int setNum = getint("node", string186, 0);
-                    if (setNum >= 10 && setNum <= 25) {
-                        Medium.loadnew = true;
-                    }
-                    setNum -= 10;*/
-                    final int nodeX = getint("node", line, 0);
-                    final int nodeY = getint("node", line, 1);
-                    final int nodeZ = getint("node", line, 2);
-                    //int nodeXZ = getint("node", string186, 4);
-                    co[nob] = new SMContO(bco[NODE_SET_ID], nodeX, nodeY, nodeZ, 0);
-                    co[nob].declaredXZ = 0; //declaredXZ is the angle because no cras!
-                    co[nob].partID = NODE_SET_ID;
-                    CheckPoints.x[CheckPoints.n] = nodeX;
-                    CheckPoints.z[CheckPoints.n] = nodeZ;
-                    CheckPoints.y[CheckPoints.n] = nodeY;
-                    CheckPoints.typ[CheckPoints.n] = 0;
-                    if (line.contains(")pt")) {
-                        CheckPoints.typ[CheckPoints.n] = -1;
-                    }
-                    if (line.contains(")pr")) {
-                        CheckPoints.typ[CheckPoints.n] = -2;
-                    }
-                    if (line.contains(")po")) {
-                        CheckPoints.typ[CheckPoints.n] = -3;
-                    }
-                    if (line.contains(")ph")) {
-                        CheckPoints.typ[CheckPoints.n] = -4;
-                    }
-                    co[nob].checkpoint = CheckPoints.nsp + 1;
-                    if (line.contains(")r")) { // // means this set should stay in its original position in `co[]`
-                        co[nob].wh = CheckPoints.nsp + 1;
-                    }
-                    CheckPoints.n++;
-                    CheckPoints.nsp++;
-                    xnob++;
-                    nob++;
-                    if (readstagei == 3) {
-                        if (newline) {
-
-                            bstage = bstage + "\r\n";
-                            newline = false;
-                        }
-
-                        bstage = bstage + line + "\r\n";
-                    }
-                    if (Medium.loadnew) {
-                        Medium.loadnew = false;
-                    }
-                }
+//                if (line.startsWith("base1")) {
+//                    co[nob] = new SMContO(bco[BASE1], getint("base1", line, 0), getint("base1", line, 1), getint("base1", line, 2), 0);
+//                    co[nob].declaredXZ = 0;
+//                    co[nob].partID = BASE1;
+//
+//                    xnob++;
+//                    nob++;
+//                    if (readstagei == 3) {
+//                        if (newline) {
+//                            bstage = bstage + "\r\n";
+//                            newline = false;
+//                        }
+//                        bstage = bstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("base2")) {
+//                    co[nob] = new SMContO(bco[BASE2], getint("base2", line, 0), getint("base2", line, 1), getint("base2", line, 2), 0);
+//                    co[nob].declaredXZ = 0;
+//                    co[nob].partID = BASE2;
+//
+//                    xnob++;
+//                    nob++;
+//                    if (readstagei == 3) {
+//                        if (newline) {
+//                            bstage = bstage + "\r\n";
+//                            newline = false;
+//                        }
+//                        bstage = bstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("ped_flag1")) {
+//                    co[nob] = new SMContO(bco[PEDESTAL_FLAG1], getint("ped_flag1", line, 0), getint("ped_flag1", line, 1), getint("ped_flag1", line, 2), 0);
+//                    co[nob].declaredXZ = 0;
+//                    co[nob].partID = PEDESTAL_FLAG1;
+//
+//                    xnob++;
+//                    nob++;
+//                    if (readstagei == 3) {
+//                        if (newline) {
+//                            bstage = bstage + "\r\n";
+//                            newline = false;
+//                        }
+//                        bstage = bstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("ped_flag2")) {
+//                    co[nob] = new SMContO(bco[PEDESTAL_FLAG2], getint("ped_flag2", line, 0), getint("ped_flag2", line, 1), getint("ped_flag2", line, 2), 0);
+//                    co[nob].declaredXZ = 0;
+//                    co[nob].partID = PEDESTAL_FLAG2;
+//
+//                    xnob++;
+//                    nob++;
+//                    if (readstagei == 3) {
+//                        if (newline) {
+//                            bstage = bstage + "\r\n";
+//                            newline = false;
+//                        }
+//                        bstage = bstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("node")) {
+//                    /*int setNum = getint("node", string186, 0);
+//                    if (setNum >= 10 && setNum <= 25) {
+//                        Medium.loadnew = true;
+//                    }
+//                    setNum -= 10;*/
+//                    final int nodeX = getint("node", line, 0);
+//                    final int nodeY = getint("node", line, 1);
+//                    final int nodeZ = getint("node", line, 2);
+//                    //int nodeXZ = getint("node", string186, 4);
+//                    co[nob] = new SMContO(bco[NODE_SET_ID], nodeX, nodeY, nodeZ, 0);
+//                    co[nob].declaredXZ = 0; //declaredXZ is the angle because no cras!
+//                    co[nob].partID = NODE_SET_ID;
+//                    CheckPoints.x[CheckPoints.n] = nodeX;
+//                    CheckPoints.z[CheckPoints.n] = nodeZ;
+//                    CheckPoints.y[CheckPoints.n] = nodeY;
+//                    CheckPoints.typ[CheckPoints.n] = 0;
+//                    if (line.contains(")pt")) {
+//                        CheckPoints.typ[CheckPoints.n] = -1;
+//                    }
+//                    if (line.contains(")pr")) {
+//                        CheckPoints.typ[CheckPoints.n] = -2;
+//                    }
+//                    if (line.contains(")po")) {
+//                        CheckPoints.typ[CheckPoints.n] = -3;
+//                    }
+//                    if (line.contains(")ph")) {
+//                        CheckPoints.typ[CheckPoints.n] = -4;
+//                    }
+//                    co[nob].checkpoint = CheckPoints.nsp + 1;
+//                    if (line.contains(")r")) { // // means this set should stay in its original position in `co[]`
+//                        co[nob].wh = CheckPoints.nsp + 1;
+//                    }
+//                    CheckPoints.n++;
+//                    CheckPoints.nsp++;
+//                    xnob++;
+//                    nob++;
+//                    if (readstagei == 3) {
+//                        if (newline) {
+//
+//                            bstage = bstage + "\r\n";
+//                            newline = false;
+//                        }
+//
+//                        bstage = bstage + line + "\r\n";
+//                    }
+//                    if (Medium.loadnew) {
+//                        Medium.loadnew = false;
+//                    }
+//                }
                 if (line.startsWith("chk")) {
                     int i204 = getint("chk", line, 0);
                     i204 -= 10;
@@ -3151,8 +3129,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
         } else {
             if (co[esp].partID == FIXHOOP_SET_ID) {
                 string = "fix(" + (co[esp].partID + 10) + "," + co[esp].x + "," + co[esp].z + "," + co[esp].y + "," + co[esp].declaredXZ + ")";
-            } else if (co[esp].partID == NODE_SET_ID) {
-                string = "node(" + co[esp].x + "," + co[esp].y + "," + co[esp].z + ")";
             } else if (co[esp].partID == ONROAD_CHECKPOINT_SET_ID || Utility.arrayContains(CHECKPOINT_IDS, co[esp].partID) || co[esp].partID == OFFROAD_CHECKPOINT_SET_ID) {
                 string = "chk(" + (co[esp].partID + 10) + "," + co[esp].x + "," + co[esp].z + "," + co[esp].y + "," + co[esp].declaredXZ + ")";
             } else if (co[esp].partID == FLYING_CHECKPOINT_SET_ID) {
@@ -7955,7 +7931,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
 
             /*if (cIds3[i1] == -1) { //ignore entries marked as nonexistant
                 continue;
-            } else */if (co[cIds3[i1]].partID == BASE1) {
+            } else *//*if (co[cIds3[i1]].partID == BASE1) {
                 String isSorted = getLineSuffix(co[cIds3[i1]]);
                 stageb.append("base1(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
 
@@ -7978,9 +7954,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 if (false) {
                     System.out.println("roof2: " + co[cIds3[i1]].declaredXZ);
                 }
-                /*if (co[is242[i313]].declaredXZ == 250) {
-                
-                }*/
                 //if (!floats) {
                 //    stageb.append("node(" + co[is242[i313]].x + "," + co[is242[i313]].y + "," +  + co[is242[i313]].z + ")" + "\r\n";
                 //} else {
@@ -7988,7 +7961,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
 
                 stageb.append("node(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
                 //}
-            } else if (co[cIds3[i1]].partID == ONROAD_CHECKPOINT_SET_ID || Utility.arrayContains(CHECKPOINT_IDS, co[cIds3[i1]].partID) || co[cIds3[i1]].partID == OFFROAD_CHECKPOINT_SET_ID) {
+            } else */if (co[cIds3[i1]].partID == ONROAD_CHECKPOINT_SET_ID || Utility.arrayContains(CHECKPOINT_IDS, co[cIds3[i1]].partID) || co[cIds3[i1]].partID == OFFROAD_CHECKPOINT_SET_ID) {
                 if (co[cIds3[i1]].declaredXZ == 180) {
                     co[cIds3[i1]].declaredXZ = 0;
                 }
