@@ -175,7 +175,7 @@ class GameSparker extends JPanel
     /**
      * List of track part .rad files.
      */
-    private final static String[] stageRads = {
+    public final static String[] stageRads = {
             "road", "froad", "twister2", "twister1", "turn", "offroad", "bumproad", "offturn", "nroad", "nturn",
             "roblend", "noblend", "rnblend", "roadend", "offroadend", "hpground", "ramp30", "cramp35", "dramp15",
             "dhilo15", "slide10", "takeoff", "sramp22", "offbump", "offramp", "sofframp", "halfpipe", "spikes", "rail",

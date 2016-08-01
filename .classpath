@@ -8,5 +8,7 @@
 	<classpathentry kind="lib" path="libraries/jorbis-0.0.15.jar"/>
 	<classpathentry kind="lib" path="libraries/NativeBass.jar" sourcepath="libraries/bass_src.zip"/>
 	<classpathentry kind="lib" path="libraries/NativeBass-Examples.jar" sourcepath="libraries/bass_examples.zip"/>
+	<classpathentry kind="lib" path="libraries/bin/gson-2.6.2.jar"/>
+	<classpathentry kind="lib" path="libraries/bin/rsyntaxtextarea-2.5.8.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
