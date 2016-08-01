@@ -6,13 +6,9 @@ package nfm.open;
 import javax.swing.*;
 import javax.swing.Timer;
 import java.awt.*;
-import java.awt.List;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import java.net.URI;
 import java.net.URL;
 import java.util.*;
@@ -1396,14 +1392,6 @@ class GameSparker extends JPanel
         }
 
         return l;
-    }
-
-    static void setUsable(Field field) throws Exception {
-        field.setAccessible(true);
-
-        Field modifiersField = Field.class.getDeclaredField("modifiers");
-        modifiersField.setAccessible(true);
-        modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL & Modifier.STATIC);
     }
 
     @Override
