@@ -5,25 +5,25 @@ package nfm.open;
  * JODE (c) 1998-2001 Jochen Hoenicke
  */
 class Trackers {
-    final int[][] c = new int[95000][3];
-    final int[] dam = new int[95000];
-    final boolean[] decor = new boolean[95000];
+    final int[][] c = new int[75000][3];
+    final int[] dam = new int[75000];
+    final boolean[] decor = new boolean[75000];
     int ncx = 0;
     int ncz = 0;
-    final boolean[] notwall = new boolean[95000];
+    final boolean[] notwall = new boolean[75000];
     int nt = 0;
-    final int[] radx = new int[95000];
-    final int[] rady = new int[95000];
-    final int[] radz = new int[95000];
+    final int[] radx = new int[75000];
+    final int[] rady = new int[75000];
+    final int[] radz = new int[75000];
     int[][][] sect = null;
-    final int[] skd = new int[95000];
+    final int[] skd = new int[75000];
     int sx = 0;
     int sz = 0;
-    final int[] x = new int[95000];
-    final int[] xy = new int[95000];
-    final int[] y = new int[95000];
-    final int[] z = new int[95000];
-    final int[] zy = new int[95000];
+    final int[] x = new int[75000];
+    final int[] xy = new int[75000];
+    final int[] y = new int[75000];
+    final int[] z = new int[75000];
+    final int[] zy = new int[75000];
 
     void devidetrackers(final int i, final int i0, final int i1, final int i2) {
         sect = null;
