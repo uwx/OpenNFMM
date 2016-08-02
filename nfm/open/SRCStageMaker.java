@@ -29,6 +29,11 @@ import static nfm.open.Utility.fEquals;
  * The Class StageMaker.
  */
 public class SRCStageMaker extends JPanel implements KeyListener, MouseListener, MouseMotionListener, MouseWheelListener {
+    /* TODO:
+       test drive
+       part menu
+    */
+
     private static final Gson PART_MENUS_GSON = new GsonBuilder().enableComplexMapKeySerialization().setPrettyPrinting().create();
 
     //static {
@@ -195,7 +200,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
 
 
 
-    private static StageMaker stageMaker;
+    private static SRCStageMaker stageMaker;
     //////////////// ------------ REMEMBER NEW PARTS ARE ALWAYS -10 INDEXES SINCE YOU CAN'T SELECT CARS IN THE STAGEMAKER
     //////////////// ------------ REMEMBER ALL PARTS INDEX 33 AND UP ARE SKYLINE PARTS
     //////////////// ------------ IF THEY'RE NOT IN THE TREES/SKYLINE MENU THEY SHOULD BE COMMENTED OUT
@@ -1992,11 +1997,11 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             if (!file.exists()) {
                 stagename = srch.getText();
                 tstage = "snap(0,0,0)\r\nsky(191,215,255)\r\nclouds(255,255,255,5,-1000)\r\nfog(195,207,230)\r\nground(192,194,202)\r\ntexture(0,0,0,50)\r\nfadefrom(5000)\r\ndensity(5)\r\nmountains(" + (int) (ThreadLocalRandom.current().nextDouble() * 100000.0) + ")\r\nnlaps(5)\r\n\r\n";
-                //if (strtyp.getSelectedIndex() == 1)
-                //  bstage = "set(48,0,0,250,0)\r\n";
-                //else
-                //  bstage = "set(47,0,0,250,0)\r\n";
-                bstage = "\r\nmaxl(3,-7200,-4800)\r\nmaxb(3,-7200,-4800)\r\nmaxr(3,7200,-4800)\r\nmaxt(3,7200,-4800)\r\n";
+                if (strtyp.getSelectedIndex() == 1)
+                  bstage = "set(48,0,0,250,0)\r\n";
+                else
+                  bstage = "set(47,0,0,250,0)\r\n";
+                bstage += "\r\nmaxl(3,-7200,-4800)\r\nmaxb(3,-7200,-4800)\r\nmaxr(3,7200,-4800)\r\nmaxt(3,7200,-4800)\r\n";
                 savefile();
                 strtyp.setVisible(false);
                 srch.setVisible(false);
@@ -2102,7 +2107,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
      * @param args the arguments
      */
     public static void main(final String[] args) {
-        stageMaker = new StageMaker();
+        stageMaker = new SRCStageMaker();
         final Toolkit tk = Toolkit.getDefaultToolkit();
         final Dimension screenSize = tk.getScreenSize();
         final Insets scnMax = Toolkit.getDefaultToolkit().getScreenInsets(gameFrame.getGraphicsConfiguration());
