@@ -5,7 +5,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.Since;
 import nfm.open.music.RadicalAdapter;
 
 import javax.swing.*;
@@ -42,9 +41,9 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     //    System.exit(1);
     //}
 
-    private static Medium Medium = new Medium();
-    private static CheckPoints CheckPoints = new CheckPoints();
-    private static Trackers Trackers = new Trackers();
+    private static final Medium Medium = new Medium();
+    private static final CheckPoints CheckPoints = new CheckPoints();
+    private static final Trackers Trackers = new Trackers();
 
     private static Graphics2D rd;
 
@@ -83,11 +82,10 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
 
         /**
          * Instantiates a new cont o.
+         *  @param is        the is
          *
-         * @param is        the is
-         * @param isVehicle should be handled as car conto?
          */
-        SMContO(byte[] is, boolean isVehicle) {
+        SMContO(byte[] is) {
             super(is, Medium, Trackers);
         }
 
@@ -102,24 +100,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
          */
         public SMContO(ContO contoClone, int _x, int _y, int _z, int _xz) {
             super(contoClone, _x, _y, _z, _xz);
-        }
-
-        /**
-         * Clones an existing ContO.
-         *
-         * @param contoClone  the conto78
-         * @param _x          the i
-         * @param _y          the i79
-         * @param _z          the i80
-         * @param _xz         the i81
-         * @param useTrackers make collisions?
-         */
-        public SMContO(ContO contoClone, int _x, int _y, int _z, int _xz, boolean useTrackers) {
-            super(contoClone, _x, _y, _z, _xz);
-        }
-
-        public SMContO(int i, int i90, int i91, int i92, int i93, int i94, float BUMP_RADIUS_MULT, float BUMP_HEIGHT_MULT) {
-            super(i, i90, i91, Medium, Trackers, i92, i93, i94);
         }
 
         /**
@@ -152,7 +132,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
         public static final Font arial_13 = new Font("Arial", 1, 13);
         public static final Font arial_12 = new Font("Arial", 1, 12);
         public static final Font arial_11 = new Font("Arial", 1, 11);
-        public static final Font courier_13 = new Font("Courier New", 1, 13);
 
         static {
             if (rd == null) {
@@ -480,6 +459,13 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 0, 0, 0, 0
         }, {
                 0, 0, 0, 0
+        },
+
+
+        { // ?
+            0, 0, 0, 0
+        }, { // bump part
+            0, 0, 0, 0
         }
     };
 
@@ -662,43 +648,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     private static final Image[] zo = new Image[2];
     private static boolean zoomi = false;
     private static boolean zoomo = false;
-
-    /**
-     * Previous arrow target
-     */
-    public static int prevtarg = -2;
-    /**
-     * Sector start (in milis since 1970)
-     */
-    public static long sectorStart;
-    /**
-     * Sector end (in milis since 1970)
-     */
-    public static long sectorEnd;
-
-    static final int[][] playerX = new int[250][100];
-    static final int[][] playerY = new int[250][100];
-    static final int[][] playerZ = new int[250][100];
-    static int[] sectorTime = new int[250];
-    static final int[][] bestSectorX = new int[250][100];
-    static final int[][] bestSectorY = new int[250][100];
-    static final int[][] bestSectorZ = new int[250][100];
-    static int[] lastPlayerPos = new int[250];
-    static int lastSector = 0;
-
-    /*
-    {
-        playerX = new int[250][100];
-        playerY = new int[250][100];
-        playerZ = new int[250][100];
-        sectorTime = new int[250];
-        bestSectorX = new int[250][100];
-        bestSectorY = new int[250][100];
-        bestSectorZ = new int[250][100];
-        lastPlayerPos = new int[250];
-        lastSector = 0;
-    }
-     */
 
     private static void medium_rot(final int[] is, final int[] is274, final int i, final int i275, final int i276, float sin, float cos, final int i277) {
         if (i276 != 0) {
@@ -1691,7 +1640,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
         mediatracker.addImage(image, 0);
         try {
             mediatracker.waitForID(0);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return image;
@@ -1753,7 +1702,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
      * @param i         the i
      * @return the svalue
      */
-    public static String getSvalue(final String string, final String string376, final int i) {
+    private static String getSvalue(final String string, final String string376, final int i) {
         String string377 = "";
         int i378 = 0;
         for (int i379 = string.length() + 1; i379 < string376.length() && i378 <= i; i379++) {
@@ -1925,7 +1874,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                         e.printStackTrace();
                     }*/
 
-                    bco[i] = new SMContO(b, false);
+                    bco[i] = new SMContO(b);
                     for (int i180 = 0; i180 < bco[i].npl; i180++) {
                         bco[i].p[i180].loadprojf();
                         //if (i == 31)
@@ -1966,7 +1915,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 }
                 bufferedreader.close();
             }
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
     }
@@ -2148,13 +2097,13 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     private void trash() {
         try {
             track.unload();
-        } catch (final Exception e) {
+        } catch (final Exception ignored) {
 
         }
         track = null;
         try {
             rd.dispose();
-        } catch (final Exception e) {
+        } catch (final Exception ignored) {
 
         }
         System.gc();
@@ -2700,15 +2649,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             Medium.newmountains(i182, i181, i184, i183);
             Medium.newstars();
         } catch (final Exception exception) {
-            if (false) {
-                System.out.println("Error in stage " + stagename);
-            }
-            if (false) {
-                System.out.println("" + exception);
-            }
-            if (false) {
-                System.out.println("At line: " + line);
-            }
             errd = 6;
             if (CheckPoints.fn >= 5) {
                 errd = 5;
@@ -2748,9 +2688,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             numUndoActions++;
         }
         String string;
-        if (false) {
-            System.out.println("roof: " + co[esp].declaredXZ);
-        }
         // pretty much searches for the stage part
         if (!floats) {
             if (co[esp].partID == FIXHOOP_SET_ID) {
@@ -2861,11 +2798,8 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
      */
     static {
         final String username = System.getProperty("user.name");
-        if (username.equals("Kaffeinated") || BASED) {
+        if (username.equals("Kaffeinated")) {
             kSettings = true;
-            if (false) {
-                System.out.println("Settings set! You're Kaffeinated :PPP");
-            }
         }
         if (username.equals("Rafael")) {
             isHansen = true;
@@ -2876,7 +2810,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     /**
      * Instantiates a new stage maker.
      */
-    SRCStageMaker() {
+    private SRCStageMaker() {
         new Medium();
         asin_m_xz = Medium.sin(Medium.xz);
         acos_m_xz = Medium.cos(Medium.xz);
@@ -3772,20 +3706,8 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                                         numUndoActions++;
                                     }
 
-                                    if (false) {
-                                        System.out.println("place check");
-                                    }
                                     if (selectedPart != FIXHOOP_SET_ID && selectedPart != FLYING_CHECKPOINT_SET_ID && selectedPart != BUMP_SET_ID) {
                                         try {
-                                            if (false) {
-                                                System.out.println("placed");
-                                            }
-                                            if (false) {
-                                                System.out.println("" + selectedPart);
-                                            }
-                                            if (false) {
-                                                System.out.println("" + bco[selectedPart]);
-                                            }
                                             co[nob] = new SMContO(bco[selectedPart], bco[selectedPart].x, Medium.ground - bco[selectedPart].grat, bco[selectedPart].z, bco[selectedPart].xz);
                                             co[nob].declaredXZ = bco[selectedPart].xz;
                                             co[nob].partID = selectedPart;
@@ -4190,9 +4112,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                         if (sy < -61000) {
                             sy = -61000;
                         }
-                        if (false) {
-                            System.out.println(sy);
-                        }
                     } else if (isHansen) {
                         sy -= 500 * speedShift;
                         if (sy < -80000) {
@@ -4335,9 +4254,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             rd.fillRect(10, 130, 200, 200);
             if ((selectedPart == ONROAD_CHECKPOINT_SET_ID || Utility.arrayContains(CHECKPOINT_IDS, selectedPart) || selectedPart == OFFROAD_CHECKPOINT_SET_ID || selectedPart == FLYING_CHECKPOINT_SET_ID) && button("  Rearrange Checkpoints  >  ", 110, 315, 2, true)) {
                 mousePressed = 0;
-                if (false) {
-                    System.out.println("gone arranging");
-                }
                 epart = false;
                 if (!arrng) {
                     arrcnt = 0;
@@ -4734,7 +4650,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                                 JOptionPane.showMessageDialog(null, "Checkpoints Arranged!\nPress Save and Test Drive to check the new checkpoint order.\n");
                             }
                         }.start();
-                    } catch (final Exception e) {
+                    } catch (final Exception ignored) {
 
                     }
                     arrng = false;
@@ -5771,7 +5687,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                         if (filedialog.getFile() != null) {
                             file = new File("" + filedialog.getDirectory() + filedialog.getFile());
                         }
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                     if (file != null) {
@@ -5964,7 +5880,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                                         //repaint();
                                         try {
                                             Thread.sleep(10L);
-                                        } catch (final InterruptedException interruptedexception) {
+                                        } catch (final InterruptedException ignored) {
 
                                         }
                                     }
@@ -6241,7 +6157,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                                                     fileoutputstream.write(is);
                                                     fileoutputstream.close();
                                                 }
-                                            } catch (final Exception exception) {
+                                            } catch (final Exception ignored) {
 
                                             }
                                         }
@@ -6317,7 +6233,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                                 }
                             }
                         }
-                    } catch (final Exception exception) {
+                    } catch (final Exception ignored) {
 
                     }
                 }
@@ -6672,13 +6588,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
 
     /**
      * Makes a list of SearchResult but can easily be adapted to suit your generic needs
-     *
-     * @param el
-     * @param contents
-     * @param x
-     * @param y
-     * @param w
-     * @param h
      */
     private static void list(final ListSelectionListener el, final Vector<SearchResult> contents, final int x, final int y, final int w, final int h) {
         if (scrfield == null || list == null) {
@@ -6754,7 +6663,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     i = fgen;
                     fgen = 0;
                 }
-                bco[BUMP_SET_ID] = new SMContO(i, (int) (pwd * SMContO.BUMP_RADIUS_MULT), (int) (phd * SMContO.BUMP_HEIGHT_MULT), 0, 0, 0, SMContO.BUMP_RADIUS_MULT, SMContO.BUMP_HEIGHT_MULT);
+                bco[BUMP_SET_ID] = new SMContO(i, (int) (pwd * SMContO.BUMP_RADIUS_MULT), (int) (phd * SMContO.BUMP_HEIGHT_MULT), 0, 0, 0);
                 bco[BUMP_SET_ID].srz = i;
                 bco[BUMP_SET_ID].srx = (int) (pwd * SMContO.BUMP_RADIUS_MULT);
                 bco[BUMP_SET_ID].sry = (int) (phd * SMContO.BUMP_HEIGHT_MULT);
@@ -6789,21 +6698,21 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
         //rd.setColor(Color.red);
         //rd.drawRect(dragOriginX, dragOriginY, mouseDragToX, mouseDragToY);
 
-        final int aX[] = {
+        final int[] aX = {
                 dragOriginX - Medium.x, mouseDragToX - Medium.x
         };
-        final int aZ[] = {
+        final int[] aZ = {
                 dragOriginY - Medium.z, mouseDragToY - Medium.z
         };
-        final int aY[] = {
+        final int[] aY = {
                 Medium.ground - Medium.y, Medium.ground - Medium.y, Medium.ground - Medium.y, Medium.ground - Medium.y
         };
 
         medium_rot(aX, aZ, Medium.cx, Medium.cz, Medium.xz, asin_m_xz, acos_m_xz, 2);
         medium_rot(aY, aZ, Medium.cy, Medium.cz, Medium.zy, asin_m_zy, acos_m_zy, 2);
         medium_rot(aX, aY, Medium.cx, Medium.cy, __m_xy, asin_m_xy, acos_m_xy, 2);
-        final int x2d[] = new int[2];
-        final int y2d[] = new int[2];
+        final int[] x2d = new int[2];
+        final int[] y2d = new int[2];
 
         x2d[0] = Utility.xs(aX[0], aZ[0], Medium);
         y2d[0] = Utility.mediumYs(aY[0], aZ[0], Medium);
@@ -6819,29 +6728,25 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     }
 
     private static void drawPlayerPos() {
-
+        /*
         for (int ii = 0; ii < lastSector - 1; ii++) {
             for (int i = 0; i < lastPlayerPos[ii] - 1; i++) {
-            /*if (playerPos[i].dist == 0) {
-                playerPos[i].d(rd);
-            }
-            playerPos[i].d(rd);*/
 
-                final int aX[] = {
+                final int[] aX = {
                         bestSectorX[ii][i] - Medium.x, bestSectorX[ii][i + 1] - Medium.x
                 };
-                final int aY[] = {
+                final int[] aY = {
                         bestSectorX[ii][i] - Medium.y, bestSectorX[ii][i + 1] - Medium.y
                 };
-                final int aZ[] = {
+                final int[] aZ = {
                         bestSectorX[ii][i] - Medium.z, bestSectorX[ii][i + 1] - Medium.z
                 };
 
                 medium_rot(aX, aZ, Medium.cx, Medium.cz, Medium.xz, asin_m_xz, acos_m_xz, 2);
                 medium_rot(aY, aZ, Medium.cy, Medium.cz, Medium.zy, asin_m_zy, acos_m_zy, 2);
                 medium_rot(aX, aY, Medium.cx, Medium.cy, __m_xy, asin_m_xy, acos_m_xy, 2);
-                final int x2d[] = new int[2];
-                final int y2d[] = new int[2];
+                final int[] x2d = new int[2];
+                final int[] y2d = new int[2];
 
                 x2d[0] = Utility.xs(aX[0], aZ[0], Medium);
                 y2d[0] = Utility.mediumYs(aY[0], aZ[0], Medium);
@@ -6855,7 +6760,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     rd.drawString("Sector " + (ii + 1) + " (" + (sectorTime[ii] / 60D) + " seconds)", x2d[0], y2d[0]);
                 }
             }
-        }
+        }*/
 
     }
 
@@ -6894,9 +6799,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     }
                 }
             } else {//is remove action
-                if (false) {
-                    System.out.println("doing remove action: " + undoContoID[numUndoActions] + ", " + undoContoX[numUndoActions]);
-                }
                 co[nob] = new SMContO(bco[undoContoID[numUndoActions]], undoContoX[numUndoActions], undoContoY[numUndoActions], undoContoZ[numUndoActions], undoContoXZ[numUndoActions]);
                 co[nob].declaredXZ = undoContoXZ[numUndoActions];
                 co[nob].partID = undoContoID[numUndoActions];
@@ -6978,7 +6880,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 final BufferedWriter bufferedwriter = new BufferedWriter(new FileWriter(file));
                 bufferedwriter.write(string);
                 bufferedwriter.close();
-            } catch (final Exception exception) {
+            } catch (final Exception ignored) {
 
             }
         }
@@ -7005,7 +6907,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 }
             }
             string365 = string370;
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return string365;
@@ -7042,7 +6944,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 string364 = "-1";
             }
             i359 = Integer.parseInt(string364);
-        } catch (final Exception exception) {
+        } catch (final Exception ignored) {
 
         }
         return i359;
@@ -7700,14 +7602,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             string += ",f=" + co[contoIds2[i313]].declaredPositionInArray;
         }
 
-        if (false) {
-            System.out.println("placing");
-        }
-        if (false) {
-            System.out.println("roof2: " + co[contoIds2[i313]].declaredXZ);
-            //if (co[is242[i313]].declaredXZ == 250) {
-        }
-
         //}
         if (!floats) {
             stageb.append("set(").append(co[contoIds2[i313]].partID + 10).append(",").append(co[contoIds2[i313]].x).append(",").append(co[contoIds2[i313]].z).append(",").append(co[contoIds2[i313]].declaredXZ).append(")").append(string).append("\r\n");
@@ -7915,9 +7809,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     @Override
     public void keyPressed(final KeyEvent e) {
         final int i = e.getKeyCode();
-        if (false) {
-            System.out.println("key: " + i);
-        }
         if (focuson) {
             if (i == KeyEvent.VK_M) {
                 noMouseLock = !noMouseLock;
@@ -7988,9 +7879,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 if (i == KeyEvent.VK_N) {
                     goAround = !goAround;
                 }
-                if (false) {
-                    System.out.println("b1");
-                }
                 if (i == KeyEvent.VK_DELETE && tab == 1 && epart) {
                     if (esp == -1) {
                         if (hi == -1) {
@@ -7999,9 +7887,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                         esp = hi;
                     }
 
-                    if (false) {
-                        System.out.println("baleeted");
-                    }
                     removesp();
                     esp = -1;
                 }
@@ -8154,9 +8039,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     if (sy < -61000) {
                         sy = -61000;
                     }
-                    if (false) {
-                        System.out.println(sy);
-                    }
                 } else if (isHansen) {
                     sy -= 500 * speedShift;
                     if (sy < -80000) {
@@ -8233,21 +8115,21 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             }
             playerPos[i].d(rd);*/
 
-            final int aX[] = {
+            final int[] aX = {
                     CheckPoints.x[i] - Medium.x, CheckPoints.x[i + 1] - Medium.x
             };
-            final int aY[] = {
+            final int[] aY = {
                     CheckPoints.y[i] - Medium.y, CheckPoints.y[i + 1] - Medium.y
             };
-            final int aZ[] = {
+            final int[] aZ = {
                     CheckPoints.z[i] - Medium.z, CheckPoints.z[i + 1] - Medium.z
             };
 
             medium_rot(aX, aZ, Medium.cx, Medium.cz, Medium.xz, asin_m_xz, acos_m_xz, 2);
             medium_rot(aY, aZ, Medium.cy, Medium.cz, Medium.zy, asin_m_zy, acos_m_zy, 2);
             medium_rot(aX, aY, Medium.cx, Medium.cy, __m_xy, asin_m_xy, acos_m_xy, 2);
-            final int x2d[] = new int[2];
-            final int y2d[] = new int[2];
+            final int[] x2d = new int[2];
+            final int[] y2d = new int[2];
 
             x2d[0] = Utility.xs(aX[0], aZ[0], Medium);
             y2d[0] = Utility.mediumYs(aY[0], aZ[0], Medium);
