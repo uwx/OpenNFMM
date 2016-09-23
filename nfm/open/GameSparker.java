@@ -868,27 +868,45 @@ class GameSparker extends JPanel
                 datainputstream.close();
                 stageDataReader = new BufferedReader(new InputStreamReader(new DataInputStream(new ByteArrayInputStream(is2))));
             }
+            if (doRandomizerFun) {
+                medium.setsnap(Utility.choose(xtGraphics.unrandomSnapVals)[0], Utility.choose(xtGraphics.unrandomSnapVals)[1], Utility.choose(xtGraphics.unrandomSnapVals)[2]);
+                medium.setsky(Utility.choose(xtGraphics.unrandomColors)[0], Utility.choose(xtGraphics.unrandomColors)[1], Utility.choose(xtGraphics.unrandomColors)[2]);
+                medium.setgrnd(Utility.choose(xtGraphics.unrandomColors)[0], Utility.choose(xtGraphics.unrandomColors)[1], Utility.choose(xtGraphics.unrandomColors)[2]);
+                medium.setpolys(Utility.choose(xtGraphics.unrandomColors)[0], Utility.choose(xtGraphics.unrandomColors)[1], Utility.choose(xtGraphics.unrandomColors)[2]);
+                medium.setfade(Utility.choose(xtGraphics.unrandomColors)[0], Utility.choose(xtGraphics.unrandomColors)[1], Utility.choose(xtGraphics.unrandomColors)[2]);
+                
+                medium.setexture(
+                        Utility.choose(xtGraphics.unrandomColors)[0], 
+                        Utility.choose(xtGraphics.unrandomColors)[1], 
+                        Utility.choose(xtGraphics.unrandomColors)[2], 
+                        Utility.choose(xtGraphics.unrandomTexture)
+                );
+
+                xtgraphics.snap(checkpoints.stage);
+            }
             String line;
             while ((line = stageDataReader.readLine()) != null) {
                 string = "" + line.trim();
-                if (string.startsWith("snap")) {
-                    medium.setsnap(getint("snap", string, 0), getint("snap", string, 1), getint("snap", string, 2));
-                }
-                if (string.startsWith("sky")) {
-                    medium.setsky(getint("sky", string, 0), getint("sky", string, 1), getint("sky", string, 2));
-                    xtgraphics.snap(checkpoints.stage);
-                }
-                if (string.startsWith("ground")) {
-                    medium.setgrnd(getint("ground", string, 0), getint("ground", string, 1), getint("ground", string, 2));
-                }
-                if (string.startsWith("polys")) {
-                    medium.setpolys(getint("polys", string, 0), getint("polys", string, 1), getint("polys", string, 2));
-                }
-                if (string.startsWith("fog")) {
-                    medium.setfade(getint("fog", string, 0), getint("fog", string, 1), getint("fog", string, 2));
-                }
-                if (string.startsWith("texture")) {
-                    medium.setexture(getint("texture", string, 0), getint("texture", string, 1), getint("texture", string, 2), getint("texture", string, 3));
+                if (!doRandomizerFun) {
+                    if (string.startsWith("snap")) {
+                        medium.setsnap(getint("snap", string, 0), getint("snap", string, 1), getint("snap", string, 2));
+                    }
+                    if (string.startsWith("sky")) {
+                        medium.setsky(getint("sky", string, 0), getint("sky", string, 1), getint("sky", string, 2));
+                        xtgraphics.snap(checkpoints.stage);
+                    }
+                    if (string.startsWith("ground")) {
+                        medium.setgrnd(getint("ground", string, 0), getint("ground", string, 1), getint("ground", string, 2));
+                    }
+                    if (string.startsWith("polys")) {
+                        medium.setpolys(getint("polys", string, 0), getint("polys", string, 1), getint("polys", string, 2));
+                    }
+                    if (string.startsWith("fog")) {
+                        medium.setfade(getint("fog", string, 0), getint("fog", string, 1), getint("fog", string, 2));
+                    }
+                    if (string.startsWith("texture")) {
+                        medium.setexture(getint("texture", string, 0), getint("texture", string, 1), getint("texture", string, 2), getint("texture", string, 3));
+                    }
                 }
                 if (string.startsWith("clouds")) {
                     medium.setcloads(getint("clouds", string, 0), getint("clouds", string, 1), getint("clouds", string, 2), getint("clouds", string, 3), getint("clouds", string, 4));

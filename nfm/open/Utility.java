@@ -378,16 +378,16 @@ public final class Utility {
         return false;
     }
 
-//    /**
-//     * Pick an item from an array.
-//     *
-//     * @param is The array.
-//     * @return The item.
-//     * @author Rafael
-//     */
-//    public static int choose(final int... is) {
-//        return is[ThreadLocalRandom.current().nextInt(is.length)];
-//    }
+    /**
+     * Pick an item from an array.
+     *
+     * @param is The array.
+     * @return The item.
+     * @author Rafael
+     */
+    public static int choose(final int... is) {
+        return is[ThreadLocalRandom.current().nextInt(is.length)];
+    }
 
     /**
      * Pick an item from an array.
@@ -396,7 +396,7 @@ public final class Utility {
      * @return The item.
      * @author Rafael
      */
-    public static <E> E choose(final E... is) {
+    public static <E> E choose(final E[] is) {
         return is[ThreadLocalRandom.current().nextInt(is.length)];
     }
 
