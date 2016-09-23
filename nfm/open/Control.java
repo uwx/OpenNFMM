@@ -1271,6 +1271,7 @@ class Control {
                                 oupnt = i;
                             }
                         }
+                        if (i < 0) i = 0;
                         if (checkpoints.stage == 22) {
                             if (!gowait) {
                                 if (checkpoints.clear[0] == 0) {
@@ -1521,7 +1522,8 @@ class Control {
                                 if (checkpoints.stage == 18 || checkpoints.stage == 22) {
                                     i37 = 1;
                                 }
-                                i = fpnt[i37];
+                                if (fpnt[i37] > 0 && fpnt[i37] < checkpoints.n)
+                                    i = fpnt[i37];
                                 forget = checkpoints.special[i37];
                             }
                             for (int i39 = i35; i39 < checkpoints.fn; i39++)

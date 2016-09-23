@@ -1,9 +1,4 @@
 package nfm.open;
-/* xtGraphics - Decompiled by JODE
- * Visit http://jode.sourceforge.net/
- */
-import nfm.open.music.*;
-
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -27,10 +22,21 @@ import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+
+import com.google.gson.annotations.Expose;
+
+/* xtGraphics - Decompiled by JODE
+ * Visit http://jode.sourceforge.net/
+ */
+import nfm.open.music.RadicalBASS;
+import nfm.open.music.RadicalMod;
+import nfm.open.music.RadicalMusic;
+import nfm.open.music.TrackZipLoader;
 
 class xtGraphics extends Panel implements Runnable {
     /**
@@ -40,11 +46,11 @@ class xtGraphics extends Panel implements Runnable {
     /**
      * How many stages you have
      */
-    static final int nTracks = 32;
+    @Expose static int nTracks = 32;
     /**
      * How many cars you have
      */
-    static final int nCars = 16;
+    @Expose static int nCars = 16;
     int acexp = 0;
 
     /**
@@ -63,6 +69,664 @@ class xtGraphics extends Panel implements Runnable {
                     "surf style", "off the lip", "bounce back"
             }
     };
+        
+    @Expose private static int lastadj = 0;
+    @Expose static String[] randomizedHints;
+    
+    private final static String[][] kooladj = {
+            { // sex positions
+            "The Screwnicorn Trick",
+            "Suicide Bomb",
+            "Mustard Dispenser",
+
+            "Angry Dragon",
+            "Arabian Goggles",
+            "The Bait N' Tackle",
+            "Ballsacking",
+            "Bear Claw",
+            "Beef Curtain",
+            "Beer Dick",
+            "Blumpy",
+            "The Bronco",
+            "Brown Bagging It",
+            "Brown Necktie",
+            "Brunski",
+            "The Bullwinkle",
+            "Butter Face",
+            "The Canine Special",
+            "The Carpet Cleaner",
+            "The Chili Dog",
+            "Chocolate Pizza",
+            "Cleveland Steamer",
+            "Cock-Stuffing",
+            "Cold Lunch",
+            "The Concoction",
+            "The Compton Gangbang",
+            "Cop's Delight",
+            "The Corkscrew",
+            "Corn",
+            "Couch Bombing",
+            "Coyote",
+            "Cum Dumpster",
+            "Cum Guzzling Sperm Burping Bitch",
+            "Daisy Chain",
+            "Davey Crockett",
+            "Dirty Sanchez",
+            "Dirty Swirly",
+            "Dog In A Bathtub",
+            "Donkey Punch",
+            "Duct Tape Trick",
+            "Dutch Oven",
+            "Dutch Treat",
+            "DVDA",
+            "The Electric Chair",
+            "Felching",
+            "The Fish Eye",
+            "Fish-Hook",
+            "The Fire Island",
+            "Flaming Amazon",
+            "Flooding The Cave",
+            "The Flying Camel",
+            "The Flying Dutchman",
+            "The Fountain Of You",
+            "Fur Ball",
+            "Gobstopper",
+            "Golden Shower",
+            "Greek",
+            "Ham And Cheese Sandwich",
+            "Hershey Highway",
+            "High Dive",
+            "The Hindenburg",
+            "Hogging",
+            "Hole In One",
+            "Hotdog In A Hallway",
+            "Hot Karl",
+            "Hot Karl Candy Cane",
+            "Hot Lunch",
+            "Hummer",
+            "The Hunter Gatherer",
+            "The Indian Cock Burn",
+            "The Jedi Mind Trick",
+            "The Jelly Donut",
+            "The Juanita Special Bean Dip",
+            "Kennebunkport Surprise",
+            "Kick-Fucking",
+            "The Landshark",
+            "The Lorena Bobbit",
+            "The Menthol",
+            "The Mellon Dive",
+            "Monkey Wrench",
+            "Monroe Transfer",
+            "The Moped",
+            "The Mork",
+            "Moses",
+            "The Motorboat",
+            "Muff Teaser",
+            "The Mung",
+            "Mushy Biscuit",
+            "New Jersey Meat-Hook",
+            "New York Style Taco",
+            "The Nixon",
+            "Oyster",
+            "Pasadena Mudslide",
+            "Pattycake",
+            "Paying The Rent",
+            "Peanut Butter And Jelly Sandwich",
+            "Pearl Necklace",
+            "The Pig Roast",
+            "Pink Glove",
+            "The Pirate's Treasure",
+            "Plating",
+            "The Popcorn Trick",
+            "Puerto Rican Fog Bank",
+            "Purple Mushroom",
+            "Queef",
+            "The Ram",
+            "Rear Admiral",
+            "Red Wings",
+            "Resuscitation",
+            "The Roddy Piper",
+            "The Rodeo",
+            "The Rose Creeper",
+            "The Rusty Trombone",
+            "Sandbag",
+            "The Screwnicorn",
+            "The Seatbelt",
+            "Shirley Temple",
+            "The Shocker",
+            "Shop Vac",
+            "Shrimping",
+            "Skiing",
+            "Slumpbuster",
+            "Snerd Nurgling",
+            "Snoodling",
+            "Snowball",
+            "The Snuff",
+            "Stranger",
+            "Stranger On The Rocks",
+            "Strangers In The Night",
+            "Stingy Nut",
+            "Sud N' Fud",
+            "Surfing",
+            "Swimmer's Ear",
+            "Tea Bag",
+            "3-Eyed Turtle",
+            "The Tortoise",
+            "Tossing Salad",
+            "Tropical Wind",
+            "Tuna Melt",
+            "Twisted Sister",
+            "Vegetarian Hot Lunch",
+            "Wake Up Call",
+            "The Walrus",
+            "Western Grip",
+            "Westside Glaze",
+            "The Woody Woodpecker",
+            "The Zombie Mask",
+            },
+            
+            { // wrestling moves
+             // Attacks
+                "Big splash",
+                "Body avalanche",
+                "Crossbody",
+                "Lou Thesz press",
+                "Stinger splash",
+                "Tilt-a-whirl crossbody",
+                "Vertical press",
+                "Koronco buster",
+                "Backhand chop",
+                "Cross chop",
+                "Forehand chop",
+                "Kesagiri chop",
+                "Mongolian chop",
+                "Overhead chop",
+                "Cactus clothesline",
+                "Corner clothesline",
+                "Leaping clothesline",
+                "Rebound clothesline",
+                "Short-arm clothesline",
+                "Springboard clothesline",
+                "Three-point stance clothesline",
+                "Butt drop",
+                "Chop drop",
+                "Elbow drop",
+                "Corkscrew elbow drop",
+                "Spinning headlock elbow drop",
+                "Fist drop",
+                "Forearm drop",
+                "Headbutt drop",
+                "Knee drop",
+                "Knee drop bulldog",
+                "Leg drop",
+                "Back elbow",
+                "Bionic elbow",
+                "Corner back elbow",
+                "Discus back elbow",
+                "Discus elbow smash",
+                "Elbow smash",
+                "Mounted elbow drop",
+                "Short-arm elbow smash",
+                "Flying forearm smash",
+                "Sliding forearm smash",
+                "Battering ram",
+                "Trapping headbutts",
+                "Go 2 Sleep",
+                "Double knee",
+                "High knee",
+                "Running single leg high knee",
+                "Shining Wizard",
+                "Spinning knee",
+                "Back kick",
+                "Backflip kick",
+                "Corner backflip kick",
+                "Big boot",
+                "Bicycle kick",
+                "Bicycle toe kick",
+                "Calf kick",
+                "Crane kick",
+                "Dragon whip",
+                "Dropkick",
+                "Enzuigiri",
+                "Football kick",
+                "Jumping high kick",
+                "Legsweep",
+                "Mule kick",
+                "Overhead kick",
+                "Punt",
+                "Rolling wheel kick",
+                "Savate kick",
+                "Scissors kick",
+                "Shoot kick",
+                "Sole kick",
+                "Spin kick",
+                "Spinning heel kick",
+                "Stomp",
+                "Curb Stomp",
+                "Double foot stomp",
+                "Superkick",
+                "Tiger feint kick",
+                "Toe kick",
+                "Crooked arm lariat",
+                "Flying lariat",
+                "Lariat takedown",
+                "Leg lariat",
+                "Back fist",
+                "Spinning back fist",
+                "Heart Punch",
+                "Mounted punches",
+                "Superman punch",
+                "Wind-up punch",
+                "Double slap",
+                "Palm strike",
+                "Cannonball",
+                "Seated senton",
+                "Chop block",
+                "Spear",
+                "Striking spear",
+                "Turnbuckle thrust",
+                "European uppercut",
+                "Knee lift",
+                "Double knee lift",
+                "Throat thrust",
+                "Chair shot",
+                "Chair thrust",
+                "Guitar shot",
+                "Con-chair-to",
+                "Discus",
+                "Handspring",
+                "Pendulum",
+                "Rolling Thunder",
+                "Asian mist",
+                "Biting",
+                "Eye poke",
+                "Eye rake",
+                "Fireball",
+                "Hangman",
+                "Reverse hangman",
+                "Hair pull",
+                "Low blow",
+                "Testicular claw",
+                "Twisty McMarx",
+
+                // Throws
+                "Armbreaker",
+                "Armbar legsweep",
+                "Armbar takedown",
+                "Diving Armbreaker",
+                "Double knee armbreaker",
+                "Arm drag",
+                "Japanese arm drag",
+                "Over the shoulder arm drag",
+                "Springboard arm drag",
+                "Tilt-a-whirl arm drag",
+                "Wheelbarrow arm drag",
+                "Arm wringer",
+                "Atomic drop",
+                "Inverted atomic drop",
+                "Sitout full nelson atomic drop",
+                "Backbreaker",
+                "Back body drop",
+                "Mountain Bomb",
+                "Biel throw",
+                "Brainbuster",
+                "Bulldog",
+                "Cobra clutch bulldog",
+                "Fireman's carry bulldog",
+                "Full nelson bulldog",
+                "Half nelson bulldog",
+                "Inverted bulldog",
+                "One-handed bulldog",
+                "Reverse bulldog",
+                "Slingshot bulldog",
+                "Spinning bulldog",
+                "Three-quarter facelock bulldog",
+                "Two-handed bulldog",
+                "Wheelbarrow bulldog",
+                "Catapult",
+                "Chokeslam",
+                "Cobra clutch slam",
+                "DDT",
+                "Reverse DDT",
+                "Driver",
+                "Cobra clutch driver",
+                "Death Valley",
+                "Emerald Fusion",
+                "Electric chair driver",
+                "Fisherman driver",
+                "Half nelson driver",
+                "Michinoku Driver II",
+                "Michinoku Driver II-B",
+                "Samoan driver",
+                "Wheelbarrow driver",
+                "Electric chair drop",
+                "Facebreaker",
+                "Double knee facebreaker",
+                "Facebreaker DDT",
+                "Facebreaker knee smash",
+                "Inverted stomp facebreaker",
+                "Shoulder facebreaker",
+                "Facebuster",
+                "Fallaway slam",
+                "Fireman's carry throws",
+                "Airplane spin",
+                "Death Valley driver",
+                "Inverted Death Valley driver",
+                "Side Death Valley driver",
+                "Fireman's carry backbreaker",
+                "Fireman's carry drop",
+                "Fireman's carry slam",
+                "Fireman's carry knee takeover",
+                "Olympic slam",
+                "Samoan drop",
+                "Flapjack",
+                "Alley Oop",
+                "Package fallaway powerbomb",
+                "Double leg flapjack",
+                "Hotshot",
+                "Pop-up",
+                "Full nelson",
+                "Full nelson slam",
+                "Half nelson slam",
+                "Inverted full nelson slam",
+                "Giant swing",
+                "Guillotine drop",
+                "Gorilla press",
+                "Gorilla press drop",
+                "Gorilla press slam",
+                "Gutbuster",
+                "Elevated gutbuster",
+                "Fireman's carry gutbuster",
+                "Gorilla press gutbuster",
+                "Gutbuster drop",
+                "Rib breaker",
+                "Headlock takedown",
+                "front Headlock driver",
+                "Headscissors takedown",
+                "Handstand headscissors takedown",
+                "Frankensteiner",
+                "Reverse frankensteiner",
+                "Hurricanrana",
+                "Hurricanrana driver",
+                "Hip toss",
+                "Iconoclasm",
+                "Irish whip",
+                "Jawbreaker",
+                "Sitout jawbreaker",
+                "Shoulder jawbreaker",
+                "Stunner",
+                "Mat slam",
+                "Double underhook mat slam",
+                "Rear mat slam",
+                "Sitout rear mat slam",
+                "Sleeper slam",
+                "Sling Blade",
+                "Tilt-a-whirl mat slam",
+                "Monkey flip",
+                "Muscle buster",
+                "Neckbreaker",
+                "Piledriver",
+                "Powerbomb",
+                "Powerslam",
+                "Pumphandle",
+                "Pumphandle drop",
+                "Pumphandle slam",
+                "Pumphandle Michinoku Driver II",
+                "Pumphandle fallaway slam",
+                "Scoop",
+                "Body slam",
+                "Scoop slam",
+                "Shin breaker",
+                "Shoulderbreaker",
+                "Snake Eyes",
+                "Snapmare",
+                "Rolling snapmare",
+                "Snapmare driver",
+                "Snapmare neckbreaker",
+                "Spinebuster",
+                "Thrust Spinebuster",
+                "Double leg slam",
+                "Lifting spinebuster",
+                "Release spinebuster",
+                "Spinning spinebuster",
+                "Sitout spinebuster",
+                "Spinning crucifix toss",
+                "Suplex",
+                "Trips and sweeps",
+                "Cobra clutch legsweep",
+                "Double leg takedown",
+                "Dragon screw legwhip",
+                "Drop toe-hold",
+                "Half nelson legsweep",
+                "Ranhei",
+                "Russian legsweep",
+                "Three-quarter facelock Russian legsweep",
+                "Schoolboy sweep",
+                "STO",
+                "Chokehold STO",
+                "Front facelock STO",
+                "Reverse STO",
+            },
+            
+            {// dictators/communist leaders
+                "Gamal Abdel Nasser",
+                "Ahmed Sékou Touré",
+                "David Dacko",
+                "Kwame Nkrumah",
+                "Modibo Keita",
+                "François Tombalbaye",
+                "Félix Houphouët-Boigny",
+                "Milton Obote",
+                "Hastings Kamuzu Banda",
+                "Kenneth Kaunda",
+                "Houari Boumediene",
+                "Jean-Bédel Bokassa",
+                "Gnassingbé Eyadéma",
+                "Omar Bongo",
+                "Moussa Traoré",
+                "Francisco Macías Nguema",
+                "Gaafar Nimeiry",
+                "Mohamed Siad Barre",
+                "Idi Amin",
+                "Mengistu Haile Mariam",
+                "Olusegun Obasanjo",
+                "Jean-Baptiste Bagaza",
+                "Albert René",
+                "Daniel arap Moi",
+                "Teodoro Obiang Nguema Mbasogo",
+                "José Eduardo dos Santos",
+                "João Bernardo Vieira",
+                "Samuel K. Doe",
+                "Robert Mugabe",
+                "Jerry Rawlings",
+                "André Kolingba",
+                "Paul Biya",
+                "Hissène Habré",
+                "Thomas Sankara",
+                "Maaouya Ould Sid'Ahmed Taya",
+                "Ibrahim Babangida",
+                "Zine El Abidine Ben Ali",
+                "Omar Hasan Ahmad al-Bashir",
+                "Idriss Déby",
+                "Sani Abacha",
+                "Paul Kagame",
+                "Yahya Jammeh",
+                "Laurent-Désiré Kabila",
+                "Charles G. Taylor",
+                "François Bozizé",
+                "Ely Ould Mohamed Vall",
+                "Michael Sata",
+                "Mohamed Morsi",
+                "Agustín de Iturbide",
+                "Antonio López de Santa Anna",
+                "Porfirio Díaz",
+                "Victoriano Huerta",
+                "Rafael Carrera",
+                "William Walker",
+                "Justo Rufino Barrios",
+                "Manuel Estrada Cabrera",
+                "Maximiliano Hernández Martínez",
+                "Jorge Ubico",
+                "Tiburcio Carías Andino",
+                "Carlos Castillo Armas",
+                "Oswaldo López Arellano",
+                "Omar Torrijos",
+                "Daniel Ortega",
+                "Manuel Noriega",
+                "José Gaspar Rodríguez de Francia",
+                "Simón Bolívar",
+                "Juan Manuel de Rosas",
+                "Carlos Antonio López",
+                "Manuel Belzu",
+                "Francisco Solano López",
+                "Mariano Melgarejo",
+                "Antonio Guzmán Blanco",
+                "Cipriano Castro",
+                "Rafael Reyes",
+                "Juan Vicente Gómez",
+                "Óscar Benavides",
+                "Augusto Leguía",
+                "Carlos Ibáñez del Campo",
+                "Getúlio Vargas",
+                "Gabriel Terra",
+                "Higinio Morínigo",
+                "Manuel Odría",
+                "Marcos Pérez Jiménez",
+                "Gustavo Rojas Pinilla",
+                "Alfredo Stroessner",
+                "Humberto Castelo Branco",
+                "René Barrientos",
+                "Forbes Burnham",
+                "Artur da Costa e Silva",
+                "Emílio Garrastazu Médici",
+                "Juan María Bordaberry",
+                "Augusto Pinochet",
+                "Ernesto Geisel",
+                "Jorge Rafael Videla",
+                "João Baptista de Oliveira Figueiredo",
+                "Dési Bouterse",
+                "Luis García Meza Tejada",
+                "Gregorio Conrado Álvarez",
+                "Leopoldo Galtieri",
+                "Alberto Fujimori",
+                "Hugo Chávez",
+                "Nicolás Maduro",
+                "Jean-Jacques Dessalines",
+                "Henry Christophe",
+                "Pedro Santana",
+                "Buenaventura Báez",
+                "Ulises Heureaux",
+                "Gerardo Machado",
+                "Rafael Trujillo",
+                "Paul Magloire",
+                "François Duvalier",
+                "Fidel Castro",
+                "Jean-Claude Duvalier",
+                "Eric Gairy",
+                "Raoul Cédras",
+                "Raul Castro",
+                "Abdul Karim Qassem",
+                "Abdul Salam Arif",
+                "Ahmed Hassan al-Bakr",
+                "Hafez al-Assad",
+                "Ruhollah Khomeini",
+                "Saddam Hussein",
+                "Ayatollah Ali Khamenei",
+                "Bashar al-Assad",
+                "Askar Akayev",
+                "Islam Karimov",
+                "Saparmurat Niyazov",
+                "Muhammed Omar",
+                "Ilham Aliyev",
+                "Gurbanguly Berdimuhammedow",
+                "Indira Gandhi",
+                "Ayub Khan",
+                "Yahya Khan",
+                "Maumoon Abdul Gayoom",
+                "Muhammad Zia-ul-Haq",
+                "Rahimuddin Khan",
+                "Hossain Mohammad Ershad",
+                "Tokugawa Ieyasu",
+                "Yuan Shikai",
+                "Horloogiyn Choybalsan",
+                "Kim Il-sung",
+                "Ho Chi Minh",
+                "Sukarno",
+                "Mao Zedong",
+                "Ngô Ðình Diệm",
+                "Park Chung Hee",
+                "Ne Win",
+                "Thanom Kittikachorn",
+                "Suharto",
+                "Lon Nol",
+                "Pol Pot",
+                "Chun Doo Hwan",
+                "Mahathir bin Mohamad",
+                "Khamtai Siphandon",
+                "Than Shwe",
+                "Kim Jong-il",
+                "Sonthi Boonyaratglin",
+                "Kim Jong-un",
+                "Oliver Cromwell",
+                "King George III",
+                "Maximilien Robespierre",
+                "Napoleon Bonaparte",
+                "Józef Grzegorz Chłopicki",
+                "Charles Louis Napoléon Bonaparte",
+                "Romuald Traugutt",
+                "Vladimir Lenin",
+                "Mustafa Kemal Atatürk",
+                "Benito Mussolini",
+                "Miguel Primo de Rivera",
+                "Aleksandar Tsankov",
+                "Joseph Stalin",
+                "Ahmet Bej Zogu",
+                "José Mendes Cabeçadas",
+                "Gomes da Costa",
+                "António Óscar Carmona",
+                "Józef Piłsudski",
+                "Antanas Smetona",
+                "António de Oliveira Salazar",
+                "Alexander I",
+                "Engelbert Dollfuss",
+                "Konstantin Päts",
+                "Adolf Hitler",
+                "Kimon Georgiev",
+                "Tsar Boris III",
+                "Kurt Schuschnigg",
+                "Kārlis Ulmanis",
+                "Ioannis Metaxas",
+                "Francisco Franco",
+                "Jozef Tiso",
+                "Ion Antonescu",
+                "Philippe Pétain",
+                "Ante Pavelić",
+                "Vidkun Quisling",
+                "Josip Broz Tito",
+                "Enver Hoxha",
+                "Mátyás Rákosi",
+                "Nikita Khrushchev",
+                "Todor Zhivkov",
+                "Antonín Novotný",
+                "Walter Ulbricht",
+                "Leonid Brezhnev",
+                "Nicolae Ceauşescu",
+                "George Papadopoulos",
+                "Marcelo Caetano",
+                "Gustáv Husák",
+                "Erich Honecker",
+                "Phaedon Gizikis",
+                "Wojciech Jaruzelski",
+                "Yuri Andropov",
+                "Konstantin Chernenko",
+                "Mikhail Gorbachev",
+                "Slobodan Milošević",
+                "Alexander Lukashenko",
+                "Sitiveni Rabuka",
+                "Frank Bainimarama",
+            }
+    };
+    
     private boolean aflk = false;
     private final soundClip[] air = new soundClip[6];
     private boolean aird = false;
@@ -269,7 +933,7 @@ class xtGraphics extends Panel implements Runnable {
     /**
      * Max car select selected car (don't change)
      */
-    private int maxsl = nCars - 1;
+    int maxsl = nCars - 1;
     Image mdness;
     private int minsl = 0;
     Image mload;
@@ -861,7 +1525,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    void carselect(final Control control, final ContO[] cars, final int i, final int i104, final boolean bool) {
+    void carselect(final Control control, final List<ContO> cars, final int i, final int i104, final boolean bool) {
         rd.setColor(new Color(0, 0, 0));
         rd.fillRect(0, 0, 65, 450);
         rd.fillRect(735, 0, 65, 450);
@@ -926,7 +1590,7 @@ class xtGraphics extends Panel implements Runnable {
         }*/
         if (!remi) {
             rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
-            cars[sc[0]].d(rd);
+            cars.get(sc[0]).d(rd);
             rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         }
         /*if (cfase == 8) {
@@ -942,24 +1606,25 @@ class xtGraphics extends Panel implements Runnable {
         			cfase = 9;
         }*/
         if (/*(multion != 0 || testdrive == 1 || testdrive == 2) && */lsc != sc[0]) {
-            if (cars[sc[0]].xy != 0) {
-                cars[sc[0]].xy = 0;
+            ContO car = cars.get(sc[0]);
+            if (car.xy != 0) {
+                car.xy = 0;
             }
             boolean bool107 = false;
-            for (int i108 = 0; i108 < cars[sc[0]].npl && !bool107; i108++)
-                if (cars[sc[0]].p[i108].colnum == 1) {
+            for (int i108 = 0; i108 < car.npl && !bool107; i108++)
+                if (car.p[i108].colnum == 1) {
                     final float[] fs = new float[3];
-                    Color.RGBtoHSB(cars[sc[0]].p[i108].c[0], cars[sc[0]].p[i108].c[1], cars[sc[0]].p[i108].c[2], fs);
+                    Color.RGBtoHSB(car.p[i108].c[0], car.p[i108].c[1], car.p[i108].c[2], fs);
                     arnp[0] = fs[0];
                     arnp[1] = fs[1];
                     arnp[2] = 1.0F - fs[2];
                     bool107 = true;
                 }
             bool107 = false;
-            for (int i109 = 0; i109 < cars[sc[0]].npl && !bool107; i109++)
-                if (cars[sc[0]].p[i109].colnum == 2) {
+            for (int i109 = 0; i109 < car.npl && !bool107; i109++)
+                if (car.p[i109].colnum == 2) {
                     final float[] fs = new float[3];
-                    Color.RGBtoHSB(cars[sc[0]].p[i109].c[0], cars[sc[0]].p[i109].c[1], cars[sc[0]].p[i109].c[2], fs);
+                    Color.RGBtoHSB(car.p[i109].c[0], car.p[i109].c[1], car.p[i109].c[2], fs);
                     arnp[3] = fs[0];
                     arnp[4] = fs[1];
                     arnp[5] = 1.0F - fs[2];
@@ -967,28 +1632,28 @@ class xtGraphics extends Panel implements Runnable {
                 }
             final Color color = Color.getHSBColor(arnp[0], arnp[1], 1.0F - arnp[2]);
             final Color color110 = Color.getHSBColor(arnp[3], arnp[4], 1.0F - arnp[5]);
-            for (int i111 = 0; i111 < cars[sc[0]].npl; i111++) {
-                if (cars[sc[0]].p[i111].colnum == 1) {
-                    cars[sc[0]].p[i111].hsb[0] = arnp[0];
-                    cars[sc[0]].p[i111].hsb[1] = arnp[1];
-                    cars[sc[0]].p[i111].hsb[2] = 1.0F - arnp[2];
-                    cars[sc[0]].p[i111].c[0] = color.getRed();
-                    cars[sc[0]].p[i111].c[1] = color.getGreen();
-                    cars[sc[0]].p[i111].c[2] = color.getBlue();
-                    cars[sc[0]].p[i111].oc[0] = color.getRed();
-                    cars[sc[0]].p[i111].oc[1] = color.getGreen();
-                    cars[sc[0]].p[i111].oc[2] = color.getBlue();
+            for (int i111 = 0; i111 < car.npl; i111++) {
+                if (car.p[i111].colnum == 1) {
+                    car.p[i111].hsb[0] = arnp[0];
+                    car.p[i111].hsb[1] = arnp[1];
+                    car.p[i111].hsb[2] = 1.0F - arnp[2];
+                    car.p[i111].c[0] = color.getRed();
+                    car.p[i111].c[1] = color.getGreen();
+                    car.p[i111].c[2] = color.getBlue();
+                    car.p[i111].oc[0] = color.getRed();
+                    car.p[i111].oc[1] = color.getGreen();
+                    car.p[i111].oc[2] = color.getBlue();
                 }
-                if (cars[sc[0]].p[i111].colnum == 2) {
-                    cars[sc[0]].p[i111].hsb[0] = arnp[3];
-                    cars[sc[0]].p[i111].hsb[1] = arnp[4];
-                    cars[sc[0]].p[i111].hsb[2] = 1.0F - arnp[5];
-                    cars[sc[0]].p[i111].c[0] = color110.getRed();
-                    cars[sc[0]].p[i111].c[1] = color110.getGreen();
-                    cars[sc[0]].p[i111].c[2] = color110.getBlue();
-                    cars[sc[0]].p[i111].oc[0] = color110.getRed();
-                    cars[sc[0]].p[i111].oc[1] = color110.getGreen();
-                    cars[sc[0]].p[i111].oc[2] = color110.getBlue();
+                if (car.p[i111].colnum == 2) {
+                    car.p[i111].hsb[0] = arnp[3];
+                    car.p[i111].hsb[1] = arnp[4];
+                    car.p[i111].hsb[2] = 1.0F - arnp[5];
+                    car.p[i111].c[0] = color110.getRed();
+                    car.p[i111].c[1] = color110.getGreen();
+                    car.p[i111].c[2] = color110.getBlue();
+                    car.p[i111].oc[0] = color110.getRed();
+                    car.p[i111].oc[1] = color110.getGreen();
+                    car.p[i111].oc[2] = color110.getBlue();
                 }
             }
             lsc = sc[0];
@@ -996,6 +1661,9 @@ class xtGraphics extends Panel implements Runnable {
         int i112 = -1;
         int i113 = 0;
         final boolean bool114 = false;
+        
+        Stat stat = app.customCarStats.get(sc[0]);
+        
         if (flipo == 0) {
             rd.setFont(new Font("Arial", 1, 13));
             ftm = rd.getFontMetrics();
@@ -1007,7 +1675,7 @@ class xtGraphics extends Panel implements Runnable {
                 if (cfase == 3 && cd.lastload == 2) {
                     app.mcars.move(400 - app.mcars.w / 2, 78);
                     app.mcars.show = true;
-                    if (!app.mcars.getSelectedItem().equals(cd.names[sc[0]])) {
+                    if (!app.mcars.getSelectedItem().equals(stat.names)) {
                         for (int i116 = 16; i116 < cd.nlocars; i116++)
                             if (cd.names[i116].equals(app.mcars.getSelectedItem())) {
                                 i112 = i116;
@@ -1025,34 +1693,37 @@ class xtGraphics extends Panel implements Runnable {
                         string = "N#" + (sc[0] - 35) + "  ";
                     }
                     if (aflk) {
-                        drawcs(95 + i115, "" + string + cd.names[sc[0]], 240, 240, 240, 3);
+                        drawcs(95 + i115, "" + string + stat.names, 240, 240, 240, 3);
                         aflk = false;
                     } else {
-                        drawcs(95, "" + string + cd.names[sc[0]], 176, 176, 176, 3);
+                        drawcs(95, "" + string + stat.names, 176, 176, 176, 3);
                         aflk = true;
                     }
                 }
             } else {
                 app.mcars.show = false;
             }
-            cars[sc[0]].z = 950;
-            if (sc[0] == 13) {
-                cars[sc[0]].z = 1000;
-            }
-            cars[sc[0]].y = -34 - cars[sc[0]].grat;
-            cars[sc[0]].x = 0;
-            if (mouson >= 0 && mouson <= 3) {
-                cars[sc[0]].xz += 2;
-            } else {
-                cars[sc[0]].xz += 5;
-            }
-            if (cars[sc[0]].xz > 360) {
-                cars[sc[0]].xz -= 360;
-            }
-            cars[sc[0]].zy = 0;
-            cars[sc[0]].wzy -= 10;
-            if (cars[sc[0]].wzy < -30) {
-                cars[sc[0]].wzy += 30;
+            {
+                ContO car = cars.get(sc[0]);
+                car.z = 950;
+                if (sc[0] == 13) {
+                    car.z = 1000;
+                }
+                car.y = -34 - car.grat;
+                car.x = 0;
+                if (mouson >= 0 && mouson <= 3) {
+                    car.xz += 2;
+                } else {
+                    car.xz += 5;
+                }
+                if (car.xz > 360) {
+                    car.xz -= 360;
+                }
+                car.zy = 0;
+                car.wzy -= 10;
+                if (car.wzy < -30) {
+                    car.wzy += 30;
+                }
             }
             if (!remi) {
                 if (sc[0] != minsl) {
@@ -1782,30 +2453,30 @@ class xtGraphics extends Panel implements Runnable {
                     rd.drawString("Endurance:", 473, 373);
                     rd.drawImage(statb, 536, 367, null);
                     rd.setColor(new Color(0, 0, 0));
-                    float f = (cd.swits[sc[0]][2] - 220) / 90.0F;
+                    float f = (stat.swits[2] - 220) / 90.0F;
                     if (f < 0.2) {
                         f = 0.2F;
                     }
                     rd.fillRect((int) (162.0F + 156.0F * f), 337, (int) (156.0F * (1.0F - f) + 1.0F), 7);
-                    f = cd.acelf[sc[0]][1] * cd.acelf[sc[0]][0] * cd.acelf[sc[0]][2] * cd.grip[sc[0]] / 7700.0F;
+                    f = stat.acelf[1] * stat.acelf[0] * stat.acelf[2] * stat.grip / 7700.0F;
                     if (f > 1.0F) {
                         f = 1.0F;
                     }
                     rd.fillRect((int) (162.0F + 156.0F * f), 352, (int) (156.0F * (1.0F - f) + 1.0F), 7);
-                    f = cd.dishandle[sc[0]];
+                    f = stat.dishandle;
                     rd.fillRect((int) (162.0F + 156.0F * f), 367, (int) (156.0F * (1.0F - f) + 1.0F), 7);
-                    f = (cd.airc[sc[0]] * cd.airs[sc[0]] * cd.bounce[sc[0]] + 28.0F) / 139.0F;
+                    f = (stat.airc * stat.airs * stat.bounce + 28.0F) / 139.0F;
                     if (f > 1.0F) {
                         f = 1.0F;
                     }
                     rd.fillRect((int) (536.0F + 156.0F * f), 337, (int) (156.0F * (1.0F - f) + 1.0F), 7);
                     final float f127 = 0.5F;
-                    f = (cd.moment[sc[0]] + f127) / 2.6F;
+                    f = (stat.moment + f127) / 2.6F;
                     if (f > 1.0F) {
                         f = 1.0F;
                     }
                     rd.fillRect((int) (536.0F + 156.0F * f), 352, (int) (156.0F * (1.0F - f) + 1.0F), 7);
-                    f = cd.outdam[sc[0]];
+                    f = stat.outdam;
                     rd.fillRect((int) (536.0F + 156.0F * f), 367, (int) (156.0F * (1.0F - f) + 1.0F), 7);
                     rd.drawImage(statbo, 162, 337, null);
                     rd.drawImage(statbo, 162, 352, null);
@@ -1817,16 +2488,16 @@ class xtGraphics extends Panel implements Runnable {
                         rd.setFont(new Font("Arial", 1, 13));
                         ftm = rd.getFontMetrics();
                         String string = "Class C";
-                        if (cd.cclass[sc[0]] == 1) {
+                        if (stat.cclass == 1) {
                             string = "Class B & C";
                         }
-                        if (cd.cclass[sc[0]] == 2) {
+                        if (stat.cclass == 2) {
                             string = "Class B";
                         }
-                        if (cd.cclass[sc[0]] == 3) {
+                        if (stat.cclass == 3) {
                             string = "Class A & B";
                         }
-                        if (cd.cclass[sc[0]] == 4) {
+                        if (stat.cclass == 4) {
                             string = "Class A";
                         }
                         if (kbload < 7) {
@@ -1886,17 +2557,18 @@ class xtGraphics extends Panel implements Runnable {
                         rd.drawLine(671 + (int) (arnp[4] * 40.0F), 224, 671 + (int) (arnp[4] * 40.0F), 230);
                         rd.fillRect(670 + (int) (arnp[4] * 40.0F), 230, 3, 3);
                         if (bool) {
+                            ContO car = cars.get(sc[0]);
                             if (mouson == -1) {
                                 if (i > 96 && i < 152 && i104 > 248 && i104 < 258) {
                                     final float[] fs = new float[3];
-                                    Color.RGBtoHSB(cars[sc[0]].fcol[0], cars[sc[0]].fcol[1], cars[sc[0]].fcol[2], fs);
+                                    Color.RGBtoHSB(car.fcol[0], car.fcol[1], car.fcol[2], fs);
                                     arnp[0] = fs[0];
                                     arnp[1] = fs[1];
                                     arnp[2] = 1.0F - fs[2];
                                 }
                                 if (i > 646 && i < 702 && i104 > 248 && i104 < 258) {
                                     final float[] fs = new float[3];
-                                    Color.RGBtoHSB(cars[sc[0]].scol[0], cars[sc[0]].scol[1], cars[sc[0]].scol[2], fs);
+                                    Color.RGBtoHSB(car.scol[0], car.scol[1], car.scol[2], fs);
                                     arnp[3] = fs[0];
                                     arnp[4] = fs[1];
                                     arnp[5] = 1.0F - fs[2];
@@ -1956,30 +2628,31 @@ class xtGraphics extends Panel implements Runnable {
                             }
                         }
                         if (cfase != 10 && cfase != 5 && i112 == -1) {
+                            ContO car = cars.get(sc[0]);
                             final Color color = Color.getHSBColor(arnp[0], arnp[1], 1.0F - arnp[2]);
                             final Color color130 = Color.getHSBColor(arnp[3], arnp[4], 1.0F - arnp[5]);
-                            for (int i131 = 0; i131 < cars[sc[0]].npl; i131++) {
-                                if (cars[sc[0]].p[i131].colnum == 1) {
-                                    cars[sc[0]].p[i131].hsb[0] = arnp[0];
-                                    cars[sc[0]].p[i131].hsb[1] = arnp[1];
-                                    cars[sc[0]].p[i131].hsb[2] = 1.0F - arnp[2];
-                                    cars[sc[0]].p[i131].c[0] = color.getRed();
-                                    cars[sc[0]].p[i131].c[1] = color.getGreen();
-                                    cars[sc[0]].p[i131].c[2] = color.getBlue();
-                                    cars[sc[0]].p[i131].oc[0] = color.getRed();
-                                    cars[sc[0]].p[i131].oc[1] = color.getGreen();
-                                    cars[sc[0]].p[i131].oc[2] = color.getBlue();
+                            for (int i131 = 0; i131 < car.npl; i131++) {
+                                if (car.p[i131].colnum == 1) {
+                                    car.p[i131].hsb[0] = arnp[0];
+                                    car.p[i131].hsb[1] = arnp[1];
+                                    car.p[i131].hsb[2] = 1.0F - arnp[2];
+                                    car.p[i131].c[0] = color.getRed();
+                                    car.p[i131].c[1] = color.getGreen();
+                                    car.p[i131].c[2] = color.getBlue();
+                                    car.p[i131].oc[0] = color.getRed();
+                                    car.p[i131].oc[1] = color.getGreen();
+                                    car.p[i131].oc[2] = color.getBlue();
                                 }
-                                if (cars[sc[0]].p[i131].colnum == 2) {
-                                    cars[sc[0]].p[i131].hsb[0] = arnp[3];
-                                    cars[sc[0]].p[i131].hsb[1] = arnp[4];
-                                    cars[sc[0]].p[i131].hsb[2] = 1.0F - arnp[5];
-                                    cars[sc[0]].p[i131].c[0] = color130.getRed();
-                                    cars[sc[0]].p[i131].c[1] = color130.getGreen();
-                                    cars[sc[0]].p[i131].c[2] = color130.getBlue();
-                                    cars[sc[0]].p[i131].oc[0] = color130.getRed();
-                                    cars[sc[0]].p[i131].oc[1] = color130.getGreen();
-                                    cars[sc[0]].p[i131].oc[2] = color130.getBlue();
+                                if (car.p[i131].colnum == 2) {
+                                    car.p[i131].hsb[0] = arnp[3];
+                                    car.p[i131].hsb[1] = arnp[4];
+                                    car.p[i131].hsb[2] = 1.0F - arnp[5];
+                                    car.p[i131].c[0] = color130.getRed();
+                                    car.p[i131].c[1] = color130.getGreen();
+                                    car.p[i131].c[2] = color130.getBlue();
+                                    car.p[i131].oc[0] = color130.getRed();
+                                    car.p[i131].oc[1] = color130.getGreen();
+                                    car.p[i131].oc[2] = color130.getBlue();
                                 }
                             }
                         }
@@ -2031,13 +2704,14 @@ class xtGraphics extends Panel implements Runnable {
             pback = 0;
             pnext = 0;
             gatey = 300;
+            ContO car = cars.get(sc[0]);
             if (flipo > 10) {
-                cars[sc[0]].y -= 100;
+                car.y -= 100;
                 if (nextc == 1) {
-                    cars[sc[0]].zy += 20;
+                    car.zy += 20;
                 }
                 if (nextc == -1) {
-                    cars[sc[0]].zy -= 20;
+                    car.zy -= 20;
                 }
             } else {
                 if (flipo == 10) {
@@ -2054,7 +2728,7 @@ class xtGraphics extends Panel implements Runnable {
                         		sc[0] = 14;
                         }*/
                         if (multion != 0 && onjoin != -1 && ontyp > 0 && ontyp <= 5) {
-                            for (; sc[0] < maxsl && Math.abs(cd.cclass[sc[0]] - (ontyp - 1)) > 1; sc[0]++) {
+                            for (; sc[0] < maxsl && Math.abs(stat.cclass - (ontyp - 1)) > 1; sc[0]++) {
 
                             }
                         }
@@ -2068,20 +2742,20 @@ class xtGraphics extends Panel implements Runnable {
                         		sc[0] = 6;
                         }*/
                         if (multion != 0 && onjoin != -1 && ontyp > 0 && ontyp <= 5) {
-                            for (; sc[0] > minsl && Math.abs(cd.cclass[sc[0]] - (ontyp - 1)) > 1; sc[0]--) {
+                            for (; sc[0] > minsl && Math.abs(stat.cclass - (ontyp - 1)) > 1; sc[0]--) {
 
                             }
                         }
                     }
                     if (cfase == 3 && cd.lastload == 2) {
-                        app.mcars.select(cd.names[sc[0]]);
+                        app.mcars.select(stat.names);
                     }
-                    cars[sc[0]].z = 950;
-                    cars[sc[0]].y = -34 - cars[sc[0]].grat - 1100;
-                    cars[sc[0]].x = 0;
-                    cars[sc[0]].zy = 0;
+                    car.z = 950;
+                    car.y = -34 - car.grat - 1100;
+                    car.x = 0;
+                    car.zy = 0;
                 }
-                cars[sc[0]].y += 100;
+                car.y += 100;
             }
             flipo--;
         }
@@ -2125,7 +2799,7 @@ class xtGraphics extends Panel implements Runnable {
                     fase = -22;
                 }
                 if (sc[0] < 16 || cd.lastload == 2) {
-                    app.setcarcookie(sc[0], cd.names[sc[0]], arnp, gmode, unlocked);
+                    app.setcarcookie(sc[0], stat.names, arnp, gmode, unlocked);
                 }
                 if (cd.haltload != 0) {
                     if (cd.haltload == 2) {
@@ -3163,7 +3837,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    void finish(final CheckPoints checkpoints, final ContO[] contos, final Control control, final int i, final int i141, final boolean bool) {
+    void finish(final CheckPoints checkpoints, final List<ContO> contos, final Control control, final int i, final int i141, final boolean bool) {
         /*if (chronostart) {
             chrono.stop();
             chronostart = false;
@@ -3319,7 +3993,8 @@ class xtGraphics extends Panel implements Runnable {
                     rd.fillRect(226, 211, 4, 125);
                     rd.fillRect(226, 332, 348, 4);
                     rd.fillRect(570, 211, 4, 125);
-                    contos[i144].y = i145;
+                    ContO c = contos.get(i144);
+                    c.y = i145;
                     m.crs = true;
                     m.x = -400;
                     m.y = 0;
@@ -3327,13 +4002,13 @@ class xtGraphics extends Panel implements Runnable {
                     m.xz = 0;
                     m.zy = 0;
                     m.ground = 2470;
-                    contos[i144].z = 1000;
-                    contos[i144].x = 0;
-                    contos[i144].xz += 5;
-                    contos[i144].zy = 0;
-                    contos[i144].wzy -= 10;
+                    c.z = 1000;
+                    c.x = 0;
+                    c.xz += 5;
+                    c.zy = 0;
+                    c.wzy -= 10;
                     rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
-                    contos[i144].d(rd);
+                    c.d(rd);
                     rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
                     if (ThreadLocalRandom.current().nextDouble() < 0.5) {
                         rd.setComposite(AlphaComposite.getInstance(3, 0.4F));
@@ -3750,6 +4425,8 @@ class xtGraphics extends Panel implements Runnable {
             }
         } else if (ransay == 1 || ransay == 2 || ransay == 3 || ransay == 4 || i == 10) {
             i49 = 0;
+        } else if (multion == 0 && app.doRandomizerFun) {
+            i49 = 0;
         }
         if (i49 == 0) {
             if (dudo > 0) {
@@ -3821,6 +4498,24 @@ class xtGraphics extends Panel implements Runnable {
                     }
                     rd.drawString("NOTE: Guidance Arrow and opponent status is disabled in this stage!", 262, 92);
                 }
+            } else if (app.doRandomizerFun) {
+                Font f = rd.getFont();
+                rd.setFont(new Font("New Gulim", 1, 13));
+                
+                if (randomizedHints.length > 0)
+                rd.drawString(randomizedHints[0], 262, 92);
+                if (randomizedHints.length > 1)
+                rd.drawString(randomizedHints[1], 262, 112);
+                if (randomizedHints.length > 2)
+                rd.drawString(randomizedHints[2], 262, 132);
+                if (randomizedHints.length > 3)
+                rd.drawString(randomizedHints[3], 262, 152);
+                if (randomizedHints.length > 4)
+                rd.drawString(randomizedHints[4], 262, 172);
+                if (randomizedHints.length > 5)
+                rd.drawString("[...]", 262, 192);
+                
+                rd.setFont(f);
             } else {
                 if (i < 0 && nplayers != 1 && newparts) {
                     rd.drawString("Please note, the computer car's AI has not yet been trained to handle", 262, 92);
@@ -3933,7 +4628,7 @@ class xtGraphics extends Panel implements Runnable {
         }
     }
 
-    void inishcarselect(final ContO[] cars) {
+    void inishcarselect(final List<ContO> cars) {
         nplayers = 7;
         im = 0;
         xstart[0] = 0;
@@ -4036,7 +4731,7 @@ class xtGraphics extends Panel implements Runnable {
                             if (sc[0] > maxsl) {
                                 sc[0] = maxsl;
                             }
-                            if (Math.abs(cd.cclass[sc[0]] - (ontyp - 1)) > 1) {
+                            if (Math.abs(app.customCarStats.get(sc[0]).cclass - (ontyp - 1)) > 1) {
                                 sc[0] = minsl;
                             }
                         }
@@ -4104,33 +4799,35 @@ class xtGraphics extends Panel implements Runnable {
             app.mycar.setLabel(" Include in this game.");
             app.mycar.setBackground(new Color(198, 179, 129));
             app.mycar.setForeground(new Color(0, 0, 0));
-            int i = 16;
+            int ncars = 16;
             if (cd.lastload == 2) {
-                i = cd.nlocars;
+                ncars = cd.nlocars;
             }
-            for (int i100 = 0; i100 < i; i100++) {
+            ContO c;
+            for (int j = 0; j < ncars; j++) {
+                c = cars.get(j);
                 final float[] fs = new float[3];
-                Color.RGBtoHSB(cars[i100].fcol[0], cars[i100].fcol[1], cars[i100].fcol[2], fs);
-                for (int i101 = 0; i101 < cars[i100].npl; i101++)
-                    if (cars[i100].p[i101].colnum == 1) {
-                        cars[i100].p[i101].hsb[0] = fs[0];
-                        cars[i100].p[i101].hsb[1] = fs[1];
-                        cars[i100].p[i101].hsb[2] = fs[2];
-                        cars[i100].p[i101].oc[0] = cars[i100].fcol[0];
-                        cars[i100].p[i101].oc[1] = cars[i100].fcol[1];
-                        cars[i100].p[i101].oc[2] = cars[i100].fcol[2];
+                Color.RGBtoHSB(c.fcol[0], c.fcol[1], c.fcol[2], fs);
+                for (int i101 = 0; i101 < c.npl; i101++)
+                    if (c.p[i101].colnum == 1) {
+                        c.p[i101].hsb[0] = fs[0];
+                        c.p[i101].hsb[1] = fs[1];
+                        c.p[i101].hsb[2] = fs[2];
+                        c.p[i101].oc[0] = c.fcol[0];
+                        c.p[i101].oc[1] = c.fcol[1];
+                        c.p[i101].oc[2] = c.fcol[2];
                     }
-                Color.RGBtoHSB(cars[i100].scol[0], cars[i100].scol[1], cars[i100].scol[2], fs);
-                for (int i102 = 0; i102 < cars[i100].npl; i102++)
-                    if (cars[i100].p[i102].colnum == 2) {
-                        cars[i100].p[i102].hsb[0] = fs[0];
-                        cars[i100].p[i102].hsb[1] = fs[1];
-                        cars[i100].p[i102].hsb[2] = fs[2];
-                        cars[i100].p[i102].oc[0] = cars[i100].scol[0];
-                        cars[i100].p[i102].oc[1] = cars[i100].scol[1];
-                        cars[i100].p[i102].oc[2] = cars[i100].scol[2];
+                Color.RGBtoHSB(c.scol[0], c.scol[1], c.scol[2], fs);
+                for (int i102 = 0; i102 < c.npl; i102++)
+                    if (c.p[i102].colnum == 2) {
+                        c.p[i102].hsb[0] = fs[0];
+                        c.p[i102].hsb[1] = fs[1];
+                        c.p[i102].hsb[2] = fs[2];
+                        c.p[i102].oc[0] = c.scol[0];
+                        c.p[i102].oc[1] = c.scol[1];
+                        c.p[i102].oc[2] = c.scol[2];
                     }
-                cars[i100].xy = 0;
+                c.xy = 0;
             }
             for (int i103 = 0; i103 < 6; i103++) {
                 arnp[i103] = -1.0F;
@@ -5121,20 +5818,9 @@ class xtGraphics extends Panel implements Runnable {
         hipnoload(i, false);
         app.setCursor(new Cursor(3));
         //app.repaint();
-        boolean bool = false;
-        if (multion == 0) {
-            if (i == 1 || i == 2 || i == 3 || i == 4 || i == 5 || i == 10) {
-                bool = true;
-            }
-            if (i == 11 || i == 12 || i == 13 || i == 14 || i == 17 || i == 18 || i == 19 || i == 20 || i == 22 || i == 23 || i == 26) {
-                bool = true;
-            }
-            if (i < 0 && nplayers != 1 && newparts) {
-                bool = true;
-            }
-        } else if (ransay == 1 || ransay == 2 || ransay == 3 || ransay == 4 || i == 10) {
-            bool = true;
-        }
+        boolean bool = ((multion == 0 && (i == 1 || i == 2 || i == 3 || i == 4 || i == 5 || i == 10 || i == 11 || i == 12 || i == 13 || i == 14 || i == 17 || i == 18 || i == 19 || i == 20 || i == 22 || i == 23 || i == 26 || i < 0 && nplayers != 1 && newparts)) 
+                || (ransay == 1 || ransay == 2 || ransay == 3 || ransay == 4 || i == 10))
+                || (multion == 0 && app.doRandomizerFun);
         if (bool) {
             runtyp = i;
             runner = new Thread(this);
@@ -8523,6 +9209,19 @@ class xtGraphics extends Panel implements Runnable {
                 intertrack.unload();
             }
         }
+        if (drawcarb(true, null, " Shuffle Cars ", 570, 30, i, i39, bool)) {
+            app.shuffle();
+        }
+        if (drawcarb(true, null, " Shuffle Stages ", 570, 60, i, i39, bool)) {
+            shuffleStages();
+        }
+        if (drawcarb(true, null, " Randomize! ", 470, 30, i, i39, bool)) {
+            app.shuffleStats();
+            app.shuffle();
+            shuffleStages();
+            app.doRandomizerFun = true;
+            randomizedHints = Utility.choose(UTF8Junk.messages);
+        }
         if (drawcarb(true, null, " Exit X ", 670, 30, i, i39, bool)) {
             fase = 103;
             //fase = 102;
@@ -8540,6 +9239,12 @@ class xtGraphics extends Panel implements Runnable {
             app.tpass.setVisible(false);
             intertrack.setPaused(true);
         }
+    }
+
+    private void shuffleStages() {
+        Collections.shuffle(app.stageReadables);
+        if (fase == 1)
+            fase = 2;
     }
 
     void stat(final Mad mad, final ContO conto, final CheckPoints checkpoints, final Control control, final boolean bool) {
@@ -9225,10 +9930,17 @@ class xtGraphics extends Panel implements Runnable {
                         if (mad.surfer) {
                             asay = " " + adj[4][(int) (m.random() * 3.0F)] + asay;
                         }
-                        if (i205 != 3) {
-                            asay = "" + adj[i205][(int) (m.random() * 3.0F)] + asay + exlm[i205];
+                        if (app.doRandomizerFun) {
+                            asay = Utility.choose(kooladj[lastadj]) + asay + exlm[i205];
+                            lastadj++;
+                            if (lastadj >= kooladj.length)
+                                lastadj = 0;
                         } else {
-                            asay = adj[i205][(int) (m.random() * 3.0F)];
+                            if (i205 != 3) {
+                                asay = adj[i205][(int) (m.random() * 3.0F)] + asay + exlm[i205];
+                            } else {
+                                asay = adj[i205][(int) (m.random() * 3.0F)];
+                            }
                         }
                         if (!wasay) {
                             tcnt = auscnt;

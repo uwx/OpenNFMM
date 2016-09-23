@@ -3,21 +3,482 @@ package nfm.open;
  * Visit http://jode.sourceforge.net/
  */
 
-import javax.swing.*;
-import javax.swing.Timer;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.AlphaComposite;
+import java.awt.Checkbox;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.Desktop;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsEnvironment;
+import java.awt.Image;
+import java.awt.RenderingHints;
+import java.awt.TextArea;
+import java.awt.TextField;
+import java.awt.Transparency;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import javax.swing.BorderFactory;
+import javax.swing.JComponent;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.Timer;
+import javax.swing.TransferHandler;
+
+import com.google.gson.annotations.Expose;
+
 class GameSparker extends JPanel
         implements KeyListener, MouseListener, MouseMotionListener, FocusListener {
+
+    public static final String[] substantives = { // center
+        "Donut", "Pizza", "Chocolate", "Cheesecake", "Sushi", "Oxide", "Harambe", "Zone", "Coconut", "Nutshack", "Concept", "Pasta", "Cookie", "Meme", "Horse", "Hack", "Garbage", "Transvestite", "Hentai",
+
+        // Bd's
+        "Dildo", "Neko", "Freeman", "Trashman", "Hansen", "Party", "Green", "Trash",
+     };
+
+    public static final String[] adjectives = { // prefix
+        "Lead", "Hype", "Epic", "AB-ing", "Awesome", "Calzone", "Radical", "Ninja", "Almighty", "Deathly", "Funky", "Wacky", "Gnarly", "Kooky", "Nutty", "High Quality", "Tubular", "Future", "Top Secret", "Twitchy", "Lit", "Bee-fucking", "Kinky",
+
+        // Bd's
+        "Super", "Cactus", "Ultra", "Death of", "Mr.", "4chan", "Weeb", "Wolf's"
+     };
+
+    public static final String[] suffix = { // randomly, suffix
+        " of Sorrow", " II", " of Disdain", " of Fun", ".zip", "califragilisticexpialidocious", "-Mobile",
+
+        // Bd's
+        " of Rectal Bleeding", " and his Luggage", " and his Seat", " Van", " Meat Popsicle", " the Biggest, Blackest, Dildo"
+     };
+    
+
+    public class MadTransferHandler extends TransferHandler {
+                
+        /**
+         * 
+         */
+        private static final long serialVersionUID = 2107422044268575112L;
+
+        /**
+         * We only support importing strings.
+         */
+        public boolean canImport(TransferHandler.TransferSupport info) {
+            return info.isDataFlavorSupported(DataFlavor.javaFileListFlavor);
+       }
+    
+        /**
+         * Bundle up the selected items in a single list for export.
+         * Each line is separated by a newline.
+         */
+        protected Transferable createTransferable(JComponent c) {
+            return null;
+        }
+        
+        /**
+         * We support both copy and move actions.
+         */
+        public int getSourceActions(JComponent c) {
+            return TransferHandler.COPY_OR_MOVE;//COPY_OR_MOVE;
+        }
+        
+        /**
+         * Perform the actual import.  This demo only supports drag and drop.
+         */
+        @SuppressWarnings("unchecked")
+        public boolean importData(TransferHandler.TransferSupport info) {
+            if (!info.isDrop()) {
+                return false;
+            }
+    
+            // Get the string that is being dropped.
+            Transferable t = info.getTransferable();
+            File[] droppedFiles;
+            try {
+                List<File> dr = (List<File>)t.getTransferData(DataFlavor.javaFileListFlavor);
+                droppedFiles = dr.toArray(new File[dr.size()]);
+            } catch (Exception e) { return false; }
+
+            // do something with data
+            
+            System.out.println("Files: " + Arrays.toString(droppedFiles));
+            
+            for (File f : droppedFiles) {
+                String s = f.toString().trim();
+                System.out.println(s);
+                if (!f.isDirectory()) {
+                    if (s.endsWith(".rad")) {
+                        try (DataInputStream is = new DataInputStream(new FileInputStream(f))) {
+                            byte[] b = new byte[(int) f.length()];
+                            is.readFully(b);
+                            medium.loadnew = true;
+                            ContO c = new ContO(b, medium, trackers);
+                            medium.loadnew = false;
+                            
+                            carContos.add(c);
+                            customCarStats.add(new Stat(b, s.substring(s.indexOf('/') != -1 ? s.lastIndexOf('/') + 1 : 0, s.lastIndexOf('.')), c.maxR, c.roofat, c.wh));
+                            
+                            xtGraphics.nCars++;
+                            
+                            System.out.println("loaded " + s);
+                        } catch (Exception e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                    } else if (s.endsWith(".txt")) {
+                        stageReadables.add(f);
+
+                        xtGraphics.nTracks++;
+                    }
+                }
+            }
+            xtgraphics.maxsl = xtGraphics.nCars - 1;
+            
+            return true;
+        }
+    
+        /**
+         * Remove the items moved from the list.
+         */
+        protected void exportDone(JComponent c, Transferable data, int action) {
+        }
+    }
+    
+    private static final int cutLength = "Please note, the computer car's AI has not yet been trained to handle".length() - 3;
+
+    @Expose static List<File> stageReadables;
+    @Expose static List<Stat> customCarStats;
+    
+    @Expose static boolean doRandomizerFun = false;
+    
+    static String[] cut(String message) {
+        final int len = message.length();
+        ArrayList<String> strs = new ArrayList<>(len / cutLength);
+        for (int i = 0; i < len; i += cutLength) {
+          strs.add(message.substring(i, Math.min(i + cutLength, message.length())));
+        }
+        return strs.toArray(new String[strs.size()]);
+    }
+
+    void shuffle() {
+        long seed = ThreadLocalRandom.current().nextLong();
+        Random r = new Random();
+        r.setSeed(seed);
+        Collections.shuffle(carContos, r);
+        r.setSeed(seed);
+        Collections.shuffle(customCarStats, r);
+    }
+
+    void shuffleStats() {
+        List<int[]> bundle_swits = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_swits.add(customCarStats.get(i).swits);
+        }
+        Collections.shuffle(bundle_swits);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).swits = bundle_swits.get(i);
+        }
+
+        List<float[]> bundle_acelf = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_acelf.add(customCarStats.get(i).acelf);
+        }
+        Collections.shuffle(bundle_acelf);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).acelf = bundle_acelf.get(i);
+        }
+
+        List<Integer> bundle_handb = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_handb.add(customCarStats.get(i).handb);
+        }
+        Collections.shuffle(bundle_handb);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).handb = bundle_handb.get(i);
+        }
+
+        List<Float> bundle_airs = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_airs.add(customCarStats.get(i).airs);
+        }
+        Collections.shuffle(bundle_airs);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).airs = bundle_airs.get(i);
+        }
+
+        List<Integer> bundle_airc = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_airc.add(customCarStats.get(i).airc);
+        }
+        Collections.shuffle(bundle_airc);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).airc = bundle_airc.get(i);
+        }
+
+        List<Integer> bundle_turn = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_turn.add(customCarStats.get(i).turn);
+        }
+        Collections.shuffle(bundle_turn);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).turn = bundle_turn.get(i);
+        }
+
+        List<Float> bundle_grip = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_grip.add(customCarStats.get(i).grip);
+        }
+        Collections.shuffle(bundle_grip);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).grip = bundle_grip.get(i);
+        }
+
+        List<Float> bundle_bounce = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_bounce.add(customCarStats.get(i).bounce);
+        }
+        Collections.shuffle(bundle_bounce);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).bounce = bundle_bounce.get(i);
+        }
+
+        List<Float> bundle_simag = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_simag.add(customCarStats.get(i).simag);
+        }
+        Collections.shuffle(bundle_simag);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).simag = bundle_simag.get(i);
+        }
+
+        List<Float> bundle_moment = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_moment.add(customCarStats.get(i).moment);
+        }
+        Collections.shuffle(bundle_moment);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).moment = bundle_moment.get(i);
+        }
+
+        List<Float> bundle_comprad = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_comprad.add(customCarStats.get(i).comprad);
+        }
+        Collections.shuffle(bundle_comprad);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).comprad = bundle_comprad.get(i);
+        }
+
+        List<Integer> bundle_push = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_push.add(customCarStats.get(i).push);
+        }
+        Collections.shuffle(bundle_push);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).push = bundle_push.get(i);
+        }
+
+        List<Integer> bundle_revpush = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_revpush.add(customCarStats.get(i).revpush);
+        }
+        Collections.shuffle(bundle_revpush);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).revpush = bundle_revpush.get(i);
+        }
+
+        List<Integer> bundle_lift = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_lift.add(customCarStats.get(i).lift);
+        }
+        Collections.shuffle(bundle_lift);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).lift = bundle_lift.get(i);
+        }
+
+        List<Integer> bundle_revlift = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_revlift.add(customCarStats.get(i).revlift);
+        }
+        Collections.shuffle(bundle_revlift);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).revlift = bundle_revlift.get(i);
+        }
+
+        List<Integer> bundle_powerloss = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_powerloss.add(customCarStats.get(i).powerloss);
+        }
+        Collections.shuffle(bundle_powerloss);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).powerloss = bundle_powerloss.get(i);
+        }
+
+        List<Integer> bundle_flipy = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_flipy.add(customCarStats.get(i).flipy);
+        }
+        Collections.shuffle(bundle_flipy);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).flipy = bundle_flipy.get(i);
+        }
+
+        List<Integer> bundle_msquash = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_msquash.add(customCarStats.get(i).msquash);
+        }
+        Collections.shuffle(bundle_msquash);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).msquash = bundle_msquash.get(i);
+        }
+
+        List<Integer> bundle_clrad = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_clrad.add(customCarStats.get(i).clrad);
+        }
+        Collections.shuffle(bundle_clrad);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).clrad = bundle_clrad.get(i);
+        }
+
+        List<Float> bundle_dammult = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_dammult.add(customCarStats.get(i).dammult);
+        }
+        Collections.shuffle(bundle_dammult);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).dammult = bundle_dammult.get(i);
+        }
+
+        List<Integer> bundle_maxmag = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_maxmag.add(customCarStats.get(i).maxmag);
+        }
+        Collections.shuffle(bundle_maxmag);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).maxmag = bundle_maxmag.get(i);
+        }
+
+        List<Float> bundle_dishandle = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_dishandle.add(customCarStats.get(i).dishandle);
+        }
+        Collections.shuffle(bundle_dishandle);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).dishandle = bundle_dishandle.get(i);
+        }
+
+        List<Float> bundle_outdam = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_outdam.add(customCarStats.get(i).outdam);
+        }
+        Collections.shuffle(bundle_outdam);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).outdam = bundle_outdam.get(i);
+        }
+
+        List<Integer> bundle_cclass = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_cclass.add(customCarStats.get(i).cclass);
+        }
+        Collections.shuffle(bundle_cclass);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).cclass = bundle_cclass.get(i);
+        }
+
+//        List<String> bundle_names = new ArrayList<>(xtGraphics.nCars);
+//        for (int i = 0; i < xtGraphics.nCars; i++) {
+//        bundle_names.add(customCarStats.get(i).names);
+//        }
+//        Collections.shuffle(bundle_names);
+//        for (int i = 0; i < xtGraphics.nCars; i++) {
+//        customCarStats.get(i).names = bundle_names.get(i);
+//        }
+        
+      for (int i = 0; i < xtGraphics.nCars; i++) {
+              customCarStats.get(i).names = Utility.choose(adjectives) + " " + Utility.choose(substantives) + (Math.random() > 0.7 ? Utility.choose(suffix) : "");
+      }
+
+        List<Integer> bundle_enginsignature = new ArrayList<>(xtGraphics.nCars);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        bundle_enginsignature.add(customCarStats.get(i).enginsignature);
+        }
+        Collections.shuffle(bundle_enginsignature);
+        for (int i = 0; i < xtGraphics.nCars; i++) {
+        customCarStats.get(i).enginsignature = bundle_enginsignature.get(i);
+        }
+
+    }
+
+    
+    static void shuffleArray(int[] array)
+    {
+        int index;
+        Random random = new Random();
+        for (int i = array.length - 1; i > 0; i--)
+        {
+            index = random.nextInt(i + 1);
+            if (index != i)
+            {
+                array[index] ^= array[i];
+                array[i] ^= array[index];
+                array[index] ^= array[i];
+            }
+        }
+    }
+    
+    /**
+     * A big number hash for {@code int in}
+     * 
+     * @param in
+     * @return
+     */
+    public static long smear(int in) {
+        final String string = Integer.toString(in);
+        
+        long h = 1125899906842597L; // prime
+        final int len = string.length();
+
+        for (int i = 0; i < len; i++) {
+          h = 31*h + string.charAt(i);
+        }
+        return h;
+      }
+    
     /**
      *
      */
@@ -132,7 +593,7 @@ class GameSparker extends JPanel
     /**
      * ContO array for cars
      */
-    private ContO[] carContos;
+    @Expose private List<ContO> carContos;
     /**
      * ContO array for track pieces
      */
@@ -206,8 +667,8 @@ class GameSparker extends JPanel
             throw new RuntimeException("too many cars and not enough rad files!");
         int totalSize = 0;
         xtgraphics.dnload += 6;
-        try {
-            ZipInputStream zipinputstream = new ZipInputStream(new FileInputStream("data/models.zip"));
+        try (ZipInputStream zipinputstream = new ZipInputStream(new FileInputStream("data/models.zip"))) {
+            
             ZipEntry zipentry = zipinputstream.getNextEntry();
             for (; zipentry != null; zipentry = zipinputstream.getNextEntry()) {
                 int id = -1;
@@ -237,23 +698,23 @@ class GameSparker extends JPanel
                 if (assigned == 2) {
                     contos[id] = new ContO(is, medium, trackers);
                 } else if (assigned == 1) {
-                    carContos[id] = new ContO(is, medium, trackers);
-                    if (!carContos[id].shadow)
+                    ContO c = new ContO(is, medium, trackers);
+                    carContos.set(id, c);
+                    customCarStats.set(id, new Stat(id, cardefine));
+                    if (!c.shadow)
                         throw new RuntimeException("car " + cardefine.names[id] + " does not have a shadow");
                 } else {
                     System.err.println(zipentry.getName() + " goes unused");
                 }
                 xtgraphics.dnload++;
             }
-            zipinputstream.close();
-
             for (int i = 0; i < stageRads.length; i++) {
                 if (contos[i] == null) {
                     throw new Error("No valid ContO (Stage Part) has been assigned to ID " + i + " (" + stageRads[i] + ")");
                 }
             }
             for (int i = 0; i < carRads.length; i++) {
-                if (carContos[i] == null) {
+                if (carContos.get(i) == null) {
                     throw new Error("No valid ContO (Vehicle) has been assigned to ID " + i + " (" + stageRads[i] + ")");
                 }
             }
@@ -290,7 +751,7 @@ class GameSparker extends JPanel
         if (xtgraphics.testdrive == 2 || xtgraphics.testdrive == 4) {
             xtgraphics.nplayers = 1;
         }
-        xtgraphics.nplayers = 50;
+        xtgraphics.nplayers = 7;
         /*if (xtgraphics.gmode == 1) {
         	xtgraphics.nplayers = 5;
         	xtgraphics.xstart[4] = 0;
@@ -322,12 +783,14 @@ class GameSparker extends JPanel
         try {
             BufferedReader stageDataReader;
             if (xtgraphics.multion == 0 && checkpoints.stage != -2) {
-                String customStagePath = "stages/" + checkpoints.stage + "";
                 if (checkpoints.stage == -1) {
-                    customStagePath = "mystages/" + checkpoints.name + "";
+                    String customStagePath = "mystages/" + checkpoints.name;
+                    stageDataReader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(Madness.fpath + customStagePath + ".txt"))));
+                } else {
+                    File file = stageReadables.get(checkpoints.stage - 1);
+                    stageDataReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+                    checkpoints.name = file.getName().substring(0, file.getName().indexOf('.'));
                 }
-                final File customStageFile = new File("" + Madness.fpath + "" + customStagePath + ".txt");
-                stageDataReader = new BufferedReader(new InputStreamReader(new DataInputStream(new FileInputStream(customStageFile))));
             } else if (checkpoints.stage > 0) {
                 final URL url = new URL("http://multiplayer.needformadness.com/stages/" + checkpoints.stage + ".txt");
                 stageDataReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
@@ -431,7 +894,7 @@ class GameSparker extends JPanel
                             medium.loadnew = true;
                         }
                         setindex -= 10;
-                        System.out.println("Setindex is: " + setindex);
+                        //System.out.println("Setindex is: " + setindex);
                         stageContos[nob] = new ContO(contos[setindex], getint("set", string, 1), medium.ground - contos[setindex].grat, getint("set", string, 2), getint("set", string, 3));
                         if (string.contains(")p")) {
                             checkpoints.x[checkpoints.n] = getint("set", string, 1);
@@ -653,17 +1116,18 @@ class GameSparker extends JPanel
             medium.nochekflk = !(checkpoints.stage == 1 || checkpoints.stage == 11);
             for (int n = 0; n < xtgraphics.nplayers; n++) {
                 u[n].reset(checkpoints, xtgraphics.sc[n]);
-                mads[n].setStat(new Stat(xtgraphics.sc[n], cardefine));
+                mads[n].setStat(new Stat(customCarStats.get(xtgraphics.sc[n])));
             }
             xtgraphics.resetstat(checkpoints.stage);
             checkpoints.calprox();
 
             for (int j = 0; j < xtgraphics.nplayers; j++) {
 
+                ContO c = carContos.get(xtgraphics.sc[j]);
                 if (xtgraphics.fase == 22) {
-                    xtgraphics.colorCar(carContos[xtgraphics.sc[j]], j);
+                    xtgraphics.colorCar(c, j);
                 }
-                stageContos[j] = new ContO(carContos[xtgraphics.sc[j]], xtgraphics.xstart[j], 250 - carContos[xtgraphics.sc[j]].grat, xtgraphics.zstart[j], 0);
+                stageContos[j] = new ContO(c, xtgraphics.xstart[j], 250 - c.grat, xtgraphics.zstart[j], 0);
                 mads[j].reseto(xtgraphics.sc[j], stageContos[j], checkpoints);
             }
             if (xtgraphics.fase == 2 || xtgraphics.fase == -22) {
@@ -696,6 +1160,8 @@ class GameSparker extends JPanel
             xtgraphics.fase = 1;
         }
         System.gc();
+        if (doRandomizerFun)
+            xtGraphics.randomizedHints = Utility.choose(UTF8Junk.messages);
     }
 
     private boolean loadstagePreview(final int i, final String string, final ContO[] contos, final ContO[] contos147, final Medium medium, final CheckPoints checkpoints) {
@@ -1767,6 +2233,9 @@ class GameSparker extends JPanel
         // ("You may find that your numbers for direct rendering far exceed those for double-buffering" from https://docs.oracle.com/javase/tutorial/extra/fullscreen/doublebuf.html)
         // for zero graphical loss.
         setDoubleBuffered(false);
+        
+        //setDragEnabled(true); only JList etc...
+        setTransferHandler(new MadTransferHandler());
 
         final Timer timer = new Timer(46, ae -> repaint());
 
@@ -1781,7 +2250,17 @@ class GameSparker extends JPanel
         medium = new Medium();
         trackers = new Trackers();
         checkpoints = new CheckPoints();
-        carContos = new ContO[carRads.length];
+        carContos = new ArrayList<ContO>(carRads.length);
+        customCarStats = new ArrayList<Stat>(carRads.length);
+        for (int i = 0; i < carRads.length; i++) {
+            carContos.add(null);
+            customCarStats.add(null);
+        }
+        stageReadables = new ArrayList<File>(xtGraphics.nTracks);
+        for (int i = 0; i < xtGraphics.nTracks; i++) {
+            stageReadables.add(new File(Madness.fpath + "stages/" + (i + 1) + ".txt"));
+        }
+        
         contos = new ContO[stageRads.length];
         cardefine = new CarDefine(contos, medium, trackers, this);
         xtgraphics = new xtGraphics(medium, cardefine, rd, this);
@@ -2446,7 +2925,7 @@ class GameSparker extends JPanel
                     final int i34 = stageContos[player].xz;
                     final int i35 = stageContos[player].xy;
                     final int i36 = stageContos[player].zy;
-                    stageContos[player] = new ContO(carContos[mads[player].cn], stageContos[player].x, stageContos[player].y, stageContos[player].z, 0);
+                    stageContos[player] = new ContO(carContos.get(mads[player].cn), stageContos[player].x, stageContos[player].y, stageContos[player].z, 0);
                     stageContos[player].xz = i34;
                     stageContos[player].xy = i35;
                     stageContos[player].zy = i36;

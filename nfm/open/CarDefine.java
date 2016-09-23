@@ -380,6 +380,9 @@ final class CarDefine implements Runnable {
     };
     int lastload = 0;
     private int nlcars = 0;
+    /**
+     * Number of loaded cars. When {@code lastload == 2} then this will be the amount of loaded car maker cars; hopefully {@code >= 16}.
+     */
     int nlocars = 0;
     private int xnlocars = 0;
     final boolean[] include = new boolean[FORTY];
@@ -819,7 +822,7 @@ final class CarDefine implements Runnable {
         }
     }
 
-    private int getvalue(final String string, final String string21, final int i) {
+    private static int getvalue(final String string, final String string21, final int i) {
         int i22 = 0;
         String string23 = "";
         for (int i24 = string.length() + 1; i24 < string21.length(); i24++) {
@@ -835,7 +838,7 @@ final class CarDefine implements Runnable {
         return (int) Float.parseFloat(string23);
     }
 
-    private String getSvalue(final String string, final String string26, final int i) {
+    static String getSvalue(final String string, final String string26, final int i) {
         String string27 = "";
         int i28 = 0;
         for (int i29 = string.length() + 1; i29 < string26.length() && i28 <= i; i29++) {
@@ -849,7 +852,7 @@ final class CarDefine implements Runnable {
         return string27;
     }
 
-    private int servervalue(final String string, final int i) {
+    private static int servervalue(final String string, final int i) {
         int i31 = -1;
         try {
             int i32 = 0;
@@ -879,7 +882,7 @@ final class CarDefine implements Runnable {
         return i31;
     }
 
-    private String serverSvalue(final String string, final int i) {
+    private static String serverSvalue(final String string, final int i) {
         String string37 = "";
         try {
             int i38 = 0;
