@@ -8,6 +8,9 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.util.concurrent.ThreadLocalRandom;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 class Plane implements Comparable<Plane> {
     private int av = 0;
     int bfase = 0;
@@ -33,7 +36,6 @@ class Plane implements Comparable<Plane> {
     int gr = 0;
     final float[] hsb = new float[3];
     int light = 0;
-    private final Medium m;
     int master = 0;
     int n;
     boolean nocol = false;
@@ -46,7 +48,6 @@ class Plane implements Comparable<Plane> {
     private float projf = 1.0F;
     boolean road = false;
     boolean solo = false;
-    private final Trackers t;
     private int typ = 0;
     private int vx = 0;
     private int vy = 0;
@@ -62,6 +63,9 @@ class Plane implements Comparable<Plane> {
     final int strokemtlimit;
     final boolean randomcolor;
     final boolean randoutline;
+
+    static Medium m;
+    static Trackers t;
 
     Plane(final Medium medium, final Trackers trackers, final int[] is, final int[] is0, final int[] is1, final int i, final int[] is2, final int i3, final int i4, final int i5, final int i6, final int i7, final int i8, final int i9, final int i10, final boolean bool, final int i11, final boolean bool12, final boolean randomcolor, final boolean randoutline, final boolean customstroke, final int strokewidth, final int strokecap, final int strokejoin, final int strokemtlimit) {
         this.randoutline = randoutline;

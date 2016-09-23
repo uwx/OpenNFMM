@@ -40,14 +40,20 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.net.URI;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
@@ -60,10 +66,36 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.TransferHandler;
 
-import com.google.gson.annotations.Expose;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+import com.google.gson.reflect.TypeToken;
 
 class GameSparker extends JPanel
         implements KeyListener, MouseListener, MouseMotionListener, FocusListener {
+
+    private static class FileSerializer implements JsonSerializer<File> {
+
+        @Override
+        public JsonElement serialize(File arg0, Type arg1, JsonSerializationContext arg2) {
+            return new JsonPrimitive(arg0.toString());
+        }
+        
+    }
+    private static class FileDeserializer implements JsonDeserializer<File> {
+
+        @Override
+        public File deserialize(JsonElement arg0, Type arg1, JsonDeserializationContext arg2) throws JsonParseException {
+            return new File(arg0.getAsString());
+        }
+
+    }
 
     public static final String[] substantives = { // center
         "Donut", "Pizza", "Chocolate", "Cheesecake", "Sushi", "Oxide", "Harambe", "Zone", "Coconut", "Nutshack", "Concept", "Pasta", "Cookie", "Meme", "Horse", "Hack", "Garbage", "Transvestite", "Hentai",
@@ -142,23 +174,8 @@ class GameSparker extends JPanel
                 System.out.println(s);
                 if (!f.isDirectory()) {
                     if (s.endsWith(".rad")) {
-                        try (DataInputStream is = new DataInputStream(new FileInputStream(f))) {
-                            byte[] b = new byte[(int) f.length()];
-                            is.readFully(b);
-                            medium.loadnew = true;
-                            ContO c = new ContO(b, medium, trackers);
-                            medium.loadnew = false;
-                            
-                            carContos.add(c);
-                            customCarStats.add(new Stat(b, s.substring(s.indexOf('/') != -1 ? s.lastIndexOf('/') + 1 : 0, s.lastIndexOf('.')), c.maxR, c.roofat, c.wh));
-                            
-                            xtGraphics.nCars++;
-                            
-                            System.out.println("loaded " + s);
-                        } catch (Exception e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                        }
+                        loadRad(f, s);
+                        contoFiles.add(f);
                     } else if (s.endsWith(".txt")) {
                         stageReadables.add(f);
 
@@ -177,13 +194,34 @@ class GameSparker extends JPanel
         protected void exportDone(JComponent c, Transferable data, int action) {
         }
     }
+
+    private void loadRad(File f, String s) {
+        try (DataInputStream is = new DataInputStream(new FileInputStream(f))) {
+            byte[] b = new byte[(int) f.length()];
+            is.readFully(b);
+            medium.loadnew = true;
+            ContO c = new ContO(b, medium, trackers);
+            medium.loadnew = false;
+            
+            carContos.add(c);
+            customCarStats.add(new Stat(b, s.substring(s.indexOf('/') != -1 ? s.lastIndexOf('/') + 1 : 0, s.lastIndexOf('.')), c.maxR, c.roofat, c.wh));
+            
+            xtGraphics.nCars++;
+            
+            System.out.println("loaded " + s);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
     
     private static final int cutLength = "Please note, the computer car's AI has not yet been trained to handle".length() - 3;
 
-    @Expose static List<File> stageReadables;
-    @Expose static List<Stat> customCarStats;
+    List<File> stageReadables;
+    List<File> contoFiles;
+    List<Stat> customCarStats;
     
-    @Expose static boolean doRandomizerFun = false;
+    boolean doRandomizerFun = false;
     
     static String[] cut(String message) {
         final int len = message.length();
@@ -593,7 +631,7 @@ class GameSparker extends JPanel
     /**
      * ContO array for cars
      */
-    @Expose private List<ContO> carContos;
+    private List<ContO> carContos;
     /**
      * ContO array for track pieces
      */
@@ -657,14 +695,15 @@ class GameSparker extends JPanel
 
     private final static GraphicsConfiguration gfxConfig = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
 
-    private boolean gameLoaded = false;
+    private transient boolean gameLoaded = false;
 
     /**
      * Loads models.zip
      */
     private void loadbase() {
-        if (carRads.length < xtGraphics.nCars)
-            throw new RuntimeException("too many cars and not enough rad files!");
+        // not now, governor...
+        //if (carRads.length < xtGraphics.nCars)
+        //    throw new RuntimeException("too many cars and not enough rad files!");
         int totalSize = 0;
         xtgraphics.dnload += 6;
         try (ZipInputStream zipinputstream = new ZipInputStream(new FileInputStream("data/models.zip"))) {
@@ -2187,8 +2226,8 @@ class GameSparker extends JPanel
         clanlev.add(rd, "7 - Admin");
         hidefields();
     }
-
-    public GameSparker() {
+    
+    public GameSparker(@SuppressWarnings("unused") boolean b) {
         BASSLoader.initializeBASS();
         initFields();
 
@@ -2236,12 +2275,14 @@ class GameSparker extends JPanel
         
         //setDragEnabled(true); only JList etc...
         setTransferHandler(new MadTransferHandler());
-
+        
         final Timer timer = new Timer(46, ae -> repaint());
 
         timer.start();
     }
 
+    private static final Gson gson = new GsonBuilder().registerTypeAdapter(File.class, new FileSerializer()).registerTypeAdapter(File.class, new FileDeserializer()).create();
+    
     private void preloadGame() {
         if (System.getProperty("java.vendor").toLowerCase().contains("apple")) {
             applejava = true;
@@ -2250,17 +2291,56 @@ class GameSparker extends JPanel
         medium = new Medium();
         trackers = new Trackers();
         checkpoints = new CheckPoints();
+        
+        Path file = Paths.get("./nfmdd.txt");
+        if (Files.exists(file)) {
+            try {
+                List<String> lines = Files.readAllLines(file);
+                Map<String, String> data = new HashMap<>();
+                int index = 0;
+                for (String s : lines) {
+                    index = s.indexOf('=');
+                    if (index != -1) {
+                        data.put(s.substring(0, index), s.substring(index + 1));
+                    }
+                }
+
+                stageReadables = gson.fromJson(data.get("stages"), new TypeToken<List<File>>(){}.getType());
+                xtGraphics.nTracks = stageReadables.size();
+                contoFiles = gson.fromJson(data.get("cc"), new TypeToken<List<File>>(){}.getType());
+                
+                // loadRad is called later on, in the other thread
+                
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            stageReadables = new ArrayList<File>(xtGraphics.nTracks);
+            for (int i = 0; i < xtGraphics.nTracks; i++) {
+                stageReadables.add(new File(Madness.fpath + "stages/" + (i + 1) + ".txt"));
+            }
+            contoFiles = new ArrayList<File>();
+        }
+
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            try {
+                BufferedWriter writer = Files.newBufferedWriter(file);
+                writer.write("stages=" + gson.toJson(stageReadables) + "\n");
+                writer.write("cc=" + gson.toJson(contoFiles) + "\n");
+                writer.flush();
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }));
+        
         carContos = new ArrayList<ContO>(carRads.length);
         customCarStats = new ArrayList<Stat>(carRads.length);
         for (int i = 0; i < carRads.length; i++) {
             carContos.add(null);
             customCarStats.add(null);
         }
-        stageReadables = new ArrayList<File>(xtGraphics.nTracks);
-        for (int i = 0; i < xtGraphics.nTracks; i++) {
-            stageReadables.add(new File(Madness.fpath + "stages/" + (i + 1) + ".txt"));
-        }
-        
+                
         contos = new ContO[stageRads.length];
         cardefine = new CarDefine(contos, medium, trackers, this);
         xtgraphics = new xtGraphics(medium, cardefine, rd, this);
@@ -2300,11 +2380,15 @@ class GameSparker extends JPanel
         xtgraphics.loaddata();
 
         loadbase();
+        for (File f : contoFiles) {
+            loadRad(f, f.toString().trim());
+        }
 
         stageContos = new ContO[10000];
 
         f = 47.0F;
         readcookies(xtgraphics, cardefine, contos);
+
         xtgraphics.testdrive = Madness.testdrive;
         if (xtgraphics.testdrive != 0)
             if (xtgraphics.testdrive <= 2) {

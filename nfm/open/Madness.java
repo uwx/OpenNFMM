@@ -231,7 +231,7 @@ class Madness extends Panel {
         } catch (final Exception ignored) {
 
         }
-        applet = new GameSparker();
+        applet = new GameSparker(false);
         frame.add("Center", applet);
         frame.setVisible(true);
         //applet.init();
@@ -347,7 +347,7 @@ class Madness extends Panel {
         setFilePath(strings);
         frame.setIconImage(Toolkit.getDefaultToolkit().createImage(fpath + "data/icon.png"));
 
-        applet = new GameSparker();
+        applet = new GameSparker(false);
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(final WindowEvent windowevent) {

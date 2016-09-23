@@ -46,11 +46,11 @@ class xtGraphics extends Panel implements Runnable {
     /**
      * How many stages you have
      */
-    @Expose static int nTracks = 32;
+    static int nTracks = 32;
     /**
      * How many cars you have
      */
-    @Expose static int nCars = 16;
+    static int nCars = 16;
     int acexp = 0;
 
     /**
@@ -70,8 +70,8 @@ class xtGraphics extends Panel implements Runnable {
             }
     };
         
-    @Expose private static int lastadj = 0;
-    @Expose static String[] randomizedHints;
+    private int lastadj = 0;
+    static String[] randomizedHints;
     
     private final static String[][] kooladj = {
             { // sex positions
