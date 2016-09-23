@@ -28,8 +28,6 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import com.google.gson.annotations.Expose;
-
 /* xtGraphics - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -1906,18 +1904,7 @@ class xtGraphics extends Panel implements Runnable {
                     rd.drawImage(next[pnext], 645, 275, null);
                 }
             }
-            /*if (gmode == 1) {
-            	if (sc[0] == 5 && unlocked[0] <= 2)
-            		i113 = 2;
-            	if (sc[0] == 6 && unlocked[0] <= 4)
-            		i113 = 4;
-            	if (sc[0] == 11 && unlocked[0] <= 6)
-            		i113 = 6;
-            	if (sc[0] == 14 && unlocked[0] <= 8)
-            		i113 = 8;
-            	if (sc[0] == 15 && unlocked[0] <= 10)
-            		i113 = 10;
-            }*/
+            
             if (gmode == 2 && sc[0] >= 8 && unlocked <= (sc[0] - 7) * 2) {
                 i113 = (sc[0] - 7) * 2;
             }
@@ -1956,660 +1943,24 @@ class xtGraphics extends Panel implements Runnable {
                 }
             } else {
                 if (flatrstart == 6) {
-                    /*if (cfase == 10) {
-                    	/*if (stat.action == 13) {
-                    		minsl = nCars + 20;
-                    		maxsl = stat.xnlocars - 1;
-                    		i112 = nCars + 20;
-                    		stat.action = 0;
-                    		cfase = 11;
-                    	}*/
-                    /*if (stat.action == 12) {
-                    	int i119 = stat.loadlist;
-                    	String string = "Top 20 Cars";
-                    	String string120 = "Weekly";
-                    	while (i119 > 6) {
-                    		i119 -= 6;
-                    		if (string120.equals("Semi-Annual"))
-                    			string120 = "Annual";
-                    		if (string120.equals("Monthly"))
-                    			string120 = "Semi-Annual";
-                    		if (string120.equals("Weekly"))
-                    			string120 = "Monthly";
-                    	}
-                    	if (i119 == 1)
-                    		string = "" + ("") + (string120) + (" Top 20 Cars")
-                    				;
-                    	if (i119 == 2)
-                    		string = "" + ("") + (string120)
-                    				 + (" Top 20 Class A Cars");
-                    	if (i119 == 3)
-                    		string = "" + ("") + (string120)
-                    				 + (" Top 20 Class A & B Cars");
-                    	if (i119 == 4)
-                    		string = "" + ("") + (string120)
-                    				 + (" Top 20 Class B Cars");
-                    	if (i119 == 5)
-                    		string = "" + ("") + (string120)
-                    				 + (" Top 20 Class B & C Cars");
-                    	if (i119 == 6)
-                    		string = "" + ("") + (string120)
-                    				 + (" Top 20 Class C Cars");
-                    	drawprom(145, 170);
-                    	drawcs(195,
-                    			"" + ("[  Loading ") + (string) + ("  ]"),
-                    			0, 0, 0, 3);
-                    	if (stat.nl > 0 && stat.nl <= 20)
-                    		drawcs(235, "" + ("Loading :  ") + (stat.loadnames[stat.nl - 1])
-                    				 + (""), 0, 0, 0, 3);
-                    }*/
-                    /*if (stat.action == 11) {
-                    	drawprom(145, 170);
-                    	drawcs(195, "Loading List, Please Wait...", 0, 0, 0, 3);
-                    }*/
-                    /*if (stat.action == -1) {
-                    	drawprom(145, 170);
-                    	drawcs(195, "Failed to Load List.", 0, 0, 0, 3);
-                    	drawcs(225, "Unknown Error.  Please try again later.", 0, 0, 0, 3);
-                    	if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool)) {
-                    		stat.action = 0;
-                    		cfase = basefase;
-                    	}
-                    }*/
-                    /*if (stat.action == 0 || stat.action == 14 || stat.action == 15 || stat.action == 16
-                    		|| stat.action == 17) {
-                    	drawprom(65, 250);
-                    	if (drawcarb(true, null, " X ", 557, 70, i, i104, bool)) {
-                    		stat.action = 0;
-                    		cfase = basefase;
-                    	}
-                    	drawcs(305, "The lists get updated every 24 hours!", 0, 0, 0, 3);
-                    	if (stat.action == 14 || stat.action == 15 || stat.action == 16 || stat.action == 17) {
-                    		if (!bool && cntflock == 20)
-                    			cntflock = 0;
-                    		if (stat.action == 14)
-                    			drawcs(91, "Weekly Top 20 Cars", 0, 0, 0, 3);
-                    		if (stat.action == 15)
-                    			drawcs(91, "Monthly Top 20 Cars", 0, 0, 0, 3);
-                    		if (stat.action == 16)
-                    			drawcs(91, "Semi-Annual Top 20 Cars", 0, 0, 0, 3);
-                    		if (stat.action == 17)
-                    			drawcs(91, "Annual Top 20 Cars", 0, 0, 0, 3);
-                    		if (drawcarb(true, null, "   All Cars, All Classes   ", 318, 105, i, i104, bool)
-                    				&& cntflock == 0) {
-                    			stat.loadlist = 1 + (stat.action - 14) * 6;
-                    			stat.action = 11;
-                    			stat.sparkactionloader();
-                    		}
-                    		if (drawcarb(true, null, "Class A Cars", 337, 135, i, i104, bool) && cntflock == 0) {
-                    			stat.loadlist = 2 + (stat.action - 14) * 6;
-                    			stat.action = 11;
-                    			stat.sparkactionloader();
-                    		}
-                    		if (drawcarb(true, null, "Class A & B Cars", 337, 165, i, i104, bool)
-                    				&& cntflock == 0) {
-                    			stat.loadlist = 3 + (stat.action - 14) * 6;
-                    			stat.action = 11;
-                    			stat.sparkactionloader();
-                    		}
-                    		if (drawcarb(true, null, "Class B Cars", 337, 195, i, i104, bool) && cntflock == 0) {
-                    			stat.loadlist = 4 + (stat.action - 14) * 6;
-                    			stat.action = 11;
-                    			stat.sparkactionloader();
-                    		}
-                    		if (drawcarb(true, null, "Class B & C Cars", 337, 225, i, i104, bool)
-                    				&& cntflock == 0) {
-                    			stat.loadlist = 5 + (stat.action - 14) * 6;
-                    			stat.action = 11;
-                    			stat.sparkactionloader();
-                    		}
-                    		if (drawcarb(true, null, "Class C Cars", 337, 255, i, i104, bool) && cntflock == 0) {
-                    			stat.loadlist = 6 + (stat.action - 14) * 6;
-                    			stat.action = 11;
-                    			stat.sparkactionloader();
-                    		}
-                    	}
-                    	if (stat.action == 0) {
-                    		drawcs(91, "Top 20 Most Added Public Custom Cars", 0, 0, 0, 3);
-                    		if (drawcarb(true, null, "  Weekly Top 20  ", 338, 125, i, i104, bool))
-                    			stat.action = 14;
-                    		if (drawcarb(true, null, "  Monthly Top 20  ", 337, 165, i, i104, bool))
-                    			stat.action = 15;
-                    		if (drawcarb(true, null, "  Semi-Annual Top 20  ", 321, 205, i, i104, bool))
-                    			stat.action = 16;
-                    		if (drawcarb(true, null, "  Annual Top 20  ", 339, 245, i, i104, bool))
-                    			stat.action = 17;
-                    		if (cntflock != 20)
-                    			cntflock = 20;
-                    	}
-                    }*/
+                    
+                    
+                    
+                    
+                    
                     //}
-                    /*if (cfase == 100) {
-                    	if (stat.action == -1) {
-                    		drawprom(145, 170);
-                    		drawcs(195, "Failed to Load List.", 0, 0, 0, 3);
-                    		drawcs(225, "Unknown Error.  Please try again later.", 0, 0, 0, 3);
-                    		if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool))
-                    			if (sc[0] >= 16 && stat.lastload == 2 && sc[0] < 36)
-                    				cfase = 3;
-                    			else
-                    				cfase = 0;
-                    	}
-                    	if (stat.action == -2) {
-                    		drawprom(145, 170);
-                    		drawcs(195, "No account cars found.", 0, 0, 0, 3);
-                    		drawcs(225,
-                    				"" + ("") + (stat.viewname)
-                    						 + (" does not have any published or added cars."),
-                    				0, 0, 0, 3);
-                    		if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool))
-                    			if (sc[0] >= 16 && stat.lastload == 2 && sc[0] < 36)
-                    				cfase = 3;
-                    			else
-                    				cfase = 0;
-                    	}
-                    	if (stat.action == 100) {
-                    		stat.action = 101;
-                    		stat.sparkactionloader();
-                    	}
-                    	if (stat.action == 101) {
-                    		drawprom(145, 170);
-                    		drawcs(195, "" + ("Loading ") + (stat.viewname)
-                    				 + ("'s account cars, please wait..."), 0, 0, 0, 3);
-                    	}
-                    	if (stat.action == 102) {
-                    		drawprom(145, 170);
-                    		drawcs(195, "" + ("Loading ") + (stat.viewname)
-                    				 + ("'s account cars, please wait..."), 0, 0, 0, 3);
-                    		if (stat.nl > 0 && stat.nl <= 20)
-                    			drawcs(235, "" + ("Loading :  ") + (stat.loadnames[stat.nl - 1])
-                    					 + (""), 0, 0, 0, 3);
-                    	}
-                    	if (stat.action == 103) {
-                    		minsl = nCars + 20;
-                    		maxsl = stat.xnlocars - 1;
-                    		i112 = nCars + 20;
-                    		stat.action = 0;
-                    		cfase = 101;
-                    	}
-                    }*/
-                    /*if (cfase == 0 && testdrive != 1 && testdrive != 2 && gmode == 0) {
-                    	int i121 = 95;
-                    	int i122 = 5;
-                    	if (multion != 0) {
-                    		i121 = 185;
-                    		i122 = 0;
-                    	}
-                    	if (multion == 0 && drawcarb(false, cmc, "", 95, 70, i, i104, bool))
-                    		if (stat.lastload != 1)
-                    			cfase = 1;
-                    		else {
-                    			minsl = nCars;
-                    			maxsl = stat.nlcars - 1;
-                    			i112 = nCars;
-                    			cfase = 3;
-                    		}
-                    	if (drawcarb(false, myc, "", i121, 105 + i122, i, i104, bool))
-                    		if (stat.lastload != 2) {
-                    			cfase = 5;
-                    			showtf = false;
-                    			if (!logged) {
-                    				stat.action = 0;
-                    				stat.reco = -2;
-                    				tcnt = 5;
-                    				cntflock = 0;
-                    			} else {
-                    				stat.action = 3;
-                    				stat.sparkactionloader();
-                    			}
-                    		} else {
-                    			minsl = nCars;
-                    			maxsl = stat.nlocars - 1;
-                    			if (onmsc >= minsl && onmsc <= maxsl)
-                    				i112 = onmsc;
-                    			else
-                    				i112 = nCars;
-                    			cfase = 3;
-                    		}
-                    	if ((multion == 0 || onjoin == -1) && drawcarb(false, top20s, "", i121,
-                    			(i121 - 95) / 7 + 25 + i122, i, i104, bool)) {
-                    		stat.action = 0;
-                    		cfase = 10;
-                    	}
-                    	if (remi)
-                    		remi = false;
-                    }
-                    if (cfase == -1)
-                    	if (autolog) {
-                    		autolog = false;
-                    		cfase = 5;
-                    		stat.action = 1;
-                    		stat.sparkactionloader();
-                    	} else if (stat.lastload != 2) {
-                    		cfase = 5;
-                    		showtf = false;
-                    		if (!logged) {
-                    			stat.action = 0;
-                    			stat.reco = -2;
-                    			tcnt = 5;
-                    			cntflock = 0;
-                    		} else {
-                    			stat.action = 3;
-                    			stat.sparkactionloader();
-                    		}
-                    	} else {
-                    		minsl = nCars;
-                    		maxsl = stat.nlocars - 1;
-                    		if (onmsc >= minsl && onmsc <= maxsl)
-                    			i112 = onmsc;
-                    		else
-                    			i112 = nCars;
-                    		cfase = 3;
-                    	}
-                    if (cfase == 9) {
-                    	drawprom(145, 95);
-                    	drawcs(175, "Failed to remove car.  Unkown Error.  Try again laster.", 0, 0, 0, 3);
-                    	if (drawcarb(true, null, "   OK   ", 371, 195, i, i104, bool)) {
-                    		minsl = nCars;
-                    		maxsl = stat.nlocars - 1;
-                    		if (onmsc >= minsl && onmsc <= maxsl)
-                    			i112 = onmsc;
-                    		else
-                    			i112 = nCars;
-                    		cfase = 3;
-                    	}
-                    }
-                    if (cfase == 7) {
-                    	if (app.mycar.isShowing())
-                    		app.mycar.setVisible(false);
-                    	drawprom(145, 95);
-                    	drawcs(175, "Remove this car from your account?", 0, 0, 0, 3);
-                    	if (drawcarb(true, null, " Yes ", 354, 195, i, i104, bool)) {
-                    		remi = true;
-                    		minsl = 0;
-                    		maxsl = nCars - 1;
-                    		i112 = nCars - 1;
-                    		cfase = 8;
-                    		onmsc = sc[0];
-                    		stat.ac = sc[0];
-                    		stat.action = 10;
-                    		stat.sparkactionloader();
-                    	}
-                    	if (drawcarb(true, null, " No ", 408, 195, i, i104, bool))
-                    		cfase = 3;
-                    }*/
-                    /*if (cfase == 3 && i112 == -1) {
-                    	int i123 = 95;
-                    	int i124 = 5;
-                    	if (multion != 0) {
-                    		i123 = 185;
-                    		i124 = 0;
-                    	}
-                    	if (drawcarb(false, gac, "", i123, 105 + i124, i, i104, bool)) {
-                    		minsl = 0;
-                    		maxsl = nCars - 1;
-                    		if (onmsc >= minsl && onmsc <= maxsl)
-                    			i112 = onmsc;
-                    		else
-                    			i112 = nCars - 1;
-                    		cfase = 0;
-                    	}
-                    	if (multion == 0) {
-                    		if (!app.openm) {
-                    			if (!app.mycar.isShowing()) {
-                    				app.mycar.setVisible(true);
-                    				app.mycar.setState(stat.include[sc[0] - 16]);
-                    			}
-                    		} else
-                    			app.mycar.setVisible(false);
-                    		rd.setColor(new Color(198, 179, 129));
-                    		rd.fillRoundRect(305, 302, 190, 24, 7, 20);
-                    		rd.setColor(new Color(0, 0, 0));
-                    		rd.drawRoundRect(305, 302, 190, 24, 7, 20);
-                    		app.movefield(app.mycar, 334, 306, 150, 17);
-                    		if (app.mycar.getState() != stat.include[sc[0] - 16]) {
-                    			stat.include[sc[0] - 16] = app.mycar.getState();
-                    			app.requestFocus();
-                    		}
-                    	}
-                    	if ((multion == 0 || onjoin == -1) && drawcarb(false, top20s, "", i123,
-                    			(i123 - 95) / 7 + 25 + i124, i, i104, bool)) {
-                    		stat.action = 0;
-                    		cfase = 10;
-                    		if (app.mycar.isShowing())
-                    			app.mycar.setVisible(false);
-                    	}
-                    	if (stat.lastload == 2) {
-                    		if (drawcarb(true, null, "X", 567, 135, i, i104, bool))
-                    			cfase = 7;
-                    		rd.setFont(new Font("Arial", 1, 12));
-                    		ftm = rd.getFontMetrics();
-                    		rd.setColor(new Color(0, 0, 0));
-                    		if (!stat.createdby[sc[0] - 16].equals(nickname))
-                    			bool114 = clink(stat.createdby[sc[0] - 16], i, i104, bool);
-                    		else
-                    			rd.drawString("Created by You", 241, 160);
-                    	}
-                    	if (remi)
-                    		remi = false;
-                    	if (noclass) {
-                    		drawprom(200, 95);
-                    		rd.setFont(new Font("Arial", 1, 13));
-                    		ftm = rd.getFontMetrics();
-                    		String string = "Class C";
-                    		if (ontyp == 2)
-                    			string = "Class B or C";
-                    		if (ontyp == 3)
-                    			string = "Class B";
-                    		if (ontyp == 4)
-                    			string = "Class A or B";
-                    		if (ontyp == 5)
-                    			string = "Class A";
-                    		drawcs(230, "" + ("You do not have a ") + (string)
-                    				 + (" car in your account cars."), 0, 0, 0, 3);
-                    		if (drawcarb(true, null, "   OK   ", 371, 250, i, i104, bool))
-                    			noclass = false;
-                    	}
-                    }*/
-                    /*if ((cfase == 11 || cfase == 101) && i112 == -1) {
-                    	if (stat.action == -9) {
-                    		drawprom(145, 95);
-                    		drawcs(175, "Unknown error!  Failed to add car.  Try again later.", 0, 0, 0, 3);
-                    		if (drawcarb(true, null, " OK ", 379, 195, i, i104, bool))
-                    			stat.action = 0;
-                    	}
-                    	if (stat.action == -8) {
-                    		drawprom(145, 95);
-                    		drawcs(175, "Failed.  You already have 20 cars in your account!", 0, 0, 0, 3);
-                    		if (drawcarb(true, null, " OK ", 379, 195, i, i104, bool))
-                    			stat.action = 0;
-                    	}
-                    	if (stat.action == -7) {
-                    		drawprom(145, 95);
-                    		drawcs(175, "You already have this car!", 0, 0, 0, 3);
-                    		if (drawcarb(true, null, " OK ", 379, 195, i, i104, bool))
-                    			stat.action = 0;
-                    	}
-                    	if (stat.action == 7) {
-                    		drawprom(145, 95);
-                    		drawcs(175,
-                    				"" + ("") + (stat.names[stat.ac])
-                    						 + (" has been successfully added to your cars!"),
-                    				0, 0, 0, 3);
-                    		if (drawcarb(true, null, " OK ", 379, 195, i, i104, bool))
-                    			stat.action = 0;
-                    	}
-                    	if (stat.action == 6) {
-                    		drawprom(145, 95);
-                    		drawcs(195, "" + ("Adding ") + (stat.names[stat.ac])
-                    				 + (" to your cars..."), 0, 0, 0, 3);
-                    	}
-                    	int i125 = 95;
-                    	int i126 = 5;
-                    	if (multion != 0) {
-                    		i125 = 185;
-                    		i126 = 0;
-                    	}
-                    	if (onmsc >= 16 && (stat.lastload == 2 || stat.lastload == -2)) {
-                    		if (drawcarb(false, myc, "", i125, 105 + i126, i, i104, bool)) {
-                    			if (stat.lastload != 2) {
-                    				cfase = 5;
-                    				showtf = false;
-                    				if (!logged) {
-                    					stat.action = 0;
-                    					stat.reco = -2;
-                    					tcnt = 5;
-                    					cntflock = 0;
-                    				} else {
-                    					stat.action = 3;
-                    					stat.sparkactionloader();
-                    				}
-                    			} else {
-                    				stat.action = 0;
-                    				minsl = 16;
-                    				maxsl = stat.nlocars - 1;
-                    				if (onmsc >= minsl && onmsc <= maxsl)
-                    					i112 = onmsc;
-                    				else
-                    					i112 = nCars;
-                    				cfase = 3;
-                    			}
-                    			app.moused = false;
-                    		}
-                    	} else if (drawcarb(false, gac, "", i125, 105 + i126, i, i104, bool)) {
-                    		stat.action = 0;
-                    		minsl = 0;
-                    		maxsl = nCars - 1;
-                    		if (onmsc >= minsl && onmsc <= maxsl)
-                    			i112 = onmsc;
-                    		else
-                    			i112 = nCars - 1;
-                    		cfase = 0;
-                    		app.moused = false;
-                    	}
-                    	if (drawcarb(false, top20s, "", i125, (i125 - 95) / 7 + 25 + i126, i, i104, bool)) {
-                    		stat.action = 0;
-                    		cfase = 10;
-                    	}
-                    	if (stat.action == 0) {
-                    		rd.setFont(new Font("Arial", 1, 12));
-                    		ftm = rd.getFontMetrics();
-                    		rd.setColor(new Color(0, 0, 0));
-                    		if (!stat.createdby[sc[0] - 16].equals(nickname))
-                    			bool114 = clink(stat.createdby[sc[0] - 16], i, i104, bool);
-                    		else
-                    			rd.drawString("Created by You", 241, 160);
-                    		if (cfase != 101) {
-                    			rd.setFont(new Font("Arial", 1, 11));
-                    			rd.drawString("" + ("Added by :  ") + (stat.adds[sc[0] - 36])
-                    					 + (" Players"), 241, 180);
-                    		}
-                    	}
-                    }*/
-                    /*if (cfase == 5) {
-                    	drawprom(145, 170);
-                    	if (stat.action == 5) {
-                    		minsl = 16;
-                    		maxsl = stat.nlocars - 1;
-                    		if (stat.inslot != -1) {
-                    			onmsc = stat.inslot;
-                    			stat.inslot = -1;
-                    		}
-                    		if (onmsc >= minsl && onmsc <= maxsl)
-                    			i112 = onmsc;
-                    		else
-                    			i112 = nCars;
-                    		cfase = 3;
-                    	}
-                    	if (stat.action == 4) {
-                    		drawcs(195, "[  Loading Car  ]", 0, 0, 0, 3);
-                    		drawcs(235, "" + ("Loading :  ") + (app.mcars.getSelectedItem())
-                    				 + (""), 0, 0, 0, 3);
-                    	}
-                    	if (stat.action == -2) {
-                    		drawcs(195, "Unknown Connection Error", 0, 0, 0, 3);
-                    		drawcs(225, "Failed to connect to server, try again later!", 0, 0, 0, 3);
-                    		if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool))
-                    			cfase = 0;
-                    	}
-                    	if (stat.action == -1) {
-                    		drawcs(195, "No published cars found...", 0, 0, 0, 3);
-                    		drawcs(225, "You have no added cars to your account yet!", 0, 0, 0, 3);
-                    		if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool))
-                    			cfase = 0;
-                    	}
-                    	if (stat.action == 2 || stat.action == 3) {
-                    		drawcs(195, "Loading your Account Cars list...", 0, 0, 0, 3);
-                    		if (stat.action == 2) {
-                    			nickname = app.tnick.getText();
-                    			backlog = nickname;
-                    			nickey = stat.tnickey;
-                    			clan = stat.tclan;
-                    			clankey = stat.tclankey;
-                    			app.setloggedcookie();
-                    			logged = true;
-                    			gotlog = true;
-                    			if (stat.reco == 0)
-                    				acexp = 0;
-                    			if (stat.reco > 10)
-                    				acexp = stat.reco - 10;
-                    			if (stat.reco == 3)
-                    				acexp = -1;
-                    			if (stat.reco == 111)
-                    				if (!backlog.equalsIgnoreCase(nickname))
-                    					acexp = -3;
-                    				else
-                    					acexp = 0;
-                    			if (basefase == 0)
-                    				stat.action = 3;
-                    			if (basefase == 11) {
-                    				stat.action = 6;
-                    				cfase = 11;
-                    			}
-                    			if (basefase == 101) {
-                    				stat.action = 6;
-                    				cfase = 101;
-                    			}
-                    		}
-                    	}
-                    	if (stat.action == 1)
-                    		drawcs(195, "Logging in to your account...", 0, 0, 0, 3);
-                    	if (stat.action == 0) {
-                    		if (stat.reco == -5)
-                    			drawcs(171, "Login to Add this Car to your Account", 0, 0, 0, 3);
-                    		if (stat.reco == -2)
-                    			drawcs(171, "Login to Retrieve your Account Cars", 0, 0, 0, 3);
-                    		if (stat.reco == -1)
-                    			drawcs(171, "Unable to connect to server, try again later!", 0, 8, 0, 3);
-                    		if (stat.reco == 1)
-                    			drawcs(171, "Sorry.  The Nickname you have entered is incorrect.", 0, 0, 0, 3);
-                    		if (stat.reco == 2)
-                    			drawcs(171, "Sorry.  The Password you have entered is incorrect.", 0, 0, 0, 3);
-                    		if (stat.reco == -167 || stat.reco == -177) {
-                    			if (stat.reco == -167) {
-                    				nickname = app.tnick.getText();
-                    				backlog = nickname;
-                    				stat.reco = -177;
-                    			}
-                    			drawcs(171, "You are currently using a trial account.", 0, 0, 0, 3);
-                    		}
-                    		if (stat.reco == -3 && (tcnt % 3 != 0 || tcnt > 20))
-                    			drawcs(171, "Please enter your Nickname!", 0, 0, 0, 3);
-                    		if (stat.reco == -4 && (tcnt % 3 != 0 || tcnt > 20))
-                    			drawcs(171, "Please enter your Password!", 0, 0, 0, 3);
-                    		if (!showtf) {
-                    			app.tnick.setVisible(true);
-                    			app.tnick.setBackground(new Color(206, 237, 255));
-                    			if (stat.reco != 1) {
-                    				if (stat.reco != 2)
-                    					app.tnick.setText(nickname);
-                    				app.tnick.setForeground(new Color(0, 0, 0));
-                    			} else
-                    				app.tnick.setForeground(new Color(255, 0, 0));
-                    			app.tnick.requestFocus();
-                    			app.tpass.setVisible(true);
-                    			app.tpass.setBackground(new Color(206, 237, 255));
-                    			if (stat.reco != 2) {
-                    				if (!autolog)
-                    					app.tpass.setText("");
-                    				app.tpass.setForeground(new Color(0, 0, 0));
-                    			} else
-                    				app.tpass.setForeground(new Color(255, 0, 0));
-                    			if (!app.tnick.getText().equals("") && stat.reco != 1)
-                    				app.tpass.requestFocus();
-                    			showtf = true;
-                    		}
-                    		rd.drawString("Nickname:", 376 - ftm.stringWidth("Nickname:") - 14, 201);
-                    		rd.drawString("Password:", 376 - ftm.stringWidth("Password:") - 14, 231);
-                    		app.movefieldd(app.tnick, 376, 185, 129, 23, true);
-                    		app.movefieldd(app.tpass, 376, 215, 129, 23, true);
-                    		if (tcnt < 30) {
-                    			tcnt++;
-                    			if (tcnt == 30) {
-                    				if (stat.reco == 2)
-                    					app.tpass.setText("");
-                    				app.tnick.setForeground(new Color(0, 0, 0));
-                    				app.tpass.setForeground(new Color(0, 0, 0));
-                    			}
-                    		}
-                    		if (stat.reco != -177) {
-                    			if (drawcarb(true, null, "       Login       ", 347, 247, i, i104, bool)
-                    					&& tcnt > 5) {
-                    				tcnt = 0;
-                    				if (!app.tnick.getText().equals("") && !app.tpass.getText().equals("")) {
-                    					autolog = false;
-                    					app.tnick.setVisible(false);
-                    					app.tpass.setVisible(false);
-                    					app.requestFocus();
-                    					stat.action = 1;
-                    					stat.sparkactionloader();
-                    				} else {
-                    					if (app.tpass.getText().equals(""))
-                    						stat.reco = -4;
-                    					if (app.tnick.getText().equals(""))
-                    						stat.reco = -3;
-                    				}
-                    			}
-                    		} else if (drawcarb(true, null, "  Upgrade to have your own cars!  ", 284, 247, i, i104,
-                    				bool) && cntflock == 0) {
-                    			app.editlink(this.nickname, true);
-                    			cntflock = 100;
-                    		}
-                    		if (drawcarb(true, null, "  Cancel  ", 409, 282, i, i104, bool)) {
-                    			app.tnick.setVisible(false);
-                    			app.tpass.setVisible(false);
-                    			app.requestFocus();
-                    			cfase = basefase;
-                    		}
-                    		if (drawcarb(true, null, "  Register!  ", 316, 282, i, i104, bool)) {
-                    			if (cntflock == 0) {
-                    				app.reglink();
-                    				cntflock = 100;
-                    			}
-                    		} else if (cntflock != 0)
-                    			cntflock--;
-                    	}
-                    }*/
+                    
+                    
+                    
+                    
+                    
 
                     //
                     // WE HAD TO REMOVE THIS
                     // SORRY LADS
                     //
 
-                    /*if (cfase == 4) {
-                    	drawprom(145, 150);
-                    	rd.setColor(new Color(0, 0, 0));
-                    	rd.drawString("Failed to find any ready car in your \u2018mycars\u2019 folder!", 215, 175);
-                    	rd.drawString("Please \u2018Test Drive\u2019 your cars in the Car Maker to make", 215, 215);
-                    	rd.drawString("sure they are ready.", 215, 235);
-                    	if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool))
-                    		cfase = 0;
-                    }
-                    if (cfase == 2) {
-                    	drawprom(165, 70);
-                    	drawcs(205, "Loading Car Maker Cars...", 0, 0, 0, 3);
-                    	//app.repaint();
-                    	stat.loadcarmaker();
-                    	if (stat.nlcars > nCars) {
-                    		minsl = nCars;
-                    		maxsl = stat.nlcars - 1;
-                    		i112 = nCars;
-                    		cfase = 3;
-                    	} else
-                    		cfase = 4;
-                    }
-                    if (cfase == 1) {
-                    	drawprom(145, 170);
-                    	rd.setColor(new Color(0, 0, 0));
-                    	rd.drawString("The game will now load all the cars that can be loaded", 215, 170);
-                    	rd.drawString("from your \u2018mycars\u2019 folder.", 215, 190);
-                    	rd.drawString("If a car is not loaded, then it is not ready (not finished).", 215, 210);
-                    	rd.drawString("Perform a \u2018Test Drive\u2019 on any car to see if it is ready or not.", 215,
-                    			230);
-                    	rd.drawString("The maximum number of cars that can be loaded is  40 !", 215, 260);
-                    	if (drawcarb(true, null, "   OK   ", 371, 275, i, i104, bool))
-                    		cfase = 2;
-                    }*/
+                    
                     rd.setFont(new Font("Arial", 1, 11));
                     ftm = rd.getFontMetrics();
                     rd.setColor(new Color(181, 120, 40));
@@ -2831,40 +2182,9 @@ class xtGraphics extends Panel implements Runnable {
                         }
                     }
                 }
-                if (!remi/* && cfase != 10 && cfase != 11 && cfase != 100 && cfase != 101*/) {
+                if (!remi) {
                     rd.drawImage(contin[pcontin], 355, 385, null);
-                    /*else {
-                    	if (cfase == 11 && drawcarb(true, null, "Add to My Cars", 345, 385, i, i104, bool)
-                    			&& stat.action == 0) {
-                    		stat.ac = sc[0];
-                    		if (logged) {
-                    			stat.action = 6;
-                    			stat.sparkactionloader();
-                    		} else {
-                    			stat.reco = -5;
-                    			cfase = 5;
-                    			showtf = false;
-                    		}
-                    	}
-                    	if (cfase == 101 && i112 == -1)
-                    		if (stat.publish[sc[0] - 16] == 1 || stat.publish[sc[0] - 16] == 2) {
-                    			if (drawcarb(true, null, "Add to My Cars", 345, 385, i, i104, bool) && stat.action == 0) {
-                    				stat.ac = sc[0];
-                    				if (logged) {
-                    					stat.action = 6;
-                    					stat.sparkactionloader();
-                    				} else {
-                    					stat.reco = -5;
-                    					cfase = 5;
-                    					showtf = false;
-                    				}
-                    			}
-                    		} else {
-                    			rd.setFont(new Font("Arial", 1, 12));
-                    			ftm = rd.getFontMetrics();
-                    			drawcs(405, "Private Car", 193, 106, 0, 3);
-                    		}
-                    }*/
+                    
                 }
             }
         } else {
@@ -2894,12 +2214,7 @@ class xtGraphics extends Panel implements Runnable {
                     }
                     if (nextc == 1) {
                         sc[0]++;
-                        /*if (gmode == 1) {
-                        	if (sc[0] == 7)
-                        		sc[0] = 11;
-                        	if (sc[0] == 12)
-                        		sc[0] = 14;
-                        }*/
+                        
                         if (multion != 0 && onjoin != -1 && ontyp > 0 && ontyp <= 5) {
                             for (; sc[0] < maxsl && Math.abs(stat.cclass - (ontyp - 1)) > 1; sc[0]++) {
 
@@ -2908,12 +2223,7 @@ class xtGraphics extends Panel implements Runnable {
                     }
                     if (nextc == -1) {
                         sc[0]--;
-                        /*if (gmode == 1) {
-                        	if (sc[0] == 13)
-                        		sc[0] = 11;
-                        	if (sc[0] == 10)
-                        		sc[0] = 6;
-                        }*/
+                        
                         if (multion != 0 && onjoin != -1 && ontyp > 0 && ontyp <= 5) {
                             for (; sc[0] > minsl && Math.abs(stat.cclass - (ontyp - 1)) > 1; sc[0]--) {
 
@@ -4011,10 +3321,7 @@ class xtGraphics extends Panel implements Runnable {
     }
 
     void finish(final CheckPoints checkpoints, final List<ContO> contos, final Control control, final int i, final int i141, final boolean bool) {
-        /*if (chronostart) {
-            chrono.stop();
-            chronostart = false;
-        }*/
+        
         if (!badmac) {
             rd.drawImage(fleximg, 0, 0, null);
         } else {
@@ -4055,42 +3362,11 @@ class xtGraphics extends Panel implements Runnable {
             drawcs(184, checkpoints.name, 255, 115, 0, 3);
             i142 = 184;
         }
-        if (winner && multion == 0 && gmode != 0 && (checkpoints.stage == unlocked /*+ (gmode - 1) * 10*/ || checkpoints.stage == nTracks)) {
+        if (winner && multion == 0 && gmode != 0 && (checkpoints.stage == unlocked  || checkpoints.stage == nTracks)) {
             int i144 = 0;
             int i145 = 0;
             pin = 60;
-            /*if (gmode == 1) {
-            	if (checkpoints.stage == 2) {
-            		i144 = 5;
-            		i145 = 365;
-            		pin = -20;
-            		scm[0] = 5;
-            	}
-            	if (checkpoints.stage == 4) {
-            		i144 = 6;
-            		i145 = 320;
-            		pin = -20;
-            		scm[0] = 6;
-            	}
-            	if (checkpoints.stage == 6) {
-            		i144 = 11;
-            		i145 = 326;
-            		pin = -20;
-            		scm[0] = 11;
-            	}
-            	if (checkpoints.stage == 8) {
-            		i144 = 14;
-            		i145 = 350;
-            		pin = -20;
-            		scm[0] = 14;
-            	}
-            	if (checkpoints.stage == 10) {
-            		i144 = 15;
-            		i145 = 370;
-            		pin = -20;
-            		scm[0] = 15;
-            	}
-            }*/
+            
             if (gmode == 2) {
                 if (checkpoints.stage == 2) {
                     i144 = 8;
@@ -4342,18 +3618,10 @@ class xtGraphics extends Panel implements Runnable {
             }
             if (multion == 0) {
                 opselect = 3;
-                /*if (gmode == 1) {
-                	opselect = 0;
-                	if (winner && checkpoints.stage == unlocked[gmode - 1] + (gmode - 1) * 10
-                			&& checkpoints.stage != 27) {
-                		unlocked[gmode - 1]++;
-                		justwon1 = true;
-                	} else
-                		justwon1 = false;
-                }*/
+                
                 if (gmode == 2) {
                     opselect = 1;
-                    if (winner && checkpoints.stage == unlocked/* + (gmode - 1) * 10*/
+                    if (winner && checkpoints.stage == unlocked
                     && checkpoints.stage != nTracks) {
                         unlocked++;
                         justwon2 = true;
@@ -5046,18 +4314,11 @@ class xtGraphics extends Panel implements Runnable {
                 checkpoints.stage = (int) (ThreadLocalRandom.current().nextDouble() * nTracks) + 1;
             }
         }
-        /*if (gmode == 1) {
-        	if (unlocked[0] != 11 || justwon1)
-        		checkpoints.stage = unlocked[0];
-        	else if (winner || checkpoints.stage > 11)
-        		checkpoints.stage = (int) (ThreadLocalRandom.current().nextDouble() * 11.0) + 1;
-        	if (checkpoints.stage == 11)
-        		checkpoints.stage = 27;
-        }*/
+        
         if (gmode == 2)
             if (unlocked != nTracks || justwon2) {
-                checkpoints.stage = unlocked/* + 10*/;
-            } else if (winner/* || checkpoints.stage < 11*/) {
+                checkpoints.stage = unlocked;
+            } else if (winner) {
                 checkpoints.stage = (int) (ThreadLocalRandom.current().nextDouble() * nTracks) + 1;
             }
         app.sgame.setBackground(new Color(0, 0, 0));
@@ -6607,11 +5868,7 @@ class xtGraphics extends Panel implements Runnable {
                 fase = 8;
             }
             if (opselect == 0)
-                /*if (unlocked[0] == 11)
-                	if (unlocked[1] != 17)
-                		opselect = 1;
-                	else
-                		opselect = 2;*/
+                
                 if (firstime) {
                     oldfase = 102;
                     fase = 11;
@@ -8923,42 +8180,11 @@ class xtGraphics extends Panel implements Runnable {
                     app.sgame.setVisible(true);
                 }
                 app.sgame.move(i42, 62);
-                /*if (nfmtab == 0) {
-                	if (!app.snfm1.isShowing()) {
-                		app.snfm1.setVisible(true);
-                		if (!bool40 && checkpoints.stage > 0)
-                			app.snfm1.select(checkpoints.stage);
-                	}
-                	app.snfm1.move(i42, 62);
-                	if (app.snfm2.isShowing())
-                		app.snfm2.setVisible(false);
-                	if (app.mstgs.isShowing())
-                		app.mstgs.setVisible(false);
-                }*/
+                
                 //if (nfmtab == 1) {
-                /*if (!app.snfm2.isShowing()) {
-                	app.snfm2.setVisible(true);
-                	if (!bool40 && checkpoints.stage > 10)
-                		app.snfm2.select(checkpoints.stage - 10);
-                }
-                app.snfm2.move(i42, 62);
-                if (app.snfm1.isShowing())
-                	app.snfm1.setVisible(false);
-                if (app.mstgs.isShowing())
-                	app.mstgs.setVisible(false);*/
+                
                 //}
-                /*if (nfmtab == 2 || nfmtab == 3 || nfmtab == 4 || nfmtab == 5) {
-                	if (!app.mstgs.isShowing()) {
-                		app.mstgs.setVisible(true);
-                		if (!bool40)
-                			app.mstgs.select(checkpoints.name);
-                	}
-                	app.mstgs.move(i42, 62);
-                	if (app.snfm1.isShowing())
-                		app.snfm1.setVisible(false);
-                	if (app.snfm2.isShowing())
-                		app.snfm2.setVisible(false);
-                }*/
+                
                 rd.setFont(new Font("Arial", 1, 13));
                 ftm = rd.getFontMetrics();
                 if (cd.staction == 0 || cd.staction == 6)
@@ -9240,24 +8466,7 @@ class xtGraphics extends Panel implements Runnable {
                 } else if (app.gmode.isShowing()) {
                     app.gmode.setVisible(false);
                 }
-                /*if (nfmtab == 0 && app.snfm1.getSelectedIndex() != checkpoints.stage
-                		&& app.snfm1.getSelectedIndex() != 0) {
-                	checkpoints.stage = app.snfm1.getSelectedIndex();
-                	checkpoints.top20 = 0;
-                	checkpoints.nto = 0;
-                	hidos();
-                	fase = 2;
-                	app.requestFocus();
-                }
-                if (nfmtab == 1 && app.snfm2.getSelectedIndex() != checkpoints.stage - 10
-                		&& app.snfm2.getSelectedIndex() != 0) {
-                	checkpoints.stage = app.snfm2.getSelectedIndex() + 10;
-                	checkpoints.top20 = 0;
-                	checkpoints.nto = 0;
-                	hidos();
-                	fase = 2;
-                	app.requestFocus();
-                }*/
+                
                 if ((nfmtab == 2 || nfmtab == 5) && !app.mstgs.getSelectedItem().equals(checkpoints.name) && app.mstgs.getSelectedIndex() != 0) {
                     if (nfmtab == 2) {
                         checkpoints.stage = -2;
@@ -9324,8 +8533,8 @@ class xtGraphics extends Panel implements Runnable {
                 }
                 if (checkpoints.stage > 0) {
                     if (control.right) {
-                        if (gmode == 0 /*|| gmode == 1 && checkpoints.stage != unlocked[0]*/
-                        || gmode == 2 && checkpoints.stage != unlocked/* + 10*/
+                        if (gmode == 0 
+                        || gmode == 2 && checkpoints.stage != unlocked
                         || checkpoints.stage == nTracks) {
                             if (checkpoints.stage != nTracks) {
                                 hidos();
@@ -9347,7 +8556,7 @@ class xtGraphics extends Panel implements Runnable {
                         }
                         control.right = false;
                     }
-                    if (control.left && checkpoints.stage != 1/* && (checkpoints.stage != 11 || gmode != 2)*/) {
+                    if (control.left && checkpoints.stage != 1) {
                         hidos();
                         checkpoints.stage--;
                         //if (gmode == 1 && checkpoints.stage == 26)
