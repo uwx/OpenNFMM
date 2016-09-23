@@ -1526,7 +1526,8 @@ class Control {
                                     i = fpnt[i37];
                                 forget = checkpoints.special[i37];
                             }
-                            for (int i39 = i35; i39 < checkpoints.fn; i39++)
+                            for (int i39 = i35; i39 < checkpoints.fn; i39++) {
+                                if (fpnt[i39] == -1) continue; // FIXME check if infinite loop
                                 if (py(conto.x / 100, checkpoints.x[fpnt[i39]] / 100, conto.z / 100, checkpoints.z[fpnt[i39]] / 100) < 2000) {
                                     forget = false;
                                     actwait = 0;
@@ -1537,6 +1538,7 @@ class Control {
                                     rampp = 0;
                                     trfix = 3;
                                 }
+                            }
                             if (trfix == 3) {
                                 mad.nofocus = true;
                             }
