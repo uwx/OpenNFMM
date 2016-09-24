@@ -1,4 +1,5 @@
 package nfm.open;
+
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -1324,6 +1325,120 @@ class xtGraphics extends Panel implements Runnable {
             -760, -380, -380, 0, 380, 380, 760, 0
     };
 
+    private int scrollpos = 1;
+    private boolean inQuickStageSelect = false;
+
+    private void quickstageselect(final Control control, final CheckPoints ch) {
+        rd.setColor(Color.black);
+        rd.fillRect(0, 0, 140, 450);
+        rd.setColor(Color.green);
+        rd.setFont(new Font("Arial", 1, 13));
+
+        final int maxStage = unlocked > nTracks ? nTracks : unlocked;
+        final int gap;
+        final int agap;
+        if (unlocked < 20) {
+            if (unlocked % 2 == 0) {
+                gap = unlocked / 2 - 1;
+            } else {
+                gap = unlocked / 2;
+            }
+            agap = unlocked / 2;
+        } else {
+            gap = 10;
+            agap = 10;
+        }
+
+        int leftbound = scrollpos - gap;
+        int rightbound = scrollpos + agap;
+        if (leftbound < 1) {
+            rightbound += 1 - leftbound;
+            leftbound = 1;
+        }
+        if (rightbound > maxStage) {
+            leftbound -= rightbound - maxStage;
+            rightbound = maxStage;
+        }
+        int y = 30;
+        for (int i = leftbound; i <= rightbound; i++) {
+            rd.drawString((scrollpos == i ? ">" : " ") + "Route " + i, 15, y += ftm.getHeight());
+        }
+        if (control.up) {
+            scrollpos--;
+            if (scrollpos < 1) {
+                scrollpos = maxStage;
+            }
+        }
+        if (control.down) {
+            scrollpos++;
+            if (scrollpos > maxStage) {
+                scrollpos = 1;
+            }
+        }
+        if (control.enter) {
+            control.enter = false;
+            inQuickStageSelect = false;
+            ch.stage = scrollpos;
+            fase = 2;
+        }
+
+    }
+
+    private void quickcarselect(final Control control, final List<Stat> stats) {
+        rd.setColor(Color.black);
+        rd.fillRect(0, 0, 140, 450);
+        rd.setColor(Color.green);
+        rd.setFont(new Font("Arial", 1, 13));
+
+        final int maxStage = nCars;
+        final int gap;
+        final int agap;
+        if (nCars < 20) {
+            if (nCars % 2 == 0) {
+                gap = nCars / 2 - 1;
+            } else {
+                gap = nCars / 2;
+            }
+            agap = nCars / 2;
+        } else {
+            gap = 10;
+            agap = 10;
+        }
+
+        int leftbound = scrollpos - gap;
+        int rightbound = scrollpos + agap;
+        if (leftbound < 0) {
+            rightbound -= leftbound;
+            leftbound = 0;
+        }
+        if (rightbound > maxStage) {
+            leftbound -= rightbound - maxStage;
+            rightbound = maxStage;
+        }
+        int y = 30;
+        for (int i = leftbound; i < rightbound; i++) {
+            rd.drawString((scrollpos == i ? ">" : " ") + stats.get(i).names, 15, y += ftm.getHeight());
+        }
+        if (control.up) {
+            scrollpos--;
+            if (scrollpos < 0) {
+                scrollpos = maxStage - 1;
+            }
+        }
+        if (control.down) {
+            scrollpos++;
+            if (scrollpos >= maxStage - 1) {
+                scrollpos = 0;
+            }
+        }
+        if (control.enter) {
+            control.enter = false;
+            inQuickStageSelect = false;
+            sc[0] = scrollpos;
+        }
+
+    }
+
     xtGraphics(final Medium medium, final CarDefine cardefine, final Graphics2D graphics2d, final GameSparker gamesparker) {
         m = medium;
         cd = cardefine;
@@ -1942,25 +2057,7 @@ class xtGraphics extends Panel implements Runnable {
                     drawcs(375, "This car unlocks when stage " + i113 + " is completed...", 255, 96, 0, 3);
                 }
             } else {
-                if (flatrstart == 6) {
-                    
-                    
-                    
-                    
-                    
-                    //}
-                    
-                    
-                    
-                    
-                    
-
-                    //
-                    // WE HAD TO REMOVE THIS
-                    // SORRY LADS
-                    //
-
-                    
+                if (flatrstart == 6) {                    
                     rd.setFont(new Font("Arial", 1, 11));
                     ftm = rd.getFontMetrics();
                     rd.setColor(new Color(181, 120, 40));
@@ -2242,7 +2339,7 @@ class xtGraphics extends Panel implements Runnable {
             }
             flipo--;
         }
-        if (cfase == 0 || cfase == 3 || cfase == 11 || cfase == 101) {
+        if (!inQuickStageSelect && (cfase == 0 || cfase == 3 || cfase == 11 || cfase == 101)) {
             if (i112 != -1) {
                 if (flatrstart > 1) {
                     flatrstart = 0;
@@ -2317,7 +2414,7 @@ class xtGraphics extends Panel implements Runnable {
                 nextc = i112 + 20;
                 flipo = 20;
             }
-            if (cfase == 5 && cd.action == 0 && control.enter) {
+            if (cfase == 5 && cd.action == 0 && !inQuickStageSelect && control.enter) {
                 tcnt = 0;
                 if (!app.tnick.getText().equals("") && !app.tpass.getText().equals("")) {
                     app.tnick.setVisible(false);
@@ -2336,7 +2433,18 @@ class xtGraphics extends Panel implements Runnable {
                 control.enter = false;
             }
         }
-        if (control.handb || control.enter) {
+
+        if (inQuickStageSelect) {
+            quickcarselect(control, app.customCarStats);
+        } else {
+            if (control.up || control.down) {
+                control.up = false;
+                control.down = false;
+                scrollpos = sc[0];
+                inQuickStageSelect = true;
+            }
+        }
+        if (!inQuickStageSelect && (control.handb || control.enter)) {
             control.handb = false;
             control.enter = false;
         }
@@ -8309,7 +8417,7 @@ class xtGraphics extends Panel implements Runnable {
                             app.tpass.setForeground(new Color(0, 0, 0));
                         }
                     }
-                    if (cd.reco != -177) {
+                    if (cd.reco != -177 && !inQuickStageSelect) {
                         if ((drawcarb(true, null, "       Login       ", 347, 247, i, i39, bool) || control.handb || control.enter) && tcnt > 5) {
                             tcnt = 0;
                             if (!app.tnick.getText().equals("") && !app.tpass.getText().equals("")) {
@@ -8521,7 +8629,7 @@ class xtGraphics extends Panel implements Runnable {
                 }
             }
             if (cd.staction == 0) {
-                if ((control.handb || control.enter) && checkpoints.stage != -3 && checkpoints.top20 < 3) {
+                if (!inQuickStageSelect && (control.handb || control.enter) && checkpoints.stage != -3 && checkpoints.top20 < 3) {
                     app.gmode.setVisible(false);
                     hidos();
                     dudo = 150;
@@ -8531,7 +8639,7 @@ class xtGraphics extends Panel implements Runnable {
                     intertrack.setPaused(true);
                     intertrack.unload();
                 }
-                if (checkpoints.stage > 0) {
+                if (!inQuickStageSelect && checkpoints.stage > 0) {
                     if (control.right) {
                         if (gmode == 0 
                         || gmode == 2 && checkpoints.stage != unlocked
@@ -8582,7 +8690,7 @@ class xtGraphics extends Panel implements Runnable {
                 aflk = true;
             }
             rd.drawImage(contin[pcontin], 355, 360, null);
-            if (control.handb || control.enter) {
+            if (!inQuickStageSelect && (control.handb || control.enter)) {
                 dudo = 150;
                 fase = 5;
                 control.handb = false;
@@ -8591,20 +8699,30 @@ class xtGraphics extends Panel implements Runnable {
                 intertrack.unload();
             }
         }
-        if (drawcarb(true, null, " Shuffle Cars ", 570, 30, i, i39, bool)) {
+        if (inQuickStageSelect) {
+            quickstageselect(control, checkpoints);
+        }else {
+            if (control.up || control.down) {
+                control.up = false;
+                control.down = false;
+                scrollpos = checkpoints.stage;
+                inQuickStageSelect = true;
+            }
+        }
+        if (drawcarb(true, null, " Shuffle Cars ", 570, 30, i, i39, bool) && !inQuickStageSelect) {
             app.shuffle();
         }
-        if (drawcarb(true, null, " Shuffle Stages ", 570, 60, i, i39, bool)) {
+        if (drawcarb(true, null, " Shuffle Stages ", 570, 60, i, i39, bool) && !inQuickStageSelect) {
             shuffleStages();
         }
-        if (drawcarb(true, null, " Randomize! ", 470, 30, i, i39, bool)) {
+        if (drawcarb(true, null, " Randomize! ", 470, 30, i, i39, bool) && !inQuickStageSelect) {
             app.shuffleStats();
             app.shuffle();
             shuffleStages();
             app.doRandomizerFun = true;
             randomizedHints = Utility.choose(UTF8Junk.messages);
         }
-        if (drawcarb(true, null, " Exit X ", 670, 30, i, i39, bool)) {
+        if (drawcarb(true, null, " Exit X ", 670, 30, i, i39, bool) && !inQuickStageSelect) {
             fase = 103;
             //fase = 102;
             if (gmode == 0) {
