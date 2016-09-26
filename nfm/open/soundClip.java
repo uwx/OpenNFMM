@@ -9,7 +9,7 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
-class soundClip {
+class SoundClip {
     private Clip clip = null;
     private int cntcheck = 0;
     private int lfrpo = -1;
@@ -18,7 +18,7 @@ class soundClip {
     int rollBackTrig;
     private AudioInputStream sound;
 
-    soundClip(final byte[] is) {
+    SoundClip(final byte[] is) {
         try {
             final ByteArrayInputStream bytearrayinputstream = new ByteArrayInputStream(is);
             sound = AudioSystem.getAudioInputStream(bytearrayinputstream);

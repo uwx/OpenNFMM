@@ -128,7 +128,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             50, 50, 50
     };
     private boolean crashleft = false;
-    private final soundClip[] crashs = new soundClip[3];
+    private final SoundClip[] crashs = new SoundClip[3];
     private boolean crashup = false;
     private int crshturn = 0;
     private final Smenu ctheme = new Smenu(40);
@@ -142,7 +142,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
     private final TextArea editor = new TextArea(20, 20);
     private final Smenu engine = new Smenu(40);
     private boolean engon = false;
-    private final soundClip[][] engs = new soundClip[5][5];
+    private final SoundClip[][] engs = new SoundClip[5][5];
     private int engsel = 0;
     private boolean exwist = false;
     private String fcol = "";
@@ -162,7 +162,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
     private boolean loadedfile = false;
     private int logged = 0;
     private Image logo;
-    private final soundClip[] lowcrashs = new soundClip[3];
+    private final SoundClip[] lowcrashs = new SoundClip[3];
     private final Medium m = new Medium();
     private final String[] maker = new String[20];
     private boolean minus = false;
@@ -2271,16 +2271,16 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                 for (int i352 = 0; i352 < 5; i352++) {
                     for (int i353 = 0; i353 < 5; i353++)
                         if (string.equals("" + i353 + "" + i352 + ".wav")) {
-                            engs[i353][i352] = new soundClip(is);
+                            engs[i353][i352] = new SoundClip(is);
                         }
                 }
                 for (int i354 = 0; i354 < 3; i354++)
                     if (string.equals("crash" + (i354 + 1) + ".wav")) {
-                        crashs[i354] = new soundClip(is);
+                        crashs[i354] = new SoundClip(is);
                     }
                 for (int i355 = 0; i355 < 3; i355++)
                     if (string.equals("lowcrash" + (i355 + 1) + ".wav")) {
-                        lowcrashs[i355] = new soundClip(is);
+                        lowcrashs[i355] = new SoundClip(is);
                     }
             }
             fileinputstream.close();

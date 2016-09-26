@@ -64,7 +64,7 @@ class xtGraphics extends Panel implements Runnable {
             }
     };
     private boolean aflk = false;
-    private final soundClip[] air = new soundClip[6];
+    private final SoundClip[] air = new SoundClip[6];
     private boolean aird = false;
     final float[][] allrnp = new float[8][6];
     private int alocked = -1;
@@ -114,7 +114,7 @@ class xtGraphics extends Panel implements Runnable {
     private Image brt;
     private Image byrd;
     Image cancel;
-    soundClip carfixed;
+    SoundClip carfixed;
     private Image carsbg;
     private Image carsbgc;
     Image ccar;
@@ -122,7 +122,7 @@ class xtGraphics extends Panel implements Runnable {
     private int cfase = 0;
     Image cgame;
     Image change;
-    private soundClip checkpoint;
+    private SoundClip checkpoint;
     private Image chil;
     String clan = "";
     boolean clanchat = false;
@@ -147,7 +147,7 @@ class xtGraphics extends Panel implements Runnable {
     private int cntwis = 0;
     private Image congrd;
     private final Image[] contin = new Image[2];
-    private final soundClip[] crash = new soundClip[3];
+    private final SoundClip[] crash = new SoundClip[3];
     private boolean crashup = false;
     Image crd;
     private int crshturn = 0;
@@ -173,8 +173,8 @@ class xtGraphics extends Panel implements Runnable {
     final Image[] dude = new Image[3];
     private int dudo = 0;
     private int duds = 0;
-    private final soundClip[] dustskid = new soundClip[3];
-    private final soundClip[][] engs = new soundClip[5][5];
+    private final SoundClip[] dustskid = new SoundClip[3];
+    private final SoundClip[][] engs = new SoundClip[5][5];
     Image exit;
     private Image exitgame;
     int exitm = 0;
@@ -183,7 +183,7 @@ class xtGraphics extends Panel implements Runnable {
     };
     int fase = 1111;
     int fastestlap = 0;
-    private soundClip firewasted;
+    private SoundClip firewasted;
     boolean firstime = true;
     private Image fixhoop;
     private int flang = 0;
@@ -211,7 +211,7 @@ class xtGraphics extends Panel implements Runnable {
     private int gatey = 300;
     Image gmc;
     int gmode = 0;
-    private soundClip go;
+    private SoundClip go;
     private int gocnt = 0;
     boolean gotlog = false;
     private boolean grrd = false;
@@ -261,7 +261,7 @@ class xtGraphics extends Panel implements Runnable {
     Image logout;
     private String loop = "";
     int looped = 1;
-    private final soundClip[] lowcrash = new soundClip[3];
+    private final SoundClip[] lowcrash = new SoundClip[3];
     private int lsc = -1;
     private int lxm = -10;
     private int lym = -10;
@@ -310,7 +310,7 @@ class xtGraphics extends Panel implements Runnable {
     private Image olap;
     private int oldfase = 0;
     private Image oloadingmusic;
-    private soundClip one;
+    private SoundClip one;
     private Image onfmm;
     int onjoin = -1;
     private boolean onlock = false;
@@ -382,7 +382,7 @@ class xtGraphics extends Panel implements Runnable {
     };
     private Image pos;
     int posit = 0;
-    private soundClip powerup;
+    private SoundClip powerup;
     private int pstar = 0;
     private int pwait = 7;
     private boolean pwastd = false;
@@ -409,7 +409,7 @@ class xtGraphics extends Panel implements Runnable {
             0, 0, 0, 0, 0, 0, 0, 0
     };
     int scm = 0;
-    private final soundClip[] scrape = new soundClip[4];
+    private final SoundClip[] scrape = new SoundClip[4];
     Image sdets;
     private Image select;
     private Image selectcar;
@@ -429,7 +429,7 @@ class xtGraphics extends Panel implements Runnable {
     private boolean showtf = false;
     private final Image sign;
     private int skflg = 0;
-    private final soundClip[] skid = new soundClip[3];
+    private final SoundClip[] skid = new SoundClip[3];
     private boolean skidup = false;
     private final static int[] smokey = new int[94132];
     final int[] sndsize = {
@@ -454,15 +454,15 @@ class xtGraphics extends Panel implements Runnable {
     private int tcnt = 30;
     int testdrive = 0;
     private boolean tflk = false;
-    private soundClip three;
-    private soundClip tires;
+    private SoundClip three;
+    private SoundClip tires;
     private final Image[] trackbg = new Image[2];
     private int trkl = 0;
     private int trklim = (int) (ThreadLocalRandom.current().nextDouble() * 40.0);
     private final static int[] trkx = {
             65, 735
     };
-    private soundClip two;
+    private SoundClip two;
     int unlocked = 1;
     private final static int[] updatec = {
             -1, -1
@@ -472,7 +472,7 @@ class xtGraphics extends Panel implements Runnable {
     int warning = 0;
     private Image was;
     private boolean wasay = false;
-    private soundClip wastd;
+    private SoundClip wastd;
     private Image wasting;
     private Image wgame;
     boolean winner = true;
@@ -5329,65 +5329,65 @@ class xtGraphics extends Panel implements Runnable {
                 for (int i2 = 0; i2 < 5; i2++) {
                     for (int i3 = 0; i3 < 5; i3++)
                         if (string.equals("" + i3 + "" + i2 + ".wav")) {
-                            engs[i3][i2] = new soundClip(is);
+                            engs[i3][i2] = new SoundClip(is);
                         }
                 }
                 for (int i4 = 0; i4 < 6; i4++)
                     if (string.equals("air" + i4 + ".wav")) {
-                        air[i4] = new soundClip(is);
+                        air[i4] = new SoundClip(is);
                     }
                 for (int i5 = 0; i5 < 3; i5++)
                     if (string.equals("crash" + (i5 + 1) + ".wav")) {
-                        crash[i5] = new soundClip(is);
+                        crash[i5] = new SoundClip(is);
                     }
                 for (int i6 = 0; i6 < 3; i6++)
                     if (string.equals("lowcrash" + (i6 + 1) + ".wav")) {
-                        lowcrash[i6] = new soundClip(is);
+                        lowcrash[i6] = new SoundClip(is);
                     }
                 for (int i7 = 0; i7 < 3; i7++)
                     if (string.equals("skid" + (i7 + 1) + ".wav")) {
-                        skid[i7] = new soundClip(is);
+                        skid[i7] = new SoundClip(is);
                     }
                 for (int i8 = 0; i8 < 3; i8++)
                     if (string.equals("dustskid" + (i8 + 1) + ".wav")) {
-                        dustskid[i8] = new soundClip(is);
+                        dustskid[i8] = new SoundClip(is);
                     }
                 for (int i9 = 0; i9 < 3; i9++)
                     if (string.equals("scrape" + (i9 + 1) + ".wav")) {
-                        scrape[i9] = new soundClip(is);
+                        scrape[i9] = new SoundClip(is);
                         if (i9 == 2) {
-                            scrape[3] = new soundClip(is);
+                            scrape[3] = new SoundClip(is);
                         }
                     }
                 if (string.equals("powerup.wav")) {
-                    powerup = new soundClip(is);
+                    powerup = new SoundClip(is);
                 }
                 if (string.equals("tires.wav")) {
-                    tires = new soundClip(is);
+                    tires = new SoundClip(is);
                 }
                 if (string.equals("checkpoint.wav")) {
-                    checkpoint = new soundClip(is);
+                    checkpoint = new SoundClip(is);
                 }
                 if (string.equals("carfixed.wav")) {
-                    carfixed = new soundClip(is);
+                    carfixed = new SoundClip(is);
                 }
                 if (string.equals("three.wav")) {
-                    three = new soundClip(is);
+                    three = new SoundClip(is);
                 }
                 if (string.equals("two.wav")) {
-                    two = new soundClip(is);
+                    two = new SoundClip(is);
                 }
                 if (string.equals("one.wav")) {
-                    one = new soundClip(is);
+                    one = new SoundClip(is);
                 }
                 if (string.equals("go.wav")) {
-                    go = new soundClip(is);
+                    go = new SoundClip(is);
                 }
                 if (string.equals("wasted.wav")) {
-                    wastd = new soundClip(is);
+                    wastd = new SoundClip(is);
                 }
                 if (string.equals("firewasted.wav")) {
-                    firewasted = new soundClip(is);
+                    firewasted = new SoundClip(is);
                 }
                 dnload += 5;
             }
