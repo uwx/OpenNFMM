@@ -1887,6 +1887,10 @@ class GameSparker extends JPanel
                     mouses = 2;
                 }
                 clicknowtime++;
+                if (u[0].enter) {
+                    u[0].enter = false;
+                    clicknowtime = 76;
+                }
             } else {
                 clicknowtime = 0;
                 xtgraphics.fase = 10;
