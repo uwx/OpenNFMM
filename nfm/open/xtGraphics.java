@@ -63,26 +63,56 @@ class xtGraphics extends Panel implements Runnable {
                     "surf style", "off the lip", "bounce back"
             }
     };
+    /**
+     * Used for text flicker effect
+     */
     private boolean aflk = false;
     private final SoundClip[] air = new SoundClip[6];
     private boolean aird = false;
+    /**
+     * The HSB values of every vehicle in a race, once for the first color and once for the second
+     */
     final float[][] allrnp = new float[8][6];
+    /**
+     * If {@code != -1}, locks the arrow to that car ID.
+     */
     private int alocked = -1;
+    /**
+     * Arrow angle
+     */
     private int ana = 0;
+    /**
+     * {@link GameSparker} object
+     */
     private final GameSparker app;
     private Image arn;
+    /**
+     * The player car's HSB values, once for the first color and once for the second
+     */
     final float[] arnp = {
             0.5F, 0.0F, 0.0F, 1.0F, 0.5F, 0.0F
     };
+    /**
+     * If {@code true}, the arrow is pointing at cars
+     */
     private boolean arrace = false;
     private Image arrows;
     String asay = "";
     Image asd;
     Image asu;
     private int auscnt = 45;
+    /**
+     * Auto-login
+     */
     boolean autolog = false;
     final Image[] back = new Image[2];
+    /**
+     * Temporarily stores player's username
+     */
     String backlog = "";
+    /**
+     * If true, disables some visual effects for Mac OS compatibility
+     */
     boolean badmac = false;
     private final Image[] bc = new Image[2];
     private final Image[] bcl = new Image[2];
@@ -124,10 +154,19 @@ class xtGraphics extends Panel implements Runnable {
     Image change;
     private SoundClip checkpoint;
     private Image chil;
+    /**
+     * Player's clan in multiplayer games
+     */
     String clan = "";
     boolean clanchat = false;
+    /**
+     * If non-zero, the player is in a clan/war game (racing or wasting)
+     */
     int clangame = 0;
     String clankey = "";
+    /**
+     * Current amount of cleared checkpoints
+     */
     private int clear = 0;
     private final static String[][] cnames = {
             {
@@ -154,6 +193,9 @@ class xtGraphics extends Panel implements Runnable {
     final int[] dcrashes = {
             0, 0, 0, 0, 0, 0, 0, 0
     };
+    /**
+     * The player's ping, in Dominion, Ghostrider and Avenger
+     */
     final int[] delays = {
             600, 600, 600
     };
@@ -166,6 +208,9 @@ class xtGraphics extends Panel implements Runnable {
     private int dmcnt = 0;
     private boolean dmflk = false;
     private Image dmg;
+    /**
+     * Amount of KB downloaded (loading screen)
+     */
     int dnload = 0;
     private PrintWriter dout;
     private final static int dropf = 0;
@@ -178,6 +223,9 @@ class xtGraphics extends Panel implements Runnable {
     Image exit;
     private Image exitgame;
     int exitm = 0;
+    /**
+     * Exclamation marks for stunts
+     */
     private final static String[] exlm = {
             "!", "!!", "!!!"
     };
@@ -432,6 +480,9 @@ class xtGraphics extends Panel implements Runnable {
     private final SoundClip[] skid = new SoundClip[3];
     private boolean skidup = false;
     private final static int[] smokey = new int[94132];
+    /**
+     * Stage sound size (completely cosmetic)
+     */
     final int[] sndsize = {
             39, 128, 23, 58, 106, 140, 81, 135, 38, 141, 106, 76, 56, 116, 92, 208, 70, 80, 152, 102, 27, 65, 52, 30,
             151, 129, 80, 44, 57, 123, 202, 210, 111
@@ -446,23 +497,38 @@ class xtGraphics extends Panel implements Runnable {
     Image statbo;
     Image stg;
     private int stopcnt = 0;
+    /**
+     * Current stage soundtrack;
+     */
     RadicalMusic strack;
     Image sts;
     private Image stunts;
     private int sturn0 = 0;
     private int sturn1 = 0;
     private int tcnt = 30;
+    /**
+     * If non-zero, the player is test driving a car or stage
+     */
     int testdrive = 0;
+    /**
+     * Text flicker effect
+     */
     private boolean tflk = false;
     private SoundClip three;
     private SoundClip tires;
     private final Image[] trackbg = new Image[2];
     private int trkl = 0;
     private int trklim = (int) (ThreadLocalRandom.current().nextDouble() * 40.0);
+    /**
+     * X positions of the stage select backgrounds (there are two)
+     */
     private final static int[] trkx = {
             65, 735
     };
     private SoundClip two;
+    /**
+     * Currentl last unlocked stage
+     */
     int unlocked = 1;
     private final static int[] updatec = {
             -1, -1
@@ -476,6 +542,9 @@ class xtGraphics extends Panel implements Runnable {
     private Image wasting;
     private Image wgame;
     boolean winner = true;
+    /**
+     * The X-coordinate of the start positions in a race
+     */
     final int[] xstart = {
             0, -350, 350, 0, -350, 350, 0, 0
     };
@@ -485,6 +554,9 @@ class xtGraphics extends Panel implements Runnable {
     private Image yourwasted;
     private Image youwastedem;
     private Image youwon;
+    /**
+     * The Z-coordinate of the start positions in a race
+     */
     final int[] zstart = {
             -760, -380, -380, 0, 380, 380, 760, 0
     };
