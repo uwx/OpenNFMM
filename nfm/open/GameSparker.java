@@ -290,7 +290,7 @@ class GameSparker extends JPanel
         if (xtgraphics.testdrive == 2 || xtgraphics.testdrive == 4) {
             xtgraphics.nplayers = 1;
         }
-        xtgraphics.nplayers = 50;
+        xtgraphics.nplayers = 7;
         /*if (xtgraphics.gmode == 1) {
         	xtgraphics.nplayers = 5;
         	xtgraphics.xstart[4] = 0;

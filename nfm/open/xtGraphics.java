@@ -3171,7 +3171,7 @@ class xtGraphics extends Panel implements Runnable {
         if (!badmac) {
             rd.drawImage(fleximg, 0, 0, null);
         } else {
-            rd.setColor(new Color(0, 0, 0, 255 * 0.1f));
+            rd.setColor(new Color(0, 0, 0, (int) (255 * 0.1f)));
             rd.fillRect(0, 0, 800, 450);
         }
         rd.setFont(new Font("Arial", 1, 11));
