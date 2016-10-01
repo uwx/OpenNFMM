@@ -4,6 +4,8 @@ package nfm.open;
  */
 import nfm.open.music.*;
 
+import static nfm.open.xtGraphics.Images.*;
+
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -33,6 +35,143 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 class xtGraphics extends Panel implements Runnable {
+    static class Images {
+        static private Image arn;
+        static private Image arrows;
+        static Image asd;
+        static Image asu;
+        static final Image[] back = new Image[2];
+        static private final Image[] bc = new Image[2];
+        static private final Image[] bcl = new Image[2];
+        static private final Image[] bcr = new Image[2];
+        static Image bggo;
+        static Image bgmain;
+        static Image bob;
+        static Image bol;
+        static Image bolp;
+        static Image bolps;
+        static Image bols;
+        static Image bor;
+        static Image borp;
+        static Image borps;
+        static Image bors;
+        static Image bot;
+        static Image br;
+        static private Image brt;
+        static private Image byrd;
+        static Image cancel;
+        static private Image carsbg;
+        static private Image carsbgc;
+        static Image ccar;
+        static Image cgame;
+        static Image change;
+        static private Image chil;
+        static private final Image[] cntdn = new Image[4];
+        static private Image congrd;
+        static private final Image[] contin = new Image[2];
+        static Image crd;
+        static private Image disco;
+        static private Image dmg;
+        static final Image[] dude = new Image[3];
+        static Image exit;
+        static private Image exitgame;
+        static private Image fixhoop;
+        static private Image flaot;
+        static Image fleximg;
+        static private Image gamefinished;
+        static private Image gameh;
+        static private Image gameov;
+        static Image games;
+        static Image gmc;
+        static private Image hello;
+        static private Image kenter;
+        static private Image km;
+        static private Image kn;
+        static private Image ks;
+        static private Image kv;
+        static private Image kx;
+        static private Image kz;
+        static Image lanm;
+        static private Image lap;
+        static private Image loadbar;
+        static private Image loadingmusic;
+        static Image login;
+        static private Image logocars;
+        static private Image logomadbg;
+        static Image logomadnes;
+        static Image logout;
+        static Image mdness;
+        static Image mload;
+        static private final Image[] next = new Image[2];
+        static private Image nfm;
+        static private Image nfmcom;
+        static private Image nfmcoms;
+        static Image ntrg;
+        static private final Image[] ocntdn = new Image[4];
+        static private Image odisco;
+        static private Image odmg;
+        static private Image oexitgame;
+        static private Image oflaot;
+        static private Image ogamefinished;
+        static private Image ogameh;
+        static private Image olap;
+        static private Image oloadingmusic;
+        static private Image onfmm;
+        static private Image opback;
+        static private Image opos;
+        static private Image opti;
+        static private Image opwr;
+        static private final Image[] orank = new Image[8];
+        static private Image ory;
+        static private Image osped;
+        static private final Image[] ostar = new Image[2];
+        static private Image owas;
+        static private Image owgame;
+        static private Image oyoulost;
+        static private Image oyourwasted;
+        static private Image oyouwastedem;
+        static private Image oyouwon;
+        static private Image paused;
+        static private Image pgate;
+        static Image play;
+        static Image pln;
+        static Image pls;
+        static private Image plus;
+        static private Image pos;
+        static private Image pwr;
+        static private Image racing;
+        static private Image radicalplay;
+        static private final Image[] rank = new Image[8];
+        static Image redy;
+        static Image register;
+        static Image roomp;
+        static private Image rpro;
+        static private Image sarrow;
+        static Image sdets;
+        static private Image select;
+        static private Image selectcar;
+        static private Image sign;
+        static private Image space;
+        static private Image sped;
+        static private final Image[] star = new Image[3];
+        static Image statb;
+        static Image statbo;
+        static Image stg;
+        static Image sts;
+        static private Image stunts;
+        static private final Image[] trackbg = new Image[2];
+        static Image upgrade;
+        static private Image was;
+        static private Image wasting;
+        static private Image wgame;
+        static private Image yac;
+        static private Image ycmc;
+        static private Image youlost;
+        static private Image yourwasted;
+        static private Image youwastedem;
+        static private Image youwon;
+
+    }
     /**
      * Serialization UID
      */
@@ -85,7 +224,6 @@ class xtGraphics extends Panel implements Runnable {
      * {@link GameSparker} object
      */
     private final GameSparker app;
-    private Image arn;
     /**
      * The player car's HSB values, once for the first color and once for the second
      */
@@ -96,16 +234,12 @@ class xtGraphics extends Panel implements Runnable {
      * If {@code true}, the arrow is pointing at cars
      */
     private boolean arrace = false;
-    private Image arrows;
     String asay = "";
-    Image asd;
-    Image asu;
     private int auscnt = 45;
     /**
      * Auto-login
      */
     boolean autolog = false;
-    final Image[] back = new Image[2];
     /**
      * Temporarily stores player's username
      */
@@ -114,9 +248,6 @@ class xtGraphics extends Panel implements Runnable {
      * If true, disables some visual effects for Mac OS compatibility
      */
     boolean badmac = false;
-    private final Image[] bc = new Image[2];
-    private final Image[] bcl = new Image[2];
-    private final Image[] bcr = new Image[2];
     int beststunt = 0;
     private int bfcrash = 0;
     private int bfsc1 = 0;
@@ -124,36 +255,14 @@ class xtGraphics extends Panel implements Runnable {
     private int bfscrape = 0;
     private int bfskid = 0;
     private float bgf = 0.0F;
-    Image bggo;
-    Image bgmain;
     private final static int[] bgmy = {
             0, -400
     };
     private boolean bgup = false;
-    Image bob;
-    Image bol;
-    Image bolp;
-    Image bolps;
-    Image bols;
-    Image bor;
-    Image borp;
-    Image borps;
-    Image bors;
-    Image bot;
-    Image br;
-    private Image brt;
-    private Image byrd;
-    Image cancel;
     SoundClip carfixed;
-    private Image carsbg;
-    private Image carsbgc;
-    Image ccar;
     final CarDefine cd;
     private int cfase = 0;
-    Image cgame;
-    Image change;
     private SoundClip checkpoint;
-    private Image chil;
     /**
      * Player's clan in multiplayer games
      */
@@ -179,16 +288,12 @@ class xtGraphics extends Panel implements Runnable {
     private final static int[] cntchatp = {
             0, 0
     };
-    private final Image[] cntdn = new Image[4];
     private int cntflock = 0;
     private int cntovn = 0;
     final int cntptrys = 5;
     private int cntwis = 0;
-    private Image congrd;
-    private final Image[] contin = new Image[2];
     private final SoundClip[] crash = new SoundClip[3];
     private boolean crashup = false;
-    Image crd;
     private int crshturn = 0;
     final int[] dcrashes = {
             0, 0, 0, 0, 0, 0, 0, 0
@@ -203,11 +308,9 @@ class xtGraphics extends Panel implements Runnable {
             0, 0, 0, 0, 0, 0, 0, 0
     };
     private BufferedReader din;
-    private Image disco;
     private int discon = 0;
     private int dmcnt = 0;
     private boolean dmflk = false;
-    private Image dmg;
     /**
      * Amount of KB downloaded (loading screen)
      */
@@ -215,13 +318,10 @@ class xtGraphics extends Panel implements Runnable {
     private PrintWriter dout;
     private final static int dropf = 0;
     private int dskflg = 0;
-    final Image[] dude = new Image[3];
     private int dudo = 0;
     private int duds = 0;
     private final SoundClip[] dustskid = new SoundClip[3];
     private final SoundClip[][] engs = new SoundClip[5][5];
-    Image exit;
-    private Image exitgame;
     int exitm = 0;
     /**
      * Exclamation marks for stunts
@@ -233,12 +333,9 @@ class xtGraphics extends Panel implements Runnable {
     int fastestlap = 0;
     private SoundClip firewasted;
     boolean firstime = true;
-    private Image fixhoop;
     private int flang = 0;
-    private Image flaot;
     private int flatr = 0;
     private int flatrstart = 0;
-    Image fleximg;
     int[] flexpix = null;
     int flipo = 0;
     private boolean flk = false;
@@ -251,13 +348,8 @@ class xtGraphics extends Panel implements Runnable {
     int forstart = 0;
     FontMetrics ftm;
     String gaclan = "";
-    private Image gamefinished;
-    private Image gameh;
-    private Image gameov;
     int gameport = 7001;
-    Image games;
     private int gatey = 300;
-    Image gmc;
     int gmode = 0;
     private SoundClip go;
     private int gocnt = 0;
@@ -265,7 +357,6 @@ class xtGraphics extends Panel implements Runnable {
     private boolean grrd = false;
     private int gxdu = 0;
     private int gydu = 0;
-    private final Image hello;
     private int holdcnt = 0;
     boolean holdit = false;
     int hours = 8;
@@ -275,17 +366,8 @@ class xtGraphics extends Panel implements Runnable {
     boolean justwon1 = false;
     private boolean justwon2 = false;
     private int kbload = 0;
-    private Image kenter;
-    private Image km;
-    private Image kn;
-    private Image ks;
-    private Image kv;
-    private Image kx;
-    private Image kz;
     private int lalocked = -1;
     boolean lan = false;
-    Image lanm;
-    private Image lap;
     int laps = 0;
     int laptime = 0;
     private int lcarx = 0;
@@ -296,17 +378,10 @@ class xtGraphics extends Panel implements Runnable {
     private int lcn = 0;
     private int lfrom = 0;
     private int lmode = 0;
-    private final Image loadbar;
     boolean loadedt = false;
-    private Image loadingmusic;
     String localserver = "";
     private int lockcnt = 0;
     boolean logged = false;
-    Image login;
-    private Image logocars;
-    private Image logomadbg;
-    Image logomadnes;
-    Image logout;
     private String loop = "";
     int looped = 1;
     private final SoundClip[] lowcrash = new SoundClip[3];
@@ -318,9 +393,7 @@ class xtGraphics extends Panel implements Runnable {
      * Max car select selected car (don't change)
      */
     private int maxsl = nCars - 1;
-    Image mdness;
     private int minsl = 0;
-    Image mload;
     private int mouson = -1;
     private final static int[] movepos = {
             0, 0
@@ -336,44 +409,21 @@ class xtGraphics extends Panel implements Runnable {
     boolean mutes = false;
     int ndisco = 0;
     boolean newparts = false;
-    private final Image[] next = new Image[2];
     private int nextc = 0;
-    private Image nfm;
-    private Image nfmcom;
-    private Image nfmcoms;
     private int nfmtab = 0;
     int nfreeplays = 0;
     String nickey = "";
     String nickname = "";
     boolean nofull = false;
     int nplayers = 7;
-    Image ntrg;
-    private final Image[] ocntdn = new Image[4];
-    private Image odisco;
-    private Image odmg;
-    private Image oexitgame;
-    private Image oflaot;
-    private Image ogamefinished;
-    private Image ogameh;
-    private Image olap;
     private int oldfase = 0;
-    private Image oloadingmusic;
     private SoundClip one;
-    private Image onfmm;
     int onjoin = -1;
     private boolean onlock = false;
     private int onmsc = -1;
     int ontyp = 0;
-    private Image opback;
-    private Image opos;
     int opselect = 0;
-    private Image opti;
-    private Image opwr;
-    private final Image[] orank = new Image[8];
-    private Image ory;
     int osc = 10;
-    private Image osped;
-    private final Image[] ostar = new Image[2];
     private final static int[] ovh = {
             0, 0, 0, 0
     };
@@ -389,13 +439,6 @@ class xtGraphics extends Panel implements Runnable {
     private final static int[] ovy = {
             0, 0, 0, 0
     };
-    private Image owas;
-    private Image owgame;
-    private Image oyoulost;
-    private Image oyourwasted;
-    private Image oyouwastedem;
-    private Image oyouwon;
-    private Image paused;
     private int pback = 0;
     final String[] pclan = {
             "", "", "", "", "", "", "", ""
@@ -408,7 +451,6 @@ class xtGraphics extends Panel implements Runnable {
     private final static boolean[] pgas = {
             false, false, false, false, false, false, false, false, false
     };
-    private Image pgate;
     private final static int[] pgatx = {
             211, 240, 280, 332, 399, 466, 517, 558, 586
     };
@@ -416,19 +458,14 @@ class xtGraphics extends Panel implements Runnable {
             193, 213, 226, 237, 244, 239, 228, 214, 196
     };
     private int pin = 60;
-    Image play;
     int playingame = -1;
-    Image pln;
     final String[] plnames = {
             "", "", "", "", "", "", "", ""
     };
-    Image pls;
-    private Image plus;
     private int pnext = 0;
     private final static int[] pointc = {
             6, 6
     };
-    private Image pos;
     int posit = 0;
     private SoundClip powerup;
     private int pstar = 0;
@@ -436,31 +473,19 @@ class xtGraphics extends Panel implements Runnable {
     private boolean pwastd = false;
     private int pwcnt = 0;
     private boolean pwflk = false;
-    private Image pwr;
-    private Image racing;
-    private Image radicalplay;
     private int radpx = 212;
-    private final Image[] rank = new Image[8];
     private int ransay = 0;
     private final Graphics2D rd;
-    Image redy;
-    Image register;
     private boolean remi = false;
     private int removeds = 0;
-    Image roomp;
-    private Image rpro;
     private Thread runner;
     private int runtyp = 0;
-    private Image sarrow;
     private String say = "";
     final int[] sc = {
             0, 0, 0, 0, 0, 0, 0, 0
     };
     int scm = 0;
     private final SoundClip[] scrape = new SoundClip[4];
-    Image sdets;
-    private Image select;
-    private Image selectcar;
     private int sendstat = 0;
     private final static String[][] sentn = {
             {
@@ -475,7 +500,6 @@ class xtGraphics extends Panel implements Runnable {
     private boolean shaded = false;
     private float shload = 0.0F;
     private boolean showtf = false;
-    private final Image sign;
     private int skflg = 0;
     private final SoundClip[] skid = new SoundClip[3];
     private boolean skidup = false;
@@ -488,21 +512,13 @@ class xtGraphics extends Panel implements Runnable {
             151, 129, 80, 44, 57, 123, 202, 210, 111
     };
     private Socket socket;
-    private Image space;
-    private Image sped;
     private String spin = "";
-    private final Image[] star = new Image[3];
     int starcnt = 0;
-    Image statb;
-    Image statbo;
-    Image stg;
     private int stopcnt = 0;
     /**
      * Current stage soundtrack;
      */
     RadicalMusic strack;
-    Image sts;
-    private Image stunts;
     private int sturn0 = 0;
     private int sturn1 = 0;
     private int tcnt = 30;
@@ -516,7 +532,6 @@ class xtGraphics extends Panel implements Runnable {
     private boolean tflk = false;
     private SoundClip three;
     private SoundClip tires;
-    private final Image[] trackbg = new Image[2];
     private int trkl = 0;
     private int trklim = (int) (ThreadLocalRandom.current().nextDouble() * 40.0);
     /**
@@ -533,14 +548,10 @@ class xtGraphics extends Panel implements Runnable {
     private final static int[] updatec = {
             -1, -1
     };
-    Image upgrade;
     private int waitlink = 0;
     int warning = 0;
-    private Image was;
     private boolean wasay = false;
     private SoundClip wastd;
-    private Image wasting;
-    private Image wgame;
     boolean winner = true;
     /**
      * The X-coordinate of the start positions in a race
@@ -548,18 +559,13 @@ class xtGraphics extends Panel implements Runnable {
     final int[] xstart = {
             0, -350, 350, 0, -350, 350, 0, 0
     };
-    private Image yac;
-    private Image ycmc;
-    private Image youlost;
-    private Image yourwasted;
-    private Image youwastedem;
-    private Image youwon;
     /**
      * The Z-coordinate of the start positions in a race
      */
     final int[] zstart = {
             -760, -380, -380, 0, 380, 380, 760, 0
     };
+
 
     xtGraphics(final Medium medium, final CarDefine cardefine, final Graphics2D graphics2d, final GameSparker gamesparker) {
         m = medium;

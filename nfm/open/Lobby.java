@@ -19,6 +19,8 @@ import java.net.Socket;
 import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 
+import nfm.open.xtGraphics.Images;
+
 class Lobby implements Runnable {
     int addstage = 0;
     private int britchl = 0;
@@ -886,16 +888,16 @@ class Lobby implements Runnable {
         bw[btn] = image.getWidth(ob);
         if (!pessd[btn]) {
             rd.drawImage(image, i - bw[btn] / 2, i324 - image.getHeight(ob) / 2 - 1, null);
-            rd.drawImage(xt.bols, i - bw[btn] / 2 - 15, i324 - 13, null);
-            rd.drawImage(xt.bors, i + bw[btn] / 2 + 9, i324 - 13, null);
-            rd.drawImage(xt.bot, i - bw[btn] / 2 - 9, i324 - 13, bw[btn] + 18, 3, null);
-            rd.drawImage(xt.bob, i - bw[btn] / 2 - 9, i324 + 10, bw[btn] + 18, 3, null);
+            rd.drawImage(Images.bols, i - bw[btn] / 2 - 15, i324 - 13, null);
+            rd.drawImage(Images.bors, i + bw[btn] / 2 + 9, i324 - 13, null);
+            rd.drawImage(Images.bot, i - bw[btn] / 2 - 9, i324 - 13, bw[btn] + 18, 3, null);
+            rd.drawImage(Images.bob, i - bw[btn] / 2 - 9, i324 + 10, bw[btn] + 18, 3, null);
         } else {
             rd.drawImage(image, i - bw[btn] / 2 + 1, i324 - image.getHeight(ob) / 2, null);
-            rd.drawImage(xt.bolps, i - bw[btn] / 2 - 15, i324 - 13, null);
-            rd.drawImage(xt.borps, i + bw[btn] / 2 + 9, i324 - 13, null);
-            rd.drawImage(xt.bob, i - bw[btn] / 2 - 9, i324 - 13, bw[btn] + 18, 3, null);
-            rd.drawImage(xt.bot, i - bw[btn] / 2 - 9, i324 + 10, bw[btn] + 18, 3, null);
+            rd.drawImage(Images.bolps, i - bw[btn] / 2 - 15, i324 - 13, null);
+            rd.drawImage(Images.borps, i + bw[btn] / 2 + 9, i324 - 13, null);
+            rd.drawImage(Images.bob, i - bw[btn] / 2 - 9, i324 - 13, bw[btn] + 18, 3, null);
+            rd.drawImage(Images.bot, i - bw[btn] / 2 - 9, i324 + 10, bw[btn] + 18, 3, null);
         }
         btn++;
     }
@@ -1446,7 +1448,7 @@ class Lobby implements Runnable {
                     rd.fillRect(193, 53, 17, 360);
                     rd.setColor(new Color(0, 0, 0));
                     rd.drawLine(211, 25, 211, 425);
-                    rd.drawImage(xt.roomp, 72, 30, null);
+                    rd.drawImage(Images.roomp, 72, 30, null);
                     if (mscro == 131 || i104 == 0) {
                         if (i104 == 0) {
                             rd.setColor(color2k(205, 205, 205));
@@ -1459,7 +1461,7 @@ class Lobby implements Runnable {
                         rd.fill3DRect(193, 53, 17, 17, true);
                     }
                     if (i104 != 0) {
-                        rd.drawImage(xt.asu, 198, 59, null);
+                        rd.drawImage(Images.asu, 198, 59, null);
                     }
                     if (mscro == 132 || i104 == 0) {
                         if (i104 == 0) {
@@ -1473,7 +1475,7 @@ class Lobby implements Runnable {
                         rd.fill3DRect(193, 396, 17, 17, true);
                     }
                     if (i104 != 0) {
-                        rd.drawImage(xt.asd, 198, 403, null);
+                        rd.drawImage(Images.asd, 198, 403, null);
                     }
                     if (i104 != 0 && conon == 1) {
                         if (lspos != spos) {
@@ -1620,8 +1622,8 @@ class Lobby implements Runnable {
                             }
                         } else {
                             if (!xt.lan) {
-                                drawSbutton(xt.cgame, 292, 42);
-                                drawSbutton(xt.ccar, 442, 42);
+                                drawSbutton(Images.cgame, 292, 42);
+                                drawSbutton(Images.ccar, 442, 42);
                                 rd.setFont(new Font("Arial", 1, 13));
                                 ftm = rd.getFontMetrics();
                                 rd.setColor(color2k(60, 60, 60));
@@ -1654,9 +1656,9 @@ class Lobby implements Runnable {
                                     gs.rooms.kmoused--;
                                 }
                             } else {
-                                rd.drawImage(xt.lanm, 241, 31, null);
+                                rd.drawImage(Images.lanm, 241, 31, null);
                                 if (npo <= 1) {
-                                    drawSbutton(xt.cgame, 292, -1000);
+                                    drawSbutton(Images.cgame, 292, -1000);
                                     rd.setColor(new Color(0, 0, 0));
                                     if (ncnt == 0) {
                                         rd.setColor(new Color(188, 111, 0));
@@ -1707,11 +1709,11 @@ class Lobby implements Runnable {
                                     rd.setFont(new Font("Arial", 1, 12));
                                     ftm = rd.getFontMetrics();
                                     rd.drawString("[  " + i106 + " Players Connected  ]", 472 - ftm.stringWidth("[  " + i106 + " Players Connected  ]") / 2, 295);
-                                    drawSbutton(xt.cgame, 472, 325);
+                                    drawSbutton(Images.cgame, 472, 325);
                                 }
-                                drawSbutton(xt.ccar, 442, -1000);
+                                drawSbutton(Images.ccar, 442, -1000);
                             }
-                            drawSbutton(xt.exit, 690, 42);
+                            drawSbutton(Images.exit, 690, 42);
                             if (control.enter && !gs.cmsg.getText().equals("Type here...") && !gs.cmsg.getText().equals("")) {
                                 if (chalngd == -1) {
                                     pessd[2] = true;
@@ -2001,7 +2003,7 @@ class Lobby implements Runnable {
                                     }
                                 rd.setColor(color2k(205, 205, 205));
                                 rd.fillRect(235, 65, 480, 25);
-                                rd.drawImage(xt.games, 241, 69, null);
+                                rd.drawImage(Images.games, 241, 69, null);
                                 rd.setColor(color2k(70, 70, 70));
                                 rd.drawString("Stage Name", 382 - ftm.stringWidth("Stage Name") / 2, 81);
                                 rd.drawString("|", 525, 81);
@@ -2030,7 +2032,7 @@ class Lobby implements Runnable {
                                     rd.fill3DRect(698, 90, 17, 17, true);
                                 }
                                 if (i104 != 0) {
-                                    rd.drawImage(xt.asu, 703, 96, null);
+                                    rd.drawImage(Images.asu, 703, 96, null);
                                 }
                                 if (mscro2 == 142 || i104 == 0) {
                                     if (i104 == 0) {
@@ -2044,7 +2046,7 @@ class Lobby implements Runnable {
                                     rd.fill3DRect(698, 220, 17, 17, true);
                                 }
                                 if (i104 != 0) {
-                                    rd.drawImage(xt.asd, 703, 226, null);
+                                    rd.drawImage(Images.asd, 703, 226, null);
                                 }
                                 if (i104 != 0) {
                                     if (lspos2 != spos2) {
@@ -2490,7 +2492,7 @@ class Lobby implements Runnable {
                                             			175);
                                             	rd.setColor(color2k(200, 200, 200));
                                             	rd.fillRoundRect(382, 185, 180, 50, 20, 20);
-                                            	drawSbutton(xt.upgrade, 472, 210);
+                                            	drawSbutton(Images.upgrade, 472, 210);
                                             	if (gs.slaps.isShowing())
                                             		gs.slaps.setVisible(false);
                                             } else *///{
@@ -3230,7 +3232,7 @@ class Lobby implements Runnable {
                                 } else {
                                     stringbutton("Close X", 679, 26, 0);
                                 }
-                            rd.drawImage(xt.pls, 292, 39, null);
+                            rd.drawImage(Images.pls, 292, 39, null);
                             if (opengame != 27) {
                                 m.crs = true;
                                 m.x = -335;
@@ -3450,7 +3452,7 @@ class Lobby implements Runnable {
                                 rd.drawString("Plus " + mnbts[i193] + " MadBots!", 322 - ftm.stringWidth("Plus " + mnbts[i193] + " MadBots!") / 2, 73 + mnpls[i193] * 42);
                             }
                             if (dispcar == -1 || conon != 1) {
-                                rd.drawImage(xt.sts, 537, 39, null);
+                                rd.drawImage(Images.sts, 537, 39, null);
                                 rd.setColor(color2k(200, 200, 200));
                                 rd.drawRect(415, 54, 293, 166);
                                 if (conon == 1) {
@@ -3880,7 +3882,7 @@ class Lobby implements Runnable {
                                 }
                                 rd.setColor(color2k(200, 200, 200));
                                 rd.drawRect(415, 222, 293, 40);
-                                rd.drawImage(xt.stg, 422, 227, null);
+                                rd.drawImage(Images.stg, 422, 227, null);
                                 rd.setColor(new Color(0, 0, 0));
                                 rd.setFont(new Font("Arial", 1, 10));
                                 ftm = rd.getFontMetrics();
@@ -3910,7 +3912,7 @@ class Lobby implements Runnable {
                                     rd.drawRect(i261, 264, i262, 124);
                                     rd.setColor(color2k(240, 240, 240));
                                     rd.fillRect(i261 + 1, 265, i262 - 1, 21);
-                                    rd.drawImage(xt.gmc, i261 + 7, 269, null);
+                                    rd.drawImage(Images.gmc, i261 + 7, 269, null);
                                     rd.setFont(new Font("Tahoma", 0, 11));
                                     rd.setColor(color2k(110, 110, 110));
                                     rd.drawString("(Game Chat )", i261 + 57, 278);
@@ -4015,7 +4017,7 @@ class Lobby implements Runnable {
                                     gs.cmsg.setVisible(false);
                                 }
                                 if (pcars[dispcar] == forcar && forcar != -1) {
-                                    rd.drawImage(xt.crd, 517, 81, null);
+                                    rd.drawImage(Images.crd, 517, 81, null);
                                     rd.setColor(new Color(16, 198, 255));
                                     rd.drawRect(415, 96, 293, 315);
                                     rd.setColor(color2k(240, 240, 240));
@@ -4077,9 +4079,9 @@ class Lobby implements Runnable {
                                     int i281 = -55;
                                     rd.setColor(new Color(0, 63, 128));
                                     rd.drawString("Top Speed:", 30 + i280, 318 + i281);
-                                    rd.drawImage(xt.statb, 97 + i280, 312 + i281, null);
+                                    rd.drawImage(Images.statb, 97 + i280, 312 + i281, null);
                                     rd.drawString("Acceleration:", 20 + i280, 333 + i281);
-                                    rd.drawImage(xt.statb, 97 + i280, 327 + i281, null);
+                                    rd.drawImage(Images.statb, 97 + i280, 327 + i281, null);
                                     rd.setColor(color2k(255, 255, 255));
                                     float f = (cd.swits[forcar][2] - 220) / 90.0F;
                                     if (f < 0.2) {
@@ -4091,17 +4093,17 @@ class Lobby implements Runnable {
                                         f = 1.0F;
                                     }
                                     rd.fillRect((int) (97.0F + 156.0F * f) + i280, 327 + i281, (int) (156.0F * (1.0F - f) + 1.0F), 7);
-                                    rd.drawImage(xt.statbo, 97 + i280, 312 + i281, null);
-                                    rd.drawImage(xt.statbo, 97 + i280, 327 + i281, null);
+                                    rd.drawImage(Images.statbo, 97 + i280, 312 + i281, null);
+                                    rd.drawImage(Images.statbo, 97 + i280, 327 + i281, null);
                                     i280 = 50;
                                     i281 = -25;
                                     rd.setColor(new Color(0, 63, 128));
                                     rd.drawString("Stunts:", 427 + i280, 318 + i281);
-                                    rd.drawImage(xt.statb, 471 + i280, 312 + i281, null);
+                                    rd.drawImage(Images.statb, 471 + i280, 312 + i281, null);
                                     rd.drawString("Strength:", 415 + i280, 333 + i281);
-                                    rd.drawImage(xt.statb, 471 + i280, 327 + i281, null);
+                                    rd.drawImage(Images.statb, 471 + i280, 327 + i281, null);
                                     rd.drawString("Endurance:", 405 + i280, 348 + i281);
-                                    rd.drawImage(xt.statb, 471 + i280, 342 + i281, null);
+                                    rd.drawImage(Images.statb, 471 + i280, 342 + i281, null);
                                     rd.setColor(color2k(255, 255, 255));
                                     f = (cd.airc[forcar] * cd.airs[forcar] * cd.bounce[forcar] + 28.0F) / 139.0F;
                                     if (f > 1.0F) {
@@ -4116,9 +4118,9 @@ class Lobby implements Runnable {
                                     rd.fillRect((int) (471.0F + 156.0F * f) + i280, 327 + i281, (int) (156.0F * (1.0F - f) + 1.0F), 7);
                                     f = cd.outdam[forcar];
                                     rd.fillRect((int) (471.0F + 156.0F * f) + i280, 342 + i281, (int) (156.0F * (1.0F - f) + 1.0F), 7);
-                                    rd.drawImage(xt.statbo, 471 + i280, 312 + i281, null);
-                                    rd.drawImage(xt.statbo, 471 + i280, 327 + i281, null);
-                                    rd.drawImage(xt.statbo, 471 + i280, 342 + i281, null);
+                                    rd.drawImage(Images.statbo, 471 + i280, 312 + i281, null);
+                                    rd.drawImage(Images.statbo, 471 + i280, 327 + i281, null);
+                                    rd.drawImage(Images.statbo, 471 + i280, 342 + i281, null);
                                     rd.setColor(new Color(0, 0, 0));
                                     if (forcar < CarDefine.SIXTEEN) {
                                         rd.setFont(new Font("Arial", 1, 12));
@@ -4373,7 +4375,7 @@ class Lobby implements Runnable {
                         rd.drawString("You need to upgrade to a full account to join this game!", 400 - ftm.stringWidth("You need to upgrade to a full account to join this game!") / 2, 202);
                         rd.setColor(color2k(200, 200, 200));
                         rd.fillRoundRect(310, 215, 180, 50, 20, 20);
-                        drawSbutton(xt.upgrade, 400, 240);
+                        drawSbutton(Images.upgrade, 400, 240);
                         stringbutton("  Cancel X  ", 593, 259, 2);
                     }
                 }
@@ -4385,7 +4387,7 @@ class Lobby implements Runnable {
                     gs.requestFocus();
                 }
                 rd.setComposite(AlphaComposite.getInstance(3, 0.2F));
-                rd.drawImage(xt.bggo, 0, 0, null);
+                rd.drawImage(Images.bggo, 0, 0, null);
                 rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
                 rd.setColor(new Color(0, 0, 0));
                 rd.fillRect(65, 425, 670, 25);
@@ -4401,9 +4403,9 @@ class Lobby implements Runnable {
                 }
                 rd.setComposite(AlphaComposite.getInstance(3, f));
                 if (lg.flipo > 10) {
-                    rd.drawImage(xt.logomadnes, 97 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), 36 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), null);
+                    rd.drawImage(Images.logomadnes, 97 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), 36 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), null);
                 } else {
-                    rd.drawImage(xt.logomadnes, 97, 36, null);
+                    rd.drawImage(Images.logomadnes, 97, 36, null);
                 }
                 lg.flipo++;
                 if (lg.flipo > 50) {
@@ -4421,7 +4423,7 @@ class Lobby implements Runnable {
                 rd.setColor(color2k(0, 0, 0));
                 rd.drawString("You are allowed 5 multiplayer turns per day to try the game with your trial account.", 135, 85 + i291);
                 rd.drawString("Upgrade your account to a full account to purchase and play the multiplayer game.", 135, 105 + i291);
-                drawSbutton(xt.upgrade, 400, 130 + i291);
+                drawSbutton(Images.upgrade, 400, 130 + i291);
                 rd.setColor(new Color(30, 70, 110));
                 rd.drawString("You can upgrade your account by just sharing the game & posting about it online!", 135, 165 + i291);
                 rd.drawString("Click 'Upgrade' for more details.", 135, 185 + i291);
@@ -4432,7 +4434,7 @@ class Lobby implements Runnable {
                 rd.drawString("-  Watch online multiplayer games.", 135, 265 + i291);
                 rd.drawString("-  Access the multiplayer dome.", 135, 285 + i291);
                 rd.drawString("-  Play LAN multiplayer games (unlimitedly).", 135, 305 + i291);
-                drawSbutton(xt.exit, 400, 336 + i291);
+                drawSbutton(Images.exit, 400, 336 + i291);
             }
         } else {
             xt.drawWarning();
@@ -5515,7 +5517,7 @@ class Lobby implements Runnable {
         rd.fillRect(65, 425, 670, 25);
         btn = 0;
         int i294 = 0;
-        rd.drawImage(xt.br, 65, 25, null);
+        rd.drawImage(Images.br, 65, 25, null);
         if (britchl == -1) {
             ongame = -1;
             britchl = 0;
@@ -5628,7 +5630,7 @@ class Lobby implements Runnable {
         string = "Stage " + checkpoints.stage;
         xt.drawcs(85, "Previewing " + string + "  >", 255, 138, 0, 5);
         xt.drawcs(105, "| " + checkpoints.name + " |", 255, 176, 85, 5);
-        rd.drawImage(xt.back[pback], 532, 285, null);
+        rd.drawImage(Images.back[pback], 532, 285, null);
         if (plsndt == 0) {
             final String string300 = "Play Soundtrack >";
             final int i301 = 562 - ftm.stringWidth(string300) / 2;

@@ -5,6 +5,9 @@ package nfm.open;
 
 import javax.swing.*;
 import javax.swing.Timer;
+
+import nfm.open.xtGraphics.Images;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
@@ -1906,7 +1909,7 @@ class GameSparker extends JPanel
                 xtgraphics.strack.unload();
                 xtgraphics.strack = null;
                 xtgraphics.flexpix = null;
-                xtgraphics.fleximg = null;
+                Images.fleximg = null;
                 System.gc();
                 xtgraphics.loadedt = false;
             }
@@ -1958,7 +1961,7 @@ class GameSparker extends JPanel
                 xtgraphics.strack.unload();
                 xtgraphics.strack = null;
                 xtgraphics.flexpix = null;
-                xtgraphics.fleximg = null;
+                Images.fleximg = null;
                 System.gc();
                 xtgraphics.loadedt = false;
             }
@@ -1987,7 +1990,7 @@ class GameSparker extends JPanel
                 xtgraphics.strack.unload();
                 xtgraphics.strack = null;
                 xtgraphics.flexpix = null;
-                xtgraphics.fleximg = null;
+                Images.fleximg = null;
                 System.gc();
                 xtgraphics.loadedt = false;
             }
@@ -2131,7 +2134,7 @@ class GameSparker extends JPanel
                     xtgraphics.strack.unload();
                     xtgraphics.strack = null;
                     xtgraphics.flexpix = null;
-                    xtgraphics.fleximg = null;
+                    Images.fleximg = null;
                     System.gc();
                     xtgraphics.loadedt = false;
                 }
@@ -2139,7 +2142,7 @@ class GameSparker extends JPanel
                 rd.setColor(new Color(0, 0, 0));
                 rd.fillRect(65, 25, 670, 400);
                 if (mload > 0) {
-                    rd.drawImage(xtgraphics.mload, 259, 195, this);
+                    rd.drawImage(Images.mload, 259, 195, this);
                 }
                 //repaint();
                 if (mload == 2) {
@@ -3099,8 +3102,8 @@ class GameSparker extends JPanel
                 }
             }
             if (recordtime <= 0) {
-                rd.drawImage(xtgraphics.mdness, 289, 30, null);
-                rd.drawImage(xtgraphics.dude[0], 135, 10, null);
+                rd.drawImage(Images.mdness, 289, 30, null);
+                rd.drawImage(Images.dude[0], 135, 10, null);
             }
             if (recordtime >= 0) {
                 xtgraphics.fleximage(offImage, recordtime);

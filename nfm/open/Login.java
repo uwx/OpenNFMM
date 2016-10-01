@@ -22,6 +22,8 @@ import java.net.Socket;
 import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 
+import nfm.open.xtGraphics.Images;
+
 class Login implements Runnable {
     private final int[] bgmy = {
             0, 400, 800
@@ -608,16 +610,16 @@ class Login implements Runnable {
         bw[btn] = image.getWidth(ob);
         if (!pessd[btn]) {
             rd.drawImage(image, i - bw[btn] / 2, i59 - image.getHeight(ob) / 2, null);
-            rd.drawImage(xt.bol, i - bw[btn] / 2 - 15, i59 - 16, null);
-            rd.drawImage(xt.bor, i + bw[btn] / 2 + 9, i59 - 16, null);
-            rd.drawImage(xt.bot, i - bw[btn] / 2 - 9, i59 - 16, bw[btn] + 18, 3, null);
-            rd.drawImage(xt.bob, i - bw[btn] / 2 - 9, i59 + 13, bw[btn] + 18, 3, null);
+            rd.drawImage(Images.bol, i - bw[btn] / 2 - 15, i59 - 16, null);
+            rd.drawImage(Images.bor, i + bw[btn] / 2 + 9, i59 - 16, null);
+            rd.drawImage(Images.bot, i - bw[btn] / 2 - 9, i59 - 16, bw[btn] + 18, 3, null);
+            rd.drawImage(Images.bob, i - bw[btn] / 2 - 9, i59 + 13, bw[btn] + 18, 3, null);
         } else {
             rd.drawImage(image, i - bw[btn] / 2 + 1, i59 - image.getHeight(ob) / 2 + 1, null);
-            rd.drawImage(xt.bolp, i - bw[btn] / 2 - 15, i59 - 16, null);
-            rd.drawImage(xt.borp, i + bw[btn] / 2 + 9, i59 - 16, null);
-            rd.drawImage(xt.bob, i - bw[btn] / 2 - 9, i59 - 16, bw[btn] + 18, 3, null);
-            rd.drawImage(xt.bot, i - bw[btn] / 2 - 9, i59 + 13, bw[btn] + 18, 3, null);
+            rd.drawImage(Images.bolp, i - bw[btn] / 2 - 15, i59 - 16, null);
+            rd.drawImage(Images.borp, i + bw[btn] / 2 + 9, i59 - 16, null);
+            rd.drawImage(Images.bob, i - bw[btn] / 2 - 9, i59 - 16, bw[btn] + 18, 3, null);
+            rd.drawImage(Images.bot, i - bw[btn] / 2 - 9, i59 + 13, bw[btn] + 18, 3, null);
         }
         btn++;
     }
@@ -628,16 +630,16 @@ class Login implements Runnable {
         bw[btn] = image.getWidth(ob);
         if (!pessd[btn]) {
             rd.drawImage(image, i - bw[btn] / 2, i58 - image.getHeight(ob) / 2 - 1, null);
-            rd.drawImage(xt.bols, i - bw[btn] / 2 - 15, i58 - 13, null);
-            rd.drawImage(xt.bors, i + bw[btn] / 2 + 9, i58 - 13, null);
-            rd.drawImage(xt.bot, i - bw[btn] / 2 - 9, i58 - 13, bw[btn] + 18, 3, null);
-            rd.drawImage(xt.bob, i - bw[btn] / 2 - 9, i58 + 10, bw[btn] + 18, 3, null);
+            rd.drawImage(Images.bols, i - bw[btn] / 2 - 15, i58 - 13, null);
+            rd.drawImage(Images.bors, i + bw[btn] / 2 + 9, i58 - 13, null);
+            rd.drawImage(Images.bot, i - bw[btn] / 2 - 9, i58 - 13, bw[btn] + 18, 3, null);
+            rd.drawImage(Images.bob, i - bw[btn] / 2 - 9, i58 + 10, bw[btn] + 18, 3, null);
         } else {
             rd.drawImage(image, i - bw[btn] / 2 + 1, i58 - image.getHeight(ob) / 2, null);
-            rd.drawImage(xt.bolps, i - bw[btn] / 2 - 15, i58 - 13, null);
-            rd.drawImage(xt.borps, i + bw[btn] / 2 + 9, i58 - 13, null);
-            rd.drawImage(xt.bob, i - bw[btn] / 2 - 9, i58 - 13, bw[btn] + 18, 3, null);
-            rd.drawImage(xt.bot, i - bw[btn] / 2 - 9, i58 + 10, bw[btn] + 18, 3, null);
+            rd.drawImage(Images.bolps, i - bw[btn] / 2 - 15, i58 - 13, null);
+            rd.drawImage(Images.borps, i + bw[btn] / 2 + 9, i58 - 13, null);
+            rd.drawImage(Images.bob, i - bw[btn] / 2 - 9, i58 - 13, bw[btn] + 18, 3, null);
+            rd.drawImage(Images.bot, i - bw[btn] / 2 - 9, i58 + 10, bw[btn] + 18, 3, null);
         }
         btn++;
     }
@@ -850,14 +852,14 @@ class Login implements Runnable {
         btn = 0;
         xt.mainbg(4);
         for (int i = 0; i < 3; i++) {
-            rd.drawImage(xt.bgmain, 65, bgmy[i], null);
+            rd.drawImage(Images.bgmain, 65, bgmy[i], null);
             bgmy[i] -= 4;
             if (bgmy[i] <= -400) {
                 bgmy[i] = 800;
             }
         }
         rd.setComposite(AlphaComposite.getInstance(3, 0.2F));
-        rd.drawImage(xt.bggo, 0, 0, null);
+        rd.drawImage(Images.bggo, 0, 0, null);
         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
         rd.setColor(new Color(0, 0, 0));
         rd.fillRect(65, 425, 670, 25);
@@ -872,16 +874,16 @@ class Login implements Runnable {
         }
         rd.setComposite(AlphaComposite.getInstance(3, f));
         if (flipo > 10) {
-            rd.drawImage(xt.logomadnes, 96 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), 11 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), null);
+            rd.drawImage(Images.logomadnes, 96 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), 11 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), null);
         } else {
-            rd.drawImage(xt.logomadnes, 96, 11, null);
+            rd.drawImage(Images.logomadnes, 96, 11, null);
         }
         flipo++;
         if (flipo > 50) {
             flipo = 0;
         }
         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
-        drawSbutton(xt.exit, 690, 17);
+        drawSbutton(Images.exit, 690, 17);
         rd.setComposite(AlphaComposite.getInstance(3, 0.25F));
         rd.setColor(new Color(203, 227, 253));
         rd.fillRoundRect(319, 83, 180, 96, 20, 20);
@@ -942,8 +944,8 @@ class Login implements Runnable {
         rd.setColor(color2k(90, 90, 90));
         rd.drawString("" + xt.cd.names[xt.sc[0]] + "", 409 - ftm.stringWidth("" + xt.cd.names[xt.sc[0]] + "") / 2, 81);
         rd.drawString("Nickname", 239 - ftm.stringWidth("Nickname") / 2, 81);
-        drawbutton(xt.change, 570, 98);
-        drawSbutton(xt.logout, 239, 135);
+        drawbutton(Images.change, 570, 98);
+        drawSbutton(Images.logout, 239, 135);
         rd.setColor(new Color(98, 56, 0));
         rd.drawString("Edit my Account", 239 - ftm.stringWidth("Edit my Account") / 2, 168);
         if (ond) {
@@ -974,14 +976,14 @@ class Login implements Runnable {
                 rd.setColor(color2k(90, 90, 90));
                 rd.drawString("Multiplayer Mode", 400 - ftm.stringWidth("Multiplayer Mode") / 2, 220);
                 rd.drawRoundRect(205, 225, 390, 120, 20, 20);
-                drawbutton(xt.pln, 400, 285 - xt.pln.getHeight(ob) / 2);
+                drawbutton(Images.pln, 400, 285 - Images.pln.getHeight(ob) / 2);
                 if (opselect == 1 && !pessd[4]) {
                     rd.setComposite(AlphaComposite.getInstance(3, 0.25F));
                     rd.setColor(new Color(203, 227, 253));
-                    rd.fillRect(387 - xt.pln.getWidth(ob) / 2, 285 - xt.pln.getHeight(ob) - 5, xt.pln.getWidth(ob) + 26, 26);
+                    rd.fillRect(387 - Images.pln.getWidth(ob) / 2, 285 - Images.pln.getHeight(ob) - 5, Images.pln.getWidth(ob) + 26, 26);
                     rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
                 }
-                drawbutton(xt.pln, 400, 285 - xt.pln.getHeight(ob) / 2);
+                drawbutton(Images.pln, 400, 285 - Images.pln.getHeight(ob) / 2);
             } else {
                 rd.setComposite(AlphaComposite.getInstance(3, 0.25F));
                 rd.setColor(new Color(203, 227, 253));
@@ -1025,9 +1027,9 @@ class Login implements Runnable {
             }
         if (fase == 15) {
             if (trans < 100) {
-                rd.drawImage(xt.pln, 400 - xt.pln.getWidth(ob) / 2, 315 - xt.pln.getHeight(ob) / 2 - 12 - trans, null);
+                rd.drawImage(Images.pln, 400 - Images.pln.getWidth(ob) / 2, 315 - Images.pln.getHeight(ob) / 2 - 12 - trans, null);
             } else {
-                rd.drawImage(xt.pln, 400 - xt.pln.getWidth(ob) / 2, 215 - xt.pln.getHeight(ob) / 2 - 12, null);
+                rd.drawImage(Images.pln, 400 - Images.pln.getWidth(ob) / 2, 215 - Images.pln.getHeight(ob) / 2 - 12, null);
             }
             if (trans >= 100) {
                 rd.setColor(color2k(255, 255, 255));
@@ -1069,8 +1071,8 @@ class Login implements Runnable {
                     rd.drawString("You can also invite your friends to come over with their Laptop PCs or Macs", 179, 335);
                     rd.drawString("to log on to your internet connection/network and play with you!", 179, 352);
                 }
-                drawbutton(xt.cancel, 583, 395);
-                drawbutton(xt.play, 400, 395);
+                drawbutton(Images.cancel, 583, 395);
+                drawbutton(Images.play, 400, 395);
             } else {
                 trans += 10;
             }
@@ -1084,14 +1086,14 @@ class Login implements Runnable {
         btn = 0;
         xt.mainbg(4);
         for (int i39 = 0; i39 < 3; i39++) {
-            rd.drawImage(xt.bgmain, 65, bgmy[i39], null);
+            rd.drawImage(Images.bgmain, 65, bgmy[i39], null);
             bgmy[i39] -= 4;
             if (bgmy[i39] <= -400) {
                 bgmy[i39] = 800;
             }
         }
         rd.setComposite(AlphaComposite.getInstance(3, 0.2F));
-        rd.drawImage(xt.bggo, 0, 0, null);
+        rd.drawImage(Images.bggo, 0, 0, null);
         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
         rd.setColor(new Color(0, 0, 0));
         rd.fillRect(65, 425, 670, 25);
@@ -1106,9 +1108,9 @@ class Login implements Runnable {
         }
         rd.setComposite(AlphaComposite.getInstance(3, f));
         if (flipo > 10) {
-            rd.drawImage(xt.logomadnes, 96 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), 11 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), null);
+            rd.drawImage(Images.logomadnes, 96 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), 11 + (int) (2.0 - ThreadLocalRandom.current().nextDouble() * 4.0), null);
         } else {
-            rd.drawImage(xt.logomadnes, 96, 11, null);
+            rd.drawImage(Images.logomadnes, 96, 11, null);
         }
         flipo++;
         if (flipo > 50) {
@@ -1125,13 +1127,13 @@ class Login implements Runnable {
             i40 = 2;
         }
         rd.setComposite(AlphaComposite.getInstance(3, 0.3F));
-        rd.drawImage(xt.dude[i40], 87, 76, null);
+        rd.drawImage(Images.dude[i40], 87, 76, null);
         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
-        rd.drawImage(xt.redy, 445, 153, null);
+        rd.drawImage(Images.redy, 445, 153, null);
         // really dirty solution to a very specific bug
         // DO NOT DELETE THE LINE BELOW
         // drawSbutton((xt).exit, 690, 17);
-        drawSbutton(xt.exit, 690, 17);
+        drawSbutton(Images.exit, 690, 17);
         rd.setFont(new Font("Arial", 1, 13));
         ftm = rd.getFontMetrics();
         if (fase != 5) {
@@ -1187,7 +1189,7 @@ class Login implements Runnable {
                     pendb = false;
                 }
             }
-            drawbutton(xt.change, 497, 98);
+            drawbutton(Images.change, 497, 98);
         }
         if (fase == 1 || fase == 2) {
             rd.setColor(new Color(0, 0, 0));
@@ -1228,7 +1230,7 @@ class Login implements Runnable {
                     gs.tnick.setForeground(new Color(0, 0, 0));
                 }
             }
-            drawbutton(xt.play, 400, 285);
+            drawbutton(Images.play, 400, 285);
             if (nflk > 0) {
                 if (gs.tnick.getText().equals("")) {
                     gs.tnick.setText("Nickname");
@@ -1240,8 +1242,8 @@ class Login implements Runnable {
                 }
                 nflk--;
             }
-            drawbutton(xt.login, 400, 340);
-            drawbutton(xt.register, 400, 395);
+            drawbutton(Images.login, 400, 340);
+            drawbutton(Images.register, 400, 395);
             gs.movefield(gs.tnick, 400, 225, 129, 23);
             while (ftm.stringWidth(gs.tnick.getText()) > 86) {
                 gs.tnick.setText(gs.tnick.getText().substring(0, gs.tnick.getText().length() - 1));
@@ -1259,7 +1261,7 @@ class Login implements Runnable {
             }
         }
         if (fase == 3 || fase == 4) {
-            rd.drawImage(xt.ntrg, 97, 388, null);
+            rd.drawImage(Images.ntrg, 97, 388, null);
             rd.setComposite(AlphaComposite.getInstance(3, 0.25F));
             rd.setColor(new Color(203, 227, 253));
             rd.fillRoundRect(246, 212, 308, 142, 20, 20);
@@ -1322,7 +1324,7 @@ class Login implements Runnable {
                     gs.tpass.setForeground(new Color(0, 0, 0));
                 }
             }
-            drawbutton(xt.login, 400, 315);
+            drawbutton(Images.login, 400, 315);
             if (onf) {
                 rd.setColor(color2k(0, 72, 255));
             } else {
@@ -1339,7 +1341,7 @@ class Login implements Runnable {
             xrr = xrl + ftm.stringWidth(string);
             rd.drawString(string, xrl, 371);
             rd.drawLine(xrl, 372, xrr, 372);
-            drawbutton(xt.register, 400, 395);
+            drawbutton(Images.register, 400, 395);
             gs.movefieldd(gs.tnick, 376, 221, 129, 23, showtf);
             if (!gs.tnick.getText().equals(lnick)) {
                 fixtext(gs.tnick);
@@ -1370,8 +1372,8 @@ class Login implements Runnable {
             if (!gs.tnick.isShowing()) {
                 gs.tnick.setVisible(true);
             }
-            drawbutton(xt.register, 400, 325);
-            drawbutton(xt.cancel, 400, 375);
+            drawbutton(Images.register, 400, 325);
+            drawbutton(Images.cancel, 400, 375);
         }
         if (fase == 7 || fase == 8) {
             rd.setColor(new Color(0, 0, 0));
@@ -1417,8 +1419,8 @@ class Login implements Runnable {
                     gs.temail.setForeground(new Color(0, 0, 0));
                 }
             }
-            drawbutton(xt.sdets, 400, 280);
-            drawbutton(xt.cancel, 400, 375);
+            drawbutton(Images.sdets, 400, 280);
+            drawbutton(Images.cancel, 400, 375);
             gs.movefieldd(gs.temail, 344, 225, 199, 23, showtf);
             if (!gs.temail.getText().equals(lemail)) {
                 fixtext(gs.temail);
