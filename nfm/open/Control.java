@@ -1,20 +1,63 @@
-package nfm.open;/* Control - Decompiled by JODE
- * Visit http://jode.sourceforge.net/
- */
+package nfm.open;
 
+/**
+ * @author Omar Waly
+ * @author Partial docs by Ten Graves
+ * @author Rafael
+ */
 class Control {
+    /**
+     * The car that the AI will attack. 0 means it's gonna attack you, 6 means it's gonna attack the boss car, so on and so forth.
+     */
     private int acr = 0;
+    /**
+     * The time it takes (in frames) for the AI to "press" a key.
+     */
     private int actwait = 0;
+    /**
+     * Multiplier for the delay between each turn. <i>Trivia: In custom stages, acuracy is always 0.</i>
+     */
     private int acuracy = 0;
+    /**
+     * Just used for a few things regarding aggressiveness of the AI (if afta is true the AI will be willing to attack you, except that there about 1000000 other things that affect this, this is just one of the checks). As you suggested, it really doesn't affect much.
+     */
     private boolean afta = false;
+    /**
+     * True if the AI is aggro'd on another car.
+     * Agressed actually just affects turns - when it's false, the AI cars stop holding up while turning, whereas when it's true they hold up as normal.
+     * 
+     */
     private boolean agressed = false;
+    /**
+     * Makes the AI more precise when targeting another car. <i>Trivia: This works by making the AI think the target is farther away than it is, thus making the AI take smoother turns. Nice one, Omar.</i>
+     * <br><br>
+     * When it's at 1.0F, it means that the AI will target their opponent at their exact location. Which sounds great, but in practice it doesn't work well as it does not account for dodging at all.<br>
+     * <br>
+     * The beauty lies in if aim is slightly below 1.0F or slightly above 1.0F - when you do that it aims for its target slightly off to its location. This means that the AI will still get a solid hit even if you dodge it (you'll have to do quite a large dodge to avoid getting hit completely). Of course, there is the chance that you dodge the other way and dodge them completely, but especially if the AI are wasting in packs, it does make dodging a whole lot tougher.<br>
+     * <br>
+     * In terms of using this piece of code, you could probably use something like this:<br>
+     * <br>
+     * {@code        aim = (m.random() / 2) + 0.75F;}<br>
+     * <br>
+     * Which causes aim to be any value from 0.75F to 1.25F, meaning that the AI will be completely unpredictable in which way they'll target you.
+     */
     private float aim = 0.0F;
     private int apunch = 0;
     boolean arrace = false;
+    /**
+     * An "attack timer"; if it's 0, the AI will race, if it's anything else, the AI will waste, and every frame it keeps counting down to 0. Basically, the "temper" of the AI.
+     */
     private int attack = 0;
     private int avoidnlev = 0;
+    /**
+     * Its main function is to make cars go through the stage backwards. On its own, though, it's not really helpful so what you could do is make the AI attack other cars when it gets close to them (like in Stage 11).
+     * 
+     */
     private boolean bulistc = false;
     int chatup = 0;
+    /**
+     * The "squeezing room" (in degrees) that the AI has to make turns. Lower means more accurate turns, higher means less accurate turns. <i>Trivia: To quote Ten of Graves: Do NOT put this at 0, or they'll keep swerving from side to side (because they keep trying to be at exactly the center of the road piece).</i>
+     */
     private int clrnce = 5;
     private int cntrn = 0;
     boolean down = false;
@@ -22,13 +65,32 @@ class Control {
     boolean exit = false;
     private boolean exitattack = false;
     private int flycnt = 0;
+    /**
+     * Makes the AI prioritize fixing over racing.
+     */
     private boolean forget = false;
+    /**
+     * The (up to 5) fix points in a stage.
+     */
     private final int[] fpnt = new int[5];
     private int frad = 0;
+    /**
+     * The X coordinate range from which the AI will start to move from the camping spot and go for you.
+     */
     private int frx = 0;
+    /**
+     * The Z coordinate range from which the AI will start to move from the camping spot and go for you.
+     */
     private int frz = 0;
+    /**
+     * If it's true, the AI will go to its camping spot
+     */
     private boolean gowait = false;
     boolean handb = false;
+    /**
+     * Think of hold as a timer that decreases every frame (like attack) - while it's greater than 0, the AI cars will never turn. So if I set hold to be 100 then it will take 100 frames before the AI cars will be able to turn.
+     * 
+     */
     private int hold = 0;
     private boolean lastl = false;
     boolean left = false;
@@ -41,6 +103,9 @@ class Control {
     private int lwall = -1;
     private final Medium m;
     int multion = 0;
+    /**
+     * The higher this is, the less risky stunts the AI will perform. <i>Trivia: When the AI car's power is under 50%, it will perform risky stunts to get its power back (this value is set to 0)</i>
+     */
     private float mustland = 0.5F;
     boolean mutem = false;
     boolean mutes = false;
@@ -51,24 +116,71 @@ class Control {
     private int oupnt = 0;
     private int oxy = 0;
     private int ozy = 0;
+    /**
+     * the "destination" angle of the AI car, as in "pan to". Mathematically, it is the tangent of the distance between the car's Z and the destination Z divided by the car's X and the destination X. For example, if you set this to 180, the car will turn to the 180 angle. Don't confuse this with "turning 180 degrees".
+     */
     private int pan = 0;
+    /**
+     * Affects how well the AI cars land from a stunt - if it's true, they land a lot more accurately than when it's false. It's best to just keep it true at all times.
+     * 
+     */
     private boolean perfection = false;
     boolean radar = false;
+    /**
+     * Not really an important variable, but it basically controls how willing the AI cars are to go up ramps and stunt.<br><br>
+     * 
+     * Picture this: an AI car is going through a stage pretty smoothly on a road piece. One of the next few pieces is a ramp piece. When rampp is 1, the next piece the AI would go to would be the ramp piece to try and stunt. If it was -1 (which it is when the AI is at max power) it would instead target the piece immediately after it (so it'll basically ignore the ramp piece).<br><br>
+     * 
+     * The only problem is that even if the AI do ignore a ramp piece, it doesn't mean they will actively try and avoid it. If rampp is -1 but a ramp is in their way to the next piece (which happens 95% of the time), they'll still go up it and even stunt as normal.<br><br>
+     * 
+     * The only real situation where this variable actually does something is when the AI gets back onto course after being launched or something - as they approach the track again, they can decide which piece to go to next. But in practice, this variable makes very little difference so don't worry about it too much.
+     */
     private int rampp = 0;
+    /**
+     * The actual delay between each turn. Affected by acuracy.
+     */
     private int randtcnt = 0;
+    /**
+     * How long the AI reverses for after the start of a race.
+     */
     private int revstart = 0;
     boolean right = false;
+    /**
+     * A timer for how long bulistc is true. When it reaches 0, bulistc is toggled to false.
+     */
     private int runbul = 0;
+    /**
+     * It basically affects how soon the AI cars begin to prepare for landing from a stunt. Higher values of saftey mean that they prepare for landing closer to the ground (generally a saftey value of 5-10 works pretty well for me), so a saftey value of 0 means that they play it very safe (but barely do any stunts).
+     * 
+     */
     private int saftey = 30;
+    /**
+     * The lower this is, the higher the chance that the AI will cut through a corner. <i>Trivia: If a car is in last place, this value keeps decreasing until the AI cuts ahead of the other players.</i>
+     */
     private float skiplev = 1.0F;
     private int statusque = 0;
     private int stcnt = 0;
     private int stuntf = 0;
     private int swat = 0;
+    /**
+     * When trfix is 2, the AI go to their set fixing point (determined by the fpnt[] variable as you said). As the AI get within range of the fixing hoop, trfix becomes 3 which prepares the AI for fixing (like what stunts they should do, setting clrnce and acuracy to be 0 so they're as accurate as possible, etc.)
+     * 
+     */
     private int trfix = 0;
+    /**
+     * When trickfase is 0, the AI isn't stunting.<br>
+     * When trickfase is 1, the AI does its main part of the stunt (forward loops, backloops, etc.).<br>
+     * When trickfase is 2, the AI begins preparing its car for landing from the stunt. Best not to edit it seeing as it's a pretty logical system.
+     */
     private int trickfase = 0;
     private float trickprf = 0.5F;
     private int turncnt = 0;
+    /**
+     * What type of turn the AI is making/will make.<br>
+0 means the AI will turn without braking<br>
+1 means the AI will turn and brake<br>
+2 means the AI will turn and handbrake
+     */
     private int turntyp = 0;
     private boolean udbare = false;
     private boolean udcomp = false;
@@ -77,12 +189,28 @@ class Control {
     private boolean udswt = false;
     boolean up = false;
     private int upcnt = 0;
+    /**
+     * The time it takes (in frames) for the AI to "release" a key.
+     */
     private int upwait = 0;
+    /**
+     * Basically means whether to treat bouncing (like from a stunt) as racing on the ground or racing in the air. In practice it really doesn't affect much so don't worry too much about it, although it is generally good practice to leave it as true so that the AI doesn't get needless bad landings from trying to stunt from a heavy bounce or something (which happens rarely anyway).
+     * 
+     */
     private boolean usebounce = false;
     int wall = -1;
     private boolean wlastl = false;
+    /**
+     * The X coordinate of a camp out location. This changes based on how far the player is into the race.
+     */
     private int wtx = 0;
+    /**
+     * The Z coordinate of a camp out location. This changes based on how far the player is into the race.
+     */
     private int wtz = 0;
+    /**
+     * Inverts the ZY angle. It is true if the AI is going backwards.
+     */
     boolean zyinv = false;
 
     Control(final Medium medium) {

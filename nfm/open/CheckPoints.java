@@ -36,7 +36,13 @@ class CheckPoints {
     int nto = 0;
     final int[] omxz = new int[8];
     final int[] onscreen = new int[8];
+    /**
+     * The X of every car in the stage.
+     */
     final int[] opx = new int[8];
+    /**
+     * The Z of every car in the stage.
+     */
     final int[] opz = new int[8];
     int pcleared = 0;
     int pcs = 0;
@@ -54,8 +60,17 @@ class CheckPoints {
     int trackvol = 200;
     final int[] typ = new int[10000];
     int wasted = 0;
+    /**
+     * You know when you add )p to the end of pieces? Their coordinates go here. )p basically adds "nodes" for where the AI goes. Therefore, {@link #x} and {@link #z} are the X and Z coordinates of track pieces with )p at the end of them.
+     */
     final int[] x = new int[10000];
+    /**
+     * You know when you add )p to the end of pieces? Their coordinates go here. )p basically adds "nodes" for where the AI goes. Therefore, {@link #x} and {@link #z} are the X and Z coordinates of track pieces with )p at the end of them.
+     */
     final int[] y = new int[10000];
+    /**
+     * You know when you add )p to the end of pieces? Their coordinates go here. )p basically adds "nodes" for where the AI goes. Therefore, {@link #x} and {@link #z} are the X and Z coordinates of track pieces with )p at the end of them.
+     */
     final int[] z = new int[10000];
 
     void calprox() {
