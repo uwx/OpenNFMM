@@ -2,13 +2,15 @@
 <classpath>
 	<classpathentry excluding=".settings/|bin/|data/|libraries/|music/|mystages/|stages/|mycars/|libraries/dlls/win32/|libraries/dlls/win64/|doc/|target/classes/|target/classes/javazoom/jl/player/|target/" kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="libraries/easyogg.jar"/>
-	<classpathentry kind="lib" path="libraries/jl1.0.1.jar"/>
-	<classpathentry kind="lib" path="libraries/jogg-0.0.7.jar"/>
-	<classpathentry kind="lib" path="libraries/jorbis-0.0.15.jar"/>
-	<classpathentry kind="lib" path="libraries/NativeBass.jar" sourcepath="libraries/bass_src.zip"/>
-	<classpathentry kind="lib" path="libraries/NativeBass-Examples.jar" sourcepath="libraries/bass_examples.zip"/>
-	<classpathentry kind="lib" path="C:/Users/Rafael/Documents/GitHub/oshift/OpenNFMM/libraries/gson-2.6.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Rafael/Documents/GitHub/oshift/OpenNFMM/libraries/rsyntaxtextarea-2.5.8.jar"/>
+	<classpathentry kind="lib" path="libraries/bin/dragshotMod.jar"/>
+	<classpathentry kind="lib" path="libraries/bin/easyogg.jar"/>
+	<classpathentry kind="lib" path="libraries/bin/gson-2.6.2.jar"/>
+	<classpathentry kind="lib" path="libraries/bin/jl1.0.1.jar"/>
+	<classpathentry kind="lib" path="libraries/bin/jogg-0.0.7.jar"/>
+	<classpathentry kind="lib" path="libraries/bin/jorbis-0.0.15.jar"/>
+	<classpathentry kind="lib" path="libraries/bin/NativeBass-Examples.jar" sourcepath="libraries/src/bass_examples.zip"/>
+	<classpathentry kind="lib" path="libraries/bin/NativeBass.jar" sourcepath="libraries/src/bass_src.zip"/>
+	<classpathentry kind="lib" path="libraries/bin/rsyntaxtextarea-2.5.8.jar"/>
+	<classpathentry kind="lib" path="libraries/bin/trove-3.1a1.jar" sourcepath="libraries/src/trove-3.1a1-src.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
