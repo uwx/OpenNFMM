@@ -90,11 +90,11 @@ public final class Utility {
      * @param m the Medium
      * @return The 2D X coordinate.
      */
-    static int xs(final int i, int i338, final Medium m) {
-        if (i338 < m.cz) {
-            i338 = m.cz;
+    static int xs(final int i, int i338) {
+        if (i338 < Medium.cz) {
+            i338 = Medium.cz;
         }
-        return (i338 - m.focusPoint) * (m.cx - i) / i338 + i;
+        return (i338 - Medium.focusPoint) * (Medium.cx - i) / i338 + i;
     }
 
     /**
@@ -107,27 +107,27 @@ public final class Utility {
      * @param m the Medium
      * @return The 2D Y coordinate.
      */
-    static int ys(final int i, int i339, final Medium m) {
-        if (i339 < m.cz) {
-            i339 = m.cz;
+    static int ys(final int i, int i339) {
+        if (i339 < Medium.cz) {
+            i339 = Medium.cz;
         }
-        return (i339 - m.focusPoint) * (m.cy - i) / i339 + i;
+        return (i339 - Medium.focusPoint) * (Medium.cy - i) / i339 + i;
     }
 
     // alt
 
-    static int altXs(final int i, int i260, final Medium m) {
+    static int altXs(final int i, int i260) {
         if (i260 < 50) {
             i260 = 50;
         }
-        return (i260 - m.focusPoint) * (m.cx - i) / i260 + i;
+        return (i260 - Medium.focusPoint) * (Medium.cx - i) / i260 + i;
     }
 
-    static int altYs(final int i, int i261, final Medium m) {
+    static int altYs(final int i, int i261) {
         if (i261 < 50) {
             i261 = 50;
         }
-        return (i261 - m.focusPoint) * (m.cy - i) / i261 + i;
+        return (i261 - Medium.focusPoint) * (Medium.cy - i) / i261 + i;
     }
 
     // medium
@@ -138,11 +138,11 @@ public final class Utility {
     	return (i272 - m.focusPoint) * (m.cx - i) / i272 + i;
     }*/
 
-    static int mediumYs(final int i, int i273, final Medium m) {
+    static int mediumYs(final int i, int i273) {
         if (i273 < 10) {
             i273 = 10;
         }
-        return (i273 - m.focusPoint) * (m.cy - i) / i273 + i;
+        return (i273 - Medium.focusPoint) * (Medium.cy - i) / i273 + i;
     }
 
     public static int getint(final String string, final String string262, final int i) {
@@ -396,6 +396,7 @@ public final class Utility {
      * @return The item.
      * @author Rafael
      */
+    @SafeVarargs
     public static <E> E choose(final E... is) {
         return is[ThreadLocalRandom.current().nextInt(is.length)];
     }

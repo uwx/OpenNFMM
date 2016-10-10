@@ -43,7 +43,6 @@ class Lobby implements Runnable {
     private final int[] cay = {
             0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    private final CarDefine cd;
     private int cflk = 0;
     private String chalby = "";
     private int chalngd = -1;
@@ -122,7 +121,6 @@ class Lobby implements Runnable {
     int lspos3 = 0;
     private int lxm = 0;
     private int lym = 0;
-    private final Medium m;
     private final int[] mnbts = new int[500];
     private final int[] mnpls = new int[500];
     private boolean mousedout = false;
@@ -202,60 +200,56 @@ class Lobby implements Runnable {
     private int waitlink = 0;
     int warbsel = 0;
     private String wastename = "";
-    private final xtGraphics xt;
     boolean zeromsw = false;
 
-    Lobby(final Medium medium, final Graphics2D graphics2d, final Login login/*, final Globe globe*/, final xtGraphics xtgraphics, final CarDefine cardefine, final GameSparker gamesparker) {
-        m = medium;
+    Lobby(final Graphics2D graphics2d, final Login login/*, final Globe globe*/, final GameSparker gamesparker) {
         rd = graphics2d;
-        xt = xtgraphics;
-        cd = cardefine;
         gs = gamesparker;
         lg = login;
         //gb = globe;
-        gs.cmsg.setBackground(color2k(240, 240, 240));
-        gs.swait.setBackground(color2k(220, 220, 220));
-        gs.snpls.setBackground(color2k(220, 220, 220));
-        gs.snbts.setBackground(color2k(220, 220, 220));
+        GameSparker.cmsg.setBackground(color2k(240, 240, 240));
+        GameSparker.swait.setBackground(color2k(220, 220, 220));
+        GameSparker.snpls.setBackground(color2k(220, 220, 220));
+        GameSparker.snbts.setBackground(color2k(220, 220, 220));
         //gs.sgame.setBackground(color2k(200, 200, 200));
-        gs.wgame.setBackground(color2k(200, 200, 200));
-        gs.pgame.setBackground(color2k(200, 200, 200));
-        gs.vnpls.setBackground(color2k(200, 200, 200));
-        gs.vtyp.setBackground(color2k(200, 200, 200));
-        gs.warb.setBackground(color2k(200, 200, 200));
-        gs.snfmm.setBackground(color2k(200, 200, 200));
+        GameSparker.wgame.setBackground(color2k(200, 200, 200));
+        GameSparker.pgame.setBackground(color2k(200, 200, 200));
+        GameSparker.vnpls.setBackground(color2k(200, 200, 200));
+        GameSparker.vtyp.setBackground(color2k(200, 200, 200));
+        GameSparker.warb.setBackground(color2k(200, 200, 200));
+        GameSparker.snfmm.setBackground(color2k(200, 200, 200));
         //gs.snfm1.setBackground(color2k(200, 200, 200));
         //gs.snfm2.setBackground(color2k(200, 200, 200));
-        gs.mstgs.setBackground(color2k(230, 230, 230));
-        gs.slaps.setBackground(color2k(200, 200, 200));
-        gs.sclass.setBackground(color2k(220, 220, 220));
-        gs.scars.setBackground(color2k(220, 220, 220));
-        gs.sfix.setBackground(color2k(220, 220, 220));
-        gs.mycar.setBackground(color2k(255, 255, 255));
-        gs.notp.setBackground(color2k(255, 255, 255));
-        gs.rooms.setBackground(color2k(170, 170, 170));
-        gs.swait.setForeground(new Color(0, 0, 0));
-        gs.snpls.setForeground(new Color(0, 0, 0));
-        gs.snbts.setForeground(new Color(0, 0, 0));
+        GameSparker.mstgs.setBackground(color2k(230, 230, 230));
+        GameSparker.slaps.setBackground(color2k(200, 200, 200));
+        GameSparker.sclass.setBackground(color2k(220, 220, 220));
+        GameSparker.scars.setBackground(color2k(220, 220, 220));
+        GameSparker.sfix.setBackground(color2k(220, 220, 220));
+        GameSparker.mycar.setBackground(color2k(255, 255, 255));
+        GameSparker.notp.setBackground(color2k(255, 255, 255));
+        GameSparker.rooms.setBackground(color2k(170, 170, 170));
+        GameSparker.swait.setForeground(new Color(0, 0, 0));
+        GameSparker.snpls.setForeground(new Color(0, 0, 0));
+        GameSparker.snbts.setForeground(new Color(0, 0, 0));
         //gs.sgame.setForeground(new Color(0, 0, 0));
-        gs.wgame.setForeground(new Color(0, 0, 0));
-        gs.pgame.setForeground(new Color(0, 0, 0));
-        gs.vnpls.setForeground(new Color(0, 0, 0));
-        gs.vtyp.setForeground(new Color(0, 0, 0));
-        gs.warb.setForeground(new Color(0, 0, 0));
-        gs.snfmm.setForeground(new Color(0, 0, 0));
+        GameSparker.wgame.setForeground(new Color(0, 0, 0));
+        GameSparker.pgame.setForeground(new Color(0, 0, 0));
+        GameSparker.vnpls.setForeground(new Color(0, 0, 0));
+        GameSparker.vtyp.setForeground(new Color(0, 0, 0));
+        GameSparker.warb.setForeground(new Color(0, 0, 0));
+        GameSparker.snfmm.setForeground(new Color(0, 0, 0));
         //gs.snfm1.setForeground(new Color(0, 0, 0));
-        gs.slaps.setForeground(new Color(0, 0, 0));
+        GameSparker.slaps.setForeground(new Color(0, 0, 0));
         //gs.snfm2.setForeground(new Color(0, 0, 0));
-        gs.mstgs.setForeground(new Color(0, 0, 0));
-        gs.sclass.setForeground(new Color(0, 0, 0));
-        gs.scars.setForeground(new Color(0, 0, 0));
-        gs.sfix.setForeground(new Color(0, 0, 0));
-        gs.mycar.setForeground(new Color(0, 0, 0));
-        gs.notp.setForeground(new Color(0, 0, 0));
-        gs.rooms.setForeground(new Color(0, 0, 0));
-        gs.sgame.removeAll();
-        gs.sgame.setVisible(false);
+        GameSparker.mstgs.setForeground(new Color(0, 0, 0));
+        GameSparker.sclass.setForeground(new Color(0, 0, 0));
+        GameSparker.scars.setForeground(new Color(0, 0, 0));
+        GameSparker.sfix.setForeground(new Color(0, 0, 0));
+        GameSparker.mycar.setForeground(new Color(0, 0, 0));
+        GameSparker.notp.setForeground(new Color(0, 0, 0));
+        GameSparker.rooms.setForeground(new Color(0, 0, 0));
+        GameSparker.sgame.removeAll();
+        GameSparker.sgame.setVisible(false);
         //gs.sgame.add(rd, "");
         /*gs.sgame.add(rd, " NFM 2     ");
         gs.sgame.add(rd, " NFM 1     ");
@@ -281,7 +275,7 @@ class Lobby implements Runnable {
                 pessd[i309] = Math.abs(xm - bx[i309]) < bw[i309] / 2 + 12 && Math.abs(ym - by[i309]) < 14 && (i307 == 1 || i307 == 11);
                 if (Math.abs(xm - bx[i309]) < bw[i309] / 2 + 12 && Math.abs(ym - by[i309]) < 14 && i307 <= -1) {
                     i308 = i309;
-                    gs.mouses = 0;
+                    GameSparker.mouses = 0;
                 }
             }
         }
@@ -295,19 +289,19 @@ class Lobby implements Runnable {
                             pback = 0;
                         }
                         if (xm > 532 && xm < 592 && ym > 285 && ym < 306 && i307 <= -1) {
-                            gs.mouses = 0;
-                            m.trk = 0;
-                            if (xt.loadedt) {
-                                xt.strack.unload();
+                            GameSparker.mouses = 0;
+                            Medium.trk = 0;
+                            if (xtGraphics.loadedt) {
+                                xtGraphics.strack.unload();
                             }
-                            m.focusPoint = 400;
-                            m.crs = true;
-                            m.x = -335;
-                            m.y = 0;
-                            m.z = -50;
-                            m.xz = 0;
-                            m.zy = 20;
-                            m.ground = -2000;
+                            Medium.focusPoint = 400;
+                            Medium.crs = true;
+                            Medium.x = -335;
+                            Medium.y = 0;
+                            Medium.z = -50;
+                            Medium.xz = 0;
+                            Medium.zy = 20;
+                            Medium.ground = -2000;
                             fase = 1;
                         }
                         if (i308 == 0 && chalngd == -1) {
@@ -315,18 +309,18 @@ class Lobby implements Runnable {
                             join = ongame;
                             msg = "| Joining Game |";
                             spos = 0;
-                            m.trk = 0;
-                            if (xt.loadedt) {
-                                xt.strack.unload();
+                            Medium.trk = 0;
+                            if (xtGraphics.loadedt) {
+                                xtGraphics.strack.unload();
                             }
-                            m.focusPoint = 400;
-                            m.crs = true;
-                            m.x = -335;
-                            m.y = 0;
-                            m.z = -50;
-                            m.xz = 0;
-                            m.zy = 20;
-                            m.ground = -2000;
+                            Medium.focusPoint = 400;
+                            Medium.crs = true;
+                            Medium.x = -335;
+                            Medium.y = 0;
+                            Medium.z = -50;
+                            Medium.xz = 0;
+                            Medium.zy = 20;
+                            Medium.ground = -2000;
                             fase = 1;
                         }
                     }
@@ -334,8 +328,8 @@ class Lobby implements Runnable {
                         if (ongame == -1) {
                             if (i308 == 0)
                                 if (chalngd == -1) {
-                                    if (xt.lan && !lanlogged) {
-                                        gs.reglink();
+                                    if (xtGraphics.lan && !lanlogged) {
+                                        GameSparker.reglink();
                                     } else {
                                         boolean bool = false;
                                         for (int i310 = 0; i310 < ngm; i310++)
@@ -343,7 +337,7 @@ class Lobby implements Runnable {
                                                 bool = true;
                                                 break;
                                             }
-                                        if (!bool || xt.lan) {
+                                        if (!bool || xtGraphics.lan) {
                                             loadstage = 0;
                                             remstage = 0;
                                             gstage = 0;
@@ -355,7 +349,7 @@ class Lobby implements Runnable {
                                             gfix = 0;
                                             gnotp = 0;
                                             gplayers = "";
-                                            gs.wgame.select(0);
+                                            GameSparker.wgame.select(0);
                                             chalngd = -2;
                                         } else {
                                             chalngd = -6;
@@ -373,30 +367,30 @@ class Lobby implements Runnable {
                                             dinvi[i311] = "";
                                         }
                                     }
-                                    gs.swait.setVisible(false);
-                                    gs.snpls.setVisible(false);
-                                    gs.snbts.setVisible(false);
+                                    GameSparker.swait.setVisible(false);
+                                    GameSparker.snpls.setVisible(false);
+                                    GameSparker.snbts.setVisible(false);
                                     //gs.sgame.setVisible(false);
-                                    gs.wgame.setVisible(false);
-                                    gs.pgame.setVisible(false);
-                                    gs.vnpls.setVisible(false);
-                                    gs.vtyp.setVisible(false);
-                                    gs.warb.setVisible(false);
-                                    gs.mstgs.setVisible(false);
-                                    gs.slaps.setVisible(false);
+                                    GameSparker.wgame.setVisible(false);
+                                    GameSparker.pgame.setVisible(false);
+                                    GameSparker.vnpls.setVisible(false);
+                                    GameSparker.vtyp.setVisible(false);
+                                    GameSparker.warb.setVisible(false);
+                                    GameSparker.mstgs.setVisible(false);
+                                    GameSparker.slaps.setVisible(false);
                                     //gs.snfm1.setVisible(false);
-                                    gs.snfmm.setVisible(false);
+                                    GameSparker.snfmm.setVisible(false);
                                     //gs.snfm2.setVisible(false);
-                                    gs.sclass.setVisible(false);
-                                    gs.scars.setVisible(false);
-                                    gs.sfix.setVisible(false);
-                                    gs.mycar.setVisible(false);
-                                    gs.notp.setVisible(false);
+                                    GameSparker.sclass.setVisible(false);
+                                    GameSparker.scars.setVisible(false);
+                                    GameSparker.sfix.setVisible(false);
+                                    GameSparker.mycar.setVisible(false);
+                                    GameSparker.notp.setVisible(false);
                                     gs.requestFocus();
                                     chalngd = -1;
                                 }
                             if (i308 == 1) {
-                                xt.fase = 23;
+                                xtGraphics.fase = 23;
                             }
                             if (i308 == 2) {
                                 conon = 0;
@@ -445,25 +439,25 @@ class Lobby implements Runnable {
                                             dinvi[i313] = "";
                                         }
                                     }
-                                    gs.swait.setVisible(false);
-                                    gs.snpls.setVisible(false);
-                                    gs.snbts.setVisible(false);
+                                    GameSparker.swait.setVisible(false);
+                                    GameSparker.snpls.setVisible(false);
+                                    GameSparker.snbts.setVisible(false);
                                     //gs.sgame.setVisible(false);
-                                    gs.wgame.setVisible(false);
-                                    gs.pgame.setVisible(false);
-                                    gs.vnpls.setVisible(false);
-                                    gs.vtyp.setVisible(false);
-                                    gs.warb.setVisible(false);
-                                    gs.mstgs.setVisible(false);
-                                    gs.slaps.setVisible(false);
+                                    GameSparker.wgame.setVisible(false);
+                                    GameSparker.pgame.setVisible(false);
+                                    GameSparker.vnpls.setVisible(false);
+                                    GameSparker.vtyp.setVisible(false);
+                                    GameSparker.warb.setVisible(false);
+                                    GameSparker.mstgs.setVisible(false);
+                                    GameSparker.slaps.setVisible(false);
                                     //gs.snfm1.setVisible(false);
-                                    gs.snfmm.setVisible(false);
+                                    GameSparker.snfmm.setVisible(false);
                                     //gs.snfm2.setVisible(false);
-                                    gs.sclass.setVisible(false);
-                                    gs.scars.setVisible(false);
-                                    gs.sfix.setVisible(false);
-                                    gs.mycar.setVisible(false);
-                                    gs.notp.setVisible(false);
+                                    GameSparker.sclass.setVisible(false);
+                                    GameSparker.scars.setVisible(false);
+                                    GameSparker.sfix.setVisible(false);
+                                    GameSparker.mycar.setVisible(false);
+                                    GameSparker.notp.setVisible(false);
                                     gs.requestFocus();
                                     chalngd = -1;
                                 }
@@ -471,7 +465,7 @@ class Lobby implements Runnable {
                                     chalngd = -1;
                                 }
                                 if (chalngd == -2)
-                                    if (gs.wgame.getSelectedIndex() == 0) /*if (gs.sgame.getSelectedIndex() >= 3 && !xt.logged) {
+                                    if (GameSparker.wgame.getSelectedIndex() == 0) /*if (gs.sgame.getSelectedIndex() >= 3 && !xt.logged) {
                                                                           if (i308 == 4)
                                                                           gs.editlink(xt.nickname, true);
                                                                           i312 = 5;
@@ -481,30 +475,30 @@ class Lobby implements Runnable {
                                                 rd.setColor(new Color(0, 0, 0));
                                                 rd.fillRect(0, 0, 670, 400);
                                                 //gs.repaint();
-                                                gs.rooms.setVisible(false);
-                                                gs.cmsg.setVisible(false);
+                                                GameSparker.rooms.setVisible(false);
+                                                GameSparker.cmsg.setVisible(false);
                                                 //gs.sgame.setVisible(false);
-                                                gs.wgame.setVisible(false);
-                                                gs.warb.setVisible(false);
-                                                gs.pgame.setVisible(false);
-                                                gs.vnpls.setVisible(false);
-                                                gs.vtyp.setVisible(false);
-                                                gs.mstgs.setVisible(false);
-                                                gs.slaps.setVisible(false);
+                                                GameSparker.wgame.setVisible(false);
+                                                GameSparker.warb.setVisible(false);
+                                                GameSparker.pgame.setVisible(false);
+                                                GameSparker.vnpls.setVisible(false);
+                                                GameSparker.vtyp.setVisible(false);
+                                                GameSparker.mstgs.setVisible(false);
+                                                GameSparker.slaps.setVisible(false);
                                                 //gs.snfm1.setVisible(false);
-                                                gs.snfmm.setVisible(false);
+                                                GameSparker.snfmm.setVisible(false);
                                                 //gs.snfm2.setVisible(false);
                                                 gs.requestFocus();
-                                                m.ptr = 0;
-                                                m.ptcnt = -10;
-                                                m.hit = 20000;
-                                                m.fallen = 0;
-                                                m.nrnd = 0;
-                                                m.ih = 25;
-                                                m.iw = 65;
-                                                m.h = 425;
-                                                m.w = 735;
-                                                m.trk = 4;
+                                                Medium.ptr = 0;
+                                                Medium.ptcnt = -10;
+                                                Medium.hit = 20000;
+                                                Medium.fallen = 0;
+                                                Medium.nrnd = 0;
+                                                Medium.ih = 25;
+                                                Medium.iw = 65;
+                                                Medium.h = 425;
+                                                Medium.w = 735;
+                                                Medium.trk = 4;
                                                 plsndt = 0;
                                                 addstage = 0;
                                                 fase = 4;
@@ -517,15 +511,15 @@ class Lobby implements Runnable {
                                             if (i308 == 5)
                                                 if (gstage != 0) {
                                                     //gs.sgame.setVisible(false);
-                                                    gs.wgame.setVisible(false);
-                                                    gs.pgame.setVisible(false);
-                                                    gs.vnpls.setVisible(false);
-                                                    gs.vtyp.setVisible(false);
-                                                    gs.warb.setVisible(false);
-                                                    gs.mstgs.setVisible(false);
-                                                    gs.slaps.setVisible(false);
+                                                    GameSparker.wgame.setVisible(false);
+                                                    GameSparker.pgame.setVisible(false);
+                                                    GameSparker.vnpls.setVisible(false);
+                                                    GameSparker.vtyp.setVisible(false);
+                                                    GameSparker.warb.setVisible(false);
+                                                    GameSparker.mstgs.setVisible(false);
+                                                    GameSparker.slaps.setVisible(false);
                                                     //gs.snfm1.setVisible(false);
-                                                    gs.snfmm.setVisible(false);
+                                                    GameSparker.snfmm.setVisible(false);
                                                     //gs.snfm2.setVisible(false);
                                                     gs.requestFocus();
                                                     chalngd = -3;
@@ -535,9 +529,9 @@ class Lobby implements Runnable {
                                                 }
                                             i312 = 6;
                                         }
-                                    } else if (!xt.clan.equals("")) {
-                                        if (gs.warb.sel != 0/* && gb.loadwbgames == 2*/) {//CHECK
-                                            if (gs.wgame.getSelectedIndex() == 2 && gs.pgame.sel != 0 && i308 == 4) {
+                                    } else if (!xtGraphics.clan.equals("")) {
+                                        if (GameSparker.warb.sel != 0/* && gb.loadwbgames == 2*/) {//CHECK
+                                            if (GameSparker.wgame.getSelectedIndex() == 2 && GameSparker.pgame.sel != 0 && i308 == 4) {
                                                 if (invo) {
                                                     invo = false;
                                                 }
@@ -551,11 +545,11 @@ class Lobby implements Runnable {
                                                 gwait = 120;
                                                 gnotp = 0;
                                                 gplayers = "";
-                                                gs.wgame.setVisible(false);
-                                                gs.pgame.setVisible(false);
-                                                gs.vnpls.setVisible(false);
-                                                gs.vtyp.setVisible(false);
-                                                gs.warb.setVisible(false);
+                                                GameSparker.wgame.setVisible(false);
+                                                GameSparker.pgame.setVisible(false);
+                                                GameSparker.vnpls.setVisible(false);
+                                                GameSparker.vtyp.setVisible(false);
+                                                GameSparker.warb.setVisible(false);
                                                 gs.requestFocus();
                                                 chalngd = -5;
                                             }
@@ -578,13 +572,13 @@ class Lobby implements Runnable {
                                 if (chalngd == -3) {
                                     if (i308 == 4) {
                                         chalngd = -2;
-                                        gs.snpls.setVisible(false);
-                                        gs.snbts.setVisible(false);
-                                        gs.swait.setVisible(false);
+                                        GameSparker.snpls.setVisible(false);
+                                        GameSparker.snbts.setVisible(false);
+                                        GameSparker.swait.setVisible(false);
                                         gs.requestFocus();
                                     }
                                     if (i308 == 5)
-                                        if (gnpls != 0 && gs.snpls.getSelectedIndex() != 0) {
+                                        if (gnpls != 0 && GameSparker.snpls.getSelectedIndex() != 0) {
                                             chalngd = -4;
                                             for (int i315 = 0; i315 < 7; i315++) {
                                                 if (!invos[i315].equals("")) {
@@ -595,9 +589,9 @@ class Lobby implements Runnable {
                                                 }
                                             }
                                             i308 = -1;
-                                            gs.snpls.setVisible(false);
-                                            gs.snbts.setVisible(false);
-                                            gs.swait.setVisible(false);
+                                            GameSparker.snpls.setVisible(false);
+                                            GameSparker.snbts.setVisible(false);
+                                            GameSparker.swait.setVisible(false);
                                             gs.requestFocus();
                                         } else {
                                             sflk = 25;
@@ -621,21 +615,21 @@ class Lobby implements Runnable {
                                         if (invo) {
                                             invo = false;
                                         }
-                                        if (gs.mycar.getState() && xt.sc[0] < CarDefine.SIXTEEN) {
-                                            gclass = -(xt.sc[0] + 2);
+                                        if (GameSparker.mycar.getState() && xtGraphics.sc[0] < CarDefine.SIXTEEN) {
+                                            gclass = -(xtGraphics.sc[0] + 2);
                                             gcars = 0;
                                         }
-                                        if (gs.notp.getState()) {
+                                        if (GameSparker.notp.getState()) {
                                             gnotp = 1;
                                         } else {
                                             gnotp = 0;
                                         }
                                         gplayers = "";
-                                        gs.sclass.setVisible(false);
-                                        gs.scars.setVisible(false);
-                                        gs.sfix.setVisible(false);
-                                        gs.mycar.setVisible(false);
-                                        gs.notp.setVisible(false);
+                                        GameSparker.sclass.setVisible(false);
+                                        GameSparker.scars.setVisible(false);
+                                        GameSparker.sfix.setVisible(false);
+                                        GameSparker.mycar.setVisible(false);
+                                        GameSparker.notp.setVisible(false);
                                         gs.requestFocus();
                                         chalngd = -3;
                                     }
@@ -644,14 +638,14 @@ class Lobby implements Runnable {
                                             invo = false;
                                         }
                                         msg = "| Creating Game |";
-                                        if (gs.mycar.getState() && xt.sc[0] < CarDefine.SIXTEEN) {
-                                            gclass = -(xt.sc[0] + 2);
+                                        if (GameSparker.mycar.getState() && xtGraphics.sc[0] < CarDefine.SIXTEEN) {
+                                            gclass = -(xtGraphics.sc[0] + 2);
                                             gcars = 0;
                                         }
                                         if (gclass != 0) {
                                             gwait = 120;
                                         }
-                                        if (gs.notp.getState()) {
+                                        if (GameSparker.notp.getState()) {
                                             gnotp = 1;
                                         } else {
                                             gnotp = 0;
@@ -664,22 +658,22 @@ class Lobby implements Runnable {
                                                 gplayers = gplayers + invos[i318] + "#";
                                             }
                                         }
-                                        gs.sclass.setVisible(false);
-                                        gs.scars.setVisible(false);
-                                        gs.sfix.setVisible(false);
-                                        gs.mycar.setVisible(false);
-                                        gs.notp.setVisible(false);
+                                        GameSparker.sclass.setVisible(false);
+                                        GameSparker.scars.setVisible(false);
+                                        GameSparker.sfix.setVisible(false);
+                                        GameSparker.mycar.setVisible(false);
+                                        GameSparker.notp.setVisible(false);
                                         gs.requestFocus();
                                         chalngd = -5;
                                     }
                                 }
                             }
-                            if (i308 == i312 && !xt.lan && !gs.cmsg.getText().equals("Type here...") && !gs.cmsg.getText().equals("")) {
-                                String string = gs.cmsg.getText().replace('|', ':');
-                                if (string.toLowerCase().contains(gs.tpass.getText().toLowerCase())) {
+                            if (i308 == i312 && !xtGraphics.lan && !GameSparker.cmsg.getText().equals("Type here...") && !GameSparker.cmsg.getText().equals("")) {
+                                String string = GameSparker.cmsg.getText().replace('|', ':');
+                                if (string.toLowerCase().contains(GameSparker.tpass.getText().toLowerCase())) {
                                     string = " ";
                                 }
-                                if (!xt.msgcheck(string) && updatec > -12) {
+                                if (!xtGraphics.msgcheck(string) && updatec > -12) {
                                     for (int i320 = 0; i320 < 6; i320++) {
                                         sentn[i320] = sentn[i320 + 1];
                                         cnames[i320] = cnames[i320 + 1];
@@ -692,9 +686,9 @@ class Lobby implements Runnable {
                                         updatec--;
                                     }
                                 } else {
-                                    xt.warning++;
+                                    xtGraphics.warning++;
                                 }
-                                gs.cmsg.setText("");
+                                GameSparker.cmsg.setText("");
                             }
                         } else if (dispcar == -1) {
                             int i321 = 0;
@@ -707,7 +701,7 @@ class Lobby implements Runnable {
                                 if (!gplyrs[i321].equals("") && !gplyrs[i321].contains(pnames[im])) {
                                     bool = true;
                                 }
-                            } else if (!xt.clan.equalsIgnoreCase(gaclan[i321]) && !xt.clan.equalsIgnoreCase(gvclan[i321])) {
+                            } else if (!xtGraphics.clan.equalsIgnoreCase(gaclan[i321]) && !xtGraphics.clan.equalsIgnoreCase(gvclan[i321])) {
                                 bool = true;
                             }
                             if (control.enter && wait[i321] > 0 && pgames[im] == -1 && !bool) {
@@ -759,7 +753,7 @@ class Lobby implements Runnable {
                                         } else {
                                             i308 = 2;
                                         }
-                                        if (wait[i321] == 0 && xt.lan) {
+                                        if (wait[i321] == 0 && xtGraphics.lan) {
                                             laps = gnlaps[i321];
                                             stage = gstgn[i321];
                                             stagename = gstages[i321];
@@ -769,12 +763,12 @@ class Lobby implements Runnable {
                                             conon = 3;
                                         }
                                     }
-                                if (i308 == 2 && !xt.lan && !gs.cmsg.getText().equals("Type here...") && !gs.cmsg.getText().equals("")) {
-                                    String string = gs.cmsg.getText().replace('|', ':');
-                                    if (string.toLowerCase().contains(gs.tpass.getText().toLowerCase())) {
+                                if (i308 == 2 && !xtGraphics.lan && !GameSparker.cmsg.getText().equals("Type here...") && !GameSparker.cmsg.getText().equals("")) {
+                                    String string = GameSparker.cmsg.getText().replace('|', ':');
+                                    if (string.toLowerCase().contains(GameSparker.tpass.getText().toLowerCase())) {
                                         string = " ";
                                     }
-                                    if (!xt.msgcheck(string) && updatec > -12) {
+                                    if (!xtGraphics.msgcheck(string) && updatec > -12) {
                                         for (int i323 = 0; i323 < 6; i323++) {
                                             sentn[i323] = sentn[i323 + 1];
                                             cnames[i323] = cnames[i323 + 1];
@@ -787,9 +781,9 @@ class Lobby implements Runnable {
                                             updatec--;
                                         }
                                     } else {
-                                        xt.warning++;
+                                        xtGraphics.warning++;
                                     }
-                                    gs.cmsg.setText("");
+                                    GameSparker.cmsg.setText("");
                                 }
                             }
                             if (pbtn == 1 && i308 == 1)
@@ -800,19 +794,19 @@ class Lobby implements Runnable {
                                 } else invo = !invo;
                             if (pbtn == 2 && (i308 == 1 || i308 == 2)) {
                                 fase = 2;
-                                m.ptr = 0;
-                                m.ptcnt = -10;
-                                m.hit = 20000;
-                                m.fallen = 500;
-                                m.nrnd = 0;
-                                m.ih = 25;
-                                m.iw = 65;
-                                m.h = 425;
-                                m.w = 735;
-                                m.trk = 4;
+                                Medium.ptr = 0;
+                                Medium.ptcnt = -10;
+                                Medium.hit = 20000;
+                                Medium.fallen = 500;
+                                Medium.nrnd = 0;
+                                Medium.ih = 25;
+                                Medium.iw = 65;
+                                Medium.h = 425;
+                                Medium.w = 735;
+                                Medium.trk = 4;
                                 plsndt = 0;
-                                if (gs.cmsg.isShowing()) {
-                                    gs.cmsg.setVisible(false);
+                                if (GameSparker.cmsg.isShowing()) {
+                                    GameSparker.cmsg.setVisible(false);
                                     gs.requestFocus();
                                 }
                             }
@@ -836,10 +830,10 @@ class Lobby implements Runnable {
                 } else if (ontyp != 76) {
                     if (i308 == 0)
                         if (ontyp < 30) {
-                            xt.onjoin = onjoin;
-                            xt.ontyp = ontyp;
-                            xt.playingame = -101;
-                            xt.fase = 23;
+                            xtGraphics.onjoin = onjoin;
+                            xtGraphics.ontyp = ontyp;
+                            xtGraphics.playingame = -101;
+                            xtGraphics.fase = 23;
                         } else {
                             /*if (!gb.claname.equals(xt.clan)) {
                             	gb.claname = xt.clan;
@@ -861,7 +855,7 @@ class Lobby implements Runnable {
                     }
                 } else {
                     if (i308 == 0) {
-                        gs.editlink(xt.nickname, true);
+                        GameSparker.editlink(xtGraphics.nickname, true);
                         onjoin = -1;
                     }
                     if (i308 == 1) {
@@ -870,7 +864,7 @@ class Lobby implements Runnable {
                 }
             } else {
                 if (i308 == 0) {
-                    gs.editlink(xt.nickname, true);
+                    GameSparker.editlink(xtGraphics.nickname, true);
                 }
                 if (i308 == 1) {
                     regnow = false;
@@ -1046,42 +1040,42 @@ class Lobby implements Runnable {
     }
 
     private void hideinputs() {
-        gs.cmsg.setVisible(false);
-        gs.swait.setVisible(false);
-        gs.snpls.setVisible(false);
-        gs.snbts.setVisible(false);
+        GameSparker.cmsg.setVisible(false);
+        GameSparker.swait.setVisible(false);
+        GameSparker.snpls.setVisible(false);
+        GameSparker.snbts.setVisible(false);
         //gs.sgame.setVisible(false);
-        gs.wgame.setVisible(false);
-        gs.pgame.setVisible(false);
-        gs.vnpls.setVisible(false);
-        gs.vtyp.setVisible(false);
-        gs.warb.setVisible(false);
-        gs.mstgs.setVisible(false);
+        GameSparker.wgame.setVisible(false);
+        GameSparker.pgame.setVisible(false);
+        GameSparker.vnpls.setVisible(false);
+        GameSparker.vtyp.setVisible(false);
+        GameSparker.warb.setVisible(false);
+        GameSparker.mstgs.setVisible(false);
         //gs.snfm1.setVisible(false);
-        gs.snfmm.setVisible(false);
-        gs.slaps.setVisible(false);
+        GameSparker.snfmm.setVisible(false);
+        GameSparker.slaps.setVisible(false);
         //gs.snfm2.setVisible(false);
-        gs.sclass.setVisible(false);
-        gs.scars.setVisible(false);
-        gs.sfix.setVisible(false);
-        gs.mycar.setVisible(false);
-        gs.notp.setVisible(false);
-        gs.rooms.setVisible(false);
+        GameSparker.sclass.setVisible(false);
+        GameSparker.scars.setVisible(false);
+        GameSparker.sfix.setVisible(false);
+        GameSparker.mycar.setVisible(false);
+        GameSparker.notp.setVisible(false);
+        GameSparker.rooms.setVisible(false);
         gs.requestFocus();
     }
 
     void inishlobby() {
-        gs.tnick.setVisible(false);
-        gs.tpass.setVisible(false);
-        gs.temail.setVisible(false);
+        GameSparker.tnick.setVisible(false);
+        GameSparker.tpass.setVisible(false);
+        GameSparker.temail.setVisible(false);
         hideinputs();
-        gs.mycar.setBackground(color2k(255, 255, 255));
-        gs.mycar.setForeground(new Color(0, 0, 0));
-        gs.rooms.removeAll();
-        gs.rooms.add(rd, "" + xt.servername + " :: " + (xt.servport - 7070) + "");
-        gs.rooms.select(0);
+        GameSparker.mycar.setBackground(color2k(255, 255, 255));
+        GameSparker.mycar.setForeground(new Color(0, 0, 0));
+        GameSparker.rooms.removeAll();
+        GameSparker.rooms.add(rd, "" + xtGraphics.servername + " :: " + (xtGraphics.servport - 7070) + "");
+        GameSparker.rooms.select(0);
         gs.requestFocus();
-        cd.loadready();
+        CarDefine.loadready();
         for (int i = 0; i < 500; i++) {
             gnum[i] = -2;
             gstgn[i] = 0;
@@ -1135,7 +1129,7 @@ class Lobby implements Runnable {
         lloaded = false;
         lg.gamec = -1;
         try {
-            socket = new Socket(xt.server, xt.servport);
+            socket = new Socket(xtGraphics.server, xtGraphics.servport);
             din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             dout = new PrintWriter(socket.getOutputStream(), true);
         } catch (final Exception ignored) {
@@ -1150,10 +1144,10 @@ class Lobby implements Runnable {
         pre1 = false;
         pre2 = false;
         int i101 = 0;
-        if (xt.warning == 0 || xt.warning == 210) {
+        if (xtGraphics.warning == 0 || xtGraphics.warning == 210) {
             if (!regnow) {
                 if (onjoin == -1) {
-                    xt.mainbg(3);
+                    xtGraphics.mainbg(3);
                     if (britchl == -1) {
                         ongame = -1;
                         britchl = 0;
@@ -1217,7 +1211,7 @@ class Lobby implements Runnable {
                                                     i107 = i109;
                                                 }
                                                 if (control.handb) {
-                                                    gs.cmsg.setText("" + gs.cmsg.getText() + "" + pnames[i109]);
+                                                    GameSparker.cmsg.setText("" + GameSparker.cmsg.getText() + "" + pnames[i109]);
                                                     control.handb = false;
                                                 }
                                             }
@@ -1314,7 +1308,7 @@ class Lobby implements Runnable {
                                             }*/
                                         }
                                         if (control.handb) {
-                                            gs.cmsg.setText("" + gs.cmsg.getText() + "" + pnames[i116]);
+                                            GameSparker.cmsg.setText("" + GameSparker.cmsg.getText() + "" + pnames[i116]);
                                             control.handb = false;
                                         }
                                     }
@@ -1392,7 +1386,7 @@ class Lobby implements Runnable {
                                                         i107 = i123;
                                                     }
                                                     if (control.handb) {
-                                                        gs.cmsg.setText("" + gs.cmsg.getText() + "" + pnames[i123]);
+                                                        GameSparker.cmsg.setText("" + GameSparker.cmsg.getText() + "" + pnames[i123]);
                                                         control.handb = false;
                                                     }
                                                 }
@@ -1577,7 +1571,7 @@ class Lobby implements Runnable {
                             rd.fillRoundRect(225, 59 - (int) (opengame * 2.23F), 495, 200 + opengame * 8, 20, 20);
                             rd.setColor(new Color(0, 0, 0));
                             rd.drawRoundRect(225, 59 - (int) (opengame * 2.23F), 495, 200 + opengame * 8, 20, 20);
-                            if (!xt.lan) {
+                            if (!xtGraphics.lan) {
                                 rd.setColor(color2k(217, 217, 217));
                                 rd.fillRoundRect(225, 263 + opengame * 7, 495, 157, 20, 20);
                                 rd.setColor(new Color(0, 0, 0));
@@ -1590,8 +1584,8 @@ class Lobby implements Runnable {
                             if (updatec != -1) {
                                 updatec = -1;
                             }
-                            if (gs.cmsg.isShowing()) {
-                                gs.cmsg.setVisible(false);
+                            if (GameSparker.cmsg.isShowing()) {
+                                GameSparker.cmsg.setVisible(false);
                                 gs.requestFocus();
                             }
                             opengame -= 2;
@@ -1621,39 +1615,39 @@ class Lobby implements Runnable {
                                 dispcar = -1;
                             }
                         } else {
-                            if (!xt.lan) {
+                            if (!xtGraphics.lan) {
                                 drawSbutton(Images.cgame, 292, 42);
                                 drawSbutton(Images.ccar, 442, 42);
                                 rd.setFont(new Font("Arial", 1, 13));
                                 ftm = rd.getFontMetrics();
                                 rd.setColor(color2k(60, 60, 60));
-                                if (!gs.rooms.isShowing()) {
-                                    gs.rooms.setVisible(true);
+                                if (!GameSparker.rooms.isShowing()) {
+                                    GameSparker.rooms.setVisible(true);
                                 }
-                                gs.rooms.move(580 - gs.rooms.w / 2, 29);
-                                if (gs.rooms.sel != 0) {
+                                GameSparker.rooms.move(580 - GameSparker.rooms.w / 2, 29);
+                                if (GameSparker.rooms.sel != 0) {
                                     stopallnow();
-                                    int i135 = gs.rooms.iroom[gs.rooms.sel];
+                                    int i135 = GameSparker.rooms.iroom[GameSparker.rooms.sel];
                                     if (i135 < 1000) {
                                         if (i135 >= 1 && i135 <= 5) {
-                                            xt.servport = 7070 + i135;
+                                            xtGraphics.servport = 7070 + i135;
                                         }
                                     } else {
                                         i135 -= 1000;
                                         if (i135 >= 0 && i135 < lg.nservers) {
-                                            xt.servport = 7071;
-                                            xt.server = lg.servers[i135];
-                                            xt.servername = lg.snames[i135];
+                                            xtGraphics.servport = 7071;
+                                            xtGraphics.server = lg.servers[i135];
+                                            xtGraphics.servername = lg.snames[i135];
                                         }
                                     }
                                     inishlobby();
-                                    gs.rooms.kmoused = 20;
+                                    GameSparker.rooms.kmoused = 20;
                                 }
-                                if (gs.rooms.kmoused != 0) {
+                                if (GameSparker.rooms.kmoused != 0) {
                                     i = -1;
                                     i99 = -1;
                                     bool = false;
-                                    gs.rooms.kmoused--;
+                                    GameSparker.rooms.kmoused--;
                                 }
                             } else {
                                 rd.drawImage(Images.lanm, 241, 31, null);
@@ -1714,18 +1708,18 @@ class Lobby implements Runnable {
                                 drawSbutton(Images.ccar, 442, -1000);
                             }
                             drawSbutton(Images.exit, 690, 42);
-                            if (control.enter && !gs.cmsg.getText().equals("Type here...") && !gs.cmsg.getText().equals("")) {
+                            if (control.enter && !GameSparker.cmsg.getText().equals("Type here...") && !GameSparker.cmsg.getText().equals("")) {
                                 if (chalngd == -1) {
                                     pessd[2] = true;
                                 } else {
                                     pessd[5] = true;
                                 }
                                 control.enter = false;
-                                String string = gs.cmsg.getText().replace('|', ':');
-                                if (string.toLowerCase().contains(gs.tpass.getText().toLowerCase())) {
+                                String string = GameSparker.cmsg.getText().replace('|', ':');
+                                if (string.toLowerCase().contains(GameSparker.tpass.getText().toLowerCase())) {
                                     string = " ";
                                 }
-                                if (!xt.msgcheck(string) && updatec > -12) {
+                                if (!xtGraphics.msgcheck(string) && updatec > -12) {
                                     for (int i136 = 0; i136 < 6; i136++) {
                                         sentn[i136] = sentn[i136 + 1];
                                         cnames[i136] = cnames[i136 + 1];
@@ -1738,9 +1732,9 @@ class Lobby implements Runnable {
                                         updatec--;
                                     }
                                 } else {
-                                    xt.warning++;
+                                    xtGraphics.warning++;
                                 }
-                                gs.cmsg.setText("");
+                                GameSparker.cmsg.setText("");
                             }
                             if (chalngd == -1) {
                                 rd.setColor(color2k(230, 230, 230));
@@ -1863,7 +1857,7 @@ class Lobby implements Runnable {
                                         }
                                         boolean bool150 = false;
                                         boolean bool151 = false;
-                                        if (!gs.openm) {
+                                        if (!GameSparker.openm) {
                                             if (i > 241 && i < 692 && i99 > 92 + 24 * i149 - i105 && i99 < 110 + 24 * i149 - i105) {
                                                 if (lxm != i || lym != i99) {
                                                     opselect = i149;
@@ -1883,7 +1877,7 @@ class Lobby implements Runnable {
                                                                 if (gplyrs[is137[i149]].equals("") || gplyrs[is137[i149]].contains(pnames[im])) {
                                                                     bool152 = true;
                                                                 }
-                                                            } else if (xt.clan.equalsIgnoreCase(gaclan[is137[i149]]) || xt.clan.equalsIgnoreCase(gvclan[is137[i149]])) {
+                                                            } else if (xtGraphics.clan.equalsIgnoreCase(gaclan[is137[i149]]) || xtGraphics.clan.equalsIgnoreCase(gvclan[is137[i149]])) {
                                                                 bool152 = true;
                                                             }
                                                             if (bool152) {
@@ -1947,7 +1941,7 @@ class Lobby implements Runnable {
                                                 if (gplyrs[is137[i149]].equals("") || gplyrs[is137[i149]].contains(pnames[im])) {
                                                     bool153 = true;
                                                 }
-                                            } else if (xt.clan.equalsIgnoreCase(gaclan[is137[i149]]) || xt.clan.equalsIgnoreCase(gvclan[is137[i149]])) {
+                                            } else if (xtGraphics.clan.equalsIgnoreCase(gaclan[is137[i149]]) || xtGraphics.clan.equalsIgnoreCase(gvclan[is137[i149]])) {
                                                 bool153 = true;
                                             }
                                             if (bool153) {
@@ -1998,7 +1992,7 @@ class Lobby implements Runnable {
                                 if (ngm == 0)
                                     if (!lloaded) {
                                         rd.drawString("|  Loading Games  |", 472 - ftm.stringWidth("|  Loading Games  |") / 2, 165);
-                                    } else if (!xt.lan) {
+                                    } else if (!xtGraphics.lan) {
                                         rd.drawString("No Games Created", 472 - ftm.stringWidth("No Games Created") / 2, 165);
                                     }
                                 rd.setColor(color2k(205, 205, 205));
@@ -2233,14 +2227,14 @@ class Lobby implements Runnable {
                                     if (chalngd == -2) {
                                         final boolean bool161 = false;
                                         final boolean bool162 = false;
-                                        if (!gs.wgame.isShowing()) {
-                                            gs.wgame.setVisible(true);
+                                        if (!GameSparker.wgame.isShowing()) {
+                                            GameSparker.wgame.setVisible(true);
                                         }
-                                        gs.wgame.move(236, 68);
-                                        if (gs.wgame.getSelectedIndex() == 0) {
+                                        GameSparker.wgame.move(236, 68);
+                                        if (GameSparker.wgame.getSelectedIndex() == 0) {
                                             if (inwab) {
                                                 inwab = false;
-                                                gs.warb.setVisible(false);
+                                                GameSparker.warb.setVisible(false);
                                                 loadstage = 0;
                                             }
                                             rd.setColor(new Color(0, 0, 0));
@@ -2362,23 +2356,23 @@ class Lobby implements Runnable {
                                             //gs.sgame.move(i163, 105);
                                             //i163 += gs.sgame.getWidth() + 6;
                                             //if (true) {
-                                            if (!gs.snfmm.isShowing()) {
-                                                gs.snfmm.setVisible(true);
+                                            if (!GameSparker.snfmm.isShowing()) {
+                                                GameSparker.snfmm.setVisible(true);
                                                 if (loadstage == 0) {
-                                                    gs.snfmm.select(0);
+                                                    GameSparker.snfmm.select(0);
                                                 }
                                             }
-                                            gs.snfmm.move(420, 105); //blaze it
+                                            GameSparker.snfmm.move(420, 105); //blaze it
                                             //if (gs.snfm1.isShowing())
                                             //	gs.snfm1.setVisible(false);
                                             //if (gs.snfm2.isShowing())
                                             //	gs.snfm2.setVisible(false);
-                                            if (gs.mstgs.isShowing()) {
-                                                gs.mstgs.setVisible(false);
+                                            if (GameSparker.mstgs.isShowing()) {
+                                                GameSparker.mstgs.setVisible(false);
                                             }
                                             //}
-                                            if (/*gs.sgame.getSelectedIndex() == 0 && */gs.snfmm.getSelectedIndex() != 0 && gstage != gs.snfmm.getSelectedIndex()) {
-                                                loadstage = gs.snfmm.getSelectedIndex();
+                                            if (/*gs.sgame.getSelectedIndex() == 0 && */GameSparker.snfmm.getSelectedIndex() != 0 && gstage != GameSparker.snfmm.getSelectedIndex()) {
+                                                loadstage = GameSparker.snfmm.getSelectedIndex();
                                                 gstage = loadstage;
                                                 gs.requestFocus();
                                             }
@@ -2501,18 +2495,18 @@ class Lobby implements Runnable {
                                                 rd.setFont(new Font("Arial", 1, 12));
                                                 ftm = rd.getFontMetrics();
                                                 rd.drawString("" + gstagename + "  -  Laps:              ", 472 - ftm.stringWidth("" + gstagename + "  -  Laps:              ") / 2, 155);
-                                                if (!gs.slaps.isShowing()) {
-                                                    gs.slaps.setVisible(true);
-                                                    gs.slaps.select(gstagelaps - 1);
+                                                if (!GameSparker.slaps.isShowing()) {
+                                                    GameSparker.slaps.setVisible(true);
+                                                    GameSparker.slaps.select(gstagelaps - 1);
                                                 }
-                                                gs.slaps.move(472 + ftm.stringWidth("" + gstagename + "  -  Laps:              ") / 2 - 35, 138);
-                                                if (gs.slaps.getSelectedIndex() != gstagelaps - 1) {
-                                                    gstagelaps = gs.slaps.getSelectedIndex() + 1;
+                                                GameSparker.slaps.move(472 + ftm.stringWidth("" + gstagename + "  -  Laps:              ") / 2 - 35, 138);
+                                                if (GameSparker.slaps.getSelectedIndex() != gstagelaps - 1) {
+                                                    gstagelaps = GameSparker.slaps.getSelectedIndex() + 1;
                                                     gs.requestFocus();
                                                 }
                                                 stringbutton("    Preview Stage    ", 472, 185, 2);
-                                            } else if (gs.slaps.isShowing()) {
-                                                gs.slaps.setVisible(false);
+                                            } else if (GameSparker.slaps.isShowing()) {
+                                                GameSparker.slaps.setVisible(false);
                                             }
                                             /*if (remstage == 3) {
                                             	if (loadstage < 0)
@@ -2581,10 +2575,10 @@ class Lobby implements Runnable {
                                         } else {
                                             if (!inwab) {
                                                 //gs.sgame.setVisible(false);
-                                                gs.mstgs.setVisible(false);
-                                                gs.slaps.setVisible(false);
+                                                GameSparker.mstgs.setVisible(false);
+                                                GameSparker.slaps.setVisible(false);
                                                 //gs.snfm1.setVisible(false);
-                                                gs.snfmm.setVisible(false);
+                                                GameSparker.snfmm.setVisible(false);
                                                 //gs.snfm2.setVisible(false);
                                             }
                                             /*if (!xt.clan.equals("")) {} else */ {//CHECK
@@ -2599,16 +2593,16 @@ class Lobby implements Runnable {
                                             }
                                         }
                                         if (bool161) {
-                                            gs.pgame.setVisible(true);
+                                            GameSparker.pgame.setVisible(true);
                                         } else {
-                                            gs.pgame.setVisible(false);
+                                            GameSparker.pgame.setVisible(false);
                                         }
                                         if (bool162) {
-                                            gs.vnpls.setVisible(true);
-                                            gs.vtyp.setVisible(true);
+                                            GameSparker.vnpls.setVisible(true);
+                                            GameSparker.vtyp.setVisible(true);
                                         } else {
-                                            gs.vnpls.setVisible(false);
-                                            gs.vtyp.setVisible(false);
+                                            GameSparker.vnpls.setVisible(false);
+                                            GameSparker.vtyp.setVisible(false);
                                         }
                                     }
                                     if (chalngd == -3) {
@@ -2622,46 +2616,46 @@ class Lobby implements Runnable {
                                             sflk--;
                                         }
                                         int i166 = 0;
-                                        if (xt.lan) {
+                                        if (xtGraphics.lan) {
                                             i166 = 59;
                                         }
                                         rd.drawString("Players", 413 - i166, 122);
-                                        if (!gs.snpls.isShowing()) {
-                                            gs.snpls.setVisible(true);
-                                            gs.snpls.select(gnpls - 1);
+                                        if (!GameSparker.snpls.isShowing()) {
+                                            GameSparker.snpls.setVisible(true);
+                                            GameSparker.snpls.select(gnpls - 1);
                                         }
-                                        gs.snpls.move(467 - i166, 105);
+                                        GameSparker.snpls.move(467 - i166, 105);
                                         boolean bool167 = false;
-                                        if (gs.snpls.getSelectedIndex() != 0 && gs.snpls.getSelectedIndex() != gnpls - 1) {
-                                            gnpls = gs.snpls.getSelectedIndex() + 1;
+                                        if (GameSparker.snpls.getSelectedIndex() != 0 && GameSparker.snpls.getSelectedIndex() != gnpls - 1) {
+                                            gnpls = GameSparker.snpls.getSelectedIndex() + 1;
                                             bool167 = true;
-                                            gs.swait.setVisible(false);
+                                            GameSparker.swait.setVisible(false);
                                         }
-                                        if (xt.lan) {
+                                        if (xtGraphics.lan) {
                                             rd.drawString("Bots", 490, 122);
-                                            if (!gs.snbts.isShowing()) {
-                                                gs.snbts.setVisible(true);
-                                                gs.snbts.select(0);
+                                            if (!GameSparker.snbts.isShowing()) {
+                                                GameSparker.snbts.setVisible(true);
+                                                GameSparker.snbts.select(0);
                                                 // gnbts = 0;
                                             }
-                                            gs.snbts.move(524, 105);
-                                            if (gs.snbts.getSelectedIndex() != gnbts || bool167) {
-                                                for (gnbts = gs.snbts.getSelectedIndex(); gnbts + gnpls > 8; gnbts--) {
+                                            GameSparker.snbts.move(524, 105);
+                                            if (GameSparker.snbts.getSelectedIndex() != gnbts || bool167) {
+                                                for (gnbts = GameSparker.snbts.getSelectedIndex(); gnbts + gnpls > 8; gnbts--) {
 
                                                 }
-                                                gs.snbts.select(gnbts);
+                                                GameSparker.snbts.select(gnbts);
                                             }
                                         }
                                         rd.drawString("Wait", 414, 162);
-                                        if (!gs.swait.isShowing()) {
-                                            gs.swait.setVisible(true);
+                                        if (!GameSparker.swait.isShowing()) {
+                                            GameSparker.swait.setVisible(true);
                                             if (gwait == 0) {
-                                                gs.swait.select(1);
+                                                GameSparker.swait.select(1);
                                             }
                                         }
-                                        gs.swait.move(451, 145);
-                                        if ((gs.swait.getSelectedIndex() + 1) * 60 != gwait) {
-                                            gwait = (gs.swait.getSelectedIndex() + 1) * 60;
+                                        GameSparker.swait.move(451, 145);
+                                        if ((GameSparker.swait.getSelectedIndex() + 1) * 60 != gwait) {
+                                            gwait = (GameSparker.swait.getSelectedIndex() + 1) * 60;
                                         }
                                         rd.setColor(color2k(90, 90, 90));
                                         rd.setFont(new Font("Arial", 0, 11));
@@ -2680,92 +2674,92 @@ class Lobby implements Runnable {
                                         if (sflk != 0) {
                                             sflk--;
                                         }
-                                        int i168 = 472 - (gs.scars.getWidth() + gs.sclass.getWidth() + gs.sfix.getWidth() + 16) / 2;
-                                        if (!gs.scars.isShowing()) {
-                                            gs.scars.setVisible(true);
+                                        int i168 = 472 - (GameSparker.scars.getWidth() + GameSparker.sclass.getWidth() + GameSparker.sfix.getWidth() + 16) / 2;
+                                        if (!GameSparker.scars.isShowing()) {
+                                            GameSparker.scars.setVisible(true);
                                             if (gcars >= 0 && gcars <= 2) {
-                                                gs.scars.select(gcars);
+                                                GameSparker.scars.select(gcars);
                                             } else {
-                                                gs.scars.select(0);
+                                                GameSparker.scars.select(0);
                                             }
                                         }
-                                        gs.scars.move(i168, 105);
-                                        i168 += gs.scars.getWidth() + 8;
-                                        if (!gs.sclass.isShowing()) {
-                                            gs.sclass.setVisible(true);
+                                        GameSparker.scars.move(i168, 105);
+                                        i168 += GameSparker.scars.getWidth() + 8;
+                                        if (!GameSparker.sclass.isShowing()) {
+                                            GameSparker.sclass.setVisible(true);
                                             if (gclass >= 0 && gclass <= 5) {
-                                                gs.sclass.select(gclass);
+                                                GameSparker.sclass.select(gclass);
                                             } else {
-                                                gs.sclass.select(0);
+                                                GameSparker.sclass.select(0);
                                             }
                                         }
-                                        gs.sclass.move(i168, 105);
-                                        i168 += gs.sclass.getWidth() + 8;
-                                        if (!gs.sfix.isShowing()) {
-                                            gs.sfix.setVisible(true);
+                                        GameSparker.sclass.move(i168, 105);
+                                        i168 += GameSparker.sclass.getWidth() + 8;
+                                        if (!GameSparker.sfix.isShowing()) {
+                                            GameSparker.sfix.setVisible(true);
                                             if (gfix >= 0 && gfix <= 5) {
-                                                gs.sfix.select(gfix);
+                                                GameSparker.sfix.select(gfix);
                                             } else {
-                                                gs.sfix.select(0);
+                                                GameSparker.sfix.select(0);
                                             }
                                         }
-                                        gs.sfix.move(i168, 105);
-                                        i168 += gs.sfix.getWidth();
-                                        if (!gs.openm) {
-                                            gs.movefield(gs.notp, i168 - 112, 131, 150, 17);
+                                        GameSparker.sfix.move(i168, 105);
+                                        i168 += GameSparker.sfix.getWidth();
+                                        if (!GameSparker.openm) {
+                                            GameSparker.movefield(GameSparker.notp, i168 - 112, 131, 150, 17);
                                         } else {
-                                            gs.movefield(gs.notp, i168 - 112, -2000, 150, 17);
+                                            GameSparker.movefield(GameSparker.notp, i168 - 112, -2000, 150, 17);
                                         }
-                                        if (!gs.notp.isShowing()) {
-                                            gs.notp.setVisible(true);
+                                        if (!GameSparker.notp.isShowing()) {
+                                            GameSparker.notp.setVisible(true);
                                             if (gnotp == 0) {
-                                                gs.notp.setState(false);
+                                                GameSparker.notp.setState(false);
                                             } else {
-                                                gs.notp.setState(true);
+                                                GameSparker.notp.setState(true);
                                             }
                                         }
-                                        if (xt.sc[0] < CarDefine.SIXTEEN) {
-                                            if (!gs.openm) {
-                                                gs.movefield(gs.mycar, 472 - (gs.scars.getWidth() + gs.sclass.getWidth() + gs.sfix.getWidth() + 16) / 2, 131, 150, 17);
+                                        if (xtGraphics.sc[0] < CarDefine.SIXTEEN) {
+                                            if (!GameSparker.openm) {
+                                                GameSparker.movefield(GameSparker.mycar, 472 - (GameSparker.scars.getWidth() + GameSparker.sclass.getWidth() + GameSparker.sfix.getWidth() + 16) / 2, 131, 150, 17);
                                             } else {
-                                                gs.movefield(gs.mycar, 410, -2000, 150, 17);
+                                                GameSparker.movefield(GameSparker.mycar, 410, -2000, 150, 17);
                                             }
-                                            if (!gs.mycar.isShowing()) {
-                                                gs.mycar.setVisible(true);
-                                                gs.mycar.setLabel("" + cd.names[xt.sc[0]] + " Game!");
+                                            if (!GameSparker.mycar.isShowing()) {
+                                                GameSparker.mycar.setVisible(true);
+                                                GameSparker.mycar.setLabel("" + CarDefine.names[xtGraphics.sc[0]] + " Game!");
                                                 if (gclass <= -2) {
-                                                    gs.mycar.setState(true);
+                                                    GameSparker.mycar.setState(true);
                                                 } else {
-                                                    gs.mycar.setState(false);
+                                                    GameSparker.mycar.setState(false);
                                                 }
                                             }
-                                        } else if (gs.mycar.getState()) {
-                                            gs.mycar.setState(false);
+                                        } else if (GameSparker.mycar.getState()) {
+                                            GameSparker.mycar.setState(false);
                                         }
-                                        if (gs.mycar.getState()) {
-                                            if (gs.sclass.isEnabled()) {
-                                                gs.sclass.setEnabled(false);
+                                        if (GameSparker.mycar.getState()) {
+                                            if (GameSparker.sclass.isEnabled()) {
+                                                GameSparker.sclass.setEnabled(false);
                                             }
-                                            if (gs.scars.isEnabled()) {
-                                                gs.scars.setEnabled(false);
+                                            if (GameSparker.scars.isEnabled()) {
+                                                GameSparker.scars.setEnabled(false);
                                             }
                                         } else {
-                                            if (!gs.sclass.isEnabled()) {
-                                                gs.sclass.setEnabled(true);
+                                            if (!GameSparker.sclass.isEnabled()) {
+                                                GameSparker.sclass.setEnabled(true);
                                             }
-                                            if (!gs.scars.isEnabled()) {
-                                                gs.scars.setEnabled(true);
+                                            if (!GameSparker.scars.isEnabled()) {
+                                                GameSparker.scars.setEnabled(true);
                                             }
-                                            if (gs.sclass.getSelectedIndex() != gclass) {
-                                                gclass = gs.sclass.getSelectedIndex();
-                                                gs.mycar.setVisible(false);
+                                            if (GameSparker.sclass.getSelectedIndex() != gclass) {
+                                                gclass = GameSparker.sclass.getSelectedIndex();
+                                                GameSparker.mycar.setVisible(false);
                                             }
-                                            if (gs.scars.getSelectedIndex() != gcars) {
-                                                gcars = gs.scars.getSelectedIndex();
+                                            if (GameSparker.scars.getSelectedIndex() != gcars) {
+                                                gcars = GameSparker.scars.getSelectedIndex();
                                             }
                                         }
-                                        if (gs.sfix.getSelectedIndex() != gfix) {
-                                            gfix = gs.sfix.getSelectedIndex();
+                                        if (GameSparker.sfix.getSelectedIndex() != gfix) {
+                                            gfix = GameSparker.sfix.getSelectedIndex();
                                         }
                                         String string = "Public Game, anyone can join...";
                                         int i169 = 0;
@@ -2849,7 +2843,7 @@ class Lobby implements Runnable {
                         rd.fillRoundRect(225, 59 - (int) (opengame * 2.23F), 495, 200 + opengame * 8, 20, 20);
                         rd.setColor(new Color(0, 0, 0));
                         rd.drawRoundRect(225, 59 - (int) (opengame * 2.23F), 495, 200 + opengame * 8, 20, 20);
-                        if (!xt.lan) {
+                        if (!xtGraphics.lan) {
                             rd.setColor(color2k(217, 217, 217));
                             rd.fillRoundRect(225, 263 + opengame * 7, 495, 157, 20, 20);
                             rd.setColor(new Color(0, 0, 0));
@@ -2862,12 +2856,12 @@ class Lobby implements Runnable {
                         if (updatec != -1) {
                             updatec = -1;
                         }
-                        if (gs.cmsg.isShowing()) {
-                            gs.cmsg.setVisible(false);
+                        if (GameSparker.cmsg.isShowing()) {
+                            GameSparker.cmsg.setVisible(false);
                             gs.requestFocus();
                         }
-                        if (gs.rooms.isShowing()) {
-                            gs.rooms.setVisible(false);
+                        if (GameSparker.rooms.isShowing()) {
+                            GameSparker.rooms.setVisible(false);
                         }
                         if (fstart) {
                             fstart = false;
@@ -2934,8 +2928,8 @@ class Lobby implements Runnable {
                                     ncnt--;
                                 }
                             }
-                            if (gs.cmsg.isShowing()) {
-                                gs.cmsg.setVisible(false);
+                            if (GameSparker.cmsg.isShowing()) {
+                                GameSparker.cmsg.setVisible(false);
                                 gs.requestFocus();
                             }
                         } else {
@@ -3018,7 +3012,7 @@ class Lobby implements Runnable {
                                                 string200 = "" + string200 + string201;
                                             }
                                         } else {
-                                            string200 = "" + cd.names[Math.abs(gclss[i193] + 2)] + "";
+                                            string200 = "" + CarDefine.names[Math.abs(gclss[i193] + 2)] + "";
                                         }
                                         if (string200.equals("")) {
                                             rd.drawString("Type:", 243, 23);
@@ -3234,13 +3228,13 @@ class Lobby implements Runnable {
                                 }
                             rd.drawImage(Images.pls, 292, 39, null);
                             if (opengame != 27) {
-                                m.crs = true;
-                                m.x = -335;
-                                m.y = 0;
-                                m.z = -50;
-                                m.xz = 0;
-                                m.zy = 20;
-                                m.ground = -2000;
+                                Medium.crs = true;
+                                Medium.x = -335;
+                                Medium.y = 0;
+                                Medium.z = -50;
+                                Medium.xz = 0;
+                                Medium.zy = 20;
+                                Medium.ground = -2000;
                                 pend = 0;
                                 pendb = false;
                                 ptime = 0L;
@@ -3284,13 +3278,13 @@ class Lobby implements Runnable {
                                     rd.setFont(new Font("Arial", 0, 10));
                                     ftm = rd.getFontMetrics();
                                     rd.drawString(pcarnames[i222], 282 - ftm.stringWidth(pcarnames[i222]) / 2, 84 + i220 * 42);
-                                    m.crs = true;
-                                    m.x = -335;
-                                    m.y = 0;
-                                    m.z = -50;
-                                    m.xz = 0;
-                                    m.zy = 20;
-                                    m.ground = -2000;
+                                    Medium.crs = true;
+                                    Medium.x = -335;
+                                    Medium.y = 0;
+                                    Medium.z = -50;
+                                    Medium.xz = 0;
+                                    Medium.zy = 20;
+                                    Medium.ground = -2000;
                                     if (pcars[i222] != -1) {
                                         for (int i224 = 0; i224 < contos[pcars[i222]].npl; i224++) {
                                             contos[pcars[i222]].p[i224].flx = 0;
@@ -3368,8 +3362,8 @@ class Lobby implements Runnable {
                                 if (bool) {
                                     mousedout = true;
                                 } else if (mousedout) {
-                                    if (dispcar != i221 && i221 != -1 && cd.action != 6) {
-                                        cd.action = 0;
+                                    if (dispcar != i221 && i221 != -1 && CarDefine.action != 6) {
+                                        CarDefine.action = 0;
                                         dispcar = i221;
                                         forcar = pcars[i221];
                                         dispco = null;
@@ -3408,7 +3402,7 @@ class Lobby implements Runnable {
                                         if (!gplyrs[i193].equals("") && !gplyrs[i193].contains(pnames[im])) {
                                             bool237 = true;
                                         }
-                                    } else if (!xt.clan.equalsIgnoreCase(gaclan[i193]) && !xt.clan.equalsIgnoreCase(gvclan[i193])) {
+                                    } else if (!xtGraphics.clan.equalsIgnoreCase(gaclan[i193]) && !xtGraphics.clan.equalsIgnoreCase(gvclan[i193])) {
                                         bool237 = true;
                                     }
                                     if (i > 237 && i < 407 && i99 > 54 + i236 * 42 && i99 < 94 + i236 * 42 && !bool237) {
@@ -3445,7 +3439,7 @@ class Lobby implements Runnable {
                                     i235++;
                                 }
                             }
-                            if (xt.lan && mnbts[i193] != 0) {
+                            if (xtGraphics.lan && mnbts[i193] != 0) {
                                 rd.setColor(new Color(0, 0, 0));
                                 rd.setFont(new Font("Arial", 1, 12));
                                 ftm = rd.getFontMetrics();
@@ -3576,7 +3570,7 @@ class Lobby implements Runnable {
                                             rd.setColor(new Color(0, 128, 255));
                                             rd.drawRect(562, 112, 138, 31);
                                             if (pgames[im] != ongame) {
-                                                if (xt.clan.equalsIgnoreCase(gaclan[i193]) || xt.clan.equalsIgnoreCase(gvclan[i193])) {
+                                                if (xtGraphics.clan.equalsIgnoreCase(gaclan[i193]) || xtGraphics.clan.equalsIgnoreCase(gvclan[i193])) {
                                                     stringbutton("    Join this Game    ", 561, 200, 0);
                                                 } else {
                                                     rd.setColor(new Color(128, 73, 0));
@@ -3854,7 +3848,7 @@ class Lobby implements Runnable {
                                         rd.setFont(new Font("Arial", 1, 12));
                                         ftm = rd.getFontMetrics();
                                         if (prevloaded == -1) {
-                                            if (!xt.lan) {
+                                            if (!xtGraphics.lan) {
                                                 rd.drawString("Loading Info...", 561 - ftm.stringWidth("Loading Info...") / 2, 134);
                                             } else if (pgames[im] == ongame) {
                                                 rd.drawString("About to Start...", 561 - ftm.stringWidth("About to Start...") / 2, 134);
@@ -3896,7 +3890,7 @@ class Lobby implements Runnable {
                                     ftm = rd.getFontMetrics();
                                     rd.drawString(gstages[i193], 562 - ftm.stringWidth(gstages[i193]) / 2, 254);
                                 }
-                                if (!xt.lan) {
+                                if (!xtGraphics.lan) {
                                     int i261 = 237;
                                     int i262 = 471;
                                     if (wait[i193] > 0) {
@@ -3986,14 +3980,14 @@ class Lobby implements Runnable {
                                     } else {
                                         hideinputs();
                                     }
-                                    if (control.enter && !gs.cmsg.getText().equals("Type here...") && !gs.cmsg.getText().equals("")) {
+                                    if (control.enter && !GameSparker.cmsg.getText().equals("Type here...") && !GameSparker.cmsg.getText().equals("")) {
                                         pessd[btn] = true;
                                         control.enter = false;
-                                        String string277 = gs.cmsg.getText().replace('|', ':');
-                                        if (string277.toLowerCase().contains(gs.tpass.getText().toLowerCase())) {
+                                        String string277 = GameSparker.cmsg.getText().replace('|', ':');
+                                        if (string277.toLowerCase().contains(GameSparker.tpass.getText().toLowerCase())) {
                                             string277 = " ";
                                         }
-                                        if (!xt.msgcheck(string277) && updatec > -12) {
+                                        if (!xtGraphics.msgcheck(string277) && updatec > -12) {
                                             for (int i278 = 0; i278 < 6; i278++) {
                                                 sentn[i278] = sentn[i278 + 1];
                                                 cnames[i278] = cnames[i278 + 1];
@@ -4006,15 +4000,15 @@ class Lobby implements Runnable {
                                                 updatec--;
                                             }
                                         } else {
-                                            xt.warning++;
+                                            xtGraphics.warning++;
                                         }
-                                        gs.cmsg.setText("");
+                                        GameSparker.cmsg.setText("");
                                     }
                                     stringbutton("Send Message", 655, 405, 3);
                                 }
                             } else {
-                                if (gs.cmsg.isShowing()) {
-                                    gs.cmsg.setVisible(false);
+                                if (GameSparker.cmsg.isShowing()) {
+                                    GameSparker.cmsg.setVisible(false);
                                 }
                                 if (pcars[dispcar] == forcar && forcar != -1) {
                                     rd.drawImage(Images.crd, 517, 81, null);
@@ -4042,7 +4036,7 @@ class Lobby implements Runnable {
                                     rd.setColor(new Color(0, 0, 0));
                                     rd.setFont(new Font("Arial", 1, 13));
                                     ftm = rd.getFontMetrics();
-                                    rd.drawString(cd.names[forcar], 561 - ftm.stringWidth(cd.names[forcar]) / 2, 117);
+                                    rd.drawString(CarDefine.names[forcar], 561 - ftm.stringWidth(CarDefine.names[forcar]) / 2, 117);
                                     for (int i279 = 0; i279 < dispco.npl; i279++) {
                                         if (contos[forcar].p[i279].colnum == 1) {
                                             dispco.p[i279].hsb[0] = pcols[dispcar][0];
@@ -4055,7 +4049,7 @@ class Lobby implements Runnable {
                                             dispco.p[i279].hsb[2] = 1.0F - pcols[dispcar][5];
                                         }
                                     }
-                                    m.cx = 561;
+                                    Medium.cx = 561;
                                     dispco.z = 1200;
                                     dispco.y = 605 - dispco.grat;
                                     dispco.x = 225;
@@ -4073,7 +4067,7 @@ class Lobby implements Runnable {
                                     rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
                                     dispco.d(rd);
                                     rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-                                    m.cx = 400;
+                                    Medium.cx = 400;
                                     rd.setFont(new Font("Arial", 1, 11));
                                     int i280 = 424;
                                     int i281 = -55;
@@ -4083,12 +4077,12 @@ class Lobby implements Runnable {
                                     rd.drawString("Acceleration:", 20 + i280, 333 + i281);
                                     rd.drawImage(Images.statb, 97 + i280, 327 + i281, null);
                                     rd.setColor(color2k(255, 255, 255));
-                                    float f = (cd.swits[forcar][2] - 220) / 90.0F;
+                                    float f = (CarDefine.swits[forcar][2] - 220) / 90.0F;
                                     if (f < 0.2) {
                                         f = 0.2F;
                                     }
                                     rd.fillRect((int) (97.0F + 156.0F * f) + i280, 312 + i281, (int) (156.0F * (1.0F - f) + 1.0F), 7);
-                                    f = cd.acelf[forcar][1] * cd.acelf[forcar][0] * cd.acelf[forcar][2] * cd.grip[forcar] / 7700.0F;
+                                    f = CarDefine.acelf[forcar][1] * CarDefine.acelf[forcar][0] * CarDefine.acelf[forcar][2] * CarDefine.grip[forcar] / 7700.0F;
                                     if (f > 1.0F) {
                                         f = 1.0F;
                                     }
@@ -4105,18 +4099,18 @@ class Lobby implements Runnable {
                                     rd.drawString("Endurance:", 405 + i280, 348 + i281);
                                     rd.drawImage(Images.statb, 471 + i280, 342 + i281, null);
                                     rd.setColor(color2k(255, 255, 255));
-                                    f = (cd.airc[forcar] * cd.airs[forcar] * cd.bounce[forcar] + 28.0F) / 139.0F;
+                                    f = (CarDefine.airc[forcar] * CarDefine.airs[forcar] * CarDefine.bounce[forcar] + 28.0F) / 139.0F;
                                     if (f > 1.0F) {
                                         f = 1.0F;
                                     }
                                     rd.fillRect((int) (471.0F + 156.0F * f) + i280, 312 + i281, (int) (156.0F * (1.0F - f) + 1.0F), 7);
                                     final float f282 = 0.5F;
-                                    f = (cd.moment[forcar] + f282) / 2.6F;
+                                    f = (CarDefine.moment[forcar] + f282) / 2.6F;
                                     if (f > 1.0F) {
                                         f = 1.0F;
                                     }
                                     rd.fillRect((int) (471.0F + 156.0F * f) + i280, 327 + i281, (int) (156.0F * (1.0F - f) + 1.0F), 7);
-                                    f = cd.outdam[forcar];
+                                    f = CarDefine.outdam[forcar];
                                     rd.fillRect((int) (471.0F + 156.0F * f) + i280, 342 + i281, (int) (156.0F * (1.0F - f) + 1.0F), 7);
                                     rd.drawImage(Images.statbo, 471 + i280, 312 + i281, null);
                                     rd.drawImage(Images.statbo, 471 + i280, 327 + i281, null);
@@ -4127,19 +4121,19 @@ class Lobby implements Runnable {
                                         ftm = rd.getFontMetrics();
                                         rd.drawString("Created by Radicalplay.com", 561 - ftm.stringWidth("Created by Radicalplay.com") / 2, 347);
                                         String string283 = "Game Car";
-                                        if (cd.cclass[forcar] == 0) {
+                                        if (CarDefine.cclass[forcar] == 0) {
                                             string283 = "Class C ,  Game Car";
                                         }
-                                        if (cd.cclass[forcar] == 1) {
+                                        if (CarDefine.cclass[forcar] == 1) {
                                             string283 = "Class B & C ,  Game Car";
                                         }
-                                        if (cd.cclass[forcar] == 2) {
+                                        if (CarDefine.cclass[forcar] == 2) {
                                             string283 = "Class B ,  Game Car";
                                         }
-                                        if (cd.cclass[forcar] == 3) {
+                                        if (CarDefine.cclass[forcar] == 3) {
                                             string283 = "Class A & B ,  Game Car";
                                         }
-                                        if (cd.cclass[forcar] == 4) {
+                                        if (CarDefine.cclass[forcar] == 4) {
                                             string283 = "Class A ,  Game Car";
                                         }
                                         rd.drawString(string283, 561 - ftm.stringWidth(string283) / 2, 367);
@@ -4150,10 +4144,10 @@ class Lobby implements Runnable {
                                     } else {
                                         rd.setFont(new Font("Arial", 1, 12));
                                         ftm = rd.getFontMetrics();
-                                        if (!cd.createdby[forcar - CarDefine.SIXTEEN].equals(xt.nickname)) {
-                                            rd.drawString("Created by :  " + cd.createdby[forcar - CarDefine.SIXTEEN] + "", 561 - ftm.stringWidth("Created by :  " + cd.createdby[forcar - CarDefine.SIXTEEN] + "") / 2, 347);
-                                            final int i284 = ftm.stringWidth(cd.createdby[forcar - CarDefine.SIXTEEN]);
-                                            final int i285 = 561 - ftm.stringWidth("Created by :  " + cd.createdby[forcar - CarDefine.SIXTEEN] + "") / 2 + ftm.stringWidth("Created by :  " + cd.createdby[forcar - CarDefine.SIXTEEN] + "") - i284;
+                                        if (!CarDefine.createdby[forcar - CarDefine.SIXTEEN].equals(xtGraphics.nickname)) {
+                                            rd.drawString("Created by :  " + CarDefine.createdby[forcar - CarDefine.SIXTEEN] + "", 561 - ftm.stringWidth("Created by :  " + CarDefine.createdby[forcar - CarDefine.SIXTEEN] + "") / 2, 347);
+                                            final int i284 = ftm.stringWidth(CarDefine.createdby[forcar - CarDefine.SIXTEEN]);
+                                            final int i285 = 561 - ftm.stringWidth("Created by :  " + CarDefine.createdby[forcar - CarDefine.SIXTEEN] + "") / 2 + ftm.stringWidth("Created by :  " + CarDefine.createdby[forcar - CarDefine.SIXTEEN] + "") - i284;
                                             rd.drawLine(i285, 349, i285 + i284 - 2, 349);
                                             if (i > i285 - 2 && i < i285 + i284 && i99 > 334 && i99 < 351) {
                                                 if (bool) {
@@ -4172,29 +4166,29 @@ class Lobby implements Runnable {
                                         }
                                         rd.setColor(new Color(128, 73, 0));
                                         String string286 = "";
-                                        if (cd.cclass[forcar] == 0) {
+                                        if (CarDefine.cclass[forcar] == 0) {
                                             string286 = "Class C ,  ";
                                         }
-                                        if (cd.cclass[forcar] == 1) {
+                                        if (CarDefine.cclass[forcar] == 1) {
                                             string286 = "Class B & C ,  ";
                                         }
-                                        if (cd.cclass[forcar] == 2) {
+                                        if (CarDefine.cclass[forcar] == 2) {
                                             string286 = "Class B ,  ";
                                         }
-                                        if (cd.cclass[forcar] == 3) {
+                                        if (CarDefine.cclass[forcar] == 3) {
                                             string286 = "Class A & B ,  ";
                                         }
-                                        if (cd.cclass[forcar] == 4) {
+                                        if (CarDefine.cclass[forcar] == 4) {
                                             string286 = "Class A ,  ";
                                         }
-                                        if (cd.publish[forcar - CarDefine.SIXTEEN] == 0) {
+                                        if (CarDefine.publish[forcar - CarDefine.SIXTEEN] == 0) {
                                             string286 = "" + string286 + "Private Car";
                                         }
-                                        if (cd.publish[forcar - CarDefine.SIXTEEN] == 1) {
+                                        if (CarDefine.publish[forcar - CarDefine.SIXTEEN] == 1) {
                                             string286 = "" + string286 + "Public Car";
                                             rd.setColor(new Color(0, 64, 128));
                                         }
-                                        if (cd.publish[forcar - CarDefine.SIXTEEN] == 2) {
+                                        if (CarDefine.publish[forcar - CarDefine.SIXTEEN] == 2) {
                                             string286 = "" + string286 + "Super Public Car";
                                             rd.setColor(new Color(0, 64, 128));
                                         }
@@ -4202,23 +4196,23 @@ class Lobby implements Runnable {
                                         rd.setColor(new Color(0, 0, 0));
                                         rd.setFont(new Font("Arial", 0, 12));
                                         ftm = rd.getFontMetrics();
-                                        if (cd.publish[forcar - CarDefine.SIXTEEN] == 1 || cd.publish[forcar - CarDefine.SIXTEEN] == 2) {
-                                            if (cd.action == -9) {
+                                        if (CarDefine.publish[forcar - CarDefine.SIXTEEN] == 1 || CarDefine.publish[forcar - CarDefine.SIXTEEN] == 2) {
+                                            if (CarDefine.action == -9) {
                                                 rd.drawString("Failed to add car!  Unknown error!", 561 - ftm.stringWidth("Failed to add car!  Unknown error!") / 2, 395);
                                             }
-                                            if (cd.action == -8) {
+                                            if (CarDefine.action == -8) {
                                                 rd.drawString("Failed!  You already have 20 cars!", 561 - ftm.stringWidth("Failed!  You already have 20 cars!") / 2, 395);
                                             }
-                                            if (cd.action == 7) {
-                                                rd.drawString("" + cd.names[cd.ac] + " has been added to your cars!", 561 - ftm.stringWidth("" + cd.names[cd.ac] + " has been added to your cars!") / 2, 395);
+                                            if (CarDefine.action == 7) {
+                                                rd.drawString("" + CarDefine.names[CarDefine.ac] + " has been added to your cars!", 561 - ftm.stringWidth("" + CarDefine.names[CarDefine.ac] + " has been added to your cars!") / 2, 395);
                                             }
-                                            if (cd.action == -7) {
+                                            if (CarDefine.action == -7) {
                                                 rd.drawString("You already have this car.", 561 - ftm.stringWidth("You already have this car.") / 2, 395);
                                             }
-                                            if (cd.action == 6) {
+                                            if (CarDefine.action == 6) {
                                                 rd.drawString("Adding Car...", 561 - ftm.stringWidth("Adding Car...") / 2, 395);
                                             }
-                                            if (cd.action == -6) {
+                                            if (CarDefine.action == -6) {
                                                 final String string287 = "Upgrade to a full account to add custom cars!";
                                                 final int i288 = 561 - ftm.stringWidth(string287) / 2;
                                                 final int i289 = i288 + ftm.stringWidth(string287);
@@ -4231,7 +4225,7 @@ class Lobby implements Runnable {
                                                         i101 = 12;
                                                     }
                                                     if (bool && waitlink == 0) {
-                                                        gs.editlink(xt.nickname, true);
+                                                        GameSparker.editlink(xtGraphics.nickname, true);
                                                         waitlink = -1;
                                                     }
                                                 }
@@ -4239,24 +4233,24 @@ class Lobby implements Runnable {
                                                     waitlink--;
                                                 }
                                             }
-                                            if (cd.action == 0 && xt.drawcarb(true, null, " Add to My Cars ", 503, 375, i, i99, bool))
-                                                if (xt.logged) {
-                                                    if (cd.lastload != 2 || forcar >= CarDefine.THIRTY_SIX) {
-                                                        cd.action = 6;
-                                                        cd.ac = forcar;
-                                                        cd.sparkactionloader();
+                                            if (CarDefine.action == 0 && xtGraphics.drawcarb(true, null, " Add to My Cars ", 503, 375, i, i99, bool))
+                                                if (xtGraphics.logged) {
+                                                    if (CarDefine.lastload != 2 || forcar >= CarDefine.THIRTY_SIX) {
+                                                        CarDefine.action = 6;
+                                                        CarDefine.ac = forcar;
+                                                        CarDefine.sparkactionloader();
                                                     } else {
-                                                        cd.action = -7;
+                                                        CarDefine.action = -7;
                                                     }
                                                 } else {
-                                                    cd.action = -6;
+                                                    CarDefine.action = -6;
                                                     waitlink = 20;
                                                 }
                                         } else {
                                             rd.drawString("Private Car.  Cannot be added to account.", 561 - ftm.stringWidth("Private Car.  Cannot be added to account.") / 2, 395);
                                         }
                                     }
-                                    if (xt.drawcarb(true, null, "X", 682, 99, i, i99, bool)) {
+                                    if (xtGraphics.drawcarb(true, null, "X", 682, 99, i, i99, bool)) {
                                         dispcar = -1;
                                     }
                                 } else {
@@ -4267,12 +4261,12 @@ class Lobby implements Runnable {
                     }
                 } else {
                     if (!jflexo) {
-                        xt.jflexo();
+                        xtGraphics.jflexo();
                         jflexo = true;
                     }
                     btn = 0;
-                    if (gs.cmsg.isShowing()) {
-                        gs.cmsg.setVisible(false);
+                    if (GameSparker.cmsg.isShowing()) {
+                        GameSparker.cmsg.setVisible(false);
                         gs.requestFocus();
                     }
                     rd.setColor(color2k(255, 255, 255));
@@ -4320,9 +4314,9 @@ class Lobby implements Runnable {
                         }
                         if (ontyp <= -2)
                             if (Math.abs(ontyp + 2) == 13) {
-                                string = " " + cd.names[Math.abs(ontyp + 2)] + "  Game";
+                                string = " " + CarDefine.names[Math.abs(ontyp + 2)] + "  Game";
                             } else {
-                                string = "" + cd.names[Math.abs(ontyp + 2)] + " Game";
+                                string = "" + CarDefine.names[Math.abs(ontyp + 2)] + " Game";
                             }
                         rd.setColor(new Color(0, 0, 0));
                         rd.setFont(new Font("Arial", 1, 13));
@@ -4358,9 +4352,9 @@ class Lobby implements Runnable {
                         }
                         if (ontyp <= -2)
                             if (Math.abs(ontyp + 2) == 13) {
-                                string = " " + cd.names[Math.abs(ontyp + 2)] + " ";
+                                string = " " + CarDefine.names[Math.abs(ontyp + 2)] + " ";
                             } else {
-                                string = "" + cd.names[Math.abs(ontyp + 2)] + "";
+                                string = "" + CarDefine.names[Math.abs(ontyp + 2)] + "";
                             }
                         rd.drawString("To join this game you need to have " + string + "!", 400 - ftm.stringWidth("To join this game you need to have " + string + "!") / 2, 206);
                         stringbutton("  Get " + string + " now  ", 400, 247, 0);
@@ -4380,10 +4374,10 @@ class Lobby implements Runnable {
                     }
                 }
             } else {
-                xt.mainbg(3);
+                xtGraphics.mainbg(3);
                 btn = 0;
-                if (gs.cmsg.isShowing()) {
-                    gs.cmsg.setVisible(false);
+                if (GameSparker.cmsg.isShowing()) {
+                    GameSparker.cmsg.setVisible(false);
                     gs.requestFocus();
                 }
                 rd.setComposite(AlphaComposite.getInstance(3, 0.2F));
@@ -4437,12 +4431,12 @@ class Lobby implements Runnable {
                 drawSbutton(Images.exit, 400, 336 + i291);
             }
         } else {
-            xt.drawWarning();
-            if (gs.cmsg.isShowing()) {
-                gs.cmsg.setVisible(false);
+            xtGraphics.drawWarning();
+            if (GameSparker.cmsg.isShowing()) {
+                GameSparker.cmsg.setVisible(false);
                 gs.requestFocus();
             }
-            if (xt.warning > 220) {
+            if (xtGraphics.warning > 220) {
                 conon = 0;
                 try {
                     socket.close();
@@ -4455,7 +4449,7 @@ class Lobby implements Runnable {
 
                 }
             }
-            xt.warning++;
+            xtGraphics.warning++;
         }
         if (i101 != pcurs) {
             gs.setCursor(new Cursor(i101));
@@ -4466,34 +4460,34 @@ class Lobby implements Runnable {
     void preforma(final int i, final int i292) {
         if (pre1) {
             boolean bool = false;
-            if (!gs.openm/* && gb.open == 0*/) {
+            if (!GameSparker.openm/* && gb.open == 0*/) {
                 if (conon != 0) {
                     bool = true;
                 }
-            } else if (gs.cmsg.isShowing()) {
-                gs.cmsg.setVisible(false);
+            } else if (GameSparker.cmsg.isShowing()) {
+                GameSparker.cmsg.setVisible(false);
             }
-            gs.movefieldd(gs.cmsg, 235, 390, 360, 22, bool);
-            if (gs.cmsg.getText().equals("Type here...") && i > 234 && i < 603 && i292 > 385 && i292 < 417) {
-                gs.cmsg.setText("");
+            GameSparker.movefieldd(GameSparker.cmsg, 235, 390, 360, 22, bool);
+            if (GameSparker.cmsg.getText().equals("Type here...") && i > 234 && i < 603 && i292 > 385 && i292 < 417) {
+                GameSparker.cmsg.setText("");
             }
         }
         if (pre2) {
             boolean bool = false;
-            if (!gs.openm/* && gb.open == 0*/) {
+            if (!GameSparker.openm/* && gb.open == 0*/) {
                 bool = true;
-            } else if (gs.cmsg.isShowing()) {
-                gs.cmsg.setVisible(false);
+            } else if (GameSparker.cmsg.isShowing()) {
+                GameSparker.cmsg.setVisible(false);
             }
-            gs.movefieldd(gs.cmsg, 237, 390, 360, 22, bool);
-            if (gs.cmsg.getText().equals("Type here...") && i > 232 && i < 601 && i292 > 385 && i292 < 417) {
-                gs.cmsg.setText("");
+            GameSparker.movefieldd(GameSparker.cmsg, 237, 390, 360, 22, bool);
+            if (GameSparker.cmsg.getText().equals("Type here...") && i > 232 && i < 601 && i292 > 385 && i292 < 417) {
+                GameSparker.cmsg.setText("");
             }
         }
         if (pre1 || pre2) {
-            if (gs.cmsg.getText().length() > 100) {
-                gs.cmsg.setText(gs.cmsg.getText().substring(0, 100));
-                gs.cmsg.select(100, 100);
+            if (GameSparker.cmsg.getText().length() > 100) {
+                GameSparker.cmsg.setText(GameSparker.cmsg.getText().substring(0, 100));
+                GameSparker.cmsg.select(100, 100);
             }
             pre1 = false;
             pre2 = false;
@@ -4509,7 +4503,7 @@ class Lobby implements Runnable {
             if (!lloaded) {
                 gs.setCursor(new Cursor(3));
             }
-            if (!xt.logged && !xt.lan && xt.nfreeplays - xt.ndisco >= 5) {
+            if (!xtGraphics.logged && !xtGraphics.lan && xtGraphics.nfreeplays - xtGraphics.ndisco >= 5) {
                 if (join >= 0) {
                     join = -1;
                     regnow = true;
@@ -4542,14 +4536,14 @@ class Lobby implements Runnable {
                             ontyp += gclss[i1];
                         }
                     }
-                    if (gcrs[i1] == 1 && gwarb[i1] != 0 && xt.sc[0] != CarDefine.THIRTY_SIX) {
+                    if (gcrs[i1] == 1 && gwarb[i1] != 0 && xtGraphics.sc[0] != CarDefine.THIRTY_SIX) {
                         bool = true;
                         ontyp = 30;
                         if (gclss[i1] > 0 && gclss[i1] <= 5) {
                             ontyp += gclss[i1];
                         }
                     }
-                    if (gclss[i1] > 0 && gclss[i1] <= 5 && Math.abs(cd.cclass[pcars[im]] - (gclss[i1] - 1)) > 1) {
+                    if (gclss[i1] > 0 && gclss[i1] <= 5 && Math.abs(CarDefine.cclass[pcars[im]] - (gclss[i1] - 1)) > 1) {
                         bool = true;
                         if (gcrs[i1] == 1)
                             if (gwarb[i1] == 0) {
@@ -4566,7 +4560,7 @@ class Lobby implements Runnable {
                         bool = true;
                         ontyp = gclss[i1];
                     }
-                    if (gstgn[i1] == -2 && !xt.logged) {
+                    if (gstgn[i1] == -2 && !xtGraphics.logged) {
                         bool = true;
                         ontyp = 76;
                     }
@@ -4582,10 +4576,10 @@ class Lobby implements Runnable {
                     }
                 }
             }
-            if (xt.onjoin != -1) {
-                join = xt.onjoin;
-                ongame = xt.onjoin;
-                xt.onjoin = -1;
+            if (xtGraphics.onjoin != -1) {
+                join = xtGraphics.onjoin;
+                ongame = xtGraphics.onjoin;
+                xtGraphics.onjoin = -1;
             }
             if (updatec < -17) {
                 updatec = -17;
@@ -4604,12 +4598,12 @@ class Lobby implements Runnable {
                         }
                 }
             }
-            String string = "" + xt.sc[0] + "";
-            if (xt.sc[0] >= xtGraphics.nCars) {
-                string = "C" + cd.names[xt.sc[0]] + "";
+            String string = "" + xtGraphics.sc[0] + "";
+            if (xtGraphics.sc[0] >= xtGraphics.nCars) {
+                string = "C" + CarDefine.names[xtGraphics.sc[0]] + "";
             }
-            String string4 = "1|" + xt.nickname + ":" + xt.nickey + "|" + xt.clan + "|" + xt.clankey + "|" + string + "|" + join + "|" + (int) (xt.arnp[0] * 100.0F) + "|" + (int) (xt.arnp[1] * 100.0F) + "|" + (int) (xt.arnp[2] * 100.0F) + "|" + (int) (xt.arnp[3] * 100.0F) + "|" + (int) (xt.arnp[4] * 100.0F) + "|" + (int) (xt.arnp[5] * 100.0F) + "|" + ongame + "|";
-            if (!xt.lan) {
+            String string4 = "1|" + xtGraphics.nickname + ":" + xtGraphics.nickey + "|" + xtGraphics.clan + "|" + xtGraphics.clankey + "|" + string + "|" + join + "|" + (int) (xtGraphics.arnp[0] * 100.0F) + "|" + (int) (xtGraphics.arnp[1] * 100.0F) + "|" + (int) (xtGraphics.arnp[2] * 100.0F) + "|" + (int) (xtGraphics.arnp[3] * 100.0F) + "|" + (int) (xtGraphics.arnp[4] * 100.0F) + "|" + (int) (xtGraphics.arnp[5] * 100.0F) + "|" + ongame + "|";
+            if (!xtGraphics.lan) {
                 string4 = "" + string4 + "" + updatec + "|";
                 if (updatec <= -11) {
                     for (int i5 = 0; i5 < -updatec - 10; i5++) {
@@ -4628,7 +4622,7 @@ class Lobby implements Runnable {
                     string6 = "Nonex";
                 }
                 int i7 = 0;
-                if (xt.logged) {
+                if (xtGraphics.logged) {
                     i7 = 1;
                 }
                 string4 = "" + string4 + "" + string6 + "|" + i7 + "|";
@@ -4639,7 +4633,7 @@ class Lobby implements Runnable {
             }
             if (chalngd == -5 && !fstart) {
                 string4 = "" + string4 + "11|" + gstage + "|" + gstagename + "|" + gstagelaps + "|" + gnpls + "|" + gwait + "|" + pnames[im] + "|" + gcars + "|" + gclass + "|" + gfix + "|" + gnotp + "|" + gplayers + "|";
-                if (xt.lan) {
+                if (xtGraphics.lan) {
                     string4 = "" + string4 + "" + gnbts + "|";
                 }
             }
@@ -4678,7 +4672,7 @@ class Lobby implements Runnable {
 
                 }
                 try {
-                    socket = new Socket(xt.server, xt.servport);
+                    socket = new Socket(xtGraphics.server, xtGraphics.servport);
                     din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     dout = new PrintWriter(socket.getOutputStream(), true);
                     dout.println(string4);
@@ -4724,35 +4718,35 @@ class Lobby implements Runnable {
                     if (!pcarnames[i12].equals("")) {
                         int i14 = 0;
                         for (int i15 = CarDefine.SIXTEEN; i15 < CarDefine.FIFTY_SIX; i15++)
-                            if (pcarnames[i12].equals(cd.names[i15])) {
+                            if (pcarnames[i12].equals(CarDefine.names[i15])) {
                                 i14 = i15;
                                 break;
                             }
                         if (i14 == 0) {
                             pcars[i12] = -1;
                             boolean bool16 = false;
-                            for (int i17 = 0; i17 < cd.nl; i17++)
-                                if (pcarnames[i12].equals(cd.loadnames[i17])) {
+                            for (int i17 = 0; i17 < CarDefine.nl; i17++)
+                                if (pcarnames[i12].equals(CarDefine.loadnames[i17])) {
                                     bool16 = true;
                                 }
-                            if (!bool16 && cd.nl < 20 && cd.nl >= 0) {
-                                cd.loadnames[cd.nl] = pcarnames[i12];
-                                cd.nl++;
+                            if (!bool16 && CarDefine.nl < 20 && CarDefine.nl >= 0) {
+                                CarDefine.loadnames[CarDefine.nl] = pcarnames[i12];
+                                CarDefine.nl++;
                             }
-                            cd.sparkcarloader();
+                            CarDefine.sparkcarloader();
                         } else {
                             pcars[i12] = i14;
                         }
                     } else {
                         pcars[i12] = 0;
-                        pcarnames[i12] = cd.names[pcars[i12]];
+                        pcarnames[i12] = CarDefine.names[pcars[i12]];
                     }
                 } else {
                     pcars[i12] = getvalue(string10, 3 + i12 * 10);
                     if (pcars[i12] == -1) {
                         pcars[i12] = 0;
                     }
-                    pcarnames[i12] = cd.names[pcars[i12]];
+                    pcarnames[i12] = CarDefine.names[pcars[i12]];
                 }
                 pclan[i12] = getSvalue(string10, 4 + i12 * 10);
                 pgames[i12] = getvalue(string10, 5 + i12 * 10);
@@ -4787,7 +4781,7 @@ class Lobby implements Runnable {
                 ngm = 0;
             }
             int i19 = 12;
-            if (xt.lan) {
+            if (xtGraphics.lan) {
                 i19 = 13;
             }
             for (int i20 = 0; i20 < ngm; i20++) {
@@ -4830,15 +4824,15 @@ class Lobby implements Runnable {
                     gvscore[i20] = 0;
                     gwtyp[i20] = 0;
                 }
-                if (xt.lan) {
+                if (xtGraphics.lan) {
                     mnbts[i20] = getvalue(string10, i18 + 13 + i20 * i19);
                 }
-                if (xt.playingame > -1 && xt.playingame == gnum[i20] && !xt.lan) {
+                if (xtGraphics.playingame > -1 && xtGraphics.playingame == gnum[i20] && !xtGraphics.lan) {
                     ongame = gnum[i20];
                 }
                 if (i == gnum[i20] && wait[i20] == 0 && lloaded && i != -1) {
                     for (int i21 = 0; i21 < npo; i21++)
-                        if (pgames[i21] == gnum[i20] && pnames[i21].equals(xt.nickname)) {
+                        if (pgames[i21] == gnum[i20] && pnames[i21].equals(xtGraphics.nickname)) {
                             im = i21;
                             break;
                         }
@@ -4853,8 +4847,8 @@ class Lobby implements Runnable {
                         npls[i22]++;
                     }
             }
-            if (conon != 0 && xt.playingame != -1) {
-                xt.playingame = -1;
+            if (conon != 0 && xtGraphics.playingame != -1) {
+                xtGraphics.playingame = -1;
             }
             if (ongame != -1) {
                 boolean bool24 = false;
@@ -4887,12 +4881,12 @@ class Lobby implements Runnable {
                         pgames[i28] = -1;
                     }
                 }
-            if (xt.lan) {
+            if (xtGraphics.lan) {
                 i18 += 14 + (ngm - 1) * 13;
             } else {
                 i18 += 13 + (ngm - 1) * 12;
             }
-            if (!xt.lan) {
+            if (!xtGraphics.lan) {
                 final int i31 = getvalue(string10, i18);
                 final int i32 = getvalue(string10, i18 + 1);
                 i18 += 2;
@@ -4973,7 +4967,7 @@ class Lobby implements Runnable {
                     }
                 boolean bool46 = false;
                 if (gwarb[i44] != 0) {
-                    if (xt.clan.equalsIgnoreCase(gaclan[i44]) || xt.clan.equalsIgnoreCase(gvclan[i44])) {
+                    if (xtGraphics.clan.equalsIgnoreCase(gaclan[i44]) || xtGraphics.clan.equalsIgnoreCase(gvclan[i44])) {
                         bool46 = true;
                     }
                 } else {
@@ -4986,8 +4980,8 @@ class Lobby implements Runnable {
                     ctime = 20;
                     ptime = 0L;
                     longame = ongame;
-                    if (gs.rooms.open) {
-                        gs.rooms.open = false;
+                    if (GameSparker.rooms.open) {
+                        GameSparker.rooms.open = false;
                     }
                     if (ongame != -1) {
                         britchl = -1;
@@ -4995,26 +4989,26 @@ class Lobby implements Runnable {
                 }
                 i18++;
             }
-            if (!xt.lan) {
+            if (!xtGraphics.lan) {
                 int i47 = 1;
                 for (int i48 = 1; i48 < 6; i48++)
-                    if (i48 != xt.servport - 7070) {
+                    if (i48 != xtGraphics.servport - 7070) {
                         final int i49 = getvalue(string10, i18 + i48);
                         if (i49 != -1) {
-                            gs.rooms.sopts[i47] = "Room " + i48 + "  ::  " + i49 + "";
-                            gs.rooms.opts[i47] = "";
-                            gs.rooms.iroom[i47] = i48;
+                            GameSparker.rooms.sopts[i47] = "Room " + i48 + "  ::  " + i49 + "";
+                            GameSparker.rooms.opts[i47] = "";
+                            GameSparker.rooms.iroom[i47] = i48;
                             i47++;
                         }
                     }
                 for (int i50 = 0; i50 < lg.nservers; i50++)
-                    if (!xt.server.equals(lg.servers[i50]) && xt.delays[i50] < 300) {
-                        gs.rooms.sopts[i47] = ":: " + lg.snames[i50] + "";
-                        gs.rooms.opts[i47] = "";
-                        gs.rooms.iroom[i47] = 1000 + i50;
+                    if (!xtGraphics.server.equals(lg.servers[i50]) && xtGraphics.delays[i50] < 300) {
+                        GameSparker.rooms.sopts[i47] = ":: " + lg.snames[i50] + "";
+                        GameSparker.rooms.opts[i47] = "";
+                        GameSparker.rooms.iroom[i47] = 1000 + i50;
                         i47++;
                     }
-                gs.rooms.no = i47;
+                GameSparker.rooms.no = i47;
             }
             if (join > -1) {
                 boolean bool51 = false;
@@ -5043,7 +5037,7 @@ class Lobby implements Runnable {
             if (chalngd == -5 && pgames[im] != -1) {
                 ongame = pgames[im];
                 chalngd = -1;
-                if (!xt.lan && gplayers.equals("")) {
+                if (!xtGraphics.lan && gplayers.equals("")) {
                     lg.gamealert();
                 }
             }
@@ -5087,7 +5081,7 @@ class Lobby implements Runnable {
         }
         if (conon == 2) {
             int i57 = 20;
-            xt.playingame = -1;
+            xtGraphics.playingame = -1;
             while (i57 != 0) {
                 final String string = "2|" + i + "|";
                 String string58 = "";
@@ -5113,7 +5107,7 @@ class Lobby implements Runnable {
 
                     }
                     try {
-                        socket = new Socket(xt.server, xt.servport);
+                        socket = new Socket(xtGraphics.server, xtGraphics.servport);
                         din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                         dout = new PrintWriter(socket.getOutputStream(), true);
                         dout.println(string);
@@ -5137,54 +5131,54 @@ class Lobby implements Runnable {
                     hideinputs();
                     connector.stop();
                 }
-                if (!xt.lan) {
-                    xt.gameport = getvalue(string58, 0);
+                if (!xtGraphics.lan) {
+                    xtGraphics.gameport = getvalue(string58, 0);
                 } else {
-                    xt.gameport = -1;
-                    xt.localserver = getSevervalue(string58, 0);
-                    if (!xt.localserver.equals("")) {
-                        xt.gameport = 0;
+                    xtGraphics.gameport = -1;
+                    xtGraphics.localserver = getSevervalue(string58, 0);
+                    if (!xtGraphics.localserver.equals("")) {
+                        xtGraphics.gameport = 0;
                     }
                 }
-                if (xt.gameport != -1) {
+                if (xtGraphics.gameport != -1) {
                     int i59 = 0;
-                    xt.im = -1;
-                    xt.nplayers = getvalue(string58, 1);
-                    if (xt.nplayers < 1) {
-                        xt.nplayers = 1;
+                    xtGraphics.im = -1;
+                    xtGraphics.nplayers = getvalue(string58, 1);
+                    if (xtGraphics.nplayers < 1) {
+                        xtGraphics.nplayers = 1;
                     }
-                    if (xt.nplayers > 8) {
-                        xt.nplayers = 8;
+                    if (xtGraphics.nplayers > 8) {
+                        xtGraphics.nplayers = 8;
                     }
-                    for (int i60 = 0; i60 < xt.nplayers; i60++) {
-                        xt.plnames[i60] = getSvalue(string58, 2 + i60);
-                        if (xt.nickname.equals(xt.plnames[i60])) {
-                            xt.im = i60;
+                    for (int i60 = 0; i60 < xtGraphics.nplayers; i60++) {
+                        xtGraphics.plnames[i60] = getSvalue(string58, 2 + i60);
+                        if (xtGraphics.nickname.equals(xtGraphics.plnames[i60])) {
+                            xtGraphics.im = i60;
                         }
                     }
-                    int i61 = 2 + xt.nplayers;
-                    for (int i62 = 0; i62 < xt.nplayers; i62++) {
+                    int i61 = 2 + xtGraphics.nplayers;
+                    for (int i62 = 0; i62 < xtGraphics.nplayers; i62++) {
                         String string63 = getSvalue(string58, i61 + i62);
                         if (string63.startsWith("C")) {
                             string63 = string63.substring(1);
                             if (!string63.equals("")) {
                                 int i64 = 0;
                                 for (int i65 = CarDefine.SIXTEEN; i65 < CarDefine.FIFTY_SIX; i65++)
-                                    if (string63.equals(cd.names[i65])) {
+                                    if (string63.equals(CarDefine.names[i65])) {
                                         i64 = i65;
                                         break;
                                     }
                                 for (/**/ ; i64 == 0 && i59 < 100; i59++) {
                                     boolean bool66 = false;
-                                    for (int i67 = 0; i67 < cd.nl; i67++)
-                                        if (string63.equals(cd.loadnames[i67])) {
+                                    for (int i67 = 0; i67 < CarDefine.nl; i67++)
+                                        if (string63.equals(CarDefine.loadnames[i67])) {
                                             bool66 = true;
                                         }
-                                    if (!bool66 && cd.nl < 20) {
-                                        cd.loadnames[cd.nl] = string63;
-                                        cd.nl++;
+                                    if (!bool66 && CarDefine.nl < 20) {
+                                        CarDefine.loadnames[CarDefine.nl] = string63;
+                                        CarDefine.nl++;
                                     }
-                                    cd.sparkcarloader();
+                                    CarDefine.sparkcarloader();
                                     try {
                                         if (connector != null) {
 
@@ -5194,66 +5188,66 @@ class Lobby implements Runnable {
 
                                     }
                                     for (int i68 = CarDefine.SIXTEEN; i68 < CarDefine.FIFTY_SIX; i68++)
-                                        if (string63.equals(cd.names[i68])) {
+                                        if (string63.equals(CarDefine.names[i68])) {
                                             i64 = i68;
                                         }
                                 }
                                 if (i64 != 0) {
-                                    xt.sc[i62] = i64;
+                                    xtGraphics.sc[i62] = i64;
                                     for (int i69 = 0; i69 < npo; i69++)
                                         if (pcarnames[i69].equals(string63)) {
                                             pcars[i69] = i64;
                                         }
                                 } else {
-                                    xt.im = -1;
+                                    xtGraphics.im = -1;
                                 }
                             } else {
-                                xt.im = -1;
+                                xtGraphics.im = -1;
                             }
                         } else {
-                            xt.sc[i62] = getvalue(string58, i61 + i62);
-                            if (xt.sc[i62] == -1) {
-                                xt.im = -1;
+                            xtGraphics.sc[i62] = getvalue(string58, i61 + i62);
+                            if (xtGraphics.sc[i62] == -1) {
+                                xtGraphics.im = -1;
                             }
                         }
                     }
-                    i61 += xt.nplayers;
-                    for (int i70 = 0; i70 < xt.nplayers; i70++) {
-                        xt.xstart[i70] = getvalue(string58, i61 + i70);
+                    i61 += xtGraphics.nplayers;
+                    for (int i70 = 0; i70 < xtGraphics.nplayers; i70++) {
+                        xtGraphics.xstart[i70] = getvalue(string58, i61 + i70);
                     }
-                    i61 += xt.nplayers;
-                    for (int i71 = 0; i71 < xt.nplayers; i71++) {
-                        xt.zstart[i71] = getvalue(string58, i61 + i71);
+                    i61 += xtGraphics.nplayers;
+                    for (int i71 = 0; i71 < xtGraphics.nplayers; i71++) {
+                        xtGraphics.zstart[i71] = getvalue(string58, i61 + i71);
                     }
-                    i61 += xt.nplayers;
-                    for (int i72 = 0; i72 < xt.nplayers; i72++) {
+                    i61 += xtGraphics.nplayers;
+                    for (int i72 = 0; i72 < xtGraphics.nplayers; i72++) {
                         for (int i73 = 0; i73 < 6; i73++) {
-                            xt.allrnp[i72][i73] = getvalue(string58, i61 + i72 * 6 + i73) / 100.0F;
+                            xtGraphics.allrnp[i72][i73] = getvalue(string58, i61 + i72 * 6 + i73) / 100.0F;
                         }
                     }
-                    if (xt.im != -1) {
-                        xt.playingame = i;
+                    if (xtGraphics.im != -1) {
+                        xtGraphics.playingame = i;
                         int i74 = 0;
                         for (int i75 = 0; i75 < ngm; i75++)
                             if (i == gnum[i75]) {
                                 i74 = i75;
                             }
                         if (gwarb[i74] != 0) {
-                            xt.clangame = gwtyp[i74];
-                            xt.clanchat = true;
-                            xt.gaclan = gaclan[i74];
-                            for (int i76 = 0; i76 < xt.nplayers; i76++) {
+                            xtGraphics.clangame = gwtyp[i74];
+                            xtGraphics.clanchat = true;
+                            xtGraphics.gaclan = gaclan[i74];
+                            for (int i76 = 0; i76 < xtGraphics.nplayers; i76++) {
                                 for (int i77 = 0; i77 < npo; i77++)
-                                    if (xt.plnames[i76].equals(pnames[i77]) && pgames[i77] == i) {
-                                        xt.pclan[i76] = pclan[i77];
+                                    if (xtGraphics.plnames[i76].equals(pnames[i77]) && pgames[i77] == i) {
+                                        xtGraphics.pclan[i76] = pclan[i77];
                                     }
                             }
                         } else {
-                            xt.clangame = 0;
+                            xtGraphics.clangame = 0;
                         }
                     } else {
-                        xt.playingame = -1;
-                        xt.im = 0;
+                        xtGraphics.playingame = -1;
+                        xtGraphics.im = 0;
                     }
                     i57 = 0;
                 } else {
@@ -5278,16 +5272,16 @@ class Lobby implements Runnable {
             } catch (final Exception ignored) {
 
             }
-            if (xt.playingame != -1) {
-                if (!xt.lan && !xt.logged) {
-                    xt.nfreeplays++;
+            if (xtGraphics.playingame != -1) {
+                if (!xtGraphics.lan && !xtGraphics.logged) {
+                    xtGraphics.nfreeplays++;
                     try {
                         socket = new Socket(lg.servers[0], 7061);
                         din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                         dout = new PrintWriter(socket.getOutputStream(), true);
-                        dout.println("7|" + xt.nfreeplays + "|");
+                        dout.println("7|" + xtGraphics.nfreeplays + "|");
                         final String string = din.readLine();
-                        xt.hours = getvalue(string, 0);
+                        xtGraphics.hours = getvalue(string, 0);
                         socket.close();
                         socket = null;
                         din.close();
@@ -5299,7 +5293,7 @@ class Lobby implements Runnable {
                     }
                 }
                 hideinputs();
-                xt.multion = 1;
+                xtGraphics.multion = 1;
                 fase = 76;
                 System.gc();
             } else {
@@ -5308,7 +5302,7 @@ class Lobby implements Runnable {
         }
         if (conon == 3) {
             int i78 = 20;
-            xt.playingame = -1;
+            xtGraphics.playingame = -1;
             while (i78 != 0) {
                 final String string = "4|" + ongame + "|";
                 String string79 = "";
@@ -5334,7 +5328,7 @@ class Lobby implements Runnable {
 
                     }
                     try {
-                        socket = new Socket(xt.server, xt.servport);
+                        socket = new Socket(xtGraphics.server, xtGraphics.servport);
                         din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                         dout = new PrintWriter(socket.getOutputStream(), true);
                         dout.println(string);
@@ -5358,51 +5352,51 @@ class Lobby implements Runnable {
                     hideinputs();
                     connector.stop();
                 }
-                if (!xt.lan) {
-                    xt.gameport = getvalue(string79, 0);
+                if (!xtGraphics.lan) {
+                    xtGraphics.gameport = getvalue(string79, 0);
                 } else {
-                    xt.gameport = -1;
-                    xt.localserver = getSevervalue(string79, 0);
-                    if (!xt.localserver.equals("")) {
-                        xt.gameport = 0;
+                    xtGraphics.gameport = -1;
+                    xtGraphics.localserver = getSevervalue(string79, 0);
+                    if (!xtGraphics.localserver.equals("")) {
+                        xtGraphics.gameport = 0;
                     }
                 }
-                if (xt.gameport != -1) {
+                if (xtGraphics.gameport != -1) {
                     int i80 = 0;
-                    xt.nplayers = getvalue(string79, 1);
-                    if (xt.nplayers < 1) {
-                        xt.nplayers = 1;
+                    xtGraphics.nplayers = getvalue(string79, 1);
+                    if (xtGraphics.nplayers < 1) {
+                        xtGraphics.nplayers = 1;
                     }
-                    if (xt.nplayers > 8) {
-                        xt.nplayers = 8;
+                    if (xtGraphics.nplayers > 8) {
+                        xtGraphics.nplayers = 8;
                     }
-                    xt.im = getvalue(string79, 2) + xt.nplayers;
-                    for (int i81 = 0; i81 < xt.nplayers; i81++) {
-                        xt.plnames[i81] = getSvalue(string79, 3 + i81);
+                    xtGraphics.im = getvalue(string79, 2) + xtGraphics.nplayers;
+                    for (int i81 = 0; i81 < xtGraphics.nplayers; i81++) {
+                        xtGraphics.plnames[i81] = getSvalue(string79, 3 + i81);
                     }
-                    int i82 = 3 + xt.nplayers;
-                    for (int i83 = 0; i83 < xt.nplayers; i83++) {
+                    int i82 = 3 + xtGraphics.nplayers;
+                    for (int i83 = 0; i83 < xtGraphics.nplayers; i83++) {
                         String string84 = getSvalue(string79, i82 + i83);
                         if (string84.startsWith("C")) {
                             string84 = string84.substring(1);
                             if (!string84.equals("")) {
                                 int i85 = 0;
                                 for (int i86 = CarDefine.SIXTEEN; i86 < CarDefine.FIFTY_SIX; i86++)
-                                    if (string84.equals(cd.names[i86])) {
+                                    if (string84.equals(CarDefine.names[i86])) {
                                         i85 = i86;
                                         break;
                                     }
                                 for (/**/ ; i85 == 0 && i80 < 100; i80++) {
                                     boolean bool87 = false;
-                                    for (int i88 = 0; i88 < cd.nl; i88++)
-                                        if (string84.equals(cd.loadnames[i88])) {
+                                    for (int i88 = 0; i88 < CarDefine.nl; i88++)
+                                        if (string84.equals(CarDefine.loadnames[i88])) {
                                             bool87 = true;
                                         }
-                                    if (!bool87 && cd.nl < 20) {
-                                        cd.loadnames[cd.nl] = string84;
-                                        cd.nl++;
+                                    if (!bool87 && CarDefine.nl < 20) {
+                                        CarDefine.loadnames[CarDefine.nl] = string84;
+                                        CarDefine.nl++;
                                     }
-                                    cd.sparkcarloader();
+                                    CarDefine.sparkcarloader();
                                     try {
                                         if (connector != null) {
 
@@ -5412,68 +5406,68 @@ class Lobby implements Runnable {
 
                                     }
                                     for (int i89 = CarDefine.SIXTEEN; i89 < CarDefine.FIFTY_SIX; i89++)
-                                        if (string84.equals(cd.names[i89])) {
+                                        if (string84.equals(CarDefine.names[i89])) {
                                             i85 = i89;
                                         }
                                 }
                                 if (i85 != 0) {
-                                    xt.sc[i83] = i85;
+                                    xtGraphics.sc[i83] = i85;
                                     for (int i90 = 0; i90 < npo; i90++)
                                         if (pcarnames[i90].equals(string84)) {
                                             pcars[i90] = i85;
                                         }
                                 } else {
-                                    xt.im = -1;
+                                    xtGraphics.im = -1;
                                 }
                             } else {
-                                xt.im = -1;
+                                xtGraphics.im = -1;
                             }
                         } else {
-                            xt.sc[i83] = getvalue(string79, i82 + i83);
-                            if (xt.sc[i83] == -1) {
-                                xt.im = -1;
+                            xtGraphics.sc[i83] = getvalue(string79, i82 + i83);
+                            if (xtGraphics.sc[i83] == -1) {
+                                xtGraphics.im = -1;
                             }
                         }
                     }
-                    i82 += xt.nplayers;
-                    for (int i91 = 0; i91 < xt.nplayers; i91++) {
-                        xt.xstart[i91] = getvalue(string79, i82 + i91);
+                    i82 += xtGraphics.nplayers;
+                    for (int i91 = 0; i91 < xtGraphics.nplayers; i91++) {
+                        xtGraphics.xstart[i91] = getvalue(string79, i82 + i91);
                     }
-                    i82 += xt.nplayers;
-                    for (int i92 = 0; i92 < xt.nplayers; i92++) {
-                        xt.zstart[i92] = getvalue(string79, i82 + i92);
+                    i82 += xtGraphics.nplayers;
+                    for (int i92 = 0; i92 < xtGraphics.nplayers; i92++) {
+                        xtGraphics.zstart[i92] = getvalue(string79, i82 + i92);
                     }
-                    i82 += xt.nplayers;
-                    for (int i93 = 0; i93 < xt.nplayers; i93++) {
+                    i82 += xtGraphics.nplayers;
+                    for (int i93 = 0; i93 < xtGraphics.nplayers; i93++) {
                         for (int i94 = 0; i94 < 6; i94++) {
-                            xt.allrnp[i93][i94] = getvalue(string79, i82 + i93 * 6 + i94) / 100.0F;
+                            xtGraphics.allrnp[i93][i94] = getvalue(string79, i82 + i93 * 6 + i94) / 100.0F;
                         }
                     }
-                    if (xt.im >= xt.nplayers && xt.im < xt.nplayers + 3) {
-                        xt.playingame = ongame;
+                    if (xtGraphics.im >= xtGraphics.nplayers && xtGraphics.im < xtGraphics.nplayers + 3) {
+                        xtGraphics.playingame = ongame;
                         int i95 = 0;
                         for (int i96 = 0; i96 < ngm; i96++)
                             if (ongame == gnum[i96]) {
                                 i95 = i96;
                             }
                         if (gwarb[i95] != 0) {
-                            xt.clangame = gwtyp[i95];
-                            xt.gaclan = gaclan[i95];
-                            if (xt.clan.equalsIgnoreCase(gaclan[i95]) || xt.clan.equalsIgnoreCase(gvclan[i95])) {
-                                xt.clanchat = true;
+                            xtGraphics.clangame = gwtyp[i95];
+                            xtGraphics.gaclan = gaclan[i95];
+                            if (xtGraphics.clan.equalsIgnoreCase(gaclan[i95]) || xtGraphics.clan.equalsIgnoreCase(gvclan[i95])) {
+                                xtGraphics.clanchat = true;
                             }
-                            for (int i97 = 0; i97 < xt.nplayers; i97++) {
+                            for (int i97 = 0; i97 < xtGraphics.nplayers; i97++) {
                                 for (int i98 = 0; i98 < npo; i98++)
-                                    if (xt.plnames[i97].equals(pnames[i98]) && pgames[i98] == ongame) {
-                                        xt.pclan[i97] = pclan[i98];
+                                    if (xtGraphics.plnames[i97].equals(pnames[i98]) && pgames[i98] == ongame) {
+                                        xtGraphics.pclan[i97] = pclan[i98];
                                     }
                             }
                         } else {
-                            xt.clangame = 0;
+                            xtGraphics.clangame = 0;
                         }
                     } else {
-                        xt.playingame = -1;
-                        xt.im = 0;
+                        xtGraphics.playingame = -1;
+                        xtGraphics.im = 0;
                     }
                     i78 = 0;
                 } else {
@@ -5498,9 +5492,9 @@ class Lobby implements Runnable {
             } catch (final Exception ignored) {
 
             }
-            if (xt.playingame != -1) {
+            if (xtGraphics.playingame != -1) {
                 hideinputs();
-                xt.multion = 3;
+                xtGraphics.multion = 3;
                 fase = 76;
                 System.gc();
             } else {
@@ -5509,7 +5503,7 @@ class Lobby implements Runnable {
         }
     }
 
-    void stageselect(final CheckPoints checkpoints, final Control control, final int i, final int i293, final boolean bool) {
+    void stageselect(final Control control, final int i, final int i293, final boolean bool) {
         rd.setColor(new Color(0, 0, 0));
         rd.fillRect(0, 0, 65, 450);
         rd.fillRect(735, 0, 65, 450);
@@ -5600,7 +5594,7 @@ class Lobby implements Runnable {
                         if (gplyrs[i295].equals("") || gplyrs[i295].contains(pnames[im])) {
                             bool299 = true;
                         }
-                    } else if (xt.clan.equalsIgnoreCase(gaclan[i295]) || xt.clan.equalsIgnoreCase(gvclan[i295])) {
+                    } else if (xtGraphics.clan.equalsIgnoreCase(gaclan[i295]) || xtGraphics.clan.equalsIgnoreCase(gvclan[i295])) {
                         bool299 = true;
                     }
                     if (bool299) {
@@ -5617,7 +5611,7 @@ class Lobby implements Runnable {
             }
         }
         rd.setFont(new Font("Arial", 1, 11));
-        xt.ftm = rd.getFontMetrics();
+        xtGraphics.ftm = rd.getFontMetrics();
         ftm = rd.getFontMetrics();
         String string;
         /*if (checkpoints.stage < 0)
@@ -5627,9 +5621,9 @@ class Lobby implements Runnable {
         if (checkpoints.stage > 10 && checkpoints.stage <= 27)
         	string = "" + ("Stage ") + (checkpoints.stage - 10) + (" NFM 2");
         if (checkpoints.stage > 27)*/
-        string = "Stage " + checkpoints.stage;
-        xt.drawcs(85, "Previewing " + string + "  >", 255, 138, 0, 5);
-        xt.drawcs(105, "| " + checkpoints.name + " |", 255, 176, 85, 5);
+        string = "Stage " + CheckPoints.stage;
+        xtGraphics.drawcs(85, "Previewing " + string + "  >", 255, 138, 0, 5);
+        xtGraphics.drawcs(105, "| " + CheckPoints.name + " |", 255, 176, 85, 5);
         rd.drawImage(Images.back[pback], 532, 285, null);
         if (plsndt == 0) {
             final String string300 = "Play Soundtrack >";
@@ -5649,22 +5643,22 @@ class Lobby implements Runnable {
             }
         }
         if (plsndt == 1) {
-            xt.drawcs(190, "Loading Soundtrack, please wait...", 255, 138, 0, 5);
+            xtGraphics.drawcs(190, "Loading Soundtrack, please wait...", 255, 138, 0, 5);
         }
-        if (checkpoints.stage < 0) {
+        if (CheckPoints.stage < 0) {
             rd.setColor(new Color(255, 138, 0));
-            rd.drawString("Created by: " + checkpoints.maker + "", 85, 413);
-            if (checkpoints.pubt > 0) {
-                if (checkpoints.pubt == 2) {
-                    xt.drawcs(413, "Super Public Stage", 41, 177, 255, 3);
+            rd.drawString("Created by: " + CheckPoints.maker + "", 85, 413);
+            if (CheckPoints.pubt > 0) {
+                if (CheckPoints.pubt == 2) {
+                    xtGraphics.drawcs(413, "Super Public Stage", 41, 177, 255, 3);
                 } else {
-                    xt.drawcs(413, "Public Stage", 41, 177, 255, 3);
+                    xtGraphics.drawcs(413, "Public Stage", 41, 177, 255, 3);
                 }
-                if (addstage == 0 && xt.drawcarb(true, null, " Add to My Stages ", 334, 420, i, i293, bool))
-                    if (xt.logged) {
-                        cd.onstage = checkpoints.name;
-                        cd.staction = 2;
-                        cd.sparkstageaction();
+                if (addstage == 0 && xtGraphics.drawcarb(true, null, " Add to My Stages ", 334, 420, i, i293, bool))
+                    if (xtGraphics.logged) {
+                        CarDefine.onstage = CheckPoints.name;
+                        CarDefine.staction = 2;
+                        CarDefine.sparkstageaction();
                         addstage = 2;
                     } else {
                         addstage = 1;
@@ -5686,7 +5680,7 @@ class Lobby implements Runnable {
                             i294 = 12;
                         }
                         if (bool && waitlink == 0) {
-                            gs.editlink(xt.nickname, true);
+                            GameSparker.editlink(xtGraphics.nickname, true);
                             waitlink = -1;
                         }
                     }
@@ -5695,49 +5689,49 @@ class Lobby implements Runnable {
                     }
                 }
                 if (addstage == 2) {
-                    xt.drawcs(435, "Adding stage please wait...", 193, 106, 0, 3);
-                    if (cd.staction == 0) {
+                    xtGraphics.drawcs(435, "Adding stage please wait...", 193, 106, 0, 3);
+                    if (CarDefine.staction == 0) {
                         addstage = 3;
                     }
-                    if (cd.staction == -2) {
+                    if (CarDefine.staction == -2) {
                         addstage = 4;
                     }
-                    if (cd.staction == -3) {
+                    if (CarDefine.staction == -3) {
                         addstage = 5;
                     }
-                    if (cd.staction == -1) {
+                    if (CarDefine.staction == -1) {
                         addstage = 6;
                     }
                 }
                 if (addstage == 3) {
-                    xt.drawcs(435, "Stage has been successfully added to your stages!", 193, 106, 0, 3);
+                    xtGraphics.drawcs(435, "Stage has been successfully added to your stages!", 193, 106, 0, 3);
                 }
                 if (addstage == 4) {
-                    xt.drawcs(435, "You already have this stage!", 193, 106, 0, 3);
+                    xtGraphics.drawcs(435, "You already have this stage!", 193, 106, 0, 3);
                 }
                 if (addstage == 5) {
-                    xt.drawcs(435, "Cannot add more then 20 stages to your account!", 193, 106, 0, 3);
+                    xtGraphics.drawcs(435, "Cannot add more then 20 stages to your account!", 193, 106, 0, 3);
                 }
                 if (addstage == 6) {
-                    xt.drawcs(435, "Failed to add stage, unknown error, please try again later.", 193, 106, 0, 3);
+                    xtGraphics.drawcs(435, "Failed to add stage, unknown error, please try again later.", 193, 106, 0, 3);
                 }
             } else {
-                xt.drawcs(435, "Private Stage", 193, 106, 0, 3);
+                xtGraphics.drawcs(435, "Private Stage", 193, 106, 0, 3);
             }
         }
         if (control.enter || conon == 2 || ongame == -1 && chalngd != -2) {
-            m.trk = 0;
-            if (xt.loadedt) {
-                xt.strack.unload();
+            Medium.trk = 0;
+            if (xtGraphics.loadedt) {
+                xtGraphics.strack.unload();
             }
-            m.focusPoint = 400;
-            m.crs = true;
-            m.x = -335;
-            m.y = 0;
-            m.z = -50;
-            m.xz = 0;
-            m.zy = 20;
-            m.ground = -2000;
+            Medium.focusPoint = 400;
+            Medium.crs = true;
+            Medium.x = -335;
+            Medium.y = 0;
+            Medium.z = -50;
+            Medium.xz = 0;
+            Medium.zy = 20;
+            Medium.ground = -2000;
             fase = 1;
             control.enter = false;
         }

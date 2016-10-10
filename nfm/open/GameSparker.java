@@ -31,142 +31,136 @@ class GameSparker extends JPanel
     /**
      * Game size multiplier
      */
-    private float apmult = 1.0F;
+    static private float apmult = 1.0F;
 
     /**
      * Whether JVM vendor is Apple or not
      */
-    boolean applejava = false;
+    static boolean applejava = false;
 
     /**
      * Game's X position in window
      */
-    private int apx = 0;
+    static private int apx = 0;
 
     /**
      * Game's Y position in window
      */
-    private int apy = 0;
-    private Image blb;
-    private final Image[] carmaker = new Image[2];
-    private final Image[] chkbx = new Image[2];
-    private final Smenu clanlev = new Smenu(8);
-    private final Smenu clcars = new Smenu(707);
-    TextField cmsg;
-    private final Smenu datat = new Smenu(26);
-    private boolean exwist = false;
-    private int fcscnt = 0;
-    private Image fulls;
-    final Smenu gmode = new Smenu(3);
-    private final Smenu icars = new Smenu(5);
-    private final Smenu ilaps = new Smenu(18);
-    Checkbox keplo;
-    private int lasth = 0;
-    private int lastw = 0;
-    private int lmxz = 0;
-    private boolean lostfcs = false;
-    final Smenu mcars = new Smenu(707);
-    private int mload = 1;
-    private TextArea mmsg;
+    static private int apy = 0;
+    static private Image blb;
+    static private final Image[] carmaker = new Image[2];
+    static private final Image[] chkbx = new Image[2];
+    static private final Smenu clanlev = new Smenu(8);
+    static private final Smenu clcars = new Smenu(707);
+    static TextField cmsg;
+    static private final Smenu datat = new Smenu(26);
+    static private boolean exwist = false;
+    static private int fcscnt = 0;
+    static private Image fulls;
+    static final Smenu gmode = new Smenu(3);
+    static private final Smenu icars = new Smenu(5);
+    static private final Smenu ilaps = new Smenu(18);
+    static Checkbox keplo;
+    static private int lasth = 0;
+    static private int lastw = 0;
+    static private int lmxz = 0;
+    static private boolean lostfcs = false;
+    static final Smenu mcars = new Smenu(707);
+    static private int mload = 1;
+    static private TextArea mmsg;
     /**
      * 0 = Motion effects off
      * 1 = Motion effects on
      */
-    int moto = 0;
-    private boolean moused = false;
-    int mouses = 0;
-    private int mousew = 0;
-    final Smenu mstgs = new Smenu(707);
+    static int moto = 0;
+    static private boolean moused = false;
+    static int mouses = 0;
+    static private int mousew = 0;
+    static final Smenu mstgs = new Smenu(707);
     /**
      * Applies transparency to every polygon (20 is 20% opacity, 100 is 100% opacity)
      */
-    private int mvect = 100;
-    Checkbox mycar;
-    private int nob = 0;
-    private int notb = 0;
-    Checkbox notp;
-    final BufferedImage offImage;
-    private boolean onbar = false;
-    private boolean oncarm = false;
-    private boolean onfulls = false;
-    private boolean onstgm = false;
-    boolean openm = false;
-    final Smenu pgame = new Smenu(11);
-    private final Smenu proitem = new Smenu(707);
-    Graphics2D rd;
-    private float reqmult = 0.0F;
-    final Smenu rooms = new Smenu(7);
-    final Smenu scars = new Smenu(4);
-    final Smenu sclass = new Smenu(7);
-    private final Smenu senditem = new Smenu(707);
-    private final Smenu sendtyp = new Smenu(6);
-    final Smenu sfix = new Smenu(7);
-    final Smenu sgame = new Smenu(8);
-    private int shaka = 0;
-    private int showsize = 0;
-    private Image sizebar;
-    final Smenu slaps = new Smenu(17);
-    private int smooth = 1;
-    final Smenu snbts = new Smenu(8);
+    static private int mvect = 100;
+    static Checkbox mycar;
+    static private int nob = 0;
+    static private int notb = 0;
+    static Checkbox notp;
+    static final BufferedImage offImage = createOffImage();
+    static private boolean onbar = false;
+    static private boolean oncarm = false;
+    static private boolean onfulls = false;
+    static private boolean onstgm = false;
+    static boolean openm = false;
+    static final Smenu pgame = new Smenu(11);
+    static private final Smenu proitem = new Smenu(707);
+    final static Graphics2D rd = offImage.createGraphics();;
+    static private float reqmult = 0.0F;
+    static final Smenu rooms = new Smenu(7);
+    static final Smenu scars = new Smenu(4);
+    static final Smenu sclass = new Smenu(7);
+    static private final Smenu senditem = new Smenu(707);
+    static private final Smenu sendtyp = new Smenu(6);
+    static final Smenu sfix = new Smenu(7);
+    static final Smenu sgame = new Smenu(8);
+    static private int shaka = 0;
+    static private int showsize = 0;
+    static private Image sizebar;
+    static final Smenu slaps = new Smenu(17);
+    static private int smooth = 1;
+    static final Smenu snbts = new Smenu(8);
     //Smenu snfm1 = new Smenu(12);
     //Smenu snfm2 = new Smenu(19);
-    final Smenu snfmm = new Smenu(xtGraphics.nTracks + 2);
-    final Smenu snpls = new Smenu(9);
-    private final Image[] stagemaker = new Image[2];
-    final Smenu swait = new Smenu(6);
-    TextField temail;
-    TextField tnick;
-    TextField tpass;
-    private final Control[] u = new Control[8];
-    private int view = 0;
-    final Smenu vnpls = new Smenu(5);
-    final Smenu vtyp = new Smenu(6);
-    final Smenu warb = new Smenu(102);
-    final Smenu wgame = new Smenu(4);
-    private int xm = 0;
-    private int ym = 0;
+    static final Smenu snfmm = new Smenu(xtGraphics.nTracks + 2);
+    static final Smenu snpls = new Smenu(9);
+    static private final Image[] stagemaker = new Image[2];
+    static final Smenu swait = new Smenu(6);
+    static TextField temail;
+    static TextField tnick;
+    static TextField tpass;
+    static final Control[] u = new Control[8];
+    static private int view = 0;
+    static final Smenu vnpls = new Smenu(5);
+    static final Smenu vtyp = new Smenu(6);
+    static final Smenu warb = new Smenu(102);
+    static final Smenu wgame = new Smenu(4);
+    static private int xm = 0;
+    static private int ym = 0;
 
     /**
      * Used for internal time measurement (usage is analogous to System.currentTimeMilis())
      */
-    private Date date;
-    private int clicknowtime;
-    private xtGraphics xtgraphics;
+    static private Date date;
+    static private int clicknowtime;
     /**
      * ContO array for cars
      */
-    private ContO[] carContos;
+    static private ContO[] carContos;
     /**
      * ContO array for track pieces
      */
-    private ContO[] contos;
+    static private ContO[] contos;
     /**
      * ContO array for the current stage's contents themselves
      */
-    private ContO[] stageContos;
-    private Mad[] mads;
-    private Medium medium;
-    private Trackers trackers;
-    private CheckPoints checkpoints;
-    private CarDefine cardefine;
-    private Login login = null;
-    private Lobby lobby = null;
+    static private ContO[] stageContos;
+    static Mad[] mads;
+    static private Login login = null;
+    static private Lobby lobby = null;
     //private Globe globe = null;
-    private final UDPMistro udpmistro = new UDPMistro();
-    private boolean bool = false;
-    private Record record;
-    private int recordtime;
-    private int finishrecording;
-    private int wastedpoint;
-    private boolean flashingscreen;
+    static private final UDPMistro udpmistro = new UDPMistro();
+    static private boolean bool = false;
+    static private int recordtime;
+    static private int finishrecording;
+    static private int wastedpoint;
+    static private boolean flashingscreen;
 
     /* Also for time measurement: */
-    private long l1;
-    private float f2;
-    private boolean bool3;
-    private int i4;
-    private int i5;
-    private float f;
+    static private long l1;
+    static private float f2;
+    static private boolean bool3;
+    static private int i4;
+    static private int i5;
+    static private float f;
 
     /**
      * List of car .rad files.
@@ -191,24 +185,26 @@ class GameSparker extends JPanel
     /**
      * Triple-buffer for motion effects
      */
-    private BufferedImage tribuffer;
+    static private BufferedImage tribuffer;
     /**
      * {@link #tribuffer}'s Graphics2D object
      */
-    private Graphics2D tg;
+    static private Graphics2D tg;
 
     private final static GraphicsConfiguration gfxConfig = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
 
-    private boolean gameLoaded = false;
+    static private boolean gameLoaded = false;
+
+    private static GameSparker gsPanel;
 
     /**
      * Loads models.zip
      */
-    private void loadbase() {
+    static private void loadbase() {
         if (carRads.length < xtGraphics.nCars)
             throw new RuntimeException("too many cars and not enough rad files!");
         int totalSize = 0;
-        xtgraphics.dnload += 6;
+        xtGraphics.dnload += 6;
         try {
             ZipInputStream zipinputstream = new ZipInputStream(new FileInputStream("data/models.zip"));
             ZipEntry zipentry = zipinputstream.getNextEntry();
@@ -238,15 +234,17 @@ class GameSparker extends JPanel
                     offset += numbytesread;
                 }
                 if (assigned == 2) {
-                    contos[id] = new ContO(is, medium, trackers);
+                    contos[id] = new ContO(is);
                 } else if (assigned == 1) {
-                    carContos[id] = new ContO(is, medium, trackers);
-                    if (!carContos[id].shadow)
-                        throw new RuntimeException("car " + cardefine.names[id] + " does not have a shadow");
+                    carContos[id] = new ContO(is);
+                    if (!carContos[id].shadow) {
+                        zipinputstream.close();
+                        throw new RuntimeException("car " + CarDefine.names[id] + " does not have a shadow");
+                    }
                 } else {
                     System.err.println(zipentry.getName() + " goes unused");
                 }
-                xtgraphics.dnload++;
+                xtGraphics.dnload++;
             }
             zipinputstream.close();
 
@@ -286,56 +284,70 @@ class GameSparker extends JPanel
         }
     }
 
+    private static BufferedImage createOffImage() {
+        try {
+            BufferedImage _offImage = gfxConfig.createCompatibleImage(800, 450, Transparency.OPAQUE);
+
+            if (_offImage == null)
+                throw new AssertionError("this should never happen");
+            return _offImage;
+        } catch (final Exception e) { //fallback image creation
+            e.printStackTrace();
+
+            return new BufferedImage(800, 450, BufferedImage.TYPE_INT_RGB);
+        }
+    }
+
     /**
      * Loads stage currently set by checkpoints.stage onto stageContos
      */
-    private void loadstage() {
-        if (xtgraphics.testdrive == 2 || xtgraphics.testdrive == 4) {
-            xtgraphics.nplayers = 1;
+    static private void loadstage() {
+        if (xtGraphics.testdrive == 2 || xtGraphics.testdrive == 4) {
+            xtGraphics.nplayers = 1;
         }
-        xtgraphics.nplayers = 7;
+        xtGraphics.nplayers = 7;
         /*if (xtgraphics.gmode == 1) {
         	xtgraphics.nplayers = 5;
         	xtgraphics.xstart[4] = 0;
         	xtgraphics.zstart[4] = 760;
         }*/
-        trackers.nt = 0;
-        nob = xtgraphics.nplayers;
+        Trackers.nt = 0;
+        nob = xtGraphics.nplayers;
         notb = 0;
-        checkpoints.n = 0;
-        checkpoints.nsp = 0;
-        checkpoints.fn = 0;
-        checkpoints.trackname = "";
-        checkpoints.haltall = false;
-        checkpoints.wasted = 0;
-        checkpoints.catchfin = 0;
-        medium.resdown = 0;
-        medium.rescnt = 5;
-        medium.lightson = false;
-        medium.noelec = 0;
-        medium.ground = 250;
-        medium.trk = 0;
+        CheckPoints.n = 0;
+        CheckPoints.nsp = 0;
+        CheckPoints.fn = 0;
+        CheckPoints.trackname = "";
+        CheckPoints.haltall = false;
+        CheckPoints.wasted = 0;
+        CheckPoints.catchfin = 0;
+        Medium.resdown = 0;
+        Medium.rescnt = 5;
+        Medium.lightson = false;
+        Medium.noelec = 0;
+        Medium.ground = 250;
+        Medium.trk = 0;
         view = 0;
         int i = 0;
         int k = 100;
         int l = 0;
         int m = 100;
-        xtgraphics.newparts = false;
+        xtGraphics.newparts = false;
         String string = "";
         try {
             BufferedReader stageDataReader;
-            if (xtgraphics.multion == 0 && checkpoints.stage != -2) {
-                String customStagePath = "stages/" + checkpoints.stage + "";
-                if (checkpoints.stage == -1) {
-                    customStagePath = "mystages/" + checkpoints.name + "";
+            if (xtGraphics.multion == 0 && CheckPoints.stage != -2) {
+                String customStagePath = "stages/" + CheckPoints.stage + "";
+                if (CheckPoints.stage == -1) {
+                    customStagePath = "mystages/" + CheckPoints.name + "";
                 }
                 final File customStageFile = new File("" + Madness.fpath + "" + customStagePath + ".txt");
                 stageDataReader = new BufferedReader(new InputStreamReader(new DataInputStream(new FileInputStream(customStageFile))));
-            } else if (checkpoints.stage > 0) {
-                final URL url = new URL("http://multiplayer.needformadness.com/stages/" + checkpoints.stage + ".txt");
+            } else if (CheckPoints.stage > 0) {
+                final URL url = new URL("http://multiplayer.needformadness.com/stages/" + CheckPoints.stage + ".txt");
                 stageDataReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
             } else {
-                String stagelink = "http://multiplayer.needformadness.com/tracks/" + checkpoints.name + ".radq";
+                String stagelink = "http://multiplayer.needformadness.com/tracks/" + CheckPoints.name + ".radq";
                 stagelink = stagelink.replace(' ', '_');
                 final URL url = new URL(stagelink);
                 final int connectionlength = url.openConnection().getContentLength();
@@ -373,48 +385,48 @@ class GameSparker extends JPanel
             while ((line = stageDataReader.readLine()) != null) {
                 string = "" + line.trim();
                 if (string.startsWith("snap")) {
-                    medium.setsnap(getint("snap", string, 0), getint("snap", string, 1), getint("snap", string, 2));
+                    Medium.setsnap(getint("snap", string, 0), getint("snap", string, 1), getint("snap", string, 2));
                 }
                 if (string.startsWith("sky")) {
-                    medium.setsky(getint("sky", string, 0), getint("sky", string, 1), getint("sky", string, 2));
-                    xtgraphics.snap(checkpoints.stage);
+                    Medium.setsky(getint("sky", string, 0), getint("sky", string, 1), getint("sky", string, 2));
+                    xtGraphics.snap(CheckPoints.stage);
                 }
                 if (string.startsWith("ground")) {
-                    medium.setgrnd(getint("ground", string, 0), getint("ground", string, 1), getint("ground", string, 2));
+                    Medium.setgrnd(getint("ground", string, 0), getint("ground", string, 1), getint("ground", string, 2));
                 }
                 if (string.startsWith("polys")) {
-                    medium.setpolys(getint("polys", string, 0), getint("polys", string, 1), getint("polys", string, 2));
+                    Medium.setpolys(getint("polys", string, 0), getint("polys", string, 1), getint("polys", string, 2));
                 }
                 if (string.startsWith("fog")) {
-                    medium.setfade(getint("fog", string, 0), getint("fog", string, 1), getint("fog", string, 2));
+                    Medium.setfade(getint("fog", string, 0), getint("fog", string, 1), getint("fog", string, 2));
                 }
                 if (string.startsWith("texture")) {
-                    medium.setexture(getint("texture", string, 0), getint("texture", string, 1), getint("texture", string, 2), getint("texture", string, 3));
+                    Medium.setexture(getint("texture", string, 0), getint("texture", string, 1), getint("texture", string, 2), getint("texture", string, 3));
                 }
                 if (string.startsWith("clouds")) {
-                    medium.setcloads(getint("clouds", string, 0), getint("clouds", string, 1), getint("clouds", string, 2), getint("clouds", string, 3), getint("clouds", string, 4));
+                    Medium.setcloads(getint("clouds", string, 0), getint("clouds", string, 1), getint("clouds", string, 2), getint("clouds", string, 3), getint("clouds", string, 4));
                 }
                 if (string.startsWith("density")) {
-                    medium.fogd = (getint("density", string, 0) + 1) * 2 - 1;
-                    if (medium.fogd < 1) {
-                        medium.fogd = 1;
+                    Medium.fogd = (getint("density", string, 0) + 1) * 2 - 1;
+                    if (Medium.fogd < 1) {
+                        Medium.fogd = 1;
                     }
-                    if (medium.fogd > 30) {
-                        medium.fogd = 30;
+                    if (Medium.fogd > 30) {
+                        Medium.fogd = 30;
                     }
                 }
                 if (string.startsWith("fadefrom")) {
-                    medium.fadfrom(getint("fadefrom", string, 0));
+                    Medium.fadfrom(getint("fadefrom", string, 0));
                 }
                 if (string.startsWith("lightson")) {
-                    medium.lightson = true;
+                    Medium.lightson = true;
                 }
                 if (string.startsWith("mountains")) {
-                    medium.mgen = getint("mountains", string, 0);
+                    Medium.mgen = getint("mountains", string, 0);
                 }
                 if (string.startsWith("set")) {
                     int setindex = getint("set", string, 0);
-                    if (xtgraphics.nplayers == 8) {
+                    if (xtGraphics.nplayers == 8) {
                         if (setindex == 47) {
                             setindex = 76;
                         }
@@ -423,120 +435,120 @@ class GameSparker extends JPanel
                         }
                     }
                     boolean bool = true;
-                    if (setindex >= 65 && setindex <= 75 && checkpoints.notb) {
+                    if (setindex >= 65 && setindex <= 75 && CheckPoints.notb) {
                         bool = false;
                     }
                     if (bool) {
                         if (setindex == 49 || setindex == 64 || setindex >= 56 && setindex <= 61) {
-                            xtgraphics.newparts = true;
+                            xtGraphics.newparts = true;
                         }
-                        if ((checkpoints.stage < 0 || checkpoints.stage >= 28) && setindex >= 10 && setindex <= 25) {
-                            medium.loadnew = true;
+                        if ((CheckPoints.stage < 0 || CheckPoints.stage >= 28) && setindex >= 10 && setindex <= 25) {
+                            Medium.loadnew = true;
                         }
                         setindex -= 10;
                         System.out.println("Setindex is: " + setindex);
-                        stageContos[nob] = new ContO(contos[setindex], getint("set", string, 1), medium.ground - contos[setindex].grat, getint("set", string, 2), getint("set", string, 3));
+                        stageContos[nob] = new ContO(contos[setindex], getint("set", string, 1), Medium.ground - contos[setindex].grat, getint("set", string, 2), getint("set", string, 3));
                         if (string.contains(")p")) {
-                            checkpoints.x[checkpoints.n] = getint("set", string, 1);
-                            checkpoints.z[checkpoints.n] = getint("set", string, 2);
-                            checkpoints.y[checkpoints.n] = 0;
-                            checkpoints.typ[checkpoints.n] = 0;
+                            CheckPoints.x[CheckPoints.n] = getint("set", string, 1);
+                            CheckPoints.z[CheckPoints.n] = getint("set", string, 2);
+                            CheckPoints.y[CheckPoints.n] = 0;
+                            CheckPoints.typ[CheckPoints.n] = 0;
                             if (string.contains(")pt")) {
-                                checkpoints.typ[checkpoints.n] = -1;
+                                CheckPoints.typ[CheckPoints.n] = -1;
                             }
                             if (string.contains(")pr")) {
-                                checkpoints.typ[checkpoints.n] = -2;
+                                CheckPoints.typ[CheckPoints.n] = -2;
                             }
                             if (string.contains(")po")) {
-                                checkpoints.typ[checkpoints.n] = -3;
+                                CheckPoints.typ[CheckPoints.n] = -3;
                             }
                             if (string.contains(")ph")) {
-                                checkpoints.typ[checkpoints.n] = -4;
+                                CheckPoints.typ[CheckPoints.n] = -4;
                             }
                             if (string.contains("out")) {
-                                System.out.println("out: " + checkpoints.n);
+                                System.out.println("out: " + CheckPoints.n);
                             }
-                            checkpoints.n++;
+                            CheckPoints.n++;
                             notb = nob + 1;
                         }
                         nob++;
-                        if (medium.loadnew) {
-                            medium.loadnew = false;
+                        if (Medium.loadnew) {
+                            Medium.loadnew = false;
                         }
                     }
                 }
                 if (string.startsWith("chk")) {
                     int chkindex = getint("chk", string, 0);
                     chkindex -= 10;
-                    int chkheight = medium.ground - contos[chkindex].grat;
+                    int chkheight = Medium.ground - contos[chkindex].grat;
                     if (chkindex == 110) {
                         chkheight = getint("chk", string, 4);
                     }
                     stageContos[nob] = new ContO(contos[chkindex], getint("chk", string, 1), chkheight, getint("chk", string, 2), getint("chk", string, 3));
-                    checkpoints.x[checkpoints.n] = getint("chk", string, 1);
-                    checkpoints.z[checkpoints.n] = getint("chk", string, 2);
-                    checkpoints.y[checkpoints.n] = chkheight;
+                    CheckPoints.x[CheckPoints.n] = getint("chk", string, 1);
+                    CheckPoints.z[CheckPoints.n] = getint("chk", string, 2);
+                    CheckPoints.y[CheckPoints.n] = chkheight;
                     if (getint("chk", string, 3) == 0) {
-                        checkpoints.typ[checkpoints.n] = 1;
+                        CheckPoints.typ[CheckPoints.n] = 1;
                     } else {
-                        checkpoints.typ[checkpoints.n] = 2;
+                        CheckPoints.typ[CheckPoints.n] = 2;
                     }
-                    checkpoints.pcs = checkpoints.n;
-                    checkpoints.n++;
-                    stageContos[nob].checkpoint = checkpoints.nsp + 1;
-                    checkpoints.nsp++;
+                    CheckPoints.pcs = CheckPoints.n;
+                    CheckPoints.n++;
+                    stageContos[nob].checkpoint = CheckPoints.nsp + 1;
+                    CheckPoints.nsp++;
                     nob++;
                     notb = nob;
                 }
-                if (checkpoints.nfix != 5 && string.startsWith("fix")) {
+                if (CheckPoints.nfix != 5 && string.startsWith("fix")) {
                     int fixindex = getint("fix", string, 0);
                     fixindex -= 10;
                     stageContos[nob] = new ContO(contos[fixindex], getint("fix", string, 1), getint("fix", string, 3), getint("fix", string, 2), getint("fix", string, 4));
-                    checkpoints.fx[checkpoints.fn] = getint("fix", string, 1);
-                    checkpoints.fz[checkpoints.fn] = getint("fix", string, 2);
-                    checkpoints.fy[checkpoints.fn] = getint("fix", string, 3);
+                    CheckPoints.fx[CheckPoints.fn] = getint("fix", string, 1);
+                    CheckPoints.fz[CheckPoints.fn] = getint("fix", string, 2);
+                    CheckPoints.fy[CheckPoints.fn] = getint("fix", string, 3);
                     stageContos[nob].elec = true;
                     if (getint("fix", string, 4) != 0) {
-                        checkpoints.roted[checkpoints.fn] = true;
+                        CheckPoints.roted[CheckPoints.fn] = true;
                         stageContos[nob].roted = true;
                     } else {
-                        checkpoints.roted[checkpoints.fn] = false;
+                        CheckPoints.roted[CheckPoints.fn] = false;
                     }
-                    checkpoints.special[checkpoints.fn] = string.indexOf(")s") != -1;
-                    checkpoints.fn++;
+                    CheckPoints.special[CheckPoints.fn] = string.indexOf(")s") != -1;
+                    CheckPoints.fn++;
                     nob++;
                     notb = nob;
                 }
-                if (!checkpoints.notb && string.startsWith("pile")) {
-                    stageContos[nob] = new ContO(getint("pile", string, 0), getint("pile", string, 1), getint("pile", string, 2), medium, trackers, getint("pile", string, 3), getint("pile", string, 4), medium.ground);
+                if (!CheckPoints.notb && string.startsWith("pile")) {
+                    stageContos[nob] = new ContO(getint("pile", string, 0), getint("pile", string, 1), getint("pile", string, 2), getint("pile", string, 3), getint("pile", string, 4), Medium.ground);
                     nob++;
                 }
-                if (xtgraphics.multion == 0 && string.startsWith("nlaps")) {
-                    checkpoints.nlaps = getint("nlaps", string, 0);
+                if (xtGraphics.multion == 0 && string.startsWith("nlaps")) {
+                    CheckPoints.nlaps = getint("nlaps", string, 0);
                 }
                 //if (checkpoints.nlaps < 1)
                 //	checkpoints.nlaps = 1;
                 //if (checkpoints.nlaps > 15)
                 //	checkpoints.nlaps = 15;
-                if (checkpoints.stage > 0 && string.startsWith("name")) {
-                    checkpoints.name = getstring("name", string, 0).replace('|', ',');
+                if (CheckPoints.stage > 0 && string.startsWith("name")) {
+                    CheckPoints.name = getstring("name", string, 0).replace('|', ',');
                 }
                 if (string.startsWith("stagemaker")) {
-                    checkpoints.maker = getstring("stagemaker", string, 0);
+                    CheckPoints.maker = getstring("stagemaker", string, 0);
                 }
                 if (string.startsWith("publish")) {
-                    checkpoints.pubt = getint("publish", string, 0);
+                    CheckPoints.pubt = getint("publish", string, 0);
                 }
                 if (string.startsWith("soundtrack")) {
-                    checkpoints.trackname = getstring("soundtrack", string, 0);
-                    checkpoints.trackvol = getint("soundtrack", string, 1);
-                    if (checkpoints.trackvol < 50) {
-                        checkpoints.trackvol = 50;
+                    CheckPoints.trackname = getstring("soundtrack", string, 0);
+                    CheckPoints.trackvol = getint("soundtrack", string, 1);
+                    if (CheckPoints.trackvol < 50) {
+                        CheckPoints.trackvol = 50;
                     }
-                    if (checkpoints.trackvol > 300) {
-                        checkpoints.trackvol = 300;
+                    if (CheckPoints.trackvol > 300) {
+                        CheckPoints.trackvol = 300;
                     }
-                    xtgraphics.sndsize[32] = getint("soundtrack", string, 2);
+                    xtGraphics.sndsize[32] = getint("soundtrack", string, 2);
                 }
                 if (string.startsWith("maxr")) {
                     final int n = getint("maxr", string, 0);
@@ -544,22 +556,22 @@ class GameSparker extends JPanel
                     i = o;
                     final int p = getint("maxr", string, 2);
                     for (int q = 0; q < n; q++) {
-                        stageContos[nob] = new ContO(contos[29], o, medium.ground - contos[29].grat, //29 may need to be 85 or xtgraphics.nCars - 16
+                        stageContos[nob] = new ContO(contos[29], o, Medium.ground - contos[29].grat, //29 may need to be 85 or xtgraphics.nCars - 16
                         q * 4800 + p, 0);
                         nob++;
                     }
-                    trackers.y[trackers.nt] = -5000;
-                    trackers.rady[trackers.nt] = 7100;
-                    trackers.x[trackers.nt] = o + 500;
-                    trackers.radx[trackers.nt] = 600;
-                    trackers.z[trackers.nt] = n * 4800 / 2 + p - 2400;
-                    trackers.radz[trackers.nt] = n * 4800 / 2;
-                    trackers.xy[trackers.nt] = 90;
-                    trackers.zy[trackers.nt] = 0;
-                    trackers.dam[trackers.nt] = 167;
-                    trackers.decor[trackers.nt] = false;
-                    trackers.skd[trackers.nt] = 0;
-                    trackers.nt++;
+                    Trackers.y[Trackers.nt] = -5000;
+                    Trackers.rady[Trackers.nt] = 7100;
+                    Trackers.x[Trackers.nt] = o + 500;
+                    Trackers.radx[Trackers.nt] = 600;
+                    Trackers.z[Trackers.nt] = n * 4800 / 2 + p - 2400;
+                    Trackers.radz[Trackers.nt] = n * 4800 / 2;
+                    Trackers.xy[Trackers.nt] = 90;
+                    Trackers.zy[Trackers.nt] = 0;
+                    Trackers.dam[Trackers.nt] = 167;
+                    Trackers.decor[Trackers.nt] = false;
+                    Trackers.skd[Trackers.nt] = 0;
+                    Trackers.nt++;
                 }
                 if (string.startsWith("maxl")) {
                     final int n = getint("maxl", string, 0);
@@ -567,21 +579,21 @@ class GameSparker extends JPanel
                     k = o;
                     final int p = getint("maxl", string, 2);
                     for (int q = 0; q < n; q++) {
-                        stageContos[nob] = new ContO(contos[29], o, medium.ground - contos[29].grat, q * 4800 + p, 180);
+                        stageContos[nob] = new ContO(contos[29], o, Medium.ground - contos[29].grat, q * 4800 + p, 180);
                         nob++;
                     }
-                    trackers.y[trackers.nt] = -5000;
-                    trackers.rady[trackers.nt] = 7100;
-                    trackers.x[trackers.nt] = o - 500;
-                    trackers.radx[trackers.nt] = 600;
-                    trackers.z[trackers.nt] = n * 4800 / 2 + p - 2400;
-                    trackers.radz[trackers.nt] = n * 4800 / 2;
-                    trackers.xy[trackers.nt] = -90;
-                    trackers.zy[trackers.nt] = 0;
-                    trackers.dam[trackers.nt] = 167;
-                    trackers.decor[trackers.nt] = false;
-                    trackers.skd[trackers.nt] = 0;
-                    trackers.nt++;
+                    Trackers.y[Trackers.nt] = -5000;
+                    Trackers.rady[Trackers.nt] = 7100;
+                    Trackers.x[Trackers.nt] = o - 500;
+                    Trackers.radx[Trackers.nt] = 600;
+                    Trackers.z[Trackers.nt] = n * 4800 / 2 + p - 2400;
+                    Trackers.radz[Trackers.nt] = n * 4800 / 2;
+                    Trackers.xy[Trackers.nt] = -90;
+                    Trackers.zy[Trackers.nt] = 0;
+                    Trackers.dam[Trackers.nt] = 167;
+                    Trackers.decor[Trackers.nt] = false;
+                    Trackers.skd[Trackers.nt] = 0;
+                    Trackers.nt++;
                 }
                 if (string.startsWith("maxt")) {
                     final int n = getint("maxt", string, 0);
@@ -589,21 +601,21 @@ class GameSparker extends JPanel
                     l = o;
                     final int p = getint("maxt", string, 2);
                     for (int q = 0; q < n; q++) {
-                        stageContos[nob] = new ContO(contos[29], q * 4800 + p, medium.ground - contos[29].grat, o, 90);
+                        stageContos[nob] = new ContO(contos[29], q * 4800 + p, Medium.ground - contos[29].grat, o, 90);
                         nob++;
                     }
-                    trackers.y[trackers.nt] = -5000;
-                    trackers.rady[trackers.nt] = 7100;
-                    trackers.z[trackers.nt] = o + 500;
-                    trackers.radz[trackers.nt] = 600;
-                    trackers.x[trackers.nt] = n * 4800 / 2 + p - 2400;
-                    trackers.radx[trackers.nt] = n * 4800 / 2;
-                    trackers.zy[trackers.nt] = 90;
-                    trackers.xy[trackers.nt] = 0;
-                    trackers.dam[trackers.nt] = 167;
-                    trackers.decor[trackers.nt] = false;
-                    trackers.skd[trackers.nt] = 0;
-                    trackers.nt++;
+                    Trackers.y[Trackers.nt] = -5000;
+                    Trackers.rady[Trackers.nt] = 7100;
+                    Trackers.z[Trackers.nt] = o + 500;
+                    Trackers.radz[Trackers.nt] = 600;
+                    Trackers.x[Trackers.nt] = n * 4800 / 2 + p - 2400;
+                    Trackers.radx[Trackers.nt] = n * 4800 / 2;
+                    Trackers.zy[Trackers.nt] = 90;
+                    Trackers.xy[Trackers.nt] = 0;
+                    Trackers.dam[Trackers.nt] = 167;
+                    Trackers.decor[Trackers.nt] = false;
+                    Trackers.skd[Trackers.nt] = 0;
+                    Trackers.nt++;
                 }
                 if (string.startsWith("maxb")) {
                     final int n = getint("maxb", string, 0);
@@ -611,125 +623,125 @@ class GameSparker extends JPanel
                     m = o;
                     final int p = getint("maxb", string, 2);
                     for (int q = 0; q < n; q++) {
-                        stageContos[nob] = new ContO(contos[29], q * 4800 + p, medium.ground - contos[29].grat, o, -90);
+                        stageContos[nob] = new ContO(contos[29], q * 4800 + p, Medium.ground - contos[29].grat, o, -90);
                         nob++;
                     }
-                    trackers.y[trackers.nt] = -5000;
-                    trackers.rady[trackers.nt] = 7100;
-                    trackers.z[trackers.nt] = o - 500;
-                    trackers.radz[trackers.nt] = 600;
-                    trackers.x[trackers.nt] = n * 4800 / 2 + p - 2400;
-                    trackers.radx[trackers.nt] = n * 4800 / 2;
-                    trackers.zy[trackers.nt] = -90;
-                    trackers.xy[trackers.nt] = 0;
-                    trackers.dam[trackers.nt] = 167;
-                    trackers.decor[trackers.nt] = false;
-                    trackers.skd[trackers.nt] = 0;
-                    trackers.nt++;
+                    Trackers.y[Trackers.nt] = -5000;
+                    Trackers.rady[Trackers.nt] = 7100;
+                    Trackers.z[Trackers.nt] = o - 500;
+                    Trackers.radz[Trackers.nt] = 600;
+                    Trackers.x[Trackers.nt] = n * 4800 / 2 + p - 2400;
+                    Trackers.radx[Trackers.nt] = n * 4800 / 2;
+                    Trackers.zy[Trackers.nt] = -90;
+                    Trackers.xy[Trackers.nt] = 0;
+                    Trackers.dam[Trackers.nt] = 167;
+                    Trackers.decor[Trackers.nt] = false;
+                    Trackers.skd[Trackers.nt] = 0;
+                    Trackers.nt++;
                 }
             }
             stageDataReader.close();
-            medium.newpolys(k, i - k, m, l - m, trackers, notb);
-            medium.newclouds(k, i, m, l);
-            medium.newmountains(k, i, m, l);
-            medium.newstars();
-            trackers.devidetrackers(k, i - k, m, l - m);
+            Medium.newpolys(k, i - k, m, l - m,  notb);
+            Medium.newclouds(k, i, m, l);
+            Medium.newmountains(k, i, m, l);
+            Medium.newstars();
+            Trackers.devidetrackers(k, i - k, m, l - m);
         } catch (final Exception exception) {
-            System.out.println("Error in stage " + checkpoints.stage);
+            System.out.println("Error in stage " + CheckPoints.stage);
             System.out.println("At line: " + string);
-            checkpoints.stage = -3;
+            CheckPoints.stage = -3;
             exception.printStackTrace();
         }
-        if (checkpoints.nsp < 2) {
-            checkpoints.stage = -3;
+        if (CheckPoints.nsp < 2) {
+            CheckPoints.stage = -3;
         }
-        if (medium.nrw * medium.ncl >= 16000) {
-            checkpoints.stage = -3;
+        if (Medium.nrw * Medium.ncl >= 16000) {
+            CheckPoints.stage = -3;
         }
-        if (checkpoints.stage != -3) {
-            checkpoints.top20 = Math.abs(checkpoints.top20);
-            if (checkpoints.stage == 26) {
-                medium.lightn = 0;
+        if (CheckPoints.stage != -3) {
+            CheckPoints.top20 = Math.abs(CheckPoints.top20);
+            if (CheckPoints.stage == 26) {
+                Medium.lightn = 0;
             } else {
-                medium.lightn = -1;
+                Medium.lightn = -1;
             }
-            medium.nochekflk = !(checkpoints.stage == 1 || checkpoints.stage == 11);
-            for (int n = 0; n < xtgraphics.nplayers; n++) {
-                u[n].reset(checkpoints, xtgraphics.sc[n]);
-                mads[n].setStat(new Stat(xtgraphics.sc[n], cardefine));
+            Medium.nochekflk = !(CheckPoints.stage == 1 || CheckPoints.stage == 11);
+            for (int n = 0; n < xtGraphics.nplayers; n++) {
+                u[n].reset(xtGraphics.sc[n]);
+                mads[n].setStat(new Stat(xtGraphics.sc[n]));
             }
-            xtgraphics.resetstat(checkpoints.stage);
-            checkpoints.calprox();
+            xtGraphics.resetstat(CheckPoints.stage);
+            CheckPoints.calprox();
 
-            for (int j = 0; j < xtgraphics.nplayers; j++) {
+            for (int j = 0; j < xtGraphics.nplayers; j++) {
 
-                if (xtgraphics.fase == 22) {
-                    xtgraphics.colorCar(carContos[xtgraphics.sc[j]], j);
+                if (xtGraphics.fase == 22) {
+                    xtGraphics.colorCar(carContos[xtGraphics.sc[j]], j);
                 }
-                stageContos[j] = new ContO(carContos[xtgraphics.sc[j]], xtgraphics.xstart[j], 250 - carContos[xtgraphics.sc[j]].grat, xtgraphics.zstart[j], 0);
-                mads[j].reseto(xtgraphics.sc[j], stageContos[j], checkpoints);
+                stageContos[j] = new ContO(carContos[xtGraphics.sc[j]], xtGraphics.xstart[j], 250 - carContos[xtGraphics.sc[j]].grat, xtGraphics.zstart[j], 0);
+                mads[j].reseto(xtGraphics.sc[j], stageContos[j]);
             }
-            if (xtgraphics.fase == 2 || xtgraphics.fase == -22) {
-                medium.trx = (k + i) / 2;
-                medium.trz = (l + m) / 2;
-                medium.ptr = 0;
-                medium.ptcnt = -10;
-                medium.hit = 45000;
-                medium.fallen = 0;
-                medium.nrnd = 0;
-                medium.trk = 1;
-                medium.ih = 25;
-                medium.iw = 65;
-                medium.h = 425;
-                medium.w = 735;
-                xtgraphics.fase = 1;
+            if (xtGraphics.fase == 2 || xtGraphics.fase == -22) {
+                Medium.trx = (k + i) / 2;
+                Medium.trz = (l + m) / 2;
+                Medium.ptr = 0;
+                Medium.ptcnt = -10;
+                Medium.hit = 45000;
+                Medium.fallen = 0;
+                Medium.nrnd = 0;
+                Medium.trk = 1;
+                Medium.ih = 25;
+                Medium.iw = 65;
+                Medium.h = 425;
+                Medium.w = 735;
+                xtGraphics.fase = 1;
                 mouses = 0;
             }
-            if (xtgraphics.fase == 22) {
-                medium.crs = false;
-                xtgraphics.fase = 5;
+            if (xtGraphics.fase == 22) {
+                Medium.crs = false;
+                xtGraphics.fase = 5;
             }
-            if (checkpoints.stage > 0) {
-                xtgraphics.asay = "Stage " + checkpoints.stage + ":  " + checkpoints.name + " ";
+            if (CheckPoints.stage > 0) {
+                xtGraphics.asay = "Stage " + CheckPoints.stage + ":  " + CheckPoints.name + " ";
             } else {
-                xtgraphics.asay = "Custom Stage:  " + checkpoints.name + " ";
+                xtGraphics.asay = "Custom Stage:  " + CheckPoints.name + " ";
             }
-            record.reset(stageContos);
-        } else if (xtgraphics.fase == 2) {
-            xtgraphics.fase = 1;
+            Record.reset(stageContos);
+        } else if (xtGraphics.fase == 2) {
+            xtGraphics.fase = 1;
         }
         System.gc();
     }
 
-    private boolean loadstagePreview(final int i, final String string, final ContO[] contos, final ContO[] contos147, final Medium medium, final CheckPoints checkpoints) {
+    static private boolean loadstagePreview(final int i, final String string, final ContO[] contos, final ContO[] contos147) {
         boolean bool = true;
         if (i < 100) {
-            checkpoints.stage = i;
-            if (checkpoints.stage < 0) {
-                checkpoints.name = string;
+            CheckPoints.stage = i;
+            if (CheckPoints.stage < 0) {
+                CheckPoints.name = string;
             }
         } else {
-            checkpoints.stage = -2;
+            CheckPoints.stage = -2;
             if (sgame.getSelectedIndex() == 3 || sgame.getSelectedIndex() == 4) {
-                checkpoints.name = mstgs.getSelectedItem();
+                CheckPoints.name = mstgs.getSelectedItem();
             } else {
                 final int i148 = mstgs.getSelectedItem().indexOf(' ') + 1;
                 if (i148 > 0) {
-                    checkpoints.name = mstgs.getSelectedItem().substring(i148);
+                    CheckPoints.name = mstgs.getSelectedItem().substring(i148);
                 }
             }
         }
         nob = 0;
-        checkpoints.n = 0;
-        checkpoints.nsp = 0;
-        checkpoints.fn = 0;
-        checkpoints.haltall = false;
-        checkpoints.wasted = 0;
-        checkpoints.catchfin = 0;
-        medium.ground = 250;
+        CheckPoints.n = 0;
+        CheckPoints.nsp = 0;
+        CheckPoints.fn = 0;
+        CheckPoints.haltall = false;
+        CheckPoints.wasted = 0;
+        CheckPoints.catchfin = 0;
+        Medium.ground = 250;
         view = 0;
-        medium.trx = 0L;
-        medium.trz = 0L;
+        Medium.trx = 0L;
+        Medium.trz = 0L;
         int i149 = 0;
         int i150 = 100;
         int i151 = 0;
@@ -737,11 +749,11 @@ class GameSparker extends JPanel
         String string153 = "";
         try {
             BufferedReader datainputstream;
-            if (checkpoints.stage > 0) {
-                final URL url = new URL("http://multiplayer.needformadness.com/stages/" + checkpoints.stage + ".txt");
+            if (CheckPoints.stage > 0) {
+                final URL url = new URL("http://multiplayer.needformadness.com/stages/" + CheckPoints.stage + ".txt");
                 datainputstream = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
             } else {
-                String string154 = "http://multiplayer.needformadness.com/tracks/" + checkpoints.name + ".radq";
+                String string154 = "http://multiplayer.needformadness.com/tracks/" + CheckPoints.name + ".radq";
                 string154 = string154.replace(' ', '_');
                 final URL url = new URL(string154);
                 final int i155 = url.openConnection().getContentLength();
@@ -779,140 +791,140 @@ class GameSparker extends JPanel
             while ((string164 = datainputstream.readLine()) != null) {
                 string153 = "" + string164.trim();
                 if (string153.startsWith("snap")) {
-                    medium.setsnap(getint("snap", string153, 0), getint("snap", string153, 1), getint("snap", string153, 2));
+                    Medium.setsnap(getint("snap", string153, 0), getint("snap", string153, 1), getint("snap", string153, 2));
                 }
                 if (string153.startsWith("sky")) {
-                    medium.setsky(getint("sky", string153, 0), getint("sky", string153, 1), getint("sky", string153, 2));
+                    Medium.setsky(getint("sky", string153, 0), getint("sky", string153, 1), getint("sky", string153, 2));
                 }
                 if (string153.startsWith("ground")) {
-                    medium.setgrnd(getint("ground", string153, 0), getint("ground", string153, 1), getint("ground", string153, 2));
+                    Medium.setgrnd(getint("ground", string153, 0), getint("ground", string153, 1), getint("ground", string153, 2));
                 }
                 if (string153.startsWith("polys")) {
-                    medium.setpolys(getint("polys", string153, 0), getint("polys", string153, 1), getint("polys", string153, 2));
+                    Medium.setpolys(getint("polys", string153, 0), getint("polys", string153, 1), getint("polys", string153, 2));
                 }
                 if (string153.startsWith("fog")) {
-                    medium.setfade(getint("fog", string153, 0), getint("fog", string153, 1), getint("fog", string153, 2));
+                    Medium.setfade(getint("fog", string153, 0), getint("fog", string153, 1), getint("fog", string153, 2));
                 }
                 if (string153.startsWith("texture")) {
-                    medium.setexture(getint("texture", string153, 0), getint("texture", string153, 1), getint("texture", string153, 2), getint("texture", string153, 3));
+                    Medium.setexture(getint("texture", string153, 0), getint("texture", string153, 1), getint("texture", string153, 2), getint("texture", string153, 3));
                 }
                 if (string153.startsWith("clouds")) {
-                    medium.setcloads(getint("clouds", string153, 0), getint("clouds", string153, 1), getint("clouds", string153, 2), getint("clouds", string153, 3), getint("clouds", string153, 4));
+                    Medium.setcloads(getint("clouds", string153, 0), getint("clouds", string153, 1), getint("clouds", string153, 2), getint("clouds", string153, 3), getint("clouds", string153, 4));
                 }
                 if (string153.startsWith("density")) {
-                    medium.fogd = (getint("density", string153, 0) + 1) * 2 - 1;
-                    if (medium.fogd < 1) {
-                        medium.fogd = 1;
+                    Medium.fogd = (getint("density", string153, 0) + 1) * 2 - 1;
+                    if (Medium.fogd < 1) {
+                        Medium.fogd = 1;
                     }
-                    if (medium.fogd > 30) {
-                        medium.fogd = 30;
+                    if (Medium.fogd > 30) {
+                        Medium.fogd = 30;
                     }
                 }
                 if (string153.startsWith("fadefrom")) {
-                    medium.fadfrom(getint("fadefrom", string153, 0));
+                    Medium.fadfrom(getint("fadefrom", string153, 0));
                 }
                 if (string153.startsWith("lightson")) {
-                    medium.lightson = true;
+                    Medium.lightson = true;
                 }
                 if (string153.startsWith("mountains")) {
-                    medium.mgen = getint("mountains", string153, 0);
+                    Medium.mgen = getint("mountains", string153, 0);
                 }
                 if (string153.startsWith("soundtrack")) {
-                    checkpoints.trackname = getstring("soundtrack", string153, 0);
-                    checkpoints.trackvol = getint("soundtrack", string153, 1);
-                    if (checkpoints.trackvol < 50) {
-                        checkpoints.trackvol = 50;
+                    CheckPoints.trackname = getstring("soundtrack", string153, 0);
+                    CheckPoints.trackvol = getint("soundtrack", string153, 1);
+                    if (CheckPoints.trackvol < 50) {
+                        CheckPoints.trackvol = 50;
                     }
-                    if (checkpoints.trackvol > 300) {
-                        checkpoints.trackvol = 300;
+                    if (CheckPoints.trackvol > 300) {
+                        CheckPoints.trackvol = 300;
                     }
                 }
                 if (string153.startsWith("set")) {
                     int i165 = getint("set", string153, 0);
                     i165 -= 10;
-                    contos[nob] = new ContO(contos147[i165], getint("set", string153, 1), medium.ground - contos147[i165].grat, getint("set", string153, 2), getint("set", string153, 3));
-                    contos[nob].t.nt = 0;
+                    contos[nob] = new ContO(contos147[i165], getint("set", string153, 1), Medium.ground - contos147[i165].grat, getint("set", string153, 2), getint("set", string153, 3));
+                    Trackers.nt = 0;
                     if (string153.contains(")p")) {
-                        checkpoints.x[checkpoints.n] = getint("chk", string153, 1);
-                        checkpoints.z[checkpoints.n] = getint("chk", string153, 2);
-                        checkpoints.y[checkpoints.n] = 0;
-                        checkpoints.typ[checkpoints.n] = 0;
+                        CheckPoints.x[CheckPoints.n] = getint("chk", string153, 1);
+                        CheckPoints.z[CheckPoints.n] = getint("chk", string153, 2);
+                        CheckPoints.y[CheckPoints.n] = 0;
+                        CheckPoints.typ[CheckPoints.n] = 0;
                         if (string153.contains(")pt")) {
-                            checkpoints.typ[checkpoints.n] = -1;
+                            CheckPoints.typ[CheckPoints.n] = -1;
                         }
                         if (string153.contains(")pr")) {
-                            checkpoints.typ[checkpoints.n] = -2;
+                            CheckPoints.typ[CheckPoints.n] = -2;
                         }
                         if (string153.contains(")po")) {
-                            checkpoints.typ[checkpoints.n] = -3;
+                            CheckPoints.typ[CheckPoints.n] = -3;
                         }
                         if (string153.contains(")ph")) {
-                            checkpoints.typ[checkpoints.n] = -4;
+                            CheckPoints.typ[CheckPoints.n] = -4;
                         }
                         if (string153.contains("out")) {
-                            System.out.println("out: " + checkpoints.n);
+                            System.out.println("out: " + CheckPoints.n);
                         }
-                        checkpoints.n++;
+                        CheckPoints.n++;
                     }
                     nob++;
                 }
                 if (string153.startsWith("chk")) {
                     int i166 = getint("chk", string153, 0);
                     i166 -= 10;
-                    int i167 = medium.ground - contos147[i166].grat;
+                    int i167 = Medium.ground - contos147[i166].grat;
                     if (i166 == 110) {
                         i167 = getint("chk", string153, 4);
                     }
                     contos[nob] = new ContO(contos147[i166], getint("chk", string153, 1), i167, getint("chk", string153, 2), getint("chk", string153, 3));
-                    checkpoints.x[checkpoints.n] = getint("chk", string153, 1);
-                    checkpoints.z[checkpoints.n] = getint("chk", string153, 2);
-                    checkpoints.y[checkpoints.n] = i167;
+                    CheckPoints.x[CheckPoints.n] = getint("chk", string153, 1);
+                    CheckPoints.z[CheckPoints.n] = getint("chk", string153, 2);
+                    CheckPoints.y[CheckPoints.n] = i167;
                     if (getint("chk", string153, 3) == 0) {
-                        checkpoints.typ[checkpoints.n] = 1;
+                        CheckPoints.typ[CheckPoints.n] = 1;
                     } else {
-                        checkpoints.typ[checkpoints.n] = 2;
+                        CheckPoints.typ[CheckPoints.n] = 2;
                     }
-                    checkpoints.pcs = checkpoints.n;
-                    checkpoints.n++;
-                    contos[nob].checkpoint = checkpoints.nsp + 1;
-                    checkpoints.nsp++;
+                    CheckPoints.pcs = CheckPoints.n;
+                    CheckPoints.n++;
+                    contos[nob].checkpoint = CheckPoints.nsp + 1;
+                    CheckPoints.nsp++;
                     nob++;
                 }
                 if (string153.startsWith("fix")) {
                     int i168 = getint("fix", string153, 0);
                     i168 -= 10;
                     contos[nob] = new ContO(contos147[i168], getint("fix", string153, 1), getint("fix", string153, 3), getint("fix", string153, 2), getint("fix", string153, 4));
-                    checkpoints.fx[checkpoints.fn] = getint("fix", string153, 1);
-                    checkpoints.fz[checkpoints.fn] = getint("fix", string153, 2);
-                    checkpoints.fy[checkpoints.fn] = getint("fix", string153, 3);
+                    CheckPoints.fx[CheckPoints.fn] = getint("fix", string153, 1);
+                    CheckPoints.fz[CheckPoints.fn] = getint("fix", string153, 2);
+                    CheckPoints.fy[CheckPoints.fn] = getint("fix", string153, 3);
                     contos[nob].elec = true;
                     if (getint("fix", string153, 4) != 0) {
-                        checkpoints.roted[checkpoints.fn] = true;
+                        CheckPoints.roted[CheckPoints.fn] = true;
                         contos[nob].roted = true;
                     } else {
-                        checkpoints.roted[checkpoints.fn] = false;
+                        CheckPoints.roted[CheckPoints.fn] = false;
                     }
-                    checkpoints.special[checkpoints.fn] = string153.contains(")s");
-                    checkpoints.fn++;
+                    CheckPoints.special[CheckPoints.fn] = string153.contains(")s");
+                    CheckPoints.fn++;
                     nob++;
                 }
                 if (string153.startsWith("nlaps")) {
-                    checkpoints.nlaps = getint("nlaps", string153, 0);
-                    if (checkpoints.nlaps < 1) {
-                        checkpoints.nlaps = 1;
+                    CheckPoints.nlaps = getint("nlaps", string153, 0);
+                    if (CheckPoints.nlaps < 1) {
+                        CheckPoints.nlaps = 1;
                     }
-                    if (checkpoints.nlaps > 15) {
-                        checkpoints.nlaps = 15;
+                    if (CheckPoints.nlaps > 15) {
+                        CheckPoints.nlaps = 15;
                     }
                 }
-                if (checkpoints.stage > 0 && string153.startsWith("name")) {
-                    checkpoints.name = getstring("name", string153, 0).replace('|', ',');
+                if (CheckPoints.stage > 0 && string153.startsWith("name")) {
+                    CheckPoints.name = getstring("name", string153, 0).replace('|', ',');
                 }
                 if (string153.startsWith("stagemaker")) {
-                    checkpoints.maker = getstring("stagemaker", string153, 0);
+                    CheckPoints.maker = getstring("stagemaker", string153, 0);
                 }
                 if (string153.startsWith("publish")) {
-                    checkpoints.pubt = getint("publish", string153, 0);
+                    CheckPoints.pubt = getint("publish", string153, 0);
                 }
                 if (string153.startsWith("maxr")) {
                     i149 = getint("maxr", string153, 1);
@@ -932,24 +944,24 @@ class GameSparker extends JPanel
                 }
             }
             datainputstream.close();
-            medium.newpolys(i150, i149 - i150, i152, i151 - i152, null, notb);
-            medium.newclouds(i150, i149, i152, i151);
-            medium.newmountains(i150, i149, i152, i151);
-            medium.newstars();
+            Medium.newpolys(i150, i149 - i150, i152, i151 - i152, notb);
+            Medium.newclouds(i150, i149, i152, i151);
+            Medium.newmountains(i150, i149, i152, i151);
+            Medium.newstars();
         } catch (final Exception exception) {
             bool = false;
-            System.out.println("Error in stage " + checkpoints.stage);
+            System.out.println("Error in stage " + CheckPoints.stage);
             System.out.println("" + exception);
             System.out.println("At line: " + string153);
         }
-        if (checkpoints.nsp < 2) {
+        if (CheckPoints.nsp < 2) {
             bool = false;
         }
-        if (medium.nrw * medium.ncl >= 16000) {
+        if (Medium.nrw * Medium.ncl >= 16000) {
             bool = false;
         }
-        medium.trx = (i150 + i149) / 2;
-        medium.trz = (i151 + i152) / 2;
+        Medium.trx = (i150 + i149) / 2;
+        Medium.trz = (i151 + i152) / 2;
         System.gc();
         return bool;
     }
@@ -957,21 +969,21 @@ class GameSparker extends JPanel
     /**
      * handles clicking the 'Radical Play' link
      */
-    private void catchlink() {
+    static private void catchlink() {
         if (!lostfcs)
             if (xm > 65 && xm < 735 && ym > 135 && ym < 194 || xm > 275 && xm < 525 && ym > 265 && ym < 284) {
-                setCursor(new Cursor(12));
+                gsPanel.setCursor(new Cursor(12));
                 if (mouses == 2) {
                     openurl("http://www.radicalplay.com/");
                 }
             } else {
-                setCursor(new Cursor(0));
+                gsPanel.setCursor(new Cursor(0));
             }
     }
 
-    private void checkmemory(final xtGraphics xtgraphics) {
+    static private void checkmemory() {
         if (applejava || Runtime.getRuntime().freeMemory() / 1048576L < 50L) {
-            xtgraphics.badmac = true;
+            xtGraphics.badmac = true;
         }
     }
 
@@ -982,7 +994,7 @@ class GameSparker extends JPanel
      * @param x X position
      * @param y Y position
      */
-    private void cropit(final Graphics2D graphics2d, final int x, final int y) {
+    static private void cropit(final Graphics2D graphics2d, final int x, final int y) {
         if (x != 0 || y != 0) {
             graphics2d.setComposite(AlphaComposite.getInstance(3, 1.0F));
             graphics2d.setColor(new Color(0, 0, 0));
@@ -1004,7 +1016,7 @@ class GameSparker extends JPanel
     /**
      * Draws SMenus
      */
-    void drawms() {
+    static void drawms() {
         openm = gmode.draw(rd, xm, ym, moused, 450, true);
         if (swait.draw(rd, xm, ym, moused, 450, false)) {
             openm = true;
@@ -1087,7 +1099,7 @@ class GameSparker extends JPanel
         }
     }
 
-    void editlink(final String accountid, final boolean isLogged) {
+    static void editlink(final String accountid, final boolean isLogged) {
         String logged = "";
         if (isLogged) {
             logged = "?display=upgrade";
@@ -1095,7 +1107,7 @@ class GameSparker extends JPanel
         openurl("http://multiplayer.needformadness.com/edit.pl" + logged + "#" + accountid + "");
     }
 
-    private int getint(final String string, final String string4, final int i) {
+    static private int getint(final String string, final String string4, final int i) {
         int j = 0;
         String string2 = "";
         for (int k = string.length() + 1; k < string4.length(); k++) {
@@ -1119,7 +1131,7 @@ class GameSparker extends JPanel
      * @param i the position of the string
      * @return tthe string at the position
      */
-    private String getstring(final String string, final String string2, final int i) {
+    static private String getstring(final String string, final String string2, final int i) {
         int j = 0;
         String string3 = "";
         for (int k = string.length() + 1; k < string2.length(); k++) {
@@ -1138,7 +1150,7 @@ class GameSparker extends JPanel
     /**
      * Hides SMenus
      */
-    private void hidefields() {
+    static private void hidefields() {
         ilaps.setVisible(false);
         icars.setVisible(false);
         proitem.setVisible(false);
@@ -1178,7 +1190,7 @@ class GameSparker extends JPanel
     }
 
     //@Override
-    private void initFields() {
+    static private void initFields() {
         tnick = new TextField("Nickbname");
         tnick.setFont(new Font("Arial", 1, 13));
         tpass = new TextField("");
@@ -1204,14 +1216,14 @@ class GameSparker extends JPanel
         notp = new Checkbox("No Trees & Piles");
         keplo = new Checkbox("Stay logged in");
         keplo.setState(true);
-        add(tnick);
-        add(tpass);
-        add(temail);
-        add(cmsg);
-        add(mmsg);
-        add(mycar);
-        add(notp);
-        add(keplo);
+        gsPanel.add(tnick);
+        gsPanel.add(tpass);
+        gsPanel.add(temail);
+        gsPanel.add(cmsg);
+        gsPanel.add(mmsg);
+        gsPanel.add(mycar);
+        gsPanel.add(notp);
+        gsPanel.add(keplo);
         sgame.setFont();
         wgame.setFont();
         warb.setFont();
@@ -1246,17 +1258,17 @@ class GameSparker extends JPanel
         proitem.setFont();
     }
     
-    void madlink() {
+    static void madlink() {
         openurl("http://www.needformadness.com/");
     }
 
-    public void mouseW(final int i) {
+    static public void mouseW(final int i) {
         if (!exwist) {
             mousew += i * 4;
         }
     }
 
-    void movefield(final Component component, int i, int i99, final int i100, final int i101) {
+    static void movefield(final Component component, int i, int i99, final int i100, final int i101) {
         if (i100 == 360 || i100 == 576) {
             i = (int) (i * apmult + apx + component.getWidth() / 2 * (apmult - 1.0F));
             i99 = (int) (i99 * apmult + apy + 12.0F * (apmult - 1.0F));
@@ -1269,7 +1281,7 @@ class GameSparker extends JPanel
         }
     }
 
-    public void movefielda(final TextArea textarea, int i, int i105, final int i106, final int i107) {
+    static public void movefielda(final TextArea textarea, int i, int i105, final int i106, final int i107) {
         if (applejava) {
             if (xm > i && xm < i + i106 && ym > i105 && ym < i105 + i107 || !textarea.getText().equals(" ")) {
                 if (!textarea.isShowing()) {
@@ -1289,7 +1301,7 @@ class GameSparker extends JPanel
             } else {
                 if (textarea.isShowing()) {
                     textarea.setVisible(false);
-                    requestFocus();
+                    gsPanel.requestFocus();
                 }
                 rd.setColor(textarea.getBackground());
                 rd.fillRect(i, i105, i106 - 1, i107 - 1);
@@ -1304,7 +1316,7 @@ class GameSparker extends JPanel
         }
     }
 
-    void movefieldd(final TextField textfield, int i, int i102, final int i103, final int i104, final boolean bool) {
+    static void movefieldd(final TextField textfield, int i, int i102, final int i103, final int i104, final boolean bool) {
         if (applejava) {
             if (bool)
                 if (xm > i && xm < i + i103 && ym > i102 && ym < i102 + i104 || !textfield.getText().equals("")) {
@@ -1325,7 +1337,7 @@ class GameSparker extends JPanel
                 } else {
                     if (textfield.isShowing()) {
                         textfield.setVisible(false);
-                        requestFocus();
+                        gsPanel.requestFocus();
                     }
                     rd.setColor(textfield.getBackground());
                     rd.fillRect(i, i102, i103 - 1, i104 - 1);
@@ -1340,19 +1352,19 @@ class GameSparker extends JPanel
         }
     }
 
-    void multlink() {
+    static void multlink() {
         openurl("http://multiplayer.needformadness.com/");
     }
 
-    void musiclink() {
+    static void musiclink() {
         openurl("http://multiplayer.needformadness.com/music.html");
     }
 
-    void onfmmlink() {
+    static void onfmmlink() {
         openurl("https://github.com/chrishansen69/OpenNFMM");
     }
 
-    private void openurl(final String string) {
+    static private void openurl(final String string) {
         if (Desktop.isDesktopSupported()) {
             try {
                 Desktop.getDesktop().browse(new URI(string));
@@ -1368,33 +1380,12 @@ class GameSparker extends JPanel
         }
     }
 
-    private void trash() {
+    static private void trash() {
         rd.dispose();
-        xtgraphics.stopallnow();
+        xtGraphics.stopallnow();
         //cardefine.stopallnow();
         //udpmistro.UDPquit();
         System.gc();
-    }
-
-    /**
-     * Scans all classes accessible from the context class loader which belong to the given package and subpackages.
-     *
-     * @param packageName The base package
-     * @return The classes
-     * @throws ClassNotFoundException
-     * @throws IOException
-     */
-    private static ArrayList<Class<?>> getClasses(String packageName)
-            throws ClassNotFoundException, IOException {
-        File[] f = new File("./" + packageName.replace('.', '/') + "/").listFiles();
-        ArrayList<Class<?>> l = new ArrayList<>(f.length);
-        for (File fi : f) {
-            if (fi.getName().endsWith(".java")) {
-                l.add(Class.forName(packageName + "." + fi.getName().substring(0, fi.getName().length() - ".java".length()), false, ClassLoader.getSystemClassLoader()));
-            }
-        }
-
-        return l;
     }
 
     @Override
@@ -1532,8 +1523,8 @@ class GameSparker extends JPanel
         }
     }
 
-    private void readcookies(final xtGraphics xtgraphics, final CarDefine cardefine, final ContO[] contos) {
-        xtgraphics.nickname = "";
+    static private void readcookies(final ContO[] contos) {
+        xtGraphics.nickname = "";
         try {
             final File file = new File("" + Madness.fpath + "data/user.data");
             final String[] strings = {
@@ -1548,9 +1539,9 @@ class GameSparker extends JPanel
                 bufferedreader.close();
             }
             if (strings[0].startsWith("lastuser")) {
-                xtgraphics.nickname = getstring("lastuser", strings[0], 0);
-                if (!xtgraphics.nickname.equals("")) {
-                    xtgraphics.opselect = 1;
+                xtGraphics.nickname = getstring("lastuser", strings[0], 0);
+                if (!xtGraphics.nickname.equals("")) {
+                    xtGraphics.opselect = 1;
                 }
                 String string;
                 try {
@@ -1559,20 +1550,20 @@ class GameSparker extends JPanel
                     string = "";
                 }
                 if (!string.equals("")) {
-                    tnick.setText(xtgraphics.nickname);
+                    tnick.setText(xtGraphics.nickname);
                     tpass.setText(string);
-                    xtgraphics.autolog = true;
+                    xtGraphics.autolog = true;
                 }
             }
             if (strings[2].startsWith("saved")) {
                 int i = getint("saved", strings[2], 0);
                 if (i >= 0 && i < xtGraphics.nCars) {
-                    xtgraphics.scm = i;
-                    xtgraphics.firstime = false;
+                    xtGraphics.scm = i;
+                    xtGraphics.firstime = false;
                 }
                 i = getint("saved", strings[2], 1);
                 if (i >= 1 && i <= xtGraphics.nTracks) {
-                    xtgraphics.unlocked = i;
+                    xtGraphics.unlocked = i;
                 }
             }
             if (strings[4].startsWith("graphics")) {
@@ -1590,33 +1581,33 @@ class GameSparker extends JPanel
             }
             if (strings[1].startsWith("lastcar")) {
                 int i = getint("lastcar", strings[1], 0);
-                cardefine.lastcar = getstring("lastcar", strings[1], 7);
+                CarDefine.lastcar = getstring("lastcar", strings[1], 7);
                 if (i >= 0 && i < 36) {
-                    xtgraphics.osc = i;
-                    xtgraphics.firstime = false;
+                    xtGraphics.osc = i;
+                    xtGraphics.firstime = false;
                 }
                 int i198 = 0;
                 for (int i199 = 0; i199 < 6; i199++) {
                     i = getint("lastcar", strings[1], i199 + 1);
                     if (i >= 0 && i <= 100) {
-                        xtgraphics.arnp[i199] = i / 100.0F;
+                        xtGraphics.arnp[i199] = i / 100.0F;
                         i198++;
                     }
                 }
-                if (i198 == 6 && xtgraphics.osc >= 0 && xtgraphics.osc <= 15) {
-                    final Color color = Color.getHSBColor(xtgraphics.arnp[0], xtgraphics.arnp[1], 1.0F - xtgraphics.arnp[2]);
-                    final Color color200 = Color.getHSBColor(xtgraphics.arnp[3], xtgraphics.arnp[4], 1.0F - xtgraphics.arnp[5]);
-                    for (int i201 = 0; i201 < contos[xtgraphics.osc].npl; i201++)
-                        if (contos[xtgraphics.osc].p[i201].colnum == 1) {
-                            contos[xtgraphics.osc].p[i201].c[0] = color.getRed();
-                            contos[xtgraphics.osc].p[i201].c[1] = color.getGreen();
-                            contos[xtgraphics.osc].p[i201].c[2] = color.getBlue();
+                if (i198 == 6 && xtGraphics.osc >= 0 && xtGraphics.osc <= 15) {
+                    final Color color = Color.getHSBColor(xtGraphics.arnp[0], xtGraphics.arnp[1], 1.0F - xtGraphics.arnp[2]);
+                    final Color color200 = Color.getHSBColor(xtGraphics.arnp[3], xtGraphics.arnp[4], 1.0F - xtGraphics.arnp[5]);
+                    for (int i201 = 0; i201 < contos[xtGraphics.osc].npl; i201++)
+                        if (contos[xtGraphics.osc].p[i201].colnum == 1) {
+                            contos[xtGraphics.osc].p[i201].c[0] = color.getRed();
+                            contos[xtGraphics.osc].p[i201].c[1] = color.getGreen();
+                            contos[xtGraphics.osc].p[i201].c[2] = color.getBlue();
                         }
-                    for (int i202 = 0; i202 < contos[xtgraphics.osc].npl; i202++)
-                        if (contos[xtgraphics.osc].p[i202].colnum == 2) {
-                            contos[xtgraphics.osc].p[i202].c[0] = color200.getRed();
-                            contos[xtgraphics.osc].p[i202].c[1] = color200.getGreen();
-                            contos[xtgraphics.osc].p[i202].c[2] = color200.getBlue();
+                    for (int i202 = 0; i202 < contos[xtGraphics.osc].npl; i202++)
+                        if (contos[xtGraphics.osc].p[i202].colnum == 2) {
+                            contos[xtGraphics.osc].p[i202].c[0] = color200.getRed();
+                            contos[xtGraphics.osc].p[i202].c[1] = color200.getGreen();
+                            contos[xtGraphics.osc].p[i202].c[2] = color200.getBlue();
                         }
                 }
             }
@@ -1625,15 +1616,15 @@ class GameSparker extends JPanel
         }
     }
 
-    void reglink() {
+    static void reglink() {
         openurl("http://multiplayer.needformadness.com/register.html?ref=game");
     }
 
-    void regnew() {
+    static void regnew() {
         openurl("http://multiplayer.needformadness.com/registernew.pl");
     }
 
-    private void makeMenus() {
+    static private void makeMenus() {
         rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         sgame.add(rd, " NFM 1     ");
@@ -1724,76 +1715,66 @@ class GameSparker extends JPanel
         clanlev.add(rd, "7 - Admin");
         hidefields();
     }
+    
+    private GameSparker() { super(); }
 
-    public GameSparker() {
+    static public GameSparker create() {
+        gsPanel = new GameSparker();
+        
         BASSLoader.initializeBASS();
         initFields();
 
-        setBorder(BorderFactory.createLineBorder(Color.black));
+        gsPanel.setBorder(BorderFactory.createLineBorder(Color.black));
         //
-        setBackground(Color.black);
-        setOpaque(true);
+        gsPanel.setBackground(Color.black);
+        gsPanel.setOpaque(true);
         //
-        setLayout(null);
+        gsPanel.setLayout(null);
 
-        BufferedImage _offImage;
-        try {
-            _offImage = gfxConfig.createCompatibleImage(800, 450, Transparency.OPAQUE);
-
-            if (_offImage == null)
-                throw new AssertionError("this should never happen");
-        } catch (final Exception e) { //fallback image creation
-            e.printStackTrace();
-
-            _offImage = new BufferedImage(800, 450, BufferedImage.TYPE_INT_RGB);
-        }
-
-        offImage = _offImage;
-        rd = offImage.createGraphics();
-        
         makeMenus();
 
         preloadGame();
 
-        new Thread(this::loadGame).start();
+        new Thread(GameSparker::loadGame).start();
 
-        addKeyListener(this);
-        addMouseListener(this);
-        addMouseMotionListener(this);
-        addFocusListener(this);
-        setFocusable(true);
-        requestFocusInWindow();
-        setIgnoreRepaint(true);
+        gsPanel.addKeyListener(gsPanel);
+        gsPanel.addMouseListener(gsPanel);
+        gsPanel.addMouseMotionListener(gsPanel);
+        gsPanel.addFocusListener(gsPanel);
+        gsPanel.setFocusable(true);
+        gsPanel.requestFocusInWindow();
+        gsPanel.setIgnoreRepaint(true);
 
         // disable Swing's double buffering. we don't need it since we have our own offscreen image (offImage)
         // this means we get a slight performance gain
         // ("You may find that your numbers for direct rendering far exceed those for double-buffering" from https://docs.oracle.com/javase/tutorial/extra/fullscreen/doublebuf.html)
         // for zero graphical loss.
-        setDoubleBuffered(false);
+        gsPanel.setDoubleBuffered(false);
 
-        final Timer timer = new Timer(46, ae -> repaint());
+        final Timer timer = new Timer(46, ae -> gsPanel.repaint());
 
         timer.start();
+        return gsPanel;
     }
 
-    private void preloadGame() {
+    static private void preloadGame() {
         if (System.getProperty("java.vendor").toLowerCase().contains("apple")) {
             applejava = true;
         }
 
-        medium = new Medium();
-        trackers = new Trackers();
-        checkpoints = new CheckPoints();
+        new Medium();
+        new Trackers();
+        new CheckPoints();
         carContos = new ContO[carRads.length];
         contos = new ContO[stageRads.length];
-        cardefine = new CarDefine(contos, medium, trackers, this);
-        xtgraphics = new xtGraphics(medium, cardefine, rd, this);
+        CarDefine.create(contos);
+        xtGraphics.create(rd, gsPanel);
 
-        record = new Record(medium);
+        new Record();
         mads = new Mad[8];
         for (int i = 0; i < 8; i++) {
-            mads[i] = new Mad(null, medium, record, xtgraphics, i);
-            u[i] = new Control(medium);
+            mads[i] = new Mad(null, i);
+            u[i] = new Control();
         }
 
         date = new Date();
@@ -1810,42 +1791,42 @@ class GameSparker extends JPanel
     }
 
     //@Override
-    private void loadGame() {
-        requestFocus();
-        sizebar = xtgraphics.getImage("data/sizebar.gif");
-        blb = xtgraphics.getImage("data/b.gif");
-        fulls = xtgraphics.getImage("data/fullscreen.gif");
-        chkbx[0] = xtgraphics.getImage("data/checkbox1.gif");
-        chkbx[1] = xtgraphics.getImage("data/checkbox2.gif");
-        carmaker[0] = xtgraphics.getImage("data/carmaker1.gif");
-        carmaker[1] = xtgraphics.getImage("data/carmaker2.gif");
-        stagemaker[0] = xtgraphics.getImage("data/stagemaker1.gif");
-        stagemaker[1] = xtgraphics.getImage("data/stagemaker2.gif");
-        xtgraphics.loaddata();
+    static private void loadGame() {
+        gsPanel.requestFocus();
+        sizebar = xtGraphics.getImage("data/sizebar.gif");
+        blb = xtGraphics.getImage("data/b.gif");
+        fulls = xtGraphics.getImage("data/fullscreen.gif");
+        chkbx[0] = xtGraphics.getImage("data/checkbox1.gif");
+        chkbx[1] = xtGraphics.getImage("data/checkbox2.gif");
+        carmaker[0] = xtGraphics.getImage("data/carmaker1.gif");
+        carmaker[1] = xtGraphics.getImage("data/carmaker2.gif");
+        stagemaker[0] = xtGraphics.getImage("data/stagemaker1.gif");
+        stagemaker[1] = xtGraphics.getImage("data/stagemaker2.gif");
+        xtGraphics.loaddata();
 
         loadbase();
 
         stageContos = new ContO[10000];
 
         f = 47.0F;
-        readcookies(xtgraphics, cardefine, contos);
-        xtgraphics.testdrive = Madness.testdrive;
-        if (xtgraphics.testdrive != 0)
-            if (xtgraphics.testdrive <= 2) {
-                xtgraphics.sc[0] = cardefine.loadcar(Madness.testcar, 16);
-                if (xtgraphics.sc[0] != -1) {
-                    xtgraphics.fase = -9;
+        readcookies(  contos);
+        xtGraphics.testdrive = Madness.testdrive;
+        if (xtGraphics.testdrive != 0)
+            if (xtGraphics.testdrive <= 2) {
+                xtGraphics.sc[0] = CarDefine.loadcar(Madness.testcar, 16);
+                if (xtGraphics.sc[0] != -1) {
+                    xtGraphics.fase = -9;
                 } else {
                     Madness.testcar = "Failx12";
                     Madness.carmaker();
                 }
             } else {
-                checkpoints.name = Madness.testcar;
-                xtgraphics.fase = -9;
+                CheckPoints.name = Madness.testcar;
+                xtGraphics.fase = -9;
             }
-        xtgraphics.stoploading();
-        requestFocus();
-        if (xtgraphics.testdrive == 0 && xtgraphics.firstime) {
+        xtGraphics.stoploading();
+        gsPanel.requestFocus();
+        if (xtGraphics.testdrive == 0 && xtGraphics.firstime) {
             setupini();
         }
         System.gc();
@@ -1853,35 +1834,35 @@ class GameSparker extends JPanel
         gameLoaded = true;
     }
 
-    private void gameTick() {
+    static private void gameTick() {
 
         date = new Date();
         date.getTime();
-        if (xtgraphics.fase == 1111) {
-            xtgraphics.loading();
+        if (xtGraphics.fase == 1111) {
+            xtGraphics.loading();
             if (gameLoaded) {
-                xtgraphics.fase = 111;
+                xtGraphics.fase = 111;
             }
         }
-        if (xtgraphics.fase == 111) {
+        if (xtGraphics.fase == 111) {
             if (mouses == 1) {
                 clicknowtime = 800;
             }
             if (clicknowtime < 800) {
-                xtgraphics.clicknow();
+                xtGraphics.clicknow();
                 clicknowtime++;
             } else {
                 clicknowtime = 0;
                 if (!exwist) {
-                    xtgraphics.fase = 9;
+                    xtGraphics.fase = 9;
                 }
                 mouses = 0;
                 lostfcs = false;
             }
         }
-        if (xtgraphics.fase == 9)
+        if (xtGraphics.fase == 9)
             if (clicknowtime < 76) {
-                xtgraphics.rad(clicknowtime);
+                xtGraphics.rad(clicknowtime);
                 catchlink();
                 if (mouses == 2) {
                     mouses = 0;
@@ -1896,41 +1877,41 @@ class GameSparker extends JPanel
                 }
             } else {
                 clicknowtime = 0;
-                xtgraphics.fase = 10;
+                xtGraphics.fase = 10;
                 mouses = 0;
                 u[0].falseo(0);
             }
-        if (xtgraphics.fase == -9) {
-            if (xtgraphics.loadedt) {
-                xtgraphics.mainbg(-101);
+        if (xtGraphics.fase == -9) {
+            if (xtGraphics.loadedt) {
+                xtGraphics.mainbg(-101);
                 rd.setColor(new Color(0, 0, 0));
                 rd.fillRect(0, 0, 800, 450);
                 //repaint();
-                xtgraphics.strack.unload();
-                xtgraphics.strack = null;
-                xtgraphics.flexpix = null;
+                xtGraphics.strack.unload();
+                xtGraphics.strack = null;
+                xtGraphics.flexpix = null;
                 Images.fleximg = null;
                 System.gc();
-                xtgraphics.loadedt = false;
+                xtGraphics.loadedt = false;
             }
             if (clicknowtime < 2) {
-                xtgraphics.mainbg(-101);
+                xtGraphics.mainbg(-101);
                 rd.setColor(new Color(0, 0, 0));
                 rd.fillRect(65, 25, 670, 400);
                 clicknowtime++;
             } else {
-                checkmemory(xtgraphics);
-                xtgraphics.inishcarselect(carContos);
+                checkmemory();
+                xtGraphics.inishcarselect(carContos);
                 clicknowtime = 0;
-                xtgraphics.fase = 7;
+                xtGraphics.fase = 7;
                 mvect = 50;
                 mouses = 0;
             }
         }
-        if (xtgraphics.fase == 8) {
-            xtgraphics.credits(u[0], xm, ym, mouses);
-            xtgraphics.ctachm(xm, ym, mouses, u[0]);
-            if (xtgraphics.flipo <= 100) {
+        if (xtGraphics.fase == 8) {
+            xtGraphics.credits(u[0], xm, ym, mouses);
+            xtGraphics.ctachm(xm, ym, mouses, u[0]);
+            if (xtGraphics.flipo <= 100) {
                 catchlink();
             }
             if (mouses == 2) {
@@ -1940,10 +1921,10 @@ class GameSparker extends JPanel
                 mouses = 2;
             }
         }
-        if (xtgraphics.fase == 10) {
+        if (xtGraphics.fase == 10) {
             mvect = 100;
-            xtgraphics.maini(u[0]);
-            xtgraphics.ctachm(xm, ym, mouses, u[0]);
+            xtGraphics.maini(u[0]);
+            xtGraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2) {
                 mouses = 0;
             }
@@ -1951,28 +1932,28 @@ class GameSparker extends JPanel
                 mouses = 2;
             }
         }
-        if (xtgraphics.fase == 103) {
+        if (xtGraphics.fase == 103) {
             mvect = 100;
-            if (xtgraphics.loadedt) {
+            if (xtGraphics.loadedt) {
                 rd.setColor(new Color(0, 0, 0));
                 rd.fillRect(0, 0, 800, 450);
                 //repaint();
-                checkmemory(xtgraphics);
-                xtgraphics.strack.unload();
-                xtgraphics.strack = null;
-                xtgraphics.flexpix = null;
+                checkmemory();
+                xtGraphics.strack.unload();
+                xtGraphics.strack = null;
+                xtGraphics.flexpix = null;
                 Images.fleximg = null;
                 System.gc();
-                xtgraphics.loadedt = false;
+                xtGraphics.loadedt = false;
             }
-            if (xtgraphics.testdrive == 1 || xtgraphics.testdrive == 2) {
+            if (xtGraphics.testdrive == 1 || xtGraphics.testdrive == 2) {
                 Madness.carmaker();
             }
-            if (xtgraphics.testdrive == 3 || xtgraphics.testdrive == 4) {
+            if (xtGraphics.testdrive == 3 || xtGraphics.testdrive == 4) {
                 Madness.stagemaker();
             }
-            xtgraphics.maini(u[0]);
-            xtgraphics.fase = 10;
+            xtGraphics.maini(u[0]);
+            xtGraphics.fase = 10;
             if (mouses == 2) {
                 mouses = 0;
             }
@@ -1980,28 +1961,28 @@ class GameSparker extends JPanel
                 mouses = 2;
             }
         }
-        if (xtgraphics.fase == 102) {
+        if (xtGraphics.fase == 102) {
             mvect = 100;
-            if (xtgraphics.loadedt) {
+            if (xtGraphics.loadedt) {
                 rd.setColor(new Color(0, 0, 0));
                 rd.fillRect(0, 0, 800, 450);
                 //repaint();
-                checkmemory(xtgraphics);
-                xtgraphics.strack.unload();
-                xtgraphics.strack = null;
-                xtgraphics.flexpix = null;
+                checkmemory();
+                xtGraphics.strack.unload();
+                xtGraphics.strack = null;
+                xtGraphics.flexpix = null;
                 Images.fleximg = null;
                 System.gc();
-                xtgraphics.loadedt = false;
+                xtGraphics.loadedt = false;
             }
-            if (xtgraphics.testdrive == 1 || xtgraphics.testdrive == 2) {
+            if (xtGraphics.testdrive == 1 || xtGraphics.testdrive == 2) {
                 Madness.carmaker();
             }
-            if (xtgraphics.testdrive == 3 || xtgraphics.testdrive == 4) {
+            if (xtGraphics.testdrive == 3 || xtGraphics.testdrive == 4) {
                 Madness.stagemaker();
             }
-            xtgraphics.maini2();
-            xtgraphics.ctachm(xm, ym, mouses, u[0]);
+            xtGraphics.maini2();
+            xtGraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2) {
                 mouses = 0;
             }
@@ -2009,18 +1990,18 @@ class GameSparker extends JPanel
                 mouses = 2;
             }
         }
-        if (xtgraphics.fase == -22) {
-            checkpoints.name = Madness.testcar;
-            checkpoints.stage = -1;
+        if (xtGraphics.fase == -22) {
+            CheckPoints.name = Madness.testcar;
+            CheckPoints.stage = -1;
             loadstage();
-            if (checkpoints.stage == -3) {
+            if (CheckPoints.stage == -3) {
                 Madness.testcar = "Failx12";
                 Madness.stagemaker();
             }
         }
-        if (xtgraphics.fase == 11) {
-            xtgraphics.inst(u[0]);
-            xtgraphics.ctachm(xm, ym, mouses, u[0]);
+        if (xtGraphics.fase == 11) {
+            xtGraphics.inst(u[0]);
+            xtGraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2) {
                 mouses = 0;
             }
@@ -2028,10 +2009,10 @@ class GameSparker extends JPanel
                 mouses = 2;
             }
         }
-        if (xtgraphics.fase == -5) {
+        if (xtGraphics.fase == -5) {
             mvect = 100;
-            xtgraphics.finish(checkpoints, carContos, u[0], xm, ym, moused); // TODO carContos or contos here?
-            xtgraphics.ctachm(xm, ym, mouses, u[0]);
+            xtGraphics.finish( carContos, u[0], xm, ym, moused); // TODO carContos or contos here?
+            xtGraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2) {
                 mouses = 0;
             }
@@ -2039,9 +2020,9 @@ class GameSparker extends JPanel
                 mouses = 2;
             }
         }
-        if (xtgraphics.fase == 7) {
-            xtgraphics.carselect(u[0], carContos, xm, ym, moused);
-            xtgraphics.ctachm(xm, ym, mouses, u[0]);
+        if (xtGraphics.fase == 7) {
+            xtGraphics.carselect(u[0], carContos, xm, ym, moused);
+            xtGraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2) {
                 mouses = 0;
             }
@@ -2050,9 +2031,9 @@ class GameSparker extends JPanel
             }
             drawms();
         }
-        if (xtgraphics.fase == 6) {
-            xtgraphics.musicomp(checkpoints.stage, u[0]);
-            xtgraphics.ctachm(xm, ym, mouses, u[0]);
+        if (xtGraphics.fase == 6) {
+            xtGraphics.musicomp(CheckPoints.stage, u[0]);
+            xtGraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2) {
                 mouses = 0;
             }
@@ -2060,13 +2041,13 @@ class GameSparker extends JPanel
                 mouses = 2;
             }
         }
-        if (xtgraphics.fase == 5) {
+        if (xtGraphics.fase == 5) {
             mvect = 100;
-            xtgraphics.loadmusic(checkpoints.stage, checkpoints.trackname, checkpoints.trackvol);
+            xtGraphics.loadmusic(CheckPoints.stage, CheckPoints.trackname, CheckPoints.trackvol);
         }
-        if (xtgraphics.fase == 4) {
-            xtgraphics.cantgo(u[0]);
-            xtgraphics.ctachm(xm, ym, mouses, u[0]);
+        if (xtGraphics.fase == 4) {
+            xtGraphics.cantgo(u[0]);
+            xtGraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2) {
                 mouses = 0;
             }
@@ -2074,32 +2055,32 @@ class GameSparker extends JPanel
                 mouses = 2;
             }
         }
-        if (xtgraphics.fase == 3) {
+        if (xtGraphics.fase == 3) {
             rd.setColor(new Color(0, 0, 0));
             rd.fillRect(65, 25, 670, 400);
             //repaint();
-            xtgraphics.inishstageselect(checkpoints);
+            xtGraphics.inishstageselect();
         }
-        if (xtgraphics.fase == 2) {
+        if (xtGraphics.fase == 2) {
             mvect = 100;
-            xtgraphics.loadingstage(true);
-            checkpoints.nfix = 0;
-            checkpoints.notb = false;
+            xtGraphics.loadingstage(true);
+            CheckPoints.nfix = 0;
+            CheckPoints.notb = false;
             loadstage();
             u[0].falseo(0);
             udpmistro.freg = 0.0F;
             mvect = 20;
         }
-        if (xtgraphics.fase == 1) {
-            xtgraphics.trackbg(false);
+        if (xtGraphics.fase == 1) {
+            xtGraphics.trackbg(false);
             rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
-            if (checkpoints.stage != -3) {
-                medium.aroundtrack(checkpoints);
-                if (medium.hit == 5000 && mvect < 40) {
+            if (CheckPoints.stage != -3) {
+                Medium.aroundtrack();
+                if (Medium.hit == 5000 && mvect < 40) {
                     mvect++;
                 }
                 final int[][] ai = new int[notb][2];
-                for (int k7 = xtgraphics.nplayers; k7 < notb; k7++) {
+                for (int k7 = xtGraphics.nplayers; k7 < notb; k7++) {
                     ai[k7][0] = k7;
                     ai[k7][1] = stageContos[k7].dist;
                 }
@@ -2111,7 +2092,7 @@ class GameSparker extends JPanel
                 }
             }
             if (!openm) {
-                xtgraphics.ctachm(xm, ym, mouses, u[0]);
+                xtGraphics.ctachm(xm, ym, mouses, u[0]);
             }
             if (mouses == 2) {
                 mouses = 0;
@@ -2120,42 +2101,42 @@ class GameSparker extends JPanel
                 mouses = 2;
             }
             rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            xtgraphics.stageselect(checkpoints, u[0], xm, ym, moused);
+            xtGraphics.stageselect( u[0], xm, ym, moused);
             drawms();
         }
-        if (xtgraphics.fase == 1177) {
+        if (xtGraphics.fase == 1177) {
             mvect = 100;
             if (!bool) {
-                if (xtgraphics.loadedt) {
+                if (xtGraphics.loadedt) {
                     rd.setColor(new Color(0, 0, 0));
                     rd.fillRect(0, 0, 800, 450);
                     //repaint();
-                    checkmemory(xtgraphics);
-                    xtgraphics.strack.unload();
-                    xtgraphics.strack = null;
-                    xtgraphics.flexpix = null;
+                    checkmemory();
+                    xtGraphics.strack.unload();
+                    xtGraphics.strack = null;
+                    xtGraphics.flexpix = null;
                     Images.fleximg = null;
                     System.gc();
-                    xtgraphics.loadedt = false;
+                    xtGraphics.loadedt = false;
                 }
-                xtgraphics.intertrack.unload();
+                xtGraphics.intertrack.unload();
                 rd.setColor(new Color(0, 0, 0));
                 rd.fillRect(65, 25, 670, 400);
                 if (mload > 0) {
-                    rd.drawImage(Images.mload, 259, 195, this);
+                    rd.drawImage(Images.mload, 259, 195, gsPanel);
                 }
                 //repaint();
                 if (mload == 2) {
-                    cardefine.loadready();
+                    CarDefine.loadready();
                     loadbase();
-                    readcookies(xtgraphics, cardefine, contos);
+                    readcookies(  contos);
                     mload = -1;
                 }
                 System.gc();
-                login = new Login(medium, rd, xtgraphics, this);
-                //globe = new Globe(rd, xtgraphics, medium, login, cardefine, checkpoints, contos, contos0,
+                login = new Login(rd, gsPanel);
+                //globe = new Globe(rd,   login,   contos, contos0,
                 //		this);
-                lobby = new Lobby(medium, rd, login, xtgraphics, cardefine, this);
+                lobby = new Lobby(rd, login, gsPanel);
                 bool = true;
             }
             if (login.fase != 18) {
@@ -2214,56 +2195,56 @@ class GameSparker extends JPanel
                     	bool21 = true;
                     globe.dome(lobby.conon, xm, ym, moused, u[0]);*/
                     if (lobby.loadstage > 0) {
-                        setCursor(new Cursor(3));
+                        gsPanel.setCursor(new Cursor(3));
                         drawms();
                         //repaint();
-                        trackers.nt = 0;
-                        if (loadstagePreview(lobby.loadstage, "", stageContos, contos, medium, checkpoints)) {
-                            lobby.gstagename = checkpoints.name;
-                            lobby.gstagelaps = checkpoints.nlaps;
+                        Trackers.nt = 0;
+                        if (loadstagePreview(lobby.loadstage, "", stageContos, contos)) {
+                            lobby.gstagename = CheckPoints.name;
+                            lobby.gstagelaps = CheckPoints.nlaps;
                             lobby.loadstage = -lobby.loadstage;
                         } else {
                             lobby.loadstage = 0;
-                            checkpoints.name = "";
+                            CheckPoints.name = "";
                         }
-                        setCursor(new Cursor(0));
+                        gsPanel.setCursor(new Cursor(0));
                     }
                     if (lobby.msload != 0) {
-                        setCursor(new Cursor(3));
+                        gsPanel.setCursor(new Cursor(3));
                         drawms();
                         //repaint();
                         if (lobby.msload == 1) {
-                            cardefine.loadmystages(checkpoints);
+                            CarDefine.loadmystages();
                         }
                         if (lobby.msload == 7) {
-                            cardefine.loadclanstages(xtgraphics.clan);
+                            CarDefine.loadclanstages(xtGraphics.clan);
                         }
                         if (lobby.msload == 3 || lobby.msload == 4) {
-                            cardefine.loadtop20(lobby.msload);
+                            CarDefine.loadtop20(lobby.msload);
                         }
                         lobby.msload = 0;
-                        setCursor(new Cursor(0));
+                        gsPanel.setCursor(new Cursor(0));
                     }
                 }
                 if (lobby.fase == 3) {
-                    xtgraphics.trackbg(false);
-                    medium.trk = 0;
-                    medium.focusPoint = 400;
-                    medium.crs = true;
-                    medium.x = -335;
-                    medium.y = 0;
-                    medium.z = -50;
-                    medium.xz = 0;
-                    medium.zy = 20;
-                    medium.ground = -2000;
+                    xtGraphics.trackbg(false);
+                    Medium.trk = 0;
+                    Medium.focusPoint = 400;
+                    Medium.crs = true;
+                    Medium.x = -335;
+                    Medium.y = 0;
+                    Medium.z = -50;
+                    Medium.xz = 0;
+                    Medium.zy = 20;
+                    Medium.ground = -2000;
                     mvect = 100;
                     lobby.fase = 1;
                 }
                 if (lobby.fase == 4) {
                     mvect = 50;
                     rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
-                    medium.d(rd);
-                    medium.aroundtrack(checkpoints);
+                    Medium.d(rd);
+                    Medium.aroundtrack();
                     int j = 0;
                     final int[] is = new int[1000];
                     for (int k = 0; k < nob; k++)
@@ -2298,13 +2279,13 @@ class GameSparker extends JPanel
                             }
                     }
                     rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-                    lobby.stageselect(checkpoints, u[0], xm, ym, moused);
+                    lobby.stageselect(u[0], xm, ym, moused);
                     if (lobby.plsndt == 1) {
                         mvect = 70;
                         //repaint();
-                        setCursor(new Cursor(3));
-                        xtgraphics.loadstrack(checkpoints.stage, checkpoints.trackname, checkpoints.trackvol);
-                        xtgraphics.strack.play();
+                        gsPanel.setCursor(new Cursor(3));
+                        xtGraphics.loadstrack(CheckPoints.stage, CheckPoints.trackname, CheckPoints.trackvol);
+                        xtGraphics.strack.play();
                         lobby.plsndt = 2;
                         moused = false;
                         mouses = 0;
@@ -2321,34 +2302,34 @@ class GameSparker extends JPanel
                         if (lobby.gstgn[j] == -lobby.loadstage) {
                             flag = true;
                         }
-                    } else if (lobby.gstages[j].equals(checkpoints.name)) {
+                    } else if (lobby.gstages[j].equals(CheckPoints.name)) {
                         flag = true;
                     }
                     if (flag) {
                         lobby.fase = 4;
                         lobby.addstage = 0;
                     } else {
-                        xtgraphics.loadingstage(false);
-                        trackers.nt = 0;
-                        if (loadstagePreview(lobby.gstgn[j], lobby.gstages[j], stageContos, contos, medium, checkpoints)) {
+                        xtGraphics.loadingstage(false);
+                        Trackers.nt = 0;
+                        if (loadstagePreview(lobby.gstgn[j], lobby.gstages[j], stageContos, contos)) {
                             lobby.loadstage = -lobby.gstgn[j];
                             lobby.fase = 4;
                             lobby.addstage = 0;
                         } else {
                             lobby.loadstage = 0;
-                            checkpoints.name = "";
+                            CheckPoints.name = "";
                             lobby.fase = 3;
                         }
                     }
                 }
                 if (lobby.fase == 76) {
-                    checkpoints.nlaps = lobby.laps;
-                    checkpoints.stage = lobby.stage;
-                    checkpoints.name = lobby.stagename;
-                    checkpoints.nfix = lobby.nfix;
-                    checkpoints.notb = lobby.notb;
-                    xtgraphics.fase = 21;
-                    u[0].multion = xtgraphics.multion;
+                    CheckPoints.nlaps = lobby.laps;
+                    CheckPoints.stage = lobby.stage;
+                    CheckPoints.name = lobby.stagename;
+                    CheckPoints.nfix = lobby.nfix;
+                    CheckPoints.notb = lobby.notb;
+                    xtGraphics.fase = 21;
+                    u[0].multion = xtGraphics.multion;
                 }
                 /*if (globe.loadwbgames == 7) {
                 	//repaint();
@@ -2393,7 +2374,7 @@ class GameSparker extends JPanel
                 }
             }
         }
-        if (xtgraphics.fase == 24) {
+        if (xtGraphics.fase == 24) {
             login.endcons();
             login = null;
             lobby = null;
@@ -2401,17 +2382,17 @@ class GameSparker extends JPanel
             bool = false;
             System.gc();
             System.runFinalization();
-            if (!xtgraphics.mtop) {
-                xtgraphics.fase = 102;
-                xtgraphics.opselect = 2;
+            if (!xtGraphics.mtop) {
+                xtGraphics.fase = 102;
+                xtGraphics.opselect = 2;
             } else {
-                xtgraphics.fase = 10;
-                xtgraphics.opselect = 1;
+                xtGraphics.fase = 10;
+                xtGraphics.opselect = 1;
             }
         }
-        if (xtgraphics.fase == 23) {
+        if (xtGraphics.fase == 23) {
             if (login.fase == 18) {
-                xtgraphics.playingame = -101;
+                xtGraphics.playingame = -101;
             }
             login.stopallnow();
             lobby.stopallnow();
@@ -2423,21 +2404,21 @@ class GameSparker extends JPanel
             bool = false;
             System.gc();
             System.runFinalization();
-            xtgraphics.fase = -9;
+            xtGraphics.fase = -9;
         }
-        if (xtgraphics.fase == 22) {
+        if (xtGraphics.fase == 22) {
             loadstage();
-            if (checkpoints.stage != -3) {
-                if (xtgraphics.lan && xtgraphics.im == 0) {
-                    udpmistro.UDPLanServer(xtgraphics.server, xtgraphics.servport, xtgraphics.playingame);
+            if (CheckPoints.stage != -3) {
+                if (xtGraphics.lan && xtGraphics.im == 0) {
+                    udpmistro.UDPLanServer(xtGraphics.server, xtGraphics.servport, xtGraphics.playingame);
                 }
                 u[0].falseo(2);
-                requestFocus();
+                gsPanel.requestFocus();
             } else {
-                xtgraphics.fase = 1177;
+                xtGraphics.fase = 1177;
             }
         }
-        if (xtgraphics.fase == 21) {
+        if (xtGraphics.fase == 21) {
             login.endcons();
             login = null;
             lobby = null;
@@ -2445,10 +2426,10 @@ class GameSparker extends JPanel
             bool = false;
             System.gc();
             System.runFinalization();
-            xtgraphics.fase = 22;
+            xtGraphics.fase = 22;
         }
-        if (xtgraphics.fase == 0) {
-            for (int player = 0; player < xtgraphics.nplayers; player++)
+        if (xtGraphics.fase == 0) {
+            for (int player = 0; player < xtGraphics.nplayers; player++)
                 if (mads[player].newcar) {
                     final int i34 = stageContos[player].xz;
                     final int i35 = stageContos[player].xy;
@@ -2459,7 +2440,7 @@ class GameSparker extends JPanel
                     stageContos[player].zy = i36;
                     mads[player].newcar = false;
                 }
-            medium.d(rd);
+            Medium.d(rd);
 
             final int[][] ai = new int[nob][2];
             for (int k7 = 0; k7 < nob; k7++) {
@@ -2473,64 +2454,64 @@ class GameSparker extends JPanel
                 stageContos[ai[i14][0]].d(rd);
             }
             
-            if (xtgraphics.starcnt == 0) {
-                for (int k = 0; k < xtgraphics.nplayers; k++) {
-                    for (int l = 0; l < xtgraphics.nplayers; l++)
+            if (xtGraphics.starcnt == 0) {
+                for (int k = 0; k < xtGraphics.nplayers; k++) {
+                    for (int l = 0; l < xtGraphics.nplayers; l++)
                         if (l != k) {
                             mads[k].colide(stageContos[k], mads[l], stageContos[l]);
                         }
                 }
-                for (int k = 0; k < xtgraphics.nplayers; k++) {
-                    mads[k].drive(u[k], stageContos[k], trackers, checkpoints);
+                for (int k = 0; k < xtGraphics.nplayers; k++) {
+                    mads[k].drive(u[k], stageContos[k]);
                 }
-                for (int k = 0; k < xtgraphics.nplayers; k++) {
-                    record.rec(stageContos[k], k, mads[k].squash, mads[k].lastcolido, mads[k].cntdest, 0);
+                for (int k = 0; k < xtGraphics.nplayers; k++) {
+                    Record.rec(stageContos[k], k, mads[k].squash, mads[k].lastcolido, mads[k].cntdest, 0);
                 }
-                checkpoints.checkstat(mads, stageContos, record, xtgraphics.nplayers, xtgraphics.im, 0);
-                for (int k = 1; k < xtgraphics.nplayers; k++) {
-                    u[k].preform(mads[k], stageContos[k], checkpoints, trackers);
+                CheckPoints.checkstat(mads, stageContos,  xtGraphics.nplayers, xtGraphics.im, 0);
+                for (int k = 1; k < xtGraphics.nplayers; k++) {
+                    u[k].preform(mads[k], stageContos[k]);
                 }
             } else {
-                if (xtgraphics.starcnt == 130) {
-                    medium.adv = 1900;
-                    medium.zy = 40;
-                    medium.vxz = 70;
+                if (xtGraphics.starcnt == 130) {
+                    Medium.adv = 1900;
+                    Medium.zy = 40;
+                    Medium.vxz = 70;
                     rd.setColor(new Color(255, 255, 255));
                     rd.fillRect(0, 0, 800, 450);
                 }
-                if (xtgraphics.starcnt != 0) {
-                    xtgraphics.starcnt--;
+                if (xtGraphics.starcnt != 0) {
+                    xtGraphics.starcnt--;
                 }
             }
-            if (xtgraphics.starcnt < 38) {
+            if (xtGraphics.starcnt < 38) {
                 if (view == 0) {
-                    medium.follow(stageContos[0], mads[0].cxz, u[0].lookback);
-                    xtgraphics.stat(mads[0], stageContos[0], checkpoints, u[0], true);
+                    Medium.follow(stageContos[0], mads[0].cxz, u[0].lookback);
+                    xtGraphics.stat(mads[0], stageContos[0],  u[0], true);
                     if (mads[0].outshakedam > 0) {
                         shaka = mads[0].outshakedam / 20;
                         if (shaka > 25) {
                             shaka = 25;
                         }
                     }
-                    mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
+                    mvect = 65 + Math.abs(lmxz - Medium.xz) / 5 * 100;
                     if (mvect > 90) {
                         mvect = 90;
                     }
-                    lmxz = medium.xz;
+                    lmxz = Medium.xz;
                 }
                 if (view == 1) {
-                    medium.around(stageContos[0], false);
-                    xtgraphics.stat(mads[0], stageContos[0], checkpoints, u[0], false);
+                    Medium.around(stageContos[0], false);
+                    xtGraphics.stat(mads[0], stageContos[0],  u[0], false);
                     mvect = 80;
                 }
                 if (view == 2) {
-                    medium.watch(stageContos[0], mads[0].mxz);
-                    xtgraphics.stat(mads[0], stageContos[0], checkpoints, u[0], false);
-                    mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
+                    Medium.watch(stageContos[0], mads[0].mxz);
+                    xtGraphics.stat(mads[0], stageContos[0],  u[0], false);
+                    mvect = 65 + Math.abs(lmxz - Medium.xz) / 5 * 100;
                     if (mvect > 90) {
                         mvect = 90;
                     }
-                    lmxz = medium.xz;
+                    lmxz = Medium.xz;
                 }
                 if (mouses == 1) {
                     u[0].enter = true;
@@ -2538,43 +2519,43 @@ class GameSparker extends JPanel
                 }
             } else {
                 int k = 3;
-                if (xtgraphics.nplayers == 1) {
+                if (xtGraphics.nplayers == 1) {
                     k = 0;
                 }
-                medium.around(stageContos[k], true);
+                Medium.around(stageContos[k], true);
                 mvect = 80;
                 if (u[0].enter || u[0].handb) {
-                    xtgraphics.starcnt = 38;
+                    xtGraphics.starcnt = 38;
                     u[0].enter = false;
                     u[0].handb = false;
                 }
-                if (xtgraphics.starcnt == 38) {
+                if (xtGraphics.starcnt == 38) {
                     mouses = 0;
-                    medium.vert = false;
-                    medium.adv = 900;
-                    medium.vxz = 180;
-                    checkpoints.checkstat(mads, stageContos, record, xtgraphics.nplayers, xtgraphics.im, 0);
-                    medium.follow(stageContos[0], mads[0].cxz, 0);
-                    xtgraphics.stat(mads[0], stageContos[0], checkpoints, u[0], true);
+                    Medium.vert = false;
+                    Medium.adv = 900;
+                    Medium.vxz = 180;
+                    CheckPoints.checkstat(mads, stageContos,  xtGraphics.nplayers, xtGraphics.im, 0);
+                    Medium.follow(stageContos[0], mads[0].cxz, 0);
+                    xtGraphics.stat(mads[0], stageContos[0],  u[0], true);
                     rd.setColor(new Color(255, 255, 255));
                     rd.fillRect(0, 0, 800, 450);
                 }
             }
         }
-        if (xtgraphics.fase == 7001) {
-            for (int player = 0; player < xtgraphics.nplayers; player++)
+        if (xtGraphics.fase == 7001) {
+            for (int player = 0; player < xtGraphics.nplayers; player++)
                 if (mads[player].newedcar == 0 && mads[player].newcar) {
                     final int i52 = stageContos[player].xz;
                     final int i53 = stageContos[player].xy;
                     final int i54 = stageContos[player].zy;
-                    xtgraphics.colorCar(contos[mads[player].cn], player);
+                    xtGraphics.colorCar(contos[mads[player].cn], player);
                     stageContos[player] = new ContO(contos[mads[player].cn], stageContos[player].x, stageContos[player].y, stageContos[player].z, 0);
                     stageContos[player].xz = i52;
                     stageContos[player].xy = i53;
                     stageContos[player].zy = i54;
                     mads[player].newedcar = 20;
                 }
-            medium.d(rd);
+            Medium.d(rd);
             int j = 0;
             final int[] is = new int[10000];
             for (int k = 0; k < nob; k++)
@@ -2599,184 +2580,184 @@ class GameSparker extends JPanel
                 is3[is2[k]] = k;
             }
             for (int k = 0; k < j; k++) {
-                if (is[is3[k]] < xtgraphics.nplayers && is[is3[k]] != xtgraphics.im) {
+                if (is[is3[k]] < xtGraphics.nplayers && is[is3[k]] != xtGraphics.im) {
                     udpmistro.readContOinfo(stageContos[is[is3[k]]], is[is3[k]]);
                 }
                 stageContos[is[is3[k]]].d(rd);
             }
-            if (xtgraphics.starcnt == 0) {
-                if (xtgraphics.multion == 1) {
+            if (xtGraphics.starcnt == 0) {
+                if (xtGraphics.multion == 1) {
                     int k = 1;
-                    for (int l = 0; l < xtgraphics.nplayers; l++)
-                        if (xtgraphics.im != l) {
-                            udpmistro.readinfo(mads[l], stageContos[l], u[k], l, checkpoints.dested);
+                    for (int l = 0; l < xtGraphics.nplayers; l++)
+                        if (xtGraphics.im != l) {
+                            udpmistro.readinfo(mads[l], stageContos[l], u[k], l, CheckPoints.dested);
                             k++;
                         }
                 } else {
-                    for (int l = 0; l < xtgraphics.nplayers; l++) {
-                        udpmistro.readinfo(mads[l], stageContos[l], u[l], l, checkpoints.dested);
+                    for (int l = 0; l < xtGraphics.nplayers; l++) {
+                        udpmistro.readinfo(mads[l], stageContos[l], u[l], l, CheckPoints.dested);
                     }
                 }
-                for (int k = 0; k < xtgraphics.nplayers; k++) {
-                    for (int l = 0; l < xtgraphics.nplayers; l++)
+                for (int k = 0; k < xtGraphics.nplayers; k++) {
+                    for (int l = 0; l < xtGraphics.nplayers; l++)
                         if (l != k) {
                             mads[k].colide(stageContos[k], mads[l], stageContos[l]);
                         }
                 }
-                if (xtgraphics.multion == 1) {
+                if (xtGraphics.multion == 1) {
                     int k = 1;
-                    for (int l = 0; l < xtgraphics.nplayers; l++)
-                        if (xtgraphics.im != l) {
-                            mads[l].drive(u[k], stageContos[l], trackers, checkpoints);
+                    for (int l = 0; l < xtGraphics.nplayers; l++)
+                        if (xtGraphics.im != l) {
+                            mads[l].drive(u[k], stageContos[l]);
                             k++;
                         } else {
-                            mads[l].drive(u[0], stageContos[l], trackers, checkpoints);
+                            mads[l].drive(u[0], stageContos[l]);
                         }
-                    for (int l = 0; l < xtgraphics.nplayers; l++) {
-                        record.rec(stageContos[l], l, mads[l].squash, mads[l].lastcolido, mads[l].cntdest, xtgraphics.im);
+                    for (int l = 0; l < xtGraphics.nplayers; l++) {
+                        Record.rec(stageContos[l], l, mads[l].squash, mads[l].lastcolido, mads[l].cntdest, xtGraphics.im);
                     }
                 } else {
-                    for (int k = 0; k < xtgraphics.nplayers; k++) {
-                        mads[k].drive(u[k], stageContos[k], trackers, checkpoints);
+                    for (int k = 0; k < xtGraphics.nplayers; k++) {
+                        mads[k].drive(u[k], stageContos[k]);
                     }
                 }
-                checkpoints.checkstat(mads, stageContos, record, xtgraphics.nplayers, xtgraphics.im, xtgraphics.multion);
+                CheckPoints.checkstat(mads, stageContos,  xtGraphics.nplayers, xtGraphics.im, xtGraphics.multion);
             } else {
-                if (xtgraphics.starcnt == 130) {
-                    medium.adv = 1900;
-                    medium.zy = 40;
-                    medium.vxz = 70;
+                if (xtGraphics.starcnt == 130) {
+                    Medium.adv = 1900;
+                    Medium.zy = 40;
+                    Medium.vxz = 70;
                     rd.setColor(new Color(255, 255, 255));
                     rd.fillRect(0, 0, 800, 450);
                     //repaint();
-                    if (xtgraphics.lan) {
-                        udpmistro.UDPConnectLan(xtgraphics.localserver, xtgraphics.nplayers, xtgraphics.im);
-                        if (xtgraphics.im == 0) {
-                            xtgraphics.setbots(udpmistro.isbot);
+                    if (xtGraphics.lan) {
+                        udpmistro.UDPConnectLan(xtGraphics.localserver, xtGraphics.nplayers, xtGraphics.im);
+                        if (xtGraphics.im == 0) {
+                            xtGraphics.setbots(udpmistro.isbot);
                         }
                     } else {
-                        udpmistro.UDPConnectOnline(xtgraphics.server, xtgraphics.gameport, xtgraphics.nplayers, xtgraphics.im);
+                        udpmistro.UDPConnectOnline(xtGraphics.server, xtGraphics.gameport, xtGraphics.nplayers, xtGraphics.im);
                     }
-                    if (xtgraphics.multion >= 2) {
-                        xtgraphics.im = (int) (ThreadLocalRandom.current().nextDouble() * xtgraphics.nplayers);
-                        xtgraphics.starcnt = 0;
+                    if (xtGraphics.multion >= 2) {
+                        xtGraphics.im = (int) (ThreadLocalRandom.current().nextDouble() * xtGraphics.nplayers);
+                        xtGraphics.starcnt = 0;
                     }
                 }
-                if (xtgraphics.starcnt == 50) {
+                if (xtGraphics.starcnt == 50) {
                     udpmistro.frame[udpmistro.im][0] = 0;
                 }
-                if (xtgraphics.starcnt != 39 && xtgraphics.starcnt != 0) {
-                    xtgraphics.starcnt--;
+                if (xtGraphics.starcnt != 39 && xtGraphics.starcnt != 0) {
+                    xtGraphics.starcnt--;
                 }
-                if (udpmistro.go && xtgraphics.starcnt >= 39) {
-                    xtgraphics.starcnt = 38;
-                    if (xtgraphics.lan) {
-                        int k = checkpoints.stage;
+                if (udpmistro.go && xtGraphics.starcnt >= 39) {
+                    xtGraphics.starcnt = 38;
+                    if (xtGraphics.lan) {
+                        int k = CheckPoints.stage;
                         if (k < 0) {
                         }
-                        if (xtgraphics.loadedt) {
-                            xtgraphics.strack.play();
+                        if (xtGraphics.loadedt) {
+                            xtGraphics.strack.play();
                         }
                     }
                 }
             }
-            if (xtgraphics.lan && udpmistro.im == 0) {
-                for (int k = 2; k < xtgraphics.nplayers; k++)
+            if (xtGraphics.lan && udpmistro.im == 0) {
+                for (int k = 2; k < xtGraphics.nplayers; k++)
                     if (udpmistro.isbot[k]) {
-                        u[k].preform(mads[k], stageContos[k], checkpoints, trackers);
-                        udpmistro.setinfo(mads[k], stageContos[k], u[k], checkpoints.pos[k], checkpoints.magperc[k], false, k);
+                        u[k].preform(mads[k], stageContos[k]);
+                        udpmistro.setinfo(mads[k], stageContos[k], u[k], CheckPoints.pos[k], CheckPoints.magperc[k], false, k);
                     }
             }
-            if (xtgraphics.starcnt < 38) {
-                if (xtgraphics.multion == 1) {
-                    udpmistro.setinfo(mads[xtgraphics.im], stageContos[xtgraphics.im], u[0], checkpoints.pos[xtgraphics.im], checkpoints.magperc[xtgraphics.im], xtgraphics.holdit, xtgraphics.im);
+            if (xtGraphics.starcnt < 38) {
+                if (xtGraphics.multion == 1) {
+                    udpmistro.setinfo(mads[xtGraphics.im], stageContos[xtGraphics.im], u[0], CheckPoints.pos[xtGraphics.im], CheckPoints.magperc[xtGraphics.im], xtGraphics.holdit, xtGraphics.im);
                     if (view == 0) {
-                        medium.follow(stageContos[xtgraphics.im], mads[xtgraphics.im].cxz, u[0].lookback);
-                        xtgraphics.stat(mads[xtgraphics.im], stageContos[xtgraphics.im], checkpoints, u[0], true);
-                        if (mads[xtgraphics.im].outshakedam > 0) {
-                            shaka = mads[xtgraphics.im].outshakedam / 20;
+                        Medium.follow(stageContos[xtGraphics.im], mads[xtGraphics.im].cxz, u[0].lookback);
+                        xtGraphics.stat(mads[xtGraphics.im], stageContos[xtGraphics.im],  u[0], true);
+                        if (mads[xtGraphics.im].outshakedam > 0) {
+                            shaka = mads[xtGraphics.im].outshakedam / 20;
                             if (shaka > 25) {
                                 shaka = 25;
                             }
                         }
-                        mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
+                        mvect = 65 + Math.abs(lmxz - Medium.xz) / 5 * 100;
                         if (mvect > 90) {
                             mvect = 90;
                         }
-                        lmxz = medium.xz;
+                        lmxz = Medium.xz;
                     }
                     if (view == 1) {
-                        medium.around(stageContos[xtgraphics.im], false);
-                        xtgraphics.stat(mads[xtgraphics.im], stageContos[xtgraphics.im], checkpoints, u[0], false);
+                        Medium.around(stageContos[xtGraphics.im], false);
+                        xtGraphics.stat(mads[xtGraphics.im], stageContos[xtGraphics.im],  u[0], false);
                         mvect = 80;
                     }
                     if (view == 2) {
-                        medium.watch(stageContos[xtgraphics.im], mads[xtgraphics.im].mxz);
-                        xtgraphics.stat(mads[xtgraphics.im], stageContos[xtgraphics.im], checkpoints, u[0], false);
-                        mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
+                        Medium.watch(stageContos[xtGraphics.im], mads[xtGraphics.im].mxz);
+                        xtGraphics.stat(mads[xtGraphics.im], stageContos[xtGraphics.im],  u[0], false);
+                        mvect = 65 + Math.abs(lmxz - Medium.xz) / 5 * 100;
                         if (mvect > 90) {
                             mvect = 90;
                         }
-                        lmxz = medium.xz;
+                        lmxz = Medium.xz;
                     }
                 } else {
                     if (view == 0) {
-                        medium.getaround(stageContos[xtgraphics.im]);
+                        Medium.getaround(stageContos[xtGraphics.im]);
                         mvect = 80;
                     }
                     if (view == 1) {
-                        medium.getfollow(stageContos[xtgraphics.im], mads[xtgraphics.im].cxz, u[0].lookback);
-                        mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
+                        Medium.getfollow(stageContos[xtGraphics.im], mads[xtGraphics.im].cxz, u[0].lookback);
+                        mvect = 65 + Math.abs(lmxz - Medium.xz) / 5 * 100;
                         if (mvect > 90) {
                             mvect = 90;
                         }
-                        lmxz = medium.xz;
+                        lmxz = Medium.xz;
                     }
                     if (view == 2) {
-                        medium.watch(stageContos[xtgraphics.im], mads[xtgraphics.im].mxz);
-                        mvect = 65 + Math.abs(lmxz - medium.xz) / 5 * 100;
+                        Medium.watch(stageContos[xtGraphics.im], mads[xtGraphics.im].mxz);
+                        mvect = 65 + Math.abs(lmxz - Medium.xz) / 5 * 100;
                         if (mvect > 90) {
                             mvect = 90;
                         }
-                        lmxz = medium.xz;
+                        lmxz = Medium.xz;
                     }
-                    xtgraphics.stat(mads[xtgraphics.im], stageContos[xtgraphics.im], checkpoints, u[0], true);
+                    xtGraphics.stat(mads[xtGraphics.im], stageContos[xtGraphics.im],  u[0], true);
                 }
                 if (mouses == 1) {
-                    if (xtgraphics.holdit && xtgraphics.exitm != 4 && xtgraphics.multion == 1) {
+                    if (xtGraphics.holdit && xtGraphics.exitm != 4 && xtGraphics.multion == 1) {
                         u[0].enter = true;
                     }
                     mouses = 0;
                 }
             } else {
-                medium.around(stageContos[xtgraphics.im], true);
+                Medium.around(stageContos[xtGraphics.im], true);
                 mvect = 80;
-                if (xtgraphics.starcnt == 39) {
-                    xtgraphics.waitenter();
+                if (xtGraphics.starcnt == 39) {
+                    xtGraphics.waitenter();
                 }
-                if (xtgraphics.starcnt == 38) {
-                    xtgraphics.forstart = 0;
+                if (xtGraphics.starcnt == 38) {
+                    xtGraphics.forstart = 0;
                     mouses = 0;
-                    medium.vert = false;
-                    medium.adv = 900;
-                    medium.vxz = 180;
-                    checkpoints.checkstat(mads, stageContos, record, xtgraphics.nplayers, xtgraphics.im, xtgraphics.multion);
-                    medium.follow(stageContos[xtgraphics.im], mads[xtgraphics.im].cxz, 0);
-                    xtgraphics.stat(mads[xtgraphics.im], stageContos[xtgraphics.im], checkpoints, u[0], true);
+                    Medium.vert = false;
+                    Medium.adv = 900;
+                    Medium.vxz = 180;
+                    CheckPoints.checkstat(mads, stageContos,  xtGraphics.nplayers, xtGraphics.im, xtGraphics.multion);
+                    Medium.follow(stageContos[xtGraphics.im], mads[xtGraphics.im].cxz, 0);
+                    xtGraphics.stat(mads[xtGraphics.im], stageContos[xtGraphics.im],  u[0], true);
                     rd.setColor(new Color(255, 255, 255));
                     rd.fillRect(0, 0, 800, 450);
                 }
             }
-            xtgraphics.multistat(u[0], checkpoints, xm, ym, moused, udpmistro);
+            xtGraphics.multistat(u[0],  xm, ym, moused, udpmistro);
         }
-        if (xtgraphics.fase == -1) {
+        if (xtGraphics.fase == -1) {
             if (recordtime == 0) {
-                for (int j = 0; j < xtgraphics.nplayers; j++) {
-                    record.ocar[j] = new ContO(stageContos[j], 0, 0, 0, 0);
-                    stageContos[j] = new ContO(record.car[0][j], 0, 0, 0, 0);
+                for (int j = 0; j < xtGraphics.nplayers; j++) {
+                    Record.ocar[j] = new ContO(stageContos[j], 0, 0, 0, 0);
+                    stageContos[j] = new ContO(Record.car[0][j], 0, 0, 0, 0);
                 }
             }
-            medium.d(rd);
+            Medium.d(rd);
             int j = 0;
             final int[] is = new int[10000];
             for (int k = 0; k < nob; k++)
@@ -2816,8 +2797,8 @@ class GameSparker extends JPanel
                 u[0].handb = false;
                 mouses = 0;
             }
-            for (int k = 0; k < xtgraphics.nplayers; k++) {
-                if (record.fix[k] == recordtime)
+            for (int k = 0; k < xtGraphics.nplayers; k++) {
+                if (Record.fix[k] == recordtime)
                     if (stageContos[k].dist == 0) {
                         stageContos[k].fcnt = 8;
                     } else {
@@ -2825,64 +2806,64 @@ class GameSparker extends JPanel
                     }
                 if (stageContos[k].fcnt == 7 || stageContos[k].fcnt == 8) {
                     stageContos[k] = new ContO(contos[mads[k].cn], 0, 0, 0, 0);
-                    record.cntdest[k] = 0;
+                    Record.cntdest[k] = 0;
                 }
                 if (recordtime == 299) {
-                    stageContos[k] = new ContO(record.ocar[k], 0, 0, 0, 0);
+                    stageContos[k] = new ContO(Record.ocar[k], 0, 0, 0, 0);
                 }
-                record.play(stageContos[k], mads[k], k, recordtime);
+                Record.play(stageContos[k], mads[k], k, recordtime);
             }
             if (++recordtime == 300) {
                 recordtime = 0;
-                xtgraphics.fase = -6;
+                xtGraphics.fase = -6;
             } else {
-                xtgraphics.replyn();
+                xtGraphics.replyn();
             }
-            medium.around(stageContos[0], false);
+            Medium.around(stageContos[0], false);
         }
-        if (xtgraphics.fase == -2) {
-            if (xtgraphics.multion >= 2) {
-                record.hcaught = false;
+        if (xtGraphics.fase == -2) {
+            if (xtGraphics.multion >= 2) {
+                Record.hcaught = false;
             }
             u[0].falseo(3);
-            if (record.hcaught && record.wasted == 0 && record.whenwasted != 229 && (checkpoints.stage == 1 || checkpoints.stage == 2) && xtgraphics.looped != 0) {
-                record.hcaught = false;
+            if (Record.hcaught && Record.wasted == 0 && Record.whenwasted != 229 && (CheckPoints.stage == 1 || CheckPoints.stage == 2) && xtGraphics.looped != 0) {
+                Record.hcaught = false;
             }
-            if (record.hcaught) {
+            if (Record.hcaught) {
                 rd.setColor(new Color(0, 0, 0));
                 rd.fillRect(0, 0, 800, 450);
                 //repaint();
             }
-            if (xtgraphics.multion != 0) {
+            if (xtGraphics.multion != 0) {
                 udpmistro.UDPquit();
-                xtgraphics.stopchat();
+                xtGraphics.stopchat();
                 if (cmsg.isShowing()) {
                     cmsg.setVisible(false);
                 }
                 cmsg.setText("");
-                requestFocus();
+                gsPanel.requestFocus();
             }
-            if (record.hcaught) {
-                medium.vert = medium.random() <= 0.45;
-                medium.adv = (int) (900.0F * medium.random());
-                medium.vxz = (int) (360.0F * medium.random());
+            if (Record.hcaught) {
+                Medium.vert = Medium.random() <= 0.45;
+                Medium.adv = (int) (900.0F * Medium.random());
+                Medium.vxz = (int) (360.0F * Medium.random());
                 recordtime = 0;
-                xtgraphics.fase = -3;
+                xtGraphics.fase = -3;
                 clicknowtime = 0;
                 finishrecording = 0;
             } else {
                 recordtime = -2;
-                xtgraphics.fase = -4;
+                xtGraphics.fase = -4;
             }
         }
-        if (xtgraphics.fase == -3) {
+        if (xtGraphics.fase == -3) {
             if (recordtime == 0) {
-                if (record.wasted == 0) {
-                    if (record.whenwasted == 229) {
+                if (Record.wasted == 0) {
+                    if (Record.whenwasted == 229) {
                         wastedpoint = 67;
-                        medium.vxz += 90;
+                        Medium.vxz += 90;
                     } else {
-                        wastedpoint = (int) (medium.random() * 4.0F);
+                        wastedpoint = (int) (Medium.random() * 4.0F);
                         if (wastedpoint == 1 || wastedpoint == 3) {
                             wastedpoint = 69;
                         }
@@ -2890,14 +2871,14 @@ class GameSparker extends JPanel
                             wastedpoint = 30;
                         }
                     }
-                } else if (record.closefinish != 0 && finishrecording != 0) {
-                    medium.vxz += 90;
+                } else if (Record.closefinish != 0 && finishrecording != 0) {
+                    Medium.vxz += 90;
                 }
-                for (int j = 0; j < xtgraphics.nplayers; j++) {
-                    stageContos[j] = new ContO(record.starcar[j], 0, 0, 0, 0);
+                for (int j = 0; j < xtGraphics.nplayers; j++) {
+                    stageContos[j] = new ContO(Record.starcar[j], 0, 0, 0, 0);
                 }
             }
-            medium.d(rd);
+            Medium.d(rd);
             int j = 0;
             final int[] is = new int[10000];
             for (int k = 0; k < nob; k++)
@@ -2931,8 +2912,8 @@ class GameSparker extends JPanel
                         stageContos[is[l]].d(rd);
                     }
             }
-            for (int k = 0; k < xtgraphics.nplayers; k++) {
-                if (record.hfix[k] == recordtime)
+            for (int k = 0; k < xtGraphics.nplayers; k++) {
+                if (Record.hfix[k] == recordtime)
                     if (stageContos[k].dist == 0) {
                         stageContos[k].fcnt = 8;
                     } else {
@@ -2940,40 +2921,40 @@ class GameSparker extends JPanel
                     }
                 if (stageContos[k].fcnt == 7 || stageContos[k].fcnt == 8) {
                     stageContos[k] = new ContO(contos[mads[k].cn], 0, 0, 0, 0);
-                    record.cntdest[k] = 0;
+                    Record.cntdest[k] = 0;
                 }
-                record.playh(stageContos[k], mads[k], k, recordtime, xtgraphics.im);
+                Record.playh(stageContos[k], mads[k], k, recordtime, xtGraphics.im);
             }
             if (finishrecording == 2 && recordtime == 299) {
                 u[0].enter = true;
             }
             if (u[0].enter || u[0].handb) {
-                xtgraphics.fase = -4;
+                xtGraphics.fase = -4;
                 u[0].enter = false;
                 u[0].handb = false;
                 recordtime = -7;
             } else {
-                xtgraphics.levelhigh(record.wasted, record.whenwasted, record.closefinish, recordtime, checkpoints.stage);
+                xtGraphics.levelhigh(Record.wasted, Record.whenwasted, Record.closefinish, recordtime, CheckPoints.stage);
                 if (recordtime == 0 || recordtime == 1 || recordtime == 2) {
                     rd.setColor(new Color(0, 0, 0));
                     rd.fillRect(0, 0, 800, 450);
                 }
-                if (record.wasted != xtgraphics.im) {
-                    if (record.closefinish == 0) {
+                if (Record.wasted != xtGraphics.im) {
+                    if (Record.closefinish == 0) {
                         if (clicknowtime == 9 || clicknowtime == 11) {
                             rd.setColor(new Color(255, 255, 255));
                             rd.fillRect(0, 0, 800, 450);
                         }
                         if (clicknowtime == 0) {
-                            medium.around(stageContos[xtgraphics.im], false);
+                            Medium.around(stageContos[xtGraphics.im], false);
                         }
                         if (clicknowtime > 0 && clicknowtime < 20) {
-                            medium.transaround(stageContos[xtgraphics.im], stageContos[record.wasted], clicknowtime);
+                            Medium.transaround(stageContos[xtGraphics.im], stageContos[Record.wasted], clicknowtime);
                         }
                         if (clicknowtime == 20) {
-                            medium.around(stageContos[record.wasted], false);
+                            Medium.around(stageContos[Record.wasted], false);
                         }
-                        if (recordtime > record.whenwasted && clicknowtime != 20) {
+                        if (recordtime > Record.whenwasted && clicknowtime != 20) {
                             clicknowtime++;
                         }
                         if ((clicknowtime == 0 || clicknowtime == 20) && ++recordtime == 300) {
@@ -2981,27 +2962,27 @@ class GameSparker extends JPanel
                             clicknowtime = 0;
                             finishrecording++;
                         }
-                    } else if (record.closefinish == 1) {
+                    } else if (Record.closefinish == 1) {
                         if (clicknowtime == 0) {
-                            medium.around(stageContos[xtgraphics.im], false);
+                            Medium.around(stageContos[xtGraphics.im], false);
                         }
                         if (clicknowtime > 0 && clicknowtime < 20) {
-                            medium.transaround(stageContos[xtgraphics.im], stageContos[record.wasted], clicknowtime);
+                            Medium.transaround(stageContos[xtGraphics.im], stageContos[Record.wasted], clicknowtime);
                         }
                         if (clicknowtime == 20) {
-                            medium.around(stageContos[record.wasted], false);
+                            Medium.around(stageContos[Record.wasted], false);
                         }
                         if (clicknowtime > 20 && clicknowtime < 40) {
-                            medium.transaround(stageContos[record.wasted], stageContos[xtgraphics.im], clicknowtime - 20);
+                            Medium.transaround(stageContos[Record.wasted], stageContos[xtGraphics.im], clicknowtime - 20);
                         }
                         if (clicknowtime == 40) {
-                            medium.around(stageContos[xtgraphics.im], false);
+                            Medium.around(stageContos[xtGraphics.im], false);
                         }
                         if (clicknowtime > 40 && clicknowtime < 60) {
-                            medium.transaround(stageContos[xtgraphics.im], stageContos[record.wasted], clicknowtime - 40);
+                            Medium.transaround(stageContos[xtGraphics.im], stageContos[Record.wasted], clicknowtime - 40);
                         }
                         if (clicknowtime == 60) {
-                            medium.around(stageContos[record.wasted], false);
+                            Medium.around(stageContos[Record.wasted], false);
                         }
                         if (recordtime > 160 && clicknowtime < 20) {
                             clicknowtime++;
@@ -3019,31 +3000,31 @@ class GameSparker extends JPanel
                         }
                     } else {
                         if (clicknowtime == 0) {
-                            medium.around(stageContos[xtgraphics.im], false);
+                            Medium.around(stageContos[xtGraphics.im], false);
                         }
                         if (clicknowtime > 0 && clicknowtime < 20) {
-                            medium.transaround(stageContos[xtgraphics.im], stageContos[record.wasted], clicknowtime);
+                            Medium.transaround(stageContos[xtGraphics.im], stageContos[Record.wasted], clicknowtime);
                         }
                         if (clicknowtime == 20) {
-                            medium.around(stageContos[record.wasted], false);
+                            Medium.around(stageContos[Record.wasted], false);
                         }
                         if (clicknowtime > 20 && clicknowtime < 40) {
-                            medium.transaround(stageContos[record.wasted], stageContos[xtgraphics.im], clicknowtime - 20);
+                            Medium.transaround(stageContos[Record.wasted], stageContos[xtGraphics.im], clicknowtime - 20);
                         }
                         if (clicknowtime == 40) {
-                            medium.around(stageContos[xtgraphics.im], false);
+                            Medium.around(stageContos[xtGraphics.im], false);
                         }
                         if (clicknowtime > 40 && clicknowtime < 60) {
-                            medium.transaround(stageContos[xtgraphics.im], stageContos[record.wasted], clicknowtime - 40);
+                            Medium.transaround(stageContos[xtGraphics.im], stageContos[Record.wasted], clicknowtime - 40);
                         }
                         if (clicknowtime == 60) {
-                            medium.around(stageContos[record.wasted], false);
+                            Medium.around(stageContos[Record.wasted], false);
                         }
                         if (clicknowtime > 60 && clicknowtime < 80) {
-                            medium.transaround(stageContos[record.wasted], stageContos[xtgraphics.im], clicknowtime - 60);
+                            Medium.transaround(stageContos[Record.wasted], stageContos[xtGraphics.im], clicknowtime - 60);
                         }
                         if (clicknowtime == 80) {
-                            medium.around(stageContos[xtgraphics.im], false);
+                            Medium.around(stageContos[xtGraphics.im], false);
                         }
                         if (recordtime > 90 && clicknowtime < 20) {
                             clicknowtime++;
@@ -3073,17 +3054,17 @@ class GameSparker extends JPanel
                         rd.fillRect(0, 0, 800, 450);
                     }
                     if (wastedpoint == 30 && clicknowtime >= 1 && clicknowtime < 30)
-                        if (clicknowtime % (int) (2.0F + medium.random() * 3.0F) == 0 && !flashingscreen) {
+                        if (clicknowtime % (int) (2.0F + Medium.random() * 3.0F) == 0 && !flashingscreen) {
                             rd.setColor(new Color(255, 255, 255));
                             rd.fillRect(0, 0, 800, 450);
                             flashingscreen = true;
                         } else {
                             flashingscreen = false;
                         }
-                    if (recordtime > record.whenwasted && clicknowtime != wastedpoint) {
+                    if (recordtime > Record.whenwasted && clicknowtime != wastedpoint) {
                         clicknowtime++;
                     }
-                    medium.around(stageContos[xtgraphics.im], false);
+                    Medium.around(stageContos[xtGraphics.im], false);
                     if ((clicknowtime == 0 || clicknowtime == wastedpoint) && ++recordtime == 300) {
                         recordtime = 0;
                         clicknowtime = 0;
@@ -3092,13 +3073,13 @@ class GameSparker extends JPanel
                 }
             }
         }
-        if (xtgraphics.fase == -4) {
+        if (xtGraphics.fase == -4) {
             if (recordtime == 0) {
-                xtgraphics.sendwin(checkpoints);
-                if (xtgraphics.winner && xtgraphics.multion == 0 && xtgraphics.gmode != 0 && checkpoints.stage != xtGraphics.nTracks && checkpoints.stage == xtgraphics.unlocked) {
-                    xtgraphics.unlocked++;
-                    setcarcookie(xtgraphics.sc[0], cardefine.names[xtgraphics.sc[0]], xtgraphics.arnp, xtgraphics.gmode, xtgraphics.unlocked);
-                    xtgraphics.unlocked--;
+                xtGraphics.sendwin();
+                if (xtGraphics.winner && xtGraphics.multion == 0 && xtGraphics.gmode != 0 && CheckPoints.stage != xtGraphics.nTracks && CheckPoints.stage == xtGraphics.unlocked) {
+                    xtGraphics.unlocked++;
+                    setcarcookie(xtGraphics.sc[0], CarDefine.names[xtGraphics.sc[0]], xtGraphics.arnp, xtGraphics.gmode, xtGraphics.unlocked);
+                    xtGraphics.unlocked--;
                 }
             }
             if (recordtime <= 0) {
@@ -3106,26 +3087,26 @@ class GameSparker extends JPanel
                 rd.drawImage(Images.dude[0], 135, 10, null);
             }
             if (recordtime >= 0) {
-                xtgraphics.fleximage(offImage, recordtime);
+                xtGraphics.fleximage(offImage, recordtime);
             }
             if (++recordtime == 7) {
-                xtgraphics.fase = -5;
+                xtGraphics.fase = -5;
                 rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
                 rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
             }
         }
-        if (xtgraphics.fase == -6) {
+        if (xtGraphics.fase == -6) {
             //repaint();
-            xtgraphics.pauseimage(offImage);
-            xtgraphics.fase = -7;
+            xtGraphics.pauseimage(offImage);
+            xtGraphics.fase = -7;
             mouses = 0;
         }
-        if (xtgraphics.fase == -7) {
-            xtgraphics.pausedgame(u[0], record);
+        if (xtGraphics.fase == -7) {
+            xtGraphics.pausedgame(u[0]);
             if (recordtime != 0) {
                 recordtime = 0;
             }
-            xtgraphics.ctachm(xm, ym, mouses, u[0]);
+            xtGraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2) {
                 mouses = 0;
             }
@@ -3133,36 +3114,36 @@ class GameSparker extends JPanel
                 mouses = 2;
             }
         }
-        if (xtgraphics.fase == -8) {
-            xtgraphics.cantreply();
+        if (xtGraphics.fase == -8) {
+            xtGraphics.cantreply();
             if (++recordtime == 150 || u[0].enter || u[0].handb || mouses == 1) {
-                xtgraphics.fase = -7;
+                xtGraphics.fase = -7;
                 mouses = 0;
                 u[0].enter = false;
                 u[0].handb = false;
             }
         }
-        if (lostfcs && xtgraphics.fase == 7001)
+        if (lostfcs && xtGraphics.fase == 7001)
             if (fcscnt == 0) {
                 if (u[0].chatup == 0) {
-                    requestFocus();
+                    gsPanel.requestFocus();
                 }
                 fcscnt = 10;
             } else {
                 fcscnt--;
             }
-        if (xtgraphics.im > -1 && xtgraphics.im < 8) {
+        if (xtGraphics.im > -1 && xtGraphics.im < 8) {
             int j = 0;
-            if (xtgraphics.multion == 2 || xtgraphics.multion == 3) {
-                j = xtgraphics.im;
+            if (xtGraphics.multion == 2 || xtGraphics.multion == 3) {
+                j = xtGraphics.im;
                 u[j].mutem = u[0].mutem;
                 u[j].mutes = u[0].mutes;
             }
-            xtgraphics.playsounds(mads[xtgraphics.im], u[j]);
+            xtGraphics.playsounds(mads[xtGraphics.im], u[j]);
         }
         date = new Date();
         final long l = date.getTime();
-        if (xtgraphics.fase == 0 || xtgraphics.fase == -1 || xtgraphics.fase == -3 || xtgraphics.fase == 7001) {
+        if (xtGraphics.fase == 0 || xtGraphics.fase == -1 || xtGraphics.fase == -3 || xtGraphics.fase == 7001) {
             if (!bool3) {
                 f2 = f;
                 if (f2 < 30.0F) {
@@ -3183,7 +3164,7 @@ class GameSparker extends JPanel
                 if (f2 < 5.0F) {
                     f2 = 5.0F;
                 }
-                medium.adjstfade(f2, f, xtgraphics.starcnt, this);
+                Medium.adjstfade(f2, f, xtGraphics.starcnt, gsPanel);
                 l1 = l;
                 i5 = 0;
             } else {
@@ -3216,7 +3197,7 @@ class GameSparker extends JPanel
 
     }
 
-    void setcarcookie(final int i, final String string, final float[] fs, final int gamemode, final int is) {
+    static void setcarcookie(final int i, final String string, final float[] fs, final int gamemode, final int is) {
         try {
             final File file = new File("" + Madness.fpath + "data/user.data");
             final String[] lines = {
@@ -3251,7 +3232,7 @@ class GameSparker extends JPanel
         }
     }
 
-    void setloggedcookie() {
+    static void setloggedcookie() {
         try {
             final File file = new File("" + Madness.fpath + "data/user.data");
             final String[] lines = {
@@ -3281,7 +3262,7 @@ class GameSparker extends JPanel
         }
     }
 
-    private void setupini() {
+    static private void setupini() {
         Madness.inisetup = true;
         try {
             final File file = new File("" + Madness.fpath + "Madness.ini");
@@ -3316,9 +3297,9 @@ class GameSparker extends JPanel
         Madness.inisetup = false;
     }
 
-    private void sizescreen(final int x, final int y) {
-        if (x > getWidth() / 2 - 230 && x < getWidth() / 2 - 68 && y > 21 && y < 39 || onbar) {
-            reqmult = (x - (getWidth() / 2 - 222)) / 141.0F;
+    static private void sizescreen(final int x, final int y) {
+        if (x > gsPanel.getWidth() / 2 - 230 && x < gsPanel.getWidth() / 2 - 68 && y > 21 && y < 39 || onbar) {
+            reqmult = (x - (gsPanel.getWidth() / 2 - 222)) / 141.0F;
             if (reqmult < 0.1) {
                 reqmult = 0.0F;
             }
@@ -3331,14 +3312,14 @@ class GameSparker extends JPanel
     }
 
     /*-@Override
-    public void start() {
+    static public void start() {
     	if (gamer == null)
     		gamer = new Thread(this);
     	gamer.start();
     }
 
     @Override
-    public void stop() {
+    static public void stop() {
     	if (exwist && gamer != null) {
     		System.gc();
     		gamer.interrupt();
@@ -3348,7 +3329,7 @@ class GameSparker extends JPanel
     }*/
 
     /*@Override
-    public void update(final Graphics graphics) {
+    static public void update(final Graphics graphics) {
     	paint(graphics);
     }*/
 
@@ -3567,7 +3548,7 @@ class GameSparker extends JPanel
         }
     }
 
-    private void makeTriBuffer() {
+    static private void makeTriBuffer() {
         tribuffer = new BufferedImage(800, 450, BufferedImage.TYPE_INT_ARGB);
         if (tribuffer != null) {
             tg = tribuffer.createGraphics();

@@ -13,8 +13,6 @@ import java.awt.Graphics2D;
  * Visit http://jode.sourceforge.net/
  */
 
-import java.awt.*;
-
 /**
  * The Class Smenu.
  */

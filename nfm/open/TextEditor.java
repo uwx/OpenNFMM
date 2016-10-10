@@ -153,9 +153,6 @@ class TextEditor implements ActionListener {
 
             @Override
             public void actionPerformed(final ActionEvent e) {
-                if (false) {
-                    System.out.println("triggered the action");
-                }
                 saveFile();
             }
 
@@ -170,9 +167,6 @@ class TextEditor implements ActionListener {
 
             @Override
             public void actionPerformed(final ActionEvent e) {
-                if (false) {
-                    System.out.println("triggered the action");
-                }
                 refresh();
             }
 
@@ -187,9 +181,6 @@ class TextEditor implements ActionListener {
 
             @Override
             public void actionPerformed(final ActionEvent e) {
-                if (false) {
-                    System.out.println("triggered the action");
-                }
                 if (!fffff) {
                     newFile();
                 }

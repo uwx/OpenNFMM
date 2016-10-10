@@ -6,7 +6,6 @@ import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.DisplayMode;
-import java.awt.Frame;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Panel;
@@ -23,13 +22,13 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.*;
 
-class Madness extends Panel {
+public class Madness extends Panel {
     static int anti = 1;
     private static GameSparker applet;
     private static CarMaker cm;
     private static DisplayMode defdisp;
     static String fpath = "";
-    static JFrame frame;
+    public static JFrame frame;
     static boolean fullscreen = false;
     static boolean inisetup = false;
     private static GraphicsDevice myDevice;
@@ -231,7 +230,7 @@ class Madness extends Panel {
         } catch (final Exception ignored) {
 
         }
-        applet = new GameSparker();
+        applet = GameSparker.create();
         frame.add("Center", applet);
         frame.setVisible(true);
         //applet.init();
@@ -347,7 +346,7 @@ class Madness extends Panel {
         setFilePath(strings);
         frame.setIconImage(Toolkit.getDefaultToolkit().createImage(fpath + "data/icon.png"));
 
-        applet = new GameSparker();
+        applet = GameSparker.create();
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(final WindowEvent windowevent) {

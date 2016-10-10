@@ -7,73 +7,74 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 
 class CheckPoints {
-    int catchfin = 0;
-    final int[] clear = {
+    //private CheckPoints() {}
+    static int catchfin = 0;
+    static final int[] clear = {
             0, 0, 0, 0, 0, 0, 0, 0
     };
-    final int[] dested = {
+    static final int[] dested = {
             0, 0, 0, 0, 0, 0, 0, 0
     };
-    int fn = 0;
-    final int[] fx = new int[5];
-    final int[] fy = new int[5];
-    final int[] fz = new int[5];
-    boolean haltall = false;
-    final float[] magperc = {
+    static int fn = 0;
+    static final int[] fx = new int[5];
+    static final int[] fy = new int[5];
+    static final int[] fz = new int[5];
+    static boolean haltall = false;
+    static final float[] magperc = {
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F
     };
-    String maker = "";
-    int n = 0;
-    String name = "hogan rewish";
-    int nfix = 0;
-    int nlaps = 0;
+    static String maker = "";
+    static int n = 0;
+    static String name = "hogan rewish";
+    static int nfix = 0;
+    static int nlaps = 0;
     /**
      * "<strong>No</strong> <strong>T</strong>rees or <strong>B</strong>umps"<br>
      * Setting this to true will disable trees and bumps.
      */
-    boolean notb = false;
-    int nsp = 0;
-    int nto = 0;
-    final int[] omxz = new int[8];
-    final int[] onscreen = new int[8];
+    static boolean notb = false;
+    static int nsp = 0;
+    static int nto = 0;
+    static final int[] omxz = new int[8];
+    static final int[] onscreen = new int[8];
     /**
      * The X of every car in the stage.
      */
-    final int[] opx = new int[8];
+    static final int[] opx = new int[8];
     /**
      * The Z of every car in the stage.
      */
-    final int[] opz = new int[8];
-    int pcleared = 0;
-    int pcs = 0;
-    final int[] pos = {
+    static final int[] opz = new int[8];
+    static int pcleared = 0;
+    static int pcs = 0;
+    static final int[] pos = {
             7, 7, 7, 7, 7, 7, 7, 7
     };
-    private int postwo = 0;
-    float prox = 0.0F;
-    int pubt = 0;
-    final boolean[] roted = new boolean[5];
-    final boolean[] special = new boolean[5];
-    int stage = (int) (ThreadLocalRandom.current().nextDouble() * 27.0) + 1;
-    int top20 = 0;
-    String trackname = "";
-    int trackvol = 200;
-    final int[] typ = new int[10000];
-    int wasted = 0;
+    static private int postwo = 0;
+    static float prox = 0.0F;
+    static int pubt = 0;
+    static final boolean[] roted = new boolean[5];
+    static final boolean[] special = new boolean[5];
+    static int stage = (int) (ThreadLocalRandom.current().nextDouble() * 27.0) + 1;
+    static int top20 = 0;
+    static String trackname = "";
+    static int trackvol = 200;
+    static final int[] typ = new int[10000];
+    static int wasted = 0;
     /**
      * You know when you add )p to the end of pieces? Their coordinates go here. )p basically adds "nodes" for where the AI goes. Therefore, {@link #x} and {@link #z} are the X and Z coordinates of track pieces with )p at the end of them.
      */
-    final int[] x = new int[10000];
+    static final int[] x = new int[10000];
     /**
      * You know when you add )p to the end of pieces? Their coordinates go here. )p basically adds "nodes" for where the AI goes. Therefore, {@link #x} and {@link #z} are the X and Z coordinates of track pieces with )p at the end of them.
      */
-    final int[] y = new int[10000];
+    static final int[] y = new int[10000];
     /**
      * You know when you add )p to the end of pieces? Their coordinates go here. )p basically adds "nodes" for where the AI goes. Therefore, {@link #x} and {@link #z} are the X and Z coordinates of track pieces with )p at the end of them.
      */
-    final int[] z = new int[10000];
+    static final int[] z = new int[10000];
 
-    void calprox() {
+    static void calprox() {
         int i = 0;
         for (int i9 = 0; i9 < n - 1; i9++) {
             for (int i10 = i9 + 1; i10 < n; i10++) {
@@ -88,7 +89,7 @@ class CheckPoints {
         prox = i / 90.0F;
     }
 
-    void checkstat(final Mad[] mads, final ContO[] contos, final Record record, final int i, final int i0, final int i1) {
+    static void checkstat(final Mad[] mads, final ContO[] contos, final int i, final int i0, final int i1) {
         if (!haltall) {
             pcleared = mads[i0].pcleared;
             for (int i2 = 0; i2 < i; i2++) {
@@ -158,13 +159,13 @@ class CheckPoints {
         if (catchfin != 0 && i1 < 2) {
             catchfin--;
             if (catchfin == 0) {
-                record.cotchinow(postwo);
-                record.closefinish = pos[i0] + 1;
+                Record.cotchinow(postwo);
+                Record.closefinish = pos[i0] + 1;
             }
         }
     }
 
-    private int py(final int i, final int i11, final int i12, final int i13) {
+    static private int py(final int i, final int i11, final int i12, final int i13) {
         return (i - i11) * (i - i11) + (i12 - i13) * (i12 - i13);
     }
 }

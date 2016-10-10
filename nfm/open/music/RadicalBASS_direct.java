@@ -28,6 +28,8 @@ import static jouvieje.bass.examples.util.Device.forceNoSoundDevice;
  *
  * @author Rafael
  */
+@Deprecated
+@SuppressWarnings("all")
 public class RadicalBASS_direct implements RadicalMusic {
 
     /**
