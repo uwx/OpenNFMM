@@ -73,7 +73,7 @@ public class Stat {
         this.enginsignature = enginsignature;
     }
 
-    public Stat(final Stat clone) {
+    public Stat(final Stat clone) {        
         swits = clone.swits.clone();
         acelf = clone.acelf.clone();
 
@@ -103,7 +103,7 @@ public class Stat {
         enginsignature = clone.enginsignature;
     }
 
-    public Stat(final int cn) {
+    private Stat(final int cn) {
         swits = CarDefine.swits[cn].clone();
         acelf = CarDefine.acelf[cn].clone();
 

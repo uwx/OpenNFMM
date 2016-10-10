@@ -1703,8 +1703,8 @@ public class Medium {
     static float random() {
         if (cntrn == 0) {
             for (int i = 0; i < 3; i++) {
-                rand[i] = (int) (10.0 * ThreadLocalRandom.current().nextDouble());
-                diup[i] = ThreadLocalRandom.current().nextDouble() <= ThreadLocalRandom.current().nextDouble();
+                rand[i] = (int) (10.0F * ThreadLocalRandom.current().nextFloat());
+                diup[i] = ThreadLocalRandom.current().nextFloat() <= ThreadLocalRandom.current().nextFloat();
             }
             cntrn = 20;
         } else {

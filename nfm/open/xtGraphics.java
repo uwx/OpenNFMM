@@ -22,15 +22,16 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import javax.swing.JPanel;
 
+import gnu.trove.list.array.TIntArrayList;
 /* xtGraphics - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -45,14 +46,14 @@ class xtGraphics extends JPanel implements Runnable {
     }
 
     static class Images {
-        static private Image arn;
-        static private Image arrows;
+        static Image arn;
+        static Image arrows;
         static Image asd;
         static Image asu;
         static final Image[] back = new Image[2];
-        static private final Image[] bc = new Image[2];
-        static private final Image[] bcl = new Image[2];
-        static private final Image[] bcr = new Image[2];
+        static final Image[] bc = new Image[2];
+        static final Image[] bcl = new Image[2];
+        static final Image[] bcr = new Image[2];
         static Image bggo;
         static Image bgmain;
         static Image bob;
@@ -66,119 +67,119 @@ class xtGraphics extends JPanel implements Runnable {
         static Image bors;
         static Image bot;
         static Image br;
-        static private Image brt;
-        static private Image byrd;
+        static Image brt;
+        static Image byrd;
         static Image cancel;
-        static private Image carsbg;
-        static private Image carsbgc;
+        static Image carsbg;
+        static Image carsbgc;
         static Image ccar;
         static Image cgame;
         static Image change;
-        static private Image chil;
-        static private final Image[] cntdn = new Image[4];
-        static private Image congrd;
-        static private final Image[] contin = new Image[2];
+        static Image chil;
+        static final Image[] cntdn = new Image[4];
+        static Image congrd;
+        static final Image[] contin = new Image[2];
         static Image crd;
-        static private Image disco;
-        static private Image dmg;
+        static Image disco;
+        static Image dmg;
         static final Image[] dude = new Image[3];
         static Image exit;
-        static private Image exitgame;
-        static private Image fixhoop;
-        static private Image flaot;
+        static Image exitgame;
+        static Image fixhoop;
+        static Image flaot;
         static Image fleximg;
-        static private Image gamefinished;
-        static private Image gameh;
-        static private Image gameov;
+        static Image gamefinished;
+        static Image gameh;
+        static Image gameov;
         static Image games;
         static Image gmc;
-        static private Image hello;
-        static private Image kenter;
-        static private Image km;
-        static private Image kn;
-        static private Image ks;
-        static private Image kv;
-        static private Image kx;
-        static private Image kz;
+        static Image hello;
+        static Image kenter;
+        static Image km;
+        static Image kn;
+        static Image ks;
+        static Image kv;
+        static Image kx;
+        static Image kz;
         static Image lanm;
-        static private Image lap;
-        static private Image loadbar;
-        static private Image loadingmusic;
+        static Image lap;
+        static Image loadbar;
+        static Image loadingmusic;
         static Image login;
-        static private Image logocars;
-        static private Image logomadbg;
+        static Image logocars;
+        static Image logomadbg;
         static Image logomadnes;
         static Image logout;
         static Image mdness;
         static Image mload;
-        static private final Image[] next = new Image[2];
-        static private Image nfm;
-        static private Image nfmcom;
-        static private Image nfmcoms;
+        static final Image[] next = new Image[2];
+        static Image nfm;
+        static Image nfmcom;
+        static Image nfmcoms;
         static Image ntrg;
-        static private final Image[] ocntdn = new Image[4];
-        static private Image odisco;
-        static private Image odmg;
-        static private Image oexitgame;
-        static private Image oflaot;
-        static private Image ogamefinished;
-        static private Image ogameh;
-        static private Image olap;
-        static private Image oloadingmusic;
-        static private Image onfmm;
-        static private Image opback;
-        static private Image opos;
-        static private Image opti;
-        static private Image opwr;
-        static private final Image[] orank = new Image[8];
-        static private Image ory;
-        static private Image osped;
-        static private final Image[] ostar = new Image[2];
-        static private Image owas;
-        static private Image owgame;
-        static private Image oyoulost;
-        static private Image oyourwasted;
-        static private Image oyouwastedem;
-        static private Image oyouwon;
-        static private Image paused;
-        static private Image pgate;
+        static final Image[] ocntdn = new Image[4];
+        static Image odisco;
+        static Image odmg;
+        static Image oexitgame;
+        static Image oflaot;
+        static Image ogamefinished;
+        static Image ogameh;
+        static Image olap;
+        static Image oloadingmusic;
+        static Image onfmm;
+        static Image opback;
+        static Image opos;
+        static Image opti;
+        static Image opwr;
+        static final Image[] orank = new Image[8];
+        static Image ory;
+        static Image osped;
+        static final Image[] ostar = new Image[2];
+        static Image owas;
+        static Image owgame;
+        static Image oyoulost;
+        static Image oyourwasted;
+        static Image oyouwastedem;
+        static Image oyouwon;
+        static Image paused;
+        static Image pgate;
         static Image play;
         static Image pln;
         static Image pls;
-        static private Image plus;
-        static private Image pos;
-        static private Image pwr;
-        static private Image racing;
-        static private Image radicalplay;
-        static private final Image[] rank = new Image[8];
+        static Image plus;
+        static Image pos;
+        static Image pwr;
+        static Image racing;
+        static Image radicalplay;
+        static final Image[] rank = new Image[8];
         static Image redy;
         static Image register;
         static Image roomp;
-        static private Image rpro;
-        static private Image sarrow;
+        static Image rpro;
+        static Image sarrow;
         static Image sdets;
-        static private Image select;
-        static private Image selectcar;
-        static private Image sign;
-        static private Image space;
-        static private Image sped;
-        static private final Image[] star = new Image[3];
+        static Image select;
+        static Image selectcar;
+        static Image sign;
+        static Image space;
+        static Image sped;
+        static final Image[] star = new Image[3];
         static Image statb;
         static Image statbo;
         static Image stg;
         static Image sts;
-        static private Image stunts;
-        static private final Image[] trackbg = new Image[2];
+        static Image stunts;
+        static final Image[] trackbg = new Image[2];
         static Image upgrade;
-        static private Image was;
-        static private Image wasting;
-        static private Image wgame;
-        static private Image yac;
-        static private Image ycmc;
-        static private Image youlost;
-        static private Image yourwasted;
-        static private Image youwastedem;
-        static private Image youwon;
+        static Image was;
+        static Image wasting;
+        static Image wgame;
+        static Image yac;
+        static Image ycmc;
+        static Image youlost;
+        static Image yourwasted;
+        static Image youwastedem;
+        static Image youwon;
 
     }
 
@@ -950,7 +951,7 @@ class xtGraphics extends JPanel implements Runnable {
         }
     }
 
-    static void carselect(final Control control, final ContO[] cars, final int i, final int i104, final boolean bool) {
+    static void carselect(final Control control, final ContO[] cars, final int i, final int i104, final boolean bool, final Stat stat) {
         rd.setColor(new Color(0, 0, 0));
         rd.fillRect(0, 0, 65, 450);
         rd.fillRect(735, 0, 65, 450);
@@ -1098,7 +1099,7 @@ class xtGraphics extends JPanel implements Runnable {
                 if (cfase == 3 && CarDefine.lastload == 2) {
                     GameSparker.mcars.move(400 - GameSparker.mcars.w / 2, 78);
                     GameSparker.mcars.show = true;
-                    if (!GameSparker.mcars.getSelectedItem().equals(CarDefine.names[sc[0]])) {
+                    if (!GameSparker.mcars.getSelectedItem().equals(stat.names)) {
                         for (int i116 = 16; i116 < CarDefine.nlocars; i116++) {
                             if (CarDefine.names[i116].equals(GameSparker.mcars.getSelectedItem())) {
                                 i112 = i116;
@@ -1117,10 +1118,10 @@ class xtGraphics extends JPanel implements Runnable {
                         string = "N#" + (sc[0] - 35) + "  ";
                     }
                     if (aflk) {
-                        drawcs(95 + i115, "" + string + CarDefine.names[sc[0]], 240, 240, 240, 3);
+                        drawcs(95 + i115, "" + string + stat.names, 240, 240, 240, 3);
                         aflk = false;
                     } else {
-                        drawcs(95, "" + string + CarDefine.names[sc[0]], 176, 176, 176, 3);
+                        drawcs(95, "" + string + stat.names, 176, 176, 176, 3);
                         aflk = true;
                     }
                 }
@@ -1875,30 +1876,30 @@ class xtGraphics extends JPanel implements Runnable {
                     rd.drawString("Endurance:", 473, 373);
                     rd.drawImage(statb, 536, 367, null);
                     rd.setColor(new Color(0, 0, 0));
-                    float f = (CarDefine.swits[sc[0]][2] - 220) / 90.0F;
+                    float f = (stat.swits[2] - 220) / 90.0F;
                     if (f < 0.2) {
                         f = 0.2F;
                     }
                     rd.fillRect((int) (162.0F + 156.0F * f), 337, (int) (156.0F * (1.0F - f) + 1.0F), 7);
-                    f = CarDefine.acelf[sc[0]][1] * CarDefine.acelf[sc[0]][0] * CarDefine.acelf[sc[0]][2] * CarDefine.grip[sc[0]] / 7700.0F;
+                    f = stat.acelf[1] * stat.acelf[0] * stat.acelf[2] * stat.grip / 7700.0F;
                     if (f > 1.0F) {
                         f = 1.0F;
                     }
                     rd.fillRect((int) (162.0F + 156.0F * f), 352, (int) (156.0F * (1.0F - f) + 1.0F), 7);
-                    f = CarDefine.dishandle[sc[0]];
+                    f = stat.dishandle;
                     rd.fillRect((int) (162.0F + 156.0F * f), 367, (int) (156.0F * (1.0F - f) + 1.0F), 7);
-                    f = (CarDefine.airc[sc[0]] * CarDefine.airs[sc[0]] * CarDefine.bounce[sc[0]] + 28.0F) / 139.0F;
+                    f = (stat.airc * stat.airs * stat.bounce + 28.0F) / 139.0F;
                     if (f > 1.0F) {
                         f = 1.0F;
                     }
                     rd.fillRect((int) (536.0F + 156.0F * f), 337, (int) (156.0F * (1.0F - f) + 1.0F), 7);
                     final float f127 = 0.5F;
-                    f = (CarDefine.moment[sc[0]] + f127) / 2.6F;
+                    f = (stat.moment + f127) / 2.6F;
                     if (f > 1.0F) {
                         f = 1.0F;
                     }
                     rd.fillRect((int) (536.0F + 156.0F * f), 352, (int) (156.0F * (1.0F - f) + 1.0F), 7);
-                    f = CarDefine.outdam[sc[0]];
+                    f = stat.outdam;
                     rd.fillRect((int) (536.0F + 156.0F * f), 367, (int) (156.0F * (1.0F - f) + 1.0F), 7);
                     rd.drawImage(statbo, 162, 337, null);
                     rd.drawImage(statbo, 162, 352, null);
@@ -1910,16 +1911,16 @@ class xtGraphics extends JPanel implements Runnable {
                         rd.setFont(new Font("Arial", 1, 13));
                         ftm = rd.getFontMetrics();
                         String string = "Class C";
-                        if (CarDefine.cclass[sc[0]] == 1) {
+                        if (stat.cclass == 1) {
                             string = "Class B & C";
                         }
-                        if (CarDefine.cclass[sc[0]] == 2) {
+                        if (stat.cclass == 2) {
                             string = "Class B";
                         }
-                        if (CarDefine.cclass[sc[0]] == 3) {
+                        if (stat.cclass == 3) {
                             string = "Class A & B";
                         }
-                        if (CarDefine.cclass[sc[0]] == 4) {
+                        if (stat.cclass == 4) {
                             string = "Class A";
                         }
                         if (kbload < 7) {
@@ -2147,10 +2148,11 @@ class xtGraphics extends JPanel implements Runnable {
                         		sc[0] = 14;
                         }*/
                         if (multion != 0 && onjoin != -1 && ontyp > 0 && ontyp <= 5) {
-                            for (; sc[0] < maxsl && Math.abs(CarDefine.cclass[sc[0]] - (ontyp - 1)) > 1; sc[0]++) {
+                            for (; sc[0] < maxsl && Math.abs(stat.cclass - (ontyp - 1)) > 1; sc[0]++) {
 
                             }
                         }
+                        CarPool.players[0] = CarPool.carPool.get(sc[0]).copy();
                     }
                     if (nextc == -1) {
                         sc[0]--;
@@ -2161,13 +2163,14 @@ class xtGraphics extends JPanel implements Runnable {
                         		sc[0] = 6;
                         }*/
                         if (multion != 0 && onjoin != -1 && ontyp > 0 && ontyp <= 5) {
-                            for (; sc[0] > minsl && Math.abs(CarDefine.cclass[sc[0]] - (ontyp - 1)) > 1; sc[0]--) {
+                            for (; sc[0] > minsl && Math.abs(stat.cclass - (ontyp - 1)) > 1; sc[0]--) {
 
                             }
                         }
+                        CarPool.players[0] = CarPool.carPool.get(sc[0]).copy();
                     }
                     if (cfase == 3 && CarDefine.lastload == 2) {
-                        GameSparker.mcars.select(CarDefine.names[sc[0]]);
+                        GameSparker.mcars.select(stat.names);
                     }
                     cars[sc[0]].z = 950;
                     cars[sc[0]].y = -34 - cars[sc[0]].grat - 1100;
@@ -2218,7 +2221,7 @@ class xtGraphics extends JPanel implements Runnable {
                     fase = -22;
                 }
                 if (sc[0] < 16 || CarDefine.lastload == 2) {
-                    GameSparker.setcarcookie(sc[0], CarDefine.names[sc[0]], arnp, gmode, unlocked);
+                    GameSparker.setcarcookie(sc[0], stat.names, arnp, gmode, unlocked);
                 }
                 if (CarDefine.haltload != 0) {
                     if (CarDefine.haltload == 2) {
@@ -2287,6 +2290,7 @@ class xtGraphics extends JPanel implements Runnable {
                 sc[0] = 15;
             }
             osc = sc[0];
+            CarPool.players[0].setCar(cars[sc[0]], new Stat(sc[0]), sc[0]);
             multion = 1;
             gmode = 0;
             if (GameSparker.mycar.isShowing()) {
@@ -4032,7 +4036,7 @@ class xtGraphics extends JPanel implements Runnable {
         }
     }
 
-    static void inishcarselect(final ContO[] cars) {
+    static void initCarSelect(final ContO[] cars) {
         nplayers = 7;
         im = 0;
         xstart[0] = 0;
@@ -4137,9 +4141,9 @@ class xtGraphics extends JPanel implements Runnable {
                             if (sc[0] > maxsl) {
                                 sc[0] = maxsl;
                             }
-                            if (Math.abs(CarDefine.cclass[sc[0]] - (ontyp - 1)) > 1) {
-                                sc[0] = minsl;
-                            }
+//                            if (Math.abs(stat.cclass - (ontyp - 1)) > 1) {
+//                                sc[0] = minsl;
+//                            }
                         }
                     }
                 }
@@ -4259,9 +4263,10 @@ class xtGraphics extends JPanel implements Runnable {
             //intertrack.loadimod(false);
             intertrack.play();
         }
+        CarPool.players[0].setCar(cars[sc[0]], new Stat(sc[0]), sc[0]);
     }
 
-    static void inishstageselect() {
+    static void initStageSelect() {
         if (CheckPoints.stage == -2 && (CarDefine.msloaded != 1 || !logged)) {
             CheckPoints.stage = (int) (ThreadLocalRandom.current().nextDouble() * nTracks) + 1;
             CheckPoints.top20 = 0;
@@ -8014,7 +8019,7 @@ class xtGraphics extends JPanel implements Runnable {
             //System.out.println("Minimum car: " + stat.names[(i - 1) / 2] + ", maximum car: " + stat.names[nplayers + ((i - 1) / 2)] + ", therefore: " + (((i - 1) / 2) - (nplayers + ((i - 1) / 2))) + " car difference");
 
             // create a list of car ids, each item completely unique
-            final ArrayList<Integer> list = new ArrayList<>();
+            final TIntArrayList list = new TIntArrayList(lastcar);
             for (int k = (i - 1) / 2; k < nplayers + (i - 1) / 2; k++) {
                 if (k == sc[0]) {
                     continue;
@@ -8023,7 +8028,7 @@ class xtGraphics extends JPanel implements Runnable {
             }
 
             // randomize the order of this list (shuffle it like a deck of cards)
-            Collections.shuffle(list);
+            list.shuffle(new Random());
 
             // which item of the list should be picked
             int k = 0;
@@ -8041,6 +8046,8 @@ class xtGraphics extends JPanel implements Runnable {
                     sc[j] -= ThreadLocalRandom.current().nextDouble() * 5F;
                 }
                 System.out.println("sc of " + j + " is " + sc[j]);
+
+                CarPool.players[j].setCar(GameSparker.carContos[sc[j]], new Stat(sc[j]), sc[j]);
             }
         }
         // this error will never be thrown in a deployment environment

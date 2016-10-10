@@ -891,78 +891,24 @@ class ContO {
         }
     }
 
-    ContO(final ContO conto78, final int toX, final int toY, final int toZ, final int i81) {
-        keyx = new int[4];
-        keyz = new int[4];
-        sprkat = 0;
-        tnt = 0;
-        ust = 0;
-        srx = 0;
-        sry = 0;
-        srz = 0;
-        rcx = 0.0F;
-        rcy = 0.0F;
-        rcz = 0.0F;
-        sprk = 0;
-        elec = false;
-        roted = false;
-        edl = new int[4];
-        edr = new int[4];
-        elc = new int[] {
-                0, 0, 0, 0
-        };
-        fix = false;
-        fcnt = 0;
-        checkpoint = 0;
-        fcol = new int[] {
-                0, 0, 0
-        };
-        scol = new int[] {
-                0, 0, 0
-        };
-        colok = 0;
-        errd = false;
-        err = "";
-        roofat = 0;
-        wh = 0;
-        npl = conto78.npl;
-        maxR = conto78.maxR;
-        disp = conto78.disp;
-        disline = conto78.disline;
-        noline = conto78.noline;
-        shadow = conto78.shadow;
-        grounded = conto78.grounded;
-        decor = conto78.decor;
+    ContO(final ContO co, final int toX, final int toY, final int toZ, final int i81) {
+        this(co);
         if (Medium.loadnew && (i81 == 90 || i81 == -90)) {
             grounded += 10000.0F;
         }
-        grat = conto78.grat;
-        sprkat = conto78.sprkat;
-        p = new Plane[conto78.npl];
-        for (int i82 = 0; i82 < npl; i82++) {
-            if (conto78.p[i82].master == 1) {
-                conto78.p[i82].n = 20;
-            }
-            p[i82] = new Plane(conto78.p[i82].ox, conto78.p[i82].oz, conto78.p[i82].oy, conto78.p[i82].n, conto78.p[i82].oc, conto78.p[i82].glass, conto78.p[i82].gr, conto78.p[i82].fs, conto78.p[i82].wx, conto78.p[i82].wy, conto78.p[i82].wz, conto78.disline, conto78.p[i82].bfase, conto78.p[i82].road, conto78.p[i82].light, conto78.p[i82].solo, conto78.p[i82].randomcolor, conto78.p[i82].randoutline, conto78.p[i82].customstroke, conto78.p[i82].strokewidth, conto78.p[i82].strokecap, conto78.p[i82].strokejoin, conto78.p[i82].strokemtlimit);
+        for (int i83 = 0; i83 < npl; i83++) {
+            p[i83].rot(p[i83].ox, p[i83].oz, 0, 0, i81, p[i83].n);
+            p[i83].loadprojf();
         }
         x = toX;
         y = toY;
         z = toZ;
-        xz = 0;
-        xy = 0;
-        zy = 0;
-        for (int i83 = 0; i83 < npl; i83++) {
-            p[i83].colnum = conto78.p[i83].colnum;
-            p[i83].master = conto78.p[i83].master;
-            p[i83].rot(p[i83].ox, p[i83].oz, 0, 0, i81, p[i83].n);
-            p[i83].loadprojf();
-        }
-        if (conto78.tnt != 0) {
-            for (int i84 = 0; i84 < conto78.tnt; i84++) {
-                Trackers.xy[Trackers.nt] = (int) (conto78.txy[i84] * Medium.cos(i81) - conto78.tzy[i84] * Medium.sin(i81));
-                Trackers.zy[Trackers.nt] = (int) (conto78.tzy[i84] * Medium.cos(i81) + conto78.txy[i84] * Medium.sin(i81));
+        if (co.tnt != 0) {
+            for (int i84 = 0; i84 < co.tnt; i84++) {
+                Trackers.xy[Trackers.nt] = (int) (co.txy[i84] * Medium.cos(i81) - co.tzy[i84] * Medium.sin(i81));
+                Trackers.zy[Trackers.nt] = (int) (co.tzy[i84] * Medium.cos(i81) + co.txy[i84] * Medium.sin(i81));
                 for (int i85 = 0; i85 < 3; i85++) {
-                    Trackers.c[Trackers.nt][i85] = (int) (conto78.tc[i84][i85] + conto78.tc[i84][i85] * (Medium.snap[i85] / 100.0F));
+                    Trackers.c[Trackers.nt][i85] = (int) (co.tc[i84][i85] + co.tc[i84][i85] * (Medium.snap[i85] / 100.0F));
                     if (Trackers.c[Trackers.nt][i85] > 255) {
                         Trackers.c[Trackers.nt][i85] = 255;
                     }
@@ -970,26 +916,26 @@ class ContO {
                         Trackers.c[Trackers.nt][i85] = 0;
                     }
                 }
-                Trackers.x[Trackers.nt] = (int) (x + conto78.tx[i84] * Medium.cos(i81) - conto78.tz[i84] * Medium.sin(i81));
-                Trackers.z[Trackers.nt] = (int) (z + conto78.tz[i84] * Medium.cos(i81) + conto78.tx[i84] * Medium.sin(i81));
-                Trackers.y[Trackers.nt] = y + conto78.ty[i84];
-                Trackers.skd[Trackers.nt] = conto78.skd[i84];
-                Trackers.dam[Trackers.nt] = conto78.dam[i84];
-                Trackers.notwall[Trackers.nt] = conto78.notwall[i84];
+                Trackers.x[Trackers.nt] = (int) (x + co.tx[i84] * Medium.cos(i81) - co.tz[i84] * Medium.sin(i81));
+                Trackers.z[Trackers.nt] = (int) (z + co.tz[i84] * Medium.cos(i81) + co.tx[i84] * Medium.sin(i81));
+                Trackers.y[Trackers.nt] = y + co.ty[i84];
+                Trackers.skd[Trackers.nt] = co.skd[i84];
+                Trackers.dam[Trackers.nt] = co.dam[i84];
+                Trackers.notwall[Trackers.nt] = co.notwall[i84];
                 Trackers.decor[Trackers.nt] = decor;
                 int i86 = Math.abs(i81);
                 if (i86 == 180) {
                     i86 = 0;
                 }
-                Trackers.radx[Trackers.nt] = (int) Math.abs(conto78.tradx[i84] * Medium.cos(i86) + conto78.tradz[i84] * Medium.sin(i86));
-                Trackers.radz[Trackers.nt] = (int) Math.abs(conto78.tradx[i84] * Medium.sin(i86) + conto78.tradz[i84] * Medium.cos(i86));
-                Trackers.rady[Trackers.nt] = conto78.trady[i84];
+                Trackers.radx[Trackers.nt] = (int) Math.abs(co.tradx[i84] * Medium.cos(i86) + co.tradz[i84] * Medium.sin(i86));
+                Trackers.radz[Trackers.nt] = (int) Math.abs(co.tradx[i84] * Medium.sin(i86) + co.tradz[i84] * Medium.cos(i86));
+                Trackers.rady[Trackers.nt] = co.trady[i84];
                 Trackers.nt++;
             }
         }
         for (int i87 = 0; i87 < 4; i87++) {
-            keyx[i87] = conto78.keyx[i87];
-            keyz[i87] = conto78.keyz[i87];
+            keyx[i87] = co.keyx[i87];
+            keyz[i87] = co.keyz[i87];
         }
         if (shadow) {
             stg = new int[20];
@@ -1021,7 +967,7 @@ class ContO {
         }
     }
 
-    ContO(final int i, final int i90, final int i91, final int i92, final int i93, final int i94) {
+    public ContO(ContO co) {
         keyx = new int[4];
         keyz = new int[4];
         sprkat = 0;
@@ -1055,9 +1001,67 @@ class ContO {
         err = "";
         roofat = 0;
         wh = 0;
-        x = i92;
-        z = i93;
-        y = i94;
+        npl = co.npl;
+        maxR = co.maxR;
+        disp = co.disp;
+        disline = co.disline;
+        noline = co.noline;
+        shadow = co.shadow;
+        grounded = co.grounded;
+        decor = co.decor;
+        grat = co.grat;
+        sprkat = co.sprkat;
+        p = new Plane[co.npl];
+        for (int i82 = 0; i82 < npl; i82++) {
+            if (co.p[i82].master == 1) {
+                co.p[i82].n = 20;
+            }
+            p[i82] = new Plane(co.p[i82].ox, co.p[i82].oz, co.p[i82].oy, co.p[i82].n, co.p[i82].oc, co.p[i82].glass, co.p[i82].gr, co.p[i82].fs, co.p[i82].wx, co.p[i82].wy, co.p[i82].wz, co.disline, co.p[i82].bfase, co.p[i82].road, co.p[i82].light, co.p[i82].solo, co.p[i82].randomcolor, co.p[i82].randoutline, co.p[i82].customstroke, co.p[i82].strokewidth, co.p[i82].strokecap, co.p[i82].strokejoin, co.p[i82].strokemtlimit);
+        }
+        xz = 0;
+        xy = 0;
+        zy = 0;
+        for (int i83 = 0; i83 < npl; i83++) {
+            p[i83].colnum = co.p[i83].colnum;
+            p[i83].master = co.p[i83].master;
+        }
+    }
+
+
+    ContO(final int i, final int i90, final int i91, final int i92, final int i93, final int i94) { // TODO are the bump piles broken?
+        keyx = new int[4];
+        keyz = new int[4];
+        sprkat = 0;
+        tnt = 0;
+        ust = 0;
+        srx = 0;
+        sry = 0;
+        srz = 0;
+        rcx = 0.0F;
+        rcy = 0.0F;
+        rcz = 0.0F;
+        sprk = 0;
+        elec = false;
+        roted = false;
+        edl = new int[4];
+        edr = new int[4];
+        elc = new int[] {
+                0, 0, 0, 0
+        };
+        fix = false;
+        fcnt = 0;
+        checkpoint = 0;
+        fcol = new int[] {
+                0, 0, 0
+        };
+        scol = new int[] {
+                0, 0, 0
+        };
+        colok = 0;
+        errd = false;
+        err = "";
+        roofat = 0;
+        wh = 0;
         xz = 0;
         xy = 0;
         zy = 0;
