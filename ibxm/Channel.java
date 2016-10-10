@@ -28,7 +28,6 @@ public class Channel {
    private int sampleFra;
    private int freq;
    private int ampl;
-   private int pann;
    private int volume;
    private int panning;
    private int fadeOutVol;
@@ -67,13 +66,11 @@ public class Channel {
    private int tremoloAdd;
    private int vibratoAdd;
    private int arpeggioAdd;
-   private int id;
    private int randomSeed;
    public int plRow;
 
    public Channel(Module module, int id, GlobalVol globalVol) {
       this.module = module;
-      this.id = id;
       this.globalVol = globalVol;
       this.panning = module.defaultPanning[id];
       this.instrument = new Instrument();
@@ -774,7 +771,6 @@ public class Channel {
       }
 
       int panRange = this.panning < 128?this.panning:255 - this.panning;
-      this.pann = this.panning + (panRange * (envPan - 32) >> 5);
    }
 
    private void trigger() {

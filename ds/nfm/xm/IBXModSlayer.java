@@ -105,9 +105,9 @@ public class IBXModSlayer extends ModuleSlayer {
       return out.toByteArray();
    }
 
-   private synchronized void seek(int pos) {
-      this.samplePos = this.ibxm.seek(pos);
-   }
+//   private synchronized void seek(int pos) {
+//      this.samplePos = this.ibxm.seek(pos);
+//   }
 
    private synchronized int getAudio(int[] mixBuf) {
       int count = this.ibxm.getAudio(mixBuf);
