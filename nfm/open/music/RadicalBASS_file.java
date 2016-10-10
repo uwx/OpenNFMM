@@ -28,8 +28,6 @@ import jouvieje.bass.BassInit;
 import jouvieje.bass.callbacks.SYNCPROC;
 import jouvieje.bass.structures.HMUSIC;
 import jouvieje.bass.structures.HSTREAM;
-import jouvieje.bass.structures.HSYNC;
-import jouvieje.bass.utils.Pointer;
 
 /**
  * RadicalBASS implementation that loads from regular files, not .zips
@@ -159,12 +157,7 @@ public class RadicalBASS_file implements RadicalMusic {
     /**
      * Looping sync
      */
-    private static final SYNCPROC loopSyncProc = new SYNCPROC() {
-        @Override
-        public void SYNCPROC(HSYNC handle, int channel, int data, Pointer user) {
-            BASS_ChannelSetPosition(channel, 0, BASS_POS_BYTE); //Go to start of file
-        }
-    };
+    private static final SYNCPROC loopSyncProc = (handle, channel, data, user) -> BASS_ChannelSetPosition(channel, 0, BASS_POS_BYTE);
 
     /**
      * Load the media file
@@ -173,8 +166,9 @@ public class RadicalBASS_file implements RadicalMusic {
         System.out.println("BASS init state: " + init);
         System.out.println("BASS loaded: " + bassLibLoaded);
 
-        if (!init)
+        if (!init) {
             return;
+        }
 
         if (bassLibLoaded) {
             /* The device has already been initialized. BASS_Free must be called before it can be initialized again. */
@@ -232,8 +226,9 @@ public class RadicalBASS_file implements RadicalMusic {
     }
 
     private void end() {
-        if (!init || deinit)
+        if (!init || deinit) {
             return;
+        }
         deinit = true;
 
         freeResources();

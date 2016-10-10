@@ -164,7 +164,7 @@ public class Medium {
     }
 
     static void adjstfade(final float f, final float f271, final int i) {
-        if (resdown != 2)
+        if (resdown != 2) {
             if (f == 5.0F) {
                 if (resdown == 0 && rescnt == 0) {
                     GameSparker.moto = 0;
@@ -185,6 +185,7 @@ public class Medium {
             } else {
                 rescnt = 10;
             }
+        }
     }
 
     static void around(final ContO conto, final boolean bool) {
@@ -643,12 +644,13 @@ public class Medium {
                             int i134 = clc[i][1][i122 / 2][0];
                             int i135 = clc[i][1][i122 / 2][1];
                             int i136 = clc[i][1][i122 / 2][2];
-                            for (int i137 = 0; i137 < 16; i137++)
+                            for (int i137 = 0; i137 < 16; i137++) {
                                 if (i133 > fade[i137]) {
                                     i134 = (i134 * fogd + cfade[0]) / (fogd + 1);
                                     i135 = (i135 * fogd + cfade[1]) / (fogd + 1);
                                     i136 = (i136 * fogd + cfade[2]) / (fogd + 1);
                                 }
+                            }
                             graphics2d.setColor(new Color(i134, i135, i136));
                             graphics2d.fillPolygon(is111, is112, 6);
                         }
@@ -729,12 +731,13 @@ public class Medium {
                             int i150 = clc[i][0][i138 / 2][0];
                             int i151 = clc[i][0][i138 / 2][1];
                             int i152 = clc[i][0][i138 / 2][2];
-                            for (int i153 = 0; i153 < 16; i153++)
+                            for (int i153 = 0; i153 < 16; i153++) {
                                 if (i149 > fade[i153]) {
                                     i150 = (i150 * fogd + cfade[0]) / (fogd + 1);
                                     i151 = (i151 * fogd + cfade[1]) / (fogd + 1);
                                     i152 = (i152 * fogd + cfade[2]) / (fogd + 1);
                                 }
+                            }
                             graphics2d.setColor(new Color(i150, i151, i152));
                             graphics2d.fillPolygon(is111, is112, 6);
                         }
@@ -779,12 +782,13 @@ public class Medium {
                         int i163 = clds[0];
                         int i164 = clds[1];
                         int i165 = clds[2];
-                        for (int i166 = 0; i166 < 16; i166++)
+                        for (int i166 = 0; i166 < 16; i166++) {
                             if (i162 > fade[i166]) {
                                 i163 = (i163 * fogd + cfade[0]) / (fogd + 1);
                                 i164 = (i164 * fogd + cfade[1]) / (fogd + 1);
                                 i165 = (i165 * fogd + cfade[2]) / (fogd + 1);
                             }
+                        }
                         graphics2d.setColor(new Color(i163, i164, i165));
                         graphics2d.fillPolygon(is111, is112, 12);
                     }
@@ -1263,7 +1267,7 @@ public class Medium {
             }
         }
         for (int i71 = i; i71 < i48; i71++) {
-            for (int i72 = i49; i72 < i50; i72++)
+            for (int i72 = i49; i72 < i50; i72++) {
                 if (is[i71 - i][i72 - i49] != 0) {
                     final int i73 = i71 + i72 * nrw;
                     final int[] is74 = new int[8];
@@ -1320,6 +1324,7 @@ public class Medium {
                         graphics2d.fillPolygon(is78, is79, 8);
                     }
                 }
+            }
         }
     }
 
@@ -1543,12 +1548,13 @@ public class Medium {
             is173[i174] = 0;
         }
         for (int i183 = 0; i183 < nmt; i183++) {
-            for (int i184 = i183 + 1; i184 < nmt; i184++)
+            for (int i184 = i183 + 1; i184 < nmt; i184++) {
                 if (is[i183] < is[i184]) {
                     is173[i183]++;
                 } else {
                     is173[i184]++;
                 }
+            }
             mrd[is173[i183]] = i183;
         }
     }
@@ -1578,7 +1584,7 @@ public class Medium {
         for (int i41 = 0; i41 < nrw * ncl; i41++) {
             cgpx[i41] = sgpx + i39 * 1200 + (int) (random.nextDouble() * 1000.0 - 500.0);
             cgpz[i41] = sgpz + i40 * 1200 + (int) (random.nextDouble() * 1000.0 - 500.0);
-            for (int i42 = 0; i42 < Trackers.nt; i42++)
+            for (int i42 = 0; i42 < Trackers.nt; i42++) {
                 if (Trackers.zy[i42] == 0 && Trackers.xy[i42] == 0) {
                     if (Trackers.radx[i42] < Trackers.radz[i42] && Math.abs(cgpz[i41] - Trackers.z[i42]) < Trackers.radz[i42]) {
                         for (/**/; Math.abs(cgpx[i41] - Trackers.x[i42]) < Trackers.radx[i42]; cgpx[i41] += random.nextDouble() * Trackers.radx[i42] * 2.0 - Trackers.radx[i42]) {
@@ -1591,6 +1597,7 @@ public class Medium {
                         }
                     }
                 }
+            }
             if (++i39 == nrw) {
                 i39 = 0;
                 i40++;
@@ -1703,7 +1710,7 @@ public class Medium {
         } else {
             cntrn--;
         }
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++) {
             if (diup[i]) {
                 rand[i]++;
                 if (rand[i] == 10) {
@@ -1715,6 +1722,7 @@ public class Medium {
                     rand[i] = 9;
                 }
             }
+        }
         trn++;
         if (trn == 3) {
             trn = 0;

@@ -217,8 +217,9 @@ public class PNGEncoder {
                 -119, 80, 78, 71, 13, 10, 26, 10
         };
 
-        if (image == null)
+        if (image == null) {
             return null;
+        }
         width = image.getWidth(null);
         height = image.getHeight(null);
 

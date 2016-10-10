@@ -231,9 +231,9 @@ public class Module {
         final int version = moduleData.uleShort(40);
         fastVolSlides = (flags & 64) == 64 || version == 4864;
         final boolean signedSamples = moduleData.uleShort(42) == 1;
-        if (moduleData.uleInt(44) != 1297236819)
+        if (moduleData.uleInt(44) != 1297236819) {
             throw new IllegalArgumentException("Not an S3M file!");
-        else {
+        } else {
             defaultGVol = moduleData.uByte(48);
             defaultSpeed = moduleData.uByte(49);
             defaultTempo = moduleData.uByte(50);
@@ -294,8 +294,9 @@ public class Module {
 
                     final boolean chanIdx1 = (moduleData.uByte(rowIdx + 31) & 2) == 2;
                     final boolean noteOffset = (moduleData.uByte(rowIdx + 31) & 4) == 4;
-                    if (noteEffect)
+                    if (noteEffect) {
                         throw new IllegalArgumentException("Packed samples not supported!");
+                    }
 
                     panFlags.c2Rate = moduleData.uleInt(rowIdx + 32);
                     if (noteOffset) {
@@ -407,9 +408,9 @@ public class Module {
     }
 
     private void loadXM(final Data moduleData) throws IOException {
-        if (moduleData.uleShort(58) != 260)
+        if (moduleData.uleShort(58) != 260) {
             throw new IllegalArgumentException("XM format version must be 0x0104!");
-        else {
+        } else {
             songName = moduleData.strCp850(17, 20);
             final boolean deltaEnv = moduleData.strLatin1(38, 20).startsWith("DigiBooster Pro");
             int dataOffset = 60 + moduleData.uleInt(60);
@@ -448,8 +449,9 @@ public class Module {
             int sampleLoopStart;
             int sampleLoopLength;
             for (insIdx = 0; insIdx < numPatterns; ++insIdx) {
-                if (moduleData.uByte(dataOffset + 4) != 0)
+                if (moduleData.uByte(dataOffset + 4) != 0) {
                     throw new IllegalArgumentException("Unknown pattern packing type!");
+                }
 
                 instrument = moduleData.uleShort(dataOffset + 5);
                 numSamples = instrument * numChannels;

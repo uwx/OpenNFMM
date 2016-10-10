@@ -111,7 +111,7 @@ class CheckPoints {
                 mads[i2].shakedam = 0;
             }
             for (int i3 = 0; i3 < i; i3++) {
-                for (int i4 = i3 + 1; i4 < i; i4++)
+                for (int i4 = i3 + 1; i4 < i; i4++) {
                     if (clear[i3] != clear[i4]) {
                         if (clear[i3] < clear[i4]) {
                             pos[i3]++;
@@ -123,25 +123,28 @@ class CheckPoints {
                         if (i5 >= n) {
                             i5 = 0;
                         }
-                        while (typ[i5] <= 0)
+                        while (typ[i5] <= 0) {
                             if (++i5 >= n) {
                                 i5 = 0;
                             }
+                        }
                         if (py(contos[i3].x / 100, x[i5] / 100, contos[i3].z / 100, z[i5] / 100) > py(contos[i4].x / 100, x[i5] / 100, contos[i4].z / 100, z[i5] / 100)) {
                             pos[i3]++;
                         } else {
                             pos[i4]++;
                         }
                     }
+                }
             }
             if (stage > 2) {
-                for (int i6 = 0; i6 < i; i6++)
-                    if (clear[i6] == nlaps * nsp && pos[i6] == 0)
+                for (int i6 = 0; i6 < i; i6++) {
+                    if (clear[i6] == nlaps * nsp && pos[i6] == 0) {
                         if (i6 == i0) {
-                            for (int i7 = 0; i7 < i; i7++)
+                            for (int i7 = 0; i7 < i; i7++) {
                                 if (pos[i7] == 1) {
                                     postwo = i7;
                                 }
+                            }
                             if (py(opx[i0] / 100, opx[postwo] / 100, opz[i0] / 100, opz[postwo] / 100) < 14000 && clear[i0] - clear[postwo] == 1) {
                                 catchfin = 30;
                             }
@@ -149,13 +152,16 @@ class CheckPoints {
                             catchfin = 30;
                             postwo = i6;
                         }
+                    }
+                }
             }
         }
         wasted = 0;
-        for (int i8 = 0; i8 < i; i8++)
+        for (int i8 = 0; i8 < i; i8++) {
             if ((i0 != i8 || i1 >= 2) && mads[i8].dest) {
                 wasted++;
             }
+        }
         if (catchfin != 0 && i1 < 2) {
             catchfin--;
             if (catchfin == 0) {

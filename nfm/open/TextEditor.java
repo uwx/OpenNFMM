@@ -164,12 +164,7 @@ class TextEditor implements ActionListener {
         final TextEditor listenerHolder = new TextEditor();
         prevButton.addActionListener(listenerHolder);
         nextButton.addActionListener(listenerHolder);
-        searchField.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                nextButton.doClick(0);
-            }
-        });
+        searchField.addActionListener(e -> nextButton.doClick(0));
         final JPanel buttonPanel = new JPanel();
         buttonpanel.add(buttonPanel);
 
@@ -271,15 +266,12 @@ class TextEditor implements ActionListener {
         textField = new JTextField();
         textField.setToolTipText("Enter to apply");
         textField.setText("24");
-        textField.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    final int fsize = Integer.parseInt(textField.getText());
-                    text.setFont(new Font("Courier New", Font.PLAIN, fsize));
-                } catch (final Exception ex) {
-                    JOptionPane.showMessageDialog(null, "Invalid number " + textField.getText());
-                }
+        textField.addActionListener(e -> {
+            try {
+                final int fsize = Integer.parseInt(textField.getText());
+                text.setFont(new Font("Courier New", Font.PLAIN, fsize));
+            } catch (final Exception ex) {
+                JOptionPane.showMessageDialog(null, "Invalid number " + textField.getText());
             }
         });
         textField.setColumns(3);
@@ -292,12 +284,7 @@ class TextEditor implements ActionListener {
         panel_2.setLayout(new BoxLayout(panel_2, BoxLayout.X_AXIS));
 
         kSet = new JButton("Kaff's Settings");
-        kSet.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-                SRCStageMaker.kSettings = !SRCStageMaker.kSettings;
-            }
-        });
+        kSet.addActionListener(arg0 -> SRCStageMaker.kSettings = !SRCStageMaker.kSettings);
         panel_2.add(kSet);
 
         mnTools = new JMenu("Tools");
@@ -380,8 +367,9 @@ class TextEditor implements ActionListener {
             // Create an object defining our search parameters.
             final SearchContext context = new SearchContext();
             final String text = searchField.getText();
-            if (text.length() == 0)
+            if (text.length() == 0) {
                 return;
+            }
             context.setSearchFor(text);
             context.setMatchCase(matchCaseCB.isSelected());
             context.setRegularExpression(regexCB.isSelected());
@@ -406,8 +394,9 @@ class TextEditor implements ActionListener {
             final BufferedReader reader = new BufferedReader(new StringReader(btext.getText()));
             String benis2 = reader.readLine();
             while (benis2 != null) {
-                if (benis2.startsWith(s))
+                if (benis2.startsWith(s)) {
                     return getvalue(s, benis2, 0);
+                }
                 benis2 = reader.readLine();
             }
 

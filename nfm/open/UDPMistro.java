@@ -125,16 +125,18 @@ class UDPMistro implements Runnable {
         if (go && force[i] == 1 && !isbot[i]) {
             int i37 = -2;
             if (i37 == -2) {
-                for (int i38 = 0; i38 < 3; i38++)
+                for (int i38 = 0; i38 < 3; i38++) {
                     if (frame[i][i38] == lframe[i] + 1) {
                         i37 = -1;
                     }
+                }
             }
             if (i37 == -1) {
-                for (int i39 = 0; i39 < 3; i39++)
+                for (int i39 = 0; i39 < 3; i39++) {
                     if (frame[i][i39] == lframe[i]) {
                         i37 = i39;
                     }
+                }
             }
             if (i37 > 0) {
                 final String string = info[i][i37];
@@ -167,7 +169,7 @@ class UDPMistro implements Runnable {
             freg += 0.05;
             int i29 = -1;
             if (i29 == -1) {
-                for (int i30 = 0; i30 < 3; i30++)
+                for (int i30 = 0; i30 < 3; i30++) {
                     if (frame[i][i30] == lframe[i] + 1) {
                         i29 = i30;
                         if (i30 == 1) {
@@ -177,22 +179,25 @@ class UDPMistro implements Runnable {
                             freg -= 0.15;
                         }
                     }
+                }
             }
             if (i29 == -1) {
                 int i31 = 0;
-                for (int i32 = 0; i32 < 3; i32++)
+                for (int i32 = 0; i32 < 3; i32++) {
                     if (frame[i][i32] > lframe[i] + 1) {
                         i31++;
                     }
+                }
                 if (i31 == 3) {
                     i29 = 2;
                 }
             }
             if (i29 == -1 && force[i] == 1) {
-                for (int i33 = 0; i33 < 3; i33++)
+                for (int i33 = 0; i33 < 3; i33++) {
                     if (frame[i][i33] >= lframe[i]) {
                         i29 = i33;
                     }
+                }
                 if (i29 == -1) {
                     freg += 0.2;
                 }
@@ -333,7 +338,7 @@ class UDPMistro implements Runnable {
                 }
             }
             if (diled == 10) {
-                for (int i18 = 0; i18 < 20; i18++)
+                for (int i18 = 0; i18 < 20; i18++) {
                     if (udpc[i18].started) {
                         final Date date = new Date();
                         final long l = date.getTime() - udpc[i18].sendat;
@@ -341,6 +346,7 @@ class UDPMistro implements Runnable {
                             udpc[i18].stomp();
                         }
                     }
+                }
             }
             if (diledelay > 0) {
                 diledelay--;
@@ -368,7 +374,7 @@ class UDPMistro implements Runnable {
                 if (!bool && out[i21] == 77) {
                     out[i21] = 0;
                 }
-                if (out[i21] < 76)
+                if (out[i21] < 76) {
                     if (frame[i21][0] > 6) {
                         if (lcframe[i21] != frame[i21][0] && !bool) {
                             lcframe[i21] = frame[i21][0];
@@ -392,6 +398,7 @@ class UDPMistro implements Runnable {
                             frame[i21][0] = 7;
                         }
                     }
+                }
             }
             if (i20 == 10) {
                 final String string = "3|" + pgame + "|alive|";
@@ -456,10 +463,11 @@ class UDPMistro implements Runnable {
         int i23 = 0;
         while (runon == 2) {
             int i24 = 0;
-            for (int i25 = 0; i25 < 20; i25++)
+            for (int i25 = 0; i25 < 20; i25++) {
                 if (!udpc[i25].started) {
                     i24++;
                 }
+            }
             if (i24 != 20) {
                 i23++;
             }

@@ -175,12 +175,13 @@ public final class VectorUtil {
      */
     public static int ccw(final int ax, final int ay, final int bx, final int by, final int cx, final int cy) {
         final int area2 = (bx - ax) * (cy - ay) - (by - ay) * (cx - ax);
-        if (area2 < 0)
+        if (area2 < 0) {
             return -1;
-        else if (area2 > 0)
+        } else if (area2 > 0) {
             return +1;
-        else
+        } else {
             return 0;
+        }
     }
 
     /**
@@ -220,14 +221,18 @@ public final class VectorUtil {
      * @return the value <tt>0</tt> if this string is equal to the argument string (precisely when <tt>equals()</tt> returns <tt>true</tt>); a negative integer if this point is less than the argument point; and a positive integer if this point is greater than the argument point
      */
     public static int compare(final int x, final int y, final int thatx, final int thaty) {
-        if (y < thaty)
+        if (y < thaty) {
             return -1;
-        if (y > thaty)
+        }
+        if (y > thaty) {
             return +1;
-        if (x < thatx)
+        }
+        if (x < thatx) {
             return -1;
-        if (x > thatx)
+        }
+        if (x > thatx) {
             return +1;
+        }
         return 0;
     }
 

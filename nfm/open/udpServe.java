@@ -96,12 +96,13 @@ class udpServe implements Runnable {
                 if (i == im && im < um.nplayers && um.out[i] != 76) {
                     final int i1 = getvalue(string, 2);
                     int i2 = 0;
-                    for (int i3 = 0; i3 < 3; i3++)
+                    for (int i3 = 0; i3 < 3; i3++) {
                         if (i1 != um.frame[i][i3]) {
                             i2++;
                         }
+                    }
                     if (i2 == 3) {
-                        for (int i4 = 0; i4 < 3; i4++)
+                        for (int i4 = 0; i4 < 3; i4++) {
                             if (i1 > um.frame[i][i4]) {
                                 for (int i5 = 2; i5 >= i4 + 1; i5--) {
                                     um.frame[i][i5] = um.frame[i][i5 - 1];
@@ -111,13 +112,15 @@ class udpServe implements Runnable {
                                 um.info[i][i4] = getSvalue(string, 3);
                                 i4 = 3;
                             }
+                        }
                     }
                     if (um.gocnt[i] != 0) {
                         int i6 = 0;
-                        for (int i7 = 0; i7 < um.nplayers; i7++)
+                        for (int i7 = 0; i7 < um.nplayers; i7++) {
                             if (um.frame[i7][0] >= 0) {
                                 i6++;
                             }
+                        }
                         if (i6 == um.nplayers) {
                             string0 = "1111111";
                             um.gocnt[i]--;
@@ -125,10 +128,11 @@ class udpServe implements Runnable {
                     }
                     if (!um.go) {
                         int i8 = 0;
-                        for (int i9 = 0; i9 < um.nplayers; i9++)
+                        for (int i9 = 0; i9 < um.nplayers; i9++) {
                             if (um.frame[i9][0] >= 0) {
                                 i8++;
                             }
+                        }
                         if (i8 == um.nplayers) {
                             um.gocnt[0]--;
                         }
@@ -139,18 +143,20 @@ class udpServe implements Runnable {
                 }
                 final InetAddress inetaddress = datagrampacket.getAddress();
                 final int i10 = datagrampacket.getPort();
-                for (int i11 = 0; i11 < um.nplayers; i11++)
+                for (int i11 = 0; i11 < um.nplayers; i11++) {
                     if (i11 != im) {
                         int i12 = -1;
-                        for (int i13 = 0; i13 < 3; i13++)
+                        for (int i13 = 0; i13 < 3; i13++) {
                             if (um.frame[i11][i13] == lsframe[i11] + 1) {
                                 i12 = i13;
                             }
+                        }
                         if (i12 == -1) {
-                            for (int i14 = 0; i14 < 3; i14++)
+                            for (int i14 = 0; i14 < 3; i14++) {
                                 if (um.frame[i11][i14] > lsframe[i11]) {
                                     i12 = i14;
                                 }
+                            }
                         }
                         if (i12 == -1) {
                             i12 = 0;
@@ -161,6 +167,7 @@ class udpServe implements Runnable {
                         final DatagramPacket datagrampacket17 = new DatagramPacket(is16, is16.length, inetaddress, i10);
                         dSocket.send(datagrampacket17);
                     }
+                }
             }
         } catch (final Exception ignored) {
 

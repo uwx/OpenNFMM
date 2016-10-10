@@ -234,7 +234,7 @@ public class Smenu {
                             scro = -(int) (scra * ((float) i14 / (float) i13));
                         }
                     }
-                    for (int i15 = 0; i15 < no; i15++)
+                    for (int i15 = 0; i15 < no; i15++) {
                         if (Math.abs(scro) < (i15 + 1) * (ftm.getHeight() + 2)) {
                             graphics2d.setColor(fcol);
                             if (_mousex > x && _mousex < x + w && _mousey > y + 25 + scro + i15 * (ftm.getHeight() + 2) && _mousey < y + 25 + scro + (i15 + 1) * (ftm.getHeight() + 2)) {
@@ -262,6 +262,7 @@ public class Smenu {
                             }
                             graphics2d.drawString(sopts[i15], x + 4, y + 38 + scro + i15 * (ftm.getHeight() + 2));
                         }
+                    }
                     if (i12 != 0) {
                         graphics2d.setColor(new Color((fcol.getRed() + bcol.getRed()) / 2, (fcol.getGreen() + bcol.getGreen()) / 2, (fcol.getBlue() + bcol.getBlue()) / 2));
                         graphics2d.drawLine(x, i5 - 1, x + w, i5 - 1);
@@ -312,7 +313,7 @@ public class Smenu {
                             scro = (int) (scra * ((float) i18 / (float) i17));
                         }
                     }
-                    for (int i19 = 0; i19 < no; i19++)
+                    for (int i19 = 0; i19 < no; i19++) {
                         if (Math.abs(scro) < (i19 + 1) * (ftm.getHeight() + 2)) {
                             graphics2d.setColor(fcol);
                             if (_mousex > x && _mousex < x + w && _mousey < y - 18 + scro - (i19 - 1) * (ftm.getHeight() + 2) && _mousey > y - 18 + scro - i19 * (ftm.getHeight() + 2)) {
@@ -330,6 +331,7 @@ public class Smenu {
                             }
                             graphics2d.drawString(sopts[i19], x + 4, y - 5 + scro - i19 * (ftm.getHeight() + 2));
                         }
+                    }
                     if (i16 != 0) {
                         graphics2d.setColor(new Color((fcol.getRed() + bcol.getRed()) / 2, (fcol.getGreen() + bcol.getGreen()) / 2, (fcol.getBlue() + bcol.getBlue()) / 2));
                         graphics2d.drawLine(x, 0, x + w, 0);
@@ -396,13 +398,14 @@ public class Smenu {
             if (dis) {
                 graphics2d.setColor(new Color((fcol.getRed() + bcol.getRed() * 2) / 3, (fcol.getGreen() + bcol.getGreen() * 2) / 3, (fcol.getBlue() + bcol.getBlue() * 2) / 3));
             }
-            if (carsel && !bool10)
+            if (carsel && !bool10) {
                 if (flksel) {
                     graphics2d.setColor(new Color(240, 240, 240));
                     flksel = false;
                 } else {
                     flksel = true;
                 }
+            }
             graphics2d.drawString(sopts[sel], x + 4, y + ftm.getHeight() + 2);
             if (alphad) {
                 graphics2d.setComposite(AlphaComposite.getInstance(3, 1.0F));
@@ -451,15 +454,18 @@ public class Smenu {
      * @return the item
      */
     public String getItem(final int i) {
-        if (i >= 0 && i < no)
+        if (i >= 0 && i < no) {
             return opts[i];
+        }
         return "";
     }
 
     public int getIndex(final String string) {
-        for (int i = 0; i < no; i++)
-            if (opts[i].equals(string))
+        for (int i = 0; i < no; i++) {
+            if (opts[i].equals(string)) {
                 return i;
+            }
+        }
         return -1;
     }
 
@@ -554,16 +560,18 @@ public class Smenu {
      * @param string the string
      */
     public void remove(final String string) {
-        for (int i = 0; i < no; i++)
+        for (int i = 0; i < no; i++) {
             if (opts[i].equals(string)) {
-                for (int i1 = i; i1 < no; i1++)
+                for (int i1 = i; i1 < no; i1++) {
                     if (i1 != no - 1) {
                         opts[i1] = opts[i1 + 1];
                         sopts[i1] = sopts[i1 + 1];
                     }
+                }
                 no--;
                 break;
             }
+        }
     }
 
     /**
@@ -592,11 +600,12 @@ public class Smenu {
      * @param string the string
      */
     public void select(final String string) {
-        for (int i = 0; i < no; i++)
+        for (int i = 0; i < no; i++) {
             if (opts[i].equals(string)) {
                 sel = i;
                 break;
             }
+        }
     }
 
     /**
@@ -605,8 +614,9 @@ public class Smenu {
      * @param color the new background
      */
     public void setBackground(final Color color) {
-        if (color == null)
+        if (color == null) {
             throw new IllegalArgumentException("background can't be null");
+        }
         bcol = color;
     }
 
@@ -623,8 +633,9 @@ public class Smenu {
      * @param color the new foreground
      */
     public void setForeground(final Color color) {
-        if (color == null)
+        if (color == null) {
             throw new IllegalArgumentException("foreground can't be null");
+        }
         fcol = color;
     }
 

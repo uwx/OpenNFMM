@@ -49,8 +49,9 @@ public class IBXM {
     public void setSampleRate(final int rate) {
         if (rate >= 8000 && rate <= 128000) {
             sampleRate = rate;
-        } else
+        } else {
             throw new IllegalArgumentException("Unsupported sampling rate!");
+        }
     }
 
     public void setInterpolation(final int interpolation) {
@@ -133,8 +134,9 @@ public class IBXM {
         }
 
         do {
-            if (seqPos >= sequencePos && row >= sequenceRow)
+            if (seqPos >= sequencePos && row >= sequenceRow) {
                 return;
+            }
 
             final int tickLen = calculateTickLen(tempo, sampleRate);
 

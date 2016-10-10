@@ -246,8 +246,9 @@ public class Mod extends Module {
         datainputstream.readFully(abyte0, 0, i);
 
         for (int j = i - 1; j >= 0; --j) {
-            if (abyte0[j] != 0)
+            if (abyte0[j] != 0) {
                 return new String(abyte0, 0, j + 1);
+            }
         }
 
         return "";

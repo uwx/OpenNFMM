@@ -17,8 +17,9 @@ public class StringUtil {
         int index = 0, count = 0;
         while (true) {
             index = str.indexOf(find, index); // not +=
-            if (index == -1)
+            if (index == -1) {
                 return count;
+            }
             index += find.length();
             count++;
         }

@@ -45,12 +45,15 @@ public class GradientUtil {
                     final float weight = value / max;
 
                     color = blend(colorRange[0], colorRange[1], 1f - weight);
-                } else
+                } else {
                     throw new IllegalArgumentException("Fractions and colours must have equal number of elements");
-            } else
+                }
+            } else {
                 throw new IllegalArgumentException("Colours can't be null");
-        } else
+            }
+        } else {
             throw new IllegalArgumentException("Fractions can't be null");
+        }
         return color;
     }
 

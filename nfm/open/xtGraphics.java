@@ -638,7 +638,7 @@ class xtGraphics extends JPanel implements Runnable {
             if (multion == 0 || alocked == -1) {
                 int i227 = -1;
                 boolean bool228 = false;
-                for (int i229 = 0; i229 < nplayers; i229++)
+                for (int i229 = 0; i229 < nplayers; i229++) {
                     if (i229 != im && (py(CheckPoints.opx[im] / 100, CheckPoints.opx[i229] / 100, CheckPoints.opz[im] / 100, CheckPoints.opz[i229] / 100) < i227 || i227 == -1) && (!bool228 || CheckPoints.onscreen[i229] != 0) && CheckPoints.dested[i229] == 0) {
                         i226 = i229;
                         i227 = py(CheckPoints.opx[im] / 100, CheckPoints.opx[i229] / 100, CheckPoints.opz[im] / 100, CheckPoints.opz[i229] / 100);
@@ -646,6 +646,7 @@ class xtGraphics extends JPanel implements Runnable {
                             bool228 = true;
                         }
                     }
+                }
             } else {
                 i226 = alocked;
             }
@@ -887,10 +888,11 @@ class xtGraphics extends JPanel implements Runnable {
 
         }
         final Color color = new Color(247, 255, 165);
-        for (int i341 = 0; i341 < i340 * i; i341++)
+        for (int i341 = 0; i341 < i340 * i; i341++) {
             if (is[i341] != is[i340 * i - 1]) {
                 is[i341] = color.getRGB();
             }
+        }
         return xt.createImage(new MemoryImageSource(i340, i, is, 0, i340));
     }
 
@@ -1033,7 +1035,7 @@ class xtGraphics extends JPanel implements Runnable {
                 cars[sc[0]].xy = 0;
             }
             boolean bool107 = false;
-            for (int i108 = 0; i108 < cars[sc[0]].npl && !bool107; i108++)
+            for (int i108 = 0; i108 < cars[sc[0]].npl && !bool107; i108++) {
                 if (cars[sc[0]].p[i108].colnum == 1) {
                     final float[] fs = new float[3];
                     Color.RGBtoHSB(cars[sc[0]].p[i108].c[0], cars[sc[0]].p[i108].c[1], cars[sc[0]].p[i108].c[2], fs);
@@ -1042,8 +1044,9 @@ class xtGraphics extends JPanel implements Runnable {
                     arnp[2] = 1.0F - fs[2];
                     bool107 = true;
                 }
+            }
             bool107 = false;
-            for (int i109 = 0; i109 < cars[sc[0]].npl && !bool107; i109++)
+            for (int i109 = 0; i109 < cars[sc[0]].npl && !bool107; i109++) {
                 if (cars[sc[0]].p[i109].colnum == 2) {
                     final float[] fs = new float[3];
                     Color.RGBtoHSB(cars[sc[0]].p[i109].c[0], cars[sc[0]].p[i109].c[1], cars[sc[0]].p[i109].c[2], fs);
@@ -1052,6 +1055,7 @@ class xtGraphics extends JPanel implements Runnable {
                     arnp[5] = 1.0F - fs[2];
                     bool107 = true;
                 }
+            }
             final Color color = Color.getHSBColor(arnp[0], arnp[1], 1.0F - arnp[2]);
             final Color color110 = Color.getHSBColor(arnp[3], arnp[4], 1.0F - arnp[5]);
             for (int i111 = 0; i111 < cars[sc[0]].npl; i111++) {
@@ -1095,10 +1099,11 @@ class xtGraphics extends JPanel implements Runnable {
                     GameSparker.mcars.move(400 - GameSparker.mcars.w / 2, 78);
                     GameSparker.mcars.show = true;
                     if (!GameSparker.mcars.getSelectedItem().equals(CarDefine.names[sc[0]])) {
-                        for (int i116 = 16; i116 < CarDefine.nlocars; i116++)
+                        for (int i116 = 16; i116 < CarDefine.nlocars; i116++) {
                             if (CarDefine.names[i116].equals(GameSparker.mcars.getSelectedItem())) {
                                 i112 = i116;
                             }
+                        }
                         if (i112 == -1) {
                             cfase = 5;
                             CarDefine.action = 4;
@@ -1174,7 +1179,7 @@ class xtGraphics extends JPanel implements Runnable {
                 }
                 for (int i118 = 0; i118 < 9; i118++) {
                     rd.drawImage(pgate, pgatx[i118], pgaty[i118] + pgady[i118] - gatey, null);
-                    if (flatrstart == 6)
+                    if (flatrstart == 6) {
                         if (pgas[i118]) {
                             pgady[i118] -= (80 + 100 / (i118 + 1) - Math.abs(pgady[i118])) / 3;
                             if (pgady[i118] < -(70 + 100 / (i118 + 1))) {
@@ -1189,6 +1194,7 @@ class xtGraphics extends JPanel implements Runnable {
                                 pgady[i118] = 0;
                             }
                         }
+                    }
                 }
                 if (gatey != 0) {
                     gatey -= 100;
@@ -3075,7 +3081,7 @@ class xtGraphics extends JPanel implements Runnable {
                 flang = 1;
             }
             for (int i = 0; i < 466; i++) {
-                for (int i407 = 0; i407 < 202; i407++)
+                for (int i407 = 0; i407 < 202; i407++) {
                     if (smokey[i + i407 * 466] != smokey[0]) {
                         final float f = pys(i, 233, i407, flyr);
                         final int i408 = (int) ((i - 233) / f * flatr);
@@ -3112,6 +3118,7 @@ class xtGraphics extends JPanel implements Runnable {
                             flexpix[i410] = color418.getRGB();
                         }
                     }
+                }
             }
             flang += 2;
             flatr += 10 + flatrstart * 2;
@@ -3145,13 +3152,14 @@ class xtGraphics extends JPanel implements Runnable {
             i210 = (int) (244.0F - 233.0F * ((i208 - 33) / 65.0F));
         }
         if (i208 > 70) {
-            if (dmcnt < 10)
+            if (dmcnt < 10) {
                 if (dmflk) {
                     i210 = 170;
                     dmflk = false;
                 } else {
                     dmflk = true;
                 }
+            }
             dmcnt++;
             if (dmcnt > 167.0 - i208 * 1.5) {
                 dmcnt = 0;
@@ -3509,7 +3517,7 @@ class xtGraphics extends JPanel implements Runnable {
                 } else {
                     drawcs(310, "Public Stage", 41, 177, 255, 3);
                 }
-                if (dnload == 0 && drawcarb(true, null, " Add to My Stages ", 334, 317, i, i141, bool))
+                if (dnload == 0 && drawcarb(true, null, " Add to My Stages ", 334, 317, i, i141, bool)) {
                     if (logged) {
                         CarDefine.onstage = CheckPoints.name;
                         CarDefine.staction = 2;
@@ -3519,6 +3527,7 @@ class xtGraphics extends JPanel implements Runnable {
                         dnload = 1;
                         waitlink = 20;
                     }
+                }
                 if (dnload == 1) {
                     rd.setColor(new Color(193, 106, 0));
                     final String string148 = "Upgrade to a full account to add custom stages!";
@@ -3755,7 +3764,7 @@ class xtGraphics extends JPanel implements Runnable {
     }
 
     static void gscrape(final int i, final int i269, final int i270) {
-        if ((bfsc1 == 0 || bfsc2 == 0) && Math.sqrt(i * i + i269 * i269 + i270 * i270) / 10.0 > 15.0)
+        if ((bfsc1 == 0 || bfsc2 == 0) && Math.sqrt(i * i + i269 * i269 + i270 * i270) / 10.0 > 15.0) {
             if (bfsc1 == 0) {
                 if (!mutes) {
                     scrape[2].stop();
@@ -3771,6 +3780,7 @@ class xtGraphics extends JPanel implements Runnable {
                 bfsc2 = 12;
                 bfsc1 = 6;
             }
+        }
     }
 
     static private void hidos() {
@@ -3785,10 +3795,11 @@ class xtGraphics extends JPanel implements Runnable {
                 Medium.snap[0], Medium.snap[1], Medium.snap[2]
         };
         while (is[0] + is[1] + is[2] < -30) {
-            for (int i45 = 0; i45 < 3; i45++)
+            for (int i45 = 0; i45 < 3; i45++) {
                 if (is[i45] < 50) {
                     is[i45]++;
                 }
+            }
         }
         int i46 = (int) (230.0F - 230.0F * (is[0] / 100.0F));
         if (i46 > 255) {
@@ -4008,12 +4019,13 @@ class xtGraphics extends JPanel implements Runnable {
             rd.setComposite(AlphaComposite.getInstance(3, 0.5F));
             rd.drawImage(star[pstar], 359, 385 + i49, null);
             rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
-            if (pstar != 2)
+            if (pstar != 2) {
                 if (pstar == 0) {
                     pstar = 1;
                 } else {
                     pstar = 0;
                 }
+            }
             if (multion != 0) {
                 drawcs(380 + i49, "" + forstart / 20, 0, 0, 0, 3);
             }
@@ -4074,12 +4086,13 @@ class xtGraphics extends JPanel implements Runnable {
                     }
                 }
             }
-            if (cfase == 11 || cfase == 101)
+            if (cfase == 11 || cfase == 101) {
                 if (sc[0] >= 16 && CarDefine.lastload == 2 && sc[0] < 36) {
                     cfase = 3;
                 } else {
                     cfase = 0;
                 }
+            }
             if (cfase == 3) {
                 if (multion != 0 && CarDefine.lastload == 1) {
                     sc[0] = nCars - 1;
@@ -4104,7 +4117,7 @@ class xtGraphics extends JPanel implements Runnable {
                     }
                     if (onjoin != -1 && multion != 0 && ontyp > 0 && ontyp <= 5) {
                         boolean bool = false;
-                        for (int i = nCars; i < CarDefine.nlocars; i++)
+                        for (int i = nCars; i < CarDefine.nlocars; i++) {
                             if (Math.abs(CarDefine.cclass[i] - (ontyp - 1)) <= 1) {
                                 if (!bool) {
                                     minsl = i;
@@ -4114,6 +4127,7 @@ class xtGraphics extends JPanel implements Runnable {
                                     maxsl = i;
                                 }
                             }
+                        }
                         if (!bool) {
                             onjoin = -1;
                         } else {
@@ -4198,7 +4212,7 @@ class xtGraphics extends JPanel implements Runnable {
             for (int i100 = 0; i100 < i; i100++) {
                 final float[] fs = new float[3];
                 Color.RGBtoHSB(cars[i100].fcol[0], cars[i100].fcol[1], cars[i100].fcol[2], fs);
-                for (int i101 = 0; i101 < cars[i100].npl; i101++)
+                for (int i101 = 0; i101 < cars[i100].npl; i101++) {
                     if (cars[i100].p[i101].colnum == 1) {
                         cars[i100].p[i101].hsb[0] = fs[0];
                         cars[i100].p[i101].hsb[1] = fs[1];
@@ -4207,8 +4221,9 @@ class xtGraphics extends JPanel implements Runnable {
                         cars[i100].p[i101].oc[1] = cars[i100].fcol[1];
                         cars[i100].p[i101].oc[2] = cars[i100].fcol[2];
                     }
+                }
                 Color.RGBtoHSB(cars[i100].scol[0], cars[i100].scol[1], cars[i100].scol[2], fs);
-                for (int i102 = 0; i102 < cars[i100].npl; i102++)
+                for (int i102 = 0; i102 < cars[i100].npl; i102++) {
                     if (cars[i100].p[i102].colnum == 2) {
                         cars[i100].p[i102].hsb[0] = fs[0];
                         cars[i100].p[i102].hsb[1] = fs[1];
@@ -4217,6 +4232,7 @@ class xtGraphics extends JPanel implements Runnable {
                         cars[i100].p[i102].oc[1] = cars[i100].scol[1];
                         cars[i100].p[i102].oc[2] = cars[i100].scol[2];
                     }
+                }
                 cars[i100].xy = 0;
             }
             for (int i103 = 0; i103 < 6; i103++) {
@@ -4255,10 +4271,11 @@ class xtGraphics extends JPanel implements Runnable {
         }
         if (CheckPoints.stage == -2) {
             boolean bool = false;
-            for (int i = 1; i < GameSparker.mstgs.getItemCount(); i++)
+            for (int i = 1; i < GameSparker.mstgs.getItemCount(); i++) {
                 if (GameSparker.mstgs.getItem(i).equals(CheckPoints.name)) {
                     bool = true;
                 }
+            }
             if (!bool) {
                 CheckPoints.stage = (int) (ThreadLocalRandom.current().nextDouble() * nTracks) + 1;
             }
@@ -4271,12 +4288,13 @@ class xtGraphics extends JPanel implements Runnable {
         	if (checkpoints.stage == 11)
         		checkpoints.stage = 27;
         }*/
-        if (gmode == 2)
+        if (gmode == 2) {
             if (unlocked != nTracks || justwon2) {
                 CheckPoints.stage = unlocked/* + 10*/;
             } else if (winner/* || checkpoints.stage < 11*/) {
                 CheckPoints.stage = (int) (ThreadLocalRandom.current().nextDouble() * nTracks) + 1;
             }
+        }
         GameSparker.sgame.setBackground(new Color(0, 0, 0));
         GameSparker.sgame.setForeground(new Color(47, 179, 255));
         //app.snfm1.setBackground(new Color(0, 0, 0));
@@ -4358,12 +4376,13 @@ class xtGraphics extends JPanel implements Runnable {
         aflk = !aflk;
         if (flipo != 1 && flipo != 16) {
             if (dudo > 0) {
-                if (aflk)
+                if (aflk) {
                     if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                         duds = (int) (ThreadLocalRandom.current().nextDouble() * 3.0);
                     } else {
                         duds = (int) (ThreadLocalRandom.current().nextDouble() * 2.0);
                     }
+                }
                 dudo--;
             } else {
                 duds = 0;
@@ -4619,7 +4638,7 @@ class xtGraphics extends JPanel implements Runnable {
         int i95 = 16;
         int i96 = 48;
         int i97 = 96;
-        if (i93 < 50)
+        if (i93 < 50) {
             if (aflk) {
                 i95 = 106;
                 i96 = 176;
@@ -4628,6 +4647,7 @@ class xtGraphics extends JPanel implements Runnable {
             } else {
                 aflk = true;
             }
+        }
         if (i != im) {
             if (i92 == 0) {
                 drawcs(60, "You Wasted 'em!", i95, i96, i97, 0);
@@ -4667,7 +4687,7 @@ class xtGraphics extends JPanel implements Runnable {
         } catch (final InterruptedException ignored) {
 
         }
-        for (int i371 = 0; i371 < i369 * i368; i371++)
+        for (int i371 = 0; i371 < i369 * i368; i371++) {
             if (is370[i371] != is370[0] || i != 0) {
                 final Color color = new Color(is370[i371]);
                 final float[] fs = new float[3];
@@ -4681,6 +4701,7 @@ class xtGraphics extends JPanel implements Runnable {
                 final Color color372 = Color.getHSBColor(fs[0], fs[1], fs[2]);
                 is370[i371] = color372.getRGB();
             }
+        }
         if (i == 2) {
             Color color = new Color(is370[0]);
             final int i373 = 0x40000000 | color.getRed() << 16 | color.getGreen() << 8 | color.getBlue();
@@ -5278,12 +5299,13 @@ class xtGraphics extends JPanel implements Runnable {
                 Medium.snap[0], Medium.snap[1], Medium.snap[2]
         };
         while (is327[0] + is327[1] + is327[2] < -30) {
-            for (int i328 = 0; i328 < 3; i328++)
+            for (int i328 = 0; i328 < 3; i328++) {
                 if (is327[i328] < 50) {
                     is327[i328]++;
                 }
+            }
         }
-        for (int i329 = 0; i329 < i325 * i324; i329++)
+        for (int i329 = 0; i329 < i325 * i324; i329++) {
             if (is[i329] != is[i323]) {
                 final Color color = new Color(is[i329]);
                 int i332;
@@ -5342,6 +5364,7 @@ class xtGraphics extends JPanel implements Runnable {
                 final Color color335 = new Color(i332, i333, i334);
                 is[i329] = color335.getRGB();
             }
+        }
         return xt.createImage(new MemoryImageSource(i325, i324, is, 0, i325));
     }
 
@@ -5414,38 +5437,45 @@ class xtGraphics extends JPanel implements Runnable {
                     i0 += i1;
                 }
                 for (int i2 = 0; i2 < 5; i2++) {
-                    for (int i3 = 0; i3 < 5; i3++)
+                    for (int i3 = 0; i3 < 5; i3++) {
                         if (string.equals("" + i3 + "" + i2 + ".wav")) {
                             engs[i3][i2] = new SoundClip(is);
                         }
+                    }
                 }
-                for (int i4 = 0; i4 < 6; i4++)
+                for (int i4 = 0; i4 < 6; i4++) {
                     if (string.equals("air" + i4 + ".wav")) {
                         air[i4] = new SoundClip(is);
                     }
-                for (int i5 = 0; i5 < 3; i5++)
+                }
+                for (int i5 = 0; i5 < 3; i5++) {
                     if (string.equals("crash" + (i5 + 1) + ".wav")) {
                         crash[i5] = new SoundClip(is);
                     }
-                for (int i6 = 0; i6 < 3; i6++)
+                }
+                for (int i6 = 0; i6 < 3; i6++) {
                     if (string.equals("lowcrash" + (i6 + 1) + ".wav")) {
                         lowcrash[i6] = new SoundClip(is);
                     }
-                for (int i7 = 0; i7 < 3; i7++)
+                }
+                for (int i7 = 0; i7 < 3; i7++) {
                     if (string.equals("skid" + (i7 + 1) + ".wav")) {
                         skid[i7] = new SoundClip(is);
                     }
-                for (int i8 = 0; i8 < 3; i8++)
+                }
+                for (int i8 = 0; i8 < 3; i8++) {
                     if (string.equals("dustskid" + (i8 + 1) + ".wav")) {
                         dustskid[i8] = new SoundClip(is);
                     }
-                for (int i9 = 0; i9 < 3; i9++)
+                }
+                for (int i9 = 0; i9 < 3; i9++) {
                     if (string.equals("scrape" + (i9 + 1) + ".wav")) {
                         scrape[i9] = new SoundClip(is);
                         if (i9 == 2) {
                             scrape[3] = new SoundClip(is);
                         }
                     }
+                }
                 if (string.equals("powerup.wav")) {
                     powerup = new SoundClip(is);
                 }
@@ -5626,13 +5656,14 @@ class xtGraphics extends JPanel implements Runnable {
             rd.setColor(new Color(i33, i34, i35));
             i26 = 2;
         }
-        if (i != -101)
+        if (i != -101) {
             if (i == 4) {
                 rd.setColor(new Color(216, 177, 100));
                 rd.fillRect(65, 0, 670, 425);
             } else {
                 rd.fillRect(65, 25, 670, 400);
             }
+        }
         if (i == 4) {
             if (i != lmode) {
                 bgmy[0] = 0;
@@ -5834,19 +5865,20 @@ class xtGraphics extends JPanel implements Runnable {
             if (opselect == 3) {
                 fase = 8;
             }
-            if (opselect == 0)
+            if (opselect == 0) {
                 /*if (unlocked[0] == 11)
                 	if (unlocked[1] != 17)
                 		opselect = 1;
                 	else
                 		opselect = 2;*/
                 if (firstime) {
-                oldfase = 102;
-                fase = 11;
-                firstime = false;
+                    oldfase = 102;
+                    fase = 11;
+                    firstime = false;
                 } else {
-                fase = 102;
+                    fase = 102;
                 }
+            }
             flipo = 0;
             control.enter = false;
             control.handb = false;
@@ -5991,10 +6023,11 @@ class xtGraphics extends JPanel implements Runnable {
                 "bich", " ass", "bastard", "cunt", "dildo", "fag", "homo", "mothaf", "motherf", "negro", "nigga",
                 "nigger", "pussy", "gay", "homo", "you punk", "i will kill you"
         };
-        for (final String string2 : strings)
+        for (final String string2 : strings) {
             if (string.contains(string2)) {
                 bool = true;
             }
+        }
         if (string.startsWith("ass ")) {
             bool = true;
         }
@@ -6012,7 +6045,7 @@ class xtGraphics extends JPanel implements Runnable {
         int i = 0;
         boolean bool421 = false;
         boolean bool422;
-        for (bool422 = false; i < string.length() && !bool422; i++)
+        for (bool422 = false; i < string.length() && !bool422; i++) {
             if (!bool421) {
                 string419 = "" + string419 + "" + string.charAt(i);
                 bool421 = true;
@@ -6023,17 +6056,19 @@ class xtGraphics extends JPanel implements Runnable {
                 }
                 string420 = "" + string.charAt(i);
             }
+        }
         if (!bool422) {
-            for (final String string2 : strings)
+            for (final String string2 : strings) {
                 if (string419.contains(string2)) {
                     bool = true;
                 }
+            }
         }
         string419 = "";
         string420 = "";
         i = 0;
         bool421 = true;
-        for (bool422 = false; i < string.length() && !bool422; i++)
+        for (bool422 = false; i < string.length() && !bool422; i++) {
             if (!bool421) {
                 string419 = "" + string419 + "" + string.charAt(i);
                 bool421 = true;
@@ -6044,17 +6079,19 @@ class xtGraphics extends JPanel implements Runnable {
                 }
                 string420 = "" + string.charAt(i);
             }
+        }
         if (!bool422) {
-            for (final String string2 : strings)
+            for (final String string2 : strings) {
                 if (string419.contains(string2)) {
                     bool = true;
                 }
+            }
         }
         string419 = "";
         string420 = "";
         i = 0;
         int i425 = 0;
-        for (bool422 = false; i < string.length() && !bool422; i++)
+        for (bool422 = false; i < string.length() && !bool422; i++) {
             if (i425 == 0) {
                 string419 = "" + string419 + "" + string.charAt(i);
                 i425 = 2;
@@ -6065,17 +6102,19 @@ class xtGraphics extends JPanel implements Runnable {
                 }
                 string420 = "" + string.charAt(i);
             }
+        }
         if (!bool422) {
-            for (final String string2 : strings)
+            for (final String string2 : strings) {
                 if (string419.contains(string2)) {
                     bool = true;
                 }
+            }
         }
         string419 = "";
         string420 = "";
         i = 0;
         i425 = 1;
-        for (bool422 = false; i < string.length() && !bool422; i++)
+        for (bool422 = false; i < string.length() && !bool422; i++) {
             if (i425 == 0) {
                 string419 = "" + string419 + "" + string.charAt(i);
                 i425 = 2;
@@ -6086,17 +6125,19 @@ class xtGraphics extends JPanel implements Runnable {
                 }
                 string420 = "" + string.charAt(i);
             }
+        }
         if (!bool422) {
-            for (final String string2 : strings)
+            for (final String string2 : strings) {
                 if (string419.contains(string2)) {
                     bool = true;
                 }
+            }
         }
         string419 = "";
         string420 = "";
         i = 0;
         i425 = 2;
-        for (bool422 = false; i < string.length() && !bool422; i++)
+        for (bool422 = false; i < string.length() && !bool422; i++) {
             if (i425 == 0) {
                 string419 = "" + string419 + "" + string.charAt(i);
                 i425 = 2;
@@ -6107,11 +6148,13 @@ class xtGraphics extends JPanel implements Runnable {
                 }
                 string420 = "" + string.charAt(i);
             }
+        }
         if (!bool422) {
-            for (final String string2 : strings)
+            for (final String string2 : strings) {
                 if (string419.contains(string2)) {
                     bool = true;
                 }
+            }
         }
         return bool;
     }
@@ -6121,7 +6164,7 @@ class xtGraphics extends JPanel implements Runnable {
         if (fase != -2) {
             if (exitm != 0 && !holdit) {
                 if (!lan || im != 0) {
-                    if (bool)
+                    if (bool) {
                         if (i > 357 && i < 396 && i53 > 162 && i53 < 179) {
                             exitm = 2;
                             if (multion == 1 && !lan && sendstat == 0) {
@@ -6138,6 +6181,7 @@ class xtGraphics extends JPanel implements Runnable {
                         } else {
                             exitm = 0;
                         }
+                    }
                     final float[] fs = new float[3];
                     Color.RGBtoHSB(Medium.cgrnd[0], Medium.cgrnd[1], Medium.cgrnd[2], fs);
                     fs[1] -= 0.15;
@@ -6407,7 +6451,7 @@ class xtGraphics extends JPanel implements Runnable {
                             }
                             if (floater[i57] != 0) {
                                 for (int i67 = 6; i67 >= 0; i67--) {
-                                    if (pointc[i57] == i67)
+                                    if (pointc[i57] == i67) {
                                         if (Math.abs(i64 + movepos[i57]) > 10) {
                                             floater[i57] = (movepos[i57] + i64) / 4;
                                             if (floater[i57] > -5 && floater[i57] < 0) {
@@ -6421,6 +6465,7 @@ class xtGraphics extends JPanel implements Runnable {
                                             movepos[i57] = -i64;
                                             floater[i57] = 0;
                                         }
+                                    }
                                     if (pointc[i57] >= i67) {
                                         rd.setColor(new Color(0, i65, i66));
                                         rd.setFont(new Font("Tahoma", 1, 11));
@@ -6580,7 +6625,7 @@ class xtGraphics extends JPanel implements Runnable {
                 if (multion >= 2) {
                     if (alocked == -1 || holdit) {
                         if (cntflock == 100) {
-                            for (int i71 = 0; i71 < nplayers; i71++)
+                            for (int i71 = 0; i71 < nplayers; i71++) {
                                 if (holdit) {
                                     if (CheckPoints.pos[i71] == 0) {
                                         alocked = i71;
@@ -6590,6 +6635,7 @@ class xtGraphics extends JPanel implements Runnable {
                                     alocked = i71;
                                     im = i71;
                                 }
+                            }
                         }
                         cntflock++;
                     } else {
@@ -6597,10 +6643,11 @@ class xtGraphics extends JPanel implements Runnable {
                     }
                     if (lan) {
                         boolean bool72 = true;
-                        for (int i73 = 0; i73 < nplayers; i73++)
+                        for (int i73 = 0; i73 < nplayers; i73++) {
                             if (dested[i73] == 0 && !plnames[i73].contains("MadBot")) {
                                 bool72 = false;
                             }
+                        }
                         if (bool72) {
                             exitm = 2;
                         }
@@ -6609,7 +6656,7 @@ class xtGraphics extends JPanel implements Runnable {
                 final int i74 = nplayers;
                 for (int i75 = 0; i75 < i74; i75++) {
                     boolean bool76 = false;
-                    for (int i77 = 0; i77 < nplayers; i77++)
+                    for (int i77 = 0; i77 < nplayers; i77++) {
                         if (CheckPoints.pos[i77] == i75 && CheckPoints.dested[i77] == 0 && !bool76) {
                             int i81 = (int) (100.0F + 100.0F * (Medium.snap[2] / 100.0F));
                             if (i81 > 255) {
@@ -6705,7 +6752,7 @@ class xtGraphics extends JPanel implements Runnable {
                             if ((im != i77 || multion >= 2) && i > 661 && i < 775 && i53 > 58 + 30 * i75 && i53 < 83 + 30 * i75) {
                                 bool87 = true;
                                 if (bool) {
-                                    if (!onlock)
+                                    if (!onlock) {
                                         if (alocked != i77 || multion >= 2) {
                                             alocked = i77;
                                             if (multion >= 2) {
@@ -6714,6 +6761,7 @@ class xtGraphics extends JPanel implements Runnable {
                                         } else {
                                             alocked = -1;
                                         }
+                                    }
                                     onlock = true;
                                 } else if (onlock) {
                                     onlock = false;
@@ -6796,12 +6844,13 @@ class xtGraphics extends JPanel implements Runnable {
                             }
                             bool76 = true;
                         }
+                    }
                 }
             }
             if (udpmistro.go && udpmistro.runon == 1 && !holdit) {
                 int i88 = 0;
                 int i89 = 0;
-                for (int i90 = 0; i90 < nplayers; i90++)
+                for (int i90 = 0; i90 < nplayers; i90++) {
                     if (i90 != udpmistro.im) {
                         i89++;
                         if (udpmistro.lframe[i90] == udpmistro.lcframe[i90] || udpmistro.force[i90] == 7) {
@@ -6810,6 +6859,7 @@ class xtGraphics extends JPanel implements Runnable {
                             udpmistro.lcframe[i90] = udpmistro.lframe[i90];
                         }
                     }
+                }
                 if (i88 == i89) {
                     discon++;
                 } else if (discon != 0) {
@@ -7010,7 +7060,7 @@ class xtGraphics extends JPanel implements Runnable {
                 }
                 fase = 0;
             }
-            if (opselect == 1)
+            if (opselect == 1) {
                 if (Record.caught >= 300) {
                     if (loadedt && !mutem) {
                         strack.setPaused(false);
@@ -7019,6 +7069,7 @@ class xtGraphics extends JPanel implements Runnable {
                 } else {
                     fase = -8;
                 }
+            }
             if (opselect == 2) {
                 if (loadedt) {
                     strack.setPaused(true);
@@ -7287,10 +7338,11 @@ class xtGraphics extends JPanel implements Runnable {
         } catch (final InterruptedException ignored) {
 
         }
-        for (int i338 = 0; i338 < i337 * i; i338++)
+        for (int i338 = 0; i338 < i337 * i; i338++) {
             if (is[i338] != is[i337 * i - 1]) {
                 is[i338] = -16777216;
             }
+        }
         return xt.createImage(new MemoryImageSource(i337, i, is, 0, i337));
     }
 
@@ -7404,7 +7456,7 @@ class xtGraphics extends JPanel implements Runnable {
             if (i247 < 0) {
                 i247 = 0;
             }
-            for (int i248 = 0; i248 < nplayers; i248++)
+            for (int i248 = 0; i248 < nplayers; i248++) {
                 if (i248 != im && CheckPoints.dested[i248] == 0) {
                     if (clangame != 0) {
                         if (pclan[i248].equalsIgnoreCase(gaclan)) {
@@ -7450,6 +7502,7 @@ class xtGraphics extends JPanel implements Runnable {
                     rd.setColor(new Color(i, i246, i247));
                     rd.fillRect(is[i248] - 1, is245[i248] - 1, 3, 3);
                 }
+            }
         }
         int i = (int) (159.0F + 159.0F * (Medium.snap[0] / 100.0F));
         if (i > 255) {
@@ -7742,12 +7795,13 @@ class xtGraphics extends JPanel implements Runnable {
                                 sentn[i16][i18] = getSvalue(string14, i);
                                 i++;
                             }
-                            if (cnames[i16][6].equals(""))
+                            if (cnames[i16][6].equals("")) {
                                 if (i16 == 0) {
                                     cnames[i16][6] = "Game Chat  ";
                                 } else {
                                     cnames[i16][6] = "" + clan + "'s Chat  ";
                                 }
+                            }
                             if (updatec[i16] != -2) {
                                 floater[i16] = 1;
                                 if (bools[i16]) {
@@ -7841,11 +7895,12 @@ class xtGraphics extends JPanel implements Runnable {
     }
 
     static void setbots(final boolean[] bools) {
-        for (int i = 0; i < nplayers; i++)
+        for (int i = 0; i < nplayers; i++) {
             if (plnames[i].contains("MadBot")) {
                 bools[i] = true;
                 isbot[i] = true;
             }
+        }
     }
 
     static void skid(final int i, final float f) {
@@ -7899,7 +7954,7 @@ class xtGraphics extends JPanel implements Runnable {
         } catch (final InterruptedException ignored) {
 
         }
-        for (int i = 0; i < 94132; i++)
+        for (int i = 0; i < 94132; i++) {
             if (smokey[i] != smokey[0]) {
                 final Color color = new Color(smokey[i]);
                 final float[] fs = new float[3];
@@ -7909,6 +7964,7 @@ class xtGraphics extends JPanel implements Runnable {
                 final Color color385 = Color.getHSBColor(fs[0], fs[1], fs[2]);
                 smokey[i] = color385.getRGB();
             }
+        }
     }
 
     static void snap(final int i) {
@@ -7990,22 +8046,24 @@ class xtGraphics extends JPanel implements Runnable {
         // this error will never be thrown in a deployment environment
         // it is only here for extra safety
         for (int j = 0; j < nplayers; j++) {
-            if (sc[j] > nCars)
+            if (sc[j] > nCars) {
                 throw new Error("there are too many tracks and not enough cars");
+            }
         }
     }
 
     static private void sparkeng(int i, final int i263) {
         if (lcn != i263) {
-            for (int i264 = 0; i264 < 5; i264++)
+            for (int i264 = 0; i264 < 5; i264++) {
                 if (pengs[i264]) {
                     engs[CarDefine.enginsignature[lcn]][i264].stop();
                     pengs[i264] = false;
                 }
+            }
             lcn = i263;
         }
         i++;
-        for (int i265 = 0; i265 < 5; i265++)
+        for (int i265 = 0; i265 < 5; i265++) {
             if (i == i265) {
                 if (!pengs[i265]) {
                     engs[CarDefine.enginsignature[i263]][i265].loop();
@@ -8015,6 +8073,7 @@ class xtGraphics extends JPanel implements Runnable {
                 engs[CarDefine.enginsignature[i263]][i265].stop();
                 pengs[i265] = false;
             }
+        }
     }
 
     static void stageselect(final Control control, final int i, final int i39, final boolean bool) {
@@ -8067,12 +8126,13 @@ class xtGraphics extends JPanel implements Runnable {
                     if (CarDefine.reco == 3) {
                         acexp = -1;
                     }
-                    if (CarDefine.reco == 111)
+                    if (CarDefine.reco == 111) {
                         if (!backlog.equalsIgnoreCase(nickname)) {
                             acexp = -3;
                         } else {
                             acexp = 0;
                         }
+                    }
                 }
                 if (nfmtab == 2 && CarDefine.staction == 0 && removeds == 1) {
                     CheckPoints.stage = -3;
@@ -8090,7 +8150,7 @@ class xtGraphics extends JPanel implements Runnable {
                 //	i42 = 400 - (app.sgame.getWidth() + 6 + app.snfm2.getWidth()) / 2;
                 if (GameSparker.sgame.getSelectedIndex() == 2) {
                     GameSparker.mstgs.setSize(338);
-                    if (bool40)
+                    if (bool40) {
                         if (logged) {
                             if (CarDefine.msloaded != 1) {
                                 GameSparker.mstgs.removeAll();
@@ -8110,6 +8170,7 @@ class xtGraphics extends JPanel implements Runnable {
                             cntflock = 0;
                             CarDefine.reco = -2;
                         }
+                    }
                     i42 = 400 - (GameSparker.sgame.getWidth() + 6 + GameSparker.mstgs.getWidth()) / 2;
                 }
                 if (GameSparker.sgame.getSelectedIndex() == 3) {
@@ -8189,7 +8250,7 @@ class xtGraphics extends JPanel implements Runnable {
                 }*/
                 rd.setFont(new Font("Arial", 1, 13));
                 ftm = rd.getFontMetrics();
-                if (CarDefine.staction == 0 || CarDefine.staction == 6)
+                if (CarDefine.staction == 0 || CarDefine.staction == 6) {
                     if (CheckPoints.stage != -3) {
                         String string = "";
                         if (CheckPoints.top20 >= 3) {
@@ -8241,14 +8302,16 @@ class xtGraphics extends JPanel implements Runnable {
                             //	app.snfm2.select(1 + (int) (ThreadLocalRandom.current().nextDouble() * 17.0));
                         }
                     }
+                }
                 if (CarDefine.staction == 3) {
                     drawdprom(145, 170);
-                    if (CarDefine.reco == -2)
+                    if (CarDefine.reco == -2) {
                         if (lfrom == 0) {
                             drawcs(171, "Login to Retrieve your Account Stages", 0, 0, 0, 3);
                         } else {
                             drawcs(171, "Login to add this stage to your account.", 0, 0, 0, 3);
                         }
+                    }
                     if (CarDefine.reco == -1) {
                         drawcs(171, "Unable to connect to server, try again later!", 0, 8, 0, 3);
                     }
@@ -8404,7 +8467,7 @@ class xtGraphics extends JPanel implements Runnable {
                 if (CheckPoints.top20 >= 3 && CarDefine.staction != 3 && CarDefine.staction != 4) {
                     rd.setFont(new Font("Arial", 1, 11));
                     ftm = rd.getFontMetrics();
-                    if (dnload == 0 && drawcarb(true, null, " Add to My Stages ", 334, 355, i, i39, bool))
+                    if (dnload == 0 && drawcarb(true, null, " Add to My Stages ", 334, 355, i, i39, bool)) {
                         if (logged) {
                             CarDefine.onstage = CheckPoints.name;
                             CarDefine.staction = 2;
@@ -8418,6 +8481,7 @@ class xtGraphics extends JPanel implements Runnable {
                             cntflock = 0;
                             CarDefine.reco = -2;
                         }
+                    }
                     if (dnload == 2) {
                         drawcs(370, "Adding stage please wait...", 193, 106, 0, 3);
                         if (CarDefine.staction == 0) {
@@ -8632,13 +8696,14 @@ class xtGraphics extends JPanel implements Runnable {
     static void stat(final Mad mad, final ContO conto, final Control control, final boolean bool) {
         if (holdit) {
             int i = 250;
-            if (fase == 7001)
+            if (fase == 7001) {
                 if (exitm != 4) {
                     exitm = 0;
                     i = 600;
                 } else {
                     i = 1200;
                 }
+            }
             if (exitm != 4 || !lan || im != 0) {
                 holdcnt++;
                 if ((control.enter || holdcnt > i) && (control.chatup == 0 || fase != 7001)) {
@@ -8658,12 +8723,13 @@ class xtGraphics extends JPanel implements Runnable {
                         strack.setPaused(true);
                     }
                     fase = -6;
-                } else if (starcnt == 0 && control.chatup == 0 && (multion < 2 || !lan))
+                } else if (starcnt == 0 && control.chatup == 0 && (multion < 2 || !lan)) {
                     if (exitm == 0) {
                         exitm = 1;
                     } else {
                         exitm = 0;
                     }
+                }
                 if (control.chatup == 0 || fase != 7001) {
                     control.enter = false;
                 }
@@ -8684,24 +8750,27 @@ class xtGraphics extends JPanel implements Runnable {
             String string185 = "";
             if (clangame != 0 && (!mad.dest || multion >= 2)) {
                 bool184 = true;
-                for (int i = 0; i < nplayers; i++)
-                    if (CheckPoints.dested[i] == 0)
+                for (int i = 0; i < nplayers; i++) {
+                    if (CheckPoints.dested[i] == 0) {
                         if (string.equals("")) {
                             string = pclan[i];
                         } else if (!string.equalsIgnoreCase(pclan[i])) {
                             bool184 = false;
                             break;
                         }
+                    }
+                }
             }
             if (clangame > 1) {
                 boolean bool186 = false;
                 String string187 = "";
                 if (bool184) {
-                    for (int i = 0; i < nplayers; i++)
+                    for (int i = 0; i < nplayers; i++) {
                         if (!string.equalsIgnoreCase(pclan[i])) {
                             string185 = pclan[i];
                             break;
                         }
+                    }
                     if (clangame == 2) {
                         bool186 = true;
                         string187 = "Clan " + string185 + " wasted, nobody won becuase this is a racing only game!";
@@ -8715,7 +8784,7 @@ class xtGraphics extends JPanel implements Runnable {
                         string187 = "Clan " + string185 + " wasted, nobody won becuase " + string + " should have raced in this racing vs wasting game!";
                     }
                 }
-                for (int i = 0; i < nplayers; i++)
+                for (int i = 0; i < nplayers; i++) {
                     if (CheckPoints.clear[i] == CheckPoints.nlaps * CheckPoints.nsp && CheckPoints.pos[i] == 0) {
                         if (clangame == 3) {
                             bool186 = true;
@@ -8730,6 +8799,7 @@ class xtGraphics extends JPanel implements Runnable {
                             string187 = "" + plnames[i] + " of clan " + pclan[i] + " finished first, nobody won becuase " + pclan[i] + " should have wasted in this racing vs wasting game!";
                         }
                     }
+                }
                 if (bool186) {
                     drawhi(gamefinished, 70);
                     if (aflk) {
@@ -8778,10 +8848,11 @@ class xtGraphics extends JPanel implements Runnable {
                     boolean bool188 = false;
                     if (lan) {
                         bool188 = true;
-                        for (int i = 0; i < nplayers; i++)
+                        for (int i = 0; i < nplayers; i++) {
                             if (i != im && dested[i] == 0 && !plnames[i].contains("MadBot")) {
                                 bool188 = false;
                             }
+                        }
                     }
                     if (fase == 7001 && nplayers - (CheckPoints.wasted + 1) >= 2 && discon != 240 && !bool188) {
                         exitm = 4;
@@ -8795,7 +8866,7 @@ class xtGraphics extends JPanel implements Runnable {
                     winner = false;
                 }
                 if (!holdit) {
-                    for (int i = 0; i < nplayers; i++)
+                    for (int i = 0; i < nplayers; i++) {
                         if (CheckPoints.clear[i] == CheckPoints.nlaps * CheckPoints.nsp && CheckPoints.pos[i] == 0) {
                             // it is stopped later on
                             if (clangame == 0) {
@@ -8853,15 +8924,17 @@ class xtGraphics extends JPanel implements Runnable {
                             CheckPoints.haltall = true;
                             holdit = true;
                         }
+                    }
                 }
             } else {
                 if (!holdit && (CheckPoints.wasted >= nplayers - 1 || bool184)) {
                     String string189 = "Someone";
                     if (!bool184) {
-                        for (int i = 0; i < nplayers; i++)
+                        for (int i = 0; i < nplayers; i++) {
                             if (CheckPoints.dested[i] == 0) {
                                 string189 = plnames[i];
                             }
+                        }
                     } else {
                         string189 = "Clan " + string + "";
                     }
@@ -8879,7 +8952,7 @@ class xtGraphics extends JPanel implements Runnable {
                     winner = false;
                 }
                 if (!holdit) {
-                    for (int i = 0; i < nplayers; i++)
+                    for (int i = 0; i < nplayers; i++) {
                         if (CheckPoints.clear[i] == CheckPoints.nlaps * CheckPoints.nsp && CheckPoints.pos[i] == 0) {
                             drawhi(gamefinished, 70);
                             if (clangame == 0) {
@@ -8902,6 +8975,7 @@ class xtGraphics extends JPanel implements Runnable {
                             holdit = true;
                             winner = false;
                         }
+                    }
                 }
                 if (!holdit && discon == 240) {
                     drawhi(gamefinished, 70);
@@ -8958,14 +9032,15 @@ class xtGraphics extends JPanel implements Runnable {
                 if (!holdit && fase != -6 && starcnt == 0 && multion < 2 && CheckPoints.stage != 10) {
                     arrow(mad.point, mad.missedcp, arrace);
                     if (!arrace) {
-                        if (auscnt == 45 && mad.capcnt == 0 && exitm == 0)
+                        if (auscnt == 45 && mad.capcnt == 0 && exitm == 0) {
                             if (mad.missedcp > 0) {
-                                if (mad.missedcp > 15 && mad.missedcp < 50)
+                                if (mad.missedcp > 15 && mad.missedcp < 50) {
                                     if (flk) {
                                         drawcs(70, "Checkpoint Missed!", 255, 0, 0, 0);
                                     } else {
                                         drawcs(70, "Checkpoint Missed!", 255, 150, 0, 2);
                                     }
+                                }
                                 mad.missedcp++;
                                 if (mad.missedcp == 70) {
                                     mad.missedcp = -2;
@@ -8988,6 +9063,7 @@ class xtGraphics extends JPanel implements Runnable {
                                     }
                                 }
                             }
+                        }
                     } else if (alocked != lalocked) {
                         if (alocked != -1) {
                             wasay = true;
@@ -9093,7 +9169,7 @@ class xtGraphics extends JPanel implements Runnable {
                 if (mad.power < 45.0F) {
                     if (tcnt == 30 && auscnt == 45 && mad.mtouch && mad.capcnt == 0 && exitm == 0) {
                         if (looped != 2) {
-                            if (pwcnt < 70 || pwcnt < 100 && looped != 0)
+                            if (pwcnt < 70 || pwcnt < 100 && looped != 0) {
                                 if (pwflk) {
                                     drawcs(110, "Power low, perform stunt!", 0, 0, 200, 0);
                                     pwflk = false;
@@ -9101,6 +9177,7 @@ class xtGraphics extends JPanel implements Runnable {
                                     drawcs(110, "Power low, perform stunt!", 255, 100, 0, 0);
                                     pwflk = true;
                                 }
+                            }
                         } else if (pwcnt < 100) {
                             String string192 = "";
                             if (multion == 0) {
@@ -9130,7 +9207,7 @@ class xtGraphics extends JPanel implements Runnable {
                 }
                 if (mad.capcnt == 0) {
                     if (tcnt < 30) {
-                        if (exitm == 0)
+                        if (exitm == 0) {
                             if (tflk) {
                                 if (!wasay) {
                                     drawcs(105, say, 0, 0, 0, 0);
@@ -9146,12 +9223,13 @@ class xtGraphics extends JPanel implements Runnable {
                                 }
                                 tflk = true;
                             }
+                        }
                         tcnt++;
                     } else if (wasay) {
                         wasay = false;
                     }
                     if (auscnt < 45) {
-                        if (exitm == 0)
+                        if (exitm == 0) {
                             if (aflk) {
                                 drawcs(85, asay, 98, 176, 255, 0);
                                 aflk = false;
@@ -9159,9 +9237,10 @@ class xtGraphics extends JPanel implements Runnable {
                                 drawcs(85, asay, 0, 128, 255, 0);
                                 aflk = true;
                             }
+                        }
                         auscnt++;
                     }
-                } else if (exitm == 0)
+                } else if (exitm == 0) {
                     if (tflk) {
                         drawcs(110, "Bad Landing!", 0, 0, 200, 0);
                         tflk = false;
@@ -9169,6 +9248,7 @@ class xtGraphics extends JPanel implements Runnable {
                         drawcs(110, "Bad Landing!", 255, 100, 0, 0);
                         tflk = true;
                     }
+                }
                 if (mad.trcnt == 10) {
                     loop = "";
                     spin = "";
@@ -9206,12 +9286,13 @@ class xtGraphics extends JPanel implements Runnable {
                     if (i <= -4) {
                         loop = "massive Back looping";
                     }
-                    if (i == 0)
+                    if (i == 0) {
                         if (mad.ftab && mad.btab) {
                             loop = "Tabletop and reversed Tabletop";
                         } else if (mad.ftab || mad.btab) {
                             loop = "Tabletop";
                         }
+                    }
                     if (i > 0 && mad.btab) {
                         loop = "Hanged " + loop;
                     }
@@ -9227,12 +9308,13 @@ class xtGraphics extends JPanel implements Runnable {
                         mad.travxy -= 360;
                         i++;
                     }
-                    if (i == 0 && mad.rtab)
+                    if (i == 0 && mad.rtab) {
                         if (Objects.equals(loop, "")) {
                             spin = "Tabletop";
                         } else {
                             spin = "Flipside";
                         }
+                    }
                     if (i == 1) {
                         spin = "Rollspin";
                     }
@@ -9263,23 +9345,25 @@ class xtGraphics extends JPanel implements Runnable {
                                 asay = asay + " and beyond";
                             }
                         } else {
-                            if (!Objects.equals(spin, ""))
+                            if (!Objects.equals(spin, "")) {
                                 if (Objects.equals(loop, "")) {
                                     asay = asay + " " + spin;
                                 } else {
                                     asay = asay + " with " + spin;
                                 }
+                            }
                             asay = asay + " by " + i;
                             if (bool194) {
                                 asay = asay + " and beyond";
                             }
                         }
-                    } else if (!Objects.equals(spin, ""))
+                    } else if (!Objects.equals(spin, "")) {
                         if (Objects.equals(loop, "")) {
                             asay = asay + " " + spin;
                         } else {
                             asay = asay + " by " + spin;
                         }
+                    }
                     if (!Objects.equals(asay, "")) {
                         auscnt -= 15;
                     }
@@ -9335,7 +9419,7 @@ class xtGraphics extends JPanel implements Runnable {
                     }
                     crashup = !crashup;
                 }
-                for (int i = 0; i < nplayers; i++)
+                for (int i = 0; i < nplayers; i++) {
                     if (dested[i] != CheckPoints.dested[i] && i != im) {
                         dested[i] = CheckPoints.dested[i];
                         if (fase != 7001) {
@@ -9371,6 +9455,7 @@ class xtGraphics extends JPanel implements Runnable {
                             }
                         }
                     }
+                }
                 if (multion >= 2 && alocked != lalocked) {
                     if (alocked != -1) {
                         wasay = false;

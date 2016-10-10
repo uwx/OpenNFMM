@@ -901,9 +901,9 @@ public class Channel {
     }
 
     public static int keyToPeriod(final int key, final int fineTune, final boolean linear) {
-        if (linear)
+        if (linear) {
             return 7744 - (key << 6) - (fineTune >> 1);
-        else {
+        } else {
             final int tone = (key << 6) + (fineTune >> 1);
             final int i = (tone >> 3) % 96;
             final int c = periodTable[i] * 2;

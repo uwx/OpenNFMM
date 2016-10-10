@@ -247,7 +247,7 @@ public class Madness extends Panel {
         final float f = (float) defdisp.getWidth() / (float) defdisp.getHeight();
         float f2 = -1.0F;
         int i3 = 0;
-        for (int i4 = 0; i4 < displaymodes.length; i4++)
+        for (int i4 = 0; i4 < displaymodes.length; i4++) {
             if (displaymodes[i4].getWidth() >= 800 && displaymodes[i4].getBitDepth() >= 16 && i3 < 100) {
                 if (displaymodes[i4].getWidth() < 900) {
                     float f5 = (float) displaymodes[i4].getWidth() / (float) displaymodes[i4].getHeight();
@@ -261,6 +261,7 @@ public class Madness extends Panel {
                 is[i3] = i4;
                 i3++;
             }
+        }
         if (f2 != -1.0F) {
             strings[i] = strings[i] + "     <  Recommended";
         }
@@ -295,12 +296,13 @@ public class Madness extends Panel {
         final Object object = JOptionPane.showInputDialog(null, "Choose a screen resolution setting below and click OK to try it.\nExit Fullscreen by pressing [Esc].\n\nIMPORTANT: If the game does not display properly in Fullscreen press [Esc]      \nand try a different resolution setting below,", "Fullscreen Options", 1, null, strings10, strings10[i]);
         int i13 = -1;
         if (object != null) {
-            for (int i14 = 0; i14 < i3; i14++)
+            for (int i14 = 0; i14 < i3; i14++) {
                 if (object.equals(strings10[i14])) {
                     i13 = is[i14];
                     i = i14;
                     break;
                 }
+            }
         }
         if (i13 != -1) {
             try {
@@ -380,7 +382,7 @@ public class Madness extends Panel {
                 fpath = "" + fpath + " " + string;
             }
         }
-        if (!fpath.equals(""))
+        if (!fpath.equals("")) {
             if (fpath.equals("manar")) {
                 fpath = "";
                 try {
@@ -400,6 +402,7 @@ public class Madness extends Panel {
                     fpath = "";
                 }
             }
+        }
     }
 
     static void openurl(final String string) {

@@ -140,12 +140,13 @@ public final class HPoint extends Point2D implements Comparable<HPoint>, Seriali
      */
     public static int ccw(final HPoint a, final HPoint b, final HPoint c) {
         final int area2 = (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
-        if (area2 < 0)
+        if (area2 < 0) {
             return -1;
-        else if (area2 > 0)
+        } else if (area2 > 0) {
             return +1;
-        else
+        } else {
             return 0;
+        }
     }
 
     /**
@@ -192,14 +193,18 @@ public final class HPoint extends Point2D implements Comparable<HPoint>, Seriali
      */
     @Override
     public int compareTo(final HPoint that) {
-        if (y < that.y)
+        if (y < that.y) {
             return -1;
-        if (y > that.y)
+        }
+        if (y > that.y) {
             return +1;
-        if (x < that.x)
+        }
+        if (x < that.x) {
             return -1;
-        if (x > that.x)
+        }
+        if (x > that.x) {
             return +1;
+        }
         return 0;
     }
 
@@ -234,10 +239,12 @@ public final class HPoint extends Point2D implements Comparable<HPoint>, Seriali
     private static class XOrder implements Comparator<HPoint> {
         @Override
         public int compare(final HPoint p, final HPoint q) {
-            if (p.x < q.x)
+            if (p.x < q.x) {
                 return -1;
-            if (p.x > q.x)
+            }
+            if (p.x > q.x) {
                 return +1;
+            }
             return 0;
         }
     }
@@ -246,10 +253,12 @@ public final class HPoint extends Point2D implements Comparable<HPoint>, Seriali
     private static class YOrder implements Comparator<HPoint> {
         @Override
         public int compare(final HPoint p, final HPoint q) {
-            if (p.y < q.y)
+            if (p.y < q.y) {
                 return -1;
-            if (p.y > q.y)
+            }
+            if (p.y > q.y) {
                 return +1;
+            }
             return 0;
         }
     }
@@ -259,10 +268,12 @@ public final class HPoint extends Point2D implements Comparable<HPoint>, Seriali
         @Override
         public int compare(final HPoint p, final HPoint q) {
             final int delta = p.x * p.x + p.y * p.y - (q.x * q.x + q.y * q.y);
-            if (delta < 0)
+            if (delta < 0) {
                 return -1;
-            if (delta > 0)
+            }
+            if (delta > 0) {
                 return +1;
+            }
             return 0;
         }
     }
@@ -273,12 +284,13 @@ public final class HPoint extends Point2D implements Comparable<HPoint>, Seriali
         public int compare(final HPoint q1, final HPoint q2) {
             final float angle1 = angleTo(q1);
             final float angle2 = angleTo(q2);
-            if (angle1 < angle2)
+            if (angle1 < angle2) {
                 return -1;
-            else if (angle1 > angle2)
+            } else if (angle1 > angle2) {
                 return +1;
-            else
+            } else {
                 return 0;
+            }
         }
     }
 
@@ -291,19 +303,21 @@ public final class HPoint extends Point2D implements Comparable<HPoint>, Seriali
             final int dx2 = q2.x - x;
             final int dy2 = q2.y - y;
 
-            if (dy1 >= 0 && dy2 < 0)
+            if (dy1 >= 0 && dy2 < 0) {
                 return -1; // q1 above; q2 below
-            else if (dy2 >= 0 && dy1 < 0)
+            } else if (dy2 >= 0 && dy1 < 0) {
                 return +1; // q1 below; q2 above
-            else if (dy1 == 0 && dy2 == 0) { // 3-collinear and horizontal
-                if (dx1 >= 0 && dx2 < 0)
+            } else if (dy1 == 0 && dy2 == 0) { // 3-collinear and horizontal
+                if (dx1 >= 0 && dx2 < 0) {
                     return -1;
-                else if (dx2 >= 0 && dx1 < 0)
+                } else if (dx2 >= 0 && dx1 < 0) {
                     return +1;
-                else
+                } else {
                     return 0;
-            } else
+                }
+            } else {
                 return -ccw(HPoint.this, q1, q2); // both above or below
+            }
 
             // Note: ccw() recomputes dx1, dy1, dx2, and dy2
         }
@@ -315,12 +329,13 @@ public final class HPoint extends Point2D implements Comparable<HPoint>, Seriali
         public int compare(final HPoint p, final HPoint q) {
             final int dist1 = distanceSquaredTo(p);
             final int dist2 = distanceSquaredTo(q);
-            if (dist1 < dist2)
+            if (dist1 < dist2) {
                 return -1;
-            else if (dist1 > dist2)
+            } else if (dist1 > dist2) {
                 return +1;
-            else
+            } else {
                 return 0;
+            }
         }
     }
 
@@ -332,12 +347,15 @@ public final class HPoint extends Point2D implements Comparable<HPoint>, Seriali
      */
     @Override
     public boolean equals(final Object other) {
-        if (other == this)
+        if (other == this) {
             return true;
-        if (other == null)
+        }
+        if (other == null) {
             return false;
-        if (other.getClass() != this.getClass())
+        }
+        if (other.getClass() != this.getClass()) {
             return false;
+        }
         final HPoint that = (HPoint) other;
         return x == that.x && y == that.y;
     }

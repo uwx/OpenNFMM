@@ -45,7 +45,7 @@ public final class Utility {
 
     /**
      * Gets a value from a string like: a|b|c|0|1|2|
-     * 
+     *
      * @param string the string to get the value from
      * @param i the value position
      * @return the value at the position
@@ -177,8 +177,9 @@ public final class Utility {
      */
     public static <E> boolean arrayContains(final E[] arr, final E targetValue) {
         for (final E s : arr) {
-            if (s.equals(targetValue))
+            if (s.equals(targetValue)) {
                 return true;
+            }
         }
         return false;
     }
@@ -192,8 +193,9 @@ public final class Utility {
      */
     static boolean arrayContains(final int[] arr, final int targetValue) {
         for (final int s : arr) {
-            if (s == targetValue)
+            if (s == targetValue) {
                 return true;
+            }
         }
         return false;
     }
@@ -207,8 +209,9 @@ public final class Utility {
      */
     public static boolean arrayContains(final byte[] arr, final byte targetValue) {
         for (final byte s : arr) {
-            if (s == targetValue)
+            if (s == targetValue) {
                 return true;
+            }
         }
         return false;
     }
@@ -222,8 +225,9 @@ public final class Utility {
      */
     public static boolean arrayContains(final short[] arr, final short targetValue) {
         for (final short s : arr) {
-            if (s == targetValue)
+            if (s == targetValue) {
                 return true;
+            }
         }
         return false;
     }
@@ -237,8 +241,9 @@ public final class Utility {
      */
     public static boolean arrayContains(final char[] arr, final char targetValue) {
         for (final char s : arr) {
-            if (s == targetValue)
+            if (s == targetValue) {
                 return true;
+            }
         }
         return false;
     }
@@ -252,8 +257,9 @@ public final class Utility {
      */
     public static boolean arrayContains(final long[] arr, final long targetValue) {
         for (final long s : arr) {
-            if (s == targetValue)
+            if (s == targetValue) {
                 return true;
+            }
         }
         return false;
     }
@@ -267,8 +273,9 @@ public final class Utility {
      */
     public static boolean arrayContains(final float[] arr, final float targetValue) {
         for (final float s : arr) {
-            if (s == targetValue)
+            if (s == targetValue) {
                 return true;
+            }
         }
         return false;
     }
@@ -282,8 +289,9 @@ public final class Utility {
      */
     public static boolean arrayContains(final double[] arr, final double targetValue) {
         for (final double s : arr) {
-            if (s == targetValue)
+            if (s == targetValue) {
                 return true;
+            }
         }
         return false;
     }
@@ -334,40 +342,45 @@ public final class Utility {
      */
     public static boolean isNumeric(final String str) {
         for (final char c : str.toCharArray()) {
-            if (!Character.isDigit(c))
+            if (!Character.isDigit(c)) {
                 return false;
+            }
         }
         return true;
     }
 
     public static <T, E> T getKeyByValue(final Map<T, E> map, final E value) {
         for (final Map.Entry<T, E> entry : map.entrySet()) {
-            if (Objects.equals(value, entry.getValue()))
+            if (Objects.equals(value, entry.getValue())) {
                 return entry.getKey();
+            }
         }
         return null;
     }
 
     public static <E> boolean listModelEquals(final ListModel<E> lm, final ListModel<E> lm2) {
         for (int i = 0; i < lm.getSize(); i++) {
-            if (!lm.getElementAt(i).equals(lm2.getElementAt(i)))
+            if (!lm.getElementAt(i).equals(lm2.getElementAt(i))) {
                 return false;
+            }
         }
         return true;
     }
 
     public static <E> boolean listModelEquals(final ListModel<E> lm, final E[] e2) {
         for (int i = 0; i < lm.getSize(); i++) {
-            if (!lm.getElementAt(i).equals(e2))
+            if (!lm.getElementAt(i).equals(e2)) {
                 return false;
+            }
         }
         return true;
     }
 
     public static <E> boolean listModelEquals(final ListModel<E> lm, final Vector<E> lm2) {
         for (int i = 0; i < lm.getSize(); i++) {
-            if (!lm.getElementAt(i).equals(lm2.elementAt(i)))
+            if (!lm.getElementAt(i).equals(lm2.elementAt(i))) {
                 return false;
+            }
         }
         return false;
     }
@@ -416,7 +429,7 @@ public final class Utility {
     public static class ArrayUtilities {
         /**
          * Reverses an array of bytes.
-         * 
+         *
          * @param data The array to reverse.
          */
         public static void reverse(final byte[] data) {
@@ -430,7 +443,7 @@ public final class Utility {
 
         /**
          * Reverses an array of elements.
-         * 
+         *
          * @param data The array to reverse.
          */
         public static <E> void reverse(final E[] data) {

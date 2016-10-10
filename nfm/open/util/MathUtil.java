@@ -269,8 +269,9 @@ public final class MathUtil {
      * @see <a href="http://www.java-gaming.org/topics/hotspot-intrinsics/27010/view.html">Java-Gaming thread on HotSpot optimizations</a>
      */
     public static int sqrt(final int x) {
-        if (x < 289)
+        if (x < 289) {
             return SquareRoot.fastSqrt(x);
+        }
         return SquareRoot.sqrt(x);
     }
 
@@ -434,8 +435,9 @@ public final class MathUtil {
 
                     return xn * xn > x ? --xn : xn;
                 } else {
-                    if (x >= 0)
+                    if (x >= 0) {
                         return table[x] >> 4;
+                    }
                 }
             }
 
@@ -505,8 +507,9 @@ public final class MathUtil {
 
                     return adjustment(x, xn);
                 } else {
-                    if (x >= 0)
+                    if (x >= 0) {
                         return adjustment(x, table[x] >> 4);
+                    }
                 }
             }
 
@@ -541,8 +544,9 @@ public final class MathUtil {
             // |(xn+1) * (xn+1) - x|
             final int comparitor2 = xn2 + twice_xn + 1 - x;
 
-            if (comparitor0 > comparitor1)
+            if (comparitor0 > comparitor1) {
                 return comparitor1 > comparitor2 ? ++xn : --xn;
+            }
 
             return comparitor0 > comparitor2 ? ++xn : xn;
         }
@@ -554,35 +558,42 @@ public final class MathUtil {
             if (x >= 0x10000) {
                 if (x >= 0x1000000) {
                     if (x >= 0x10000000) {
-                        if (x >= 0x40000000)
+                        if (x >= 0x40000000) {
                             return table[x >> 24] << 8;
-                        else
+                        } else {
                             return table[x >> 22] << 7;
-                    } else if (x >= 0x4000000)
+                        }
+                    } else if (x >= 0x4000000) {
                         return table[x >> 20] << 6;
-                    else
+                    } else {
                         return table[x >> 18] << 5;
+                    }
                 } else if (x >= 0x100000) {
-                    if (x >= 0x400000)
+                    if (x >= 0x400000) {
                         return table[x >> 16] << 4;
-                    else
+                    } else {
                         return table[x >> 14] << 3;
-                } else if (x >= 0x40000)
+                    }
+                } else if (x >= 0x40000) {
                     return table[x >> 12] << 2;
-                else
+                } else {
                     return table[x >> 10] << 1;
+                }
             } else if (x >= 0x100) {
                 if (x >= 0x1000) {
-                    if (x >= 0x4000)
+                    if (x >= 0x4000) {
                         return table[x >> 8];
-                    else
+                    } else {
                         return table[x >> 6] >> 1;
-                } else if (x >= 0x400)
+                    }
+                } else if (x >= 0x400) {
                     return table[x >> 4] >> 2;
-                else
+                } else {
                     return table[x >> 2] >> 3;
-            } else if (x >= 0)
+                }
+            } else if (x >= 0) {
                 return table[x] >> 4;
+            }
             illegalArgument();
             return -1;
         }

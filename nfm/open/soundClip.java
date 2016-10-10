@@ -33,7 +33,7 @@ class SoundClip {
     }
 
     void checkopen() {
-        if (loaded && clip.isOpen() && lfrpo != -2)
+        if (loaded && clip.isOpen() && lfrpo != -2) {
             if (cntcheck == 0) {
                 final int i = clip.getFramePosition();
                 if (lfrpo == i && !clip.isRunning()) {
@@ -50,6 +50,7 @@ class SoundClip {
             } else {
                 cntcheck--;
             }
+        }
     }
 
     void loop() {

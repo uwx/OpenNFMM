@@ -33,9 +33,7 @@ import jouvieje.bass.BassInit;
 import jouvieje.bass.callbacks.SYNCPROC;
 import jouvieje.bass.structures.HMUSIC;
 import jouvieje.bass.structures.HSTREAM;
-import jouvieje.bass.structures.HSYNC;
 import jouvieje.bass.utils.BufferUtils;
-import jouvieje.bass.utils.Pointer;
 import nfm.open.Utility;
 
 /**
@@ -165,12 +163,7 @@ public class RadicalBASS_direct implements RadicalMusic {
     /**
      * Looping sync
      */
-    private static final SYNCPROC loopSyncProc = new SYNCPROC() {
-        @Override
-        public void SYNCPROC(HSYNC handle, int channel, int data, Pointer user) {
-            BASS_ChannelSetPosition(channel, 0, BASS_POS_BYTE); //Go to start of file
-        }
-    };
+    private static final SYNCPROC loopSyncProc = (handle, channel, data, user) -> BASS_ChannelSetPosition(channel, 0, BASS_POS_BYTE);
 
     private ByteBuffer song;
     private int songSize;
@@ -182,8 +175,9 @@ public class RadicalBASS_direct implements RadicalMusic {
         System.out.println("BASS init state: " + init);
         System.out.println("BASS loaded: " + bassLibLoaded);
 
-        if (!init)
+        if (!init) {
             return;
+        }
 
         if (bassLibLoaded) {
             /* The device has already been initialized. BASS_Free must be called before it can be initialized again. */
@@ -206,8 +200,9 @@ public class RadicalBASS_direct implements RadicalMusic {
         try (ZipInputStream z = new ZipInputStream(new FileInputStream(file))) {
             final ZipEntry zipentry = z.getNextEntry();
 
-            if (zipentry == null)
+            if (zipentry == null) {
                 throw new IllegalArgumentException("\"file\" is not a valid .zip file, or is corrupted");
+            }
 
             final int entrySize = (int) zipentry.getSize();
             if (entrySize == -1) {
@@ -283,8 +278,9 @@ public class RadicalBASS_direct implements RadicalMusic {
     }
 
     private void end() {
-        if (!init || deinit)
+        if (!init || deinit) {
             return;
+        }
         deinit = true;
 
         freeResources();

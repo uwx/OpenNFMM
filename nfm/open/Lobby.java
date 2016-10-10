@@ -280,7 +280,7 @@ class Lobby implements Runnable {
                 }
             }
         }
-        if (conon == 1)
+        if (conon == 1) {
             if (!regnow) {
                 if (onjoin == -1) {
                     if (fase == 4) {
@@ -325,19 +325,20 @@ class Lobby implements Runnable {
                             fase = 1;
                         }
                     }
-                    if (fase == 1)
+                    if (fase == 1) {
                         if (ongame == -1) {
-                            if (i308 == 0)
+                            if (i308 == 0) {
                                 if (chalngd == -1) {
                                     if (xtGraphics.lan && !lanlogged) {
                                         GameSparker.reglink();
                                     } else {
                                         boolean bool = false;
-                                        for (int i310 = 0; i310 < ngm; i310++)
+                                        for (int i310 = 0; i310 < ngm; i310++) {
                                             if (wait[i310] == 0) {
                                                 bool = true;
                                                 break;
                                             }
+                                        }
                                         if (!bool || xtGraphics.lan) {
                                             loadstage = 0;
                                             remstage = 0;
@@ -390,6 +391,7 @@ class Lobby implements Runnable {
                                     gs.requestFocus();
                                     chalngd = -1;
                                 }
+                            }
                             if (i308 == 1) {
                                 xtGraphics.fase = 23;
                             }
@@ -465,13 +467,13 @@ class Lobby implements Runnable {
                                 if (chalngd == -6 && i308 == 4) {
                                     chalngd = -1;
                                 }
-                                if (chalngd == -2)
+                                if (chalngd == -2) {
                                     if (GameSparker.wgame.getSelectedIndex() == 0) /*if (gs.sgame.getSelectedIndex() >= 3 && !xt.logged) {
                                                                                    if (i308 == 4)
                                                                                    gs.editlink(xt.nickname, true);
                                                                                    i312 = 5;
                                                                                    } else */ {
-                                        if (i308 == 4)
+                                        if (i308 == 4) {
                                             if (loadstage < 0) {
                                                 rd.setColor(new Color(0, 0, 0));
                                                 rd.fillRect(0, 0, 670, 400);
@@ -506,10 +508,11 @@ class Lobby implements Runnable {
                                             } else {
                                                 sflk = 25;
                                             }
+                                        }
                                         if (loadstage >= 0) {
                                             i312 = 5;
                                         } else {
-                                            if (i308 == 5)
+                                            if (i308 == 5) {
                                                 if (gstage != 0) {
                                                     //gs.sgame.setVisible(false);
                                                     GameSparker.wgame.setVisible(false);
@@ -528,6 +531,7 @@ class Lobby implements Runnable {
                                                 } else {
                                                     sflk = 25;
                                                 }
+                                            }
                                             i312 = 6;
                                         }
                                     } else if (!xtGraphics.clan.equals("")) {
@@ -570,6 +574,7 @@ class Lobby implements Runnable {
                                       gb.open = 2;
                                       gb.upo = true;
                                       }*/
+                                }
                                 if (chalngd == -3) {
                                     if (i308 == 4) {
                                         chalngd = -2;
@@ -578,7 +583,7 @@ class Lobby implements Runnable {
                                         GameSparker.swait.setVisible(false);
                                         gs.requestFocus();
                                     }
-                                    if (i308 == 5)
+                                    if (i308 == 5) {
                                         if (gnpls != 0 && GameSparker.snpls.getSelectedIndex() != 0) {
                                             chalngd = -4;
                                             for (int i315 = 0; i315 < 7; i315++) {
@@ -597,15 +602,17 @@ class Lobby implements Runnable {
                                         } else {
                                             sflk = 25;
                                         }
+                                    }
                                     i312 = 6;
                                 }
                                 if (chalngd == -4) {
                                     i312 = 7;
                                     int i316 = 0;
-                                    for (int i317 = 0; i317 < 7; i317++)
+                                    for (int i317 = 0; i317 < 7; i317++) {
                                         if (!invos[i317].equals("")) {
                                             i316++;
                                         }
+                                    }
                                     if (i316 < gnpls - 1) {
                                         if (i308 == 4) {
                                             invo = !invo;
@@ -694,10 +701,11 @@ class Lobby implements Runnable {
                             }
                         } else if (dispcar == -1) {
                             int i321 = 0;
-                            for (int i322 = 0; i322 < ngm; i322++)
+                            for (int i322 = 0; i322 < ngm; i322++) {
                                 if (ongame == gnum[i322]) {
                                     i321 = i322;
                                 }
+                            }
                             boolean bool = false;
                             if (gwarb[i321] == 0) {
                                 if (!gplyrs[i321].equals("") && !gplyrs[i321].contains(pnames[im])) {
@@ -722,7 +730,7 @@ class Lobby implements Runnable {
                                 i308 = 0;
                                 pessd[0] = true;
                             }
-                            if (i308 == 0)
+                            if (i308 == 0) {
                                 if (pgames[im] == -1) {
                                     ongame = -1;
                                     chalngd = -1;
@@ -731,8 +739,9 @@ class Lobby implements Runnable {
                                     msg = "| Leaving Game |";
                                     longame = -1;
                                 }
+                            }
                             if (pbtn == 0) {
-                                if (i308 == 1)
+                                if (i308 == 1) {
                                     if (wait[i321] > 0) {
                                         if (pgames[im] == -1) {
                                             join = ongame;
@@ -765,6 +774,7 @@ class Lobby implements Runnable {
                                             conon = 3;
                                         }
                                     }
+                                }
                                 if (i308 == 2 && !xtGraphics.lan && !GameSparker.cmsg.getText().equals("Type here...") && !GameSparker.cmsg.getText().equals("")) {
                                     String string = GameSparker.cmsg.getText().replace('|', ':');
                                     if (string.toLowerCase().contains(GameSparker.tpass.getText().toLowerCase())) {
@@ -788,7 +798,7 @@ class Lobby implements Runnable {
                                     GameSparker.cmsg.setText("");
                                 }
                             }
-                            if (pbtn == 1 && i308 == 1)
+                            if (pbtn == 1 && i308 == 1) {
                                 if (pgames[im] == -1) {
                                     join = ongame;
                                     msg = "| Joining Game |";
@@ -796,6 +806,7 @@ class Lobby implements Runnable {
                                 } else {
                                     invo = !invo;
                                 }
+                            }
                             if (pbtn == 2 && (i308 == 1 || i308 == 2)) {
                                 fase = 2;
                                 Medium.ptr = 0;
@@ -815,7 +826,7 @@ class Lobby implements Runnable {
                                 }
                             }
                         } else {
-                            if (i308 == 0)
+                            if (i308 == 0) {
                                 if (pgames[im] == -1) {
                                     ongame = -1;
                                     chalngd = -1;
@@ -824,7 +835,8 @@ class Lobby implements Runnable {
                                     msg = "| Leaving Game |";
                                     longame = -1;
                                 }
-                            if (pbtn == 1 && i308 == 1)
+                            }
+                            if (pbtn == 1 && i308 == 1) {
                                 if (pgames[im] == -1) {
                                     join = ongame;
                                     msg = "| Joining Game |";
@@ -832,9 +844,11 @@ class Lobby implements Runnable {
                                 } else {
                                     invo = !invo;
                                 }
+                            }
                         }
+                    }
                 } else if (ontyp != 76) {
-                    if (i308 == 0)
+                    if (i308 == 0) {
                         if (ontyp < 30) {
                             xtGraphics.onjoin = onjoin;
                             xtGraphics.ontyp = ontyp;
@@ -856,6 +870,7 @@ class Lobby implements Runnable {
                             gb.upo = true;*/
                             onjoin = -1;
                         }
+                    }
                     if (i308 == 1) {
                         onjoin = -1;
                     }
@@ -876,6 +891,7 @@ class Lobby implements Runnable {
                     regnow = false;
                 }
             }
+        }
         lxm = xm;
         lym = ym;
         control.enter = false;
@@ -1164,10 +1180,11 @@ class Lobby implements Runnable {
                     int i102 = npo;
                     if (invo) {
                         i102 = 0;
-                        for (int i103 = 0; i103 < npo; i103++)
+                        for (int i103 = 0; i103 < npo; i103++) {
                             if (pgames[i103] == -1) {
                                 i102++;
                             }
+                        }
                         i102 += 2;
                     }
                     int i104 = (i102 - 11) * 30;
@@ -1180,13 +1197,14 @@ class Lobby implements Runnable {
                     int i108 = -1;
                     if (conon == 1) {
                         if (!invo) {
-                            for (int i109 = 0; i109 < npo; i109++)
+                            for (int i109 = 0; i109 < npo; i109++) {
                                 if (pgames[i109] != -1) {
                                     int i110 = 0;
-                                    for (int i111 = 0; i111 < ngm; i111++)
+                                    for (int i111 = 0; i111 < ngm; i111++) {
                                         if (pgames[i109] == gnum[i111]) {
                                             i110 = i111;
                                         }
+                                    }
                                     if (wait[i110] > 0) {
                                         if (82 + 30 * i106 - i105 > 50 && 82 + 30 * (i106 - 1) - i105 < 415) {
                                             final boolean bool112 = false;
@@ -1242,13 +1260,15 @@ class Lobby implements Runnable {
                                         i106++;
                                     }
                                 }
+                            }
                         }
                         int i114 = -1;
                         if (invo) {
-                            for (int i115 = 0; i115 < ngm; i115++)
+                            for (int i115 = 0; i115 < ngm; i115++) {
                                 if (gwarb[i115] != 0 && pgames[im] == gnum[i115]) {
                                     i114 = i115;
                                 }
+                            }
                             rd.setColor(new Color(0, 0, 0));
                             rd.setFont(new Font("Arial", 1, 12));
                             ftm = rd.getFontMetrics();
@@ -1270,10 +1290,11 @@ class Lobby implements Runnable {
                                 if (im == i116) {
                                     bool117 = true;
                                 }
-                                for (int i118 = 0; i118 < 7; i118++)
+                                for (int i118 = 0; i118 < 7; i118++) {
                                     if (invos[i118].equals(pnames[i116]) && !bool117) {
                                         bool117 = true;
                                     }
+                                }
                                 if (i114 != -1 && !pclan[i116].equalsIgnoreCase(gaclan[i114]) && !pclan[i116].equalsIgnoreCase(gvclan[i114])) {
                                     bool117 = true;
                                 }
@@ -1290,11 +1311,12 @@ class Lobby implements Runnable {
                                                 rd.setColor(color2k(220, 220, 220));
                                                 if (mousonp == i116) {
                                                     int i120 = 0;
-                                                    for (boolean bool121 = false; i120 < 7 && !bool121; i120++)
+                                                    for (boolean bool121 = false; i120 < 7 && !bool121; i120++) {
                                                         if (invos[i120].equals("")) {
                                                             invos[i120] = pnames[i116];
                                                             bool121 = true;
                                                         }
+                                                    }
                                                     mousonp = -1;
                                                     invo = false;
                                                 }
@@ -1343,25 +1365,29 @@ class Lobby implements Runnable {
                             invo = false;
                         }
                         if (!invo) {
-                            for (int i123 = npo - 1; i123 >= 0; i123--)
+                            for (int i123 = npo - 1; i123 >= 0; i123--) {
                                 if (pgames[i123] != -1) {
                                     int i124 = 0;
-                                    for (int i125 = 0; i125 < ngm; i125++)
+                                    for (int i125 = 0; i125 < ngm; i125++) {
                                         if (pgames[i123] == gnum[i125]) {
                                             i124 = i125;
                                         }
+                                    }
                                     if (wait[i124] <= 0) {
                                         boolean bool126 = false;
-                                        for (int i127 = 0; i127 < npo; i127++)
-                                            if (i123 != i127 && pnames[i123].equals(pnames[i127]))
+                                        for (int i127 = 0; i127 < npo; i127++) {
+                                            if (i123 != i127 && pnames[i123].equals(pnames[i127])) {
                                                 if (pgames[i127] == -1) {
                                                     bool126 = true;
                                                 } else {
-                                                    for (int i128 = 0; i128 < ngm; i128++)
+                                                    for (int i128 = 0; i128 < ngm; i128++) {
                                                         if (pgames[i127] == gnum[i128] && wait[i128] > 0) {
                                                             bool126 = true;
                                                         }
+                                                    }
                                                 }
+                                            }
+                                        }
                                         if (!bool126) {
                                             if (82 + 30 * i106 - i105 > 50 && 82 + 30 * (i106 - 1) - i105 < 415) {
                                                 final boolean bool129 = false;
@@ -1424,6 +1450,7 @@ class Lobby implements Runnable {
                                         }
                                     }
                                 }
+                            }
                         }
                     }
                     if (mousonp != i107) {
@@ -1613,10 +1640,11 @@ class Lobby implements Runnable {
                             if (fstart) {
                                 fstart = false;
                             }
-                            for (int i134 = 0; i134 < 9; i134++)
+                            for (int i134 = 0; i134 < 9; i134++) {
                                 if (cac[i134] != -1) {
                                     cac[i134] = -1;
                                 }
+                            }
                             if (dispcar != -1) {
                                 dispcar = -1;
                             }
@@ -1761,7 +1789,7 @@ class Lobby implements Runnable {
                                     is[i138] = 0;
                                 }
                                 for (int i139 = 0; i139 < ngm; i139++) {
-                                    for (int i140 = i139 + 1; i140 < ngm; i140++)
+                                    for (int i140 = i139 + 1; i140 < ngm; i140++) {
                                         if (wait[i139] != wait[i140]) {
                                             if (wait[i139] <= 0 && wait[i140] <= 0) {
                                                 if (wait[i139] < wait[i140]) {
@@ -1779,6 +1807,7 @@ class Lobby implements Runnable {
                                         } else {
                                             is[i140]++;
                                         }
+                                    }
                                     is137[is[i139]] = i139;
                                 }
                                 if (control.down) {
@@ -1814,10 +1843,11 @@ class Lobby implements Runnable {
                                 int i143 = -1;
                                 if (mousonp != -1) {
                                     int i144 = 0;
-                                    for (int i145 = 0; i145 < ngm; i145++)
+                                    for (int i145 = 0; i145 < ngm; i145++) {
                                         if (pgames[mousonp] == gnum[i145]) {
                                             i144 = i145;
                                         }
+                                    }
                                     i143 = 91 + 24 * is[i144] - i105;
                                     if (80 + 24 * is[i144] - i105 > 202) {
                                         int i146 = 1000 / i104;
@@ -1851,7 +1881,7 @@ class Lobby implements Runnable {
                                     opselect = ngm - 1;
                                 }
                                 int i148 = 0;
-                                for (int i149 = 0; i149 < ngm; i149++)
+                                for (int i149 = 0; i149 < ngm; i149++) {
                                     if (80 + 24 * i149 - i105 < 224 && 80 + 24 * i149 - i105 > CarDefine.FIFTY_SIX) {
                                         if (opselect == i149) {
                                             if (80 + 24 * i149 - i105 >= 224) {
@@ -1989,18 +2019,20 @@ class Lobby implements Runnable {
                                         }
                                         i148++;
                                     }
+                                }
                                 if (i148 == ngm && clicked != -1) {
                                     clicked = -1;
                                 }
                                 rd.setColor(new Color(0, 0, 0));
                                 rd.setFont(new Font("Arial", 1, 12));
                                 ftm = rd.getFontMetrics();
-                                if (ngm == 0)
+                                if (ngm == 0) {
                                     if (!lloaded) {
                                         rd.drawString("|  Loading Games  |", 472 - ftm.stringWidth("|  Loading Games  |") / 2, 165);
                                     } else if (!xtGraphics.lan) {
                                         rd.drawString("No Games Created", 472 - ftm.stringWidth("No Games Created") / 2, 165);
                                     }
+                                }
                                 rd.setColor(color2k(205, 205, 205));
                                 rd.fillRect(235, 65, 480, 25);
                                 rd.drawImage(Images.games, 241, 69, null);
@@ -2164,10 +2196,11 @@ class Lobby implements Runnable {
                                 }
                                 if (chalngd > -1) {
                                     int i158 = 0;
-                                    for (int i159 = 0; i159 < ngm; i159++)
+                                    for (int i159 = 0; i159 < ngm; i159++) {
                                         if (chalngd == gnum[i159]) {
                                             i158 = i159;
                                         }
+                                    }
                                     if (cflk % 4 != 0 || cflk == 0) {
                                         rd.setColor(new Color(0, 0, 0));
                                         rd.setFont(new Font("Arial", 1, 13));
@@ -2769,23 +2802,26 @@ class Lobby implements Runnable {
                                         }
                                         String string = "Public Game, anyone can join...";
                                         int i169 = 0;
-                                        for (int i170 = 0; i170 < 7; i170++)
+                                        for (int i170 = 0; i170 < 7; i170++) {
                                             if (!invos[i170].equals("")) {
                                                 i169++;
                                             }
+                                        }
                                         if (i169 > 0) {
                                             string = "Players Allowed:  ";
                                             int i171 = 0;
-                                            for (int i172 = 0; i172 < 7; i172++)
+                                            for (int i172 = 0; i172 < 7; i172++) {
                                                 if (!invos[i172].equals("")) {
                                                     string = "" + string + invos[i172];
-                                                    if (++i171 != i169)
+                                                    if (++i171 != i169) {
                                                         if (i171 == i169 - 1) {
                                                             string = "" + string + " and ";
                                                         } else {
                                                             string = "" + string + ", ";
                                                         }
+                                                    }
                                                 }
+                                            }
                                         }
                                         rd.setColor(new Color(0, 0, 0));
                                         if (i169 < gnpls - 1) {
@@ -2872,10 +2908,11 @@ class Lobby implements Runnable {
                         if (fstart) {
                             fstart = false;
                         }
-                        for (int i192 = 0; i192 < 9; i192++)
+                        for (int i192 = 0; i192 < 9; i192++) {
                             if (cac[i192] != -1) {
                                 cac[i192] = -1;
                             }
+                        }
                         if (dispcar != -1) {
                             dispcar = -1;
                         }
@@ -2940,10 +2977,11 @@ class Lobby implements Runnable {
                             }
                         } else {
                             int i193 = 0;
-                            for (int i194 = 0; i194 < ngm; i194++)
+                            for (int i194 = 0; i194 < ngm; i194++) {
                                 if (ongame == gnum[i194]) {
                                     i193 = i194;
                                 }
+                            }
                             rd.setFont(new Font("Arial", 1, 11));
                             ftm = rd.getFontMetrics();
                             rd.setColor(new Color(0, 0, 0));
@@ -2965,7 +3003,7 @@ class Lobby implements Runnable {
                             String string197 = "";
                             String string198 = "";
                             if (conon == 1) {
-                                if (wait[i193] > 0)
+                                if (wait[i193] > 0) {
                                     if (gwarb[i193] == 0) {
                                         String string199;
                                         if (gplyrs[i193].equals("")) {
@@ -3072,6 +3110,7 @@ class Lobby implements Runnable {
                                         rd.setColor(new Color(80, 128, 0));
                                         rd.drawString(string202, 243, 28);
                                     }
+                                }
                                 if (wait[i193] == 0) {
                                     rd.drawString("Status:", 241 + i196, i195);
                                     rd.setColor(new Color(128, 73, 0));
@@ -3113,24 +3152,27 @@ class Lobby implements Runnable {
                                             "", "", "", "", "", "", "", ""
                                     };
                                     for (int i205 = 0; i205 < prnpo; i205++) {
-                                        for (int i206 = 0; i206 < npo; i206++)
+                                        for (int i206 = 0; i206 < npo; i206++) {
                                             if (prnames[i205].equals(pnames[i206]) && pgames[i206] == gnum[i193]) {
                                                 strings[i205] = pclan[i206];
                                             }
+                                        }
                                     }
-                                    for (int i207 = 0; i207 < prnpo; i207++)
+                                    for (int i207 = 0; i207 < prnpo; i207++) {
                                         if (ppos[i207] == 0) {
                                             string = strings[i207];
                                             break;
                                         }
+                                    }
                                     if (!string.equals("")) {
                                         if (gwtyp[i193] == 2) {
                                             boolean bool208 = false;
-                                            for (int i209 = 0; i209 < prnpo; i209++)
+                                            for (int i209 = 0; i209 < prnpo; i209++) {
                                                 if (!strings[i209].equalsIgnoreCase(string) && pdam[i209] < 55 && pdam[i209] != -17) {
                                                     bool208 = true;
                                                     break;
                                                 }
+                                            }
                                             if (!bool208) {
                                                 string198 = "" + string + " should have raced in this game!";
                                                 string = "";
@@ -3138,64 +3180,71 @@ class Lobby implements Runnable {
                                         }
                                         if (gwtyp[i193] == 3) {
                                             boolean bool210 = true;
-                                            for (int i211 = 0; i211 < prnpo; i211++)
+                                            for (int i211 = 0; i211 < prnpo; i211++) {
                                                 if (!strings[i211].equalsIgnoreCase(string) && pdam[i211] < 55 && pdam[i211] != -17) {
                                                     bool210 = false;
                                                     break;
                                                 }
+                                            }
                                             if (!bool210) {
                                                 string198 = "" + string + " should have wasted in this game!";
                                                 string = "";
                                             }
                                         }
-                                        if (gwtyp[i193] == 4)
+                                        if (gwtyp[i193] == 4) {
                                             if (string.equalsIgnoreCase(gaclan[i193])) {
                                                 boolean bool212 = true;
-                                                for (int i213 = 0; i213 < prnpo; i213++)
+                                                for (int i213 = 0; i213 < prnpo; i213++) {
                                                     if (!strings[i213].equalsIgnoreCase(string) && pdam[i213] < 55 && pdam[i213] != -17) {
                                                         bool212 = false;
                                                         break;
                                                     }
+                                                }
                                                 if (!bool212) {
                                                     string198 = "" + string + " should have wasted in this game!";
                                                     string = "";
                                                 }
                                             } else {
                                                 boolean bool214 = false;
-                                                for (int i215 = 0; i215 < prnpo; i215++)
+                                                for (int i215 = 0; i215 < prnpo; i215++) {
                                                     if (!strings[i215].equalsIgnoreCase(string) && pdam[i215] < 55 && pdam[i215] != -17) {
                                                         bool214 = true;
                                                         break;
                                                     }
+                                                }
                                                 if (!bool214) {
                                                     string198 = "" + string + " should have raced in this game!";
                                                     string = "";
                                                 }
                                             }
-                                        if (gwtyp[i193] == 5)
+                                        }
+                                        if (gwtyp[i193] == 5) {
                                             if (!string.equalsIgnoreCase(gaclan[i193])) {
                                                 boolean bool216 = true;
-                                                for (int i217 = 0; i217 < prnpo; i217++)
+                                                for (int i217 = 0; i217 < prnpo; i217++) {
                                                     if (!strings[i217].equalsIgnoreCase(string) && pdam[i217] < 55 && pdam[i217] != -17) {
                                                         bool216 = false;
                                                         break;
                                                     }
+                                                }
                                                 if (!bool216) {
                                                     string198 = "" + string + " should have wasted in this game!";
                                                     string = "";
                                                 }
                                             } else {
                                                 boolean bool218 = false;
-                                                for (int i219 = 0; i219 < prnpo; i219++)
+                                                for (int i219 = 0; i219 < prnpo; i219++) {
                                                     if (!strings[i219].equalsIgnoreCase(string) && pdam[i219] < 55 && pdam[i219] != -17) {
                                                         bool218 = true;
                                                         break;
                                                     }
+                                                }
                                                 if (!bool218) {
                                                     string198 = "" + string + " should have raced in this game!";
                                                     string = "";
                                                 }
                                             }
+                                        }
                                     } else {
                                         string198 = "No one finished first - no one survived!";
                                     }
@@ -3226,12 +3275,13 @@ class Lobby implements Runnable {
                             rd.setColor(color2k(200, 200, 200));
                             rd.drawLine(233, 32, 602, 32);
                             rd.drawLine(602, 7, 602, 32);
-                            if (conon == 1)
+                            if (conon == 1) {
                                 if (pgames[im] == ongame) {
                                     stringbutton("Leave Game X", 660, 26, 0);
                                 } else {
                                     stringbutton("Close X", 679, 26, 0);
                                 }
+                            }
                             rd.drawImage(Images.pls, 292, 39, null);
                             if (opengame != 27) {
                                 Medium.crs = true;
@@ -3248,16 +3298,17 @@ class Lobby implements Runnable {
                             }
                             int i220 = 0;
                             int i221 = -1;
-                            for (int i222 = 0; i222 < npo; i222++)
+                            for (int i222 = 0; i222 < npo; i222++) {
                                 if (pgames[i222] == ongame) {
                                     rd.setColor(color2k(240, 240, 240));
-                                    if (i222 == im && wait[i193] != -1)
+                                    if (i222 == im && wait[i193] != -1) {
                                         if (nflk == 0 || conon == 2) {
                                             rd.setColor(color2k(255, 255, 255));
                                             nflk = 3;
                                         } else {
                                             nflk--;
                                         }
+                                    }
                                     rd.fillRect(237, 54 + i220 * 42, 170, 40);
                                     rd.setColor(color2k(200, 200, 200));
                                     if (gwarb[i193] != 0) {
@@ -3271,10 +3322,11 @@ class Lobby implements Runnable {
                                             rd.setColor(new Color(0, 0, 0));
                                         }
                                     } else if (wait[i193] == -1 && prevloaded == 1) {
-                                        for (int i223 = 0; i223 < prnpo; i223++)
+                                        for (int i223 = 0; i223 < prnpo; i223++) {
                                             if (pnames[i222].equals(prnames[i223]) && ppos[i223] == 0 && nflk == 0) {
                                                 rd.setColor(new Color(0, 0, 0));
                                             }
+                                        }
                                     }
                                     rd.drawRect(237, 54 + i220 * 42, 170, 40);
                                     rd.setColor(new Color(0, 0, 0));
@@ -3353,6 +3405,7 @@ class Lobby implements Runnable {
                                     }
                                     i220++;
                                 }
+                            }
                             if (!pendb) {
                                 pend += 2;
                                 if (pend > 80) {
@@ -3384,7 +3437,7 @@ class Lobby implements Runnable {
                                 mousedout = false;
                             }
                             for (int i232 = 0; i232 < 7; i232++) {
-                                for (int i233 = 0; i233 < npo; i233++)
+                                for (int i233 = 0; i233 < npo; i233++) {
                                     if (pgames[i233] == ongame && invos[i232].equals(pnames[i233]) && dinvi[i232].equals(invos[i232])) {
                                         for (int i234 = i232; i234 < 6; i234++) {
                                             invos[i234] = invos[i234 + 1];
@@ -3393,6 +3446,7 @@ class Lobby implements Runnable {
                                         invos[6] = "";
                                         dinvi[6] = "";
                                     }
+                                }
                             }
                             if (wait[i193] > 0) {
                                 int i235 = 0;
@@ -3472,10 +3526,11 @@ class Lobby implements Runnable {
                                                 int i239 = 134;
                                                 if (!gmaker[i193].equals("Coach Insano") && !gmaker[i193].equals(pnames[im])) {
                                                     boolean bool240 = false;
-                                                    for (int i241 = 0; i241 < npo; i241++)
+                                                    for (int i241 = 0; i241 < npo; i241++) {
                                                         if (pgames[i241] == ongame && gmaker[i193].equals(pnames[i241])) {
                                                             bool240 = true;
                                                         }
+                                                    }
                                                     if (bool240) {
                                                         i239 = 144;
                                                         rd.drawString("" + gmaker[i193] + " can start this game at anytime.", 561 - ftm.stringWidth("" + gmaker[i193] + " can start this game at anytime.") / 2, 124);
@@ -3546,7 +3601,7 @@ class Lobby implements Runnable {
                                             rd.drawString("Waiting for " + (mnpls[i193] - npls[i193]) + " clan member" + string243 + " to join to start.", 561 - ftm.stringWidth("Waiting for " + (mnpls[i193] - npls[i193]) + " clan member" + string243 + " to join to start.") / 2, 72);
                                             int i244 = mnpls[i193] / 2;
                                             int i245 = mnpls[i193] / 2;
-                                            for (int i246 = 0; i246 < npo; i246++)
+                                            for (int i246 = 0; i246 < npo; i246++) {
                                                 if (pgames[i246] == gnum[i193]) {
                                                     if (pclan[i246].equalsIgnoreCase(gaclan[i193]) && --i244 < 0) {
                                                         i244 = 0;
@@ -3555,6 +3610,7 @@ class Lobby implements Runnable {
                                                         i245 = 0;
                                                     }
                                                 }
+                                            }
                                             rd.setFont(new Font("Arial", 0, 12));
                                             ftm = rd.getFontMetrics();
                                             rd.drawString("(" + i244 + " of " + gaclan[i193] + "  &  " + i245 + " of " + gvclan[i193] + " )", 561 - ftm.stringWidth("(" + i244 + " of " + gaclan[i193] + "  &  " + i245 + " of " + gvclan[i193] + " )") / 2, 87);
@@ -3690,7 +3746,7 @@ class Lobby implements Runnable {
                                         rd.drawLine(422, 163, 702, 163);
                                         i220 = 0;
                                         for (int i251 = 0; i251 < prnpo; i251++) {
-                                            for (int i252 = 0; i252 < prnpo; i252++)
+                                            for (int i252 = 0; i252 < prnpo; i252++) {
                                                 if (ppos[i252] == i251) {
                                                     rd.setFont(new Font("Tahoma", 0, 11));
                                                     ftm = rd.getFontMetrics();
@@ -3766,6 +3822,7 @@ class Lobby implements Runnable {
                                                     }
                                                     i220++;
                                                 }
+                                            }
                                         }
                                         if (wait[i193] == 0) {
                                             stringbutton("    Watch Live Now!    ", 561, 196, 0);
@@ -3779,11 +3836,12 @@ class Lobby implements Runnable {
                                             }
                                             if (gwarb[i193] == 0) {
                                                 String string255 = "";
-                                                for (int i256 = 0; i256 < prnpo; i256++)
+                                                for (int i256 = 0; i256 < prnpo; i256++) {
                                                     if (ppos[i256] == 0) {
                                                         string255 = prnames[i256];
                                                         break;
                                                     }
+                                                }
                                                 if (string255.equals("")) {
                                                     rd.drawString("Game Finished!    Nobody Won!", 561 - ftm.stringWidth("Game Finished!    Nobody Won!") / 2, i254);
                                                 } else {
@@ -3943,7 +4001,7 @@ class Lobby implements Runnable {
                                                 if (i269 <= 1) {
                                                     strings[i264] = strings[i264] + string270;
                                                     i267++;
-                                                    if (ftm.stringWidth(strings[i264]) > i262 - 94)
+                                                    if (ftm.stringWidth(strings[i264]) > i262 - 94) {
                                                         if (i266 != 0) {
                                                             strings[i264] = strings[i264].substring(0, i266);
                                                             for (int i273 = 0; i273 < i264; i273++) {
@@ -3960,17 +4018,19 @@ class Lobby implements Runnable {
                                                             strings[i264] = "";
                                                             i267 = 0;
                                                         }
+                                                    }
                                                 }
                                             }
                                         }
                                         String string274 = "";
                                         rd.setFont(new Font("Tahoma", 1, 11));
                                         ftm = rd.getFontMetrics();
-                                        for (int i275 = 0; i275 < 7; i275++)
+                                        for (int i275 = 0; i275 < 7; i275++) {
                                             if (!string274.equals(strings263[i275])) {
                                                 rd.drawString("" + strings263[i275] + ":", i261 + 84 - ftm.stringWidth("" + strings263[i275] + ":"), 299 + i275 * 14);
                                                 string274 = strings263[i275];
                                             }
+                                        }
                                         rd.setFont(new Font("Tahoma", 0, 11));
                                         for (int i276 = 0; i276 < 7; i276++) {
                                             if (bools[i276] && i276 == 0 && strings[i276].indexOf(' ') != -1) {
@@ -4239,7 +4299,7 @@ class Lobby implements Runnable {
                                                     waitlink--;
                                                 }
                                             }
-                                            if (CarDefine.action == 0 && xtGraphics.drawcarb(true, null, " Add to My Cars ", 503, 375, i, i99, bool))
+                                            if (CarDefine.action == 0 && xtGraphics.drawcarb(true, null, " Add to My Cars ", 503, 375, i, i99, bool)) {
                                                 if (xtGraphics.logged) {
                                                     if (CarDefine.lastload != 2 || forcar >= CarDefine.THIRTY_SIX) {
                                                         CarDefine.action = 6;
@@ -4252,6 +4312,7 @@ class Lobby implements Runnable {
                                                     CarDefine.action = -6;
                                                     waitlink = 20;
                                                 }
+                                            }
                                         } else {
                                             rd.drawString("Private Car.  Cannot be added to account.", 561 - ftm.stringWidth("Private Car.  Cannot be added to account.") / 2, 395);
                                         }
@@ -4318,12 +4379,13 @@ class Lobby implements Runnable {
                         if (ontyp - i290 == 5) {
                             string = "" + string + "Class A";
                         }
-                        if (ontyp <= -2)
+                        if (ontyp <= -2) {
                             if (Math.abs(ontyp + 2) == 13) {
                                 string = " " + CarDefine.names[Math.abs(ontyp + 2)] + "  Game";
                             } else {
                                 string = "" + CarDefine.names[Math.abs(ontyp + 2)] + " Game";
                             }
+                        }
                         rd.setColor(new Color(0, 0, 0));
                         rd.setFont(new Font("Arial", 1, 13));
                         ftm = rd.getFontMetrics();
@@ -4356,12 +4418,13 @@ class Lobby implements Runnable {
                         if (i290 == 30) {
                             string = "" + string + " clan car";
                         }
-                        if (ontyp <= -2)
+                        if (ontyp <= -2) {
                             if (Math.abs(ontyp + 2) == 13) {
                                 string = " " + CarDefine.names[Math.abs(ontyp + 2)] + " ";
                             } else {
                                 string = "" + CarDefine.names[Math.abs(ontyp + 2)] + "";
                             }
+                        }
                         rd.drawString("To join this game you need to have " + string + "!", 400 - ftm.stringWidth("To join this game you need to have " + string + "!") / 2, 206);
                         stringbutton("  Get " + string + " now  ", 400, 247, 0);
                         stringbutton("  Cancel X  ", 593, 259, 2);
@@ -4521,10 +4584,11 @@ class Lobby implements Runnable {
             }
             if ((join >= 0 || pgames[im] != -1) && !regnow) {
                 int i1 = -1;
-                for (int i2 = 0; i2 < ngm; i2++)
+                for (int i2 = 0; i2 < ngm; i2++) {
                     if (join == gnum[i2] || pgames[im] == gnum[i2]) {
                         i1 = i2;
                     }
+                }
                 if (i1 != -1) {
                     boolean bool = false;
                     ontyp = 0;
@@ -4551,12 +4615,13 @@ class Lobby implements Runnable {
                     }
                     if (gclss[i1] > 0 && gclss[i1] <= 5 && Math.abs(CarDefine.cclass[pcars[im]] - (gclss[i1] - 1)) > 1) {
                         bool = true;
-                        if (gcrs[i1] == 1)
+                        if (gcrs[i1] == 1) {
                             if (gwarb[i1] == 0) {
                                 ontyp = 10;
                             } else {
                                 ontyp = 30;
                             }
+                        }
                         if (gcrs[i1] == 2) {
                             ontyp = 20;
                         }
@@ -4594,7 +4659,7 @@ class Lobby implements Runnable {
             if (lloaded) {
                 i = pgames[im];
                 if (i != -1) {
-                    for (int i3 = 0; i3 < ngm; i3++)
+                    for (int i3 = 0; i3 < ngm; i3++) {
                         if (i == gnum[i3]) {
                             laps = gnlaps[i3];
                             stage = gstgn[i3];
@@ -4602,6 +4667,7 @@ class Lobby implements Runnable {
                             nfix = gfx[i3];
                             notb = gntb[i3] == 1;
                         }
+                    }
                 }
             }
             String string = "" + xtGraphics.sc[0] + "";
@@ -4645,7 +4711,7 @@ class Lobby implements Runnable {
             }
             if (ongame != -1 && chalngd != -5 && !fstart) {
                 boolean bool8 = false;
-                for (int i9 = 0; i9 < 7; i9++)
+                for (int i9 = 0; i9 < 7; i9++) {
                     if (!invos[i9].equals("") && !dinvi[i9].equals(invos[i9])) {
                         if (!bool8) {
                             string4 = "" + string4 + "2|" + ongame + "|";
@@ -4654,6 +4720,7 @@ class Lobby implements Runnable {
                         string4 = "" + string4 + "" + invos[i9] + "|";
                         dinvi[i9] = invos[i9];
                     }
+                }
             }
             String string10 = "";
             boolean bool11 = false;
@@ -4723,18 +4790,20 @@ class Lobby implements Runnable {
                     pcarnames[i12] = string13.substring(1);
                     if (!pcarnames[i12].equals("")) {
                         int i14 = 0;
-                        for (int i15 = CarDefine.SIXTEEN; i15 < CarDefine.FIFTY_SIX; i15++)
+                        for (int i15 = CarDefine.SIXTEEN; i15 < CarDefine.FIFTY_SIX; i15++) {
                             if (pcarnames[i12].equals(CarDefine.names[i15])) {
                                 i14 = i15;
                                 break;
                             }
+                        }
                         if (i14 == 0) {
                             pcars[i12] = -1;
                             boolean bool16 = false;
-                            for (int i17 = 0; i17 < CarDefine.nl; i17++)
+                            for (int i17 = 0; i17 < CarDefine.nl; i17++) {
                                 if (pcarnames[i12].equals(CarDefine.loadnames[i17])) {
                                     bool16 = true;
                                 }
+                            }
                             if (!bool16 && CarDefine.nl < 20 && CarDefine.nl >= 0) {
                                 CarDefine.loadnames[CarDefine.nl] = pcarnames[i12];
                                 CarDefine.nl++;
@@ -4837,56 +4906,62 @@ class Lobby implements Runnable {
                     ongame = gnum[i20];
                 }
                 if (i == gnum[i20] && wait[i20] == 0 && lloaded && i != -1) {
-                    for (int i21 = 0; i21 < npo; i21++)
+                    for (int i21 = 0; i21 < npo; i21++) {
                         if (pgames[i21] == gnum[i20] && pnames[i21].equals(xtGraphics.nickname)) {
                             im = i21;
                             break;
                         }
+                    }
                     conon = 2;
                     gs.setCursor(new Cursor(3));
                 }
             }
             for (int i22 = 0; i22 < ngm; i22++) {
                 npls[i22] = 0;
-                for (int i23 = 0; i23 < npo; i23++)
+                for (int i23 = 0; i23 < npo; i23++) {
                     if (pgames[i23] == gnum[i22]) {
                         npls[i22]++;
                     }
+                }
             }
             if (conon != 0 && xtGraphics.playingame != -1) {
                 xtGraphics.playingame = -1;
             }
             if (ongame != -1) {
                 boolean bool24 = false;
-                for (int i25 = 0; i25 < ngm; i25++)
+                for (int i25 = 0; i25 < ngm; i25++) {
                     if (ongame == gnum[i25]) {
                         bool24 = true;
                     }
+                }
                 if (!bool24) {
                     britchl = -1;
                 }
             }
             if (join > -1) {
                 boolean bool26 = false;
-                for (int i27 = 0; i27 < ngm; i27++)
+                for (int i27 = 0; i27 < ngm; i27++) {
                     if (join == gnum[i27]) {
                         bool26 = true;
                     }
+                }
                 if (!bool26) {
                     join = -1;
                 }
             }
-            for (int i28 = 0; i28 < npo; i28++)
+            for (int i28 = 0; i28 < npo; i28++) {
                 if (pgames[i28] != -1) {
                     boolean bool29 = false;
-                    for (int i30 = 0; i30 < ngm; i30++)
+                    for (int i30 = 0; i30 < ngm; i30++) {
                         if (pgames[i28] == gnum[i30]) {
                             bool29 = true;
                         }
+                    }
                     if (!bool29) {
                         pgames[i28] = -1;
                     }
                 }
+            }
             if (xtGraphics.lan) {
                 i18 += 14 + (ngm - 1) * 13;
             } else {
@@ -4911,10 +4986,11 @@ class Lobby implements Runnable {
                         prevloaded = -1;
                     }
                     boolean bool34 = false;
-                    for (int i35 = 0; i35 < ngm; i35++)
+                    for (int i35 = 0; i35 < ngm; i35++) {
                         if (ongame == gnum[i35] && wait[i35] <= 0) {
                             bool34 = true;
                         }
+                    }
                     if (bool34) {
                         prevloaded = getvalue(string10, i18);
                         i18++;
@@ -4967,10 +5043,11 @@ class Lobby implements Runnable {
             final int i43 = getvalue(string10, i18);
             if (i43 != -1) {
                 int i44 = 0;
-                for (int i45 = 0; i45 < ngm; i45++)
+                for (int i45 = 0; i45 < ngm; i45++) {
                     if (i43 == gnum[i45]) {
                         i44 = i45;
                     }
+                }
                 boolean bool46 = false;
                 if (gwarb[i44] != 0) {
                     if (xtGraphics.clan.equalsIgnoreCase(gaclan[i44]) || xtGraphics.clan.equalsIgnoreCase(gvclan[i44])) {
@@ -4997,7 +5074,7 @@ class Lobby implements Runnable {
             }
             if (!xtGraphics.lan) {
                 int i47 = 1;
-                for (int i48 = 1; i48 < 6; i48++)
+                for (int i48 = 1; i48 < 6; i48++) {
                     if (i48 != xtGraphics.servport - 7070) {
                         final int i49 = getvalue(string10, i18 + i48);
                         if (i49 != -1) {
@@ -5007,21 +5084,24 @@ class Lobby implements Runnable {
                             i47++;
                         }
                     }
-                for (int i50 = 0; i50 < lg.nservers; i50++)
+                }
+                for (int i50 = 0; i50 < lg.nservers; i50++) {
                     if (!xtGraphics.server.equals(lg.servers[i50]) && xtGraphics.delays[i50] < 300) {
                         GameSparker.rooms.sopts[i47] = ":: " + lg.snames[i50] + "";
                         GameSparker.rooms.opts[i47] = "";
                         GameSparker.rooms.iroom[i47] = 1000 + i50;
                         i47++;
                     }
+                }
                 GameSparker.rooms.no = i47;
             }
             if (join > -1) {
                 boolean bool51 = false;
-                for (int i52 = 0; i52 < ngm; i52++)
+                for (int i52 = 0; i52 < ngm; i52++) {
                     if (join == gnum[i52] && wait[i52] == 0) {
                         bool51 = true;
                     }
+                }
                 if (pgames[im] == join || bool51) {
                     join = -1;
                     nflk = 3;
@@ -5029,10 +5109,11 @@ class Lobby implements Runnable {
             }
             if (join == -2) {
                 boolean bool53 = false;
-                for (int i54 = 0; i54 < ngm; i54++)
+                for (int i54 = 0; i54 < ngm; i54++) {
                     if (pgames[im] == gnum[i54] && wait[i54] == 0) {
                         bool53 = true;
                     }
+                }
                 if (pgames[im] == -1 || bool53) {
                     join = -1;
                     if (!bool53) {
@@ -5169,17 +5250,19 @@ class Lobby implements Runnable {
                             string63 = string63.substring(1);
                             if (!string63.equals("")) {
                                 int i64 = 0;
-                                for (int i65 = CarDefine.SIXTEEN; i65 < CarDefine.FIFTY_SIX; i65++)
+                                for (int i65 = CarDefine.SIXTEEN; i65 < CarDefine.FIFTY_SIX; i65++) {
                                     if (string63.equals(CarDefine.names[i65])) {
                                         i64 = i65;
                                         break;
                                     }
+                                }
                                 for (/**/ ; i64 == 0 && i59 < 100; i59++) {
                                     boolean bool66 = false;
-                                    for (int i67 = 0; i67 < CarDefine.nl; i67++)
+                                    for (int i67 = 0; i67 < CarDefine.nl; i67++) {
                                         if (string63.equals(CarDefine.loadnames[i67])) {
                                             bool66 = true;
                                         }
+                                    }
                                     if (!bool66 && CarDefine.nl < 20) {
                                         CarDefine.loadnames[CarDefine.nl] = string63;
                                         CarDefine.nl++;
@@ -5193,17 +5276,19 @@ class Lobby implements Runnable {
                                     } catch (final InterruptedException ignored) {
 
                                     }
-                                    for (int i68 = CarDefine.SIXTEEN; i68 < CarDefine.FIFTY_SIX; i68++)
+                                    for (int i68 = CarDefine.SIXTEEN; i68 < CarDefine.FIFTY_SIX; i68++) {
                                         if (string63.equals(CarDefine.names[i68])) {
                                             i64 = i68;
                                         }
+                                    }
                                 }
                                 if (i64 != 0) {
                                     xtGraphics.sc[i62] = i64;
-                                    for (int i69 = 0; i69 < npo; i69++)
+                                    for (int i69 = 0; i69 < npo; i69++) {
                                         if (pcarnames[i69].equals(string63)) {
                                             pcars[i69] = i64;
                                         }
+                                    }
                                 } else {
                                     xtGraphics.im = -1;
                                 }
@@ -5234,19 +5319,21 @@ class Lobby implements Runnable {
                     if (xtGraphics.im != -1) {
                         xtGraphics.playingame = i;
                         int i74 = 0;
-                        for (int i75 = 0; i75 < ngm; i75++)
+                        for (int i75 = 0; i75 < ngm; i75++) {
                             if (i == gnum[i75]) {
                                 i74 = i75;
                             }
+                        }
                         if (gwarb[i74] != 0) {
                             xtGraphics.clangame = gwtyp[i74];
                             xtGraphics.clanchat = true;
                             xtGraphics.gaclan = gaclan[i74];
                             for (int i76 = 0; i76 < xtGraphics.nplayers; i76++) {
-                                for (int i77 = 0; i77 < npo; i77++)
+                                for (int i77 = 0; i77 < npo; i77++) {
                                     if (xtGraphics.plnames[i76].equals(pnames[i77]) && pgames[i77] == i) {
                                         xtGraphics.pclan[i76] = pclan[i77];
                                     }
+                                }
                             }
                         } else {
                             xtGraphics.clangame = 0;
@@ -5387,17 +5474,19 @@ class Lobby implements Runnable {
                             string84 = string84.substring(1);
                             if (!string84.equals("")) {
                                 int i85 = 0;
-                                for (int i86 = CarDefine.SIXTEEN; i86 < CarDefine.FIFTY_SIX; i86++)
+                                for (int i86 = CarDefine.SIXTEEN; i86 < CarDefine.FIFTY_SIX; i86++) {
                                     if (string84.equals(CarDefine.names[i86])) {
                                         i85 = i86;
                                         break;
                                     }
+                                }
                                 for (/**/ ; i85 == 0 && i80 < 100; i80++) {
                                     boolean bool87 = false;
-                                    for (int i88 = 0; i88 < CarDefine.nl; i88++)
+                                    for (int i88 = 0; i88 < CarDefine.nl; i88++) {
                                         if (string84.equals(CarDefine.loadnames[i88])) {
                                             bool87 = true;
                                         }
+                                    }
                                     if (!bool87 && CarDefine.nl < 20) {
                                         CarDefine.loadnames[CarDefine.nl] = string84;
                                         CarDefine.nl++;
@@ -5411,17 +5500,19 @@ class Lobby implements Runnable {
                                     } catch (final InterruptedException ignored) {
 
                                     }
-                                    for (int i89 = CarDefine.SIXTEEN; i89 < CarDefine.FIFTY_SIX; i89++)
+                                    for (int i89 = CarDefine.SIXTEEN; i89 < CarDefine.FIFTY_SIX; i89++) {
                                         if (string84.equals(CarDefine.names[i89])) {
                                             i85 = i89;
                                         }
+                                    }
                                 }
                                 if (i85 != 0) {
                                     xtGraphics.sc[i83] = i85;
-                                    for (int i90 = 0; i90 < npo; i90++)
+                                    for (int i90 = 0; i90 < npo; i90++) {
                                         if (pcarnames[i90].equals(string84)) {
                                             pcars[i90] = i85;
                                         }
+                                    }
                                 } else {
                                     xtGraphics.im = -1;
                                 }
@@ -5452,10 +5543,11 @@ class Lobby implements Runnable {
                     if (xtGraphics.im >= xtGraphics.nplayers && xtGraphics.im < xtGraphics.nplayers + 3) {
                         xtGraphics.playingame = ongame;
                         int i95 = 0;
-                        for (int i96 = 0; i96 < ngm; i96++)
+                        for (int i96 = 0; i96 < ngm; i96++) {
                             if (ongame == gnum[i96]) {
                                 i95 = i96;
                             }
+                        }
                         if (gwarb[i95] != 0) {
                             xtGraphics.clangame = gwtyp[i95];
                             xtGraphics.gaclan = gaclan[i95];
@@ -5463,10 +5555,11 @@ class Lobby implements Runnable {
                                 xtGraphics.clanchat = true;
                             }
                             for (int i97 = 0; i97 < xtGraphics.nplayers; i97++) {
-                                for (int i98 = 0; i98 < npo; i98++)
+                                for (int i98 = 0; i98 < npo; i98++) {
                                     if (xtGraphics.plnames[i97].equals(pnames[i98]) && pgames[i98] == ongame) {
                                         xtGraphics.pclan[i97] = pclan[i98];
                                     }
+                                }
                             }
                         } else {
                             xtGraphics.clangame = 0;
@@ -5523,10 +5616,11 @@ class Lobby implements Runnable {
             britchl = 0;
         }
         int i295 = 0;
-        for (int i296 = 0; i296 < ngm; i296++)
+        for (int i296 = 0; i296 < ngm; i296++) {
             if (ongame == gnum[i296]) {
                 i295 = i296;
             }
+        }
         if (chalngd != -2 && ongame != -1) {
             rd.setColor(color2k(20, 20, 20));
             rd.fillRect(80, 0, 640, 40);
@@ -5562,10 +5656,11 @@ class Lobby implements Runnable {
                         rd.setFont(new Font("Arial", 0, 12));
                         if (!gmaker[i295].equals("Coach Insano") && !gmaker[i295].equals(pnames[im])) {
                             boolean bool297 = false;
-                            for (int i298 = 0; i298 < npo; i298++)
+                            for (int i298 = 0; i298 < npo; i298++) {
                                 if (pgames[i298] == ongame && gmaker[i295].equals(pnames[i298])) {
                                     bool297 = true;
                                 }
+                            }
                             if (bool297) {
                                 rd.drawString("" + gmaker[i295] + " can start this game at anytime (the game creator)...", 95, 31);
                             }
@@ -5660,7 +5755,7 @@ class Lobby implements Runnable {
                 } else {
                     xtGraphics.drawcs(413, "Public Stage", 41, 177, 255, 3);
                 }
-                if (addstage == 0 && xtGraphics.drawcarb(true, null, " Add to My Stages ", 334, 420, i, i293, bool))
+                if (addstage == 0 && xtGraphics.drawcarb(true, null, " Add to My Stages ", 334, 420, i, i293, bool)) {
                     if (xtGraphics.logged) {
                         CarDefine.onstage = CheckPoints.name;
                         CarDefine.staction = 2;
@@ -5670,6 +5765,7 @@ class Lobby implements Runnable {
                         addstage = 1;
                         waitlink = 20;
                     }
+                }
                 if (addstage == 1) {
                     rd.setFont(new Font("Arial", 1, 11));
                     ftm = rd.getFontMetrics();

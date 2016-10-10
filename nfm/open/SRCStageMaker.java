@@ -28,7 +28,6 @@ import java.awt.RenderingHints;
 import java.awt.Robot;
 import java.awt.TextField;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -64,8 +63,6 @@ import java.util.Map.Entry;
 import java.util.Stack;
 import java.util.Vector;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -81,7 +78,6 @@ import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.Timer;
 import javax.swing.WindowConstants;
-import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import com.google.gson.Gson;
@@ -148,7 +144,7 @@ public class SRCStageMaker extends JPanel
 
         /**
          * Instantiates a new cont o.
-         * 
+         *
          * @param is the is
          */
         SMContO(final byte[] is) {
@@ -264,8 +260,9 @@ public class SRCStageMaker extends JPanel
     static {
         if (offImage != null) {
             rd = offImage.createGraphics();
-        } else
+        } else {
             throw new Error("this should never happen");
+        }
     }
 
     static class Menus {
@@ -326,17 +323,7 @@ public class SRCStageMaker extends JPanel
      */
     static {
         for (final Map<String, String> map : menus.menus.values()) {
-            map.entrySet().stream().filter(new Predicate<Entry<String, String>>() {
-                @Override
-                public boolean test(Entry<String, String> entry) {
-                    return Utility.isNumeric(entry.getValue());
-                }
-            }).forEach(new Consumer<Entry<String, String>>() {
-                @Override
-                public void accept(Entry<String, String> entry) {
-                    entry.setValue(Utility.getKeyByValue(partNumbers, Integer.parseInt(entry.getValue())));
-                }
-            });
+            map.entrySet().stream().filter(entry -> Utility.isNumeric(entry.getValue())).forEach(entry -> entry.setValue(Utility.getKeyByValue(partNumbers, Integer.parseInt(entry.getValue()))));
         }
     }
 
@@ -1926,10 +1913,11 @@ public class SRCStageMaker extends JPanel
             ZipEntry zipentry = zipinputstream.getNextEntry();
             for (; zipentry != null; zipentry = zipinputstream.getNextEntry()) {
                 int i = -1;
-                for (int i176 = 0; i176 < GameSparker.stageRads.length; i176++)
+                for (int i176 = 0; i176 < GameSparker.stageRads.length; i176++) {
                     if (zipentry.getName().equals(GameSparker.stageRads[i176] + ".rad")) {
                         i = i176;
                     }
+                }
                 if (i != -1) {
                     int entrySize = (int) zipentry.getSize();
                     final byte[] b = new byte[entrySize];
@@ -2933,12 +2921,7 @@ public class SRCStageMaker extends JPanel
         setFocusable(true);
         requestFocusInWindow();
 
-        final ActionListener theticker = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                repaint();
-            }
-        };
+        final ActionListener theticker = ae -> repaint();
         final Timer timer2 = new Timer(50, theticker);
         timer2.start();
 
@@ -2965,10 +2948,11 @@ public class SRCStageMaker extends JPanel
                 slstage.add(rd, "Select a Stage                      ");
                 final String[] strings = new File("mystages/").list();
                 if (strings != null) {
-                    for (final String string : strings)
+                    for (final String string : strings) {
                         if (string.toLowerCase().endsWith(".txt")) {
                             slstage.add(rd, string.substring(0, string.length() - 4));
                         }
+                    }
                 }
                 if (stagename.equals("")) {
                     slstage.select(0);
@@ -3072,7 +3056,7 @@ public class SRCStageMaker extends JPanel
                     slstage.setVisible(false);
                     sfase = 1;
                 }
-                if (button("     Rename Stage     ", 325, 336 + i0, 0, false))
+                if (button("     Rename Stage     ", 325, 336 + i0, 0, false)) {
                     if (!stagename.equals("")) {
                         slstage.setVisible(false);
                         srch.setText(stagename);
@@ -3080,7 +3064,8 @@ public class SRCStageMaker extends JPanel
                     } else {
                         JOptionPane.showMessageDialog(null, "Please select a stage to rename first.", "Stage Maker", 1);
                     }
-                if (button("      Delete Stage      ", 475, 336 + i0, 0, false))
+                }
+                if (button("      Delete Stage      ", 475, 336 + i0, 0, false)) {
                     if (!stagename.equals("")) {
                         if (JOptionPane.showConfirmDialog(null, "Are you sure you want to permanently delete this stage?\n\n" + stagename + "\n\n", "Stage Maker", 0) == 0) {
                             delstage(stagename);
@@ -3088,6 +3073,7 @@ public class SRCStageMaker extends JPanel
                     } else {
                         JOptionPane.showMessageDialog(null, "Please select a stage to delete first.", "Stage Maker", 1);
                     }
+                }
                 if (slstage.getSelectedIndex() != 0) {
                     if (!stagename.equals(slstage.getSelectedItem())) {
                         stagename = slstage.getSelectedItem();
@@ -3511,19 +3497,20 @@ public class SRCStageMaker extends JPanel
             nfm.open.Medium.y = sy;
             int i = 0;
             final int[] is = new int[10000]; // stageselect limit
-            for (int i2 = 0; i2 < nob; i2++)
+            for (int i2 = 0; i2 < nob; i2++) {
                 if (co[i2].dist != 0) {
                     is[i] = i2;
                     i++;
                 } else {
                     co[i2].d(rd);
                 }
+            }
             final int[] is3 = new int[i];
             for (int i4 = 0; i4 < i; i4++) {
                 is3[i4] = 0;
             }
             for (int i5 = 0; i5 < i; i5++) {
-                for (int i6 = i5 + 1; i6 < i; i6++)
+                for (int i6 = i5 + 1; i6 < i; i6++) {
                     if (co[is[i5]].dist != co[is[i6]].dist) {
                         if (co[is[i5]].dist < co[is[i6]].dist) {
                             is3[i5]++;
@@ -3535,9 +3522,10 @@ public class SRCStageMaker extends JPanel
                     } else {
                         is3[i6]++;
                     }
+                }
             }
             for (int i7 = 0; i7 < i; i7++) {
-                for (int i8 = 0; i8 < i; i8++)
+                for (int i8 = 0; i8 < i; i8++) {
                     if (is3[i8] == i7) {
                         if (is[i8] == hi) {
                             nfm.open.Medium.trk = 3;
@@ -3580,6 +3568,7 @@ public class SRCStageMaker extends JPanel
                             nfm.open.Medium.trk = 2;
                         }
                     }
+                }
             }
             drawPlayerPos();
             drawNodePath();
@@ -3653,7 +3642,7 @@ public class SRCStageMaker extends JPanel
                             }
                         }
                         if (selectedPartType == PART_CHECKPOINTS && py(attachesAgainstX[0], attachesX[0], attachesAgainstZ[0], attachesZ[0]) != 0 && py(attachesAgainstX[1], attachesX[0], attachesAgainstZ[1], attachesZ[0]) != 0) {
-                            for (final int element : rcheckp)
+                            for (final int element : rcheckp) {
                                 if (co[i26].partID == element) {
                                     if (py(attachesAgainstX[0], attachesX[0], attachesAgainstZ[0], attachesZ[0]) <= i24 || i24 == 0) {
                                         i24 = py(attachesAgainstX[0], attachesX[0], attachesAgainstZ[0], attachesZ[0]);
@@ -3662,7 +3651,8 @@ public class SRCStageMaker extends JPanel
                                         i24 = py(attachesAgainstX[1], attachesX[0], attachesAgainstZ[1], attachesZ[0]);
                                     }
                                 }
-                            for (final int element : ocheckp)
+                            }
+                            for (final int element : ocheckp) {
                                 if (co[i26].partID == element) {
                                     if (py(attachesAgainstX[0], attachesX[0], attachesAgainstZ[0], attachesZ[0]) <= i24 || i24 == 0) {
                                         i24 = py(attachesAgainstX[0], attachesX[0], attachesAgainstZ[0], attachesZ[0]);
@@ -3671,6 +3661,7 @@ public class SRCStageMaker extends JPanel
                                         i24 = py(attachesAgainstX[1], attachesX[0], attachesAgainstZ[1], attachesZ[0]);
                                     }
                                 }
+                            }
                         }
                         if (selectedPart > 12 && selectedPart < 33 || selectedPart == 35 || selectedPart == 36 || selectedPart >= 39 && selectedPart <= maxpart) {
                             if ((rot == 0 || rot == 180 || selectedPart == 26 || selectedPart == 15) && (i29 == 0 || i29 == 180 || selectedPart == 26 || selectedPart == 15)) {
@@ -3708,7 +3699,7 @@ public class SRCStageMaker extends JPanel
                             };
                             if ((Math.abs(co[i26].declaredXZ) == 180 || co[i26].declaredXZ == 0) && rot == 0 && Math.abs(bco[selectedPart].x - co[i26].x) < 500 && Math.abs(bco[selectedPart].z - co[i26].z) < 3000) {
                                 for (int i34 = 0; i34 < is33[co[i26].partID - 46]; i34++) {
-                                    for (int i35 = 0; i35 < co[i26].p[i34].n; i35++)
+                                    for (int i35 = 0; i35 < co[i26].p[i34].n; i35++) {
                                         if (py(bco[selectedPart].x, co[i26].x, bco[selectedPart].z, co[i26].z + co[i26].p[i34].oz[i35]) < i25) {
                                             i25 = py(bco[selectedPart].x, co[i26].x, bco[selectedPart].z, co[i26].z + co[i26].p[i34].oz[i35]);
                                             flyh = co[i26].p[i34].oy[i35] - 28 + nfm.open.Medium.ground;
@@ -3716,11 +3707,12 @@ public class SRCStageMaker extends JPanel
                                             i21 = co[i26].z + co[i26].p[i34].oz[i35] - bco[selectedPart].z;
                                             //onfly = true;
                                         }
+                                    }
                                 }
                             }
                             if (Math.abs(co[i26].declaredXZ) == 90 && rot == 90 && Math.abs(bco[selectedPart].z - co[i26].z) < 500 && Math.abs(bco[selectedPart].x - co[i26].x) < 3000) {
                                 for (int i36 = 0; i36 < is33[co[i26].partID - 46]; i36++) {
-                                    for (int i37 = 0; i37 < co[i26].p[i36].n; i37++)
+                                    for (int i37 = 0; i37 < co[i26].p[i36].n; i37++) {
                                         if (py(bco[selectedPart].z, co[i26].z, bco[selectedPart].x, co[i26].x + co[i26].p[i36].ox[i37]) < i25) {
                                             i25 = py(bco[selectedPart].z, co[i26].z, bco[selectedPart].x, co[i26].x + co[i26].p[i36].ox[i37]);
                                             flyh = co[i26].p[i36].oy[i37] - 28 + nfm.open.Medium.ground;
@@ -3728,6 +3720,7 @@ public class SRCStageMaker extends JPanel
                                             i20 = co[i26].x + co[i26].p[i36].ox[i37] - bco[selectedPart].x;
                                             //onfly = true;
                                         }
+                                    }
                                 }
                             }
                         }
@@ -3790,7 +3783,7 @@ public class SRCStageMaker extends JPanel
                                             errd = 1;
                                         }
                                     }
-                                    if (selectedPart == FIXHOOP_SET_ID)
+                                    if (selectedPart == FIXHOOP_SET_ID) {
                                         if (nfm.open.CheckPoints.fn < 5) {
                                             co[nob] = new SMContO(bco[selectedPart], bco[selectedPart].x, bco[selectedPart].y, bco[selectedPart].z, bco[selectedPart].xz);
                                             co[nob].declaredXZ = bco[selectedPart].xz;
@@ -3800,6 +3793,7 @@ public class SRCStageMaker extends JPanel
                                         } else {
                                             errd = 5;
                                         }
+                                    }
                                     if (selectedPart == FLYING_CHECKPOINT_SET_ID) {
                                         try {
                                             co[nob] = new SMContO(bco[selectedPart], bco[selectedPart].x, bco[selectedPart].y, bco[selectedPart].z, bco[selectedPart].xz);
@@ -3875,7 +3869,7 @@ public class SRCStageMaker extends JPanel
                     bco[selectedPart].xy = i38;
                     bco[selectedPart].zy = i39;
                 } else {
-                    if (epart)
+                    if (epart) {
                         if (esp == -1 && !overcan) {
                             hi = -1;
                             getHighlightedPiece();
@@ -3896,10 +3890,11 @@ public class SRCStageMaker extends JPanel
                             gameFrame.setCursor(new Cursor(0));
                             setcur = false;
                         }
+                    }
                     if (arrng) {
                         chi = -1;
                         int i47 = 5000;
-                        for (int i48 = 0; i48 < nob; i48++)
+                        for (int i48 = 0; i48 < nob; i48++) {
                             if ((co[i48].partID == ONROAD_CHECKPOINT_SET_ID || Utility.arrayContains(CHECKPOINT_IDS, co[i48].partID) || co[i48].partID == OFFROAD_CHECKPOINT_SET_ID || co[i48].partID == FLYING_CHECKPOINT_SET_ID) && !co[i48].errd) {
                                 final int i49 = nfm.open.Medium.cx + (int) ((co[i48].x - nfm.open.Medium.x - nfm.open.Medium.cx) * nfm.open.Medium.cos(nfm.open.Medium.xz) - (co[i48].z - nfm.open.Medium.z - nfm.open.Medium.cz) * nfm.open.Medium.sin(nfm.open.Medium.xz));
                                 final int i50 = nfm.open.Medium.cz + (int) ((co[i48].x - nfm.open.Medium.x - nfm.open.Medium.cx) * nfm.open.Medium.sin(nfm.open.Medium.xz) + (co[i48].z - nfm.open.Medium.z - nfm.open.Medium.cz) * nfm.open.Medium.cos(nfm.open.Medium.xz));
@@ -3910,6 +3905,7 @@ public class SRCStageMaker extends JPanel
                                     i47 = py(xm, Utility.xs(i49, i52), ym, Utility.ys(i51, i52));
                                 }
                             }
+                        }
                         if (chi != -1) {
                             if (!setcur) {
                                 gameFrame.setCursor(new Cursor(13));
@@ -3935,7 +3931,7 @@ public class SRCStageMaker extends JPanel
             drawpartids();
             drawSelection();
 
-            if (epart && esp != -1)
+            if (epart && esp != -1) {
                 if (co[esp].dist != 0) {
                     nfm.open.Medium.cx = 505;
                     nfm.open.Medium.cy = 290;
@@ -3981,6 +3977,7 @@ public class SRCStageMaker extends JPanel
                 } else {
                     esp = -1;
                 }
+            }
             rd.setColor(Color.white);
             rd.fillRect(248, 25, 514, 38);
             rd.fillRect(0, 25, 248, 530);
@@ -4311,7 +4308,7 @@ public class SRCStageMaker extends JPanel
                 arrng = false;
             }
             if (xm > 10 && xm < 210 && ym > 130 && ym < 334) {
-                if (seq >= 3)
+                if (seq >= 3) {
                     if (seq == 20 || !seqn) {
                         seq = 0;
                         bco[selectedPart].xy = 0;
@@ -4319,6 +4316,7 @@ public class SRCStageMaker extends JPanel
                     } else {
                         seq++;
                     }
+                }
                 seqn = true;
                 rd.setColor(ColorConstants.c_210_210_210);
             } else {
@@ -4331,16 +4329,17 @@ public class SRCStageMaker extends JPanel
                 epart = false;
                 if (!arrng) {
                     arrcnt = 0;
-                    for (int i61 = 0; i61 < nob; i61++)
+                    for (int i61 = 0; i61 < nob; i61++) {
                         if (co[i61].partID == ONROAD_CHECKPOINT_SET_ID || Utility.arrayContains(CHECKPOINT_IDS, co[i61].partID) || co[i61].partID == OFFROAD_CHECKPOINT_SET_ID || co[i61].partID == FLYING_CHECKPOINT_SET_ID) {
                             co[i61].errd = false;
                         }
+                    }
                     arrng = true;
                 } else {
                     arrng = false;
                 }
             }
-            if (seqn && mousePressed == -1)
+            if (seqn && mousePressed == -1) {
                 if (selectedPart != BUMP_SET_ID) {
                     boolean bool = false;
                     if (rot == 0 && !bool) {
@@ -4377,6 +4376,7 @@ public class SRCStageMaker extends JPanel
                     phd = 2L + Math.round(ThreadLocalRandom.current().nextDouble() * 4.0);
                     updateGroundPile();
                 }
+            }
             if (selectedPart == FIXHOOP_SET_ID) {
                 rd.setFont(FontConstants.arial_12);
                 rd.setColor(Color.black);
@@ -4509,7 +4509,7 @@ public class SRCStageMaker extends JPanel
                 } else {
                     bco[selectedPart].zy = 0;
                 }
-                if (seq == 2)
+                if (seq == 2) {
                     if (!bool) {
                         bco[selectedPart].zy += 5 * i62;
                         if (bco[selectedPart].zy == 0) {
@@ -4521,10 +4521,11 @@ public class SRCStageMaker extends JPanel
                             seq = 3;
                         }
                     }
+                }
                 if (seq == 1) {
                     seq = 2;
                 }
-                if (seq == 0)
+                if (seq == 0) {
                     if (!bool) {
                         bco[selectedPart].zy -= 5 * i62;
                         if (bco[selectedPart].zy == -(85 * i62)) {
@@ -4536,6 +4537,7 @@ public class SRCStageMaker extends JPanel
                             seq = 1;
                         }
                     }
+                }
             }
             if (selectedPart != BUMP_SET_ID) {
                 if (button("  Rotate  ", 110, 348, 3, true)) {
@@ -4771,19 +4773,20 @@ public class SRCStageMaker extends JPanel
             nfm.open.Medium.d(rd);
             int i = 0;
             final int[] is = new int[10000]; // stageselect limit
-            for (int i69 = 0; i69 < nob; i69++)
+            for (int i69 = 0; i69 < nob; i69++) {
                 if (co[i69].dist != 0) {
                     is[i] = i69;
                     i++;
                 } else {
                     co[i69].d(rd);
                 }
+            }
             final int[] is70 = new int[i];
             for (int i71 = 0; i71 < i; i71++) {
                 is70[i71] = 0;
             }
             for (int i72 = 0; i72 < i; i72++) {
-                for (int i73 = i72 + 1; i73 < i; i73++)
+                for (int i73 = i72 + 1; i73 < i; i73++) {
                     if (co[is[i72]].dist != co[is[i73]].dist) {
                         if (co[is[i72]].dist < co[is[i73]].dist) {
                             is70[i72]++;
@@ -4795,9 +4798,10 @@ public class SRCStageMaker extends JPanel
                     } else {
                         is70[i73]++;
                     }
+                }
             }
             for (int i74 = 0; i74 < i; i74++) {
-                for (int i75 = 0; i75 < i; i75++)
+                for (int i75 = 0; i75 < i; i75++) {
                     if (is70[i75] == i74) {
                         if (is[i75] == hi) {
                             nfm.open.Medium.trk = 3;
@@ -4807,6 +4811,7 @@ public class SRCStageMaker extends JPanel
                             nfm.open.Medium.trk = 2;
                         }
                     }
+                }
             }
             drawPlayerPos();
             drawpartids();
@@ -5519,13 +5524,14 @@ public class SRCStageMaker extends JPanel
                     }
                     if (button(" + ", 300 + i112, 447 + i113 * 24 + i111, 4, false)) {
                         if (snap[0] + snap[1] + snap[2] > 200) {
-                            for (int i116 = 0; i116 < 3; i116++)
+                            for (int i116 = 0; i116 < 3; i116++) {
                                 if (i116 != i113) {
                                     snap[i116]--;
                                     if (snap[i116] < 0) {
                                         snap[i116] = 0;
                                     }
                                 }
+                            }
                         }
                         snap[i113] += 2;
                         if (snap[i113] > 100/* && !isHansen*/) {
@@ -5634,10 +5640,11 @@ public class SRCStageMaker extends JPanel
                     tracks.add(rd, "The Play List  -  MOD Tracks");
                     final String[] strings125 = new File("mystages/mymusic/").list();
                     if (strings125 != null) {
-                        for (final String element : strings125)
+                        for (final String element : strings125) {
                             if (element.toLowerCase().endsWith(".zip")) {
                                 tracks.add(rd, element.substring(0, element.length() - 4));
                             }
+                        }
                     }
                     if (ltrackname.equals("")) {
                         if (trackname.equals("")) {
@@ -5785,10 +5792,11 @@ public class SRCStageMaker extends JPanel
                                 tracks.add(rd, "Select MOD Track                      ");
                                 final String[] strings131 = new File("mystages/mymusic/").list();
                                 if (strings131 != null) {
-                                    for (final String element : strings131)
+                                    for (final String element : strings131) {
                                         if (element.toLowerCase().endsWith(".zip")) {
                                             tracks.add(rd, element.substring(0, element.length() - 4));
                                         }
+                                    }
                                 }
                                 tracks.select(file.getName().substring(0, file.getName().length() - 4));
                             } else {
@@ -5851,12 +5859,13 @@ public class SRCStageMaker extends JPanel
                     }
                 }
             }
-            if (dtabed != dtab)
+            if (dtabed != dtab) {
                 if (dtabed == -2) {
                     dtabed = -1;
                 } else {
                     dtabed = dtab;
                 }
+            }
         }
         if (tab == 3) {
             rd.setFont(FontConstants.arial_13);
@@ -5912,10 +5921,11 @@ public class SRCStageMaker extends JPanel
                     }
                     if (errd == 0) {
                         int i = 0;
-                        for (int i134 = 0; i134 < nms; i134++)
+                        for (int i134 = 0; i134 < nms; i134++) {
                             if (mystages[i134].equals(stagename) && maker[i134].equalsIgnoreCase(tnick.getText().toLowerCase())) {
                                 i = JOptionPane.showConfirmDialog(null, "Replace your already online stage '" + stagename + "' with this one?", "Stage Maker", 0);
                             }
+                        }
                         if (i == 0) {
                             gameFrame.setCursor(new Cursor(3));
                             rd.setFont(FontConstants.arial_13);
@@ -6097,7 +6107,7 @@ public class SRCStageMaker extends JPanel
                                         i141 = 1;
                                     }
                                     string = "" + string + addeda[i][i142];
-                                    if (i142 != nad[i] - 1)
+                                    if (i142 != nad[i] - 1) {
                                         if (i142 != nad[i] - 2) {
                                             string = string + ", ";
                                         } else if (i141 == 16) {
@@ -6106,6 +6116,7 @@ public class SRCStageMaker extends JPanel
                                         } else {
                                             string = string + " and ";
                                         }
+                                    }
                                 }
                                 string = string + "\n \n \n";
                                 JOptionPane.showMessageDialog(null, string, "Stage Maker", 1);
@@ -6128,10 +6139,11 @@ public class SRCStageMaker extends JPanel
                         }
                         if ((pubt[i] == 2 || bool) && ovbutton("Download", 700, 156 + i * 20)) {
                             int i143 = 0;
-                            for (int i144 = 0; i144 < slstage.getItemCount(); i144++)
+                            for (int i144 = 0; i144 < slstage.getItemCount(); i144++) {
                                 if (mystages[i].equals(slstage.getItem(i144))) {
                                     i143 = JOptionPane.showConfirmDialog(null, "Replace the local " + mystages[i] + " in your 'mystages' folder with the published online copy?", "Stage Maker", 0);
                                 }
+                            }
                             if (i143 == 0) {
                                 gameFrame.setCursor(new Cursor(3));
                                 rd.setFont(FontConstants.arial_13);
@@ -6216,12 +6228,13 @@ public class SRCStageMaker extends JPanel
                                                 url = new URL(string);
                                                 i145 = url.openConnection().getContentLength();
                                                 file = new File("mystages/mymusic/" + string149 + ".zip");
-                                                if (file.exists())
+                                                if (file.exists()) {
                                                     if (file.length() == i145) {
                                                         i143 = 1;
                                                     } else {
                                                         i143 = JOptionPane.showConfirmDialog(null, "Another track named '" + string149 + "' already exists in your Sound Tracks folder!\nReplace it with the one attached to this stage?", "Stage Maker", 0);
                                                     }
+                                                }
                                                 if (i143 == 0) {
                                                     datainputstream = new DataInputStream(url.openStream());
                                                     is = new byte[i145];
@@ -6431,12 +6444,13 @@ public class SRCStageMaker extends JPanel
                 rd.drawString("Register to publish your stages to the multiplayer game!", 400 - ftm.stringWidth("Register to publish your stages to the multiplayer game!") / 2, 505);
             }
         }
-        if (tabed != tab)
+        if (tabed != tab) {
             if (tabed == -2) {
                 tabed = -1;
             } else {
                 tabed = tab;
             }
+        }
         rd.setColor(Color.black);
         rd.fillRect(0, 0, 800, 25);
         /*if (!onbtgame) {
@@ -6553,28 +6567,26 @@ public class SRCStageMaker extends JPanel
                             hasLostFocus = false;
                         }
                     } else {
-                        list(new ListSelectionListener() {
-                            @Override
-                            public void valueChanged(ListSelectionEvent e) { // select whichever part was pciked (not every frame!! that's annoyng!!)
+                        list(e -> { // select whichever part was pciked (not every frame!! that's annoyng!!)
 
-                                final int i = list.getSelectedIndex();
-                                if (i >= results.size() || i < 0)
-                                    return;
-                                final SearchResult obj = results.get(i); // relyign on the event's data just causes issues...
-
-                                selectedPart = obj.selectedPart;
-
-                                final int ctype1 = obj.selectedPartType;
-                                if (ctype1 != ptyp.getSelectedIndex()) { // select whichever map this is
-                                    selectedPartType = ctype1;
-                                    ptyp.select(selectedPartType);
-                                    loadPartMenu();
-                                }
-
-                                final int cpart = obj.selectedMenuPart;
-                                selectedMenuPart = cpart;
-                                part.select(cpart);
+                            final int i = list.getSelectedIndex();
+                            if (i >= results.size() || i < 0) {
+                                return;
                             }
+                            final SearchResult obj = results.get(i); // relyign on the event's data just causes issues...
+
+                            selectedPart = obj.selectedPart;
+
+                            final int ctype1 = obj.selectedPartType;
+                            if (ctype1 != ptyp.getSelectedIndex()) { // select whichever map this is
+                                selectedPartType = ctype1;
+                                ptyp.select(selectedPartType);
+                                loadPartMenu();
+                            }
+
+                            final int cpart = obj.selectedMenuPart;
+                            selectedMenuPart = cpart;
+                            part.select(cpart);
                         }, results, 6, 292, 200, 100);
                     }
                 }
@@ -6849,7 +6861,7 @@ public class SRCStageMaker extends JPanel
             final int i44 = nfm.open.Medium.cz + (int) ((co[i42].x - nfm.open.Medium.x - nfm.open.Medium.cx) * nfm.open.Medium.sin(nfm.open.Medium.xz) + (co[i42].z - nfm.open.Medium.z - nfm.open.Medium.cz) * nfm.open.Medium.cos(nfm.open.Medium.xz));
             final int i45 = nfm.open.Medium.cy + (int) ((co[i42].y - nfm.open.Medium.y - nfm.open.Medium.cy) * nfm.open.Medium.cos(nfm.open.Medium.zy) - (i44 - nfm.open.Medium.cz) * nfm.open.Medium.sin(nfm.open.Medium.zy));
             final int i46 = nfm.open.Medium.cz + (int) ((co[i42].y - nfm.open.Medium.y - nfm.open.Medium.cy) * nfm.open.Medium.sin(nfm.open.Medium.zy) + (i44 - nfm.open.Medium.cz) * nfm.open.Medium.cos(nfm.open.Medium.zy));
-            if (xm > Utility.xs(i43 - co[i42].maxR, i46) && xm < Utility.xs(i43 + co[i42].maxR, i46) && ym > Utility.ys(i45 - co[i42].maxR, i46) && ym < Utility.ys(i45 + co[i42].maxR, i46) && co[i42].partID != 37 && co[i42].partID != 38)
+            if (xm > Utility.xs(i43 - co[i42].maxR, i46) && xm < Utility.xs(i43 + co[i42].maxR, i46) && ym > Utility.ys(i45 - co[i42].maxR, i46) && ym < Utility.ys(i45 + co[i42].maxR, i46) && co[i42].partID != 37 && co[i42].partID != 38) {
                 if (hi == -1) {
                     hi = i42;
                     i41 = py(xm, Utility.xs(i43, i46), ym, Utility.ys(i45, i46));
@@ -6857,6 +6869,7 @@ public class SRCStageMaker extends JPanel
                     hi = i42;
                     i41 = py(xm, Utility.xs(i43, i46), ym, Utility.ys(i45, i46));
                 }
+            }
         }
     }
 
@@ -7269,12 +7282,13 @@ public class SRCStageMaker extends JPanel
                 bool = true;
             }
         }
-        for (int i265 = 0; i265 < nob; i265++)
+        for (int i265 = 0; i265 < nob; i265++) {
             if (pTyps[i265] == 0 && (co[i265].partID <= 14 || co[i265].partID >= 33) && (co[i265].partID < 39 || co[i265].partID >= 46) && co[i265].partID < 52) {
                 cIds2[t_nob] = i265;
                 t_nob++;
             }
-        for (int i266 = 0; i266 < t_nob; i266++)
+        }
+        for (int i266 = 0; i266 < t_nob; i266++) {
             if (co[cIds2[i266]].partID >= 46 && co[cIds2[i266]].partID <= 51) {
                 for (int i267 = i266 + 1; i267 < t_nob; i267++) {
                     final int i268 = pyn(co[cIds2[i266]].x, co[cIds2[i267]].x, co[cIds2[i266]].z, co[cIds2[i267]].z);
@@ -7287,13 +7301,14 @@ public class SRCStageMaker extends JPanel
                     }
                 }
             }
+        }
         int i271 = 1;
         for (int i272 = 0; i272 < nfm.open.CheckPoints.nsp; i272++) {
-            for (int i273 = 0; i273 < nob; i273++)
+            for (int i273 = 0; i273 < nob; i273++) {
                 if (co[i273].wh == i272 + 1 && (co[i273].partID == ONROAD_CHECKPOINT_SET_ID || Utility.arrayContains(CHECKPOINT_IDS, co[i273].partID) || co[i273].partID == OFFROAD_CHECKPOINT_SET_ID || co[i273].partID == FLYING_CHECKPOINT_SET_ID)) {
                     int i274 = -1;
                     int i275 = -1;
-                    for (int i276 = i271; i276 < t_nob; i276++)
+                    for (int i276 = i271; i276 < t_nob; i276++) {
                         if (co[cIds2[i276]].partID != ONROAD_CHECKPOINT_SET_ID && !Utility.arrayContains(CHECKPOINT_IDS, co[cIds2[i276]].partID) && co[cIds2[i276]].partID != OFFROAD_CHECKPOINT_SET_ID && co[cIds2[i276]].partID != FLYING_CHECKPOINT_SET_ID) {
                             final int i277 = pyn(co[i273].x, co[cIds2[i276]].x, co[i273].z, co[cIds2[i276]].z);
                             if (i277 >= 0 && (i277 < i274 || i274 == -1)) {
@@ -7301,6 +7316,7 @@ public class SRCStageMaker extends JPanel
                                 i275 = i276;
                             }
                         }
+                    }
                     if (i275 != -1) {
                         pTyps[cIds2[i275]] = 0;
                         System.arraycopy(cIds2, i275, cIds2, i275 + 1, t_nob - i275);
@@ -7313,12 +7329,13 @@ public class SRCStageMaker extends JPanel
                         t_nob++;
                     }
                 }
+            }
         }
-        for (int i279 = 0; i279 < nob; i279++)
+        for (int i279 = 0; i279 < nob; i279++) {
             if (co[i279].wh == 0 && (co[i279].partID == ONROAD_CHECKPOINT_SET_ID || Utility.arrayContains(CHECKPOINT_IDS, co[i279].partID) || co[i279].partID == OFFROAD_CHECKPOINT_SET_ID || co[i279].partID == FLYING_CHECKPOINT_SET_ID)) {
                 int i280 = -1;
                 int i281 = -1;
-                for (int i282 = i271; i282 < t_nob; i282++)
+                for (int i282 = i271; i282 < t_nob; i282++) {
                     if (co[cIds2[i282]].partID != ONROAD_CHECKPOINT_SET_ID && !Utility.arrayContains(CHECKPOINT_IDS, co[cIds2[i282]].partID) && co[cIds2[i282]].partID != OFFROAD_CHECKPOINT_SET_ID && co[cIds2[i282]].partID != FLYING_CHECKPOINT_SET_ID) {
                         final int i283 = pyn(co[i279].x, co[cIds2[i282]].x, co[i279].z, co[cIds2[i282]].z);
                         if (i283 >= 0 && (i283 < i280 || i280 == -1)) {
@@ -7326,6 +7343,7 @@ public class SRCStageMaker extends JPanel
                             i281 = i282;
                         }
                     }
+                }
                 if (i281 != -1) {
                     pTyps[cIds2[i281]] = 0;
                     System.arraycopy(cIds2, i281, cIds2, i281 + 1, t_nob - i281);
@@ -7336,7 +7354,8 @@ public class SRCStageMaker extends JPanel
                     t_nob++;
                 }
             }
-        for (int i285 = 0; i285 < nob; i285++)
+        }
+        for (int i285 = 0; i285 < nob; i285++) {
             if (co[i285].partID == FIXHOOP_SET_ID) {
                 int i286 = -1;
                 int i287 = -1;
@@ -7356,16 +7375,18 @@ public class SRCStageMaker extends JPanel
                     t_nob++;
                 }
             }
-        for (int i291 = 0; i291 < nob; i291++)
+        }
+        for (int i291 = 0; i291 < nob; i291++) {
             if (co[i291].partID == 15 || co[i291].partID == 27 || co[i291].partID == 28 || co[i291].partID == 41 || co[i291].partID == 44 || co[i291].partID == 52) {
                 int i292 = -1;
-                for (int i293 = 0; i293 < t_nob; i293++)
+                for (int i293 = 0; i293 < t_nob; i293++) {
                     if ((co[cIds2[i293]].partID <= 14 || co[cIds2[i293]].partID >= 33) && co[cIds2[i293]].partID < 39) {
                         final int i294 = pyn(co[i291].x, co[cIds2[i293]].x, co[i291].z, co[cIds2[i293]].z);
                         if (i294 >= 0 && i294 < (co[i291].maxR + co[cIds2[i293]].maxR) / 100 * ((co[i291].maxR + co[cIds2[i293]].maxR) / 100)) {
                             i292 = i293;
                         }
                     }
+                }
                 if (i292 != -1) {
                     System.arraycopy(cIds2, i292, cIds2, i292 + 1, t_nob - i292);
                     cIds2[i292 + 1] = i291;
@@ -7375,10 +7396,11 @@ public class SRCStageMaker extends JPanel
                     t_nob++;
                 }
             }
-        for (int i296 = 0; i296 < nob; i296++)
+        }
+        for (int i296 = 0; i296 < nob; i296++) {
             if (co[i296].partID >= 16 && co[i296].partID <= 25 || co[i296].partID == 40 || co[i296].partID == 42 || co[i296].partID == 43 || co[i296].partID == 45) {
                 int i297 = -1;
-                for (int i298 = 0; i298 < t_nob; i298++)
+                for (int i298 = 0; i298 < t_nob; i298++) {
                     if ((co[cIds2[i298]].partID <= 14 || co[cIds2[i298]].partID >= 33) && co[cIds2[i298]].partID < 39) {
                         final int i299 = pyn(co[i296].x, co[cIds2[i298]].x, co[i296].z, co[cIds2[i298]].z);
                         if (i299 >= 0 && i299 < (co[i296].maxR + co[cIds2[i298]].maxR) / 100 * ((co[i296].maxR + co[cIds2[i298]].maxR) / 100)) {
@@ -7393,6 +7415,7 @@ public class SRCStageMaker extends JPanel
                             i297 = i298;
                         }
                     }
+                }
                 /*if (i297 != -1) {
                 
                 }*/
@@ -7405,20 +7428,22 @@ public class SRCStageMaker extends JPanel
                     t_nob++;
                 }
             }
-        for (int i301 = 0; i301 < nob; i301++)
+        }
+        for (int i301 = 0; i301 < nob; i301++) {
             if (co[i301].partID == 26/* || co[i301].partID == 39*/) {
                 boolean bool302 = false;
                 if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                     bool302 = true;
-                    if (co[i301].partID == 39)
+                    if (co[i301].partID == 39) {
                         if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                             bool302 = false;
                         } else if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                             bool302 = false;
                         }
+                    }
                 }
                 int i303 = -1;
-                for (int i304 = 0; i304 < t_nob; i304++)
+                for (int i304 = 0; i304 < t_nob; i304++) {
                     if ((co[cIds2[i304]].partID <= 14 || co[cIds2[i304]].partID >= 33) && co[cIds2[i304]].partID < 39) {
                         final int i305 = pyn(co[i301].x, co[cIds2[i304]].x, co[i301].z, co[cIds2[i304]].z);
                         if (i305 >= 0 && i305 < (co[i301].maxR + co[cIds2[i304]].maxR) / 100 * ((co[i301].maxR + co[cIds2[i304]].maxR) / 100)) {
@@ -7460,6 +7485,7 @@ public class SRCStageMaker extends JPanel
                             }
                         }
                     }
+                }
                 if (i303 != -1) {
                     System.arraycopy(cIds2, i303, cIds2, i303 + 1, t_nob - i303);
                     cIds2[i303 + 1] = i301;
@@ -7469,11 +7495,13 @@ public class SRCStageMaker extends JPanel
                     t_nob++;
                 }
             }
-        for (int i308 = 0; i308 < nob; i308++) //>= 55 not >= 33
+        }
+        for (int i308 = 0; i308 < nob; i308++) {
             if (co[i308].partID >= 54 && co[i308].partID <= maxpart && !Utility.arrayContains(CHECKPOINT_IDS, co[i308].partID) || co[i308].partID == BUMP_SET_ID) {
                 cIds2[t_nob] = i308;
                 t_nob++;
             }
+        }
 
         // fix the dupe bug (remove dupe entries, VERY DIRTY HACK)
         for (int j = 0; j < nob; j++) {
@@ -7932,18 +7960,20 @@ public class SRCStageMaker extends JPanel
                 if (i == KeyEvent.VK_D) {
                     right = true;
                 }
-                if (i == KeyEvent.VK_Q)
+                if (i == KeyEvent.VK_Q) {
                     if (!inPreview) {
                         zoomi = true;
                     } else {
                         tiltLeft = true;
                     }
-                if (i == KeyEvent.VK_E)
+                }
+                if (i == KeyEvent.VK_E) {
                     if (!inPreview) {
                         zoomo = true;
                     } else {
                         tiltRight = true;
                     }
+                }
                 // special hansen modifiers
                 if (i == KeyEvent.VK_SHIFT) {
                     speedShift = 2.0F;
@@ -8033,18 +8063,20 @@ public class SRCStageMaker extends JPanel
             if (i == KeyEvent.VK_D) {
                 right = false;
             }
-            if (i == KeyEvent.VK_Q)
+            if (i == KeyEvent.VK_Q) {
                 if (!inPreview) {
                     zoomi = false;
                 } else {
                     tiltLeft = false;
                 }
-            if (i == KeyEvent.VK_E)
+            }
+            if (i == KeyEvent.VK_E) {
                 if (!inPreview) {
                     zoomo = false;
                 } else {
                     tiltRight = false;
                 }
+            }
             if (i == KeyEvent.VK_SHIFT) {
                 tiltSnap = false;
             }
@@ -8174,14 +8206,15 @@ public class SRCStageMaker extends JPanel
 
         if (offImage != null) {
             rd = offImage.createGraphics();
-        } else
+        } else {
             throw new Error("this should never happen");
-        /*
-        playerPos = new SMContO[lastPlayerPos];
-        for (int i = 0; i < lastPlayerPos; i++) {
+            /*
+            playerPos = new SMContO[lastPlayerPos];
+            for (int i = 0; i < lastPlayerPos; i++) {
             playerPos[i] = new SMContO(bco[NODE_SET_ID], playerX[i], playerY[i], playerZ[i], 0, false);
+            }
+            */
         }
-        */
     }
 
     private static void drawNodePath() {

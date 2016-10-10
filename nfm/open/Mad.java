@@ -142,7 +142,7 @@ class Mad {
                 f = 1.27F;
             }
             for (int i128 = 0; i128 < 4; i128++) {
-                for (int i129 = 0; i129 < 4; i129++)
+                for (int i129 = 0; i129 < 4; i129++) {
                     if (rpy(fs[i128], fs122[i129], fs120[i128], fs123[i129], fs121[i128], fs124[i129]) < (i126 + i127) * (mad118.stat.comprad + stat.comprad)) {
                         if (Math.abs(scx[i128] * stat.moment) > Math.abs(mad118.scx[i129] * mad118.stat.moment)) {
                             float f130 = mad118.scx[i129] * stat.revpush;
@@ -226,6 +226,7 @@ class Mad {
                         }
                         mad118.scy[i129] -= stat.lift;
                     }
+                }
             }
         }
         if (xtGraphics.multion == 1) {
@@ -239,10 +240,11 @@ class Mad {
     }
 
     private void distruct(final ContO conto) {
-        for (int i = 0; i < conto.npl; i++)
+        for (int i = 0; i < conto.npl; i++) {
             if (conto.p[i].wz == 0 || conto.p[i].gr == -17 || conto.p[i].gr == -16) {
                 conto.p[i].embos = 1;
             }
+        }
     }
 
     void drive(final Control control, final ContO conto) {
@@ -315,7 +317,7 @@ class Mad {
             rcomp = 0.0F;
         }
         if (control.handb) {
-            if (!pushed)
+            if (!pushed) {
                 if (!wtouch) {
                     if (loop == 0) {
                         loop = 1;
@@ -323,6 +325,7 @@ class Mad {
                 } else if (gtouch) {
                     pushed = true;
                 }
+            }
         } else {
             pushed = false;
         }
@@ -333,7 +336,7 @@ class Mad {
             }
             loop = 2;
         }
-        if (!dest)
+        if (!dest) {
             if (loop == 2) {
                 if (control.up) {
                     if (ucomp == 0.0F) {
@@ -408,42 +411,47 @@ class Mad {
                 if (f15 < 40.0F) {
                     f15 = 40.0F;
                 }
-                if (control.down)
+                if (control.down) {
                     if (speed > 0.0F) {
                         speed -= stat.handb / 2;
                     } else {
                         int i16 = 0;
-                        for (int i17 = 0; i17 < 2; i17++)
+                        for (int i17 = 0; i17 < 2; i17++) {
                             if (speed <= -(stat.swits[i17] / 2 + f15 * stat.swits[i17] / 196.0F)) {
                                 i16++;
                             }
+                        }
                         if (i16 != 2) {
                             speed -= stat.acelf[i16] / 2.0F + f15 * stat.acelf[i16] / 196.0F;
                         } else {
                             speed = -(stat.swits[1] / 2 + f15 * stat.swits[1] / 196.0F);
                         }
                     }
-                if (control.up)
+                }
+                if (control.up) {
                     if (speed < 0.0F) {
                         speed += stat.handb;
                     } else {
                         int i18 = 0;
-                        for (int i19 = 0; i19 < 3; i19++)
+                        for (int i19 = 0; i19 < 3; i19++) {
                             if (speed >= stat.swits[i19] / 2 + f15 * stat.swits[i19] / 196.0F) {
                                 i18++;
                             }
+                        }
                         if (i18 != 3) {
                             speed += stat.acelf[i18] / 2.0F + f15 * stat.acelf[i18] / 196.0F;
                         } else {
                             speed = stat.swits[2] / 2 + f15 * stat.swits[2] / 196.0F;
                         }
                     }
-                if (control.handb && Math.abs(speed) > stat.handb)
+                }
+                if (control.handb && Math.abs(speed) > stat.handb) {
                     if (speed < 0.0F) {
                         speed += stat.handb;
                     } else {
                         speed -= stat.handb;
                     }
+                }
                 if (loop == -1 && conto.y < 100) {
                     if (control.left) {
                         if (!pl) {
@@ -514,6 +522,7 @@ class Mad {
                     pxy += rcomp - lcomp;
                 }
             }
+        }
         float f20 = 20.0F * speed / (154.0F * stat.simag);
         if (f20 > 20.0F) {
             f20 = 20.0F;
@@ -537,7 +546,7 @@ class Mad {
                 conto.wxz = 36;
             }
         }
-        if (conto.wxz != 0 && !control.left && !control.right)
+        if (conto.wxz != 0 && !control.left && !control.right) {
             if (Math.abs(speed) < 10.0F) {
                 if (Math.abs(conto.wxz) == 1) {
                     conto.wxz = 0;
@@ -559,6 +568,7 @@ class Mad {
                     conto.wxz += stat.turn * 2;
                 }
             }
+        }
         int i21 = (int) (3600.0F / (speed * speed));
         if (i21 < 5) {
             i21 = 5;
@@ -581,12 +591,13 @@ class Mad {
             conto.xz += fxz;
         }
         if (speed > 30.0F || speed < -100.0F) {
-            while (Math.abs(mxz - cxz) > 180)
+            while (Math.abs(mxz - cxz) > 180) {
                 if (cxz > mxz) {
                     cxz -= 360;
                 } else if (cxz < mxz) {
                     cxz += 360;
                 }
+            }
             if (Math.abs(mxz - cxz) < 30) {
                 cxz += (mxz - cxz) / 4.0F;
             } else {
@@ -851,10 +862,11 @@ class Mad {
         }
         if (i45 != 0) {
             f48 /= i45;
-            for (int i52 = 0; i52 < 4; i52++)
+            for (int i52 = 0; i52 < 4; i52++) {
                 if (!bools47[i52]) {
                     fs23[i52] -= f48;
                 }
+            }
         }
         int i53 = 0;
         for (int i54 = 0; i54 < Trackers.sect[i30][i31].length; i54++) {
@@ -908,10 +920,11 @@ class Mad {
                         bools[i58] = true;
                     }
                     if (Trackers.zy[i55] == -90 && fs22[i58] < Trackers.z[i55] + Trackers.radz[i55] && (scz[i58] < 0.0F || Trackers.radz[i55] == 287)) {
-                        for (int i61 = 0; i61 < 4; i61++)
+                        for (int i61 = 0; i61 < 4; i61++) {
                             if (i58 != i61 && fs22[i61] >= Trackers.z[i55] + Trackers.radz[i55]) {
                                 fs22[i61] -= fs22[i58] - (Trackers.z[i55] + Trackers.radz[i55]);
                             }
+                        }
                         fs22[i58] = Trackers.z[i55] + Trackers.radz[i55];
                         if (Trackers.skd[i55] != 2) {
                             crank[0][i58]++;
@@ -947,10 +960,11 @@ class Mad {
                         }
                     }
                     if (Trackers.zy[i55] == 90 && fs22[i58] > Trackers.z[i55] - Trackers.radz[i55] && (scz[i58] > 0.0F || Trackers.radz[i55] == 287)) {
-                        for (int i63 = 0; i63 < 4; i63++)
+                        for (int i63 = 0; i63 < 4; i63++) {
                             if (i58 != i63 && fs22[i63] <= Trackers.z[i55] - Trackers.radz[i55]) {
                                 fs22[i63] -= fs22[i58] - (Trackers.z[i55] - Trackers.radz[i55]);
                             }
+                        }
                         fs22[i58] = Trackers.z[i55] - Trackers.radz[i55];
                         if (Trackers.skd[i55] != 2) {
                             crank[1][i58]++;
@@ -986,10 +1000,11 @@ class Mad {
                         }
                     }
                     if (Trackers.xy[i55] == -90 && fs[i58] < Trackers.x[i55] + Trackers.radx[i55] && (scx[i58] < 0.0F || Trackers.radx[i55] == 287)) {
-                        for (int i65 = 0; i65 < 4; i65++)
+                        for (int i65 = 0; i65 < 4; i65++) {
                             if (i58 != i65 && fs[i65] >= Trackers.x[i55] + Trackers.radx[i55]) {
                                 fs[i65] -= fs[i58] - (Trackers.x[i55] + Trackers.radx[i55]);
                             }
+                        }
                         fs[i58] = Trackers.x[i55] + Trackers.radx[i55];
                         if (Trackers.skd[i55] != 2) {
                             crank[2][i58]++;
@@ -1025,10 +1040,11 @@ class Mad {
                         }
                     }
                     if (Trackers.xy[i55] == 90 && fs[i58] > Trackers.x[i55] - Trackers.radx[i55] && (scx[i58] > 0.0F || Trackers.radx[i55] == 287)) {
-                        for (int i67 = 0; i67 < 4; i67++)
+                        for (int i67 = 0; i67 < 4; i67++) {
                             if (i58 != i67 && fs[i67] <= Trackers.x[i55] - Trackers.radx[i55]) {
                                 fs[i67] -= fs[i58] - (Trackers.x[i55] - Trackers.radx[i55]);
                             }
+                        }
                         fs[i58] = Trackers.x[i55] - Trackers.radx[i55];
                         if (Trackers.skd[i55] != 2) {
                             crank[3][i58]++;
@@ -1449,10 +1465,11 @@ class Mad {
                 if (i91 >= CheckPoints.n) {
                     i91 = 0;
                 }
-                while (CheckPoints.typ[i91] <= 0)
+                while (CheckPoints.typ[i91] <= 0) {
                     if (++i91 >= CheckPoints.n) {
                         i91 = 0;
                     }
+                }
                 if (i89 > i91 && (clear != nlaps * CheckPoints.nsp || i89 < pcleared)) {
                     i89 = i91;
                     focus = i89;
@@ -1497,7 +1514,7 @@ class Mad {
         point = i89;
         if (fixes != 0) {
             if (Medium.noelec == 0) {
-                for (int i93 = 0; i93 < CheckPoints.fn; i93++)
+                for (int i93 = 0; i93 < CheckPoints.fn; i93++) {
                     if (!CheckPoints.roted[i93]) {
                         if (Math.abs(conto.z - CheckPoints.fz[i93]) < 200 && py(conto.x / 100, CheckPoints.fx[i93] / 100, conto.y / 100, CheckPoints.fy[i93] / 100) < 30) {
                             if (conto.dist == 0) {
@@ -1521,12 +1538,14 @@ class Mad {
                         }
                         Record.fix[im] = 300;
                     }
+                }
             }
         } else {
-            for (int i94 = 0; i94 < CheckPoints.fn; i94++)
+            for (int i94 = 0; i94 < CheckPoints.fn; i94++) {
                 if (rpy(conto.x / 100, CheckPoints.fx[i94] / 100, conto.y / 100, CheckPoints.fy[i94] / 100, conto.z / 100, CheckPoints.fz[i94] / 100) < 760) {
                     Medium.noelec = 2;
                 }
+            }
         }
         if (conto.fcnt == 7 || conto.fcnt == 8) {
             squash = 0;
@@ -1650,10 +1669,11 @@ class Mad {
                 }
                 if (capcnt == 0) {
                     int i95 = 0;
-                    for (int i96 = 0; i96 < 4; i96++)
+                    for (int i96 = 0; i96 < 4; i96++) {
                         if (Math.abs(scz[i96]) < 70.0F && Math.abs(scx[i96]) < 70.0F) {
                             i95++;
                         }
+                    }
                     if (i95 == 4) {
                         capcnt = 1;
                     }
@@ -1668,7 +1688,7 @@ class Mad {
                     }
                 }
             }
-            if (trcnt == 0 && speed != 0.0F)
+            if (trcnt == 0 && speed != 0.0F) {
                 if (xtpower == 0) {
                     if (power > 0.0F) {
                         power -= power * power * power / stat.powerloss;
@@ -1678,6 +1698,7 @@ class Mad {
                 } else {
                     xtpower--;
                 }
+            }
         }
         if (im == xtGraphics.im) {
             if (control.wall != -1) {
@@ -1687,12 +1708,13 @@ class Mad {
             lastcolido--;
         }
         if (dest) {
-            if (CheckPoints.dested[im] == 0)
+            if (CheckPoints.dested[im] == 0) {
                 if (lastcolido == 0) {
                     CheckPoints.dested[im] = 1;
                 } else {
                     CheckPoints.dested[im] = 2;
                 }
+            }
         } else if (CheckPoints.dested[im] != 0 && CheckPoints.dested[im] != 3) {
             CheckPoints.dested[im] = 0;
         }
@@ -1738,7 +1760,7 @@ class Mad {
             }
             for (int i111 = 0; i111 < conto.npl; i111++) {
                 float f112 = 0.0F;
-                for (int i113 = 0; i113 < conto.p[i111].n; i113++)
+                for (int i113 = 0; i113 < conto.p[i111].n; i113++) {
                     if (conto.p[i111].wz == 0 && py(conto.keyx[i], conto.p[i111].ox[i113], conto.keyz[i], conto.p[i111].oz[i113]) < stat.clrad) {
                         f112 = f / 20.0F * Medium.random();
                         conto.p[i111].oz[i113] -= f112 * Medium.sin(conto.xz) * Medium.cos(conto.zy);
@@ -1748,6 +1770,7 @@ class Mad {
                             i110 += Math.abs(f112);
                         }
                     }
+                }
                 if (f112 != 0.0F) {
                     if (Math.abs(f112) >= 1.0F) {
                         conto.p[i111].chip = 1;
@@ -1844,7 +1867,7 @@ class Mad {
             if (i99 * i98 == 0 || mtouch) {
                 for (int i102 = 0; i102 < conto.npl; i102++) {
                     float f103 = 0.0F;
-                    for (int i104 = 0; i104 < conto.p[i102].n; i104++)
+                    for (int i104 = 0; i104 < conto.p[i102].n; i104++) {
                         if (conto.p[i102].wz == 0 && py(conto.keyx[i], conto.p[i102].ox[i104], conto.keyz[i], conto.p[i102].oz[i104]) < stat.clrad) {
                             f103 = f / 20.0F * Medium.random();
                             conto.p[i102].oz[i104] += f103 * Medium.sin(i100);
@@ -1854,6 +1877,7 @@ class Mad {
                                 i97 += Math.abs(f103);
                             }
                         }
+                    }
                     if (f103 != 0.0F) {
                         if (Math.abs(f103) >= 1.0F) {
                             conto.p[i102].chip = 1;
@@ -1894,13 +1918,13 @@ class Mad {
                     }
                 }
             }
-            if (i99 * i98 == -1)
+            if (i99 * i98 == -1) {
                 if (nbsq > 0) {
                     int i105 = 0;
                     int i106 = 1;
                     for (int i107 = 0; i107 < conto.npl; i107++) {
                         float f108 = 0.0F;
-                        for (int i109 = 0; i109 < conto.p[i107].n; i109++)
+                        for (int i109 = 0; i109 < conto.p[i107].n; i109++) {
                             if (conto.p[i107].wz == 0) {
                                 f108 = f / 15.0F * Medium.random();
                                 if ((Math.abs(conto.p[i107].oy[i109] - stat.flipy - squash) < stat.msquash * 3 || conto.p[i107].oy[i109] < stat.flipy + squash) && squash < stat.msquash) {
@@ -1913,6 +1937,7 @@ class Mad {
                                     }
                                 }
                             }
+                        }
                         if (conto.p[i107].glass == 1) {
                             conto.p[i107].gr += 5;
                         } else if (f108 != 0.0F) {
@@ -1928,6 +1953,7 @@ class Mad {
                 } else {
                     nbsq++;
                 }
+            }
         }
         return i97;
     }
@@ -1959,7 +1985,7 @@ class Mad {
             }
             for (int i115 = 0; i115 < conto.npl; i115++) {
                 float f116 = 0.0F;
-                for (int i117 = 0; i117 < conto.p[i115].n; i117++)
+                for (int i117 = 0; i117 < conto.p[i115].n; i117++) {
                     if (conto.p[i115].wz == 0 && py(conto.keyx[i], conto.p[i115].ox[i117], conto.keyz[i], conto.p[i115].oz[i117]) < stat.clrad) {
                         f116 = f / 20.0F * Medium.random();
                         conto.p[i115].oz[i117] += f116 * Medium.cos(conto.xz) * Medium.cos(conto.zy);
@@ -1969,6 +1995,7 @@ class Mad {
                             i114 += Math.abs(f116);
                         }
                     }
+                }
                 if (f116 != 0.0F) {
                     if (Math.abs(f116) >= 1.0F) {
                         conto.p[i115].chip = 1;

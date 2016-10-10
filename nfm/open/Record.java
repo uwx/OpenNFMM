@@ -116,10 +116,11 @@ class Record {
             }
             for (int i68 = 0; i68 < conto.npl; i68++) {
                 float f69 = 0.0F;
-                for (int i70 = 0; i70 < conto.p[i68].n; i70++)
+                for (int i70 = 0; i70 < conto.p[i68].n; i70++) {
                     if (conto.p[i68].wz == 0 && py(conto.keyx[i], conto.p[i68].ox[i70], conto.keyz[i], conto.p[i68].oz[i70]) < mad.stat.clrad) {
                         f69 = f / 20.0F * Medium.random();
                     }
+                }
                 if (f69 != 0.0F && Math.abs(f69) >= 1.0F) {
                     conto.p[i68].chip = 1;
                     conto.p[i68].ctmag = f69;
@@ -138,10 +139,11 @@ class Record {
             }
             for (int i71 = 0; i71 < conto.npl; i71++) {
                 float f72 = 0.0F;
-                for (int i73 = 0; i73 < conto.p[i71].n; i73++)
+                for (int i73 = 0; i73 < conto.p[i71].n; i73++) {
                     if (conto.p[i71].wz == 0 && py(conto.keyx[i], conto.p[i71].ox[i73], conto.keyz[i], conto.p[i71].oz[i73]) < mad.stat.clrad) {
                         f72 = f / 20.0F * Medium.random();
                     }
+                }
                 if (f72 != 0.0F && Math.abs(f72) >= 1.0F) {
                     conto.p[i71].chip = 1;
                     conto.p[i71].ctmag = f72;
@@ -235,20 +237,22 @@ class Record {
             cntdest[i] = 7;
         }
         if (i30 == 0 && dest[i] < -1) {
-            for (int i31 = 0; i31 < conto.npl; i31++)
+            for (int i31 = 0; i31 < conto.npl; i31++) {
                 if (conto.p[i31].wz == 0 || conto.p[i31].gr == -17 || conto.p[i31].gr == -16) {
                     conto.p[i31].embos = 13;
                 }
+            }
         }
         if (cntdest[i] != 0) {
-            for (int i32 = 0; i32 < conto.npl; i32++)
+            for (int i32 = 0; i32 < conto.npl; i32++) {
                 if (conto.p[i32].wz == 0 || conto.p[i32].gr == -17 || conto.p[i32].gr == -16) {
                     conto.p[i32].embos = 1;
                 }
+            }
             cntdest[i]--;
         }
         for (int i33 = 0; i33 < 20; i33++) {
-            for (int i34 = 0; i34 < 30; i34++)
+            for (int i34 = 0; i34 < 30; i34++) {
                 if (sspark[i][i33][i34] == i30) {
                     conto.stg[i33] = 1;
                     conto.sx[i33] = sx[i][i33][i34];
@@ -258,8 +262,9 @@ class Record {
                     conto.scx[i33] = scx[i][i33][i34];
                     conto.scz[i33] = scz[i][i33][i34];
                 }
+            }
         }
-        for (int i35 = 0; i35 < 200; i35++)
+        for (int i35 = 0; i35 < 200; i35++) {
             if (rspark[i][i35] == i30) {
                 conto.sprk = sprk[i][i35];
                 conto.srx = srx[i][i35];
@@ -269,6 +274,7 @@ class Record {
                 conto.rcy = rcy[i][i35];
                 conto.rcz = rcz[i][i35];
             }
+        }
         for (int i36 = 0; i36 < 4; i36++) {
             for (int i37 = 0; i37 < 7; i37++) {
                 if (ry[i][i36][i37] == i30) {
@@ -304,20 +310,22 @@ class Record {
             cntdest[i] = 7;
         }
         if (i38 == 0 && hdest[i] < -1) {
-            for (int i40 = 0; i40 < conto.npl; i40++)
+            for (int i40 = 0; i40 < conto.npl; i40++) {
                 if (conto.p[i40].wz == 0 || conto.p[i40].gr == -17 || conto.p[i40].gr == -16) {
                     conto.p[i40].embos = 13;
                 }
+            }
         }
         if (cntdest[i] != 0) {
-            for (int i41 = 0; i41 < conto.npl; i41++)
+            for (int i41 = 0; i41 < conto.npl; i41++) {
                 if (conto.p[i41].wz == 0 || conto.p[i41].gr == -17 || conto.p[i41].gr == -16) {
                     conto.p[i41].embos = 1;
                 }
+            }
             cntdest[i]--;
         }
         for (int i42 = 0; i42 < 20; i42++) {
-            for (int i43 = 0; i43 < 30; i43++)
+            for (int i43 = 0; i43 < 30; i43++) {
                 if (hsspark[i][i42][i43] == i38) {
                     conto.stg[i42] = 1;
                     conto.sx[i42] = hsx[i][i42][i43];
@@ -327,8 +335,9 @@ class Record {
                     conto.scx[i42] = hscx[i][i42][i43];
                     conto.scz[i42] = hscz[i][i42][i43];
                 }
+            }
         }
-        for (int i44 = 0; i44 < 200; i44++)
+        for (int i44 = 0; i44 < 200; i44++) {
             if (hrspark[i][i44] == i38) {
                 conto.sprk = hsprk[i][i44];
                 conto.srx = hsrx[i][i44];
@@ -338,23 +347,26 @@ class Record {
                 conto.rcy = hrcy[i][i44];
                 conto.rcz = hrcz[i][i44];
             }
+        }
         for (int i45 = 0; i45 < 4; i45++) {
             for (int i46 = 0; i46 < 7; i46++) {
                 if (hry[i][i45][i46] == i38 && lastfr != i38) {
                     regy(i45, hmagy[i][i45][i46], hmtouch[i][i46], conto, mad);
                 }
-                if (hrx[i][i45][i46] == i38)
+                if (hrx[i][i45][i46] == i38) {
                     if (lastfr != i38) {
                         regx(i45, hmagx[i][i45][i46], conto, mad);
                     } else {
                         chipx(i45, hmagx[i][i45][i46], conto, mad);
                     }
-                if (hrz[i][i45][i46] == i38)
+                }
+                if (hrz[i][i45][i46] == i38) {
                     if (lastfr != i38) {
                         regz(i45, hmagz[i][i45][i46], conto, mad);
                     } else {
                         chipz(i45, hmagz[i][i45][i46], conto, mad);
                     }
+                }
             }
         }
         lastfr = i38;
@@ -383,7 +395,7 @@ class Record {
         if (i20 != 0) {
             dest[i]--;
         }
-        if (dest[i] == 230)
+        if (dest[i] == 230) {
             if (i == i21) {
                 cotchinow(i21);
                 whenwasted = 229;
@@ -391,6 +403,7 @@ class Record {
                 cotchinow(i);
                 whenwasted = 165 + i19;
             }
+        }
         for (int i23 = 0; i23 < 299; i23++) {
             x[i23][i] = x[i23 + 1][i];
             y[i23][i] = y[i23 + 1][i];
@@ -499,12 +512,13 @@ class Record {
             }
             for (int i62 = 0; i62 < conto.npl; i62++) {
                 float f63 = 0.0F;
-                for (int i64 = 0; i64 < conto.p[i62].n; i64++)
+                for (int i64 = 0; i64 < conto.p[i62].n; i64++) {
                     if (conto.p[i62].wz == 0 && py(conto.keyx[i], conto.p[i62].ox[i64], conto.keyz[i], conto.p[i62].oz[i64]) < mad.stat.clrad) {
                         f63 = f / 20.0F * Medium.random();
                         conto.p[i62].oz[i64] -= f63 * Medium.sin(conto.xz) * Medium.cos(conto.zy);
                         conto.p[i62].ox[i64] += f63 * Medium.cos(conto.xz) * Medium.cos(conto.xy);
                     }
+                }
                 if (f63 != 0.0F) {
                     if (Math.abs(f63) >= 1.0F) {
                         conto.p[i62].chip = 1;
@@ -584,12 +598,13 @@ class Record {
             if (i51 * i50 == 0 || bool) {
                 for (int i54 = 0; i54 < conto.npl; i54++) {
                     float f55 = 0.0F;
-                    for (int i56 = 0; i56 < conto.p[i54].n; i56++)
+                    for (int i56 = 0; i56 < conto.p[i54].n; i56++) {
                         if (conto.p[i54].wz == 0 && py(conto.keyx[i], conto.p[i54].ox[i56], conto.keyz[i], conto.p[i54].oz[i56]) < mad.stat.clrad) {
                             f55 = f / 20.0F * Medium.random();
                             conto.p[i54].oz[i56] += f55 * Medium.sin(i52);
                             conto.p[i54].ox[i56] -= f55 * Medium.sin(i53);
                         }
+                    }
                     if (f55 != 0.0F) {
                         if (Math.abs(f55) >= 1.0F) {
                             conto.p[i54].chip = 1;
@@ -638,7 +653,7 @@ class Record {
                 int i58 = 1;
                 for (int i59 = 0; i59 < conto.npl; i59++) {
                     float f60 = 0.0F;
-                    for (int i61 = 0; i61 < conto.p[i59].n; i61++)
+                    for (int i61 = 0; i61 < conto.p[i59].n; i61++) {
                         if (conto.p[i59].wz == 0) {
                             f60 = f / 15.0F * Medium.random();
                             if ((Math.abs(conto.p[i59].oy[i61] - mad.stat.flipy - squash[0][mad.im]) < mad.stat.msquash * 3 || conto.p[i59].oy[i61] < mad.stat.flipy + squash[0][mad.im]) && squash[0][mad.im] < mad.stat.msquash) {
@@ -647,6 +662,7 @@ class Record {
                                 i58++;
                             }
                         }
+                    }
                     if (conto.p[i59].glass == 1) {
                         conto.p[i59].gr += 5;
                     } else if (f60 != 0.0F) {
@@ -672,12 +688,13 @@ class Record {
             }
             for (int i65 = 0; i65 < conto.npl; i65++) {
                 float f66 = 0.0F;
-                for (int i67 = 0; i67 < conto.p[i65].n; i67++)
+                for (int i67 = 0; i67 < conto.p[i65].n; i67++) {
                     if (conto.p[i65].wz == 0 && py(conto.keyx[i], conto.p[i65].ox[i67], conto.keyz[i], conto.p[i65].oz[i67]) < mad.stat.clrad) {
                         f66 = f / 20.0F * Medium.random();
                         conto.p[i65].oz[i67] += f66 * Medium.cos(conto.xz) * Medium.cos(conto.zy);
                         conto.p[i65].ox[i67] += f66 * Medium.sin(conto.xz) * Medium.cos(conto.xy);
                     }
+                }
                 if (f66 != 0.0F) {
                     if (Math.abs(f66) >= 1.0F) {
                         conto.p[i65].chip = 1;

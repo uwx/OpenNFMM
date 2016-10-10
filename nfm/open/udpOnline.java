@@ -140,12 +140,13 @@ class udpOnline implements Runnable {
                 if (i5 >= 0 && i5 < um.nplayers) {
                     final int i6 = getvalue(string4, 2);
                     int i7 = 0;
-                    for (int i8 = 0; i8 < 3; i8++)
+                    for (int i8 = 0; i8 < 3; i8++) {
                         if (i6 != um.frame[i5][i8]) {
                             i7++;
                         }
+                    }
                     if (i7 == 3) {
-                        for (int i9 = 0; i9 < 3; i9++)
+                        for (int i9 = 0; i9 < 3; i9++) {
                             if (i6 > um.frame[i5][i9]) {
                                 for (int i10 = 2; i10 >= i9 + 1; i10--) {
                                     um.frame[i5][i10] = um.frame[i5][i10 - 1];
@@ -155,6 +156,7 @@ class udpOnline implements Runnable {
                                 um.info[i5][i9] = getSvalue(string4, 3);
                                 i9 = 3;
                             }
+                        }
                     }
                 }
             }
@@ -163,10 +165,11 @@ class udpOnline implements Runnable {
                 System.arraycopy(um.ldelays, 0, um.ldelays, 1, 4);
                 um.ldelays[0] = (int) (date.getTime() - um.sendat);
                 um.delay = 0;
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 5; i++) {
                     if (um.ldelays[i] != 0 && (um.delay == 0 || um.ldelays[i] < um.delay)) {
                         um.delay = um.ldelays[i];
                     }
+                }
                 um.diledelay = 0;
                 if (um.diled != 10) {
                     um.diled++;

@@ -143,10 +143,11 @@ class Login implements Runnable {
                     final int i13 = getvalue(string, 3);
                     boolean bool = false;
                     if (!string12.equals(xtGraphics.servername) || i13 != xtGraphics.servport - 7070) {
-                        for (int i14 = 0; i14 < nservers; i14++)
+                        for (int i14 = 0; i14 < nservers; i14++) {
                             if (string12.equals(snames[i14]) && xtGraphics.delays[i14] < 300) {
                                 bool = true;
                             }
+                        }
                     }
                     if (bool) {
                         gmaker = getSvalue(string, 1);
@@ -239,7 +240,7 @@ class Login implements Runnable {
                 fase = 3;
             }
         }
-        if (fase == 12)
+        if (fase == 12) {
             if (xtGraphics.acexp == 0 || contrb) {
                 if (control.up) {
                     opselect--;
@@ -331,6 +332,7 @@ class Login implements Runnable {
                     }
                 }
             }
+        }
         if (fase == 13 || fase == 14 || fase == 15 || fase == 16 || fase == 17) {
             if (control.exit) {
                 i49 = 3;
@@ -387,7 +389,7 @@ class Login implements Runnable {
                 i49 = 4;
                 pessd[4] = true;
             }
-            if (i49 == i51 + 2)
+            if (i49 == i51 + 2) {
                 if (xtGraphics.nofull) {
                     nflk = 30;
                 } else {
@@ -399,6 +401,7 @@ class Login implements Runnable {
                     fase = 18;
                     lobby.fase = 0;
                 }
+            }
         }
         if (fase == 17) {
             if (control.enter) {
@@ -419,10 +422,11 @@ class Login implements Runnable {
                 }
                 control.down = false;
             }
-            for (int i54 = 0; i54 < 5; i54++)
+            for (int i54 = 0; i54 < 5; i54++) {
                 if (i > 175 && i47 > 230 + i54 * 20 + 14 && i < 625 && i47 < 250 + i54 * 20 + 14 && i48 == 1) {
                     opselect = i54;
                 }
+            }
             if (i49 == i51 + 2) {
                 xtGraphics.servport = 7071 + opselect;
                 xtGraphics.lan = false;
@@ -471,7 +475,7 @@ class Login implements Runnable {
                 i49 = 2;
                 pessd[2] = true;
             }
-            if (i49 == 2)
+            if (i49 == 2) {
                 if (GameSparker.tnick.getText().equals("Fyre") || GameSparker.tnick.getText().equals("Nickname") || GameSparker.tnick.getText().equals("")) {
                     msg = "Type in any Nickname to play...";
                     GameSparker.tnick.setText("Nickname");
@@ -483,6 +487,7 @@ class Login implements Runnable {
                     connector = new Thread(this);
                     connector.start();
                 }
+            }
             if (i49 == 3) {
                 if (GameSparker.tnick.getText().equals("Nickname") || msg.startsWith("This")) {
                     GameSparker.tnick.setText("");
@@ -510,7 +515,7 @@ class Login implements Runnable {
             if (control.exit) {
                 i49 = 3;
             }
-            if (i49 == 2)
+            if (i49 == 2) {
                 if (GameSparker.tnick.getText().equals("")) {
                     msg = "Enter your Nickname!";
                     nflk = 30;
@@ -526,6 +531,7 @@ class Login implements Runnable {
                     connector = new Thread(this);
                     connector.start();
                 }
+            }
             if (i49 == 3) {
                 GameSparker.regnew();
             }
@@ -964,7 +970,7 @@ class Login implements Runnable {
                 }
             }
         }
-        if (fase == 12)
+        if (fase == 12) {
             if (xtGraphics.acexp == 0 || contrb) {
                 rd.setComposite(AlphaComposite.getInstance(3, 0.25F));
                 rd.setColor(new Color(203, 227, 253));
@@ -1022,6 +1028,7 @@ class Login implements Runnable {
                     stringbutton("Try Again", 494, 336, 0);
                 }
             }
+        }
         if (fase == 15) {
             if (trans < 100) {
                 rd.drawImage(Images.pln, 400 - Images.pln.getWidth(ob) / 2, 315 - Images.pln.getHeight(ob) / 2 - 12 - trans, null);
@@ -1750,11 +1757,12 @@ class Login implements Runnable {
                         rmwt[i23] = getvalue(string, 1 + i23 * 2);
                     }
                     int i24 = 1000;
-                    for (int i25 = 0; i25 < 5; i25++)
+                    for (int i25 = 0; i25 < 5; i25++) {
                         if (Math.abs(rmps[i25] - 6) < i24) {
                             recom = i25;
                             i24 = Math.abs(rmps[i25] - 6);
                         }
+                    }
                     if (recom != i20) {
                         opselect = recom;
                         i20 = recom;

@@ -67,11 +67,12 @@ public class ModuleLoader {
     }
 
     public static ModuleSlayer prepareSlayer(final Module module, final int i, final int i_3, final int i_4) {
-        if (module instanceof Mod)
+        if (module instanceof Mod) {
             return new ModSlayer((Mod) module, i, i_3, i_4);
-        else if (module instanceof IBXMod)
+        } else if (module instanceof IBXMod) {
             return new IBXModSlayer((IBXMod) module, i, i_3, i_4);
-        else
+        } else {
             throw new ModuleException("Unsuported module format: " + module.getName());
+        }
     }
 }

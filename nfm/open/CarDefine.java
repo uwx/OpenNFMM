@@ -1194,10 +1194,11 @@ final class CarDefine implements Runnable {
                 Medium.snap[2] = 0;
                 xnlocars = THIRTY_SIX;
                 final int i = nl;
-                for (nl = 0; nl < i; nl++)
+                for (nl = 0; nl < i; nl++) {
                     if (xnlocars < FIFTY_SIX && loadonlinecar(loadnames[nl], xnlocars) == xnlocars) {
                         xnlocars++;
                     }
+                }
                 nl = 0;
                 if (xnlocars > THIRTY_SIX) {
                     action = 13;
@@ -1257,10 +1258,11 @@ final class CarDefine implements Runnable {
                 }
                 xnlocars = THIRTY_SIX;
                 final int i = nl;
-                for (nl = 0; nl < i; nl++)
+                for (nl = 0; nl < i; nl++) {
                     if (xnlocars < FIFTY_SIX && loadonlinecar(loadnames[nl], xnlocars) == xnlocars) {
                         xnlocars++;
                     }
+                }
                 nl = 0;
                 if (xnlocars > THIRTY_SIX) {
                     action = 103;
@@ -1274,10 +1276,11 @@ final class CarDefine implements Runnable {
         if (Thread.currentThread() == carloader) {
             while (nl > 0) {
                 int i = 0;
-                for (int i46 = SIXTEEN; i46 < FIFTY_SIX; i46++)
+                for (int i46 = SIXTEEN; i46 < FIFTY_SIX; i46++) {
                     if (loadnames[nl - 1].equals(names[i46])) {
                         i = -1;
                     }
+                }
                 if (fails.contains('|' + loadnames[nl - 1] + "|")) {
                     i = -1;
                 }
@@ -1289,11 +1292,12 @@ final class CarDefine implements Runnable {
                         i47 = lcardate[haltload];
                     }
                     i = i48;
-                    for (int i49 = i48; i49 < FIFTY_SIX; i49++)
+                    for (int i49 = i48; i49 < FIFTY_SIX; i49++) {
                         if (lcardate[i49 - THIRTY_SIX] < i47) {
                             i47 = lcardate[i49 - THIRTY_SIX];
                             i = i49;
                         }
+                    }
                     if (loadonlinecar(loadnames[nl - 1], i) == -1) {
                         fails = fails + "|" + loadnames[nl - 1] + "|";
                     } else {
@@ -1383,10 +1387,11 @@ final class CarDefine implements Runnable {
             if (staction == 2) {
                 int i = -1;
                 if (msloaded == 1) {
-                    for (int i51 = 1; i51 < GameSparker.mstgs.getItemCount(); i51++)
+                    for (int i51 = 1; i51 < GameSparker.mstgs.getItemCount(); i51++) {
                         if (GameSparker.mstgs.getItem(i51).equals(onstage)) {
                             i = 3;
                         }
+                    }
                 }
                 if (i == -1) {
                     try {
@@ -1707,11 +1712,12 @@ final class CarDefine implements Runnable {
         final File file = new File("" + Madness.fpath + "mystages/");
         if (file.exists()) {
             final String[] strings = new File("" + Madness.fpath + "mystages/").list();
-            for (final String string : strings)
+            for (final String string : strings) {
                 if (string.toLowerCase().endsWith(".txt") && i < 200) {
                     GameSparker.mstgs.add(GameSparker.rd, string.substring(0, string.length() - 4));
                     i++;
                 }
+            }
         }
         if (i != 0) {
             msloaded = 2;
@@ -1740,10 +1746,11 @@ final class CarDefine implements Runnable {
         final File file = new File("" + Madness.fpath + "mycars/");
         if (file.exists()) {
             final String[] strings = new File("" + Madness.fpath + "mycars/").list();
-            for (final String string : strings)
+            for (final String string : strings) {
                 if (string.toLowerCase().endsWith(".rad") && nlcars < FIFTY_SIX && loadcar(string.substring(0, string.length() - 4), nlcars) == nlcars) {
                     nlcars++;
                 }
+            }
         }
         System.gc();
         if (nlcars > SIXTEEN) {
