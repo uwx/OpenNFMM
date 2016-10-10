@@ -23,6 +23,7 @@ import static jouvieje.bass.examples.util.Device.forceNoSoundDevice;
  * @deprecated Replaced by modern RadicalBASS.java, kept here for completion's sake
  */
 @Deprecated
+@SuppressWarnings("all")
 public class RadicalBASS_file implements RadicalMusic {
 
     /**

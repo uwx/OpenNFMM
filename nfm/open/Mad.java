@@ -35,7 +35,6 @@ class Mad {
     private final int[][] lcrank = new int[4][4];
     int loop = 0;
     private int lxz = 0;
-    private final Medium m;
     int missedcp = 0;
     boolean mtouch = false;
     int mxz = 0;
@@ -59,7 +58,6 @@ class Mad {
     int pxy = 0;
     int pzy = 0;
     float rcomp = 0.0F;
-    private final Record rpd;
     private int rpdcatch = 0;
     boolean rtab = false;
     final float[] scx = new float[4];
@@ -79,14 +77,10 @@ class Mad {
     int txz = 0;
     float ucomp = 0.0F;
     boolean wtouch = false;
-    private final xtGraphics xt;
     private int xtpower = 0;
 
-    Mad(final Stat stat, final Medium medium, final Record record, final xtGraphics xtgraphics, final int i) {
+    Mad(final Stat stat, final int i) {
         this.stat = stat;
-        m = medium;
-        rpd = record;
-        xt = xtgraphics;
         im = i;
     }
 
@@ -139,7 +133,7 @@ class Mad {
             final int i126 = (int) (((scz[0] - mad118.scz[0] + scz[1] - mad118.scz[1] + scz[2] - mad118.scz[2] + scz[3] - mad118.scz[3]) * (scz[0] - mad118.scz[0] + scz[1] - mad118.scz[1] + scz[2] - mad118.scz[2] + scz[3] - mad118.scz[3]) + (scx[0] - mad118.scx[0] + scx[1] - mad118.scx[1] + scx[2] - mad118.scx[2] + scx[3] - mad118.scx[3]) * (scx[0] - mad118.scx[0] + scx[1] - mad118.scx[1] + scx[2] - mad118.scx[2] + scx[3] - mad118.scx[3])) / 16.0F);
             int i127 = 7000;
             float f = 1.0F;
-            if (xt.multion != 0) {
+            if (xtGraphics.multion != 0) {
                 i127 = 28000;
                 f = 1.27F;
             }
@@ -162,7 +156,7 @@ class Mad {
                                 f131 = -300.0F;
                             }
                             mad118.scx[i129] += f131;
-                            if (im == xt.im) {
+                            if (im == xtGraphics.im) {
                                 mad118.colidim = true;
                             }
                             i += mad118.regx(i129, f131 * stat.moment * f, conto119);
@@ -172,14 +166,14 @@ class Mad {
                             scx[i128] -= f130;
                             i125 += regx(i128, -f130 * stat.moment * f, conto);
                             scy[i128] -= stat.revlift;
-                            if (im == xt.im) {
+                            if (im == xtGraphics.im) {
                                 mad118.colidim = true;
                             }
                             i += mad118.regy(i129, stat.revlift * 7, conto119);
                             if (mad118.colidim) {
                                 mad118.colidim = false;
                             }
-                            if (m.random() > m.random()) {
+                            if (Medium.random() > Medium.random()) {
                                 conto119.sprk((fs[i128] + fs122[i129]) / 2.0F, (fs120[i128] + fs123[i129]) / 2.0F, (fs121[i128] + fs124[i129]) / 2.0F, (mad118.scx[i129] + scx[i128]) / 4.0F, (mad118.scy[i129] + scy[i128]) / 4.0F, (mad118.scz[i129] + scz[i128]) / 4.0F, 2);
                             }
                         }
@@ -199,7 +193,7 @@ class Mad {
                                 f133 = -300.0F;
                             }
                             mad118.scz[i129] += f133;
-                            if (im == xt.im) {
+                            if (im == xtGraphics.im) {
                                 mad118.colidim = true;
                             }
                             i += mad118.regz(i129, f133 * stat.moment * f, conto119);
@@ -209,33 +203,33 @@ class Mad {
                             scz[i128] -= f132;
                             i125 += regz(i128, -f132 * stat.moment * f, conto);
                             scy[i128] -= stat.revlift;
-                            if (im == xt.im) {
+                            if (im == xtGraphics.im) {
                                 mad118.colidim = true;
                             }
                             i += mad118.regy(i129, stat.revlift * 7, conto119);
                             if (mad118.colidim) {
                                 mad118.colidim = false;
                             }
-                            if (m.random() > m.random()) {
+                            if (Medium.random() > Medium.random()) {
                                 conto119.sprk((fs[i128] + fs122[i129]) / 2.0F, (fs120[i128] + fs123[i129]) / 2.0F, (fs121[i128] + fs124[i129]) / 2.0F, (mad118.scx[i129] + scx[i128]) / 4.0F, (mad118.scy[i129] + scy[i128]) / 4.0F, (mad118.scz[i129] + scz[i128]) / 4.0F, 2);
                             }
                         }
-                        if (im == xt.im) {
+                        if (im == xtGraphics.im) {
                             mad118.lastcolido = 70;
                         }
-                        if (mad118.im == xt.im) {
+                        if (mad118.im == xtGraphics.im) {
                             lastcolido = 70;
                         }
                         mad118.scy[i129] -= stat.lift;
                     }
             }
         }
-        if (xt.multion == 1) {
-            if (mad118.im == xt.im && i != 0) {
-                xt.dcrashes[im] += i;
+        if (xtGraphics.multion == 1) {
+            if (mad118.im == xtGraphics.im && i != 0) {
+                xtGraphics.dcrashes[im] += i;
             }
-            if (im == xt.im && i125 != 0) {
-                xt.dcrashes[mad118.im] += i125;
+            if (im == xtGraphics.im && i125 != 0) {
+                xtGraphics.dcrashes[mad118.im] += i125;
             }
         }
     }
@@ -247,7 +241,7 @@ class Mad {
             }
     }
 
-    void drive(final Control control, final ContO conto, final Trackers trackers, final CheckPoints checkpoints) {
+    void drive(final Control control, final ContO conto) {
         int i = 1;
         int i4 = 1;
         boolean bool = false;
@@ -351,8 +345,8 @@ class Mad {
                     if (ucomp < 20.0F) {
                         ucomp += 0.5 * stat.airs;
                     }
-                    f = -stat.airc * m.sin(conto.xz) * i4;
-                    f11 = stat.airc * m.cos(conto.xz) * i4;
+                    f = -stat.airc * Medium.sin(conto.xz) * i4;
+                    f11 = stat.airc * Medium.cos(conto.xz) * i4;
                 } else if (ucomp != 0.0F && ucomp > -2.0F) {
                     ucomp -= 0.5 * stat.airs;
                 }
@@ -381,8 +375,8 @@ class Mad {
                     if (lcomp < 20.0F) {
                         lcomp += 2.0F * stat.airs;
                     }
-                    f = -stat.airc * m.cos(conto.xz) * i;
-                    f11 = -stat.airc * m.sin(conto.xz) * i;
+                    f = -stat.airc * Medium.cos(conto.xz) * i;
+                    f11 = -stat.airc * Medium.sin(conto.xz) * i;
                 } else if (lcomp > 0.0F) {
                     lcomp -= 2.0F * stat.airs;
                 }
@@ -393,16 +387,16 @@ class Mad {
                     if (rcomp < 20.0F) {
                         rcomp += 2.0F * stat.airs;
                     }
-                    f = stat.airc * m.cos(conto.xz) * i;
-                    f11 = stat.airc * m.sin(conto.xz) * i;
+                    f = stat.airc * Medium.cos(conto.xz) * i;
+                    f11 = stat.airc * Medium.sin(conto.xz) * i;
                 } else if (rcomp > 0.0F) {
                     rcomp -= 2.0F * stat.airs;
                 }
-                pzy += (dcomp - ucomp) * m.cos(pxy);
+                pzy += (dcomp - ucomp) * Medium.cos(pxy);
                 if (bool) {
-                    conto.xz += (dcomp - ucomp) * m.sin(pxy);
+                    conto.xz += (dcomp - ucomp) * Medium.sin(pxy);
                 } else {
-                    conto.xz -= (dcomp - ucomp) * m.sin(pxy);
+                    conto.xz -= (dcomp - ucomp) * Medium.sin(pxy);
                 }
                 pxy += rcomp - lcomp;
             } else {
@@ -507,11 +501,11 @@ class Mad {
                         }
                         pd = false;
                     }
-                    pzy += (dcomp - ucomp) * m.cos(pxy);
+                    pzy += (dcomp - ucomp) * Medium.cos(pxy);
                     if (bool) {
-                        conto.xz += (dcomp - ucomp) * m.sin(pxy);
+                        conto.xz += (dcomp - ucomp) * Medium.sin(pxy);
                     } else {
-                        conto.xz -= (dcomp - ucomp) * m.sin(pxy);
+                        conto.xz -= (dcomp - ucomp) * Medium.sin(pxy);
                     }
                     pxy += rcomp - lcomp;
                 }
@@ -635,25 +629,25 @@ class Mad {
             fs[i29] += (scx[0] + scx[1] + scx[2] + scx[3]) / 4.0F;
             fs22[i29] += (scz[0] + scz[1] + scz[2] + scz[3]) / 4.0F;
         }
-        int i30 = (conto.x - trackers.sx) / 3000;
-        if (i30 > trackers.ncx) {
-            i30 = trackers.ncx;
+        int i30 = (conto.x - Trackers.sx) / 3000;
+        if (i30 > Trackers.ncx) {
+            i30 = Trackers.ncx;
         }
         if (i30 < 0) {
             i30 = 0;
         }
-        int i31 = (conto.z - trackers.sz) / 3000;
-        if (i31 > trackers.ncz) {
-            i31 = trackers.ncz;
+        int i31 = (conto.z - Trackers.sz) / 3000;
+        if (i31 > Trackers.ncz) {
+            i31 = Trackers.ncz;
         }
         if (i31 < 0) {
             i31 = 0;
         }
         int i32 = 1;
-        for (int i33 = 0; i33 < trackers.sect[i30][i31].length; i33++) {
-            final int i34 = trackers.sect[i30][i31][i33];
-            if (Math.abs(trackers.zy[i34]) != 90 && Math.abs(trackers.xy[i34]) != 90 && Math.abs(conto.x - trackers.x[i34]) < trackers.radx[i34] && Math.abs(conto.z - trackers.z[i34]) < trackers.radz[i34] && (!trackers.decor[i34] || m.resdown != 2 || xt.multion != 0)) {
-                i32 = trackers.skd[i34];
+        for (int i33 = 0; i33 < Trackers.sect[i30][i31].length; i33++) {
+            final int i34 = Trackers.sect[i30][i31][i33];
+            if (Math.abs(Trackers.zy[i34]) != 90 && Math.abs(Trackers.xy[i34]) != 90 && Math.abs(conto.x - Trackers.x[i34]) < Trackers.radx[i34] && Math.abs(conto.z - Trackers.z[i34]) < Trackers.radz[i34] && (!Trackers.decor[i34] || Medium.resdown != 2 || xtGraphics.multion != 0)) {
+                i32 = Trackers.skd[i34];
             }
         }
         if (mtouch) {
@@ -676,10 +670,10 @@ class Mad {
             if (i32 == 2) {
                 f35 *= 0.55;
             }
-            int i36 = -(int) (speed * m.sin(conto.xz) * m.cos(pzy));
-            int i37 = (int) (speed * m.cos(conto.xz) * m.cos(pzy));
-            int i38 = -(int) (speed * m.sin(pzy));
-            if (capsized || dest || checkpoints.haltall) {
+            int i36 = -(int) (speed * Medium.sin(conto.xz) * Medium.cos(pzy));
+            int i37 = (int) (speed * Medium.cos(conto.xz) * Medium.cos(pzy));
+            int i38 = -(int) (speed * Medium.sin(pzy));
+            if (capsized || dest || CheckPoints.haltall) {
                 i36 = 0;
                 i37 = 0;
                 i38 = 0;
@@ -746,17 +740,17 @@ class Mad {
                         if (i32 != 0) {
                             f42 = 1.2F;
                         }
-                        if (m.random() > 0.65) {
+                        if (Medium.random() > 0.65) {
                             conto.dust(i41, fs[i41], fs23[i41], fs22[i41], (int) scx[i41], (int) scz[i41], f42 * stat.simag, (int) tilt, capsized && mtouch);
-                            if (im == xt.im && !capsized) {
-                                xt.skid(i32, (float) Math.sqrt(scx[i41] * scx[i41] + scz[i41] * scz[i41]));
+                            if (im == xtGraphics.im && !capsized) {
+                                xtGraphics.skid(i32, (float) Math.sqrt(scx[i41] * scx[i41] + scz[i41] * scz[i41]));
                             }
                         }
                     } else {
-                        if (i32 == 1 && m.random() > 0.8) {
+                        if (i32 == 1 && Medium.random() > 0.8) {
                             conto.dust(i41, fs[i41], fs23[i41], fs22[i41], (int) scx[i41], (int) scz[i41], 1.1F * stat.simag, (int) tilt, capsized && mtouch);
                         }
-                        if ((i32 == 2 || i32 == 3) && m.random() > 0.6) {
+                        if ((i32 == 2 || i32 == 3) && Medium.random() > 0.6) {
                             conto.dust(i41, fs[i41], fs23[i41], fs22[i41], (int) scx[i41], (int) scz[i41], 1.15F * stat.simag, (int) tilt, capsized && mtouch);
                         }
                     }
@@ -767,12 +761,12 @@ class Mad {
                     }
                 }
                 if (i32 == 3) {
-                    final int i43 = (int) (m.random() * 4.0F);
-                    scy[i43] = (float) (-100.0F * m.random() * (speed / stat.swits[2]) * (stat.bounce - 0.3));
+                    final int i43 = (int) (Medium.random() * 4.0F);
+                    scy[i43] = (float) (-100.0F * Medium.random() * (speed / stat.swits[2]) * (stat.bounce - 0.3));
                 }
                 if (i32 == 4) {
-                    final int i44 = (int) (m.random() * 4.0F);
-                    scy[i44] = (float) (-150.0F * m.random() * (speed / stat.swits[2]) * (stat.bounce - 0.3));
+                    final int i44 = (int) (Medium.random() * 4.0F);
+                    scy[i44] = (float) (-150.0F * Medium.random() * (speed / stat.swits[2]) * (stat.bounce - 0.3));
                 }
                 f39 += scx[i41];
                 f40 += scz[i41];
@@ -790,9 +784,9 @@ class Mad {
                     f39 /= 4.0F;
                     f40 /= 4.0F;
                     if (bool5) {
-                        speed = -((float) Math.sqrt(f39 * f39 + f40 * f40) * m.cos(mxz - conto.xz));
+                        speed = -((float) Math.sqrt(f39 * f39 + f40 * f40) * Medium.cos(mxz - conto.xz));
                     } else {
-                        speed = (float) Math.sqrt(f39 * f39 + f40 * f40) * m.cos(mxz - conto.xz);
+                        speed = (float) Math.sqrt(f39 * f39 + f40 * f40) * Medium.cos(mxz - conto.xz);
                     }
                 }
                 skid = 0;
@@ -832,7 +826,7 @@ class Mad {
                 fs23[i49] = 250.0F;
                 bools47[i49] = true;
                 f48 += fs23[i49] - 250.0F;
-                float f51 = Math.abs(m.sin(pxy)) + Math.abs(m.sin(pzy));
+                float f51 = Math.abs(Medium.sin(pxy)) + Math.abs(Medium.sin(pzy));
                 f51 /= 3.0F;
                 if (f51 > 0.4) {
                     f51 = 0.4F;
@@ -859,19 +853,19 @@ class Mad {
                 }
         }
         int i53 = 0;
-        for (int i54 = 0; i54 < trackers.sect[i30][i31].length; i54++) {
-            final int i55 = trackers.sect[i30][i31][i54];
+        for (int i54 = 0; i54 < Trackers.sect[i30][i31].length; i54++) {
+            final int i55 = Trackers.sect[i30][i31][i54];
             int i56 = 0;
             int i57 = 0;
             for (int i58 = 0; i58 < 4; i58++) {
-                if (bools46[i58] && (trackers.skd[i55] == 0 || trackers.skd[i55] == 1) && fs[i58] > trackers.x[i55] - trackers.radx[i55] && fs[i58] < trackers.x[i55] + trackers.radx[i55] && fs22[i58] > trackers.z[i55] - trackers.radz[i55] && fs22[i58] < trackers.z[i55] + trackers.radz[i55]) {
+                if (bools46[i58] && (Trackers.skd[i55] == 0 || Trackers.skd[i55] == 1) && fs[i58] > Trackers.x[i55] - Trackers.radx[i55] && fs[i58] < Trackers.x[i55] + Trackers.radx[i55] && fs22[i58] > Trackers.z[i55] - Trackers.radz[i55] && fs22[i58] < Trackers.z[i55] + Trackers.radz[i55]) {
                     conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58], 1);
-                    if (im == xt.im) {
-                        xt.gscrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
+                    if (im == xtGraphics.im) {
+                        xtGraphics.gscrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
                     }
                 }
-                if (!bools[i58] && fs[i58] > trackers.x[i55] - trackers.radx[i55] && fs[i58] < trackers.x[i55] + trackers.radx[i55] && fs22[i58] > trackers.z[i55] - trackers.radz[i55] && fs22[i58] < trackers.z[i55] + trackers.radz[i55] && fs23[i58] > trackers.y[i55] - trackers.rady[i55] && fs23[i58] < trackers.y[i55] + trackers.rady[i55] && (!trackers.decor[i55] || m.resdown != 2 || xt.multion != 0)) {
-                    if (trackers.xy[i55] == 0 && trackers.zy[i55] == 0 && trackers.y[i55] != 250 && fs23[i58] > trackers.y[i55] - 5) {
+                if (!bools[i58] && fs[i58] > Trackers.x[i55] - Trackers.radx[i55] && fs[i58] < Trackers.x[i55] + Trackers.radx[i55] && fs22[i58] > Trackers.z[i55] - Trackers.radz[i55] && fs22[i58] < Trackers.z[i55] + Trackers.radz[i55] && fs23[i58] > Trackers.y[i55] - Trackers.rady[i55] && fs23[i58] < Trackers.y[i55] + Trackers.rady[i55] && (!Trackers.decor[i55] || Medium.resdown != 2 || xtGraphics.multion != 0)) {
+                    if (Trackers.xy[i55] == 0 && Trackers.zy[i55] == 0 && Trackers.y[i55] != 250 && fs23[i58] > Trackers.y[i55] - 5) {
                         i57++;
                         wtouch = true;
                         gtouch = true;
@@ -887,14 +881,14 @@ class Mad {
                             }
                             conto.dust(i58, fs[i58], fs23[i58], fs22[i58], (int) scx[i58], (int) scz[i58], f59 * stat.simag, 0, capsized && mtouch);
                         }
-                        fs23[i58] = trackers.y[i55];
-                        if (capsized && (trackers.skd[i55] == 0 || trackers.skd[i55] == 1)) {
+                        fs23[i58] = Trackers.y[i55];
+                        if (capsized && (Trackers.skd[i55] == 0 || Trackers.skd[i55] == 1)) {
                             conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58], 1);
-                            if (im == xt.im) {
-                                xt.gscrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
+                            if (im == xtGraphics.im) {
+                                xtGraphics.gscrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
                             }
                         }
-                        float f60 = Math.abs(m.sin(pxy)) + Math.abs(m.sin(pzy));
+                        float f60 = Math.abs(Medium.sin(pxy)) + Math.abs(Medium.sin(pzy));
                         f60 /= 3.0F;
                         if (f60 > 0.4) {
                             f60 = 0.4F;
@@ -909,25 +903,25 @@ class Mad {
                         }
                         bools[i58] = true;
                     }
-                    if (trackers.zy[i55] == -90 && fs22[i58] < trackers.z[i55] + trackers.radz[i55] && (scz[i58] < 0.0F || trackers.radz[i55] == 287)) {
+                    if (Trackers.zy[i55] == -90 && fs22[i58] < Trackers.z[i55] + Trackers.radz[i55] && (scz[i58] < 0.0F || Trackers.radz[i55] == 287)) {
                         for (int i61 = 0; i61 < 4; i61++)
-                            if (i58 != i61 && fs22[i61] >= trackers.z[i55] + trackers.radz[i55]) {
-                                fs22[i61] -= fs22[i58] - (trackers.z[i55] + trackers.radz[i55]);
+                            if (i58 != i61 && fs22[i61] >= Trackers.z[i55] + Trackers.radz[i55]) {
+                                fs22[i61] -= fs22[i58] - (Trackers.z[i55] + Trackers.radz[i55]);
                             }
-                        fs22[i58] = trackers.z[i55] + trackers.radz[i55];
-                        if (trackers.skd[i55] != 2) {
+                        fs22[i58] = Trackers.z[i55] + Trackers.radz[i55];
+                        if (Trackers.skd[i55] != 2) {
                             crank[0][i58]++;
                         }
-                        if (trackers.skd[i55] == 5 && m.random() > m.random()) {
+                        if (Trackers.skd[i55] == 5 && Medium.random() > Medium.random()) {
                             crank[0][i58]++;
                         }
                         if (crank[0][i58] > 1) {
                             conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58], 0);
-                            if (im == xt.im) {
-                                xt.scrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
+                            if (im == xtGraphics.im) {
+                                xtGraphics.scrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
                             }
                         }
-                        float f62 = Math.abs(m.cos(pxy)) + Math.abs(m.cos(pzy));
+                        float f62 = Math.abs(Medium.cos(pxy)) + Math.abs(Medium.cos(pzy));
                         f62 /= 4.0F;
                         if (f62 > 0.3) {
                             f62 = 0.3F;
@@ -939,34 +933,34 @@ class Mad {
                         if (f62 < 1.1) {
                             f62 = 1.1F;
                         }
-                        regz(i58, Math.abs(scz[i58] * f62 * trackers.dam[i55]), conto);
+                        regz(i58, Math.abs(scz[i58] * f62 * Trackers.dam[i55]), conto);
                         scz[i58] += Math.abs(scz[i58] * f62);
                         skid = 2;
                         bool6 = true;
                         bools[i58] = true;
-                        if (!trackers.notwall[i55]) {
+                        if (!Trackers.notwall[i55]) {
                             control.wall = i55;
                         }
                     }
-                    if (trackers.zy[i55] == 90 && fs22[i58] > trackers.z[i55] - trackers.radz[i55] && (scz[i58] > 0.0F || trackers.radz[i55] == 287)) {
+                    if (Trackers.zy[i55] == 90 && fs22[i58] > Trackers.z[i55] - Trackers.radz[i55] && (scz[i58] > 0.0F || Trackers.radz[i55] == 287)) {
                         for (int i63 = 0; i63 < 4; i63++)
-                            if (i58 != i63 && fs22[i63] <= trackers.z[i55] - trackers.radz[i55]) {
-                                fs22[i63] -= fs22[i58] - (trackers.z[i55] - trackers.radz[i55]);
+                            if (i58 != i63 && fs22[i63] <= Trackers.z[i55] - Trackers.radz[i55]) {
+                                fs22[i63] -= fs22[i58] - (Trackers.z[i55] - Trackers.radz[i55]);
                             }
-                        fs22[i58] = trackers.z[i55] - trackers.radz[i55];
-                        if (trackers.skd[i55] != 2) {
+                        fs22[i58] = Trackers.z[i55] - Trackers.radz[i55];
+                        if (Trackers.skd[i55] != 2) {
                             crank[1][i58]++;
                         }
-                        if (trackers.skd[i55] == 5 && m.random() > m.random()) {
+                        if (Trackers.skd[i55] == 5 && Medium.random() > Medium.random()) {
                             crank[1][i58]++;
                         }
                         if (crank[1][i58] > 1) {
                             conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58], 0);
-                            if (im == xt.im) {
-                                xt.scrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
+                            if (im == xtGraphics.im) {
+                                xtGraphics.scrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
                             }
                         }
-                        float f64 = Math.abs(m.cos(pxy)) + Math.abs(m.cos(pzy));
+                        float f64 = Math.abs(Medium.cos(pxy)) + Math.abs(Medium.cos(pzy));
                         f64 /= 4.0F;
                         if (f64 > 0.3) {
                             f64 = 0.3F;
@@ -978,34 +972,34 @@ class Mad {
                         if (f64 < 1.1) {
                             f64 = 1.1F;
                         }
-                        regz(i58, -Math.abs(scz[i58] * f64 * trackers.dam[i55]), conto);
+                        regz(i58, -Math.abs(scz[i58] * f64 * Trackers.dam[i55]), conto);
                         scz[i58] -= Math.abs(scz[i58] * f64);
                         skid = 2;
                         bool6 = true;
                         bools[i58] = true;
-                        if (!trackers.notwall[i55]) {
+                        if (!Trackers.notwall[i55]) {
                             control.wall = i55;
                         }
                     }
-                    if (trackers.xy[i55] == -90 && fs[i58] < trackers.x[i55] + trackers.radx[i55] && (scx[i58] < 0.0F || trackers.radx[i55] == 287)) {
+                    if (Trackers.xy[i55] == -90 && fs[i58] < Trackers.x[i55] + Trackers.radx[i55] && (scx[i58] < 0.0F || Trackers.radx[i55] == 287)) {
                         for (int i65 = 0; i65 < 4; i65++)
-                            if (i58 != i65 && fs[i65] >= trackers.x[i55] + trackers.radx[i55]) {
-                                fs[i65] -= fs[i58] - (trackers.x[i55] + trackers.radx[i55]);
+                            if (i58 != i65 && fs[i65] >= Trackers.x[i55] + Trackers.radx[i55]) {
+                                fs[i65] -= fs[i58] - (Trackers.x[i55] + Trackers.radx[i55]);
                             }
-                        fs[i58] = trackers.x[i55] + trackers.radx[i55];
-                        if (trackers.skd[i55] != 2) {
+                        fs[i58] = Trackers.x[i55] + Trackers.radx[i55];
+                        if (Trackers.skd[i55] != 2) {
                             crank[2][i58]++;
                         }
-                        if (trackers.skd[i55] == 5 && m.random() > m.random()) {
+                        if (Trackers.skd[i55] == 5 && Medium.random() > Medium.random()) {
                             crank[2][i58]++;
                         }
                         if (crank[2][i58] > 1) {
                             conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58], 0);
-                            if (im == xt.im) {
-                                xt.scrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
+                            if (im == xtGraphics.im) {
+                                xtGraphics.scrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
                             }
                         }
-                        float f66 = Math.abs(m.cos(pxy)) + Math.abs(m.cos(pzy));
+                        float f66 = Math.abs(Medium.cos(pxy)) + Math.abs(Medium.cos(pzy));
                         f66 /= 4.0F;
                         if (f66 > 0.3) {
                             f66 = 0.3F;
@@ -1017,34 +1011,34 @@ class Mad {
                         if (f66 < 1.1) {
                             f66 = 1.1F;
                         }
-                        regx(i58, Math.abs(scx[i58] * f66 * trackers.dam[i55]), conto);
+                        regx(i58, Math.abs(scx[i58] * f66 * Trackers.dam[i55]), conto);
                         scx[i58] += Math.abs(scx[i58] * f66);
                         skid = 2;
                         bool6 = true;
                         bools[i58] = true;
-                        if (!trackers.notwall[i55]) {
+                        if (!Trackers.notwall[i55]) {
                             control.wall = i55;
                         }
                     }
-                    if (trackers.xy[i55] == 90 && fs[i58] > trackers.x[i55] - trackers.radx[i55] && (scx[i58] > 0.0F || trackers.radx[i55] == 287)) {
+                    if (Trackers.xy[i55] == 90 && fs[i58] > Trackers.x[i55] - Trackers.radx[i55] && (scx[i58] > 0.0F || Trackers.radx[i55] == 287)) {
                         for (int i67 = 0; i67 < 4; i67++)
-                            if (i58 != i67 && fs[i67] <= trackers.x[i55] - trackers.radx[i55]) {
-                                fs[i67] -= fs[i58] - (trackers.x[i55] - trackers.radx[i55]);
+                            if (i58 != i67 && fs[i67] <= Trackers.x[i55] - Trackers.radx[i55]) {
+                                fs[i67] -= fs[i58] - (Trackers.x[i55] - Trackers.radx[i55]);
                             }
-                        fs[i58] = trackers.x[i55] - trackers.radx[i55];
-                        if (trackers.skd[i55] != 2) {
+                        fs[i58] = Trackers.x[i55] - Trackers.radx[i55];
+                        if (Trackers.skd[i55] != 2) {
                             crank[3][i58]++;
                         }
-                        if (trackers.skd[i55] == 5 && m.random() > m.random()) {
+                        if (Trackers.skd[i55] == 5 && Medium.random() > Medium.random()) {
                             crank[3][i58]++;
                         }
                         if (crank[3][i58] > 1) {
                             conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58], 0);
-                            if (im == xt.im) {
-                                xt.scrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
+                            if (im == xtGraphics.im) {
+                                xtGraphics.scrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
                             }
                         }
-                        float f68 = Math.abs(m.cos(pxy)) + Math.abs(m.cos(pzy));
+                        float f68 = Math.abs(Medium.cos(pxy)) + Math.abs(Medium.cos(pzy));
                         f68 /= 4.0F;
                         if (f68 > 0.3) {
                             f68 = 0.3F;
@@ -1056,39 +1050,39 @@ class Mad {
                         if (f68 < 1.1) {
                             f68 = 1.1F;
                         }
-                        regx(i58, -Math.abs(scx[i58] * f68 * trackers.dam[i55]), conto);
+                        regx(i58, -Math.abs(scx[i58] * f68 * Trackers.dam[i55]), conto);
                         scx[i58] -= Math.abs(scx[i58] * f68);
                         skid = 2;
                         bool6 = true;
                         bools[i58] = true;
-                        if (!trackers.notwall[i55]) {
+                        if (!Trackers.notwall[i55]) {
                             control.wall = i55;
                         }
                     }
-                    if (trackers.zy[i55] != 0 && trackers.zy[i55] != 90 && trackers.zy[i55] != -90) {
-                        final int i69 = 90 + trackers.zy[i55];
-                        float f70 = 1.0F + (50 - Math.abs(trackers.zy[i55])) / 30.0F;
+                    if (Trackers.zy[i55] != 0 && Trackers.zy[i55] != 90 && Trackers.zy[i55] != -90) {
+                        final int i69 = 90 + Trackers.zy[i55];
+                        float f70 = 1.0F + (50 - Math.abs(Trackers.zy[i55])) / 30.0F;
                         if (f70 < 1.0F) {
                             f70 = 1.0F;
                         }
-                        final float f71 = trackers.y[i55] + ((fs23[i58] - trackers.y[i55]) * m.cos(i69) - (fs22[i58] - trackers.z[i55]) * m.sin(i69));
-                        float f72 = trackers.z[i55] + ((fs23[i58] - trackers.y[i55]) * m.sin(i69) + (fs22[i58] - trackers.z[i55]) * m.cos(i69));
-                        if (f72 > trackers.z[i55] && f72 < trackers.z[i55] + 200) {
-                            scy[i58] -= (f72 - trackers.z[i55]) / f70;
-                            f72 = trackers.z[i55];
+                        final float f71 = Trackers.y[i55] + ((fs23[i58] - Trackers.y[i55]) * Medium.cos(i69) - (fs22[i58] - Trackers.z[i55]) * Medium.sin(i69));
+                        float f72 = Trackers.z[i55] + ((fs23[i58] - Trackers.y[i55]) * Medium.sin(i69) + (fs22[i58] - Trackers.z[i55]) * Medium.cos(i69));
+                        if (f72 > Trackers.z[i55] && f72 < Trackers.z[i55] + 200) {
+                            scy[i58] -= (f72 - Trackers.z[i55]) / f70;
+                            f72 = Trackers.z[i55];
                         }
-                        if (f72 > trackers.z[i55] - 30) {
-                            if (trackers.skd[i55] == 2) {
+                        if (f72 > Trackers.z[i55] - 30) {
+                            if (Trackers.skd[i55] == 2) {
                                 i56++;
                             } else {
                                 i53++;
                             }
                             wtouch = true;
                             gtouch = false;
-                            if (capsized && (trackers.skd[i55] == 0 || trackers.skd[i55] == 1)) {
+                            if (capsized && (Trackers.skd[i55] == 0 || Trackers.skd[i55] == 1)) {
                                 conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58], 1);
-                                if (im == xt.im) {
-                                    xt.gscrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
+                                if (im == xtGraphics.im) {
+                                    xtGraphics.gscrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
                                 }
                             }
                             if (!bool25 && i32 != 0) {
@@ -1096,34 +1090,34 @@ class Mad {
                                 conto.dust(i58, fs[i58], fs23[i58], fs22[i58], (int) scx[i58], (int) scz[i58], f73 * stat.simag, 0, capsized && mtouch);
                             }
                         }
-                        fs23[i58] = trackers.y[i55] + ((f71 - trackers.y[i55]) * m.cos(-i69) - (f72 - trackers.z[i55]) * m.sin(-i69));
-                        fs22[i58] = trackers.z[i55] + ((f71 - trackers.y[i55]) * m.sin(-i69) + (f72 - trackers.z[i55]) * m.cos(-i69));
+                        fs23[i58] = Trackers.y[i55] + ((f71 - Trackers.y[i55]) * Medium.cos(-i69) - (f72 - Trackers.z[i55]) * Medium.sin(-i69));
+                        fs22[i58] = Trackers.z[i55] + ((f71 - Trackers.y[i55]) * Medium.sin(-i69) + (f72 - Trackers.z[i55]) * Medium.cos(-i69));
                         bools[i58] = true;
                     }
-                    if (trackers.xy[i55] != 0 && trackers.xy[i55] != 90 && trackers.xy[i55] != -90) {
-                        final int i74 = 90 + trackers.xy[i55];
-                        float f75 = 1.0F + (50 - Math.abs(trackers.xy[i55])) / 30.0F;
+                    if (Trackers.xy[i55] != 0 && Trackers.xy[i55] != 90 && Trackers.xy[i55] != -90) {
+                        final int i74 = 90 + Trackers.xy[i55];
+                        float f75 = 1.0F + (50 - Math.abs(Trackers.xy[i55])) / 30.0F;
                         if (f75 < 1.0F) {
                             f75 = 1.0F;
                         }
-                        final float f76 = trackers.y[i55] + ((fs23[i58] - trackers.y[i55]) * m.cos(i74) - (fs[i58] - trackers.x[i55]) * m.sin(i74));
-                        float f77 = trackers.x[i55] + ((fs23[i58] - trackers.y[i55]) * m.sin(i74) + (fs[i58] - trackers.x[i55]) * m.cos(i74));
-                        if (f77 > trackers.x[i55] && f77 < trackers.x[i55] + 200) {
-                            scy[i58] -= (f77 - trackers.x[i55]) / f75;
-                            f77 = trackers.x[i55];
+                        final float f76 = Trackers.y[i55] + ((fs23[i58] - Trackers.y[i55]) * Medium.cos(i74) - (fs[i58] - Trackers.x[i55]) * Medium.sin(i74));
+                        float f77 = Trackers.x[i55] + ((fs23[i58] - Trackers.y[i55]) * Medium.sin(i74) + (fs[i58] - Trackers.x[i55]) * Medium.cos(i74));
+                        if (f77 > Trackers.x[i55] && f77 < Trackers.x[i55] + 200) {
+                            scy[i58] -= (f77 - Trackers.x[i55]) / f75;
+                            f77 = Trackers.x[i55];
                         }
-                        if (f77 > trackers.x[i55] - 30) {
-                            if (trackers.skd[i55] == 2) {
+                        if (f77 > Trackers.x[i55] - 30) {
+                            if (Trackers.skd[i55] == 2) {
                                 i56++;
                             } else {
                                 i53++;
                             }
                             wtouch = true;
                             gtouch = false;
-                            if (capsized && (trackers.skd[i55] == 0 || trackers.skd[i55] == 1)) {
+                            if (capsized && (Trackers.skd[i55] == 0 || Trackers.skd[i55] == 1)) {
                                 conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58], 1);
-                                if (im == xt.im) {
-                                    xt.gscrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
+                                if (im == xtGraphics.im) {
+                                    xtGraphics.gscrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
                                 }
                             }
                             if (!bool25 && i32 != 0) {
@@ -1131,8 +1125,8 @@ class Mad {
                                 conto.dust(i58, fs[i58], fs23[i58], fs22[i58], (int) scx[i58], (int) scz[i58], f78 * stat.simag, 0, capsized && mtouch);
                             }
                         }
-                        fs23[i58] = trackers.y[i55] + ((f76 - trackers.y[i55]) * m.cos(-i74) - (f77 - trackers.x[i55]) * m.sin(-i74));
-                        fs[i58] = trackers.x[i55] + ((f76 - trackers.y[i55]) * m.sin(-i74) + (f77 - trackers.x[i55]) * m.cos(-i74));
+                        fs23[i58] = Trackers.y[i55] + ((f76 - Trackers.y[i55]) * Medium.cos(-i74) - (f77 - Trackers.x[i55]) * Medium.sin(-i74));
+                        fs[i58] = Trackers.x[i55] + ((f76 - Trackers.y[i55]) * Medium.sin(-i74) + (f77 - Trackers.x[i55]) * Medium.cos(-i74));
                         bools[i58] = true;
                     }
                 }
@@ -1298,14 +1292,14 @@ class Mad {
         } else {
             cntouch = 0;
         }
-        conto.y = (int) ((fs23[0] + fs23[1] + fs23[2] + fs23[3]) / 4.0F - i10 * m.cos(pzy) * m.cos(pxy) + f12);
+        conto.y = (int) ((fs23[0] + fs23[1] + fs23[2] + fs23[3]) / 4.0F - i10 * Medium.cos(pzy) * Medium.cos(pxy) + f12);
         if (bool) {
             i = -1;
         } else {
             i = 1;
         }
-        conto.x = (int) ((fs[0] - conto.keyx[0] * m.cos(conto.xz) + i * conto.keyz[0] * m.sin(conto.xz) + fs[1] - conto.keyx[1] * m.cos(conto.xz) + i * conto.keyz[1] * m.sin(conto.xz) + fs[2] - conto.keyx[2] * m.cos(conto.xz) + i * conto.keyz[2] * m.sin(conto.xz) + fs[3] - conto.keyx[3] * m.cos(conto.xz) + i * conto.keyz[3] * m.sin(conto.xz)) / 4.0F + i10 * m.sin(pxy) * m.cos(conto.xz) - i10 * m.sin(pzy) * m.sin(conto.xz) + f);
-        conto.z = (int) ((fs22[0] - i * conto.keyz[0] * m.cos(conto.xz) - conto.keyx[0] * m.sin(conto.xz) + fs22[1] - i * conto.keyz[1] * m.cos(conto.xz) - conto.keyx[1] * m.sin(conto.xz) + fs22[2] - i * conto.keyz[2] * m.cos(conto.xz) - conto.keyx[2] * m.sin(conto.xz) + fs22[3] - i * conto.keyz[3] * m.cos(conto.xz) - conto.keyx[3] * m.sin(conto.xz)) / 4.0F + i10 * m.sin(pxy) * m.sin(conto.xz) - i10 * m.sin(pzy) * m.cos(conto.xz) + f11);
+        conto.x = (int) ((fs[0] - conto.keyx[0] * Medium.cos(conto.xz) + i * conto.keyz[0] * Medium.sin(conto.xz) + fs[1] - conto.keyx[1] * Medium.cos(conto.xz) + i * conto.keyz[1] * Medium.sin(conto.xz) + fs[2] - conto.keyx[2] * Medium.cos(conto.xz) + i * conto.keyz[2] * Medium.sin(conto.xz) + fs[3] - conto.keyx[3] * Medium.cos(conto.xz) + i * conto.keyz[3] * Medium.sin(conto.xz)) / 4.0F + i10 * Medium.sin(pxy) * Medium.cos(conto.xz) - i10 * Medium.sin(pzy) * Medium.sin(conto.xz) + f);
+        conto.z = (int) ((fs22[0] - i * conto.keyz[0] * Medium.cos(conto.xz) - conto.keyx[0] * Medium.sin(conto.xz) + fs22[1] - i * conto.keyz[1] * Medium.cos(conto.xz) - conto.keyx[1] * Medium.sin(conto.xz) + fs22[2] - i * conto.keyz[2] * Medium.cos(conto.xz) - conto.keyx[2] * Medium.sin(conto.xz) + fs22[3] - i * conto.keyz[3] * Medium.cos(conto.xz) - conto.keyx[3] * Medium.sin(conto.xz)) / 4.0F + i10 * Medium.sin(pxy) * Medium.sin(conto.xz) - i10 * Medium.sin(pzy) * Medium.cos(conto.xz) + f11);
         if (Math.abs(speed) > 10.0F || !mtouch) {
             if (Math.abs(pxy - conto.xy) >= 4) {
                 if (pxy > conto.xy) {
@@ -1349,12 +1343,12 @@ class Mad {
             tilt = 0.0F;
         }
         if (wtouch && i32 == 2) {
-            conto.zy += (int) ((m.random() * 6.0F * speed / stat.swits[2] - 3.0F * speed / stat.swits[2]) * (stat.bounce - 0.3));
-            conto.xy += (int) ((m.random() * 6.0F * speed / stat.swits[2] - 3.0F * speed / stat.swits[2]) * (stat.bounce - 0.3));
+            conto.zy += (int) ((Medium.random() * 6.0F * speed / stat.swits[2] - 3.0F * speed / stat.swits[2]) * (stat.bounce - 0.3));
+            conto.xy += (int) ((Medium.random() * 6.0F * speed / stat.swits[2] - 3.0F * speed / stat.swits[2]) * (stat.bounce - 0.3));
         }
         if (wtouch && i32 == 1) {
-            conto.zy += (int) ((m.random() * 4.0F * speed / stat.swits[2] - 2.0F * speed / stat.swits[2]) * (stat.bounce - 0.3));
-            conto.xy += (int) ((m.random() * 4.0F * speed / stat.swits[2] - 2.0F * speed / stat.swits[2]) * (stat.bounce - 0.3));
+            conto.zy += (int) ((Medium.random() * 4.0F * speed / stat.swits[2] - 2.0F * speed / stat.swits[2]) * (stat.bounce - 0.3));
+            conto.xy += (int) ((Medium.random() * 4.0F * speed / stat.swits[2] - 2.0F * speed / stat.swits[2]) * (stat.bounce - 0.3));
         }
         if (hitmag >= stat.maxmag && !dest) {
             distruct(conto);
@@ -1364,7 +1358,7 @@ class Mad {
                 cntdest++;
             }
             if (cntdest == 1) {
-                rpd.dest[im] = 300;
+                Record.dest[im] = 300;
             }
         }
         if (conto.dist == 0) {
@@ -1385,85 +1379,85 @@ class Mad {
         } else {
             i4 = 7;
         }
-        for (int i92 = 0; i92 < checkpoints.n; i92++) {
-            if (checkpoints.typ[i92] > 0) {
+        for (int i92 = 0; i92 < CheckPoints.n; i92++) {
+            if (CheckPoints.typ[i92] > 0) {
                 i91++;
-                if (checkpoints.typ[i92] == 1) {
-                    if (clear == i91 + nlaps * checkpoints.nsp) {
+                if (CheckPoints.typ[i92] == 1) {
+                    if (clear == i91 + nlaps * CheckPoints.nsp) {
                         i4 = 1;
                     }
-                    if (Math.abs(conto.z - checkpoints.z[i92]) < 60.0F + Math.abs(scz[0] + scz[1] + scz[2] + scz[3]) / 4.0F && Math.abs(conto.x - checkpoints.x[i92]) < 700 && Math.abs(conto.y - checkpoints.y[i92] + 350) < 450 && clear == i91 + nlaps * checkpoints.nsp - 1) {
-                        clear = i91 + nlaps * checkpoints.nsp;
+                    if (Math.abs(conto.z - CheckPoints.z[i92]) < 60.0F + Math.abs(scz[0] + scz[1] + scz[2] + scz[3]) / 4.0F && Math.abs(conto.x - CheckPoints.x[i92]) < 700 && Math.abs(conto.y - CheckPoints.y[i92] + 350) < 450 && clear == i91 + nlaps * CheckPoints.nsp - 1) {
+                        clear = i91 + nlaps * CheckPoints.nsp;
                         pcleared = i92;
                         focus = -1;
                     }
                 }
-                if (checkpoints.typ[i92] == 2) {
-                    if (clear == i91 + nlaps * checkpoints.nsp) {
+                if (CheckPoints.typ[i92] == 2) {
+                    if (clear == i91 + nlaps * CheckPoints.nsp) {
                         i4 = 1;
                     }
-                    if (Math.abs(conto.x - checkpoints.x[i92]) < 60.0F + Math.abs(scx[0] + scx[1] + scx[2] + scx[3]) / 4.0F && Math.abs(conto.z - checkpoints.z[i92]) < 700 && Math.abs(conto.y - checkpoints.y[i92] + 350) < 450 && clear == i91 + nlaps * checkpoints.nsp - 1) {
-                        clear = i91 + nlaps * checkpoints.nsp;
+                    if (Math.abs(conto.x - CheckPoints.x[i92]) < 60.0F + Math.abs(scx[0] + scx[1] + scx[2] + scx[3]) / 4.0F && Math.abs(conto.z - CheckPoints.z[i92]) < 700 && Math.abs(conto.y - CheckPoints.y[i92] + 350) < 450 && clear == i91 + nlaps * CheckPoints.nsp - 1) {
+                        clear = i91 + nlaps * CheckPoints.nsp;
                         pcleared = i92;
                         focus = -1;
                     }
                 }
             }
-            if (py(conto.x / 100, checkpoints.x[i92] / 100, conto.z / 100, checkpoints.z[i92] / 100) * i4 < i90 || i90 == 0) {
+            if (py(conto.x / 100, CheckPoints.x[i92] / 100, conto.z / 100, CheckPoints.z[i92] / 100) * i4 < i90 || i90 == 0) {
                 i89 = i92;
-                i90 = py(conto.x / 100, checkpoints.x[i92] / 100, conto.z / 100, checkpoints.z[i92] / 100) * i4;
+                i90 = py(conto.x / 100, CheckPoints.x[i92] / 100, conto.z / 100, CheckPoints.z[i92] / 100) * i4;
             }
         }
-        if (clear == i91 + nlaps * checkpoints.nsp) {
+        if (clear == i91 + nlaps * CheckPoints.nsp) {
             nlaps++;
-            if (xt.multion == 1 && im == xt.im) {
-                if (xt.laptime < xt.fastestlap || xt.fastestlap == 0) {
-                    xt.fastestlap = xt.laptime;
+            if (xtGraphics.multion == 1 && im == xtGraphics.im) {
+                if (xtGraphics.laptime < xtGraphics.fastestlap || xtGraphics.fastestlap == 0) {
+                    xtGraphics.fastestlap = xtGraphics.laptime;
                 }
-                xt.laptime = 0;
+                xtGraphics.laptime = 0;
             }
         }
-        if (im == xt.im) {
-            if (xt.multion == 1 && xt.starcnt == 0) {
-                xt.laptime++;
+        if (im == xtGraphics.im) {
+            if (xtGraphics.multion == 1 && xtGraphics.starcnt == 0) {
+                xtGraphics.laptime++;
             }
-            for (m.checkpoint = clear; m.checkpoint >= checkpoints.nsp; m.checkpoint -= checkpoints.nsp) {
+            for (Medium.checkpoint = clear; Medium.checkpoint >= CheckPoints.nsp; Medium.checkpoint -= CheckPoints.nsp) {
 
             }
-            if (clear == checkpoints.nlaps * checkpoints.nsp - 1) {
-                m.lastcheck = true;
+            if (clear == CheckPoints.nlaps * CheckPoints.nsp - 1) {
+                Medium.lastcheck = true;
             }
-            if (checkpoints.haltall) {
-                m.lastcheck = false;
+            if (CheckPoints.haltall) {
+                Medium.lastcheck = false;
             }
         }
         if (focus == -1) {
-            if (im == xt.im) {
+            if (im == xtGraphics.im) {
                 i89 += 2;
             } else {
                 i89++;
             }
             if (!nofocus) {
                 i91 = pcleared + 1;
-                if (i91 >= checkpoints.n) {
+                if (i91 >= CheckPoints.n) {
                     i91 = 0;
                 }
-                while (checkpoints.typ[i91] <= 0)
-                    if (++i91 >= checkpoints.n) {
+                while (CheckPoints.typ[i91] <= 0)
+                    if (++i91 >= CheckPoints.n) {
                         i91 = 0;
                     }
-                if (i89 > i91 && (clear != nlaps * checkpoints.nsp || i89 < pcleared)) {
+                if (i89 > i91 && (clear != nlaps * CheckPoints.nsp || i89 < pcleared)) {
                     i89 = i91;
                     focus = i89;
                 }
             }
-            if (i89 >= checkpoints.n) {
-                i89 -= checkpoints.n;
+            if (i89 >= CheckPoints.n) {
+                i89 -= CheckPoints.n;
             }
-            if (checkpoints.typ[i89] == -3) {
+            if (CheckPoints.typ[i89] == -3) {
                 i89 = 0;
             }
-            if (im == xt.im) {
+            if (im == xtGraphics.im) {
                 if (missedcp != -1) {
                     missedcp = -1;
                 }
@@ -1472,14 +1466,14 @@ class Mad {
             }
         } else {
             i89 = focus;
-            if (im == xt.im) {
-                if (missedcp == 0 && mtouch && Math.sqrt(py(conto.x / 10, checkpoints.x[focus] / 10, conto.z / 10, checkpoints.z[focus] / 10)) > 800.0) {
+            if (im == xtGraphics.im) {
+                if (missedcp == 0 && mtouch && Math.sqrt(py(conto.x / 10, CheckPoints.x[focus] / 10, conto.z / 10, CheckPoints.z[focus] / 10)) > 800.0) {
                     missedcp = 1;
                 }
-                if (missedcp == -2 && Math.sqrt(py(conto.x / 10, checkpoints.x[focus] / 10, conto.z / 10, checkpoints.z[focus] / 10)) < 400.0) {
+                if (missedcp == -2 && Math.sqrt(py(conto.x / 10, CheckPoints.x[focus] / 10, conto.z / 10, CheckPoints.z[focus] / 10)) < 400.0) {
                     missedcp = 0;
                 }
-                if (missedcp != 0 && mtouch && Math.sqrt(py(conto.x / 10, checkpoints.x[focus] / 10, conto.z / 10, checkpoints.z[focus] / 10)) < 250.0) {
+                if (missedcp != 0 && mtouch && Math.sqrt(py(conto.x / 10, CheckPoints.x[focus] / 10, conto.z / 10, CheckPoints.z[focus] / 10)) < 250.0) {
                     missedcp = 68;
                 }
             } else {
@@ -1495,36 +1489,36 @@ class Mad {
         }
         point = i89;
         if (fixes != 0) {
-            if (m.noelec == 0) {
-                for (int i93 = 0; i93 < checkpoints.fn; i93++)
-                    if (!checkpoints.roted[i93]) {
-                        if (Math.abs(conto.z - checkpoints.fz[i93]) < 200 && py(conto.x / 100, checkpoints.fx[i93] / 100, conto.y / 100, checkpoints.fy[i93] / 100) < 30) {
+            if (Medium.noelec == 0) {
+                for (int i93 = 0; i93 < CheckPoints.fn; i93++)
+                    if (!CheckPoints.roted[i93]) {
+                        if (Math.abs(conto.z - CheckPoints.fz[i93]) < 200 && py(conto.x / 100, CheckPoints.fx[i93] / 100, conto.y / 100, CheckPoints.fy[i93] / 100) < 30) {
                             if (conto.dist == 0) {
                                 conto.fcnt = 8;
                             } else {
-                                if (im == xt.im && !conto.fix && !xt.mutes) {
-                                    xt.carfixed.play();
+                                if (im == xtGraphics.im && !conto.fix && !xtGraphics.mutes) {
+                                    xtGraphics.carfixed.play();
                                 }
                                 conto.fix = true;
                             }
-                            rpd.fix[im] = 300;
+                            Record.fix[im] = 300;
                         }
-                    } else if (Math.abs(conto.x - checkpoints.fx[i93]) < 200 && py(conto.z / 100, checkpoints.fz[i93] / 100, conto.y / 100, checkpoints.fy[i93] / 100) < 30) {
+                    } else if (Math.abs(conto.x - CheckPoints.fx[i93]) < 200 && py(conto.z / 100, CheckPoints.fz[i93] / 100, conto.y / 100, CheckPoints.fy[i93] / 100) < 30) {
                         if (conto.dist == 0) {
                             conto.fcnt = 8;
                         } else {
-                            if (im == xt.im && !conto.fix && !xt.mutes) {
-                                xt.carfixed.play();
+                            if (im == xtGraphics.im && !conto.fix && !xtGraphics.mutes) {
+                                xtGraphics.carfixed.play();
                             }
                             conto.fix = true;
                         }
-                        rpd.fix[im] = 300;
+                        Record.fix[im] = 300;
                     }
             }
         } else {
-            for (int i94 = 0; i94 < checkpoints.fn; i94++)
-                if (rpy(conto.x / 100, checkpoints.fx[i94] / 100, conto.y / 100, checkpoints.fy[i94] / 100, conto.z / 100, checkpoints.fz[i94] / 100) < 760) {
-                    m.noelec = 2;
+            for (int i94 = 0; i94 < CheckPoints.fn; i94++)
+                if (rpy(conto.x / 100, CheckPoints.fx[i94] / 100, conto.y / 100, CheckPoints.fy[i94] / 100, conto.z / 100, CheckPoints.fz[i94] / 100) < 760) {
+                    Medium.noelec = 2;
                 }
         }
         if (conto.fcnt == 7 || conto.fcnt == 8) {
@@ -1603,13 +1597,13 @@ class Mad {
                             powerup += 30.0F;
                         }
                         power += powerup;
-                        if (im == xt.im && (int) powerup > rpd.powered && rpd.wasted == 0 && (powerup > 60.0F || checkpoints.stage == 1 || checkpoints.stage == 2)) {
+                        if (im == xtGraphics.im && (int) powerup > Record.powered && Record.wasted == 0 && (powerup > 60.0F || CheckPoints.stage == 1 || CheckPoints.stage == 2)) {
                             rpdcatch = 30;
-                            if (rpd.hcaught) {
-                                rpd.powered = (int) powerup;
+                            if (Record.hcaught) {
+                                Record.powered = (int) powerup;
                             }
-                            if (xt.multion == 1 && powerup > xt.beststunt) {
-                                xt.beststunt = (int) powerup;
+                            if (xtGraphics.multion == 1 && powerup > xtGraphics.beststunt) {
+                                xtGraphics.beststunt = (int) powerup;
                             }
                         }
                         if (power > 98.0F) {
@@ -1678,7 +1672,7 @@ class Mad {
                     xtpower--;
                 }
         }
-        if (im == xt.im) {
+        if (im == xtGraphics.im) {
             if (control.wall != -1) {
                 control.wall = -1;
             }
@@ -1686,21 +1680,21 @@ class Mad {
             lastcolido--;
         }
         if (dest) {
-            if (checkpoints.dested[im] == 0)
+            if (CheckPoints.dested[im] == 0)
                 if (lastcolido == 0) {
-                    checkpoints.dested[im] = 1;
+                    CheckPoints.dested[im] = 1;
                 } else {
-                    checkpoints.dested[im] = 2;
+                    CheckPoints.dested[im] = 2;
                 }
-        } else if (checkpoints.dested[im] != 0 && checkpoints.dested[im] != 3) {
-            checkpoints.dested[im] = 0;
+        } else if (CheckPoints.dested[im] != 0 && CheckPoints.dested[im] != 3) {
+            CheckPoints.dested[im] = 0;
         }
-        if (im == xt.im && rpd.wasted == 0 && rpdcatch != 0) {
+        if (im == xtGraphics.im && Record.wasted == 0 && rpdcatch != 0) {
             rpdcatch--;
             if (rpdcatch == 0) {
-                rpd.cotchinow(im);
-                if (rpd.hcaught) {
-                    rpd.whenwasted = (int) (185.0F + m.random() * 20.0F);
+                Record.cotchinow(im);
+                if (Record.hcaught) {
+                    Record.whenwasted = (int) (185.0F + Medium.random() * 20.0F);
                 }
             }
         }
@@ -1713,18 +1707,18 @@ class Mad {
     private int regx(final int i, float f, final ContO conto) {
         int i110 = 0;
         boolean bool = true;
-        if (xt.multion == 1 && xt.im != im) {
+        if (xtGraphics.multion == 1 && xtGraphics.im != im) {
             bool = false;
         }
-        if (xt.multion >= 2) {
+        if (xtGraphics.multion >= 2) {
             bool = false;
         }
-        if (xt.lan && xt.multion >= 1 && xt.isbot[im]) {
+        if (xtGraphics.lan && xtGraphics.multion >= 1 && xtGraphics.isbot[im]) {
             bool = true;
         }
         f *= stat.dammult;
         if (Math.abs(f) > 100.0F) {
-            rpd.recx(i, f, im);
+            Record.recx(i, f, im);
             if (f > 100.0F) {
                 f -= 100.0F;
             }
@@ -1732,16 +1726,16 @@ class Mad {
                 f += 100.0F;
             }
             shakedam = (int) ((Math.abs(f) + shakedam) / 2.0F);
-            if (im == xt.im || colidim) {
-                xt.crash(f, 0);
+            if (im == xtGraphics.im || colidim) {
+                xtGraphics.crash(f, 0);
             }
             for (int i111 = 0; i111 < conto.npl; i111++) {
                 float f112 = 0.0F;
                 for (int i113 = 0; i113 < conto.p[i111].n; i113++)
                     if (conto.p[i111].wz == 0 && py(conto.keyx[i], conto.p[i111].ox[i113], conto.keyz[i], conto.p[i111].oz[i113]) < stat.clrad) {
-                        f112 = f / 20.0F * m.random();
-                        conto.p[i111].oz[i113] -= f112 * m.sin(conto.xz) * m.cos(conto.zy);
-                        conto.p[i111].ox[i113] += f112 * m.cos(conto.xz) * m.cos(conto.xy);
+                        f112 = f / 20.0F * Medium.random();
+                        conto.p[i111].oz[i113] -= f112 * Medium.sin(conto.xz) * Medium.cos(conto.zy);
+                        conto.p[i111].ox[i113] += f112 * Medium.cos(conto.xz) * Medium.cos(conto.xy);
                         if (bool) {
                             hitmag += Math.abs(f112);
                             i110 += Math.abs(f112);
@@ -1793,18 +1787,18 @@ class Mad {
     private int regy(final int i, float f, final ContO conto) {
         int i97 = 0;
         boolean bool = true;
-        if (xt.multion == 1 && xt.im != im) {
+        if (xtGraphics.multion == 1 && xtGraphics.im != im) {
             bool = false;
         }
-        if (xt.multion >= 2) {
+        if (xtGraphics.multion >= 2) {
             bool = false;
         }
-        if (xt.lan && xt.multion >= 1 && xt.isbot[im]) {
+        if (xtGraphics.lan && xtGraphics.multion >= 1 && xtGraphics.isbot[im]) {
             bool = true;
         }
         f *= stat.dammult;
         if (f > 100.0F) {
-            rpd.recy(i, f, mtouch, im);
+            Record.recy(i, f, mtouch, im);
             f -= 100.0F;
             int i98 = 0;
             int i99 = 0;
@@ -1837,17 +1831,17 @@ class Mad {
             if (i99 * i98 == 0) {
                 shakedam = (int) ((Math.abs(f) + shakedam) / 2.0F);
             }
-            if (im == xt.im || colidim) {
-                xt.crash(f, i99 * i98);
+            if (im == xtGraphics.im || colidim) {
+                xtGraphics.crash(f, i99 * i98);
             }
             if (i99 * i98 == 0 || mtouch) {
                 for (int i102 = 0; i102 < conto.npl; i102++) {
                     float f103 = 0.0F;
                     for (int i104 = 0; i104 < conto.p[i102].n; i104++)
                         if (conto.p[i102].wz == 0 && py(conto.keyx[i], conto.p[i102].ox[i104], conto.keyz[i], conto.p[i102].oz[i104]) < stat.clrad) {
-                            f103 = f / 20.0F * m.random();
-                            conto.p[i102].oz[i104] += f103 * m.sin(i100);
-                            conto.p[i102].ox[i104] -= f103 * m.sin(i101);
+                            f103 = f / 20.0F * Medium.random();
+                            conto.p[i102].oz[i104] += f103 * Medium.sin(i100);
+                            conto.p[i102].ox[i104] -= f103 * Medium.sin(i101);
                             if (bool) {
                                 hitmag += Math.abs(f103);
                                 i97 += Math.abs(f103);
@@ -1901,7 +1895,7 @@ class Mad {
                         float f108 = 0.0F;
                         for (int i109 = 0; i109 < conto.p[i107].n; i109++)
                             if (conto.p[i107].wz == 0) {
-                                f108 = f / 15.0F * m.random();
+                                f108 = f / 15.0F * Medium.random();
                                 if ((Math.abs(conto.p[i107].oy[i109] - stat.flipy - squash) < stat.msquash * 3 || conto.p[i107].oy[i109] < stat.flipy + squash) && squash < stat.msquash) {
                                     conto.p[i107].oy[i109] += f108;
                                     i105 += f108;
@@ -1934,18 +1928,18 @@ class Mad {
     private int regz(final int i, float f, final ContO conto) {
         int i114 = 0;
         boolean bool = true;
-        if (xt.multion == 1 && xt.im != im) {
+        if (xtGraphics.multion == 1 && xtGraphics.im != im) {
             bool = false;
         }
-        if (xt.multion >= 2) {
+        if (xtGraphics.multion >= 2) {
             bool = false;
         }
-        if (xt.lan && xt.multion >= 1 && xt.isbot[im]) {
+        if (xtGraphics.lan && xtGraphics.multion >= 1 && xtGraphics.isbot[im]) {
             bool = true;
         }
         f *= stat.dammult;
         if (Math.abs(f) > 100.0F) {
-            rpd.recz(i, f, im);
+            Record.recz(i, f, im);
             if (f > 100.0F) {
                 f -= 100.0F;
             }
@@ -1953,16 +1947,16 @@ class Mad {
                 f += 100.0F;
             }
             shakedam = (int) ((Math.abs(f) + shakedam) / 2.0F);
-            if (im == xt.im || colidim) {
-                xt.crash(f, 0);
+            if (im == xtGraphics.im || colidim) {
+                xtGraphics.crash(f, 0);
             }
             for (int i115 = 0; i115 < conto.npl; i115++) {
                 float f116 = 0.0F;
                 for (int i117 = 0; i117 < conto.p[i115].n; i117++)
                     if (conto.p[i115].wz == 0 && py(conto.keyx[i], conto.p[i115].ox[i117], conto.keyz[i], conto.p[i115].oz[i117]) < stat.clrad) {
-                        f116 = f / 20.0F * m.random();
-                        conto.p[i115].oz[i117] += f116 * m.cos(conto.xz) * m.cos(conto.zy);
-                        conto.p[i115].ox[i117] += f116 * m.sin(conto.xz) * m.cos(conto.xy);
+                        f116 = f / 20.0F * Medium.random();
+                        conto.p[i115].oz[i117] += f116 * Medium.cos(conto.xz) * Medium.cos(conto.zy);
+                        conto.p[i115].ox[i117] += f116 * Medium.sin(conto.xz) * Medium.cos(conto.xy);
                         if (bool) {
                             hitmag += Math.abs(f116);
                             i114 += Math.abs(f116);
@@ -2011,7 +2005,7 @@ class Mad {
         return i114;
     }
 
-    void reseto(final int i, final ContO conto, final CheckPoints checkpoints) {
+    void reseto(final int i, final ContO conto) {
         cn = i;
         for (int i0 = 0; i0 < 8; i0++) {
             dominate[i0] = false;
@@ -2065,7 +2059,7 @@ class Mad {
                 lcrank[i2][i3] = 0;
             }
         }
-        pcleared = checkpoints.pcs;
+        pcleared = CheckPoints.pcs;
         clear = 0;
         nlaps = 0;
         focus = -1;
@@ -2073,30 +2067,30 @@ class Mad {
         nofocus = false;
         power = 98.0F;
         lastcolido = 0;
-        checkpoints.dested[im] = 0;
+        CheckPoints.dested[im] = 0;
         squash = 0;
         nbsq = 0;
         hitmag = 0;
         cntdest = 0;
         dest = false;
         newcar = false;
-        if (im == xt.im) {
-            m.checkpoint = -1;
-            m.lastcheck = false;
+        if (im == xtGraphics.im) {
+            Medium.checkpoint = -1;
+            Medium.lastcheck = false;
         }
         rpdcatch = 0;
         newedcar = 0;
         fixes = -1;
-        if (checkpoints.nfix == 1) {
+        if (CheckPoints.nfix == 1) {
             fixes = 4;
         }
-        if (checkpoints.nfix == 2) {
+        if (CheckPoints.nfix == 2) {
             fixes = 3;
         }
-        if (checkpoints.nfix == 3) {
+        if (CheckPoints.nfix == 3) {
             fixes = 2;
         }
-        if (checkpoints.nfix == 4) {
+        if (CheckPoints.nfix == 4) {
             fixes = 1;
         }
     }
@@ -2106,8 +2100,8 @@ class Mad {
             for (int i138 = 0; i138 < i137; i138++) {
                 final float f = fs[i138];
                 final float f139 = fs134[i138];
-                fs[i138] = i + ((f - i) * m.cos(i136) - (f139 - i135) * m.sin(i136));
-                fs134[i138] = i135 + ((f - i) * m.sin(i136) + (f139 - i135) * m.cos(i136));
+                fs[i138] = i + ((f - i) * Medium.cos(i136) - (f139 - i135) * Medium.sin(i136));
+                fs134[i138] = i135 + ((f - i) * Medium.sin(i136) + (f139 - i135) * Medium.cos(i136));
             }
         }
     }

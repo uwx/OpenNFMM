@@ -67,7 +67,6 @@ class Login implements Runnable {
     private final int lrgfase = 0;
     private int lxm = 0;
     private int lym = 0;
-    private final Medium m;
     private String msg = "";
     private int ncnt = 0;
     int nconf = 0;
@@ -117,17 +116,14 @@ class Login implements Runnable {
     private int trans = 0;
     private int xrl = 0;
     private int xrr = 0;
-    private final xtGraphics xt;
-
-    Login(final Medium medium, final Graphics2D graphics2d, final xtGraphics xtgraphics, final GameSparker gamesparker) {
-        m = medium;
+    
+    Login(final Graphics2D graphics2d, final GameSparker gamesparker) {
         rd = graphics2d;
-        xt = xtgraphics;
         gs = gamesparker;
-        if (xt.playingame != -1) {
+        if (xtGraphics.playingame != -1) {
             fase = 18;
         }
-        if (xt.nofull) {
+        if (xtGraphics.nofull) {
             nservers = 1;
         }
     }
@@ -145,15 +141,15 @@ class Login implements Runnable {
                     final String string12 = getSvalue(string, 2);
                     final int i13 = getvalue(string, 3);
                     boolean bool = false;
-                    if (!string12.equals(xt.servername) || i13 != xt.servport - 7070) {
+                    if (!string12.equals(xtGraphics.servername) || i13 != xtGraphics.servport - 7070) {
                         for (int i14 = 0; i14 < nservers; i14++)
-                            if (string12.equals(snames[i14]) && xt.delays[i14] < 300) {
+                            if (string12.equals(snames[i14]) && xtGraphics.delays[i14] < 300) {
                                 bool = true;
                             }
                     }
                     if (bool) {
                         gmaker = getSvalue(string, 1);
-                        if (gmaker.equals(xt.nickname)) {
+                        if (gmaker.equals(xtGraphics.nickname)) {
                             gmaker = "You";
                         }
                         gamec = i;
@@ -183,7 +179,7 @@ class Login implements Runnable {
             for (int i50 = 0; i50 < btn; i50++) {
                 pessd[i50] = Math.abs(i - bx[i50]) < bw[i50] / 2 + 12 && Math.abs(i47 - by[i50]) < 14 && (i48 == 1 || i48 == 11);
                 if (Math.abs(i - bx[i50]) < bw[i50] / 2 + 12 && Math.abs(i47 - by[i50]) < 14 && i48 <= -1) {
-                    gs.mouses = 0;
+                    GameSparker.mouses = 0;
                     i49 = i50;
                 }
                 if (fase == 12 && Math.abs(i - bx[i50]) < bw[i50] / 2 + 12 && Math.abs(i47 - by[i50]) < 14 && (i50 == 3 || i50 == 4) && (i != lxm || i47 != lym)) {
@@ -192,20 +188,20 @@ class Login implements Runnable {
             }
         }
         if (i49 == 0) {
-            gs.tnick.setVisible(false);
-            gs.tpass.setVisible(false);
-            gs.keplo.setVisible(false);
-            gs.temail.setVisible(false);
+            GameSparker.tnick.setVisible(false);
+            GameSparker.tpass.setVisible(false);
+            GameSparker.keplo.setVisible(false);
+            GameSparker.temail.setVisible(false);
             gs.requestFocus();
-            xt.fase = 24;
+            xtGraphics.fase = 24;
         }
         if (i49 == 1 && fase != 5) {
-            gs.tnick.setVisible(false);
-            gs.tpass.setVisible(false);
-            gs.keplo.setVisible(false);
-            gs.temail.setVisible(false);
+            GameSparker.tnick.setVisible(false);
+            GameSparker.tpass.setVisible(false);
+            GameSparker.keplo.setVisible(false);
+            GameSparker.temail.setVisible(false);
             gs.requestFocus();
-            xt.fase = 23;
+            xtGraphics.fase = 23;
         }
         final int i51 = 2;
         if (fase == 12 || fase == 13 || fase == 14 || fase == 15 || fase == 16 || fase == 17) {
@@ -220,7 +216,7 @@ class Login implements Runnable {
             }
             if (cntcl == 0) {
                 if (ond && i48 == 11) {
-                    gs.editlink(xt.nickname, false);
+                    GameSparker.editlink(xtGraphics.nickname, false);
                     cntcl = 10;
                 }
             } else {
@@ -228,22 +224,22 @@ class Login implements Runnable {
             }
             if (i49 == i51) {
                 i49 = -1;
-                if (xt.sc[0] >= 16) {
-                    xt.sc[0] = 15;
+                if (xtGraphics.sc[0] >= 16) {
+                    xtGraphics.sc[0] = 15;
                     gotcai = false;
                 }
-                xt.logged = false;
-                xt.gotlog = false;
-                gs.keplo.setState(false);
-                gs.setloggedcookie();
-                xt.cd.msloaded = 0;
-                xt.cd.lastload = 0;
+                xtGraphics.logged = false;
+                xtGraphics.gotlog = false;
+                GameSparker.keplo.setState(false);
+                GameSparker.setloggedcookie();
+                CarDefine.msloaded = 0;
+                CarDefine.lastload = 0;
                 msg = "Login to access the multiplayer madness!";
                 fase = 3;
             }
         }
         if (fase == 12)
-            if (xt.acexp == 0 || contrb) {
+            if (xtGraphics.acexp == 0 || contrb) {
                 if (control.up) {
                     opselect--;
                     if (opselect == -1) {
@@ -267,13 +263,13 @@ class Login implements Runnable {
                     fase = 15;
                     i49 = -1;
                 }
-                if (!xt.logged && i49 == i51 + 3) {
-                    gs.editlink(xt.nickname, true);
+                if (!xtGraphics.logged && i49 == i51 + 3) {
+                    GameSparker.editlink(xtGraphics.nickname, true);
                 }
             } else {
-                if (xt.acexp > 0) {
+                if (xtGraphics.acexp > 0) {
                     if (i49 == i51 + 1 || control.enter) {
-                        gs.editlink(xt.nickname, false);
+                        GameSparker.editlink(xtGraphics.nickname, false);
                         i49 = -1;
                     }
                     if (i49 == i51 + 2) {
@@ -282,53 +278,53 @@ class Login implements Runnable {
                         i49 = -1;
                     }
                 }
-                if (xt.acexp == -1) {
+                if (xtGraphics.acexp == -1) {
                     if (i49 == i51 + 1 || control.enter) {
-                        gs.editlink(xt.nickname, false);
+                        GameSparker.editlink(xtGraphics.nickname, false);
                         i49 = -1;
                     }
                     if (i49 == i51 + 2) {
                         i49 = -1;
-                        if (xt.sc[0] >= 16) {
-                            xt.sc[0] = 15;
+                        if (xtGraphics.sc[0] >= 16) {
+                            xtGraphics.sc[0] = 15;
                             gotcai = false;
                         }
-                        xt.logged = false;
-                        xt.cd.lastload = 0;
+                        xtGraphics.logged = false;
+                        CarDefine.lastload = 0;
                         msg = "Login to access the multiplayer madness!";
                         fase = 3;
                     }
                 }
-                if (xt.acexp == -2) {
+                if (xtGraphics.acexp == -2) {
                     if (i49 == i51 + 1 || control.enter) {
-                        gs.multlink();
+                        GameSparker.multlink();
                         i49 = -1;
                     }
                     if (i49 == i51 + 2) {
                         i49 = -1;
-                        if (xt.sc[0] >= 16) {
-                            xt.sc[0] = 15;
+                        if (xtGraphics.sc[0] >= 16) {
+                            xtGraphics.sc[0] = 15;
                             gotcai = false;
                         }
-                        xt.logged = false;
-                        xt.cd.lastload = 0;
+                        xtGraphics.logged = false;
+                        CarDefine.lastload = 0;
                         msg = "Login to access the multiplayer madness!";
                         fase = 3;
                     }
                 }
-                if (xt.acexp == -3) {
+                if (xtGraphics.acexp == -3) {
                     if (i49 == i51 + 1 || control.enter) {
-                        gs.editlink(xt.nickname, false);
+                        GameSparker.editlink(xtGraphics.nickname, false);
                         i49 = -1;
                     }
                     if (i49 == i51 + 2) {
                         i49 = -1;
-                        if (xt.sc[0] >= 16) {
-                            xt.sc[0] = 15;
+                        if (xtGraphics.sc[0] >= 16) {
+                            xtGraphics.sc[0] = 15;
                             gotcai = false;
                         }
-                        xt.logged = false;
-                        xt.cd.lastload = 0;
+                        xtGraphics.logged = false;
+                        CarDefine.lastload = 0;
                         msg = "Login to access the multiplayer madness!";
                         fase = 3;
                     }
@@ -391,13 +387,13 @@ class Login implements Runnable {
                 pessd[4] = true;
             }
             if (i49 == i51 + 2)
-                if (xt.nofull) {
+                if (xtGraphics.nofull) {
                     nflk = 30;
                 } else {
-                    xt.server = servers[1];
-                    xt.servername = snames[1];
-                    xt.servport = 7067;
-                    xt.lan = true;
+                    xtGraphics.server = servers[1];
+                    xtGraphics.servername = snames[1];
+                    xtGraphics.servport = 7067;
+                    xtGraphics.lan = true;
                     i49 = -1;
                     fase = 18;
                     lobby.fase = 0;
@@ -427,8 +423,8 @@ class Login implements Runnable {
                     opselect = i54;
                 }
             if (i49 == i51 + 2) {
-                xt.servport = 7071 + opselect;
-                xt.lan = false;
+                xtGraphics.servport = 7071 + opselect;
+                xtGraphics.lan = false;
                 i49 = -1;
                 fase = 18;
                 lobby.fase = 0;
@@ -446,11 +442,11 @@ class Login implements Runnable {
             }
             if (onf && i48 == 11) {
                 msg = "Please enter your Email Address to recover your account details.";
-                gs.tnick.setForeground(new Color(0, 0, 0));
-                gs.tpass.setForeground(new Color(0, 0, 0));
-                gs.tnick.setVisible(false);
-                gs.tpass.setVisible(false);
-                gs.keplo.setVisible(false);
+                GameSparker.tnick.setForeground(new Color(0, 0, 0));
+                GameSparker.tpass.setForeground(new Color(0, 0, 0));
+                GameSparker.tnick.setVisible(false);
+                GameSparker.tpass.setVisible(false);
+                GameSparker.keplo.setVisible(false);
                 onf = false;
                 gs.setCursor(new Cursor(0));
                 fase = 7;
@@ -465,8 +461,8 @@ class Login implements Runnable {
                 gs.setCursor(new Cursor(0));
             }
             if (onr && i48 == 11) {
-                gs.reglink();
-                gs.mouses = 0;
+                GameSparker.reglink();
+                GameSparker.mouses = 0;
             }
         }
         if (fase == 1) {
@@ -475,62 +471,62 @@ class Login implements Runnable {
                 pessd[2] = true;
             }
             if (i49 == 2)
-                if (gs.tnick.getText().equals("Fyre") || gs.tnick.getText().equals("Nickname") || gs.tnick.getText().equals("")) {
+                if (GameSparker.tnick.getText().equals("Fyre") || GameSparker.tnick.getText().equals("Nickname") || GameSparker.tnick.getText().equals("")) {
                     msg = "Type in any Nickname to play...";
-                    gs.tnick.setText("Nickname");
+                    GameSparker.tnick.setText("Nickname");
                     nflk = 30;
                 } else {
                     msg = "| Checking Nickname |";
-                    gs.tnick.setEnabled(false);
+                    GameSparker.tnick.setEnabled(false);
                     fase = 2;
                     connector = new Thread(this);
                     connector.start();
                 }
             if (i49 == 3) {
-                if (gs.tnick.getText().equals("Nickname") || msg.startsWith("This")) {
-                    gs.tnick.setText("");
+                if (GameSparker.tnick.getText().equals("Nickname") || msg.startsWith("This")) {
+                    GameSparker.tnick.setText("");
                 }
                 msg = "Login to access the multiplayer madness!";
-                gs.tnick.setForeground(new Color(0, 0, 0));
+                GameSparker.tnick.setForeground(new Color(0, 0, 0));
                 fase = 3;
                 i49 = -1;
             }
             if (i49 == 4) {
-                if (nickero || gs.tnick.getText().equals("Nickname")) {
-                    gs.tnick.setText("");
+                if (nickero || GameSparker.tnick.getText().equals("Nickname")) {
+                    GameSparker.tnick.setText("");
                     nickero = false;
                 }
-                gs.tnick.setForeground(new Color(0, 0, 0));
-                gs.reglink();
+                GameSparker.tnick.setForeground(new Color(0, 0, 0));
+                GameSparker.reglink();
             }
         }
         if (fase == 3) {
-            if (control.enter || xt.autolog) {
+            if (control.enter || xtGraphics.autolog) {
                 i49 = 2;
                 pessd[2] = true;
-                xt.autolog = false;
+                xtGraphics.autolog = false;
             }
             if (control.exit) {
                 i49 = 3;
             }
             if (i49 == 2)
-                if (gs.tnick.getText().equals("")) {
+                if (GameSparker.tnick.getText().equals("")) {
                     msg = "Enter your Nickname!";
                     nflk = 30;
-                } else if (gs.tpass.getText().equals("")) {
+                } else if (GameSparker.tpass.getText().equals("")) {
                     msg = "Enter your Password!";
                     nflk = 30;
                 } else {
                     msg = "| Logging In |";
-                    gs.tnick.setEnabled(false);
-                    gs.tpass.setEnabled(false);
-                    gs.keplo.setEnabled(false);
+                    GameSparker.tnick.setEnabled(false);
+                    GameSparker.tpass.setEnabled(false);
+                    GameSparker.keplo.setEnabled(false);
                     fase = 4;
                     connector = new Thread(this);
                     connector.start();
                 }
             if (i49 == 3) {
-                gs.regnew();
+                GameSparker.regnew();
             }
         }
         if (fase == 5) {
@@ -544,7 +540,7 @@ class Login implements Runnable {
             if (i49 == 2) {
                 fase = lrgfase;
                 if (fase == 12) {
-                    gs.tnick.setVisible(false);
+                    GameSparker.tnick.setVisible(false);
                     connector = new Thread(this);
                     connector.start();
                 }
@@ -560,12 +556,12 @@ class Login implements Runnable {
             }
             if (i49 == 2) {
                 nflk = 0;
-                if (gs.temail.getText().equals("")) {
+                if (GameSparker.temail.getText().equals("")) {
                     msg = "Please type in your Email Address!";
                     nflk = 30;
                 }
                 if (nflk == 0) {
-                    final String string = gs.temail.getText();
+                    final String string = GameSparker.temail.getText();
                     int i55 = 0;
                     int i56 = 0;
                     for (/**/ ; i55 < string.length(); i55++) {
@@ -581,12 +577,12 @@ class Login implements Runnable {
                         msg = "Please type in your Email Address correctly!";
                         nflk = 30;
                         errcnt = 40;
-                        gs.temail.setForeground(new Color(255, 0, 0));
+                        GameSparker.temail.setForeground(new Color(255, 0, 0));
                     }
                 }
                 if (nflk == 0) {
                     msg = "| Checking Email |";
-                    gs.temail.setEnabled(false);
+                    GameSparker.temail.setEnabled(false);
                     fase = 8;
                     connector = new Thread(this);
                     connector.start();
@@ -594,8 +590,8 @@ class Login implements Runnable {
             }
             if (i49 == 3) {
                 inishmulti();
-                gs.temail.setText("");
-                gs.tpass.setText("");
+                GameSparker.temail.setText("");
+                GameSparker.tpass.setText("");
             }
         }
         lxm = i;
@@ -666,7 +662,7 @@ class Login implements Runnable {
     }
 
     void exitfromlobby() {
-        if (!xt.lan) {
+        if (!xtGraphics.lan) {
             opselect = 0;
         } else {
             opselect = 1;
@@ -679,13 +675,13 @@ class Login implements Runnable {
             pessd[i] = false;
         }
         gotcai = false;
-        m.crs = true;
-        m.x = -335;
-        m.y = 0;
-        m.z = -50;
-        m.xz = 0;
-        m.zy = 20;
-        m.ground = -2000;
+        Medium.crs = true;
+        Medium.x = -335;
+        Medium.y = 0;
+        Medium.z = -50;
+        Medium.xz = 0;
+        Medium.zy = 20;
+        Medium.ground = -2000;
         pend = 0;
         pendb = false;
         gamec = -1;
@@ -722,7 +718,7 @@ class Login implements Runnable {
             socket = new Socket(servers[0], 7061);
             din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             dout = new PrintWriter(socket.getOutputStream(), true);
-            dout.println("101|20|" + xt.nickname + "|" + xt.nickey + "|" + xt.servername + "|" + (xt.servport - 7070) + "|");
+            dout.println("101|20|" + xtGraphics.nickname + "|" + xtGraphics.nickey + "|" + xtGraphics.servername + "|" + (xtGraphics.servport - 7070) + "|");
             din.readLine();
             socket.close();
             din.close();
@@ -790,25 +786,25 @@ class Login implements Runnable {
     }
 
     void inishmulti() {
-        gs.tnick.setVisible(false);
-        gs.tnick.setEnabled(true);
-        gs.tnick.setForeground(new Color(0, 0, 0));
-        gs.tnick.setBackground(color2k(240, 240, 240));
-        gs.tpass.setVisible(false);
-        gs.tpass.setEnabled(true);
-        gs.tpass.setForeground(new Color(0, 0, 0));
-        gs.tpass.setBackground(color2k(240, 240, 240));
-        gs.temail.setVisible(false);
-        gs.temail.setEnabled(true);
-        gs.temail.setForeground(new Color(0, 0, 0));
-        gs.temail.setBackground(color2k(240, 240, 240));
-        gs.keplo.setVisible(false);
-        gs.keplo.setEnabled(true);
-        gs.keplo.setForeground(new Color(0, 0, 0));
-        gs.keplo.setBackground(new Color(193, 181, 142));
+        GameSparker.tnick.setVisible(false);
+        GameSparker.tnick.setEnabled(true);
+        GameSparker.tnick.setForeground(new Color(0, 0, 0));
+        GameSparker.tnick.setBackground(color2k(240, 240, 240));
+        GameSparker.tpass.setVisible(false);
+        GameSparker.tpass.setEnabled(true);
+        GameSparker.tpass.setForeground(new Color(0, 0, 0));
+        GameSparker.tpass.setBackground(color2k(240, 240, 240));
+        GameSparker.temail.setVisible(false);
+        GameSparker.temail.setEnabled(true);
+        GameSparker.temail.setForeground(new Color(0, 0, 0));
+        GameSparker.temail.setBackground(color2k(240, 240, 240));
+        GameSparker.keplo.setVisible(false);
+        GameSparker.keplo.setEnabled(true);
+        GameSparker.keplo.setForeground(new Color(0, 0, 0));
+        GameSparker.keplo.setBackground(new Color(193, 181, 142));
         gs.requestFocus();
-        if (gs.tnick.getText().equals("")) {
-            gs.tnick.setText("Nickname");
+        if (GameSparker.tnick.getText().equals("")) {
+            GameSparker.tnick.setText("Nickname");
         }
         for (int i = 0; i < 6; i++) {
             pessd[i] = false;
@@ -820,13 +816,13 @@ class Login implements Runnable {
         ond = false;
         msg = "";
         gotcai = false;
-        m.crs = true;
-        m.x = -335;
-        m.y = 0;
-        m.z = -50;
-        m.xz = 0;
-        m.zy = 20;
-        m.ground = -2000;
+        Medium.crs = true;
+        Medium.x = -335;
+        Medium.y = 0;
+        Medium.z = -50;
+        Medium.xz = 0;
+        Medium.zy = 20;
+        Medium.ground = -2000;
         pend = 0;
         pendb = false;
         resofaso = false;
@@ -835,7 +831,7 @@ class Login implements Runnable {
             servestart[i] = 0L;
         }
         checknote = false;
-        if (xt.gotlog) {
+        if (xtGraphics.gotlog) {
             checknote = true;
             socketson = false;
             fase = 12;
@@ -843,14 +839,14 @@ class Login implements Runnable {
             connector.start();
         } else {
             msg = "Login to access the multiplayer madness!";
-            gs.tnick.setText(xt.nickname);
+            GameSparker.tnick.setText(xtGraphics.nickname);
             fase = 3;
         }
     }
 
     void multimode(final ContO[] contos) {
         btn = 0;
-        xt.mainbg(4);
+        xtGraphics.mainbg(4);
         for (int i = 0; i < 3; i++) {
             rd.drawImage(Images.bgmain, 65, bgmy[i], null);
             bgmy[i] -= 4;
@@ -893,23 +889,23 @@ class Login implements Runnable {
         rd.drawRoundRect(319, 83, 180, 96, 20, 20);
         rd.drawRoundRect(173, 83, 132, 32, 20, 20);
         if (!gotcai) {
-            int i = contos[xt.sc[0]].p[0].oz[0];
+            int i = contos[xtGraphics.sc[0]].p[0].oz[0];
             int i26 = i;
-            int i27 = contos[xt.sc[0]].p[0].oy[0];
+            int i27 = contos[xtGraphics.sc[0]].p[0].oy[0];
             int i28 = i27;
-            for (int i29 = 0; i29 < contos[xt.sc[0]].npl; i29++) {
-                for (int i30 = 0; i30 < contos[xt.sc[0]].p[i29].n; i30++) {
-                    if (contos[xt.sc[0]].p[i29].oz[i30] < i) {
-                        i = contos[xt.sc[0]].p[i29].oz[i30];
+            for (int i29 = 0; i29 < contos[xtGraphics.sc[0]].npl; i29++) {
+                for (int i30 = 0; i30 < contos[xtGraphics.sc[0]].p[i29].n; i30++) {
+                    if (contos[xtGraphics.sc[0]].p[i29].oz[i30] < i) {
+                        i = contos[xtGraphics.sc[0]].p[i29].oz[i30];
                     }
-                    if (contos[xt.sc[0]].p[i29].oz[i30] > i26) {
-                        i26 = contos[xt.sc[0]].p[i29].oz[i30];
+                    if (contos[xtGraphics.sc[0]].p[i29].oz[i30] > i26) {
+                        i26 = contos[xtGraphics.sc[0]].p[i29].oz[i30];
                     }
-                    if (contos[xt.sc[0]].p[i29].oy[i30] < i27) {
-                        i27 = contos[xt.sc[0]].p[i29].oy[i30];
+                    if (contos[xtGraphics.sc[0]].p[i29].oy[i30] < i27) {
+                        i27 = contos[xtGraphics.sc[0]].p[i29].oy[i30];
                     }
-                    if (contos[xt.sc[0]].p[i29].oy[i30] > i28) {
-                        i28 = contos[xt.sc[0]].p[i29].oy[i30];
+                    if (contos[xtGraphics.sc[0]].p[i29].oy[i30] > i28) {
+                        i28 = contos[xtGraphics.sc[0]].p[i29].oy[i30];
                     }
                 }
             }
@@ -917,14 +913,14 @@ class Login implements Runnable {
             cay = (i28 + i27) / 2;
             gotcai = true;
         }
-        contos[xt.sc[0]].z = 1500;
-        contos[xt.sc[0]].y = 380 - cay;
-        contos[xt.sc[0]].x = 100 - cax;
-        contos[xt.sc[0]].zy = 0;
-        contos[xt.sc[0]].xz = -90;
-        contos[xt.sc[0]].xy = pend;
+        contos[xtGraphics.sc[0]].z = 1500;
+        contos[xtGraphics.sc[0]].y = 380 - cay;
+        contos[xtGraphics.sc[0]].x = 100 - cax;
+        contos[xtGraphics.sc[0]].zy = 0;
+        contos[xtGraphics.sc[0]].xz = -90;
+        contos[xtGraphics.sc[0]].xy = pend;
         rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
-        contos[xt.sc[0]].d(rd);
+        contos[xtGraphics.sc[0]].d(rd);
         rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         if (!pendb) {
             pend += 2;
@@ -940,9 +936,9 @@ class Login implements Runnable {
         rd.setFont(new Font("Arial", 1, 13));
         ftm = rd.getFontMetrics();
         rd.setColor(new Color(0, 0, 0));
-        rd.drawString(xt.nickname, 239 - ftm.stringWidth(xt.nickname) / 2, 105);
+        rd.drawString(xtGraphics.nickname, 239 - ftm.stringWidth(xtGraphics.nickname) / 2, 105);
         rd.setColor(color2k(90, 90, 90));
-        rd.drawString("" + xt.cd.names[xt.sc[0]] + "", 409 - ftm.stringWidth("" + xt.cd.names[xt.sc[0]] + "") / 2, 81);
+        rd.drawString("" + CarDefine.names[xtGraphics.sc[0]] + "", 409 - ftm.stringWidth("" + CarDefine.names[xtGraphics.sc[0]] + "") / 2, 81);
         rd.drawString("Nickname", 239 - ftm.stringWidth("Nickname") / 2, 81);
         drawbutton(Images.change, 570, 98);
         drawSbutton(Images.logout, 239, 135);
@@ -960,7 +956,7 @@ class Login implements Runnable {
                         connector.stop();
                         connector = null;
                     }
-                    xt.delays[i] = 600;
+                    xtGraphics.delays[i] = 600;
                     serverdone[i] = 5;
                     connector = new Thread(this);
                     connector.start();
@@ -968,7 +964,7 @@ class Login implements Runnable {
             }
         }
         if (fase == 12)
-            if (xt.acexp == 0 || contrb) {
+            if (xtGraphics.acexp == 0 || contrb) {
                 rd.setComposite(AlphaComposite.getInstance(3, 0.25F));
                 rd.setColor(new Color(203, 227, 253));
                 rd.fillRoundRect(205, 225, 390, 120, 20, 20);
@@ -991,31 +987,31 @@ class Login implements Runnable {
                 rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
                 rd.setColor(color2k(90, 90, 90));
                 rd.drawRoundRect(165, 219, 470, 135, 20, 20);
-                if (xt.acexp > 0) {
+                if (xtGraphics.acexp > 0) {
                     rd.setColor(new Color(0, 0, 0));
-                    rd.drawString("Dear " + xt.nickname + ",", 185, 245);
-                    rd.drawString("Your account is due to expire in " + xt.acexp + " days.", 185, 265);
+                    rd.drawString("Dear " + xtGraphics.nickname + ",", 185, 245);
+                    rd.drawString("Your account is due to expire in " + xtGraphics.acexp + " days.", 185, 265);
                     rd.drawString("Renew your registration soon!", 185, 295);
                     stringbutton("Renew my Account Registration now!", 345, 332, 0);
                     stringbutton("Renew Later", 524, 332, 0);
                 }
-                if (xt.acexp == -1) {
+                if (xtGraphics.acexp == -1) {
                     rd.setColor(new Color(0, 0, 0));
-                    rd.drawString("Dear " + xt.nickname + ",", 185, 245);
+                    rd.drawString("Dear " + xtGraphics.nickname + ",", 185, 245);
                     rd.drawString("Your Need for Madness account registration has expired.", 185, 265);
                     rd.drawString("Please renew your registration.", 185, 295);
                     stringbutton("Renew my account registration now!", 362, 332, 0);
                     stringbutton("Cancel", 524, 332, 0);
                 }
-                if (xt.acexp == -2) {
+                if (xtGraphics.acexp == -2) {
                     rd.setColor(new Color(0, 0, 0));
-                    rd.drawString("Dear " + xt.nickname + ",", 185, 245);
+                    rd.drawString("Dear " + xtGraphics.nickname + ",", 185, 245);
                     rd.drawString("Trial accounts are not allowed to access the downloaded game.", 185, 265);
                     rd.drawString("You can only play the game online using your trial account.", 185, 295);
                     stringbutton("Play the multiplayer online!", 362, 332, 0);
                     stringbutton("Cancel", 524, 332, 0);
                 }
-                if (xt.acexp == -3) {
+                if (xtGraphics.acexp == -3) {
                     rd.setColor(new Color(0, 0, 0));
                     rd.drawString("Some one else is already logged in the game with your account.", 185, 245);
                     rd.drawString("If you where just in the game then quitted it suddenly, it could just", 185, 265);
@@ -1038,7 +1034,7 @@ class Login implements Runnable {
                 rd.drawRoundRect(165, 219, 470, 150, 20, 20);
                 rd.setFont(new Font("Arial", 1, 13));
                 ftm = rd.getFontMetrics();
-                if (xt.nofull) {
+                if (xtGraphics.nofull) {
                     if (nflk % 4 != 0 || nflk == 0) {
                         rd.setFont(new Font("Arial", 1, 13));
                         ftm = rd.getFontMetrics();
@@ -1084,7 +1080,7 @@ class Login implements Runnable {
 
     void multistart(final ContO[] contos, final int i, final int i38, final boolean bool) {
         btn = 0;
-        xt.mainbg(4);
+        xtGraphics.mainbg(4);
         for (int i39 = 0; i39 < 3; i39++) {
             rd.drawImage(Images.bgmain, 65, bgmy[i39], null);
             bgmy[i39] -= 4;
@@ -1142,26 +1138,26 @@ class Login implements Runnable {
             rd.fillRoundRect(246, 83, 180, 96, 20, 20);
             rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
             rd.setColor(color2k(90, 90, 90));
-            rd.drawString("" + xt.cd.names[xt.sc[0]] + "", 336 - ftm.stringWidth("" + xt.cd.names[xt.sc[0]] + "") / 2, 81);
+            rd.drawString("" + CarDefine.names[xtGraphics.sc[0]] + "", 336 - ftm.stringWidth("" + CarDefine.names[xtGraphics.sc[0]] + "") / 2, 81);
             rd.drawRoundRect(246, 83, 180, 96, 20, 20);
             if (!gotcai) {
-                int i41 = contos[xt.sc[0]].p[0].oz[0];
+                int i41 = contos[xtGraphics.sc[0]].p[0].oz[0];
                 int i42 = i41;
-                int i43 = contos[xt.sc[0]].p[0].oy[0];
+                int i43 = contos[xtGraphics.sc[0]].p[0].oy[0];
                 int i44 = i43;
-                for (int i45 = 0; i45 < contos[xt.sc[0]].npl; i45++) {
-                    for (int i46 = 0; i46 < contos[xt.sc[0]].p[i45].n; i46++) {
-                        if (contos[xt.sc[0]].p[i45].oz[i46] < i41) {
-                            i41 = contos[xt.sc[0]].p[i45].oz[i46];
+                for (int i45 = 0; i45 < contos[xtGraphics.sc[0]].npl; i45++) {
+                    for (int i46 = 0; i46 < contos[xtGraphics.sc[0]].p[i45].n; i46++) {
+                        if (contos[xtGraphics.sc[0]].p[i45].oz[i46] < i41) {
+                            i41 = contos[xtGraphics.sc[0]].p[i45].oz[i46];
                         }
-                        if (contos[xt.sc[0]].p[i45].oz[i46] > i42) {
-                            i42 = contos[xt.sc[0]].p[i45].oz[i46];
+                        if (contos[xtGraphics.sc[0]].p[i45].oz[i46] > i42) {
+                            i42 = contos[xtGraphics.sc[0]].p[i45].oz[i46];
                         }
-                        if (contos[xt.sc[0]].p[i45].oy[i46] < i43) {
-                            i43 = contos[xt.sc[0]].p[i45].oy[i46];
+                        if (contos[xtGraphics.sc[0]].p[i45].oy[i46] < i43) {
+                            i43 = contos[xtGraphics.sc[0]].p[i45].oy[i46];
                         }
-                        if (contos[xt.sc[0]].p[i45].oy[i46] > i44) {
-                            i44 = contos[xt.sc[0]].p[i45].oy[i46];
+                        if (contos[xtGraphics.sc[0]].p[i45].oy[i46] > i44) {
+                            i44 = contos[xtGraphics.sc[0]].p[i45].oy[i46];
                         }
                     }
                 }
@@ -1169,14 +1165,14 @@ class Login implements Runnable {
                 cay = (i44 + i43) / 2;
                 gotcai = true;
             }
-            contos[xt.sc[0]].z = 1500;
-            contos[xt.sc[0]].y = 380 - cay;
-            contos[xt.sc[0]].x = -170 - cax;
-            contos[xt.sc[0]].zy = 0;
-            contos[xt.sc[0]].xz = -90;
-            contos[xt.sc[0]].xy = pend;
+            contos[xtGraphics.sc[0]].z = 1500;
+            contos[xtGraphics.sc[0]].y = 380 - cay;
+            contos[xtGraphics.sc[0]].x = -170 - cax;
+            contos[xtGraphics.sc[0]].zy = 0;
+            contos[xtGraphics.sc[0]].xz = -90;
+            contos[xtGraphics.sc[0]].xy = pend;
             rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
-            contos[xt.sc[0]].d(rd);
+            contos[xtGraphics.sc[0]].d(rd);
             rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
             if (!pendb) {
                 pend += 2;
@@ -1217,47 +1213,47 @@ class Login implements Runnable {
                 }
                 pessd[2] = true;
             }
-            if (fase == 1 && !gs.tnick.isShowing()) {
-                gs.tnick.setVisible(true);
-                gs.tnick.requestFocus();
-                if (gs.tnick.getText().equals("Nickname")) {
-                    gs.tnick.select(8, 8);
+            if (fase == 1 && !GameSparker.tnick.isShowing()) {
+                GameSparker.tnick.setVisible(true);
+                GameSparker.tnick.requestFocus();
+                if (GameSparker.tnick.getText().equals("Nickname")) {
+                    GameSparker.tnick.select(8, 8);
                 }
             }
             if (errcnt != 0) {
                 errcnt--;
                 if (errcnt == 0) {
-                    gs.tnick.setForeground(new Color(0, 0, 0));
+                    GameSparker.tnick.setForeground(new Color(0, 0, 0));
                 }
             }
             drawbutton(Images.play, 400, 285);
             if (nflk > 0) {
-                if (gs.tnick.getText().equals("")) {
-                    gs.tnick.setText("Nickname");
+                if (GameSparker.tnick.getText().equals("")) {
+                    GameSparker.tnick.setText("Nickname");
                     if (nflk == 1) {
-                        gs.tnick.select(8, 8);
+                        GameSparker.tnick.select(8, 8);
                     }
                 } else {
-                    gs.tnick.setText("");
+                    GameSparker.tnick.setText("");
                 }
                 nflk--;
             }
             drawbutton(Images.login, 400, 340);
             drawbutton(Images.register, 400, 395);
-            gs.movefield(gs.tnick, 400, 225, 129, 23);
-            while (ftm.stringWidth(gs.tnick.getText()) > 86) {
-                gs.tnick.setText(gs.tnick.getText().substring(0, gs.tnick.getText().length() - 1));
-                gs.tnick.select(gs.tnick.getText().length(), gs.tnick.getText().length());
+            GameSparker.movefield(GameSparker.tnick, 400, 225, 129, 23);
+            while (ftm.stringWidth(GameSparker.tnick.getText()) > 86) {
+                GameSparker.tnick.setText(GameSparker.tnick.getText().substring(0, GameSparker.tnick.getText().length() - 1));
+                GameSparker.tnick.select(GameSparker.tnick.getText().length(), GameSparker.tnick.getText().length());
             }
-            if (!gs.tnick.getText().equals(lnick)) {
-                fixtext(gs.tnick);
-                lnick = gs.tnick.getText();
+            if (!GameSparker.tnick.getText().equals(lnick)) {
+                fixtext(GameSparker.tnick);
+                lnick = GameSparker.tnick.getText();
             }
-            if (xt.msgcheck(gs.tnick.getText())) {
-                gs.tnick.setText("");
+            if (xtGraphics.msgcheck(GameSparker.tnick.getText())) {
+                GameSparker.tnick.setText("");
             }
-            if (gs.tnick.getText().toLowerCase().contains("madbot")) {
-                gs.tnick.setText("");
+            if (GameSparker.tnick.getText().toLowerCase().contains("madbot")) {
+                GameSparker.tnick.setText("");
             }
         }
         if (fase == 3 || fase == 4) {
@@ -1301,17 +1297,17 @@ class Login implements Runnable {
             }
             if (fase == 3) {
                 showtf = true;
-                if (!gs.applejava) {
-                    if (!gs.tpass.isShowing()) {
-                        gs.tpass.setVisible(true);
-                        if (!gs.tnick.getText().equals("")) {
-                            gs.tpass.requestFocus();
+                if (!GameSparker.applejava) {
+                    if (!GameSparker.tpass.isShowing()) {
+                        GameSparker.tpass.setVisible(true);
+                        if (!GameSparker.tnick.getText().equals("")) {
+                            GameSparker.tpass.requestFocus();
                         }
                     }
-                    if (!gs.tnick.isShowing()) {
-                        gs.tnick.setVisible(true);
-                        if (gs.tnick.getText().equals("")) {
-                            gs.tnick.requestFocus();
+                    if (!GameSparker.tnick.isShowing()) {
+                        GameSparker.tnick.setVisible(true);
+                        if (GameSparker.tnick.getText().equals("")) {
+                            GameSparker.tnick.requestFocus();
                         }
                     }
                 }
@@ -1319,9 +1315,9 @@ class Login implements Runnable {
             if (errcnt != 0) {
                 errcnt--;
                 if (errcnt == 0) {
-                    gs.tpass.setText("");
-                    gs.tnick.setForeground(new Color(0, 0, 0));
-                    gs.tpass.setForeground(new Color(0, 0, 0));
+                    GameSparker.tpass.setText("");
+                    GameSparker.tnick.setForeground(new Color(0, 0, 0));
+                    GameSparker.tpass.setForeground(new Color(0, 0, 0));
                 }
             }
             drawbutton(Images.login, 400, 315);
@@ -1342,35 +1338,35 @@ class Login implements Runnable {
             rd.drawString(string, xrl, 371);
             rd.drawLine(xrl, 372, xrr, 372);
             drawbutton(Images.register, 400, 395);
-            gs.movefieldd(gs.tnick, 376, 221, 129, 23, showtf);
-            if (!gs.tnick.getText().equals(lnick)) {
-                fixtext(gs.tnick);
-                lnick = gs.tnick.getText();
+            GameSparker.movefieldd(GameSparker.tnick, 376, 221, 129, 23, showtf);
+            if (!GameSparker.tnick.getText().equals(lnick)) {
+                fixtext(GameSparker.tnick);
+                lnick = GameSparker.tnick.getText();
             }
-            gs.movefieldd(gs.tpass, 376, 251, 129, 23, showtf);
-            if (!gs.tpass.getText().equals(lpass)) {
-                fixtext(gs.tpass);
-                lpass = gs.tpass.getText();
+            GameSparker.movefieldd(GameSparker.tpass, 376, 251, 129, 23, showtf);
+            if (!GameSparker.tpass.getText().equals(lpass)) {
+                fixtext(GameSparker.tpass);
+                lpass = GameSparker.tpass.getText();
             }
-            if (fase == 3 && (!gs.tpass.getText().equals("") && !gs.tnick.getText().equals("") || !gs.applejava) && !gs.keplo.isShowing()) {
-                gs.keplo.setVisible(true);
+            if (fase == 3 && (!GameSparker.tpass.getText().equals("") && !GameSparker.tnick.getText().equals("") || !GameSparker.applejava) && !GameSparker.keplo.isShowing()) {
+                GameSparker.keplo.setVisible(true);
             }
-            gs.movefield(gs.keplo, 376, 275, 129, 23);
+            GameSparker.movefield(GameSparker.keplo, 376, 275, 129, 23);
         }
         if (fase == 5) {
             rd.setColor(new Color(0, 0, 0));
             rd.drawString("Nickname:", 376 - ftm.stringWidth("Nickname:") - 14, 141);
-            gs.movefield(gs.tnick, 376, 125, 129, 23);
-            while (ftm.stringWidth(gs.tnick.getText()) > 86) {
-                gs.tnick.setText(gs.tnick.getText().substring(0, gs.tnick.getText().length() - 1));
-                gs.tnick.select(gs.tnick.getText().length(), gs.tnick.getText().length());
+            GameSparker.movefield(GameSparker.tnick, 376, 125, 129, 23);
+            while (ftm.stringWidth(GameSparker.tnick.getText()) > 86) {
+                GameSparker.tnick.setText(GameSparker.tnick.getText().substring(0, GameSparker.tnick.getText().length() - 1));
+                GameSparker.tnick.select(GameSparker.tnick.getText().length(), GameSparker.tnick.getText().length());
             }
-            if (!gs.tnick.getText().equals(lnick)) {
-                fixtext(gs.tnick);
-                lnick = gs.tnick.getText();
+            if (!GameSparker.tnick.getText().equals(lnick)) {
+                fixtext(GameSparker.tnick);
+                lnick = GameSparker.tnick.getText();
             }
-            if (!gs.tnick.isShowing()) {
-                gs.tnick.setVisible(true);
+            if (!GameSparker.tnick.isShowing()) {
+                GameSparker.tnick.setVisible(true);
             }
             drawbutton(Images.register, 400, 325);
             drawbutton(Images.cancel, 400, 375);
@@ -1408,23 +1404,23 @@ class Login implements Runnable {
             }
             if (fase == 7) {
                 showtf = true;
-                if (!gs.applejava && !gs.temail.isShowing()) {
-                    gs.temail.setVisible(true);
-                    gs.temail.requestFocus();
+                if (!GameSparker.applejava && !GameSparker.temail.isShowing()) {
+                    GameSparker.temail.setVisible(true);
+                    GameSparker.temail.requestFocus();
                 }
             }
             if (errcnt != 0) {
                 errcnt--;
                 if (errcnt == 0) {
-                    gs.temail.setForeground(new Color(0, 0, 0));
+                    GameSparker.temail.setForeground(new Color(0, 0, 0));
                 }
             }
             drawbutton(Images.sdets, 400, 280);
             drawbutton(Images.cancel, 400, 375);
-            gs.movefieldd(gs.temail, 344, 225, 199, 23, showtf);
-            if (!gs.temail.getText().equals(lemail)) {
-                fixtext(gs.temail);
-                lemail = gs.temail.getText();
+            GameSparker.movefieldd(GameSparker.temail, 344, 225, 199, 23, showtf);
+            if (!GameSparker.temail.getText().equals(lemail)) {
+                fixtext(GameSparker.temail);
+                lemail = GameSparker.temail.getText();
             }
         }
     }
@@ -1442,14 +1438,14 @@ class Login implements Runnable {
                 socket = new Socket(servers[0], 7061);
                 din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 dout = new PrintWriter(socket.getOutputStream(), true);
-                dout.println("0|" + gs.tnick.getText() + "|");
+                dout.println("0|" + GameSparker.tnick.getText() + "|");
                 final String string = din.readLine();
                 if (string != null) {
                     i = getvalue(string, 0);
                     if (i == 0) {
                         i15 = getvalue(string, 1);
-                        xt.hours = getvalue(string, 2);
-                        xt.nickey = getSvalue(string, 3);
+                        xtGraphics.hours = getvalue(string, 2);
+                        xtGraphics.nickey = getSvalue(string, 3);
                     }
                 }
                 socket.close();
@@ -1458,38 +1454,38 @@ class Login implements Runnable {
             } catch (final Exception ignored) {
 
             }
-            gs.tnick.setEnabled(true);
+            GameSparker.tnick.setEnabled(true);
             if (i == -1) {
                 msg = "Unable to connect to any server at this moment.  Please try again later.";
                 fase = 1;
             }
             if (i == 0) {
-                xt.nickname = gs.tnick.getText();
+                xtGraphics.nickname = GameSparker.tnick.getText();
                 if (i15 != -1) {
-                    xt.nfreeplays = 0;
+                    xtGraphics.nfreeplays = 0;
                 }
-                gs.tnick.setVisible(false);
-                gs.tpass.setVisible(false);
-                gs.temail.setVisible(false);
-                gs.keplo.setVisible(false);
+                GameSparker.tnick.setVisible(false);
+                GameSparker.tpass.setVisible(false);
+                GameSparker.temail.setVisible(false);
+                GameSparker.keplo.setVisible(false);
                 gs.requestFocus();
-                xt.logged = false;
+                xtGraphics.logged = false;
                 fase = 12;
                 System.gc();
             }
             if (i == 1) {
                 msg = "This Nickname is being used by someone else right now.  Please use another.";
                 nickero = true;
-                gs.tnick.setForeground(new Color(255, 0, 0));
-                gs.tnick.requestFocus();
+                GameSparker.tnick.setForeground(new Color(255, 0, 0));
+                GameSparker.tnick.requestFocus();
                 errcnt = 30;
                 fase = 1;
             }
             if (i == 2) {
                 msg = "Nickname registerd.  Please use another or click 'Login' bellow to login to this Nickname.";
                 nickero = true;
-                gs.tnick.setForeground(new Color(255, 0, 0));
-                gs.tnick.requestFocus();
+                GameSparker.tnick.setForeground(new Color(255, 0, 0));
+                GameSparker.tnick.requestFocus();
                 errcnt = 30;
                 fase = 1;
             }
@@ -1504,20 +1500,20 @@ class Login implements Runnable {
                 socket = new Socket(servers[0], 7061);
                 din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 dout = new PrintWriter(socket.getOutputStream(), true);
-                dout.println("1|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|");
+                dout.println("1|" + GameSparker.tnick.getText() + "|" + GameSparker.tpass.getText() + "|");
                 string = din.readLine();
                 if (string != null) {
                     i = getvalue(string, 0);
                     if (i == 0 || i == 3 || i > 10 || i == -167) {
-                        xt.nickey = getSvalue(string, 1);
+                        xtGraphics.nickey = getSvalue(string, 1);
                         if (i != -167) {
-                            xt.clan = getSvalue(string, 2);
-                            xt.clankey = getSvalue(string, 3);
+                            xtGraphics.clan = getSvalue(string, 2);
+                            xtGraphics.clankey = getSvalue(string, 3);
                         } else {
-                            xt.clan = "";
-                            xt.clankey = "";
+                            xtGraphics.clan = "";
+                            xtGraphics.clankey = "";
                             i16 = getvalue(string, 2);
-                            xt.hours = getvalue(string, 3);
+                            xtGraphics.hours = getvalue(string, 3);
                         }
                     }
                 }
@@ -1527,41 +1523,41 @@ class Login implements Runnable {
             } catch (final Exception ignored) {
 
             }
-            gs.tnick.setEnabled(true);
-            gs.tpass.setEnabled(true);
-            gs.keplo.setEnabled(true);
+            GameSparker.tnick.setEnabled(true);
+            GameSparker.tpass.setEnabled(true);
+            GameSparker.keplo.setEnabled(true);
             if (i == -1) {
                 msg = "Unable to connect to server at this moment.  Please try again later.";
                 fase = 3;
             }
             if (i == 0 || i == 3 || i > 10 || i == -167 || i == 111) {
-                xt.nickname = gs.tnick.getText();
+                xtGraphics.nickname = GameSparker.tnick.getText();
                 showtf = false;
-                gs.tnick.setVisible(false);
-                gs.tpass.setVisible(false);
-                gs.temail.setVisible(false);
-                gs.keplo.setVisible(false);
+                GameSparker.tnick.setVisible(false);
+                GameSparker.tpass.setVisible(false);
+                GameSparker.temail.setVisible(false);
+                GameSparker.keplo.setVisible(false);
                 gs.requestFocus();
-                gs.setloggedcookie();
-                xt.logged = true;
-                xt.gotlog = true;
+                GameSparker.setloggedcookie();
+                xtGraphics.logged = true;
+                xtGraphics.gotlog = true;
                 if (i == 0) {
-                    xt.acexp = 0;
+                    xtGraphics.acexp = 0;
                 }
                 if (i > 10) {
-                    xt.acexp = i - 10;
+                    xtGraphics.acexp = i - 10;
                 }
                 if (i == 3) {
-                    xt.acexp = -1;
+                    xtGraphics.acexp = -1;
                 }
                 if (i == -167) {
-                    xt.logged = false;
+                    xtGraphics.logged = false;
                     if (i16 != -1) {
-                        xt.nfreeplays = 0;
+                        xtGraphics.nfreeplays = 0;
                     }
                 }
-                if (xt.logged) {
-                    xt.backlog = xt.nickname;
+                if (xtGraphics.logged) {
+                    xtGraphics.backlog = xtGraphics.nickname;
                 }
                 fase = 12;
                 justlog = true;
@@ -1569,15 +1565,15 @@ class Login implements Runnable {
             }
             if (i == 1) {
                 msg = "Sorry.  The Nickname you have entered is incorrect or does not exist.";
-                gs.tnick.setForeground(new Color(255, 0, 0));
-                gs.tnick.requestFocus();
+                GameSparker.tnick.setForeground(new Color(255, 0, 0));
+                GameSparker.tnick.requestFocus();
                 errcnt = 40;
                 fase = 3;
             }
             if (i == 2) {
                 msg = "Sorry.  The Password you have entered is incorrect.";
-                gs.tpass.setForeground(new Color(255, 0, 0));
-                gs.tpass.requestFocus();
+                GameSparker.tpass.setForeground(new Color(255, 0, 0));
+                GameSparker.tpass.requestFocus();
                 errcnt = 40;
                 fase = 3;
             }
@@ -1590,7 +1586,7 @@ class Login implements Runnable {
                 socket = new Socket(servers[0], 7061);
                 din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 dout = new PrintWriter(socket.getOutputStream(), true);
-                dout.println("2|" + gs.temail.getText().toLowerCase() + "|");
+                dout.println("2|" + GameSparker.temail.getText().toLowerCase() + "|");
                 final String string = din.readLine();
                 if (string != null) {
                     i = getvalue(string, 0);
@@ -1601,23 +1597,23 @@ class Login implements Runnable {
             } catch (final Exception ignored) {
 
             }
-            gs.temail.setEnabled(true);
+            GameSparker.temail.setEnabled(true);
             if (i == -1) {
                 msg = "Unable to connect to server at this moment.  Please try again later.";
                 fase = 7;
             }
             if (i == 0) {
                 showtf = false;
-                gs.temail.setVisible(false);
-                msg = "Please check your Email: " + gs.temail.getText() + " to login.";
-                gs.temail.setText("");
-                gs.tnick.setText("");
-                gs.tpass.setText("");
+                GameSparker.temail.setVisible(false);
+                msg = "Please check your Email: " + GameSparker.temail.getText() + " to login.";
+                GameSparker.temail.setText("");
+                GameSparker.tnick.setText("");
+                GameSparker.tpass.setText("");
                 fase = 3;
             }
             if (i == 1) {
                 msg = "Sorry.  This Email Address does not exist in our system!";
-                gs.temail.setForeground(new Color(255, 0, 0));
+                GameSparker.temail.setForeground(new Color(255, 0, 0));
                 errcnt = 40;
                 fase = 7;
             }
@@ -1638,7 +1634,7 @@ class Login implements Runnable {
         }
         while (fase == 12 || fase == 13 || fase == 14 || fase == 15) {
             if (srvtrn < nservers) {
-                for (/**/ ; serverdone[srvtrn] < xt.cntptrys; serverdone[srvtrn]++) {
+                for (/**/ ; serverdone[srvtrn] < xtGraphics.cntptrys; serverdone[srvtrn]++) {
                     if (serverdone[srvtrn] == -1) {
                         serverdone[srvtrn] = 0;
                     }
@@ -1647,7 +1643,7 @@ class Login implements Runnable {
                     try {
                         final byte[] is = new byte[4];
                         final DatagramPacket datagrampacket = new DatagramPacket(is, is.length, IPAddress[srvtrn], 7000);
-                        final String string = "" + xt.nickname + "|";
+                        final String string = "" + xtGraphics.nickname + "|";
                         final byte[] is17 = string.getBytes();
                         datagrampacket.setData(is17);
                         dSocket[srvtrn].send(datagrampacket);
@@ -1655,12 +1651,12 @@ class Login implements Runnable {
                         final String string18 = new String(datagrampacket.getData());
                         if (string18.startsWith("OK")) {
                             date = new Date();
-                            if (date.getTime() - servestart[srvtrn] < xt.delays[srvtrn]) {
-                                xt.delays[srvtrn] = (int) (date.getTime() - servestart[srvtrn]);
+                            if (date.getTime() - servestart[srvtrn] < xtGraphics.delays[srvtrn]) {
+                                xtGraphics.delays[srvtrn] = (int) (date.getTime() - servestart[srvtrn]);
                             }
                         }
                     } catch (final Exception exception) {
-                        xt.delays[srvtrn] = 6000;
+                        xtGraphics.delays[srvtrn] = 6000;
                         serverdone[srvtrn] = 5;
                     }
                 }
@@ -1692,7 +1688,7 @@ class Login implements Runnable {
             int i20 = -1;
             recom = 0;
             try {
-                socket = new Socket(xt.server, 7067);
+                socket = new Socket(xtGraphics.server, 7067);
                 din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 dout = new PrintWriter(socket.getOutputStream(), true);
             } catch (final Exception ignored) {
@@ -1724,7 +1720,7 @@ class Login implements Runnable {
 
                         }
                         try {
-                            socket = new Socket(xt.server, 7067);
+                            socket = new Socket(xtGraphics.server, 7067);
                             din = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                             dout = new PrintWriter(socket.getOutputStream(), true);
                             dout.println("10|");

@@ -22,14 +22,11 @@ final class CarDefine implements Runnable {
     public static final int FIFTY_SIX = 56; // NCARS + MAX CUSTOM CARS
     public static final int FORTY = 40; // MAX CUSTOM CARS LOAD
 
-    private final Trackers t;
-    private final GameSparker gs;
-    private final ContO[] bco;
-    private final Medium m;
-    private Thread carloader;
-    private Thread actionloader;
-    private Thread stageaction;
-    final int[][] swits = {
+    private static ContO[] bco;
+    private static Thread carloader;
+    private static Thread actionloader;
+    private static Thread stageaction;
+    static final int[][] swits = {
             {
                     50, 185, 282
             }, {
@@ -144,7 +141,7 @@ final class CarDefine implements Runnable {
                     0, 0, 0
             }
     };
-    final float[][] acelf = {
+    static final float[][] acelf = {
             {
                     11.0F, 5.0F, 3.0F
             }, {
@@ -259,166 +256,167 @@ final class CarDefine implements Runnable {
                     0.0F, 0.0F, 0.0F
             }
     };
-    final int[] handb = {
+    static final int[] handb = {
             7, 10, 7, 15, 12, 8, 9, 10, 5, 7, 8, 10, 8, 12, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    final float[] airs = {
+    static final float[] airs = {
             1.0F, 1.2F, 0.95F, 1.0F, 2.2F, 1.0F, 0.9F, 0.8F, 1.0F, 0.9F, 1.15F, 0.8F, 1.0F, 0.3F, 1.3F, 1.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F
     };
-    final int[] airc = {
+    static final int[] airc = {
             70, 30, 40, 40, 30, 50, 40, 90, 40, 50, 75, 10, 50, 0, 100, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    final int[] turn = {
+    static final int[] turn = {
             6, 9, 5, 7, 8, 7, 5, 5, 9, 7, 7, 4, 6, 5, 7, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    final float[] grip = {
+    static final float[] grip = {
             20.0F, 27.0F, 18.0F, 22.0F, 19.0F, 20.0F, 25.0F, 20.0F, 19.0F, 24.0F, 22.5F, 25.0F, 30.0F, 27.0F, 25.0F,
             27.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F
     };
-    final float[] bounce = {
+    static final float[] bounce = {
             1.2F, 1.05F, 1.3F, 1.15F, 1.3F, 1.2F, 1.15F, 1.1F, 1.2F, 1.1F, 1.15F, 0.8F, 1.05F, 0.8F, 1.1F, 1.15F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F
     };
-    final float[] simag = {
+    static final float[] simag = {
             0.9F, 0.85F, 1.05F, 0.9F, 0.85F, 0.9F, 1.05F, 0.9F, 1.0F, 1.05F, 0.9F, 1.1F, 0.9F, 1.3F, 0.9F, 1.15F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F
     };
-    final float[] moment = {
+    static final float[] moment = {
             1.3F, 0.75F, 1.4F, 1.2F, 1.1F, 1.38F, 1.43F, 1.48F, 1.35F, 1.7F, 1.42F, 2.0F, 1.26F, 3.0F, 1.5F, 2.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F
     };
-    final float[] comprad = {
+    static final float[] comprad = {
             0.5F, 0.4F, 0.8F, 0.5F, 0.4F, 0.5F, 0.5F, 0.5F, 0.5F, 0.8F, 0.5F, 1.5F, 0.5F, 0.8F, 0.5F, 0.8F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F
     };
-    final int[] push = {
+    static final int[] push = {
             2, 2, 3, 3, 2, 2, 2, 4, 2, 2, 2, 4, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    final int[] revpush = {
+    static final int[] revpush = {
             2, 3, 2, 2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    final int[] lift = {
+    static final int[] lift = {
             0, 30, 0, 20, 0, 30, 0, 0, 20, 0, 0, 0, 10, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    final int[] revlift = {
+    static final int[] revlift = {
             0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    final int[] powerloss = {
+    static final int[] powerloss = {
             2500000, 2500000, 3500000, 2500000, 4000000, 2500000, 3200000, 3200000, 2750000, 5500000, 2750000, 4500000,
             3500000, 16700000, 3000000, 5500000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    final int[] flipy = {
+    static final int[] flipy = {
             -50, -60, -92, -44, -60, -57, -54, -60, -77, -57, -82, -85, -28, -100, -63, -127, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    final int[] msquash = {
+    static final int[] msquash = {
             7, 4, 7, 2, 8, 4, 6, 4, 3, 8, 4, 10, 3, 20, 3, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    final int[] clrad = {
+    static final int[] clrad = {
             3300, 1700, 4700, 3000, 2000, 4500, 3500, 5000, 10000, 15000, 4000, 7000, 10000, 15000, 5500, 5000, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0
     };
-    final float[] dammult = {
+    static final float[] dammult = {
             0.75F, 0.8F, 0.45F, 0.8F, 0.42F, 0.7F, 0.72F, 0.6F, 0.58F, 0.41F, 0.67F, 0.45F, 0.61F, 0.25F, 0.38F, 0.52F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F
     };
-    final int[] maxmag = {
+    static final int[] maxmag = {
             7600, 4200, 7200, 6000, 6000, 15000, 17200, 17000, 18000, 11000, 19000, 10700, 13000, 45000, 5800, 18000, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0
     };
-    final float[] dishandle = {
+    static final float[] dishandle = {
             0.65F, 0.6F, 0.55F, 0.77F, 0.62F, 0.9F, 0.6F, 0.72F, 0.45F, 0.8F, 0.95F, 0.4F, 0.87F, 0.42F, 1.0F, 0.95F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F
     };
-    final float[] outdam = {
+    static final float[] outdam = {
             0.68F, 0.35F, 0.8F, 0.5F, 0.42F, 0.76F, 0.82F, 0.76F, 0.72F, 0.62F, 0.79F, 0.95F, 0.77F, 1.0F, 0.85F, 1.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
             0.0F, 0.0F, 0.0F, 0.0F
     };
-    final int[] cclass = {
+    static final int[] cclass = {
             0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    final String[] names = {
+    static final String[] names = {
             "Tornado Shark", "Formula 7", "Wow Caninaro", "La Vita Crab", "Nimi", "MAX Revenge", "Lead Oxide",
             "Kool Kat", "Drifter X", "Sword of Justice", "High Rider", "EL KING", "Mighty Eight", "M A S H E E N",
             "Radical One", "DR Monstaa", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
             "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
     };
-    final int[] enginsignature = {
+    static final int[] enginsignature = {
             0, 1, 2, 1, 0, 3, 2, 2, 1, 0, 3, 4, 1, 4, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    int lastload = 0;
-    private int nlcars = 0;
-    int nlocars = 0;
-    private int xnlocars = 0;
-    final boolean[] include = new boolean[FORTY];
-    final String[] createdby = new String[FORTY];
-    final int[] publish = new int[FORTY];
-    final String[] loadnames = new String[20];
-    int nl = 0;
-    int action = 0;
-    private boolean carlon = false;
-    int reco = -2;
-    final int[] lcardate = {
+    static int lastload = 0;
+    static private int nlcars = 0;
+    static int nlocars = 0;
+    static private int xnlocars = 0;
+    static final boolean[] include = new boolean[FORTY];
+    static final String[] createdby = new String[FORTY];
+    static final int[] publish = new int[FORTY];
+    static final String[] loadnames = new String[20];
+    static int nl = 0;
+    static int action = 0;
+    static private boolean carlon = false;
+    static int reco = -2;
+    static final int[] lcardate = {
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    int haltload = 0;
-    int ac = -1;
-    private String acname = "Radical One";
-    private String fails = "";
-    String tnickey = "";
-    String tclan = "";
-    String tclankey = "";
-    private final int[] adds = {
+    static int haltload = 0;
+    static int ac = -1;
+    static private String acname = "Radical One";
+    static private String fails = "";
+    static String tnickey = "";
+    static String tclan = "";
+    static String tclankey = "";
+    static private final int[] adds = {
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     };
-    String viewname = "";
-    int staction = 0;
-    String onstage = "";
-    private int roundslot = 0;
-    String lastcar = "";
-    int msloaded = 0;
-    final int[] top20adds = new int[20];
+    static String viewname = "";
+    static int staction = 0;
+    static String onstage = "";
+    static private int roundslot = 0;
+    static String lastcar = "";
+    static int msloaded = 0;
+    private static CarDefine thread;
+    static final int[] top20adds = new int[20];
 
-    CarDefine(final ContO[] contos, final Medium medium, final Trackers trackers, final GameSparker gamesparker) {
+    private CarDefine() {super();}
+    static CarDefine create(final ContO[] contos) {
+        thread = new CarDefine();
         bco = contos;
-        m = medium;
-        t = trackers;
-        gs = gamesparker;
+        return thread;
     }
 
-    private void loadstat(final byte[] is, final String string, final int i, final int i0, final int i1, final int i2) {
+    static private void loadstat(final byte[] is, final String string, final int i, final int i0, final int i1, final int i2) {
         names[i2] = string;
         boolean bool = false;
         boolean bool3 = false;
@@ -819,7 +817,7 @@ final class CarDefine implements Runnable {
         }
     }
 
-    private int getvalue(final String string, final String string21, final int i) {
+    static private int getvalue(final String string, final String string21, final int i) {
         int i22 = 0;
         String string23 = "";
         for (int i24 = string.length() + 1; i24 < string21.length(); i24++) {
@@ -835,7 +833,7 @@ final class CarDefine implements Runnable {
         return (int) Float.parseFloat(string23);
     }
 
-    private String getSvalue(final String string, final String string26, final int i) {
+    static private String getSvalue(final String string, final String string26, final int i) {
         String string27 = "";
         int i28 = 0;
         for (int i29 = string.length() + 1; i29 < string26.length() && i28 <= i; i29++) {
@@ -849,7 +847,7 @@ final class CarDefine implements Runnable {
         return string27;
     }
 
-    private int servervalue(final String string, final int i) {
+    static private int servervalue(final String string, final int i) {
         int i31 = -1;
         try {
             int i32 = 0;
@@ -879,7 +877,7 @@ final class CarDefine implements Runnable {
         return i31;
     }
 
-    private String serverSvalue(final String string, final int i) {
+    static private String serverSvalue(final String string, final int i) {
         String string37 = "";
         try {
             int i38 = 0;
@@ -906,16 +904,16 @@ final class CarDefine implements Runnable {
         return string37;
     }
 
-    void loadready() {
-        m.csky[0] = 170;
-        m.csky[1] = 220;
-        m.csky[2] = 255;
-        m.cfade[0] = 255;
-        m.cfade[1] = 220;
-        m.cfade[2] = 220;
-        m.snap[0] = 0;
-        m.snap[1] = 0;
-        m.snap[2] = 0;
+    static void loadready() {
+        Medium.csky[0] = 170;
+        Medium.csky[1] = 220;
+        Medium.csky[2] = 255;
+        Medium.cfade[0] = 255;
+        Medium.cfade[1] = 220;
+        Medium.cfade[2] = 220;
+        Medium.snap[0] = 0;
+        Medium.snap[1] = 0;
+        Medium.snap[2] = 0;
         fails = "";
         for (int i = 0; i < 20; i++) {
             loadnames[i] = "";
@@ -924,25 +922,25 @@ final class CarDefine implements Runnable {
         action = 0;
     }
 
-    void sparkactionloader() {
-        actionloader = new Thread(this);
+    static void sparkactionloader() {
+        actionloader = new Thread(thread);
         actionloader.start();
     }
 
-    void sparkcarloader() {
+    static void sparkcarloader() {
         if (!carlon) {
-            carloader = new Thread(this);
+            carloader = new Thread(thread);
             carloader.start();
             carlon = true;
         }
     }
 
-    void sparkstageaction() {
-        stageaction = new Thread(this);
+    static void sparkstageaction() {
+        stageaction = new Thread(thread);
         stageaction.start();
     }
 
-    public void stopallnow() {
+    static public void stopallnow() {
         staction = 0;
         action = 0;
         if (carloader != null) {
@@ -968,7 +966,7 @@ final class CarDefine implements Runnable {
                     final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println("9|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|" + names[ac] + "|");
+                    printwriter.println("9|" + GameSparker.tnick.getText() + "|" + GameSparker.tpass.getText() + "|" + names[ac] + "|");
                     final String string = bufferedreader.readLine();
                     if (string != null) {
                         i = servervalue(string, 0);
@@ -992,7 +990,7 @@ final class CarDefine implements Runnable {
                     final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println("1|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|");
+                    printwriter.println("1|" + GameSparker.tnick.getText() + "|" + GameSparker.tpass.getText() + "|");
                     final String string = bufferedreader.readLine();
                     if (string != null) {
                         reco = servervalue(string, 0);
@@ -1028,7 +1026,7 @@ final class CarDefine implements Runnable {
                 nl = 0;
                 String line;
                 try {
-                    final URL url = new URL("http://multiplayer.needformadness.com/cars/lists/" + gs.tnick.getText() + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
+                    final URL url = new URL("http://multiplayer.needformadness.com/cars/lists/" + GameSparker.tnick.getText() + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
                     final BufferedReader carReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
                     while ((line = carReader.readLine()) != null) {
                         line = "" + line.trim();
@@ -1059,15 +1057,15 @@ final class CarDefine implements Runnable {
                     }
                 }
                 if (action == 4) {
-                    gs.mcars.setVisible(false);
-                    gs.mcars.removeAll();
+                    GameSparker.mcars.setVisible(false);
+                    GameSparker.mcars.removeAll();
                     for (int i = 0; i < nl; i++) {
-                        gs.mcars.add(gs.rd, strings[i]);
+                        GameSparker.mcars.add(GameSparker.rd, strings[i]);
                     }
                     if (lastcar.equals("")) {
-                        gs.mcars.select(0);
+                        GameSparker.mcars.select(0);
                     } else {
-                        gs.mcars.select(lastcar);
+                        GameSparker.mcars.select(lastcar);
                         lastcar = "";
                     }
                     for (int i = 0; i < FORTY; i++) {
@@ -1078,16 +1076,16 @@ final class CarDefine implements Runnable {
                 }
             }
             if (action == 4) {
-                m.csky[0] = 170;
-                m.csky[1] = 220;
-                m.csky[2] = 255;
-                m.cfade[0] = 255;
-                m.cfade[1] = 220;
-                m.cfade[2] = 220;
-                m.snap[0] = 0;
-                m.snap[1] = 0;
-                m.snap[2] = 0;
-                if (loadonlinecar(gs.mcars.getSelectedItem(), roundslot) == roundslot) {
+                Medium.csky[0] = 170;
+                Medium.csky[1] = 220;
+                Medium.csky[2] = 255;
+                Medium.cfade[0] = 255;
+                Medium.cfade[1] = 220;
+                Medium.cfade[2] = 220;
+                Medium.snap[0] = 0;
+                Medium.snap[1] = 0;
+                Medium.snap[2] = 0;
+                if (loadonlinecar(GameSparker.mcars.getSelectedItem(), roundslot) == roundslot) {
                     roundslot++;
                     if (roundslot == THIRTY_SIX) {
                         roundslot = SIXTEEN;
@@ -1114,7 +1112,7 @@ final class CarDefine implements Runnable {
                     final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println("8|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|" + acname + "|");
+                    printwriter.println("8|" + GameSparker.tnick.getText() + "|" + GameSparker.tpass.getText() + "|" + acname + "|");
                     final String string = bufferedreader.readLine();
                     if (string != null) {
                         i = servervalue(string, 0);
@@ -1128,7 +1126,7 @@ final class CarDefine implements Runnable {
                 if (i == 0) {
                     if (lastload == 2) {
                         lastload = -2;
-                        lastcar = gs.mcars.getSelectedItem();
+                        lastcar = GameSparker.mcars.getSelectedItem();
                     }
                     action = 7;
                 }
@@ -1181,15 +1179,15 @@ final class CarDefine implements Runnable {
                 System.gc();
             }
             if (action == 12) {
-                m.csky[0] = 170;
-                m.csky[1] = 220;
-                m.csky[2] = 255;
-                m.cfade[0] = 255;
-                m.cfade[1] = 220;
-                m.cfade[2] = 220;
-                m.snap[0] = 0;
-                m.snap[1] = 0;
-                m.snap[2] = 0;
+                Medium.csky[0] = 170;
+                Medium.csky[1] = 220;
+                Medium.csky[2] = 255;
+                Medium.cfade[0] = 255;
+                Medium.cfade[1] = 220;
+                Medium.cfade[2] = 220;
+                Medium.snap[0] = 0;
+                Medium.snap[1] = 0;
+                Medium.snap[2] = 0;
                 xnlocars = THIRTY_SIX;
                 final int i = nl;
                 for (nl = 0; nl < i; nl++)
@@ -1241,15 +1239,15 @@ final class CarDefine implements Runnable {
                 System.gc();
             }
             if (action == 102) {
-                m.csky[0] = 170;
-                m.csky[1] = 220;
-                m.csky[2] = 255;
-                m.cfade[0] = 255;
-                m.cfade[1] = 220;
-                m.cfade[2] = 220;
-                m.snap[0] = 0;
-                m.snap[1] = 0;
-                m.snap[2] = 0;
+                Medium.csky[0] = 170;
+                Medium.csky[1] = 220;
+                Medium.csky[2] = 255;
+                Medium.cfade[0] = 255;
+                Medium.cfade[1] = 220;
+                Medium.cfade[2] = 220;
+                Medium.snap[0] = 0;
+                Medium.snap[1] = 0;
+                Medium.snap[2] = 0;
                 for (int i = 0; i < FORTY; i++) {
                     include[i] = false;
                 }
@@ -1318,7 +1316,7 @@ final class CarDefine implements Runnable {
                     final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println("19|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|" + onstage + "|");
+                    printwriter.println("19|" + GameSparker.tnick.getText() + "|" + GameSparker.tpass.getText() + "|" + onstage + "|");
                     final String string = bufferedreader.readLine();
                     if (string != null) {
                         i = servervalue(string, 0);
@@ -1331,11 +1329,11 @@ final class CarDefine implements Runnable {
                 }
                 if (i == 0) {
                     try {
-                        gs.mstgs.remove(onstage);
+                        GameSparker.mstgs.remove(onstage);
                     } catch (final Exception ignored) {
 
                     }
-                    gs.mstgs.select(0);
+                    GameSparker.mstgs.select(0);
                     staction = 0;
                 } else {
                     staction = -1;
@@ -1347,7 +1345,7 @@ final class CarDefine implements Runnable {
                     final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                     final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                    printwriter.println("1|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|");
+                    printwriter.println("1|" + GameSparker.tnick.getText() + "|" + GameSparker.tpass.getText() + "|");
                     final String string = bufferedreader.readLine();
                     if (string != null) {
                         reco = servervalue(string, 0);
@@ -1381,8 +1379,8 @@ final class CarDefine implements Runnable {
             if (staction == 2) {
                 int i = -1;
                 if (msloaded == 1) {
-                    for (int i51 = 1; i51 < gs.mstgs.getItemCount(); i51++)
-                        if (gs.mstgs.getItem(i51).equals(onstage)) {
+                    for (int i51 = 1; i51 < GameSparker.mstgs.getItemCount(); i51++)
+                        if (GameSparker.mstgs.getItem(i51).equals(onstage)) {
                             i = 3;
                         }
                 }
@@ -1391,7 +1389,7 @@ final class CarDefine implements Runnable {
                         final Socket socket = new Socket("multiplayer.needformadness.com", 7061);
                         final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                         final PrintWriter printwriter = new PrintWriter(socket.getOutputStream(), true);
-                        printwriter.println("18|" + gs.tnick.getText() + "|" + gs.tpass.getText() + "|" + onstage + "|");
+                        printwriter.println("18|" + GameSparker.tnick.getText() + "|" + GameSparker.tpass.getText() + "|" + onstage + "|");
                         final String string = bufferedreader.readLine();
                         if (string != null) {
                             i = servervalue(string, 0);
@@ -1407,7 +1405,7 @@ final class CarDefine implements Runnable {
                 if (i == 0) {
                     staction = 0;
                     if (msloaded == 1) {
-                        gs.mstgs.addstg(onstage);
+                        GameSparker.mstgs.addstg(onstage);
                     }
                 }
                 if (i == 3) {
@@ -1421,7 +1419,7 @@ final class CarDefine implements Runnable {
         }
     }
 
-    private int loadonlinecar(final String string, int i) {
+    static private int loadonlinecar(final String string, int i) {
         try {
             String string52 = "http://multiplayer.needformadness.com/cars/" + string + ".radq";
             string52 = string52.replace(' ', '_');
@@ -1454,8 +1452,8 @@ final class CarDefine implements Runnable {
                     i60 = zipinputstream.read(is58, i59, i57);
                     i59 += i60;
                 }
-                m.loadnew = true;
-                bco[i] = new ContO(is58, m, t);
+                Medium.loadnew = true;
+                bco[i] = new ContO(is58);
                 if (bco[i].errd || bco[i].npl <= 60 || bco[i].maxR < 120) {
                     i = -1;
                 }
@@ -1490,7 +1488,7 @@ final class CarDefine implements Runnable {
                         i = -1;
                     }
                 }
-                m.loadnew = false;
+                Medium.loadnew = false;
                 datainputstream.close();
                 zipinputstream.close();
             } else {
@@ -1503,12 +1501,12 @@ final class CarDefine implements Runnable {
         return i;
     }
 
-    void loadmystages(final CheckPoints checkpoints) {
+    static void loadmystages() {
         final String[] strings = new String[700];
         int i = 0;
         String line;
         try {
-            final URL url = new URL("http://multiplayer.needformadness.com/tracks/lists/" + gs.tnick.getText() + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
+            final URL url = new URL("http://multiplayer.needformadness.com/tracks/lists/" + GameSparker.tnick.getText() + ".txt?reqlo=" + (int) (ThreadLocalRandom.current().nextDouble() * 1000.0) + "");
             final BufferedReader stageReader = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())));
             while ((line = stageReader.readLine()) != null) {
                 line = "" + line.trim();
@@ -1539,38 +1537,38 @@ final class CarDefine implements Runnable {
             }
         }
         if (msloaded == 1) {
-            gs.mstgs.setVisible(false);
-            gs.mstgs.removeAll();
-            gs.mstgs.add(gs.rd, "Select Stage");
+            GameSparker.mstgs.setVisible(false);
+            GameSparker.mstgs.removeAll();
+            GameSparker.mstgs.add(GameSparker.rd, "Select Stage");
             int i62 = 0;
             for (int i63 = 0; i63 < i; i63++) {
-                gs.mstgs.add(gs.rd, strings[i63]);
-                if (checkpoints.name.equals(strings[i63])) {
+                GameSparker.mstgs.add(GameSparker.rd, strings[i63]);
+                if (CheckPoints.name.equals(strings[i63])) {
                     i62 = i63 + 1;
-                    checkpoints.top20 = 0;
+                    CheckPoints.top20 = 0;
                 }
             }
-            gs.mstgs.select(i62);
-            gs.mstgs.setVisible(true);
+            GameSparker.mstgs.select(i62);
+            GameSparker.mstgs.setVisible(true);
         }
         if (msloaded == -2) {
-            gs.mstgs.setVisible(false);
-            gs.mstgs.removeAll();
-            gs.mstgs.add(gs.rd, "You have not published or added any stages...");
-            gs.mstgs.select(0);
-            gs.mstgs.setVisible(true);
+            GameSparker.mstgs.setVisible(false);
+            GameSparker.mstgs.removeAll();
+            GameSparker.mstgs.add(GameSparker.rd, "You have not published or added any stages...");
+            GameSparker.mstgs.select(0);
+            GameSparker.mstgs.setVisible(true);
         }
         if (msloaded == -1) {
-            gs.mstgs.setVisible(false);
-            gs.mstgs.removeAll();
-            gs.mstgs.add(gs.rd, "Failed to load stages, please try again later.");
-            gs.mstgs.select(0);
-            gs.mstgs.setVisible(true);
+            GameSparker.mstgs.setVisible(false);
+            GameSparker.mstgs.removeAll();
+            GameSparker.mstgs.add(GameSparker.rd, "Failed to load stages, please try again later.");
+            GameSparker.mstgs.select(0);
+            GameSparker.mstgs.setVisible(true);
         }
         System.gc();
     }
 
-    void loadtop20(final int i) {
+    static void loadtop20(final int i) {
         final String[] strings = new String[20];
         int i64 = 0;
         String line;
@@ -1618,26 +1616,26 @@ final class CarDefine implements Runnable {
             }
         }
         if (msloaded == i) {
-            gs.mstgs.setVisible(false);
-            gs.mstgs.removeAll();
-            gs.mstgs.add(gs.rd, "Select Stage");
+            GameSparker.mstgs.setVisible(false);
+            GameSparker.mstgs.removeAll();
+            GameSparker.mstgs.add(GameSparker.rd, "Select Stage");
             for (int i68 = 0; i68 < i64; i68++) {
-                gs.mstgs.add(gs.rd, "N#" + (i68 + 1) + " " + strings[i68]);
+                GameSparker.mstgs.add(GameSparker.rd, "N#" + (i68 + 1) + " " + strings[i68]);
             }
-            gs.mstgs.select(0);
-            gs.mstgs.setVisible(true);
+            GameSparker.mstgs.select(0);
+            GameSparker.mstgs.setVisible(true);
         }
         if (msloaded == -1 || msloaded == -2) {
-            gs.mstgs.setVisible(false);
-            gs.mstgs.removeAll();
-            gs.mstgs.add(gs.rd, "Failed to load Top20 list, please try again later.");
-            gs.mstgs.select(0);
-            gs.mstgs.setVisible(true);
+            GameSparker.mstgs.setVisible(false);
+            GameSparker.mstgs.removeAll();
+            GameSparker.mstgs.add(GameSparker.rd, "Failed to load Top20 list, please try again later.");
+            GameSparker.mstgs.select(0);
+            GameSparker.mstgs.setVisible(true);
         }
         System.gc();
     }
 
-    void loadclanstages(final String string) {
+    static void loadclanstages(final String string) {
         if (!string.equals("")) {
             final String[] lines = new String[700];
             int i = 0;
@@ -1663,74 +1661,74 @@ final class CarDefine implements Runnable {
                 }
             }
             if (msloaded == 7) {
-                gs.mstgs.setVisible(false);
-                gs.mstgs.removeAll();
-                gs.mstgs.add(gs.rd, "Select Stage");
+                GameSparker.mstgs.setVisible(false);
+                GameSparker.mstgs.removeAll();
+                GameSparker.mstgs.add(GameSparker.rd, "Select Stage");
                 for (int i71 = 0; i71 < i; i71++) {
-                    gs.mstgs.add(gs.rd, lines[i71]);
+                    GameSparker.mstgs.add(GameSparker.rd, lines[i71]);
                 }
-                gs.mstgs.select(0);
-                gs.mstgs.setVisible(true);
+                GameSparker.mstgs.select(0);
+                GameSparker.mstgs.setVisible(true);
             }
             if (msloaded == -1) {
-                gs.mstgs.setVisible(false);
-                gs.mstgs.removeAll();
-                gs.mstgs.add(gs.rd, "Failed to load clan stages, please try again later.");
-                gs.mstgs.select(0);
-                gs.mstgs.setVisible(true);
+                GameSparker.mstgs.setVisible(false);
+                GameSparker.mstgs.removeAll();
+                GameSparker.mstgs.add(GameSparker.rd, "Failed to load clan stages, please try again later.");
+                GameSparker.mstgs.select(0);
+                GameSparker.mstgs.setVisible(true);
             }
             if (msloaded == -2) {
-                gs.mstgs.setVisible(false);
-                gs.mstgs.removeAll();
-                gs.mstgs.add(gs.rd, "No stages have been added to your clan yet.");
-                gs.mstgs.select(0);
-                gs.mstgs.setVisible(true);
+                GameSparker.mstgs.setVisible(false);
+                GameSparker.mstgs.removeAll();
+                GameSparker.mstgs.add(GameSparker.rd, "No stages have been added to your clan yet.");
+                GameSparker.mstgs.select(0);
+                GameSparker.mstgs.setVisible(true);
             }
             System.gc();
         } else {
             msloaded = -2;
-            gs.mstgs.setVisible(false);
-            gs.mstgs.removeAll();
-            gs.mstgs.add(gs.rd, "You are not a member of any clan yet.");
-            gs.mstgs.select(0);
-            gs.mstgs.setVisible(true);
+            GameSparker.mstgs.setVisible(false);
+            GameSparker.mstgs.removeAll();
+            GameSparker.mstgs.add(GameSparker.rd, "You are not a member of any clan yet.");
+            GameSparker.mstgs.select(0);
+            GameSparker.mstgs.setVisible(true);
         }
     }
 
-    void loadstagemaker() {
-        gs.mstgs.setVisible(false);
-        gs.mstgs.removeAll();
-        gs.mstgs.add(gs.rd, "Select Stage");
+    static void loadstagemaker() {
+        GameSparker.mstgs.setVisible(false);
+        GameSparker.mstgs.removeAll();
+        GameSparker.mstgs.add(GameSparker.rd, "Select Stage");
         int i = 0;
         final File file = new File("" + Madness.fpath + "mystages/");
         if (file.exists()) {
             final String[] strings = new File("" + Madness.fpath + "mystages/").list();
             for (final String string : strings)
                 if (string.toLowerCase().endsWith(".txt") && i < 200) {
-                    gs.mstgs.add(gs.rd, string.substring(0, string.length() - 4));
+                    GameSparker.mstgs.add(GameSparker.rd, string.substring(0, string.length() - 4));
                     i++;
                 }
         }
         if (i != 0) {
             msloaded = 2;
         } else {
-            gs.mstgs.add(gs.rd, "No stages where found in your 'mystages' folder.");
+            GameSparker.mstgs.add(GameSparker.rd, "No stages where found in your 'mystages' folder.");
             msloaded = -1;
         }
-        gs.mstgs.select(0);
-        gs.mstgs.setVisible(true);
+        GameSparker.mstgs.select(0);
+        GameSparker.mstgs.setVisible(true);
     }
 
-    public void loadcarmaker() {
-        m.csky[0] = 170;
-        m.csky[1] = 220;
-        m.csky[2] = 255;
-        m.cfade[0] = 255;
-        m.cfade[1] = 220;
-        m.cfade[2] = 220;
-        m.snap[0] = 0;
-        m.snap[1] = 0;
-        m.snap[2] = 0;
+    static public void loadcarmaker() {
+        Medium.csky[0] = 170;
+        Medium.csky[1] = 220;
+        Medium.csky[2] = 255;
+        Medium.cfade[0] = 255;
+        Medium.cfade[1] = 220;
+        Medium.cfade[2] = 220;
+        Medium.snap[0] = 0;
+        Medium.snap[1] = 0;
+        Medium.snap[2] = 0;
         for (int i = 0; i < FORTY; i++) {
             include[i] = false;
         }
@@ -1749,7 +1747,7 @@ final class CarDefine implements Runnable {
         }
     }
 
-    int loadcar(final String string, int i) {
+    static int loadcar(final String string, int i) {
         try {
             final File file = new File("" + Madness.fpath + "mycars/" + string + ".rad");
             if (file.exists()) {
@@ -1762,8 +1760,8 @@ final class CarDefine implements Runnable {
                 }
                 bufferedreader.close();
                 //final Object object75 = null;
-                m.loadnew = true;
-                bco[i] = new ContO(string73.getBytes(), m, t);
+                Medium.loadnew = true;
+                bco[i] = new ContO(string73.getBytes());
                 if (bco[i].errd || bco[i].npl <= 60) {
                     i = -1;
                 }
@@ -1798,7 +1796,7 @@ final class CarDefine implements Runnable {
                         i = -1;
                     }
                 }
-                m.loadnew = false;
+                Medium.loadnew = false;
             } else {
                 i = -1;
             }

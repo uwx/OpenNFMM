@@ -163,7 +163,6 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
     private int logged = 0;
     private Image logo;
     private final SoundClip[] lowcrashs = new SoundClip[3];
-    private final Medium m = new Medium();
     private final String[] maker = new String[20];
     private boolean minus = false;
     private boolean mirror = false;
@@ -252,7 +251,6 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
     private boolean statdef = false;
     private int sthm = 0;
     private String suser = "Horaks";
-    private final Trackers t = new Trackers();
     private int tab = 0;
     private int tabed = -1;
     private boolean tested = false;
@@ -2187,7 +2185,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                         i359 = zipinputstream.read(is, i358, i357);
                         i358 += i359;
                     }
-                    compo[i] = new ContO(is, m, t);
+                    compo[i] = new ContO(is);
                     compo[i].shadow = false;
                     compo[i].noline = true;
                 }
@@ -2561,9 +2559,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                 float f317 = 0.0F;
                 for (int i318 = 0; i318 < o.p[i316].n; i318++)
                     if (o.p[i316].wz == 0 && py(o.keyx[i], o.p[i316].ox[i318], o.keyz[i], o.p[i316].oz[i318]) < i315) {
-                        f317 = f / 20.0F * m.random();
-                        o.p[i316].oz[i318] -= f317 * m.sin(o.xz) * m.cos(o.zy);
-                        o.p[i316].ox[i318] += f317 * m.cos(o.xz) * m.cos(o.xy);
+                        f317 = f / 20.0F * Medium.random();
+                        o.p[i316].oz[i318] -= f317 * Medium.sin(o.xz) * Medium.cos(o.zy);
+                        o.p[i316].ox[i318] += f317 * Medium.cos(o.xz) * Medium.cos(o.xy);
                         if (bool) {
                             actmag += Math.abs(f317);
                         }
@@ -2631,9 +2629,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                 float f321 = 0.0F;
                 for (int i322 = 0; i322 < o.p[i320].n; i322++)
                     if (o.p[i320].wz == 0 && py(o.keyx[i], o.p[i320].ox[i322], o.keyz[i], o.p[i320].oz[i322]) < i319) {
-                        f321 = f / 20.0F * m.random();
-                        o.p[i320].oz[i322] += f321 * m.cos(o.xz) * m.cos(o.zy);
-                        o.p[i320].ox[i322] += f321 * m.sin(o.xz) * m.cos(o.xy);
+                        f321 = f / 20.0F * Medium.random();
+                        o.p[i320].oz[i322] += f321 * Medium.cos(o.xz) * Medium.cos(o.zy);
+                        o.p[i320].ox[i322] += f321 * Medium.sin(o.xz) * Medium.cos(o.xy);
                         if (bool) {
                             actmag += Math.abs(f321);
                         }
@@ -2711,11 +2709,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             for (int i325 = 0; i325 < o.npl; i325++) {
                 float f326 = 0.0F;
                 if (ThreadLocalRandom.current().nextDouble() > 0.9) {
-                    f326 = f / 15.0F * m.random();
+                    f326 = f / 15.0F * Medium.random();
                 }
                 for (int i327 = 0; i327 < o.p[i325].n; i327++)
                     if (o.p[i325].wz == 0 && (Math.abs(o.p[i325].oy[i327] - o.roofat - squash) < i * 3 || o.p[i325].oy[i327] < o.roofat + squash) && squash < i) {
-                        f326 = f / 15.0F * m.random();
+                        f326 = f / 15.0F * Medium.random();
                         o.p[i325].oy[i327] += f326;
                         i323 += f326;
                         i324++;
@@ -2768,8 +2766,8 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             for (int i335 = 0; i335 < i334; i335++) {
                 final int i336 = is[i335];
                 final int i337 = is331[i335];
-                is[i335] = i + (int) ((i336 - i) * m.cos(i333) - (i337 - i332) * m.sin(i333));
-                is331[i335] = i332 + (int) ((i336 - i) * m.sin(i333) + (i337 - i332) * m.cos(i333));
+                is[i335] = i + (int) ((i336 - i) * Medium.cos(i333) - (i337 - i332) * Medium.sin(i333));
+                is331[i335] = i332 + (int) ((i336 - i) * Medium.sin(i333) + (i337 - i332) * Medium.cos(i333));
             }
         }
     }
@@ -2780,19 +2778,19 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         btgame[0] = getImage("data/backtogame1.gif");
         btgame[1] = getImage("data/backtogame2.gif");
         logo = getImage("data/carmakerlogo.gif");
-        m.w = 700;
-        m.cx = 350;
-        m.y = -240;
-        m.z = -400;
-        m.zy = 4;
-        m.focusPoint = 800;
-        m.fadfrom(8000);
-        m.cfade[0] = 187;
-        m.cfade[1] = 210;
-        m.cfade[2] = 227;
+        Medium.w = 700;
+        Medium.cx = 350;
+        Medium.y = -240;
+        Medium.z = -400;
+        Medium.zy = 4;
+        Medium.focusPoint = 800;
+        Medium.fadfrom(8000);
+        Medium.cfade[0] = 187;
+        Medium.cfade[1] = 210;
+        Medium.cfade[2] = 227;
         loadsounds();
         loadbase();
-        m.loadnew = true;
+        Medium.loadnew = true;
         loadsettings();
         editor.setFont(new Font(cfont, 1, 14));
         srch.setFont(new Font(cfont, 1, 14));
@@ -3273,7 +3271,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                     setupo();
                     dtabed = -1;
                 }
-                m.d(rd);
+                Medium.d(rd);
                 o.d(rd);
                 if (dtab == 2) {
                     if (compsel > 0 && compsel <= 16) {
@@ -3298,15 +3296,15 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                 0, 0, 0, 0, 50 + adna[4], -50 - adna[5]
                         };
                         for (int i12 = 0; i12 < 6; i12++) {
-                            is[i12] += o.x - m.x;
-                            is10[i12] += o.y - m.y;
-                            is11[i12] += o.z - m.z;
+                            is[i12] += o.x - Medium.x;
+                            is10[i12] += o.y - Medium.y;
+                            is11[i12] += o.z - Medium.z;
                         }
-                        rot(is, is10, o.x - m.x, o.y - m.y, o.xy, 6);
-                        rot(is10, is11, o.y - m.y, o.z - m.z, o.zy, 6);
-                        rot(is, is11, o.x - m.x, o.z - m.z, o.xz, 6);
-                        rot(is, is11, m.cx, m.cz, m.xz, 6);
-                        rot(is10, is11, m.cy, m.cz, m.zy, 6);
+                        rot(is, is10, o.x - Medium.x, o.y - Medium.y, o.xy, 6);
+                        rot(is10, is11, o.y - Medium.y, o.z - Medium.z, o.zy, 6);
+                        rot(is, is11, o.x - Medium.x, o.z - Medium.z, o.xz, 6);
+                        rot(is, is11, Medium.cx, Medium.cz, Medium.xz, 6);
+                        rot(is10, is11, Medium.cy, Medium.cz, Medium.zy, 6);
                         final int[] is13 = new int[6];
                         final int[] is14 = new int[6];
                         for (int i15 = 0; i15 < 6; i15++) {
@@ -5311,7 +5309,7 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
     }
 
     private void setupo() {
-        o = new ContO(editor.getText().getBytes(), m, t);
+        o = new ContO(editor.getText().getBytes());
         o.x = ox;
         o.y = oy;
         o.z = oz;
@@ -5427,16 +5425,16 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
     }
 
     private int xs(final int i, int i338) {
-        if (i338 < m.cz) {
-            i338 = m.cz;
+        if (i338 < Medium.cz) {
+            i338 = Medium.cz;
         }
-        return (i338 - m.focusPoint) * (m.cx - i) / i338 + i;
+        return (i338 - Medium.focusPoint) * (Medium.cx - i) / i338 + i;
     }
 
     private int ys(final int i, int i339) {
-        if (i339 < m.cz) {
-            i339 = m.cz;
+        if (i339 < Medium.cz) {
+            i339 = Medium.cz;
         }
-        return (i339 - m.focusPoint) * (m.cy - i) / i339 + i;
+        return (i339 - Medium.focusPoint) * (Medium.cy - i) / i339 + i;
     }
 }

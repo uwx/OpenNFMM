@@ -41,9 +41,9 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     //    System.exit(1);
     //}
 
-    private static final Medium Medium = new Medium();
-    private static final CheckPoints CheckPoints = new CheckPoints();
-    private static final Trackers Trackers = new Trackers();
+    static {new Medium();
+    new CheckPoints();
+    new Trackers();}
 
     private static Graphics2D rd;
 
@@ -86,7 +86,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
          *
          */
         SMContO(byte[] is) {
-            super(is, Medium, Trackers);
+            super(is);
         }
 
         /**
@@ -113,7 +113,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
          * @param i94 the i94
          */
         public SMContO(int i, int i90, int i91, int i92, int i93, int i94) {
-            super(i, i90, i91, Medium, Trackers, i92, i93, i94);
+            super(i, i90, i91, i92, i93, i94);
         }
 
         public boolean dupeOf(SMContO o) {
@@ -2143,20 +2143,20 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     static void readstage(final int readstagei) {
         errd = 0;
         trackname = "";
-        Trackers.nt = 0;
+        nfm.open.Trackers.nt = 0;
         nob = 0;
         xnob = 0;
-        CheckPoints.n = 0;
-        CheckPoints.nsp = 0;
-        CheckPoints.fn = 0;
-        CheckPoints.haltall = false;
-        CheckPoints.wasted = 0;
-        Medium.ground = 250;
-        Medium.lightson = false;
+        nfm.open.CheckPoints.n = 0;
+        nfm.open.CheckPoints.nsp = 0;
+        nfm.open.CheckPoints.fn = 0;
+        nfm.open.CheckPoints.haltall = false;
+        nfm.open.CheckPoints.wasted = 0;
+        nfm.open.Medium.ground = 250;
+        nfm.open.Medium.lightson = false;
         if (readstagei == 0) {
-            Medium.snap[0] = 0;
-            Medium.snap[1] = 0;
-            Medium.snap[2] = 0;
+            nfm.open.Medium.snap[0] = 0;
+            nfm.open.Medium.snap[1] = 0;
+            nfm.open.Medium.snap[2] = 0;
         }
         if (readstagei == 3) {
             tstage = "";
@@ -2196,7 +2196,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     csky[0] = getint("sky", line, 0);
                     csky[1] = getint("sky", line, 1);
                     csky[2] = getint("sky", line, 2);
-                    Medium.setsky(csky[0], csky[1], csky[2]);
+                    nfm.open.Medium.setsky(csky[0], csky[1], csky[2]);
                     if (readstagei == 3) {
                         tstage = tstage + line + "\r\n";
                     }
@@ -2205,13 +2205,13 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     cgrnd[0] = getint("ground", line, 0);
                     cgrnd[1] = getint("ground", line, 1);
                     cgrnd[2] = getint("ground", line, 2);
-                    Medium.setgrnd(cgrnd[0], cgrnd[1], cgrnd[2]);
+                    nfm.open.Medium.setgrnd(cgrnd[0], cgrnd[1], cgrnd[2]);
                     if (readstagei == 3) {
                         tstage = tstage + line + "\r\n";
                     }
                 }
                 if (line.startsWith("polys")) {
-                    Medium.setpolys(getint("polys", line, 0), getint("polys", line, 1), getint("polys", line, 2));
+                    nfm.open.Medium.setpolys(getint("polys", line, 0), getint("polys", line, 1), getint("polys", line, 2));
                     if (readstagei == 3) {
                         tstage = tstage + line + "\r\n";
                     }
@@ -2220,7 +2220,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     cfade[0] = getint("fog", line, 0);
                     cfade[1] = getint("fog", line, 1);
                     cfade[2] = getint("fog", line, 2);
-                    Medium.setfade(cfade[0], cfade[1], cfade[2]);
+                    nfm.open.Medium.setfade(cfade[0], cfade[1], cfade[2]);
                     if (readstagei == 3) {
                         tstage = tstage + line + "\r\n";
                     }
@@ -2230,7 +2230,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     texture[1] = getint("texture", line, 1);
                     texture[2] = getint("texture", line, 2);
                     texture[3] = getint("texture", line, 3);
-                    Medium.setexture(texture[0], texture[1], texture[2], texture[3]);
+                    nfm.open.Medium.setexture(texture[0], texture[1], texture[2], texture[3]);
                     if (readstagei == 3) {
                         tstage = tstage + line + "\r\n";
                     }
@@ -2241,58 +2241,58 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     cldd[2] = getint("clouds", line, 2);
                     cldd[3] = getint("clouds", line, 3);
                     cldd[4] = getint("clouds", line, 4);
-                    Medium.setcloads(cldd[0], cldd[1], cldd[2], cldd[3], cldd[4]);
+                    nfm.open.Medium.setcloads(cldd[0], cldd[1], cldd[2], cldd[3], cldd[4]);
                     if (readstagei == 3) {
                         tstage = tstage + line + "\r\n";
                     }
                 }
                 if (readstagei != 2 && line.startsWith("snap")) {
-                    Medium.setsnap(Utility.getint("snap", line, 0), Utility.getint("snap", line, 1), Utility.getint("snap", line, 2));
+                    nfm.open.Medium.setsnap(Utility.getint("snap", line, 0), Utility.getint("snap", line, 1), Utility.getint("snap", line, 2));
                     if (readstagei == 3) {
                         tstage = tstage + line + "\r\n";
                     }
                 }
                 if (line.startsWith("density")) {
-                    Medium.fogd = (getint("density", line, 0) + 1) * 2 - 1;
-                    if (Medium.fogd < 1) {
-                        Medium.fogd = 1;
+                    nfm.open.Medium.fogd = (getint("density", line, 0) + 1) * 2 - 1;
+                    if (nfm.open.Medium.fogd < 1) {
+                        nfm.open.Medium.fogd = 1;
                     }
-                    if (Medium.fogd > 30) {
-                        Medium.fogd = 30;
+                    if (nfm.open.Medium.fogd > 30) {
+                        nfm.open.Medium.fogd = 30;
                     }
                     if (readstagei == 3) {
                         tstage = tstage + line + "\r\n";
                     }
                 }
                 if (line.startsWith("mountains")) {
-                    Medium.mgen = getint("mountains", line, 0);
+                    nfm.open.Medium.mgen = getint("mountains", line, 0);
                     if (readstagei == 3) {
 
                         tstage = tstage + line + "\r\n";
                     }
                 }
                 if (line.startsWith("fadefrom")) {
-                    Medium.fadfrom(getint("fadefrom", line, 0));
-                    origfade = Medium.fade[0];
+                    nfm.open.Medium.fadfrom(getint("fadefrom", line, 0));
+                    origfade = nfm.open.Medium.fade[0];
                     if (readstagei == 3) {
 
                         tstage = tstage + line + "\r\n";
                     }
                 }
                 if (line.startsWith("lightson")) {
-                    Medium.lightson = true;
+                    nfm.open.Medium.lightson = true;
                     if (readstagei == 3) {
 
                         tstage = tstage + line + "\r\n";
                     }
                 }
                 if (line.startsWith("nlaps")) {
-                    CheckPoints.nlaps = getint("nlaps", line, 0);
-                    if (CheckPoints.nlaps < 1) {
-                        CheckPoints.nlaps = 1;
+                    nfm.open.CheckPoints.nlaps = getint("nlaps", line, 0);
+                    if (nfm.open.CheckPoints.nlaps < 1) {
+                        nfm.open.CheckPoints.nlaps = 1;
                     }
-                    if (CheckPoints.nlaps > 15) {
-                        CheckPoints.nlaps = 15;
+                    if (nfm.open.CheckPoints.nlaps > 15) {
+                        nfm.open.CheckPoints.nlaps = 15;
                     }
                     if (readstagei == 3) {
 
@@ -2311,7 +2311,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 if (line.startsWith("set")) {
                     int i201 = getint("set", line, 0);
                     if (i201 >= 10 && i201 <= 25) {
-                        Medium.loadnew = true;
+                        nfm.open.Medium.loadnew = true;
                     }
                     i201 -= 10;
                     co[nob] = new SMContO(bco[i201], getint("set", line, 1), getint("set", line, 3), getint("set", line, 2), getint("set", line, 4));
@@ -2347,8 +2347,8 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
 
                         bstage = bstage + line + "\r\n";
                     }
-                    if (Medium.loadnew) {
-                        Medium.loadnew = false;
+                    if (nfm.open.Medium.loadnew) {
+                        nfm.open.Medium.loadnew = false;
                     }
                 }
 //                if (line.startsWith("base1")) {
@@ -2470,21 +2470,21 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     co[nob] = new SMContO(bco[i204], getint("chk", line, 1), getint("chk", line, 3), getint("chk", line, 2), getint("chk", line, 4));
                     co[nob].declaredXZ = getint("chk", line, 4);
                     co[nob].partID = i204;
-                    CheckPoints.x[CheckPoints.n] = getint("chk", line, 1);
-                    CheckPoints.z[CheckPoints.n] = getint("chk", line, 2);
-                    CheckPoints.y[CheckPoints.n] = getint("chk", line, 3);
+                    nfm.open.CheckPoints.x[nfm.open.CheckPoints.n] = getint("chk", line, 1);
+                    nfm.open.CheckPoints.z[nfm.open.CheckPoints.n] = getint("chk", line, 2);
+                    nfm.open.CheckPoints.y[nfm.open.CheckPoints.n] = getint("chk", line, 3);
                     if (getint("chk", line, 3) == 0) {
-                        CheckPoints.typ[CheckPoints.n] = 1;
+                        nfm.open.CheckPoints.typ[nfm.open.CheckPoints.n] = 1;
                     } else {
-                        CheckPoints.typ[CheckPoints.n] = 2;
+                        nfm.open.CheckPoints.typ[nfm.open.CheckPoints.n] = 2;
                     }
-                    CheckPoints.pcs = CheckPoints.n;
-                    CheckPoints.n++;
-                    co[nob].checkpoint = CheckPoints.nsp + 1;
+                    nfm.open.CheckPoints.pcs = nfm.open.CheckPoints.n;
+                    nfm.open.CheckPoints.n++;
+                    co[nob].checkpoint = nfm.open.CheckPoints.nsp + 1;
                     if (line.contains(")r")) { // means this set should stay in its original position in `co[]`
-                        co[nob].wh = CheckPoints.nsp + 1;
+                        co[nob].wh = nfm.open.CheckPoints.nsp + 1;
                     }
-                    CheckPoints.nsp++;
+                    nfm.open.CheckPoints.nsp++;
                     xnob++;
                     nob++;
                     if (readstagei == 3) {
@@ -2503,18 +2503,18 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     co[nob] = new SMContO(bco[i208], getint("fix", line, 1), getint("fix", line, 3), getint("fix", line, 2), getint("fix", line, 4));
                     co[nob].declaredXZ = getint("fix", line, 4);
                     co[nob].partID = i208;
-                    CheckPoints.fx[CheckPoints.fn] = getint("fix", line, 1);
-                    CheckPoints.fz[CheckPoints.fn] = getint("fix", line, 2);
-                    CheckPoints.fy[CheckPoints.fn] = getint("fix", line, 3);
+                    nfm.open.CheckPoints.fx[nfm.open.CheckPoints.fn] = getint("fix", line, 1);
+                    nfm.open.CheckPoints.fz[nfm.open.CheckPoints.fn] = getint("fix", line, 2);
+                    nfm.open.CheckPoints.fy[nfm.open.CheckPoints.fn] = getint("fix", line, 3);
                     //co[nob].elec = true;
                     if (getint("fix", line, 4) != 0) {
-                        CheckPoints.roted[CheckPoints.fn] = true;
+                        nfm.open.CheckPoints.roted[nfm.open.CheckPoints.fn] = true;
                         co[nob].roted = true;
                     } else {
-                        CheckPoints.roted[CheckPoints.fn] = false;
+                        nfm.open.CheckPoints.roted[nfm.open.CheckPoints.fn] = false;
                     }
-                    CheckPoints.special[CheckPoints.fn] = line.contains(")s");
-                    CheckPoints.fn++;
+                    nfm.open.CheckPoints.special[nfm.open.CheckPoints.fn] = line.contains(")s");
+                    nfm.open.CheckPoints.fn++;
                     xnob++;
                     nob++;
                     if (readstagei == 3) {
@@ -2528,7 +2528,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     }
                 }
                 if (line.startsWith("pile")) { //TODO ADD HERE
-                    co[nob] = new SMContO(getint("pile", line, 0), getint("pile", line, 1), getint("pile", line, 2), getint("pile", line, 3), getint("pile", line, 4), Medium.ground);
+                    co[nob] = new SMContO(getint("pile", line, 0), getint("pile", line, 1), getint("pile", line, 2), getint("pile", line, 3), getint("pile", line, 4), nfm.open.Medium.ground);
                     co[nob].srz = getint("pile", line, 0);
                     co[nob].srx = getint("pile", line, 1);
                     co[nob].sry = getint("pile", line, 2);
@@ -2551,7 +2551,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     i181 = i214;
                     final int i215 = getint("maxr", line, 2);
                     for (int i216 = 0; i216 < i213; i216++) {
-                        co[nob] = new SMContO(bco[29], i214, Medium.ground - bco[29].grat, i216 * 4800 + i215, 0);
+                        co[nob] = new SMContO(bco[29], i214, nfm.open.Medium.ground - bco[29].grat, i216 * 4800 + i215, 0);
                         if (readstagei == 0) {
                             xnob++;
                         } else {
@@ -2574,7 +2574,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     i182 = i220;
                     final int i221 = getint("maxl", line, 2);
                     for (int i222 = 0; i222 < i219; i222++) {
-                        co[nob] = new SMContO(bco[29], i220, Medium.ground - bco[29].grat, i222 * 4800 + i221, 180);
+                        co[nob] = new SMContO(bco[29], i220, nfm.open.Medium.ground - bco[29].grat, i222 * 4800 + i221, 180);
                         if (readstagei == 0) {
                             xnob++;
                         } else {
@@ -2597,7 +2597,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     i183 = i226;
                     final int i227 = getint("maxt", line, 2);
                     for (int i228 = 0; i228 < i225; i228++) {
-                        co[nob] = new SMContO(bco[29], i228 * 4800 + i227, Medium.ground - bco[29].grat, i226, 90);
+                        co[nob] = new SMContO(bco[29], i228 * 4800 + i227, nfm.open.Medium.ground - bco[29].grat, i226, 90);
                         if (readstagei == 0) {
                             xnob++;
                         } else {
@@ -2620,7 +2620,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     i184 = i232;
                     final int i233 = getint("maxb", line, 2);
                     for (int i234 = 0; i234 < i231; i234++) {
-                        co[nob] = new SMContO(bco[29], i234 * 4800 + i233, Medium.ground - bco[29].grat, i232, -90);
+                        co[nob] = new SMContO(bco[29], i234 * 4800 + i233, nfm.open.Medium.ground - bco[29].grat, i232, -90);
                         if (readstagei == 0) {
                             xnob++;
                         } else {
@@ -2644,19 +2644,19 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 }
             }
             datainputstream.close();
-            Medium.newpolys(i182, i181 - i182, i184, i183 - i184, Trackers, nob);
-            Medium.newclouds(i182, i181, i184, i183);
-            Medium.newmountains(i182, i181, i184, i183);
-            Medium.newstars();
+            nfm.open.Medium.newpolys(i182, i181 - i182, i184, i183 - i184, nob);
+            nfm.open.Medium.newclouds(i182, i181, i184, i183);
+            nfm.open.Medium.newmountains(i182, i181, i184, i183);
+            nfm.open.Medium.newstars();
         } catch (final Exception exception) {
             errd = 6;
-            if (CheckPoints.fn >= 5) {
+            if (nfm.open.CheckPoints.fn >= 5) {
                 errd = 5;
             }
-            if (Trackers.nt >= 670000) {
+            if (nfm.open.Trackers.nt >= 670000) {
                 errd = 1;
             }
-            if (CheckPoints.n >= 10000) {
+            if (nfm.open.CheckPoints.n >= 10000) {
                 errd = 2;
             }
             if (nob >= 10000) {
@@ -2785,8 +2785,8 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             for (int i338 = 0; i338 < i337; i338++) {
                 final int i339 = is[i338];
                 final int i340 = is334[i338];
-                is[i338] = i + (int) ((i339 - i) * Medium.cos(i336) - (i340 - i335) * Medium.sin(i336));
-                is334[i338] = i335 + (int) ((i339 - i) * Medium.sin(i336) + (i340 - i335) * Medium.cos(i336));
+                is[i338] = i + (int) ((i339 - i) * nfm.open.Medium.cos(i336) - (i340 - i335) * nfm.open.Medium.sin(i336));
+                is334[i338] = i335 + (int) ((i339 - i) * nfm.open.Medium.sin(i336) + (i340 - i335) * nfm.open.Medium.cos(i336));
             }
         }
     }
@@ -2812,14 +2812,14 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
      */
     private SRCStageMaker() {
         new Medium();
-        asin_m_xz = Medium.sin(Medium.xz);
-        acos_m_xz = Medium.cos(Medium.xz);
-        asin_m_zy = Medium.sin(Medium.zy);
-        acos_m_zy = Medium.cos(Medium.zy);
-        asin_m_xy = Medium.sin(__m_xy);
-        acos_m_xy = Medium.cos(__m_xy);
+        asin_m_xz = nfm.open.Medium.sin(nfm.open.Medium.xz);
+        acos_m_xz = nfm.open.Medium.cos(nfm.open.Medium.xz);
+        asin_m_zy = nfm.open.Medium.sin(nfm.open.Medium.zy);
+        acos_m_zy = nfm.open.Medium.cos(nfm.open.Medium.zy);
+        asin_m_xy = nfm.open.Medium.sin(__m_xy);
+        acos_m_xy = nfm.open.Medium.cos(__m_xy);
         new Trackers();
-        te = new TextEditor();
+        new TextEditor();
         logo = getImage("data/stagemakerlogo.gif");
 
         setIgnoreRepaint(true);
@@ -3071,14 +3071,14 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             }
         }
         if (tab == 1) {
-            asin_m_xz = Medium.sin(Medium.xz);
-            acos_m_xz = Medium.cos(Medium.xz);
-            asin_m_zy = Medium.sin(Medium.zy);
-            acos_m_zy = Medium.cos(Medium.zy);
-            asin_m_xy = Medium.sin(__m_xy);
-            acos_m_xy = Medium.cos(__m_xy);
+            asin_m_xz = nfm.open.Medium.sin(nfm.open.Medium.xz);
+            acos_m_xz = nfm.open.Medium.cos(nfm.open.Medium.xz);
+            asin_m_zy = nfm.open.Medium.sin(nfm.open.Medium.zy);
+            acos_m_zy = nfm.open.Medium.cos(nfm.open.Medium.zy);
+            asin_m_xy = nfm.open.Medium.sin(__m_xy);
+            acos_m_xy = nfm.open.Medium.cos(__m_xy);
             if (tabed != tab) {
-                Medium.trk = 2;
+                nfm.open.Medium.trk = 2;
                 readstage(0);
                 loadPartMenu();
                 gameFrame.setCursor(new Cursor(0));
@@ -3423,18 +3423,18 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             }
             rd.setColor(ColorConstants.c_200_200_200);
             rd.fillRect(248, 63, 514, 454);
-            Medium.trk = 2;
-            Medium.zy = 90;
-            Medium.xz = 0;
-            Medium.iw = 248;
-            Medium.w = 762;
-            Medium.ih = 63;
-            Medium.h = 517;
-            Medium.cx = 505;
-            Medium.cy = 290;
-            Medium.x = sx - Medium.cx;
-            Medium.z = sz - Medium.cz;
-            Medium.y = sy;
+            nfm.open.Medium.trk = 2;
+            nfm.open.Medium.zy = 90;
+            nfm.open.Medium.xz = 0;
+            nfm.open.Medium.iw = 248;
+            nfm.open.Medium.w = 762;
+            nfm.open.Medium.ih = 63;
+            nfm.open.Medium.h = 517;
+            nfm.open.Medium.cx = 505;
+            nfm.open.Medium.cy = 290;
+            nfm.open.Medium.x = sx - nfm.open.Medium.cx;
+            nfm.open.Medium.z = sz - nfm.open.Medium.cz;
+            nfm.open.Medium.y = sy;
             int i = 0;
             final int[] is = new int[10000]; // stageselect limit
             for (int i2 = 0; i2 < nob; i2++)
@@ -3466,44 +3466,44 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 for (int i8 = 0; i8 < i; i8++)
                     if (is3[i8] == i7) {
                         if (is[i8] == hi) {
-                            Medium.trk = 3;
+                            nfm.open.Medium.trk = 3;
                         }
                         if (is[i8] == chi && !co[is[i8]].errd) {
-                            final int i9 = Medium.cx + (int) ((co[is[i8]].x - Medium.x - Medium.cx) * Medium.cos(Medium.xz) - (co[is[i8]].z - Medium.z - Medium.cz) * Medium.sin(Medium.xz));
-                            final int i10 = Medium.cz + (int) ((co[is[i8]].x - Medium.x - Medium.cx) * Medium.sin(Medium.xz) + (co[is[i8]].z - Medium.z - Medium.cz) * Medium.cos(Medium.xz));
-                            final int i11 = Medium.cy + (int) ((co[is[i8]].y - Medium.y - Medium.cy) * Medium.cos(Medium.zy) - (i10 - Medium.cz) * Medium.sin(Medium.zy));
-                            final int i12 = Medium.cz + (int) ((co[is[i8]].y - Medium.y - Medium.cy) * Medium.sin(Medium.zy) + (i10 - Medium.cz) * Medium.cos(Medium.zy));
+                            final int i9 = nfm.open.Medium.cx + (int) ((co[is[i8]].x - nfm.open.Medium.x - nfm.open.Medium.cx) * nfm.open.Medium.cos(nfm.open.Medium.xz) - (co[is[i8]].z - nfm.open.Medium.z - nfm.open.Medium.cz) * nfm.open.Medium.sin(nfm.open.Medium.xz));
+                            final int i10 = nfm.open.Medium.cz + (int) ((co[is[i8]].x - nfm.open.Medium.x - nfm.open.Medium.cx) * nfm.open.Medium.sin(nfm.open.Medium.xz) + (co[is[i8]].z - nfm.open.Medium.z - nfm.open.Medium.cz) * nfm.open.Medium.cos(nfm.open.Medium.xz));
+                            final int i11 = nfm.open.Medium.cy + (int) ((co[is[i8]].y - nfm.open.Medium.y - nfm.open.Medium.cy) * nfm.open.Medium.cos(nfm.open.Medium.zy) - (i10 - nfm.open.Medium.cz) * nfm.open.Medium.sin(nfm.open.Medium.zy));
+                            final int i12 = nfm.open.Medium.cz + (int) ((co[is[i8]].y - nfm.open.Medium.y - nfm.open.Medium.cy) * nfm.open.Medium.sin(nfm.open.Medium.zy) + (i10 - nfm.open.Medium.cz) * nfm.open.Medium.cos(nfm.open.Medium.zy));
                             final int i13 = 1000000 / Math.abs(sy);
                             final Graphics2D graphics2d = rd;
                             graphics2d.setComposite(AlphaComposite.getInstance(3, 0.7F));
                             rd.setColor(ColorConstants.c_0_164_255);
-                            rd.fillOval(Utility.xs(i9, i12, Medium) - i13 / 2, Utility.ys(i11, i12, Medium) - i13 / 2, i13, i13);
+                            rd.fillOval(Utility.xs(i9, i12) - i13 / 2, Utility.ys(i11, i12) - i13 / 2, i13, i13);
                             graphics2d.setComposite(AlphaComposite.getInstance(3, 1.0F));
                             rd.setColor(Color.black);
                             rd.setFont(FontConstants.arial_12);
                             ftm = rd.getFontMetrics();
-                            rd.drawString("NO# " + (arrcnt + 1), Utility.xs(i9, i12, Medium) - ftm.stringWidth("NO# " + (arrcnt + 1)) / 2, Utility.ys(i11, i12, Medium) - i13 / 2);
+                            rd.drawString("NO# " + (arrcnt + 1), Utility.xs(i9, i12) - ftm.stringWidth("NO# " + (arrcnt + 1)) / 2, Utility.ys(i11, i12) - i13 / 2);
                         }
                         // arrange checkpoints shit
                         if (arrng && (co[is[i8]].partID == ONROAD_CHECKPOINT_SET_ID || Utility.arrayContains(CHECKPOINT_IDS, co[is[i8]].partID) || co[is[i8]].partID == OFFROAD_CHECKPOINT_SET_ID || co[is[i8]].partID == FLYING_CHECKPOINT_SET_ID) && co[is[i8]].errd) {
-                            final int i14 = Medium.cx + (int) ((co[is[i8]].x - Medium.x - Medium.cx) * Medium.cos(Medium.xz) - (co[is[i8]].z - Medium.z - Medium.cz) * Medium.sin(Medium.xz));
-                            final int i15 = Medium.cz + (int) ((co[is[i8]].x - Medium.x - Medium.cx) * Medium.sin(Medium.xz) + (co[is[i8]].z - Medium.z - Medium.cz) * Medium.cos(Medium.xz));
-                            final int i16 = Medium.cy + (int) ((co[is[i8]].y - Medium.y - Medium.cy) * Medium.cos(Medium.zy) - (i15 - Medium.cz) * Medium.sin(Medium.zy));
-                            final int i17 = Medium.cz + (int) ((co[is[i8]].y - Medium.y - Medium.cy) * Medium.sin(Medium.zy) + (i15 - Medium.cz) * Medium.cos(Medium.zy));
+                            final int i14 = nfm.open.Medium.cx + (int) ((co[is[i8]].x - nfm.open.Medium.x - nfm.open.Medium.cx) * nfm.open.Medium.cos(nfm.open.Medium.xz) - (co[is[i8]].z - nfm.open.Medium.z - nfm.open.Medium.cz) * nfm.open.Medium.sin(nfm.open.Medium.xz));
+                            final int i15 = nfm.open.Medium.cz + (int) ((co[is[i8]].x - nfm.open.Medium.x - nfm.open.Medium.cx) * nfm.open.Medium.sin(nfm.open.Medium.xz) + (co[is[i8]].z - nfm.open.Medium.z - nfm.open.Medium.cz) * nfm.open.Medium.cos(nfm.open.Medium.xz));
+                            final int i16 = nfm.open.Medium.cy + (int) ((co[is[i8]].y - nfm.open.Medium.y - nfm.open.Medium.cy) * nfm.open.Medium.cos(nfm.open.Medium.zy) - (i15 - nfm.open.Medium.cz) * nfm.open.Medium.sin(nfm.open.Medium.zy));
+                            final int i17 = nfm.open.Medium.cz + (int) ((co[is[i8]].y - nfm.open.Medium.y - nfm.open.Medium.cy) * nfm.open.Medium.sin(nfm.open.Medium.zy) + (i15 - nfm.open.Medium.cz) * nfm.open.Medium.cos(nfm.open.Medium.zy));
                             final int i18 = 1000000 / Math.abs(sy);
                             final Graphics2D graphics2d = rd;
                             graphics2d.setComposite(AlphaComposite.getInstance(3, 0.5F));
                             rd.setColor(ColorConstants.c_255_128_0);
-                            rd.fillOval(Utility.xs(i14, i17, Medium) - i18 / 2, Utility.ys(i16, i17, Medium) - i18 / 2, i18, i18);
+                            rd.fillOval(Utility.xs(i14, i17) - i18 / 2, Utility.ys(i16, i17) - i18 / 2, i18, i18);
                             graphics2d.setComposite(AlphaComposite.getInstance(3, 1.0F));
                             rd.setColor(Color.black);
                             rd.setFont(FontConstants.arial_12);
                             ftm = rd.getFontMetrics();
-                            rd.drawString("NO# " + co[is[i8]].wh, Utility.xs(i14, i17, Medium) - ftm.stringWidth("NO# " + co[is[i8]].wh) / 2, Utility.ys(i16, i17, Medium) - i18 / 2);
+                            rd.drawString("NO# " + co[is[i8]].wh, Utility.xs(i14, i17) - ftm.stringWidth("NO# " + co[is[i8]].wh) / 2, Utility.ys(i16, i17) - i18 / 2);
                         }
                         co[is[i8]].d(rd);
-                        if (Medium.trk == 3) {
-                            Medium.trk = 2;
+                        if (nfm.open.Medium.trk == 3) {
+                            nfm.open.Medium.trk = 2;
                         }
                     }
             }
@@ -3511,9 +3511,9 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             drawNodePath();
             if (xm > 248 && xm < 762 && ym > 63 && ym < 517) {
                 if (!epart && !arrng) { // CALCULATES MOUSE POSITION AND PLACES SHIT
-                    bco[selectedPart].x = (xm - 505) * (Math.abs(sy) / Medium.focusPoint) + sx;
-                    bco[selectedPart].z = (290 - ym) * (Math.abs(sy) / Medium.focusPoint) + sz;
-                    bco[selectedPart].y = Medium.ground - bco[selectedPart].grat;
+                    bco[selectedPart].x = (xm - 505) * (Math.abs(sy) / nfm.open.Medium.focusPoint) + sx;
+                    bco[selectedPart].z = (290 - ym) * (Math.abs(sy) / nfm.open.Medium.focusPoint) + sz;
+                    bco[selectedPart].y = nfm.open.Medium.ground - bco[selectedPart].grat;
                     bco[selectedPart].xz = rot + adrot;
                     int i19 = 200;
                     int i20 = 0;
@@ -3637,7 +3637,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                                     for (int i35 = 0; i35 < co[i26].p[i34].n; i35++)
                                         if (py(bco[selectedPart].x, co[i26].x, bco[selectedPart].z, co[i26].z + co[i26].p[i34].oz[i35]) < i25) {
                                             i25 = py(bco[selectedPart].x, co[i26].x, bco[selectedPart].z, co[i26].z + co[i26].p[i34].oz[i35]);
-                                            flyh = co[i26].p[i34].oy[i35] - 28 + Medium.ground;
+                                            flyh = co[i26].p[i34].oy[i35] - 28 + nfm.open.Medium.ground;
                                             i20 = co[i26].x - bco[selectedPart].x;
                                             i21 = co[i26].z + co[i26].p[i34].oz[i35] - bco[selectedPart].z;
                                             //onfly = true;
@@ -3649,7 +3649,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                                     for (int i37 = 0; i37 < co[i26].p[i36].n; i37++)
                                         if (py(bco[selectedPart].z, co[i26].z, bco[selectedPart].x, co[i26].x + co[i26].p[i36].ox[i37]) < i25) {
                                             i25 = py(bco[selectedPart].z, co[i26].z, bco[selectedPart].x, co[i26].x + co[i26].p[i36].ox[i37]);
-                                            flyh = co[i26].p[i36].oy[i37] - 28 + Medium.ground;
+                                            flyh = co[i26].p[i36].oy[i37] - 28 + nfm.open.Medium.ground;
                                             i21 = co[i26].z - bco[selectedPart].z;
                                             i20 = co[i26].x + co[i26].p[i36].ox[i37] - bco[selectedPart].x;
                                             //onfly = true;
@@ -3708,7 +3708,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
 
                                     if (selectedPart != FIXHOOP_SET_ID && selectedPart != FLYING_CHECKPOINT_SET_ID && selectedPart != BUMP_SET_ID) {
                                         try {
-                                            co[nob] = new SMContO(bco[selectedPart], bco[selectedPart].x, Medium.ground - bco[selectedPart].grat, bco[selectedPart].z, bco[selectedPart].xz);
+                                            co[nob] = new SMContO(bco[selectedPart], bco[selectedPart].x, nfm.open.Medium.ground - bco[selectedPart].grat, bco[selectedPart].z, bco[selectedPart].xz);
                                             co[nob].declaredXZ = bco[selectedPart].xz;
                                             co[nob].partID = selectedPart;
                                             nob++;
@@ -3717,7 +3717,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                                         }
                                     }
                                     if (selectedPart == FIXHOOP_SET_ID)
-                                        if (CheckPoints.fn < 5) {
+                                        if (nfm.open.CheckPoints.fn < 5) {
                                             co[nob] = new SMContO(bco[selectedPart], bco[selectedPart].x, bco[selectedPart].y, bco[selectedPart].z, bco[selectedPart].xz);
                                             co[nob].declaredXZ = bco[selectedPart].xz;
                                             co[nob].partID = selectedPart;
@@ -3827,13 +3827,13 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                         int i47 = 5000;
                         for (int i48 = 0; i48 < nob; i48++)
                             if ((co[i48].partID == ONROAD_CHECKPOINT_SET_ID || Utility.arrayContains(CHECKPOINT_IDS, co[i48].partID) || co[i48].partID == OFFROAD_CHECKPOINT_SET_ID || co[i48].partID == FLYING_CHECKPOINT_SET_ID) && !co[i48].errd) {
-                                final int i49 = Medium.cx + (int) ((co[i48].x - Medium.x - Medium.cx) * Medium.cos(Medium.xz) - (co[i48].z - Medium.z - Medium.cz) * Medium.sin(Medium.xz));
-                                final int i50 = Medium.cz + (int) ((co[i48].x - Medium.x - Medium.cx) * Medium.sin(Medium.xz) + (co[i48].z - Medium.z - Medium.cz) * Medium.cos(Medium.xz));
-                                final int i51 = Medium.cy + (int) ((co[i48].y - Medium.y - Medium.cy) * Medium.cos(Medium.zy) - (i50 - Medium.cz) * Medium.sin(Medium.zy));
-                                final int i52 = Medium.cz + (int) ((co[i48].y - Medium.y - Medium.cy) * Medium.sin(Medium.zy) + (i50 - Medium.cz) * Medium.cos(Medium.zy));
-                                if (xm > Utility.xs(i49 - co[i48].maxR, i52, Medium) && xm < Utility.xs(i49 + co[i48].maxR, i52, Medium) && ym > Utility.ys(i51 - co[i48].maxR, i52, Medium) && ym < Utility.ys(i51 + co[i48].maxR, i52, Medium) && py(xm, Utility.xs(i49, i52, Medium), ym, Utility.ys(i51, i52, Medium)) <= i47) {
+                                final int i49 = nfm.open.Medium.cx + (int) ((co[i48].x - nfm.open.Medium.x - nfm.open.Medium.cx) * nfm.open.Medium.cos(nfm.open.Medium.xz) - (co[i48].z - nfm.open.Medium.z - nfm.open.Medium.cz) * nfm.open.Medium.sin(nfm.open.Medium.xz));
+                                final int i50 = nfm.open.Medium.cz + (int) ((co[i48].x - nfm.open.Medium.x - nfm.open.Medium.cx) * nfm.open.Medium.sin(nfm.open.Medium.xz) + (co[i48].z - nfm.open.Medium.z - nfm.open.Medium.cz) * nfm.open.Medium.cos(nfm.open.Medium.xz));
+                                final int i51 = nfm.open.Medium.cy + (int) ((co[i48].y - nfm.open.Medium.y - nfm.open.Medium.cy) * nfm.open.Medium.cos(nfm.open.Medium.zy) - (i50 - nfm.open.Medium.cz) * nfm.open.Medium.sin(nfm.open.Medium.zy));
+                                final int i52 = nfm.open.Medium.cz + (int) ((co[i48].y - nfm.open.Medium.y - nfm.open.Medium.cy) * nfm.open.Medium.sin(nfm.open.Medium.zy) + (i50 - nfm.open.Medium.cz) * nfm.open.Medium.cos(nfm.open.Medium.zy));
+                                if (xm > Utility.xs(i49 - co[i48].maxR, i52) && xm < Utility.xs(i49 + co[i48].maxR, i52) && ym > Utility.ys(i51 - co[i48].maxR, i52) && ym < Utility.ys(i51 + co[i48].maxR, i52) && py(xm, Utility.xs(i49, i52), ym, Utility.ys(i51, i52)) <= i47) {
                                     chi = i48;
-                                    i47 = py(xm, Utility.xs(i49, i52, Medium), ym, Utility.ys(i51, i52, Medium));
+                                    i47 = py(xm, Utility.xs(i49, i52), ym, Utility.ys(i51, i52));
                                 }
                             }
                         if (chi != -1) {
@@ -3863,17 +3863,17 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
 
             if (epart && esp != -1)
                 if (co[esp].dist != 0) {
-                    Medium.cx = 505;
-                    Medium.cy = 290;
-                    Medium.x = sx - Medium.cx;
-                    Medium.z = sz - Medium.cz;
-                    Medium.y = sy;
-                    final int i53 = Medium.cx + (int) ((co[esp].x - Medium.x - Medium.cx) * Medium.cos(Medium.xz) - (co[esp].z - Medium.z - Medium.cz) * Medium.sin(Medium.xz));
-                    final int i54 = Medium.cz + (int) ((co[esp].x - Medium.x - Medium.cx) * Medium.sin(Medium.xz) + (co[esp].z - Medium.z - Medium.cz) * Medium.cos(Medium.xz));
-                    final int i55 = Medium.cy + (int) ((co[esp].y - Medium.y - Medium.cy) * Medium.cos(Medium.zy) - (i54 - Medium.cz) * Medium.sin(Medium.zy));
-                    final int i56 = Medium.cz + (int) ((co[esp].y - Medium.y - Medium.cy) * Medium.sin(Medium.zy) + (i54 - Medium.cz) * Medium.cos(Medium.zy));
-                    final int i57 = Utility.xs(i53, i56, Medium);
-                    final int i58 = Utility.ys(i55, i56, Medium);
+                    nfm.open.Medium.cx = 505;
+                    nfm.open.Medium.cy = 290;
+                    nfm.open.Medium.x = sx - nfm.open.Medium.cx;
+                    nfm.open.Medium.z = sz - nfm.open.Medium.cz;
+                    nfm.open.Medium.y = sy;
+                    final int i53 = nfm.open.Medium.cx + (int) ((co[esp].x - nfm.open.Medium.x - nfm.open.Medium.cx) * nfm.open.Medium.cos(nfm.open.Medium.xz) - (co[esp].z - nfm.open.Medium.z - nfm.open.Medium.cz) * nfm.open.Medium.sin(nfm.open.Medium.xz));
+                    final int i54 = nfm.open.Medium.cz + (int) ((co[esp].x - nfm.open.Medium.x - nfm.open.Medium.cx) * nfm.open.Medium.sin(nfm.open.Medium.xz) + (co[esp].z - nfm.open.Medium.z - nfm.open.Medium.cz) * nfm.open.Medium.cos(nfm.open.Medium.xz));
+                    final int i55 = nfm.open.Medium.cy + (int) ((co[esp].y - nfm.open.Medium.y - nfm.open.Medium.cy) * nfm.open.Medium.cos(nfm.open.Medium.zy) - (i54 - nfm.open.Medium.cz) * nfm.open.Medium.sin(nfm.open.Medium.zy));
+                    final int i56 = nfm.open.Medium.cz + (int) ((co[esp].y - nfm.open.Medium.y - nfm.open.Medium.cy) * nfm.open.Medium.sin(nfm.open.Medium.zy) + (i54 - nfm.open.Medium.cz) * nfm.open.Medium.cos(nfm.open.Medium.zy));
+                    final int i57 = Utility.xs(i53, i56);
+                    final int i58 = Utility.ys(i55, i56);
                     rd.setColor(Color.white);
                     rd.fillRect(i57, i58, 90, 88);
                     rd.setColor(ColorConstants.c_138_147_160);
@@ -4335,36 +4335,36 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 fixh.setVisible(false);
             }
             // CAMERA POSITION FOR THE CONTO PREVIEW SHIT
-            Medium.trk = 2;
-            Medium.zy = 90;
-            Medium.xz = 0;
-            Medium.iw = 10;
-            Medium.w = 210;
-            Medium.ih = 130;
-            Medium.h = 330;
-            Medium.cx = 110;
-            Medium.cy = 230;
-            Medium.x = -110;
-            Medium.z = -230;
-            Medium.y = -15000;
+            nfm.open.Medium.trk = 2;
+            nfm.open.Medium.zy = 90;
+            nfm.open.Medium.xz = 0;
+            nfm.open.Medium.iw = 10;
+            nfm.open.Medium.w = 210;
+            nfm.open.Medium.ih = 130;
+            nfm.open.Medium.h = 330;
+            nfm.open.Medium.cx = 110;
+            nfm.open.Medium.cy = 230;
+            nfm.open.Medium.x = -110;
+            nfm.open.Medium.z = -230;
+            nfm.open.Medium.y = -15000;
             if (selectedPartType == PART_RAMPS && selectedPart != 20 && selectedPart != 21 && selectedPart != 43 && selectedPart != 45) {
-                Medium.y = -10000;
+                nfm.open.Medium.y = -10000;
             }
             if (selectedPartType == PART_OBSTACLES && selectedPart != 41) {
-                Medium.y = -7600;
+                nfm.open.Medium.y = -7600;
             }
             if (selectedPartType == PART_CHECKPOINTS || isPartFixhoops) {
-                Medium.y = -5000;
+                nfm.open.Medium.y = -5000;
             }
             if (selectedPartType >= PART_TREES) {
                 //Medium.y = -15000;
-                Medium.z = 150;
+                nfm.open.Medium.z = 150;
             }
             if (isPartBumps) {
-                Medium.y = -7600;
+                nfm.open.Medium.y = -7600;
             }
             if (selectedPart == FIXHOOP_SET_ID) {
-                Medium.z = -500;
+                nfm.open.Medium.z = -500;
                 bco[selectedPart].roted = rot != 0;
             }
             bco[selectedPart].x = 0;
@@ -4578,17 +4578,17 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             int i63 = 0;
             final int i64 = (int) (xnob / 10000.0F * 200.0F); // limits
             int i65 = i64;
-            final int i66 = (int) (Trackers.nt / 670000.0F * 200.0F); // limits
+            final int i66 = (int) (nfm.open.Trackers.nt / 670000.0F * 200.0F); // limits
             if (i66 > i65) {
                 i65 = i66;
                 i63 = 1;
             }
-            final int i67 = (int) (CheckPoints.n / 10000.0F * 200.0F); // limits
+            final int i67 = (int) (nfm.open.CheckPoints.n / 10000.0F * 200.0F); // limits
             if (i67 > i65) {
                 i65 = i67;
                 i63 = 2;
             }
-            final int i68 = (int) (Medium.nrw * Medium.ncl / 9999999.0F * 200.0F); // medium
+            final int i68 = (int) (nfm.open.Medium.nrw * nfm.open.Medium.ncl / 9999999.0F * 200.0F); // medium
             // limit...does
             // it
             // exist?
@@ -4640,7 +4640,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 if (button(" Cancel ", 330, 100, 4, false)) {
                     arrng = false;
                 }
-                if (arrcnt == CheckPoints.nsp) {
+                if (arrcnt == nfm.open.CheckPoints.nsp) {
                     mousePressed = 0;
                     sortstage();
                     try {
@@ -4661,20 +4661,20 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
         }
         inPreview = tab == 2;
         if (tab == 2) {
-            asin_m_xz = Medium.sin(Medium.xz);
-            acos_m_xz = Medium.cos(Medium.xz);
-            asin_m_zy = Medium.sin(Medium.zy);
-            acos_m_zy = Medium.cos(Medium.zy);
-            asin_m_xy = Medium.sin(__m_xy);
-            acos_m_xy = Medium.cos(__m_xy);
+            asin_m_xz = nfm.open.Medium.sin(nfm.open.Medium.xz);
+            acos_m_xz = nfm.open.Medium.cos(nfm.open.Medium.xz);
+            asin_m_zy = nfm.open.Medium.sin(nfm.open.Medium.zy);
+            acos_m_zy = nfm.open.Medium.cos(nfm.open.Medium.zy);
+            asin_m_xy = nfm.open.Medium.sin(__m_xy);
+            acos_m_xy = nfm.open.Medium.cos(__m_xy);
             if (tabed != tab) {
-                Medium.trk = 0;
+                nfm.open.Medium.trk = 0;
                 readstage(1);
                 gameFrame.setCursor(new Cursor(0));
                 setcur = false;
                 vxz = 0;
                 vx = sx - 400;
-                vz = sz - Medium.cz - 8000;
+                vz = sz - nfm.open.Medium.cz - 8000;
                 vy = -1500;
                 dtabed = -1;
             }
@@ -4682,19 +4682,19 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             if (isHansen && goAround) {
                 fakeAroundTrack();
             }
-            Medium.trk = 0;
-            Medium.zy = fakezy;
-            Medium.iw = 10;
-            Medium.w = 790;
-            Medium.ih = 35;
-            Medium.h = 445;
-            Medium.cx = 400;
-            Medium.cy = 215;
-            Medium.xz = vxz;
-            Medium.x = vx;
-            Medium.z = vz;
-            Medium.y = vy;
-            Medium.d(rd);
+            nfm.open.Medium.trk = 0;
+            nfm.open.Medium.zy = fakezy;
+            nfm.open.Medium.iw = 10;
+            nfm.open.Medium.w = 790;
+            nfm.open.Medium.ih = 35;
+            nfm.open.Medium.h = 445;
+            nfm.open.Medium.cx = 400;
+            nfm.open.Medium.cy = 215;
+            nfm.open.Medium.xz = vxz;
+            nfm.open.Medium.x = vx;
+            nfm.open.Medium.z = vz;
+            nfm.open.Medium.y = vy;
+            nfm.open.Medium.d(rd);
             int i = 0;
             final int[] is = new int[10000]; // stageselect limit
             for (int i69 = 0; i69 < nob; i69++)
@@ -4726,11 +4726,11 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 for (int i75 = 0; i75 < i; i75++)
                     if (is70[i75] == i74) {
                         if (is[i75] == hi) {
-                            Medium.trk = 3;
+                            nfm.open.Medium.trk = 3;
                         }
                         co[is[i75]].d(rd);
-                        if (Medium.trk == 3) {
-                            Medium.trk = 2;
+                        if (nfm.open.Medium.trk == 3) {
+                            nfm.open.Medium.trk = 2;
                         }
                     }
             }
@@ -4782,21 +4782,21 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             if (up) {
                 if (kSettings) {
                     uAccFloat = 1.0F;
-                    vz += 50.0F * Medium.cos(Medium.xz);
-                    vx += 50.0F * Medium.sin(Medium.xz);
+                    vz += 50.0F * nfm.open.Medium.cos(nfm.open.Medium.xz);
+                    vx += 50.0F * nfm.open.Medium.sin(nfm.open.Medium.xz);
                 } else {
-                    vz += 250.0F * Medium.cos(Medium.xz);
-                    vx += 250.0F * Medium.sin(Medium.xz);
+                    vz += 250.0F * nfm.open.Medium.cos(nfm.open.Medium.xz);
+                    vx += 250.0F * nfm.open.Medium.sin(nfm.open.Medium.xz);
                 }
             }
             if (down) {
                 if (kSettings) {
                     dAccFloat = 1.0F;
-                    vz -= 50.0F * Medium.cos(Medium.xz);
-                    vx -= 50.0F * Medium.sin(Medium.xz);
+                    vz -= 50.0F * nfm.open.Medium.cos(nfm.open.Medium.xz);
+                    vx -= 50.0F * nfm.open.Medium.sin(nfm.open.Medium.xz);
                 } else {
-                    vz -= 250.0F * Medium.cos(Medium.xz);
-                    vx -= 250.0F * Medium.sin(Medium.xz);
+                    vz -= 250.0F * nfm.open.Medium.cos(nfm.open.Medium.xz);
+                    vx -= 250.0F * nfm.open.Medium.sin(nfm.open.Medium.xz);
                 }
             }
             if (left) {
@@ -4829,13 +4829,13 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
              */
             if (kSettings) {
                 if (uAccFloat > 0.0F) {
-                    vz += 200.0F * Medium.cos(Medium.xz) * speedShift * uAccFloat;
-                    vx += 200.0F * Medium.sin(Medium.xz) * speedShift * uAccFloat;
+                    vz += 200.0F * nfm.open.Medium.cos(nfm.open.Medium.xz) * speedShift * uAccFloat;
+                    vx += 200.0F * nfm.open.Medium.sin(nfm.open.Medium.xz) * speedShift * uAccFloat;
                     uAccFloat -= 0.1F;
                 }
                 if (dAccFloat > 0.0F) {
-                    vz -= 200.0F * Medium.cos(Medium.xz) * speedShift * dAccFloat;
-                    vx -= 200.0F * Medium.sin(Medium.xz) * speedShift * dAccFloat;
+                    vz -= 200.0F * nfm.open.Medium.cos(nfm.open.Medium.xz) * speedShift * dAccFloat;
+                    vx -= 200.0F * nfm.open.Medium.sin(nfm.open.Medium.xz) * speedShift * dAccFloat;
                     dAccFloat -= 0.1F;
                 }
                 if (lAccFloat > 0.0F) {
@@ -5038,17 +5038,17 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     hsb[1][2] = hsb[2][2];
                 }
                 Color color = Color.getHSBColor(hsb[0][0], hsb[0][2], hsb[0][1]);
-                Medium.setsky(color.getRed(), color.getGreen(), color.getBlue());
+                nfm.open.Medium.setsky(color.getRed(), color.getGreen(), color.getBlue());
                 csky[0] = color.getRed();
                 csky[1] = color.getGreen();
                 csky[2] = color.getBlue();
                 color = Color.getHSBColor(hsb[1][0], hsb[1][2], hsb[1][1]);
-                Medium.setfade(color.getRed(), color.getGreen(), color.getBlue());
+                nfm.open.Medium.setfade(color.getRed(), color.getGreen(), color.getBlue());
                 cfade[0] = color.getRed();
                 cfade[1] = color.getGreen();
                 cfade[2] = color.getBlue();
                 color = Color.getHSBColor(hsb[2][0], hsb[2][2], hsb[2][1]);
-                Medium.setgrnd(color.getRed(), color.getGreen(), color.getBlue());
+                nfm.open.Medium.setgrnd(color.getRed(), color.getGreen(), color.getBlue());
                 cgrnd[0] = color.getRed();
                 cgrnd[1] = color.getGreen();
                 cgrnd[2] = color.getBlue();
@@ -5070,7 +5070,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 if (dtabed != dtab) {
                     Color.RGBtoHSB(cldd[0], cldd[1], cldd[2], hsb[0]);
                     Color.RGBtoHSB(texture[0], texture[1], texture[2], hsb[1]);
-                    mgen.setText("" + Medium.mgen);
+                    mgen.setText("" + nfm.open.Medium.mgen);
                     mouseon = -1;
                     ttstage = "";
                 }
@@ -5285,12 +5285,12 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     }
                 }
                 Color color = Color.getHSBColor(hsb[0][0], hsb[0][1], hsb[0][2]);
-                Medium.setcloads(color.getRed(), color.getGreen(), color.getBlue(), cldd[3], cldd[4]);
+                nfm.open.Medium.setcloads(color.getRed(), color.getGreen(), color.getBlue(), cldd[3], cldd[4]);
                 cldd[0] = color.getRed();
                 cldd[1] = color.getGreen();
                 cldd[2] = color.getBlue();
                 color = Color.getHSBColor(hsb[1][0], hsb[1][1], hsb[1][2]);
-                Medium.setexture(color.getRed(), color.getGreen(), color.getBlue(), texture[3]);
+                nfm.open.Medium.setexture(color.getRed(), color.getGreen(), color.getBlue(), texture[3]);
                 texture[0] = color.getRed();
                 texture[1] = color.getGreen();
                 texture[2] = color.getBlue();
@@ -5307,24 +5307,24 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     mgen.setVisible(true);
                 }
                 if (button("  Generate New  ", 512, 525, 3, true)) {
-                    Medium.mgen = (int) (ThreadLocalRandom.current().nextDouble() * 100000.0);
-                    mgen.setText("" + Medium.mgen);
+                    nfm.open.Medium.mgen = (int) (ThreadLocalRandom.current().nextDouble() * 100000.0);
+                    mgen.setText("" + nfm.open.Medium.mgen);
                     if (ttstage.equals("")) {
                         ttstage = tstage;
                     }
                     sortop();
                     readstage(1);
                 }
-                if (!mgen.getText().equals("" + Medium.mgen)) {
+                if (!mgen.getText().equals("" + nfm.open.Medium.mgen)) {
                     try {
-                        Medium.mgen = Integer.parseInt(mgen.getText());
+                        nfm.open.Medium.mgen = Integer.parseInt(mgen.getText());
                         if (ttstage.equals("")) {
                             ttstage = tstage;
                         }
                         sortop();
                         readstage(1);
                     } catch (final Exception exception) {
-                        mgen.setText("" + Medium.mgen);
+                        mgen.setText("" + nfm.open.Medium.mgen);
                     }
                 }
                 if (button(" Reset ", 650, 510, 0, true)) {
@@ -5344,10 +5344,10 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             if (dtab == 1) {
                 if (dtabed != dtab) {
                     for (int i108 = 0; i108 < 3; i108++) {
-                        snap[i108] = (int) (Medium.snap[i108] / 1.2F + 50.0F);
+                        snap[i108] = (int) (nfm.open.Medium.snap[i108] / 1.2F + 50.0F);
                     }
-                    fogn[0] = (8 - ((Medium.fogd + 1) / 2 - 1)) * 20;
-                    fogn[1] = (Medium.fade[0] - 5000) / 30;
+                    fogn[0] = (8 - ((nfm.open.Medium.fogd + 1) / 2 - 1)) * 20;
+                    fogn[1] = (nfm.open.Medium.fade[0] - 5000) / 30;
                 }
                 rd.setColor(Color.black);
                 rd.drawString("Atmosphere RGB Mask", 20, 461);
@@ -5459,9 +5459,9 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                         }
                     }
                 }
-                if (Medium.snap[0] != (int) (snap[0] * 1.2F - 60.0F) || Medium.snap[1] != (int) (snap[1] * 1.2F - 60.0F) || Medium.snap[2] != (int) (snap[2] * 1.2F - 60.0F)) {
+                if (nfm.open.Medium.snap[0] != (int) (snap[0] * 1.2F - 60.0F) || nfm.open.Medium.snap[1] != (int) (snap[1] * 1.2F - 60.0F) || nfm.open.Medium.snap[2] != (int) (snap[2] * 1.2F - 60.0F)) {
                     for (int i117 = 0; i117 < 3; i117++) {
-                        Medium.snap[i117] = (short) (snap[i117] * 1.2F - 60.0F);
+                        nfm.open.Medium.snap[i117] = (short) (snap[i117] * 1.2F - 60.0F);
                     }
                     readstage(2);
                 }
@@ -5469,11 +5469,11 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 rd.drawString("Car Lights :", 265, 541);
                 if (snap[0] + snap[1] + snap[2] > 110) {
                     rd.drawString("Off", 335, 541);
-                    Medium.lightson = false;
+                    nfm.open.Medium.lightson = false;
                 } else {
                     rd.setColor(ColorConstants.c_0_200_0);
                     rd.drawString("On", 335, 541);
-                    Medium.lightson = true;
+                    nfm.open.Medium.lightson = true;
                 }
                 final int i118 = 33;
                 rd.setColor(Color.black);
@@ -5520,9 +5520,9 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                         }
                     }
                 }
-                Medium.fogd = (8 - fogn[0] / 20 + 1) * 2 - 1;
-                Medium.fadfrom(5000 + fogn[1] * 30);
-                origfade = Medium.fade[0];
+                nfm.open.Medium.fogd = (8 - fogn[0] / 20 + 1) * 2 - 1;
+                nfm.open.Medium.fadfrom(5000 + fogn[1] * 30);
+                origfade = nfm.open.Medium.fade[0];
                 if (button(" Reset ", 650, 510, 0, true)) {
                     dtabed = -2;
                 }
@@ -5532,8 +5532,8 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 }
             }
             if (dtab == 4) {
-                if (dtabed != dtab && CheckPoints.nlaps - 1 >= 0 && CheckPoints.nlaps - 1 <= 14) {
-                    nlaps.select(CheckPoints.nlaps - 1);
+                if (dtabed != dtab && nfm.open.CheckPoints.nlaps - 1 >= 0 && nfm.open.CheckPoints.nlaps - 1 <= 14) {
+                    nlaps.select(nfm.open.CheckPoints.nlaps - 1);
                 }
                 rd.setColor(Color.black);
                 rd.drawString("Set the number of laps for this stage:", 130, 496);
@@ -5541,8 +5541,8 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 if (!nlaps.isShowing()) {
                     nlaps.setVisible(true);
                 }
-                if (CheckPoints.nlaps != nlaps.getSelectedIndex() + 1) {
-                    CheckPoints.nlaps = nlaps.getSelectedIndex() + 1;
+                if (nfm.open.CheckPoints.nlaps != nlaps.getSelectedIndex() + 1) {
+                    nfm.open.CheckPoints.nlaps = nlaps.getSelectedIndex() + 1;
                     gameFrame.requestFocus();
                 }
                 if (button(" Reset ", 530, 496, 0, true)) {
@@ -5763,7 +5763,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     savefile();
                     errd = 0;
                     readstage(3);
-                    if (CheckPoints.nsp < 2) {
+                    if (nfm.open.CheckPoints.nsp < 2) {
                         errd = 7;
                     }
                     if (errd == 0) {
@@ -5828,7 +5828,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     savefile();
                     errd = 0;
                     readstage(3);
-                    if (CheckPoints.nsp < 2) {
+                    if (nfm.open.CheckPoints.nsp < 2) {
                         errd = 7;
                     }
                     rd.setFont(FontConstants.arial_12);
@@ -6411,9 +6411,9 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
          * do this only on build screen
          */
         if (toggle_drawmouse && tab == 1) {
-            rd.drawString("mouse x: " + ((xm - 505) * (Math.abs(sy) / Medium.focusPoint) + sx), 252, 75);
-            rd.drawString("mouse z: " + ((290 - ym) * (Math.abs(sy) / Medium.focusPoint) + sz), 252, 90);
-            rd.drawString("mouse y: " + (Medium.ground - bco[selectedPart].grat), 252, 105);
+            rd.drawString("mouse x: " + ((xm - 505) * (Math.abs(sy) / nfm.open.Medium.focusPoint) + sx), 252, 75);
+            rd.drawString("mouse z: " + ((290 - ym) * (Math.abs(sy) / nfm.open.Medium.focusPoint) + sz), 252, 90);
+            rd.drawString("mouse y: " + (nfm.open.Medium.ground - bco[selectedPart].grat), 252, 105);
             rd.drawString("rotation: " + (rot + adrot), 252, 120);
             rd.drawString("attach points: " + Arrays.toString(atp[selectedPart]), 252, 135);
         }
@@ -6699,25 +6699,25 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
         //rd.drawRect(dragOriginX, dragOriginY, mouseDragToX, mouseDragToY);
 
         final int[] aX = {
-                dragOriginX - Medium.x, mouseDragToX - Medium.x
+                dragOriginX - nfm.open.Medium.x, mouseDragToX - nfm.open.Medium.x
         };
         final int[] aZ = {
-                dragOriginY - Medium.z, mouseDragToY - Medium.z
+                dragOriginY - nfm.open.Medium.z, mouseDragToY - nfm.open.Medium.z
         };
         final int[] aY = {
-                Medium.ground - Medium.y, Medium.ground - Medium.y, Medium.ground - Medium.y, Medium.ground - Medium.y
+                nfm.open.Medium.ground - nfm.open.Medium.y, nfm.open.Medium.ground - nfm.open.Medium.y, nfm.open.Medium.ground - nfm.open.Medium.y, nfm.open.Medium.ground - nfm.open.Medium.y
         };
 
-        medium_rot(aX, aZ, Medium.cx, Medium.cz, Medium.xz, asin_m_xz, acos_m_xz, 2);
-        medium_rot(aY, aZ, Medium.cy, Medium.cz, Medium.zy, asin_m_zy, acos_m_zy, 2);
-        medium_rot(aX, aY, Medium.cx, Medium.cy, __m_xy, asin_m_xy, acos_m_xy, 2);
+        medium_rot(aX, aZ, nfm.open.Medium.cx, nfm.open.Medium.cz, nfm.open.Medium.xz, asin_m_xz, acos_m_xz, 2);
+        medium_rot(aY, aZ, nfm.open.Medium.cy, nfm.open.Medium.cz, nfm.open.Medium.zy, asin_m_zy, acos_m_zy, 2);
+        medium_rot(aX, aY, nfm.open.Medium.cx, nfm.open.Medium.cy, __m_xy, asin_m_xy, acos_m_xy, 2);
         final int[] x2d = new int[2];
         final int[] y2d = new int[2];
 
-        x2d[0] = Utility.xs(aX[0], aZ[0], Medium);
-        y2d[0] = Utility.mediumYs(aY[0], aZ[0], Medium);
-        x2d[1] = Utility.xs(aX[1], aZ[1], Medium);
-        y2d[1] = Utility.mediumYs(aY[1], aZ[1], Medium);
+        x2d[0] = Utility.xs(aX[0], aZ[0]);
+        y2d[0] = Utility.mediumYs(aY[0], aZ[0]);
+        x2d[1] = Utility.xs(aX[1], aZ[1]);
+        y2d[1] = Utility.mediumYs(aY[1], aZ[1]);
 
         rd.setColor(Color.green);
         if (x2d[1] - x2d[0] < 0 || y2d[1] - y2d[0] < 0) {
@@ -6748,10 +6748,10 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 final int[] x2d = new int[2];
                 final int[] y2d = new int[2];
 
-                x2d[0] = Utility.xs(aX[0], aZ[0], Medium);
-                y2d[0] = Utility.mediumYs(aY[0], aZ[0], Medium);
-                x2d[1] = Utility.xs(aX[1], aZ[1], Medium);
-                y2d[1] = Utility.mediumYs(aY[1], aZ[1], Medium);
+                x2d[0] = Utility.xs(aX[0], aZ[0]);
+                y2d[0] = Utility.mediumYs(aY[0], aZ[0]);
+                x2d[1] = Utility.xs(aX[1], aZ[1]);
+                y2d[1] = Utility.mediumYs(aY[1], aZ[1]);
 
                 rd.setColor(Color.green);
                 rd.drawLine(x2d[0], y2d[0], x2d[1], y2d[1]);
@@ -6767,17 +6767,17 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     private static void getHighlightedPiece() {
         int i41 = 0;
         for (int i42 = 0; i42 < nob; i42++) {
-            final int i43 = Medium.cx + (int) ((co[i42].x - Medium.x - Medium.cx) * Medium.cos(Medium.xz) - (co[i42].z - Medium.z - Medium.cz) * Medium.sin(Medium.xz));
-            final int i44 = Medium.cz + (int) ((co[i42].x - Medium.x - Medium.cx) * Medium.sin(Medium.xz) + (co[i42].z - Medium.z - Medium.cz) * Medium.cos(Medium.xz));
-            final int i45 = Medium.cy + (int) ((co[i42].y - Medium.y - Medium.cy) * Medium.cos(Medium.zy) - (i44 - Medium.cz) * Medium.sin(Medium.zy));
-            final int i46 = Medium.cz + (int) ((co[i42].y - Medium.y - Medium.cy) * Medium.sin(Medium.zy) + (i44 - Medium.cz) * Medium.cos(Medium.zy));
-            if (xm > Utility.xs(i43 - co[i42].maxR, i46, Medium) && xm < Utility.xs(i43 + co[i42].maxR, i46, Medium) && ym > Utility.ys(i45 - co[i42].maxR, i46, Medium) && ym < Utility.ys(i45 + co[i42].maxR, i46, Medium) && co[i42].partID != 37 && co[i42].partID != 38)
+            final int i43 = nfm.open.Medium.cx + (int) ((co[i42].x - nfm.open.Medium.x - nfm.open.Medium.cx) * nfm.open.Medium.cos(nfm.open.Medium.xz) - (co[i42].z - nfm.open.Medium.z - nfm.open.Medium.cz) * nfm.open.Medium.sin(nfm.open.Medium.xz));
+            final int i44 = nfm.open.Medium.cz + (int) ((co[i42].x - nfm.open.Medium.x - nfm.open.Medium.cx) * nfm.open.Medium.sin(nfm.open.Medium.xz) + (co[i42].z - nfm.open.Medium.z - nfm.open.Medium.cz) * nfm.open.Medium.cos(nfm.open.Medium.xz));
+            final int i45 = nfm.open.Medium.cy + (int) ((co[i42].y - nfm.open.Medium.y - nfm.open.Medium.cy) * nfm.open.Medium.cos(nfm.open.Medium.zy) - (i44 - nfm.open.Medium.cz) * nfm.open.Medium.sin(nfm.open.Medium.zy));
+            final int i46 = nfm.open.Medium.cz + (int) ((co[i42].y - nfm.open.Medium.y - nfm.open.Medium.cy) * nfm.open.Medium.sin(nfm.open.Medium.zy) + (i44 - nfm.open.Medium.cz) * nfm.open.Medium.cos(nfm.open.Medium.zy));
+            if (xm > Utility.xs(i43 - co[i42].maxR, i46) && xm < Utility.xs(i43 + co[i42].maxR, i46) && ym > Utility.ys(i45 - co[i42].maxR, i46) && ym < Utility.ys(i45 + co[i42].maxR, i46) && co[i42].partID != 37 && co[i42].partID != 38)
                 if (hi == -1) {
                     hi = i42;
-                    i41 = py(xm, Utility.xs(i43, i46, Medium), ym, Utility.ys(i45, i46, Medium));
-                } else if (py(xm, Utility.xs(i43, i46, Medium), ym, Utility.ys(i45, i46, Medium)) <= i41) {
+                    i41 = py(xm, Utility.xs(i43, i46), ym, Utility.ys(i45, i46));
+                } else if (py(xm, Utility.xs(i43, i46), ym, Utility.ys(i45, i46)) <= i41) {
                     hi = i42;
-                    i41 = py(xm, Utility.xs(i43, i46, Medium), ym, Utility.ys(i45, i46, Medium));
+                    i41 = py(xm, Utility.xs(i43, i46), ym, Utility.ys(i45, i46));
                 }
         }
     }
@@ -6823,20 +6823,20 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 //bco[selectedPart].x = (xm - 505) * (Math.abs(sy) / Medium.focusPoint) + sx;
                 //bco[selectedPart].z = (290 - ym) * (Math.abs(sy) / Medium.focusPoint) + sz;
                 //
-                int x = co[b].x - Medium.x - Medium.cx;// / 30;
-                int y = co[b].y - Medium.y - Medium.cy;// / 30;
-                int z = co[b].z - Medium.z - Medium.cz;// / 30;
-                int[] a = rotSingle(x, z, Medium.cx, Medium.cz, Medium.xz, asin_m_xz, acos_m_xz);
+                int x = co[b].x - nfm.open.Medium.x - nfm.open.Medium.cx;// / 30;
+                int y = co[b].y - nfm.open.Medium.y - nfm.open.Medium.cy;// / 30;
+                int z = co[b].z - nfm.open.Medium.z - nfm.open.Medium.cz;// / 30;
+                int[] a = rotSingle(x, z, nfm.open.Medium.cx, nfm.open.Medium.cz, nfm.open.Medium.xz, asin_m_xz, acos_m_xz);
                 x = a[0];
                 z = a[1];
-                a = rotSingle(y, z, Medium.cy, Medium.cz, Medium.zy, asin_m_zy, acos_m_zy);
+                a = rotSingle(y, z, nfm.open.Medium.cy, nfm.open.Medium.cz, nfm.open.Medium.zy, asin_m_zy, acos_m_zy);
                 y = a[0];
                 z = a[1];
-                a = rotSingle(x, y, Medium.cx, Medium.cy, __m_xy, asin_m_xy, acos_m_xy);
+                a = rotSingle(x, y, nfm.open.Medium.cx, nfm.open.Medium.cy, __m_xy, asin_m_xy, acos_m_xy);
                 x = a[0];
                 y = a[1];
-                final int x2d = Utility.xs(x, z, Medium);
-                final int y2d = Utility.ys(y, z, Medium); //mediumys maybe
+                final int x2d = Utility.xs(x, z);
+                final int y2d = Utility.ys(y, z); //mediumys maybe
 
                 rd.drawString("id: " + b, x2d, y2d);
             }
@@ -6954,13 +6954,13 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
      * Sortop.
      */
     private static void sortop() {
-        tstage = "snap(" + Medium.snap[0] + "," + Medium.snap[1] + "," + Medium.snap[2] + ")\r\nsky(" + csky[0] + "," + csky[1] + "," + csky[2] + ")\r\nfog(" + cfade[0] + "," + cfade[1] + "," + cfade[2] + ")\r\nclouds(" + cldd[0] + "," + cldd[1] + "," + cldd[2] + "," + cldd[3] + "," + cldd[4] + ")\r\nground(" + cgrnd[0] + "," + cgrnd[1] + "," + cgrnd[2] + ")\r\ntexture(" + texture[0] + "," + texture[1] + "," + texture[2] + "," + texture[3] + ")\r\nfadefrom(" + origfade + ")\r\ndensity(" + ((Medium.fogd + 1) / 2 - 1) + ")\r\nmountains(" + Medium.mgen + ")\r\nnlaps(" + CheckPoints.nlaps + ")\r\n";
+        tstage = "snap(" + nfm.open.Medium.snap[0] + "," + nfm.open.Medium.snap[1] + "," + nfm.open.Medium.snap[2] + ")\r\nsky(" + csky[0] + "," + csky[1] + "," + csky[2] + ")\r\nfog(" + cfade[0] + "," + cfade[1] + "," + cfade[2] + ")\r\nclouds(" + cldd[0] + "," + cldd[1] + "," + cldd[2] + "," + cldd[3] + "," + cldd[4] + ")\r\nground(" + cgrnd[0] + "," + cgrnd[1] + "," + cgrnd[2] + ")\r\ntexture(" + texture[0] + "," + texture[1] + "," + texture[2] + "," + texture[3] + ")\r\nfadefrom(" + origfade + ")\r\ndensity(" + ((nfm.open.Medium.fogd + 1) / 2 - 1) + ")\r\nmountains(" + nfm.open.Medium.mgen + ")\r\nnlaps(" + nfm.open.CheckPoints.nlaps + ")\r\n";
         if (!trackname.equals("")) {
 
             tstage = tstage + "soundtrack(" + trackname + "," + trackvol + "," + tracksize + ")\r\n";
         }
         for (int i = 0; i < 3; i++) {
-            snap[i] = (int) (Medium.snap[i] / 1.2F + 50.0F);
+            snap[i] = (int) (nfm.open.Medium.snap[i] / 1.2F + 50.0F);
         }
         if (snap[0] + snap[1] + snap[2] <= 110) {
 
@@ -7210,7 +7210,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 }
             }
         int i271 = 1;
-        for (int i272 = 0; i272 < CheckPoints.nsp; i272++) {
+        for (int i272 = 0; i272 < nfm.open.CheckPoints.nsp; i272++) {
             for (int i273 = 0; i273 < nob; i273++)
                 if (co[i273].wh == i272 + 1 && (co[i273].partID == ONROAD_CHECKPOINT_SET_ID || Utility.arrayContains(CHECKPOINT_IDS, co[i273].partID) || co[i273].partID == OFFROAD_CHECKPOINT_SET_ID || co[i273].partID == FLYING_CHECKPOINT_SET_ID)) {
                     int i274 = -1;
@@ -7610,8 +7610,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
         }
     }
 
-    private static TextEditor te;
-
     /**
      * Rot single.
      *
@@ -7684,8 +7682,8 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             p.y += 225;
             moveMouse(p);
         }
-        mouseDragToX = (xm - 505) * (Math.abs(sy) / Medium.focusPoint) + sx;
-        mouseDragToY = (290 - ym) * (Math.abs(sy) / Medium.focusPoint) + sz;
+        mouseDragToX = (xm - 505) * (Math.abs(sy) / nfm.open.Medium.focusPoint) + sx;
+        mouseDragToY = (290 - ym) * (Math.abs(sy) / nfm.open.Medium.focusPoint) + sz;
 
     }
 
@@ -7775,8 +7773,8 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
         aMouseState = 1;
         requestFocus();
         focuson = true;
-        dragOriginX = (xm - 505) * (Math.abs(sy) / Medium.focusPoint) + sx;
-        dragOriginY = (290 - ym) * (Math.abs(sy) / Medium.focusPoint) + sz;
+        dragOriginX = (xm - 505) * (Math.abs(sy) / nfm.open.Medium.focusPoint) + sx;
+        dragOriginY = (290 - ym) * (Math.abs(sy) / nfm.open.Medium.focusPoint) + sz;
     }
 
     /* (non-Javadoc)
@@ -8071,12 +8069,12 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
      * aroundtrack that updates the fake fields.
      */
     private static void fakeAroundTrack() {
-        Medium.aroundtrack(CheckPoints);
-        fakezy = Medium.zy;
-        vxz = Medium.xz;
-        vx = Medium.x;
-        vz = Medium.z;
-        vy = Medium.y;
+        nfm.open.Medium.aroundtrack();
+        fakezy = nfm.open.Medium.zy;
+        vxz = nfm.open.Medium.xz;
+        vx = nfm.open.Medium.x;
+        vz = nfm.open.Medium.z;
+        vy = nfm.open.Medium.y;
     }
 
     static void guessWhosBack() {
@@ -8109,32 +8107,32 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
 
     private static void drawNodePath() {
 
-        for (int i = 0; i < CheckPoints.n - 1; i++) {
+        for (int i = 0; i < nfm.open.CheckPoints.n - 1; i++) {
             /*if (playerPos[i].dist == 0) {
                 playerPos[i].d(rd);
             }
             playerPos[i].d(rd);*/
 
             final int[] aX = {
-                    CheckPoints.x[i] - Medium.x, CheckPoints.x[i + 1] - Medium.x
+                    nfm.open.CheckPoints.x[i] - nfm.open.Medium.x, nfm.open.CheckPoints.x[i + 1] - nfm.open.Medium.x
             };
             final int[] aY = {
-                    CheckPoints.y[i] - Medium.y, CheckPoints.y[i + 1] - Medium.y
+                    nfm.open.CheckPoints.y[i] - nfm.open.Medium.y, nfm.open.CheckPoints.y[i + 1] - nfm.open.Medium.y
             };
             final int[] aZ = {
-                    CheckPoints.z[i] - Medium.z, CheckPoints.z[i + 1] - Medium.z
+                    nfm.open.CheckPoints.z[i] - nfm.open.Medium.z, nfm.open.CheckPoints.z[i + 1] - nfm.open.Medium.z
             };
 
-            medium_rot(aX, aZ, Medium.cx, Medium.cz, Medium.xz, asin_m_xz, acos_m_xz, 2);
-            medium_rot(aY, aZ, Medium.cy, Medium.cz, Medium.zy, asin_m_zy, acos_m_zy, 2);
-            medium_rot(aX, aY, Medium.cx, Medium.cy, __m_xy, asin_m_xy, acos_m_xy, 2);
+            medium_rot(aX, aZ, nfm.open.Medium.cx, nfm.open.Medium.cz, nfm.open.Medium.xz, asin_m_xz, acos_m_xz, 2);
+            medium_rot(aY, aZ, nfm.open.Medium.cy, nfm.open.Medium.cz, nfm.open.Medium.zy, asin_m_zy, acos_m_zy, 2);
+            medium_rot(aX, aY, nfm.open.Medium.cx, nfm.open.Medium.cy, __m_xy, asin_m_xy, acos_m_xy, 2);
             final int[] x2d = new int[2];
             final int[] y2d = new int[2];
 
-            x2d[0] = Utility.xs(aX[0], aZ[0], Medium);
-            y2d[0] = Utility.mediumYs(aY[0], aZ[0], Medium);
-            x2d[1] = Utility.xs(aX[1], aZ[1], Medium);
-            y2d[1] = Utility.mediumYs(aY[1], aZ[1], Medium);
+            x2d[0] = Utility.xs(aX[0], aZ[0]);
+            y2d[0] = Utility.mediumYs(aY[0], aZ[0]);
+            x2d[1] = Utility.xs(aX[1], aZ[1]);
+            y2d[1] = Utility.mediumYs(aY[1], aZ[1]);
 
             rd.setColor(Color.magenta);
             rd.drawLine(x2d[0], y2d[0], x2d[1], y2d[1]);

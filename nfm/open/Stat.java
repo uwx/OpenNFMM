@@ -131,39 +131,39 @@ public class Stat {
         this.enginsignature = clone.enginsignature;
     }
 
-    public Stat(int cn, CarDefine cd) {
-        this.swits = cd.swits[cn].clone();
-        this.acelf = cd.acelf[cn].clone();
+    public Stat(int cn) {
+        this.swits = CarDefine.swits[cn].clone();
+        this.acelf = CarDefine.acelf[cn].clone();
 
-        this.handb = cd.handb[cn];
-        this.airs = cd.airs[cn];
-        this.airc = cd.airc[cn];
-        this.turn = cd.turn[cn];
-        this.grip = cd.grip[cn];
-        this.bounce = cd.bounce[cn];
-        this.simag = cd.simag[cn];
-        this.moment = cd.moment[cn];
-        this.comprad = cd.comprad[cn];
-        this.push = cd.push[cn];
-        this.revpush = cd.revpush[cn];
-        this.lift = cd.lift[cn];
-        this.revlift = cd.revlift[cn];
-        this.powerloss = cd.powerloss[cn];
-        this.flipy = cd.flipy[cn];
-        this.msquash = cd.msquash[cn];
-        this.clrad = cd.clrad[cn];
-        this.dammult = cd.dammult[cn];
-        this.maxmag = cd.maxmag[cn];
-        this.dishandle = cd.dishandle[cn];
-        this.outdam = cd.outdam[cn];
-        this.cclass = cd.cclass[cn];
-        this.names = cd.names[cn];
-        this.enginsignature = cd.enginsignature[cn];
+        this.handb = CarDefine.handb[cn];
+        this.airs = CarDefine.airs[cn];
+        this.airc = CarDefine.airc[cn];
+        this.turn = CarDefine.turn[cn];
+        this.grip = CarDefine.grip[cn];
+        this.bounce = CarDefine.bounce[cn];
+        this.simag = CarDefine.simag[cn];
+        this.moment = CarDefine.moment[cn];
+        this.comprad = CarDefine.comprad[cn];
+        this.push = CarDefine.push[cn];
+        this.revpush = CarDefine.revpush[cn];
+        this.lift = CarDefine.lift[cn];
+        this.revlift = CarDefine.revlift[cn];
+        this.powerloss = CarDefine.powerloss[cn];
+        this.flipy = CarDefine.flipy[cn];
+        this.msquash = CarDefine.msquash[cn];
+        this.clrad = CarDefine.clrad[cn];
+        this.dammult = CarDefine.dammult[cn];
+        this.maxmag = CarDefine.maxmag[cn];
+        this.dishandle = CarDefine.dishandle[cn];
+        this.outdam = CarDefine.outdam[cn];
+        this.cclass = CarDefine.cclass[cn];
+        this.names = CarDefine.names[cn];
+        this.enginsignature = CarDefine.enginsignature[cn];
 
         if (cn >= CarDefine.SIXTEEN) {
-            include = cd.include[cn];
-            createdby = cd.createdby[cn];
-            publish = cd.publish[cn];
+            include = CarDefine.include[cn];
+            createdby = CarDefine.createdby[cn];
+            publish = CarDefine.publish[cn];
         }
     }
 }

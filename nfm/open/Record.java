@@ -5,109 +5,107 @@ package nfm.open;
 import java.awt.Color;
 
 class Record {
-    final ContO[][] car = new ContO[6][8];
-    int caught = 0;
-    private final int[] checkpoint = new int[300];
-    int closefinish = 0;
-    final int[] cntdest = new int[8];
-    private int cntf = 50;
-    final int[] dest = new int[8];
-    final int[] fix = new int[8];
-    boolean hcaught = false;
-    private final int[] hcheckpoint = new int[300];
-    private final int[] hdest = {
+    static final ContO[][] car = new ContO[6][8];
+    static int caught = 0;
+    static private final int[] checkpoint = new int[300];
+    static int closefinish = 0;
+    static final int[] cntdest = new int[8];
+    static private int cntf = 50;
+    static final int[] dest = new int[8];
+    static final int[] fix = new int[8];
+    static boolean hcaught = false;
+    static private final int[] hcheckpoint = new int[300];
+    static private final int[] hdest = {
             -1, -1, -1, -1, -1, -1, -1, -1
     };
-    final int[] hfix = {
+    static final int[] hfix = {
             -1, -1, -1, -1, -1, -1, -1, -1
     };
-    private final boolean[] hlastcheck = new boolean[300];
-    private final int[][][] hmagx = new int[8][4][7];
-    private final int[][][] hmagy = new int[8][4][7];
-    private final int[][][] hmagz = new int[8][4][7];
-    private final boolean[][] hmtouch = new boolean[8][7];
-    private final float[][] hrcx = new float[8][200];
-    private final float[][] hrcy = new float[8][200];
-    private final float[][] hrcz = new float[8][200];
-    private final int[][] hrspark = new int[8][200];
-    private final int[][][] hrx = new int[8][4][7];
-    private final int[][][] hry = new int[8][4][7];
-    private final int[][][] hrz = new int[8][4][7];
-    private final int[][][] hscx = new int[8][20][30];
-    private final int[][][] hscz = new int[8][20][30];
-    private final float[][][] hsmag = new float[8][20][30];
-    private final int[][] hsprk = new int[8][200];
-    private final int[] hsquash = {
+    static private final boolean[] hlastcheck = new boolean[300];
+    static private final int[][][] hmagx = new int[8][4][7];
+    static private final int[][][] hmagy = new int[8][4][7];
+    static private final int[][][] hmagz = new int[8][4][7];
+    static private final boolean[][] hmtouch = new boolean[8][7];
+    static private final float[][] hrcx = new float[8][200];
+    static private final float[][] hrcy = new float[8][200];
+    static private final float[][] hrcz = new float[8][200];
+    static private final int[][] hrspark = new int[8][200];
+    static private final int[][][] hrx = new int[8][4][7];
+    static private final int[][][] hry = new int[8][4][7];
+    static private final int[][][] hrz = new int[8][4][7];
+    static private final int[][][] hscx = new int[8][20][30];
+    static private final int[][][] hscz = new int[8][20][30];
+    static private final float[][][] hsmag = new float[8][20][30];
+    static private final int[][] hsprk = new int[8][200];
+    static private final int[] hsquash = {
             0, 0, 0, 0, 0, 0, 0, 0
     };
-    private final int[][] hsrx = new int[8][200];
-    private final int[][] hsry = new int[8][200];
-    private final int[][] hsrz = new int[8][200];
-    private final int[][][] hsspark = new int[8][20][30];
-    private final int[][][] hsx = new int[8][20][30];
-    private final int[][][] hsy = new int[8][20][30];
-    private final int[][][] hsz = new int[8][20][30];
-    private final int[][] hwxz = new int[300][8];
-    private final int[][] hwzy = new int[300][8];
-    private final int[][] hx = new int[300][8];
-    private final int[][] hxy = new int[300][8];
-    private final int[][] hxz = new int[300][8];
-    private final int[][] hy = new int[300][8];
-    private final int[][] hz = new int[300][8];
-    private final int[][] hzy = new int[300][8];
-    private final boolean[] lastcheck = new boolean[300];
-    private int lastfr = 0;
-    private final Medium m;
-    private final int[][][] magx = new int[8][4][7];
-    private final int[][][] magy = new int[8][4][7];
-    private final int[][][] magz = new int[8][4][7];
-    private final boolean[][] mtouch = new boolean[8][7];
-    private final int[] nr = new int[8];
-    private final int[][] nrx = new int[8][4];
-    private final int[][] nry = new int[8][4];
-    private final int[][] nrz = new int[8][4];
-    private final int[][] ns = new int[8][20];
-    final ContO[] ocar = new ContO[8];
-    int powered = 0;
-    private boolean prepit = true;
-    private final float[][] rcx = new float[8][200];
-    private final float[][] rcy = new float[8][200];
-    private final float[][] rcz = new float[8][200];
-    private final int[][] rspark = new int[8][200];
-    private final int[][][] rx = new int[8][4][7];
-    private final int[][][] ry = new int[8][4][7];
-    private final int[][][] rz = new int[8][4][7];
-    private final int[][][] scx = new int[8][20][30];
-    private final int[][][] scz = new int[8][20][30];
-    private final float[][][] smag = new float[8][20][30];
-    private final int[][] sprk = new int[8][200];
-    private final int[][] squash = new int[6][8];
-    private final int[][] srx = new int[8][200];
-    private final int[][] sry = new int[8][200];
-    private final int[][] srz = new int[8][200];
-    private final int[][][] sspark = new int[8][20][30];
-    final ContO[] starcar = new ContO[8];
-    private final int[][][] sx = new int[8][20][30];
-    private final int[][][] sy = new int[8][20][30];
-    private final int[][][] sz = new int[8][20][30];
-    int wasted = 0;
-    int whenwasted = 0;
-    private final int[][] wxz = new int[300][8];
-    private final int[][] wzy = new int[300][8];
-    private final int[][] x = new int[300][8];
-    private final int[][] xy = new int[300][8];
-    private final int[][] xz = new int[300][8];
-    private final int[][] y = new int[300][8];
-    private final int[][] z = new int[300][8];
-    private final int[][] zy = new int[300][8];
+    static private final int[][] hsrx = new int[8][200];
+    static private final int[][] hsry = new int[8][200];
+    static private final int[][] hsrz = new int[8][200];
+    static private final int[][][] hsspark = new int[8][20][30];
+    static private final int[][][] hsx = new int[8][20][30];
+    static private final int[][][] hsy = new int[8][20][30];
+    static private final int[][][] hsz = new int[8][20][30];
+    static private final int[][] hwxz = new int[300][8];
+    static private final int[][] hwzy = new int[300][8];
+    static private final int[][] hx = new int[300][8];
+    static private final int[][] hxy = new int[300][8];
+    static private final int[][] hxz = new int[300][8];
+    static private final int[][] hy = new int[300][8];
+    static private final int[][] hz = new int[300][8];
+    static private final int[][] hzy = new int[300][8];
+    static private final boolean[] lastcheck = new boolean[300];
+    static private int lastfr = 0;
+    static private final int[][][] magx = new int[8][4][7];
+    static private final int[][][] magy = new int[8][4][7];
+    static private final int[][][] magz = new int[8][4][7];
+    static private final boolean[][] mtouch = new boolean[8][7];
+    static private final int[] nr = new int[8];
+    static private final int[][] nrx = new int[8][4];
+    static private final int[][] nry = new int[8][4];
+    static private final int[][] nrz = new int[8][4];
+    static private final int[][] ns = new int[8][20];
+    static final ContO[] ocar = new ContO[8];
+    static int powered = 0;
+    static private boolean prepit = true;
+    static private final float[][] rcx = new float[8][200];
+    static private final float[][] rcy = new float[8][200];
+    static private final float[][] rcz = new float[8][200];
+    static private final int[][] rspark = new int[8][200];
+    static private final int[][][] rx = new int[8][4][7];
+    static private final int[][][] ry = new int[8][4][7];
+    static private final int[][][] rz = new int[8][4][7];
+    static private final int[][][] scx = new int[8][20][30];
+    static private final int[][][] scz = new int[8][20][30];
+    static private final float[][][] smag = new float[8][20][30];
+    static private final int[][] sprk = new int[8][200];
+    static private final int[][] squash = new int[6][8];
+    static private final int[][] srx = new int[8][200];
+    static private final int[][] sry = new int[8][200];
+    static private final int[][] srz = new int[8][200];
+    static private final int[][][] sspark = new int[8][20][30];
+    static final ContO[] starcar = new ContO[8];
+    static private final int[][][] sx = new int[8][20][30];
+    static private final int[][][] sy = new int[8][20][30];
+    static private final int[][][] sz = new int[8][20][30];
+    static int wasted = 0;
+    static int whenwasted = 0;
+    static private final int[][] wxz = new int[300][8];
+    static private final int[][] wzy = new int[300][8];
+    static private final int[][] x = new int[300][8];
+    static private final int[][] xy = new int[300][8];
+    static private final int[][] xz = new int[300][8];
+    static private final int[][] y = new int[300][8];
+    static private final int[][] z = new int[300][8];
+    static private final int[][] zy = new int[300][8];
 
-    Record(final Medium medium) {
-        m = medium;
+    Record() {
         caught = 0;
         cotchinow(0);
     }
 
-    private void chipx(final int i, float f, final ContO conto, final Mad mad) {
+    static private void chipx(final int i, float f, final ContO conto, final Mad mad) {
         if (Math.abs(f) > 100.0F) {
             if (f > 100.0F) {
                 f -= 100.0F;
@@ -119,7 +117,7 @@ class Record {
                 float f69 = 0.0F;
                 for (int i70 = 0; i70 < conto.p[i68].n; i70++)
                     if (conto.p[i68].wz == 0 && py(conto.keyx[i], conto.p[i68].ox[i70], conto.keyz[i], conto.p[i68].oz[i70]) < mad.stat.clrad) {
-                        f69 = f / 20.0F * m.random();
+                        f69 = f / 20.0F * Medium.random();
                     }
                 if (f69 != 0.0F && Math.abs(f69) >= 1.0F) {
                     conto.p[i68].chip = 1;
@@ -129,7 +127,7 @@ class Record {
         }
     }
 
-    private void chipz(final int i, float f, final ContO conto, final Mad mad) {
+    static private void chipz(final int i, float f, final ContO conto, final Mad mad) {
         if (Math.abs(f) > 100.0F) {
             if (f > 100.0F) {
                 f -= 100.0F;
@@ -141,7 +139,7 @@ class Record {
                 float f72 = 0.0F;
                 for (int i73 = 0; i73 < conto.p[i71].n; i73++)
                     if (conto.p[i71].wz == 0 && py(conto.keyx[i], conto.p[i71].ox[i73], conto.keyz[i], conto.p[i71].oz[i73]) < mad.stat.clrad) {
-                        f72 = f / 20.0F * m.random();
+                        f72 = f / 20.0F * Medium.random();
                     }
                 if (f72 != 0.0F && Math.abs(f72) >= 1.0F) {
                     conto.p[i71].chip = 1;
@@ -151,7 +149,7 @@ class Record {
         }
     }
 
-    void cotchinow(final int i) {
+    static void cotchinow(final int i) {
         if (caught >= 300) {
             wasted = i;
             for (int i6 = 0; i6 < 8; i6++) {
@@ -216,7 +214,7 @@ class Record {
         }
     }
 
-    void play(final ContO conto, final Mad mad, final int i, final int i30) {
+    static void play(final ContO conto, final Mad mad, final int i, final int i30) {
         conto.x = x[i30][i];
         conto.y = y[i30][i];
         conto.z = z[i30][i];
@@ -226,8 +224,8 @@ class Record {
         conto.wxz = wxz[i30][i];
         conto.wzy = wzy[i30][i];
         if (i == 0) {
-            conto.m.checkpoint = checkpoint[i30];
-            conto.m.lastcheck = lastcheck[i30];
+            Medium.checkpoint = checkpoint[i30];
+            Medium.lastcheck = lastcheck[i30];
         }
         if (i30 == 0) {
             cntdest[i] = 0;
@@ -285,7 +283,7 @@ class Record {
         }
     }
 
-    void playh(final ContO conto, final Mad mad, final int i, final int i38, final int i39) {
+    static void playh(final ContO conto, final Mad mad, final int i, final int i38, final int i39) {
         conto.x = hx[i38][i];
         conto.y = hy[i38][i];
         conto.z = hz[i38][i];
@@ -295,8 +293,8 @@ class Record {
         conto.wxz = hwxz[i38][i];
         conto.wzy = hwzy[i38][i];
         if (i == i39) {
-            conto.m.checkpoint = hcheckpoint[i38];
-            conto.m.lastcheck = hlastcheck[i38];
+            Medium.checkpoint = hcheckpoint[i38];
+            Medium.lastcheck = hlastcheck[i38];
         }
         if (i38 == 0) {
             cntdest[i] = 0;
@@ -361,11 +359,11 @@ class Record {
         lastfr = i38;
     }
 
-    private int py(final int i, final int i74, final int i75, final int i76) {
+    static private int py(final int i, final int i74, final int i75, final int i76) {
         return (i - i74) * (i - i74) + (i75 - i76) * (i75 - i76);
     }
 
-    void rec(final ContO conto, final int i, final int i18, final int i19, final int i20, final int i21) {
+    static void rec(final ContO conto, final int i, final int i18, final int i19, final int i20, final int i21) {
         if (i == i21) {
             caught++;
         }
@@ -415,8 +413,8 @@ class Record {
                 checkpoint[i24] = checkpoint[i24 + 1];
                 lastcheck[i24] = lastcheck[i24 + 1];
             }
-            checkpoint[299] = conto.m.checkpoint;
-            lastcheck[299] = conto.m.lastcheck;
+            checkpoint[299] = Medium.checkpoint;
+            lastcheck[299] = Medium.lastcheck;
         }
         for (int i25 = 0; i25 < 20; i25++) {
             if (conto.stg != null && conto.stg[i25] == 1) {
@@ -462,7 +460,7 @@ class Record {
         }
     }
 
-    void recx(final int i, final float f, final int i48) {
+    static void recx(final int i, final float f, final int i48) {
         rx[i48][i][nry[i48][i]] = 300;
         magx[i48][i][nry[i48][i]] = (int) f;
         nrx[i48][i]++;
@@ -471,7 +469,7 @@ class Record {
         }
     }
 
-    void recy(final int i, final float f, final boolean bool, final int i47) {
+    static void recy(final int i, final float f, final boolean bool, final int i47) {
         ry[i47][i][nry[i47][i]] = 300;
         magy[i47][i][nry[i47][i]] = (int) f;
         mtouch[i47][nry[i47][i]] = bool;
@@ -481,7 +479,7 @@ class Record {
         }
     }
 
-    void recz(final int i, final float f, final int i49) {
+    static void recz(final int i, final float f, final int i49) {
         rz[i49][i][nry[i49][i]] = 300;
         magz[i49][i][nry[i49][i]] = (int) f;
         nrz[i49][i]++;
@@ -490,7 +488,7 @@ class Record {
         }
     }
 
-    private void regx(final int i, float f, final ContO conto, final Mad mad) {
+    static private void regx(final int i, float f, final ContO conto, final Mad mad) {
         if (Math.abs(f) > 100.0F) {
             if (f > 100.0F) {
                 f -= 100.0F;
@@ -502,9 +500,9 @@ class Record {
                 float f63 = 0.0F;
                 for (int i64 = 0; i64 < conto.p[i62].n; i64++)
                     if (conto.p[i62].wz == 0 && py(conto.keyx[i], conto.p[i62].ox[i64], conto.keyz[i], conto.p[i62].oz[i64]) < mad.stat.clrad) {
-                        f63 = f / 20.0F * m.random();
-                        conto.p[i62].oz[i64] -= f63 * m.sin(conto.xz) * m.cos(conto.zy);
-                        conto.p[i62].ox[i64] += f63 * m.cos(conto.xz) * m.cos(conto.xy);
+                        f63 = f / 20.0F * Medium.random();
+                        conto.p[i62].oz[i64] -= f63 * Medium.sin(conto.xz) * Medium.cos(conto.zy);
+                        conto.p[i62].ox[i64] += f63 * Medium.cos(conto.xz) * Medium.cos(conto.xy);
                     }
                 if (f63 != 0.0F) {
                     if (Math.abs(f63) >= 1.0F) {
@@ -551,7 +549,7 @@ class Record {
         }
     }
 
-    private void regy(final int i, float f, final boolean bool, final ContO conto, final Mad mad) {
+    static private void regy(final int i, float f, final boolean bool, final ContO conto, final Mad mad) {
         if (f > 100.0F) {
             f -= 100.0F;
             int i50 = 0;
@@ -587,9 +585,9 @@ class Record {
                     float f55 = 0.0F;
                     for (int i56 = 0; i56 < conto.p[i54].n; i56++)
                         if (conto.p[i54].wz == 0 && py(conto.keyx[i], conto.p[i54].ox[i56], conto.keyz[i], conto.p[i54].oz[i56]) < mad.stat.clrad) {
-                            f55 = f / 20.0F * m.random();
-                            conto.p[i54].oz[i56] += f55 * m.sin(i52);
-                            conto.p[i54].ox[i56] -= f55 * m.sin(i53);
+                            f55 = f / 20.0F * Medium.random();
+                            conto.p[i54].oz[i56] += f55 * Medium.sin(i52);
+                            conto.p[i54].ox[i56] -= f55 * Medium.sin(i53);
                         }
                     if (f55 != 0.0F) {
                         if (Math.abs(f55) >= 1.0F) {
@@ -641,7 +639,7 @@ class Record {
                     float f60 = 0.0F;
                     for (int i61 = 0; i61 < conto.p[i59].n; i61++)
                         if (conto.p[i59].wz == 0) {
-                            f60 = f / 15.0F * m.random();
+                            f60 = f / 15.0F * Medium.random();
                             if ((Math.abs(conto.p[i59].oy[i61] - mad.stat.flipy - squash[0][mad.im]) < mad.stat.msquash * 3 || conto.p[i59].oy[i61] < mad.stat.flipy + squash[0][mad.im]) && squash[0][mad.im] < mad.stat.msquash) {
                                 conto.p[i59].oy[i61] += f60;
                                 i57 += f60;
@@ -663,7 +661,7 @@ class Record {
         }
     }
 
-    private void regz(final int i, float f, final ContO conto, final Mad mad) {
+    static private void regz(final int i, float f, final ContO conto, final Mad mad) {
         if (Math.abs(f) > 100.0F) {
             if (f > 100.0F) {
                 f -= 100.0F;
@@ -675,9 +673,9 @@ class Record {
                 float f66 = 0.0F;
                 for (int i67 = 0; i67 < conto.p[i65].n; i67++)
                     if (conto.p[i65].wz == 0 && py(conto.keyx[i], conto.p[i65].ox[i67], conto.keyz[i], conto.p[i65].oz[i67]) < mad.stat.clrad) {
-                        f66 = f / 20.0F * m.random();
-                        conto.p[i65].oz[i67] += f66 * m.cos(conto.xz) * m.cos(conto.zy);
-                        conto.p[i65].ox[i67] += f66 * m.sin(conto.xz) * m.cos(conto.xy);
+                        f66 = f / 20.0F * Medium.random();
+                        conto.p[i65].oz[i67] += f66 * Medium.cos(conto.xz) * Medium.cos(conto.zy);
+                        conto.p[i65].ox[i67] += f66 * Medium.sin(conto.xz) * Medium.cos(conto.xy);
                     }
                 if (f66 != 0.0F) {
                     if (Math.abs(f66) >= 1.0F) {
@@ -724,7 +722,7 @@ class Record {
         }
     }
 
-    void reset(final ContO[] contos) {
+    static void reset(final ContO[] contos) {
         caught = 0;
         hcaught = false;
         wasted = 0;

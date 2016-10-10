@@ -5,27 +5,28 @@ package nfm.open;
  * JODE (c) 1998-2001 Jochen Hoenicke
  */
 class Trackers {
-    final int[][] c = new int[75000][3];
-    final int[] dam = new int[75000];
-    final boolean[] decor = new boolean[75000];
-    int ncx = 0;
-    int ncz = 0;
-    final boolean[] notwall = new boolean[75000];
-    int nt = 0;
-    final int[] radx = new int[75000];
-    final int[] rady = new int[75000];
-    final int[] radz = new int[75000];
-    int[][][] sect = null;
-    final int[] skd = new int[75000];
-    int sx = 0;
-    int sz = 0;
-    final int[] x = new int[75000];
-    final int[] xy = new int[75000];
-    final int[] y = new int[75000];
-    final int[] z = new int[75000];
-    final int[] zy = new int[75000];
+    //private Trackers() {}
+    static final int[][] c = new int[75000][3];
+    static final int[] dam = new int[75000];
+    static final boolean[] decor = new boolean[75000];
+    static int ncx = 0;
+    static int ncz = 0;
+    static final boolean[] notwall = new boolean[75000];
+    static int nt = 0;
+    static final int[] radx = new int[75000];
+    static final int[] rady = new int[75000];
+    static final int[] radz = new int[75000];
+    static int[][][] sect = null;
+    static final int[] skd = new int[75000];
+    static int sx = 0;
+    static int sz = 0;
+    static final int[] x = new int[75000];
+    static final int[] xy = new int[75000];
+    static final int[] y = new int[75000];
+    static final int[] z = new int[75000];
+    static final int[] zy = new int[75000];
 
-    void devidetrackers(final int i, final int i0, final int i1, final int i2) {
+    static void devidetrackers(final int i, final int i0, final int i1, final int i2) {
         sect = null;
         sx = i;
         sz = i1;
@@ -74,7 +75,7 @@ class Trackers {
         ncz--;
     }
 
-    private int py(final int i, final int i13, final int i14, final int i15) {
+    private static int py(final int i, final int i13, final int i14, final int i15) {
         return (i - i13) * (i - i13) + (i14 - i15) * (i14 - i15);
     }
 }
