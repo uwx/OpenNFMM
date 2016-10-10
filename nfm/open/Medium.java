@@ -1,4 +1,5 @@
 package nfm.open;
+
 /* Medium - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -162,7 +163,7 @@ public class Medium {
         }
     }
 
-    static void adjstfade(final float f, final float f271, final int i, final GameSparker gamesparker) {
+    static void adjstfade(final float f, final float f271, final int i) {
         if (resdown != 2)
             if (f == 5.0F) {
                 if (resdown == 0 && rescnt == 0) {
@@ -1721,7 +1722,7 @@ public class Medium {
         return rand[trn] / 10.0F;
     }
 
-    static private void rot(final int[] is, final int[] is274, final int i, final int i275, final int i276, final int i277) {
+    static void rot(final int[] is, final int[] is274, final int i, final int i275, final int i276, final int i277) {
         if (i276 != 0) {
             for (int i278 = 0; i278 < i277; i278++) {
                 final int i279 = is[i278];

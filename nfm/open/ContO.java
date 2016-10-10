@@ -1,4 +1,5 @@
 package nfm.open;
+
 /* ContO - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */

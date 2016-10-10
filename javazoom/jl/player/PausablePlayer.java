@@ -36,7 +36,12 @@ public class PausablePlayer {
         synchronized (playerLock) {
             switch (playerStatus) {
                 case NOTSTARTED:
-                    final Runnable r = () -> playInternal();
+                    final Runnable r = new Runnable() {
+                        @Override
+                        public void run() {
+                            playInternal();
+                        }
+                    };
                     final Thread t = new Thread(r);
                     t.setDaemon(true);
                     t.setPriority(Thread.MAX_PRIORITY);

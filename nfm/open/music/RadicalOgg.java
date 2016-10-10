@@ -10,14 +10,9 @@ class RadicalOgg implements RadicalMusic {
     private OggClip ogg;
 
     /**
-     * Sets up the RadicalMidi for playback. Use load() to load the file; Use
-     * play() to play (and loop) the file; use setPaused(true/false) to
-     * pause/resume the file; Use unload() to unload the file, then (preferably)
-     * set RadicalMidi to null; Use playMidi() or playMidi(int gain) or
-     * playMidi(int gain, int loops) to manually play a midi file.
+     * Sets up the RadicalMidi for playback. Use load() to load the file; Use play() to play (and loop) the file; use setPaused(true/false) to pause/resume the file; Use unload() to unload the file, then (preferably) set RadicalMidi to null; Use playMidi() or playMidi(int gain) or playMidi(int gain, int loops) to manually play a midi file.
      *
-     * @param fn
-     *            the file name of the file to load.
+     * @param fn the file name of the file to load.
      */
     public RadicalOgg(final String fn) {
         try {

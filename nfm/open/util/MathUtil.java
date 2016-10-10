@@ -277,10 +277,10 @@ public final class MathUtil {
     /*
      * Uses Newton's method, not sure if faster than ATOMS (which might use newton?)
      * from http://stackoverflow.com/a/21626924
-
+    
     private static final int debruijn= 0x07C4ACDD;
     //private static final long debruijn= ( ~0x0218A392CD3D5DBFL)>>>6;
-    
+
     static
     {
       for(int x= 0; x<32; ++x)
@@ -291,7 +291,7 @@ public final class MathUtil {
       for(int x= 0; x<32; ++x)
         SQRT[x]= (int) (Math.sqrt((1L<<DeBruijnArray[x])*Math.sqrt(2)));
     }
-    
+
     public static int sqrt(final int num)
     {
       int y;
@@ -313,31 +313,31 @@ public final class MathUtil {
       y= (y+num/y)>>>1;
       return y*y>num?y-1:y;
     }
-    
+
      */
 
     /*
     ATOMS
     Fast integer square roots in Java
-
+    
     Here are several fast integer square root methods, written in Java, including:
     sqrt(x) agrees completely with (int)(java.lang.Math.sqrt(x)) for x < 2147483648 (i.e. 2^31), while executing about three times faster than it1.
-
+    
     fast_sqrt(x) agrees completely with (int)(java.lang.Math.sqrt(x)) for x < 289 (and provides a reasonable approximation thereafter), while executing about five times faster than it1.
-
+    
     SquareRoot.java - fast integer square root class;
     SquareRootTest.java - basic speed and accuracy test class.
     Thanks to Paul Hsieh's square root page for the accurate algorithm.
     This code has been placed in the public domain.
-
+    
     Can you improve on the speed or accuracy of these methods (without chewing an "unreasonable" quantity of cache with a huge look-up table)?
-
+    
     If so, drop us a line, and hopefully we'll put your name up in lights.
-
+    
     [1: your mileage may vary]
-
-
-
+    
+    
+    
     tim@tt1.org | http://atoms.org.uk/
     */
 
@@ -601,7 +601,7 @@ public final class MathUtil {
             int t = 1<<30;
             int r = 0;
             int s;
-
+        
             s = t + r; r>>= 1;
             if (s <= x) { x -= s; r |= t;} t >>= 2;
             s = t + r; r>>= 1;
@@ -634,7 +634,7 @@ public final class MathUtil {
             if (s <= x) { x -= s; r |= t;} t >>= 2;
             s = t + r; r>>= 1;
             if (s <= x) { x -= s; r |= t;}
-
+        
             return r;
          }
         */
@@ -653,7 +653,7 @@ public final class MathUtil {
                if (guess * guess > val )
                   guess ^= bit;  // it was too much, unset the bit...
             } while ((bit >>= 1) != 0);
-
+        
             return guess;
          }
         */
@@ -665,31 +665,31 @@ public final class MathUtil {
         /*
          final static int BITS = 32;
          final static int NN = 0;  // range: 0...BITSPERLONG/2
-
+        
          final static int test_sqrt(int x) {
             int i;
             int a = 0;                   // accumulator...
             int e = 0;                   // trial product...
             int r;
-
+        
             r=0;                         // remainder...
-
+        
             for (i=0; i < (BITS/2) + NN; i++)
             {
                r <<= 2;
                r +=  (x >> (BITS - 2));
                x <<= 2;
-
+        
                a <<= 1;
                e = (a << 1)+1;
-
+        
                if(r >= e)
                {
                   r -= e;
                   a++;
                }
             }
-
+        
             return a;
          }
         */
@@ -703,7 +703,7 @@ public final class MathUtil {
             for(s = (r + (float)n / r) / 2.0F; r - s > 1.0F; s = (r + (float)n / r) / 2.0F) {
                r = s;
             }
-
+        
             return (int)s;
          }
         */
@@ -760,22 +760,22 @@ public final class MathUtil {
             /*
                // SquareRoot.mborg_sqrt()...
                oldtime = System.currentTimeMillis();
-
+            
                for (i = 0; i < N; i++) {
               temp = SquareRoot.mborg_sqrt(i & mask);
                }
-
+            
                newtime = System.currentTimeMillis();
                debug("SquareRoot.mborg_sqrt:" + (newtime - oldtime));
-
-
+            
+            
                // SquareRoot.test_sqrt()...
                oldtime = System.currentTimeMillis();
-
+            
                for (i = 0; i < N; i++) {
               temp = SquareRoot.test_sqrt(i & mask);
                }
-
+            
                newtime = System.currentTimeMillis();
                debug("SquareRoot.test_sqrt:" + (newtime - oldtime));
             */

@@ -1,4 +1,5 @@
 package nfm.open;
+
 /* Mad - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -78,6 +79,7 @@ class Mad {
     float ucomp = 0.0F;
     boolean wtouch = false;
     private int xtpower = 0;
+    int prevX, prevY, prevZ;
 
     Mad(final Stat stat, final int i) {
         this.stat = stat;
@@ -121,7 +123,9 @@ class Mad {
             if (!caught[mad118.im] && (speed != 0.0F || mad118.speed != 0.0F)) {
                 if (Math.abs(power * speed * stat.moment) != Math.abs(mad118.power * mad118.speed * mad118.stat.moment)) {
                     dominate[mad118.im] = Math.abs(power * speed * stat.moment) > Math.abs(mad118.power * mad118.speed * mad118.stat.moment);
-                } else dominate[mad118.im] = stat.moment > mad118.stat.moment;
+                } else {
+                    dominate[mad118.im] = stat.moment > mad118.stat.moment;
+                }
                 caught[mad118.im] = true;
             }
         } else if (caught[mad118.im]) {
@@ -1292,12 +1296,15 @@ class Mad {
         } else {
             cntouch = 0;
         }
+        prevX = conto.y;
         conto.y = (int) ((fs23[0] + fs23[1] + fs23[2] + fs23[3]) / 4.0F - i10 * Medium.cos(pzy) * Medium.cos(pxy) + f12);
         if (bool) {
             i = -1;
         } else {
             i = 1;
         }
+        prevX = conto.x;
+        prevZ = conto.z;
         conto.x = (int) ((fs[0] - conto.keyx[0] * Medium.cos(conto.xz) + i * conto.keyz[0] * Medium.sin(conto.xz) + fs[1] - conto.keyx[1] * Medium.cos(conto.xz) + i * conto.keyz[1] * Medium.sin(conto.xz) + fs[2] - conto.keyx[2] * Medium.cos(conto.xz) + i * conto.keyz[2] * Medium.sin(conto.xz) + fs[3] - conto.keyx[3] * Medium.cos(conto.xz) + i * conto.keyz[3] * Medium.sin(conto.xz)) / 4.0F + i10 * Medium.sin(pxy) * Medium.cos(conto.xz) - i10 * Medium.sin(pzy) * Medium.sin(conto.xz) + f);
         conto.z = (int) ((fs22[0] - i * conto.keyz[0] * Medium.cos(conto.xz) - conto.keyx[0] * Medium.sin(conto.xz) + fs22[1] - i * conto.keyz[1] * Medium.cos(conto.xz) - conto.keyx[1] * Medium.sin(conto.xz) + fs22[2] - i * conto.keyz[2] * Medium.cos(conto.xz) - conto.keyx[2] * Medium.sin(conto.xz) + fs22[3] - i * conto.keyz[3] * Medium.cos(conto.xz) - conto.keyx[3] * Medium.sin(conto.xz)) / 4.0F + i10 * Medium.sin(pxy) * Medium.sin(conto.xz) - i10 * Medium.sin(pzy) * Medium.cos(conto.xz) + f11);
         if (Math.abs(speed) > 10.0F || !mtouch) {

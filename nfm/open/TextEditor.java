@@ -1,12 +1,11 @@
 package nfm.open;
 
-import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
-import org.fife.ui.rtextarea.RTextScrollPane;
-import org.fife.ui.rtextarea.SearchContext;
-import org.fife.ui.rtextarea.SearchEngine;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Insets;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -14,6 +13,29 @@ import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
+
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.KeyStroke;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+
+import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
+import org.fife.ui.rtextarea.RTextScrollPane;
+import org.fife.ui.rtextarea.SearchContext;
+import org.fife.ui.rtextarea.SearchEngine;
 
 /**
  * The Class TextEditor.
@@ -142,7 +164,12 @@ class TextEditor implements ActionListener {
         final TextEditor listenerHolder = new TextEditor();
         prevButton.addActionListener(listenerHolder);
         nextButton.addActionListener(listenerHolder);
-        searchField.addActionListener(e -> nextButton.doClick(0));
+        searchField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                nextButton.doClick(0);
+            }
+        });
         final JPanel buttonPanel = new JPanel();
         buttonpanel.add(buttonPanel);
 
@@ -244,12 +271,15 @@ class TextEditor implements ActionListener {
         textField = new JTextField();
         textField.setToolTipText("Enter to apply");
         textField.setText("24");
-        textField.addActionListener(e -> {
-            try {
-                final int fsize = Integer.parseInt(textField.getText());
-                text.setFont(new Font("Courier New", Font.PLAIN, fsize));
-            } catch (final Exception ex) {
-                JOptionPane.showMessageDialog(null, "Invalid number " + textField.getText());
+        textField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    final int fsize = Integer.parseInt(textField.getText());
+                    text.setFont(new Font("Courier New", Font.PLAIN, fsize));
+                } catch (final Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Invalid number " + textField.getText());
+                }
             }
         });
         textField.setColumns(3);
@@ -262,7 +292,12 @@ class TextEditor implements ActionListener {
         panel_2.setLayout(new BoxLayout(panel_2, BoxLayout.X_AXIS));
 
         kSet = new JButton("Kaff's Settings");
-        kSet.addActionListener(arg0 -> SRCStageMaker.kSettings = !SRCStageMaker.kSettings);
+        kSet.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                SRCStageMaker.kSettings = !SRCStageMaker.kSettings;
+            }
+        });
         panel_2.add(kSet);
 
         mnTools = new JMenu("Tools");
@@ -385,9 +420,9 @@ class TextEditor implements ActionListener {
     /**
      * Gets the value.
      *
-     * @param s  the s
+     * @param s the s
      * @param s1 the s1
-     * @param i  the i
+     * @param i the i
      * @return the value
      */
     private static int getvalue(final String s, final String s1, final int i) {

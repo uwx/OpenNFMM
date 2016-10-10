@@ -1,11 +1,26 @@
 package nfm.open.music;
 
-import jouvieje.bass.BassInit;
-import jouvieje.bass.callbacks.SYNCPROC;
-import jouvieje.bass.structures.HMUSIC;
-import jouvieje.bass.structures.HSTREAM;
-import jouvieje.bass.utils.BufferUtils;
-import nfm.open.Utility;
+import static jouvieje.bass.Bass.BASS_ChannelPlay;
+import static jouvieje.bass.Bass.BASS_ChannelSetAttribute;
+import static jouvieje.bass.Bass.BASS_ChannelSetPosition;
+import static jouvieje.bass.Bass.BASS_ChannelSetSync;
+import static jouvieje.bass.Bass.BASS_ErrorGetCode;
+import static jouvieje.bass.Bass.BASS_Free;
+import static jouvieje.bass.Bass.BASS_GetVersion;
+import static jouvieje.bass.Bass.BASS_Init;
+import static jouvieje.bass.Bass.BASS_MusicLoad;
+import static jouvieje.bass.Bass.BASS_Pause;
+import static jouvieje.bass.Bass.BASS_Start;
+import static jouvieje.bass.Bass.BASS_StreamCreateFile;
+import static jouvieje.bass.defines.BASS_ATTRIB.BASS_ATTRIB_VOL;
+import static jouvieje.bass.defines.BASS_MUSIC.BASS_MUSIC_POSRESET;
+import static jouvieje.bass.defines.BASS_MUSIC.BASS_MUSIC_PRESCAN;
+import static jouvieje.bass.defines.BASS_MUSIC.BASS_MUSIC_RAMPS;
+import static jouvieje.bass.defines.BASS_POS.BASS_POS_BYTE;
+import static jouvieje.bass.defines.BASS_SYNC.BASS_SYNC_END;
+import static jouvieje.bass.defines.BASS_SYNC.BASS_SYNC_MIXTIME;
+import static jouvieje.bass.examples.util.Device.forceFrequency;
+import static jouvieje.bass.examples.util.Device.forceNoSoundDevice;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,14 +29,14 @@ import java.nio.ByteBuffer;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import static jouvieje.bass.Bass.*;
-import static jouvieje.bass.defines.BASS_ATTRIB.BASS_ATTRIB_VOL;
-import static jouvieje.bass.defines.BASS_MUSIC.*;
-import static jouvieje.bass.defines.BASS_POS.BASS_POS_BYTE;
-import static jouvieje.bass.defines.BASS_SYNC.BASS_SYNC_END;
-import static jouvieje.bass.defines.BASS_SYNC.BASS_SYNC_MIXTIME;
-import static jouvieje.bass.examples.util.Device.forceFrequency;
-import static jouvieje.bass.examples.util.Device.forceNoSoundDevice;
+import jouvieje.bass.BassInit;
+import jouvieje.bass.callbacks.SYNCPROC;
+import jouvieje.bass.structures.HMUSIC;
+import jouvieje.bass.structures.HSTREAM;
+import jouvieje.bass.structures.HSYNC;
+import jouvieje.bass.utils.BufferUtils;
+import jouvieje.bass.utils.Pointer;
+import nfm.open.Utility;
 
 /**
  * RadicalBASS variant using direct mapped memory (DirectByteBuffer), not tested
@@ -127,7 +142,7 @@ public class RadicalBASS_direct implements RadicalMusic {
      * Prints a formatted message then ends playback
      *
      * @param format String to be formatted
-     * @param args   Formatting arguments
+     * @param args Formatting arguments
      */
     private void printfExit(final String format, final Object... args) {
         System.out.println(String.format(format, args));
@@ -150,8 +165,11 @@ public class RadicalBASS_direct implements RadicalMusic {
     /**
      * Looping sync
      */
-    private static final SYNCPROC loopSyncProc = (handle, channel, data, user) -> {
-        BASS_ChannelSetPosition(channel, 0, BASS_POS_BYTE); //Go to start of file
+    private static final SYNCPROC loopSyncProc = new SYNCPROC() {
+        @Override
+        public void SYNCPROC(HSYNC handle, int channel, int data, Pointer user) {
+            BASS_ChannelSetPosition(channel, 0, BASS_POS_BYTE); //Go to start of file
+        }
     };
 
     private ByteBuffer song;

@@ -1,4 +1,5 @@
 package nfm.open;
+
 /* Madness - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -20,7 +21,8 @@ import java.io.FileWriter;
 import java.net.URI;
 import java.util.concurrent.ThreadLocalRandom;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class Madness extends Panel {
     static int anti = 1;
@@ -135,10 +137,10 @@ public class Madness extends Panel {
 
     private static void exitsequance() {
         //if (updateon != 3)
-            /*try {
-            	applet.stop();
-            } catch (final Exception ex) {
-            }*/
+        /*try {
+        	applet.stop();
+        } catch (final Exception ex) {
+        }*/
         try {
             sm.stop();
         } catch (final Exception ignored) {
@@ -153,10 +155,10 @@ public class Madness extends Panel {
         } catch (final Exception ignored) {
 
         }
-            /*try {
-            	applet.destroy();
-            } catch (final Exception ex) {
-            }*/
+        /*try {
+        	applet.destroy();
+        } catch (final Exception ex) {
+        }*/
         try {
             cm.destroy();
         } catch (final Exception ignored) {
@@ -367,7 +369,7 @@ public class Madness extends Panel {
         }
     }
 
-    private static void setFilePath(String[] strings) {
+    private static void setFilePath(final String[] strings) {
         fpath = "";
         boolean bool = false;
         for (final String string : strings) {

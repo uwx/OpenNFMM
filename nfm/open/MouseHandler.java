@@ -1,4 +1,5 @@
 package nfm.open;
+
 /* MouseHandler - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */

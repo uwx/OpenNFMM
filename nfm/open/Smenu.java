@@ -1,4 +1,5 @@
 package nfm.open;
+
 /* Smenu - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -7,7 +8,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
-
 
 /* Smenu - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
@@ -67,7 +67,7 @@ public class Smenu {
      * Adds the.
      *
      * @param graphics2d the graphics2d
-     * @param string     the string
+     * @param string the string
      */
     public void add(final Graphics2D graphics2d, String string) {
         graphics2d.setFont(font);
@@ -122,7 +122,7 @@ public class Smenu {
     /**
      * Addw.
      *
-     * @param string  the string
+     * @param string the string
      * @param string0 the string0
      */
     public void addw(final String string, final String string0) {
@@ -146,11 +146,11 @@ public class Smenu {
      * Draw.
      *
      * @param graphics2d the graphics2d
-     * @param _mousex    the i
-     * @param _mousey    the i4
-     * @param bool       the bool
-     * @param i5         the i5
-     * @param bool6      the bool6
+     * @param _mousex the i
+     * @param _mousey the i4
+     * @param bool the bool
+     * @param i5 the i5
+     * @param bool6 the bool6
      * @return true, if successful
      */
     public boolean draw(final Graphics2D graphics2d, final int _mousex, final int _mousey, final boolean bool, final int i5, boolean bool6) {
@@ -540,7 +540,7 @@ public class Smenu {
     /**
      * Move.
      *
-     * @param i  the i
+     * @param i the i
      * @param i3 the i3
      */
     public void move(final int i, final int i3) {
@@ -631,7 +631,7 @@ public class Smenu {
     /**
      * Sets the size.
      *
-     * @param i  the i
+     * @param i the i
      * @param i2 the i2
      */
     @SuppressWarnings("unused")
@@ -639,6 +639,7 @@ public class Smenu {
         w = i;
         // XXX h = i2;
     }
+
     public void setSize(final int i) {
         w = i;
         // XXX h = i2;

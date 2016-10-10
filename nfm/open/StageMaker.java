@@ -1,9 +1,4 @@
 package nfm.open;
-/* StageMaker - Decompiled by JODE extended
- * DragShot Software
- * JODE (c) 1998-2001 Jochen Hoenicke
- */
-import nfm.open.music.RadicalMod;
 
 import java.applet.Applet;
 import java.awt.AlphaComposite;
@@ -44,9 +39,17 @@ import java.util.zip.ZipInputStream;
 
 import javax.swing.JOptionPane;
 
+/* StageMaker - Decompiled by JODE extended
+ * DragShot Software
+ * JODE (c) 1998-2001 Jochen Hoenicke
+ */
+import nfm.open.music.RadicalMod;
+
 public class StageMaker extends Applet implements Runnable {
-    {new CheckPoints();
-    new Trackers();}
+    {
+        new CheckPoints();
+        new Trackers();
+    }
     //////////////// ------------ REMEMBER NEW PARTS ARE ALWAYS -10 INDEXES SINCE YOU CAN'T SELECT CARS IN THE STAGEMAKER
     //////////////// ------------ REMEMBER ALL PARTS INDEX 67 AND UP ARE CUSTOM PARTS
     //////////////// ------------ IF THEY'RE NOT IN THE TREES MENU THEY SHOULD BE COMMENTED OUT
@@ -387,7 +390,9 @@ public class StageMaker extends Applet implements Runnable {
     private int lxm = 0;
     // Removed unused code found by UCDetector
     // 	private int lym = 0;
-    {new Medium();}
+    {
+        new Medium();
+    }
     private final String[] maker = new String[20];
     private final TextField mgen = new TextField("", 10);
     private boolean mousdr = false;

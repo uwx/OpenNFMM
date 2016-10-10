@@ -1,4 +1,5 @@
 package nfm.open;
+
 /* CarMaker - Decompiled by JODE extended
  * DragShot Software
  * JODE (c) 1998-2001 Jochen Hoenicke
@@ -754,8 +755,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
             }
         }
         if (tab == 1) {
-            if (i == 0)
+            if (i == 0) {
                 prefs = !prefs;
+            }
             if (i == 1 || i == 2) {
                 savefile();
                 if (i == 2) {
@@ -1673,11 +1675,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                     repaint();
                                     /*try {
                                         if (thredo != null) {
-
+                                    
                                         }
                                         Thread.sleep(10L);
                                     } catch (final InterruptedException interruptedexception) {
-
+                                    
                                     }*/
                                 }
                                 printwriter.println("QUITX1111");

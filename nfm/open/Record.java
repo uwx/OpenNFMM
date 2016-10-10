@@ -1,4 +1,5 @@
 package nfm.open;
+
 /* Record - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */

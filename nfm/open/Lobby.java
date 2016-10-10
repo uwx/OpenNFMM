@@ -1,4 +1,5 @@
 package nfm.open;
+
 /* Lobby - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -466,10 +467,10 @@ class Lobby implements Runnable {
                                 }
                                 if (chalngd == -2)
                                     if (GameSparker.wgame.getSelectedIndex() == 0) /*if (gs.sgame.getSelectedIndex() >= 3 && !xt.logged) {
-                                                                          if (i308 == 4)
-                                                                          gs.editlink(xt.nickname, true);
-                                                                          i312 = 5;
-                                                                          } else */ {
+                                                                                   if (i308 == 4)
+                                                                                   gs.editlink(xt.nickname, true);
+                                                                                   i312 = 5;
+                                                                                   } else */ {
                                         if (i308 == 4)
                                             if (loadstage < 0) {
                                                 rd.setColor(new Color(0, 0, 0));
@@ -606,8 +607,9 @@ class Lobby implements Runnable {
                                             i316++;
                                         }
                                     if (i316 < gnpls - 1) {
-                                        if (i308 == 4)
+                                        if (i308 == 4) {
                                             invo = !invo;
+                                        }
                                     } else {
                                         i312 = 6;
                                     }
@@ -791,7 +793,9 @@ class Lobby implements Runnable {
                                     join = ongame;
                                     msg = "| Joining Game |";
                                     spos = 0;
-                                } else invo = !invo;
+                                } else {
+                                    invo = !invo;
+                                }
                             if (pbtn == 2 && (i308 == 1 || i308 == 2)) {
                                 fase = 2;
                                 Medium.ptr = 0;
@@ -825,7 +829,9 @@ class Lobby implements Runnable {
                                     join = ongame;
                                     msg = "| Joining Game |";
                                     spos = 0;
-                                } else invo = !invo;
+                                } else {
+                                    invo = !invo;
+                                }
                         }
                 } else if (ontyp != 76) {
                     if (i308 == 0)
@@ -1183,7 +1189,7 @@ class Lobby implements Runnable {
                                         }
                                     if (wait[i110] > 0) {
                                         if (82 + 30 * i106 - i105 > 50 && 82 + 30 * (i106 - 1) - i105 < 415) {
-                                            boolean bool112 = false;
+                                            final boolean bool112 = false;
                                             if (i > 70 && i < 185 && i99 > 52 + 30 * i106 - i105 && i99 < 82 + 30 * i106 - i105) {
                                                 if (pgames[im] == -1 && join == -1 && chalngd >= -1) {
                                                     if (bool || mousonp == i109) {
@@ -1274,7 +1280,7 @@ class Lobby implements Runnable {
                             }
                             if (pgames[i116] == -1 && !bool117) {
                                 if (82 + 30 * i106 - i105 > 50 && 82 + 30 * (i106 - 1) - i105 < 415) {
-                                    boolean bool119 = false;
+                                    final boolean bool119 = false;
                                     if (i > 70 && i < 185 && i99 > 52 + 30 * i106 - i105 && i99 < 82 + 30 * i106 - i105) {
                                         if (invo) {
                                             if (bool) {
@@ -1358,7 +1364,7 @@ class Lobby implements Runnable {
                                                 }
                                         if (!bool126) {
                                             if (82 + 30 * i106 - i105 > 50 && 82 + 30 * (i106 - 1) - i105 < 415) {
-                                                boolean bool129 = false;
+                                                final boolean bool129 = false;
                                                 if (i > 70 && i < 185 && i99 > 52 + 30 * i106 - i105 && i99 < 82 + 30 * i106 - i105) {
                                                     if (pgames[im] == -1 && join == -1 && chalngd >= -1) {
                                                         if (bool || mousonp == i123) {

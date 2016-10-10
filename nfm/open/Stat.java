@@ -1,9 +1,7 @@
 package nfm.open;
 
 /**
- * Created by Rafael on 24/07/2016.
- *
- * TODO integrate fully (currently only Mad)
+ * Created by Rafael on 24/07/2016. TODO integrate fully (currently only Mad)
  */
 public class Stat {
     final int[] swits;
@@ -37,41 +35,15 @@ public class Stat {
     String createdby = "";
     int publish = 0;
 
-    public Stat(int[] swits, float[] acelf, int handb, float airs, int airc, int turn, float grip, float bounce, float simag, float moment, float comprad, int push, int revpush, int lift, int revlift, int powerloss, int flipy, int msquash, int clrad, float dammult, int maxmag, float dishandle, float outdam, int cclass, String names, int enginsignature,
-                boolean include, String createdby, int publish) {
-        this(swits,
-             acelf,
-             handb,
-             airs,
-             airc,
-             turn,
-             grip,
-             bounce,
-             simag,
-             moment,
-             comprad,
-             push,
-             revpush,
-             lift,
-             revlift,
-             powerloss,
-             flipy,
-             msquash,
-             clrad,
-             dammult,
-             maxmag,
-             dishandle,
-             outdam,
-             cclass,
-             names,
-             enginsignature);
+    public Stat(final int[] swits, final float[] acelf, final int handb, final float airs, final int airc, final int turn, final float grip, final float bounce, final float simag, final float moment, final float comprad, final int push, final int revpush, final int lift, final int revlift, final int powerloss, final int flipy, final int msquash, final int clrad, final float dammult, final int maxmag, final float dishandle, final float outdam, final int cclass, final String names, final int enginsignature, final boolean include, final String createdby, final int publish) {
+        this(swits, acelf, handb, airs, airc, turn, grip, bounce, simag, moment, comprad, push, revpush, lift, revlift, powerloss, flipy, msquash, clrad, dammult, maxmag, dishandle, outdam, cclass, names, enginsignature);
 
         this.include = include;
         this.createdby = createdby;
         this.publish = publish;
     }
 
-    public Stat(int[] swits, float[] acelf, int handb, float airs, int airc, int turn, float grip, float bounce, float simag, float moment, float comprad, int push, int revpush, int lift, int revlift, int powerloss, int flipy, int msquash, int clrad, float dammult, int maxmag, float dishandle, float outdam, int cclass, String names, int enginsignature) {
+    public Stat(final int[] swits, final float[] acelf, final int handb, final float airs, final int airc, final int turn, final float grip, final float bounce, final float simag, final float moment, final float comprad, final int push, final int revpush, final int lift, final int revlift, final int powerloss, final int flipy, final int msquash, final int clrad, final float dammult, final int maxmag, final float dishandle, final float outdam, final int cclass, final String names, final int enginsignature) {
         this.swits = swits.clone();
         this.acelf = acelf.clone();
 
@@ -101,64 +73,64 @@ public class Stat {
         this.enginsignature = enginsignature;
     }
 
-    public Stat(Stat clone) {
-        this.swits = clone.swits.clone();
-        this.acelf = clone.acelf.clone();
+    public Stat(final Stat clone) {
+        swits = clone.swits.clone();
+        acelf = clone.acelf.clone();
 
-        this.handb = clone.handb;
-        this.airs = clone.airs;
-        this.airc = clone.airc;
-        this.turn = clone.turn;
-        this.grip = clone.grip;
-        this.bounce = clone.bounce;
-        this.simag = clone.simag;
-        this.moment = clone.moment;
-        this.comprad = clone.comprad;
-        this.push = clone.push;
-        this.revpush = clone.revpush;
-        this.lift = clone.lift;
-        this.revlift = clone.revlift;
-        this.powerloss = clone.powerloss;
-        this.flipy = clone.flipy;
-        this.msquash = clone.msquash;
-        this.clrad = clone.clrad;
-        this.dammult = clone.dammult;
-        this.maxmag = clone.maxmag;
-        this.dishandle = clone.dishandle;
-        this.outdam = clone.outdam;
-        this.cclass = clone.cclass;
-        this.names = clone.names;
-        this.enginsignature = clone.enginsignature;
+        handb = clone.handb;
+        airs = clone.airs;
+        airc = clone.airc;
+        turn = clone.turn;
+        grip = clone.grip;
+        bounce = clone.bounce;
+        simag = clone.simag;
+        moment = clone.moment;
+        comprad = clone.comprad;
+        push = clone.push;
+        revpush = clone.revpush;
+        lift = clone.lift;
+        revlift = clone.revlift;
+        powerloss = clone.powerloss;
+        flipy = clone.flipy;
+        msquash = clone.msquash;
+        clrad = clone.clrad;
+        dammult = clone.dammult;
+        maxmag = clone.maxmag;
+        dishandle = clone.dishandle;
+        outdam = clone.outdam;
+        cclass = clone.cclass;
+        names = clone.names;
+        enginsignature = clone.enginsignature;
     }
 
-    public Stat(int cn) {
-        this.swits = CarDefine.swits[cn].clone();
-        this.acelf = CarDefine.acelf[cn].clone();
+    public Stat(final int cn) {
+        swits = CarDefine.swits[cn].clone();
+        acelf = CarDefine.acelf[cn].clone();
 
-        this.handb = CarDefine.handb[cn];
-        this.airs = CarDefine.airs[cn];
-        this.airc = CarDefine.airc[cn];
-        this.turn = CarDefine.turn[cn];
-        this.grip = CarDefine.grip[cn];
-        this.bounce = CarDefine.bounce[cn];
-        this.simag = CarDefine.simag[cn];
-        this.moment = CarDefine.moment[cn];
-        this.comprad = CarDefine.comprad[cn];
-        this.push = CarDefine.push[cn];
-        this.revpush = CarDefine.revpush[cn];
-        this.lift = CarDefine.lift[cn];
-        this.revlift = CarDefine.revlift[cn];
-        this.powerloss = CarDefine.powerloss[cn];
-        this.flipy = CarDefine.flipy[cn];
-        this.msquash = CarDefine.msquash[cn];
-        this.clrad = CarDefine.clrad[cn];
-        this.dammult = CarDefine.dammult[cn];
-        this.maxmag = CarDefine.maxmag[cn];
-        this.dishandle = CarDefine.dishandle[cn];
-        this.outdam = CarDefine.outdam[cn];
-        this.cclass = CarDefine.cclass[cn];
-        this.names = CarDefine.names[cn];
-        this.enginsignature = CarDefine.enginsignature[cn];
+        handb = CarDefine.handb[cn];
+        airs = CarDefine.airs[cn];
+        airc = CarDefine.airc[cn];
+        turn = CarDefine.turn[cn];
+        grip = CarDefine.grip[cn];
+        bounce = CarDefine.bounce[cn];
+        simag = CarDefine.simag[cn];
+        moment = CarDefine.moment[cn];
+        comprad = CarDefine.comprad[cn];
+        push = CarDefine.push[cn];
+        revpush = CarDefine.revpush[cn];
+        lift = CarDefine.lift[cn];
+        revlift = CarDefine.revlift[cn];
+        powerloss = CarDefine.powerloss[cn];
+        flipy = CarDefine.flipy[cn];
+        msquash = CarDefine.msquash[cn];
+        clrad = CarDefine.clrad[cn];
+        dammult = CarDefine.dammult[cn];
+        maxmag = CarDefine.maxmag[cn];
+        dishandle = CarDefine.dishandle[cn];
+        outdam = CarDefine.outdam[cn];
+        cclass = CarDefine.cclass[cn];
+        names = CarDefine.names[cn];
+        enginsignature = CarDefine.enginsignature[cn];
 
         if (cn >= CarDefine.SIXTEEN) {
             include = CarDefine.include[cn];

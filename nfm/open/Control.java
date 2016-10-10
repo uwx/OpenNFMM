@@ -23,14 +23,12 @@ class Control {
      */
     private boolean afta = false;
     /**
-     * True if the AI is aggro'd on another car.
-     * Agressed actually just affects turns - when it's false, the AI cars stop holding up while turning, whereas when it's true they hold up as normal.
-     * 
+     * True if the AI is aggro'd on another car. Agressed actually just affects turns - when it's false, the AI cars stop holding up while turning, whereas when it's true they hold up as normal.
      */
     private boolean agressed = false;
     /**
-     * Makes the AI more precise when targeting another car. <i>Trivia: This works by making the AI think the target is farther away than it is, thus making the AI take smoother turns. Nice one, Omar.</i>
-     * <br><br>
+     * Makes the AI more precise when targeting another car. <i>Trivia: This works by making the AI think the target is farther away than it is, thus making the AI take smoother turns. Nice one, Omar.</i> <br>
+     * <br>
      * When it's at 1.0F, it means that the AI will target their opponent at their exact location. Which sounds great, but in practice it doesn't work well as it does not account for dodging at all.<br>
      * <br>
      * The beauty lies in if aim is slightly below 1.0F or slightly above 1.0F - when you do that it aims for its target slightly off to its location. This means that the AI will still get a solid hit even if you dodge it (you'll have to do quite a large dodge to avoid getting hit completely). Of course, there is the chance that you dodge the other way and dodge them completely, but especially if the AI are wasting in packs, it does make dodging a whole lot tougher.<br>
@@ -51,7 +49,6 @@ class Control {
     private int avoidnlev = 0;
     /**
      * Its main function is to make cars go through the stage backwards. On its own, though, it's not really helpful so what you could do is make the AI attack other cars when it gets close to them (like in Stage 11).
-     * 
      */
     private boolean bulistc = false;
     int chatup = 0;
@@ -89,7 +86,6 @@ class Control {
     boolean handb = false;
     /**
      * Think of hold as a timer that decreases every frame (like attack) - while it's greater than 0, the AI cars will never turn. So if I set hold to be 100 then it will take 100 frames before the AI cars will be able to turn.
-     * 
      */
     private int hold = 0;
     private boolean lastl = false;
@@ -121,17 +117,16 @@ class Control {
     private int pan = 0;
     /**
      * Affects how well the AI cars land from a stunt - if it's true, they land a lot more accurately than when it's false. It's best to just keep it true at all times.
-     * 
      */
     private boolean perfection = false;
     boolean radar = false;
     /**
-     * Not really an important variable, but it basically controls how willing the AI cars are to go up ramps and stunt.<br><br>
-     * 
-     * Picture this: an AI car is going through a stage pretty smoothly on a road piece. One of the next few pieces is a ramp piece. When rampp is 1, the next piece the AI would go to would be the ramp piece to try and stunt. If it was -1 (which it is when the AI is at max power) it would instead target the piece immediately after it (so it'll basically ignore the ramp piece).<br><br>
-     * 
-     * The only problem is that even if the AI do ignore a ramp piece, it doesn't mean they will actively try and avoid it. If rampp is -1 but a ramp is in their way to the next piece (which happens 95% of the time), they'll still go up it and even stunt as normal.<br><br>
-     * 
+     * Not really an important variable, but it basically controls how willing the AI cars are to go up ramps and stunt.<br>
+     * <br>
+     * Picture this: an AI car is going through a stage pretty smoothly on a road piece. One of the next few pieces is a ramp piece. When rampp is 1, the next piece the AI would go to would be the ramp piece to try and stunt. If it was -1 (which it is when the AI is at max power) it would instead target the piece immediately after it (so it'll basically ignore the ramp piece).<br>
+     * <br>
+     * The only problem is that even if the AI do ignore a ramp piece, it doesn't mean they will actively try and avoid it. If rampp is -1 but a ramp is in their way to the next piece (which happens 95% of the time), they'll still go up it and even stunt as normal.<br>
+     * <br>
      * The only real situation where this variable actually does something is when the AI gets back onto course after being launched or something - as they approach the track again, they can decide which piece to go to next. But in practice, this variable makes very little difference so don't worry about it too much.
      */
     private int rampp = 0;
@@ -150,7 +145,6 @@ class Control {
     private int runbul = 0;
     /**
      * It basically affects how soon the AI cars begin to prepare for landing from a stunt. Higher values of saftey mean that they prepare for landing closer to the ground (generally a saftey value of 5-10 works pretty well for me), so a saftey value of 0 means that they play it very safe (but barely do any stunts).
-     * 
      */
     private int saftey = 30;
     /**
@@ -163,7 +157,6 @@ class Control {
     private int swat = 0;
     /**
      * When trfix is 2, the AI go to their set fixing point (determined by the fpnt[] variable as you said). As the AI get within range of the fixing hoop, trfix becomes 3 which prepares the AI for fixing (like what stunts they should do, setting clrnce and acuracy to be 0 so they're as accurate as possible, etc.)
-     * 
      */
     private int trfix = 0;
     /**
@@ -176,9 +169,9 @@ class Control {
     private int turncnt = 0;
     /**
      * What type of turn the AI is making/will make.<br>
-0 means the AI will turn without braking<br>
-1 means the AI will turn and brake<br>
-2 means the AI will turn and handbrake
+     * 0 means the AI will turn without braking<br>
+     * 1 means the AI will turn and brake<br>
+     * 2 means the AI will turn and handbrake
      */
     private int turntyp = 0;
     private boolean udbare = false;
@@ -194,7 +187,6 @@ class Control {
     private int upwait = 0;
     /**
      * Basically means whether to treat bouncing (like from a stunt) as racing on the ground or racing in the air. In practice it really doesn't affect much so don't worry too much about it, although it is generally good practice to leave it as true so that the AI doesn't get needless bad landings from trying to stunt from a heavy bounce or something (which happens rarely anyway).
-     * 
      */
     private boolean usebounce = false;
     int wall = -1;
@@ -427,8 +419,9 @@ class Control {
                         if (CheckPoints.stage == 7 || CheckPoints.stage == 9 || CheckPoints.stage == 10 || CheckPoints.stage == 16 || CheckPoints.stage == 17 || CheckPoints.stage == 19 || CheckPoints.stage == 20 || CheckPoints.stage == 21 || CheckPoints.stage == 22 || CheckPoints.stage == 24 || CheckPoints.stage == 26 || CheckPoints.stage == 27) {
                             agressed = true;
                         }
-                        if (CheckPoints.stage == -1)
+                        if (CheckPoints.stage == -1) {
                             agressed = Medium.random() > Medium.random();
+                        }
                         cntrn = 5;
                     } else {
                         cntrn--;

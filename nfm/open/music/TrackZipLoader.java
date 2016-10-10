@@ -31,7 +31,7 @@ public final class TrackZipLoader {
 
                 if (new File(tFile + ".ogg").exists())
                     return new RadicalOgg(tFile + ".ogg");
-            } catch (Exception e) {
+            } catch (final Exception e) {
                 e.printStackTrace();
                 // keep going, we'll try something else...
             }
@@ -39,100 +39,96 @@ public final class TrackZipLoader {
 
         // then, try loading using RadicalBASS.
         try {
-            if (stage > 0) {
+            if (stage > 0)
                 return loadZip(tFile + ".zip", false);
-            }
             // else {
             if (!"".equals(songURL)) {
-                if (stage != -2) {
+                if (stage != -2)
                     return loadZip("mystages/mymusic/" + songURL + ".zip", false);
-                }
                 // else {
                 return loadZip(songURL, true);
             }
-        } catch (Exception e) {
+        } catch (final Exception e) {
             e.printStackTrace();
             // keep going, we'll try something else...
         }
 
         try {
-            if (stage == 1) {
+            if (stage == 1)
                 return new RadicalMod(tFile + ".zip", 240, 8400, 135, false, false);
-            } if (stage == 2) {
+            if (stage == 2)
                 return new RadicalMod(tFile + ".zip", 190, 9000, 145, false, false);
-            } if (stage == 3) {
+            if (stage == 3)
                 return new RadicalMod(tFile + ".zip", 170, 8500, 145, false, false);
-            } if (stage == 4) {
+            if (stage == 4)
                 return new RadicalMod(tFile + ".zip", 205, 7500, 125, false, false);
-            } if (stage == 5) {
+            if (stage == 5)
                 return new RadicalMod(tFile + ".zip", 170, 7900, 125, false, false);
-            } if (stage == 6) {
+            if (stage == 6)
                 return new RadicalMod(tFile + ".zip", 370, 7900, 125, false, false);
-            } if (stage == 7) {
+            if (stage == 7)
                 return new RadicalMod(tFile + ".zip", 205, 7500, 125, false, false);
-            } if (stage == 8) {
+            if (stage == 8)
                 return new RadicalMod(tFile + ".zip", 230, 7900, 125, false, false);
-            } if (stage == 9) {
+            if (stage == 9)
                 return new RadicalMod(tFile + ".zip", 180, 7900, 125, false, false);
-            } if (stage == 10) {
+            if (stage == 10)
                 return new RadicalMod(tFile + ".zip", 280, 8100, 145, false, false);
-            } if (stage == 11) {
+            if (stage == 11)
                 return new RadicalMod(tFile + ".zip", 120, 8000, 125, false, false);
-            } if (stage == 12) {
+            if (stage == 12)
                 return new RadicalMod(tFile + ".zip", 260, 7200, 125, false, false);
-            } if (stage == 13) {
+            if (stage == 13)
                 return new RadicalMod(tFile + ".zip", 270, 8000, 125, false, false);
-            } if (stage == 14) {
+            if (stage == 14)
                 return new RadicalMod(tFile + ".zip", 190, 8000, 125, false, false);
-            } if (stage == 15) {
+            if (stage == 15)
                 return new RadicalMod(tFile + ".zip", 162, 7800, 125, false, false);
-            } if (stage == 16) {
+            if (stage == 16)
                 return new RadicalMod(tFile + ".zip", 220, 7600, 125, false, false);
-            } if (stage == 17) {
+            if (stage == 17)
                 return new RadicalMod(tFile + ".zip", 300, 7500, 125, false, false);
-            } if (stage == 18) {
+            if (stage == 18)
                 return new RadicalMod(tFile + ".zip", 200, 7900, 125, false, false);
-            } if (stage == 19) {
+            if (stage == 19)
                 return new RadicalMod(tFile + ".zip", 200, 7900, 125, false, false);
-            } if (stage == 20) {
+            if (stage == 20)
                 return new RadicalMod(tFile + ".zip", 232, 7300, 125, false, false);
-            } if (stage == 21) {
+            if (stage == 21)
                 return new RadicalMod(tFile + ".zip", 370, 7900, 125, false, false);
-            } if (stage == 22) {
+            if (stage == 22)
                 return new RadicalMod(tFile + ".zip", 290, 7900, 125, false, false);
-            } if (stage == 23) {
+            if (stage == 23)
                 return new RadicalMod(tFile + ".zip", 222, 7600, 125, false, false);
-            } if (stage == 24) {
+            if (stage == 24)
                 return new RadicalMod(tFile + ".zip", 230, 8000, 125, false, false);
-            } if (stage == 25) {
+            if (stage == 25)
                 return new RadicalMod(tFile + ".zip", 220, 8000, 125, false, false);
-            } if (stage == 26) {
+            if (stage == 26)
                 return new RadicalMod(tFile + ".zip", 261, 8000, 125, false, false);
-            } if (stage == 27) {
+            if (stage == 27)
                 return new RadicalMod(tFile + ".zip", 400, 7600, 125, false, false);
-            } if (stage == 28) {
+            if (stage == 28)
                 return new RadicalMod(tFile + ".zip", 182, 8000, 125, false, false);
-            } if (stage == 29) {
+            if (stage == 29)
                 return new RadicalMod(tFile + ".zip", 220, 8000, 125, false, false);
-            } if (stage == 30) {
+            if (stage == 30)
                 return new RadicalMod(tFile + ".zip", 200, 8000, 125, false, false);
-            } if (stage == 31) {
+            if (stage == 31)
                 return new RadicalMod(tFile + ".zip", 350, 7900, 125, false, false);
-            } if (stage == 32) {
+            if (stage == 32)
                 return new RadicalMod(tFile + ".zip", 310, 8000, 125, false, false);
-            } if (stage > 32) {
+            if (stage > 32)
                 return new RadicalMod(tFile + ".zip", 550, 8000, 125, false, false);
-            }
             if (stage < 0) {
                 if (!"".equals(songURL)) {
-                    if (stage != -2) {
+                    if (stage != -2)
                         return new RadicalMod("mystages/mymusic/" + songURL + ".zip", i52, 8000, 125, false, false);
-                    }
                     // else {
                     return new RadicalMod(songURL, i52, 8000, 125, false, true);
                 }
             }
-        } catch (Exception e) {
+        } catch (final Exception e) {
             e.printStackTrace();
             // keep going, we'll try something else...
         }

@@ -1,5 +1,6 @@
 package nfm.open.music;
 // Credits to DragShot
+
 // for his shit
 
 import java.net.URL;

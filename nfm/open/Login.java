@@ -1,4 +1,5 @@
 package nfm.open;
+
 /* Login - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -116,7 +117,7 @@ class Login implements Runnable {
     private int trans = 0;
     private int xrl = 0;
     private int xrr = 0;
-    
+
     Login(final Graphics2D graphics2d, final GameSparker gamesparker) {
         rd = graphics2d;
         gs = gamesparker;

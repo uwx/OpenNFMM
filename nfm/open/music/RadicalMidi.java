@@ -1,8 +1,13 @@
 package nfm.open.music;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Sequencer;
-import java.io.*;
 
 /**
  * The Class RadicalMidi.

@@ -1,33 +1,102 @@
 package nfm.open;
 
+import static nfm.open.Utility.fEquals;
+
+import java.awt.AWTException;
+import java.awt.AlphaComposite;
+import java.awt.BorderLayout;
+import java.awt.Checkbox;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.FileDialog;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Frame;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import java.awt.Image;
+import java.awt.Insets;
+import java.awt.MediaTracker;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.RenderingHints;
+import java.awt.Robot;
+import java.awt.TextField;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
+import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.io.StringReader;
+import java.net.Socket;
+import java.net.URL;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Stack;
+import java.util.Vector;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+
+import javax.swing.AbstractListModel;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.ListModel;
+import javax.swing.ListSelectionModel;
+import javax.swing.Timer;
+import javax.swing.WindowConstants;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.SerializedName;
+
 import nfm.open.music.RadicalAdapter;
-
-import javax.swing.*;
-import javax.swing.Timer;
-import javax.swing.event.ListSelectionListener;
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.BufferedImage;
-import java.io.*;
-import java.net.Socket;
-import java.net.URL;
-import java.util.*;
-import java.util.Map.Entry;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-
-import static nfm.open.Utility.fEquals;
 
 /**
  * The Class StageMaker.
  */
-public class SRCStageMaker extends JPanel implements KeyListener, MouseListener, MouseMotionListener, MouseWheelListener {
+public class SRCStageMaker extends JPanel
+        implements KeyListener, MouseListener, MouseMotionListener, MouseWheelListener {
     /* TODO:
        test drive
        part menu
@@ -41,9 +110,11 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     //    System.exit(1);
     //}
 
-    static {new Medium();
-    new CheckPoints();
-    new Trackers();}
+    static {
+        new Medium();
+        new CheckPoints();
+        new Trackers();
+    }
 
     private static Graphics2D rd;
 
@@ -76,16 +147,11 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
         int declaredPositionInArray = -1;
 
         /**
-         * Point in nob where this conto first appears.
-         */
-        int atLine = -1;
-
-        /**
          * Instantiates a new cont o.
-         *  @param is        the is
-         *
+         * 
+         * @param is the is
          */
-        SMContO(byte[] is) {
+        SMContO(final byte[] is) {
             super(is);
         }
 
@@ -93,37 +159,37 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
          * Clones an existing ContO.
          *
          * @param contoClone the conto78
-         * @param _x         the i
-         * @param _y         the i79
-         * @param _z         the i80
-         * @param _xz        the i81
+         * @param _x the i
+         * @param _y the i79
+         * @param _z the i80
+         * @param _xz the i81
          */
-        public SMContO(ContO contoClone, int _x, int _y, int _z, int _xz) {
+        public SMContO(final ContO contoClone, final int _x, final int _y, final int _z, final int _xz) {
             super(contoClone, _x, _y, _z, _xz);
         }
 
         /**
          * Creates a new bump pile.
          *
-         * @param i   the i
+         * @param i the i
          * @param i90 the i90
          * @param i91 the i91
          * @param i92 the i92
          * @param i93 the i93
          * @param i94 the i94
          */
-        public SMContO(int i, int i90, int i91, int i92, int i93, int i94) {
+        public SMContO(final int i, final int i90, final int i91, final int i92, final int i93, final int i94) {
             super(i, i90, i91, i92, i93, i94);
         }
 
-        public boolean dupeOf(SMContO o) {
+        public boolean dupeOf(final SMContO o) {
             return partID == o.partID && //set id
                     x == o.x && //x
                     y == o.y && //y
                     z == o.z && //z
                     declaredXZ == o.declaredXZ //angle
-                    //xz == o.xz
-                    ;
+            //xz == o.xz
+            ;
         }
     }
 
@@ -176,8 +242,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
         public static final Color c_0_164_242 = new Color(0, 164, 242);
         public static final Color c_120_210_255 = new Color(120, 210, 255);
     }
-
-
 
     private static SRCStageMaker stageMaker;
     //////////////// ------------ REMEMBER NEW PARTS ARE ALWAYS -10 INDEXES SINCE YOU CAN'T SELECT CARS IN THE STAGEMAKER
@@ -262,8 +326,16 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
      */
     static {
         for (final Map<String, String> map : menus.menus.values()) {
-            map.entrySet().stream().filter(entry -> Utility.isNumeric(entry.getValue())).forEach(entry -> {
-                entry.setValue(Utility.getKeyByValue(partNumbers, Integer.parseInt(entry.getValue())));
+            map.entrySet().stream().filter(new Predicate<Entry<String, String>>() {
+                @Override
+                public boolean test(Entry<String, String> entry) {
+                    return Utility.isNumeric(entry.getValue());
+                }
+            }).forEach(new Consumer<Entry<String, String>>() {
+                @Override
+                public void accept(Entry<String, String> entry) {
+                    entry.setValue(Utility.getKeyByValue(partNumbers, Integer.parseInt(entry.getValue())));
+                }
             });
         }
     }
@@ -325,148 +397,147 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
      * Attach points are: x1, z1, x2, z2<br>
      */
     private static final int[][] atp = {
-        {
-                0, 2800, 0, -2800
-        }, {
-                0, 2800, 0, -2800
-        }, {
-                1520, 2830, -1520, -2830
-        }, {
-                -1520, 2830, 1520, -2830
-        }, {
-                0, -1750, 1750, 0
-        }, {
-                0, 2800, 0, -2800
-        }, {
-                0, 2800, 0, -2800
-        }, {
-                0, -1750, 1750, 0
-        }, {
-                0, 2800, 0, -2800
-        }, {
-                0, -1750, 1750, 0
-        }, {
-                0, 2800, 0, -2800
-        }, {
-                0, 2800, 0, -2800
-        }, {
-                0, 560, 0, -560
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                385, 980, 385, -980
-        }, {
-                0, 0, 0, -600
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 2164, 0, -2164
-        }, {
-                0, 2164, 0, -2164
-        }, {
-                0, 3309, 0, -1680
-        }, {
-                0, 1680, 0, -3309
-        }, {
-                350, 0, -350, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                1810, 980, 1810, -980
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 500, 0, -500
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 2800, 0, -2800
-        }, {
-                0, 2800, 0, -2800
-        }, {
-                0, 1680, 0, -3309
-        }, {
-                0, 2800, 0, -2800
-        }, {
-                0, 2800, 0, -2800
-        }, {
-                0, 2800, 0, -2800
-        }, {
-                700, 1400, 700, -1400
-        }, {
-                0, -1480, 0, -1480
-        }, {
-                0, 0, 0, 0
-        }, {
-                350, 0, -350, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                700, 0, -700, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, -2198, 0, 1482
-        }, {
-                0, -1319, 0, 1391
-        }, {
-                0, -1894, 0, 2271
-        }, {
-                0, -826, 0, 839
-        }, {
-                0, -1400, 0, 1400
-        }, {
-                0, -1400, 0, 1400
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        }, {
-                0, 0, 0, 0
-        },
+            {
+                    0, 2800, 0, -2800
+            }, {
+                    0, 2800, 0, -2800
+            }, {
+                    1520, 2830, -1520, -2830
+            }, {
+                    -1520, 2830, 1520, -2830
+            }, {
+                    0, -1750, 1750, 0
+            }, {
+                    0, 2800, 0, -2800
+            }, {
+                    0, 2800, 0, -2800
+            }, {
+                    0, -1750, 1750, 0
+            }, {
+                    0, 2800, 0, -2800
+            }, {
+                    0, -1750, 1750, 0
+            }, {
+                    0, 2800, 0, -2800
+            }, {
+                    0, 2800, 0, -2800
+            }, {
+                    0, 560, 0, -560
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    385, 980, 385, -980
+            }, {
+                    0, 0, 0, -600
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 2164, 0, -2164
+            }, {
+                    0, 2164, 0, -2164
+            }, {
+                    0, 3309, 0, -1680
+            }, {
+                    0, 1680, 0, -3309
+            }, {
+                    350, 0, -350, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    1810, 980, 1810, -980
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 500, 0, -500
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 2800, 0, -2800
+            }, {
+                    0, 2800, 0, -2800
+            }, {
+                    0, 1680, 0, -3309
+            }, {
+                    0, 2800, 0, -2800
+            }, {
+                    0, 2800, 0, -2800
+            }, {
+                    0, 2800, 0, -2800
+            }, {
+                    700, 1400, 700, -1400
+            }, {
+                    0, -1480, 0, -1480
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    350, 0, -350, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    700, 0, -700, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, -2198, 0, 1482
+            }, {
+                    0, -1319, 0, 1391
+            }, {
+                    0, -1894, 0, 2271
+            }, {
+                    0, -826, 0, 839
+            }, {
+                    0, -1400, 0, 1400
+            }, {
+                    0, -1400, 0, 1400
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            }, {
+                    0, 0, 0, 0
+            },
 
-
-        { // ?
-            0, 0, 0, 0
-        }, { // bump part
-            0, 0, 0, 0
-        }
+            { // ?
+                    0, 0, 0, 0
+            }, { // bump part
+                    0, 0, 0, 0
+            }
     };
 
     private static int avon = 0;
@@ -530,10 +601,10 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             {
                     0.5F, 0.875F, 0.5F
             }, {
-            0.5F, 0.875F, 0.5F
-    }, {
-            0.5F, 0.875F, 0.5F
-    }
+                    0.5F, 0.875F, 0.5F
+            }, {
+                    0.5F, 0.875F, 0.5F
+            }
     };
 
     private static boolean left = false;
@@ -649,7 +720,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     private static boolean zoomi = false;
     private static boolean zoomo = false;
 
-    private static void medium_rot(final int[] is, final int[] is274, final int i, final int i275, final int i276, float sin, float cos, final int i277) {
+    private static void medium_rot(final int[] is, final int[] is274, final int i, final int i275, final int i276, final float sin, final float cos, final int i277) {
         if (i276 != 0) {
             for (int i278 = 0; i278 < i277; i278++) {
                 final int i279 = is[i278];
@@ -664,10 +735,10 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
      * Button.
      *
      * @param string the string
-     * @param i      the i
-     * @param i381   the i381
-     * @param i382   the i382
-     * @param bool   the bool
+     * @param i the i
+     * @param i381 the i381
+     * @param i382 the i382
+     * @param bool the bool
      * @return true, if successful
      */
     private static boolean button(final String string, final int i, final int i381, final int i382, final boolean bool) {
@@ -1649,9 +1720,9 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     /**
      * Gets the int.
      *
-     * @param string    the string
+     * @param string the string
      * @param string354 the string354
-     * @param i         the i
+     * @param i the i
      * @return the int
      */
     private static int getint(final String string, final String string354, final int i) {
@@ -1673,9 +1744,9 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     /**
      * Gets the string.
      *
-     * @param string    the string
+     * @param string the string
      * @param string349 the string349
-     * @param i         the i
+     * @param i the i
      * @return the string
      */
     private static String getstring(final String string, final String string349, final int i) {
@@ -1697,9 +1768,9 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     /**
      * Gets the svalue.
      *
-     * @param string    the string
+     * @param string the string
      * @param string376 the string376
-     * @param i         the i
+     * @param i the i
      * @return the svalue
      */
     private static String getSvalue(final String string, final String string376, final int i) {
@@ -1861,7 +1932,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     }
                 if (i != -1) {
                     int entrySize = (int) zipentry.getSize();
-                    byte[] b = new byte[entrySize];
+                    final byte[] b = new byte[entrySize];
                     int totalBytes = 0;
                     int readByte;
                     for (; entrySize > 0; entrySize -= readByte) {
@@ -1924,10 +1995,10 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
      * Movefield.
      *
      * @param component the component
-     * @param x         the i
-     * @param y         the i169
-     * @param w         the i170
-     * @param h         the i171
+     * @param x the i
+     * @param y the i169
+     * @param w the i170
+     * @param h the i171
      */
     private static void movefield(final Component component, int x, int y, final int w, final int h) {
         x += apx;
@@ -1946,10 +2017,11 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             if (!file.exists()) {
                 stagename = srch.getText();
                 tstage = "snap(0,0,0)\r\nsky(191,215,255)\r\nclouds(255,255,255,5,-1000)\r\nfog(195,207,230)\r\nground(192,194,202)\r\ntexture(0,0,0,50)\r\nfadefrom(5000)\r\ndensity(5)\r\nmountains(" + (int) (ThreadLocalRandom.current().nextDouble() * 100000.0) + ")\r\nnlaps(5)\r\n\r\n";
-                if (strtyp.getSelectedIndex() == 1)
-                  bstage = "set(48,0,0,250,0)\r\n";
-                else
-                  bstage = "set(47,0,0,250,0)\r\n";
+                if (strtyp.getSelectedIndex() == 1) {
+                    bstage = "set(48,0,0,250,0)\r\n";
+                } else {
+                    bstage = "set(47,0,0,250,0)\r\n";
+                }
                 bstage += "\r\nmaxl(3,-7200,-4800)\r\nmaxb(3,-7200,-4800)\r\nmaxr(3,7200,-4800)\r\nmaxt(3,7200,-4800)\r\n";
                 savefile();
                 strtyp.setVisible(false);
@@ -1968,8 +2040,8 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
      * Ovbutton.
      *
      * @param string the string
-     * @param i      the i
-     * @param i387   the i387
+     * @param i the i
+     * @param i387 the i387
      * @return true, if successful
      */
     private static boolean ovbutton(final String string, final int i, final int i387) {
@@ -2112,7 +2184,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     /**
      * Py.
      *
-     * @param i    the i
+     * @param i the i
      * @param i343 the i343
      * @param i344 the i344
      * @param i345 the i345
@@ -2125,7 +2197,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     /**
      * Pyn.
      *
-     * @param i    the i
+     * @param i the i
      * @param i346 the i346
      * @param i347 the i347
      * @param i348 the i348
@@ -2351,116 +2423,116 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                         nfm.open.Medium.loadnew = false;
                     }
                 }
-//                if (line.startsWith("base1")) {
-//                    co[nob] = new SMContO(bco[BASE1], getint("base1", line, 0), getint("base1", line, 1), getint("base1", line, 2), 0);
-//                    co[nob].declaredXZ = 0;
-//                    co[nob].partID = BASE1;
-//
-//                    xnob++;
-//                    nob++;
-//                    if (readstagei == 3) {
-//                        if (newline) {
-//                            bstage = bstage + "\r\n";
-//                            newline = false;
-//                        }
-//                        bstage = bstage + line + "\r\n";
-//                    }
-//                }
-//                if (line.startsWith("base2")) {
-//                    co[nob] = new SMContO(bco[BASE2], getint("base2", line, 0), getint("base2", line, 1), getint("base2", line, 2), 0);
-//                    co[nob].declaredXZ = 0;
-//                    co[nob].partID = BASE2;
-//
-//                    xnob++;
-//                    nob++;
-//                    if (readstagei == 3) {
-//                        if (newline) {
-//                            bstage = bstage + "\r\n";
-//                            newline = false;
-//                        }
-//                        bstage = bstage + line + "\r\n";
-//                    }
-//                }
-//                if (line.startsWith("ped_flag1")) {
-//                    co[nob] = new SMContO(bco[PEDESTAL_FLAG1], getint("ped_flag1", line, 0), getint("ped_flag1", line, 1), getint("ped_flag1", line, 2), 0);
-//                    co[nob].declaredXZ = 0;
-//                    co[nob].partID = PEDESTAL_FLAG1;
-//
-//                    xnob++;
-//                    nob++;
-//                    if (readstagei == 3) {
-//                        if (newline) {
-//                            bstage = bstage + "\r\n";
-//                            newline = false;
-//                        }
-//                        bstage = bstage + line + "\r\n";
-//                    }
-//                }
-//                if (line.startsWith("ped_flag2")) {
-//                    co[nob] = new SMContO(bco[PEDESTAL_FLAG2], getint("ped_flag2", line, 0), getint("ped_flag2", line, 1), getint("ped_flag2", line, 2), 0);
-//                    co[nob].declaredXZ = 0;
-//                    co[nob].partID = PEDESTAL_FLAG2;
-//
-//                    xnob++;
-//                    nob++;
-//                    if (readstagei == 3) {
-//                        if (newline) {
-//                            bstage = bstage + "\r\n";
-//                            newline = false;
-//                        }
-//                        bstage = bstage + line + "\r\n";
-//                    }
-//                }
-//                if (line.startsWith("node")) {
-//                    /*int setNum = getint("node", string186, 0);
-//                    if (setNum >= 10 && setNum <= 25) {
-//                        Medium.loadnew = true;
-//                    }
-//                    setNum -= 10;*/
-//                    final int nodeX = getint("node", line, 0);
-//                    final int nodeY = getint("node", line, 1);
-//                    final int nodeZ = getint("node", line, 2);
-//                    //int nodeXZ = getint("node", string186, 4);
-//                    co[nob] = new SMContO(bco[NODE_SET_ID], nodeX, nodeY, nodeZ, 0);
-//                    co[nob].declaredXZ = 0; //declaredXZ is the angle because no cras!
-//                    co[nob].partID = NODE_SET_ID;
-//                    CheckPoints.x[CheckPoints.n] = nodeX;
-//                    CheckPoints.z[CheckPoints.n] = nodeZ;
-//                    CheckPoints.y[CheckPoints.n] = nodeY;
-//                    CheckPoints.typ[CheckPoints.n] = 0;
-//                    if (line.contains(")pt")) {
-//                        CheckPoints.typ[CheckPoints.n] = -1;
-//                    }
-//                    if (line.contains(")pr")) {
-//                        CheckPoints.typ[CheckPoints.n] = -2;
-//                    }
-//                    if (line.contains(")po")) {
-//                        CheckPoints.typ[CheckPoints.n] = -3;
-//                    }
-//                    if (line.contains(")ph")) {
-//                        CheckPoints.typ[CheckPoints.n] = -4;
-//                    }
-//                    co[nob].checkpoint = CheckPoints.nsp + 1;
-//                    if (line.contains(")r")) { // // means this set should stay in its original position in `co[]`
-//                        co[nob].wh = CheckPoints.nsp + 1;
-//                    }
-//                    CheckPoints.n++;
-//                    CheckPoints.nsp++;
-//                    xnob++;
-//                    nob++;
-//                    if (readstagei == 3) {
-//                        if (newline) {
-//
-//                            bstage = bstage + "\r\n";
-//                            newline = false;
-//                        }
-//
-//                        bstage = bstage + line + "\r\n";
-//                    }
-//                    if (Medium.loadnew) {
-//                        Medium.loadnew = false;
-//                    }
-//                }
+                //                if (line.startsWith("base1")) {
+                //                    co[nob] = new SMContO(bco[BASE1], getint("base1", line, 0), getint("base1", line, 1), getint("base1", line, 2), 0);
+                //                    co[nob].declaredXZ = 0;
+                //                    co[nob].partID = BASE1;
+                //
+                //                    xnob++;
+                //                    nob++;
+                //                    if (readstagei == 3) {
+                //                        if (newline) {
+                //                            bstage = bstage + "\r\n";
+                //                            newline = false;
+                //                        }
+                //                        bstage = bstage + line + "\r\n";
+                //                    }
+                //                }
+                //                if (line.startsWith("base2")) {
+                //                    co[nob] = new SMContO(bco[BASE2], getint("base2", line, 0), getint("base2", line, 1), getint("base2", line, 2), 0);
+                //                    co[nob].declaredXZ = 0;
+                //                    co[nob].partID = BASE2;
+                //
+                //                    xnob++;
+                //                    nob++;
+                //                    if (readstagei == 3) {
+                //                        if (newline) {
+                //                            bstage = bstage + "\r\n";
+                //                            newline = false;
+                //                        }
+                //                        bstage = bstage + line + "\r\n";
+                //                    }
+                //                }
+                //                if (line.startsWith("ped_flag1")) {
+                //                    co[nob] = new SMContO(bco[PEDESTAL_FLAG1], getint("ped_flag1", line, 0), getint("ped_flag1", line, 1), getint("ped_flag1", line, 2), 0);
+                //                    co[nob].declaredXZ = 0;
+                //                    co[nob].partID = PEDESTAL_FLAG1;
+                //
+                //                    xnob++;
+                //                    nob++;
+                //                    if (readstagei == 3) {
+                //                        if (newline) {
+                //                            bstage = bstage + "\r\n";
+                //                            newline = false;
+                //                        }
+                //                        bstage = bstage + line + "\r\n";
+                //                    }
+                //                }
+                //                if (line.startsWith("ped_flag2")) {
+                //                    co[nob] = new SMContO(bco[PEDESTAL_FLAG2], getint("ped_flag2", line, 0), getint("ped_flag2", line, 1), getint("ped_flag2", line, 2), 0);
+                //                    co[nob].declaredXZ = 0;
+                //                    co[nob].partID = PEDESTAL_FLAG2;
+                //
+                //                    xnob++;
+                //                    nob++;
+                //                    if (readstagei == 3) {
+                //                        if (newline) {
+                //                            bstage = bstage + "\r\n";
+                //                            newline = false;
+                //                        }
+                //                        bstage = bstage + line + "\r\n";
+                //                    }
+                //                }
+                //                if (line.startsWith("node")) {
+                //                    /*int setNum = getint("node", string186, 0);
+                //                    if (setNum >= 10 && setNum <= 25) {
+                //                        Medium.loadnew = true;
+                //                    }
+                //                    setNum -= 10;*/
+                //                    final int nodeX = getint("node", line, 0);
+                //                    final int nodeY = getint("node", line, 1);
+                //                    final int nodeZ = getint("node", line, 2);
+                //                    //int nodeXZ = getint("node", string186, 4);
+                //                    co[nob] = new SMContO(bco[NODE_SET_ID], nodeX, nodeY, nodeZ, 0);
+                //                    co[nob].declaredXZ = 0; //declaredXZ is the angle because no cras!
+                //                    co[nob].partID = NODE_SET_ID;
+                //                    CheckPoints.x[CheckPoints.n] = nodeX;
+                //                    CheckPoints.z[CheckPoints.n] = nodeZ;
+                //                    CheckPoints.y[CheckPoints.n] = nodeY;
+                //                    CheckPoints.typ[CheckPoints.n] = 0;
+                //                    if (line.contains(")pt")) {
+                //                        CheckPoints.typ[CheckPoints.n] = -1;
+                //                    }
+                //                    if (line.contains(")pr")) {
+                //                        CheckPoints.typ[CheckPoints.n] = -2;
+                //                    }
+                //                    if (line.contains(")po")) {
+                //                        CheckPoints.typ[CheckPoints.n] = -3;
+                //                    }
+                //                    if (line.contains(")ph")) {
+                //                        CheckPoints.typ[CheckPoints.n] = -4;
+                //                    }
+                //                    co[nob].checkpoint = CheckPoints.nsp + 1;
+                //                    if (line.contains(")r")) { // // means this set should stay in its original position in `co[]`
+                //                        co[nob].wh = CheckPoints.nsp + 1;
+                //                    }
+                //                    CheckPoints.n++;
+                //                    CheckPoints.nsp++;
+                //                    xnob++;
+                //                    nob++;
+                //                    if (readstagei == 3) {
+                //                        if (newline) {
+                //
+                //                            bstage = bstage + "\r\n";
+                //                            newline = false;
+                //                        }
+                //
+                //                        bstage = bstage + line + "\r\n";
+                //                    }
+                //                    if (Medium.loadnew) {
+                //                        Medium.loadnew = false;
+                //                    }
+                //                }
                 if (line.startsWith("chk")) {
                     int i204 = getint("chk", line, 0);
                     i204 -= 10;
@@ -2638,9 +2710,8 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     }
                 }
                 if (nobincr != nob && !line.startsWith("//") && line.contains(")f=") || line.contains(",f=")) {
-                    String s = line.substring(line.indexOf("f=") + ("f=".length()));
-                    co[nob-1].declaredPositionInArray = Integer.parseInt(s);
-                    co[nob-1].atLine = nobincr;
+                    final String s = line.substring(line.indexOf("f=") + "f=".length());
+                    co[nob - 1].declaredPositionInArray = Integer.parseInt(s);
                 }
             }
             datainputstream.close();
@@ -2773,12 +2844,12 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     /**
      * Rot.
      *
-     * @param is    the is
+     * @param is the is
      * @param is334 the is334
-     * @param i     the i
-     * @param i335  the i335
-     * @param i336  the i336
-     * @param i337  the i337
+     * @param i the i
+     * @param i335 the i335
+     * @param i336 the i336
+     * @param i337 the i337
      */
     private static void rot(final int[] is, final int[] is334, final int i, final int i335, final int i336, final int i337) {
         if (i336 != 0) {
@@ -2790,8 +2861,6 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             }
         }
     }
-
-    private static final boolean BASED = false;
 
     /**
      * :P.
@@ -2864,7 +2933,12 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
         setFocusable(true);
         requestFocusInWindow();
 
-        final ActionListener theticker = ae -> repaint();
+        final ActionListener theticker = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                repaint();
+            }
+        };
         final Timer timer2 = new Timer(50, theticker);
         timer2.start();
 
@@ -6423,7 +6497,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             try {
                 //Thread.sleep(40L);
             } catch (final InterruptedException interruptedexception) {
-        
+
             }
         }*/
         lastfield = 0;
@@ -6479,25 +6553,28 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                             hasLostFocus = false;
                         }
                     } else {
-                        list(e -> { // select whichever part was pciked (not every frame!! that's annoyng!!)
+                        list(new ListSelectionListener() {
+                            @Override
+                            public void valueChanged(ListSelectionEvent e) { // select whichever part was pciked (not every frame!! that's annoyng!!)
 
-                            final int i = list.getSelectedIndex();
-                            if (i >= results.size() || i < 0)
-                                return;
-                            final SearchResult obj = results.get(i); // relyign on the event's data just causes issues...
+                                final int i = list.getSelectedIndex();
+                                if (i >= results.size() || i < 0)
+                                    return;
+                                final SearchResult obj = results.get(i); // relyign on the event's data just causes issues...
 
-                            selectedPart = obj.selectedPart;
+                                selectedPart = obj.selectedPart;
 
-                            final int ctype1 = obj.selectedPartType;
-                            if (ctype1 != ptyp.getSelectedIndex()) { // select whichever map this is
-                                selectedPartType = ctype1;
-                                ptyp.select(selectedPartType);
-                                loadPartMenu();
+                                final int ctype1 = obj.selectedPartType;
+                                if (ctype1 != ptyp.getSelectedIndex()) { // select whichever map this is
+                                    selectedPartType = ctype1;
+                                    ptyp.select(selectedPartType);
+                                    loadPartMenu();
+                                }
+
+                                final int cpart = obj.selectedMenuPart;
+                                selectedMenuPart = cpart;
+                                part.select(cpart);
                             }
-
-                            final int cpart = obj.selectedMenuPart;
-                            selectedMenuPart = cpart;
-                            part.select(cpart);
                         }, results, 6, 292, 200, 100);
                     }
                 }
@@ -6640,7 +6717,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
         System.out.println("ptyp.getSelectedItem() " + ptyp.getSelectedItem());
         System.out.println("part.getSelectedItem() " + part.getSelectedItem());
         System.out.println("menu selected part  " + menus.menus.get(ptyp.getSelectedItem() //
-                ).get(part.getSelectedItem()) //
+        ).get(part.getSelectedItem()) //
         );
         selectedPart = partNumbers.get( //
                 menus.menus.get(ptyp.getSelectedItem() //
@@ -6705,7 +6782,8 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 dragOriginY - nfm.open.Medium.z, mouseDragToY - nfm.open.Medium.z
         };
         final int[] aY = {
-                nfm.open.Medium.ground - nfm.open.Medium.y, nfm.open.Medium.ground - nfm.open.Medium.y, nfm.open.Medium.ground - nfm.open.Medium.y, nfm.open.Medium.ground - nfm.open.Medium.y
+                nfm.open.Medium.ground - nfm.open.Medium.y, nfm.open.Medium.ground - nfm.open.Medium.y,
+                nfm.open.Medium.ground - nfm.open.Medium.y, nfm.open.Medium.ground - nfm.open.Medium.y
         };
 
         medium_rot(aX, aZ, nfm.open.Medium.cx, nfm.open.Medium.cz, nfm.open.Medium.xz, asin_m_xz, acos_m_xz, 2);
@@ -6731,7 +6809,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
         /*
         for (int ii = 0; ii < lastSector - 1; ii++) {
             for (int i = 0; i < lastPlayerPos[ii] - 1; i++) {
-
+        
                 final int[] aX = {
                         bestSectorX[ii][i] - Medium.x, bestSectorX[ii][i + 1] - Medium.x
                 };
@@ -6741,21 +6819,21 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 final int[] aZ = {
                         bestSectorX[ii][i] - Medium.z, bestSectorX[ii][i + 1] - Medium.z
                 };
-
+        
                 medium_rot(aX, aZ, Medium.cx, Medium.cz, Medium.xz, asin_m_xz, acos_m_xz, 2);
                 medium_rot(aY, aZ, Medium.cy, Medium.cz, Medium.zy, asin_m_zy, acos_m_zy, 2);
                 medium_rot(aX, aY, Medium.cx, Medium.cy, __m_xy, asin_m_xy, acos_m_xy, 2);
                 final int[] x2d = new int[2];
                 final int[] y2d = new int[2];
-
+        
                 x2d[0] = Utility.xs(aX[0], aZ[0]);
                 y2d[0] = Utility.mediumYs(aY[0], aZ[0]);
                 x2d[1] = Utility.xs(aX[1], aZ[1]);
                 y2d[1] = Utility.mediumYs(aY[1], aZ[1]);
-
+        
                 rd.setColor(Color.green);
                 rd.drawLine(x2d[0], y2d[0], x2d[1], y2d[1]);
-
+        
                 if (i == 0) {
                     rd.drawString("Sector " + (ii + 1) + " (" + (sectorTime[ii] / 60D) + " seconds)", x2d[0], y2d[0]);
                 }
@@ -6792,7 +6870,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                             undoContoX[numUndoActions] == co[j].x && //x
                             undoContoY[numUndoActions] == co[j].y && //y
                             undoContoZ[numUndoActions] == co[j].z //z
-                            ) {
+                    ) {
                         co[j].partID = -1337;
                         sortstage();
                         break;
@@ -6917,7 +6995,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
      * Servervalue.
      *
      * @param string the string
-     * @param i      the i
+     * @param i the i
      * @return the int
      */
     private static int servervalue(final String string, final int i) {
@@ -7316,7 +7394,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                         }
                     }
                 /*if (i297 != -1) {
-
+                
                 }*/
                 if (i297 != -1) {
                     System.arraycopy(cIds2, i297, cIds2, i297 + 1, t_nob - i297);
@@ -7409,7 +7487,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             }
         }
 
-        int[] cIds3 = new int[t_nob]; // pointer to conto ids after manual sort
+        final int[] cIds3 = new int[t_nob]; // pointer to conto ids after manual sort
 
         // fill array with -1
         for (int i1 = 0; i1 < t_nob; i1++) { // SLOW (i guess, pls fix somehow thx)
@@ -7418,8 +7496,9 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
 
         // first, add the manual sort ones
         for (int i1 = 0; i1 < t_nob; i1++) {
-            if (cIds2[i1] == -1337 || co[cIds2[i1]].partID == -1337)
+            if (cIds2[i1] == -1337 || co[cIds2[i1]].partID == -1337) {
                 continue;
+            }
 
             if (co[cIds2[i1]].declaredPositionInArray != -1) { // OH GOD IS THIS RIGHT?
                 cIds3[co[cIds2[i1]].declaredPositionInArray] = cIds2[i1];
@@ -7428,8 +7507,9 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
 
         // then, fill the empty spots with the rest of the sets
         for (int i1 = 0, avalidint = 0; i1 < t_nob /*potentially array should be +1*/; i1++/*, avalidint++*/) { // now, add the rest
-            if (cIds2[i1] == -1337 || co[cIds2[i1]].partID == -1337 || co[cIds2[i1]].declaredPositionInArray != -1)
+            if (cIds2[i1] == -1337 || co[cIds2[i1]].partID == -1337 || co[cIds2[i1]].declaredPositionInArray != -1) {
                 continue;
+            }
 
             while (cIds3[avalidint] != -1) {
                 avalidint++;
@@ -7440,26 +7520,25 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
 
         /*
         old algorithm:
-
+        
         for (int i1 = 0; i1 < t_nob; i1++) { // first, add the manual sort ones
             if (cIds2[i1] == -1337 || co[cIds2[i1]].partID == -1337)
                 continue;
-
+        
             if (co[cIds2[i1]].declaredPositionInArray != -1) { // OH GOD IS THIS RIGHT?
                 cIds3[co[cIds2[i1]].declaredPositionInArray] = cIds2[i1];
             }
-
+        
             lastvalidint++;
         }
         for (int i1 = 0; i1 < t_nob; i1++) { // now, add the rest
             if (cIds2[i1] == -1337 || co[cIds2[i1]].partID == -1337 || co[cIds2[i1]].declaredPositionInArray != -1)
                 continue;
-
+        
             cIds3[lastvalidint] = cIds2[i1];
             lastvalidint++;
         }
         */
-
 
         int i309 = 0;
         int i310 = 0;
@@ -7472,40 +7551,40 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             /*if (cIds3[i1] == -1) { //ignore entries marked as nonexistant
                 continue;
             } else *//*if (co[cIds3[i1]].partID == BASE1) {
-                String isSorted = getLineSuffix(co[cIds3[i1]]);
-                stageb.append("base1(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
-
-                //placeSET(contoIds1, contoIds2, i313);
-            } else if (co[cIds3[i1]].partID == BASE2) {
-                String isSorted = getLineSuffix(co[cIds3[i1]]);
-                stageb.append("base2(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
-
-                //placeSET(contoIds1, contoIds2, i313);
-            } else if (co[cIds3[i1]].partID == PEDESTAL_FLAG1) {
-                String isSorted = getLineSuffix(co[cIds3[i1]]);
-                stageb.append("ped_flag1(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
-            } else if (co[cIds3[i1]].partID == PEDESTAL_FLAG2) {
-                String isSorted = getLineSuffix(co[cIds3[i1]]);
-                stageb.append("ped_flag2(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
-            } else if (co[cIds3[i1]].partID == NODE_SET_ID) {
-                if (false) {
-                    System.out.println("placing node");
-                }
-                if (false) {
-                    System.out.println("roof2: " + co[cIds3[i1]].declaredXZ);
-                }
-                //if (!floats) {
-                //    stageb.append("node(" + co[is242[i313]].x + "," + co[is242[i313]].y + "," +  + co[is242[i313]].z + ")" + "\r\n";
-                //} else {
-                String isSorted = getLineSuffix(co[cIds3[i1]]);
-
-                stageb.append("node(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
-                //}
-            } else */if (co[cIds3[i1]].partID == ONROAD_CHECKPOINT_SET_ID || Utility.arrayContains(CHECKPOINT_IDS, co[cIds3[i1]].partID) || co[cIds3[i1]].partID == OFFROAD_CHECKPOINT_SET_ID) {
+                     String isSorted = getLineSuffix(co[cIds3[i1]]);
+                     stageb.append("base1(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
+                     
+                     //placeSET(contoIds1, contoIds2, i313);
+                     } else if (co[cIds3[i1]].partID == BASE2) {
+                     String isSorted = getLineSuffix(co[cIds3[i1]]);
+                     stageb.append("base2(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
+                     
+                     //placeSET(contoIds1, contoIds2, i313);
+                     } else if (co[cIds3[i1]].partID == PEDESTAL_FLAG1) {
+                     String isSorted = getLineSuffix(co[cIds3[i1]]);
+                     stageb.append("ped_flag1(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
+                     } else if (co[cIds3[i1]].partID == PEDESTAL_FLAG2) {
+                     String isSorted = getLineSuffix(co[cIds3[i1]]);
+                     stageb.append("ped_flag2(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
+                     } else if (co[cIds3[i1]].partID == NODE_SET_ID) {
+                     if (false) {
+                     System.out.println("placing node");
+                     }
+                     if (false) {
+                     System.out.println("roof2: " + co[cIds3[i1]].declaredXZ);
+                     }
+                     //if (!floats) {
+                     //    stageb.append("node(" + co[is242[i313]].x + "," + co[is242[i313]].y + "," +  + co[is242[i313]].z + ")" + "\r\n";
+                     //} else {
+                     String isSorted = getLineSuffix(co[cIds3[i1]]);
+                     
+                     stageb.append("node(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
+                     //}
+                     } else */if (co[cIds3[i1]].partID == ONROAD_CHECKPOINT_SET_ID || Utility.arrayContains(CHECKPOINT_IDS, co[cIds3[i1]].partID) || co[cIds3[i1]].partID == OFFROAD_CHECKPOINT_SET_ID) {
                 if (co[cIds3[i1]].declaredXZ == 180) {
                     co[cIds3[i1]].declaredXZ = 0;
                 }
-                String string = getLineSuffix(co[cIds3[i1]]);
+                final String string = getLineSuffix(co[cIds3[i1]]);
 
                 if (floats) {
                     stageb.append("chk(").append(co[cIds3[i1]].partID + 10).append(",").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].z).append(",").append(co[cIds3[i1]].y).append(",").append(co[cIds3[i1]].declaredXZ).append(")").append(string).append("\r\n");
@@ -7516,7 +7595,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 if (co[cIds3[i1]].declaredXZ == 180) {
                     co[cIds3[i1]].declaredXZ = 0;
                 }
-                String string = getLineSuffix(co[cIds3[i1]]);
+                final String string = getLineSuffix(co[cIds3[i1]]);
                 //   this.bstage = (this.bstage) + ("chk(")
                 //      .append(co[is242[i313]].partID + 10) + (",") + (co[is242[i313]].x) + (",")
                 //      .append(co[is242[i313]].z) + (",") + (co[is242[i313]].y) + (",") + (co[is242[i313]].declaredXZ)
@@ -7566,7 +7645,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
         bstage = stageb.toString();
     }
 
-    private static String getLineSuffix(SMContO smContO) {
+    private static String getLineSuffix(final SMContO smContO) {
         String string;
         if (smContO.wh != 0) {
             if (smContO.declaredPositionInArray != -1) {
@@ -7613,11 +7692,11 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     /**
      * Rot single.
      *
-     * @param poly1   the poly1
-     * @param poly2   the poly2
+     * @param poly1 the poly1
+     * @param poly2 the poly2
      * @param center1 the center1
      * @param center2 the center2
-     * @param angle   the angle
+     * @param angle the angle
      * @param sin_ang the sin_ang
      * @param cos_ang the cos_ang
      * @return the int[]
@@ -7629,7 +7708,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             poly1 = center1 + (int) ((j1 - center1) * cos_ang - (k1 - center2) * sin_ang);
             poly2 = center2 + (int) ((j1 - center1) * sin_ang + (k1 - center2) * cos_ang);
         }
-        return new int[]{
+        return new int[] {
                 poly1, poly2
         };
     }

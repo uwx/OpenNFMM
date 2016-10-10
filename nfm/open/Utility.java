@@ -1,6 +1,5 @@
 package nfm.open;
 
-import javax.swing.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Map;
@@ -9,6 +8,8 @@ import java.util.Vector;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+
+import javax.swing.ListModel;
 
 public final class Utility {
 
@@ -19,9 +20,7 @@ public final class Utility {
     }
 
     /**
-     * Gets a value from a string in format:
-     * string(value1,value2,value3...)
-     *
+     * Gets a value from a string in format: string(value1,value2,value3...)
      *
      * @param string The variable name (e.g: foo(bar) = foo)
      * @param string262 The string (single line) to get the value from
@@ -46,6 +45,7 @@ public final class Utility {
 
     /**
      * Gets a value from a string like: a|b|c|0|1|2|
+     * 
      * @param string the string to get the value from
      * @param i the value position
      * @return the value at the position
@@ -83,10 +83,8 @@ public final class Utility {
     /**
      * Turns a 3D XY coordinate into a 2D X perspective coordinate.
      *
-     * @param i
-     *            The 3D X point
-     * @param i338
-     *            The 3D Y point
+     * @param i The 3D X point
+     * @param i338 The 3D Y point
      * @param m the Medium
      * @return The 2D X coordinate.
      */
@@ -100,10 +98,8 @@ public final class Utility {
     /**
      * Turns a 3D ZY coordinate into a 2D Y perspective coordinate.
      *
-     * @param i
-     *            The 3D Z point
-     * @param i339
-     *            The 3D Y point
+     * @param i The 3D Z point
+     * @param i339 The 3D Y point
      * @param m the Medium
      * @return The 2D Y coordinate.
      */
@@ -175,7 +171,7 @@ public final class Utility {
     /**
      * Check if an array contains a value, <a href="http://www.programcreek.com/2014/04/check-if-array-contains-a-value-java/">very efficient</a>
      *
-     * @param arr         The array to check against
+     * @param arr The array to check against
      * @param targetValue The value to check for
      * @return {@code true} if the value is found, {@code false} otherwise
      */
@@ -190,7 +186,7 @@ public final class Utility {
     /**
      * Check if an array contains a value, <a href="http://www.programcreek.com/2014/04/check-if-array-contains-a-value-java/">very efficient</a>
      *
-     * @param arr         The array to check against
+     * @param arr The array to check against
      * @param targetValue The value to check for
      * @return {@code true} if the value is found, {@code false} otherwise
      */
@@ -205,7 +201,7 @@ public final class Utility {
     /**
      * Check if an array contains a value, <a href="http://www.programcreek.com/2014/04/check-if-array-contains-a-value-java/">very efficient</a>
      *
-     * @param arr         The array to check against
+     * @param arr The array to check against
      * @param targetValue The value to check for
      * @return {@code true} if the value is found, {@code false} otherwise
      */
@@ -220,7 +216,7 @@ public final class Utility {
     /**
      * Check if an array contains a value, <a href="http://www.programcreek.com/2014/04/check-if-array-contains-a-value-java/">very efficient</a>
      *
-     * @param arr         The array to check against
+     * @param arr The array to check against
      * @param targetValue The value to check for
      * @return {@code true} if the value is found, {@code false} otherwise
      */
@@ -235,7 +231,7 @@ public final class Utility {
     /**
      * Check if an array contains a value, <a href="http://www.programcreek.com/2014/04/check-if-array-contains-a-value-java/">very efficient</a>
      *
-     * @param arr         The array to check against
+     * @param arr The array to check against
      * @param targetValue The value to check for
      * @return {@code true} if the value is found, {@code false} otherwise
      */
@@ -250,7 +246,7 @@ public final class Utility {
     /**
      * Check if an array contains a value, <a href="http://www.programcreek.com/2014/04/check-if-array-contains-a-value-java/">very efficient</a>
      *
-     * @param arr         The array to check against
+     * @param arr The array to check against
      * @param targetValue The value to check for
      * @return {@code true} if the value is found, {@code false} otherwise
      */
@@ -265,7 +261,7 @@ public final class Utility {
     /**
      * Check if an array contains a value, <a href="http://www.programcreek.com/2014/04/check-if-array-contains-a-value-java/">very efficient</a>
      *
-     * @param arr         The array to check against
+     * @param arr The array to check against
      * @param targetValue The value to check for
      * @return {@code true} if the value is found, {@code false} otherwise
      */
@@ -280,7 +276,7 @@ public final class Utility {
     /**
      * Check if an array contains a value, <a href="http://www.programcreek.com/2014/04/check-if-array-contains-a-value-java/">very efficient</a>
      *
-     * @param arr         The array to check against
+     * @param arr The array to check against
      * @param targetValue The value to check for
      * @return {@code true} if the value is found, {@code false} otherwise
      */
@@ -291,7 +287,6 @@ public final class Utility {
         }
         return false;
     }
-
 
     /**
      * Unsafe subclass of ByteArrayOutputStream that doesn't copy array on output
@@ -330,7 +325,6 @@ public final class Utility {
         }
         return bytes;
     }
-
 
     /**
      * Checks if a string contains a POSITIVE INTEGER.
@@ -378,16 +372,16 @@ public final class Utility {
         return false;
     }
 
-//    /**
-//     * Pick an item from an array.
-//     *
-//     * @param is The array.
-//     * @return The item.
-//     * @author Rafael
-//     */
-//    public static int choose(final int... is) {
-//        return is[ThreadLocalRandom.current().nextInt(is.length)];
-//    }
+    //    /**
+    //     * Pick an item from an array.
+    //     *
+    //     * @param is The array.
+    //     * @return The item.
+    //     * @author Rafael
+    //     */
+    //    public static int choose(final int... is) {
+    //        return is[ThreadLocalRandom.current().nextInt(is.length)];
+    //    }
 
     /**
      * Pick an item from an array.
@@ -422,12 +416,13 @@ public final class Utility {
     public static class ArrayUtilities {
         /**
          * Reverses an array of bytes.
+         * 
          * @param data The array to reverse.
          */
-        public static void reverse(byte[] data) {
+        public static void reverse(final byte[] data) {
             for (int left = 0, right = data.length - 1; left < right; left++, right--) {
                 // swap the values at the left and right indices
-                byte temp = data[left];
+                final byte temp = data[left];
                 data[left] = data[right];
                 data[right] = temp;
             }
@@ -435,23 +430,23 @@ public final class Utility {
 
         /**
          * Reverses an array of elements.
+         * 
          * @param data The array to reverse.
          */
-        public static <E> void reverse(E[] data) {
+        public static <E> void reverse(final E[] data) {
             for (int left = 0, right = data.length - 1; left < right; left++, right--) {
                 // swap the values at the left and right indices
-                E temp = data[left];
+                final E temp = data[left];
                 data[left] = data[right];
                 data[right] = temp;
             }
         }
     }
 
-    public static int pointDirection(int x, int y, int tX, int tY) {
-        int angle = (int) Math.toDegrees(Math.atan2(tY - y, tX - x));
+    public static int pointDirection(final int x, final int y, final int tX, final int tY) {
+        final int angle = (int) Math.toDegrees(Math.atan2(tY - y, tX - x));
 
         return angle < 0 ? angle + 360 : angle;
     }
-
 
 }

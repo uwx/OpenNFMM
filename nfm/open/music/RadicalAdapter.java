@@ -7,7 +7,6 @@ package nfm.open.music;
  */
 public class RadicalAdapter implements RadicalMusic {
 
-
     public int loaded;
     public SuperClip sClip;
     public float rvol;
@@ -43,7 +42,7 @@ public class RadicalAdapter implements RadicalMusic {
     }
 
     @Override
-    public void setPaused(boolean pause) {
+    public void setPaused(final boolean pause) {
 
     }
 

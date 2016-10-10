@@ -1,8 +1,4 @@
 package nfm.open;
-/* xtGraphics - Decompiled by JODE
- * Visit http://jode.sourceforge.net/
- */
-import nfm.open.music.*;
 
 import static nfm.open.xtGraphics.Images.*;
 
@@ -35,9 +31,19 @@ import java.util.zip.ZipInputStream;
 
 import javax.swing.JPanel;
 
+/* xtGraphics - Decompiled by JODE
+ * Visit http://jode.sourceforge.net/
+ */
+import nfm.open.music.RadicalBASS;
+import nfm.open.music.RadicalMod;
+import nfm.open.music.RadicalMusic;
+import nfm.open.music.TrackZipLoader;
+
 class xtGraphics extends JPanel implements Runnable {
-    private xtGraphics() { super(); }
-    
+    private xtGraphics() {
+        super();
+    }
+
     static class Images {
         static private Image arn;
         static private Image arrows;
@@ -175,6 +181,7 @@ class xtGraphics extends JPanel implements Runnable {
         static private Image youwon;
 
     }
+
     /**
      * Serialization UID
      */
@@ -554,7 +561,7 @@ class xtGraphics extends JPanel implements Runnable {
     static private boolean wasay = false;
     static private SoundClip wastd;
     static boolean winner = true;
-    
+
     private static xtGraphics xt;
     /**
      * The X-coordinate of the start positions in a race
@@ -568,7 +575,6 @@ class xtGraphics extends JPanel implements Runnable {
     static final int[] zstart = {
             -760, -380, -380, 0, 380, 380, 760, 0
     };
-
 
     static xtGraphics create(final Graphics2D graphics2d, final GameSparker gamesparker) {
         xt = new xtGraphics();
@@ -3019,7 +3025,7 @@ class xtGraphics extends JPanel implements Runnable {
             final float[] fs = new float[3];
             Color.RGBtoHSB(Medium.csky[0], Medium.csky[1], Medium.csky[2], fs);
             fs[2] = 0.6F;
-            Color color = Color.getHSBColor(fs[0], fs[1], fs[2]);
+            final Color color = Color.getHSBColor(fs[0], fs[1], fs[2]);
             rd.setColor(color);
             rd.fillRoundRect(390 - image.getWidth(null) / 2, i - 2, image.getWidth(null) + 20, image.getHeight(null) + 2, 7, 20);
             rd.setColor(new Color((int) (color.getRed() / 1.1), (int) (color.getGreen() / 1.1), (int) (color.getBlue() / 1.1)));
@@ -3587,7 +3593,7 @@ class xtGraphics extends JPanel implements Runnable {
                 if (gmode == 2) {
                     opselect = 1;
                     if (winner && CheckPoints.stage == unlocked/* + (gmode - 1) * 10*/
-                    && CheckPoints.stage != nTracks) {
+                            && CheckPoints.stage != nTracks) {
                         unlocked++;
                         justwon2 = true;
                     } else {
@@ -3989,7 +3995,7 @@ class xtGraphics extends JPanel implements Runnable {
         rd.setComposite(AlphaComposite.getInstance(3, 1.0F));
         rd.setFont(new Font("Arial", 1, 11));
         ftm = rd.getFontMetrics();
-        int i50 = i - 1;
+        final int i50 = i - 1;
         if (i50 < 0) {
         }
         if (!bool) {
@@ -4710,7 +4716,7 @@ class xtGraphics extends JPanel implements Runnable {
         loadimages();
         try {
             intertrack = new RadicalBASS(new File("music/interface.zip"));
-        } catch (Exception e) {
+        } catch (final Exception e) {
             intertrack = new RadicalMod("music/interface.zip");
         }
         dnload += 44;
@@ -5835,11 +5841,11 @@ class xtGraphics extends JPanel implements Runnable {
                 	else
                 		opselect = 2;*/
                 if (firstime) {
-                    oldfase = 102;
-                    fase = 11;
-                    firstime = false;
+                oldfase = 102;
+                fase = 11;
+                firstime = false;
                 } else {
-                    fase = 102;
+                fase = 102;
                 }
             flipo = 0;
             control.enter = false;
@@ -7620,7 +7626,7 @@ class xtGraphics extends JPanel implements Runnable {
     @Override
     public void run() {
         if (!Thread.currentThread().isInterrupted()) {
-            boolean bool = false;
+            final boolean bool = false;
             while (runtyp > 0) {
                 if (runtyp >= 1 && runtyp <= 140) {
                     hipnoload(runtyp, false);
@@ -8547,8 +8553,8 @@ class xtGraphics extends JPanel implements Runnable {
                 if (CheckPoints.stage > 0) {
                     if (control.right) {
                         if (gmode == 0 /*|| gmode == 1 && checkpoints.stage != unlocked[0]*/
-                        || gmode == 2 && CheckPoints.stage != unlocked/* + 10*/
-                        || CheckPoints.stage == nTracks) {
+                                || gmode == 2 && CheckPoints.stage != unlocked/* + 10*/
+                                || CheckPoints.stage == nTracks) {
                             if (CheckPoints.stage != nTracks) {
                                 hidos();
                                 CheckPoints.stage++;

@@ -1,4 +1,5 @@
 package nfm.open;
+
 /* CarDefine - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -409,7 +410,10 @@ final class CarDefine implements Runnable {
     private static CarDefine thread;
     static final int[] top20adds = new int[20];
 
-    private CarDefine() {super();}
+    private CarDefine() {
+        super();
+    }
+
     static CarDefine create(final ContO[] contos) {
         thread = new CarDefine();
         bco = contos;

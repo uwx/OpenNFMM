@@ -25,9 +25,8 @@ public class PlayerData {
             0x011E460DFB99EL, 0x013DC38547EACL, 0x0160B7BF763A5L, 0x01878447B8FE2L, 0x01B295641794FL, 0x01E26343950E4L,
             0x0217734D93882L, 0x025259961C148L, 0x0293BA7B1A0C8L, 0x02DC4C6F0AFE8L, 0x032CD9F6233E5L,
             // is replaced
-            0xFFFFFFFFFFFFFFFFL, 
+            0xFFFFFFFFFFFFFFFFL,
             // fillers
-            ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml,
             ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml,
             ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml,
             ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml,
@@ -40,40 +39,39 @@ public class PlayerData {
             ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml,
             ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml,
             ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml,
-            ml, ml, ml, ml
+            ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml, ml
     };
     static {
         for (int i = 150; i < 500; i++) {
-            levelCaps[i] = (long) (levelCaps[i-1] * 1.11D);
+            levelCaps[i] = (long) (levelCaps[i - 1] * 1.11D);
         }
     }
     public static final transient int maxLevel = 500;
-    
+
     public static int level = 0;
     public static int experience = 0;
-    
-    
+
     public static int topspeedPc(final Stat stat) {
-        return (int) (((stat.swits[2] - 220) / 90.0F)*100f);
+        return (int) ((stat.swits[2] - 220) / 90.0F * 100f);
     }
-        
+
     public static int acelfPc(final Stat stat) {
-        return (int) ((stat.acelf[1] * stat.acelf[0] * stat.acelf[2] * stat.grip / 7700.0F)*100f);
+        return (int) (stat.acelf[1] * stat.acelf[0] * stat.acelf[2] * stat.grip / 7700.0F * 100f);
     }
-    
+
     public static int stuntsPc(final Stat stat) {
-        return (int) (((stat.airc * stat.airs * stat.bounce + 28.0F) / 139.0F) * 100f);
+        return (int) ((stat.airc * stat.airs * stat.bounce + 28.0F) / 139.0F * 100f);
     }
-    
+
     public static int gripPc(final Stat stat) {
-        return (int) ((stat.grip * 1.75f / 90f)*100f);
+        return (int) (stat.grip * 1.75f / 90f * 100f);
     }
 
     public static int strengthPc(final Stat stat) {
-        return (int) (((stat.moment - 1f) * (8f * (stat.maxmag / 12800)) / 9f)*100f);
+        return (int) ((stat.moment - 1f) * (8f * (stat.maxmag / 12800)) / 9f * 100f);
     }
 
     public static int xpDeathPenalty() {
-        return (int) (levelCaps[level-1] * 0.00340499985d);
+        return (int) (levelCaps[level - 1] * 0.00340499985d);
     }
 }
