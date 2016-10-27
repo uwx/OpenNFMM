@@ -55,6 +55,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import nfm.open.CarPool.Player;
+import nfm.open.CarPool.Vehicle;
 import nfm.open.xtGraphics.Images;
 
 class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMotionListener, FocusListener {
@@ -62,6 +63,8 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
      *
      */
     private static final long serialVersionUID = -5976860556958716653L;
+
+    private final static GraphicsConfiguration gfxConfig = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
 
     private static final Comparator<int[]> contoComparator = (arg0, arg1) -> Integer.compare(arg1[1], arg0[1]);
 
@@ -146,7 +149,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
     static final Smenu snbts = new Smenu(8);
     //Smenu snfm1 = new Smenu(12);
     //Smenu snfm2 = new Smenu(19);
-    static final Smenu snfmm = new Smenu(xtGraphics.nTracks + 2);
+    static final Smenu snfmm = new Smenu(xtGraphics.nStages + 2);
     static final Smenu snpls = new Smenu(9);
     static private final Image[] stagemaker = new Image[2];
     static final Smenu swait = new Smenu(6);
@@ -226,8 +229,6 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
      * {@link #tribuffer}'s Graphics2D object
      */
     static private Graphics2D tg;
-
-    private final static GraphicsConfiguration gfxConfig = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
 
     static private boolean gameLoaded = false;
 
@@ -323,6 +324,12 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
         System.gc();
         if (mload != -1 && totalSize != 615671) {
             mload = 2;
+        }
+        for (int id = 0; id < xtGraphics.nCars; id++) {
+            CarPool.carDefs.add(new Vehicle(carContos[id], new Stat(id), id));
+        }
+        for (int i = 0; i < 8; i++) {
+            CarPool.playerCarPool.add(CarPool.carDefs.get(i));
         }
     }
 
@@ -489,7 +496,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
                             Medium.loadnew = true;
                         }
                         setindex -= 10;
-                        System.out.println("Setindex is: " + setindex);
+                        //System.out.println("Setindex is: " + setindex);
                         stageContos[nob] = new ContO(contos[setindex], getint("set", string, 1), Medium.ground - contos[setindex].grat, getint("set", string, 2), getint("set", string, 3));
                         if (string.contains(")p")) {
                             CheckPoints.x[CheckPoints.n] = getint("set", string, 1);
@@ -1609,7 +1616,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
                     xtGraphics.firstime = false;
                 }
                 i = getint("saved", strings[2], 1);
-                if (i >= 1 && i <= xtGraphics.nTracks) {
+                if (i >= 1 && i <= xtGraphics.nStages) {
                     xtGraphics.unlocked = i;
                 }
             }
@@ -1706,7 +1713,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
         swait.add(rd, "1 Minute");
         ilaps.add(rd, "Laps");
         ilaps.add(rd, "1 Lap");
-        for (int i = 0; i < xtGraphics.nTracks; i++) {
+        for (int i = 0; i < xtGraphics.nStages; i++) {
             snfmm.add(rd, " Stage " + (i + 1) + "");
         }
         /*for (int i = 0; i < 10; i++)
@@ -2075,7 +2082,7 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
             }
         }
         if (xtGraphics.fase == 7) {
-            xtGraphics.carselect(u[0], carContos, xm, ym, moused, CarPool.players[0].stat);
+            xtGraphics.carselect(u[0], carContos, xm, ym, moused);
             xtGraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2) {
                 mouses = 0;
@@ -3140,10 +3147,8 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
         if (xtGraphics.fase == -4) {
             if (recordtime == 0) {
                 xtGraphics.sendwin();
-                if (xtGraphics.winner && xtGraphics.multion == 0 && xtGraphics.gmode != 0 && CheckPoints.stage != xtGraphics.nTracks && CheckPoints.stage == xtGraphics.unlocked) {
-                    xtGraphics.unlocked++;
-                    setcarcookie(xtGraphics.sc[0], CarDefine.names[xtGraphics.sc[0]], xtGraphics.arnp, xtGraphics.gmode, xtGraphics.unlocked);
-                    xtGraphics.unlocked--;
+                if (xtGraphics.winner && xtGraphics.multion == 0 && xtGraphics.gmode != 0 && CheckPoints.stage != xtGraphics.nStages && CheckPoints.stage == xtGraphics.unlocked) {
+                    setcarcookie(xtGraphics.sc[0], CarDefine.names[xtGraphics.sc[0]], xtGraphics.arnp, xtGraphics.gmode, xtGraphics.unlocked + 1);
                 }
             }
             if (recordtime <= 0) {

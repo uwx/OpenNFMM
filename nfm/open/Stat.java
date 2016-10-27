@@ -103,7 +103,7 @@ public class Stat {
         enginsignature = clone.enginsignature;
     }
 
-    private Stat(final int cn) {
+    protected Stat(final int cn) {
         swits = CarDefine.swits[cn].clone();
         acelf = CarDefine.acelf[cn].clone();
 
