@@ -45,6 +45,7 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.TimerTask;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -1809,9 +1810,15 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
         // for zero graphical loss.
         gsPanel.setDoubleBuffered(false);
 
-        final Timer timer = new Timer(46, ae -> gsPanel.repaint());
+        java.util.Timer timer = new java.util.Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            
+            @Override
+            public void run() {
+                gsPanel.repaint();
+            }
+        }, 0, 46);
 
-        timer.start();
         return gsPanel;
     }
 
