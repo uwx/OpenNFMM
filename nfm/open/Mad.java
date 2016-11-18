@@ -80,6 +80,7 @@ class Mad {
     boolean wtouch = false;
     private int xtpower = 0;
     int prevX, prevY, prevZ;
+    public float special;
 
     Mad(final Stat stat, final int i) {
         this.stat = stat;
@@ -1691,7 +1692,12 @@ class Mad {
             if (trcnt == 0 && speed != 0.0F) {
                 if (xtpower == 0) {
                     if (power > 0.0F) {
-                        power -= power * power * power / stat.powerloss;
+                        float g = power * power * power / stat.powerloss;
+                        power -= g;
+                        special += g;
+                        if (special > 98.0f) {
+                            special = 98.0f;
+                        }
                     } else {
                         power = 0.0F;
                     }
@@ -2055,6 +2061,7 @@ class Mad {
             scx[i1] = 0.0F;
             scz[i1] = 0.0F;
         }
+        System.out.println("stat " + (stat != null));
         forca = ((float) Math.sqrt(conto.keyz[0] * conto.keyz[0] + conto.keyx[0] * conto.keyx[0]) + (float) Math.sqrt(conto.keyz[1] * conto.keyz[1] + conto.keyx[1] * conto.keyx[1]) + (float) Math.sqrt(conto.keyz[2] * conto.keyz[2] + conto.keyx[2] * conto.keyx[2]) + (float) Math.sqrt(conto.keyz[3] * conto.keyz[3] + conto.keyx[3] * conto.keyx[3])) / 10000.0F * (float) (stat.bounce - 0.3);
         mtouch = false;
         wtouch = false;
@@ -2127,6 +2134,7 @@ class Mad {
         if (CheckPoints.nfix == 4) {
             fixes = 1;
         }
+        special = 0f;
     }
 
     private void rot(final float[] fs, final float[] fs134, final int i, final int i135, final int i136, final int i137) {

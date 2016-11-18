@@ -11,6 +11,9 @@ import java.util.zip.ZipInputStream;
 
 import javax.swing.ListModel;
 
+import gnu.trove.iterator.TObjectIntIterator;
+import gnu.trove.map.TObjectIntMap;
+
 public final class Utility {
 
     /**
@@ -349,10 +352,19 @@ public final class Utility {
         return true;
     }
 
-    public static <T, E> T getKeyByValue(final Map<T, E> map, final E value) {
+    public static <T, E> T findValueKey(final Map<T, E> map, final E value) {
         for (final Map.Entry<T, E> entry : map.entrySet()) {
             if (Objects.equals(value, entry.getValue())) {
                 return entry.getKey();
+            }
+        }
+        return null;
+    }
+    
+    public static <T> T findValueKey(final TObjectIntMap<T> map, final int value) {
+        for (TObjectIntIterator<T> it = map.iterator(); it.hasNext(); it.advance()) {
+            if (Objects.equals(value, it.value())) {
+                return it.key();
             }
         }
         return null;

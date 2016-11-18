@@ -56,7 +56,6 @@ import java.io.StringReader;
 import java.net.Socket;
 import java.net.URL;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -86,6 +85,8 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.SerializedName;
 
+import gnu.trove.map.TObjectIntMap;
+import gnu.trove.map.hash.TObjectIntHashMap;
 import nfm.open.music.RadicalAdapter;
 
 /**
@@ -310,7 +311,7 @@ public class SRCStageMaker extends JPanel
     /**
      * Contains the set id of any model .rad name (in stagemaker values, so -10)
      */
-    private static final Map<String, Integer> partNumbers = new HashMap<>();
+    private static final TObjectIntMap<String> partNumbers = new TObjectIntHashMap<>();
 
     static {
         for (int i = 0; i < GameSparker.stageRads.length; i++) {
@@ -323,7 +324,7 @@ public class SRCStageMaker extends JPanel
      */
     static {
         for (final Map<String, String> map : menus.menus.values()) {
-            map.entrySet().stream().filter(entry -> Utility.isNumeric(entry.getValue())).forEach(entry -> entry.setValue(Utility.getKeyByValue(partNumbers, Integer.parseInt(entry.getValue()))));
+            map.entrySet().stream().filter(entry -> Utility.isNumeric(entry.getValue())).forEach(entry -> entry.setValue(Utility.findValueKey(partNumbers, Integer.parseInt(entry.getValue()))));
         }
     }
 
@@ -1522,11 +1523,11 @@ public class SRCStageMaker extends JPanel
 
         // select right part
 
-        final String partval = Utility.getKeyByValue(partNumbers, selectedPart);
+        final String partval = Utility.findValueKey(partNumbers, selectedPart);
 
         int ctype = 0;
         for (final Map<String, String> map : menus.menus.values()) {
-            final String s = Utility.getKeyByValue(map, partval);
+            final String s = Utility.findValueKey(map, partval);
             if (s != null) { // current map contains value 'partval'
                 System.out.println("GA");
                 if (ctype != ptyp.getSelectedIndex()) { // select whichever map this is

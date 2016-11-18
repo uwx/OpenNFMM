@@ -45,6 +45,7 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.TimerTask;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
@@ -53,10 +54,14 @@ import java.util.zip.ZipInputStream;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.Timer;
 
+import nfm.open.CarPool.ArrayPool;
 import nfm.open.CarPool.Player;
+import nfm.open.CarPool.Pool;
+import nfm.open.CarPool.UnmodifiablePool;
 import nfm.open.CarPool.Vehicle;
+import nfm.open.Trails.Trail;
+import nfm.open.Trails.Vec3i;
 import nfm.open.xtGraphics.Images;
 
 class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMotionListener, FocusListener {
@@ -235,7 +240,13 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
 
     private static GameSparker gsPanel;
 
-    static private ArrayDeque<int[]> trailStack = new ArrayDeque<>(10);
+    static private ArrayDeque<Vec3i> trailStack = new ArrayDeque<>(10);
+
+    static private Trail[] trails = new Trail[8];
+    
+    static {
+        trails[0] = new Trails.ExampleRandomPolyTrail();
+    }
 
     /**
      * Loads models.zip
@@ -326,9 +337,13 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
         if (mload != -1 && totalSize != 615671) {
             mload = 2;
         }
+        Pool<Vehicle> pool = new ArrayPool<>();
         for (int id = 0; id < xtGraphics.nCars; id++) {
-            CarPool.carDefs.add(new Vehicle(carContos[id], new Stat(id), id));
+            Vehicle veh = new Vehicle(carContos[id], new Stat(id), id);
+            pool.add(veh);
+            CarPool.carPool.add(veh);
         }
+        CarPool.carDefs = new UnmodifiablePool<>(pool);
         for (int i = 0; i < 8; i++) {
             CarPool.playerCarPool.add(CarPool.carDefs.get(i));
         }
@@ -716,10 +731,12 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
             } else {
                 Medium.lightn = -1;
             }
+            for (int n = 1; n < xtGraphics.nplayers; n++) {
+            }
+            
             Medium.nochekflk = !(CheckPoints.stage == 1 || CheckPoints.stage == 11);
             for (int n = 0; n < xtGraphics.nplayers; n++) {
                 u[n].reset(xtGraphics.sc[n]);
-                mads[n].setStat(CarPool.players[n].stat);
             }
             xtGraphics.resetstat(CheckPoints.stage);
             CheckPoints.calprox();
@@ -730,6 +747,11 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
                     xtGraphics.colorCar(carContos[xtGraphics.sc[j]], j);
                 }
                 stageContos[j] = new ContO(carContos[xtGraphics.sc[j]], xtGraphics.xstart[j], 250 - carContos[xtGraphics.sc[j]].grat, xtGraphics.zstart[j], 0);
+
+                if (j != 0)
+                    CarPool.players[j].setCar(stageContos[j], new Stat(xtGraphics.sc[j]), xtGraphics.sc[j]);
+                mads[j].setStat(CarPool.players[j].stat);
+                
                 mads[j].reseto(xtGraphics.sc[j], stageContos[j]);
             }
             if (xtGraphics.fase == 2 || xtGraphics.fase == -22) {
@@ -762,6 +784,12 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
             xtGraphics.fase = 1;
         }
         System.gc();
+        for (int j = 0; j < trails.length; j++) {
+            Trail t = trails[j];
+            if (t != null) {
+                t.initialize(stageContos[j]);
+            }
+        }
     }
 
     static private boolean loadstagePreview(final int i, final String string, final ContO[] contos, final ContO[] contos147) {
@@ -2540,6 +2568,9 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
                 for (int k = 0; k < xtGraphics.nplayers; k++) {
                     mads[k].drive(u[k], stageContos[k]);
                 }
+                
+                renderTrails();
+
                 for (int k = 0; k < xtGraphics.nplayers; k++) {
                     Record.rec(stageContos[k], k, mads[k].squash, mads[k].lastcolido, mads[k].cntdest, 0);
                 }
@@ -2616,6 +2647,11 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
                     rd.setColor(new Color(255, 255, 255));
                     rd.fillRect(0, 0, 800, 450);
                 }
+            }
+            
+            for (int i = 0; i < xtGraphics.nplayers; i++) {
+                lastCarX[i] = stageContos[i].x;
+                lastCarZ[i] = stageContos[i].z;
             }
         }
         if (xtGraphics.fase == 7001) {
@@ -3272,6 +3308,36 @@ class GameSparker extends JPanel implements KeyListener, MouseListener, MouseMot
             trash();
         }
 
+    }
+
+    static final int[] lastCarX = new int[8];
+    static final int[] lastCarZ = new int[8];
+    
+    private static void renderTrails() {
+        ContO conto = stageContos[0];
+        if (conto.x == lastCarX[0] && conto.z == lastCarZ[0])
+            return; // car is not moving, lets not render trails
+        
+        if (trailStack.isEmpty()) {
+            trailStack.add(trails[0].wrap(new Vec3i(conto.x, conto.y, conto.z)));
+        }
+        if (trailStack.size() > 10) {
+            trailStack.removeFirst(); // not removeLast, ugh
+        }
+        
+        Vec3i xyz = null;
+
+        for (Iterator<Vec3i> iterator = trailStack.iterator(); iterator.hasNext();) {
+            Vec3i pxyz = xyz;
+            xyz = iterator.next();
+            if (pxyz == null) {
+                continue;
+            }
+
+            trails[0].draw(rd, conto.xz, conto.xy, conto.zy, pxyz, xyz);
+        }
+
+        trailStack.add(trails[0].wrap(new Vec3i(conto.x, conto.y, conto.z)));
     }
 
     static void setcarcookie(final int i, final String string, final float[] fs, final int gamemode, final int is) {

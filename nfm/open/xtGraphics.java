@@ -380,8 +380,8 @@ class xtGraphics extends JPanel implements Runnable {
     static boolean lan = false;
     static int laps = 0;
     static int laptime = 0;
-    static private int lcarx = 0;
-    static private int lcarz = 0;
+    static int lcarx = 0;
+    static int lcarz = 0;
     private final static String[] lcmsg = {
             "", ""
     };
@@ -3025,106 +3025,144 @@ class xtGraphics extends JPanel implements Runnable {
         }
     }
 
-    static private void drawstat(final int i, int i206, final float f) {
-        final int[] is = new int[4];
-        final int[] is207 = new int[4];
-        if (i206 > i) {
-            i206 = i;
+    static private void drawstat(final int maxmag, int hitmag, final float power, final float special) {
+        rd.translate(-15, 15);
+
+        int[] outlineX = new int[8];
+        int[] outlineY = new int[8];
+        
+        // draw damage
+
+        final int damage = (int) (98.0F * ((float) hitmag / (float) maxmag));
+        
+        int r = 244;
+        int g = 244;
+        int b = 11;
+        if (damage > 33) {
+            g = (int) (244.0F - 233.0F * ((damage - 33) / 65.0F));
         }
-        final int i208 = (int) (98.0F * ((float) i206 / (float) i));
-        is[0] = 662;
-        is207[0] = 11;
-        is[1] = 662;
-        is207[1] = 20;
-        is[2] = 662 + i208;
-        is207[2] = 20;
-        is[3] = 662 + i208;
-        is207[3] = 11;
-        int i209 = 244;
-        int i210 = 244;
-        int i211 = 11;
-        if (i208 > 33) {
-            i210 = (int) (244.0F - 233.0F * ((i208 - 33) / 65.0F));
-        }
-        if (i208 > 70) {
+        if (damage > 70) {
             if (dmcnt < 10) {
                 if (dmflk) {
-                    i210 = 170;
+                    g = 170;
                     dmflk = false;
                 } else {
                     dmflk = true;
                 }
             }
             dmcnt++;
-            if (dmcnt > 167.0 - i208 * 1.5) {
+            if (dmcnt > 167.0 - damage * 1.5) {
                 dmcnt = 0;
             }
         }
-        i209 += i209 * (Medium.snap[0] / 100.0F);
-        if (i209 > 255) {
-            i209 = 255;
+        r += r * (Medium.snap[0] / 100.0F);
+        if (r > 255) {
+            r = 255;
         }
-        if (i209 < 0) {
-            i209 = 0;
+        if (r < 0) {
+            r = 0;
         }
-        i210 += i210 * (Medium.snap[1] / 100.0F);
-        if (i210 > 255) {
-            i210 = 255;
+        g += g * (Medium.snap[1] / 100.0F);
+        if (g > 255) {
+            g = 255;
         }
-        if (i210 < 0) {
-            i210 = 0;
+        if (g < 0) {
+            g = 0;
         }
-        i211 += i211 * (Medium.snap[2] / 100.0F);
-        if (i211 > 255) {
-            i211 = 255;
+        b += b * (Medium.snap[2] / 100.0F);
+        if (b > 255) {
+            b = 255;
         }
-        if (i211 < 0) {
-            i211 = 0;
+        if (b < 0) {
+            b = 0;
         }
-        rd.setColor(new Color(i209, i210, i211));
-        rd.fillPolygon(is, is207, 4);
-        is[0] = 662;
-        is207[0] = 31;
-        is[1] = 662;
-        is207[1] = 40;
-        is[2] = (int) (662.0F + f);
-        is207[2] = 40;
-        is[3] = (int) (662.0F + f);
-        is207[3] = 31;
-        i209 = 128;
-        if (f == 98.0F) {
-            i209 = 64;
+        rd.setColor(new Color(r, g, b));
+        rd.fillRect(800 - 100, 0,  (int)(100 * (damage / 98f)), 12);
+        outlineX[0] = (800 - 100);
+        outlineY[0] = 0;
+        outlineX[1] = (800 - 100) + (int)(100 * (damage / 98f));
+        outlineY[1] = 0;
+        
+        // draw power
+        r = 128;
+        if (power == 98.0F) {
+            r = 64;
         }
-        i210 = (int) (190.0 + f * 0.37);
-        i211 = 244;
+        g = (int) (190.0 + power * 0.37);
+        b = 244;
         if (auscnt < 45 && aflk) {
-            i209 = 128;
-            i210 = 244;
-            i211 = 244;
+            r = 128;
+            g = 244;
+            b = 244;
         }
-        i209 += i209 * (Medium.snap[0] / 100.0F);
-        if (i209 > 255) {
-            i209 = 255;
+        r += r * (Medium.snap[0] / 100.0F);
+        if (r > 255) {
+            r = 255;
         }
-        if (i209 < 0) {
-            i209 = 0;
+        if (r < 0) {
+            r = 0;
         }
-        i210 += i210 * (Medium.snap[1] / 100.0F);
-        if (i210 > 255) {
-            i210 = 255;
+        g += g * (Medium.snap[1] / 100.0F);
+        if (g > 255) {
+            g = 255;
         }
-        if (i210 < 0) {
-            i210 = 0;
+        if (g < 0) {
+            g = 0;
         }
-        i211 += i211 * (Medium.snap[2] / 100.0F);
-        if (i211 > 255) {
-            i211 = 255;
+        b += b * (Medium.snap[2] / 100.0F);
+        if (b > 255) {
+            b = 255;
         }
-        if (i211 < 0) {
-            i211 = 0;
+        if (b < 0) {
+            b = 0;
         }
-        rd.setColor(new Color(i209, i210, i211));
-        rd.fillPolygon(is, is207, 4);
+        rd.setColor(new Color(r, g, b));
+        rd.fillRect(800 - 100, 12,  (int)(100 * (power / 98f)), 12);
+        outlineX[2] = (800 - 100) + (int)(100 * (damage / 98f));
+        outlineY[2] = 12;
+        outlineX[3] = (800 - 100) + (int)(100 * (power / 98f));
+        outlineY[3] = 12;
+        
+        // draw special
+        b = 128;
+        r += r * (Medium.snap[0] / 100.0F);
+        if (r > 255) {
+            r = 255;
+        }
+        if (r < 0) {
+            r = 0;
+        }
+        g += g * (Medium.snap[1] / 100.0F);
+        if (g > 255) {
+            g = 255;
+        }
+        if (g < 0) {
+            g = 0;
+        }
+        b += b * (Medium.snap[2] / 100.0F);
+        if (b > 255) {
+            b = 255;
+        }
+        if (b < 0) {
+            b = 0;
+        }
+        
+        rd.setColor(new Color(r, g, b));
+        rd.fillRect(800 - 100, 24, (int)(100 * (special / 98f)), 12);
+        outlineX[4] = (800 - 100) + (int)(100 * (power / 98f));
+        outlineY[4] = 24;
+        outlineX[5] = (800 - 100) + (int)(100 * (special / 98f));
+        outlineY[5] = 24;
+
+        outlineX[6] = (800 - 100) + (int)(100 * (special / 98f));
+        outlineY[6] = 36;
+        outlineX[7] = (800 - 100);
+        outlineY[7] = 36;
+        
+        rd.setColor(Color.black);
+        rd.drawPolygon(outlineX, outlineY, 8);
+
+        rd.translate(15, -15);
     }
 
     static void drawWarning() {
@@ -8430,8 +8468,8 @@ class xtGraphics extends JPanel implements Runnable {
                     rd.drawLine(147, 27, 147, 45);
                     rd.drawLine(148, 29, 148, 43);
                 }
-                rd.drawImage(dmg, 600, 7, null);
-                rd.drawImage(pwr, 600, 27, null);
+//                rd.drawImage(dmg, 600, 7, null);
+//                rd.drawImage(pwr, 600, 27, null);
                 rd.drawImage(lap, 19, 7, null);
                 rd.setColor(new Color(0, 0, 100));
                 rd.drawString("" + (mad.nlaps + 1) + " / " + CheckPoints.nlaps + "", 51, 18);
@@ -8440,7 +8478,7 @@ class xtGraphics extends JPanel implements Runnable {
                 rd.drawString("" + CheckPoints.wasted + " / " + (nplayers - 1) + "", 150, 18);
                 rd.drawImage(pos, 42, 27, null);
                 rd.drawImage(rank[CheckPoints.pos[mad.im]], 110, 28, null);
-                drawstat(CarDefine.maxmag[mad.cn], mad.hitmag, mad.power);
+                drawstat(CarDefine.maxmag[mad.cn], mad.hitmag, mad.power, mad.special);
                 if (control.radar && CheckPoints.stage != 10) {
                     radarstat(mad, conto);
                 }

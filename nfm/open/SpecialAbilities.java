@@ -77,7 +77,7 @@ public class SpecialAbilities {
     }
 
     /**
-     * Blinds a player when used, heavily capping their
+     * Blinds a player when used, heavily capping their speed
      *
      * @author Rafael
      */

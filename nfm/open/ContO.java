@@ -1028,7 +1028,7 @@ class ContO {
     }
 
 
-    ContO(final int i, final int i90, final int i91, final int i92, final int i93, final int i94) { // TODO are the bump piles broken?
+    ContO(final int randSeed, final int radius, final int height, final int i92, final int i93, final int i94) {
         keyx = new int[4];
         keyz = new int[4];
         sprkat = 0;
@@ -1062,6 +1062,30 @@ class ContO {
         err = "";
         roofat = 0;
         wh = 0;
+        
+        sprkat = 0;
+        tnt = 0;
+        ust = 0;
+        srx = 0;
+        sry = 0;
+        srz = 0;
+        rcx = 0.0F;
+        rcy = 0.0F;
+        rcz = 0.0F;
+        sprk = 0;
+        //elec = false;
+        roted = false;
+        fix = false;
+        fcnt = 0;
+        checkpoint = 0;
+        colok = 0;
+        errd = false;
+        err = "";
+        roofat = 0;
+        wh = 0;
+        x = i92;
+        z = i93;
+        y = i94;
         xz = 0;
         xy = 0;
         zy = 0;
@@ -1074,60 +1098,60 @@ class ContO {
         decor = true;
         npl = 5;
         p = new Plane[5];
-        final Random random = new Random(i);
+        final Random random = new Random(randSeed);
         final int[] is = new int[8];
         final int[] is95 = new int[8];
         final int[] is96 = new int[8];
         final int[] is97 = new int[8];
         final int[] is98 = new int[8];
-        float f = i90;
-        float f99 = i91;
-        if (f99 < 2.0F) {
-            f99 = 2.0F;
+        float f = radius;
+        float f99 = height;
+        if (f99 < 2.0F * 1f) {
+            f99 = 2.0F * 1f;
         }
-        if (f99 > 6.0F) {
-            f99 = 6.0F;
+        if (f99 > 6.0F * 1f) {
+            f99 = 6.0F * 1f;
         }
-        if (f < 2.0F) {
-            f = 2.0F;
+        if (f < 2.0F * 1f) {
+            f = 2.0F * 1f;
         }
-        if (f > 6.0F) {
-            f = 6.0F;
+        if (f > 6.0F * 1f) {
+            f = 6.0F * 1f;
         }
         f /= 1.5F;
         f99 /= 1.5F;
         f99 *= 1.0F + (f - 2.0F) * 0.1786F;
-        float f100 = (float) (50.0 + 100.0 * random.nextDouble());
+        float f100 = (float) (50.0f + 100.0f * random.nextDouble());
         is[0] = -(int) (f100 * f * 0.7071F);
         is95[0] = (int) (f100 * f * 0.7071F);
-        f100 = (float) (50.0 + 100.0 * random.nextDouble());
+        f100 = (float) (50.0f + 100.0f * random.nextDouble());
         is[1] = 0;
         is95[1] = (int) (f100 * f);
-        f100 = (float) (50.0 + 100.0 * random.nextDouble());
-        is[2] = (int) (f100 * f * 0.7071);
-        is95[2] = (int) (f100 * f * 0.7071);
-        f100 = (float) (50.0 + 100.0 * random.nextDouble());
+        f100 = (float) (50.0f + 100.0f * random.nextDouble());
+        is[2] = (int) (f100 * f * 0.7071f);
+        is95[2] = (int) (f100 * f * 0.7071f);
+        f100 = (float) (50.0f + 100.0f * random.nextDouble());
         is[3] = (int) (f100 * f);
         is95[3] = 0;
-        f100 = (float) (50.0 + 100.0 * random.nextDouble());
-        is[4] = (int) (f100 * f * 0.7071);
-        is95[4] = -(int) (f100 * f * 0.7071);
-        f100 = (float) (50.0 + 100.0 * random.nextDouble());
+        f100 = (float) (50.0f + 100.0f * random.nextDouble());
+        is[4] = (int) (f100 * f * 0.7071f);
+        is95[4] = -(int) (f100 * f * 0.7071f);
+        f100 = (float) (50.0f + 100.0f * random.nextDouble());
         is[5] = 0;
         is95[5] = -(int) (f100 * f);
-        f100 = (float) (50.0 + 100.0 * random.nextDouble());
-        is[6] = -(int) (f100 * f * 0.7071);
-        is95[6] = -(int) (f100 * f * 0.7071);
-        f100 = (float) (50.0 + 100.0 * random.nextDouble());
+        f100 = (float) (50.0f + 100.0f * random.nextDouble());
+        is[6] = -(int) (f100 * f * 0.7071f);
+        is95[6] = -(int) (f100 * f * 0.7071f);
+        f100 = (float) (50.0f + 100.0f * random.nextDouble());
         is[7] = -(int) (f100 * f);
         is95[7] = 0;
-        for (int i101 = 0; i101 < 8; i101++) {
-            is96[i101] = (int) (is[i101] * (0.2 + 0.4 * random.nextDouble()));
-            is97[i101] = (int) (is95[i101] * (0.2 + 0.4 * random.nextDouble()));
-            is98[i101] = -(int) ((10.0 + 15.0 * random.nextDouble()) * f99);
+        for (int i101 = 0; i101 < 4; i101++) {
+            is96[i101] = (int) (is[i101] * (0.2f + 0.4f * random.nextDouble()));
+            is97[i101] = (int) (is95[i101] * (0.2f + 0.4f * random.nextDouble()));
+            is98[i101] = -(int) ((10.0f + 15.0f * random.nextDouble()) * f99);
         }
         maxR = 0;
-        for (int i102 = 0; i102 < 8; i102++) {
+        for (int i102 = 0; i102 < 4; i102++) {
             int i103 = i102 - 1;
             if (i103 == -1) {
                 i103 = 7;
@@ -1154,10 +1178,10 @@ class ContO {
         final int[] is106 = new int[3];
         float f107 = -1.0F;
         float f108 = (f / f99 - 0.33F) / 33.4F;
-        if (f108 < 0.005) {
+        if (f108 < 0.005f) {
             f108 = 0.0F;
         }
-        if (f108 > 0.057) {
+        if (f108 > 0.057f) {
             f108 = 0.057F;
         }
         for (int i109 = 0; i109 < 4; i109++) {
@@ -1187,17 +1211,16 @@ class ContO {
             is113[5] = is98[i110];
             is113[4] = is98[i110 + 1];
             is113[3] = is98[i111];
-            for (f100 = (float) ((0.17 - f108) * random.nextDouble()); Math.abs(f107 - f100) < 0.03 - f108 * 0.176F; f100 = (float) ((0.17 - f108) * random.nextDouble())) {
+            for (f100 = (float) ((0.17f - f108) * random.nextDouble()); Math.abs(f107 - f100) < 0.03f - f108 * 0.176F; f100 = (float) ((0.17f - f108) * random.nextDouble())) {
 
             }
             f107 = f100;
-            for (int i115 = 0; i115 < 3; i115++) {
+            for (int i115 = 0; i115 < 3; i115++)
                 if (Medium.trk == 2) {
                     is106[i115] = (int) (390.0F / (2.2F + f100 - f108));
                 } else {
                     is106[i115] = (int) ((Medium.cpol[i115] + Medium.cgrnd[i115]) / (2.2F + f100 - f108));
                 }
-            }
             p[i109] = new Plane(is112, is114, is113, 6, is106, 3, -8, 0, 0, 0, 0, disline, 0, true, 0, false, false, false, false, 1, 0, 0, 10);
         }
         f100 = (float) (0.02 * random.nextDouble());
@@ -1236,7 +1259,7 @@ class ContO {
             }
             if (i119 == 0) {
                 is118[0] = Trackers.z[Trackers.nt] - Trackers.radz[Trackers.nt];
-                Trackers.zy[Trackers.nt] = (int) (Math.atan((double) Trackers.rady[Trackers.nt] / (double) Trackers.radz[Trackers.nt]) / 0.017453292519943295);
+                Trackers.zy[Trackers.nt] = (byte) (Math.atan((double) Trackers.rady[Trackers.nt] / (double) Trackers.radz[Trackers.nt]) / 0.017453292519943295f);
                 if (Trackers.zy[Trackers.nt] > 40) {
                     Trackers.zy[Trackers.nt] = 40;
                 }
@@ -1244,7 +1267,7 @@ class ContO {
             }
             if (i119 == 1) {
                 is117[0] = Trackers.x[Trackers.nt] - Trackers.radx[Trackers.nt];
-                Trackers.xy[Trackers.nt] = (int) (Math.atan((double) Trackers.rady[Trackers.nt] / (double) Trackers.radx[Trackers.nt]) / 0.017453292519943295);
+                Trackers.xy[Trackers.nt] = (byte) (Math.atan((double) Trackers.rady[Trackers.nt] / (double) Trackers.radx[Trackers.nt]) / 0.017453292519943295f);
                 if (Trackers.xy[Trackers.nt] > 40) {
                     Trackers.xy[Trackers.nt] = 40;
                 }
@@ -1252,7 +1275,7 @@ class ContO {
             }
             if (i119 == 2) {
                 is118[1] = Trackers.z[Trackers.nt] + Trackers.radz[Trackers.nt];
-                Trackers.zy[Trackers.nt] = -(int) (Math.atan((double) Trackers.rady[Trackers.nt] / (double) Trackers.radz[Trackers.nt]) / 0.017453292519943295);
+                Trackers.zy[Trackers.nt] = (byte) -(Math.atan((double) Trackers.rady[Trackers.nt] / (double) Trackers.radz[Trackers.nt]) / 0.017453292519943295f);
                 if (Trackers.zy[Trackers.nt] < -40) {
                     Trackers.zy[Trackers.nt] = -40;
                 }
@@ -1260,7 +1283,7 @@ class ContO {
             }
             if (i119 == 3) {
                 is117[1] = Trackers.x[Trackers.nt] + Trackers.radx[Trackers.nt];
-                Trackers.xy[Trackers.nt] = -(int) (Math.atan((double) Trackers.rady[Trackers.nt] / (double) Trackers.radx[Trackers.nt]) / 0.017453292519943295);
+                Trackers.xy[Trackers.nt] = (byte) -(Math.atan((double) Trackers.rady[Trackers.nt] / (double) Trackers.radx[Trackers.nt]) / 0.017453292519943295f);
                 if (Trackers.xy[Trackers.nt] < -40) {
                     Trackers.xy[Trackers.nt] = -40;
                 }
@@ -1278,7 +1301,7 @@ class ContO {
             Trackers.nt++;
         }
         Trackers.y[Trackers.nt] = 0;
-        for (int i122 = 0; i122 < 8; i122++) {
+        for (int i122 = 0; i122 < 4; i122++) {
             Trackers.y[Trackers.nt] += is98[i122];
         }
         Trackers.y[Trackers.nt] = Trackers.y[Trackers.nt] / 8;
