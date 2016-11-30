@@ -1,2 +1,15 @@
-"C:\Program Files\Java\jdk1.8.0\bin\javac" -classpath "libraries\jl1.0.1.jar" javazoom/jl/player/PausablePlayer.java
-"C:\Program Files\Java\jdk1.8.0\bin\javac" -classpath "libraries\dragshotMod.jar;libraries\easyogg.jar;libraries\jl1.0.1.jar;libraries\jogg-0.0.7.jar;libraries\jorbis-0.0.15.jar;libraries/NativeBass.jar;libraries/NativeBass-Examples.jar;%CD%" *.java -Xlint:deprecation
+cd src
+dir /s /B *.java > sources.txt
+mkdir CMDBUILDDIR
+javac -d CMDBUILDDIR -encoding utf8 -classpath .;^
+../libraries/bin/jl1.0.1.jar;^
+../libraries/bin/jogg-0.0.7.jar;^
+../libraries/bin/jorbis-0.0.15.jar;^
+../libraries/bin/NativeBass.jar;^
+../libraries/bin/NativeBass-Examples.jar;^
+../libraries/bin/rsyntaxtextarea-2.5.8.jar;^
+../libraries/bin/trove-3.1a1.jar;^
+../libraries/bin/dragshotMod.jar;^
+../libraries/bin/easyogg.jar;^
+../libraries/bin/gson-2.6.2.jar @sources.txt
+cd ..

@@ -8,9 +8,8 @@ branches:
 build_script:
  - cmd: SET tempath=%PATH%
  - cmd: SET PATH="C:\Program Files\Java\jdk1.8.0\bin"
- - cmd: javac -classpath "libraries\jl1.0.1.jar" javazoom/jl/player/PausablePlayer.java
- - cmd: javac -classpath "libraries\dragshotMod.jar;libraries\easyogg.jar;libraries\jl1.0.1.jar;libraries\jogg-0.0.7.jar;libraries\jorbis-0.0.15.jar;libraries/NativeBass.jar;libraries/NativeBass-Examples.jar;%CD%" *.java -Xlint:deprecation
-
+ - cmd: build
+ 
 environment:
   access_token:
    secure: wShbQfYcfaf2ZgU8dFgLTVJglCyGiK9/BHWcEbVZ4sU8SqxokPc4pFfl1ZY4qtlO
