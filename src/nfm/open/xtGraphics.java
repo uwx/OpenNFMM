@@ -22,6 +22,7 @@ import java.awt.image.PixelGrabber;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -33,20 +34,21 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 class xtGraphics extends JPanel implements Runnable {
     private xtGraphics() { super(); }
     
     static class Images {
-        static private Image arn;
-        static private Image arrows;
+        static Image arn;
+        static Image arrows;
         static Image asd;
         static Image asu;
         static final Image[] back = new Image[2];
-        static private final Image[] bc = new Image[2];
-        static private final Image[] bcl = new Image[2];
-        static private final Image[] bcr = new Image[2];
+        static final Image[] bc = new Image[2];
+        static final Image[] bcl = new Image[2];
+        static final Image[] bcr = new Image[2];
         static Image bggo;
         static Image bgmain;
         static Image bob;
@@ -60,119 +62,119 @@ class xtGraphics extends JPanel implements Runnable {
         static Image bors;
         static Image bot;
         static Image br;
-        static private Image brt;
-        static private Image byrd;
+        static Image brt;
+        static Image byrd;
         static Image cancel;
-        static private Image carsbg;
-        static private Image carsbgc;
+        static Image carsbg;
+        static Image carsbgc;
         static Image ccar;
         static Image cgame;
         static Image change;
-        static private Image chil;
-        static private final Image[] cntdn = new Image[4];
-        static private Image congrd;
-        static private final Image[] contin = new Image[2];
+        static Image chil;
+        static final Image[] cntdn = new Image[4];
+        static Image congrd;
+        static final Image[] contin = new Image[2];
         static Image crd;
-        static private Image disco;
-        static private Image dmg;
+        static Image disco;
+        static Image dmg;
         static final Image[] dude = new Image[3];
         static Image exit;
-        static private Image exitgame;
-        static private Image fixhoop;
-        static private Image flaot;
+        static Image exitgame;
+        static Image fixhoop;
+        static Image flaot;
         static Image fleximg;
-        static private Image gamefinished;
-        static private Image gameh;
-        static private Image gameov;
+        static Image gamefinished;
+        static Image gameh;
+        static Image gameov;
         static Image games;
         static Image gmc;
-        static private Image hello;
-        static private Image kenter;
-        static private Image km;
-        static private Image kn;
-        static private Image ks;
-        static private Image kv;
-        static private Image kx;
-        static private Image kz;
+        static Image hello;
+        static Image kenter;
+        static Image km;
+        static Image kn;
+        static Image ks;
+        static Image kv;
+        static Image kx;
+        static Image kz;
         static Image lanm;
-        static private Image lap;
-        static private Image loadbar;
-        static private Image loadingmusic;
+        static Image lap;
+        static Image loadbar;
+        static Image loadingmusic;
         static Image login;
-        static private Image logocars;
-        static private Image logomadbg;
+        static Image logocars;
+        static Image logomadbg;
         static Image logomadnes;
         static Image logout;
         static Image mdness;
         static Image mload;
-        static private final Image[] next = new Image[2];
-        static private Image nfm;
-        static private Image nfmcom;
-        static private Image nfmcoms;
+        static final Image[] next = new Image[2];
+        static Image nfm;
+        static Image nfmcom;
+        static Image nfmcoms;
         static Image ntrg;
-        static private final Image[] ocntdn = new Image[4];
-        static private Image odisco;
-        static private Image odmg;
-        static private Image oexitgame;
-        static private Image oflaot;
-        static private Image ogamefinished;
-        static private Image ogameh;
-        static private Image olap;
-        static private Image oloadingmusic;
-        static private Image onfmm;
-        static private Image opback;
-        static private Image opos;
-        static private Image opti;
-        static private Image opwr;
-        static private final Image[] orank = new Image[8];
-        static private Image ory;
-        static private Image osped;
-        static private final Image[] ostar = new Image[2];
-        static private Image owas;
-        static private Image owgame;
-        static private Image oyoulost;
-        static private Image oyourwasted;
-        static private Image oyouwastedem;
-        static private Image oyouwon;
-        static private Image paused;
-        static private Image pgate;
+        static final Image[] ocntdn = new Image[4];
+        static Image odisco;
+        static Image odmg;
+        static Image oexitgame;
+        static Image oflaot;
+        static Image ogamefinished;
+        static Image ogameh;
+        static Image olap;
+        static Image oloadingmusic;
+        static Image onfmm;
+        static Image opback;
+        static Image opos;
+        static Image opti;
+        static Image opwr;
+        static final Image[] orank = new Image[8];
+        static Image ory;
+        static Image osped;
+        static final Image[] ostar = new Image[2];
+        static Image owas;
+        static Image owgame;
+        static Image oyoulost;
+        static Image oyourwasted;
+        static Image oyouwastedem;
+        static Image oyouwon;
+        static Image paused;
+        static Image pgate;
         static Image play;
         static Image pln;
         static Image pls;
-        static private Image plus;
-        static private Image pos;
-        static private Image pwr;
-        static private Image racing;
-        static private Image radicalplay;
-        static private final Image[] rank = new Image[8];
+        static Image plus;
+        static Image pos;
+        static Image pwr;
+        static Image racing;
+        static Image radicalplay;
+        static final Image[] rank = new Image[8];
         static Image redy;
         static Image register;
         static Image roomp;
-        static private Image rpro;
-        static private Image sarrow;
+        static Image rpro;
+        static Image sarrow;
         static Image sdets;
-        static private Image select;
-        static private Image selectcar;
-        static private Image sign;
-        static private Image space;
-        static private Image sped;
-        static private final Image[] star = new Image[3];
+        static Image select;
+        static Image selectcar;
+        static Image sign;
+        static Image space;
+        static Image sped;
+        static final Image[] star = new Image[3];
         static Image statb;
         static Image statbo;
         static Image stg;
         static Image sts;
-        static private Image stunts;
-        static private final Image[] trackbg = new Image[2];
+        static Image stunts;
+        static final Image[] trackbg = new Image[2];
         static Image upgrade;
-        static private Image was;
-        static private Image wasting;
-        static private Image wgame;
-        static private Image yac;
-        static private Image ycmc;
-        static private Image youlost;
-        static private Image yourwasted;
-        static private Image youwastedem;
-        static private Image youwon;
+        static Image was;
+        static Image wasting;
+        static Image wgame;
+        static Image yac;
+        static Image ycmc;
+        static Image youlost;
+        static Image yourwasted;
+        static Image youwastedem;
+        static Image youwon;
 
     }
     /**
@@ -574,9 +576,13 @@ class xtGraphics extends JPanel implements Runnable {
         xt = new xtGraphics();
         app = gamesparker;
         rd = graphics2d;
-        hello = getImage("data/hello.gif");
-        sign = getImage("data/sign.gif");
-        loadbar = getImage("data/loadbar.gif");
+        try {
+            hello = getImage("data/hello.gif");
+            sign = getImage("data/sign.gif");
+            loadbar = getImage("data/loadbar.gif");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         for (int i = 0; i < 5; i++) {
             pengs[i] = false;
         }
@@ -3679,16 +3685,8 @@ class xtGraphics extends JPanel implements Runnable {
         }
     }
 
-    static Image getImage(final String string) {
-        final Image image = Toolkit.getDefaultToolkit().createImage("" + Madness.fpath + "" + string + "");
-        final MediaTracker mediatracker = new MediaTracker(app);
-        mediatracker.addImage(image, 0);
-        try {
-            mediatracker.waitForID(0);
-        } catch (final Exception ignored) {
-
-        }
-        return image;
+    static Image getImage(final String string) throws IOException {
+        return ImageIO.read(new File(string));
     }
 
     static private String getSvalue(final String string, final int i) {
