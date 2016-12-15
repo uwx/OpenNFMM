@@ -1538,7 +1538,7 @@ public class StageMaker extends Applet implements Runnable {
         CheckPoints.haltall = false;
         CheckPoints.wasted = 0;
         CheckPoints.catchfin = 0;
-        Medium.ground = 250;
+        Medium.ground[cm] = 250;
         Medium.lightson = false;
         if (i == 0) {
             Medium.snap[0] = 0;
@@ -1702,7 +1702,7 @@ public class StageMaker extends Applet implements Runnable {
                         Medium.loadnew = true;
                     }
                     i201 -= 10;
-                    co[nob] = new ContO(bco[i201], getint("set", string186, 1), Medium.ground - bco[i201].grat, getint("set", string186, 2), getint("set", string186, 3));
+                    co[nob] = new ContO(bco[i201], getint("set", string186, 1), Medium.ground[cm] - bco[i201].grat, getint("set", string186, 2), getint("set", string186, 3));
                     co[nob].roofat = getint("set", string186, 3);
                     co[nob].colok = i201;
                     if (string186.contains(")p")) {
@@ -1742,7 +1742,7 @@ public class StageMaker extends Applet implements Runnable {
                 if (string186.startsWith("chk")) {
                     int i204 = getint("chk", string186, 0);
                     i204 -= 10;
-                    int i205 = Medium.ground - bco[i204].grat;
+                    int i205 = Medium.ground[cm] - bco[i204].grat;
                     if (i204 == 54) {
                         i205 = getint("chk", string186, 4);
                     }
@@ -1807,7 +1807,7 @@ public class StageMaker extends Applet implements Runnable {
                     }
                 }
                 if (string186.startsWith("pile")) {
-                    co[nob] = new ContO(getint("pile", string186, 0), getint("pile", string186, 1), getint("pile", string186, 2), getint("pile", string186, 3), getint("pile", string186, 4), Medium.ground);
+                    co[nob] = new ContO(getint("pile", string186, 0), getint("pile", string186, 1), getint("pile", string186, 2), getint("pile", string186, 3), getint("pile", string186, 4), Medium.ground[cm]);
                     co[nob].srz = getint("pile", string186, 0);
                     co[nob].srx = getint("pile", string186, 1);
                     co[nob].sry = getint("pile", string186, 2);
@@ -1830,7 +1830,7 @@ public class StageMaker extends Applet implements Runnable {
                     i181 = i214;
                     final int i215 = getint("maxr", string186, 2);
                     for (int i216 = 0; i216 < i213; i216++) {
-                        co[nob] = new ContO(bco[29], i214, Medium.ground - bco[29].grat, i216 * 4800 + i215, 0);
+                        co[nob] = new ContO(bco[29], i214, Medium.ground[cm] - bco[29].grat, i216 * 4800 + i215, 0);
                         if (i == 0) {
                             xnob++;
                         } else {
@@ -1853,7 +1853,7 @@ public class StageMaker extends Applet implements Runnable {
                     i182 = i220;
                     final int i221 = getint("maxl", string186, 2);
                     for (int i222 = 0; i222 < i219; i222++) {
-                        co[nob] = new ContO(bco[29], i220, Medium.ground - bco[29].grat, i222 * 4800 + i221, 180);
+                        co[nob] = new ContO(bco[29], i220, Medium.ground[cm] - bco[29].grat, i222 * 4800 + i221, 180);
                         if (i == 0) {
                             xnob++;
                         } else {
@@ -1876,7 +1876,7 @@ public class StageMaker extends Applet implements Runnable {
                     i183 = i226;
                     final int i227 = getint("maxt", string186, 2);
                     for (int i228 = 0; i228 < i225; i228++) {
-                        co[nob] = new ContO(bco[29], i228 * 4800 + i227, Medium.ground - bco[29].grat, i226, 90);
+                        co[nob] = new ContO(bco[29], i228 * 4800 + i227, Medium.ground[cm] - bco[29].grat, i226, 90);
                         if (i == 0) {
                             xnob++;
                         } else {
@@ -1899,7 +1899,7 @@ public class StageMaker extends Applet implements Runnable {
                     i184 = i232;
                     final int i233 = getint("maxb", string186, 2);
                     for (int i234 = 0; i234 < i231; i234++) {
-                        co[nob] = new ContO(bco[29], i234 * 4800 + i233, Medium.ground - bco[29].grat, i232, -90);
+                        co[nob] = new ContO(bco[29], i234 * 4800 + i233, Medium.ground[cm] - bco[29].grat, i232, -90);
                         if (i == 0) {
                             xnob++;
                         } else {
@@ -2095,7 +2095,7 @@ public class StageMaker extends Applet implements Runnable {
                 while (true) {
                     System.out.println("x: " + ((xm - 505) * (Math.abs(sy) / Medium.focusPoint) + sx));
                     System.out.println("z: " + ((290 - ym) * (Math.abs(sy) / Medium.focusPoint) + sz));
-                    System.out.println("y: " + (Medium.ground - bco[selectedPart].grat));
+                    System.out.println("y: " + (Medium.ground[cm] - bco[selectedPart].grat));
                     System.out.println("rot: " + (rot + adrot));
                     try {
                         sleep(1000L); //time in milisseconds it will wait before printing again
@@ -2604,7 +2604,7 @@ public class StageMaker extends Applet implements Runnable {
                 int i = 0;
                 final int[] is = new int[10000]; // stageselect limit
                 for (int i2 = 0; i2 < nob; i2++)
-                    if (co[i2].dist != 0) {
+                    if (co[i2].dist[cm] != 0) {
                         is[i] = i2;
                         i++;
                     } else {
@@ -2616,8 +2616,8 @@ public class StageMaker extends Applet implements Runnable {
                 }
                 for (int i5 = 0; i5 < i; i5++) {
                     for (int i6 = i5 + 1; i6 < i; i6++)
-                        if (co[is[i5]].dist != co[is[i6]].dist) {
-                            if (co[is[i5]].dist < co[is[i6]].dist) {
+                        if (co[is[i5]].dist[cm] != co[is[i6]].dist[cm]) {
+                            if (co[is[i5]].dist[cm] < co[is[i6]].dist[cm]) {
                                 is3[i5]++;
                             } else {
                                 is3[i6]++;
@@ -2676,7 +2676,7 @@ public class StageMaker extends Applet implements Runnable {
                     if (!epart && !arrng) { // CALCULATES MOUSE POSITION AND PLACES SHIT
                         bco[selectedPart].x = (xm - 505) * (Math.abs(sy) / Medium.focusPoint) + sx;
                         bco[selectedPart].z = (290 - ym) * (Math.abs(sy) / Medium.focusPoint) + sz;
-                        bco[selectedPart].y = Medium.ground - bco[selectedPart].grat;
+                        bco[selectedPart].y = Medium.ground[cm] - bco[selectedPart].grat;
                         bco[selectedPart].xz = rot + adrot;
                         int i19 = 200;
                         int i20 = 0;
@@ -2804,7 +2804,7 @@ public class StageMaker extends Applet implements Runnable {
                                         for (int i35 = 0; i35 < co[i26].p[i34].n; i35++)
                                             if (py(bco[selectedPart].x, co[i26].x, bco[selectedPart].z, co[i26].z + co[i26].p[i34].oz[i35]) < i25) {
                                                 i25 = py(bco[selectedPart].x, co[i26].x, bco[selectedPart].z, co[i26].z + co[i26].p[i34].oz[i35]);
-                                                flyh = co[i26].p[i34].oy[i35] - 28 + Medium.ground;
+                                                flyh = co[i26].p[i34].oy[i35] - 28 + Medium.ground[cm];
                                                 i20 = co[i26].x - bco[selectedPart].x;
                                                 i21 = co[i26].z + co[i26].p[i34].oz[i35] - bco[selectedPart].z;
                                                 onfly = true;
@@ -2816,7 +2816,7 @@ public class StageMaker extends Applet implements Runnable {
                                         for (int i37 = 0; i37 < co[i26].p[i36].n; i37++)
                                             if (py(bco[selectedPart].z, co[i26].z, bco[selectedPart].x, co[i26].x + co[i26].p[i36].ox[i37]) < i25) {
                                                 i25 = py(bco[selectedPart].z, co[i26].z, bco[selectedPart].x, co[i26].x + co[i26].p[i36].ox[i37]);
-                                                flyh = co[i26].p[i36].oy[i37] - 28 + Medium.ground;
+                                                flyh = co[i26].p[i36].oy[i37] - 28 + Medium.ground[cm];
                                                 i21 = co[i26].z - bco[selectedPart].z;
                                                 i20 = co[i26].x + co[i26].p[i36].ox[i37] - bco[selectedPart].x;
                                                 onfly = true;
@@ -2868,7 +2868,7 @@ public class StageMaker extends Applet implements Runnable {
                                                 System.out.println("placed");
                                                 System.out.println("" + selectedPart);
                                                 System.out.println("" + bco[selectedPart]);
-                                                co[nob] = new ContO(bco[selectedPart], bco[selectedPart].x, Medium.ground - bco[selectedPart].grat, bco[selectedPart].z, bco[selectedPart].xz);
+                                                co[nob] = new ContO(bco[selectedPart], bco[selectedPart].x, Medium.ground[cm] - bco[selectedPart].grat, bco[selectedPart].z, bco[selectedPart].xz);
                                                 co[nob].roofat = bco[selectedPart].xz;
                                                 co[nob].colok = selectedPart;
                                                 nob++;
@@ -3033,7 +3033,7 @@ public class StageMaker extends Applet implements Runnable {
                     setcur = false;
                 }
                 if (epart && esp != -1)
-                    if (co[esp].dist != 0) {
+                    if (co[esp].dist[cm] != 0) {
                         Medium.cx[cm] = 505;
                         Medium.cy[cm] = 290;
                         Medium.x[cm] = sx - Medium.cx[cm];
@@ -3688,7 +3688,7 @@ public class StageMaker extends Applet implements Runnable {
                 int i = 0;
                 final int[] is = new int[10000]; // stageselect limit
                 for (int i69 = 0; i69 < nob; i69++)
-                    if (co[i69].dist != 0) {
+                    if (co[i69].dist[cm] != 0) {
                         is[i] = i69;
                         i++;
                     } else {
@@ -3700,8 +3700,8 @@ public class StageMaker extends Applet implements Runnable {
                 }
                 for (int i72 = 0; i72 < i; i72++) {
                     for (int i73 = i72 + 1; i73 < i; i73++)
-                        if (co[is[i72]].dist != co[is[i73]].dist) {
-                            if (co[is[i72]].dist < co[is[i73]].dist) {
+                        if (co[is[i72]].dist[cm] != co[is[i73]].dist[cm]) {
+                            if (co[is[i72]].dist[cm] < co[is[i73]].dist[cm]) {
                                 is70[i72]++;
                             } else {
                                 is70[i73]++;

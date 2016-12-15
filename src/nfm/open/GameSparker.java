@@ -88,6 +88,11 @@ class GameSparker extends JPanel
     static private int notb = 0;
     static Checkbox notp;
     static final BufferedImage offImage = createOffImage();
+    final static Graphics2D rd = offImage.createGraphics();
+
+    static final BufferedImage p2offImage = createOffImage();
+    final static Graphics2D p2rd = p2offImage.createGraphics();
+    
     static private boolean onbar = false;
     static private boolean oncarm = false;
     static private boolean onfulls = false;
@@ -95,7 +100,6 @@ class GameSparker extends JPanel
     static boolean openm = false;
     static final Smenu pgame = new Smenu(11);
     static private final Smenu proitem = new Smenu(707);
-    final static Graphics2D rd = offImage.createGraphics();;
     static private float reqmult = 0.0F;
     static final Smenu rooms = new Smenu(7);
     static final Smenu scars = new Smenu(4);
@@ -327,7 +331,7 @@ class GameSparker extends JPanel
         Medium.rescnt = 5;
         Medium.lightson = false;
         Medium.noelec = 0;
-        Medium.ground = 250;
+        Medium.ground[cm] = 250;
         Medium.trk = 0;
         view = 0;
         int i = 0;
@@ -449,7 +453,7 @@ class GameSparker extends JPanel
                         }
                         setindex -= 10;
                         System.out.println("Setindex is: " + setindex);
-                        stageContos[nob] = new ContO(contos[setindex], getint("set", string, 1), Medium.ground - contos[setindex].grat, getint("set", string, 2), getint("set", string, 3));
+                        stageContos[nob] = new ContO(contos[setindex], getint("set", string, 1), Medium.ground[cm] - contos[setindex].grat, getint("set", string, 2), getint("set", string, 3));
                         if (string.contains(")p")) {
                             CheckPoints.x[CheckPoints.n] = getint("set", string, 1);
                             CheckPoints.z[CheckPoints.n] = getint("set", string, 2);
@@ -482,7 +486,7 @@ class GameSparker extends JPanel
                 if (string.startsWith("chk")) {
                     int chkindex = getint("chk", string, 0);
                     chkindex -= 10;
-                    int chkheight = Medium.ground - contos[chkindex].grat;
+                    int chkheight = Medium.ground[cm] - contos[chkindex].grat;
                     if (chkindex == 110) {
                         chkheight = getint("chk", string, 4);
                     }
@@ -522,7 +526,7 @@ class GameSparker extends JPanel
                     notb = nob;
                 }
                 if (!CheckPoints.notb && string.startsWith("pile")) {
-                    stageContos[nob] = new ContO(getint("pile", string, 0), getint("pile", string, 1), getint("pile", string, 2), getint("pile", string, 3), getint("pile", string, 4), Medium.ground);
+                    stageContos[nob] = new ContO(getint("pile", string, 0), getint("pile", string, 1), getint("pile", string, 2), getint("pile", string, 3), getint("pile", string, 4), Medium.ground[cm]);
                     nob++;
                 }
                 if (xtGraphics.multion == 0 && string.startsWith("nlaps")) {
@@ -558,7 +562,7 @@ class GameSparker extends JPanel
                     i = o;
                     final int p = getint("maxr", string, 2);
                     for (int q = 0; q < n; q++) {
-                        stageContos[nob] = new ContO(contos[29], o, Medium.ground - contos[29].grat, //29 may need to be 85 or xtgraphics.nCars - 16
+                        stageContos[nob] = new ContO(contos[29], o, Medium.ground[cm] - contos[29].grat, //29 may need to be 85 or xtgraphics.nCars - 16
                         q * 4800 + p, 0);
                         nob++;
                     }
@@ -581,7 +585,7 @@ class GameSparker extends JPanel
                     k = o;
                     final int p = getint("maxl", string, 2);
                     for (int q = 0; q < n; q++) {
-                        stageContos[nob] = new ContO(contos[29], o, Medium.ground - contos[29].grat, q * 4800 + p, 180);
+                        stageContos[nob] = new ContO(contos[29], o, Medium.ground[cm] - contos[29].grat, q * 4800 + p, 180);
                         nob++;
                     }
                     Trackers.y[Trackers.nt] = -5000;
@@ -603,7 +607,7 @@ class GameSparker extends JPanel
                     l = o;
                     final int p = getint("maxt", string, 2);
                     for (int q = 0; q < n; q++) {
-                        stageContos[nob] = new ContO(contos[29], q * 4800 + p, Medium.ground - contos[29].grat, o, 90);
+                        stageContos[nob] = new ContO(contos[29], q * 4800 + p, Medium.ground[cm] - contos[29].grat, o, 90);
                         nob++;
                     }
                     Trackers.y[Trackers.nt] = -5000;
@@ -625,7 +629,7 @@ class GameSparker extends JPanel
                     m = o;
                     final int p = getint("maxb", string, 2);
                     for (int q = 0; q < n; q++) {
-                        stageContos[nob] = new ContO(contos[29], q * 4800 + p, Medium.ground - contos[29].grat, o, -90);
+                        stageContos[nob] = new ContO(contos[29], q * 4800 + p, Medium.ground[cm] - contos[29].grat, o, -90);
                         nob++;
                     }
                     Trackers.y[Trackers.nt] = -5000;
@@ -704,9 +708,9 @@ class GameSparker extends JPanel
                 xtGraphics.fase = 5;
             }
             if (CheckPoints.stage > 0) {
-                xtGraphics.asay = "Stage " + CheckPoints.stage + ":  " + CheckPoints.name + " ";
+                xtGraphics.asay[cm] = "Stage " + CheckPoints.stage + ":  " + CheckPoints.name + " ";
             } else {
-                xtGraphics.asay = "Custom Stage:  " + CheckPoints.name + " ";
+                xtGraphics.asay[cm] = "Custom Stage:  " + CheckPoints.name + " ";
             }
             Record.reset(stageContos);
         } else if (xtGraphics.fase == 2) {
@@ -740,7 +744,7 @@ class GameSparker extends JPanel
         CheckPoints.haltall = false;
         CheckPoints.wasted = 0;
         CheckPoints.catchfin = 0;
-        Medium.ground = 250;
+        Medium.ground[cm] = 250;
         view = 0;
         Medium.trx = 0L;
         Medium.trz = 0L;
@@ -844,7 +848,7 @@ class GameSparker extends JPanel
                 if (string153.startsWith("set")) {
                     int i165 = getint("set", string153, 0);
                     i165 -= 10;
-                    contos[nob] = new ContO(contos147[i165], getint("set", string153, 1), Medium.ground - contos147[i165].grat, getint("set", string153, 2), getint("set", string153, 3));
+                    contos[nob] = new ContO(contos147[i165], getint("set", string153, 1), Medium.ground[cm] - contos147[i165].grat, getint("set", string153, 2), getint("set", string153, 3));
                     Trackers.nt = 0;
                     if (string153.contains(")p")) {
                         CheckPoints.x[CheckPoints.n] = getint("chk", string153, 1);
@@ -873,7 +877,7 @@ class GameSparker extends JPanel
                 if (string153.startsWith("chk")) {
                     int i166 = getint("chk", string153, 0);
                     i166 -= 10;
-                    int i167 = Medium.ground - contos147[i166].grat;
+                    int i167 = Medium.ground[cm] - contos147[i166].grat;
                     if (i166 == 110) {
                         i167 = getint("chk", string153, 4);
                     }
@@ -1404,6 +1408,7 @@ class GameSparker extends JPanel
             trash();
             System.exit(3);
         }
+        float halfheit = 450; //was 225.0F;
         if (lastw != getWidth() || lasth != getHeight()) {
             lastw = getWidth();
             lasth = getHeight();
@@ -1413,7 +1418,7 @@ class GameSparker extends JPanel
             }
             if (Madness.fullscreen) {
                 apx = (int) (getWidth() / 2 - 400.0F * apmult);
-                apy = (int) (getHeight() / 2 - 225.0F * apmult);
+                apy = (int) (getHeight() / 2 - halfheit * apmult);
             }
         }
         int i = 0;
@@ -1424,10 +1429,12 @@ class GameSparker extends JPanel
             shaka--;
         }
         if (!Madness.fullscreen) {
+            float heit = 800.0F;//was 450
+            
             if (showsize != 0) {
                 float f = (getWidth() - 40) / 800.0F - 1.0F;
-                if (f > (getHeight() - 70) / 450.0F - 1.0F) {
-                    f = (getHeight() - 70) / 450.0F - 1.0F;
+                if (f > (getHeight() - 70) / heit - 1.0F) {
+                    f = (getHeight() - 70) / heit - 1.0F;
                 }
                 if (f > 1.0F) {
                     f = 1.0F;
@@ -1482,7 +1489,7 @@ class GameSparker extends JPanel
                 }
             }
             apx = (int) (getWidth() / 2 - 400.0F * apmult);
-            apy = (int) (getHeight() / 2 - 225.0F * apmult - 50.0F);
+            apy = (int) (getHeight() / 2 - halfheit * apmult - 50.0F);
             if (apy < 50) {
                 apy = 50;
             }
@@ -1491,19 +1498,19 @@ class GameSparker extends JPanel
                     g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
                     if (moto == 1) {
                         rd.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_SPEED);
-                        g2.drawImage(tribuffer, apx + i, apy + i97, (int) (800.0F * apmult), (int) (450.0F * apmult), this);
+                        g2.drawImage(tribuffer, apx + i, apy + i97, (int) (800.0F * apmult), (int) (heit * apmult), this);
                         cropit(g2, i, i97);
                         tg.setComposite(AlphaComposite.getInstance(3, mvect / 100.0F));
                         tg.drawImage(offImage, 0, 0, null);
                     } else {
-                        g2.drawImage(offImage, apx, apy, (int) (800.0F * apmult), (int) (450.0F * apmult), this);
+                        g2.drawImage(offImage, apx, apy, (int) (800.0F * apmult), (int) (heit * apmult), this);
                     }
                 } else if (moto == 1) {
                     rd.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_SPEED);
-                    g2.drawImage(tribuffer, apx + i, apy + i97, (int) (800.0F * apmult), (int) (450.0F * apmult), this);
+                    g2.drawImage(tribuffer, apx + i, apy + i97, (int) (800.0F * apmult), (int) (heit * apmult), this);
                     cropit(g2, i, i97);
                 } else {
-                    g2.drawImage(offImage, apx, apy, (int) (800.0F * apmult), (int) (450.0F * apmult), this);
+                    g2.drawImage(offImage, apx, apy, (int) (800.0F * apmult), (int) (heit * apmult), this);
                 }
             } else if (moto == 1) {
                 rd.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_SPEED);
@@ -1513,6 +1520,7 @@ class GameSparker extends JPanel
                 tg.drawImage(offImage, 0, 0, null);
             } else {
                 g2.drawImage(offImage, apx, apy, this);
+                g2.drawImage(p2offImage, apx, apy+450, this);
             }
         } else if (moto == 1) {
             rd.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_SPEED);
@@ -2088,7 +2096,7 @@ class GameSparker extends JPanel
                 final int[][] ai = new int[notb][2];
                 for (int k7 = xtGraphics.nplayers; k7 < notb; k7++) {
                     ai[k7][0] = k7;
-                    ai[k7][1] = stageContos[k7].dist;
+                    ai[k7][1] = stageContos[k7].dist[cm];
                 }
 
                 Arrays.sort(ai, contoComparator);
@@ -2242,7 +2250,7 @@ class GameSparker extends JPanel
                     Medium.z[cm] = -50;
                     Medium.xz[cm] = 0;
                     Medium.zy[cm] = 20;
-                    Medium.ground = -2000;
+                    Medium.ground[cm] = -2000;
                     mvect = 100;
                     lobby.fase = 1;
                 }
@@ -2254,7 +2262,7 @@ class GameSparker extends JPanel
                     int j = 0;
                     final int[] is = new int[1000];
                     for (int k = 0; k < nob; k++)
-                        if (stageContos[k].dist != 0) {
+                        if (stageContos[k].dist[cm] != 0) {
                             is[j] = k;
                             j++;
                         } else {
@@ -2266,8 +2274,8 @@ class GameSparker extends JPanel
                     }
                     for (int k = 0; k < j; k++) {
                         for (int l = k + 1; l < j; l++)
-                            if (stageContos[is[k]].dist != stageContos[is[l]].dist) {
-                                if (stageContos[is[k]].dist < stageContos[is[l]].dist) {
+                            if (stageContos[is[k]].dist[cm] != stageContos[is[l]].dist[cm]) {
+                                if (stageContos[is[k]].dist[cm] < stageContos[is[l]].dist[cm]) {
                                     is2[k]++;
                                 } else {
                                     is2[l]++;
@@ -2447,11 +2455,14 @@ class GameSparker extends JPanel
                     mads[player].newcar = false;
                 }
             Medium.d(rd);
+            cm = 1;
+            Medium.d(p2rd);
+            cm = 0;
 
             final int[][] ai = new int[nob][2];
             for (int k7 = 0; k7 < nob; k7++) {
                 ai[k7][0] = k7;
-                ai[k7][1] = stageContos[k7].dist;
+                ai[k7][1] = stageContos[k7].dist[cm];
             }
 
             Arrays.sort(ai, contoComparator);
@@ -2459,6 +2470,21 @@ class GameSparker extends JPanel
             for (int i14 = 0; i14 < nob; i14++) {
                 stageContos[ai[i14][0]].d(rd);
             }
+
+            cm = 1;
+
+            for (int k7 = 0; k7 < nob; k7++) {
+                ai[k7][0] = k7;
+                ai[k7][1] = stageContos[k7].dist[cm];
+            }
+
+            Arrays.sort(ai, contoComparator);
+
+            for (int i14 = 0; i14 < nob; i14++) {
+                stageContos[ai[i14][0]].d(p2rd);
+            }
+            
+            cm = 0;
             
             if (xtGraphics.starcnt == 0) {
                 for (int k = 0; k < xtGraphics.nplayers; k++) {
@@ -2493,6 +2519,12 @@ class GameSparker extends JPanel
                 if (view == 0) {
                     Medium.follow(stageContos[0], mads[0].cxz, u[0].lookback);
                     xtGraphics.stat(mads[0], stageContos[0],  u[0], true);
+                    cm=1;
+                    Medium.follow(stageContos[1], mads[1].cxz, u[1].lookback);
+                    xtGraphics.rd = p2rd; 
+                    xtGraphics.stat(mads[1], stageContos[1],  u[1], true);
+                    xtGraphics.rd = rd;
+                    cm=0;
                     if (mads[0].outshakedam > 0) {
                         shaka = mads[0].outshakedam / 20;
                         if (shaka > 25) {
@@ -2565,7 +2597,7 @@ class GameSparker extends JPanel
             int j = 0;
             final int[] is = new int[10000];
             for (int k = 0; k < nob; k++)
-                if (stageContos[k].dist != 0) {
+                if (stageContos[k].dist[cm] != 0) {
                     is[j] = k;
                     j++;
                 } else {
@@ -2578,7 +2610,7 @@ class GameSparker extends JPanel
             }
             for (int k = 0; k < j; k++) {
                 for (int l = k + 1; l < j; l++)
-                    if (stageContos[is[k]].dist < stageContos[is[l]].dist) {
+                    if (stageContos[is[k]].dist[cm] < stageContos[is[l]].dist[cm]) {
                         is2[k]++;
                     } else {
                         is2[l]++;
@@ -2767,7 +2799,7 @@ class GameSparker extends JPanel
             int j = 0;
             final int[] is = new int[10000];
             for (int k = 0; k < nob; k++)
-                if (stageContos[k].dist != 0) {
+                if (stageContos[k].dist[cm] != 0) {
                     is[j] = k;
                     j++;
                 } else {
@@ -2779,8 +2811,8 @@ class GameSparker extends JPanel
             }
             for (int k = 0; k < j; k++) {
                 for (int l = k + 1; l < j; l++)
-                    if (stageContos[is[k]].dist != stageContos[is[l]].dist) {
-                        if (stageContos[is[k]].dist < stageContos[is[l]].dist) {
+                    if (stageContos[is[k]].dist[cm] != stageContos[is[l]].dist[cm]) {
+                        if (stageContos[is[k]].dist[cm] < stageContos[is[l]].dist[cm]) {
                             is2[k]++;
                         } else {
                             is2[l]++;
@@ -2805,7 +2837,7 @@ class GameSparker extends JPanel
             }
             for (int k = 0; k < xtGraphics.nplayers; k++) {
                 if (Record.fix[k] == recordtime)
-                    if (stageContos[k].dist == 0) {
+                    if (stageContos[k].dist[cm] == 0) {
                         stageContos[k].fcnt = 8;
                     } else {
                         stageContos[k].fix = true;
@@ -2888,7 +2920,7 @@ class GameSparker extends JPanel
             int j = 0;
             final int[] is = new int[10000];
             for (int k = 0; k < nob; k++)
-                if (stageContos[k].dist != 0) {
+                if (stageContos[k].dist[cm] != 0) {
                     is[j] = k;
                     j++;
                 } else {
@@ -2900,8 +2932,8 @@ class GameSparker extends JPanel
             }
             for (int k = 0; k < j; k++) {
                 for (int l = k + 1; l < j; l++)
-                    if (stageContos[is[k]].dist != stageContos[is[l]].dist) {
-                        if (stageContos[is[k]].dist < stageContos[is[l]].dist) {
+                    if (stageContos[is[k]].dist[cm] != stageContos[is[l]].dist[cm]) {
+                        if (stageContos[is[k]].dist[cm] < stageContos[is[l]].dist[cm]) {
                             is2[k]++;
                         } else {
                             is2[l]++;
@@ -2920,7 +2952,7 @@ class GameSparker extends JPanel
             }
             for (int k = 0; k < xtGraphics.nplayers; k++) {
                 if (Record.hfix[k] == recordtime)
-                    if (stageContos[k].dist == 0) {
+                    if (stageContos[k].dist[cm] == 0) {
                         stageContos[k].fcnt = 8;
                     } else {
                         stageContos[k].fix = true;

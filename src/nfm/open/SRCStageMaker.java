@@ -2152,7 +2152,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
         nfm.open.CheckPoints.fn = 0;
         nfm.open.CheckPoints.haltall = false;
         nfm.open.CheckPoints.wasted = 0;
-        Medium.ground = 250;
+        Medium.ground[cm] = 250;
         Medium.lightson = false;
         if (readstagei == 0) {
             Medium.snap[0] = 0;
@@ -2529,7 +2529,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     }
                 }
                 if (line.startsWith("pile")) { //TODO ADD HERE
-                    co[nob] = new SMContO(getint("pile", line, 0), getint("pile", line, 1), getint("pile", line, 2), getint("pile", line, 3), getint("pile", line, 4), Medium.ground);
+                    co[nob] = new SMContO(getint("pile", line, 0), getint("pile", line, 1), getint("pile", line, 2), getint("pile", line, 3), getint("pile", line, 4), Medium.ground[cm]);
                     co[nob].srz = getint("pile", line, 0);
                     co[nob].srx = getint("pile", line, 1);
                     co[nob].sry = getint("pile", line, 2);
@@ -2552,7 +2552,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     i181 = i214;
                     final int i215 = getint("maxr", line, 2);
                     for (int i216 = 0; i216 < i213; i216++) {
-                        co[nob] = new SMContO(bco[29], i214, Medium.ground - bco[29].grat, i216 * 4800 + i215, 0);
+                        co[nob] = new SMContO(bco[29], i214, Medium.ground[cm] - bco[29].grat, i216 * 4800 + i215, 0);
                         if (readstagei == 0) {
                             xnob++;
                         } else {
@@ -2575,7 +2575,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     i182 = i220;
                     final int i221 = getint("maxl", line, 2);
                     for (int i222 = 0; i222 < i219; i222++) {
-                        co[nob] = new SMContO(bco[29], i220, Medium.ground - bco[29].grat, i222 * 4800 + i221, 180);
+                        co[nob] = new SMContO(bco[29], i220, Medium.ground[cm] - bco[29].grat, i222 * 4800 + i221, 180);
                         if (readstagei == 0) {
                             xnob++;
                         } else {
@@ -2598,7 +2598,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     i183 = i226;
                     final int i227 = getint("maxt", line, 2);
                     for (int i228 = 0; i228 < i225; i228++) {
-                        co[nob] = new SMContO(bco[29], i228 * 4800 + i227, Medium.ground - bco[29].grat, i226, 90);
+                        co[nob] = new SMContO(bco[29], i228 * 4800 + i227, Medium.ground[cm] - bco[29].grat, i226, 90);
                         if (readstagei == 0) {
                             xnob++;
                         } else {
@@ -2621,7 +2621,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                     i184 = i232;
                     final int i233 = getint("maxb", line, 2);
                     for (int i234 = 0; i234 < i231; i234++) {
-                        co[nob] = new SMContO(bco[29], i234 * 4800 + i233, Medium.ground - bco[29].grat, i232, -90);
+                        co[nob] = new SMContO(bco[29], i234 * 4800 + i233, Medium.ground[cm] - bco[29].grat, i232, -90);
                         if (readstagei == 0) {
                             xnob++;
                         } else {
@@ -2847,7 +2847,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 while (true) {
                     if (false) System.out.println("x: " + ((xm - 505) * (Math.abs(sy) / Medium.focusPoint) + sx));
                     if (false) System.out.println("z: " + ((290 - ym) * (Math.abs(sy) / Medium.focusPoint) + sz));
-                    if (false) System.out.println("y: " + (Medium.ground - bco[selectedPart].grat));
+                    if (false) System.out.println("y: " + (Medium.ground[cm] - bco[selectedPart].grat));
                     if (false) System.out.println("rot: " + (rot + adrot));
                     try {
                         sleep(1000L); //time in milisseconds it will wait before printing again
@@ -3439,7 +3439,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             int i = 0;
             final int[] is = new int[10000]; // stageselect limit
             for (int i2 = 0; i2 < nob; i2++)
-                if (co[i2].dist != 0) {
+                if (co[i2].dist[cm] != 0) {
                     is[i] = i2;
                     i++;
                 } else {
@@ -3451,8 +3451,8 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             }
             for (int i5 = 0; i5 < i; i5++) {
                 for (int i6 = i5 + 1; i6 < i; i6++)
-                    if (co[is[i5]].dist != co[is[i6]].dist) {
-                        if (co[is[i5]].dist < co[is[i6]].dist) {
+                    if (co[is[i5]].dist[cm] != co[is[i6]].dist[cm]) {
+                        if (co[is[i5]].dist[cm] < co[is[i6]].dist[cm]) {
                             is3[i5]++;
                         } else {
                             is3[i6]++;
@@ -3514,7 +3514,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 if (!epart && !arrng) { // CALCULATES MOUSE POSITION AND PLACES SHIT
                     bco[selectedPart].x = (xm - 505) * (Math.abs(sy) / Medium.focusPoint) + sx;
                     bco[selectedPart].z = (290 - ym) * (Math.abs(sy) / Medium.focusPoint) + sz;
-                    bco[selectedPart].y = Medium.ground - bco[selectedPart].grat;
+                    bco[selectedPart].y = Medium.ground[cm] - bco[selectedPart].grat;
                     bco[selectedPart].xz = rot + adrot;
                     int i19 = 200;
                     int i20 = 0;
@@ -3638,7 +3638,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                                     for (int i35 = 0; i35 < co[i26].p[i34].n; i35++)
                                         if (py(bco[selectedPart].x, co[i26].x, bco[selectedPart].z, co[i26].z + co[i26].p[i34].oz[i35]) < i25) {
                                             i25 = py(bco[selectedPart].x, co[i26].x, bco[selectedPart].z, co[i26].z + co[i26].p[i34].oz[i35]);
-                                            flyh = co[i26].p[i34].oy[i35] - 28 + Medium.ground;
+                                            flyh = co[i26].p[i34].oy[i35] - 28 + Medium.ground[cm];
                                             i20 = co[i26].x - bco[selectedPart].x;
                                             i21 = co[i26].z + co[i26].p[i34].oz[i35] - bco[selectedPart].z;
                                             //onfly = true;
@@ -3650,7 +3650,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                                     for (int i37 = 0; i37 < co[i26].p[i36].n; i37++)
                                         if (py(bco[selectedPart].z, co[i26].z, bco[selectedPart].x, co[i26].x + co[i26].p[i36].ox[i37]) < i25) {
                                             i25 = py(bco[selectedPart].z, co[i26].z, bco[selectedPart].x, co[i26].x + co[i26].p[i36].ox[i37]);
-                                            flyh = co[i26].p[i36].oy[i37] - 28 + Medium.ground;
+                                            flyh = co[i26].p[i36].oy[i37] - 28 + Medium.ground[cm];
                                             i21 = co[i26].z - bco[selectedPart].z;
                                             i20 = co[i26].x + co[i26].p[i36].ox[i37] - bco[selectedPart].x;
                                             //onfly = true;
@@ -3709,7 +3709,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
 
                                     if (selectedPart != FIXHOOP_SET_ID && selectedPart != FLYING_CHECKPOINT_SET_ID && selectedPart != BUMP_SET_ID) {
                                         try {
-                                            co[nob] = new SMContO(bco[selectedPart], bco[selectedPart].x, Medium.ground - bco[selectedPart].grat, bco[selectedPart].z, bco[selectedPart].xz);
+                                            co[nob] = new SMContO(bco[selectedPart], bco[selectedPart].x, Medium.ground[cm] - bco[selectedPart].grat, bco[selectedPart].z, bco[selectedPart].xz);
                                             co[nob].declaredXZ = bco[selectedPart].xz;
                                             co[nob].partID = selectedPart;
                                             nob++;
@@ -3863,7 +3863,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             drawSelection();
 
             if (epart && esp != -1)
-                if (co[esp].dist != 0) {
+                if (co[esp].dist[cm] != 0) {
                     Medium.cx[cm] = 505;
                     Medium.cy[cm] = 290;
                     Medium.x[cm] = sx - Medium.cx[cm];
@@ -4699,7 +4699,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             int i = 0;
             final int[] is = new int[10000]; // stageselect limit
             for (int i69 = 0; i69 < nob; i69++)
-                if (co[i69].dist != 0) {
+                if (co[i69].dist[cm] != 0) {
                     is[i] = i69;
                     i++;
                 } else {
@@ -4711,8 +4711,8 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             }
             for (int i72 = 0; i72 < i; i72++) {
                 for (int i73 = i72 + 1; i73 < i; i73++)
-                    if (co[is[i72]].dist != co[is[i73]].dist) {
-                        if (co[is[i72]].dist < co[is[i73]].dist) {
+                    if (co[is[i72]].dist[cm] != co[is[i73]].dist[cm]) {
+                        if (co[is[i72]].dist[cm] < co[is[i73]].dist[cm]) {
                             is70[i72]++;
                         } else {
                             is70[i73]++;
@@ -6414,7 +6414,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
         if (toggle_drawmouse && tab == 1) {
             rd.drawString("mouse x: " + ((xm - 505) * (Math.abs(sy) / Medium.focusPoint) + sx), 252, 75);
             rd.drawString("mouse z: " + ((290 - ym) * (Math.abs(sy) / Medium.focusPoint) + sz), 252, 90);
-            rd.drawString("mouse y: " + (Medium.ground - bco[selectedPart].grat), 252, 105);
+            rd.drawString("mouse y: " + (Medium.ground[cm] - bco[selectedPart].grat), 252, 105);
             rd.drawString("rotation: " + (rot + adrot), 252, 120);
             rd.drawString("attach points: " + Arrays.toString(atp[selectedPart]), 252, 135);
         }
@@ -6706,7 +6706,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 dragOriginY - Medium.z[cm], mouseDragToY - Medium.z[cm]
         };
         final int[] aY = {
-                Medium.ground - Medium.y[cm], Medium.ground - Medium.y[cm], Medium.ground - Medium.y[cm], Medium.ground - Medium.y[cm]
+                Medium.ground[cm] - Medium.y[cm], Medium.ground[cm] - Medium.y[cm], Medium.ground[cm] - Medium.y[cm], Medium.ground[cm] - Medium.y[cm]
         };
 
         medium_rot(aX, aZ, Medium.cx[cm], Medium.cz[cm], Medium.xz[cm], asin_m_xz, acos_m_xz, 2);
@@ -8109,7 +8109,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     private static void drawNodePath() {
 
         for (int i = 0; i < nfm.open.CheckPoints.n - 1; i++) {
-            /*if (playerPos[i].dist == 0) {
+            /*if (playerPos[i].dist[cm] == 0) {
                 playerPos[i].d(rd);
             }
             playerPos[i].d(rd);*/
