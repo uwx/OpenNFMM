@@ -8,7 +8,7 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.util.concurrent.ThreadLocalRandom;
 
-class Plane implements Comparable<Plane> {
+final class Plane implements Comparable<Plane> {
     private int av = 0;
     int bfase = 0;
     final int[] c = new int[3];
@@ -60,6 +60,8 @@ class Plane implements Comparable<Plane> {
     final int strokemtlimit;
     final boolean randomcolor;
     final boolean randoutline;
+    
+    byte project;//booleans are bytes anyway so hey why not
 
     Plane(final int[] is, final int[] is0, final int[] is1, final int i, final int[] is2, final int i3, final int i4, final int i5, final int i6, final int i7, final int i8, final int i9, final int i10, final boolean bool, final int i11, final boolean bool12, final boolean randomcolor, final boolean randoutline, final boolean customstroke, final int strokewidth, final int strokecap, final int strokejoin, final int strokemtlimit) {
         this.randoutline = randoutline;
@@ -172,6 +174,13 @@ class Plane implements Comparable<Plane> {
         light = i11;
         solo = bool12;
         gr = i4;
+        if (gr == -1337) {
+            project = -1;
+            gr = 0;
+        } else if (gr == 1337) {
+            project = 1;
+            gr = 0;
+        }
         fs = i5;
         wx = i6;
         wy = i7;
@@ -179,46 +188,46 @@ class Plane implements Comparable<Plane> {
         deltafntyp();
     }
 
-    void d(final Graphics2D graphics2d, final int i, final int i29, final int i30, final int i31, final int i32, final int i33, final int i34, final int i35, boolean bool, final int i36) {
+    void d(final Plane _last, final Plane _next, final Graphics2D graphics2d, final int _mx, final int _my, final int _mz, final int _xz, final int _xy, final int _yz, final int i34, final int i35, boolean bool, final int i36) {
         if (master == 1)
             if (av > 1500 && !Medium.crs) {
                 n = 12;
             } else {
                 n = 20;
             }
-        final int[] is = new int[n];
-        final int[] is37 = new int[n];
-        final int[] is38 = new int[n];
+        final int[] _x = new int[n];
+        final int[] _z = new int[n];
+        final int[] _y = new int[n];
         if (embos == 0) {
             for (int i39 = 0; i39 < n; i39++) {
-                is[i39] = ox[i39] + i;
-                is38[i39] = oy[i39] + i29;
-                is37[i39] = oz[i39] + i30;
+                _x[i39] = ox[i39] + _mx;
+                _y[i39] = oy[i39] + _my;
+                _z[i39] = oz[i39] + _mz;
             }
             if ((gr == -11 || gr == -12 || gr == -13) && Medium.lastmaf == 1) {
                 for (int i40 = 0; i40 < n; i40++) {
-                    is[i40] = -ox[i40] + i;
-                    is38[i40] = oy[i40] + i29;
-                    is37[i40] = -oz[i40] + i30;
+                    _x[i40] = -ox[i40] + _mx;
+                    _y[i40] = oy[i40] + _my;
+                    _z[i40] = -oz[i40] + _mz;
                 }
             }
         } else {
             if (embos <= 11 && Medium.random() > 0.5 && glass != 1) {
                 for (int i41 = 0; i41 < n; i41++) {
-                    is[i41] = (int) (ox[i41] + i + (15.0F - Medium.random() * 30.0F));
-                    is38[i41] = (int) (oy[i41] + i29 + (15.0F - Medium.random() * 30.0F));
-                    is37[i41] = (int) (oz[i41] + i30 + (15.0F - Medium.random() * 30.0F));
+                    _x[i41] = (int) (ox[i41] + _mx + (15.0F - Medium.random() * 30.0F));
+                    _y[i41] = (int) (oy[i41] + _my + (15.0F - Medium.random() * 30.0F));
+                    _z[i41] = (int) (oz[i41] + _mz + (15.0F - Medium.random() * 30.0F));
                 }
-                rot(is, is38, i, i29, i32, n);
-                rot(is38, is37, i29, i30, i33, n);
-                rot(is, is37, i, i30, i31, n);
-                rot(is, is37, Medium.cx, Medium.cz, Medium.xz, n);
-                rot(is38, is37, Medium.cy, Medium.cz, Medium.zy, n);
+                rot(_x, _y, _mx, _my, _xy, n);
+                rot(_y, _z, _my, _mz, _yz, n);
+                rot(_x, _z, _mx, _mz, _xz, n);
+                rot(_x, _z, Medium.cx, Medium.cz, Medium.xz, n);
+                rot(_y, _z, Medium.cy, Medium.cz, Medium.zy, n);
                 final int[] is42 = new int[n];
                 final int[] is43 = new int[n];
                 for (int i44 = 0; i44 < n; i44++) {
-                    is42[i44] = xs(is[i44], is37[i44]);
-                    is43[i44] = ys(is38[i44], is37[i44]);
+                    is42[i44] = xs(_x[i44], _z[i44]);
+                    is43[i44] = ys(_y[i44], _z[i44]);
                 }
                 graphics2d.setColor(new Color(230, 230, 230));
                 graphics2d.fillPolygon(is42, is43, n);
@@ -267,7 +276,7 @@ class Plane implements Comparable<Plane> {
                 int i45 = 1;
                 int i46 = 1;
                 int i47;
-                for (i47 = Math.abs(i33); i47 > 270; i47 -= 360) {
+                for (i47 = Math.abs(_yz); i47 > 270; i47 -= 360) {
 
                 }
                 i47 = Math.abs(i47);
@@ -275,7 +284,7 @@ class Plane implements Comparable<Plane> {
                     i45 = -1;
                 }
                 int i48;
-                for (i48 = Math.abs(i32); i48 > 270; i48 -= 360) {
+                for (i48 = Math.abs(_xy); i48 > 270; i48 -= 360) {
 
                 }
                 i48 = Math.abs(i48);
@@ -284,38 +293,38 @@ class Plane implements Comparable<Plane> {
                 }
                 final int[] is49 = new int[3];
                 final int[] is50 = new int[3];
-                is[0] = ox[pa] + i;
-                is38[0] = oy[pa] + i29;
-                is37[0] = oz[pa] + i30;
-                is[1] = ox[pb] + i;
-                is38[1] = oy[pb] + i29;
-                is37[1] = oz[pb] + i30;
-                while (Math.abs(is[0] - is[1]) > 100)
-                    if (is[1] > is[0]) {
-                        is[1] -= 30;
+                _x[0] = ox[pa] + _mx;
+                _y[0] = oy[pa] + _my;
+                _z[0] = oz[pa] + _mz;
+                _x[1] = ox[pb] + _mx;
+                _y[1] = oy[pb] + _my;
+                _z[1] = oz[pb] + _mz;
+                while (Math.abs(_x[0] - _x[1]) > 100)
+                    if (_x[1] > _x[0]) {
+                        _x[1] -= 30;
                     } else {
-                        is[1] += 30;
+                        _x[1] += 30;
                     }
-                while (Math.abs(is37[0] - is37[1]) > 100)
-                    if (is37[1] > is37[0]) {
-                        is37[1] -= 30;
+                while (Math.abs(_z[0] - _z[1]) > 100)
+                    if (_z[1] > _z[0]) {
+                        _z[1] -= 30;
                     } else {
-                        is37[1] += 30;
+                        _z[1] += 30;
                     }
-                final int i51 = (int) (Math.abs(is[0] - is[1]) / 3 * (0.5 - Medium.random()));
-                final int i52 = (int) (Math.abs(is37[0] - is37[1]) / 3 * (0.5 - Medium.random()));
-                is[2] = (is[0] + is[1]) / 2 + i51;
-                is37[2] = (is37[0] + is37[1]) / 2 + i52;
-                int i53 = (int) ((Math.abs(is[0] - is[1]) + Math.abs(is37[0] - is37[1])) / 1.5 * (Medium.random() / 2.0F + 0.5));
-                is38[2] = (is38[0] + is38[1]) / 2 - i45 * i46 * i53;
-                rot(is, is38, i, i29, i32, 3);
-                rot(is38, is37, i29, i30, i33, 3);
-                rot(is, is37, i, i30, i31, 3);
-                rot(is, is37, Medium.cx, Medium.cz, Medium.xz, 3);
-                rot(is38, is37, Medium.cy, Medium.cz, Medium.zy, 3);
+                final int i51 = (int) (Math.abs(_x[0] - _x[1]) / 3 * (0.5 - Medium.random()));
+                final int i52 = (int) (Math.abs(_z[0] - _z[1]) / 3 * (0.5 - Medium.random()));
+                _x[2] = (_x[0] + _x[1]) / 2 + i51;
+                _z[2] = (_z[0] + _z[1]) / 2 + i52;
+                int i53 = (int) ((Math.abs(_x[0] - _x[1]) + Math.abs(_z[0] - _z[1])) / 1.5 * (Medium.random() / 2.0F + 0.5));
+                _y[2] = (_y[0] + _y[1]) / 2 - i45 * i46 * i53;
+                rot(_x, _y, _mx, _my, _xy, 3);
+                rot(_y, _z, _my, _mz, _yz, 3);
+                rot(_x, _z, _mx, _mz, _xz, 3);
+                rot(_x, _z, Medium.cx, Medium.cz, Medium.xz, 3);
+                rot(_y, _z, Medium.cy, Medium.cz, Medium.zy, 3);
                 for (int i54 = 0; i54 < 3; i54++) {
-                    is49[i54] = xs(is[i54], is37[i54]);
-                    is50[i54] = ys(is38[i54], is37[i54]);
+                    is49[i54] = xs(_x[i54], _z[i54]);
+                    is50[i54] = ys(_y[i54], _z[i54]);
                 }
                 int i55 = (int) (255.0F + 255.0F * (Medium.snap[0] / 400.0F));
                 if (i55 > 255) {
@@ -340,36 +349,36 @@ class Plane implements Comparable<Plane> {
                 }
                 graphics2d.setColor(new Color(i55, i56, i57));
                 graphics2d.fillPolygon(is49, is50, 3);
-                is[0] = ox[pa] + i;
-                is38[0] = oy[pa] + i29;
-                is37[0] = oz[pa] + i30;
-                is[1] = ox[pb] + i;
-                is38[1] = oy[pb] + i29;
-                is37[1] = oz[pb] + i30;
-                while (Math.abs(is[0] - is[1]) > 100)
-                    if (is[1] > is[0]) {
-                        is[1] -= 30;
+                _x[0] = ox[pa] + _mx;
+                _y[0] = oy[pa] + _my;
+                _z[0] = oz[pa] + _mz;
+                _x[1] = ox[pb] + _mx;
+                _y[1] = oy[pb] + _my;
+                _z[1] = oz[pb] + _mz;
+                while (Math.abs(_x[0] - _x[1]) > 100)
+                    if (_x[1] > _x[0]) {
+                        _x[1] -= 30;
                     } else {
-                        is[1] += 30;
+                        _x[1] += 30;
                     }
-                while (Math.abs(is37[0] - is37[1]) > 100)
-                    if (is37[1] > is37[0]) {
-                        is37[1] -= 30;
+                while (Math.abs(_z[0] - _z[1]) > 100)
+                    if (_z[1] > _z[0]) {
+                        _z[1] -= 30;
                     } else {
-                        is37[1] += 30;
+                        _z[1] += 30;
                     }
-                is[2] = (is[0] + is[1]) / 2 + i51;
-                is37[2] = (is37[0] + is37[1]) / 2 + i52;
+                _x[2] = (_x[0] + _x[1]) / 2 + i51;
+                _z[2] = (_z[0] + _z[1]) / 2 + i52;
                 i53 *= 0.8;
-                is38[2] = (is38[0] + is38[1]) / 2 - i45 * i46 * i53;
-                rot(is, is38, i, i29, i32, 3);
-                rot(is38, is37, i29, i30, i33, 3);
-                rot(is, is37, i, i30, i31, 3);
-                rot(is, is37, Medium.cx, Medium.cz, Medium.xz, 3);
-                rot(is38, is37, Medium.cy, Medium.cz, Medium.zy, 3);
+                _y[2] = (_y[0] + _y[1]) / 2 - i45 * i46 * i53;
+                rot(_x, _y, _mx, _my, _xy, 3);
+                rot(_y, _z, _my, _mz, _yz, 3);
+                rot(_x, _z, _mx, _mz, _xz, 3);
+                rot(_x, _z, Medium.cx, Medium.cz, Medium.xz, 3);
+                rot(_y, _z, Medium.cy, Medium.cz, Medium.zy, 3);
                 for (int i58 = 0; i58 < 3; i58++) {
-                    is49[i58] = xs(is[i58], is37[i58]);
-                    is50[i58] = ys(is38[i58], is37[i58]);
+                    is49[i58] = xs(_x[i58], _z[i58]);
+                    is50[i58] = ys(_y[i58], _z[i58]);
                 }
                 i55 = (int) (255.0F + 255.0F * (Medium.snap[0] / 400.0F));
                 if (i55 > 255) {
@@ -397,19 +406,19 @@ class Plane implements Comparable<Plane> {
             }
             for (int i59 = 0; i59 < n; i59++) {
                 if (typ == 1) {
-                    is[i59] = (int) (ox[i59] * f + i);
+                    _x[i59] = (int) (ox[i59] * f + _mx);
                 } else {
-                    is[i59] = ox[i59] + i;
+                    _x[i59] = ox[i59] + _mx;
                 }
                 if (typ == 2) {
-                    is38[i59] = (int) (oy[i59] * f + i29);
+                    _y[i59] = (int) (oy[i59] * f + _my);
                 } else {
-                    is38[i59] = oy[i59] + i29;
+                    _y[i59] = oy[i59] + _my;
                 }
                 if (typ == 3) {
-                    is37[i59] = (int) (oz[i59] * f + i30);
+                    _z[i59] = (int) (oz[i59] * f + _mz);
                 } else {
-                    is37[i59] = oz[i59] + i30;
+                    _z[i59] = oz[i59] + _mz;
                 }
             }
             if (embos != 70) {
@@ -419,10 +428,10 @@ class Plane implements Comparable<Plane> {
             }
         }
         if (wz != 0) {
-            rot(is38, is37, wy + i29, wz + i30, i35, n);
+            rot(_y, _z, wy + _my, wz + _mz, i35, n);
         }
         if (wx != 0) {
-            rot(is, is37, wx + i, wz + i30, i34, n);
+            rot(_x, _z, wx + _mx, wz + _mz, i34, n);
         }
         if (chip == 1 && (Medium.random() > 0.6 || bfase == 0)) {
             chip = 0;
@@ -432,9 +441,9 @@ class Plane implements Comparable<Plane> {
         }
         if (chip != 0) {
             if (chip == 1) {
-                cxz = i31;
-                cxy = i32;
-                czy = i33;
+                cxz = _xz;
+                cxy = _xy;
+                czy = _yz;
                 final int i60 = (int) (Medium.random() * n);
                 cox[0] = ox[i60];
                 coz[0] = oz[i60];
@@ -469,13 +478,13 @@ class Plane implements Comparable<Plane> {
             final int[] is62 = new int[3];
             final int[] is63 = new int[3];
             for (int i64 = 0; i64 < 3; i64++) {
-                is61[i64] = cox[i64] + i;
-                is63[i64] = coy[i64] + i29;
-                is62[i64] = coz[i64] + i30;
+                is61[i64] = cox[i64] + _mx;
+                is63[i64] = coy[i64] + _my;
+                is62[i64] = coz[i64] + _mz;
             }
-            rot(is61, is63, i, i29, cxy, 3);
-            rot(is63, is62, i29, i30, czy, 3);
-            rot(is61, is62, i, i30, cxz, 3);
+            rot(is61, is63, _mx, _my, cxy, 3);
+            rot(is63, is62, _my, _mz, czy, 3);
+            rot(is61, is62, _mx, _mz, cxz, 3);
             for (int i65 = 0; i65 < 3; i65++) {
                 is61[i65] += dx;
                 is63[i65] += dy;
@@ -516,27 +525,27 @@ class Plane implements Comparable<Plane> {
                 chip = 0;
             }
         }
-        rot(is, is38, i, i29, i32, n);
-        rot(is38, is37, i29, i30, i33, n);
-        rot(is, is37, i, i30, i31, n);
-        if ((i32 != 0 || i33 != 0 || i31 != 0) && Medium.trk != 2) {
+        rot(_x, _y, _mx, _my, _xy, n);
+        rot(_y, _z, _my, _mz, _yz, n);
+        rot(_x, _z, _mx, _mz, _xz, n);
+        if ((_xy != 0 || _yz != 0 || _xz != 0) && Medium.trk != 2) {
             projf = 1.0F;
             for (int i70 = 0; i70 < 3; i70++) {
                 for (int i71 = 0; i71 < 3; i71++)
                     if (i71 != i70) {
-                        projf *= (float) (Math.sqrt((is[i70] - is[i71]) * (is[i70] - is[i71]) + (is37[i70] - is37[i71]) * (is37[i70] - is37[i71])) / 100.0);
+                        projf *= (float) (Math.sqrt((_x[i70] - _x[i71]) * (_x[i70] - _x[i71]) + (_z[i70] - _z[i71]) * (_z[i70] - _z[i71])) / 100.0);
                     }
             }
             projf = projf / 3.0F;
         }
-        rot(is, is37, Medium.cx, Medium.cz, Medium.xz, n);
+        rot(_x, _z, Medium.cx, Medium.cz, Medium.xz, n);
         boolean bool72 = false;
         final int[] is73 = new int[n];
         final int[] is74 = new int[n];
         int i75 = 500;
         for (int i76 = 0; i76 < n; i76++) {
-            is73[i76] = xs(is[i76], is37[i76]);
-            is74[i76] = ys(is38[i76], is37[i76]);
+            is73[i76] = xs(_x[i76], _z[i76]);
+            is74[i76] = ys(_y[i76], _z[i76]);
         }
         int i77 = 0;
         int i78 = 1;
@@ -553,20 +562,20 @@ class Plane implements Comparable<Plane> {
             i77 = i78;
             i78 = i81;
         }
-        if (spy(is[i77], is37[i77]) > spy(is[i78], is37[i78])) {
+        if (spy(_x[i77], _z[i77]) > spy(_x[i78], _z[i78])) {
             bool72 = true;
             int i82 = 0;
             for (int i83 = 0; i83 < n; i83++)
-                if (is37[i83] < 50 && is38[i83] > Medium.cy) {
+                if (_z[i83] < 50 && _y[i83] > Medium.cy) {
                     bool72 = false;
-                } else if (is38[i83] == is38[0]) {
+                } else if (_y[i83] == _y[0]) {
                     i82++;
                 }
-            if (i82 == n && is38[0] > Medium.cy) {
+            if (i82 == n && _y[0] > Medium.cy) {
                 bool72 = false;
             }
         }
-        rot(is38, is37, Medium.cy, Medium.cz, Medium.zy, n);
+        rot(_y, _z, Medium.cy, Medium.cz, Medium.zy, n);
         boolean bool84 = true;
         final int[] is85 = new int[n];
         final int[] is86 = new int[n];
@@ -576,21 +585,21 @@ class Plane implements Comparable<Plane> {
         int i90 = 0;
         int i91 = 0;
         for (int i92 = 0; i92 < n; i92++) {
-            is85[i92] = xs(is[i92], is37[i92]);
-            is86[i92] = ys(is38[i92], is37[i92]);
-            if (is86[i92] < Medium.ih || is37[i92] < 10) {
+            is85[i92] = xs(_x[i92], _z[i92]);
+            is86[i92] = ys(_y[i92], _z[i92]);
+            if (is86[i92] < Medium.ih || _z[i92] < 10) {
                 i87++;
             }
-            if (is86[i92] > Medium.h || is37[i92] < 10) {
+            if (is86[i92] > Medium.h || _z[i92] < 10) {
                 i88++;
             }
-            if (is85[i92] < Medium.iw || is37[i92] < 10) {
+            if (is85[i92] < Medium.iw || _z[i92] < 10) {
                 i89++;
             }
-            if (is85[i92] > Medium.w || is37[i92] < 10) {
+            if (is85[i92] > Medium.w || _z[i92] < 10) {
                 i90++;
             }
-            if (is37[i92] < 10) {
+            if (_z[i92] < 10) {
                 i91++;
             }
         }
@@ -672,30 +681,30 @@ class Plane implements Comparable<Plane> {
             if (Medium.lightson && light == 2) {
                 i98 -= 40;
             }
-            int i103 = is38[0];
-            int i104 = is38[0];
-            int i105 = is[0];
-            int i106 = is[0];
-            int i107 = is37[0];
-            int i108 = is37[0];
+            int i103 = _y[0];
+            int i104 = _y[0];
+            int i105 = _x[0];
+            int i106 = _x[0];
+            int i107 = _z[0];
+            int i108 = _z[0];
             for (int i109 = 0; i109 < n; i109++) {
-                if (is38[i109] > i103) {
-                    i103 = is38[i109];
+                if (_y[i109] > i103) {
+                    i103 = _y[i109];
                 }
-                if (is38[i109] < i104) {
-                    i104 = is38[i109];
+                if (_y[i109] < i104) {
+                    i104 = _y[i109];
                 }
-                if (is[i109] > i105) {
-                    i105 = is[i109];
+                if (_x[i109] > i105) {
+                    i105 = _x[i109];
                 }
-                if (is[i109] < i106) {
-                    i106 = is[i109];
+                if (_x[i109] < i106) {
+                    i106 = _x[i109];
                 }
-                if (is37[i109] > i107) {
-                    i107 = is37[i109];
+                if (_z[i109] > i107) {
+                    i107 = _z[i109];
                 }
-                if (is37[i109] < i108) {
-                    i108 = is37[i109];
+                if (_z[i109] < i108) {
+                    i108 = _z[i109];
                 }
             }
             final int i110 = (i103 + i104) / 2;
@@ -792,6 +801,25 @@ class Plane implements Comparable<Plane> {
                     f = 1.0F;
                 }
                 if (f < 0.6 || bool72) {
+                    f = 0.6F;
+                }
+            }
+            if (project==-1) {
+                f = (float) (_last.projf / _last.deltaf + 0.3);
+
+                if (f > 1.0F) {
+                    f = 1.0F;
+                }
+                if (f < 0.6 || bool72) {//yeah its referencing OUR bool72, i dunno man...
+                    f = 0.6F;
+                }
+            } else if (project==1 && _next!=null) {
+                f = (float) (_next.projf / _next.deltaf + 0.3);
+
+                if (f > 1.0F) {
+                    f = 1.0F;
+                }
+                if (f < 0.6 || bool72) {//yeah its referencing OUR bool72, i dunno man...
                     f = 0.6F;
                 }
             }

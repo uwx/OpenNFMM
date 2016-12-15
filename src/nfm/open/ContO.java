@@ -934,6 +934,7 @@ class ContO {
                 conto78.p[i82].n = 20;
             }
             p[i82] = new Plane(conto78.p[i82].ox, conto78.p[i82].oz, conto78.p[i82].oy, conto78.p[i82].n, conto78.p[i82].oc, conto78.p[i82].glass, conto78.p[i82].gr, conto78.p[i82].fs, conto78.p[i82].wx, conto78.p[i82].wy, conto78.p[i82].wz, conto78.disline, conto78.p[i82].bfase, conto78.p[i82].road, conto78.p[i82].light, conto78.p[i82].solo, conto78.p[i82].randomcolor, conto78.p[i82].randoutline, conto78.p[i82].customstroke, conto78.p[i82].strokewidth, conto78.p[i82].strokecap, conto78.p[i82].strokejoin, conto78.p[i82].strokemtlimit);
+            p[i82].project = conto78.p[i82].project;
         }
         x = toX;
         y = toY;
@@ -1360,9 +1361,11 @@ class ContO {
                     dsprk(graphics2d, true);
                 }
                 Arrays.sort(p, 0, npl);
-                for (int i142 = 0; i142 < npl; i142++) {
-                    p[i142].d(graphics2d, x - Medium.x, y - Medium.y, z - Medium.z, xz, xy, zy, wxz, wzy, noline, i126);
+                int _npl = npl - 1;
+                for (int j = 0; j < _npl; j++) {
+                    p[j].d(p[j-1], p[j+1], graphics2d, x - Medium.x, y - Medium.y, z - Medium.z, xz, xy, zy, wxz, wzy, noline, i126);
                 }
+                p[_npl].d(p[_npl-1], null, graphics2d, x - Medium.x, y - Medium.y, z - Medium.z, xz, xy, zy, wxz, wzy, noline, i126);
                 if (shadow) {
                     for (int i143 = 0; i143 < 20; i143++)
                         if (stg[i143] != 0) {
