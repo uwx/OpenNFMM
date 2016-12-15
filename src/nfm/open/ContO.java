@@ -1363,11 +1363,14 @@ class ContO {
                     dsprk(graphics2d, true);
                 }
                 Arrays.sort(p, 0, npl);
+                
                 int _npl = npl - 1;
-                for (int j = 0; j < _npl; j++) {
+                p[0].d(p[0], p[1], graphics2d, x - Medium.x[cm], y - Medium.y[cm], z - Medium.z[cm], xz, xy, zy, wxz, wzy, noline, i126);
+                for (int j = 1; j < _npl; j++) {
                     p[j].d(p[j-1], p[j+1], graphics2d, x - Medium.x[cm], y - Medium.y[cm], z - Medium.z[cm], xz, xy, zy, wxz, wzy, noline, i126);
                 }
                 p[_npl].d(p[_npl-1], null, graphics2d, x - Medium.x[cm], y - Medium.y[cm], z - Medium.z[cm], xz, xy, zy, wxz, wzy, noline, i126);
+                
                 if (shadow) {
                     for (int i143 = 0; i143 < 20; i143++)
                         if (stg[i143] != 0) {
