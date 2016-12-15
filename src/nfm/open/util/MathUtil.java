@@ -1,5 +1,7 @@
 package nfm.open.util;
 
+import static nfm.open.Medium.cm;
+
 import java.math.BigDecimal;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -228,7 +230,7 @@ public final class MathUtil {
      * @return the focus point
      */
     public static int getFocusPoint(final int fov) {
-        return (int) (Medium.cx * Math.tan(Math.abs(180 - fov) * 0.5 * 0.0174532925199432957));
+        return (int) (Medium.cx[cm] * Math.tan(Math.abs(180 - fov) * 0.5 * 0.0174532925199432957));
     }
 
     /**

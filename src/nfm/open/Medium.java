@@ -4,15 +4,50 @@ package nfm.open;
  */
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Medium {
-    //private Medium() {}
+public final class Medium {
+    // camera stuffs (WIP)
+    /**
+     * the current camera
+     */
+    public static byte cm = 0;
+    
+    static boolean[] vert = populate(false);
+    static int[] vxz = populate(180);
+    static int[] w =  populate(800);
+    static int[] x =  populate(0);
+    static int[] xz = populate(0);
+    static int[] y =  populate(0);
+    static int[] z =  populate(0);
+    static int[] zy = populate(0);
+    static private int[] bcxz = populate(0);
+
+    public static int[] cx = populate(400);
+    static int[] cy = populate(225);
+    static int[] cz = populate(50);
+
+    static int[] h = populate(450);
+    static int[] hit = populate(45000);
+    static int[] ih = populate(0);
+    static int[] iw = populate(0);
+
+    //
     static int adv = 500;
+    static private int fvect = 200;
+
     static private long atrx = 0L;
     static private long atrz = 0L;
-    static private int bcxz = 0;
+
+    static int fallen = 0;
+    static private float fo = 1.0F;
+
+    static int focusPoint = 400;
+    
+    // other stuffs
+    
     static private boolean[] bst = null;
     static boolean bt = false;
     static final int[] cfade = {
@@ -49,9 +84,6 @@ public class Medium {
     static final int[] csky = {
             170, 220, 255
     };
-    public static int cx = 400;
-    static int cy = 225;
-    static int cz = 50;
     static boolean darksky = false;
     static private final boolean[] diup = {
             false, false, false
@@ -60,17 +92,9 @@ public class Medium {
     static final int[] fade = {
             3000, 4500, 6000, 7500, 9000, 10500, 12000, 13500, 15000, 16500, 18000, 19500, 21000, 22500, 24000, 25500
     };
-    static int fallen = 0;
-    static private float fo = 1.0F;
-    static int focusPoint = 400;
     static int fogd = 7;
-    static private int fvect = 200;
     static private float gofo = (float) (0.33000001311302185 + ThreadLocalRandom.current().nextDouble() * 1.34);
     static int ground = 250;
-    static int h = 450;
-    static int hit = 45000;
-    static int ih = 0;
-    static int iw = 0;
     static boolean lastcheck = false;
     static int lastmaf = 0;
     static int lightn = -1;
@@ -135,14 +159,6 @@ public class Medium {
     static long trz = 0L;
     static private final float[] tsin = new float[360];
     static private int[] twn = null;
-    static boolean vert = false;
-    static int vxz = 180;
-    static int w = 800;
-    static int x = 0;
-    static int xz = 0;
-    static int y = 0;
-    static int z = 0;
-    static int zy = 0;
 
     static {
         for (int i = 0; i < 360; i++) {
@@ -151,6 +167,18 @@ public class Medium {
         for (int i = 0; i < 360; i++) {
             tsin[i] = (float) Math.sin(i * 0.017453292519943295);
         }
+    }
+
+    private static boolean[] populate(boolean b) {
+        boolean[] ab = new boolean[8];
+        Arrays.fill(ab, b);
+        return ab;
+    }
+
+    private static int[] populate(int b) {
+        int[] ab = new int[8];
+        Arrays.fill(ab, b);
+        return ab;
     }
 
     static void addsp(final int i, final int i245, final int i246) {
@@ -188,16 +216,16 @@ public class Medium {
 
     static void around(final ContO conto, final boolean bool) {
         if (!bool) {
-            if (!vert) {
+            if (!vert[cm]) {
                 adv += 2;
             } else {
                 adv -= 2;
             }
             if (adv > 900) {
-                vert = true;
+                vert[cm] = true;
             }
             if (adv < -500) {
-                vert = false;
+                vert[cm] = false;
             }
         } else {
             adv -= 14;
@@ -212,69 +240,69 @@ public class Medium {
         if (i < 1000) {
             i = 1000;
         }
-        y = conto.y - adv;
-        if (y > 10) {
-            vert = false;
+        y[cm] = conto.y - adv;
+        if (y[cm] > 10) {
+            vert[cm] = false;
         }
-        x = conto.x + (int) ((conto.x - i - conto.x) * cos(vxz));
-        z = conto.z + (int) ((conto.x - i - conto.x) * sin(vxz));
+        x[cm] = conto.x + (int) ((conto.x - i - conto.x) * cos(vxz[cm]));
+        z[cm] = conto.z + (int) ((conto.x - i - conto.x) * sin(vxz[cm]));
         if (!bool) {
-            vxz += 2;
+            vxz[cm] += 2;
         } else {
-            vxz += 4;
+            vxz[cm] += 4;
         }
         int i4 = 0;
-        int i5 = y;
+        int i5 = y[cm];
         if (i5 > 0) {
             i5 = 0;
         }
-        if (conto.y - i5 - cy < 0) {
+        if (conto.y - i5 - cy[cm] < 0) {
             i4 = -180;
         }
-        final int i6 = (int) Math.sqrt((conto.z - z + cz) * (conto.z - z + cz) + (conto.x - x - cx) * (conto.x - x - cx));
-        int i7 = (int) (90 + i4 - Math.atan((double) i6 / (double) (conto.y - i5 - cy)) / 0.017453292519943295);
-        xz = -vxz + 90;
+        final int i6 = (int) Math.sqrt((conto.z - z[cm] + cz[cm]) * (conto.z - z[cm] + cz[cm]) + (conto.x - x[cm] - cx[cm]) * (conto.x - x[cm] - cx[cm]));
+        int i7 = (int) (90 + i4 - Math.atan((double) i6 / (double) (conto.y - i5 - cy[cm])) / 0.017453292519943295);
+        xz[cm] = -vxz[cm] + 90;
         if (bool) {
             i7 -= 15;
         }
-        zy += (i7 - zy) / 10;
+        zy[cm] += (i7 - zy[cm]) / 10;
     }
 
     static void aroundtrack() {
-        y = -hit;
-        x = cx + (int) trx + (int) (17000.0F * cos(vxz));
-        z = (int) trz + (int) (17000.0F * sin(vxz));
-        if (hit > 5000) {
-            if (hit == 45000) {
+        y[cm] = -hit[cm];
+        x[cm] = cx[cm] + (int) trx + (int) (17000.0F * cos(vxz[cm]));
+        z[cm] = (int) trz + (int) (17000.0F * sin(vxz[cm]));
+        if (hit[cm] > 5000) {
+            if (hit[cm] == 45000) {
                 fo = 1.0F;
-                zy = 67;
+                zy[cm] = 67;
                 atrx = (CheckPoints.x[0] - trx) / 116L;
                 atrz = (CheckPoints.z[0] - trz) / 116L;
                 focusPoint = 400;
             }
-            if (hit == 20000) {
+            if (hit[cm] == 20000) {
                 fallen = 500;
                 fo = 1.0F;
-                zy = 67;
+                zy[cm] = 67;
                 atrx = (CheckPoints.x[0] - trx) / 116L;
                 atrz = (CheckPoints.z[0] - trz) / 116L;
                 focusPoint = 400;
             }
-            hit -= fallen;
+            hit[cm] -= fallen;
             fallen += 7;
             trx += atrx;
             trz += atrz;
-            if (hit < 17600) {
-                zy -= 2;
+            if (hit[cm] < 17600) {
+                zy[cm] -= 2;
             }
             if (fallen > 500) {
                 fallen = 500;
             }
-            if (hit <= 5000) {
-                hit = 5000;
+            if (hit[cm] <= 5000) {
+                hit[cm] = 5000;
                 fallen = 0;
             }
-            vxz += 3;
+            vxz[cm] += 3;
         } else {
             focusPoint = (int) (400.0F * fo);
             if (Math.abs(fo - gofo) > 0.005) {
@@ -286,7 +314,7 @@ public class Medium {
             } else {
                 gofo = (float) (0.3499999940395355 + ThreadLocalRandom.current().nextDouble() * 1.3);
             }
-            vxz++;
+            vxz[cm]++;
             trx -= (trx - CheckPoints.x[ptr]) / 10L;
             trz -= (trz - CheckPoints.z[ptr]) / 10L;
             if (ptcnt == 7) {
@@ -300,13 +328,13 @@ public class Medium {
                 ptcnt++;
             }
         }
-        if (vxz > 360) {
-            vxz -= 360;
+        if (vxz[cm] > 360) {
+            vxz[cm] -= 360;
         }
-        xz = -vxz - 90;
-        if (-y - cy < 0) {
+        xz[cm] = -vxz[cm] - 90;
+        if (-y[cm] - cy[cm] < 0) {
         }
-        Math.sqrt((trz - z + cz) * (trz - z + cz) + (trx - x - cx) * (trx - x - cx));
+        Math.sqrt((trz - z[cm] + cz[cm]) * (trz - z[cm] + cz[cm]) + (trx - x[cm] - cx[cm]) * (trx - x[cm] - cx[cm]));
         cpflik = !cpflik;
     }
 
@@ -322,22 +350,22 @@ public class Medium {
 
     static void d(final Graphics2D graphics2d) {
         nsp = 0;
-        if (zy > 90) {
-            zy = 90;
+        if (zy[cm] > 90) {
+            zy[cm] = 90;
         }
-        if (zy < -90) {
-            zy = -90;
+        if (zy[cm] < -90) {
+            zy[cm] = -90;
         }
-        if (xz > 360) {
-            xz -= 360;
+        if (xz[cm] > 360) {
+            xz[cm] -= 360;
         }
-        if (xz < 0) {
-            xz += 360;
+        if (xz[cm] < 0) {
+            xz[cm] += 360;
         }
-        if (y > 0) {
-            y = 0;
+        if (y[cm] > 0) {
+            y[cm] = 0;
         }
-        ground = 250 - y;
+        ground = 250 - y[cm];
         final int[] is = new int[4];
         final int[] is223 = new int[4];
         int i = cgrnd[0];
@@ -346,27 +374,27 @@ public class Medium {
         int i226 = crgrnd[0];
         int i227 = crgrnd[1];
         int i228 = crgrnd[2];
-        int i229 = h;
+        int i229 = h[cm];
         for (int i230 = 0; i230 < 16; i230++) {
             int i231 = fade[i230];
             int i232 = ground;
-            if (zy != 0) {
-                i232 = cy + (int) ((ground - cy) * cos(zy) - (fade[i230] - cz) * sin(zy));
-                i231 = cz + (int) ((ground - cy) * sin(zy) + (fade[i230] - cz) * cos(zy));
+            if (zy[cm] != 0) {
+                i232 = cy[cm] + (int) ((ground - cy[cm]) * cos(zy[cm]) - (fade[i230] - cz[cm]) * sin(zy[cm]));
+                i231 = cz[cm] + (int) ((ground - cy[cm]) * sin(zy[cm]) + (fade[i230] - cz[cm]) * cos(zy[cm]));
             }
-            is[0] = iw;
+            is[0] = iw[cm];
             is223[0] = ys(i232, i231);
-            if (is223[0] < ih) {
-                is223[0] = ih;
+            if (is223[0] < ih[cm]) {
+                is223[0] = ih[cm];
             }
-            if (is223[0] > h) {
-                is223[0] = h;
+            if (is223[0] > h[cm]) {
+                is223[0] = h[cm];
             }
-            is[1] = iw;
+            is[1] = iw[cm];
             is223[1] = i229;
-            is[2] = w;
+            is[2] = w[cm];
             is223[2] = i229;
-            is[3] = w;
+            is[3] = w[cm];
             is223[3] = is223[0];
             i229 = is223[0];
             if (i230 > 0) {
@@ -383,7 +411,7 @@ public class Medium {
                     i225 = i228;
                 }
             }
-            if (is223[0] < h && is223[1] > ih) {
+            if (is223[0] < h[cm] && is223[1] > ih[cm]) {
                 graphics2d.setColor(new Color(i, i224, i225));
                 graphics2d.fillPolygon(is, is223, 4);
             }
@@ -428,30 +456,30 @@ public class Medium {
         int i233 = i;
         int i234 = i224;
         int i235 = i225;
-        int i236 = cy + (int) ((skyline - 700 - cy) * cos(zy) - (7000 - cz) * sin(zy));
-        final int i237 = cz + (int) ((skyline - 700 - cy) * sin(zy) + (7000 - cz) * cos(zy));
+        int i236 = cy[cm] + (int) ((skyline - 700 - cy[cm]) * cos(zy[cm]) - (7000 - cz[cm]) * sin(zy[cm]));
+        final int i237 = cz[cm] + (int) ((skyline - 700 - cy[cm]) * sin(zy[cm]) + (7000 - cz[cm]) * cos(zy[cm]));
         i236 = ys(i236, i237);
-        int i238 = ih;
+        int i238 = ih[cm];
         for (int i239 = 0; i239 < 16; i239++) {
             int i240 = fade[i239];
             int i241 = skyline;
-            if (zy != 0) {
-                i241 = cy + (int) ((skyline - cy) * cos(zy) - (fade[i239] - cz) * sin(zy));
-                i240 = cz + (int) ((skyline - cy) * sin(zy) + (fade[i239] - cz) * cos(zy));
+            if (zy[cm] != 0) {
+                i241 = cy[cm] + (int) ((skyline - cy[cm]) * cos(zy[cm]) - (fade[i239] - cz[cm]) * sin(zy[cm]));
+                i240 = cz[cm] + (int) ((skyline - cy[cm]) * sin(zy[cm]) + (fade[i239] - cz[cm]) * cos(zy[cm]));
             }
-            is[0] = iw;
+            is[0] = iw[cm];
             is223[0] = ys(i241, i240);
-            if (is223[0] > h) {
-                is223[0] = h;
+            if (is223[0] > h[cm]) {
+                is223[0] = h[cm];
             }
-            if (is223[0] < ih) {
-                is223[0] = ih;
+            if (is223[0] < ih[cm]) {
+                is223[0] = ih[cm];
             }
-            is[1] = iw;
+            is[1] = iw[cm];
             is223[1] = i238;
-            is[2] = w;
+            is[2] = w[cm];
             is223[2] = i238;
-            is[3] = w;
+            is[3] = w[cm];
             is223[3] = is223[0];
             i238 = is223[0];
             if (i239 > 0) {
@@ -464,21 +492,21 @@ public class Medium {
                 i234 = i224;
                 i235 = i225;
             }
-            if (is223[0] > ih && is223[1] < h) {
+            if (is223[0] > ih[cm] && is223[1] < h[cm]) {
                 graphics2d.setColor(new Color(i, i224, i225));
                 graphics2d.fillPolygon(is, is223, 4);
             }
         }
-        is[0] = iw;
+        is[0] = iw[cm];
         is223[0] = i238;
-        is[1] = iw;
+        is[1] = iw[cm];
         is223[1] = i229;
-        is[2] = w;
+        is[2] = w[cm];
         is223[2] = i229;
-        is[3] = w;
+        is[3] = w[cm];
         is223[3] = i238;
-        if (is223[0] < h && is223[1] > ih) {
-            float f = (Math.abs(y) - 250.0F) / (fade[0] * 2);
+        if (is223[0] < h[cm] && is223[1] > ih[cm]) {
+            float f = (Math.abs(y[cm]) - 250.0F) / (fade[0] * 2);
             if (f < 0.0F) {
                 f = 0.0F;
             }
@@ -495,33 +523,33 @@ public class Medium {
             for (int i242 = 1; i242 < 20; i242++) {
                 int i243 = 7000;
                 int i244 = skyline - 700 - i242 * 70;
-                if (zy != 0 && i242 != 19) {
-                    i244 = cy + (int) ((skyline - 700 - i242 * 70 - cy) * cos(zy) - (7000 - cz) * sin(zy));
-                    i243 = cz + (int) ((skyline - 700 - i242 * 70 - cy) * sin(zy) + (7000 - cz) * cos(zy));
+                if (zy[cm] != 0 && i242 != 19) {
+                    i244 = cy[cm] + (int) ((skyline - 700 - i242 * 70 - cy[cm]) * cos(zy[cm]) - (7000 - cz[cm]) * sin(zy[cm]));
+                    i243 = cz[cm] + (int) ((skyline - 700 - i242 * 70 - cy[cm]) * sin(zy[cm]) + (7000 - cz[cm]) * cos(zy[cm]));
                 }
-                is[0] = iw;
+                is[0] = iw[cm];
                 if (i242 != 19) {
                     is223[0] = ys(i244, i243);
-                    if (is223[0] > h) {
-                        is223[0] = h;
+                    if (is223[0] > h[cm]) {
+                        is223[0] = h[cm];
                     }
-                    if (is223[0] < ih) {
-                        is223[0] = ih;
+                    if (is223[0] < ih[cm]) {
+                        is223[0] = ih[cm];
                     }
                 } else {
-                    is223[0] = ih;
+                    is223[0] = ih[cm];
                 }
-                is[1] = iw;
+                is[1] = iw[cm];
                 is223[1] = i236;
-                is[2] = w;
+                is[2] = w[cm];
                 is223[2] = i236;
-                is[3] = w;
+                is[3] = w[cm];
                 is223[3] = is223[0];
                 i236 = is223[0];
                 i233 *= 0.991;
                 i234 *= 0.991;
                 i235 *= 0.998;
-                if (is223[1] > ih && is223[0] < h) {
+                if (is223[1] > ih[cm] && is223[0] < h[cm]) {
                     graphics2d.setColor(new Color(i233, i234, i235));
                     graphics2d.fillPolygon(is, is223, 4);
                 }
@@ -546,12 +574,12 @@ public class Medium {
 
     static private void drawclouds(final Graphics2D graphics2d) {
         for (int i = 0; i < noc; i++) {
-            final int i104 = cx + (int) ((clx[i] - x / 20 - cx) * cos(xz) - (clz[i] - z / 20 - cz) * sin(xz));
-            final int i105 = cz + (int) ((clx[i] - x / 20 - cx) * sin(xz) + (clz[i] - z / 20 - cz) * cos(xz));
-            final int i106 = cz + (int) ((cldd[4] - y / 20 - cy) * sin(zy) + (i105 - cz) * cos(zy));
+            final int i104 = cx[cm] + (int) ((clx[i] - x[cm] / 20 - cx[cm]) * cos(xz[cm]) - (clz[i] - z[cm] / 20 - cz[cm]) * sin(xz[cm]));
+            final int i105 = cz[cm] + (int) ((clx[i] - x[cm] / 20 - cx[cm]) * sin(xz[cm]) + (clz[i] - z[cm] / 20 - cz[cm]) * cos(xz[cm]));
+            final int i106 = cz[cm] + (int) ((cldd[4] - y[cm] / 20 - cy[cm]) * sin(zy[cm]) + (i105 - cz[cm]) * cos(zy[cm]));
             final int i107 = xs(i104 + cmx[i], i106);
             final int i108 = xs(i104 - cmx[i], i106);
-            if (i107 > 0 && i108 < w && i106 > -cmx[i] && i107 - i108 > 20) {
+            if (i107 > 0 && i108 < w[cm] && i106 > -cmx[i] && i107 - i108 > 20) {
                 final int[][] is = new int[3][12];
                 final int[][] is109 = new int[3][12];
                 final int[][] is110 = new int[3][12];
@@ -560,12 +588,12 @@ public class Medium {
                 boolean bool116;
                 for (int i120 = 0; i120 < 3; i120++) {
                     for (int i121 = 0; i121 < 12; i121++) {
-                        is[i120][i121] = clax[i][i120][i121] + clx[i] - x / 20;
-                        is110[i120][i121] = claz[i][i120][i121] + clz[i] - z / 20;
-                        is109[i120][i121] = clay[i][i120][i121] + cldd[4] - y / 20;
+                        is[i120][i121] = clax[i][i120][i121] + clx[i] - x[cm] / 20;
+                        is110[i120][i121] = claz[i][i120][i121] + clz[i] - z[cm] / 20;
+                        is109[i120][i121] = clay[i][i120][i121] + cldd[4] - y[cm] / 20;
                     }
-                    rot(is[i120], is110[i120], cx, cz, xz, 12);
-                    rot(is109[i120], is110[i120], cy, cz, zy, 12);
+                    rot(is[i120], is110[i120], cx[cm], cz[cm], xz[cm], 12);
+                    rot(is109[i120], is110[i120], cy[cm], cz[cm], zy[cm], 12);
                 }
                 for (int i122 = 0; i122 < 12; i122 += 2) {
                     int i123 = 0;
@@ -620,13 +648,13 @@ public class Medium {
                         if (is112[i130] < 0 || is110[0][i130] < 10) {
                             i123++;
                         }
-                        if (is112[i130] > h || is110[0][i130] < 10) {
+                        if (is112[i130] > h[cm] || is110[0][i130] < 10) {
                             i124++;
                         }
                         if (is111[i130] < 0 || is110[0][i130] < 10) {
                             i125++;
                         }
-                        if (is111[i130] > w || is110[0][i130] < 10) {
+                        if (is111[i130] > w[cm] || is110[0][i130] < 10) {
                             i126++;
                         }
                     }
@@ -637,7 +665,7 @@ public class Medium {
                         i128 /= 6;
                         i127 /= 6;
                         i129 /= 6;
-                        final int i133 = (int) Math.sqrt((cy - i127) * (cy - i127) + (cx - i128) * (cx - i128) + i129 * i129);
+                        final int i133 = (int) Math.sqrt((cy[cm] - i127) * (cy[cm] - i127) + (cx[cm] - i128) * (cx[cm] - i128) + i129 * i129);
                         if (i133 < fade[7]) {
                             int i134 = clc[i][1][i122 / 2][0];
                             int i135 = clc[i][1][i122 / 2][1];
@@ -706,13 +734,13 @@ public class Medium {
                         if (is112[i146] < 0 || is110[0][i146] < 10) {
                             i139++;
                         }
-                        if (is112[i146] > h || is110[0][i146] < 10) {
+                        if (is112[i146] > h[cm] || is110[0][i146] < 10) {
                             i140++;
                         }
                         if (is111[i146] < 0 || is110[0][i146] < 10) {
                             i141++;
                         }
-                        if (is111[i146] > w || is110[0][i146] < 10) {
+                        if (is111[i146] > w[cm] || is110[0][i146] < 10) {
                             i142++;
                         }
                     }
@@ -723,7 +751,7 @@ public class Medium {
                         i144 /= 6;
                         i143 /= 6;
                         i145 /= 6;
-                        final int i149 = (int) Math.sqrt((cy - i143) * (cy - i143) + (cx - i144) * (cx - i144) + i145 * i145);
+                        final int i149 = (int) Math.sqrt((cy[cm] - i143) * (cy[cm] - i143) + (cx[cm] - i144) * (cx[cm] - i144) + i145 * i145);
                         if (i149 < fade[7]) {
                             int i150 = clc[i][0][i138 / 2][0];
                             int i151 = clc[i][0][i138 / 2][1];
@@ -756,13 +784,13 @@ public class Medium {
                     if (is112[i161] < 0 || is110[0][i161] < 10) {
                         i154++;
                     }
-                    if (is112[i161] > h || is110[0][i161] < 10) {
+                    if (is112[i161] > h[cm] || is110[0][i161] < 10) {
                         i155++;
                     }
                     if (is111[i161] < 0 || is110[0][i161] < 10) {
                         i156++;
                     }
-                    if (is111[i161] > w || is110[0][i161] < 10) {
+                    if (is111[i161] > w[cm] || is110[0][i161] < 10) {
                         i157++;
                     }
                 }
@@ -773,7 +801,7 @@ public class Medium {
                     i159 /= 12;
                     i158 /= 12;
                     i160 /= 12;
-                    final int i162 = (int) Math.sqrt((cy - i158) * (cy - i158) + (cx - i159) * (cx - i159) + i160 * i160);
+                    final int i162 = (int) Math.sqrt((cy[cm] - i158) * (cy[cm] - i158) + (cx[cm] - i159) * (cx[cm] - i159) + i160 * i160);
                     if (i162 < fade[7]) {
                         int i163 = clds[0];
                         int i164 = clds[1];
@@ -795,24 +823,24 @@ public class Medium {
     static private void drawmountains(final Graphics2D graphics2d) {
         for (int i = 0; i < nmt; i++) {
             final int i185 = mrd[i];
-            final int i186 = cx + (int) ((mtx[i185][0] - x / 30 - cx) * cos(xz) - (mtz[i185][0] - z / 30 - cz) * sin(xz));
-            final int i187 = cz + (int) ((mtx[i185][0] - x / 30 - cx) * sin(xz) + (mtz[i185][0] - z / 30 - cz) * cos(xz));
-            final int i188 = cz + (int) ((mty[i185][0] - y / 30 - cy) * sin(zy) + (i187 - cz) * cos(zy));
-            final int i189 = cx + (int) ((mtx[i185][nmv[i185] - 1] - x / 30 - cx) * cos(xz) - (mtz[i185][nmv[i185] - 1] - z / 30 - cz) * sin(xz));
-            final int i190 = cz + (int) ((mtx[i185][nmv[i185] - 1] - x / 30 - cx) * sin(xz) + (mtz[i185][nmv[i185] - 1] - z / 30 - cz) * cos(xz));
-            final int i191 = cz + (int) ((mty[i185][nmv[i185] - 1] - y / 30 - cy) * sin(zy) + (i190 - cz) * cos(zy));
-            if (xs(i189, i191) > 0 && xs(i186, i188) < w) {
+            final int i186 = cx[cm] + (int) ((mtx[i185][0] - x[cm] / 30 - cx[cm]) * cos(xz[cm]) - (mtz[i185][0] - z[cm] / 30 - cz[cm]) * sin(xz[cm]));
+            final int i187 = cz[cm] + (int) ((mtx[i185][0] - x[cm] / 30 - cx[cm]) * sin(xz[cm]) + (mtz[i185][0] - z[cm] / 30 - cz[cm]) * cos(xz[cm]));
+            final int i188 = cz[cm] + (int) ((mty[i185][0] - y[cm] / 30 - cy[cm]) * sin(zy[cm]) + (i187 - cz[cm]) * cos(zy[cm]));
+            final int i189 = cx[cm] + (int) ((mtx[i185][nmv[i185] - 1] - x[cm] / 30 - cx[cm]) * cos(xz[cm]) - (mtz[i185][nmv[i185] - 1] - z[cm] / 30 - cz[cm]) * sin(xz[cm]));
+            final int i190 = cz[cm] + (int) ((mtx[i185][nmv[i185] - 1] - x[cm] / 30 - cx[cm]) * sin(xz[cm]) + (mtz[i185][nmv[i185] - 1] - z[cm] / 30 - cz[cm]) * cos(xz[cm]));
+            final int i191 = cz[cm] + (int) ((mty[i185][nmv[i185] - 1] - y[cm] / 30 - cy[cm]) * sin(zy[cm]) + (i190 - cz[cm]) * cos(zy[cm]));
+            if (xs(i189, i191) > 0 && xs(i186, i188) < w[cm]) {
                 final int[] is = new int[nmv[i185] * 2];
                 final int[] is192 = new int[nmv[i185] * 2];
                 final int[] is193 = new int[nmv[i185] * 2];
                 for (int i194 = 0; i194 < nmv[i185] * 2; i194++) {
-                    is[i194] = mtx[i185][i194] - x / 30;
-                    is192[i194] = mty[i185][i194] - y / 30;
-                    is193[i194] = mtz[i185][i194] - z / 30;
+                    is[i194] = mtx[i185][i194] - x[cm] / 30;
+                    is192[i194] = mty[i185][i194] - y[cm] / 30;
+                    is193[i194] = mtz[i185][i194] - z[cm] / 30;
                 }
                 final int i195 = (int) Math.sqrt(is[nmv[i185] / 4] * is[nmv[i185] / 4] + is193[nmv[i185] / 4] * is193[nmv[i185] / 4]);
-                rot(is, is193, cx, cz, xz, nmv[i185] * 2);
-                rot(is192, is193, cy, cz, zy, nmv[i185] * 2);
+                rot(is, is193, cx[cm], cz[cm], xz[cm], nmv[i185] * 2);
+                rot(is192, is193, cy[cm], cz[cm], zy[cm], nmv[i185] * 2);
                 final int[] is196 = new int[4];
                 final int[] is197 = new int[4];
                 boolean bool201;
@@ -835,13 +863,13 @@ public class Medium {
                         if (is197[i207] < 0 || is193[i208] < 10) {
                             i203++;
                         }
-                        if (is197[i207] > h || is193[i208] < 10) {
+                        if (is197[i207] > h[cm] || is193[i208] < 10) {
                             i204++;
                         }
                         if (is196[i207] < 0 || is193[i208] < 10) {
                             i205++;
                         }
-                        if (is196[i207] > w || is193[i208] < 10) {
+                        if (is196[i207] > w[cm] || is193[i208] < 10) {
                             i206++;
                         }
                     }
@@ -849,7 +877,7 @@ public class Medium {
                         bool201 = false;
                     }
                     if (bool201) {
-                        float f = i195 / 2500.0F + (8000.0F - fade[0]) / 1000.0F - 2.0F - (Math.abs(y) - 250.0F) / 5000.0F;
+                        float f = i195 / 2500.0F + (8000.0F - fade[0]) / 1000.0F - 2.0F - (Math.abs(y[cm]) - 250.0F) / 5000.0F;
                         if (f > 0.0F && f < 10.0F) {
                             if (f < 3.5) {
                                 f = 3.5F;
@@ -868,13 +896,13 @@ public class Medium {
 
     static private void drawstars(final Graphics2D graphics2d) {
         for (int i = 0; i < nst; i++) {
-            int i215 = cx + (int) (stx[i] * cos(xz) - stz[i] * sin(xz));
-            final int i216 = cz + (int) (stx[i] * sin(xz) + stz[i] * cos(xz));
-            int i217 = cy + (int) (-200.0F * cos(zy) - i216 * sin(zy));
-            final int i218 = cz + (int) (-200.0F * sin(zy) + i216 * cos(zy));
+            int i215 = cx[cm] + (int) (stx[i] * cos(xz[cm]) - stz[i] * sin(xz[cm]));
+            final int i216 = cz[cm] + (int) (stx[i] * sin(xz[cm]) + stz[i] * cos(xz[cm]));
+            int i217 = cy[cm] + (int) (-200.0F * cos(zy[cm]) - i216 * sin(zy[cm]));
+            final int i218 = cz[cm] + (int) (-200.0F * sin(zy[cm]) + i216 * cos(zy[cm]));
             i215 = xs(i215, i218);
             i217 = ys(i217, i218);
-            if (i215 - 1 > iw && i215 + 3 < w && i217 - 1 > ih && i217 + 3 < h) {
+            if (i215 - 1 > iw[cm] && i215 + 3 < w[cm] && i217 - 1 > ih[cm] && i217 + 3 < h[cm]) {
                 if (twn[i] == 0) {
                     int i219 = (int) (3.0 * ThreadLocalRandom.current().nextDouble());
                     if (i219 >= 3) {
@@ -931,95 +959,95 @@ public class Medium {
     }
 
     static void follow(final ContO conto, int i, final int i27) {
-        zy = 10;
-        int i28 = 2 + Math.abs(bcxz) / 4;
+        zy[cm] = 10;
+        int i28 = 2 + Math.abs(bcxz[cm]) / 4;
         if (i28 > 20) {
             i28 = 20;
         }
         if (i27 != 0) {
             if (i27 == 1) {
-                if (bcxz < 180) {
-                    bcxz += i28;
+                if (bcxz[cm] < 180) {
+                    bcxz[cm] += i28;
                 }
-                if (bcxz > 180) {
-                    bcxz = 180;
+                if (bcxz[cm] > 180) {
+                    bcxz[cm] = 180;
                 }
             }
             if (i27 == -1) {
-                if (bcxz > -180) {
-                    bcxz -= i28;
+                if (bcxz[cm] > -180) {
+                    bcxz[cm] -= i28;
                 }
-                if (bcxz < -180) {
-                    bcxz = -180;
+                if (bcxz[cm] < -180) {
+                    bcxz[cm] = -180;
                 }
             }
-        } else if (Math.abs(bcxz) > i28) {
-            if (bcxz > 0) {
-                bcxz -= i28;
+        } else if (Math.abs(bcxz[cm]) > i28) {
+            if (bcxz[cm] > 0) {
+                bcxz[cm] -= i28;
             } else {
-                bcxz += i28;
+                bcxz[cm] += i28;
             }
-        } else if (bcxz != 0) {
-            bcxz = 0;
+        } else if (bcxz[cm] != 0) {
+            bcxz[cm] = 0;
         }
-        i += bcxz;
-        xz = -i;
-        x = conto.x - cx + (int) (-(conto.z - 800 - conto.z) * sin(i));
-        z = conto.z - cz + (int) ((conto.z - 800 - conto.z) * cos(i));
-        y = conto.y - 250 - cy;
+        i += bcxz[cm];
+        xz[cm] = -i;
+        x[cm] = conto.x - cx[cm] + (int) (-(conto.z - 800 - conto.z) * sin(i));
+        z[cm] = conto.z - cz[cm] + (int) ((conto.z - 800 - conto.z) * cos(i));
+        y[cm] = conto.y - 250 - cy[cm];
     }
 
     static void getaround(final ContO conto) {
-        if (!vert) {
+        if (!vert[cm]) {
             adv += 2;
         } else {
             adv -= 2;
         }
         if (adv > 1700) {
-            vert = true;
+            vert[cm] = true;
         }
         if (adv < -500) {
-            vert = false;
+            vert[cm] = false;
         }
         if (conto.y - adv > 10) {
-            vert = false;
+            vert[cm] = false;
         }
         int i = 500 + adv;
         if (i < 1000) {
             i = 1000;
         }
         final int i8 = conto.y - adv;
-        final int i9 = conto.x + (int) ((conto.x - i - conto.x) * cos(vxz));
-        final int i10 = conto.z + (int) ((conto.x - i - conto.x) * sin(vxz));
+        final int i9 = conto.x + (int) ((conto.x - i - conto.x) * cos(vxz[cm]));
+        final int i10 = conto.z + (int) ((conto.x - i - conto.x) * sin(vxz[cm]));
         int i11 = 0;
-        if (Math.abs(i8 - y) > fvect) {
-            if (y < i8) {
-                y += fvect;
+        if (Math.abs(i8 - y[cm]) > fvect) {
+            if (y[cm] < i8) {
+                y[cm] += fvect;
             } else {
-                y -= fvect;
+                y[cm] -= fvect;
             }
         } else {
-            y = i8;
+            y[cm] = i8;
             i11++;
         }
-        if (Math.abs(i9 - x) > fvect) {
-            if (x < i9) {
-                x += fvect;
+        if (Math.abs(i9 - x[cm]) > fvect) {
+            if (x[cm] < i9) {
+                x[cm] += fvect;
             } else {
-                x -= fvect;
+                x[cm] -= fvect;
             }
         } else {
-            x = i9;
+            x[cm] = i9;
             i11++;
         }
-        if (Math.abs(i10 - z) > fvect) {
-            if (z < i10) {
-                z += fvect;
+        if (Math.abs(i10 - z[cm]) > fvect) {
+            if (z[cm] < i10) {
+                z[cm] += fvect;
             } else {
-                z -= fvect;
+                z[cm] -= fvect;
             }
         } else {
-            z = i10;
+            z[cm] = i10;
             i11++;
         }
         if (i11 == 3) {
@@ -1027,27 +1055,27 @@ public class Medium {
         } else {
             fvect += 2;
         }
-        for (vxz += 2; vxz > 360; vxz -= 360) {
+        for (vxz[cm] += 2; vxz[cm] > 360; vxz[cm] -= 360) {
 
         }
-        int i12 = -vxz + 90;
+        int i12 = -vxz[cm] + 90;
         int i13 = 0;
-        if (conto.x - x - cx > 0) {
+        if (conto.x - x[cm] - cx[cm] > 0) {
             i13 = 180;
         }
-        int i14 = -(int) (90 + i13 + Math.atan((double) (conto.z - z) / (double) (conto.x - x - cx)) / 0.017453292519943295);
-        int i15 = y;
+        int i14 = -(int) (90 + i13 + Math.atan((double) (conto.z - z[cm]) / (double) (conto.x - x[cm] - cx[cm])) / 0.017453292519943295);
+        int i15 = y[cm];
         i13 = 0;
         if (i15 > 0) {
             i15 = 0;
         }
-        if (conto.y - i15 - cy < 0) {
+        if (conto.y - i15 - cy[cm] < 0) {
             i13 = -180;
         }
-        final int i16 = (int) Math.sqrt((conto.z - z + cz) * (conto.z - z + cz) + (conto.x - x - cx) * (conto.x - x - cx));
+        final int i16 = (int) Math.sqrt((conto.z - z[cm] + cz[cm]) * (conto.z - z[cm] + cz[cm]) + (conto.x - x[cm] - cx[cm]) * (conto.x - x[cm] - cx[cm]));
         int i17 = 25;
         if (i16 != 0) {
-            i17 = (int) (90 + i13 - Math.atan((double) i16 / (double) (conto.y - i15 - cy)) / 0.017453292519943295);
+            i17 = (int) (90 + i13 - Math.atan((double) i16 / (double) (conto.y - i15 - cy[cm])) / 0.017453292519943295);
         }
         for (/**/; i12 < 0; i12 += 360) {
 
@@ -1062,105 +1090,105 @@ public class Medium {
 
         }
         if ((Math.abs(i12 - i14) < 30 || Math.abs(i12 - i14) > 330) && i11 == 3) {
-            if (Math.abs(i12 - xz) > 7 && Math.abs(i12 - xz) < 353) {
-                if (Math.abs(i12 - xz) > 180) {
-                    if (xz > i12) {
-                        xz += 7;
+            if (Math.abs(i12 - xz[cm]) > 7 && Math.abs(i12 - xz[cm]) < 353) {
+                if (Math.abs(i12 - xz[cm]) > 180) {
+                    if (xz[cm] > i12) {
+                        xz[cm] += 7;
                     } else {
-                        xz -= 7;
+                        xz[cm] -= 7;
                     }
-                } else if (xz < i12) {
-                    xz += 7;
+                } else if (xz[cm] < i12) {
+                    xz[cm] += 7;
                 } else {
-                    xz -= 7;
+                    xz[cm] -= 7;
                 }
             } else {
-                xz = i12;
+                xz[cm] = i12;
             }
-        } else if (Math.abs(i14 - xz) > 6 && Math.abs(i14 - xz) < 354) {
-            if (Math.abs(i14 - xz) > 180) {
-                if (xz > i14) {
-                    xz += 3;
+        } else if (Math.abs(i14 - xz[cm]) > 6 && Math.abs(i14 - xz[cm]) < 354) {
+            if (Math.abs(i14 - xz[cm]) > 180) {
+                if (xz[cm] > i14) {
+                    xz[cm] += 3;
                 } else {
-                    xz -= 3;
+                    xz[cm] -= 3;
                 }
-            } else if (xz < i14) {
-                xz += 3;
+            } else if (xz[cm] < i14) {
+                xz[cm] += 3;
             } else {
-                xz -= 3;
+                xz[cm] -= 3;
             }
         } else {
-            xz = i14;
+            xz[cm] = i14;
         }
-        zy += (i17 - zy) / 10;
+        zy[cm] += (i17 - zy[cm]) / 10;
     }
 
     static void getfollow(final ContO conto, int i, final int i29) {
-        zy = 10;
-        int i30 = 2 + Math.abs(bcxz) / 4;
+        zy[cm] = 10;
+        int i30 = 2 + Math.abs(bcxz[cm]) / 4;
         if (i30 > 20) {
             i30 = 20;
         }
         if (i29 != 0) {
             if (i29 == 1) {
-                if (bcxz < 180) {
-                    bcxz += i30;
+                if (bcxz[cm] < 180) {
+                    bcxz[cm] += i30;
                 }
-                if (bcxz > 180) {
-                    bcxz = 180;
+                if (bcxz[cm] > 180) {
+                    bcxz[cm] = 180;
                 }
             }
             if (i29 == -1) {
-                if (bcxz > -180) {
-                    bcxz -= i30;
+                if (bcxz[cm] > -180) {
+                    bcxz[cm] -= i30;
                 }
-                if (bcxz < -180) {
-                    bcxz = -180;
+                if (bcxz[cm] < -180) {
+                    bcxz[cm] = -180;
                 }
             }
-        } else if (Math.abs(bcxz) > i30) {
-            if (bcxz > 0) {
-                bcxz -= i30;
+        } else if (Math.abs(bcxz[cm]) > i30) {
+            if (bcxz[cm] > 0) {
+                bcxz[cm] -= i30;
             } else {
-                bcxz += i30;
+                bcxz[cm] += i30;
             }
-        } else if (bcxz != 0) {
-            bcxz = 0;
+        } else if (bcxz[cm] != 0) {
+            bcxz[cm] = 0;
         }
-        i += bcxz;
-        xz = -i;
-        final int i31 = conto.x - cx + (int) (-(conto.z - 800 - conto.z) * sin(i));
-        final int i32 = conto.z - cz + (int) ((conto.z - 800 - conto.z) * cos(i));
-        final int i33 = conto.y - 250 - cy;
+        i += bcxz[cm];
+        xz[cm] = -i;
+        final int i31 = conto.x - cx[cm] + (int) (-(conto.z - 800 - conto.z) * sin(i));
+        final int i32 = conto.z - cz[cm] + (int) ((conto.z - 800 - conto.z) * cos(i));
+        final int i33 = conto.y - 250 - cy[cm];
         int i34 = 0;
-        if (Math.abs(i33 - y) > fvect) {
-            if (y < i33) {
-                y += fvect;
+        if (Math.abs(i33 - y[cm]) > fvect) {
+            if (y[cm] < i33) {
+                y[cm] += fvect;
             } else {
-                y -= fvect;
+                y[cm] -= fvect;
             }
         } else {
-            y = i33;
+            y[cm] = i33;
             i34++;
         }
-        if (Math.abs(i31 - x) > fvect) {
-            if (x < i31) {
-                x += fvect;
+        if (Math.abs(i31 - x[cm]) > fvect) {
+            if (x[cm] < i31) {
+                x[cm] += fvect;
             } else {
-                x -= fvect;
+                x[cm] -= fvect;
             }
         } else {
-            x = i31;
+            x[cm] = i31;
             i34++;
         }
-        if (Math.abs(i32 - z) > fvect) {
-            if (z < i32) {
-                z += fvect;
+        if (Math.abs(i32 - z[cm]) > fvect) {
+            if (z[cm] < i32) {
+                z[cm] += fvect;
             } else {
-                z -= fvect;
+                z[cm] -= fvect;
             }
         } else {
-            z = i32;
+            z[cm] = i32;
             i34++;
         }
         if (i34 == 3) {
@@ -1171,7 +1199,7 @@ public class Medium {
     }
 
     static private void groundpolys(final Graphics2D graphics2d) {
-        int i = (x - sgpx) / 1200 - 12;
+        int i = (x[cm] - sgpx) / 1200 - 12;
         if (i < 0) {
             i = 0;
         }
@@ -1182,7 +1210,7 @@ public class Medium {
         if (i48 < i) {
             i48 = i;
         }
-        int i49 = (z - sgpz) / 1200 - 12;
+        int i49 = (z[cm] - sgpz) / 1200 - 12;
         if (i49 < 0) {
             i49 = 0;
         }
@@ -1199,21 +1227,21 @@ public class Medium {
                 is[i51 - i][i52 - i49] = 0;
                 final int i53 = i51 + i52 * nrw;
                 if (resdown < 2 || i53 % 2 == 0) {
-                    final int i54 = cx + (int) ((cgpx[i53] - x - cx) * cos(xz) - (cgpz[i53] - z - cz) * sin(xz));
-                    final int i55 = cz + (int) ((cgpx[i53] - x - cx) * sin(xz) + (cgpz[i53] - z - cz) * cos(xz));
-                    final int i56 = cz + (int) ((250 - y - cy) * sin(zy) + (i55 - cz) * cos(zy));
-                    if (xs(i54 + pmx[i53], i56) > 0 && xs(i54 - pmx[i53], i56) < w && i56 > -pmx[i53] && i56 < fade[2]) {
+                    final int i54 = cx[cm] + (int) ((cgpx[i53] - x[cm] - cx[cm]) * cos(xz[cm]) - (cgpz[i53] - z[cm] - cz[cm]) * sin(xz[cm]));
+                    final int i55 = cz[cm] + (int) ((cgpx[i53] - x[cm] - cx[cm]) * sin(xz[cm]) + (cgpz[i53] - z[cm] - cz[cm]) * cos(xz[cm]));
+                    final int i56 = cz[cm] + (int) ((250 - y[cm] - cy[cm]) * sin(zy[cm]) + (i55 - cz[cm]) * cos(zy[cm]));
+                    if (xs(i54 + pmx[i53], i56) > 0 && xs(i54 - pmx[i53], i56) < w[cm] && i56 > -pmx[i53] && i56 < fade[2]) {
                         is[i51 - i][i52 - i49] = i56;
                         final int[] is57 = new int[8];
                         final int[] is58 = new int[8];
                         final int[] is59 = new int[8];
                         for (int i60 = 0; i60 < 8; i60++) {
-                            is57[i60] = (int) (ogpx[i53][i60] * pvr[i53][i60] + cgpx[i53] - x);
-                            is58[i60] = (int) (ogpz[i53][i60] * pvr[i53][i60] + cgpz[i53] - z);
+                            is57[i60] = (int) (ogpx[i53][i60] * pvr[i53][i60] + cgpx[i53] - x[cm]);
+                            is58[i60] = (int) (ogpz[i53][i60] * pvr[i53][i60] + cgpz[i53] - z[cm]);
                             is59[i60] = ground;
                         }
-                        rot(is57, is58, cx, cz, xz, 8);
-                        rot(is59, is58, cy, cz, zy, 8);
+                        rot(is57, is58, cx[cm], cz[cm], xz[cm], 8);
+                        rot(is59, is58, cy[cm], cz[cm], zy[cm], 8);
                         final int[] is61 = new int[8];
                         final int[] is62 = new int[8];
                         int i63 = 0;
@@ -1227,13 +1255,13 @@ public class Medium {
                             if (is62[i67] < 0 || is58[i67] < 10) {
                                 i63++;
                             }
-                            if (is62[i67] > h || is58[i67] < 10) {
+                            if (is62[i67] > h[cm] || is58[i67] < 10) {
                                 i64++;
                             }
                             if (is61[i67] < 0 || is58[i67] < 10) {
                                 i65++;
                             }
-                            if (is61[i67] > w || is58[i67] < 10) {
+                            if (is61[i67] > w[cm] || is58[i67] < 10) {
                                 i66++;
                             }
                         }
@@ -1269,12 +1297,12 @@ public class Medium {
                     final int[] is75 = new int[8];
                     final int[] is76 = new int[8];
                     for (int i77 = 0; i77 < 8; i77++) {
-                        is74[i77] = ogpx[i73][i77] + cgpx[i73] - x;
-                        is75[i77] = ogpz[i73][i77] + cgpz[i73] - z;
+                        is74[i77] = ogpx[i73][i77] + cgpx[i73] - x[cm];
+                        is75[i77] = ogpz[i73][i77] + cgpz[i73] - z[cm];
                         is76[i77] = ground;
                     }
-                    rot(is74, is75, cx, cz, xz, 8);
-                    rot(is76, is75, cy, cz, zy, 8);
+                    rot(is74, is75, cx[cm], cz[cm], xz[cm], 8);
+                    rot(is76, is75, cy[cm], cz[cm], zy[cm], 8);
                     final int[] is78 = new int[8];
                     final int[] is79 = new int[8];
                     int i80 = 0;
@@ -1288,13 +1316,13 @@ public class Medium {
                         if (is79[i84] < 0 || is75[i84] < 10) {
                             i80++;
                         }
-                        if (is79[i84] > h || is75[i84] < 10) {
+                        if (is79[i84] > h[cm] || is75[i84] < 10) {
                             i81++;
                         }
                         if (is78[i84] < 0 || is75[i84] < 10) {
                             i82++;
                         }
-                        if (is78[i84] > w || is75[i84] < 10) {
+                        if (is78[i84] > w[cm] || is75[i84] < 10) {
                             i83++;
                         }
                     }
@@ -1953,84 +1981,84 @@ public class Medium {
         final int i19 = (conto.x * (20 - i) + conto18.x * i) / 20;
         final int i20 = (conto.y * (20 - i) + conto18.y * i) / 20;
         final int i21 = (conto.z * (20 - i) + conto18.z * i) / 20;
-        if (!vert) {
+        if (!vert[cm]) {
             adv += 2;
         } else {
             adv -= 2;
         }
         if (adv > 900) {
-            vert = true;
+            vert[cm] = true;
         }
         if (adv < -500) {
-            vert = false;
+            vert[cm] = false;
         }
         int i22 = 500 + adv;
         if (i22 < 1000) {
             i22 = 1000;
         }
-        y = i20 - adv;
-        if (y > 10) {
-            vert = false;
+        y[cm] = i20 - adv;
+        if (y[cm] > 10) {
+            vert[cm] = false;
         }
-        x = i19 + (int) ((i19 - i22 - i19) * cos(vxz));
-        z = i21 + (int) ((i19 - i22 - i19) * sin(vxz));
-        vxz += 2;
+        x[cm] = i19 + (int) ((i19 - i22 - i19) * cos(vxz[cm]));
+        z[cm] = i21 + (int) ((i19 - i22 - i19) * sin(vxz[cm]));
+        vxz[cm] += 2;
         int i23 = 0;
-        int i24 = y;
+        int i24 = y[cm];
         if (i24 > 0) {
             i24 = 0;
         }
-        if (i20 - i24 - cy < 0) {
+        if (i20 - i24 - cy[cm] < 0) {
             i23 = -180;
         }
-        final int i25 = (int) Math.sqrt((i21 - z + cz) * (i21 - z + cz) + (i19 - x - cx) * (i19 - x - cx));
-        final int i26 = (int) (90 + i23 - Math.atan((double) i25 / (double) (i20 - i24 - cy)) / 0.017453292519943295);
-        xz = -vxz + 90;
-        zy += (i26 - zy) / 10;
+        final int i25 = (int) Math.sqrt((i21 - z[cm] + cz[cm]) * (i21 - z[cm] + cz[cm]) + (i19 - x[cm] - cx[cm]) * (i19 - x[cm] - cx[cm]));
+        final int i26 = (int) (90 + i23 - Math.atan((double) i25 / (double) (i20 - i24 - cy[cm])) / 0.017453292519943295);
+        xz[cm] = -vxz[cm] + 90;
+        zy[cm] += (i26 - zy[cm]) / 10;
     }
 
     static void watch(final ContO conto, final int i) {
         if (td) {
-            y = (int) (conto.y - 300 - 1100.0F * random());
-            x = conto.x + (int) ((conto.x + 400 - conto.x) * cos(i) - (conto.z + 5000 - conto.z) * sin(i));
-            z = conto.z + (int) ((conto.x + 400 - conto.x) * sin(i) + (conto.z + 5000 - conto.z) * cos(i));
+            y[cm] = (int) (conto.y - 300 - 1100.0F * random());
+            x[cm] = conto.x + (int) ((conto.x + 400 - conto.x) * cos(i) - (conto.z + 5000 - conto.z) * sin(i));
+            z[cm] = conto.z + (int) ((conto.x + 400 - conto.x) * sin(i) + (conto.z + 5000 - conto.z) * cos(i));
             td = false;
         }
         int i0 = 0;
-        if (conto.x - x - cx > 0) {
+        if (conto.x - x[cm] - cx[cm] > 0) {
             i0 = 180;
         }
-        int i1 = -(int) (90 + i0 + Math.atan((double) (conto.z - z) / (double) (conto.x - x - cx)) / 0.017453292519943295);
+        int i1 = -(int) (90 + i0 + Math.atan((double) (conto.z - z[cm]) / (double) (conto.x - x[cm] - cx[cm])) / 0.017453292519943295);
         i0 = 0;
-        if (conto.y - y - cy < 0) {
+        if (conto.y - y[cm] - cy[cm] < 0) {
             i0 = -180;
         }
-        final int i2 = (int) Math.sqrt((conto.z - z) * (conto.z - z) + (conto.x - x - cx) * (conto.x - x - cx));
-        final int i3 = (int) (90 + i0 - Math.atan((double) i2 / (double) (conto.y - y - cy)) / 0.017453292519943295);
+        final int i2 = (int) Math.sqrt((conto.z - z[cm]) * (conto.z - z[cm]) + (conto.x - x[cm] - cx[cm]) * (conto.x - x[cm] - cx[cm]));
+        final int i3 = (int) (90 + i0 - Math.atan((double) i2 / (double) (conto.y - y[cm] - cy[cm])) / 0.017453292519943295);
         for (/**/; i1 < 0; i1 += 360) {
 
         }
         for (/**/; i1 > 360; i1 -= 360) {
 
         }
-        xz = i1;
-        zy += (i3 - zy) / 5;
-        if ((int) Math.sqrt((conto.z - z) * (conto.z - z) + (conto.x - x - cx) * (conto.x - x - cx) + (conto.y - y - cy) * (conto.y - y - cy)) > 6000) {
+        xz[cm] = i1;
+        zy[cm] += (i3 - zy[cm]) / 5;
+        if ((int) Math.sqrt((conto.z - z[cm]) * (conto.z - z[cm]) + (conto.x - x[cm] - cx[cm]) * (conto.x - x[cm] - cx[cm]) + (conto.y - y[cm] - cy[cm]) * (conto.y - y[cm] - cy[cm])) > 6000) {
             td = true;
         }
     }
 
     static private int xs(final int i, int i272) {
-        if (i272 < cz) {
-            i272 = cz;
+        if (i272 < cz[cm]) {
+            i272 = cz[cm];
         }
-        return (i272 - focusPoint) * (cx - i) / i272 + i;
+        return (i272 - focusPoint) * (cx[cm] - i) / i272 + i;
     }
 
     static private int ys(final int i, int i273) {
         if (i273 < 10) {
             i273 = 10;
         }
-        return (i273 - focusPoint) * (cy - i) / i273 + i;
+        return (i273 - focusPoint) * (cy[cm] - i) / i273 + i;
     }
 }

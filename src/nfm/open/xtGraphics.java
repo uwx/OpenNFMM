@@ -4,6 +4,7 @@ package nfm.open;
  */
 import nfm.open.music.*;
 
+import static nfm.open.Medium.cm;
 import static nfm.open.xtGraphics.Images.*;
 
 import java.awt.AlphaComposite;
@@ -669,7 +670,7 @@ class xtGraphics extends JPanel implements Runnable {
                 ftm = rd.getFontMetrics();
             }
         }
-        for (i224 += Medium.xz; i224 < 0; i224 += 360) {
+        for (i224 += Medium.xz[cm]; i224 < 0; i224 += 360) {
 
         }
         for (; i224 > 180; i224 -= 360) {
@@ -3408,11 +3409,11 @@ class xtGraphics extends JPanel implements Runnable {
                     rd.fillRect(570, 211, 4, 125);
                     contos[i144].y = i145;
                     Medium.crs = true;
-                    Medium.x = -400;
-                    Medium.y = 0;
-                    Medium.z = -50;
-                    Medium.xz = 0;
-                    Medium.zy = 0;
+                    Medium.x[cm] = -400;
+                    Medium.y[cm] = 0;
+                    Medium.z[cm] = -50;
+                    Medium.xz[cm] = 0;
+                    Medium.zy[cm] = 0;
                     Medium.ground = 2470;
                     contos[i144].z = 1000;
                     contos[i144].x = 0;
@@ -4217,20 +4218,20 @@ class xtGraphics extends JPanel implements Runnable {
         }
         Medium.trk = 0;
         Medium.crs = true;
-        Medium.x = -400;
-        Medium.y = -525;
-        Medium.z = -50;
-        Medium.xz = 0;
-        Medium.zy = 10;
+        Medium.x[cm] = -400;
+        Medium.y[cm] = -525;
+        Medium.z[cm] = -50;
+        Medium.xz[cm] = 0;
+        Medium.zy[cm] = 10;
         Medium.ground = 495;
-        Medium.ih = 0;
-        Medium.iw = 0;
-        Medium.h = 450;
-        Medium.w = 800;
+        Medium.ih[cm] = 0;
+        Medium.iw[cm] = 0;
+        Medium.h[cm] = 450;
+        Medium.w[cm] = 800;
         Medium.focusPoint = 400;
-        Medium.cx = 400;
-        Medium.cy = 225;
-        Medium.cz = 50;
+        Medium.cx[cm] = 400;
+        Medium.cy[cm] = 225;
+        Medium.cz[cm] = 50;
         if (multion == 0) {
             //intertrack.loadimod(false);
             intertrack.play();
@@ -6869,14 +6870,14 @@ class xtGraphics extends JPanel implements Runnable {
             System.gc();
             Medium.trk = 0;
             Medium.crs = false;
-            Medium.ih = 0;
-            Medium.iw = 0;
-            Medium.h = 450;
-            Medium.w = 800;
+            Medium.ih[cm] = 0;
+            Medium.iw[cm] = 0;
+            Medium.h[cm] = 450;
+            Medium.w[cm] = 800;
             Medium.focusPoint = 400;
-            Medium.cx = 400;
-            Medium.cy = 225;
-            Medium.cz = 50;
+            Medium.cx[cm] = 400;
+            Medium.cy[cm] = 225;
+            Medium.cz[cm] = 50;
             rd.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_OFF);
             rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
             if (multion == 0) {
@@ -9516,13 +9517,13 @@ class xtGraphics extends JPanel implements Runnable {
         if (i279 < 50) {
             i279 = 50;
         }
-        return (i279 - Medium.focusPoint) * (Medium.cx - i) / i279 + i;
+        return (i279 - Medium.focusPoint) * (Medium.cx[cm] - i) / i279 + i;
     }
 
     static private int ys(final int i, int i280) {
         if (i280 < 50) {
             i280 = 50;
         }
-        return (i280 - Medium.focusPoint) * (Medium.cy - i) / i280 + i;
+        return (i280 - Medium.focusPoint) * (Medium.cy[cm] - i) / i280 + i;
     }
 }

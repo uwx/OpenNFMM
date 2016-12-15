@@ -8,6 +8,8 @@ import javax.swing.Timer;
 
 import nfm.open.xtGraphics.Images;
 
+import static nfm.open.Medium.cm;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
@@ -686,14 +688,14 @@ class GameSparker extends JPanel
                 Medium.trz = (l + m) / 2;
                 Medium.ptr = 0;
                 Medium.ptcnt = -10;
-                Medium.hit = 45000;
+                Medium.hit[cm] = 45000;
                 Medium.fallen = 0;
                 Medium.nrnd = 0;
                 Medium.trk = 1;
-                Medium.ih = 25;
-                Medium.iw = 65;
-                Medium.h = 425;
-                Medium.w = 735;
+                Medium.ih[cm] = 25;
+                Medium.iw[cm] = 65;
+                Medium.h[cm] = 425;
+                Medium.w[cm] = 735;
                 xtGraphics.fase = 1;
                 mouses = 0;
             }
@@ -2080,7 +2082,7 @@ class GameSparker extends JPanel
             rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
             if (CheckPoints.stage != -3) {
                 Medium.aroundtrack();
-                if (Medium.hit == 5000 && mvect < 40) {
+                if (Medium.hit[cm] == 5000 && mvect < 40) {
                     mvect++;
                 }
                 final int[][] ai = new int[notb][2];
@@ -2235,11 +2237,11 @@ class GameSparker extends JPanel
                     Medium.trk = 0;
                     Medium.focusPoint = 400;
                     Medium.crs = true;
-                    Medium.x = -335;
-                    Medium.y = 0;
-                    Medium.z = -50;
-                    Medium.xz = 0;
-                    Medium.zy = 20;
+                    Medium.x[cm] = -335;
+                    Medium.y[cm] = 0;
+                    Medium.z[cm] = -50;
+                    Medium.xz[cm] = 0;
+                    Medium.zy[cm] = 20;
                     Medium.ground = -2000;
                     mvect = 100;
                     lobby.fase = 1;
@@ -2478,8 +2480,8 @@ class GameSparker extends JPanel
             } else {
                 if (xtGraphics.starcnt == 130) {
                     Medium.adv = 1900;
-                    Medium.zy = 40;
-                    Medium.vxz = 70;
+                    Medium.zy[cm] = 40;
+                    Medium.vxz[cm] = 70;
                     rd.setColor(new Color(255, 255, 255));
                     rd.fillRect(0, 0, 800, 450);
                 }
@@ -2497,11 +2499,11 @@ class GameSparker extends JPanel
                             shaka = 25;
                         }
                     }
-                    mvect = 65 + Math.abs(lmxz - Medium.xz) / 5 * 100;
+                    mvect = 65 + Math.abs(lmxz - Medium.xz[cm]) / 5 * 100;
                     if (mvect > 90) {
                         mvect = 90;
                     }
-                    lmxz = Medium.xz;
+                    lmxz = Medium.xz[cm];
                 }
                 if (view == 1) {
                     Medium.around(stageContos[0], false);
@@ -2511,11 +2513,11 @@ class GameSparker extends JPanel
                 if (view == 2) {
                     Medium.watch(stageContos[0], mads[0].mxz);
                     xtGraphics.stat(mads[0], stageContos[0],  u[0], false);
-                    mvect = 65 + Math.abs(lmxz - Medium.xz) / 5 * 100;
+                    mvect = 65 + Math.abs(lmxz - Medium.xz[cm]) / 5 * 100;
                     if (mvect > 90) {
                         mvect = 90;
                     }
-                    lmxz = Medium.xz;
+                    lmxz = Medium.xz[cm];
                 }
                 if (mouses == 1) {
                     u[0].enter = true;
@@ -2535,9 +2537,9 @@ class GameSparker extends JPanel
                 }
                 if (xtGraphics.starcnt == 38) {
                     mouses = 0;
-                    Medium.vert = false;
+                    Medium.vert[cm] = false;
                     Medium.adv = 900;
-                    Medium.vxz = 180;
+                    Medium.vxz[cm] = 180;
                     CheckPoints.checkstat(mads, stageContos,  xtGraphics.nplayers, xtGraphics.im, 0);
                     Medium.follow(stageContos[0], mads[0].cxz, 0);
                     xtGraphics.stat(mads[0], stageContos[0],  u[0], true);
@@ -2629,8 +2631,8 @@ class GameSparker extends JPanel
             } else {
                 if (xtGraphics.starcnt == 130) {
                     Medium.adv = 1900;
-                    Medium.zy = 40;
-                    Medium.vxz = 70;
+                    Medium.zy[cm] = 40;
+                    Medium.vxz[cm] = 70;
                     rd.setColor(new Color(255, 255, 255));
                     rd.fillRect(0, 0, 800, 450);
                     //repaint();
@@ -2684,11 +2686,11 @@ class GameSparker extends JPanel
                                 shaka = 25;
                             }
                         }
-                        mvect = 65 + Math.abs(lmxz - Medium.xz) / 5 * 100;
+                        mvect = 65 + Math.abs(lmxz - Medium.xz[cm]) / 5 * 100;
                         if (mvect > 90) {
                             mvect = 90;
                         }
-                        lmxz = Medium.xz;
+                        lmxz = Medium.xz[cm];
                     }
                     if (view == 1) {
                         Medium.around(stageContos[xtGraphics.im], false);
@@ -2698,11 +2700,11 @@ class GameSparker extends JPanel
                     if (view == 2) {
                         Medium.watch(stageContos[xtGraphics.im], mads[xtGraphics.im].mxz);
                         xtGraphics.stat(mads[xtGraphics.im], stageContos[xtGraphics.im],  u[0], false);
-                        mvect = 65 + Math.abs(lmxz - Medium.xz) / 5 * 100;
+                        mvect = 65 + Math.abs(lmxz - Medium.xz[cm]) / 5 * 100;
                         if (mvect > 90) {
                             mvect = 90;
                         }
-                        lmxz = Medium.xz;
+                        lmxz = Medium.xz[cm];
                     }
                 } else {
                     if (view == 0) {
@@ -2711,19 +2713,19 @@ class GameSparker extends JPanel
                     }
                     if (view == 1) {
                         Medium.getfollow(stageContos[xtGraphics.im], mads[xtGraphics.im].cxz, u[0].lookback);
-                        mvect = 65 + Math.abs(lmxz - Medium.xz) / 5 * 100;
+                        mvect = 65 + Math.abs(lmxz - Medium.xz[cm]) / 5 * 100;
                         if (mvect > 90) {
                             mvect = 90;
                         }
-                        lmxz = Medium.xz;
+                        lmxz = Medium.xz[cm];
                     }
                     if (view == 2) {
                         Medium.watch(stageContos[xtGraphics.im], mads[xtGraphics.im].mxz);
-                        mvect = 65 + Math.abs(lmxz - Medium.xz) / 5 * 100;
+                        mvect = 65 + Math.abs(lmxz - Medium.xz[cm]) / 5 * 100;
                         if (mvect > 90) {
                             mvect = 90;
                         }
-                        lmxz = Medium.xz;
+                        lmxz = Medium.xz[cm];
                     }
                     xtGraphics.stat(mads[xtGraphics.im], stageContos[xtGraphics.im],  u[0], true);
                 }
@@ -2742,9 +2744,9 @@ class GameSparker extends JPanel
                 if (xtGraphics.starcnt == 38) {
                     xtGraphics.forstart = 0;
                     mouses = 0;
-                    Medium.vert = false;
+                    Medium.vert[cm] = false;
                     Medium.adv = 900;
-                    Medium.vxz = 180;
+                    Medium.vxz[cm] = 180;
                     CheckPoints.checkstat(mads, stageContos,  xtGraphics.nplayers, xtGraphics.im, xtGraphics.multion);
                     Medium.follow(stageContos[xtGraphics.im], mads[xtGraphics.im].cxz, 0);
                     xtGraphics.stat(mads[xtGraphics.im], stageContos[xtGraphics.im],  u[0], true);
@@ -2848,9 +2850,9 @@ class GameSparker extends JPanel
                 gsPanel.requestFocus();
             }
             if (Record.hcaught) {
-                Medium.vert = Medium.random() <= 0.45;
+                Medium.vert[cm] = Medium.random() <= 0.45;
                 Medium.adv = (int) (900.0F * Medium.random());
-                Medium.vxz = (int) (360.0F * Medium.random());
+                Medium.vxz[cm] = (int) (360.0F * Medium.random());
                 recordtime = 0;
                 xtGraphics.fase = -3;
                 clicknowtime = 0;
@@ -2865,7 +2867,7 @@ class GameSparker extends JPanel
                 if (Record.wasted == 0) {
                     if (Record.whenwasted == 229) {
                         wastedpoint = 67;
-                        Medium.vxz += 90;
+                        Medium.vxz[cm] += 90;
                     } else {
                         wastedpoint = (int) (Medium.random() * 4.0F);
                         if (wastedpoint == 1 || wastedpoint == 3) {
@@ -2876,7 +2878,7 @@ class GameSparker extends JPanel
                         }
                     }
                 } else if (Record.closefinish != 0 && finishrecording != 0) {
-                    Medium.vxz += 90;
+                    Medium.vxz[cm] += 90;
                 }
                 for (int j = 0; j < xtGraphics.nplayers; j++) {
                     stageContos[j] = new ContO(Record.starcar[j], 0, 0, 0, 0);
@@ -3382,6 +3384,12 @@ class GameSparker extends JPanel
                 if (view == 3) {
                     view = 0;
                 }
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_F1) {
+            Medium.trk++;
+            if (Medium.trk > 3) {
+                Medium.trk = 0;
             }
         }
     }
