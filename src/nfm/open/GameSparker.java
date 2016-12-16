@@ -9,6 +9,7 @@ import javax.swing.Timer;
 import com.ivan.xinput.exceptions.XInputNotLoadedException;
 
 import nfm.open.xtGraphics.Images;
+import nfm.open.util.FileUtil;
 
 import static nfm.open.Medium.cm;
 import static nfm.open.xtGraphics.badmac;
@@ -215,48 +216,23 @@ class GameSparker extends JPanel
         int totalSize = 0;
         xtGraphics.dnload += 6;
         try {
-            ZipInputStream zipinputstream = new ZipInputStream(new FileInputStream("data/models.zip"));
-            ZipEntry zipentry = zipinputstream.getNextEntry();
-            for (; zipentry != null; zipentry = zipinputstream.getNextEntry()) {
-                int id = -1;
-                byte assigned = 0;
-                for (int j = 0; j < carRads.length; j++)
-                    if (zipentry.getName().equals(carRads[j] + ".rad")) {
-                        id = j;
-                        assigned = 1;
-                    }
-                if (assigned == 0)
-                    for (int j = 0; j < stageRads.length; j++)
-                        if (zipentry.getName().equals(stageRads[j] + ".rad")) {
-                            id = j;
-                            assigned = 2;
-                            break;
-                        }
-
-                int size = (int) zipentry.getSize();
-                totalSize += size;
-                final byte[] is = new byte[size];
-                int offset = 0;
-                int numbytesread;
-                for (; size > 0; size -= numbytesread) {
-                    numbytesread = zipinputstream.read(is, offset, size);
-                    offset += numbytesread;
+            FileUtil.loadFiles("data/cars", carRads, prep -> {
+                return new File(prep.parent, prep.file + ".rad").toPath();
+            }, (is, id) -> {
+                carContos[id] = new ContO(is);
+                if (!carContos[id].shadow) {
+                    throw new RuntimeException("car " + CarDefine.names[id] + " does not have a shadow");
                 }
-                if (assigned == 2) {
-                    contos[id] = new ContO(is);
-                } else if (assigned == 1) {
-                    carContos[id] = new ContO(is);
-                    if (!carContos[id].shadow) {
-                        zipinputstream.close();
-                        throw new RuntimeException("car " + CarDefine.names[id] + " does not have a shadow");
-                    }
-                } else {
-                    System.err.println(zipentry.getName() + " goes unused");
-                }
-                xtGraphics.dnload++;
-            }
-            zipinputstream.close();
+            });
 
+            FileUtil.loadFiles("data/stageparts", stageRads, prep -> {
+                return new File(prep.parent, prep.file + ".rad").toPath();
+            }, (is, id) -> {
+                contos[id] = new ContO(is);
+            });
+            
+            xtGraphics.dnload++;
+            
             for (int i = 0; i < stageRads.length; i++) {
                 if (contos[i] == null) {
                     throw new Error("No valid ContO (Stage Part) has been assigned to ID " + i + " (" + stageRads[i] + ")");
@@ -300,7 +276,7 @@ class GameSparker extends JPanel
             if (_offImage == null)
                 throw new AssertionError("this should never happen");
             return _offImage;
-        } catch (final Exception e) { //fallback image creation
+        } catch (final Throwable e) { //fallback image creation
             e.printStackTrace();
 
             return new BufferedImage(800, 450, BufferedImage.TYPE_INT_RGB);

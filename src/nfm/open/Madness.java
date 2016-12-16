@@ -27,7 +27,7 @@ public class Madness extends Panel {
     private static GameSparker applet;
     private static CarMaker cm;
     private static DisplayMode defdisp;
-    static String fpath = "";
+    public static String fpath = "";
     public static JFrame frame;
     static boolean fullscreen = false;
     static boolean inisetup = false;
