@@ -6,6 +6,8 @@ package nfm.open;
 import javax.swing.*;
 import javax.swing.Timer;
 
+import com.ivan.xinput.exceptions.XInputNotLoadedException;
+
 import nfm.open.xtGraphics.Images;
 
 import static nfm.open.Medium.cm;
@@ -124,7 +126,7 @@ class GameSparker extends JPanel
     static TextField tnick;
     static TextField tpass;
     static final Control[] u = new Control[8];
-    static private int view = 0;
+    static int view = 0;
     static final Smenu vnpls = new Smenu(5);
     static final Smenu vtyp = new Smenu(6);
     static final Smenu warb = new Smenu(102);
@@ -1802,6 +1804,11 @@ class GameSparker extends JPanel
 
     //@Override
     static private void loadGame() {
+        try {
+            XboxGamepadHandler.initialize();
+        } catch (XInputNotLoadedException e1) {
+            e1.printStackTrace();
+        }
         gsPanel.requestFocus();
         try {
             sizebar = xtGraphics.getImage("data/sizebar.gif");
@@ -1849,7 +1856,8 @@ class GameSparker extends JPanel
     }
 
     static private void gameTick() {
-
+        XboxGamepadHandler.update();
+        
         date = new Date();
         date.getTime();
         if (xtGraphics.fase == 1111) {
@@ -2500,7 +2508,7 @@ class GameSparker extends JPanel
                     Record.rec(stageContos[k], k, mads[k].squash, mads[k].lastcolido, mads[k].cntdest, 0);
                 }
                 CheckPoints.checkstat(mads, stageContos,  xtGraphics.nplayers, xtGraphics.im, 0);
-                for (int k = 1; k < xtGraphics.nplayers; k++) {
+                for (int k = 2; k < xtGraphics.nplayers; k++) {
                     u[k].preform(mads[k], stageContos[k]);
                 }
             } else {
@@ -2521,6 +2529,7 @@ class GameSparker extends JPanel
                     xtGraphics.stat(mads[0], stageContos[0],  u[0], true);
                     cm=1;
                     Medium.follow(stageContos[1], mads[1].cxz, u[1].lookback);
+                    p2rd.setFont(new Font("Arial", 1, 11));
                     xtGraphics.rd = p2rd; 
                     xtGraphics.stat(mads[1], stageContos[1],  u[1], true);
                     xtGraphics.rd = rd;

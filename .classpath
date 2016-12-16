@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="libraries/bin/dragshotMod.jar"/>
 	<classpathentry kind="lib" path="libraries/bin/easyogg.jar"/>
 	<classpathentry kind="lib" path="libraries/bin/gson-2.6.2.jar"/>
@@ -12,5 +21,11 @@
 	<classpathentry kind="lib" path="libraries/bin/NativeBass.jar" sourcepath="libraries/src/bass_src.zip"/>
 	<classpathentry kind="lib" path="libraries/bin/rsyntaxtextarea-2.5.8.jar" sourcepath="C:/Portable Programs/maven/repo/com/fifesoft/rsyntaxtextarea/2.5.8/rsyntaxtextarea-2.5.8-sources.jar"/>
 	<classpathentry kind="lib" path="libraries/bin/trove-3.1a1.jar" sourcepath="libraries/src/trove-3.1a1-src.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="lib" path="libraries/bin/jxinput-a40568d.jar"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>
