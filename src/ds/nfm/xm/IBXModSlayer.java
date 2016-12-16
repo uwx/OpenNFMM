@@ -62,7 +62,7 @@ public class IBXModSlayer extends ModuleSlayer {
 
          for(int mixEnd = count * 2; mixIdx < mixEnd; ++mixIdx) {
             if(mixIdx % 2 == 0) {
-               int ampl = (int)((float)mixBuf[mixIdx] * ((float)this.gain / 300.0F));
+               int ampl = (int)(mixBuf[mixIdx] * (this.gain / 300.0F));
                if(ampl > 32767) {
                   ampl = 32767;
                }

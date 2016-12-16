@@ -5,8 +5,6 @@ import static nfm.open.Medium.cm;
 import java.math.BigDecimal;
 import java.util.concurrent.ThreadLocalRandom;
 
-import com.sun.istack.internal.NotNull;
-
 import nfm.open.Medium;
 
 /**
@@ -259,7 +257,7 @@ public final class MathUtil {
      * @author Rafael
      */
     @SafeVarargs
-    public static <E> E choose(@NotNull final E... is) {
+    public static <E> E choose(final E... is) {
         return is[ThreadLocalRandom.current().nextInt(is.length)];
     }
 
