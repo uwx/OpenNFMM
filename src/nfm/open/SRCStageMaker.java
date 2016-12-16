@@ -6,6 +6,7 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.SerializedName;
 import nfm.open.music.RadicalAdapter;
+import nfm.open.util.FileUtil;
 
 import javax.swing.*;
 import javax.swing.Timer;
@@ -1850,42 +1851,16 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
      */
     private static void loadbase() {
         try {
-            final File file = new File(Madness.fpath + "data/models.zip");
-            final ZipInputStream zipinputstream = new ZipInputStream(new FileInputStream(file));
 
-            ZipEntry zipentry = zipinputstream.getNextEntry();
-            for (; zipentry != null; zipentry = zipinputstream.getNextEntry()) {
-                int i = -1;
-                for (int i176 = 0; i176 < GameSparker.stageRads.length; i176++)
-                    if (zipentry.getName().equals(GameSparker.stageRads[i176] + ".rad")) {
-                        i = i176;
-                    }
-                if (i != -1) {
-                    int entrySize = (int) zipentry.getSize();
-                    byte[] b = new byte[entrySize];
-                    int totalBytes = 0;
-                    int readByte;
-                    for (; entrySize > 0; entrySize -= readByte) {
-                        readByte = zipinputstream.read(b, totalBytes, entrySize);
-                        totalBytes += readByte;
-                    }
-                    /*try {
-                        b = EncryptOurZIPFiles.handleByteArray(b, true);
-                    } catch (InvalidKeyException | InvalidAlgorithmParameterException | IllegalBlockSizeException | BadPaddingException | ClassNotFoundException | ShortBufferException e) {
-                        e.printStackTrace();
-                    }*/
-
-                    bco[i] = new SMContO(b);
-                    for (int i180 = 0; i180 < bco[i].npl; i180++) {
-                        bco[i].p[i180].loadprojf();
-                        //if (i == 31)
-                        //  bco[i].elec = true;
-                    }
-                } else {
-                    System.err.println("Failed to load entry: " + zipentry.getName());
+            FileUtil.loadFiles("data/stageparts", GameSparker.stageRads, prep -> {
+                return new File(prep.parent, prep.file + ".rad").toPath();
+            }, (is, i) -> {
+                bco[i] = new SMContO(is);
+                for (int j = 0; j < bco[i].npl; j++) {
+                    bco[i].p[j].loadprojf();
                 }
-            }
-            zipinputstream.close();
+            });
+            
             bco[BUMP_SET_ID] = new SMContO((int) (10000.0 * ThreadLocalRandom.current().nextDouble()), (int) pwd, (int) phd, 0, 0, 0);
         } catch (final Exception exception) {
             JOptionPane.showMessageDialog(null, "Unable to load file 'data/models.zip'!\nError:\n" + exception, "Stage Maker", 1);

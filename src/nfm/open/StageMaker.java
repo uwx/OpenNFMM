@@ -1,18 +1,14 @@
 package nfm.open;
-/* StageMaker - Decompiled by JODE extended
- * DragShot Software
- * JODE (c) 1998-2001 Jochen Hoenicke
- */
-import nfm.open.music.RadicalMod;
-
 import static nfm.open.Medium.cm;
 
 import java.applet.Applet;
 import java.awt.AlphaComposite;
+import java.awt.BorderLayout;
 import java.awt.Checkbox;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.Event;
 import java.awt.FileDialog;
 import java.awt.Font;
@@ -21,10 +17,12 @@ import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Insets;
 import java.awt.MediaTracker;
 import java.awt.RenderingHints;
 import java.awt.TextField;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
@@ -44,7 +42,16 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
+
+/* StageMaker - Decompiled by JODE extended
+ * DragShot Software
+ * JODE (c) 1998-2001 Jochen Hoenicke
+ */
+import nfm.open.music.RadicalMod;
+import nfm.open.util.FileUtil;
 
 public class StageMaker extends Applet implements Runnable {
     {new CheckPoints();
@@ -1062,7 +1069,7 @@ public class StageMaker extends Applet implements Runnable {
     @Override
     public void init() {
         setBackground(new Color(0, 0, 0));
-        offImage = createImage(800, 550);
+        offImage = new BufferedImage(800, 580, BufferedImage.TYPE_INT_RGB);
         if (offImage != null) {
             rd = (Graphics2D) offImage.getGraphics();
         }
@@ -1190,52 +1197,25 @@ public class StageMaker extends Applet implements Runnable {
     }
 
     private void loadbase() {
-        final String[] strings = {
-                "road", "froad", "twister2", "twister1", "turn", "offroad", "bumproad", "offturn", "nroad", "nturn",
-                "roblend", "noblend", "rnblend", "roadend", "offroadend", "hpground", "ramp30", "cramp35", "dramp15",
-                "dhilo15", "slide10", "takeoff", "sramp22", "offbump", "offramp", "sofframp", "halfpipe", "spikes",
-                "rail", "thewall", "checkpoint", "fixpoint", "offcheckpoint",
 
-                "sideoff", "bsideoff", "uprise", "riseroad", "sroad", "soffroad", "tside", "launchpad", "thenet",
-                "speedramp", "offhill", "slider", "uphill", "roll1", "roll2", "roll3", "roll4", "roll5", "roll6",
-                "opile1", "opile2", "aircheckpoint", "tree1", "tree2", "tree3", "tree4", "tree5", "tree6", "tree7",
-                "tree8", "cac1", "cac2", "cac3"//, "housetest"
-        };
         try {
-            final File file = new File("data/models.zip");
-            final ZipInputStream zipinputstream = new ZipInputStream(new FileInputStream(file));
-            ZipEntry zipentry = zipinputstream.getNextEntry();
-            for (/**/; zipentry != null; zipentry = zipinputstream.getNextEntry()) {
-                int i = -1;
-                for (int i176 = 0; i176 < strings.length; i176++)
-                    if (zipentry.getName().startsWith(strings[i176])) {
-                        i = i176;
-                    }
-                if (i != -1) {
-                    int i177 = (int) zipentry.getSize();
-                    final byte[] is = new byte[i177];
-                    int i178 = 0;
-                    int i179;
-                    for (/**/; i177 > 0; i177 -= i179) {
-                        i179 = zipinputstream.read(is, i178, i177);
-                        i178 += i179;
-                    }
-                    bco[i] = new ContO(is);
-                    for (int i180 = 0; i180 < bco[i].npl; i180++) {
-                        bco[i].p[i180].loadprojf();
-                        //if (i == 31)
-                        //	bco[i].elec = true;
-                    }
+
+            FileUtil.loadFiles("data/stageparts", GameSparker.stageRads, prep -> {
+                return new File(prep.parent, prep.file + ".rad").toPath();
+            }, (is, i) -> {
+                bco[i] = new ContO(is);
+                for (int j = 0; j < bco[i].npl; j++) {
+                    bco[i].p[j].loadprojf();
                 }
-            }
-            zipinputstream.close();
+            });
             bco[bumppart] = new ContO((int) (10000.0 * ThreadLocalRandom.current().nextDouble()), (int) pwd, (int) phd, 0, 0, 0);
         } catch (final Exception exception) {
             JOptionPane.showMessageDialog(null, "Unable to load file 'data/models.zip'!\nError:\n" + exception, "Stage Maker", 1);
+            exception.printStackTrace();
         }
         System.gc();
     }
-
+    
     private void loadsettings() {
         try {
             final File file = new File("mystages/settings.data");
@@ -5913,5 +5893,35 @@ public class StageMaker extends Applet implements Runnable {
     @Override
     public void update(final Graphics graphics) {
         paint(graphics);
+    }
+
+    public static void main(String[] args) {
+        JFrame gameFrame = new JFrame("Stage Maker");
+        StageMaker stageMaker = new StageMaker();
+        final Toolkit tk = Toolkit.getDefaultToolkit();
+        final Dimension screenSize = tk.getScreenSize();
+        final Insets scnMax = Toolkit.getDefaultToolkit().getScreenInsets(gameFrame.getGraphicsConfiguration());
+        gameFrame.add(stageMaker, BorderLayout.CENTER);
+        gameFrame.setSize(800, 580);
+        gameFrame.setResizable(false);
+        gameFrame.setPreferredSize(new Dimension(800, 580));
+
+        gameFrame.setLocation(screenSize.width / 2 - 700 / 2, (screenSize.height - scnMax.bottom) / 2 - 450 / 2);
+        /**
+         * make sure everything closes on close
+         */
+        gameFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        gameFrame.setIconImage(Toolkit.getDefaultToolkit().createImage(Madness.fpath + "data/iconsm.png"));
+        gameFrame.setIgnoreRepaint(true);
+
+        stageMaker.init();
+        stageMaker.start();
+        
+        gameFrame.pack();
+        stageMaker.setSize(new Dimension(800, 580));
+        stageMaker.setMinimumSize(new Dimension(800, 580));
+        stageMaker.setPreferredSize(new Dimension(800, 580));
+        gameFrame.setVisible(true);
+    
     }
 }
