@@ -4746,401 +4746,401 @@ class xtGraphics extends JPanel implements Runnable {
     
     private static final ImageIdentifier[] idts = {
 
-            new ImageIdentifier("cars.gif", (is, mediatracker, toolkit) -> {
-                carsbg = loadBimage(is, mediatracker, toolkit, 1);
-            }),
-            new ImageIdentifier("color.gif", (is, mediatracker, toolkit) -> {
-                cbg1 = loadBimage(is, mediatracker, toolkit, 0);
-                
-                if (cbg1 != null && cbg2 != null)
-                    makecarsbgc(cbg1, cbg2);
-            }),
-            new ImageIdentifier("class.gif", (is, mediatracker, toolkit) -> {
-                cbg2 = loadBimage(is, mediatracker, toolkit, 0);
+        new ImageIdentifier("cars.gif", (is, mediatracker, toolkit) -> {
+            carsbg = loadBimage(is, mediatracker, toolkit, 1);
+        }),
+        new ImageIdentifier("color.gif", (is, mediatracker, toolkit) -> {
+            cbg1 = loadBimage(is, mediatracker, toolkit, 0);
+            
+            if (cbg1 != null && cbg2 != null)
+                makecarsbgc(cbg1, cbg2);
+        }),
+        new ImageIdentifier("class.gif", (is, mediatracker, toolkit) -> {
+            cbg2 = loadBimage(is, mediatracker, toolkit, 0);
 
-                if (cbg1 != null && cbg2 != null)
-                    makecarsbgc(cbg1, cbg2);
-            }),
-            new ImageIdentifier("smokey.gif", (is, mediatracker, toolkit) -> {
-                smokeypix(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("1.gif", (is, mediatracker, toolkit) -> {
-                orank[0] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("gameh.gif", (is, mediatracker, toolkit) -> {
-                ogameh = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("wgame.gif", (is, mediatracker, toolkit) -> {
-                owgame = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("gameov.gif", (is, mediatracker, toolkit) -> {
-                gameov = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("lap.gif", (is, mediatracker, toolkit) -> {
-                olap = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("paused.gif", (is, mediatracker, toolkit) -> {
-                paused = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("select.gif", (is, mediatracker, toolkit) -> {
-                select = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("yourwasted.gif", (is, mediatracker, toolkit) -> {
-                oyourwasted = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("disco.gif", (is, mediatracker, toolkit) -> {
-                odisco = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("youwastedem.gif", (is, mediatracker, toolkit) -> {
-                oyouwastedem = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("gamefinished.gif", (is, mediatracker, toolkit) -> {
-                ogamefinished = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("exitgame.gif", (is, mediatracker, toolkit) -> {
-                oexitgame = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("pgate.gif", (is, mediatracker, toolkit) -> {
-                pgate = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("d1.png", (is, mediatracker, toolkit) -> {
-                dude[0] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("d2.png", (is, mediatracker, toolkit) -> {
-                dude[1] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("d3.png", (is, mediatracker, toolkit) -> {
-                dude[2] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("float.gif", (is, mediatracker, toolkit) -> {
-                oflaot = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("1c.gif", (is, mediatracker, toolkit) -> {
-                ocntdn[1] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("2c.gif", (is, mediatracker, toolkit) -> {
-                ocntdn[2] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("3c.gif", (is, mediatracker, toolkit) -> {
-                ocntdn[3] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("2.gif", (is, mediatracker, toolkit) -> {
-                orank[1] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("3.gif", (is, mediatracker, toolkit) -> {
-                orank[2] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("4.gif", (is, mediatracker, toolkit) -> {
-                orank[3] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("5.gif", (is, mediatracker, toolkit) -> {
-                orank[4] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("6.gif", (is, mediatracker, toolkit) -> {
-                orank[5] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("7.gif", (is, mediatracker, toolkit) -> {
-                orank[6] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("8.gif", (is, mediatracker, toolkit) -> {
-                orank[7] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("bgmain.jpg", (is, mediatracker, toolkit) -> {
-                bgmain = loadBimage(is, mediatracker, toolkit, 2);
-            }),
-            new ImageIdentifier("br.png", (is, mediatracker, toolkit) -> {
-                br = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("loadingmusic.gif", (is, mediatracker, toolkit) -> {
-                oloadingmusic = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("radicalplay.gif", (is, mediatracker, toolkit) -> {
-                radicalplay = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("back.gif", (is, mediatracker, toolkit) -> {
-                back[0] = loadimage(is, mediatracker, toolkit);
-                back[1] = bressed(back[0]);
-            }),
-            new ImageIdentifier("continue.gif", (is, mediatracker, toolkit) -> {
-                contin[0] = loadimage(is, mediatracker, toolkit);
-                contin[1] = bressed(contin[0]);
-            }),
-            new ImageIdentifier("next.gif", (is, mediatracker, toolkit) -> {
-                next[0] = loadimage(is, mediatracker, toolkit);
-                next[1] = bressed(next[0]);
-            }),
-            new ImageIdentifier("rpro.gif", (is, mediatracker, toolkit) -> {
-                rpro = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("selectcar.gif", (is, mediatracker, toolkit) -> {
-                selectcar = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("track.jpg", (is, mediatracker, toolkit) -> {
-                trackbg[0] = loadBimage(is, mediatracker, toolkit, 3);
-                trackbg[1] = dodgen(trackbg[0]);
-            }),
-            new ImageIdentifier("youlost.gif", (is, mediatracker, toolkit) -> {
-                oyoulost = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("youwon.gif", (is, mediatracker, toolkit) -> {
-                oyouwon = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("0c.gif", (is, mediatracker, toolkit) -> {
-                ocntdn[0] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("damage.gif", (is, mediatracker, toolkit) -> {
-                odmg = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("power.gif", (is, mediatracker, toolkit) -> {
-                opwr = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("position.gif", (is, mediatracker, toolkit) -> {
-                opos = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("speed.gif", (is, mediatracker, toolkit) -> {
-                osped = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("wasted.gif", (is, mediatracker, toolkit) -> {
-                owas = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("start1.gif", (is, mediatracker, toolkit) -> {
-                ostar[0] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("start2.gif", (is, mediatracker, toolkit) -> {
-                ostar[1] = loadimage(is, mediatracker, toolkit);
-                star[2] = pressed(ostar[1]);
-            }),
-            new ImageIdentifier("congrad.gif", (is, mediatracker, toolkit) -> {
-                congrd = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("statb.gif", (is, mediatracker, toolkit) -> {
-                statb = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("statbo.gif", (is, mediatracker, toolkit) -> {
-                statbo = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("madness.gif", (is, mediatracker, toolkit) -> {
-                mdness = loadude(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("onfmm.gif", (is, mediatracker, toolkit) -> {
-                onfmm = loadude(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("fixhoop.png", (is, mediatracker, toolkit) -> {
-                fixhoop = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("arrow.gif", (is, mediatracker, toolkit) -> {
-                sarrow = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("stunts.png", (is, mediatracker, toolkit) -> {
-                stunts = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("racing.gif", (is, mediatracker, toolkit) -> {
-                racing = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("wasting.gif", (is, mediatracker, toolkit) -> {
-                wasting = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("plus.gif", (is, mediatracker, toolkit) -> {
-                plus = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("space.gif", (is, mediatracker, toolkit) -> {
-                space = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("arrows.gif", (is, mediatracker, toolkit) -> {
-                arrows = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("chil.gif", (is, mediatracker, toolkit) -> {
-                chil = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("ory.gif", (is, mediatracker, toolkit) -> {
-                ory = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("kz.gif", (is, mediatracker, toolkit) -> {
-                kz = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("kx.gif", (is, mediatracker, toolkit) -> {
-                kx = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("kv.gif", (is, mediatracker, toolkit) -> {
-                kv = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("km.gif", (is, mediatracker, toolkit) -> {
-                km = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("kn.gif", (is, mediatracker, toolkit) -> {
-                kn = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("ks.gif", (is, mediatracker, toolkit) -> {
-                ks = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("kenter.gif", (is, mediatracker, toolkit) -> {
-                kenter = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("nfm.gif", (is, mediatracker, toolkit) -> {
-                nfm = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("options.png", (is, mediatracker, toolkit) -> {
-                opti = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("opback.png", (is, mediatracker, toolkit) -> {
-                opback = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("logocars.png", (is, mediatracker, toolkit) -> {
-                logocars = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("logomad.png", (is, mediatracker, toolkit) -> {
-                logomadnes = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("logomadbg.jpg", (is, mediatracker, toolkit) -> {
-                logomadbg = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("byrd.png", (is, mediatracker, toolkit) -> {
-                byrd = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("bggo.jpg", (is, mediatracker, toolkit) -> {
-                bggo = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("nfmcoms.png", (is, mediatracker, toolkit) -> {
-                nfmcoms = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("nfmcom.gif", (is, mediatracker, toolkit) -> {
-                nfmcom = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("brit.gif", (is, mediatracker, toolkit) -> {
-                brt = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("arn.gif", (is, mediatracker, toolkit) -> {
-                arn = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("mload.gif", (is, mediatracker, toolkit) -> {
-                mload = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("login.gif", (is, mediatracker, toolkit) -> {
-                login = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("play.gif", (is, mediatracker, toolkit) -> {
-                play = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("cancel.gif", (is, mediatracker, toolkit) -> {
-                cancel = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("register.gif", (is, mediatracker, toolkit) -> {
-                register = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("upgrade.gif", (is, mediatracker, toolkit) -> {
-                upgrade = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("sdets.gif", (is, mediatracker, toolkit) -> {
-                sdets = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("bob.gif", (is, mediatracker, toolkit) -> {
-                bob = loadBimage(is, mediatracker, toolkit, 1);
-            }),
-            new ImageIdentifier("bot.gif", (is, mediatracker, toolkit) -> {
-                bot = loadBimage(is, mediatracker, toolkit, 1);
-            }),
-            new ImageIdentifier("bol.gif", (is, mediatracker, toolkit) -> {
-                bol = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("bolp.gif", (is, mediatracker, toolkit) -> {
-                bolp = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("bor.gif", (is, mediatracker, toolkit) -> {
-                bor = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("borp.gif", (is, mediatracker, toolkit) -> {
-                borp = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("logout.gif", (is, mediatracker, toolkit) -> {
-                logout = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("change.gif", (is, mediatracker, toolkit) -> {
-                change = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("pln.gif", (is, mediatracker, toolkit) -> {
-                pln = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("bols.gif", (is, mediatracker, toolkit) -> {
-                bols = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("bolps.gif", (is, mediatracker, toolkit) -> {
-                bolps = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("bors.gif", (is, mediatracker, toolkit) -> {
-                bors = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("borps.gif", (is, mediatracker, toolkit) -> {
-                borps = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("games.gif", (is, mediatracker, toolkit) -> {
-                games = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("exit.gif", (is, mediatracker, toolkit) -> {
-                exit = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("roomp.gif", (is, mediatracker, toolkit) -> {
-                roomp = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("ready.gif", (is, mediatracker, toolkit) -> {
-                redy = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("notreg.gif", (is, mediatracker, toolkit) -> {
-                ntrg = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("cgame.gif", (is, mediatracker, toolkit) -> {
-                cgame = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("ccar.gif", (is, mediatracker, toolkit) -> {
-                ccar = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("lanm.gif", (is, mediatracker, toolkit) -> {
-                lanm = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("asu.gif", (is, mediatracker, toolkit) -> {
-                asu = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("asd.gif", (is, mediatracker, toolkit) -> {
-                asd = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("pls.gif", (is, mediatracker, toolkit) -> {
-                pls = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("sts.gif", (is, mediatracker, toolkit) -> {
-                sts = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("gmc.gif", (is, mediatracker, toolkit) -> {
-                gmc = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("stg.gif", (is, mediatracker, toolkit) -> {
-                stg = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("crd.gif", (is, mediatracker, toolkit) -> {
-                crd = loadBimage(is, mediatracker, toolkit, 0);
-            }),
-            new ImageIdentifier("bcl.gif", (is, mediatracker, toolkit) -> {
-                bcl[0] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("bcr.gif", (is, mediatracker, toolkit) -> {
-                bcr[0] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("bc.gif", (is, mediatracker, toolkit) -> {
-                bc[0] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("pbcl.gif", (is, mediatracker, toolkit) -> {
-                bcl[1] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("pbcr.gif", (is, mediatracker, toolkit) -> {
-                bcr[1] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("pbc.gif", (is, mediatracker, toolkit) -> {
-                bc[1] = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("yac.gif", (is, mediatracker, toolkit) -> {
-                yac = loadimage(is, mediatracker, toolkit);
-            }),
-            new ImageIdentifier("ycmc.gif", (is, mediatracker, toolkit) -> {
-                ycmc = loadimage(is, mediatracker, toolkit);
-            }),
+            if (cbg1 != null && cbg2 != null)
+                makecarsbgc(cbg1, cbg2);
+        }),
+        new ImageIdentifier("smokey.gif", (is, mediatracker, toolkit) -> {
+            smokeypix(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("1.gif", (is, mediatracker, toolkit) -> {
+            orank[0] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("gameh.gif", (is, mediatracker, toolkit) -> {
+            ogameh = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("wgame.gif", (is, mediatracker, toolkit) -> {
+            owgame = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("gameov.gif", (is, mediatracker, toolkit) -> {
+            gameov = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("lap.gif", (is, mediatracker, toolkit) -> {
+            olap = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("paused.gif", (is, mediatracker, toolkit) -> {
+            paused = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("select.gif", (is, mediatracker, toolkit) -> {
+            select = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("yourwasted.gif", (is, mediatracker, toolkit) -> {
+            oyourwasted = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("disco.gif", (is, mediatracker, toolkit) -> {
+            odisco = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("youwastedem.gif", (is, mediatracker, toolkit) -> {
+            oyouwastedem = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("gamefinished.gif", (is, mediatracker, toolkit) -> {
+            ogamefinished = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("exitgame.gif", (is, mediatracker, toolkit) -> {
+            oexitgame = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("pgate.gif", (is, mediatracker, toolkit) -> {
+            pgate = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("d1.png", (is, mediatracker, toolkit) -> {
+            dude[0] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("d2.png", (is, mediatracker, toolkit) -> {
+            dude[1] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("d3.png", (is, mediatracker, toolkit) -> {
+            dude[2] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("float.gif", (is, mediatracker, toolkit) -> {
+            oflaot = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("1c.gif", (is, mediatracker, toolkit) -> {
+            ocntdn[1] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("2c.gif", (is, mediatracker, toolkit) -> {
+            ocntdn[2] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("3c.gif", (is, mediatracker, toolkit) -> {
+            ocntdn[3] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("2.gif", (is, mediatracker, toolkit) -> {
+            orank[1] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("3.gif", (is, mediatracker, toolkit) -> {
+            orank[2] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("4.gif", (is, mediatracker, toolkit) -> {
+            orank[3] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("5.gif", (is, mediatracker, toolkit) -> {
+            orank[4] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("6.gif", (is, mediatracker, toolkit) -> {
+            orank[5] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("7.gif", (is, mediatracker, toolkit) -> {
+            orank[6] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("8.gif", (is, mediatracker, toolkit) -> {
+            orank[7] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("bgmain.jpg", (is, mediatracker, toolkit) -> {
+            bgmain = loadBimage(is, mediatracker, toolkit, 2);
+        }),
+        new ImageIdentifier("br.png", (is, mediatracker, toolkit) -> {
+            br = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("loadingmusic.gif", (is, mediatracker, toolkit) -> {
+            oloadingmusic = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("radicalplay.gif", (is, mediatracker, toolkit) -> {
+            radicalplay = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("back.gif", (is, mediatracker, toolkit) -> {
+            back[0] = loadimage(is, mediatracker, toolkit);
+            back[1] = bressed(back[0]);
+        }),
+        new ImageIdentifier("continue.gif", (is, mediatracker, toolkit) -> {
+            contin[0] = loadimage(is, mediatracker, toolkit);
+            contin[1] = bressed(contin[0]);
+        }),
+        new ImageIdentifier("next.gif", (is, mediatracker, toolkit) -> {
+            next[0] = loadimage(is, mediatracker, toolkit);
+            next[1] = bressed(next[0]);
+        }),
+        new ImageIdentifier("rpro.gif", (is, mediatracker, toolkit) -> {
+            rpro = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("selectcar.gif", (is, mediatracker, toolkit) -> {
+            selectcar = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("track.jpg", (is, mediatracker, toolkit) -> {
+            trackbg[0] = loadBimage(is, mediatracker, toolkit, 3);
+            trackbg[1] = dodgen(trackbg[0]);
+        }),
+        new ImageIdentifier("youlost.gif", (is, mediatracker, toolkit) -> {
+            oyoulost = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("youwon.gif", (is, mediatracker, toolkit) -> {
+            oyouwon = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("0c.gif", (is, mediatracker, toolkit) -> {
+            ocntdn[0] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("damage.gif", (is, mediatracker, toolkit) -> {
+            odmg = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("power.gif", (is, mediatracker, toolkit) -> {
+            opwr = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("position.gif", (is, mediatracker, toolkit) -> {
+            opos = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("speed.gif", (is, mediatracker, toolkit) -> {
+            osped = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("wasted.gif", (is, mediatracker, toolkit) -> {
+            owas = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("start1.gif", (is, mediatracker, toolkit) -> {
+            ostar[0] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("start2.gif", (is, mediatracker, toolkit) -> {
+            ostar[1] = loadimage(is, mediatracker, toolkit);
+            star[2] = pressed(ostar[1]);
+        }),
+        new ImageIdentifier("congrad.gif", (is, mediatracker, toolkit) -> {
+            congrd = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("statb.gif", (is, mediatracker, toolkit) -> {
+            statb = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("statbo.gif", (is, mediatracker, toolkit) -> {
+            statbo = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("madness.gif", (is, mediatracker, toolkit) -> {
+            mdness = loadude(is, mediatracker, toolkit);
+        }),
+//            new ImageIdentifier("onfmm.gif", (is, mediatracker, toolkit) -> {
+//                onfmm = loadude(is, mediatracker, toolkit);
+//            }),
+        new ImageIdentifier("fixhoop.png", (is, mediatracker, toolkit) -> {
+            fixhoop = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("arrow.gif", (is, mediatracker, toolkit) -> {
+            sarrow = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("stunts.png", (is, mediatracker, toolkit) -> {
+            stunts = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("racing.gif", (is, mediatracker, toolkit) -> {
+            racing = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("wasting.gif", (is, mediatracker, toolkit) -> {
+            wasting = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("plus.gif", (is, mediatracker, toolkit) -> {
+            plus = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("space.gif", (is, mediatracker, toolkit) -> {
+            space = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("arrows.gif", (is, mediatracker, toolkit) -> {
+            arrows = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("chil.gif", (is, mediatracker, toolkit) -> {
+            chil = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("ory.gif", (is, mediatracker, toolkit) -> {
+            ory = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("kz.gif", (is, mediatracker, toolkit) -> {
+            kz = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("kx.gif", (is, mediatracker, toolkit) -> {
+            kx = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("kv.gif", (is, mediatracker, toolkit) -> {
+            kv = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("km.gif", (is, mediatracker, toolkit) -> {
+            km = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("kn.gif", (is, mediatracker, toolkit) -> {
+            kn = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("ks.gif", (is, mediatracker, toolkit) -> {
+            ks = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("kenter.gif", (is, mediatracker, toolkit) -> {
+            kenter = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("nfm.gif", (is, mediatracker, toolkit) -> {
+            nfm = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("options.png", (is, mediatracker, toolkit) -> {
+            opti = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("opback.png", (is, mediatracker, toolkit) -> {
+            opback = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("logocars.png", (is, mediatracker, toolkit) -> {
+            logocars = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("logomad.png", (is, mediatracker, toolkit) -> {
+            logomadnes = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("logomadbg.jpg", (is, mediatracker, toolkit) -> {
+            logomadbg = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("byrd.png", (is, mediatracker, toolkit) -> {
+            byrd = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("bggo.jpg", (is, mediatracker, toolkit) -> {
+            bggo = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("nfmcoms.png", (is, mediatracker, toolkit) -> {
+            nfmcoms = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("nfmcom.gif", (is, mediatracker, toolkit) -> {
+            nfmcom = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("brit.gif", (is, mediatracker, toolkit) -> {
+            brt = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("arn.gif", (is, mediatracker, toolkit) -> {
+            arn = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("mload.gif", (is, mediatracker, toolkit) -> {
+            mload = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("login.gif", (is, mediatracker, toolkit) -> {
+            login = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("play.gif", (is, mediatracker, toolkit) -> {
+            play = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("cancel.gif", (is, mediatracker, toolkit) -> {
+            cancel = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("register.gif", (is, mediatracker, toolkit) -> {
+            register = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("upgrade.gif", (is, mediatracker, toolkit) -> {
+            upgrade = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("sdets.gif", (is, mediatracker, toolkit) -> {
+            sdets = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("bob.gif", (is, mediatracker, toolkit) -> {
+            bob = loadBimage(is, mediatracker, toolkit, 1);
+        }),
+        new ImageIdentifier("bot.gif", (is, mediatracker, toolkit) -> {
+            bot = loadBimage(is, mediatracker, toolkit, 1);
+        }),
+        new ImageIdentifier("bol.gif", (is, mediatracker, toolkit) -> {
+            bol = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("bolp.gif", (is, mediatracker, toolkit) -> {
+            bolp = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("bor.gif", (is, mediatracker, toolkit) -> {
+            bor = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("borp.gif", (is, mediatracker, toolkit) -> {
+            borp = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("logout.gif", (is, mediatracker, toolkit) -> {
+            logout = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("change.gif", (is, mediatracker, toolkit) -> {
+            change = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("pln.gif", (is, mediatracker, toolkit) -> {
+            pln = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("bols.gif", (is, mediatracker, toolkit) -> {
+            bols = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("bolps.gif", (is, mediatracker, toolkit) -> {
+            bolps = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("bors.gif", (is, mediatracker, toolkit) -> {
+            bors = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("borps.gif", (is, mediatracker, toolkit) -> {
+            borps = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("games.gif", (is, mediatracker, toolkit) -> {
+            games = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("exit.gif", (is, mediatracker, toolkit) -> {
+            exit = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("roomp.gif", (is, mediatracker, toolkit) -> {
+            roomp = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("ready.gif", (is, mediatracker, toolkit) -> {
+            redy = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("notreg.gif", (is, mediatracker, toolkit) -> {
+            ntrg = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("cgame.gif", (is, mediatracker, toolkit) -> {
+            cgame = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("ccar.gif", (is, mediatracker, toolkit) -> {
+            ccar = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("lanm.gif", (is, mediatracker, toolkit) -> {
+            lanm = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("asu.gif", (is, mediatracker, toolkit) -> {
+            asu = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("asd.gif", (is, mediatracker, toolkit) -> {
+            asd = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("pls.gif", (is, mediatracker, toolkit) -> {
+            pls = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("sts.gif", (is, mediatracker, toolkit) -> {
+            sts = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("gmc.gif", (is, mediatracker, toolkit) -> {
+            gmc = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("stg.gif", (is, mediatracker, toolkit) -> {
+            stg = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("crd.gif", (is, mediatracker, toolkit) -> {
+            crd = loadBimage(is, mediatracker, toolkit, 0);
+        }),
+        new ImageIdentifier("bcl.gif", (is, mediatracker, toolkit) -> {
+            bcl[0] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("bcr.gif", (is, mediatracker, toolkit) -> {
+            bcr[0] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("bc.gif", (is, mediatracker, toolkit) -> {
+            bc[0] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("pbcl.gif", (is, mediatracker, toolkit) -> {
+            bcl[1] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("pbcr.gif", (is, mediatracker, toolkit) -> {
+            bcr[1] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("pbc.gif", (is, mediatracker, toolkit) -> {
+            bc[1] = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("yac.gif", (is, mediatracker, toolkit) -> {
+            yac = loadimage(is, mediatracker, toolkit);
+        }),
+        new ImageIdentifier("ycmc.gif", (is, mediatracker, toolkit) -> {
+            ycmc = loadimage(is, mediatracker, toolkit);
+        }),
     };
     
 
@@ -5156,7 +5156,7 @@ class xtGraphics extends JPanel implements Runnable {
             dnload += 2;
             
         } catch (final Exception exception) {
-            System.out.println("Error Loading Images: " + exception);
+            System.err.println("Error Loading Images: " + exception);
         }
         System.gc();
     }
