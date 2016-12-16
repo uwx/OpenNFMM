@@ -1799,15 +1799,15 @@ class GameSparker extends JPanel
         }
         gsPanel.requestFocus();
         try {
-            sizebar = xtGraphics.getImage("data/sizebar.gif");
-            blb = xtGraphics.getImage("data/b.gif");
-            fulls = xtGraphics.getImage("data/fullscreen.gif");
-            chkbx[0] = xtGraphics.getImage("data/checkbox1.gif");
-            chkbx[1] = xtGraphics.getImage("data/checkbox2.gif");
-            carmaker[0] = xtGraphics.getImage("data/carmaker1.gif");
-            carmaker[1] = xtGraphics.getImage("data/carmaker2.gif");
-            stagemaker[0] = xtGraphics.getImage("data/stagemaker1.gif");
-            stagemaker[1] = xtGraphics.getImage("data/stagemaker2.gif");
+            sizebar = xtGraphics.getImage("data/baseimages/sizebar.gif");
+            blb = xtGraphics.getImage("data/baseimages/b.gif");
+            fulls = xtGraphics.getImage("data/baseimages/fullscreen.gif");
+            chkbx[0] = xtGraphics.getImage("data/baseimages/checkbox1.gif");
+            chkbx[1] = xtGraphics.getImage("data/baseimages/checkbox2.gif");
+            carmaker[0] = xtGraphics.getImage("data/baseimages/carmaker1.gif");
+            carmaker[1] = xtGraphics.getImage("data/baseimages/carmaker2.gif");
+            stagemaker[0] = xtGraphics.getImage("data/baseimages/stagemaker1.gif");
+            stagemaker[1] = xtGraphics.getImage("data/baseimages/stagemaker2.gif");
         } catch (IOException e) {
             e.printStackTrace();
         }

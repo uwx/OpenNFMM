@@ -2057,16 +2057,16 @@ public class StageMaker extends Applet implements Runnable {
     @Override
     public void run() {
         thredo.setPriority(10);
-        btgame[0] = getImage("data/backtogame1.gif");
-        btgame[1] = getImage("data/backtogame2.gif");
-        logo = getImage("data/stagemakerlogo.gif");
+        btgame[0] = getImage("data/baseimages/backtogame1.gif");
+        btgame[1] = getImage("data/baseimages/backtogame2.gif");
+        logo = getImage("data/baseimages/stagemakerlogo.gif");
         for (int i = 0; i < 2; i++) {
-            su[i] = getImage("data/su" + (i + 1) + ".gif");
-            sl[i] = getImage("data/sl" + (i + 1) + ".gif");
-            sd[i] = getImage("data/sd" + (i + 1) + ".gif");
-            sr[i] = getImage("data/sr" + (i + 1) + ".gif");
-            zi[i] = getImage("data/zi" + (i + 1) + ".gif");
-            zo[i] = getImage("data/zo" + (i + 1) + ".gif");
+            su[i] = getImage("data/baseimages/su" + (i + 1) + ".gif");
+            sl[i] = getImage("data/baseimages/sl" + (i + 1) + ".gif");
+            sd[i] = getImage("data/baseimages/sd" + (i + 1) + ".gif");
+            sr[i] = getImage("data/baseimages/sr" + (i + 1) + ".gif");
+            zi[i] = getImage("data/baseimages/zi" + (i + 1) + ".gif");
+            zo[i] = getImage("data/baseimages/zo" + (i + 1) + ".gif");
         }
         loadbase();
         loadsettings();

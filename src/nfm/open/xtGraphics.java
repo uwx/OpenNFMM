@@ -579,9 +579,9 @@ class xtGraphics extends JPanel implements Runnable {
         app = gamesparker;
         rd = graphics2d;
         try {
-            hello = getImage("data/hello.gif");
-            sign = getImage("data/sign.gif");
-            loadbar = getImage("data/loadbar.gif");
+            hello = getImage("data/baseimages/hello.gif");
+            sign = getImage("data/baseimages/sign.gif");
+            loadbar = getImage("data/baseimages/loadbar.gif");
         } catch (IOException e) {
             e.printStackTrace();
         }

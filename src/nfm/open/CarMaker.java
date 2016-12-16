@@ -2777,9 +2777,9 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
     @Override
     public void run() {
         thredo.setPriority(10);
-        btgame[0] = getImage("data/backtogame1.gif");
-        btgame[1] = getImage("data/backtogame2.gif");
-        logo = getImage("data/carmakerlogo.gif");
+        btgame[0] = getImage("data/baseimages/backtogame1.gif");
+        btgame[1] = getImage("data/baseimages/backtogame2.gif");
+        logo = getImage("data/baseimages/carmakerlogo.gif");
         Medium.w[cm] = 700;
         Medium.cx[cm] = 350;
         Medium.y[cm] = -240;

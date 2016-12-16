@@ -2821,21 +2821,21 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
         acos_m_xy = Medium.cos(__m_xy);
         new Trackers();
         new TextEditor();
-        logo = getImage("data/stagemakerlogo.gif");
+        logo = getImage("data/baseimages/stagemakerlogo.gif");
 
         setIgnoreRepaint(true);
 
         initApplet();
 
-        //btgame[0] = getImage("data/backtogame1.gif");
-        //btgame[1] = getImage("data/backtogame2.gif");
+        //btgame[0] = getImage("data/baseimages/backtogame1.gif");
+        //btgame[1] = getImage("data/baseimages/backtogame2.gif");
         for (int i = 0; i < 2; i++) {
-            su[i] = getImage("data/su" + (i + 1) + ".gif");
-            sl[i] = getImage("data/sl" + (i + 1) + ".gif");
-            sd[i] = getImage("data/sd" + (i + 1) + ".gif");
-            sr[i] = getImage("data/sr" + (i + 1) + ".gif");
-            zi[i] = getImage("data/zi" + (i + 1) + ".gif");
-            zo[i] = getImage("data/zo" + (i + 1) + ".gif");
+            su[i] = getImage("data/baseimages/su" + (i + 1) + ".gif");
+            sl[i] = getImage("data/baseimages/sl" + (i + 1) + ".gif");
+            sd[i] = getImage("data/baseimages/sd" + (i + 1) + ".gif");
+            sr[i] = getImage("data/baseimages/sr" + (i + 1) + ".gif");
+            zi[i] = getImage("data/baseimages/zi" + (i + 1) + ".gif");
+            zo[i] = getImage("data/baseimages/zo" + (i + 1) + ".gif");
         }
         loadbase();
         loadsettings();
