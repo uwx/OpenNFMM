@@ -11,6 +11,7 @@ import com.ivan.xinput.exceptions.XInputNotLoadedException;
 import nfm.open.xtGraphics.Images;
 
 import static nfm.open.Medium.cm;
+import static nfm.open.xtGraphics.badmac;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -313,7 +314,7 @@ class GameSparker extends JPanel
         if (xtGraphics.testdrive == 2 || xtGraphics.testdrive == 4) {
             xtGraphics.nplayers = 1;
         }
-        xtGraphics.nplayers = 7;
+        xtGraphics.nplayers = 8;
         /*if (xtgraphics.gmode == 1) {
         	xtgraphics.nplayers = 5;
         	xtgraphics.xstart[4] = 0;
@@ -686,11 +687,21 @@ class GameSparker extends JPanel
                 if (xtGraphics.fase == 22) {
                     xtGraphics.colorCar(carContos[xtGraphics.sc[j]], j);
                 }
-                stageContos[j] = new ContO(carContos[xtGraphics.sc[j]], xtGraphics.xstart[j], 250 - carContos[xtGraphics.sc[j]].grat, xtGraphics.zstart[j], 0);
+
+                ContO conto = carContos[xtGraphics.sc[j]];
+                
+                if (j % 3 == 0) {
+                    stageContos[j] = new ContO(conto, 0, 250 - conto.grat, -760 + j / 3 * 760, 0);
+                } else if (j % 3 == 1) {
+                    stageContos[j] = new ContO(conto, -350, 250 - conto.grat, -380 + j / 3 * 760, 0);
+                } else if (j % 3 == 2) {
+                    stageContos[j] = new ContO(conto, 350, 250 - conto.grat, -380 + j / 3 * 760, 0);
+                }
+                
                 mads[j].reseto(xtGraphics.sc[j], stageContos[j]);
             }
             if (xtGraphics.fase == 2 || xtGraphics.fase == -22) {
-                Medium.trx = (k + i) / 2;
+                Medium.trx = (k + i) / 2; 
                 Medium.trz = (l + m) / 2;
                 Medium.ptr = 0;
                 Medium.ptcnt = -10;
@@ -993,6 +1004,7 @@ class GameSparker extends JPanel
         if (applejava || Runtime.getRuntime().freeMemory() / 1048576L < 50L) {
             xtGraphics.badmac = true;
         }
+        xtGraphics.badmac=true;//splitscreen needs this to work properly (im lazy)
     }
 
     /**
@@ -1911,7 +1923,7 @@ class GameSparker extends JPanel
                 //repaint();
                 xtGraphics.strack.unload();
                 xtGraphics.strack = null;
-                xtGraphics.flexpix = null;
+                xtGraphics.flexpix[cm] = null;
                 Images.fleximg = null;
                 System.gc();
                 xtGraphics.loadedt = false;
@@ -1924,6 +1936,9 @@ class GameSparker extends JPanel
             } else {
                 checkmemory();
                 xtGraphics.inishcarselect(carContos);
+                cm=1;
+                xtGraphics.inishcarselect(carContos);
+                cm=0;
                 clicknowtime = 0;
                 xtGraphics.fase = 7;
                 mvect = 50;
@@ -1933,7 +1948,7 @@ class GameSparker extends JPanel
         if (xtGraphics.fase == 8) {
             xtGraphics.credits(u[0], xm, ym, mouses);
             xtGraphics.ctachm(xm, ym, mouses, u[0]);
-            if (xtGraphics.flipo <= 100) {
+            if (xtGraphics.flipo[cm] <= 100) {
                 catchlink();
             }
             if (mouses == 2) {
@@ -1963,7 +1978,7 @@ class GameSparker extends JPanel
                 checkmemory();
                 xtGraphics.strack.unload();
                 xtGraphics.strack = null;
-                xtGraphics.flexpix = null;
+                xtGraphics.flexpix[cm] = null;
                 Images.fleximg = null;
                 System.gc();
                 xtGraphics.loadedt = false;
@@ -1992,7 +2007,7 @@ class GameSparker extends JPanel
                 checkmemory();
                 xtGraphics.strack.unload();
                 xtGraphics.strack = null;
-                xtGraphics.flexpix = null;
+                xtGraphics.flexpix[cm] = null;
                 Images.fleximg = null;
                 System.gc();
                 xtGraphics.loadedt = false;
@@ -2043,7 +2058,15 @@ class GameSparker extends JPanel
             }
         }
         if (xtGraphics.fase == 7) {
+
             xtGraphics.carselect(u[0], carContos, xm, ym, moused);
+            
+            xtGraphics.rd = p2rd;
+            cm=1;
+            xtGraphics.carselect(u[1], carContos, xm, ym, moused);
+            cm=0;
+            xtGraphics.rd = rd;
+            
             xtGraphics.ctachm(xm, ym, mouses, u[0]);
             if (mouses == 2) {
                 mouses = 0;
@@ -2136,7 +2159,7 @@ class GameSparker extends JPanel
                     checkmemory();
                     xtGraphics.strack.unload();
                     xtGraphics.strack = null;
-                    xtGraphics.flexpix = null;
+                    xtGraphics.flexpix[cm] = null;
                     Images.fleximg = null;
                     System.gc();
                     xtGraphics.loadedt = false;

@@ -338,18 +338,18 @@ class xtGraphics extends JPanel implements Runnable {
     static int fastestlap = 0;
     static private SoundClip firewasted;
     static boolean firstime = true;
-    static private int flang = 0;
-    static private int flatr = 0;
-    static private int flatrstart = 0;
-    static int[] flexpix = null;
-    static int flipo = 0;
+    static private int[] flang = Medium.populate(0);
+    static private int[] flatr = Medium.populate(0);
+    static private int[] flatrstart = Medium.populate(0);
+    static int[][] flexpix = Medium.populate((int[]) null);
+    static int[] flipo = Medium.populate(0);
     static private boolean[] flk = Medium.populate(false);
     static private int flkat = 0;
     private final static int[] floater = {
             0, 0
     };
-    static private int flyr = 0;
-    static private int flyrdest = 0;
+    static private int[] flyr = Medium.populate(0);
+    static private int[] flyrdest = Medium.populate(0);
     static int forstart = 0;
     static FontMetrics ftm;
     static String gaclan = "";
@@ -413,13 +413,13 @@ class xtGraphics extends JPanel implements Runnable {
     static boolean mutes = false;
     static int ndisco = 0;
     static boolean newparts = false;
-    static private int nextc = 0;
+    static private int[] nextc = Medium.populate(0);
     static private int nfmtab = 0;
     static int nfreeplays = 0;
     static String nickey = "";
     static String nickname = "";
     static boolean nofull = false;
-    static int nplayers = 7;
+    static int nplayers = 8;
     static private int oldfase = 0;
     static private SoundClip one;
     static int onjoin = -1;
@@ -507,7 +507,7 @@ class xtGraphics extends JPanel implements Runnable {
     static private int skflg = 0;
     static private final SoundClip[] skid = new SoundClip[3];
     static private boolean skidup = false;
-    private final static int[] smokey = new int[94132];
+    private final static int[][] smokey = Medium.populate(new int[94132]);
     /**
      * Stage sound size (completely cosmetic)
      */
@@ -935,12 +935,12 @@ class xtGraphics extends JPanel implements Runnable {
 
     static private void carsbginflex() {
         if (!badmac) {
-            flatr = 0;
-            flyr = (int) (Medium.random() * 160.0F - 80.0F);
-            flyrdest = (int) (flyr + Medium.random() * 160.0F - 80.0F);
-            flang = 1;
-            flexpix = new int[268000];
-            final PixelGrabber pixelgrabber = new PixelGrabber(carsbg, 0, 0, 670, 400, flexpix, 0, 670);
+            flatr[cm] = 0;
+            flyr[cm] = (int) (Medium.random() * 160.0F - 80.0F);
+            flyrdest[cm] = (int) (flyr[cm] + Medium.random() * 160.0F - 80.0F);
+            flang[cm] = 1;
+            flexpix[cm] = new int[268000];
+            final PixelGrabber pixelgrabber = new PixelGrabber(carsbg, 0, 0, 670, 400, flexpix[cm], 0, 670);
             try {
                 pixelgrabber.grabPixels();
             } catch (final InterruptedException ignored) {
@@ -955,16 +955,16 @@ class xtGraphics extends JPanel implements Runnable {
         rd.fillRect(735, 0, 65, 450);
         rd.fillRect(65, 0, 670, 25);
         rd.fillRect(65, 425, 670, 25);
-        if (flatrstart == 6) {
+        if (flatrstart[cm] == 6) {
             //if (multion != 0 || testdrive == 1 || testdrive == 2)
             rd.drawImage(carsbgc, 65, 25, null);
-        } else if (flatrstart <= 1) {
+        } else if (flatrstart[cm] <= 1) {
             drawSmokeCarsbg();
         } else {
             rd.setColor(new Color(255, 255, 255));
             rd.fillRect(65, 25, 670, 400);
             carsbginflex();
-            flatrstart = 6;
+            flatrstart[cm] = 6;
         }
         rd.drawImage(selectcar, 321, 37, null);
         if (cfase == 3 || cfase == 7 || remi) {
@@ -1012,9 +1012,10 @@ class xtGraphics extends JPanel implements Runnable {
         	drawcs(69, "" + ("") + (stat.viewname) + ("'s account cars!"), 220,
         			112, 33, 3);
         }*/
+        int ccar = sc[cm];
         if (!remi) {
             rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
-            cars[sc[0]].d(rd);
+            cars[ccar].d(rd);
             rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         }
         /*if (cfase == 8) {
@@ -1029,25 +1030,25 @@ class xtGraphics extends JPanel implements Runnable {
         		} else
         			cfase = 9;
         }*/
-        if (/*(multion != 0 || testdrive == 1 || testdrive == 2) && */lsc != sc[0]) {
-            if (cars[sc[0]].xy != 0) {
-                cars[sc[0]].xy = 0;
+        if (/*(multion != 0 || testdrive == 1 || testdrive == 2) && */lsc != ccar) {
+            if (cars[ccar].xy != 0) {
+                cars[ccar].xy = 0;
             }
             boolean bool107 = false;
-            for (int i108 = 0; i108 < cars[sc[0]].npl && !bool107; i108++)
-                if (cars[sc[0]].p[i108].colnum == 1) {
+            for (int i108 = 0; i108 < cars[ccar].npl && !bool107; i108++)
+                if (cars[ccar].p[i108].colnum == 1) {
                     final float[] fs = new float[3];
-                    Color.RGBtoHSB(cars[sc[0]].p[i108].c[0], cars[sc[0]].p[i108].c[1], cars[sc[0]].p[i108].c[2], fs);
+                    Color.RGBtoHSB(cars[ccar].p[i108].c[0], cars[ccar].p[i108].c[1], cars[ccar].p[i108].c[2], fs);
                     arnp[0] = fs[0];
                     arnp[1] = fs[1];
                     arnp[2] = 1.0F - fs[2];
                     bool107 = true;
                 }
             bool107 = false;
-            for (int i109 = 0; i109 < cars[sc[0]].npl && !bool107; i109++)
-                if (cars[sc[0]].p[i109].colnum == 2) {
+            for (int i109 = 0; i109 < cars[ccar].npl && !bool107; i109++)
+                if (cars[ccar].p[i109].colnum == 2) {
                     final float[] fs = new float[3];
-                    Color.RGBtoHSB(cars[sc[0]].p[i109].c[0], cars[sc[0]].p[i109].c[1], cars[sc[0]].p[i109].c[2], fs);
+                    Color.RGBtoHSB(cars[ccar].p[i109].c[0], cars[ccar].p[i109].c[1], cars[ccar].p[i109].c[2], fs);
                     arnp[3] = fs[0];
                     arnp[4] = fs[1];
                     arnp[5] = 1.0F - fs[2];
@@ -1055,47 +1056,47 @@ class xtGraphics extends JPanel implements Runnable {
                 }
             final Color color = Color.getHSBColor(arnp[0], arnp[1], 1.0F - arnp[2]);
             final Color color110 = Color.getHSBColor(arnp[3], arnp[4], 1.0F - arnp[5]);
-            for (int i111 = 0; i111 < cars[sc[0]].npl; i111++) {
-                if (cars[sc[0]].p[i111].colnum == 1) {
-                    cars[sc[0]].p[i111].hsb[0] = arnp[0];
-                    cars[sc[0]].p[i111].hsb[1] = arnp[1];
-                    cars[sc[0]].p[i111].hsb[2] = 1.0F - arnp[2];
-                    cars[sc[0]].p[i111].c[0] = color.getRed();
-                    cars[sc[0]].p[i111].c[1] = color.getGreen();
-                    cars[sc[0]].p[i111].c[2] = color.getBlue();
-                    cars[sc[0]].p[i111].oc[0] = color.getRed();
-                    cars[sc[0]].p[i111].oc[1] = color.getGreen();
-                    cars[sc[0]].p[i111].oc[2] = color.getBlue();
+            for (int i111 = 0; i111 < cars[ccar].npl; i111++) {
+                if (cars[ccar].p[i111].colnum == 1) {
+                    cars[ccar].p[i111].hsb[0] = arnp[0];
+                    cars[ccar].p[i111].hsb[1] = arnp[1];
+                    cars[ccar].p[i111].hsb[2] = 1.0F - arnp[2];
+                    cars[ccar].p[i111].c[0] = color.getRed();
+                    cars[ccar].p[i111].c[1] = color.getGreen();
+                    cars[ccar].p[i111].c[2] = color.getBlue();
+                    cars[ccar].p[i111].oc[0] = color.getRed();
+                    cars[ccar].p[i111].oc[1] = color.getGreen();
+                    cars[ccar].p[i111].oc[2] = color.getBlue();
                 }
-                if (cars[sc[0]].p[i111].colnum == 2) {
-                    cars[sc[0]].p[i111].hsb[0] = arnp[3];
-                    cars[sc[0]].p[i111].hsb[1] = arnp[4];
-                    cars[sc[0]].p[i111].hsb[2] = 1.0F - arnp[5];
-                    cars[sc[0]].p[i111].c[0] = color110.getRed();
-                    cars[sc[0]].p[i111].c[1] = color110.getGreen();
-                    cars[sc[0]].p[i111].c[2] = color110.getBlue();
-                    cars[sc[0]].p[i111].oc[0] = color110.getRed();
-                    cars[sc[0]].p[i111].oc[1] = color110.getGreen();
-                    cars[sc[0]].p[i111].oc[2] = color110.getBlue();
+                if (cars[ccar].p[i111].colnum == 2) {
+                    cars[ccar].p[i111].hsb[0] = arnp[3];
+                    cars[ccar].p[i111].hsb[1] = arnp[4];
+                    cars[ccar].p[i111].hsb[2] = 1.0F - arnp[5];
+                    cars[ccar].p[i111].c[0] = color110.getRed();
+                    cars[ccar].p[i111].c[1] = color110.getGreen();
+                    cars[ccar].p[i111].c[2] = color110.getBlue();
+                    cars[ccar].p[i111].oc[0] = color110.getRed();
+                    cars[ccar].p[i111].oc[1] = color110.getGreen();
+                    cars[ccar].p[i111].oc[2] = color110.getBlue();
                 }
             }
-            lsc = sc[0];
+            lsc = ccar;
         }
         int i112 = -1;
         int i113 = 0;
         final boolean bool114 = false;
-        if (flipo == 0) {
+        if (flipo[cm] == 0) {
             rd.setFont(new Font("Arial", 1, 13));
             ftm = rd.getFontMetrics();
             int i115 = 0;
-            if (flatrstart < 6) {
+            if (flatrstart[cm] < 6) {
                 i115 = 2;
             }
             if (!remi && (cfase != 10 || CarDefine.action != 0 && CarDefine.action < 14)) {
                 if (cfase == 3 && CarDefine.lastload == 2) {
                     GameSparker.mcars.move(400 - GameSparker.mcars.w / 2, 78);
                     GameSparker.mcars.show = true;
-                    if (!GameSparker.mcars.getSelectedItem().equals(CarDefine.names[sc[0]])) {
+                    if (!GameSparker.mcars.getSelectedItem().equals(CarDefine.names[ccar])) {
                         for (int i116 = 16; i116 < CarDefine.nlocars; i116++)
                             if (CarDefine.names[i116].equals(GameSparker.mcars.getSelectedItem())) {
                                 i112 = i116;
@@ -1110,60 +1111,60 @@ class xtGraphics extends JPanel implements Runnable {
                     GameSparker.mcars.show = false;
                     String string = "";
                     if (cfase == 11) {
-                        string = "N#" + (sc[0] - 35) + "  ";
+                        string = "N#" + (ccar - 35) + "  ";
                     }
                     if (aflk) {
-                        drawcs(95 + i115, "" + string + CarDefine.names[sc[0]], 240, 240, 240, 3);
+                        drawcs(95 + i115, "" + string + CarDefine.names[ccar], 240, 240, 240, 3);
                         aflk = false;
                     } else {
-                        drawcs(95, "" + string + CarDefine.names[sc[0]], 176, 176, 176, 3);
+                        drawcs(95, "" + string + CarDefine.names[ccar], 176, 176, 176, 3);
                         aflk = true;
                     }
                 }
             } else {
                 GameSparker.mcars.show = false;
             }
-            cars[sc[0]].z = 950;
-            if (sc[0] == 13) {
-                cars[sc[0]].z = 1000;
+            cars[ccar].z = 950;
+            if (ccar == 13) {
+                cars[ccar].z = 1000;
             }
-            cars[sc[0]].y = -34 - cars[sc[0]].grat;
-            cars[sc[0]].x = 0;
+            cars[ccar].y = -34 - cars[ccar].grat;
+            cars[ccar].x = 0;
             if (mouson >= 0 && mouson <= 3) {
-                cars[sc[0]].xz += 2;
+                cars[ccar].xz += 2;
             } else {
-                cars[sc[0]].xz += 5;
+                cars[ccar].xz += 5;
             }
-            if (cars[sc[0]].xz > 360) {
-                cars[sc[0]].xz -= 360;
+            if (cars[ccar].xz > 360) {
+                cars[ccar].xz -= 360;
             }
-            cars[sc[0]].zy = 0;
-            cars[sc[0]].wzy -= 10;
-            if (cars[sc[0]].wzy < -30) {
-                cars[sc[0]].wzy += 30;
+            cars[ccar].zy = 0;
+            cars[ccar].wzy -= 10;
+            if (cars[ccar].wzy < -30) {
+                cars[ccar].wzy += 30;
             }
             if (!remi) {
-                if (sc[0] != minsl) {
+                if (ccar != minsl) {
                     rd.drawImage(back[pback], 95, 275, null);
                 }
-                if (sc[0] != maxsl) {
+                if (ccar != maxsl) {
                     rd.drawImage(next[pnext], 645, 275, null);
                 }
             }
             /*if (gmode == 1) {
-            	if (sc[0] == 5 && unlocked[0] <= 2)
+            	if (sc[cm] == 5 && unlocked[0] <= 2)
             		i113 = 2;
-            	if (sc[0] == 6 && unlocked[0] <= 4)
+            	if (sc[cm] == 6 && unlocked[0] <= 4)
             		i113 = 4;
-            	if (sc[0] == 11 && unlocked[0] <= 6)
+            	if (sc[cm] == 11 && unlocked[0] <= 6)
             		i113 = 6;
-            	if (sc[0] == 14 && unlocked[0] <= 8)
+            	if (sc[cm] == 14 && unlocked[0] <= 8)
             		i113 = 8;
-            	if (sc[0] == 15 && unlocked[0] <= 10)
+            	if (sc[cm] == 15 && unlocked[0] <= 10)
             		i113 = 10;
             }*/
-            if (gmode == 2 && sc[0] >= 8 && unlocked <= (sc[0] - 7) * 2) {
-                i113 = (sc[0] - 7) * 2;
+            if (gmode == 2 && ccar >= 8 && unlocked <= (ccar - 7) * 2) {
+                i113 = (ccar - 7) * 2;
             }
             if (i113 != 0) {
                 if (gatey == 300) {
@@ -1175,7 +1176,7 @@ class xtGraphics extends JPanel implements Runnable {
                 }
                 for (int i118 = 0; i118 < 9; i118++) {
                     rd.drawImage(pgate, pgatx[i118], pgaty[i118] + pgady[i118] - gatey, null);
-                    if (flatrstart == 6)
+                    if (flatrstart[cm] == 6)
                         if (pgas[i118]) {
                             pgady[i118] -= (80 + 100 / (i118 + 1) - Math.abs(pgady[i118])) / 3;
                             if (pgady[i118] < -(70 + 100 / (i118 + 1))) {
@@ -1194,12 +1195,12 @@ class xtGraphics extends JPanel implements Runnable {
                 if (gatey != 0) {
                     gatey -= 100;
                 }
-                if (flatrstart == 6) {
+                if (flatrstart[cm] == 6) {
                     drawcs(355, "[ Car Locked ]", 210, 210, 210, 3);
                     drawcs(375, "This car unlocks when stage " + i113 + " is completed...", 255, 96, 0, 3);
                 }
             } else {
-                if (flatrstart == 6) {
+                if (flatrstart[cm] == 6) {
                     /*if (cfase == 10) {
                     	/*if (stat.action == 13) {
                     		minsl = nCars + 20;
@@ -1334,7 +1335,7 @@ class xtGraphics extends JPanel implements Runnable {
                     		drawcs(195, "Failed to Load List.", 0, 0, 0, 3);
                     		drawcs(225, "Unknown Error.  Please try again later.", 0, 0, 0, 3);
                     		if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool))
-                    			if (sc[0] >= 16 && stat.lastload == 2 && sc[0] < 36)
+                    			if (sc[cm] >= 16 && stat.lastload == 2 && sc[cm] < 36)
                     				cfase = 3;
                     			else
                     				cfase = 0;
@@ -1347,7 +1348,7 @@ class xtGraphics extends JPanel implements Runnable {
                     						 + (" does not have any published or added cars."),
                     				0, 0, 0, 3);
                     		if (drawcarb(true, null, "   OK   ", 371, 255, i, i104, bool))
-                    			if (sc[0] >= 16 && stat.lastload == 2 && sc[0] < 36)
+                    			if (sc[cm] >= 16 && stat.lastload == 2 && sc[cm] < 36)
                     				cfase = 3;
                     			else
                     				cfase = 0;
@@ -1474,8 +1475,8 @@ class xtGraphics extends JPanel implements Runnable {
                     		maxsl = nCars - 1;
                     		i112 = nCars - 1;
                     		cfase = 8;
-                    		onmsc = sc[0];
-                    		stat.ac = sc[0];
+                    		onmsc = sc[cm];
+                    		stat.ac = sc[cm];
                     		stat.action = 10;
                     		stat.sparkactionloader();
                     	}
@@ -1502,7 +1503,7 @@ class xtGraphics extends JPanel implements Runnable {
                     		if (!app.openm) {
                     			if (!app.mycar.isShowing()) {
                     				app.mycar.setVisible(true);
-                    				app.mycar.setState(stat.include[sc[0] - 16]);
+                    				app.mycar.setState(stat.include[sc[cm] - 16]);
                     			}
                     		} else
                     			app.mycar.setVisible(false);
@@ -1511,8 +1512,8 @@ class xtGraphics extends JPanel implements Runnable {
                     		rd.setColor(new Color(0, 0, 0));
                     		rd.drawRoundRect(305, 302, 190, 24, 7, 20);
                     		app.movefield(app.mycar, 334, 306, 150, 17);
-                    		if (app.mycar.getState() != stat.include[sc[0] - 16]) {
-                    			stat.include[sc[0] - 16] = app.mycar.getState();
+                    		if (app.mycar.getState() != stat.include[sc[cm] - 16]) {
+                    			stat.include[sc[cm] - 16] = app.mycar.getState();
                     			app.requestFocus();
                     		}
                     	}
@@ -1529,8 +1530,8 @@ class xtGraphics extends JPanel implements Runnable {
                     		rd.setFont(new Font("Arial", 1, 12));
                     		ftm = rd.getFontMetrics();
                     		rd.setColor(new Color(0, 0, 0));
-                    		if (!stat.createdby[sc[0] - 16].equals(nickname))
-                    			bool114 = clink(stat.createdby[sc[0] - 16], i, i104, bool);
+                    		if (!stat.createdby[sc[cm] - 16].equals(nickname))
+                    			bool114 = clink(stat.createdby[sc[cm] - 16], i, i104, bool);
                     		else
                     			rd.drawString("Created by You", 241, 160);
                     	}
@@ -1639,13 +1640,13 @@ class xtGraphics extends JPanel implements Runnable {
                     		rd.setFont(new Font("Arial", 1, 12));
                     		ftm = rd.getFontMetrics();
                     		rd.setColor(new Color(0, 0, 0));
-                    		if (!stat.createdby[sc[0] - 16].equals(nickname))
-                    			bool114 = clink(stat.createdby[sc[0] - 16], i, i104, bool);
+                    		if (!stat.createdby[sc[cm] - 16].equals(nickname))
+                    			bool114 = clink(stat.createdby[sc[cm] - 16], i, i104, bool);
                     		else
                     			rd.drawString("Created by You", 241, 160);
                     		if (cfase != 101) {
                     			rd.setFont(new Font("Arial", 1, 11));
-                    			rd.drawString("" + ("Added by :  ") + (stat.adds[sc[0] - 36])
+                    			rd.drawString("" + ("Added by :  ") + (stat.adds[sc[cm] - 36])
                     					 + (" Players"), 241, 180);
                     		}
                     	}
@@ -1870,30 +1871,30 @@ class xtGraphics extends JPanel implements Runnable {
                     rd.drawString("Endurance:", 473, 373);
                     rd.drawImage(statb, 536, 367, null);
                     rd.setColor(new Color(0, 0, 0));
-                    float f = (CarDefine.swits[sc[0]][2] - 220) / 90.0F;
+                    float f = (CarDefine.swits[ccar][2] - 220) / 90.0F;
                     if (f < 0.2) {
                         f = 0.2F;
                     }
                     rd.fillRect((int) (162.0F + 156.0F * f), 337, (int) (156.0F * (1.0F - f) + 1.0F), 7);
-                    f = CarDefine.acelf[sc[0]][1] * CarDefine.acelf[sc[0]][0] * CarDefine.acelf[sc[0]][2] * CarDefine.grip[sc[0]] / 7700.0F;
+                    f = CarDefine.acelf[ccar][1] * CarDefine.acelf[ccar][0] * CarDefine.acelf[ccar][2] * CarDefine.grip[ccar] / 7700.0F;
                     if (f > 1.0F) {
                         f = 1.0F;
                     }
                     rd.fillRect((int) (162.0F + 156.0F * f), 352, (int) (156.0F * (1.0F - f) + 1.0F), 7);
-                    f = CarDefine.dishandle[sc[0]];
+                    f = CarDefine.dishandle[ccar];
                     rd.fillRect((int) (162.0F + 156.0F * f), 367, (int) (156.0F * (1.0F - f) + 1.0F), 7);
-                    f = (CarDefine.airc[sc[0]] * CarDefine.airs[sc[0]] * CarDefine.bounce[sc[0]] + 28.0F) / 139.0F;
+                    f = (CarDefine.airc[ccar] * CarDefine.airs[ccar] * CarDefine.bounce[ccar] + 28.0F) / 139.0F;
                     if (f > 1.0F) {
                         f = 1.0F;
                     }
                     rd.fillRect((int) (536.0F + 156.0F * f), 337, (int) (156.0F * (1.0F - f) + 1.0F), 7);
                     final float f127 = 0.5F;
-                    f = (CarDefine.moment[sc[0]] + f127) / 2.6F;
+                    f = (CarDefine.moment[ccar] + f127) / 2.6F;
                     if (f > 1.0F) {
                         f = 1.0F;
                     }
                     rd.fillRect((int) (536.0F + 156.0F * f), 352, (int) (156.0F * (1.0F - f) + 1.0F), 7);
-                    f = CarDefine.outdam[sc[0]];
+                    f = CarDefine.outdam[ccar];
                     rd.fillRect((int) (536.0F + 156.0F * f), 367, (int) (156.0F * (1.0F - f) + 1.0F), 7);
                     rd.drawImage(statbo, 162, 337, null);
                     rd.drawImage(statbo, 162, 352, null);
@@ -1905,16 +1906,16 @@ class xtGraphics extends JPanel implements Runnable {
                         rd.setFont(new Font("Arial", 1, 13));
                         ftm = rd.getFontMetrics();
                         String string = "Class C";
-                        if (CarDefine.cclass[sc[0]] == 1) {
+                        if (CarDefine.cclass[ccar] == 1) {
                             string = "Class B & C";
                         }
-                        if (CarDefine.cclass[sc[0]] == 2) {
+                        if (CarDefine.cclass[ccar] == 2) {
                             string = "Class B";
                         }
-                        if (CarDefine.cclass[sc[0]] == 3) {
+                        if (CarDefine.cclass[ccar] == 3) {
                             string = "Class A & B";
                         }
-                        if (CarDefine.cclass[sc[0]] == 4) {
+                        if (CarDefine.cclass[ccar] == 4) {
                             string = "Class A";
                         }
                         if (kbload < 7) {
@@ -1977,14 +1978,14 @@ class xtGraphics extends JPanel implements Runnable {
                             if (mouson == -1) {
                                 if (i > 96 && i < 152 && i104 > 248 && i104 < 258) {
                                     final float[] fs = new float[3];
-                                    Color.RGBtoHSB(cars[sc[0]].fcol[0], cars[sc[0]].fcol[1], cars[sc[0]].fcol[2], fs);
+                                    Color.RGBtoHSB(cars[ccar].fcol[0], cars[ccar].fcol[1], cars[ccar].fcol[2], fs);
                                     arnp[0] = fs[0];
                                     arnp[1] = fs[1];
                                     arnp[2] = 1.0F - fs[2];
                                 }
                                 if (i > 646 && i < 702 && i104 > 248 && i104 < 258) {
                                     final float[] fs = new float[3];
-                                    Color.RGBtoHSB(cars[sc[0]].scol[0], cars[sc[0]].scol[1], cars[sc[0]].scol[2], fs);
+                                    Color.RGBtoHSB(cars[ccar].scol[0], cars[ccar].scol[1], cars[ccar].scol[2], fs);
                                     arnp[3] = fs[0];
                                     arnp[4] = fs[1];
                                     arnp[5] = 1.0F - fs[2];
@@ -2046,28 +2047,28 @@ class xtGraphics extends JPanel implements Runnable {
                         if (cfase != 10 && cfase != 5 && i112 == -1) {
                             final Color color = Color.getHSBColor(arnp[0], arnp[1], 1.0F - arnp[2]);
                             final Color color130 = Color.getHSBColor(arnp[3], arnp[4], 1.0F - arnp[5]);
-                            for (int i131 = 0; i131 < cars[sc[0]].npl; i131++) {
-                                if (cars[sc[0]].p[i131].colnum == 1) {
-                                    cars[sc[0]].p[i131].hsb[0] = arnp[0];
-                                    cars[sc[0]].p[i131].hsb[1] = arnp[1];
-                                    cars[sc[0]].p[i131].hsb[2] = 1.0F - arnp[2];
-                                    cars[sc[0]].p[i131].c[0] = color.getRed();
-                                    cars[sc[0]].p[i131].c[1] = color.getGreen();
-                                    cars[sc[0]].p[i131].c[2] = color.getBlue();
-                                    cars[sc[0]].p[i131].oc[0] = color.getRed();
-                                    cars[sc[0]].p[i131].oc[1] = color.getGreen();
-                                    cars[sc[0]].p[i131].oc[2] = color.getBlue();
+                            for (int i131 = 0; i131 < cars[ccar].npl; i131++) {
+                                if (cars[ccar].p[i131].colnum == 1) {
+                                    cars[ccar].p[i131].hsb[0] = arnp[0];
+                                    cars[ccar].p[i131].hsb[1] = arnp[1];
+                                    cars[ccar].p[i131].hsb[2] = 1.0F - arnp[2];
+                                    cars[ccar].p[i131].c[0] = color.getRed();
+                                    cars[ccar].p[i131].c[1] = color.getGreen();
+                                    cars[ccar].p[i131].c[2] = color.getBlue();
+                                    cars[ccar].p[i131].oc[0] = color.getRed();
+                                    cars[ccar].p[i131].oc[1] = color.getGreen();
+                                    cars[ccar].p[i131].oc[2] = color.getBlue();
                                 }
-                                if (cars[sc[0]].p[i131].colnum == 2) {
-                                    cars[sc[0]].p[i131].hsb[0] = arnp[3];
-                                    cars[sc[0]].p[i131].hsb[1] = arnp[4];
-                                    cars[sc[0]].p[i131].hsb[2] = 1.0F - arnp[5];
-                                    cars[sc[0]].p[i131].c[0] = color130.getRed();
-                                    cars[sc[0]].p[i131].c[1] = color130.getGreen();
-                                    cars[sc[0]].p[i131].c[2] = color130.getBlue();
-                                    cars[sc[0]].p[i131].oc[0] = color130.getRed();
-                                    cars[sc[0]].p[i131].oc[1] = color130.getGreen();
-                                    cars[sc[0]].p[i131].oc[2] = color130.getBlue();
+                                if (cars[ccar].p[i131].colnum == 2) {
+                                    cars[ccar].p[i131].hsb[0] = arnp[3];
+                                    cars[ccar].p[i131].hsb[1] = arnp[4];
+                                    cars[ccar].p[i131].hsb[2] = 1.0F - arnp[5];
+                                    cars[ccar].p[i131].c[0] = color130.getRed();
+                                    cars[ccar].p[i131].c[1] = color130.getGreen();
+                                    cars[ccar].p[i131].c[2] = color130.getBlue();
+                                    cars[ccar].p[i131].oc[0] = color130.getRed();
+                                    cars[ccar].p[i131].oc[1] = color130.getGreen();
+                                    cars[ccar].p[i131].oc[2] = color130.getBlue();
                                 }
                             }
                         }
@@ -2078,7 +2079,7 @@ class xtGraphics extends JPanel implements Runnable {
                     /*else {
                     	if (cfase == 11 && drawcarb(true, null, "Add to My Cars", 345, 385, i, i104, bool)
                     			&& stat.action == 0) {
-                    		stat.ac = sc[0];
+                    		stat.ac = sc[cm];
                     		if (logged) {
                     			stat.action = 6;
                     			stat.sparkactionloader();
@@ -2089,9 +2090,9 @@ class xtGraphics extends JPanel implements Runnable {
                     		}
                     	}
                     	if (cfase == 101 && i112 == -1)
-                    		if (stat.publish[sc[0] - 16] == 1 || stat.publish[sc[0] - 16] == 2) {
+                    		if (stat.publish[sc[cm] - 16] == 1 || stat.publish[sc[cm] - 16] == 2) {
                     			if (drawcarb(true, null, "Add to My Cars", 345, 385, i, i104, bool) && stat.action == 0) {
-                    				stat.ac = sc[0];
+                    				stat.ac = sc[cm];
                     				if (logged) {
                     					stat.action = 6;
                     					stat.sparkactionloader();
@@ -2119,89 +2120,89 @@ class xtGraphics extends JPanel implements Runnable {
             pback = 0;
             pnext = 0;
             gatey = 300;
-            if (flipo > 10) {
-                cars[sc[0]].y -= 100;
-                if (nextc == 1) {
-                    cars[sc[0]].zy += 20;
+            if (flipo[cm] > 10) {
+                cars[ccar].y -= 100;
+                if (nextc[cm] == 1) {
+                    cars[ccar].zy += 20;
                 }
-                if (nextc == -1) {
-                    cars[sc[0]].zy -= 20;
+                if (nextc[cm] == -1) {
+                    cars[ccar].zy -= 20;
                 }
             } else {
-                if (flipo == 10) {
-                    if (nextc >= 20) {
-                        sc[0] = nextc - 20;
+                if (flipo[cm] == 10) {
+                    if (nextc[cm] >= 20) {
+                        sc[cm] = nextc[cm] - 20;
                         lsc = -1;
                     }
-                    if (nextc == 1) {
-                        sc[0]++;
+                    if (nextc[cm] == 1) {
+                        sc[cm]++;
                         /*if (gmode == 1) {
-                        	if (sc[0] == 7)
-                        		sc[0] = 11;
-                        	if (sc[0] == 12)
-                        		sc[0] = 14;
+                        	if (sc[cm] == 7)
+                        		sc[cm] = 11;
+                        	if (sc[cm] == 12)
+                        		sc[cm] = 14;
                         }*/
                         if (multion != 0 && onjoin != -1 && ontyp > 0 && ontyp <= 5) {
-                            for (; sc[0] < maxsl && Math.abs(CarDefine.cclass[sc[0]] - (ontyp - 1)) > 1; sc[0]++) {
+                            for (; ccar < maxsl && Math.abs(CarDefine.cclass[ccar] - (ontyp - 1)) > 1; sc[cm]++) {
 
                             }
                         }
                     }
-                    if (nextc == -1) {
-                        sc[0]--;
+                    if (nextc[cm] == -1) {
+                        sc[cm]--;
                         /*if (gmode == 1) {
-                        	if (sc[0] == 13)
-                        		sc[0] = 11;
-                        	if (sc[0] == 10)
-                        		sc[0] = 6;
+                        	if (sc[cm] == 13)
+                        		sc[cm] = 11;
+                        	if (sc[cm] == 10)
+                        		sc[cm] = 6;
                         }*/
                         if (multion != 0 && onjoin != -1 && ontyp > 0 && ontyp <= 5) {
-                            for (; sc[0] > minsl && Math.abs(CarDefine.cclass[sc[0]] - (ontyp - 1)) > 1; sc[0]--) {
+                            for (; ccar > minsl && Math.abs(CarDefine.cclass[ccar] - (ontyp - 1)) > 1; sc[cm]--) {
 
                             }
                         }
                     }
                     if (cfase == 3 && CarDefine.lastload == 2) {
-                        GameSparker.mcars.select(CarDefine.names[sc[0]]);
+                        GameSparker.mcars.select(CarDefine.names[ccar]);
                     }
-                    cars[sc[0]].z = 950;
-                    cars[sc[0]].y = -34 - cars[sc[0]].grat - 1100;
-                    cars[sc[0]].x = 0;
-                    cars[sc[0]].zy = 0;
+                    cars[ccar].z = 950;
+                    cars[ccar].y = -34 - cars[ccar].grat - 1100;
+                    cars[ccar].x = 0;
+                    cars[ccar].zy = 0;
                 }
-                cars[sc[0]].y += 100;
+                cars[ccar].y += 100;
             }
-            flipo--;
+            flipo[cm]--;
         }
         if (cfase == 0 || cfase == 3 || cfase == 11 || cfase == 101) {
             if (i112 != -1) {
-                if (flatrstart > 1) {
-                    flatrstart = 0;
+                if (flatrstart[cm] > 1) {
+                    flatrstart[cm] = 0;
                 }
-                nextc = i112 + 20;
-                flipo = 20;
+                nextc[cm] = i112 + 20;
+                flipo[cm] = 20;
             }
             if (control.right) {
                 control.right = false;
-                if (sc[0] != maxsl && flipo == 0) {
-                    if (flatrstart > 1) {
-                        flatrstart = 0;
+                if (ccar != maxsl && flipo[cm] == 0) {
+                    if (flatrstart[cm] > 1) {
+                        flatrstart[cm] = 0;
                     }
-                    nextc = 1;
-                    flipo = 20;
+                    nextc[cm] = 1;
+                    flipo[cm] = 20;
                 }
             }
             if (control.left) {
                 control.left = false;
-                if (sc[0] != minsl && flipo == 0) {
-                    if (flatrstart > 1) {
-                        flatrstart = 0;
+                if (ccar != minsl && flipo[cm] == 0) {
+                    if (flatrstart[cm] > 1) {
+                        flatrstart[cm] = 0;
                     }
-                    nextc = -1;
-                    flipo = 20;
+                    nextc[cm] = -1;
+                    flipo[cm] = 20;
                 }
             }
-            if (cfase != 11 && cfase != 101 && i113 == 0 && flipo < 10 && (control.handb || control.enter)) {
+            if (cfase != 11 && cfase != 101 && i113 == 0 && flipo[cm] < 10 && (control.handb || control.enter)) {
                 Medium.crs = false;
                 GameSparker.mcars.show = false;
                 if (multion != 0) {
@@ -2212,8 +2213,8 @@ class xtGraphics extends JPanel implements Runnable {
                 } else {
                     fase = -22;
                 }
-                if (sc[0] < 16 || CarDefine.lastload == 2) {
-                    GameSparker.setcarcookie(sc[0], CarDefine.names[sc[0]], arnp, gmode, unlocked);
+                if (ccar < 16 || CarDefine.lastload == 2) {
+                    GameSparker.setcarcookie(ccar, CarDefine.names[ccar], arnp, gmode, unlocked);
                 }
                 if (CarDefine.haltload != 0) {
                     if (CarDefine.haltload == 2) {
@@ -2223,17 +2224,17 @@ class xtGraphics extends JPanel implements Runnable {
                     CarDefine.haltload = 0;
                 }
                 if (gmode == 0) {
-                    osc = sc[0];
+                    osc = ccar;
                 }
                 //if (gmode == 1)
-                //	scm[0] = sc[0];
+                //	scm[0] = sc[cm];
                 if (gmode == 2) {
-                    scm = sc[0];
+                    scm = ccar;
                 }
                 if (GameSparker.mycar.isShowing()) {
                     GameSparker.mycar.setVisible(false);
                 }
-                flexpix = null;
+                flexpix[cm] = null;
                 control.handb = false;
                 control.enter = false;
             }
@@ -2242,11 +2243,11 @@ class xtGraphics extends JPanel implements Runnable {
             pnext = 0;
             pcontin = 0;
             if (cfase == 8 && i112 != -1) {
-                if (flatrstart > 1) {
-                    flatrstart = 0;
+                if (flatrstart[cm] > 1) {
+                    flatrstart[cm] = 0;
                 }
-                nextc = i112 + 20;
-                flipo = 20;
+                nextc[cm] = i112 + 20;
+                flipo[cm] = 20;
             }
             if (cfase == 5 && CarDefine.action == 0 && control.enter) {
                 tcnt[cm] = 0;
@@ -2273,21 +2274,21 @@ class xtGraphics extends JPanel implements Runnable {
         }
         if (bool114) {
             GameSparker.mouses = 0;
-            CarDefine.viewname = CarDefine.createdby[sc[0] - 16];
+            CarDefine.viewname = CarDefine.createdby[ccar - 16];
             Medium.crs = false;
             fase = 1177;
             intertrack.setPaused(true);
-            sc[0] = onmsc;
-            if (sc[0] >= 16 && CarDefine.lastload != 2 || sc[0] >= 36) {
-                sc[0] = 15;
+            sc[cm] = onmsc;
+            if (ccar >= 16 && CarDefine.lastload != 2 || ccar >= 36) {
+                sc[cm] = 15;
             }
-            osc = sc[0];
+            osc = ccar;
             multion = 1;
             gmode = 0;
             if (GameSparker.mycar.isShowing()) {
                 GameSparker.mycar.setVisible(false);
             }
-            flexpix = null;
+            flexpix[cm] = null;
             control.handb = false;
             control.enter = false;
         }
@@ -2481,18 +2482,18 @@ class xtGraphics extends JPanel implements Runnable {
     }
 
     static void credits(final Control control, final int i, final int i23, final int i24) {
-        if (flipo == 0) {
+        if (flipo[cm] == 0) {
             powerup.play();
-            flipo = 1;
+            flipo[cm] = 1;
         }
-        if (flipo >= 1 && flipo <= 100) {
-            rad(flipo);
-            flipo++;
-            if (flipo == 100) {
-                flipo = 1;
+        if (flipo[cm] >= 1 && flipo[cm] <= 100) {
+            rad(flipo[cm]);
+            flipo[cm]++;
+            if (flipo[cm] == 100) {
+                flipo[cm] = 1;
             }
         }
-        if (flipo == 101) {
+        if (flipo[cm] == 101) {
             mainbg(-1);
             rd.drawImage(mdness, 283, 32, null);
             rd.setFont(new Font("Arial", 1, 13));
@@ -2528,7 +2529,7 @@ class xtGraphics extends JPanel implements Runnable {
                 app.setCursor(new Cursor(0));
             }
         }
-        if (flipo == 102) {
+        if (flipo[cm] == 102) {
             mainbg(-1);
             rd.drawImage(onfmm, 283, 32, null);
             rd.setFont(new Font("Arial", 1, 13));
@@ -2569,7 +2570,7 @@ class xtGraphics extends JPanel implements Runnable {
                 app.setCursor(new Cursor(0));
             }
         }
-        if (flipo == 103) {
+        if (flipo[cm] == 103) {
             mainbg(0);
             rd.drawImage(nfmcom, 190, 195, null);
             if (i > 190 && i < 609 && i23 > 195 && i23 < 216) {
@@ -2584,14 +2585,14 @@ class xtGraphics extends JPanel implements Runnable {
         rd.drawImage(next[pnext], 665, 395, null);
 
         if (control.enter || control.handb || control.right) {
-            if (flipo >= 1 && flipo <= 100) {
-                flipo = 101;
+            if (flipo[cm] >= 1 && flipo[cm] <= 100) {
+                flipo[cm] = 101;
                 app.setCursor(new Cursor(0));
             } else {
-                flipo++;
+                flipo[cm]++;
             }
-            if (flipo == 104) {
-                flipo = 0;
+            if (flipo[cm] == 104) {
+                flipo[cm] = 0;
                 fase = 10;
             }
             control.enter = false;
@@ -2809,7 +2810,7 @@ class xtGraphics extends JPanel implements Runnable {
             }
         }
         if (fase == 11) {
-            if (flipo >= 1 && flipo <= 15) {
+            if (flipo[cm] >= 1 && flipo[cm] <= 15) {
                 if (i183 == 1 && over(next[0], i, i182, 665, 395)) {
                     pnext = 1;
                 }
@@ -2818,7 +2819,7 @@ class xtGraphics extends JPanel implements Runnable {
                     pnext = 0;
                 }
             }
-            if (flipo >= 3 && flipo <= 16) {
+            if (flipo[cm] >= 3 && flipo[cm] <= 16) {
                 if (i183 == 1 && over(back[0], i, i182, 75, 395)) {
                     pback = 1;
                 }
@@ -2827,7 +2828,7 @@ class xtGraphics extends JPanel implements Runnable {
                     pback = 0;
                 }
             }
-            if (flipo == 16) {
+            if (flipo[cm] == 16) {
                 if (i183 == 1 && over(contin[0], i, i182, 565, 395)) {
                     pcontin = 1;
                 }
@@ -3055,42 +3056,42 @@ class xtGraphics extends JPanel implements Runnable {
 
     static private void drawSmokeCarsbg() {
         if (!badmac) {
-            if (Math.abs(flyr - flyrdest) > 20) {
-                if (flyr > flyrdest) {
-                    flyr -= 20;
+            if (Math.abs(flyr[cm] - flyrdest[cm]) > 20) {
+                if (flyr[cm] > flyrdest[cm]) {
+                    flyr[cm] -= 20;
                 } else {
-                    flyr += 20;
+                    flyr[cm] += 20;
                 }
             } else {
-                flyr = flyrdest;
-                flyrdest = (int) (flyr + Medium.random() * 160.0F - 80.0F);
+                flyr[cm] = flyrdest[cm];
+                flyrdest[cm] = (int) (flyr[cm] + Medium.random() * 160.0F - 80.0F);
             }
-            if (flyr > 160) {
-                flyr = 160;
+            if (flyr[cm] > 160) {
+                flyr[cm] = 160;
             }
-            if (flatr > 170) {
-                flatrstart++;
-                flatr = flatrstart * 3;
-                flyr = (int) (Medium.random() * 160.0F - 80.0F);
-                flyrdest = (int) (flyr + Medium.random() * 160.0F - 80.0F);
-                flang = 1;
+            if (flatr[cm] > 170) {
+                flatrstart[cm]++;
+                flatr[cm] = flatrstart[cm] * 3;
+                flyr[cm] = (int) (Medium.random() * 160.0F - 80.0F);
+                flyrdest[cm] = (int) (flyr[cm] + Medium.random() * 160.0F - 80.0F);
+                flang[cm] = 1;
             }
             for (int i = 0; i < 466; i++) {
                 for (int i407 = 0; i407 < 202; i407++)
-                    if (smokey[i + i407 * 466] != smokey[0]) {
-                        final float f = pys(i, 233, i407, flyr);
-                        final int i408 = (int) ((i - 233) / f * flatr);
-                        final int i409 = (int) ((i407 - flyr) / f * flatr);
+                    if (smokey[cm][i + i407 * 466] != smokey[cm][0]) {
+                        final float f = pys(i, 233, i407, flyr[cm]);
+                        final int i408 = (int) ((i - 233) / f * flatr[cm]);
+                        final int i409 = (int) ((i407 - flyr[cm]) / f * flatr[cm]);
                         final int i410 = i + i408 + 100 + (i407 + i409 + 110) * 670;
                         if (i + i408 + 100 < 670 && i + i408 + 100 > 0 && i407 + i409 + 110 < 400 && i407 + i409 + 110 > 0 && i410 < 268000 && i410 >= 0) {
-                            final Color color = new Color(flexpix[i410]);
-                            final Color color411 = new Color(smokey[i + i407 * 466]);
+                            final Color color = new Color(flexpix[cm][i410]);
+                            final Color color411 = new Color(smokey[cm][i + i407 * 466]);
                             final float f412 = (255.0F - color411.getRed()) / 255.0F;
                             final float f413 = (255.0F - color411.getGreen()) / 255.0F;
                             final float f414 = (255.0F - color411.getBlue()) / 255.0F;
-                            int i415 = (int) ((color.getRed() * (flang * f412) + color411.getRed() * (1.0F - f412)) / (flang * f412 + (1.0F - f412)));
-                            int i416 = (int) ((color.getGreen() * (flang * f413) + color411.getGreen() * (1.0F - f413)) / (flang * f413 + (1.0F - f413)));
-                            int i417 = (int) ((color.getBlue() * (flang * f414) + color411.getBlue() * (1.0F - f414)) / (flang * f414 + (1.0F - f414)));
+                            int i415 = (int) ((color.getRed() * (flang[cm] * f412) + color411.getRed() * (1.0F - f412)) / (flang[cm] * f412 + (1.0F - f412)));
+                            int i416 = (int) ((color.getGreen() * (flang[cm] * f413) + color411.getGreen() * (1.0F - f413)) / (flang[cm] * f413 + (1.0F - f413)));
+                            int i417 = (int) ((color.getBlue() * (flang[cm] * f414) + color411.getBlue() * (1.0F - f414)) / (flang[cm] * f414 + (1.0F - f414)));
                             if (i415 > 255) {
                                 i415 = 255;
                             }
@@ -3110,17 +3111,17 @@ class xtGraphics extends JPanel implements Runnable {
                                 i417 = 0;
                             }
                             final Color color418 = new Color(i415, i416, i417);
-                            flexpix[i410] = color418.getRGB();
+                            flexpix[cm][i410] = color418.getRGB();
                         }
                     }
             }
-            flang += 2;
-            flatr += 10 + flatrstart * 2;
-            final Image image = xt.createImage(new MemoryImageSource(670, 400, flexpix, 0, 670));
+            flang[cm] += 2;
+            flatr[cm] += 10 + flatrstart[cm] * 2;
+            final Image image = xt.createImage(new MemoryImageSource(670, 400, flexpix[cm], 0, 670));
             rd.drawImage(image, 65, 25, null);
         } else {
             rd.drawImage(carsbg, 65, 25, null);
-            flatrstart++;
+            flatrstart[cm]++;
         }
     }
 
@@ -3477,12 +3478,12 @@ class xtGraphics extends JPanel implements Runnable {
                         radpx = -468;
                     }
                 }
-                if (flipo == 40) {
+                if (flipo[cm] == 40) {
                     radpx = 213;
                 }
-                flipo++;
-                if (flipo == 70) {
-                    flipo = 0;
+                flipo[cm]++;
+                if (flipo[cm] == 70) {
+                    flipo[cm] = 0;
                 }
                 if (radpx == 212) {
                     rd.setFont(new Font("Arial", 1, 11));
@@ -3620,7 +3621,7 @@ class xtGraphics extends JPanel implements Runnable {
             if (!winner && multion != 0 && (forstart == 700 || discon == 240) && ndisco < 5) {
                 ndisco++;
             }
-            flipo = 0;
+            flipo[cm] = 0;
             control.enter = false;
             control.handb = false;
         }
@@ -3629,8 +3630,8 @@ class xtGraphics extends JPanel implements Runnable {
     static void fleximage(final Image image, final int i) {
         if (!badmac) {
             if (i == 0) {
-                flexpix = new int[360000];
-                final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, 800, 450, flexpix, 0, 800);
+                flexpix[cm] = new int[360000];
+                final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, 800, 450, flexpix[cm], 0, 800);
                 try {
                     pixelgrabber.grabPixels();
                 } catch (final InterruptedException ignored) {
@@ -3644,7 +3645,7 @@ class xtGraphics extends JPanel implements Runnable {
             int i304 = (int) (ThreadLocalRandom.current().nextDouble() * 128.0);
             int i305 = (int) (5.0 + ThreadLocalRandom.current().nextDouble() * 15.0);
             for (int i306 = 0; i306 < 360000; i306++) {
-                final Color color = new Color(flexpix[i306]);
+                final Color color = new Color(flexpix[cm][i306]);
                 int i309;
                 int i310;
                 int i311;
@@ -3674,9 +3675,9 @@ class xtGraphics extends JPanel implements Runnable {
                     i305 = (int) (5.0 + ThreadLocalRandom.current().nextDouble() * 15.0);
                 }
                 final Color color315 = new Color(i312, i313, i314);
-                flexpix[i306] = color315.getRGB();
+                flexpix[cm][i306] = color315.getRGB();
             }
-            fleximg = xt.createImage(new MemoryImageSource(800, 450, flexpix, 0, 800));
+            fleximg = xt.createImage(new MemoryImageSource(800, 450, flexpix[cm], 0, 800));
             rd.drawImage(fleximg, 0, 0, null);
         } else {
             rd.setColor(new Color(0, 0, 0));
@@ -4014,7 +4015,7 @@ class xtGraphics extends JPanel implements Runnable {
     }
 
     static void inishcarselect(final ContO[] cars) {
-        nplayers = 7;
+        nplayers = 8;
         im = 0;
         xstart[0] = 0;
         xstart[1] = -350;
@@ -4174,7 +4175,7 @@ class xtGraphics extends JPanel implements Runnable {
         GameSparker.mcars.alphad = true;
         GameSparker.mcars.carsel = true;
         carsbginflex();
-        flatrstart = 0;
+        flatrstart[cm] = 0;
         Medium.lightson = false;
         pnext = 0;
         pback = 0;
@@ -4310,35 +4311,35 @@ class xtGraphics extends JPanel implements Runnable {
     }
 
     static void inst(final Control control) {
-        if (flipo == 0) {
-            flipo = 1;
+        if (flipo[cm] == 0) {
+            flipo[cm] = 1;
         }
-        if (flipo == 2) {
-            flipo = 3;
+        if (flipo[cm] == 2) {
+            flipo[cm] = 3;
             dudo = 200;
         }
-        if (flipo == 4) {
-            flipo = 5;
+        if (flipo[cm] == 4) {
+            flipo[cm] = 5;
             dudo = 250;
         }
-        if (flipo == 6) {
-            flipo = 7;
+        if (flipo[cm] == 6) {
+            flipo[cm] = 7;
             dudo = 200;
         }
-        if (flipo == 8) {
-            flipo = 9;
+        if (flipo[cm] == 8) {
+            flipo[cm] = 9;
             dudo = 250;
         }
-        if (flipo == 10) {
-            flipo = 11;
+        if (flipo[cm] == 10) {
+            flipo[cm] = 11;
             dudo = 200;
         }
-        if (flipo == 12) {
-            flipo = 13;
+        if (flipo[cm] == 12) {
+            flipo[cm] = 13;
             dudo = 200;
         }
-        if (flipo == 14) {
-            flipo = 15;
+        if (flipo[cm] == 14) {
+            flipo[cm] = 15;
             dudo = 100;
         }
         mainbg(2);
@@ -4349,7 +4350,7 @@ class xtGraphics extends JPanel implements Runnable {
         rd.fillRect(735, 0, 65, 450);
         rd.fillRect(65, 425, 670, 25);
         aflk = !aflk;
-        if (flipo != 1 && flipo != 16) {
+        if (flipo[cm] != 1 && flipo[cm] != 16) {
             if (dudo > 0) {
                 if (aflk)
                     if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
@@ -4368,8 +4369,8 @@ class xtGraphics extends JPanel implements Runnable {
         }
         rd.setColor(new Color(0, 64, 128));
         rd.setFont(new Font("Arial", 1, 13));
-        if (flipo == 3 || flipo == 5) {
-            if (flipo == 3) {
+        if (flipo[cm] == 3 || flipo[cm] == 5) {
+            if (flipo[cm] == 3) {
                 rd.drawString("Hello!  Welcome to the world of", 262, 67);
                 rd.drawString("!", 657, 67);
                 rd.drawImage(nfm, 469, 55, null);
@@ -4402,8 +4403,8 @@ class xtGraphics extends JPanel implements Runnable {
             rd.drawString("Turn right", 590, 375);
             rd.drawString("Handbrake", 247, 374);
         }
-        if (flipo == 7 || flipo == 9) {
-            if (flipo == 7) {
+        if (flipo[cm] == 7 || flipo[cm] == 9) {
+            if (flipo[cm] == 7) {
                 rd.drawString("Whether you are racing or wasting the other cars you will need", 262, 67);
                 rd.drawString("to power up your car.", 262, 87);
                 rd.drawString("=> More 'Power' makes your car become faster and stronger!", 262, 107);
@@ -4440,8 +4441,8 @@ class xtGraphics extends JPanel implements Runnable {
             rd.setColor(new Color(140, 243, 244));
             rd.fillRect(602, 257, 76, 9);
         }
-        if (flipo == 11 || flipo == 13) {
-            if (flipo == 11) {
+        if (flipo[cm] == 11 || flipo[cm] == 13) {
+            if (flipo[cm] == 11) {
                 rd.drawString("When wasting cars, to help you find the other cars in the stage,", 262, 67);
                 rd.drawString("press [ A ] to toggle the guidance arrow from pointing to the track", 262, 87);
                 rd.drawString("to pointing to the cars.", 262, 107);
@@ -4463,7 +4464,7 @@ class xtGraphics extends JPanel implements Runnable {
             rd.drawString("Jumping through it fixes your car.", 158, 338);
             rd.drawString("Make guidance arrow point to cars.", 385, 216);
         }
-        if (flipo == 15) {
+        if (flipo[cm] == 15) {
             rd.drawString("And if you don\u2019t know who I am,", 262, 67);
             rd.drawString("I am Coach Insano, I am the coach and narrator of this game!", 262, 87);
             rd.drawString("I recommended starting with NFM 1 if it\u2019s your first time to play.", 262, 127);
@@ -4486,11 +4487,11 @@ class xtGraphics extends JPanel implements Runnable {
             rd.drawImage(ks, 489, 329, null);
             rd.drawString("Toggle radar / map", 527, 351);
         }
-        if (flipo == 1 || flipo == 16) {
+        if (flipo[cm] == 1 || flipo[cm] == 16) {
             rd.setFont(new Font("Arial", 1, 13));
             ftm = rd.getFontMetrics();
             rd.setColor(new Color(0, 0, 0));
-            if (flipo == 16) {
+            if (flipo[cm] == 16) {
                 rd.drawString("M A I N    C O N T R O L S   -   once again!", 400 - ftm.stringWidth("M A I N    C O N T R O L S   -   once again!") / 2, 49);
             } else {
                 rd.drawString("M A I N    C O N T R O L S", 400 - ftm.stringWidth("M A I N    C O N T R O L S") / 2, 49);
@@ -4525,34 +4526,34 @@ class xtGraphics extends JPanel implements Runnable {
             rd.drawString("Spacebar", 266, 264);
             rd.drawImage(stunts, 125, 285, null);
         }
-        if (flipo >= 1 && flipo <= 15) {
+        if (flipo[cm] >= 1 && flipo[cm] <= 15) {
             rd.drawImage(next[pnext], 665, 395, null);
         }
-        if (flipo >= 3 && flipo <= 16) {
+        if (flipo[cm] >= 3 && flipo[cm] <= 16) {
             rd.drawImage(back[pback], 75, 395, null);
         }
-        if (flipo == 16) {
+        if (flipo[cm] == 16) {
             rd.drawImage(contin[pcontin], 565, 395, null);
         }
         if (control.enter || control.right) {
-            if (control.enter && flipo == 16) {
-                flipo = 0;
+            if (control.enter && flipo[cm] == 16) {
+                flipo[cm] = 0;
                 fase = oldfase;
                 rd.setFont(new Font("Arial", 1, 11));
                 ftm = rd.getFontMetrics();
             }
             control.enter = false;
             control.right = false;
-            if (flipo >= 1 && flipo <= 15) {
-                flipo++;
+            if (flipo[cm] >= 1 && flipo[cm] <= 15) {
+                flipo[cm]++;
             }
         }
         if (control.left) {
-            if (flipo >= 3 && flipo <= 15) {
-                flipo -= 3;
+            if (flipo[cm] >= 3 && flipo[cm] <= 15) {
+                flipo[cm] -= 3;
             }
-            if (flipo == 16) {
-                flipo--;
+            if (flipo[cm] == 16) {
+                flipo[cm]--;
             }
             control.left = false;
         }
@@ -5578,7 +5579,7 @@ class xtGraphics extends JPanel implements Runnable {
                 bgf = 0.2F;
             }
             rd.setColor(new Color(188, 170, 122));
-            if (flipo == 16) {
+            if (flipo[cm] == 16) {
                 final int i30 = (int) (176.0F * bgf + 191.0F * (1.0F - bgf));
                 final int i31 = (int) (202.0F * bgf + 184.0F * (1.0F - bgf));
                 final int i32 = (int) (255.0F * bgf + 124.0F * (1.0F - bgf));
@@ -5656,7 +5657,7 @@ class xtGraphics extends JPanel implements Runnable {
         }
         if (i != -101 && i != 4) {
             for (int i38 = 0; i38 < 2; i38++) {
-                if (i != 2 || flipo != 16) {
+                if (i != 2 || flipo[cm] != 16) {
                     rd.drawImage(bgmain, 65, 25 + bgmy[i38], null);
                 }
                 bgmy[i38] += i26;
@@ -5675,9 +5676,9 @@ class xtGraphics extends JPanel implements Runnable {
     }
 
     static void maini(final Control control) {
-        if (flipo == 0) {
+        if (flipo[cm] == 0) {
             app.setCursor(new Cursor(0));
-            flipo++;
+            flipo[cm]++;
         }
         mainbg(1);
         rd.setComposite(AlphaComposite.getInstance(3, 0.6F));
@@ -5840,7 +5841,7 @@ class xtGraphics extends JPanel implements Runnable {
                 } else {
                     fase = 102;
                 }
-            flipo = 0;
+            flipo[cm] = 0;
             control.enter = false;
             control.handb = false;
         }
@@ -7886,21 +7887,21 @@ class xtGraphics extends JPanel implements Runnable {
         } catch (final Exception ignored) {
 
         }
-        final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, 466, 202, smokey, 0, 466);
+        final PixelGrabber pixelgrabber = new PixelGrabber(image, 0, 0, 466, 202, smokey[cm], 0, 466);
         try {
             pixelgrabber.grabPixels();
         } catch (final InterruptedException ignored) {
 
         }
         for (int i = 0; i < 94132; i++)
-            if (smokey[i] != smokey[0]) {
-                final Color color = new Color(smokey[i]);
+            if (smokey[cm][i] != smokey[cm][0]) {
+                final Color color = new Color(smokey[cm][i]);
                 final float[] fs = new float[3];
                 Color.RGBtoHSB(color.getRed(), color.getGreen(), color.getBlue(), fs);
                 fs[0] = 0.11F;
                 fs[1] = 0.45F;
                 final Color color385 = Color.getHSBColor(fs[0], fs[1], fs[2]);
-                smokey[i] = color385.getRGB();
+                smokey[cm][i] = color385.getRGB();
             }
     }
 
@@ -7965,7 +7966,7 @@ class xtGraphics extends JPanel implements Runnable {
             // which item of the list should be picked
             int k = 0;
 
-            for (int j = 1; j < lastcar; j++) {
+            for (int j = 2; j < lastcar; j++) {
 
                 // get an item from the "deck" - this can be any item as long as it's unique
                 sc[j] = list.get(k);
@@ -8449,7 +8450,7 @@ class xtGraphics extends JPanel implements Runnable {
                     }
                     GameSparker.gmode.move(400 - GameSparker.gmode.getWidth() / 2, 395);
                     if (GameSparker.gmode.getSelectedIndex() == 0 && nplayers != 7) {
-                        nplayers = 7;
+                        nplayers = 8;
                         fase = 2;
                         app.requestFocus();
                     }
