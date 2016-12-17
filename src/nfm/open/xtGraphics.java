@@ -226,7 +226,7 @@ class xtGraphics extends JPanel implements Runnable {
     /**
      * Arrow angle
      */
-    static private int[] ana = Medium.populate(0);
+    static private int ana = 0;
     /**
      * {@link GameSparker} object
      */
@@ -240,7 +240,7 @@ class xtGraphics extends JPanel implements Runnable {
     /**
      * If {@code true}, the arrow is pointing at cars
      */
-    static private boolean[] arrace = Medium.populate(false);
+    static private boolean arrace = false;
     static String[] asay = Medium.populate("");
     static private int auscnt = 45;
     /**
@@ -344,7 +344,7 @@ class xtGraphics extends JPanel implements Runnable {
     static private int flatrstart = 0;
     static int[] flexpix = null;
     static int flipo = 0;
-    static private boolean[] flk = Medium.populate(false);
+    static private boolean flk = false;
     static private int flkat = 0;
     private final static int[] floater = {
             0, 0
@@ -692,30 +692,30 @@ class xtGraphics extends JPanel implements Runnable {
                 i224 = -100;
             }
         }
-        if (Math.abs(ana[cm] - i224) < 180) {
-            if (Math.abs(ana[cm] - i224) < 10) {
-                ana[cm] = i224;
-            } else if (ana[cm] < i224) {
-                ana[cm] += 10;
+        if (Math.abs(ana - i224) < 180) {
+            if (Math.abs(ana - i224) < 10) {
+                ana = i224;
+            } else if (ana < i224) {
+                ana += 10;
             } else {
-                ana[cm] -= 10;
+                ana -= 10;
             }
         } else {
             if (i224 < 0) {
-                ana[cm] += 15;
-                if (ana[cm] > 180) {
-                    ana[cm] -= 360;
+                ana += 15;
+                if (ana > 180) {
+                    ana -= 360;
                 }
             }
             if (i224 > 0) {
-                ana[cm] -= 15;
-                if (ana[cm] < -180) {
-                    ana[cm] += 360;
+                ana -= 15;
+                if (ana < -180) {
+                    ana += 360;
                 }
             }
         }
-        rot(is, is218, i219, i221, ana[cm], 7);
-        i224 = Math.abs(ana[cm]);
+        rot(is, is218, i219, i221, ana, 7);
+        i224 = Math.abs(ana);
         rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         if (!bool) {
             if (i224 > 7 || i216 > 0 || i216 == -2 || cntan[cm] != 0) {
@@ -757,7 +757,7 @@ class xtGraphics extends JPanel implements Runnable {
                             i232 = 255;
                         }
                     }
-                } else if (flk[cm]) {
+                } else if (flk) {
                     i232 = (int) (255.0F + 255.0F * (Medium.snap[0] / 100.0F));
                     if (i232 > 255) {
                         i232 = 255;
@@ -765,7 +765,7 @@ class xtGraphics extends JPanel implements Runnable {
                     if (i232 < 0) {
                         i232 = 0;
                     }
-                    flk[cm] = false;
+                    flk = false;
                 } else {
                     i232 = (int) (255.0F + 255.0F * (Medium.snap[0] / 100.0F));
                     if (i232 > 255) {
@@ -781,7 +781,7 @@ class xtGraphics extends JPanel implements Runnable {
                     if (i233 < 0) {
                         i233 = 0;
                     }
-                    flk[cm] = true;
+                    flk = true;
                 }
                 rd.setColor(new Color(i232, i233, i234));
                 rd.fillPolygon(is, is217, 7);
@@ -806,7 +806,7 @@ class xtGraphics extends JPanel implements Runnable {
                         i233 = (i233 * i224 + Medium.csky[1] * (45 - i224)) / 45;
                         i234 = (i234 * i224 + Medium.csky[2] * (45 - i224)) / 45;
                     }
-                } else if (flk[cm]) {
+                } else if (flk) {
                     i232 = (int) (255.0F + 255.0F * (Medium.snap[0] / 100.0F));
                     if (i232 > 255) {
                         i232 = 255;
@@ -7387,7 +7387,7 @@ class xtGraphics extends JPanel implements Runnable {
                 break;
             }
         }
-        if (arrace[cm] || multion > 1) {
+        if (arrace || multion > 1) {
             final int[] is = new int[nplayers];
             final int[] is245 = new int[nplayers];
             for (int i = 0; i < nplayers; i++) {
@@ -7541,12 +7541,12 @@ class xtGraphics extends JPanel implements Runnable {
     }
 
     static void resetstat(final int i) {
-        arrace[cm] = false;
+        arrace = false;
         alocked[cm] = -1;
         lalocked[cm] = -1;
         cntflock = 90;
         onlock = false;
-        ana[cm] = 0;
+        ana = 0;
         cntan[cm] = 0;
         cntovn[cm] = 0;
         tcnt[cm] = 30;
@@ -8936,12 +8936,12 @@ class xtGraphics extends JPanel implements Runnable {
                 }
             }
             if (bool) {
-                if (CheckPoints.stage != 10 && multion < 2 && nplayers != 1 && arrace[cm] != control.arrace) {
-                    arrace[cm] = control.arrace;
-                    if (multion == 1 && arrace[cm]) {
+                if (CheckPoints.stage != 10 && multion < 2 && nplayers != 1 && arrace != control.arrace) {
+                    arrace = control.arrace;
+                    if (multion == 1 && arrace) {
                         control.radar = true;
                     }
-                    if (arrace[cm]) {
+                    if (arrace) {
                         wasay = true;
                         say[cm] = " Arrow now pointing at >  CARS";
                         if (multion == 1) {
@@ -8949,7 +8949,7 @@ class xtGraphics extends JPanel implements Runnable {
                         }
                         tcnt[cm] = -5;
                     }
-                    if (!arrace[cm]) {
+                    if (!arrace) {
                         wasay = false;
                         say[cm] = " Arrow now pointing at >  TRACK";
                         if (multion == 1) {
@@ -8962,12 +8962,12 @@ class xtGraphics extends JPanel implements Runnable {
                     }
                 }
                 if (!holdit && fase != -6 && starcnt == 0 && multion < 2 && CheckPoints.stage != 10) {
-                    arrow(mad.point, mad.missedcp, arrace[cm]);
-                    if (!arrace[cm]) {
+                    arrow(mad.point, mad.missedcp, arrace);
+                    if (!arrace) {
                         if (auscnt == 45 && mad.capcnt == 0 && exitm == 0)
                             if (mad.missedcp > 0) {
                                 if (mad.missedcp > 15 && mad.missedcp < 50)
-                                    if (flk[cm]) {
+                                    if (flk) {
                                         drawcs(70, "Checkpoint Missed!", 255, 0, 0, 0);
                                     } else {
                                         drawcs(70, "Checkpoint Missed!", 255, 150, 0, 2);
@@ -8977,7 +8977,7 @@ class xtGraphics extends JPanel implements Runnable {
                                     mad.missedcp = -2;
                                 }
                             } else if (mad.mtouch && cntovn[cm] < 70) {
-                                if (Math.abs(ana[cm]) > 100) {
+                                if (Math.abs(ana) > 100) {
                                     cntan[cm]++;
                                 } else if (cntan[cm] != 0) {
                                     cntan[cm]--;
@@ -8985,12 +8985,12 @@ class xtGraphics extends JPanel implements Runnable {
                                 if (cntan[cm] > 40) {
                                     cntovn[cm]++;
                                     cntan[cm] = 40;
-                                    if (flk[cm]) {
+                                    if (flk) {
                                         drawcs(70, "Wrong Way!", 255, 150, 0, 0);
-                                        flk[cm] = false;
+                                        flk = false;
                                     } else {
                                         drawcs(70, "Wrong Way!", 255, 0, 0, 2);
-                                        flk[cm] = true;
+                                        flk = true;
                                     }
                                 }
                             }
