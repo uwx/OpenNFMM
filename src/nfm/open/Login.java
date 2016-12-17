@@ -1,6 +1,4 @@
 package nfm.open;
-import static nfm.open.Medium.cm;
-
 /* Login - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -678,11 +676,11 @@ class Login implements Runnable {
         }
         gotcai = false;
         Medium.crs = true;
-        Medium.x[cm] = -335;
-        Medium.y[cm] = 0;
-        Medium.z[cm] = -50;
-        Medium.xz[cm] = 0;
-        Medium.zy[cm] = 20;
+        Medium.x = -335;
+        Medium.y = 0;
+        Medium.z = -50;
+        Medium.xz = 0;
+        Medium.zy = 20;
         Medium.ground = -2000;
         pend = 0;
         pendb = false;
@@ -819,11 +817,11 @@ class Login implements Runnable {
         msg = "";
         gotcai = false;
         Medium.crs = true;
-        Medium.x[cm] = -335;
-        Medium.y[cm] = 0;
-        Medium.z[cm] = -50;
-        Medium.xz[cm] = 0;
-        Medium.zy[cm] = 20;
+        Medium.x = -335;
+        Medium.y = 0;
+        Medium.z = -50;
+        Medium.xz = 0;
+        Medium.zy = 20;
         Medium.ground = -2000;
         pend = 0;
         pendb = false;

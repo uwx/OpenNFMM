@@ -1,9 +1,6 @@
 package nfm.open;
 
 import javax.swing.*;
-
-import static nfm.open.Medium.cm;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Map;
@@ -94,10 +91,10 @@ public final class Utility {
      * @return The 2D X coordinate.
      */
     static int xs(final int i, int i338) {
-        if (i338 < Medium.cz[cm]) {
-            i338 = Medium.cz[cm];
+        if (i338 < Medium.cz) {
+            i338 = Medium.cz;
         }
-        return (i338 - Medium.focusPoint) * (Medium.cx[cm] - i) / i338 + i;
+        return (i338 - Medium.focusPoint) * (Medium.cx - i) / i338 + i;
     }
 
     /**
@@ -111,10 +108,10 @@ public final class Utility {
      * @return The 2D Y coordinate.
      */
     static int ys(final int i, int i339) {
-        if (i339 < Medium.cz[cm]) {
-            i339 = Medium.cz[cm];
+        if (i339 < Medium.cz) {
+            i339 = Medium.cz;
         }
-        return (i339 - Medium.focusPoint) * (Medium.cy[cm] - i) / i339 + i;
+        return (i339 - Medium.focusPoint) * (Medium.cy - i) / i339 + i;
     }
 
     // alt
@@ -123,14 +120,14 @@ public final class Utility {
         if (i260 < 50) {
             i260 = 50;
         }
-        return (i260 - Medium.focusPoint) * (Medium.cx[cm] - i) / i260 + i;
+        return (i260 - Medium.focusPoint) * (Medium.cx - i) / i260 + i;
     }
 
     static int altYs(final int i, int i261) {
         if (i261 < 50) {
             i261 = 50;
         }
-        return (i261 - Medium.focusPoint) * (Medium.cy[cm] - i) / i261 + i;
+        return (i261 - Medium.focusPoint) * (Medium.cy - i) / i261 + i;
     }
 
     // medium
@@ -145,7 +142,7 @@ public final class Utility {
         if (i273 < 10) {
             i273 = 10;
         }
-        return (i273 - Medium.focusPoint) * (Medium.cy[cm] - i) / i273 + i;
+        return (i273 - Medium.focusPoint) * (Medium.cy - i) / i273 + i;
     }
 
     public static int getint(final String string, final String string262, final int i) {

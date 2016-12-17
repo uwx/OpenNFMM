@@ -1,5 +1,10 @@
 package nfm.open;
-import static nfm.open.Medium.cm;
+
+/* StageMaker - Decompiled by JODE extended
+ * DragShot Software
+ * JODE (c) 1998-2001 Jochen Hoenicke
+ */
+import nfm.open.music.RadicalMod;
 
 import java.applet.Applet;
 import java.awt.AlphaComposite;
@@ -2570,17 +2575,17 @@ public class StageMaker extends Applet implements Runnable {
                 rd.setColor(new Color(200, 200, 200));
                 rd.fillRect(248, 63, 514, 454);
                 Medium.trk = 2;
-                Medium.zy[cm] = 90;
-                Medium.xz[cm] = 0;
-                Medium.iw[cm] = 248;
-                Medium.w[cm] = 762;
-                Medium.ih[cm] = 63;
-                Medium.h[cm] = 517;
-                Medium.cx[cm] = 505;
-                Medium.cy[cm] = 290;
-                Medium.x[cm] = sx - Medium.cx[cm];
-                Medium.z[cm] = sz - Medium.cz[cm];
-                Medium.y[cm] = sy;
+                Medium.zy = 90;
+                Medium.xz = 0;
+                Medium.iw = 248;
+                Medium.w = 762;
+                Medium.ih = 63;
+                Medium.h = 517;
+                Medium.cx = 505;
+                Medium.cy = 290;
+                Medium.x = sx - Medium.cx;
+                Medium.z = sz - Medium.cz;
+                Medium.y = sy;
                 int i = 0;
                 final int[] is = new int[10000]; // stageselect limit
                 for (int i2 = 0; i2 < nob; i2++)
@@ -2615,10 +2620,10 @@ public class StageMaker extends Applet implements Runnable {
                                 Medium.trk = 3;
                             }
                             if (is[i8] == chi && !co[is[i8]].errd) {
-                                final int i9 = Medium.cx[cm] + (int) ((co[is[i8]].x - Medium.x[cm] - Medium.cx[cm]) * Medium.cos(Medium.xz[cm]) - (co[is[i8]].z - Medium.z[cm] - Medium.cz[cm]) * Medium.sin(Medium.xz[cm]));
-                                final int i10 = Medium.cz[cm] + (int) ((co[is[i8]].x - Medium.x[cm] - Medium.cx[cm]) * Medium.sin(Medium.xz[cm]) + (co[is[i8]].z - Medium.z[cm] - Medium.cz[cm]) * Medium.cos(Medium.xz[cm]));
-                                final int i11 = Medium.cy[cm] + (int) ((co[is[i8]].y - Medium.y[cm] - Medium.cy[cm]) * Medium.cos(Medium.zy[cm]) - (i10 - Medium.cz[cm]) * Medium.sin(Medium.zy[cm]));
-                                final int i12 = Medium.cz[cm] + (int) ((co[is[i8]].y - Medium.y[cm] - Medium.cy[cm]) * Medium.sin(Medium.zy[cm]) + (i10 - Medium.cz[cm]) * Medium.cos(Medium.zy[cm]));
+                                final int i9 = Medium.cx + (int) ((co[is[i8]].x - Medium.x - Medium.cx) * Medium.cos(Medium.xz) - (co[is[i8]].z - Medium.z - Medium.cz) * Medium.sin(Medium.xz));
+                                final int i10 = Medium.cz + (int) ((co[is[i8]].x - Medium.x - Medium.cx) * Medium.sin(Medium.xz) + (co[is[i8]].z - Medium.z - Medium.cz) * Medium.cos(Medium.xz));
+                                final int i11 = Medium.cy + (int) ((co[is[i8]].y - Medium.y - Medium.cy) * Medium.cos(Medium.zy) - (i10 - Medium.cz) * Medium.sin(Medium.zy));
+                                final int i12 = Medium.cz + (int) ((co[is[i8]].y - Medium.y - Medium.cy) * Medium.sin(Medium.zy) + (i10 - Medium.cz) * Medium.cos(Medium.zy));
                                 final int i13 = 1000000 / Math.abs(sy);
                                 final Graphics2D graphics2d = rd;
                                 graphics2d.setComposite(AlphaComposite.getInstance(3, 0.7F));
@@ -2631,10 +2636,10 @@ public class StageMaker extends Applet implements Runnable {
                                 rd.drawString("NO# " + (arrcnt + 1) + "", Utility.xs(i9, i12) - ftm.stringWidth("NO# " + (arrcnt + 1) + "") / 2, Utility.ys(i11, i12) - i13 / 2);
                             }
                             if (arrng && (co[is[i8]].colok == 30 || co[is[i8]].colok == 32 || co[is[i8]].colok == 54) && co[is[i8]].errd) {
-                                final int i14 = Medium.cx[cm] + (int) ((co[is[i8]].x - Medium.x[cm] - Medium.cx[cm]) * Medium.cos(Medium.xz[cm]) - (co[is[i8]].z - Medium.z[cm] - Medium.cz[cm]) * Medium.sin(Medium.xz[cm]));
-                                final int i15 = Medium.cz[cm] + (int) ((co[is[i8]].x - Medium.x[cm] - Medium.cx[cm]) * Medium.sin(Medium.xz[cm]) + (co[is[i8]].z - Medium.z[cm] - Medium.cz[cm]) * Medium.cos(Medium.xz[cm]));
-                                final int i16 = Medium.cy[cm] + (int) ((co[is[i8]].y - Medium.y[cm] - Medium.cy[cm]) * Medium.cos(Medium.zy[cm]) - (i15 - Medium.cz[cm]) * Medium.sin(Medium.zy[cm]));
-                                final int i17 = Medium.cz[cm] + (int) ((co[is[i8]].y - Medium.y[cm] - Medium.cy[cm]) * Medium.sin(Medium.zy[cm]) + (i15 - Medium.cz[cm]) * Medium.cos(Medium.zy[cm]));
+                                final int i14 = Medium.cx + (int) ((co[is[i8]].x - Medium.x - Medium.cx) * Medium.cos(Medium.xz) - (co[is[i8]].z - Medium.z - Medium.cz) * Medium.sin(Medium.xz));
+                                final int i15 = Medium.cz + (int) ((co[is[i8]].x - Medium.x - Medium.cx) * Medium.sin(Medium.xz) + (co[is[i8]].z - Medium.z - Medium.cz) * Medium.cos(Medium.xz));
+                                final int i16 = Medium.cy + (int) ((co[is[i8]].y - Medium.y - Medium.cy) * Medium.cos(Medium.zy) - (i15 - Medium.cz) * Medium.sin(Medium.zy));
+                                final int i17 = Medium.cz + (int) ((co[is[i8]].y - Medium.y - Medium.cy) * Medium.sin(Medium.zy) + (i15 - Medium.cz) * Medium.cos(Medium.zy));
                                 final int i18 = 1000000 / Math.abs(sy);
                                 final Graphics2D graphics2d = rd;
                                 graphics2d.setComposite(AlphaComposite.getInstance(3, 0.5F));
@@ -2946,10 +2951,10 @@ public class StageMaker extends Applet implements Runnable {
                                 hi = -1;
                                 int i41 = 0;
                                 for (int i42 = 0; i42 < nob; i42++) {
-                                    final int i43 = Medium.cx[cm] + (int) ((co[i42].x - Medium.x[cm] - Medium.cx[cm]) * Medium.cos(Medium.xz[cm]) - (co[i42].z - Medium.z[cm] - Medium.cz[cm]) * Medium.sin(Medium.xz[cm]));
-                                    final int i44 = Medium.cz[cm] + (int) ((co[i42].x - Medium.x[cm] - Medium.cx[cm]) * Medium.sin(Medium.xz[cm]) + (co[i42].z - Medium.z[cm] - Medium.cz[cm]) * Medium.cos(Medium.xz[cm]));
-                                    final int i45 = Medium.cy[cm] + (int) ((co[i42].y - Medium.y[cm] - Medium.cy[cm]) * Medium.cos(Medium.zy[cm]) - (i44 - Medium.cz[cm]) * Medium.sin(Medium.zy[cm]));
-                                    final int i46 = Medium.cz[cm] + (int) ((co[i42].y - Medium.y[cm] - Medium.cy[cm]) * Medium.sin(Medium.zy[cm]) + (i44 - Medium.cz[cm]) * Medium.cos(Medium.zy[cm]));
+                                    final int i43 = Medium.cx + (int) ((co[i42].x - Medium.x - Medium.cx) * Medium.cos(Medium.xz) - (co[i42].z - Medium.z - Medium.cz) * Medium.sin(Medium.xz));
+                                    final int i44 = Medium.cz + (int) ((co[i42].x - Medium.x - Medium.cx) * Medium.sin(Medium.xz) + (co[i42].z - Medium.z - Medium.cz) * Medium.cos(Medium.xz));
+                                    final int i45 = Medium.cy + (int) ((co[i42].y - Medium.y - Medium.cy) * Medium.cos(Medium.zy) - (i44 - Medium.cz) * Medium.sin(Medium.zy));
+                                    final int i46 = Medium.cz + (int) ((co[i42].y - Medium.y - Medium.cy) * Medium.sin(Medium.zy) + (i44 - Medium.cz) * Medium.cos(Medium.zy));
                                     if (xm > Utility.xs(i43 - co[i42].maxR, i46) && xm < Utility.xs(i43 + co[i42].maxR, i46) && ym > Utility.ys(i45 - co[i42].maxR, i46) && ym < Utility.ys(i45 + co[i42].maxR, i46) && co[i42].colok != 37 && co[i42].colok != 38)
                                         if (hi == -1) {
                                             hi = i42;
@@ -2981,10 +2986,10 @@ public class StageMaker extends Applet implements Runnable {
                             int i47 = 5000;
                             for (int i48 = 0; i48 < nob; i48++)
                                 if ((co[i48].colok == 30 || co[i48].colok == 32 || co[i48].colok == 54) && !co[i48].errd) {
-                                    final int i49 = Medium.cx[cm] + (int) ((co[i48].x - Medium.x[cm] - Medium.cx[cm]) * Medium.cos(Medium.xz[cm]) - (co[i48].z - Medium.z[cm] - Medium.cz[cm]) * Medium.sin(Medium.xz[cm]));
-                                    final int i50 = Medium.cz[cm] + (int) ((co[i48].x - Medium.x[cm] - Medium.cx[cm]) * Medium.sin(Medium.xz[cm]) + (co[i48].z - Medium.z[cm] - Medium.cz[cm]) * Medium.cos(Medium.xz[cm]));
-                                    final int i51 = Medium.cy[cm] + (int) ((co[i48].y - Medium.y[cm] - Medium.cy[cm]) * Medium.cos(Medium.zy[cm]) - (i50 - Medium.cz[cm]) * Medium.sin(Medium.zy[cm]));
-                                    final int i52 = Medium.cz[cm] + (int) ((co[i48].y - Medium.y[cm] - Medium.cy[cm]) * Medium.sin(Medium.zy[cm]) + (i50 - Medium.cz[cm]) * Medium.cos(Medium.zy[cm]));
+                                    final int i49 = Medium.cx + (int) ((co[i48].x - Medium.x - Medium.cx) * Medium.cos(Medium.xz) - (co[i48].z - Medium.z - Medium.cz) * Medium.sin(Medium.xz));
+                                    final int i50 = Medium.cz + (int) ((co[i48].x - Medium.x - Medium.cx) * Medium.sin(Medium.xz) + (co[i48].z - Medium.z - Medium.cz) * Medium.cos(Medium.xz));
+                                    final int i51 = Medium.cy + (int) ((co[i48].y - Medium.y - Medium.cy) * Medium.cos(Medium.zy) - (i50 - Medium.cz) * Medium.sin(Medium.zy));
+                                    final int i52 = Medium.cz + (int) ((co[i48].y - Medium.y - Medium.cy) * Medium.sin(Medium.zy) + (i50 - Medium.cz) * Medium.cos(Medium.zy));
                                     if (xm > Utility.xs(i49 - co[i48].maxR, i52) && xm < Utility.xs(i49 + co[i48].maxR, i52) && ym > Utility.ys(i51 - co[i48].maxR, i52) && ym < Utility.ys(i51 + co[i48].maxR, i52) && py(xm, Utility.xs(i49, i52), ym, Utility.ys(i51, i52)) <= i47) {
                                         chi = i48;
                                         i47 = py(xm, Utility.xs(i49, i52), ym, Utility.ys(i51, i52));
@@ -3014,15 +3019,15 @@ public class StageMaker extends Applet implements Runnable {
                 }
                 if (epart && esp != -1)
                     if (co[esp].dist != 0) {
-                        Medium.cx[cm] = 505;
-                        Medium.cy[cm] = 290;
-                        Medium.x[cm] = sx - Medium.cx[cm];
-                        Medium.z[cm] = sz - Medium.cz[cm];
-                        Medium.y[cm] = sy;
-                        final int i53 = Medium.cx[cm] + (int) ((co[esp].x - Medium.x[cm] - Medium.cx[cm]) * Medium.cos(Medium.xz[cm]) - (co[esp].z - Medium.z[cm] - Medium.cz[cm]) * Medium.sin(Medium.xz[cm]));
-                        final int i54 = Medium.cz[cm] + (int) ((co[esp].x - Medium.x[cm] - Medium.cx[cm]) * Medium.sin(Medium.xz[cm]) + (co[esp].z - Medium.z[cm] - Medium.cz[cm]) * Medium.cos(Medium.xz[cm]));
-                        final int i55 = Medium.cy[cm] + (int) ((co[esp].y - Medium.y[cm] - Medium.cy[cm]) * Medium.cos(Medium.zy[cm]) - (i54 - Medium.cz[cm]) * Medium.sin(Medium.zy[cm]));
-                        final int i56 = Medium.cz[cm] + (int) ((co[esp].y - Medium.y[cm] - Medium.cy[cm]) * Medium.sin(Medium.zy[cm]) + (i54 - Medium.cz[cm]) * Medium.cos(Medium.zy[cm]));
+                        Medium.cx = 505;
+                        Medium.cy = 290;
+                        Medium.x = sx - Medium.cx;
+                        Medium.z = sz - Medium.cz;
+                        Medium.y = sy;
+                        final int i53 = Medium.cx + (int) ((co[esp].x - Medium.x - Medium.cx) * Medium.cos(Medium.xz) - (co[esp].z - Medium.z - Medium.cz) * Medium.sin(Medium.xz));
+                        final int i54 = Medium.cz + (int) ((co[esp].x - Medium.x - Medium.cx) * Medium.sin(Medium.xz) + (co[esp].z - Medium.z - Medium.cz) * Medium.cos(Medium.xz));
+                        final int i55 = Medium.cy + (int) ((co[esp].y - Medium.y - Medium.cy) * Medium.cos(Medium.zy) - (i54 - Medium.cz) * Medium.sin(Medium.zy));
+                        final int i56 = Medium.cz + (int) ((co[esp].y - Medium.y - Medium.cy) * Medium.sin(Medium.zy) + (i54 - Medium.cz) * Medium.cos(Medium.zy));
                         final int i57 = Utility.xs(i53, i56);
                         final int i58 = Utility.ys(i55, i56);
                         rd.setColor(new Color(225, 225, 225));
@@ -3345,35 +3350,35 @@ public class StageMaker extends Applet implements Runnable {
                 }
                 // CAMERA POSITION FOR THE CONTO PREVIEW SHIT
                 Medium.trk = 2;
-                Medium.zy[cm] = 90;
-                Medium.xz[cm] = 0;
-                Medium.iw[cm] = 10;
-                Medium.w[cm] = 210;
-                Medium.ih[cm] = 130;
-                Medium.h[cm] = 330;
-                Medium.cx[cm] = 110;
-                Medium.cy[cm] = 230;
-                Medium.x[cm] = -110;
-                Medium.z[cm] = -230;
-                Medium.y[cm] = -15000;
+                Medium.zy = 90;
+                Medium.xz = 0;
+                Medium.iw = 10;
+                Medium.w = 210;
+                Medium.ih = 130;
+                Medium.h = 330;
+                Medium.cx = 110;
+                Medium.cy = 230;
+                Medium.x = -110;
+                Medium.z = -230;
+                Medium.y = -15000;
                 if (selectedPartType == PART_RAMPS && selectedPart != 20 && selectedPart != 21 && selectedPart != 43 && selectedPart != 45) {
-                    Medium.y[cm] = -10000;
+                    Medium.y = -10000;
                 }
                 if (selectedPartType == PART_OBSTACLES && selectedPart != 41) {
-                    Medium.y[cm] = -7600;
+                    Medium.y = -7600;
                 }
                 if (selectedPartType == PART_CHECKPOINTS || selectedPartType == PART_FIXHOOPS) {
-                    Medium.y[cm] = -5000;
+                    Medium.y = -5000;
                 }
                 if (selectedPartType == PART_TREES) {
-                    Medium.y[cm] = -3000;
-                    Medium.z[cm] = 150;
+                    Medium.y = -3000;
+                    Medium.z = 150;
                 }
                 if (selectedPartType == PART_BUMP) {
-                    Medium.y[cm] = -7600;
+                    Medium.y = -7600;
                 }
                 if (selectedPart == 31) {
-                    Medium.z[cm] = -500;
+                    Medium.z = -500;
                     bco[selectedPart].roted = rot != 0;
                 }
                 bco[selectedPart].x = 0;
@@ -3648,22 +3653,22 @@ public class StageMaker extends Applet implements Runnable {
                     setcur = false;
                     vxz = 0;
                     vx = sx - 400;
-                    vz = sz - Medium.cz[cm] - 8000;
+                    vz = sz - Medium.cz - 8000;
                     vy = -1500;
                     dtabed = -1;
                 }
                 Medium.trk = 0;
-                Medium.zy[cm] = 6;
-                Medium.iw[cm] = 10;
-                Medium.w[cm] = 790;
-                Medium.ih[cm] = 35;
-                Medium.h[cm] = 445;
-                Medium.cx[cm] = 400;
-                Medium.cy[cm] = 215;
-                Medium.xz[cm] = vxz;
-                Medium.x[cm] = vx;
-                Medium.z[cm] = vz;
-                Medium.y[cm] = vy;
+                Medium.zy = 6;
+                Medium.iw = 10;
+                Medium.w = 790;
+                Medium.ih = 35;
+                Medium.h = 445;
+                Medium.cx = 400;
+                Medium.cy = 215;
+                Medium.xz = vxz;
+                Medium.x = vx;
+                Medium.z = vz;
+                Medium.y = vy;
                 Medium.d(rd);
                 int i = 0;
                 final int[] is = new int[10000]; // stageselect limit
@@ -3705,12 +3710,12 @@ public class StageMaker extends Applet implements Runnable {
                         }
                 }
                 if (up) {
-                    vz += 500.0F * Medium.cos(Medium.xz[cm]);
-                    vx += 500.0F * Medium.sin(Medium.xz[cm]);
+                    vz += 500.0F * Medium.cos(Medium.xz);
+                    vx += 500.0F * Medium.sin(Medium.xz);
                 }
                 if (down) {
-                    vz -= 500.0F * Medium.cos(Medium.xz[cm]);
-                    vx -= 500.0F * Medium.sin(Medium.xz[cm]);
+                    vz -= 500.0F * Medium.cos(Medium.xz);
+                    vx -= 500.0F * Medium.sin(Medium.xz);
                 }
                 if (left) {
                     vxz -= 5;

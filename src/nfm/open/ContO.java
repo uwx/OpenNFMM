@@ -1,6 +1,4 @@
 package nfm.open;
-import static nfm.open.Medium.cm;
-
 /* ContO - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -1289,11 +1287,11 @@ class ContO {
         if (dist != 0) {
             dist = 0;
         }
-        final int i = Medium.cx[cm] + (int) ((x - Medium.x[cm] - Medium.cx[cm]) * Medium.cos(Medium.xz[cm]) - (z - Medium.z[cm] - Medium.cz[cm]) * Medium.sin(Medium.xz[cm]));
-        final int i124 = Medium.cz[cm] + (int) ((x - Medium.x[cm] - Medium.cx[cm]) * Medium.sin(Medium.xz[cm]) + (z - Medium.z[cm] - Medium.cz[cm]) * Medium.cos(Medium.xz[cm]));
-        final int i125 = Medium.cz[cm] + (int) ((y - Medium.y[cm] - Medium.cy[cm]) * Medium.sin(Medium.zy[cm]) + (i124 - Medium.cz[cm]) * Medium.cos(Medium.zy[cm]));
+        final int i = Medium.cx + (int) ((x - Medium.x - Medium.cx) * Medium.cos(Medium.xz) - (z - Medium.z - Medium.cz) * Medium.sin(Medium.xz));
+        final int i124 = Medium.cz + (int) ((x - Medium.x - Medium.cx) * Medium.sin(Medium.xz) + (z - Medium.z - Medium.cz) * Medium.cos(Medium.xz));
+        final int i125 = Medium.cz + (int) ((y - Medium.y - Medium.cy) * Medium.sin(Medium.zy) + (i124 - Medium.cz) * Medium.cos(Medium.zy));
         int i126 = xs(i + maxR, i125) - xs(i - maxR, i125);
-        if (xs(i + maxR * 2, i125) > Medium.iw[cm] && xs(i - maxR * 2, i125) < Medium.w[cm] && i125 > -maxR && (i125 < Medium.fade[disline] + maxR || Medium.trk != 0) && (i126 > disp || Medium.trk != 0) && (!decor || Medium.resdown != 2 && Medium.trk != 1)) {
+        if (xs(i + maxR * 2, i125) > Medium.iw && xs(i - maxR * 2, i125) < Medium.w && i125 > -maxR && (i125 < Medium.fade[disline] + maxR || Medium.trk != 0) && (i126 > disp || Medium.trk != 0) && (!decor || Medium.resdown != 2 && Medium.trk != 1)) {
             if (shadow)
                 if (!Medium.crs) {
                     if (i125 < 2000) {
@@ -1323,28 +1321,28 @@ class ContO {
                         }
                         if (bool) {
                             for (int i131 = 0; i131 < npl; i131++) {
-                                p[i131].s(graphics2d, x - Medium.x[cm], y - Medium.y[cm], z - Medium.z[cm], xz, xy, zy, 0);
+                                p[i131].s(graphics2d, x - Medium.x, y - Medium.y, z - Medium.z, xz, xy, zy, 0);
                             }
                         } else {
-                            final int i132 = Medium.cy[cm] + (int) ((Medium.ground - Medium.cy[cm]) * Medium.cos(Medium.zy[cm]) - (i124 - Medium.cz[cm]) * Medium.sin(Medium.zy[cm]));
-                            final int i133 = Medium.cz[cm] + (int) ((Medium.ground - Medium.cy[cm]) * Medium.sin(Medium.zy[cm]) + (i124 - Medium.cz[cm]) * Medium.cos(Medium.zy[cm]));
-                            if (ys(i132 + maxR, i133) > 0 && ys(i132 - maxR, i133) < Medium.h[cm]) {
+                            final int i132 = Medium.cy + (int) ((Medium.ground - Medium.cy) * Medium.cos(Medium.zy) - (i124 - Medium.cz) * Medium.sin(Medium.zy));
+                            final int i133 = Medium.cz + (int) ((Medium.ground - Medium.cy) * Medium.sin(Medium.zy) + (i124 - Medium.cz) * Medium.cos(Medium.zy));
+                            if (ys(i132 + maxR, i133) > 0 && ys(i132 - maxR, i133) < Medium.h) {
                                 for (int i134 = 0; i134 < npl; i134++) {
-                                    p[i134].s(graphics2d, x - Medium.x[cm], y - Medium.y[cm], z - Medium.z[cm], xz, xy, zy, 1);
+                                    p[i134].s(graphics2d, x - Medium.x, y - Medium.y, z - Medium.z, xz, xy, zy, 1);
                                 }
                             }
                         }
-                        Medium.addsp(x - Medium.x[cm], z - Medium.z[cm], (int) (maxR * 0.8));
+                        Medium.addsp(x - Medium.x, z - Medium.z, (int) (maxR * 0.8));
                     } else {
                         lowshadow(graphics2d, i125);
                     }
                 } else {
                     for (int i135 = 0; i135 < npl; i135++) {
-                        p[i135].s(graphics2d, x - Medium.x[cm], y - Medium.y[cm], z - Medium.z[cm], xz, xy, zy, 2);
+                        p[i135].s(graphics2d, x - Medium.x, y - Medium.y, z - Medium.z, xz, xy, zy, 2);
                     }
                 }
-            final int i136 = Medium.cy[cm] + (int) ((y - Medium.y[cm] - Medium.cy[cm]) * Medium.cos(Medium.zy[cm]) - (i124 - Medium.cz[cm]) * Medium.sin(Medium.zy[cm]));
-            if (ys(i136 + maxR, i125) > Medium.ih[cm] && ys(i136 - maxR, i125) < Medium.h[cm]) {
+            final int i136 = Medium.cy + (int) ((y - Medium.y - Medium.cy) * Medium.cos(Medium.zy) - (i124 - Medium.cz) * Medium.sin(Medium.zy));
+            if (ys(i136 + maxR, i125) > Medium.ih && ys(i136 - maxR, i125) < Medium.h) {
                 if (elec && Medium.noelec == 0) {
                     electrify(graphics2d);
                 }
@@ -1355,7 +1353,7 @@ class ContO {
                     i126 = -1;
                 }
                 if (shadow) {
-                    dist = (int) Math.sqrt((Medium.x[cm] + Medium.cx[cm] - x) * (Medium.x[cm] + Medium.cx[cm] - x) + (Medium.z[cm] - z) * (Medium.z[cm] - z) + (Medium.y[cm] + Medium.cy[cm] - y) * (Medium.y[cm] + Medium.cy[cm] - y));
+                    dist = (int) Math.sqrt((Medium.x + Medium.cx - x) * (Medium.x + Medium.cx - x) + (Medium.z - z) * (Medium.z - z) + (Medium.y + Medium.cy - y) * (Medium.y + Medium.cy - y));
                     for (int i137 = 0; i137 < 20; i137++)
                         if (stg[i137] != 0) {
                             pdust(i137, graphics2d, true);
@@ -1365,11 +1363,11 @@ class ContO {
                 Arrays.sort(p, 0, npl);
                 
                 int _npl = npl - 1;
-                p[0].d(p[0], p[1], graphics2d, x - Medium.x[cm], y - Medium.y[cm], z - Medium.z[cm], xz, xy, zy, wxz, wzy, noline, i126);
+                p[0].d(p[0], p[1], graphics2d, x - Medium.x, y - Medium.y, z - Medium.z, xz, xy, zy, wxz, wzy, noline, i126);
                 for (int j = 1; j < _npl; j++) {
-                    p[j].d(p[j-1], p[j+1], graphics2d, x - Medium.x[cm], y - Medium.y[cm], z - Medium.z[cm], xz, xy, zy, wxz, wzy, noline, i126);
+                    p[j].d(p[j-1], p[j+1], graphics2d, x - Medium.x, y - Medium.y, z - Medium.z, xz, xy, zy, wxz, wzy, noline, i126);
                 }
-                p[_npl].d(p[_npl-1], null, graphics2d, x - Medium.x[cm], y - Medium.y[cm], z - Medium.z[cm], xz, xy, zy, wxz, wzy, noline, i126);
+                p[_npl].d(p[_npl-1], null, graphics2d, x - Medium.x, y - Medium.y, z - Medium.z, xz, xy, zy, wxz, wzy, noline, i126);
                 
                 if (shadow) {
                     for (int i143 = 0; i143 < 20; i143++)
@@ -1378,7 +1376,7 @@ class ContO {
                         }
                     dsprk(graphics2d, false);
                 }
-                dist = (int) (Math.sqrt((int) Math.sqrt((Medium.x[cm] + Medium.cx[cm] - x) * (Medium.x[cm] + Medium.cx[cm] - x) + (Medium.z[cm] - z) * (Medium.z[cm] - z) + (Medium.y[cm] + Medium.cy[cm] - y) * (Medium.y[cm] + Medium.cy[cm] - y))) * grounded);
+                dist = (int) (Math.sqrt((int) Math.sqrt((Medium.x + Medium.cx - x) * (Medium.x + Medium.cx - x) + (Medium.z - z) * (Medium.z - z) + (Medium.y + Medium.cy - y) * (Medium.y + Medium.cy - y))) * grounded);
             }
         }
         if (shadow && dist == 0) {
@@ -1401,7 +1399,7 @@ class ContO {
             int i = (int) (Math.sqrt(rcx * rcx + rcy * rcy + rcz * rcz) / 10.0);
             if (i > 5) {
                 boolean bool240 = false;
-                if (dist < Math.sqrt((Medium.x[cm] + Medium.cx[cm] - srx) * (Medium.x[cm] + Medium.cx[cm] - srx) + (Medium.y[cm] + Medium.cy[cm] - sry) * (Medium.y[cm] + Medium.cy[cm] - sry) + (Medium.z[cm] - srz) * (Medium.z[cm] - srz))) {
+                if (dist < Math.sqrt((Medium.x + Medium.cx - srx) * (Medium.x + Medium.cx - srx) + (Medium.y + Medium.cy - sry) * (Medium.y + Medium.cy - sry) + (Medium.z - srz) * (Medium.z - srz))) {
                     bool240 = true;
                 }
                 if (i > 33) {
@@ -1461,28 +1459,28 @@ class ContO {
                 rx[i] += vrx[i];
                 ry[i] += vry[i];
                 rz[i] += vrz[i];
-                final int i246 = Medium.cx[cm] + (int) ((rx[i] - Medium.x[cm] - Medium.cx[cm]) * Medium.cos(Medium.xz[cm]) - (rz[i] - Medium.z[cm] - Medium.cz[cm]) * Medium.sin(Medium.xz[cm]));
-                int i247 = Medium.cz[cm] + (int) ((rx[i] - Medium.x[cm] - Medium.cx[cm]) * Medium.sin(Medium.xz[cm]) + (rz[i] - Medium.z[cm] - Medium.cz[cm]) * Medium.cos(Medium.xz[cm]));
-                final int i248 = Medium.cy[cm] + (int) ((ry[i] - Medium.y[cm] - Medium.cy[cm]) * Medium.cos(Medium.zy[cm]) - (i247 - Medium.cz[cm]) * Medium.sin(Medium.zy[cm]));
-                i247 = Medium.cz[cm] + (int) ((ry[i] - Medium.y[cm] - Medium.cy[cm]) * Medium.sin(Medium.zy[cm]) + (i247 - Medium.cz[cm]) * Medium.cos(Medium.zy[cm]));
-                final int i249 = Medium.cx[cm] + (int) ((rx[i] - Medium.x[cm] - Medium.cx[cm] + vrx[i]) * Medium.cos(Medium.xz[cm]) - (rz[i] - Medium.z[cm] - Medium.cz[cm] + vrz[i]) * Medium.sin(Medium.xz[cm]));
-                int i250 = Medium.cz[cm] + (int) ((rx[i] - Medium.x[cm] - Medium.cx[cm] + vrx[i]) * Medium.sin(Medium.xz[cm]) + (rz[i] - Medium.z[cm] - Medium.cz[cm] + vrz[i]) * Medium.cos(Medium.xz[cm]));
-                final int i251 = Medium.cy[cm] + (int) ((ry[i] - Medium.y[cm] - Medium.cy[cm] + vry[i]) * Medium.cos(Medium.zy[cm]) - (i250 - Medium.cz[cm]) * Medium.sin(Medium.zy[cm]));
-                i250 = Medium.cz[cm] + (int) ((ry[i] - Medium.y[cm] - Medium.cy[cm] + vry[i]) * Medium.sin(Medium.zy[cm]) + (i250 - Medium.cz[cm]) * Medium.cos(Medium.zy[cm]));
+                final int i246 = Medium.cx + (int) ((rx[i] - Medium.x - Medium.cx) * Medium.cos(Medium.xz) - (rz[i] - Medium.z - Medium.cz) * Medium.sin(Medium.xz));
+                int i247 = Medium.cz + (int) ((rx[i] - Medium.x - Medium.cx) * Medium.sin(Medium.xz) + (rz[i] - Medium.z - Medium.cz) * Medium.cos(Medium.xz));
+                final int i248 = Medium.cy + (int) ((ry[i] - Medium.y - Medium.cy) * Medium.cos(Medium.zy) - (i247 - Medium.cz) * Medium.sin(Medium.zy));
+                i247 = Medium.cz + (int) ((ry[i] - Medium.y - Medium.cy) * Medium.sin(Medium.zy) + (i247 - Medium.cz) * Medium.cos(Medium.zy));
+                final int i249 = Medium.cx + (int) ((rx[i] - Medium.x - Medium.cx + vrx[i]) * Medium.cos(Medium.xz) - (rz[i] - Medium.z - Medium.cz + vrz[i]) * Medium.sin(Medium.xz));
+                int i250 = Medium.cz + (int) ((rx[i] - Medium.x - Medium.cx + vrx[i]) * Medium.sin(Medium.xz) + (rz[i] - Medium.z - Medium.cz + vrz[i]) * Medium.cos(Medium.xz));
+                final int i251 = Medium.cy + (int) ((ry[i] - Medium.y - Medium.cy + vry[i]) * Medium.cos(Medium.zy) - (i250 - Medium.cz) * Medium.sin(Medium.zy));
+                i250 = Medium.cz + (int) ((ry[i] - Medium.y - Medium.cy + vry[i]) * Medium.sin(Medium.zy) + (i250 - Medium.cz) * Medium.cos(Medium.zy));
                 final int i252 = xs(i246, i247);
                 final int i253 = ys(i248, i247);
                 final int i254 = xs(i249, i250);
                 final int i255 = ys(i251, i250);
-                if (i252 < Medium.iw[cm] && i254 < Medium.iw[cm]) {
+                if (i252 < Medium.iw && i254 < Medium.iw) {
                     rtg[i] = 0;
                 }
-                if (i252 > Medium.w[cm] && i254 > Medium.w[cm]) {
+                if (i252 > Medium.w && i254 > Medium.w) {
                     rtg[i] = 0;
                 }
-                if (i253 < Medium.ih[cm] && i255 < Medium.ih[cm]) {
+                if (i253 < Medium.ih && i255 < Medium.ih) {
                     rtg[i] = 0;
                 }
-                if (i253 > Medium.h[cm] && i255 > Medium.h[cm]) {
+                if (i253 > Medium.h && i255 > Medium.h) {
                     rtg[i] = 0;
                 }
                 if (ry[i] > 250) {
@@ -1567,29 +1565,29 @@ class ContO {
             final int[] is186 = new int[8];
             final int[] is187 = new int[8];
             for (int i188 = 0; i188 < 8; i188++) {
-                is187[i188] = z - Medium.z[cm];
+                is187[i188] = z - Medium.z;
             }
-            is[0] = x - Medium.x[cm] - 504;
-            is186[0] = y - Medium.y[cm] - edl[i] - 5 - (int) (Medium.random() * 5.0F);
-            is[1] = x - Medium.x[cm] - 252 + i185;
-            is186[1] = y - Medium.y[cm] - i182 - 5 - (int) (Medium.random() * 5.0F);
-            is[2] = x - Medium.x[cm] + 252 - i184;
-            is186[2] = y - Medium.y[cm] - i183 - 5 - (int) (Medium.random() * 5.0F);
-            is[3] = x - Medium.x[cm] + 504;
-            is186[3] = y - Medium.y[cm] - edr[i] - 5 - (int) (Medium.random() * 5.0F);
-            is[4] = x - Medium.x[cm] + 504;
-            is186[4] = y - Medium.y[cm] - edr[i] + 5 + (int) (Medium.random() * 5.0F);
-            is[5] = x - Medium.x[cm] + 252 - i184;
-            is186[5] = y - Medium.y[cm] - i183 + 5 + (int) (Medium.random() * 5.0F);
-            is[6] = x - Medium.x[cm] - 252 + i185;
-            is186[6] = y - Medium.y[cm] - i182 + 5 + (int) (Medium.random() * 5.0F);
-            is[7] = x - Medium.x[cm] - 504;
-            is186[7] = y - Medium.y[cm] - edl[i] + 5 + (int) (Medium.random() * 5.0F);
+            is[0] = x - Medium.x - 504;
+            is186[0] = y - Medium.y - edl[i] - 5 - (int) (Medium.random() * 5.0F);
+            is[1] = x - Medium.x - 252 + i185;
+            is186[1] = y - Medium.y - i182 - 5 - (int) (Medium.random() * 5.0F);
+            is[2] = x - Medium.x + 252 - i184;
+            is186[2] = y - Medium.y - i183 - 5 - (int) (Medium.random() * 5.0F);
+            is[3] = x - Medium.x + 504;
+            is186[3] = y - Medium.y - edr[i] - 5 - (int) (Medium.random() * 5.0F);
+            is[4] = x - Medium.x + 504;
+            is186[4] = y - Medium.y - edr[i] + 5 + (int) (Medium.random() * 5.0F);
+            is[5] = x - Medium.x + 252 - i184;
+            is186[5] = y - Medium.y - i183 + 5 + (int) (Medium.random() * 5.0F);
+            is[6] = x - Medium.x - 252 + i185;
+            is186[6] = y - Medium.y - i182 + 5 + (int) (Medium.random() * 5.0F);
+            is[7] = x - Medium.x - 504;
+            is186[7] = y - Medium.y - edl[i] + 5 + (int) (Medium.random() * 5.0F);
             if (roted) {
-                rot(is, is187, x - Medium.x[cm], z - Medium.z[cm], 90, 8);
+                rot(is, is187, x - Medium.x, z - Medium.z, 90, 8);
             }
-            rot(is, is187, Medium.cx[cm], Medium.cz[cm], Medium.xz[cm], 8);
-            rot(is186, is187, Medium.cy[cm], Medium.cz[cm], Medium.zy[cm], 8);
+            rot(is, is187, Medium.cx, Medium.cz, Medium.xz, 8);
+            rot(is186, is187, Medium.cy, Medium.cz, Medium.zy, 8);
             boolean bool = true;
             int i189 = 0;
             int i190 = 0;
@@ -1600,16 +1598,16 @@ class ContO {
             for (int i195 = 0; i195 < 8; i195++) {
                 is193[i195] = xs(is[i195], is187[i195]);
                 is194[i195] = ys(is186[i195], is187[i195]);
-                if (is194[i195] < Medium.ih[cm] || is187[i195] < 10) {
+                if (is194[i195] < Medium.ih || is187[i195] < 10) {
                     i189++;
                 }
-                if (is194[i195] > Medium.h[cm] || is187[i195] < 10) {
+                if (is194[i195] > Medium.h || is187[i195] < 10) {
                     i190++;
                 }
-                if (is193[i195] < Medium.iw[cm] || is187[i195] < 10) {
+                if (is193[i195] < Medium.iw || is187[i195] < 10) {
                     i191++;
                 }
-                if (is193[i195] > Medium.w[cm] || is187[i195] < 10) {
+                if (is193[i195] > Medium.w || is187[i195] < 10) {
                     i192++;
                 }
             }
@@ -1739,15 +1737,15 @@ class ContO {
             final int[] is170 = new int[8];
             final int[] is171 = new int[4];
             for (int i = 0; i < 4; i++) {
-                is[i] = keyx[i] + x - Medium.x[cm];
-                is170[i] = grat + y - Medium.y[cm];
-                is171[i] = keyz[i] + z - Medium.z[cm];
+                is[i] = keyx[i] + x - Medium.x;
+                is170[i] = grat + y - Medium.y;
+                is171[i] = keyz[i] + z - Medium.z;
             }
-            rot(is, is170, x - Medium.x[cm], y - Medium.y[cm], xy, 4);
-            rot(is170, is171, y - Medium.y[cm], z - Medium.y[cm], zy, 4);
-            rot(is, is171, x - Medium.x[cm], z - Medium.z[cm], xz, 4);
-            rot(is, is171, Medium.cx[cm], Medium.cz[cm], Medium.xz[cm], 4);
-            rot(is170, is171, Medium.cy[cm], Medium.cz[cm], Medium.zy[cm], 4);
+            rot(is, is170, x - Medium.x, y - Medium.y, xy, 4);
+            rot(is170, is171, y - Medium.y, z - Medium.y, zy, 4);
+            rot(is, is171, x - Medium.x, z - Medium.z, xz, 4);
+            rot(is, is171, Medium.cx, Medium.cz, Medium.xz, 4);
+            rot(is170, is171, Medium.cy, Medium.cz, Medium.zy, 4);
             int i = 0;
             int i172 = 0;
             int i173 = 0;
@@ -1771,10 +1769,10 @@ class ContO {
             if (i172 < i173) {
                 i172 = i173;
             }
-            final int i176 = Medium.cx[cm] + (int) ((x - Medium.x[cm] - Medium.cx[cm]) * Medium.cos(Medium.xz[cm]) - (z - Medium.z[cm] - Medium.cz[cm]) * Medium.sin(Medium.xz[cm]));
-            int i177 = Medium.cz[cm] + (int) ((x - Medium.x[cm] - Medium.cx[cm]) * Medium.sin(Medium.xz[cm]) + (z - Medium.z[cm] - Medium.cz[cm]) * Medium.cos(Medium.xz[cm]));
-            final int i178 = Medium.cy[cm] + (int) ((y - Medium.y[cm] - Medium.cy[cm]) * Medium.cos(Medium.zy[cm]) - (i177 - Medium.cz[cm]) * Medium.sin(Medium.zy[cm]));
-            i177 = Medium.cz[cm] + (int) ((y - Medium.y[cm] - Medium.cy[cm]) * Medium.sin(Medium.zy[cm]) + (i177 - Medium.cz[cm]) * Medium.cos(Medium.zy[cm]));
+            final int i176 = Medium.cx + (int) ((x - Medium.x - Medium.cx) * Medium.cos(Medium.xz) - (z - Medium.z - Medium.cz) * Medium.sin(Medium.xz));
+            int i177 = Medium.cz + (int) ((x - Medium.x - Medium.cx) * Medium.sin(Medium.xz) + (z - Medium.z - Medium.cz) * Medium.cos(Medium.xz));
+            final int i178 = Medium.cy + (int) ((y - Medium.y - Medium.cy) * Medium.cos(Medium.zy) - (i177 - Medium.cz) * Medium.sin(Medium.zy));
+            i177 = Medium.cz + (int) ((y - Medium.y - Medium.cy) * Medium.sin(Medium.zy) + (i177 - Medium.cz) * Medium.cos(Medium.zy));
             is[0] = xs((int) (i176 - i / 0.8 - Medium.random() * (i / 2.4)), i177);
             is170[0] = ys((int) (i178 - i172 / 1.92 - Medium.random() * (i172 / 5.67)), i177);
             is[1] = xs((int) (i176 - i / 0.8 - Medium.random() * (i / 2.4)), i177);
@@ -1910,15 +1908,15 @@ class ContO {
         if (i149 > 90) {
             i148 = -1;
         }
-        is[0] = (int) (keyx[0] * 1.2 + x - Medium.x[cm]);
-        is147[0] = (int) ((keyz[0] + 30) * i148 * 1.2 + z - Medium.z[cm]);
-        is[1] = (int) (keyx[1] * 1.2 + x - Medium.x[cm]);
-        is147[1] = (int) ((keyz[1] + 30) * i148 * 1.2 + z - Medium.z[cm]);
-        is[2] = (int) (keyx[3] * 1.2 + x - Medium.x[cm]);
-        is147[2] = (int) ((keyz[3] - 30) * i148 * 1.2 + z - Medium.z[cm]);
-        is[3] = (int) (keyx[2] * 1.2 + x - Medium.x[cm]);
-        is147[3] = (int) ((keyz[2] - 30) * i148 * 1.2 + z - Medium.z[cm]);
-        rot(is, is147, x - Medium.x[cm], z - Medium.z[cm], xz, 4);
+        is[0] = (int) (keyx[0] * 1.2 + x - Medium.x);
+        is147[0] = (int) ((keyz[0] + 30) * i148 * 1.2 + z - Medium.z);
+        is[1] = (int) (keyx[1] * 1.2 + x - Medium.x);
+        is147[1] = (int) ((keyz[1] + 30) * i148 * 1.2 + z - Medium.z);
+        is[2] = (int) (keyx[3] * 1.2 + x - Medium.x);
+        is147[2] = (int) ((keyz[3] - 30) * i148 * 1.2 + z - Medium.z);
+        is[3] = (int) (keyx[2] * 1.2 + x - Medium.x);
+        is147[3] = (int) ((keyz[2] - 30) * i148 * 1.2 + z - Medium.z);
+        rot(is, is147, x - Medium.x, z - Medium.z, xz, 4);
         int i150 = (int) (Medium.crgrnd[0] / 1.5);
         int i151 = (int) (Medium.crgrnd[1] / 1.5);
         int i152 = (int) (Medium.crgrnd[2] / 1.5);
@@ -1944,17 +1942,17 @@ class ContO {
                 final int i157 = Trackers.sect[i154][i155][i156];
                 int i158 = 0;
                 for (int i159 = 0; i159 < 4; i159++)
-                    if (Math.abs(Trackers.zy[i157]) != 90 && Math.abs(Trackers.xy[i157]) != 90 && Trackers.rady[i157] != 801 && Math.abs(is[i159] - (Trackers.x[i157] - Medium.x[cm])) < Trackers.radx[i157] && Math.abs(is147[i159] - (Trackers.z[i157] - Medium.z[cm])) < Trackers.radz[i157] && (!Trackers.decor[i157] || Medium.resdown != 2)) {
+                    if (Math.abs(Trackers.zy[i157]) != 90 && Math.abs(Trackers.xy[i157]) != 90 && Trackers.rady[i157] != 801 && Math.abs(is[i159] - (Trackers.x[i157] - Medium.x)) < Trackers.radx[i157] && Math.abs(is147[i159] - (Trackers.z[i157] - Medium.z)) < Trackers.radz[i157] && (!Trackers.decor[i157] || Medium.resdown != 2)) {
                         i158++;
                     }
                 if (i158 > 2) {
                     for (int i160 = 0; i160 < 4; i160++) {
-                        is146[i160] = Trackers.y[i157] - Medium.y[cm];
+                        is146[i160] = Trackers.y[i157] - Medium.y;
                         if (Trackers.zy[i157] != 0) {
-                            is146[i160] += (is147[i160] - (Trackers.z[i157] - Medium.z[cm] - Trackers.radz[i157])) * Medium.sin(Trackers.zy[i157]) / Medium.sin(90 - Trackers.zy[i157]) - Trackers.radz[i157] * Medium.sin(Trackers.zy[i157]) / Medium.sin(90 - Trackers.zy[i157]);
+                            is146[i160] += (is147[i160] - (Trackers.z[i157] - Medium.z - Trackers.radz[i157])) * Medium.sin(Trackers.zy[i157]) / Medium.sin(90 - Trackers.zy[i157]) - Trackers.radz[i157] * Medium.sin(Trackers.zy[i157]) / Medium.sin(90 - Trackers.zy[i157]);
                         }
                         if (Trackers.xy[i157] != 0) {
-                            is146[i160] += (is[i160] - (Trackers.x[i157] - Medium.x[cm] - Trackers.radx[i157])) * Medium.sin(Trackers.xy[i157]) / Medium.sin(90 - Trackers.xy[i157]) - Trackers.radx[i157] * Medium.sin(Trackers.xy[i157]) / Medium.sin(90 - Trackers.xy[i157]);
+                            is146[i160] += (is[i160] - (Trackers.x[i157] - Medium.x - Trackers.radx[i157])) * Medium.sin(Trackers.xy[i157]) / Medium.sin(90 - Trackers.xy[i157]) - Trackers.radx[i157] * Medium.sin(Trackers.xy[i157]) / Medium.sin(90 - Trackers.xy[i157]);
                         }
                     }
                     i150 = (int) (Trackers.c[i157][0] / 1.5);
@@ -1964,8 +1962,8 @@ class ContO {
                 }
             }
         }
-        rot(is, is147, Medium.cx[cm], Medium.cz[cm], Medium.xz[cm], 4);
-        rot(is146, is147, Medium.cy[cm], Medium.cz[cm], Medium.zy[cm], 4);
+        rot(is, is147, Medium.cx, Medium.cz, Medium.xz, 4);
+        rot(is146, is147, Medium.cy, Medium.cz, Medium.zy, 4);
         boolean bool = true;
         int i161 = 0;
         int i162 = 0;
@@ -1974,16 +1972,16 @@ class ContO {
         for (int i165 = 0; i165 < 4; i165++) {
             is[i165] = xs(is[i165], is147[i165]);
             is146[i165] = ys(is146[i165], is147[i165]);
-            if (is146[i165] < Medium.ih[cm] || is147[i165] < 10) {
+            if (is146[i165] < Medium.ih || is147[i165] < 10) {
                 i161++;
             }
-            if (is146[i165] > Medium.h[cm] || is147[i165] < 10) {
+            if (is146[i165] > Medium.h || is147[i165] < 10) {
                 i162++;
             }
-            if (is[i165] < Medium.iw[cm] || is147[i165] < 10) {
+            if (is[i165] < Medium.iw || is147[i165] < 10) {
                 i163++;
             }
-            if (is[i165] > Medium.w[cm] || is147[i165] < 10) {
+            if (is[i165] > Medium.w || is147[i165] < 10) {
                 i164++;
             }
         }
@@ -2004,7 +2002,7 @@ class ContO {
 
     private void pdust(final int i, final Graphics2D graphics2d, final boolean bool) {
         if (bool) {
-            sav[i] = (int) Math.sqrt((Medium.x[cm] + Medium.cx[cm] - sx[i]) * (Medium.x[cm] + Medium.cx[cm] - sx[i]) + (Medium.y[cm] + Medium.cy[cm] - sy[i]) * (Medium.y[cm] + Medium.cy[cm] - sy[i]) + (Medium.z[cm] - sz[i]) * (Medium.z[cm] - sz[i]));
+            sav[i] = (int) Math.sqrt((Medium.x + Medium.cx - sx[i]) * (Medium.x + Medium.cx - sx[i]) + (Medium.y + Medium.cy - sy[i]) * (Medium.y + Medium.cy - sy[i]) + (Medium.z - sz[i]) * (Medium.z - sz[i]));
         }
         if (bool && sav[i] > dist || !bool && sav[i] <= dist) {
             if (stg[i] == 1) {
@@ -2079,10 +2077,10 @@ class ContO {
                 }
                 smag[i][6] = smag[i][7];
             }
-            final int i220 = Medium.cx[cm] + (int) ((sx[i] - Medium.x[cm] - Medium.cx[cm]) * Medium.cos(Medium.xz[cm]) - (sz[i] - Medium.z[cm] - Medium.cz[cm]) * Medium.sin(Medium.xz[cm]));
-            int i221 = Medium.cz[cm] + (int) ((sx[i] - Medium.x[cm] - Medium.cx[cm]) * Medium.sin(Medium.xz[cm]) + (sz[i] - Medium.z[cm] - Medium.cz[cm]) * Medium.cos(Medium.xz[cm]));
-            final int i222 = Medium.cy[cm] + (int) ((sy[i] - Medium.y[cm] - Medium.cy[cm] - smag[i][7]) * Medium.cos(Medium.zy[cm]) - (i221 - Medium.cz[cm]) * Medium.sin(Medium.zy[cm]));
-            i221 = Medium.cz[cm] + (int) ((sy[i] - Medium.y[cm] - Medium.cy[cm] - smag[i][7]) * Medium.sin(Medium.zy[cm]) + (i221 - Medium.cz[cm]) * Medium.cos(Medium.zy[cm]));
+            final int i220 = Medium.cx + (int) ((sx[i] - Medium.x - Medium.cx) * Medium.cos(Medium.xz) - (sz[i] - Medium.z - Medium.cz) * Medium.sin(Medium.xz));
+            int i221 = Medium.cz + (int) ((sx[i] - Medium.x - Medium.cx) * Medium.sin(Medium.xz) + (sz[i] - Medium.z - Medium.cz) * Medium.cos(Medium.xz));
+            final int i222 = Medium.cy + (int) ((sy[i] - Medium.y - Medium.cy - smag[i][7]) * Medium.cos(Medium.zy) - (i221 - Medium.cz) * Medium.sin(Medium.zy));
+            i221 = Medium.cz + (int) ((sy[i] - Medium.y - Medium.cy - smag[i][7]) * Medium.sin(Medium.zy) + (i221 - Medium.cz) * Medium.cos(Medium.zy));
             sx[i] += scx[i] / (stg[i] + 1);
             sz[i] += scz[i] / (stg[i] + 1);
             final int[] is = new int[8];
@@ -2113,16 +2111,16 @@ class ContO {
             int i228 = 0;
             int i229 = 0;
             for (int i230 = 0; i230 < 8; i230++) {
-                if (is223[i230] < Medium.ih[cm] || i221 < 10) {
+                if (is223[i230] < Medium.ih || i221 < 10) {
                     i226++;
                 }
-                if (is223[i230] > Medium.h[cm] || i221 < 10) {
+                if (is223[i230] > Medium.h || i221 < 10) {
                     i227++;
                 }
-                if (is[i230] < Medium.iw[cm] || i221 < 10) {
+                if (is[i230] < Medium.iw || i221 < 10) {
                     i228++;
                 }
-                if (is[i230] > Medium.w[cm] || i221 < 10) {
+                if (is[i230] > Medium.w || i221 < 10) {
                     i229++;
                 }
             }
@@ -2199,13 +2197,13 @@ class ContO {
         if (i260 < 50) {
             i260 = 50;
         }
-        return (i260 - Medium.focusPoint) * (Medium.cx[cm] - i) / i260 + i;
+        return (i260 - Medium.focusPoint) * (Medium.cx - i) / i260 + i;
     }
 
     private int ys(final int i, int i261) {
         if (i261 < 50) {
             i261 = 50;
         }
-        return (i261 - Medium.focusPoint) * (Medium.cy[cm] - i) / i261 + i;
+        return (i261 - Medium.focusPoint) * (Medium.cy - i) / i261 + i;
     }
 }

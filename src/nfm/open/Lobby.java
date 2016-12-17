@@ -1,6 +1,4 @@
 package nfm.open;
-import static nfm.open.Medium.cm;
-
 /* Lobby - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -298,11 +296,11 @@ class Lobby implements Runnable {
                             }
                             Medium.focusPoint = 400;
                             Medium.crs = true;
-                            Medium.x[cm] = -335;
-                            Medium.y[cm] = 0;
-                            Medium.z[cm] = -50;
-                            Medium.xz[cm] = 0;
-                            Medium.zy[cm] = 20;
+                            Medium.x = -335;
+                            Medium.y = 0;
+                            Medium.z = -50;
+                            Medium.xz = 0;
+                            Medium.zy = 20;
                             Medium.ground = -2000;
                             fase = 1;
                         }
@@ -317,11 +315,11 @@ class Lobby implements Runnable {
                             }
                             Medium.focusPoint = 400;
                             Medium.crs = true;
-                            Medium.x[cm] = -335;
-                            Medium.y[cm] = 0;
-                            Medium.z[cm] = -50;
-                            Medium.xz[cm] = 0;
-                            Medium.zy[cm] = 20;
+                            Medium.x = -335;
+                            Medium.y = 0;
+                            Medium.z = -50;
+                            Medium.xz = 0;
+                            Medium.zy = 20;
                             Medium.ground = -2000;
                             fase = 1;
                         }
@@ -493,13 +491,13 @@ class Lobby implements Runnable {
                                                 gs.requestFocus();
                                                 Medium.ptr = 0;
                                                 Medium.ptcnt = -10;
-                                                Medium.hit[cm] = 20000;
+                                                Medium.hit = 20000;
                                                 Medium.fallen = 0;
                                                 Medium.nrnd = 0;
-                                                Medium.ih[cm] = 25;
-                                                Medium.iw[cm] = 65;
-                                                Medium.h[cm] = 425;
-                                                Medium.w[cm] = 735;
+                                                Medium.ih = 25;
+                                                Medium.iw = 65;
+                                                Medium.h = 425;
+                                                Medium.w = 735;
                                                 Medium.trk = 4;
                                                 plsndt = 0;
                                                 addstage = 0;
@@ -798,13 +796,13 @@ class Lobby implements Runnable {
                                 fase = 2;
                                 Medium.ptr = 0;
                                 Medium.ptcnt = -10;
-                                Medium.hit[cm] = 20000;
+                                Medium.hit = 20000;
                                 Medium.fallen = 500;
                                 Medium.nrnd = 0;
-                                Medium.ih[cm] = 25;
-                                Medium.iw[cm] = 65;
-                                Medium.h[cm] = 425;
-                                Medium.w[cm] = 735;
+                                Medium.ih = 25;
+                                Medium.iw = 65;
+                                Medium.h = 425;
+                                Medium.w = 735;
                                 Medium.trk = 4;
                                 plsndt = 0;
                                 if (GameSparker.cmsg.isShowing()) {
@@ -3231,11 +3229,11 @@ class Lobby implements Runnable {
                             rd.drawImage(Images.pls, 292, 39, null);
                             if (opengame != 27) {
                                 Medium.crs = true;
-                                Medium.x[cm] = -335;
-                                Medium.y[cm] = 0;
-                                Medium.z[cm] = -50;
-                                Medium.xz[cm] = 0;
-                                Medium.zy[cm] = 20;
+                                Medium.x = -335;
+                                Medium.y = 0;
+                                Medium.z = -50;
+                                Medium.xz = 0;
+                                Medium.zy = 20;
                                 Medium.ground = -2000;
                                 pend = 0;
                                 pendb = false;
@@ -3281,11 +3279,11 @@ class Lobby implements Runnable {
                                     ftm = rd.getFontMetrics();
                                     rd.drawString(pcarnames[i222], 282 - ftm.stringWidth(pcarnames[i222]) / 2, 84 + i220 * 42);
                                     Medium.crs = true;
-                                    Medium.x[cm] = -335;
-                                    Medium.y[cm] = 0;
-                                    Medium.z[cm] = -50;
-                                    Medium.xz[cm] = 0;
-                                    Medium.zy[cm] = 20;
+                                    Medium.x = -335;
+                                    Medium.y = 0;
+                                    Medium.z = -50;
+                                    Medium.xz = 0;
+                                    Medium.zy = 20;
                                     Medium.ground = -2000;
                                     if (pcars[i222] != -1) {
                                         for (int i224 = 0; i224 < contos[pcars[i222]].npl; i224++) {
@@ -4051,7 +4049,7 @@ class Lobby implements Runnable {
                                             dispco.p[i279].hsb[2] = 1.0F - pcols[dispcar][5];
                                         }
                                     }
-                                    Medium.cx[cm] = 561;
+                                    Medium.cx = 561;
                                     dispco.z = 1200;
                                     dispco.y = 605 - dispco.grat;
                                     dispco.x = 225;
@@ -4069,7 +4067,7 @@ class Lobby implements Runnable {
                                     rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
                                     dispco.d(rd);
                                     rd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-                                    Medium.cx[cm] = 400;
+                                    Medium.cx = 400;
                                     rd.setFont(new Font("Arial", 1, 11));
                                     int i280 = 424;
                                     int i281 = -55;
@@ -5728,11 +5726,11 @@ class Lobby implements Runnable {
             }
             Medium.focusPoint = 400;
             Medium.crs = true;
-            Medium.x[cm] = -335;
-            Medium.y[cm] = 0;
-            Medium.z[cm] = -50;
-            Medium.xz[cm] = 0;
-            Medium.zy[cm] = 20;
+            Medium.x = -335;
+            Medium.y = 0;
+            Medium.z = -50;
+            Medium.xz = 0;
+            Medium.zy = 20;
             Medium.ground = -2000;
             fase = 1;
             control.enter = false;

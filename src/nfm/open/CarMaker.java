@@ -1,6 +1,4 @@
 package nfm.open;
-import static nfm.open.Medium.cm;
-
 /* CarMaker - Decompiled by JODE extended
  * DragShot Software
  * JODE (c) 1998-2001 Jochen Hoenicke
@@ -2780,11 +2778,11 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
         btgame[0] = getImage("data/baseimages/backtogame1.gif");
         btgame[1] = getImage("data/baseimages/backtogame2.gif");
         logo = getImage("data/baseimages/carmakerlogo.gif");
-        Medium.w[cm] = 700;
-        Medium.cx[cm] = 350;
-        Medium.y[cm] = -240;
-        Medium.z[cm] = -400;
-        Medium.zy[cm] = 4;
+        Medium.w = 700;
+        Medium.cx = 350;
+        Medium.y = -240;
+        Medium.z = -400;
+        Medium.zy = 4;
         Medium.focusPoint = 800;
         Medium.fadfrom(8000);
         Medium.cfade[0] = 187;
@@ -3298,15 +3296,15 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                                 0, 0, 0, 0, 50 + adna[4], -50 - adna[5]
                         };
                         for (int i12 = 0; i12 < 6; i12++) {
-                            is[i12] += o.x - Medium.x[cm];
-                            is10[i12] += o.y - Medium.y[cm];
-                            is11[i12] += o.z - Medium.z[cm];
+                            is[i12] += o.x - Medium.x;
+                            is10[i12] += o.y - Medium.y;
+                            is11[i12] += o.z - Medium.z;
                         }
-                        rot(is, is10, o.x - Medium.x[cm], o.y - Medium.y[cm], o.xy, 6);
-                        rot(is10, is11, o.y - Medium.y[cm], o.z - Medium.z[cm], o.zy, 6);
-                        rot(is, is11, o.x - Medium.x[cm], o.z - Medium.z[cm], o.xz, 6);
-                        rot(is, is11, Medium.cx[cm], Medium.cz[cm], Medium.xz[cm], 6);
-                        rot(is10, is11, Medium.cy[cm], Medium.cz[cm], Medium.zy[cm], 6);
+                        rot(is, is10, o.x - Medium.x, o.y - Medium.y, o.xy, 6);
+                        rot(is10, is11, o.y - Medium.y, o.z - Medium.z, o.zy, 6);
+                        rot(is, is11, o.x - Medium.x, o.z - Medium.z, o.xz, 6);
+                        rot(is, is11, Medium.cx, Medium.cz, Medium.xz, 6);
+                        rot(is10, is11, Medium.cy, Medium.cz, Medium.zy, 6);
                         final int[] is13 = new int[6];
                         final int[] is14 = new int[6];
                         for (int i15 = 0; i15 < 6; i15++) {
@@ -5427,16 +5425,16 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
     }
 
     private int xs(final int i, int i338) {
-        if (i338 < Medium.cz[cm]) {
-            i338 = Medium.cz[cm];
+        if (i338 < Medium.cz) {
+            i338 = Medium.cz;
         }
-        return (i338 - Medium.focusPoint) * (Medium.cx[cm] - i) / i338 + i;
+        return (i338 - Medium.focusPoint) * (Medium.cx - i) / i338 + i;
     }
 
     private int ys(final int i, int i339) {
-        if (i339 < Medium.cz[cm]) {
-            i339 = Medium.cz[cm];
+        if (i339 < Medium.cz) {
+            i339 = Medium.cz;
         }
-        return (i339 - Medium.focusPoint) * (Medium.cy[cm] - i) / i339 + i;
+        return (i339 - Medium.focusPoint) * (Medium.cy - i) / i339 + i;
     }
 }
