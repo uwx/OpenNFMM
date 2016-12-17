@@ -630,14 +630,14 @@ public class ModSlayer extends ModuleSlayer {
       if(this.mod.s3m) {
          for(k = 0; k < this.mod.insts.length; ++k) {
             modinstrument1 = this.mod.insts[k];
-            modinstrument1.finetune_rate = (int)(428L * modinstrument1.finetune_value << 8) / this.mixspeed;
+            modinstrument1.finetune_rate = (int)(428L * (long)modinstrument1.finetune_value << 8) / this.mixspeed;
             modinstrument1.period_low_limit = 14;
             modinstrument1.period_high_limit = 1712;
          }
       } else {
          for(k = 0; k < this.mod.insts.length; ++k) {
             modinstrument1 = this.mod.insts[k];
-            modinstrument1.finetune_rate = (int)(22748294283264L / (this.mixspeed * (1536 - modinstrument1.finetune_value)));
+            modinstrument1.finetune_rate = (int)(22748294283264L / (long)(this.mixspeed * (1536 - modinstrument1.finetune_value)));
             modinstrument1.period_low_limit = 113;
             modinstrument1.period_high_limit = 856;
          }

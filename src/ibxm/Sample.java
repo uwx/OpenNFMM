@@ -31,7 +31,7 @@ public class Sample {
       short[][] sincTables = new short[8][];
 
       for(int tableIdx = 0; tableIdx < 8; ++tableIdx) {
-         sincTables[tableIdx] = calculateSincTable(1.0D / (tableIdx + 1));
+         sincTables[tableIdx] = calculateSincTable(1.0D / (double)(tableIdx + 1));
       }
 
       return sincTables;
@@ -44,7 +44,7 @@ public class Sample {
       int tableIdx = 0;
 
       for(int tableY = 0; tableY <= 16; ++tableY) {
-         double fracT = tableY / 16.0D;
+         double fracT = (double)tableY / 16.0D;
          double sincT = 3.141592653589793D * (7.0D + fracT);
          double windT = 3.141592653589793D + sincT * 2.0D / 16.0D;
 
