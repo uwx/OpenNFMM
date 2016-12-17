@@ -303,7 +303,7 @@ class Lobby implements Runnable {
                             Medium.z[cm] = -50;
                             Medium.xz[cm] = 0;
                             Medium.zy[cm] = 20;
-                            Medium.ground[cm] = -2000;
+                            Medium.ground = -2000;
                             fase = 1;
                         }
                         if (i308 == 0 && chalngd == -1) {
@@ -322,7 +322,7 @@ class Lobby implements Runnable {
                             Medium.z[cm] = -50;
                             Medium.xz[cm] = 0;
                             Medium.zy[cm] = 20;
-                            Medium.ground[cm] = -2000;
+                            Medium.ground = -2000;
                             fase = 1;
                         }
                     }
@@ -3236,7 +3236,7 @@ class Lobby implements Runnable {
                                 Medium.z[cm] = -50;
                                 Medium.xz[cm] = 0;
                                 Medium.zy[cm] = 20;
-                                Medium.ground[cm] = -2000;
+                                Medium.ground = -2000;
                                 pend = 0;
                                 pendb = false;
                                 ptime = 0L;
@@ -3286,7 +3286,7 @@ class Lobby implements Runnable {
                                     Medium.z[cm] = -50;
                                     Medium.xz[cm] = 0;
                                     Medium.zy[cm] = 20;
-                                    Medium.ground[cm] = -2000;
+                                    Medium.ground = -2000;
                                     if (pcars[i222] != -1) {
                                         for (int i224 = 0; i224 < contos[pcars[i222]].npl; i224++) {
                                             contos[pcars[i222]].p[i224].flx = 0;
@@ -5733,7 +5733,7 @@ class Lobby implements Runnable {
             Medium.z[cm] = -50;
             Medium.xz[cm] = 0;
             Medium.zy[cm] = 20;
-            Medium.ground[cm] = -2000;
+            Medium.ground = -2000;
             fase = 1;
             control.enter = false;
         }

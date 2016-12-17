@@ -683,7 +683,7 @@ class Login implements Runnable {
         Medium.z[cm] = -50;
         Medium.xz[cm] = 0;
         Medium.zy[cm] = 20;
-        Medium.ground[cm] = -2000;
+        Medium.ground = -2000;
         pend = 0;
         pendb = false;
         gamec = -1;
@@ -824,7 +824,7 @@ class Login implements Runnable {
         Medium.z[cm] = -50;
         Medium.xz[cm] = 0;
         Medium.zy[cm] = 20;
-        Medium.ground[cm] = -2000;
+        Medium.ground = -2000;
         pend = 0;
         pendb = false;
         resofaso = false;

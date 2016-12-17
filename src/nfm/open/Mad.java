@@ -1,6 +1,4 @@
 package nfm.open;
-import static nfm.open.Medium.cm;
-
 /* Mad - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
@@ -1363,7 +1361,7 @@ class Mad {
                 Record.dest[im] = 300;
             }
         }
-        if (conto.dist[cm] == 0) {
+        if (conto.dist == 0) {
             for (int i88 = 0; i88 < conto.npl; i88++) {
                 if (conto.p[i88].chip != 0) {
                     conto.p[i88].chip = 0;
@@ -1495,7 +1493,7 @@ class Mad {
                 for (int i93 = 0; i93 < CheckPoints.fn; i93++)
                     if (!CheckPoints.roted[i93]) {
                         if (Math.abs(conto.z - CheckPoints.fz[i93]) < 200 && py(conto.x / 100, CheckPoints.fx[i93] / 100, conto.y / 100, CheckPoints.fy[i93] / 100) < 30) {
-                            if (conto.dist[cm] == 0) {
+                            if (conto.dist == 0) {
                                 conto.fcnt = 8;
                             } else {
                                 if (im == xtGraphics.im && !conto.fix && !xtGraphics.mutes) {
@@ -1506,7 +1504,7 @@ class Mad {
                             Record.fix[im] = 300;
                         }
                     } else if (Math.abs(conto.x - CheckPoints.fx[i93]) < 200 && py(conto.z / 100, CheckPoints.fz[i93] / 100, conto.y / 100, CheckPoints.fy[i93] / 100) < 30) {
-                        if (conto.dist[cm] == 0) {
+                        if (conto.dist == 0) {
                             conto.fcnt = 8;
                         } else {
                             if (im == xtGraphics.im && !conto.fix && !xtGraphics.mutes) {

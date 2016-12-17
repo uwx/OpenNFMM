@@ -94,7 +94,7 @@ public final class Medium {
     };
     static int fogd = 7;
     static private float gofo = (float) (0.33000001311302185 + ThreadLocalRandom.current().nextDouble() * 1.34);
-    static int[] ground = populate(250);
+    static int ground = 250;
     static boolean lastcheck = false;
     static int lastmaf = 0;
     static int lightn = -1;
@@ -169,24 +169,15 @@ public final class Medium {
         }
     }
 
-    public static boolean[] populate(boolean b) {
+    private static boolean[] populate(boolean b) {
         boolean[] ab = new boolean[8];
-        if (b) // != false which is the default
-            Arrays.fill(ab, b);
+        Arrays.fill(ab, b);
         return ab;
     }
 
-    public static int[] populate(int b) {
+    private static int[] populate(int b) {
         int[] ab = new int[8];
-        if (b != 0) // != 0 which is the default
-            Arrays.fill(ab, b);
-        return ab;
-    }
-
-    public static String[] populate(String b) {
-        String[] ab = new String[8];
-        if (b != null) // != 0 which is the default
-            Arrays.fill(ab, b);
+        Arrays.fill(ab, b);
         return ab;
     }
 
@@ -374,7 +365,7 @@ public final class Medium {
         if (y[cm] > 0) {
             y[cm] = 0;
         }
-        ground[cm] = 250 - y[cm];
+        ground = 250 - y[cm];
         final int[] is = new int[4];
         final int[] is223 = new int[4];
         int i = cgrnd[0];
@@ -386,10 +377,10 @@ public final class Medium {
         int i229 = h[cm];
         for (int i230 = 0; i230 < 16; i230++) {
             int i231 = fade[i230];
-            int i232 = ground[cm];
+            int i232 = ground;
             if (zy[cm] != 0) {
-                i232 = cy[cm] + (int) ((ground[cm] - cy[cm]) * cos(zy[cm]) - (fade[i230] - cz[cm]) * sin(zy[cm]));
-                i231 = cz[cm] + (int) ((ground[cm] - cy[cm]) * sin(zy[cm]) + (fade[i230] - cz[cm]) * cos(zy[cm]));
+                i232 = cy[cm] + (int) ((ground - cy[cm]) * cos(zy[cm]) - (fade[i230] - cz[cm]) * sin(zy[cm]));
+                i231 = cz[cm] + (int) ((ground - cy[cm]) * sin(zy[cm]) + (fade[i230] - cz[cm]) * cos(zy[cm]));
             }
             is[0] = iw[cm];
             is223[0] = ys(i232, i231);
@@ -1247,7 +1238,7 @@ public final class Medium {
                         for (int i60 = 0; i60 < 8; i60++) {
                             is57[i60] = (int) (ogpx[i53][i60] * pvr[i53][i60] + cgpx[i53] - x[cm]);
                             is58[i60] = (int) (ogpz[i53][i60] * pvr[i53][i60] + cgpz[i53] - z[cm]);
-                            is59[i60] = ground[cm];
+                            is59[i60] = ground;
                         }
                         rot(is57, is58, cx[cm], cz[cm], xz[cm], 8);
                         rot(is59, is58, cy[cm], cz[cm], zy[cm], 8);
@@ -1308,7 +1299,7 @@ public final class Medium {
                     for (int i77 = 0; i77 < 8; i77++) {
                         is74[i77] = ogpx[i73][i77] + cgpx[i73] - x[cm];
                         is75[i77] = ogpz[i73][i77] + cgpz[i73] - z[cm];
-                        is76[i77] = ground[cm];
+                        is76[i77] = ground;
                     }
                     rot(is74, is75, cx[cm], cz[cm], xz[cm], 8);
                     rot(is76, is75, cy[cm], cz[cm], zy[cm], 8);
@@ -1542,15 +1533,15 @@ public final class Medium {
                 mtx[i174][nmv[i174]] = (int) (mtx[i174][0] - (100.0 + random.nextDouble() * 600.0) * f);
                 mtx[i174][nmv[i174] * 2 - 1] = (int) (mtx[i174][nmv[i174] - 1] + (100.0 + random.nextDouble() * 600.0) * f);
                 if (i178 == 0 || i178 == nmv[i174] - 1) {
-                    mty[i174][i178] = (int) ((-400.0 - 1200.0 * random.nextDouble()) * f176 + ground[cm]);
+                    mty[i174][i178] = (int) ((-400.0 - 1200.0 * random.nextDouble()) * f176 + ground);
                 }
                 if (i178 == 1 || i178 == nmv[i174] - 2) {
-                    mty[i174][i178] = (int) ((-1000.0 - 1450.0 * random.nextDouble()) * f176 + ground[cm]);
+                    mty[i174][i178] = (int) ((-1000.0 - 1450.0 * random.nextDouble()) * f176 + ground);
                 }
                 if (i178 > 1 && i178 < nmv[i174] - 2) {
-                    mty[i174][i178] = (int) ((-1600.0 - 1700.0 * random.nextDouble()) * f176 + ground[cm]);
+                    mty[i174][i178] = (int) ((-1600.0 - 1700.0 * random.nextDouble()) * f176 + ground);
                 }
-                mty[i174][i178 + nmv[i174]] = ground[cm] - 70;
+                mty[i174][i178 + nmv[i174]] = ground - 70;
                 mtz[i174][i178] = i171 + i172 + is[i174];
                 mtz[i174][i178 + nmv[i174]] = i171 + i172 + is[i174];
                 final float f179 = (float) (0.5 + random.nextDouble() * 0.5);

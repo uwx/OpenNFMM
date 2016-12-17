@@ -1,7 +1,5 @@
 package nfm.open;
 
-import static nfm.open.Medium.cm;
-
 import java.util.concurrent.ThreadLocalRandom;
 
 /* CheckPoints - Decompiled by JODE
@@ -100,7 +98,7 @@ class CheckPoints {
                     magperc[i2] = 1.0F;
                 }
                 pos[i2] = 0;
-                onscreen[i2] = contos[i2].dist[cm];
+                onscreen[i2] = contos[i2].dist;
                 opx[i2] = contos[i2].x;
                 opz[i2] = contos[i2].z;
                 omxz[i2] = mads[i2].mxz;
