@@ -7617,7 +7617,7 @@ class xtGraphics extends JPanel implements Runnable {
         }
     }
 
-    static private void rot(final int[] is, final int[] is272, final int i, final int i273, final int i274, final int i275) {
+    static void rot(final int[] is, final int[] is272, final int i, final int i273, final int i274, final int i275) {
         if (i274 != 0) {
             for (int i276 = 0; i276 < i275; i276++) {
                 final int i277 = is[i276];

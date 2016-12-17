@@ -3,22 +3,62 @@ package nfm.open;
  * Visit http://jode.sourceforge.net/
  */
 
-import javax.swing.*;
+import java.awt.AlphaComposite;
+import java.awt.Checkbox;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.Desktop;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsEnvironment;
+import java.awt.Image;
+import java.awt.RenderingHints;
+import java.awt.TextArea;
+import java.awt.TextField;
+import java.awt.Transparency;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StringReader;
+import java.net.URI;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.ConcurrentModificationException;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+
+import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import nfm.open.xtGraphics.Images;
 import nfm.open.util.FileUtil;
-
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.BufferedImage;
-import java.io.*;
-import java.net.URI;
-import java.net.URL;
-import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 
 class GameSparker extends JPanel
         implements KeyListener, MouseListener, MouseMotionListener, FocusListener {
@@ -143,7 +183,7 @@ class GameSparker extends JPanel
     /**
      * ContO array for the current stage's contents themselves
      */
-    static private ContO[] stageContos;
+    static ContO[] stageContos;
     static Mad[] mads;
     static private Login login = null;
     static private Lobby lobby = null;
@@ -3568,4 +3608,483 @@ class GameSparker extends JPanel
         }
     }
 
+    /**
+     * Loads stage currently set by checkpoints.stage onto stageContos
+     */
+    static void smLoadStage(String s, ContO[] srco) {
+        xtGraphics.nplayers = 7;
+        stageContos = new ContO[srco.length+xtGraphics.nplayers];
+        System.arraycopy(srco, 0, stageContos, xtGraphics.nplayers, srco.length);
+        
+        if (xtGraphics.testdrive == 2 || xtGraphics.testdrive == 4) {
+            xtGraphics.nplayers = 1;
+        }
+        mads = new Mad[8];
+        for (int i = 0; i < xtGraphics.nplayers; i++) {
+            xtGraphics.sc[i] = 0; // tornado shark
+            mads[i] = new Mad(null, i);
+            u[i] = new Control();
+        }
+        
+        
+        Trackers.nt = 0;
+        nob = xtGraphics.nplayers;
+        notb = 0;
+        CheckPoints.n = 0;
+        CheckPoints.nsp = 0;
+        CheckPoints.fn = 0;
+        CheckPoints.trackname = "";
+        CheckPoints.haltall = false;
+        CheckPoints.wasted = 0;
+        CheckPoints.catchfin = 0;
+        Medium.resdown = 0;
+        Medium.rescnt = 5;
+        Medium.lightson = false;
+        Medium.noelec = 0;
+        Medium.ground = 250;
+        Medium.trk = 0;
+        view = 0;
+        int i = 0;
+        int k = 100;
+        int l = 0;
+        int m = 100;
+        xtGraphics.newparts = false;
+        String string = "";
+        try {
+            BufferedReader stageDataReader = new BufferedReader(new StringReader(s));
+            String line;
+            while ((line = stageDataReader.readLine()) != null) {
+                string = line.trim();
+//                if (string.startsWith("snap")) {
+//                    Medium.setsnap(getint("snap", string, 0), getint("snap", string, 1), getint("snap", string, 2));
+//                }
+//                if (string.startsWith("sky")) {
+//                    Medium.setsky(getint("sky", string, 0), getint("sky", string, 1), getint("sky", string, 2));
+////                    xtGraphics.snap(CheckPoints.stage);
+//                }
+//                if (string.startsWith("ground")) {
+//                    Medium.setgrnd(getint("ground", string, 0), getint("ground", string, 1), getint("ground", string, 2));
+//                }
+//                if (string.startsWith("polys")) {
+//                    Medium.setpolys(getint("polys", string, 0), getint("polys", string, 1), getint("polys", string, 2));
+//                }
+//                if (string.startsWith("fog")) {
+//                    Medium.setfade(getint("fog", string, 0), getint("fog", string, 1), getint("fog", string, 2));
+//                }
+//                if (string.startsWith("texture")) {
+//                    Medium.setexture(getint("texture", string, 0), getint("texture", string, 1), getint("texture", string, 2), getint("texture", string, 3));
+//                }
+//                if (string.startsWith("clouds")) {
+//                    Medium.setcloads(getint("clouds", string, 0), getint("clouds", string, 1), getint("clouds", string, 2), getint("clouds", string, 3), getint("clouds", string, 4));
+//                }
+//                if (string.startsWith("density")) {
+//                    Medium.fogd = (getint("density", string, 0) + 1) * 2 - 1;
+//                    if (Medium.fogd < 1) {
+//                        Medium.fogd = 1;
+//                    }
+//                    if (Medium.fogd > 30) {
+//                        Medium.fogd = 30;
+//                    }
+//                }
+//                if (string.startsWith("fadefrom")) {
+//                    Medium.fadfrom(getint("fadefrom", string, 0));
+//                }
+//                if (string.startsWith("lightson")) {
+//                    Medium.lightson = true;
+//                }
+//                if (string.startsWith("mountains")) {
+//                    Medium.mgen = getint("mountains", string, 0);
+//                }
+                if (string.startsWith("set")) {
+                    int setindex = getint("set", string, 0);
+                    if (xtGraphics.nplayers == 8) {
+                        if (setindex == 47) {
+                            setindex = 76;
+                        }
+                        if (setindex == 48) {
+                            setindex = 77;
+                        }
+                    }
+                    boolean bool = true;
+                    if (setindex >= 65 && setindex <= 75 && CheckPoints.notb) {
+                        bool = false;
+                    }
+                    if (bool) {
+                        if (setindex == 49 || setindex == 64 || setindex >= 56 && setindex <= 61) {
+                            xtGraphics.newparts = true;
+                        }
+                        if ((CheckPoints.stage < 0 || CheckPoints.stage >= 28) && setindex >= 10 && setindex <= 25) {
+                            Medium.loadnew = true;
+                        }
+                        setindex -= 10;
+                        System.out.println("Setindex is: " + setindex);
+                        //stageContos[nob] = new ContO(contos[setindex], getint("set", string, 1), Medium.ground - contos[setindex].grat, getint("set", string, 2), getint("set", string, 3));
+                        if (string.contains(")p")) {
+                            CheckPoints.x[CheckPoints.n] = getint("set", string, 1);
+                            CheckPoints.z[CheckPoints.n] = getint("set", string, 2);
+                            CheckPoints.y[CheckPoints.n] = 0;
+                            CheckPoints.typ[CheckPoints.n] = 0;
+                            if (string.contains(")pt")) {
+                                CheckPoints.typ[CheckPoints.n] = -1;
+                            }
+                            if (string.contains(")pr")) {
+                                CheckPoints.typ[CheckPoints.n] = -2;
+                            }
+                            if (string.contains(")po")) {
+                                CheckPoints.typ[CheckPoints.n] = -3;
+                            }
+                            if (string.contains(")ph")) {
+                                CheckPoints.typ[CheckPoints.n] = -4;
+                            }
+                            if (string.contains("out")) {
+                                System.out.println("out: " + CheckPoints.n);
+                            }
+                            CheckPoints.n++;
+                            notb = nob + 1;
+                        }
+                        nob++;
+                        if (Medium.loadnew) {
+                            Medium.loadnew = false;
+                        }
+                    }
+                }
+                if (string.startsWith("chk")) {
+//                    int chkindex = getint("chk", string, 0);
+//                    chkindex -= 10;
+//                    int chkheight = Medium.ground - contos[chkindex].grat;
+//                    if (chkindex == 110) {
+//                        chkheight = getint("chk", string, 4);
+//                    }
+                    //stageContos[nob] = new ContO(contos[chkindex], getint("chk", string, 1), chkheight, getint("chk", string, 2), getint("chk", string, 3));
+                    CheckPoints.x[CheckPoints.n] = getint("chk", string, 1);
+                    CheckPoints.z[CheckPoints.n] = getint("chk", string, 2);
+                    CheckPoints.y[CheckPoints.n] = Medium.ground;
+                    if (getint("chk", string, 3) == 0) {
+                        CheckPoints.typ[CheckPoints.n] = 1;
+                    } else {
+                        CheckPoints.typ[CheckPoints.n] = 2;
+                    }
+                    CheckPoints.pcs = CheckPoints.n;
+                    CheckPoints.n++;
+                    //stageContos[nob].checkpoint = CheckPoints.nsp + 1;
+                    CheckPoints.nsp++;
+                    nob++;
+                    notb = nob;
+                }
+                if (CheckPoints.nfix != 5 && string.startsWith("fix")) {
+                    int fixindex = getint("fix", string, 0);
+                    fixindex -= 10;
+                    //stageContos[nob] = new ContO(contos[fixindex], getint("fix", string, 1), getint("fix", string, 3), getint("fix", string, 2), getint("fix", string, 4));
+                    CheckPoints.fx[CheckPoints.fn] = getint("fix", string, 1);
+                    CheckPoints.fz[CheckPoints.fn] = getint("fix", string, 2);
+                    CheckPoints.fy[CheckPoints.fn] = getint("fix", string, 3);
+                    //stageContos[nob].elec = true;
+                    if (getint("fix", string, 4) != 0) {
+                        CheckPoints.roted[CheckPoints.fn] = true;
+                        //stageContos[nob].roted = true;
+                    } else {
+                        CheckPoints.roted[CheckPoints.fn] = false;
+                    }
+                    CheckPoints.special[CheckPoints.fn] = string.indexOf(")s") != -1;
+                    CheckPoints.fn++;
+                    nob++;
+                    notb = nob;
+                }
+                if (!CheckPoints.notb && string.startsWith("pile")) {
+                    //stageContos[nob] = new ContO(getint("pile", string, 0), getint("pile", string, 1), getint("pile", string, 2), getint("pile", string, 3), getint("pile", string, 4), Medium.ground);
+                    nob++;
+                }
+                if (xtGraphics.multion == 0 && string.startsWith("nlaps")) {
+                    CheckPoints.nlaps = getint("nlaps", string, 0);
+                }
+                //if (checkpoints.nlaps < 1)
+                //  checkpoints.nlaps = 1;
+                //if (checkpoints.nlaps > 15)
+                //  checkpoints.nlaps = 15;
+                if (CheckPoints.stage > 0 && string.startsWith("name")) {
+                    CheckPoints.name = getstring("name", string, 0).replace('|', ',');
+                }
+                if (string.startsWith("stagemaker")) {
+                    CheckPoints.maker = getstring("stagemaker", string, 0);
+                }
+                if (string.startsWith("publish")) {
+                    CheckPoints.pubt = getint("publish", string, 0);
+                }
+                if (string.startsWith("soundtrack")) {
+                    CheckPoints.trackname = getstring("soundtrack", string, 0);
+                    CheckPoints.trackvol = getint("soundtrack", string, 1);
+                    if (CheckPoints.trackvol < 50) {
+                        CheckPoints.trackvol = 50;
+                    }
+                    if (CheckPoints.trackvol > 300) {
+                        CheckPoints.trackvol = 300;
+                    }
+                    xtGraphics.sndsize[32] = getint("soundtrack", string, 2);
+                }
+                if (string.startsWith("maxr")) {
+                    final int n = getint("maxr", string, 0);
+                    final int o = getint("maxr", string, 1);
+                    i = o;
+                    final int p = getint("maxr", string, 2);
+                    for (int q = 0; q < n; q++) {
+                        //stageContos[nob] = new ContO(contos[29], o, Medium.ground - contos[29].grat, //29 may need to be 85 or xtgraphics.nCars - 16
+                        //q * 4800 + p, 0);
+                        nob++;
+                    }
+                    Trackers.y[Trackers.nt] = -5000;
+                    Trackers.rady[Trackers.nt] = 7100;
+                    Trackers.x[Trackers.nt] = o + 500;
+                    Trackers.radx[Trackers.nt] = 600;
+                    Trackers.z[Trackers.nt] = n * 4800 / 2 + p - 2400;
+                    Trackers.radz[Trackers.nt] = n * 4800 / 2;
+                    Trackers.xy[Trackers.nt] = 90;
+                    Trackers.zy[Trackers.nt] = 0;
+                    Trackers.dam[Trackers.nt] = 167;
+                    Trackers.decor[Trackers.nt] = false;
+                    Trackers.skd[Trackers.nt] = 0;
+                    Trackers.nt++;
+                }
+                if (string.startsWith("maxl")) {
+                    final int n = getint("maxl", string, 0);
+                    final int o = getint("maxl", string, 1);
+                    k = o;
+                    final int p = getint("maxl", string, 2);
+                    for (int q = 0; q < n; q++) {
+                        //stageContos[nob] = new ContO(contos[29], o, Medium.ground - contos[29].grat, q * 4800 + p, 180);
+                        nob++;
+                    }
+                    Trackers.y[Trackers.nt] = -5000;
+                    Trackers.rady[Trackers.nt] = 7100;
+                    Trackers.x[Trackers.nt] = o - 500;
+                    Trackers.radx[Trackers.nt] = 600;
+                    Trackers.z[Trackers.nt] = n * 4800 / 2 + p - 2400;
+                    Trackers.radz[Trackers.nt] = n * 4800 / 2;
+                    Trackers.xy[Trackers.nt] = -90;
+                    Trackers.zy[Trackers.nt] = 0;
+                    Trackers.dam[Trackers.nt] = 167;
+                    Trackers.decor[Trackers.nt] = false;
+                    Trackers.skd[Trackers.nt] = 0;
+                    Trackers.nt++;
+                }
+                if (string.startsWith("maxt")) {
+                    final int n = getint("maxt", string, 0);
+                    final int o = getint("maxt", string, 1);
+                    l = o;
+                    final int p = getint("maxt", string, 2);
+                    for (int q = 0; q < n; q++) {
+                        //stageContos[nob] = new ContO(contos[29], q * 4800 + p, Medium.ground - contos[29].grat, o, 90);
+                        nob++;
+                    }
+                    Trackers.y[Trackers.nt] = -5000;
+                    Trackers.rady[Trackers.nt] = 7100;
+                    Trackers.z[Trackers.nt] = o + 500;
+                    Trackers.radz[Trackers.nt] = 600;
+                    Trackers.x[Trackers.nt] = n * 4800 / 2 + p - 2400;
+                    Trackers.radx[Trackers.nt] = n * 4800 / 2;
+                    Trackers.zy[Trackers.nt] = 90;
+                    Trackers.xy[Trackers.nt] = 0;
+                    Trackers.dam[Trackers.nt] = 167;
+                    Trackers.decor[Trackers.nt] = false;
+                    Trackers.skd[Trackers.nt] = 0;
+                    Trackers.nt++;
+                }
+                if (string.startsWith("maxb")) {
+                    final int n = getint("maxb", string, 0);
+                    final int o = getint("maxb", string, 1);
+                    m = o;
+                    final int p = getint("maxb", string, 2);
+                    for (int q = 0; q < n; q++) {
+                        //stageContos[nob] = new ContO(contos[29], q * 4800 + p, Medium.ground - contos[29].grat, o, -90);
+                        nob++;
+                    }
+                    Trackers.y[Trackers.nt] = -5000;
+                    Trackers.rady[Trackers.nt] = 7100;
+                    Trackers.z[Trackers.nt] = o - 500;
+                    Trackers.radz[Trackers.nt] = 600;
+                    Trackers.x[Trackers.nt] = n * 4800 / 2 + p - 2400;
+                    Trackers.radx[Trackers.nt] = n * 4800 / 2;
+                    Trackers.zy[Trackers.nt] = -90;
+                    Trackers.xy[Trackers.nt] = 0;
+                    Trackers.dam[Trackers.nt] = 167;
+                    Trackers.decor[Trackers.nt] = false;
+                    Trackers.skd[Trackers.nt] = 0;
+                    Trackers.nt++;
+                }
+            }
+            stageDataReader.close();
+            Medium.newpolys(k, i - k, m, l - m,  notb);
+            Medium.newclouds(k, i, m, l);
+            Medium.newmountains(k, i, m, l);
+            Medium.newstars();
+            Trackers.devidetrackers(k, i - k, m, l - m);
+        } catch (final Exception exception) {
+            System.out.println("Error in stage " + CheckPoints.stage);
+            System.out.println("At line: " + string);
+            CheckPoints.stage = -3;
+            exception.printStackTrace();
+        }
+        if (CheckPoints.nsp < 2) {
+            CheckPoints.stage = -3;
+        }
+        if (Medium.nrw * Medium.ncl >= 16000) {
+            CheckPoints.stage = -3;
+        }
+        if (CheckPoints.stage != -3) {
+            CheckPoints.top20 = Math.abs(CheckPoints.top20);
+            if (CheckPoints.stage == 26) {
+                Medium.lightn = 0;
+            } else {
+                Medium.lightn = -1;
+            }
+            Medium.nochekflk = !(CheckPoints.stage == 1 || CheckPoints.stage == 11);
+            for (int n = 0; n < xtGraphics.nplayers; n++) {
+                u[n].reset(xtGraphics.sc[n]);
+                mads[n].setStat(new Stat(xtGraphics.sc[n]));
+            }
+            xtGraphics.resetstat(CheckPoints.stage);
+            CheckPoints.calprox();
+
+            for (int j = 0; j < xtGraphics.nplayers; j++) {
+
+                if (xtGraphics.fase == 22) {
+                    xtGraphics.colorCar(carContos[xtGraphics.sc[j]], j);
+                }
+                stageContos[j] = new ContO(carContos[xtGraphics.sc[j]], xtGraphics.xstart[j], 250 - carContos[xtGraphics.sc[j]].grat, xtGraphics.zstart[j], 0);
+                mads[j].reseto(xtGraphics.sc[j], stageContos[j]);
+            }
+            if (xtGraphics.fase == 2 || xtGraphics.fase == -22) {
+                Medium.trx = (k + i) / 2;
+                Medium.trz = (l + m) / 2;
+                Medium.ptr = 0;
+                Medium.ptcnt = -10;
+                Medium.hit = 45000;
+                Medium.fallen = 0;
+                Medium.nrnd = 0;
+                Medium.trk = 1;
+                Medium.ih = 25;
+                Medium.iw = 65;
+                Medium.h = 425;
+                Medium.w = 735;
+                xtGraphics.fase = 1;
+                mouses = 0;
+            }
+            if (xtGraphics.fase == 22) {
+                Medium.crs = false;
+                xtGraphics.fase = 5;
+            }
+            if (CheckPoints.stage > 0) {
+                xtGraphics.asay = "Stage " + CheckPoints.stage + ":  " + CheckPoints.name + " ";
+            } else {
+                xtGraphics.asay = "Custom Stage:  " + CheckPoints.name + " ";
+            }
+            Record.reset(stageContos);
+        } else if (xtGraphics.fase == 2) {
+            xtGraphics.fase = 1;
+        }
+        System.gc();
+    }
+
+    public static void ittSm() {
+        xtGraphics.starcnt=0;
+        CheckPoints.haltall=false;
+
+        for (int k = 0; k < xtGraphics.nplayers; k++) {
+            for (int l = 0; l < xtGraphics.nplayers; l++)
+                if (l != k) {
+                    mads[k].colide(stageContos[k], mads[l], stageContos[l]);
+                }
+        }
+        for (int k = 0; k < xtGraphics.nplayers; k++) {
+            mads[k].drive(u[k], stageContos[k]);
+        }
+        for (int k = 0; k < xtGraphics.nplayers; k++) {
+            Record.rec(stageContos[k], k, mads[k].squash, mads[k].lastcolido, mads[k].cntdest, 0);
+        }
+        CheckPoints.checkstat(mads, stageContos,  xtGraphics.nplayers, xtGraphics.im, 0);
+        for (int k = 1; k < xtGraphics.nplayers; k++) {
+            u[k].preform(mads[k], stageContos[k]);
+        }
+    
+        System.out.println(stageContos[1].x);
+
+        StageMaker.co[0].x = stageContos[1].x;
+        StageMaker.co[0].y = stageContos[1].y;
+        StageMaker.co[0].z = stageContos[1].z;
+        for (int k = 1; k < xtGraphics.nplayers; k++) {
+            possx.get(k).add(stageContos[k].x);
+            possy.get(k).add(stageContos[k].y);
+            possz.get(k).add(stageContos[k].z);
+            
+        }
+    }
+
+    static ArrayList<CopyOnWriteArrayList<Integer>> possx;
+    static ArrayList<CopyOnWriteArrayList<Integer>> possy;
+    static ArrayList<CopyOnWriteArrayList<Integer>> possz;
+    
+    static void lodelist() {
+       possx = new ArrayList<>(8);
+       possy = new ArrayList<>(8);
+       possz = new ArrayList<>(8);
+       for (int i = 0; i < 8; i++) {
+           possx.add(new CopyOnWriteArrayList<>());
+           possy.add(new CopyOnWriteArrayList<>());
+           possz.add(new CopyOnWriteArrayList<>());
+       }
+    }
+    
+    public static void locras() throws IOException {
+        carContos = new ContO[carRads.length];
+        contos = new ContO[stageRads.length];
+        FileUtil.loadFiles("data/cars", carRads, prep -> {
+            return new File(prep.parent, prep.file + ".rad").toPath();
+        }, (is, id) -> {
+            carContos[id] = new ContO(is);
+            if (!carContos[id].shadow) {
+                throw new RuntimeException("car " + CarDefine.names[id] + " does not have a shadow");
+            }
+        });
+    }
+
+    public static void drawsm(Graphics2D rd2, int cr) {
+        if (possx == null) return;
+        
+        int ind = 0;
+        int px= 0, py= 0, pz = 0;
+        
+        for (Iterator<Integer> xit = possx.get(cr).iterator(),
+                               yit = possy.get(cr).iterator(),
+                               zit = possz.get(cr).iterator(); xit.hasNext() && yit.hasNext() && zit.hasNext(); ind++) {
+            int x = xit.next();
+            int y = yit.next();
+            int z = zit.next();
+            
+            final int[] aX = {
+                    px - nfm.open.Medium.x, x - nfm.open.Medium.x
+            };
+            final int[] aY = {
+                    py - nfm.open.Medium.y, y - nfm.open.Medium.y
+            };
+            final int[] aZ = {
+                    pz - nfm.open.Medium.z, z - nfm.open.Medium.z
+            };
+
+            xtGraphics.rot(aX, aZ, nfm.open.Medium.cx, nfm.open.Medium.cz, nfm.open.Medium.xz, 2);
+            xtGraphics.rot(aY, aZ, nfm.open.Medium.cy, nfm.open.Medium.cz, nfm.open.Medium.zy, 2);
+            final int[] x2d = new int[2];
+            final int[] y2d = new int[2];
+
+            x2d[0] = Utility.xs(aX[0], aZ[0]);
+            y2d[0] = Utility.mediumYs(aY[0], aZ[0]);
+            x2d[1] = Utility.xs(aX[1], aZ[1]);
+            y2d[1] = Utility.mediumYs(aY[1], aZ[1]);
+
+            rd2.setColor(Color.magenta);
+            rd2.drawLine(x2d[0], y2d[0], x2d[1], y2d[1]);
+            
+            px=x;
+            py=y;
+            pz=z;
+        }
+    }
 }

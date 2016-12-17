@@ -38,6 +38,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.StringReader;
@@ -279,7 +280,7 @@ public class StageMaker extends Applet implements Runnable {
             210, 210, 210, 1, -1000
     };
     private int cntout = 0;
-    private final ContO[] co = new ContO[10000];
+    static final ContO[] co = new ContO[10000];
     private final int[] csky = {
             170, 220, 255
     };
@@ -438,7 +439,7 @@ public class StageMaker extends Applet implements Runnable {
     private final int[] rcheckp = {
             0, 1, 2, 3, 4, 12, 13, 37
     };
-    private Graphics2D rd;
+    static Graphics2D rd;
     private boolean right = false;
     private int rot = 0;
     private final Image[] sd = new Image[2];
@@ -2657,6 +2658,7 @@ public class StageMaker extends Applet implements Runnable {
                             }
                         }
                 }
+                renderFunStuff();
                 if (xm > 248 && xm < 762 && ym > 63 && ym < 517) {
                     if (!epart && !arrng) { // CALCULATES MOUSE POSITION AND PLACES SHIT
                         bco[selectedPart].x = (xm - 505) * (Math.abs(sy) / Medium.focusPoint) + sx;
@@ -3568,6 +3570,31 @@ public class StageMaker extends Applet implements Runnable {
                     hidefields();
                     tab = 2;
                 }
+                if (button("  Run AI  ", 550, 50, 0, false)) {
+                    try {
+                        GameSparker.locras();
+                        GameSparker.lodelist();
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+                    //mute sound so no missing error
+                    xtGraphics.mutes = true;
+                    GameSparker.smLoadStage(tstage + "\n" + bstage, co);
+                    GameSparker.u[0].mutes=true;
+                    
+                    new Thread(() -> {
+                        while(true) {
+                        GameSparker.ittSm();
+                        try {
+                            Thread.sleep(100L);
+                        } catch (InterruptedException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                        
+                        }
+                    }).start();;
+                }
                 rd.setFont(new Font("Arial", 1, 12));
                 ftm = rd.getFontMetrics();
                 rd.setColor(new Color(0, 0, 0));
@@ -3709,6 +3736,7 @@ public class StageMaker extends Applet implements Runnable {
                             }
                         }
                 }
+                renderFunStuff();
                 if (up) {
                     vz += 500.0F * Medium.cos(Medium.xz);
                     vx += 500.0F * Medium.sin(Medium.xz);
@@ -5241,6 +5269,22 @@ public class StageMaker extends Applet implements Runnable {
         //bco[selectedPart].z = ;
         //bco[selectedPart].y =;
         //bco[selectedPart].xz = ;
+    }
+
+    private void renderFunStuff() {
+        if (GameSparker.stageContos != null)
+        for (int i1 = 0; i1 < 8; i1++) {
+            GameSparker.drawsm(rd, i1);
+            
+            if (i1 < xtGraphics.nplayers) {
+                for (int p = 0; p < GameSparker.stageContos[i1].npl; p++) {
+                    GameSparker.stageContos[i1].p[p].wz=0;
+                    GameSparker.stageContos[i1].p[p].wx=0;
+                    GameSparker.stageContos[i1].p[p].wy=0;
+                }
+                GameSparker.stageContos[i1].d(rd);
+            }
+        }
     }
 
     private void savefile() {

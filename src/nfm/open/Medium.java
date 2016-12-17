@@ -1691,34 +1691,37 @@ public class Medium {
             }
         }
     }
+    
+    private static final Random unrandom = new Random(1337);
 
     static float random() {
-        if (cntrn == 0) {
-            for (int i = 0; i < 3; i++) {
-                rand[i] = (int) (10.0 * ThreadLocalRandom.current().nextDouble());
-                diup[i] = ThreadLocalRandom.current().nextDouble() <= ThreadLocalRandom.current().nextDouble();
-            }
-            cntrn = 20;
-        } else {
-            cntrn--;
-        }
-        for (int i = 0; i < 3; i++)
-            if (diup[i]) {
-                rand[i]++;
-                if (rand[i] == 10) {
-                    rand[i] = 0;
-                }
-            } else {
-                rand[i]--;
-                if (rand[i] == -1) {
-                    rand[i] = 9;
-                }
-            }
-        trn++;
-        if (trn == 3) {
-            trn = 0;
-        }
-        return rand[trn] / 10.0F;
+        return unrandom.nextFloat();
+//        if (cntrn == 0) {
+//            for (int i = 0; i < 3; i++) {
+//                rand[i] = (int) (10.0 * ThreadLocalRandom.current().nextDouble());
+//                diup[i] = ThreadLocalRandom.current().nextDouble() <= ThreadLocalRandom.current().nextDouble();
+//            }
+//            cntrn = 20;
+//        } else {
+//            cntrn--;
+//        }
+//        for (int i = 0; i < 3; i++)
+//            if (diup[i]) {
+//                rand[i]++;
+//                if (rand[i] == 10) {
+//                    rand[i] = 0;
+//                }
+//            } else {
+//                rand[i]--;
+//                if (rand[i] == -1) {
+//                    rand[i] = 9;
+//                }
+//            }
+//        trn++;
+//        if (trn == 3) {
+//            trn = 0;
+//        }
+//        return rand[trn] / 10.0F;
     }
 
     static private void rot(final int[] is, final int[] is274, final int i, final int i275, final int i276, final int i277) {

@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.annotations.SerializedName;
+
 import nfm.open.music.RadicalAdapter;
 import nfm.open.util.FileUtil;
 
@@ -298,6 +299,7 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
     private static final int maxpart = 190; //originally 65 ------ INCREMENT THIS FUCKING THING WHEN YOU WANT A NEW FUCKING PART
 
     private static final int BUMP_SET_ID = maxpart + 1; // bumps aren't even in the version this is just to avoid crashes
+    private static final int bumppart = BUMP_SET_ID;
 
     private static final byte PART_ROADS = 0;
     private static final byte PART_RAMPS = 1;
@@ -2115,536 +2117,961 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
      *
      * @param readstagei the readstagei
      */
-    static void readstage(final int readstagei) {
-        errd = 0;
-        trackname = "";
-        nfm.open.Trackers.nt = 0;
-        nob = 0;
-        xnob = 0;
-        nfm.open.CheckPoints.n = 0;
-        nfm.open.CheckPoints.nsp = 0;
-        nfm.open.CheckPoints.fn = 0;
-        nfm.open.CheckPoints.haltall = false;
-        nfm.open.CheckPoints.wasted = 0;
-        nfm.open.Medium.ground = 250;
-        nfm.open.Medium.lightson = false;
-        if (readstagei == 0) {
-            nfm.open.Medium.snap[0] = 0;
-            nfm.open.Medium.snap[1] = 0;
-            nfm.open.Medium.snap[2] = 0;
-        }
-        if (readstagei == 3) {
-            tstage = "";
-            bstage = "";
-        }
-        String string = bstage;
-        if (readstagei == 1 || readstagei == 2) {
-            string = tstage + "\r\n" + bstage;
-        }
-        int i181 = 0;
-        int i182 = 100;
-        int i183 = 0;
-        int i184 = 100;
-        boolean bool = true;
-        boolean newline = true;
-        String line;
+static void readstage(final int i) {
+//        errd = 0;
+//        trackname = "";
+//        nfm.open.Trackers.nt = 0;
+//        nob = 0;
+//        xnob = 0;
+//        nfm.open.CheckPoints.n = 0;
+//        nfm.open.CheckPoints.nsp = 0;
+//        nfm.open.CheckPoints.fn = 0;
+//        nfm.open.CheckPoints.haltall = false;
+//        nfm.open.CheckPoints.wasted = 0;
+//        nfm.open.Medium.ground = 250;
+//        nfm.open.Medium.lightson = false;
+//        if (readstagei == 0) {
+//            nfm.open.Medium.snap[0] = 0;
+//            nfm.open.Medium.snap[1] = 0;
+//            nfm.open.Medium.snap[2] = 0;
+//        }
+//        if (readstagei == 3) {
+//            tstage = "";
+//            bstage = "";
+//        }
+//        String string = bstage;
+//        if (readstagei == 1 || readstagei == 2) {
+//            string = tstage + "\r\n" + bstage;
+//        }
+//        int i181 = 0;
+//        int i182 = 100;
+//        int i183 = 0;
+//        int i184 = 100;
+//        boolean bool = true;
+//        boolean newline = true;
+//        String line;
+//
+//        /**
+//         * Extremely dirty hack for checking whether a line is valid
+//         */
+//        int nobincr;
+//
+//        try {
+//            BufferedReader datainputstream;
+//            if (readstagei == 3) {
+//                final File file = new File("mystages/" + stagename + ".txt");
+//                datainputstream = new BufferedReader(new FileReader(file));
+//                numUndoActions = 0;
+//            } else {
+//                datainputstream = new BufferedReader(new StringReader(string));
+//            }
+//            String string187;
+//            while ((string187 = datainputstream.readLine()) != null) {
+//                line = "" + string187.trim();
+//                nobincr = nob;
+//                if (line.startsWith("sky")) {
+//                    csky[0] = getint("sky", line, 0);
+//                    csky[1] = getint("sky", line, 1);
+//                    csky[2] = getint("sky", line, 2);
+//                    nfm.open.Medium.setsky(csky[0], csky[1], csky[2]);
+//                    if (readstagei == 3) {
+//                        tstage = tstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("ground")) {
+//                    cgrnd[0] = getint("ground", line, 0);
+//                    cgrnd[1] = getint("ground", line, 1);
+//                    cgrnd[2] = getint("ground", line, 2);
+//                    nfm.open.Medium.setgrnd(cgrnd[0], cgrnd[1], cgrnd[2]);
+//                    if (readstagei == 3) {
+//                        tstage = tstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("polys")) {
+//                    nfm.open.Medium.setpolys(getint("polys", line, 0), getint("polys", line, 1), getint("polys", line, 2));
+//                    if (readstagei == 3) {
+//                        tstage = tstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("fog")) {
+//                    cfade[0] = getint("fog", line, 0);
+//                    cfade[1] = getint("fog", line, 1);
+//                    cfade[2] = getint("fog", line, 2);
+//                    nfm.open.Medium.setfade(cfade[0], cfade[1], cfade[2]);
+//                    if (readstagei == 3) {
+//                        tstage = tstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("texture")) {
+//                    texture[0] = getint("texture", line, 0);
+//                    texture[1] = getint("texture", line, 1);
+//                    texture[2] = getint("texture", line, 2);
+//                    texture[3] = getint("texture", line, 3);
+//                    nfm.open.Medium.setexture(texture[0], texture[1], texture[2], texture[3]);
+//                    if (readstagei == 3) {
+//                        tstage = tstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("clouds")) {
+//                    cldd[0] = getint("clouds", line, 0);
+//                    cldd[1] = getint("clouds", line, 1);
+//                    cldd[2] = getint("clouds", line, 2);
+//                    cldd[3] = getint("clouds", line, 3);
+//                    cldd[4] = getint("clouds", line, 4);
+//                    nfm.open.Medium.setcloads(cldd[0], cldd[1], cldd[2], cldd[3], cldd[4]);
+//                    if (readstagei == 3) {
+//                        tstage = tstage + line + "\r\n";
+//                    }
+//                }
+//                if (readstagei != 2 && line.startsWith("snap")) {
+//                    nfm.open.Medium.setsnap(Utility.getint("snap", line, 0), Utility.getint("snap", line, 1), Utility.getint("snap", line, 2));
+//                    if (readstagei == 3) {
+//                        tstage = tstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("density")) {
+//                    nfm.open.Medium.fogd = (getint("density", line, 0) + 1) * 2 - 1;
+//                    if (nfm.open.Medium.fogd < 1) {
+//                        nfm.open.Medium.fogd = 1;
+//                    }
+//                    if (nfm.open.Medium.fogd > 30) {
+//                        nfm.open.Medium.fogd = 30;
+//                    }
+//                    if (readstagei == 3) {
+//                        tstage = tstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("mountains")) {
+//                    nfm.open.Medium.mgen = getint("mountains", line, 0);
+//                    if (readstagei == 3) {
+//
+//                        tstage = tstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("fadefrom")) {
+//                    nfm.open.Medium.fadfrom(getint("fadefrom", line, 0));
+//                    origfade = nfm.open.Medium.fade[0];
+//                    if (readstagei == 3) {
+//
+//                        tstage = tstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("lightson")) {
+//                    nfm.open.Medium.lightson = true;
+//                    if (readstagei == 3) {
+//
+//                        tstage = tstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("nlaps")) {
+//                    nfm.open.CheckPoints.nlaps = getint("nlaps", line, 0);
+//                    if (nfm.open.CheckPoints.nlaps < 1) {
+//                        nfm.open.CheckPoints.nlaps = 1;
+//                    }
+//                    if (nfm.open.CheckPoints.nlaps > 15) {
+//                        nfm.open.CheckPoints.nlaps = 15;
+//                    }
+//                    if (readstagei == 3) {
+//
+//                        tstage = tstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("soundtrack")) {
+//                    trackname = getstring("soundtrack", line, 0);
+//                    trackvol = getint("soundtrack", line, 1);
+//                    tracksize = getint("soundtrack", line, 2);
+//                    if (readstagei == 3) {
+//
+//                        tstage = tstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("set")) {
+//                    int i201 = getint("set", line, 0);
+//                    if (i201 >= 10 && i201 <= 25) {
+//                        nfm.open.Medium.loadnew = true;
+//                    }
+//                    i201 -= 10;
+//                    co[nob] = new SMContO(bco[i201], getint("set", line, 1), getint("set", line, 3), getint("set", line, 2), getint("set", line, 4));
+//                    co[nob].declaredXZ = getint("set", line, 4);
+//                    co[nob].partID = i201;
+//                    /*if (line.indexOf(")p") != -1) { //TODO remove maybe?
+//                        CheckPoints.x[CheckPoints.n] = getint("set", line, 1);
+//                        CheckPoints.z[CheckPoints.n] = getint("set", line, 2);
+//                        CheckPoints.y[CheckPoints.n] = 0;
+//                        CheckPoints.typ[CheckPoints.n] = 0;
+//                        if (line.indexOf(")pt") != -1) {
+//                            CheckPoints.typ[CheckPoints.n] = -1;
+//                        }
+//                        if (line.indexOf(")pr") != -1) {
+//                            CheckPoints.typ[CheckPoints.n] = -2;
+//                        }
+//                        if (line.indexOf(")po") != -1) {
+//                            CheckPoints.typ[CheckPoints.n] = -3;
+//                        }
+//                        if (line.indexOf(")ph") != -1) {
+//                            CheckPoints.typ[CheckPoints.n] = -4;
+//                        }
+//                        CheckPoints.n++;
+//                    }*/
+//                    xnob++;
+//                    nob++;
+//                    if (readstagei == 3) {
+//                        if (newline) {
+//
+//                            bstage = bstage + "\r\n";
+//                            newline = false;
+//                        }
+//
+//                        bstage = bstage + line + "\r\n";
+//                    }
+//                    if (nfm.open.Medium.loadnew) {
+//                        nfm.open.Medium.loadnew = false;
+//                    }
+//                }
+////                if (line.startsWith("base1")) {
+////                    co[nob] = new SMContO(bco[BASE1], getint("base1", line, 0), getint("base1", line, 1), getint("base1", line, 2), 0);
+////                    co[nob].declaredXZ = 0;
+////                    co[nob].partID = BASE1;
+////
+////                    xnob++;
+////                    nob++;
+////                    if (readstagei == 3) {
+////                        if (newline) {
+////                            bstage = bstage + "\r\n";
+////                            newline = false;
+////                        }
+////                        bstage = bstage + line + "\r\n";
+////                    }
+////                }
+////                if (line.startsWith("base2")) {
+////                    co[nob] = new SMContO(bco[BASE2], getint("base2", line, 0), getint("base2", line, 1), getint("base2", line, 2), 0);
+////                    co[nob].declaredXZ = 0;
+////                    co[nob].partID = BASE2;
+////
+////                    xnob++;
+////                    nob++;
+////                    if (readstagei == 3) {
+////                        if (newline) {
+////                            bstage = bstage + "\r\n";
+////                            newline = false;
+////                        }
+////                        bstage = bstage + line + "\r\n";
+////                    }
+////                }
+////                if (line.startsWith("ped_flag1")) {
+////                    co[nob] = new SMContO(bco[PEDESTAL_FLAG1], getint("ped_flag1", line, 0), getint("ped_flag1", line, 1), getint("ped_flag1", line, 2), 0);
+////                    co[nob].declaredXZ = 0;
+////                    co[nob].partID = PEDESTAL_FLAG1;
+////
+////                    xnob++;
+////                    nob++;
+////                    if (readstagei == 3) {
+////                        if (newline) {
+////                            bstage = bstage + "\r\n";
+////                            newline = false;
+////                        }
+////                        bstage = bstage + line + "\r\n";
+////                    }
+////                }
+////                if (line.startsWith("ped_flag2")) {
+////                    co[nob] = new SMContO(bco[PEDESTAL_FLAG2], getint("ped_flag2", line, 0), getint("ped_flag2", line, 1), getint("ped_flag2", line, 2), 0);
+////                    co[nob].declaredXZ = 0;
+////                    co[nob].partID = PEDESTAL_FLAG2;
+////
+////                    xnob++;
+////                    nob++;
+////                    if (readstagei == 3) {
+////                        if (newline) {
+////                            bstage = bstage + "\r\n";
+////                            newline = false;
+////                        }
+////                        bstage = bstage + line + "\r\n";
+////                    }
+////                }
+////                if (line.startsWith("node")) {
+////                    /*int setNum = getint("node", string186, 0);
+////                    if (setNum >= 10 && setNum <= 25) {
+////                        Medium.loadnew = true;
+////                    }
+////                    setNum -= 10;*/
+////                    final int nodeX = getint("node", line, 0);
+////                    final int nodeY = getint("node", line, 1);
+////                    final int nodeZ = getint("node", line, 2);
+////                    //int nodeXZ = getint("node", string186, 4);
+////                    co[nob] = new SMContO(bco[NODE_SET_ID], nodeX, nodeY, nodeZ, 0);
+////                    co[nob].declaredXZ = 0; //declaredXZ is the angle because no cras!
+////                    co[nob].partID = NODE_SET_ID;
+////                    CheckPoints.x[CheckPoints.n] = nodeX;
+////                    CheckPoints.z[CheckPoints.n] = nodeZ;
+////                    CheckPoints.y[CheckPoints.n] = nodeY;
+////                    CheckPoints.typ[CheckPoints.n] = 0;
+////                    if (line.contains(")pt")) {
+////                        CheckPoints.typ[CheckPoints.n] = -1;
+////                    }
+////                    if (line.contains(")pr")) {
+////                        CheckPoints.typ[CheckPoints.n] = -2;
+////                    }
+////                    if (line.contains(")po")) {
+////                        CheckPoints.typ[CheckPoints.n] = -3;
+////                    }
+////                    if (line.contains(")ph")) {
+////                        CheckPoints.typ[CheckPoints.n] = -4;
+////                    }
+////                    co[nob].checkpoint = CheckPoints.nsp + 1;
+////                    if (line.contains(")r")) { // // means this set should stay in its original position in `co[]`
+////                        co[nob].wh = CheckPoints.nsp + 1;
+////                    }
+////                    CheckPoints.n++;
+////                    CheckPoints.nsp++;
+////                    xnob++;
+////                    nob++;
+////                    if (readstagei == 3) {
+////                        if (newline) {
+////
+////                            bstage = bstage + "\r\n";
+////                            newline = false;
+////                        }
+////
+////                        bstage = bstage + line + "\r\n";
+////                    }
+////                    if (Medium.loadnew) {
+////                        Medium.loadnew = false;
+////                    }
+////                }
+//                if (line.startsWith("chk")) {
+//                    int i204 = getint("chk", line, 0);
+//                    i204 -= 10;
+//                    //int i205 = m.ground - bco[i204].grat;
+//                    //if (i204 == 54)
+//                    //  i205 = getint("chk", string186, 4);
+//                    co[nob] = new SMContO(bco[i204], getint("chk", line, 1), getint("chk", line, 3), getint("chk", line, 2), getint("chk", line, 4));
+//                    co[nob].declaredXZ = getint("chk", line, 4);
+//                    co[nob].partID = i204;
+//                    nfm.open.CheckPoints.x[nfm.open.CheckPoints.n] = getint("chk", line, 1);
+//                    nfm.open.CheckPoints.z[nfm.open.CheckPoints.n] = getint("chk", line, 2);
+//                    nfm.open.CheckPoints.y[nfm.open.CheckPoints.n] = getint("chk", line, 3);
+//                    if (getint("chk", line, 3) == 0) {
+//                        nfm.open.CheckPoints.typ[nfm.open.CheckPoints.n] = 1;
+//                    } else {
+//                        nfm.open.CheckPoints.typ[nfm.open.CheckPoints.n] = 2;
+//                    }
+//                    nfm.open.CheckPoints.pcs = nfm.open.CheckPoints.n;
+//                    nfm.open.CheckPoints.n++;
+//                    co[nob].checkpoint = nfm.open.CheckPoints.nsp + 1;
+//                    if (line.contains(")r")) { // means this set should stay in its original position in `co[]`
+//                        co[nob].wh = nfm.open.CheckPoints.nsp + 1;
+//                    }
+//                    nfm.open.CheckPoints.nsp++;
+//                    xnob++;
+//                    nob++;
+//                    if (readstagei == 3) {
+//                        if (newline) {
+//
+//                            bstage = bstage + "\r\n";
+//                            newline = false;
+//                        }
+//
+//                        bstage = bstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("fix")) {
+//                    int i208 = getint("fix", line, 0);
+//                    i208 -= 10;
+//                    co[nob] = new SMContO(bco[i208], getint("fix", line, 1), getint("fix", line, 3), getint("fix", line, 2), getint("fix", line, 4));
+//                    co[nob].declaredXZ = getint("fix", line, 4);
+//                    co[nob].partID = i208;
+//                    nfm.open.CheckPoints.fx[nfm.open.CheckPoints.fn] = getint("fix", line, 1);
+//                    nfm.open.CheckPoints.fz[nfm.open.CheckPoints.fn] = getint("fix", line, 2);
+//                    nfm.open.CheckPoints.fy[nfm.open.CheckPoints.fn] = getint("fix", line, 3);
+//                    //co[nob].elec = true;
+//                    if (getint("fix", line, 4) != 0) {
+//                        nfm.open.CheckPoints.roted[nfm.open.CheckPoints.fn] = true;
+//                        co[nob].roted = true;
+//                    } else {
+//                        nfm.open.CheckPoints.roted[nfm.open.CheckPoints.fn] = false;
+//                    }
+//                    nfm.open.CheckPoints.special[nfm.open.CheckPoints.fn] = line.contains(")s");
+//                    nfm.open.CheckPoints.fn++;
+//                    xnob++;
+//                    nob++;
+//                    if (readstagei == 3) {
+//                        if (newline) {
+//
+//                            bstage = bstage + "\r\n";
+//                            newline = false;
+//                        }
+//
+//                        bstage = bstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("pile")) { //TODO ADD HERE
+//                    co[nob] = new SMContO(getint("pile", line, 0), getint("pile", line, 1), getint("pile", line, 2), getint("pile", line, 3), getint("pile", line, 4), nfm.open.Medium.ground);
+//                    co[nob].srz = getint("pile", line, 0);
+//                    co[nob].srx = getint("pile", line, 1);
+//                    co[nob].sry = getint("pile", line, 2);
+//                    co[nob].partID = BUMP_SET_ID;
+//                    xnob++;
+//                    nob++;
+//                    if (readstagei == 3) {
+//                        if (newline) {
+//
+//                            bstage = bstage + "\r\n";
+//                            newline = false;
+//                        }
+//
+//                        bstage = bstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("maxr")) {
+//                    final int i213 = getint("maxr", line, 0);
+//                    final int i214 = getint("maxr", line, 1);
+//                    i181 = i214;
+//                    final int i215 = getint("maxr", line, 2);
+//                    for (int i216 = 0; i216 < i213; i216++) {
+//                        co[nob] = new SMContO(bco[29], i214, nfm.open.Medium.ground - bco[29].grat, i216 * 4800 + i215, 0);
+//                        if (readstagei == 0) {
+//                            xnob++;
+//                        } else {
+//                            nob++;
+//                        }
+//                    }
+//                    if (readstagei == 3) {
+//                        if (bool) {
+//
+//                            bstage = bstage + "\r\n";
+//                            bool = false;
+//                        }
+//
+//                        bstage = bstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("maxl")) {
+//                    final int i219 = getint("maxl", line, 0);
+//                    final int i220 = getint("maxl", line, 1);
+//                    i182 = i220;
+//                    final int i221 = getint("maxl", line, 2);
+//                    for (int i222 = 0; i222 < i219; i222++) {
+//                        co[nob] = new SMContO(bco[29], i220, nfm.open.Medium.ground - bco[29].grat, i222 * 4800 + i221, 180);
+//                        if (readstagei == 0) {
+//                            xnob++;
+//                        } else {
+//                            nob++;
+//                        }
+//                    }
+//                    if (readstagei == 3) {
+//                        if (bool) {
+//
+//                            bstage = bstage + "\r\n";
+//                            bool = false;
+//                        }
+//
+//                        bstage = bstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("maxt")) {
+//                    final int i225 = getint("maxt", line, 0);
+//                    final int i226 = getint("maxt", line, 1);
+//                    i183 = i226;
+//                    final int i227 = getint("maxt", line, 2);
+//                    for (int i228 = 0; i228 < i225; i228++) {
+//                        co[nob] = new SMContO(bco[29], i228 * 4800 + i227, nfm.open.Medium.ground - bco[29].grat, i226, 90);
+//                        if (readstagei == 0) {
+//                            xnob++;
+//                        } else {
+//                            nob++;
+//                        }
+//                    }
+//                    if (readstagei == 3) {
+//                        if (bool) {
+//
+//                            bstage = bstage + "\r\n";
+//                            bool = false;
+//                        }
+//
+//                        bstage = bstage + line + "\r\n";
+//                    }
+//                }
+//                if (line.startsWith("maxb")) {
+//                    final int i231 = getint("maxb", line, 0);
+//                    final int i232 = getint("maxb", line, 1);
+//                    i184 = i232;
+//                    final int i233 = getint("maxb", line, 2);
+//                    for (int i234 = 0; i234 < i231; i234++) {
+//                        co[nob] = new SMContO(bco[29], i234 * 4800 + i233, nfm.open.Medium.ground - bco[29].grat, i232, -90);
+//                        if (readstagei == 0) {
+//                            xnob++;
+//                        } else {
+//                            nob++;
+//                        }
+//                    }
+//                    if (readstagei == 3) {
+//                        if (bool) {
+//
+//                            bstage = bstage + "\r\n";
+//                            bool = false;
+//                        }
+//
+//                        bstage = bstage + line + "\r\n";
+//                    }
+//                }
+//                if (nobincr != nob && !line.startsWith("//") && line.contains(")f=") || line.contains(",f=")) {
+//                    String s = line.substring(line.indexOf("f=") + ("f=".length()));
+//                    co[nob-1].declaredPositionInArray = Integer.parseInt(s);
+//                    co[nob-1].atLine = nobincr;
+//                }
+//            }
+//            datainputstream.close();
+//            nfm.open.Medium.newpolys(i182, i181 - i182, i184, i183 - i184, nob);
+//            nfm.open.Medium.newclouds(i182, i181, i184, i183);
+//            nfm.open.Medium.newmountains(i182, i181, i184, i183);
+//            nfm.open.Medium.newstars();
+//        } catch (final Exception exception) {
+//            errd = 6;
+//            if (nfm.open.CheckPoints.fn >= 5) {
+//                errd = 5;
+//            }
+//            if (nfm.open.Trackers.nt >= 670000) {
+//                errd = 1;
+//            }
+//            if (nfm.open.CheckPoints.n >= 10000) {
+//                errd = 2;
+//            }
+//            if (nob >= 10000) {
+//                errd = 4;
+//            }
+//        }
+//        // stage size limit
+//        //if (Medium.nrw * Medium.ncl >= 16000)
+//        //    errd = 3;
+//        // piece limit
+//        if (xnob >= 10000) {
+//            errd = 4;
+//        }
+//
 
-        /**
-         * Extremely dirty hack for checking whether a line is valid
-         */
-        int nobincr;
+    errd = 0;
+    trackname = "";
+    Trackers.nt = 0;
+    nob = 0;
+    xnob = 0;
+    CheckPoints.n = 0;
+    CheckPoints.nsp = 0;
+    CheckPoints.fn = 0;
+    CheckPoints.haltall = false;
+    CheckPoints.wasted = 0;
+    CheckPoints.catchfin = 0;
+    Medium.ground = 250;
+    Medium.lightson = false;
+    if (i == 0) {
+        Medium.snap[0] = 0;
+        Medium.snap[1] = 0;
+        Medium.snap[2] = 0;
+    }
+    if (i == 3) {
+        tstage = "";
+        bstage = "";
+    }
+    String string = bstage;
+    if (i == 1 || i == 2) {
+        string = "" + tstage + "\r\n" + bstage + "";
+    }
+    int i181 = 0;
+    int i182 = 100;
+    int i183 = 0;
+    int i184 = 100;
+    boolean bool = true;
+    boolean bool185 = true;
+    String string186 = "";
+    try {
+        BufferedReader bufferedreader;
+        if (i == 3) {
+            final File file = new File("mystages/" + stagename + ".txt");
+            bufferedreader = new BufferedReader(new FileReader(file));
+            //nundo = 0;
+        } else {
+            bufferedreader = new BufferedReader(new InputStreamReader(new DataInputStream(new ByteArrayInputStream(string.getBytes()))));
+        }
+        String string187;
+        while ((string187 = bufferedreader.readLine()) != null) {
+            string186 = "" + string187.trim();
+            if (string186.startsWith("sky")) {
+                csky[0] = getint("sky", string186, 0);
+                csky[1] = getint("sky", string186, 1);
+                csky[2] = getint("sky", string186, 2);
+                Medium.setsky(csky[0], csky[1], csky[2]);
+                if (i == 3) {
 
-        try {
-            BufferedReader datainputstream;
-            if (readstagei == 3) {
-                final File file = new File("mystages/" + stagename + ".txt");
-                datainputstream = new BufferedReader(new FileReader(file));
-                numUndoActions = 0;
-            } else {
-                datainputstream = new BufferedReader(new StringReader(string));
+                    tstage = "" + tstage + "" + string186 + "\r\n";
+                }
             }
-            String string187;
-            while ((string187 = datainputstream.readLine()) != null) {
-                line = "" + string187.trim();
-                nobincr = nob;
-                if (line.startsWith("sky")) {
-                    csky[0] = getint("sky", line, 0);
-                    csky[1] = getint("sky", line, 1);
-                    csky[2] = getint("sky", line, 2);
-                    nfm.open.Medium.setsky(csky[0], csky[1], csky[2]);
-                    if (readstagei == 3) {
-                        tstage = tstage + line + "\r\n";
-                    }
-                }
-                if (line.startsWith("ground")) {
-                    cgrnd[0] = getint("ground", line, 0);
-                    cgrnd[1] = getint("ground", line, 1);
-                    cgrnd[2] = getint("ground", line, 2);
-                    nfm.open.Medium.setgrnd(cgrnd[0], cgrnd[1], cgrnd[2]);
-                    if (readstagei == 3) {
-                        tstage = tstage + line + "\r\n";
-                    }
-                }
-                if (line.startsWith("polys")) {
-                    nfm.open.Medium.setpolys(getint("polys", line, 0), getint("polys", line, 1), getint("polys", line, 2));
-                    if (readstagei == 3) {
-                        tstage = tstage + line + "\r\n";
-                    }
-                }
-                if (line.startsWith("fog")) {
-                    cfade[0] = getint("fog", line, 0);
-                    cfade[1] = getint("fog", line, 1);
-                    cfade[2] = getint("fog", line, 2);
-                    nfm.open.Medium.setfade(cfade[0], cfade[1], cfade[2]);
-                    if (readstagei == 3) {
-                        tstage = tstage + line + "\r\n";
-                    }
-                }
-                if (line.startsWith("texture")) {
-                    texture[0] = getint("texture", line, 0);
-                    texture[1] = getint("texture", line, 1);
-                    texture[2] = getint("texture", line, 2);
-                    texture[3] = getint("texture", line, 3);
-                    nfm.open.Medium.setexture(texture[0], texture[1], texture[2], texture[3]);
-                    if (readstagei == 3) {
-                        tstage = tstage + line + "\r\n";
-                    }
-                }
-                if (line.startsWith("clouds")) {
-                    cldd[0] = getint("clouds", line, 0);
-                    cldd[1] = getint("clouds", line, 1);
-                    cldd[2] = getint("clouds", line, 2);
-                    cldd[3] = getint("clouds", line, 3);
-                    cldd[4] = getint("clouds", line, 4);
-                    nfm.open.Medium.setcloads(cldd[0], cldd[1], cldd[2], cldd[3], cldd[4]);
-                    if (readstagei == 3) {
-                        tstage = tstage + line + "\r\n";
-                    }
-                }
-                if (readstagei != 2 && line.startsWith("snap")) {
-                    nfm.open.Medium.setsnap(Utility.getint("snap", line, 0), Utility.getint("snap", line, 1), Utility.getint("snap", line, 2));
-                    if (readstagei == 3) {
-                        tstage = tstage + line + "\r\n";
-                    }
-                }
-                if (line.startsWith("density")) {
-                    nfm.open.Medium.fogd = (getint("density", line, 0) + 1) * 2 - 1;
-                    if (nfm.open.Medium.fogd < 1) {
-                        nfm.open.Medium.fogd = 1;
-                    }
-                    if (nfm.open.Medium.fogd > 30) {
-                        nfm.open.Medium.fogd = 30;
-                    }
-                    if (readstagei == 3) {
-                        tstage = tstage + line + "\r\n";
-                    }
-                }
-                if (line.startsWith("mountains")) {
-                    nfm.open.Medium.mgen = getint("mountains", line, 0);
-                    if (readstagei == 3) {
+            if (string186.startsWith("ground")) {
+                cgrnd[0] = getint("ground", string186, 0);
+                cgrnd[1] = getint("ground", string186, 1);
+                cgrnd[2] = getint("ground", string186, 2);
+                Medium.setgrnd(cgrnd[0], cgrnd[1], cgrnd[2]);
+                if (i == 3) {
 
-                        tstage = tstage + line + "\r\n";
-                    }
+                    tstage = "" + tstage + "" + string186 + "\r\n";
                 }
-                if (line.startsWith("fadefrom")) {
-                    nfm.open.Medium.fadfrom(getint("fadefrom", line, 0));
-                    origfade = nfm.open.Medium.fade[0];
-                    if (readstagei == 3) {
+            }
+            if (string186.startsWith("polys")) {
+                Medium.setpolys(getint("polys", string186, 0), getint("polys", string186, 1), getint("polys", string186, 2));
+                if (i == 3) {
 
-                        tstage = tstage + line + "\r\n";
-                    }
+                    tstage = "" + tstage + "" + string186 + "\r\n";
                 }
-                if (line.startsWith("lightson")) {
-                    nfm.open.Medium.lightson = true;
-                    if (readstagei == 3) {
+            }
+            if (string186.startsWith("fog")) {
+                cfade[0] = getint("fog", string186, 0);
+                cfade[1] = getint("fog", string186, 1);
+                cfade[2] = getint("fog", string186, 2);
+                Medium.setfade(cfade[0], cfade[1], cfade[2]);
+                if (i == 3) {
 
-                        tstage = tstage + line + "\r\n";
-                    }
+                    tstage = "" + tstage + "" + string186 + "\r\n";
                 }
-                if (line.startsWith("nlaps")) {
-                    nfm.open.CheckPoints.nlaps = getint("nlaps", line, 0);
-                    if (nfm.open.CheckPoints.nlaps < 1) {
-                        nfm.open.CheckPoints.nlaps = 1;
-                    }
-                    if (nfm.open.CheckPoints.nlaps > 15) {
-                        nfm.open.CheckPoints.nlaps = 15;
-                    }
-                    if (readstagei == 3) {
+            }
+            if (string186.startsWith("texture")) {
+                texture[0] = getint("texture", string186, 0);
+                texture[1] = getint("texture", string186, 1);
+                texture[2] = getint("texture", string186, 2);
+                texture[3] = getint("texture", string186, 3);
+                Medium.setexture(texture[0], texture[1], texture[2], texture[3]);
+                if (i == 3) {
 
-                        tstage = tstage + line + "\r\n";
-                    }
+                    tstage = "" + tstage + "" + string186 + "\r\n";
                 }
-                if (line.startsWith("soundtrack")) {
-                    trackname = getstring("soundtrack", line, 0);
-                    trackvol = getint("soundtrack", line, 1);
-                    tracksize = getint("soundtrack", line, 2);
-                    if (readstagei == 3) {
+            }
+            if (string186.startsWith("clouds")) {
+                cldd[0] = getint("clouds", string186, 0);
+                cldd[1] = getint("clouds", string186, 1);
+                cldd[2] = getint("clouds", string186, 2);
+                cldd[3] = getint("clouds", string186, 3);
+                cldd[4] = getint("clouds", string186, 4);
+                Medium.setcloads(cldd[0], cldd[1], cldd[2], cldd[3], cldd[4]);
+                if (i == 3) {
 
-                        tstage = tstage + line + "\r\n";
-                    }
+                    tstage = "" + tstage + "" + string186 + "\r\n";
                 }
-                if (line.startsWith("set")) {
-                    int i201 = getint("set", line, 0);
-                    if (i201 >= 10 && i201 <= 25) {
-                        nfm.open.Medium.loadnew = true;
-                    }
-                    i201 -= 10;
-                    co[nob] = new SMContO(bco[i201], getint("set", line, 1), getint("set", line, 3), getint("set", line, 2), getint("set", line, 4));
-                    co[nob].declaredXZ = getint("set", line, 4);
-                    co[nob].partID = i201;
-                    /*if (line.indexOf(")p") != -1) { //TODO remove maybe?
-                        CheckPoints.x[CheckPoints.n] = getint("set", line, 1);
-                        CheckPoints.z[CheckPoints.n] = getint("set", line, 2);
-                        CheckPoints.y[CheckPoints.n] = 0;
-                        CheckPoints.typ[CheckPoints.n] = 0;
-                        if (line.indexOf(")pt") != -1) {
-                            CheckPoints.typ[CheckPoints.n] = -1;
-                        }
-                        if (line.indexOf(")pr") != -1) {
-                            CheckPoints.typ[CheckPoints.n] = -2;
-                        }
-                        if (line.indexOf(")po") != -1) {
-                            CheckPoints.typ[CheckPoints.n] = -3;
-                        }
-                        if (line.indexOf(")ph") != -1) {
-                            CheckPoints.typ[CheckPoints.n] = -4;
-                        }
-                        CheckPoints.n++;
-                    }*/
-                    xnob++;
-                    nob++;
-                    if (readstagei == 3) {
-                        if (newline) {
+            }
+            if (i != 2 && string186.startsWith("snap")) {
+                Medium.setsnap(getint("snap", string186, 0), getint("snap", string186, 1), getint("snap", string186, 2));
+                if (i == 3) {
 
-                            bstage = bstage + "\r\n";
-                            newline = false;
-                        }
-
-                        bstage = bstage + line + "\r\n";
-                    }
-                    if (nfm.open.Medium.loadnew) {
-                        nfm.open.Medium.loadnew = false;
-                    }
+                    tstage = "" + tstage + "" + string186 + "\r\n";
                 }
-//                if (line.startsWith("base1")) {
-//                    co[nob] = new SMContO(bco[BASE1], getint("base1", line, 0), getint("base1", line, 1), getint("base1", line, 2), 0);
-//                    co[nob].declaredXZ = 0;
-//                    co[nob].partID = BASE1;
-//
-//                    xnob++;
-//                    nob++;
-//                    if (readstagei == 3) {
-//                        if (newline) {
-//                            bstage = bstage + "\r\n";
-//                            newline = false;
-//                        }
-//                        bstage = bstage + line + "\r\n";
-//                    }
-//                }
-//                if (line.startsWith("base2")) {
-//                    co[nob] = new SMContO(bco[BASE2], getint("base2", line, 0), getint("base2", line, 1), getint("base2", line, 2), 0);
-//                    co[nob].declaredXZ = 0;
-//                    co[nob].partID = BASE2;
-//
-//                    xnob++;
-//                    nob++;
-//                    if (readstagei == 3) {
-//                        if (newline) {
-//                            bstage = bstage + "\r\n";
-//                            newline = false;
-//                        }
-//                        bstage = bstage + line + "\r\n";
-//                    }
-//                }
-//                if (line.startsWith("ped_flag1")) {
-//                    co[nob] = new SMContO(bco[PEDESTAL_FLAG1], getint("ped_flag1", line, 0), getint("ped_flag1", line, 1), getint("ped_flag1", line, 2), 0);
-//                    co[nob].declaredXZ = 0;
-//                    co[nob].partID = PEDESTAL_FLAG1;
-//
-//                    xnob++;
-//                    nob++;
-//                    if (readstagei == 3) {
-//                        if (newline) {
-//                            bstage = bstage + "\r\n";
-//                            newline = false;
-//                        }
-//                        bstage = bstage + line + "\r\n";
-//                    }
-//                }
-//                if (line.startsWith("ped_flag2")) {
-//                    co[nob] = new SMContO(bco[PEDESTAL_FLAG2], getint("ped_flag2", line, 0), getint("ped_flag2", line, 1), getint("ped_flag2", line, 2), 0);
-//                    co[nob].declaredXZ = 0;
-//                    co[nob].partID = PEDESTAL_FLAG2;
-//
-//                    xnob++;
-//                    nob++;
-//                    if (readstagei == 3) {
-//                        if (newline) {
-//                            bstage = bstage + "\r\n";
-//                            newline = false;
-//                        }
-//                        bstage = bstage + line + "\r\n";
-//                    }
-//                }
-//                if (line.startsWith("node")) {
-//                    /*int setNum = getint("node", string186, 0);
-//                    if (setNum >= 10 && setNum <= 25) {
-//                        Medium.loadnew = true;
-//                    }
-//                    setNum -= 10;*/
-//                    final int nodeX = getint("node", line, 0);
-//                    final int nodeY = getint("node", line, 1);
-//                    final int nodeZ = getint("node", line, 2);
-//                    //int nodeXZ = getint("node", string186, 4);
-//                    co[nob] = new SMContO(bco[NODE_SET_ID], nodeX, nodeY, nodeZ, 0);
-//                    co[nob].declaredXZ = 0; //declaredXZ is the angle because no cras!
-//                    co[nob].partID = NODE_SET_ID;
-//                    CheckPoints.x[CheckPoints.n] = nodeX;
-//                    CheckPoints.z[CheckPoints.n] = nodeZ;
-//                    CheckPoints.y[CheckPoints.n] = nodeY;
-//                    CheckPoints.typ[CheckPoints.n] = 0;
-//                    if (line.contains(")pt")) {
-//                        CheckPoints.typ[CheckPoints.n] = -1;
-//                    }
-//                    if (line.contains(")pr")) {
-//                        CheckPoints.typ[CheckPoints.n] = -2;
-//                    }
-//                    if (line.contains(")po")) {
-//                        CheckPoints.typ[CheckPoints.n] = -3;
-//                    }
-//                    if (line.contains(")ph")) {
-//                        CheckPoints.typ[CheckPoints.n] = -4;
-//                    }
-//                    co[nob].checkpoint = CheckPoints.nsp + 1;
-//                    if (line.contains(")r")) { // // means this set should stay in its original position in `co[]`
-//                        co[nob].wh = CheckPoints.nsp + 1;
-//                    }
-//                    CheckPoints.n++;
-//                    CheckPoints.nsp++;
-//                    xnob++;
-//                    nob++;
-//                    if (readstagei == 3) {
-//                        if (newline) {
-//
-//                            bstage = bstage + "\r\n";
-//                            newline = false;
-//                        }
-//
-//                        bstage = bstage + line + "\r\n";
-//                    }
-//                    if (Medium.loadnew) {
-//                        Medium.loadnew = false;
-//                    }
-//                }
-                if (line.startsWith("chk")) {
-                    int i204 = getint("chk", line, 0);
-                    i204 -= 10;
-                    //int i205 = m.ground - bco[i204].grat;
-                    //if (i204 == 54)
-                    //  i205 = getint("chk", string186, 4);
-                    co[nob] = new SMContO(bco[i204], getint("chk", line, 1), getint("chk", line, 3), getint("chk", line, 2), getint("chk", line, 4));
-                    co[nob].declaredXZ = getint("chk", line, 4);
-                    co[nob].partID = i204;
-                    nfm.open.CheckPoints.x[nfm.open.CheckPoints.n] = getint("chk", line, 1);
-                    nfm.open.CheckPoints.z[nfm.open.CheckPoints.n] = getint("chk", line, 2);
-                    nfm.open.CheckPoints.y[nfm.open.CheckPoints.n] = getint("chk", line, 3);
-                    if (getint("chk", line, 3) == 0) {
-                        nfm.open.CheckPoints.typ[nfm.open.CheckPoints.n] = 1;
+            }
+            if (string186.startsWith("density")) {
+                Medium.fogd = (getint("density", string186, 0) + 1) * 2 - 1;
+                if (Medium.fogd < 1) {
+                    Medium.fogd = 1;
+                }
+                if (Medium.fogd > 30) {
+                    Medium.fogd = 30;
+                }
+                if (i == 3) {
+
+                    tstage = "" + tstage + "" + string186 + "\r\n";
+                }
+            }
+            if (string186.startsWith("mountains")) {
+                Medium.mgen = getint("mountains", string186, 0);
+                if (i == 3) {
+
+                    tstage = "" + tstage + "" + string186 + "\r\n";
+                }
+            }
+            if (string186.startsWith("fadefrom")) {
+                Medium.fadfrom(getint("fadefrom", string186, 0));
+                origfade = Medium.fade[0];
+                if (i == 3) {
+
+                    tstage = "" + tstage + "" + string186 + "\r\n";
+                }
+            }
+            if (string186.startsWith("lightson")) {
+                Medium.lightson = true;
+                if (i == 3) {
+
+                    tstage = "" + tstage + "" + string186 + "\r\n";
+                }
+            }
+            if (string186.startsWith("nlaps")) {
+                CheckPoints.nlaps = getint("nlaps", string186, 0);
+                if (CheckPoints.nlaps < 1) {
+                    CheckPoints.nlaps = 1;
+                }
+                if (CheckPoints.nlaps > 15) {
+                    CheckPoints.nlaps = 15;
+                }
+                if (i == 3) {
+
+                    tstage = "" + tstage + "" + string186 + "\r\n";
+                }
+            }
+            if (string186.startsWith("soundtrack")) {
+                trackname = getstring("soundtrack", string186, 0);
+                trackvol = getint("soundtrack", string186, 1);
+                tracksize = getint("soundtrack", string186, 2);
+                if (i == 3) {
+
+                    tstage = "" + tstage + "" + string186 + "\r\n";
+                }
+            }
+            if (string186.startsWith("set")) {
+                int i201 = getint("set", string186, 0);
+                if (i201 >= 10 && i201 <= 25) {
+                    Medium.loadnew = true;
+                }
+                i201 -= 10;
+                co[nob] = new SMContO(bco[i201], getint("set", string186, 1), Medium.ground - bco[i201].grat, getint("set", string186, 2), getint("set", string186, 3));
+                co[nob].roofat = getint("set", string186, 3);
+                co[nob].colok = i201;
+                if (string186.contains(")p")) {
+                    CheckPoints.x[CheckPoints.n] = getint("chk", string186, 1);
+                    CheckPoints.z[CheckPoints.n] = getint("chk", string186, 2);
+                    CheckPoints.y[CheckPoints.n] = 0;
+                    CheckPoints.typ[CheckPoints.n] = 0;
+                    if (string186.contains(")pt")) {
+                        CheckPoints.typ[CheckPoints.n] = -1;
+                    }
+                    if (string186.contains(")pr")) {
+                        CheckPoints.typ[CheckPoints.n] = -2;
+                    }
+                    if (string186.contains(")po")) {
+                        CheckPoints.typ[CheckPoints.n] = -3;
+                    }
+                    if (string186.contains(")ph")) {
+                        CheckPoints.typ[CheckPoints.n] = -4;
+                    }
+                    CheckPoints.n++;
+                }
+                xnob++;
+                nob++;
+                if (i == 3) {
+                    if (bool185) {
+
+                        bstage = "" + bstage + "\r\n";
+                        bool185 = false;
+                    }
+
+                    bstage = "" + bstage + "" + string186 + "\r\n";
+                }
+                if (Medium.loadnew) {
+                    Medium.loadnew = false;
+                }
+            }
+            if (string186.startsWith("chk")) {
+                int i204 = getint("chk", string186, 0);
+                i204 -= 10;
+                int i205 = Medium.ground - bco[i204].grat;
+                if (i204 == 54) {
+                    i205 = getint("chk", string186, 4);
+                }
+                co[nob] = new SMContO(bco[i204], getint("chk", string186, 1), i205, getint("chk", string186, 2), getint("chk", string186, 3));
+                co[nob].roofat = getint("chk", string186, 3);
+                co[nob].colok = i204;
+                CheckPoints.x[CheckPoints.n] = getint("chk", string186, 1);
+                CheckPoints.z[CheckPoints.n] = getint("chk", string186, 2);
+                CheckPoints.y[CheckPoints.n] = i205;
+                if (getint("chk", string186, 3) == 0) {
+                    CheckPoints.typ[CheckPoints.n] = 1;
+                } else {
+                    CheckPoints.typ[CheckPoints.n] = 2;
+                }
+                CheckPoints.pcs = CheckPoints.n;
+                CheckPoints.n++;
+                co[nob].checkpoint = CheckPoints.nsp + 1;
+                if (string186.contains(")r")) {
+                    co[nob].wh = CheckPoints.nsp + 1;
+                }
+                CheckPoints.nsp++;
+                xnob++;
+                nob++;
+                if (i == 3) {
+                    if (bool185) {
+
+                        bstage = "" + bstage + "\r\n";
+                        bool185 = false;
+                    }
+
+                    bstage = "" + bstage + "" + string186 + "\r\n";
+                }
+            }
+            if (string186.startsWith("fix")) {
+                int i208 = getint("fix", string186, 0);
+                i208 -= 10;
+                co[nob] = new SMContO(bco[i208], getint("fix", string186, 1), getint("fix", string186, 3), getint("fix", string186, 2), getint("fix", string186, 4));
+                co[nob].roofat = getint("fix", string186, 4);
+                co[nob].colok = i208;
+                CheckPoints.fx[CheckPoints.fn] = getint("fix", string186, 1);
+                CheckPoints.fz[CheckPoints.fn] = getint("fix", string186, 2);
+                CheckPoints.fy[CheckPoints.fn] = getint("fix", string186, 3);
+                co[nob].elec = true;
+                if (getint("fix", string186, 4) != 0) {
+                    CheckPoints.roted[CheckPoints.fn] = true;
+                    co[nob].roted = true;
+                } else {
+                    CheckPoints.roted[CheckPoints.fn] = false;
+                }
+                CheckPoints.special[CheckPoints.fn] = string186.indexOf(")s") != -1;
+                CheckPoints.fn++;
+                xnob++;
+                nob++;
+                if (i == 3) {
+                    if (bool185) {
+
+                        bstage = "" + bstage + "\r\n";
+                        bool185 = false;
+                    }
+
+                    bstage = "" + bstage + "" + string186 + "\r\n";
+                }
+            }
+            if (string186.startsWith("pile")) {
+                co[nob] = new SMContO(getint("pile", string186, 0), getint("pile", string186, 1), getint("pile", string186, 2), getint("pile", string186, 3), getint("pile", string186, 4), Medium.ground);
+                co[nob].srz = getint("pile", string186, 0);
+                co[nob].srx = getint("pile", string186, 1);
+                co[nob].sry = getint("pile", string186, 2);
+                co[nob].colok = bumppart;
+                xnob++;
+                nob++;
+                if (i == 3) {
+                    if (bool185) {
+
+                        bstage = "" + bstage + "\r\n";
+                        bool185 = false;
+                    }
+
+                    bstage = "" + bstage + "" + string186 + "\r\n";
+                }
+            }
+            if (string186.startsWith("maxr")) {
+                final int i213 = getint("maxr", string186, 0);
+                final int i214 = getint("maxr", string186, 1);
+                i181 = i214;
+                final int i215 = getint("maxr", string186, 2);
+                for (int i216 = 0; i216 < i213; i216++) {
+                    co[nob] = new SMContO(bco[29], i214, Medium.ground - bco[29].grat, i216 * 4800 + i215, 0);
+                    if (i == 0) {
+                        xnob++;
                     } else {
-                        nfm.open.CheckPoints.typ[nfm.open.CheckPoints.n] = 2;
-                    }
-                    nfm.open.CheckPoints.pcs = nfm.open.CheckPoints.n;
-                    nfm.open.CheckPoints.n++;
-                    co[nob].checkpoint = nfm.open.CheckPoints.nsp + 1;
-                    if (line.contains(")r")) { // means this set should stay in its original position in `co[]`
-                        co[nob].wh = nfm.open.CheckPoints.nsp + 1;
-                    }
-                    nfm.open.CheckPoints.nsp++;
-                    xnob++;
-                    nob++;
-                    if (readstagei == 3) {
-                        if (newline) {
-
-                            bstage = bstage + "\r\n";
-                            newline = false;
-                        }
-
-                        bstage = bstage + line + "\r\n";
+                        nob++;
                     }
                 }
-                if (line.startsWith("fix")) {
-                    int i208 = getint("fix", line, 0);
-                    i208 -= 10;
-                    co[nob] = new SMContO(bco[i208], getint("fix", line, 1), getint("fix", line, 3), getint("fix", line, 2), getint("fix", line, 4));
-                    co[nob].declaredXZ = getint("fix", line, 4);
-                    co[nob].partID = i208;
-                    nfm.open.CheckPoints.fx[nfm.open.CheckPoints.fn] = getint("fix", line, 1);
-                    nfm.open.CheckPoints.fz[nfm.open.CheckPoints.fn] = getint("fix", line, 2);
-                    nfm.open.CheckPoints.fy[nfm.open.CheckPoints.fn] = getint("fix", line, 3);
-                    //co[nob].elec = true;
-                    if (getint("fix", line, 4) != 0) {
-                        nfm.open.CheckPoints.roted[nfm.open.CheckPoints.fn] = true;
-                        co[nob].roted = true;
+                if (i == 3) {
+                    if (bool) {
+
+                        bstage = "" + bstage + "\r\n";
+                        bool = false;
+                    }
+
+                    bstage = "" + bstage + "" + string186 + "\r\n";
+                }
+            }
+            if (string186.startsWith("maxl")) {
+                final int i219 = getint("maxl", string186, 0);
+                final int i220 = getint("maxl", string186, 1);
+                i182 = i220;
+                final int i221 = getint("maxl", string186, 2);
+                for (int i222 = 0; i222 < i219; i222++) {
+                    co[nob] = new SMContO(bco[29], i220, Medium.ground - bco[29].grat, i222 * 4800 + i221, 180);
+                    if (i == 0) {
+                        xnob++;
                     } else {
-                        nfm.open.CheckPoints.roted[nfm.open.CheckPoints.fn] = false;
-                    }
-                    nfm.open.CheckPoints.special[nfm.open.CheckPoints.fn] = line.contains(")s");
-                    nfm.open.CheckPoints.fn++;
-                    xnob++;
-                    nob++;
-                    if (readstagei == 3) {
-                        if (newline) {
-
-                            bstage = bstage + "\r\n";
-                            newline = false;
-                        }
-
-                        bstage = bstage + line + "\r\n";
+                        nob++;
                     }
                 }
-                if (line.startsWith("pile")) { //TODO ADD HERE
-                    co[nob] = new SMContO(getint("pile", line, 0), getint("pile", line, 1), getint("pile", line, 2), getint("pile", line, 3), getint("pile", line, 4), nfm.open.Medium.ground);
-                    co[nob].srz = getint("pile", line, 0);
-                    co[nob].srx = getint("pile", line, 1);
-                    co[nob].sry = getint("pile", line, 2);
-                    co[nob].partID = BUMP_SET_ID;
-                    xnob++;
-                    nob++;
-                    if (readstagei == 3) {
-                        if (newline) {
+                if (i == 3) {
+                    if (bool) {
 
-                            bstage = bstage + "\r\n";
-                            newline = false;
-                        }
-
-                        bstage = bstage + line + "\r\n";
+                        bstage = "" + bstage + "\r\n";
+                        bool = false;
                     }
-                }
-                if (line.startsWith("maxr")) {
-                    final int i213 = getint("maxr", line, 0);
-                    final int i214 = getint("maxr", line, 1);
-                    i181 = i214;
-                    final int i215 = getint("maxr", line, 2);
-                    for (int i216 = 0; i216 < i213; i216++) {
-                        co[nob] = new SMContO(bco[29], i214, nfm.open.Medium.ground - bco[29].grat, i216 * 4800 + i215, 0);
-                        if (readstagei == 0) {
-                            xnob++;
-                        } else {
-                            nob++;
-                        }
-                    }
-                    if (readstagei == 3) {
-                        if (bool) {
 
-                            bstage = bstage + "\r\n";
-                            bool = false;
-                        }
-
-                        bstage = bstage + line + "\r\n";
-                    }
-                }
-                if (line.startsWith("maxl")) {
-                    final int i219 = getint("maxl", line, 0);
-                    final int i220 = getint("maxl", line, 1);
-                    i182 = i220;
-                    final int i221 = getint("maxl", line, 2);
-                    for (int i222 = 0; i222 < i219; i222++) {
-                        co[nob] = new SMContO(bco[29], i220, nfm.open.Medium.ground - bco[29].grat, i222 * 4800 + i221, 180);
-                        if (readstagei == 0) {
-                            xnob++;
-                        } else {
-                            nob++;
-                        }
-                    }
-                    if (readstagei == 3) {
-                        if (bool) {
-
-                            bstage = bstage + "\r\n";
-                            bool = false;
-                        }
-
-                        bstage = bstage + line + "\r\n";
-                    }
-                }
-                if (line.startsWith("maxt")) {
-                    final int i225 = getint("maxt", line, 0);
-                    final int i226 = getint("maxt", line, 1);
-                    i183 = i226;
-                    final int i227 = getint("maxt", line, 2);
-                    for (int i228 = 0; i228 < i225; i228++) {
-                        co[nob] = new SMContO(bco[29], i228 * 4800 + i227, nfm.open.Medium.ground - bco[29].grat, i226, 90);
-                        if (readstagei == 0) {
-                            xnob++;
-                        } else {
-                            nob++;
-                        }
-                    }
-                    if (readstagei == 3) {
-                        if (bool) {
-
-                            bstage = bstage + "\r\n";
-                            bool = false;
-                        }
-
-                        bstage = bstage + line + "\r\n";
-                    }
-                }
-                if (line.startsWith("maxb")) {
-                    final int i231 = getint("maxb", line, 0);
-                    final int i232 = getint("maxb", line, 1);
-                    i184 = i232;
-                    final int i233 = getint("maxb", line, 2);
-                    for (int i234 = 0; i234 < i231; i234++) {
-                        co[nob] = new SMContO(bco[29], i234 * 4800 + i233, nfm.open.Medium.ground - bco[29].grat, i232, -90);
-                        if (readstagei == 0) {
-                            xnob++;
-                        } else {
-                            nob++;
-                        }
-                    }
-                    if (readstagei == 3) {
-                        if (bool) {
-
-                            bstage = bstage + "\r\n";
-                            bool = false;
-                        }
-
-                        bstage = bstage + line + "\r\n";
-                    }
-                }
-                if (nobincr != nob && !line.startsWith("//") && line.contains(")f=") || line.contains(",f=")) {
-                    String s = line.substring(line.indexOf("f=") + ("f=".length()));
-                    co[nob-1].declaredPositionInArray = Integer.parseInt(s);
-                    co[nob-1].atLine = nobincr;
+                    bstage = "" + bstage + "" + string186 + "\r\n";
                 }
             }
-            datainputstream.close();
-            nfm.open.Medium.newpolys(i182, i181 - i182, i184, i183 - i184, nob);
-            nfm.open.Medium.newclouds(i182, i181, i184, i183);
-            nfm.open.Medium.newmountains(i182, i181, i184, i183);
-            nfm.open.Medium.newstars();
-        } catch (final Exception exception) {
-            errd = 6;
-            if (nfm.open.CheckPoints.fn >= 5) {
-                errd = 5;
+            if (string186.startsWith("maxt")) {
+                final int i225 = getint("maxt", string186, 0);
+                final int i226 = getint("maxt", string186, 1);
+                i183 = i226;
+                final int i227 = getint("maxt", string186, 2);
+                for (int i228 = 0; i228 < i225; i228++) {
+                    co[nob] = new SMContO(bco[29], i228 * 4800 + i227, Medium.ground - bco[29].grat, i226, 90);
+                    if (i == 0) {
+                        xnob++;
+                    } else {
+                        nob++;
+                    }
+                }
+                if (i == 3) {
+                    if (bool) {
+
+                        bstage = "" + bstage + "\r\n";
+                        bool = false;
+                    }
+
+                    bstage = "" + bstage + "" + string186 + "\r\n";
+                }
             }
-            if (nfm.open.Trackers.nt >= 670000) {
-                errd = 1;
-            }
-            if (nfm.open.CheckPoints.n >= 10000) {
-                errd = 2;
-            }
-            if (nob >= 10000) {
-                errd = 4;
+            if (string186.startsWith("maxb")) {
+                final int i231 = getint("maxb", string186, 0);
+                final int i232 = getint("maxb", string186, 1);
+                i184 = i232;
+                final int i233 = getint("maxb", string186, 2);
+                for (int i234 = 0; i234 < i231; i234++) {
+                    co[nob] = new SMContO(bco[29], i234 * 4800 + i233, Medium.ground - bco[29].grat, i232, -90);
+                    if (i == 0) {
+                        xnob++;
+                    } else {
+                        nob++;
+                    }
+                }
+                if (i == 3) {
+                    if (bool) {
+
+                        bstage = "" + bstage + "\r\n";
+                        bool = false;
+                    }
+
+                    bstage = "" + bstage + "" + string186 + "\r\n";
+                }
             }
         }
-        // stage size limit
-        //if (Medium.nrw * Medium.ncl >= 16000)
-        //    errd = 3;
-        // piece limit
-        if (xnob >= 10000) {
+        bufferedreader.close();
+        Medium.newpolys(i182, i181 - i182, i184, i183 - i184, nob);
+        Medium.newclouds(i182, i181, i184, i183);
+        Medium.newmountains(i182, i181, i184, i183);
+        Medium.newstars();
+    } catch (final Exception exception) {
+        System.out.println("Error in stage " + stagename);
+        System.out.println("" + exception);
+        System.out.println("At line: " + string186);
+        errd = 6;
+        if (CheckPoints.fn >= 5) {
+            errd = 5;
+        }
+        if (Trackers.nt >= 670000) {
+            errd = 1;
+        }
+        if (CheckPoints.n >= 10000) {
+            errd = 2;
+        }
+        if (nob >= 10000) {
             errd = 4;
         }
+    }
+    if (Medium.nrw * Medium.ncl >= 16000) {
+        errd = 3;
+    }
+    if (xnob >= 10000) {
+        errd = 4;
+    }
+    if (i == 3 && !bstage.contains("set(47,0,0,0)") && !bstage.contains("set(48,0,0,0)")) {
+
+        bstage = "" + bstage + "set(47,0,0,0)\r\n";
+    }
 
     }
 
@@ -4546,6 +4973,24 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                 } else {
                     JOptionPane.showMessageDialog(gameFrame, "Not enough data to sort! Please place at least one piece first.");
                 }
+            }
+            if (button("  Run AI  ", 550, 50, 0, false)) {
+                GameSparker.smLoadStage(tstage + "\n" + bstage, co);
+                //mute sound so no missing error
+                xtGraphics.mutes = true;
+                GameSparker.u[0].mutes=true;
+                
+                new Thread(() -> {
+                    while(true) {
+                    GameSparker.ittSm();
+                    try {
+                        Thread.sleep(100L);
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                    }
+                }).start();;
             }
             rd.setFont(FontConstants.arial_12);
             ftm = rd.getFontMetrics();
@@ -6949,38 +7394,646 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
      * Sortstage.
      */
     static void sortstage() {
-        final byte[] pTyps = new byte[nob * 2]; // )p, )pt, )pr etc
-        final int[] cIds2 = new int[nob * 2]; // real pointers to conto ids
+//
+//        final byte[] pTyps = new byte[nob * 2]; // )p, )pt, )pr etc
+//        final int[] cIds2 = new int[nob * 2]; // real pointers to conto ids
+//        for (int i = 0; i < nob; i++) {
+//            pTyps[i] = 0;
+//        }
+//        int i = 0;
+//        int t_nob = 0;
+//        cIds2[t_nob] = 0;
+//        t_nob++;
+//        boolean bool = false;
+//        int i244 = 0;
+//        while (!bool) {
+//            final int[] is245 = {
+//                    co[i].x + atp[co[i].partID][0], co[i].x + atp[co[i].partID][2]
+//            };
+//            final int[] is246 = {
+//                    co[i].z + atp[co[i].partID][1], co[i].z + atp[co[i].partID][3]
+//            };
+//            int i247 = co[i].declaredXZ;
+//            if (co[i].partID == 2) {
+//                i247 += 30;
+//            }
+//            if (co[i].partID == 3) {
+//                i247 -= 30;
+//            }
+//            if (co[i].partID == 15) {
+//                i247 -= 90;
+//            }
+//            if (co[i].partID == 20) {
+//                i247 -= 180;
+//            }
+//            if (co[i].partID == 26) {
+//                i247 -= 90;
+//            }
+//            rot(is245, is246, co[i].x, co[i].z, i247, 2);
+//            int i248 = -1;
+//            int i249 = -1;
+//            if (i244 != 0) {
+//                for (int i250 = 0; i250 < nob; i250++) {
+//                    if (co[i250].partID == -1337) {
+//                        continue;
+//                    }
+//                    boolean bool251 = false;
+//                    if (t_nob == 2 && i250 == 0) {
+//                        bool251 = true;
+//                    }
+//                    if (i != i250 && !bool251 && pTyps[i250] == 0 && (co[i250].partID <= 14 || co[i250].partID >= 33) && (co[i250].partID < 39 || co[i250].partID >= 46) && co[i250].partID < 52) {
+//                        int i252 = 0;
+//                        if (co[i250].partID != 2 && co[i250].partID != 3 && co[i250].partID != 4 && co[i250].partID != 7 && co[i250].partID != 9) {
+//                            if (i244 == 1 && co[i250].z > co[i].z && Math.abs(co[i250].x - co[i].x) < 1000 && (co[i250].declaredXZ == 180 || co[i250].declaredXZ == 0)) {
+//                                i252 = 1;
+//                            }
+//                            if (i244 == 2 && co[i250].z < co[i].z && Math.abs(co[i250].x - co[i].x) < 1000 && (co[i250].declaredXZ == 180 || co[i250].declaredXZ == 0)) {
+//                                i252 = 1;
+//                            }
+//                            if (i244 == 3 && co[i250].x > co[i].x && Math.abs(co[i250].z - co[i].z) < 1000 && (co[i250].declaredXZ == 90 || co[i250].declaredXZ == -90)) {
+//                                i252 = 1;
+//                            }
+//                            if (i244 == 4 && co[i250].x < co[i].x && Math.abs(co[i250].z - co[i].z) < 1000 && (co[i250].declaredXZ == 90 || co[i250].declaredXZ == -90)) {
+//                                i252 = 1;
+//                            }
+//                        } else {
+//                            i252 = 2;
+//                        }
+//                        if (i252 != 0) {
+//                            final int[] is253 = {
+//                                    co[i250].x + atp[co[i250].partID][0], co[i250].x + atp[co[i250].partID][2]
+//                            };
+//                            final int[] is254 = {
+//                                    co[i250].z + atp[co[i250].partID][1], co[i250].z + atp[co[i250].partID][3]
+//                            };
+//                            i247 = co[i250].declaredXZ;
+//                            if (co[i250].partID == 2) {
+//                                i247 += 30;
+//                            }
+//                            if (co[i250].partID == 3) {
+//                                i247 -= 30;
+//                            }
+//                            if (co[i250].partID == 15) {
+//                                i247 -= 90;
+//                            }
+//                            if (co[i250].partID == 20) {
+//                                i247 -= 180;
+//                            }
+//                            if (co[i250].partID == 26) {
+//                                i247 -= 90;
+//                            }
+//                            rot(is253, is254, co[i250].x, co[i250].z, i247, 2);
+//                            if (i250 != 0) {
+//                                final int i256 = pyn(is253[0], is245[0], is254[0], is246[0]);
+//                                if (i256 >= 0 && (i256 < 100 || i252 != 2) && (i256 < i248 || i248 == -1)) {
+//                                    i248 = i256;
+//                                    i249 = i250;
+//                                }
+//                            }
+//                            int i257 = pyn(is253[1], is245[0], is254[1], is246[0]);
+//                            if (i257 >= 0 && (i257 < 100 || i252 != 2) && (i257 < i248 || i248 == -1)) {
+//                                i248 = i257;
+//                                i249 = i250;
+//                            }
+//                            if (i != 0) {
+//                                if (i250 != 0) {
+//                                    i257 = pyn(is253[0], is245[1], is254[0], is246[1]);
+//                                    if (i257 >= 0 && (i257 < 100 || i252 != 2) && i257 < i248) {
+//                                        i248 = i257;
+//                                        i249 = i250;
+//                                    }
+//                                }
+//                                i257 = pyn(is253[1], is245[1], is254[1], is246[1]);
+//                                if (i257 >= 0 && (i257 < 100 || i252 != 2) && i257 < i248) {
+//                                    i248 = i257;
+//                                    i249 = i250;
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//            if (i249 == -1) {
+//                for (int i258 = 0; i258 < nob; i258++) {
+//                    if (co[i258].partID == -1337) {
+//                        continue;
+//                    }
+//                    boolean bool259 = false;
+//                    if (t_nob == 2 && i258 == 0) {
+//                        bool259 = true;
+//                    }
+//                    if (i != i258 && !bool259 && pTyps[i258] == 0 && (co[i258].partID <= 14 || co[i258].partID >= 33) && (co[i258].partID < 39 || co[i258].partID >= 46) && co[i258].partID < 52) {
+//                        final int[] is260 = {
+//                                co[i258].x + atp[co[i258].partID][0], co[i258].x + atp[co[i258].partID][2]
+//                        };
+//                        final int[] is261 = {
+//                                co[i258].z + atp[co[i258].partID][1], co[i258].z + atp[co[i258].partID][3]
+//                        };
+//                        i247 = co[i258].declaredXZ;
+//                        if (co[i258].partID == 2) {
+//                            i247 += 30;
+//                        }
+//                        if (co[i258].partID == 3) {
+//                            i247 -= 30;
+//                        }
+//                        if (co[i258].partID == 15) {
+//                            i247 -= 90;
+//                        }
+//                        if (co[i258].partID == 20) {
+//                            i247 -= 180;
+//                        }
+//                        if (co[i258].partID == 26) {
+//                            i247 -= 90;
+//                        }
+//                        rot(is260, is261, co[i258].x, co[i258].z, i247, 2);
+//                        if (i258 != 0) {
+//                            final int i263 = pyn(is260[0], is245[0], is261[0], is246[0]);
+//                            if (i263 >= 0 && (i263 < i248 || i248 == -1)) {
+//                                i248 = i263;
+//                                i249 = i258;
+//                            }
+//                        }
+//                        int i264 = pyn(is260[1], is245[0], is261[1], is246[0]);
+//                        if (i264 >= 0 && (i264 < i248 || i248 == -1)) {
+//                            i248 = i264;
+//                            i249 = i258;
+//                        }
+//                        if (i != 0) {
+//                            if (i258 != 0) {
+//                                i264 = pyn(is260[0], is245[1], is261[0], is246[1]);
+//                                if (i264 >= 0 && i264 < i248) {
+//                                    i248 = i264;
+//                                    i249 = i258;
+//                                }
+//                            }
+//                            i264 = pyn(is260[1], is245[1], is261[1], is246[1]);
+//                            if (i264 >= 0 && i264 < i248) {
+//                                i248 = i264;
+//                                i249 = i258;
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//            if (i249 != -1) {
+//                i244 = 0;
+//                if (co[i249].partID != 2 && co[i249].partID != 3 && co[i249].partID != 4 && co[i249].partID != 7 && co[i249].partID != 9) {
+//                    if ((co[i249].declaredXZ == 180 || co[i249].declaredXZ == 0) && co[i249].z > co[i].z) {
+//                        i244 = 1;
+//                    }
+//                    if ((co[i249].declaredXZ == 180 || co[i249].declaredXZ == 0) && co[i249].z < co[i].z) {
+//                        i244 = 2;
+//                    }
+//                    if ((co[i249].declaredXZ == 90 || co[i249].declaredXZ == -90) && co[i249].x > co[i].x) {
+//                        i244 = 3;
+//                    }
+//                    if ((co[i249].declaredXZ == 90 || co[i249].declaredXZ == -90) && co[i249].x < co[i].x) {
+//                        i244 = 4;
+//                    }
+//                }
+//                if (co[i249].partID == 4 || co[i249].partID == 7 || co[i249].partID == 9) {
+//                    pTyps[i249] = 2;
+//                } else {
+//                    pTyps[i249] = 1;
+//                }
+//                if (co[i249].partID >= 46 && co[i249].partID <= 51) {
+//                    pTyps[i249] = 6;
+//                }
+//                i = i249;
+//                if (i249 == 0) {
+//                    pTyps[0] = 1;
+//                    bool = true;
+//                } else {
+//                    cIds2[t_nob] = i249;
+//                    t_nob++;
+//                }
+//            } else {
+//                pTyps[0] = 1;
+//                bool = true;
+//            }
+//        }
+//        for (int i265 = 0; i265 < nob; i265++) {
+//            if (pTyps[i265] == 0 && (co[i265].partID <= 14 || co[i265].partID >= 33) && (co[i265].partID < 39 || co[i265].partID >= 46) && co[i265].partID < 52) {
+//                cIds2[t_nob] = i265;
+//                t_nob++;
+//            }
+//        }
+//        for (int i266 = 0; i266 < t_nob; i266++) {
+//            if (co[cIds2[i266]].partID >= 46 && co[cIds2[i266]].partID <= 51) {
+//                for (int i267 = i266 + 1; i267 < t_nob; i267++) {
+//                    final int i268 = pyn(co[cIds2[i266]].x, co[cIds2[i267]].x, co[cIds2[i266]].z, co[cIds2[i267]].z);
+//                    if (i268 >= 0 && (co[cIds2[i267]].partID < 46 || co[cIds2[i266]].partID > 51) && i268 < (co[cIds2[i266]].maxR + co[cIds2[i267]].maxR) / 100 * ((co[cIds2[i266]].maxR + co[cIds2[i267]].maxR) / 100)) {
+//                        final int i269 = cIds2[i267];
+//                        System.arraycopy(cIds2, i266, cIds2, i266 + 1, i267 - i266);
+//                        cIds2[i266] = i269;
+//                        pTyps[cIds2[i266]] = 0;
+//                        i266++;
+//                    }
+//                }
+//            }
+//        }
+//        int i271 = 1;
+//        for (int i272 = 0; i272 < CheckPoints.nsp; i272++) {
+//            for (int i273 = 0; i273 < nob; i273++) {
+//                if (co[i273].wh == i272 + 1 && (co[i273].partID == ONROAD_CHECKPOINT_SET_ID || Utility.arrayContains(CHECKPOINT_IDS, co[i273].partID) || co[i273].partID == OFFROAD_CHECKPOINT_SET_ID || co[i273].partID == FLYING_CHECKPOINT_SET_ID)) {
+//                    int i274 = -1;
+//                    int i275 = -1;
+//                    for (int i276 = i271; i276 < t_nob; i276++) {
+//                        if (co[cIds2[i276]].partID != ONROAD_CHECKPOINT_SET_ID && !Utility.arrayContains(CHECKPOINT_IDS, co[cIds2[i276]].partID) && co[cIds2[i276]].partID != OFFROAD_CHECKPOINT_SET_ID && co[cIds2[i276]].partID != FLYING_CHECKPOINT_SET_ID) {
+//                            final int i277 = pyn(co[i273].x, co[cIds2[i276]].x, co[i273].z, co[cIds2[i276]].z);
+//                            if (i277 >= 0 && (i277 < i274 || i274 == -1)) {
+//                                i274 = i277;
+//                                i275 = i276;
+//                            }
+//                        }
+//                    }
+//                    if (i275 != -1) {
+//                        pTyps[cIds2[i275]] = 0;
+//                        System.arraycopy(cIds2, i275, cIds2, i275 + 1, t_nob - i275);
+//                        cIds2[i275 + 1] = i273;
+//                        i271 = i275 + 1;
+//                        t_nob++;
+//                    } else {
+//                        cIds2[t_nob] = i273;
+//                        i271 = t_nob;
+//                        t_nob++;
+//                    }
+//                }
+//            }
+//        }
+//        for (int i279 = 0; i279 < nob; i279++) {
+//            if (co[i279].wh == 0 && (co[i279].partID == ONROAD_CHECKPOINT_SET_ID || Utility.arrayContains(CHECKPOINT_IDS, co[i279].partID) || co[i279].partID == OFFROAD_CHECKPOINT_SET_ID || co[i279].partID == FLYING_CHECKPOINT_SET_ID)) {
+//                int i280 = -1;
+//                int i281 = -1;
+//                for (int i282 = i271; i282 < t_nob; i282++) {
+//                    if (co[cIds2[i282]].partID != ONROAD_CHECKPOINT_SET_ID && !Utility.arrayContains(CHECKPOINT_IDS, co[cIds2[i282]].partID) && co[cIds2[i282]].partID != OFFROAD_CHECKPOINT_SET_ID && co[cIds2[i282]].partID != FLYING_CHECKPOINT_SET_ID) {
+//                        final int i283 = pyn(co[i279].x, co[cIds2[i282]].x, co[i279].z, co[cIds2[i282]].z);
+//                        if (i283 >= 0 && (i283 < i280 || i280 == -1)) {
+//                            i280 = i283;
+//                            i281 = i282;
+//                        }
+//                    }
+//                }
+//                if (i281 != -1) {
+//                    pTyps[cIds2[i281]] = 0;
+//                    System.arraycopy(cIds2, i281, cIds2, i281 + 1, t_nob - i281);
+//                    cIds2[i281 + 1] = i279;
+//                    t_nob++;
+//                } else {
+//                    cIds2[t_nob] = i279;
+//                    t_nob++;
+//                }
+//            }
+//        }
+//        for (int i285 = 0; i285 < nob; i285++) {
+//            if (co[i285].partID == FIXHOOP_SET_ID) {
+//                int i286 = -1;
+//                int i287 = -1;
+//                for (int i288 = 0; i288 < t_nob; i288++) {
+//                    final int i289 = pyn(co[i285].x, co[cIds2[i288]].x, co[i285].z, co[cIds2[i288]].z);
+//                    if (i289 >= 0 && (i289 < i286 || i286 == -1)) {
+//                        i286 = i289;
+//                        i287 = i288;
+//                    }
+//                }
+//                if (i287 != -1) {
+//                    System.arraycopy(cIds2, i287, cIds2, i287 + 1, t_nob - i287);
+//                    cIds2[i287] = i285;
+//                    t_nob++;
+//                } else {
+//                    cIds2[t_nob] = i285;
+//                    t_nob++;
+//                }
+//            }
+//        }
+//        for (int i291 = 0; i291 < nob; i291++) {
+//            if (co[i291].partID == 15 || co[i291].partID == 27 || co[i291].partID == 28 || co[i291].partID == 41 || co[i291].partID == 44 || co[i291].partID == 52) {
+//                int i292 = -1;
+//                for (int i293 = 0; i293 < t_nob; i293++) {
+//                    if ((co[cIds2[i293]].partID <= 14 || co[cIds2[i293]].partID >= 33) && co[cIds2[i293]].partID < 39) {
+//                        final int i294 = pyn(co[i291].x, co[cIds2[i293]].x, co[i291].z, co[cIds2[i293]].z);
+//                        if (i294 >= 0 && i294 < (co[i291].maxR + co[cIds2[i293]].maxR) / 100 * ((co[i291].maxR + co[cIds2[i293]].maxR) / 100)) {
+//                            i292 = i293;
+//                        }
+//                    }
+//                }
+//                if (i292 != -1) {
+//                    System.arraycopy(cIds2, i292, cIds2, i292 + 1, t_nob - i292);
+//                    cIds2[i292 + 1] = i291;
+//                    t_nob++;
+//                } else {
+//                    cIds2[t_nob] = i291;
+//                    t_nob++;
+//                }
+//            }
+//        }
+//        for (int i296 = 0; i296 < nob; i296++) {
+//            if (co[i296].partID >= 16 && co[i296].partID <= 25 || co[i296].partID == 40 || co[i296].partID == 42 || co[i296].partID == 43 || co[i296].partID == 45) {
+//                int i297 = -1;
+//                for (int i298 = 0; i298 < t_nob; i298++) {
+//                    if ((co[cIds2[i298]].partID <= 14 || co[cIds2[i298]].partID >= 33) && co[cIds2[i298]].partID < 39) {
+//                        final int i299 = pyn(co[i296].x, co[cIds2[i298]].x, co[i296].z, co[cIds2[i298]].z);
+//                        if (i299 >= 0 && i299 < (co[i296].maxR + co[cIds2[i298]].maxR) / 100 * ((co[i296].maxR + co[cIds2[i298]].maxR) / 100)) {
+//                            if (pTyps[cIds2[i298]] != 0) {
+//                                pTyps[cIds2[i298]] = 0;
+//                                if (co[i296].partID != 20) {
+//                                    pTyps[i296] = 3;
+//                                } else {
+//                                    pTyps[i296] = 5;
+//                                }
+//                            }
+//                            i297 = i298;
+//                        }
+//                    }
+//                }
+//                /*if (i297 != -1) {
+//
+//                }*/
+//                if (i297 != -1) {
+//                    System.arraycopy(cIds2, i297, cIds2, i297 + 1, t_nob - i297);
+//                    cIds2[i297 + 1] = i296;
+//                    t_nob++;
+//                } else {
+//                    cIds2[t_nob] = i296;
+//                    t_nob++;
+//                }
+//            }
+//        }
+//        for (int i301 = 0; i301 < nob; i301++) {
+//            if (co[i301].partID == 26/* || co[i301].partID == 39*/) {
+//                boolean bool302 = false;
+//                if (ThreadLocalRandom.current().nextBoolean()) {
+//                    bool302 = true;
+//                    if (co[i301].partID == 39) {
+//                        if (ThreadLocalRandom.current().nextBoolean()) {
+//                            bool302 = false;
+//                        } else if (ThreadLocalRandom.current().nextBoolean()) {
+//                            bool302 = false;
+//                        }
+//                    }
+//                }
+//                int i303 = -1;
+//                for (int i304 = 0; i304 < t_nob; i304++) {
+//                    if ((co[cIds2[i304]].partID <= 14 || co[cIds2[i304]].partID >= 33) && co[cIds2[i304]].partID < 39) {
+//                        final int i305 = pyn(co[i301].x, co[cIds2[i304]].x, co[i301].z, co[cIds2[i304]].z);
+//                        if (i305 >= 0 && i305 < (co[i301].maxR + co[cIds2[i304]].maxR) / 100 * ((co[i301].maxR + co[cIds2[i304]].maxR) / 100)) {
+//                            boolean bool306 = false;
+//                            if (co[i301].partID == 26) {
+//                                if (co[i301].declaredXZ == 90 && co[cIds2[i304]].x > co[i301].x) {
+//                                    bool306 = true;
+//                                }
+//                                if (co[i301].declaredXZ == -90 && co[cIds2[i304]].x < co[i301].x) {
+//                                    bool306 = true;
+//                                }
+//                                if (co[i301].declaredXZ == 0 && co[cIds2[i304]].z < co[i301].z) {
+//                                    bool306 = true;
+//                                }
+//                                if (co[i301].declaredXZ == 180 && co[cIds2[i304]].z > co[i301].z) {
+//                                    bool306 = true;
+//                                }
+//                            }
+//                            if (co[i301].partID == 39) {
+//                                if (co[i301].declaredXZ == 90 && co[cIds2[i304]].z > co[i301].z) {
+//                                    bool306 = true;
+//                                }
+//                                if (co[i301].declaredXZ == -90 && co[cIds2[i304]].z < co[i301].z) {
+//                                    bool306 = true;
+//                                }
+//                                if (co[i301].declaredXZ == 0 && co[cIds2[i304]].x > co[i301].x) {
+//                                    bool306 = true;
+//                                }
+//                                if (co[i301].declaredXZ == 180 && co[cIds2[i304]].x < co[i301].x) {
+//                                    bool306 = true;
+//                                }
+//                            }
+//                            if (bool306) {
+//                                if (pTyps[cIds2[i304]] == 1 && bool302) {
+//                                    pTyps[cIds2[i304]] = 0;
+//                                    pTyps[i301] = 4;
+//                                }
+//                                i303 = i304;
+//                            }
+//                        }
+//                    }
+//                }
+//                if (i303 != -1) {
+//                    System.arraycopy(cIds2, i303, cIds2, i303 + 1, t_nob - i303);
+//                    cIds2[i303 + 1] = i301;
+//                    t_nob++;
+//                } else {
+//                    cIds2[t_nob] = i301;
+//                    t_nob++;
+//                }
+//            }
+//        }
+//        for (int i308 = 0; i308 < nob; i308++) {
+//            if (co[i308].partID >= 54 && co[i308].partID <= maxpart && !Utility.arrayContains(CHECKPOINT_IDS, co[i308].partID) || co[i308].partID == BUMP_SET_ID) {
+//                cIds2[t_nob] = i308;
+//                t_nob++;
+//            }
+//        }
+//
+//        // fix the dupe bug (remove dupe entries, VERY DIRTY HACK)
+//        for (int j = 0; j < nob; j++) {
+//            for (int k = 0; k < nob; k++) {
+//                if (j != k && cIds2[k] != -1337 && cIds2[j] != -1337 && co[cIds2[j]].dupeOf(co[cIds2[k]])) {
+//                    cIds2[k] = -1337;
+//                    //contoIds2 = Utility.removeElement(contoIds2, contoIds2[k]);
+//                    //i243--;
+//                }
+//
+//            }
+//        }
+//
+//        final int[] cIds3 = new int[t_nob]; // pointer to conto ids after manual sort
+//
+//        // fill array with -1
+//        for (int i1 = 0; i1 < t_nob; i1++) { // SLOW (i guess, pls fix somehow thx)
+//            cIds3[i1] = -1;
+//        }
+//
+//        // first, add the manual sort ones
+//        for (int i1 = 0; i1 < t_nob; i1++) {
+//            if (cIds2[i1] == -1337 || co[cIds2[i1]].partID == -1337) {
+//                continue;
+//            }
+//
+//            if (co[cIds2[i1]].declaredPositionInArray != -1) { // OH GOD IS THIS RIGHT?
+//                cIds3[co[cIds2[i1]].declaredPositionInArray] = cIds2[i1];
+//            }
+//        }
+//
+//        // then, fill the empty spots with the rest of the sets
+//        for (int i1 = 0, avalidint = 0; i1 < t_nob /*potentially array should be +1*/; i1++/*, avalidint++*/) { // now, add the rest
+//            if (cIds2[i1] == -1337 || co[cIds2[i1]].partID == -1337 || co[cIds2[i1]].declaredPositionInArray != -1) {
+//                continue;
+//            }
+//
+//            while (cIds3[avalidint] != -1) {
+//                avalidint++;
+//            }
+//
+//            cIds3[avalidint] = cIds2[i1];
+//        }
+//
+//        /*
+//        old algorithm:
+//
+//        for (int i1 = 0; i1 < t_nob; i1++) { // first, add the manual sort ones
+//            if (cIds2[i1] == -1337 || co[cIds2[i1]].partID == -1337)
+//                continue;
+//
+//            if (co[cIds2[i1]].declaredPositionInArray != -1) { // OH GOD IS THIS RIGHT?
+//                cIds3[co[cIds2[i1]].declaredPositionInArray] = cIds2[i1];
+//            }
+//
+//            lastvalidint++;
+//        }
+//        for (int i1 = 0; i1 < t_nob; i1++) { // now, add the rest
+//            if (cIds2[i1] == -1337 || co[cIds2[i1]].partID == -1337 || co[cIds2[i1]].declaredPositionInArray != -1)
+//                continue;
+//
+//            cIds3[lastvalidint] = cIds2[i1];
+//            lastvalidint++;
+//        }
+//        */
+//        int i309 = 0;
+//        int i310 = 0;
+//        int i311 = 0;
+//        int i312 = 0;
+//        final StringBuilder stageb = new StringBuilder(bstage.length());
+//        bstage = "";
+//        for (int i1 = 0; i1 < t_nob; i1++) {
+//
+//            /*if (cIds3[i1] == -1) { //ignore entries marked as nonexistant
+//                continue;
+//            } else *//*if (co[cIds3[i1]].partID == BASE1) {
+//                String isSorted = getLineSuffix(co[cIds3[i1]]);
+//                stageb.append("base1(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
+//
+//                //placeSET(contoIds1, contoIds2, i313);
+//            } else if (co[cIds3[i1]].partID == BASE2) {
+//                String isSorted = getLineSuffix(co[cIds3[i1]]);
+//                stageb.append("base2(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
+//
+//                //placeSET(contoIds1, contoIds2, i313);
+//            } else if (co[cIds3[i1]].partID == PEDESTAL_FLAG1) {
+//                String isSorted = getLineSuffix(co[cIds3[i1]]);
+//                stageb.append("ped_flag1(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
+//            } else if (co[cIds3[i1]].partID == PEDESTAL_FLAG2) {
+//                String isSorted = getLineSuffix(co[cIds3[i1]]);
+//                stageb.append("ped_flag2(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
+//            } else if (co[cIds3[i1]].partID == NODE_SET_ID) {
+//                if (false) {
+//                    System.out.println("placing node");
+//                }
+//                if (false) {
+//                    System.out.println("roof2: " + co[cIds3[i1]].declaredXZ);
+//                }
+//                //if (!floats) {
+//                //    stageb.append("node(" + co[is242[i313]].x + "," + co[is242[i313]].y + "," +  + co[is242[i313]].z + ")" + "\r\n";
+//                //} else {
+//                String isSorted = getLineSuffix(co[cIds3[i1]]);
+//
+//                stageb.append("node(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
+//                //}
+//            } else */if (co[cIds3[i1]].partID == ONROAD_CHECKPOINT_SET_ID || Utility.arrayContains(CHECKPOINT_IDS, co[cIds3[i1]].partID) || co[cIds3[i1]].partID == OFFROAD_CHECKPOINT_SET_ID) {
+//                if (co[cIds3[i1]].declaredXZ == 180) {
+//                    co[cIds3[i1]].declaredXZ = 0;
+//                }
+//                String string = getLineSuffix(co[cIds3[i1]]);
+//
+//                if (floats) {
+//                    stageb.append("chk(").append(co[cIds3[i1]].partID + 10).append(",").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].z).append(",").append(co[cIds3[i1]].y).append(",").append(co[cIds3[i1]].declaredXZ).append(")").append(string).append("\r\n");
+//                } else {
+//                    stageb.append("chk(").append(co[cIds3[i1]].partID + 10).append(",").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].z).append(",").append(co[cIds3[i1]].declaredXZ).append(")").append(string).append("\r\n");
+//                }
+//            } else if (co[cIds3[i1]].partID == FLYING_CHECKPOINT_SET_ID) {
+//                if (co[cIds3[i1]].declaredXZ == 180) {
+//                    co[cIds3[i1]].declaredXZ = 0;
+//                }
+//                String string = getLineSuffix(co[cIds3[i1]]);
+//                //   this.bstage = (this.bstage) + ("chk(")
+//                //      .append(co[is242[i313]].partID + 10) + (",") + (co[is242[i313]].x) + (",")
+//                //      .append(co[is242[i313]].z) + (",") + (co[is242[i313]].y) + (",") + (co[is242[i313]].declaredXZ)
+//                //      .append(")") + (string) + ("\r\n");
+//                if (floats) {
+//                    stageb.append("chk(").append(co[cIds3[i1]].partID + 10).append(",").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].z).append(",").append(co[cIds3[i1]].y).append(",").append(co[cIds3[i1]].declaredXZ).append(")").append(string).append("\r\n");
+//                } else {
+//                    stageb.append("chk(").append(co[cIds3[i1]].partID + 10).append(",").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].z).append(",").append(co[cIds3[i1]].declaredXZ).append(")").append(string).append("\r\n");
+//                }
+//            } else if (co[cIds3[i1]].partID == FIXHOOP_SET_ID) {
+//
+//                stageb.append("fix(").append(co[cIds3[i1]].partID + 10).append(",").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].z).append(",").append(co[cIds3[i1]].y).append(",").append(co[cIds3[i1]].declaredXZ).append(")\r\n");
+//            } else if (co[cIds3[i1]].partID == BUMP_SET_ID) {
+//
+//                stageb.append("pile(").append(co[cIds3[i1]].srz).append(",").append(co[cIds3[i1]].srx).append(",").append(co[cIds3[i1]].sry).append(",").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].z).append(")\r\n");
+//            } else {
+//                placeSET(pTyps, cIds3, i1, stageb);
+//            }
+//            if (co[cIds3[i1]].x + co[cIds3[i1]].maxR > i309) {
+//                i309 = co[cIds3[i1]].x + co[cIds3[i1]].maxR;
+//            }
+//            if (co[cIds3[i1]].x - co[cIds3[i1]].maxR < i311) {
+//                i311 = co[cIds3[i1]].x - co[cIds3[i1]].maxR;
+//            }
+//            if (co[cIds3[i1]].z + co[cIds3[i1]].maxR > i310) {
+//                i310 = co[cIds3[i1]].z + co[cIds3[i1]].maxR;
+//            }
+//            if (co[cIds3[i1]].z - co[cIds3[i1]].maxR < i312) {
+//                i312 = co[cIds3[i1]].z - co[cIds3[i1]].maxR;
+//            }
+//        }
+//        int i319 = i311;
+//        int i320 = i309;
+//        final int i321 = (int) ((i320 - i319) / 4800.0F) + 1;
+//        int i322 = (i321 * 4800 - (i320 - i319)) / 2;
+//        i319 -= i322;
+//        i320 += i322;
+//        final int i323 = i319 + 2400;
+//        int i324 = i312;
+//        int i325 = i310;
+//        final int i326 = (int) ((i325 - i324) / 4800.0F) + 1;
+//        i322 = (i326 * 4800 - (i325 - i324)) / 2;
+//        i324 -= i322;
+//        i325 += i322;
+//        final int i327 = i324 + 2400;
+//        stageb.append("\r\nmaxl(").append(i326).append(",").append(i319).append(",").append(i327).append(")\r\nmaxb(").append(i321).append(",").append(i324).append(",").append(i323).append(")\r\nmaxr(").append(i326).append(",").append(i320).append(",").append(i327).append(")\r\nmaxt(").append(i321).append(",").append(i325).append(",").append(i323).append(")\r\n");
+//        bstage = stageb.toString();
+        
+
+        final int[] is = new int[nob * 2];
+        final int[] is242 = new int[nob * 2];
         for (int i = 0; i < nob; i++) {
-            pTyps[i] = 0;
+            is[i] = 0;
         }
         int i = 0;
-        int t_nob = 0;
-        cIds2[t_nob] = 0;
-        t_nob++;
+        int i243 = 0;
+        is242[i243] = 0;
+        i243++;
         boolean bool = false;
         int i244 = 0;
         while (!bool) {
             final int[] is245 = {
-                    co[i].x + atp[co[i].partID][0], co[i].x + atp[co[i].partID][2]
+                    co[i].x + atp[co[i].colok][0], co[i].x + atp[co[i].colok][2]
             };
             final int[] is246 = {
-                    co[i].z + atp[co[i].partID][1], co[i].z + atp[co[i].partID][3]
+                    co[i].z + atp[co[i].colok][1], co[i].z + atp[co[i].colok][3]
             };
-            int i247 = co[i].declaredXZ;
-            if (co[i].partID == 2) {
+            int i247 = co[i].roofat;
+            if (co[i].colok == 2) {
                 i247 += 30;
             }
-            if (co[i].partID == 3) {
+            if (co[i].colok == 3) {
                 i247 -= 30;
             }
-            if (co[i].partID == 15) {
+            if (co[i].colok == 15) {
                 i247 -= 90;
             }
-            if (co[i].partID == 20) {
+            if (co[i].colok == 20) {
                 i247 -= 180;
             }
-            if (co[i].partID == 26) {
+            if (co[i].colok == 26) {
                 i247 -= 90;
             }
             rot(is245, is246, co[i].x, co[i].z, i247, 2);
@@ -6988,26 +8041,23 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             int i249 = -1;
             if (i244 != 0) {
                 for (int i250 = 0; i250 < nob; i250++) {
-                    if (co[i250].partID == -1337) {
-                        continue;
-                    }
                     boolean bool251 = false;
-                    if (t_nob == 2 && i250 == 0) {
+                    if (i243 == 2 && i250 == 0) {
                         bool251 = true;
                     }
-                    if (i != i250 && !bool251 && pTyps[i250] == 0 && (co[i250].partID <= 14 || co[i250].partID >= 33) && (co[i250].partID < 39 || co[i250].partID >= 46) && co[i250].partID < 52) {
+                    if (i != i250 && !bool251 && is[i250] == 0 && (co[i250].colok <= 14 || co[i250].colok >= 33) && (co[i250].colok < 39 || co[i250].colok >= 46) && co[i250].colok < 52) {
                         int i252 = 0;
-                        if (co[i250].partID != 2 && co[i250].partID != 3 && co[i250].partID != 4 && co[i250].partID != 7 && co[i250].partID != 9) {
-                            if (i244 == 1 && co[i250].z > co[i].z && Math.abs(co[i250].x - co[i].x) < 1000 && (co[i250].declaredXZ == 180 || co[i250].declaredXZ == 0)) {
+                        if (co[i250].colok != 2 && co[i250].colok != 3 && co[i250].colok != 4 && co[i250].colok != 7 && co[i250].colok != 9) {
+                            if (i244 == 1 && co[i250].z > co[i].z && Math.abs(co[i250].x - co[i].x) < 1000 && (co[i250].roofat == 180 || co[i250].roofat == 0)) {
                                 i252 = 1;
                             }
-                            if (i244 == 2 && co[i250].z < co[i].z && Math.abs(co[i250].x - co[i].x) < 1000 && (co[i250].declaredXZ == 180 || co[i250].declaredXZ == 0)) {
+                            if (i244 == 2 && co[i250].z < co[i].z && Math.abs(co[i250].x - co[i].x) < 1000 && (co[i250].roofat == 180 || co[i250].roofat == 0)) {
                                 i252 = 1;
                             }
-                            if (i244 == 3 && co[i250].x > co[i].x && Math.abs(co[i250].z - co[i].z) < 1000 && (co[i250].declaredXZ == 90 || co[i250].declaredXZ == -90)) {
+                            if (i244 == 3 && co[i250].x > co[i].x && Math.abs(co[i250].z - co[i].z) < 1000 && (co[i250].roofat == 90 || co[i250].roofat == -90)) {
                                 i252 = 1;
                             }
-                            if (i244 == 4 && co[i250].x < co[i].x && Math.abs(co[i250].z - co[i].z) < 1000 && (co[i250].declaredXZ == 90 || co[i250].declaredXZ == -90)) {
+                            if (i244 == 4 && co[i250].x < co[i].x && Math.abs(co[i250].z - co[i].z) < 1000 && (co[i250].roofat == 90 || co[i250].roofat == -90)) {
                                 i252 = 1;
                             }
                         } else {
@@ -7015,25 +8065,25 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                         }
                         if (i252 != 0) {
                             final int[] is253 = {
-                                    co[i250].x + atp[co[i250].partID][0], co[i250].x + atp[co[i250].partID][2]
+                                    co[i250].x + atp[co[i250].colok][0], co[i250].x + atp[co[i250].colok][2]
                             };
                             final int[] is254 = {
-                                    co[i250].z + atp[co[i250].partID][1], co[i250].z + atp[co[i250].partID][3]
+                                    co[i250].z + atp[co[i250].colok][1], co[i250].z + atp[co[i250].colok][3]
                             };
-                            i247 = co[i250].declaredXZ;
-                            if (co[i250].partID == 2) {
+                            i247 = co[i250].roofat;
+                            if (co[i250].colok == 2) {
                                 i247 += 30;
                             }
-                            if (co[i250].partID == 3) {
+                            if (co[i250].colok == 3) {
                                 i247 -= 30;
                             }
-                            if (co[i250].partID == 15) {
+                            if (co[i250].colok == 15) {
                                 i247 -= 90;
                             }
-                            if (co[i250].partID == 20) {
+                            if (co[i250].colok == 20) {
                                 i247 -= 180;
                             }
-                            if (co[i250].partID == 26) {
+                            if (co[i250].colok == 26) {
                                 i247 -= 90;
                             }
                             rot(is253, is254, co[i250].x, co[i250].z, i247, 2);
@@ -7069,34 +8119,31 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             }
             if (i249 == -1) {
                 for (int i258 = 0; i258 < nob; i258++) {
-                    if (co[i258].partID == -1337) {
-                        continue;
-                    }
                     boolean bool259 = false;
-                    if (t_nob == 2 && i258 == 0) {
+                    if (i243 == 2 && i258 == 0) {
                         bool259 = true;
                     }
-                    if (i != i258 && !bool259 && pTyps[i258] == 0 && (co[i258].partID <= 14 || co[i258].partID >= 33) && (co[i258].partID < 39 || co[i258].partID >= 46) && co[i258].partID < 52) {
+                    if (i != i258 && !bool259 && is[i258] == 0 && (co[i258].colok <= 14 || co[i258].colok >= 33) && (co[i258].colok < 39 || co[i258].colok >= 46) && co[i258].colok < 52) {
                         final int[] is260 = {
-                                co[i258].x + atp[co[i258].partID][0], co[i258].x + atp[co[i258].partID][2]
+                                co[i258].x + atp[co[i258].colok][0], co[i258].x + atp[co[i258].colok][2]
                         };
                         final int[] is261 = {
-                                co[i258].z + atp[co[i258].partID][1], co[i258].z + atp[co[i258].partID][3]
+                                co[i258].z + atp[co[i258].colok][1], co[i258].z + atp[co[i258].colok][3]
                         };
-                        i247 = co[i258].declaredXZ;
-                        if (co[i258].partID == 2) {
+                        i247 = co[i258].roofat;
+                        if (co[i258].colok == 2) {
                             i247 += 30;
                         }
-                        if (co[i258].partID == 3) {
+                        if (co[i258].colok == 3) {
                             i247 -= 30;
                         }
-                        if (co[i258].partID == 15) {
+                        if (co[i258].colok == 15) {
                             i247 -= 90;
                         }
-                        if (co[i258].partID == 20) {
+                        if (co[i258].colok == 20) {
                             i247 -= 180;
                         }
-                        if (co[i258].partID == 26) {
+                        if (co[i258].colok == 26) {
                             i247 -= 90;
                         }
                         rot(is260, is261, co[i258].x, co[i258].z, i247, 2);
@@ -7131,183 +8178,183 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
             }
             if (i249 != -1) {
                 i244 = 0;
-                if (co[i249].partID != 2 && co[i249].partID != 3 && co[i249].partID != 4 && co[i249].partID != 7 && co[i249].partID != 9) {
-                    if ((co[i249].declaredXZ == 180 || co[i249].declaredXZ == 0) && co[i249].z > co[i].z) {
+                if (co[i249].colok != 2 && co[i249].colok != 3 && co[i249].colok != 4 && co[i249].colok != 7 && co[i249].colok != 9) {
+                    if ((co[i249].roofat == 180 || co[i249].roofat == 0) && co[i249].z > co[i].z) {
                         i244 = 1;
                     }
-                    if ((co[i249].declaredXZ == 180 || co[i249].declaredXZ == 0) && co[i249].z < co[i].z) {
+                    if ((co[i249].roofat == 180 || co[i249].roofat == 0) && co[i249].z < co[i].z) {
                         i244 = 2;
                     }
-                    if ((co[i249].declaredXZ == 90 || co[i249].declaredXZ == -90) && co[i249].x > co[i].x) {
+                    if ((co[i249].roofat == 90 || co[i249].roofat == -90) && co[i249].x > co[i].x) {
                         i244 = 3;
                     }
-                    if ((co[i249].declaredXZ == 90 || co[i249].declaredXZ == -90) && co[i249].x < co[i].x) {
+                    if ((co[i249].roofat == 90 || co[i249].roofat == -90) && co[i249].x < co[i].x) {
                         i244 = 4;
                     }
                 }
-                if (co[i249].partID == 4 || co[i249].partID == 7 || co[i249].partID == 9) {
-                    pTyps[i249] = 2;
+                if (co[i249].colok == 4 || co[i249].colok == 7 || co[i249].colok == 9) {
+                    is[i249] = 2;
                 } else {
-                    pTyps[i249] = 1;
+                    is[i249] = 1;
                 }
-                if (co[i249].partID >= 46 && co[i249].partID <= 51) {
-                    pTyps[i249] = 6;
+                if (co[i249].colok >= 46 && co[i249].colok <= 51) {
+                    is[i249] = 6;
                 }
                 i = i249;
                 if (i249 == 0) {
-                    pTyps[0] = 1;
+                    is[0] = 1;
                     bool = true;
                 } else {
-                    cIds2[t_nob] = i249;
-                    t_nob++;
+                    is242[i243] = i249;
+                    i243++;
                 }
             } else {
-                pTyps[0] = 1;
+                is[0] = 1;
                 bool = true;
             }
         }
         for (int i265 = 0; i265 < nob; i265++)
-            if (pTyps[i265] == 0 && (co[i265].partID <= 14 || co[i265].partID >= 33) && (co[i265].partID < 39 || co[i265].partID >= 46) && co[i265].partID < 52) {
-                cIds2[t_nob] = i265;
-                t_nob++;
+            if (is[i265] == 0 && (co[i265].colok <= 14 || co[i265].colok >= 33) && (co[i265].colok < 39 || co[i265].colok >= 46) && co[i265].colok < 52) {
+                is242[i243] = i265;
+                i243++;
             }
-        for (int i266 = 0; i266 < t_nob; i266++)
-            if (co[cIds2[i266]].partID >= 46 && co[cIds2[i266]].partID <= 51) {
-                for (int i267 = i266 + 1; i267 < t_nob; i267++) {
-                    final int i268 = pyn(co[cIds2[i266]].x, co[cIds2[i267]].x, co[cIds2[i266]].z, co[cIds2[i267]].z);
-                    if (i268 >= 0 && (co[cIds2[i267]].partID < 46 || co[cIds2[i266]].partID > 51) && i268 < (co[cIds2[i266]].maxR + co[cIds2[i267]].maxR) / 100 * ((co[cIds2[i266]].maxR + co[cIds2[i267]].maxR) / 100)) {
-                        final int i269 = cIds2[i267];
-                        System.arraycopy(cIds2, i266, cIds2, i266 + 1, i267 - i266);
-                        cIds2[i266] = i269;
-                        pTyps[cIds2[i266]] = 0;
+        for (int i266 = 0; i266 < i243; i266++)
+            if (co[is242[i266]].colok >= 46 && co[is242[i266]].colok <= 51) {
+                for (int i267 = i266 + 1; i267 < i243; i267++) {
+                    final int i268 = pyn(co[is242[i266]].x, co[is242[i267]].x, co[is242[i266]].z, co[is242[i267]].z);
+                    if (i268 >= 0 && (co[is242[i267]].colok < 46 || co[is242[i266]].colok > 51) && i268 < (co[is242[i266]].maxR + co[is242[i267]].maxR) / 100 * ((co[is242[i266]].maxR + co[is242[i267]].maxR) / 100)) {
+                        final int i269 = is242[i267];
+                        System.arraycopy(is242, i266, is242, i266 + 1, i267 - i266);
+                        is242[i266] = i269;
+                        is[is242[i266]] = 0;
                         i266++;
                     }
                 }
             }
         int i271 = 1;
-        for (int i272 = 0; i272 < nfm.open.CheckPoints.nsp; i272++) {
+        for (int i272 = 0; i272 < CheckPoints.nsp; i272++) {
             for (int i273 = 0; i273 < nob; i273++)
-                if (co[i273].wh == i272 + 1 && (co[i273].partID == ONROAD_CHECKPOINT_SET_ID || Utility.arrayContains(CHECKPOINT_IDS, co[i273].partID) || co[i273].partID == OFFROAD_CHECKPOINT_SET_ID || co[i273].partID == FLYING_CHECKPOINT_SET_ID)) {
+                if (co[i273].wh == i272 + 1 && (co[i273].colok == 30 || co[i273].colok == 32 || co[i273].colok == 54)) {
                     int i274 = -1;
                     int i275 = -1;
-                    for (int i276 = i271; i276 < t_nob; i276++)
-                        if (co[cIds2[i276]].partID != ONROAD_CHECKPOINT_SET_ID && !Utility.arrayContains(CHECKPOINT_IDS, co[cIds2[i276]].partID) && co[cIds2[i276]].partID != OFFROAD_CHECKPOINT_SET_ID && co[cIds2[i276]].partID != FLYING_CHECKPOINT_SET_ID) {
-                            final int i277 = pyn(co[i273].x, co[cIds2[i276]].x, co[i273].z, co[cIds2[i276]].z);
+                    for (int i276 = i271; i276 < i243; i276++)
+                        if (co[is242[i276]].colok != 30 && co[is242[i276]].colok != 32 && co[is242[i276]].colok != 54) {
+                            final int i277 = pyn(co[i273].x, co[is242[i276]].x, co[i273].z, co[is242[i276]].z);
                             if (i277 >= 0 && (i277 < i274 || i274 == -1)) {
                                 i274 = i277;
                                 i275 = i276;
                             }
                         }
                     if (i275 != -1) {
-                        pTyps[cIds2[i275]] = 0;
-                        System.arraycopy(cIds2, i275, cIds2, i275 + 1, t_nob - i275);
-                        cIds2[i275 + 1] = i273;
+                        is[is242[i275]] = 0;
+                        System.arraycopy(is242, i275, is242, i275 + 1, i243 - i275);
+                        is242[i275 + 1] = i273;
                         i271 = i275 + 1;
-                        t_nob++;
+                        i243++;
                     } else {
-                        cIds2[t_nob] = i273;
-                        i271 = t_nob;
-                        t_nob++;
+                        is242[i243] = i273;
+                        i271 = i243;
+                        i243++;
                     }
                 }
         }
         for (int i279 = 0; i279 < nob; i279++)
-            if (co[i279].wh == 0 && (co[i279].partID == ONROAD_CHECKPOINT_SET_ID || Utility.arrayContains(CHECKPOINT_IDS, co[i279].partID) || co[i279].partID == OFFROAD_CHECKPOINT_SET_ID || co[i279].partID == FLYING_CHECKPOINT_SET_ID)) {
+            if (co[i279].wh == 0 && (co[i279].colok == 30 || co[i279].colok == 32 || co[i279].colok == 54)) {
                 int i280 = -1;
                 int i281 = -1;
-                for (int i282 = i271; i282 < t_nob; i282++)
-                    if (co[cIds2[i282]].partID != ONROAD_CHECKPOINT_SET_ID && !Utility.arrayContains(CHECKPOINT_IDS, co[cIds2[i282]].partID) && co[cIds2[i282]].partID != OFFROAD_CHECKPOINT_SET_ID && co[cIds2[i282]].partID != FLYING_CHECKPOINT_SET_ID) {
-                        final int i283 = pyn(co[i279].x, co[cIds2[i282]].x, co[i279].z, co[cIds2[i282]].z);
+                for (int i282 = i271; i282 < i243; i282++)
+                    if (co[is242[i282]].colok != 30 && co[is242[i282]].colok != 32 && co[is242[i282]].colok != 54) {
+                        final int i283 = pyn(co[i279].x, co[is242[i282]].x, co[i279].z, co[is242[i282]].z);
                         if (i283 >= 0 && (i283 < i280 || i280 == -1)) {
                             i280 = i283;
                             i281 = i282;
                         }
                     }
                 if (i281 != -1) {
-                    pTyps[cIds2[i281]] = 0;
-                    System.arraycopy(cIds2, i281, cIds2, i281 + 1, t_nob - i281);
-                    cIds2[i281 + 1] = i279;
-                    t_nob++;
+                    is[is242[i281]] = 0;
+                    System.arraycopy(is242, i281, is242, i281 + 1, i243 - i281);
+                    is242[i281 + 1] = i279;
+                    i243++;
                 } else {
-                    cIds2[t_nob] = i279;
-                    t_nob++;
+                    is242[i243] = i279;
+                    i243++;
                 }
             }
         for (int i285 = 0; i285 < nob; i285++)
-            if (co[i285].partID == FIXHOOP_SET_ID) {
+            if (co[i285].colok == 31) {
                 int i286 = -1;
                 int i287 = -1;
-                for (int i288 = 0; i288 < t_nob; i288++) {
-                    final int i289 = pyn(co[i285].x, co[cIds2[i288]].x, co[i285].z, co[cIds2[i288]].z);
+                for (int i288 = 0; i288 < i243; i288++) {
+                    final int i289 = pyn(co[i285].x, co[is242[i288]].x, co[i285].z, co[is242[i288]].z);
                     if (i289 >= 0 && (i289 < i286 || i286 == -1)) {
                         i286 = i289;
                         i287 = i288;
                     }
                 }
                 if (i287 != -1) {
-                    System.arraycopy(cIds2, i287, cIds2, i287 + 1, t_nob - i287);
-                    cIds2[i287] = i285;
-                    t_nob++;
+                    System.arraycopy(is242, i287, is242, i287 + 1, i243 - i287);
+                    is242[i287] = i285;
+                    i243++;
                 } else {
-                    cIds2[t_nob] = i285;
-                    t_nob++;
+                    is242[i243] = i285;
+                    i243++;
                 }
             }
         for (int i291 = 0; i291 < nob; i291++)
-            if (co[i291].partID == 15 || co[i291].partID == 27 || co[i291].partID == 28 || co[i291].partID == 41 || co[i291].partID == 44 || co[i291].partID == 52) {
+            if (co[i291].colok == 15 || co[i291].colok == 27 || co[i291].colok == 28 || co[i291].colok == 41 || co[i291].colok == 44 || co[i291].colok == 52 || co[i291].colok == 53) {
                 int i292 = -1;
-                for (int i293 = 0; i293 < t_nob; i293++)
-                    if ((co[cIds2[i293]].partID <= 14 || co[cIds2[i293]].partID >= 33) && co[cIds2[i293]].partID < 39) {
-                        final int i294 = pyn(co[i291].x, co[cIds2[i293]].x, co[i291].z, co[cIds2[i293]].z);
-                        if (i294 >= 0 && i294 < (co[i291].maxR + co[cIds2[i293]].maxR) / 100 * ((co[i291].maxR + co[cIds2[i293]].maxR) / 100)) {
+                for (int i293 = 0; i293 < i243; i293++)
+                    if ((co[is242[i293]].colok <= 14 || co[is242[i293]].colok >= 33) && co[is242[i293]].colok < 39) {
+                        final int i294 = pyn(co[i291].x, co[is242[i293]].x, co[i291].z, co[is242[i293]].z);
+                        if (i294 >= 0 && i294 < (co[i291].maxR + co[is242[i293]].maxR) / 100 * ((co[i291].maxR + co[is242[i293]].maxR) / 100)) {
                             i292 = i293;
                         }
                     }
                 if (i292 != -1) {
-                    System.arraycopy(cIds2, i292, cIds2, i292 + 1, t_nob - i292);
-                    cIds2[i292 + 1] = i291;
-                    t_nob++;
+                    System.arraycopy(is242, i292, is242, i292 + 1, i243 - i292);
+                    is242[i292 + 1] = i291;
+                    i243++;
                 } else {
-                    cIds2[t_nob] = i291;
-                    t_nob++;
+                    is242[i243] = i291;
+                    i243++;
                 }
             }
         for (int i296 = 0; i296 < nob; i296++)
-            if (co[i296].partID >= 16 && co[i296].partID <= 25 || co[i296].partID == 40 || co[i296].partID == 42 || co[i296].partID == 43 || co[i296].partID == 45) {
+            if (co[i296].colok >= 16 && co[i296].colok <= 25 || co[i296].colok == 40 || co[i296].colok == 42 || co[i296].colok == 43 || co[i296].colok == 45) {
                 int i297 = -1;
-                for (int i298 = 0; i298 < t_nob; i298++)
-                    if ((co[cIds2[i298]].partID <= 14 || co[cIds2[i298]].partID >= 33) && co[cIds2[i298]].partID < 39) {
-                        final int i299 = pyn(co[i296].x, co[cIds2[i298]].x, co[i296].z, co[cIds2[i298]].z);
-                        if (i299 >= 0 && i299 < (co[i296].maxR + co[cIds2[i298]].maxR) / 100 * ((co[i296].maxR + co[cIds2[i298]].maxR) / 100)) {
-                            if (pTyps[cIds2[i298]] != 0) {
-                                pTyps[cIds2[i298]] = 0;
-                                if (co[i296].partID != 20) {
-                                    pTyps[i296] = 3;
+                for (int i298 = 0; i298 < i243; i298++)
+                    if ((co[is242[i298]].colok <= 14 || co[is242[i298]].colok >= 33) && co[is242[i298]].colok < 39) {
+                        final int i299 = pyn(co[i296].x, co[is242[i298]].x, co[i296].z, co[is242[i298]].z);
+                        if (i299 >= 0 && i299 < (co[i296].maxR + co[is242[i298]].maxR) / 100 * ((co[i296].maxR + co[is242[i298]].maxR) / 100)) {
+                            if (is[is242[i298]] != 0) {
+                                is[is242[i298]] = 0;
+                                if (co[i296].colok != 20) {
+                                    is[i296] = 3;
                                 } else {
-                                    pTyps[i296] = 5;
+                                    is[i296] = 5;
                                 }
                             }
                             i297 = i298;
                         }
                     }
-                /*if (i297 != -1) {
-
-                }*/
                 if (i297 != -1) {
-                    System.arraycopy(cIds2, i297, cIds2, i297 + 1, t_nob - i297);
-                    cIds2[i297 + 1] = i296;
-                    t_nob++;
+
+                }
+                if (i297 != -1) {
+                    System.arraycopy(is242, i297, is242, i297 + 1, i243 - i297);
+                    is242[i297 + 1] = i296;
+                    i243++;
                 } else {
-                    cIds2[t_nob] = i296;
-                    t_nob++;
+                    is242[i243] = i296;
+                    i243++;
                 }
             }
         for (int i301 = 0; i301 < nob; i301++)
-            if (co[i301].partID == 26/* || co[i301].partID == 39*/) {
+            if (co[i301].colok == 26 || co[i301].colok == 39) {
                 boolean bool302 = false;
                 if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                     bool302 = true;
-                    if (co[i301].partID == 39)
+                    if (co[i301].colok == 39)
                         if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                             bool302 = false;
                         } else if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
@@ -7315,212 +8362,153 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
                         }
                 }
                 int i303 = -1;
-                for (int i304 = 0; i304 < t_nob; i304++)
-                    if ((co[cIds2[i304]].partID <= 14 || co[cIds2[i304]].partID >= 33) && co[cIds2[i304]].partID < 39) {
-                        final int i305 = pyn(co[i301].x, co[cIds2[i304]].x, co[i301].z, co[cIds2[i304]].z);
-                        if (i305 >= 0 && i305 < (co[i301].maxR + co[cIds2[i304]].maxR) / 100 * ((co[i301].maxR + co[cIds2[i304]].maxR) / 100)) {
+                for (int i304 = 0; i304 < i243; i304++)
+                    if ((co[is242[i304]].colok <= 14 || co[is242[i304]].colok >= 33) && co[is242[i304]].colok < 39) {
+                        final int i305 = pyn(co[i301].x, co[is242[i304]].x, co[i301].z, co[is242[i304]].z);
+                        if (i305 >= 0 && i305 < (co[i301].maxR + co[is242[i304]].maxR) / 100 * ((co[i301].maxR + co[is242[i304]].maxR) / 100)) {
                             boolean bool306 = false;
-                            if (co[i301].partID == 26) {
-                                if (co[i301].declaredXZ == 90 && co[cIds2[i304]].x > co[i301].x) {
+                            if (co[i301].colok == 26) {
+                                if (co[i301].roofat == 90 && co[is242[i304]].x > co[i301].x) {
                                     bool306 = true;
                                 }
-                                if (co[i301].declaredXZ == -90 && co[cIds2[i304]].x < co[i301].x) {
+                                if (co[i301].roofat == -90 && co[is242[i304]].x < co[i301].x) {
                                     bool306 = true;
                                 }
-                                if (co[i301].declaredXZ == 0 && co[cIds2[i304]].z < co[i301].z) {
+                                if (co[i301].roofat == 0 && co[is242[i304]].z < co[i301].z) {
                                     bool306 = true;
                                 }
-                                if (co[i301].declaredXZ == 180 && co[cIds2[i304]].z > co[i301].z) {
+                                if (co[i301].roofat == 180 && co[is242[i304]].z > co[i301].z) {
                                     bool306 = true;
                                 }
                             }
-                            if (co[i301].partID == 39) {
-                                if (co[i301].declaredXZ == 90 && co[cIds2[i304]].z > co[i301].z) {
+                            if (co[i301].colok == 39) {
+                                if (co[i301].roofat == 90 && co[is242[i304]].z > co[i301].z) {
                                     bool306 = true;
                                 }
-                                if (co[i301].declaredXZ == -90 && co[cIds2[i304]].z < co[i301].z) {
+                                if (co[i301].roofat == -90 && co[is242[i304]].z < co[i301].z) {
                                     bool306 = true;
                                 }
-                                if (co[i301].declaredXZ == 0 && co[cIds2[i304]].x > co[i301].x) {
+                                if (co[i301].roofat == 0 && co[is242[i304]].x > co[i301].x) {
                                     bool306 = true;
                                 }
-                                if (co[i301].declaredXZ == 180 && co[cIds2[i304]].x < co[i301].x) {
+                                if (co[i301].roofat == 180 && co[is242[i304]].x < co[i301].x) {
                                     bool306 = true;
                                 }
                             }
                             if (bool306) {
-                                if (pTyps[cIds2[i304]] == 1 && bool302) {
-                                    pTyps[cIds2[i304]] = 0;
-                                    pTyps[i301] = 4;
+                                if (is[is242[i304]] == 1 && bool302) {
+                                    is[is242[i304]] = 0;
+                                    is[i301] = 4;
                                 }
                                 i303 = i304;
                             }
                         }
                     }
                 if (i303 != -1) {
-                    System.arraycopy(cIds2, i303, cIds2, i303 + 1, t_nob - i303);
-                    cIds2[i303 + 1] = i301;
-                    t_nob++;
+                    System.arraycopy(is242, i303, is242, i303 + 1, i243 - i303);
+                    is242[i303 + 1] = i301;
+                    i243++;
                 } else {
-                    cIds2[t_nob] = i301;
-                    t_nob++;
+                    is242[i243] = i301;
+                    i243++;
                 }
             }
-        for (int i308 = 0; i308 < nob; i308++) //>= 55 not >= 33
-            if (co[i308].partID >= 54 && co[i308].partID <= maxpart && !Utility.arrayContains(CHECKPOINT_IDS, co[i308].partID) || co[i308].partID == BUMP_SET_ID) {
-                cIds2[t_nob] = i308;
-                t_nob++;
+        for (int i308 = 0; i308 < nob; i308++) //FIXME: Does this cause duplicate parts?
+            if (co[i308].colok >= 55 && co[i308].colok <= maxpart || co[i308].colok == bumppart) { //TODO: this has to be changed for new placeable checkpoints/non-set()s
+                is242[i243] = i308;
+                i243++;
             }
-
-        // fix the dupe bug (remove dupe entries, VERY DIRTY HACK)
-        for (int j = 0; j < nob; j++) {
-            for (int k = 0; k < nob; k++) {
-                if (j != k && cIds2[k] != -1337 && cIds2[j] != -1337 && co[cIds2[j]].dupeOf(co[cIds2[k]])) {
-                    cIds2[k] = -1337;
-                    //contoIds2 = Utility.removeElement(contoIds2, contoIds2[k]);
-                    //i243--;
-                }
-
-            }
-        }
-
-        int[] cIds3 = new int[t_nob]; // pointer to conto ids after manual sort
-
-        // fill array with -1
-        for (int i1 = 0; i1 < t_nob; i1++) { // SLOW (i guess, pls fix somehow thx)
-            cIds3[i1] = -1;
-        }
-
-        // first, add the manual sort ones
-        for (int i1 = 0; i1 < t_nob; i1++) {
-            if (cIds2[i1] == -1337 || co[cIds2[i1]].partID == -1337)
-                continue;
-
-            if (co[cIds2[i1]].declaredPositionInArray != -1) { // OH GOD IS THIS RIGHT?
-                cIds3[co[cIds2[i1]].declaredPositionInArray] = cIds2[i1];
-            }
-        }
-
-        // then, fill the empty spots with the rest of the sets
-        for (int i1 = 0, avalidint = 0; i1 < t_nob /*potentially array should be +1*/; i1++/*, avalidint++*/) { // now, add the rest
-            if (cIds2[i1] == -1337 || co[cIds2[i1]].partID == -1337 || co[cIds2[i1]].declaredPositionInArray != -1)
-                continue;
-
-            while (cIds3[avalidint] != -1) {
-                avalidint++;
-            }
-
-            cIds3[avalidint] = cIds2[i1];
-        }
-
-        /*
-        old algorithm:
-
-        for (int i1 = 0; i1 < t_nob; i1++) { // first, add the manual sort ones
-            if (cIds2[i1] == -1337 || co[cIds2[i1]].partID == -1337)
-                continue;
-
-            if (co[cIds2[i1]].declaredPositionInArray != -1) { // OH GOD IS THIS RIGHT?
-                cIds3[co[cIds2[i1]].declaredPositionInArray] = cIds2[i1];
-            }
-
-            lastvalidint++;
-        }
-        for (int i1 = 0; i1 < t_nob; i1++) { // now, add the rest
-            if (cIds2[i1] == -1337 || co[cIds2[i1]].partID == -1337 || co[cIds2[i1]].declaredPositionInArray != -1)
-                continue;
-
-            cIds3[lastvalidint] = cIds2[i1];
-            lastvalidint++;
-        }
-        */
-
-
         int i309 = 0;
         int i310 = 0;
         int i311 = 0;
         int i312 = 0;
-        final StringBuilder stageb = new StringBuilder(bstage.length());
         bstage = "";
-        for (int i1 = 0; i1 < t_nob; i1++) {
-
-            /*if (cIds3[i1] == -1) { //ignore entries marked as nonexistant
-                continue;
-            } else *//*if (co[cIds3[i1]].partID == BASE1) {
-                String isSorted = getLineSuffix(co[cIds3[i1]]);
-                stageb.append("base1(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
-
-                //placeSET(contoIds1, contoIds2, i313);
-            } else if (co[cIds3[i1]].partID == BASE2) {
-                String isSorted = getLineSuffix(co[cIds3[i1]]);
-                stageb.append("base2(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
-
-                //placeSET(contoIds1, contoIds2, i313);
-            } else if (co[cIds3[i1]].partID == PEDESTAL_FLAG1) {
-                String isSorted = getLineSuffix(co[cIds3[i1]]);
-                stageb.append("ped_flag1(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
-            } else if (co[cIds3[i1]].partID == PEDESTAL_FLAG2) {
-                String isSorted = getLineSuffix(co[cIds3[i1]]);
-                stageb.append("ped_flag2(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
-            } else if (co[cIds3[i1]].partID == NODE_SET_ID) {
-                if (false) {
-                    System.out.println("placing node");
+        for (int i313 = 0; i313 < i243; i313++) {
+            if (co[is242[i313]].colok != 30 && co[is242[i313]].colok != 31 && co[is242[i313]].colok != 32 && co[is242[i313]].colok != 54 && co[is242[i313]].colok != bumppart) {
+                String string = "";
+                if (is[is242[i313]] == 1) {
+                    string = "p";
                 }
-                if (false) {
-                    System.out.println("roof2: " + co[cIds3[i1]].declaredXZ);
+                if (is[is242[i313]] == 2) {
+                    string = "pt";
                 }
-                //if (!floats) {
-                //    stageb.append("node(" + co[is242[i313]].x + "," + co[is242[i313]].y + "," +  + co[is242[i313]].z + ")" + "\r\n";
-                //} else {
-                String isSorted = getLineSuffix(co[cIds3[i1]]);
+                if (is[is242[i313]] == 3) {
+                    string = "pr";
+                }
+                if (is[is242[i313]] == 4) {
+                    string = "ph";
+                }
+                if (is[is242[i313]] == 5) {
+                    string = "pl";
+                }
+                if (is[is242[i313]] == 6) {
+                    string = "pr";
+                }
 
-                stageb.append("node(").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].y).append(",").append(+co[cIds3[i1]].z).append(")").append(isSorted).append("\r\n");
-                //}
-            } else */if (co[cIds3[i1]].partID == ONROAD_CHECKPOINT_SET_ID || Utility.arrayContains(CHECKPOINT_IDS, co[cIds3[i1]].partID) || co[cIds3[i1]].partID == OFFROAD_CHECKPOINT_SET_ID) {
-                if (co[cIds3[i1]].declaredXZ == 180) {
-                    co[cIds3[i1]].declaredXZ = 0;
+                System.out.println("placing");
+                System.out.println("roof2: " + co[is242[i313]].roofat);
+                if (co[is242[i313]].roofat == 250) {
+
                 }
-                String string = getLineSuffix(co[cIds3[i1]]);
+                if (!floats) {
+                    bstage = "" + bstage + "set(" + (co[is242[i313]].colok + 10) + "," + co[is242[i313]].x + "," + co[is242[i313]].z + "," + co[is242[i313]].roofat + ")" + string + "\r\n";
+                } else {
+                    bstage = "" + bstage + "set(" + (co[is242[i313]].colok + 10) + "," + co[is242[i313]].x + "," + co[is242[i313]].z + "," + co[is242[i313]].y + "," + co[is242[i313]].roofat + ")" + string + "\r\n";
+                }
+            }
+            if (co[is242[i313]].colok == 30 || co[is242[i313]].colok == 32) {
+                if (co[is242[i313]].roofat == 180) {
+                    co[is242[i313]].roofat = 0;
+                }
+                String string = "";
+                if (co[is242[i313]].wh != 0) {
+                    string = "r";
+                }
 
                 if (floats) {
-                    stageb.append("chk(").append(co[cIds3[i1]].partID + 10).append(",").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].z).append(",").append(co[cIds3[i1]].y).append(",").append(co[cIds3[i1]].declaredXZ).append(")").append(string).append("\r\n");
+                    bstage = "" + bstage + "chk(" + (co[is242[i313]].colok + 10) + "," + co[is242[i313]].x + "," + co[is242[i313]].z + "," + co[is242[i313]].y + "," + co[is242[i313]].roofat + ")" + string + "\r\n";
                 } else {
-                    stageb.append("chk(").append(co[cIds3[i1]].partID + 10).append(",").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].z).append(",").append(co[cIds3[i1]].declaredXZ).append(")").append(string).append("\r\n");
+                    bstage = "" + bstage + "chk(" + (co[is242[i313]].colok + 10) + "," + co[is242[i313]].x + "," + co[is242[i313]].z + "," + co[is242[i313]].roofat + ")" + string + "\r\n";
                 }
-            } else if (co[cIds3[i1]].partID == FLYING_CHECKPOINT_SET_ID) {
-                if (co[cIds3[i1]].declaredXZ == 180) {
-                    co[cIds3[i1]].declaredXZ = 0;
+            }
+            if (co[is242[i313]].colok == 54) {
+                if (co[is242[i313]].roofat == 180) {
+                    co[is242[i313]].roofat = 0;
                 }
-                String string = getLineSuffix(co[cIds3[i1]]);
-                //   this.bstage = (this.bstage) + ("chk(")
-                //      .append(co[is242[i313]].partID + 10) + (",") + (co[is242[i313]].x) + (",")
-                //      .append(co[is242[i313]].z) + (",") + (co[is242[i313]].y) + (",") + (co[is242[i313]].declaredXZ)
-                //      .append(")") + (string) + ("\r\n");
+                String string = "";
+                if (co[is242[i313]].wh != 0) {
+                    string = "r";
+                }
+
+                //   this.bstage = "" + (this.bstage) + ("chk(")
+                //       + (co[is242[i313]].colok + 10) + (",") + (co[is242[i313]].x) + (",")
+                //       + (co[is242[i313]].z) + (",") + (co[is242[i313]].y) + (",") + (co[is242[i313]].roofat)
+                //       + (")") + (string) + ("\r\n");
                 if (floats) {
-                    stageb.append("chk(").append(co[cIds3[i1]].partID + 10).append(",").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].z).append(",").append(co[cIds3[i1]].y).append(",").append(co[cIds3[i1]].declaredXZ).append(")").append(string).append("\r\n");
+                    bstage = "" + bstage + "chk(" + (co[is242[i313]].colok + 10) + "," + co[is242[i313]].x + "," + co[is242[i313]].z + "," + co[is242[i313]].y + "," + co[is242[i313]].roofat + ")" + string + "\r\n";
                 } else {
-                    stageb.append("chk(").append(co[cIds3[i1]].partID + 10).append(",").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].z).append(",").append(co[cIds3[i1]].declaredXZ).append(")").append(string).append("\r\n");
+                    bstage = "" + bstage + "chk(" + (co[is242[i313]].colok + 10) + "," + co[is242[i313]].x + "," + co[is242[i313]].z + "," + co[is242[i313]].roofat + ")" + string + "\r\n";
                 }
-            } else if (co[cIds3[i1]].partID == FIXHOOP_SET_ID) {
+            }
+            if (co[is242[i313]].colok == 31) {
 
-                stageb.append("fix(").append(co[cIds3[i1]].partID + 10).append(",").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].z).append(",").append(co[cIds3[i1]].y).append(",").append(co[cIds3[i1]].declaredXZ).append(")\r\n");
-            } else if (co[cIds3[i1]].partID == BUMP_SET_ID) {
+                bstage = "" + bstage + "fix(" + (co[is242[i313]].colok + 10) + "," + co[is242[i313]].x + "," + co[is242[i313]].z + "," + co[is242[i313]].y + "," + co[is242[i313]].roofat + ")\r\n";
+            }
+            if (co[is242[i313]].colok == bumppart) {
 
-                stageb.append("pile(").append(co[cIds3[i1]].srz).append(",").append(co[cIds3[i1]].srx).append(",").append(co[cIds3[i1]].sry).append(",").append(co[cIds3[i1]].x).append(",").append(co[cIds3[i1]].z).append(")\r\n");
-            } else {
-                placeSET(pTyps, cIds3, i1, stageb);
+                bstage = "" + bstage + "pile(" + co[is242[i313]].srz + "," + co[is242[i313]].srx + "," + co[is242[i313]].sry + "," + co[is242[i313]].x + "," + co[is242[i313]].z + ")\r\n";
             }
-            if (co[cIds3[i1]].x + co[cIds3[i1]].maxR > i309) {
-                i309 = co[cIds3[i1]].x + co[cIds3[i1]].maxR;
+            if (co[is242[i313]].x + co[is242[i313]].maxR > i309) {
+                i309 = co[is242[i313]].x + co[is242[i313]].maxR;
             }
-            if (co[cIds3[i1]].x - co[cIds3[i1]].maxR < i311) {
-                i311 = co[cIds3[i1]].x - co[cIds3[i1]].maxR;
+            if (co[is242[i313]].x - co[is242[i313]].maxR < i311) {
+                i311 = co[is242[i313]].x - co[is242[i313]].maxR;
             }
-            if (co[cIds3[i1]].z + co[cIds3[i1]].maxR > i310) {
-                i310 = co[cIds3[i1]].z + co[cIds3[i1]].maxR;
+            if (co[is242[i313]].z + co[is242[i313]].maxR > i310) {
+                i310 = co[is242[i313]].z + co[is242[i313]].maxR;
             }
-            if (co[cIds3[i1]].z - co[cIds3[i1]].maxR < i312) {
-                i312 = co[cIds3[i1]].z - co[cIds3[i1]].maxR;
+            if (co[is242[i313]].z - co[is242[i313]].maxR < i312) {
+                i312 = co[is242[i313]].z - co[is242[i313]].maxR;
             }
         }
         int i319 = i311;
@@ -7537,8 +8525,9 @@ public class SRCStageMaker extends JPanel implements KeyListener, MouseListener,
         i324 -= i322;
         i325 += i322;
         final int i327 = i324 + 2400;
-        stageb.append("\r\nmaxl(").append(i326).append(",").append(i319).append(",").append(i327).append(")\r\nmaxb(").append(i321).append(",").append(i324).append(",").append(i323).append(")\r\nmaxr(").append(i326).append(",").append(i320).append(",").append(i327).append(")\r\nmaxt(").append(i321).append(",").append(i325).append(",").append(i323).append(")\r\n");
-        bstage = stageb.toString();
+
+        bstage = "" + bstage + "\r\nmaxl(" + i326 + "," + i319 + "," + i327 + ")\r\nmaxb(" + i321 + "," + i324 + "," + i323 + ")\r\nmaxr(" + i326 + "," + i320 + "," + i327 + ")\r\nmaxt(" + i321 + "," + i325 + "," + i323 + ")\r\n";
+    
     }
 
     private static String getLineSuffix(SMContO smContO) {
