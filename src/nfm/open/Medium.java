@@ -190,13 +190,6 @@ public final class Medium {
         return ab;
     }
 
-    public static int[][] populate(int[] b) {
-        int[][] ab = new int[8][];
-        if (b != null) // != 0 which is the default
-            Arrays.fill(ab, b);
-        return ab;
-    }
-
     static void addsp(final int i, final int i245, final int i246) {
         if (nsp != 7) {
             spx[nsp] = i;
