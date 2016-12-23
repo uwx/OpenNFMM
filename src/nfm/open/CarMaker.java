@@ -2269,16 +2269,16 @@ public class CarMaker extends Applet implements Runnable, ActionListener {
                 for (int i352 = 0; i352 < 5; i352++) {
                     for (int i353 = 0; i353 < 5; i353++)
                         if (string.equals("" + i353 + "" + i352 + ".wav")) {
-                            engs[i353][i352] = new SoundClip(is);
+                            engs[i353][i352] = new SoundClip("temp-sound/" + string);
                         }
                 }
                 for (int i354 = 0; i354 < 3; i354++)
                     if (string.equals("crash" + (i354 + 1) + ".wav")) {
-                        crashs[i354] = new SoundClip(is);
+                        crashs[i354] = new SoundClip("temp-sound/" + string);
                     }
                 for (int i355 = 0; i355 < 3; i355++)
                     if (string.equals("lowcrash" + (i355 + 1) + ".wav")) {
-                        lowcrashs[i355] = new SoundClip(is);
+                        lowcrashs[i355] = new SoundClip("temp-sound/" + string);
                     }
             }
             fileinputstream.close();

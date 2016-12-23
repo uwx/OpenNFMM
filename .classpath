@@ -12,5 +12,8 @@
 	<classpathentry kind="lib" path="libraries/bin/NativeBass.jar" sourcepath="libraries/src/bass_src.zip"/>
 	<classpathentry kind="lib" path="libraries/bin/rsyntaxtextarea-2.5.8.jar" sourcepath="C:/Portable Programs/maven/repo/com/fifesoft/rsyntaxtextarea/2.5.8/rsyntaxtextarea-2.5.8-sources.jar"/>
 	<classpathentry kind="lib" path="libraries/bin/trove-3.1a1.jar" sourcepath="libraries/src/trove-3.1a1-src.jar"/>
+	<classpathentry kind="lib" path="libraries/bin/CodecWav.jar" sourcepath="libraries/src/CodecWav.zip"/>
+	<classpathentry kind="lib" path="libraries/bin/SoundSystem.jar" sourcepath="libraries/src/SoundSystem.zip"/>
+	<classpathentry kind="lib" path="libraries/bin/LibraryJavaSound.jar" sourcepath="libraries/src/LibraryJavaSound.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

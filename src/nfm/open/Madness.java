@@ -20,7 +20,14 @@ import java.io.FileWriter;
 import java.net.URI;
 import java.util.concurrent.ThreadLocalRandom;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+import paulscode.sound.SoundSystem;
+import paulscode.sound.SoundSystemConfig;
+import paulscode.sound.SoundSystemException;
+import paulscode.sound.codecs.CodecWav;
+import paulscode.sound.libraries.LibraryJavaSound;
 
 public class Madness extends Panel {
     static int anti = 1;
@@ -338,7 +345,25 @@ public class Madness extends Panel {
         }
     }
 
+    public static SoundSystem ss; 
+
     public static void main(final String[] strings) {
+        
+        try 
+        { 
+            SoundSystemConfig.addLibrary(LibraryJavaSound.class);
+            SoundSystemConfig.setCodec( "wav", CodecWav.class );
+        } 
+        catch( SoundSystemException e ) 
+        { 
+            System.err.println( "error linking with the CodecWav plug-in" ); 
+        } 
+        ss = new SoundSystem();
+        
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            ss.cleanup();
+        }));
+        
         System.runFinalizersOnExit(true);
         frame = new JFrame("Need for Madness");
         frame.setBackground(Color.black);

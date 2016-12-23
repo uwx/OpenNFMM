@@ -1,92 +1,52 @@
 package nfm.open;
-/* soundClip - Decompiled by JODE extended
- * DragShot Software
- * JODE (c) 1998-2001 Jochen Hoenicke
- */
-import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.net.MalformedURLException;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
+import paulscode.sound.SoundSystemConfig;
 
 class SoundClip {
-    private Clip clip = null;
-    private int cntcheck = 0;
-    private int lfrpo = -1;
-    private boolean loaded = false;
     int rollBackPos;
     int rollBackTrig;
-    private AudioInputStream sound;
+    private static int srccnt = 0;
+    private String sourceName;
+    static Point3D source = new _Point3D();
+    static Point3DX player = new _Point3DX();
+    //private static final ListenerData LISTENER_DATA = Madness.ss.getListenerData();
 
-    SoundClip(final byte[] is) {
+    SoundClip(String path) {        
+        boolean priority = false; 
+        sourceName = "Source " + (srccnt++); 
+        boolean loop = false; 
+        float x = 0; 
+        float y = 0; 
+        float z = 0; 
+        int aModel = SoundSystemConfig.ATTENUATION_ROLLOFF / 10000; 
+        float rFactor = SoundSystemConfig.getDefaultRolloff(); 
         try {
-            final ByteArrayInputStream bytearrayinputstream = new ByteArrayInputStream(is);
-            sound = AudioSystem.getAudioInputStream(bytearrayinputstream);
-            sound.mark(is.length);
-            clip = AudioSystem.getClip();
-            loaded = true;
-        } catch (final Exception exception) {
-            System.out.println("Loading Clip error: " + exception);
-            loaded = false;
+            Madness.ss.newSource(priority, sourceName, new File(path).toURI().toURL(), path.substring(path.lastIndexOf('/')+1), loop, x, y, z, aModel, rFactor);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
         }
     }
 
     void checkopen() {
-        if (loaded && clip.isOpen() && lfrpo != -2)
-            if (cntcheck == 0) {
-                final int i = clip.getFramePosition();
-                if (lfrpo == i && !clip.isRunning()) {
-                    try {
-                        clip.close();
-                        sound.reset();
-                    } catch (final Exception ignored) {
-
-                    }
-                    lfrpo = -1;
-                } else {
-                    lfrpo = i;
-                }
-            } else {
-                cntcheck--;
-            }
+        // unused
     }
 
     void loop() {
-        if (loaded) {
-            if (!clip.isOpen()) {
-                try {
-                    clip.open(sound);
-                } catch (final Exception ignored) {
-
-                }
-            }
-            clip.loop(Clip.LOOP_CONTINUOUSLY);
-            lfrpo = -2;
-            cntcheck = 0;
-        }
+        Madness.ss.setLooping(sourceName, true);
+        play();
     }
 
     void play() {
-        if (loaded) {
-            if (!clip.isOpen()) {
-                try {
-                    clip.open(sound);
-                } catch (final Exception ignored) {
-
-                }
-                clip.loop(0);
-            } else {
-                clip.loop(1);
-            }
-            lfrpo = -1;
-            cntcheck = 5;
-        }
+        Madness.ss.setPosition(sourceName, source.x(), source.y(), source.z());
+        Madness.ss.getListenerData().setPosition(player.x(), player.y(), player.z());
+        Madness.ss.setListenerAngle((float) Math.toRadians(player.xz()));
+        
+        Madness.ss.play(sourceName);
     }
 
     void stop() {
-        if (loaded) {
-            clip.stop();
-            lfrpo = -1;
-        }
+        Madness.ss.pause(sourceName);
     }
 }

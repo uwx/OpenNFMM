@@ -3119,7 +3119,11 @@ class GameSparker extends JPanel
                 u[j].mutem = u[0].mutem;
                 u[j].mutes = u[0].mutes;
             }
-            xtGraphics.playsounds(mads[xtGraphics.im], u[j]);
+            if (xtGraphics.fase==0) {
+                for (int i = 0; i < xtGraphics.nplayers; i++) {
+                    xtGraphics.playsounds(mads[i], u[i], stageContos[0], stageContos[i]);
+                }
+            }
         }
         date = new Date();
         final long l = date.getTime();

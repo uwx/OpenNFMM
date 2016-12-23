@@ -5421,65 +5421,65 @@ class xtGraphics extends JPanel implements Runnable {
                 for (int i2 = 0; i2 < 5; i2++) {
                     for (int i3 = 0; i3 < 5; i3++)
                         if (string.equals("" + i3 + "" + i2 + ".wav")) {
-                            engs[i3][i2] = new SoundClip(is);
+                            engs[i3][i2] = new SoundClip("temp-sound/" + string);
                         }
                 }
                 for (int i4 = 0; i4 < 6; i4++)
                     if (string.equals("air" + i4 + ".wav")) {
-                        air[i4] = new SoundClip(is);
+                        air[i4] = new SoundClip("temp-sound/" + string);
                     }
                 for (int i5 = 0; i5 < 3; i5++)
                     if (string.equals("crash" + (i5 + 1) + ".wav")) {
-                        crash[i5] = new SoundClip(is);
+                        crash[i5] = new SoundClip("temp-sound/" + string);
                     }
                 for (int i6 = 0; i6 < 3; i6++)
                     if (string.equals("lowcrash" + (i6 + 1) + ".wav")) {
-                        lowcrash[i6] = new SoundClip(is);
+                        lowcrash[i6] = new SoundClip("temp-sound/" + string);
                     }
                 for (int i7 = 0; i7 < 3; i7++)
                     if (string.equals("skid" + (i7 + 1) + ".wav")) {
-                        skid[i7] = new SoundClip(is);
+                        skid[i7] = new SoundClip("temp-sound/" + string);
                     }
                 for (int i8 = 0; i8 < 3; i8++)
                     if (string.equals("dustskid" + (i8 + 1) + ".wav")) {
-                        dustskid[i8] = new SoundClip(is);
+                        dustskid[i8] = new SoundClip("temp-sound/" + string);
                     }
                 for (int i9 = 0; i9 < 3; i9++)
                     if (string.equals("scrape" + (i9 + 1) + ".wav")) {
-                        scrape[i9] = new SoundClip(is);
+                        scrape[i9] = new SoundClip("temp-sound/" + string);
                         if (i9 == 2) {
-                            scrape[3] = new SoundClip(is);
+                            scrape[3] = new SoundClip("temp-sound/" + string);
                         }
                     }
                 if (string.equals("powerup.wav")) {
-                    powerup = new SoundClip(is);
+                    powerup = new SoundClip("temp-sound/" + string);
                 }
                 if (string.equals("tires.wav")) {
-                    tires = new SoundClip(is);
+                    tires = new SoundClip("temp-sound/" + string);
                 }
                 if (string.equals("checkpoint.wav")) {
-                    checkpoint = new SoundClip(is);
+                    checkpoint = new SoundClip("temp-sound/" + string);
                 }
                 if (string.equals("carfixed.wav")) {
-                    carfixed = new SoundClip(is);
+                    carfixed = new SoundClip("temp-sound/" + string);
                 }
                 if (string.equals("three.wav")) {
-                    three = new SoundClip(is);
+                    three = new SoundClip("temp-sound/" + string);
                 }
                 if (string.equals("two.wav")) {
-                    two = new SoundClip(is);
+                    two = new SoundClip("temp-sound/" + string);
                 }
                 if (string.equals("one.wav")) {
-                    one = new SoundClip(is);
+                    one = new SoundClip("temp-sound/" + string);
                 }
                 if (string.equals("go.wav")) {
-                    go = new SoundClip(is);
+                    go = new SoundClip("temp-sound/" + string);
                 }
                 if (string.equals("wasted.wav")) {
-                    wastd = new SoundClip(is);
+                    wastd = new SoundClip("temp-sound/" + string);
                 }
                 if (string.equals("firewasted.wav")) {
-                    firewasted = new SoundClip(is);
+                    firewasted = new SoundClip("temp-sound/" + string);
                 }
                 dnload += 5;
             }
@@ -7118,7 +7118,10 @@ class xtGraphics extends JPanel implements Runnable {
         }
     }
 
-    static void playsounds(final Mad mad, final Control control) {
+    static void playsounds(final Mad mad, final Control control, final ContO player, final ContO conto) {
+        SoundClip.source = conto;
+        SoundClip.player = player;
+        
         if ((fase == 0 || fase == 7001) && starcnt < 35 && cntwis != 8 && !mutes) {
             boolean bool = control.up && mad.speed > 0.0F || control.down && mad.speed < 10.0F;
             boolean bool257 = mad.skid == 1 && control.handb || Math.abs(mad.scz[0] - (mad.scz[1] + mad.scz[0] + mad.scz[2] + mad.scz[3]) / 4.0F) > 1.0F || Math.abs(mad.scx[0] - (mad.scx[1] + mad.scx[0] + mad.scx[2] + mad.scx[3]) / 4.0F) > 1.0F;

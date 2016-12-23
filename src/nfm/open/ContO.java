@@ -13,7 +13,44 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Random;
 
-class ContO {
+interface Point3D {
+    float x();
+    float y();
+    float z();
+}
+
+interface Point3DX extends Point3D {
+    float xz();
+}
+
+class _Point3D implements Point3D {
+
+    @Override
+    public float x() {
+        return 0;
+    }
+
+    @Override
+    public float y() {
+        return 0;
+    }
+
+    @Override
+    public float z() {
+        return 0;
+    }
+    
+}
+
+
+class _Point3DX extends _Point3D implements Point3DX {
+    @Override
+    public float xz() {
+        return 0;
+    }
+}
+
+class ContO implements Point3DX {
     int checkpoint;
     int colok;
     private int[] dam;
@@ -2205,5 +2242,25 @@ class ContO {
             i261 = 50;
         }
         return (i261 - Medium.focusPoint) * (Medium.cy - i) / i261 + i;
+    }
+
+    @Override
+    public float x() {
+        return x;
+    }
+
+    @Override
+    public float y() {
+        return y;
+    }
+
+    @Override
+    public float z() {
+        return z;
+    }
+
+    @Override
+    public float xz() {
+        return xz;
     }
 }
