@@ -1,6 +1,8 @@
 package nfm.open;
 import java.io.File;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import paulscode.sound.SoundSystemConfig;
 
@@ -12,9 +14,13 @@ class SoundClip {
     static Point3D source = new _Point3D();
     static Point3DX player = new _Point3DX();
     //private static final ListenerData LISTENER_DATA = Madness.ss.getListenerData();
+    static List<SoundClip> masterList = new ArrayList<>(57);
+    boolean playing = false;
+    static int playingSources = 0;
 
     SoundClip(String path) {        
         boolean priority = false; 
+        // TODO array of sources for each racer
         sourceName = "Source " + (srccnt++); 
         boolean loop = false; 
         float x = 0; 
@@ -27,6 +33,7 @@ class SoundClip {
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
+        masterList.add(this);
     }
 
     void checkopen() {
@@ -44,9 +51,23 @@ class SoundClip {
         Madness.ss.setListenerAngle((float) Math.toRadians(player.xz()));
         
         Madness.ss.play(sourceName);
+        playing=true;
+//        playingSources++;
     }
 
     void stop() {
-        Madness.ss.pause(sourceName);
+        if (playing/*&&Madness.ss.millisecondsPlayed(sourceName)<=0&&playingSources<=28*/) {
+            Madness.ss.stop(sourceName);
+            playing=false;
+//            playingSources--;
+        }
+        
+    }
+
+    public static void stopAll() {
+        for (SoundClip s : masterList) {{
+            Madness.ss.stop(s.sourceName);
+            s.playing=false;
+        }
     }
 }

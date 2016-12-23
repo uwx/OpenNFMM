@@ -743,7 +743,7 @@ class Mad {
                         if (Medium.random() > 0.65) {
                             conto.dust(i41, fs[i41], fs23[i41], fs22[i41], (int) scx[i41], (int) scz[i41], f42 * stat.simag, (int) tilt, capsized && mtouch);
                             if (im == xtGraphics.im && !capsized) {
-                                xtGraphics.skid(i32, (float) Math.sqrt(scx[i41] * scx[i41] + scz[i41] * scz[i41]));
+                                xtGraphics.skid(im, i32, (float) Math.sqrt(scx[i41] * scx[i41] + scz[i41] * scz[i41]));
                             }
                         }
                     } else {
@@ -861,7 +861,7 @@ class Mad {
                 if (bools46[i58] && (Trackers.skd[i55] == 0 || Trackers.skd[i55] == 1) && fs[i58] > Trackers.x[i55] - Trackers.radx[i55] && fs[i58] < Trackers.x[i55] + Trackers.radx[i55] && fs22[i58] > Trackers.z[i55] - Trackers.radz[i55] && fs22[i58] < Trackers.z[i55] + Trackers.radz[i55]) {
                     conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58], 1);
                     if (im == xtGraphics.im) {
-                        xtGraphics.gscrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
+                        xtGraphics.gscrape(im, (int) scx[i58], (int) scy[i58], (int) scz[i58]);
                     }
                 }
                 if (!bools[i58] && fs[i58] > Trackers.x[i55] - Trackers.radx[i55] && fs[i58] < Trackers.x[i55] + Trackers.radx[i55] && fs22[i58] > Trackers.z[i55] - Trackers.radz[i55] && fs22[i58] < Trackers.z[i55] + Trackers.radz[i55] && fs23[i58] > Trackers.y[i55] - Trackers.rady[i55] && fs23[i58] < Trackers.y[i55] + Trackers.rady[i55] && (!Trackers.decor[i55] || Medium.resdown != 2 || xtGraphics.multion != 0)) {
@@ -885,7 +885,7 @@ class Mad {
                         if (capsized && (Trackers.skd[i55] == 0 || Trackers.skd[i55] == 1)) {
                             conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58], 1);
                             if (im == xtGraphics.im) {
-                                xtGraphics.gscrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
+                                xtGraphics.gscrape(im, (int) scx[i58], (int) scy[i58], (int) scz[i58]);
                             }
                         }
                         float f60 = Math.abs(Medium.sin(pxy)) + Math.abs(Medium.sin(pzy));
@@ -918,7 +918,7 @@ class Mad {
                         if (crank[0][i58] > 1) {
                             conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58], 0);
                             if (im == xtGraphics.im) {
-                                xtGraphics.scrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
+                                xtGraphics.scrape(im, (int) scx[i58], (int) scy[i58], (int) scz[i58]);
                             }
                         }
                         float f62 = Math.abs(Medium.cos(pxy)) + Math.abs(Medium.cos(pzy));
@@ -957,7 +957,7 @@ class Mad {
                         if (crank[1][i58] > 1) {
                             conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58], 0);
                             if (im == xtGraphics.im) {
-                                xtGraphics.scrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
+                                xtGraphics.scrape(im, (int) scx[i58], (int) scy[i58], (int) scz[i58]);
                             }
                         }
                         float f64 = Math.abs(Medium.cos(pxy)) + Math.abs(Medium.cos(pzy));
@@ -996,7 +996,7 @@ class Mad {
                         if (crank[2][i58] > 1) {
                             conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58], 0);
                             if (im == xtGraphics.im) {
-                                xtGraphics.scrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
+                                xtGraphics.scrape(im, (int) scx[i58], (int) scy[i58], (int) scz[i58]);
                             }
                         }
                         float f66 = Math.abs(Medium.cos(pxy)) + Math.abs(Medium.cos(pzy));
@@ -1035,7 +1035,7 @@ class Mad {
                         if (crank[3][i58] > 1) {
                             conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58], 0);
                             if (im == xtGraphics.im) {
-                                xtGraphics.scrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
+                                xtGraphics.scrape(im, (int) scx[i58], (int) scy[i58], (int) scz[i58]);
                             }
                         }
                         float f68 = Math.abs(Medium.cos(pxy)) + Math.abs(Medium.cos(pzy));
@@ -1082,7 +1082,7 @@ class Mad {
                             if (capsized && (Trackers.skd[i55] == 0 || Trackers.skd[i55] == 1)) {
                                 conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58], 1);
                                 if (im == xtGraphics.im) {
-                                    xtGraphics.gscrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
+                                    xtGraphics.gscrape(im, (int) scx[i58], (int) scy[i58], (int) scz[i58]);
                                 }
                             }
                             if (!bool25 && i32 != 0) {
@@ -1117,7 +1117,7 @@ class Mad {
                             if (capsized && (Trackers.skd[i55] == 0 || Trackers.skd[i55] == 1)) {
                                 conto.sprk(fs[i58], fs23[i58], fs22[i58], scx[i58], scy[i58], scz[i58], 1);
                                 if (im == xtGraphics.im) {
-                                    xtGraphics.gscrape((int) scx[i58], (int) scy[i58], (int) scz[i58]);
+                                    xtGraphics.gscrape(im, (int) scx[i58], (int) scy[i58], (int) scz[i58]);
                                 }
                             }
                             if (!bool25 && i32 != 0) {
@@ -1727,7 +1727,7 @@ class Mad {
             }
             shakedam = (int) ((Math.abs(f) + shakedam) / 2.0F);
             if (im == xtGraphics.im || colidim) {
-                xtGraphics.crash(f, 0);
+                xtGraphics.crash(im, f, 0);
             }
             for (int i111 = 0; i111 < conto.npl; i111++) {
                 float f112 = 0.0F;
@@ -1832,7 +1832,7 @@ class Mad {
                 shakedam = (int) ((Math.abs(f) + shakedam) / 2.0F);
             }
             if (im == xtGraphics.im || colidim) {
-                xtGraphics.crash(f, i99 * i98);
+                xtGraphics.crash(im, f, i99 * i98);
             }
             if (i99 * i98 == 0 || mtouch) {
                 for (int i102 = 0; i102 < conto.npl; i102++) {
@@ -1948,7 +1948,7 @@ class Mad {
             }
             shakedam = (int) ((Math.abs(f) + shakedam) / 2.0F);
             if (im == xtGraphics.im || colidim) {
-                xtGraphics.crash(f, 0);
+                xtGraphics.crash(im, f, 0);
             }
             for (int i115 = 0; i115 < conto.npl; i115++) {
                 float f116 = 0.0F;

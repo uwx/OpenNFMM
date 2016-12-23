@@ -41,6 +41,18 @@ import javax.swing.JPanel;
 class xtGraphics extends JPanel implements Runnable {
     private xtGraphics() { super(); }
     
+    static private int[] cntwis =   new int[8];
+    static private boolean grrd[] = new boolean[8];
+    static private boolean aird[] = new boolean[8];
+    static private int[] stopcnt =  new int[8];
+    static private int[] bfcrash =  new int[8];
+    static private int[] bfsc1 =    new int[8];
+    static private int[] bfsc2 =    new int[8];
+    static private int[] bfscrape = new int[8];
+    static private int[] bfskid =   new int[8];    
+    static private int[] pwait =    { 7,7,7,7,7,7,7,7 };
+    static private boolean[] pwastd = new boolean[8];
+    
     static class Images {
         static Image arn;
         static Image arrows;
@@ -213,7 +225,6 @@ class xtGraphics extends JPanel implements Runnable {
      */
     static private boolean aflk = false;
     static private final SoundClip[] air = new SoundClip[6];
-    static private boolean aird = false;
     /**
      * The HSB values of every vehicle in a race, once for the first color and once for the second
      */
@@ -255,11 +266,6 @@ class xtGraphics extends JPanel implements Runnable {
      */
     static boolean badmac = false;
     static int beststunt = 0;
-    static private int bfcrash = 0;
-    static private int bfsc1 = 0;
-    static private int bfsc2 = 0;
-    static private int bfscrape = 0;
-    static private int bfskid = 0;
     static private float bgf = 0.0F;
     static private final int[] bgmy = {
             0, -400
@@ -296,7 +302,6 @@ class xtGraphics extends JPanel implements Runnable {
     static private int cntflock = 0;
     static private int cntovn = 0;
     static final int cntptrys = 5;
-    static private int cntwis = 0;
     static private final SoundClip[] crash = new SoundClip[3];
     static private boolean crashup = false;
     static private int crshturn = 0;
@@ -359,7 +364,6 @@ class xtGraphics extends JPanel implements Runnable {
     static private SoundClip go;
     static private int gocnt = 0;
     static boolean gotlog = false;
-    static private boolean grrd = false;
     static private int gxdu = 0;
     static private int gydu = 0;
     static private int holdcnt = 0;
@@ -473,8 +477,7 @@ class xtGraphics extends JPanel implements Runnable {
     static int posit = 0;
     static private SoundClip powerup;
     static private int pstar = 0;
-    static private int pwait = 7;
-    static private boolean pwastd = false;
+    
     static private int pwcnt = 0;
     static private boolean pwflk = false;
     static private int radpx = 212;
@@ -518,7 +521,6 @@ class xtGraphics extends JPanel implements Runnable {
     static private Socket socket;
     static private String spin = "";
     static int starcnt = 0;
-    static private int stopcnt = 0;
     /**
      * Current stage soundtrack;
      */
@@ -2428,20 +2430,20 @@ class xtGraphics extends JPanel implements Runnable {
         return c;
     }
 
-    static void crash(final float f, final int i) {
-        if (bfcrash == 0) {
+    static void crash(int im, final float f, final int i) {
+        if (bfcrash[im] == 0) {
             if (i == 0) {
                 if (Math.abs(f) > 25.0F && Math.abs(f) < 170.0F) {
                     if (!mutes) {
                         lowcrash[crshturn].play();
                     }
-                    bfcrash = 2;
+                    bfcrash[im] = 2;
                 }
                 if (Math.abs(f) >= 170.0F) {
                     if (!mutes) {
                         crash[crshturn].play();
                     }
-                    bfcrash = 2;
+                    bfcrash[im] = 2;
                 }
                 if (Math.abs(f) > 25.0F) {
                     if (crashup) {
@@ -2462,20 +2464,20 @@ class xtGraphics extends JPanel implements Runnable {
                     if (!mutes) {
                         lowcrash[2].play();
                     }
-                    bfcrash = 2;
+                    bfcrash[im] = 2;
                 }
                 if (Math.abs(f) > 170.0F) {
                     if (!mutes) {
                         crash[2].play();
                     }
-                    bfcrash = 2;
+                    bfcrash[im] = 2;
                 }
             }
             if (i == 1) {
                 if (!mutes) {
                     tires.play();
                 }
-                bfcrash = 3;
+                bfcrash[im] = 3;
             }
         }
     }
@@ -3747,22 +3749,22 @@ class xtGraphics extends JPanel implements Runnable {
         return i437;
     }
 
-    static void gscrape(final int i, final int i269, final int i270) {
-        if ((bfsc1 == 0 || bfsc2 == 0) && Math.sqrt(i * i + i269 * i269 + i270 * i270) / 10.0 > 15.0)
-            if (bfsc1 == 0) {
+    static void gscrape(int im, final int i, final int i269, final int i270) {
+        if ((bfsc1[im] == 0 || bfsc2[im] == 0) && Math.sqrt(i * i + i269 * i269 + i270 * i270) / 10.0 > 15.0)
+            if (bfsc1[im] == 0) {
                 if (!mutes) {
                     scrape[2].stop();
                     scrape[2].play();
                 }
-                bfsc1 = 12;
-                bfsc2 = 6;
+                bfsc1[im] = 12;
+                bfsc2[im] = 6;
             } else {
                 if (!mutes) {
                     scrape[3].stop();
                     scrape[3].play();
                 }
-                bfsc2 = 12;
-                bfsc1 = 6;
+                bfsc2[im] = 12;
+                bfsc1[im] = 6;
             }
     }
 
@@ -7118,11 +7120,11 @@ class xtGraphics extends JPanel implements Runnable {
         }
     }
 
-    static void playsounds(final Mad mad, final Control control, final ContO player, final ContO conto) {
+    static void playsounds(int im, final Mad mad, final Control control, final ContO player, final ContO conto) {
         SoundClip.source = conto;
         SoundClip.player = player;
         
-        if ((fase == 0 || fase == 7001) && starcnt < 35 && cntwis != 8 && !mutes) {
+        if ((fase == 0 || fase == 7001) && starcnt < 35 && cntwis[im] != 8 && !mutes) {
             boolean bool = control.up && mad.speed > 0.0F || control.down && mad.speed < 10.0F;
             boolean bool257 = mad.skid == 1 && control.handb || Math.abs(mad.scz[0] - (mad.scz[1] + mad.scz[0] + mad.scz[2] + mad.scz[3]) / 4.0F) > 1.0F || Math.abs(mad.scx[0] - (mad.scx[1] + mad.scx[0] + mad.scx[2] + mad.scx[3]) / 4.0F) > 1.0F;
             boolean bool258 = false;
@@ -7138,26 +7140,26 @@ class xtGraphics extends JPanel implements Runnable {
                             if (Math.abs(mad.speed) > 0.0F && Math.abs(mad.speed) <= CarDefine.swits[mad.cn][0]) {
                                 int i259 = (int) (3.0F * Math.abs(mad.speed) / CarDefine.swits[mad.cn][0]);
                                 if (i259 == 2) {
-                                    if (pwait == 0) {
+                                    if (pwait[im] == 0) {
                                         i259 = 0;
                                     } else {
-                                        pwait--;
+                                        pwait[im]--;
                                     }
                                 } else {
-                                    pwait = 7;
+                                    pwait[im] = 7;
                                 }
                                 sparkeng(i259, mad.cn);
                             }
                             if (Math.abs(mad.speed) > CarDefine.swits[mad.cn][0] && Math.abs(mad.speed) <= CarDefine.swits[mad.cn][1]) {
                                 int i260 = (int) (3.0F * (Math.abs(mad.speed) - CarDefine.swits[mad.cn][0]) / (CarDefine.swits[mad.cn][1] - CarDefine.swits[mad.cn][0]));
                                 if (i260 == 2) {
-                                    if (pwait == 0) {
+                                    if (pwait[im] == 0) {
                                         i260 = 0;
                                     } else {
-                                        pwait--;
+                                        pwait[im]--;
                                     }
                                 } else {
-                                    pwait = 7;
+                                    pwait[im] = 7;
                                 }
                                 sparkeng(i260, mad.cn);
                             }
@@ -7167,91 +7169,91 @@ class xtGraphics extends JPanel implements Runnable {
                             }
                         } else {
                             int i262 = 2;
-                            if (pwait == 0) {
+                            if (pwait[im] == 0) {
                                 if (Math.abs(mad.speed) > CarDefine.swits[mad.cn][1]) {
                                     i262 = 3;
                                 }
                             } else {
-                                pwait--;
+                                pwait[im]--;
                             }
                             sparkeng(i262, mad.cn);
                         }
                     } else {
                         sparkeng(-1, mad.cn);
                         if (bool258) {
-                            if (stopcnt <= 0) {
+                            if (stopcnt[im] <= 0) {
                                 air[5].loop();
-                                stopcnt = 10;
+                                stopcnt[im] = 10;
                             }
-                        } else if (stopcnt <= -2) {
+                        } else if (stopcnt[im] <= -2) {
                             air[2 + (int) (Medium.random() * 3.0F)].loop();
-                            stopcnt = 7;
+                            stopcnt[im] = 7;
                         }
                     }
                 } else {
                     sparkeng(3, mad.cn);
                 }
-                grrd = false;
-                aird = false;
+                grrd[im] = false;
+                aird [im]= false;
             } else {
-                pwait = 15;
-                if (!mad.mtouch && !grrd && Medium.random() > 0.4) {
+                pwait[im] = 15;
+                if (!mad.mtouch && !grrd[im] && Medium.random() > 0.4) {
                     air[(int) (Medium.random() * 4.0F)].loop();
-                    stopcnt = 5;
-                    grrd = true;
+                    stopcnt[im] = 5;
+                    grrd [im]= true;
                 }
-                if (!mad.wtouch && !aird) {
+                if (!mad.wtouch && !aird[im]) {
                     stopairs();
                     air[(int) (Medium.random() * 4.0F)].loop();
-                    stopcnt = 10;
-                    aird = true;
+                    stopcnt[im] = 10;
+                    aird [im]= true;
                 }
                 sparkeng(-1, mad.cn);
             }
-            if (mad.cntdest != 0 && cntwis < 7) {
-                if (!pwastd) {
+            if (mad.cntdest != 0 && cntwis[im] < 7) {
+                if (!pwastd[im]) {
                     wastd.loop();
-                    pwastd = true;
+                    pwastd[im] = true;
                 }
             } else {
-                if (pwastd) {
+                if (pwastd[im]) {
                     wastd.stop();
-                    pwastd = false;
+                    pwastd[im] = false;
                 }
-                if (cntwis == 7 && !mutes) {
+                if (cntwis[im] == 7 && !mutes) {
                     firewasted.play();
                 }
             }
         } else {
             sparkeng(-2, mad.cn);
-            if (pwastd) {
+            if (pwastd[im]) {
                 wastd.stop();
-                pwastd = false;
+                pwastd [im]= false;
             }
         }
-        if (stopcnt != -20) {
-            if (stopcnt == 1) {
+        if (stopcnt[im] != -20) {
+            if (stopcnt[im] == 1) {
                 stopairs();
             }
-            stopcnt--;
+            stopcnt[im]--;
         }
-        if (bfcrash != 0) {
-            bfcrash--;
+        if (bfcrash[im] != 0) {
+            bfcrash[im]--;
         }
-        if (bfscrape != 0) {
-            bfscrape--;
+        if (bfscrape[im] != 0) {
+            bfscrape[im]--;
         }
-        if (bfsc1 != 0) {
-            bfsc1--;
+        if (bfsc1[im] != 0) {
+            bfsc1[im]--;
         }
-        if (bfsc2 != 0) {
-            bfsc2--;
+        if (bfsc2[im] != 0) {
+            bfsc2[im]--;
         }
-        if (bfskid != 0) {
-            bfskid--;
+        if (bfskid[im] != 0) {
+            bfskid[im]--;
         }
         if (mad.newcar) {
-            cntwis = 0;
+            cntwis[im] = 0;
         }
         if (fase == 0 || fase == 7001 || fase == 6 || fase == -1 || fase == -2 || fase == -3 || fase == -4 || fase == -5) {
             if (mutes != control.mutes) {
@@ -7268,16 +7270,16 @@ class xtGraphics extends JPanel implements Runnable {
                 }
             }
         }
-        if (mad.cntdest != 0 && cntwis < 7) {
+        if (mad.cntdest != 0 && cntwis[im] < 7) {
             if (mad.dest) {
-                cntwis++;
+                cntwis[im]++;
             }
         } else {
             if (mad.cntdest == 0) {
-                cntwis = 0;
+                cntwis[im] = 0;
             }
-            if (cntwis == 7) {
-                cntwis = 8;
+            if (cntwis[im] == 7) {
+                cntwis[im] = 8;
             }
         }
         if (GameSparker.applejava) {
@@ -7561,13 +7563,15 @@ class xtGraphics extends JPanel implements Runnable {
         pback = 0;
         starcnt = 130;
         gocnt = 3;
-        grrd = true;
-        aird = true;
-        bfcrash = 0;
-        bfscrape = 0;
-        cntwis = 0;
-        bfskid = 0;
-        pwait = 7;
+        for (int im = 0; im < 8; im++) {
+            grrd[im] = true;
+            aird[im] = true;
+            bfcrash[im] = 0;
+            bfscrape[im] = 0;
+            cntwis[im] = 0;
+            bfskid[im] = 0;
+            pwait[im] = 7;
+        }
         forstart = 200;
         exitm = 0;
         holdcnt = 0;
@@ -7804,8 +7808,8 @@ class xtGraphics extends JPanel implements Runnable {
         }
     }
 
-    static void scrape(final int i, final int i266, final int i267) {
-        if (bfscrape == 0 && Math.sqrt(i * i + i266 * i266 + i267 * i267) / 10.0 > 10.0) {
+    static void scrape(int im, final int i, final int i266, final int i267) {
+        if (bfscrape[im] == 0 && Math.sqrt(i * i + i266 * i266 + i267 * i267) / 10.0 > 10.0) {
             int i268 = 0;
             if (Medium.random() > Medium.random()) {
                 i268 = 1;
@@ -7830,7 +7834,7 @@ class xtGraphics extends JPanel implements Runnable {
             if (!mutes) {
                 scrape[i268].play();
             }
-            bfscrape = 5;
+            bfscrape[im] = 5;
         }
     }
 
@@ -7856,8 +7860,8 @@ class xtGraphics extends JPanel implements Runnable {
             }
     }
 
-    static void skid(final int i, final float f) {
-        if (bfcrash == 0 && bfskid == 0 && f > 150.0F) {
+    static void skid(int im, final int i, final float f) {
+        if (bfcrash[im] == 0 && bfskid[im] == 0 && f > 150.0F) {
             if (i == 0) {
                 if (!mutes) {
                     skid[skflg].play();
@@ -7889,7 +7893,7 @@ class xtGraphics extends JPanel implements Runnable {
                     dskflg = 2;
                 }
             }
-            bfskid = 35;
+            bfskid[im] = 35;
         }
     }
 
@@ -8665,6 +8669,7 @@ class xtGraphics extends JPanel implements Runnable {
                     if (loadedt) {
                         strack.setPaused(true);
                     }
+                    SoundClip.stopAll();
                     fase = -6;
                 } else if (starcnt == 0 && control.chatup == 0 && (multion < 2 || !lan))
                     if (exitm == 0) {
@@ -8776,7 +8781,7 @@ class xtGraphics extends JPanel implements Runnable {
                     holdit = true;
                     winner = true;
                 }
-                if (!holdit && mad.dest && cntwis == 8) {
+                if (!holdit && mad.dest && cntwis[im] == 8) {
                     if (discon != 240) {
                         drawhi(yourwasted, 70);
                     } else {

@@ -3121,7 +3121,7 @@ class GameSparker extends JPanel
             }
             if (xtGraphics.fase==0) {
                 for (int i = 0; i < xtGraphics.nplayers; i++) {
-                    xtGraphics.playsounds(mads[i], u[i], stageContos[0], stageContos[i]);
+                    xtGraphics.playsounds(i, mads[i], u[i], stageContos[0], stageContos[i]);
                 }
             }
         }
