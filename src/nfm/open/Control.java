@@ -211,6 +211,11 @@ class Control {
      * Inverts the ZY angle. It is true if the AI is going backwards.
      */
     boolean zyinv = false;
+    
+    /**
+     * debug cheat
+     */
+    static boolean freezeai;
 
     void falseo(final int i) {
         left = false;
@@ -236,6 +241,7 @@ class Control {
     }
 
     void preform(final Mad mad, final ContO conto) {
+        if (freezeai) return;
         left = false;
         right = false;
         up = false;

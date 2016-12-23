@@ -212,7 +212,7 @@ class xtGraphics extends JPanel implements Runnable {
     /**
      * Used for text flicker effect
      */
-    static private boolean aflk = false;
+    static private boolean[] aflk = Medium.populate(false);
     static private final SoundClip[] air = new SoundClip[6];
     static private boolean aird = false;
     /**
@@ -631,19 +631,19 @@ class xtGraphics extends JPanel implements Runnable {
         int i224;
         if (!bool) {
             int i225 = 0;
-            if (CheckPoints.x[i] - CheckPoints.opx[im] >= 0) {
+            if (CheckPoints.x[i] - CheckPoints.opx[cm] >= 0) {
                 i225 = 180;
             }
-            i224 = (int) (90 + i225 + Math.atan((double) (CheckPoints.z[i] - CheckPoints.opz[im]) / (double) (CheckPoints.x[i] - CheckPoints.opx[im])) / 0.017453292519943295);
+            i224 = (int) (90 + i225 + Math.atan((double) (CheckPoints.z[i] - CheckPoints.opz[cm]) / (double) (CheckPoints.x[i] - CheckPoints.opx[cm])) / 0.017453292519943295);
         } else {
             int i226 = 0;
             if (multion == 0 || alocked[cm] == -1) {
                 int i227 = -1;
                 boolean bool228 = false;
                 for (int i229 = 0; i229 < nplayers; i229++)
-                    if (i229 != im && (py(CheckPoints.opx[im] / 100, CheckPoints.opx[i229] / 100, CheckPoints.opz[im] / 100, CheckPoints.opz[i229] / 100) < i227 || i227 == -1) && (!bool228 || CheckPoints.onscreen[i229] != 0) && CheckPoints.dested[i229] == 0) {
+                    if (i229 != cm && (py(CheckPoints.opx[cm] / 100, CheckPoints.opx[i229] / 100, CheckPoints.opz[cm] / 100, CheckPoints.opz[i229] / 100) < i227 || i227 == -1) && (!bool228 || CheckPoints.onscreen[i229] != 0) && CheckPoints.dested[i229] == 0) {
                         i226 = i229;
-                        i227 = py(CheckPoints.opx[im] / 100, CheckPoints.opx[i229] / 100, CheckPoints.opz[im] / 100, CheckPoints.opz[i229] / 100);
+                        i227 = py(CheckPoints.opx[cm] / 100, CheckPoints.opx[i229] / 100, CheckPoints.opz[cm] / 100, CheckPoints.opz[i229] / 100);
                         if (CheckPoints.onscreen[i229] != 0) {
                             bool228 = true;
                         }
@@ -652,10 +652,10 @@ class xtGraphics extends JPanel implements Runnable {
                 i226 = alocked[cm];
             }
             int i230 = 0;
-            if (CheckPoints.opx[i226] - CheckPoints.opx[im] >= 0) {
+            if (CheckPoints.opx[i226] - CheckPoints.opx[cm] >= 0) {
                 i230 = 180;
             }
-            i224 = (int) (90 + i230 + Math.atan((double) (CheckPoints.opz[i226] - CheckPoints.opz[im]) / (double) (CheckPoints.opx[i226] - CheckPoints.opx[im])) / 0.017453292519943295);
+            i224 = (int) (90 + i230 + Math.atan((double) (CheckPoints.opz[i226] - CheckPoints.opz[cm]) / (double) (CheckPoints.opx[i226] - CheckPoints.opx[cm])) / 0.017453292519943295);
             if (multion == 0) {
                 drawcs(13, "[                                ]", 76, 67, 240, 0);
                 drawcs(13, CarDefine.names[sc[i226]], 0, 0, 0, 0);
@@ -909,12 +909,12 @@ class xtGraphics extends JPanel implements Runnable {
         }
         rd.setFont(new Font("Arial", 1, 12));
         ftm = rd.getFontMetrics();
-        if (aflk) {
+        if (aflk[cm]) {
             drawcs(185, "[ Stage " + (unlocked + 1) + " Locked ]", 255, 128, 0, 3);
-            aflk = false;
+            aflk[cm] = false;
         } else {
             drawcs(185, "[ Stage " + (unlocked + 1) + " Locked ]", 255, 0, 0, 3);
-            aflk = true;
+            aflk[cm] = true;
         }
         rd.drawImage(back[pback], 370, 345, null);
         lockcnt--;
@@ -1114,12 +1114,12 @@ class xtGraphics extends JPanel implements Runnable {
                     if (cfase == 11) {
                         string = "N#" + (ccar - 35) + "  ";
                     }
-                    if (aflk) {
+                    if (aflk[cm]) {
                         drawcs(95 + i115, "" + string + CarDefine.names[ccar], 240, 240, 240, 3);
-                        aflk = false;
+                        aflk[cm] = false;
                     } else {
                         drawcs(95, "" + string + CarDefine.names[ccar], 176, 176, 176, 3);
-                        aflk = true;
+                        aflk[cm] = true;
                     }
                 }
             } else {
@@ -2300,12 +2300,12 @@ class xtGraphics extends JPanel implements Runnable {
         rd.fillRoundRect(250, 340, 300, 80, 30, 70);
         rd.setColor(new Color(128, 167, 255));
         rd.drawRoundRect(250, 340, 300, 80, 30, 70);
-        if (aflk) {
+        if (aflk[cm]) {
             drawcs(380, "Click here to Start", 0, 0, 0, 3);
-            aflk = false;
+            aflk[cm] = false;
         } else {
             drawcs(380, "Click here to Start", 0, 67, 200, 3);
-            aflk = true;
+            aflk[cm] = true;
         }
     }
 
@@ -3197,7 +3197,7 @@ class xtGraphics extends JPanel implements Runnable {
         }
         i210 = (int) (190.0 + f * 0.37);
         i211 = 244;
-        if (auscnt < 45 && aflk) {
+        if (auscnt < 45 && aflk[cm]) {
             i209 = 128;
             i210 = 244;
             i211 = 244;
@@ -3387,13 +3387,13 @@ class xtGraphics extends JPanel implements Runnable {
             if (CheckPoints.stage != nTracks) {
                 rd.setFont(new Font("Arial", 1, 13));
                 ftm = rd.getFontMetrics();
-                if (aflk) {
+                if (aflk[cm]) {
                     drawcs(200 + pin, "Stage " + (CheckPoints.stage + 1) + " is now unlocked!", 196, 176, 0, 3);
                 } else {
                     drawcs(200 + pin, "Stage " + (CheckPoints.stage + 1) + " is now unlocked!", 255, 247, 165, 3);
                 }
                 if (i144 != 0) {
-                    if (aflk) {
+                    if (aflk[cm]) {
                         drawcs(200, "And:", 196, 176, 0, 3);
                     } else {
                         drawcs(200, "And:", 255, 247, 165, 3);
@@ -3437,7 +3437,7 @@ class xtGraphics extends JPanel implements Runnable {
                     if (i144 == 13) {
                         string147 = " ";
                     }
-                    if (aflk) {
+                    if (aflk[cm]) {
                         drawcs(320, "" + CarDefine.names[i144] + "" + string147 + " has been unlocked!", 196, 176, 0, 3);
                     } else {
                         drawcs(320, "" + CarDefine.names[i144] + "" + string147 + " has been unlocked!", 255, 247, 165, 3);
@@ -3455,17 +3455,17 @@ class xtGraphics extends JPanel implements Runnable {
             } else {
                 rd.setFont(new Font("Arial", 1, 13));
                 ftm = rd.getFontMetrics();
-                if (aflk) {
+                if (aflk[cm]) {
                     drawcs(180, "Woohoooo you finished NFM" + gmode + " !!!", 144, 167, 255, 3);
                 } else {
                     drawcs(180, "Woohoooo you finished NFM" + gmode + " !!!", 228, 240, 255, 3);
                 }
-                if (aflk) {
+                if (aflk[cm]) {
                     drawcs(210, "You're Awesome!", 144, 167, 255, 3);
                 } else {
                     drawcs(212, "You're Awesome!", 228, 240, 255, 3);
                 }
-                if (aflk) {
+                if (aflk[cm]) {
                     drawcs(240, "You're truly a RADICAL GAMER!", 144, 167, 255, 3);
                 } else {
                     drawcs(240, "You're truly a RADICAL GAMER!", 255, 100, 100, 3);
@@ -3489,20 +3489,20 @@ class xtGraphics extends JPanel implements Runnable {
                 if (radpx == 212) {
                     rd.setFont(new Font("Arial", 1, 11));
                     ftm = rd.getFontMetrics();
-                    if (aflk) {
+                    if (aflk[cm]) {
                         drawcs(309, "A Game by Radicalplay.com", 144, 167, 255, 3);
                     } else {
                         drawcs(309, "A Game by Radicalplay.com", 228, 240, 255, 3);
                     }
                 }
-                if (aflk) {
+                if (aflk[cm]) {
                     drawcs(350, "Now get up and dance!", 144, 167, 255, 3);
                 } else {
                     drawcs(350, "Now get up and dance!", 228, 240, 255, 3);
                 }
                 pin = 0;
             }
-            aflk = !aflk;
+            aflk[cm] = !aflk[cm];
         }
         if (multion != 0 && CheckPoints.stage == -2 && i142 != 0) {
             drawcs(i142 + 17, "Created by: " + CheckPoints.maker + "", 255, 161, 85, 3);
@@ -3835,15 +3835,15 @@ class xtGraphics extends JPanel implements Runnable {
         }
         if (i49 == 0) {
             if (dudo > 0) {
-                if (aflk) {
+                if (aflk[cm]) {
                     if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                         duds = (int) (ThreadLocalRandom.current().nextDouble() * 3.0);
                     } else {
                         duds = (int) (ThreadLocalRandom.current().nextDouble() * 2.0);
                     }
-                    aflk = false;
+                    aflk[cm] = false;
                 } else {
-                    aflk = true;
+                    aflk[cm] = true;
                 }
                 dudo--;
             } else {
@@ -4350,10 +4350,10 @@ class xtGraphics extends JPanel implements Runnable {
         rd.setColor(new Color(0, 0, 0));
         rd.fillRect(735, 0, 65, 450);
         rd.fillRect(65, 425, 670, 25);
-        aflk = !aflk;
+        aflk[cm] = !aflk[cm];
         if (flipo[cm] != 1 && flipo[cm] != 16) {
             if (dudo > 0) {
-                if (aflk)
+                if (aflk[cm])
                     if (ThreadLocalRandom.current().nextDouble() > ThreadLocalRandom.current().nextDouble()) {
                         duds = (int) (ThreadLocalRandom.current().nextDouble() * 3.0);
                     } else {
@@ -4419,7 +4419,7 @@ class xtGraphics extends JPanel implements Runnable {
                 rd.drawString("when racing. Backward looping pushes your car upwards giving it", 262, 107);
                 rd.drawString("more hang time in the air making it easier to control its landing.", 262, 127);
                 rd.drawString("Left and right rolls shift your car in the air left and right slightly.", 262, 147);
-                if (aflk || dudo < 150) {
+                if (aflk[cm] || dudo < 150) {
                     rd.drawImage(chil, 167, 295, null);
                 }
             }
@@ -4615,13 +4615,13 @@ class xtGraphics extends JPanel implements Runnable {
         int i96 = 48;
         int i97 = 96;
         if (i93 < 50)
-            if (aflk) {
+            if (aflk[cm]) {
                 i95 = 106;
                 i96 = 176;
                 i97 = 255;
-                aflk = false;
+                aflk[cm] = false;
             } else {
-                aflk = true;
+                aflk[cm] = true;
             }
         if (i != im) {
             if (i92 == 0) {
@@ -4743,6 +4743,9 @@ class xtGraphics extends JPanel implements Runnable {
     }
     
     private static Image cbg1, cbg2;
+    static int finishedfirst = -1;
+    static int finishedsecond = -1;
+    static byte pauser;
     
     private static final ImageIdentifier[] idts = {
 
@@ -5751,14 +5754,14 @@ class xtGraphics extends JPanel implements Runnable {
             if (shaded) {
                 rd.setColor(new Color(140, 70, 0));
                 rd.fillRect(343, 261, 110, 22);
-                aflk = false;
+                aflk[cm] = false;
             }
-            if (aflk) {
+            if (aflk[cm]) {
                 rd.setColor(new Color(200, 200, 0));
-                aflk = false;
+                aflk[cm] = false;
             } else {
                 rd.setColor(new Color(255, 128, 0));
-                aflk = true;
+                aflk[cm] = true;
             }
             rd.drawRoundRect(343, 261, 110, 22, 7, 20);
         } else {
@@ -5769,14 +5772,14 @@ class xtGraphics extends JPanel implements Runnable {
             if (shaded) {
                 rd.setColor(new Color(140, 70, 0));
                 rd.fillRect(288, 291, 221, 22);
-                aflk = false;
+                aflk[cm] = false;
             }
-            if (aflk) {
+            if (aflk[cm]) {
                 rd.setColor(new Color(200, 191, 0));
-                aflk = false;
+                aflk[cm] = false;
             } else {
                 rd.setColor(new Color(255, 95, 0));
-                aflk = true;
+                aflk[cm] = true;
             }
             rd.drawRoundRect(288, 291, 221, 22, 7, 20);
         } else {
@@ -5787,14 +5790,14 @@ class xtGraphics extends JPanel implements Runnable {
             if (shaded) {
                 rd.setColor(new Color(140, 70, 0));
                 rd.fillRect(301, 321, 196, 22);
-                aflk = false;
+                aflk[cm] = false;
             }
-            if (aflk) {
+            if (aflk[cm]) {
                 rd.setColor(new Color(200, 128, 0));
-                aflk = false;
+                aflk[cm] = false;
             } else {
                 rd.setColor(new Color(255, 128, 0));
-                aflk = true;
+                aflk[cm] = true;
             }
             rd.drawRoundRect(301, 321, 196, 22, 7, 20);
         } else {
@@ -5805,14 +5808,14 @@ class xtGraphics extends JPanel implements Runnable {
             if (shaded) {
                 rd.setColor(new Color(140, 70, 0));
                 rd.fillRect(357, 351, 85, 22);
-                aflk = false;
+                aflk[cm] = false;
             }
-            if (aflk) {
+            if (aflk[cm]) {
                 rd.setColor(new Color(200, 0, 0));
-                aflk = false;
+                aflk[cm] = false;
             } else {
                 rd.setColor(new Color(255, 128, 0));
-                aflk = true;
+                aflk[cm] = true;
             }
             rd.drawRoundRect(357, 351, 85, 22, 7, 20);
         } else {
@@ -7342,12 +7345,12 @@ class xtGraphics extends JPanel implements Runnable {
         }
         rd.setFont(new Font("Arial", 1, 11));
         ftm = rd.getFontMetrics();
-        if (aflk) {
+        if (aflk[cm]) {
             drawcs(215, "And we are never going to find the new unless we get a little crazy...", 112, 120, 143, 3);
-            aflk = false;
+            aflk[cm] = false;
         } else {
             drawcs(217, "And we are never going to find the new unless we get a little crazy...", 150, 150, 150, 3);
-            aflk = true;
+            aflk[cm] = true;
         }
         rd.drawImage(rpro, 275, 265, null);
         rd.setColor(new Color(0, 0, 0));
@@ -7532,12 +7535,12 @@ class xtGraphics extends JPanel implements Runnable {
     }
 
     static void replyn() {
-        if (aflk) {
+        if (aflk[cm]) {
             drawcs(30, "Replay  > ", 0, 0, 0, 0);
-            aflk = false;
+            aflk[cm] = false;
         } else {
             drawcs(30, "Replay  >>", 0, 128, 255, 0);
-            aflk = true;
+            aflk[cm] = true;
         }
     }
 
@@ -8202,12 +8205,12 @@ class xtGraphics extends JPanel implements Runnable {
                         if (CheckPoints.top20 >= 3) {
                             string = "N#" + CheckPoints.nto + "  ";
                         }
-                        if (aflk) {
+                        if (aflk[cm]) {
                             drawcs(132, "" + string + CheckPoints.name, 240, 240, 240, 3);
-                            aflk = false;
+                            aflk[cm] = false;
                         } else {
                             drawcs(132, "" + string + CheckPoints.name, 176, 176, 176, 3);
-                            aflk = true;
+                            aflk[cm] = true;
                         }
                         if (CheckPoints.stage == -2 && CarDefine.staction == 0) {
                             rd.setFont(new Font("Arial", 1, 11));
@@ -8533,12 +8536,12 @@ class xtGraphics extends JPanel implements Runnable {
                 } else {
                     drawcs(80, "Final Party Stage  >", 255, 128, 0, 3);
                 }
-                if (aflk) {
+                if (aflk[cm]) {
                     drawcs(100, "| " + CheckPoints.name + " |", 240, 240, 240, 3);
-                    aflk = false;
+                    aflk[cm] = false;
                 } else {
                     drawcs(100, "| " + CheckPoints.name + " |", 176, 176, 176, 3);
-                    aflk = true;
+                    aflk[cm] = true;
                 }
                 if (CheckPoints.stage != -3) {
                     rd.drawImage(contin[pcontin], 355, 360, null);
@@ -8600,12 +8603,12 @@ class xtGraphics extends JPanel implements Runnable {
                 }
             }
         } else {
-            if (aflk) {
+            if (aflk[cm]) {
                 drawcs(132, CheckPoints.name, 240, 240, 240, 3);
-                aflk = false;
+                aflk[cm] = false;
             } else {
                 drawcs(132, CheckPoints.name, 176, 176, 176, 3);
-                aflk = true;
+                aflk[cm] = true;
             }
             rd.drawImage(contin[pcontin], 355, 360, null);
             if (control.handb || control.enter) {
@@ -8665,6 +8668,7 @@ class xtGraphics extends JPanel implements Runnable {
                         strack.setPaused(true);
                     }
                     fase = -6;
+                    pauser = cm;
                 } else if (starcnt == 0 && control.chatup == 0 && (multion < 2 || !lan))
                     if (exitm == 0) {
                         exitm = 1;
@@ -8739,40 +8743,36 @@ class xtGraphics extends JPanel implements Runnable {
                     }
                 if (bool186) {
                     drawhi(gamefinished, 70);
-                    if (aflk) {
+                    if (aflk[cm]) {
                         drawcs(120, string187, 0, 0, 0, 0);
-                        aflk = false;
+                        aflk[cm] = false;
                     } else {
                         drawcs(120, string187, 0, 128, 255, 0);
-                        aflk = true;
+                        aflk[cm] = true;
                     }
-                    drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
-                    CheckPoints.haltall = true;
-                    holdit = true;
+                    endGame();
                     winner = false;
                 }
             }
             if (multion < 2) {
-                if (!holdit && (CheckPoints.wasted == nplayers - 1 && nplayers != 1 || bool184)) {
+                if (!holdit && (CheckPoints.wasted == nplayers - 2 && nplayers > 2 || bool184) && !GameSparker.mads[cm==1?0:1].dest && !mad.dest) {
                     drawhi(youwastedem, 70);
                     if (!bool184) {
-                        if (aflk) {
+                        if (aflk[cm]) {
                             drawcs(120, "You Won, all cars have been wasted!", 0, 0, 0, 0);
-                            aflk = false;
+                            aflk[cm] = false;
                         } else {
                             drawcs(120, "You Won, all cars have been wasted!", 0, 128, 255, 0);
-                            aflk = true;
+                            aflk[cm] = true;
                         }
-                    } else if (aflk) {
+                    } else if (aflk[cm]) {
                         drawcs(120, "Your clan " + string + " has wasted all the cars!", 0, 0, 0, 0);
-                        aflk = false;
+                        aflk[cm] = false;
                     } else {
                         drawcs(120, "Your clan " + string + " has wasted all the cars!", 0, 128, 255, 0);
-                        aflk = true;
+                        aflk[cm] = true;
                     }
-                    drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
-                    CheckPoints.haltall = true;
-                    holdit = true;
+                    endGame();
                     winner = true;
                 }
                 if (!holdit && mad.dest && cntwis == 8) {
@@ -8803,62 +8803,51 @@ class xtGraphics extends JPanel implements Runnable {
                 }
                 if (!holdit) {
                     for (int i = 0; i < nplayers; i++)
-                        if (CheckPoints.clear[i] == CheckPoints.nlaps * CheckPoints.nsp && CheckPoints.pos[i] == 0) {
-                            // it is stopped later on
-                            if (clangame == 0) {
-                                if (i == im) {
-                                    drawhi(youwon, 70);
-                                    if (aflk) {
-                                        drawcs(120, "You finished first, nice job!", 0, 0, 0, 0);
-                                        aflk = false;
-                                    } else {
-                                        drawcs(120, "You finished first, nice job!", 0, 128, 255, 0);
-                                        aflk = true;
-                                    }
-                                    winner = true;
-                                } else {
-                                    drawhi(youlost, 70);
-                                    if (fase != 7001) {
-                                        if (aflk) {
-                                            drawcs(120, "" + CarDefine.names[sc[i]] + " finished first, race over!", 0, 0, 0, 0);
-                                            aflk = false;
-                                        } else {
-                                            drawcs(120, "" + CarDefine.names[sc[i]] + " finished first, race over!", 0, 128, 255, 0);
-                                            aflk = true;
-                                        }
-                                    } else if (aflk) {
-                                        drawcs(120, "" + plnames[i] + " finished first, race over!", 0, 0, 0, 0);
-                                        aflk = false;
-                                    } else {
-                                        drawcs(120, "" + plnames[i] + " finished first, race over!", 0, 128, 255, 0);
-                                        aflk = true;
-                                    }
+                        if (CheckPoints.clear[i] == CheckPoints.nlaps * CheckPoints.nsp) {
+                            if (finishedfirst == -1 && CheckPoints.pos[i] == 0) {
+                                finishedfirst = i;
+                                
+                                if (i > 1) { // not a human player
+                                    endGame();
+                                    finishedsecond = 9999;
                                     winner = false;
                                 }
-                            } else if (pclan[i].equalsIgnoreCase(pclan[im])) {
-                                drawhi(youwon, 70);
-                                if (aflk) {
-                                    drawcs(120, "Your clan " + pclan[im] + " finished first, nice job!", 0, 0, 0, 0);
-                                    aflk = false;
-                                } else {
-                                    drawcs(120, "Your clan " + pclan[im] + " finished first, nice job!", 0, 128, 255, 0);
-                                    aflk = true;
-                                }
-                                winner = true;
-                            } else {
-                                drawhi(youlost, 70);
-                                if (aflk) {
-                                    drawcs(120, "" + plnames[i] + " of clan " + pclan[i] + " finished first, race over!", 0, 0, 0, 0);
-                                    aflk = false;
-                                } else {
-                                    drawcs(120, "" + plnames[i] + " of clan " + pclan[i] + " finished first, race over!", 0, 128, 255, 0);
-                                    aflk = true;
-                                }
-                                winner = false;
+                            } else if (finishedfirst != i && CheckPoints.pos[i] <= 1) {
+                                finishedsecond = i;
+
+                                endGame();
+                                
+                                // only winner if both are human players
+                                winner = finishedfirst <= 1 && finishedsecond <= 1;
                             }
-                            drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
-                            CheckPoints.haltall = true;
-                            holdit = true;
+                            
+                            
+                            if (i == cm && i == finishedfirst) {
+                                drawhi(youwon, 70);
+                                if (aflk[cm]) {
+                                    drawcs(120, "You finished first, nice one!", 0, 0, 0, 0);
+                                } else {
+                                    drawcs(120, "You finished first, nice one!", 0, 128, 255, 0);
+                                }
+                                
+                            } else if (i == cm && i == finishedsecond && finishedfirst <= 1) { // if both 1st place and 2nd place are human players and youre the 2nd one
+                                drawhi(youwon, 70);
+                                if (aflk[cm]) {
+                                    drawcs(120, "Your team finished first, great teamwork!", 0, 0, 0, 0);
+                                } else {
+                                    drawcs(120, "Your team finished first, great teamwork!", 0, 128, 255, 0);
+                                }
+                            } else if (finishedfirst > 1){ // if someone won and it sure wasnt you my main man
+                                drawhi(youlost, 70);
+                                if (aflk[cm]) {
+                                    drawcs(120, CarDefine.names[sc[i]] + " beat you, dangit!", 0, 0, 0, 0);
+                                } else {
+                                    drawcs(120, CarDefine.names[sc[i]] + " beat you, dangit!", 0, 128, 255, 0);
+                                }
+                            }
+
+                            aflk[cm] = !aflk[cm];
+                        
                         }
                 }
             } else {
@@ -8873,16 +8862,14 @@ class xtGraphics extends JPanel implements Runnable {
                         string189 = "Clan " + string + "";
                     }
                     drawhi(gamefinished, 70);
-                    if (aflk) {
+                    if (aflk[cm]) {
                         drawcs(120, "" + string189 + " has wasted all the cars!", 0, 0, 0, 0);
-                        aflk = false;
+                        aflk[cm] = false;
                     } else {
                         drawcs(120, "" + string189 + " has wasted all the cars!", 0, 128, 255, 0);
-                        aflk = true;
+                        aflk[cm] = true;
                     }
-                    drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
-                    CheckPoints.haltall = true;
-                    holdit = true;
+                    endGame();
                     winner = false;
                 }
                 if (!holdit) {
@@ -8890,38 +8877,34 @@ class xtGraphics extends JPanel implements Runnable {
                         if (CheckPoints.clear[i] == CheckPoints.nlaps * CheckPoints.nsp && CheckPoints.pos[i] == 0) {
                             drawhi(gamefinished, 70);
                             if (clangame == 0) {
-                                if (aflk) {
+                                if (aflk[cm]) {
                                     drawcs(120, "" + plnames[i] + " finished first, race over!", 0, 0, 0, 0);
-                                    aflk = false;
+                                    aflk[cm] = false;
                                 } else {
                                     drawcs(120, "" + plnames[i] + " finished first, race over!", 0, 128, 255, 0);
-                                    aflk = true;
+                                    aflk[cm] = true;
                                 }
-                            } else if (aflk) {
+                            } else if (aflk[cm]) {
                                 drawcs(120, "Clan " + pclan[i] + " finished first, race over!", 0, 0, 0, 0);
-                                aflk = false;
+                                aflk[cm] = false;
                             } else {
                                 drawcs(120, "Clan " + pclan[i] + " finished first, race over!", 0, 128, 255, 0);
-                                aflk = true;
+                                aflk[cm] = true;
                             }
-                            drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
-                            CheckPoints.haltall = true;
-                            holdit = true;
+                            endGame();
                             winner = false;
                         }
                 }
                 if (!holdit && discon == 240) {
                     drawhi(gamefinished, 70);
-                    if (aflk) {
+                    if (aflk[cm]) {
                         drawcs(120, "Game got disconnected!", 0, 0, 0, 0);
-                        aflk = false;
+                        aflk[cm] = false;
                     } else {
                         drawcs(120, "Game got disconnected!", 0, 128, 255, 0);
-                        aflk = true;
+                        aflk[cm] = true;
                     }
-                    drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
-                    CheckPoints.haltall = true;
-                    holdit = true;
+                    endGame();
                     winner = false;
                 }
                 if (!holdit) {
@@ -9159,12 +9142,12 @@ class xtGraphics extends JPanel implements Runnable {
                     }
                     if (auscnt < 45) {
                         if (exitm == 0)
-                            if (aflk) {
+                            if (aflk[cm]) {
                                 drawcs(85, asay[cm], 98, 176, 255, 0);
-                                aflk = false;
+                                aflk[cm] = false;
                             } else {
                                 drawcs(85, asay[cm], 0, 128, 255, 0);
-                                aflk = true;
+                                aflk[cm] = true;
                             }
                         auscnt++;
                     }
@@ -9411,6 +9394,12 @@ class xtGraphics extends JPanel implements Runnable {
             //if (i <= 2992001 && i > 1320001)
             //	m.lton = true;
         }
+    }
+
+    private static void endGame() {
+        drawcs(350, "Press  [ Enter ]  to continue", 0, 0, 0, 0);
+        CheckPoints.haltall = true;
+        holdit = true;
     }
 
     static private void stopairs() {

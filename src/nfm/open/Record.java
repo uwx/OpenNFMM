@@ -317,7 +317,7 @@ class Record {
         }
         for (int i42 = 0; i42 < 20; i42++) {
             for (int i43 = 0; i43 < 30; i43++)
-                if (hsspark[i][i42][i43] == i38) {
+                if (hsspark[i][i42][i43] == i38 && conto.stg != null) {
                     conto.stg[i42] = 1;
                     conto.sx[i42] = hsx[i][i42][i43];
                     conto.sy[i42] = hsy[i][i42][i43];

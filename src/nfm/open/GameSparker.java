@@ -319,6 +319,9 @@ class GameSparker extends JPanel
         int m = 100;
         xtGraphics.newparts = false;
         String string = "";
+        xtGraphics.finishedfirst = -1;
+        xtGraphics.finishedsecond = -1;
+        
         try {
             BufferedReader stageDataReader;
             if (xtGraphics.multion == 0 && CheckPoints.stage != -2) {
@@ -3148,11 +3151,11 @@ class GameSparker extends JPanel
             mouses = 0;
         }
         if (xtGraphics.fase == -7) {
-            xtGraphics.pausedgame(u[0]);
+            xtGraphics.pausedgame(u[xtGraphics.pauser]);
             if (recordtime != 0) {
                 recordtime = 0;
             }
-            xtGraphics.ctachm(xm, ym, mouses, u[0]);
+            xtGraphics.ctachm(xm, ym, mouses, u[xtGraphics.pauser]);
             if (mouses == 2) {
                 mouses = 0;
             }
@@ -3432,6 +3435,15 @@ class GameSparker extends JPanel
                 Medium.trk = 0;
             }
         }
+        if (e.getKeyCode() == KeyEvent.VK_F2) {
+            Control.freezeai = true;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_F3) {
+          mads[0].checkpoint();
+      }
+        if (e.getKeyCode() == KeyEvent.VK_F4) {
+          mads[1].checkpoint();
+      }
     }
 
     @Override

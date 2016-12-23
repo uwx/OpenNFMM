@@ -2111,4 +2111,41 @@ class Mad {
     private int rpy(final float f, final float f140, final float f141, final float f142, final float f143, final float f144) {
         return (int) ((f - f140) * (f - f140) + (f141 - f142) * (f141 - f142) + (f143 - f144) * (f143 - f144));
     }
+
+    public void checkpoint() {
+        int i91=0;
+        int i4=0;
+        
+        for (int i92 = 0; i92 < CheckPoints.n; i92++) {
+            if (CheckPoints.typ[i92] > 0) {
+                i91++;
+                if (CheckPoints.typ[i92] == 1) {
+                    if (clear == i91 + nlaps * CheckPoints.nsp) {
+                        i4 = 1;
+                    }
+                    if (true && clear == i91 + nlaps * CheckPoints.nsp - 1) {
+                        clear = i91 + nlaps * CheckPoints.nsp;
+                        pcleared = i92;
+                        focus = -1;
+                        break;
+                    }
+                }
+                if (CheckPoints.typ[i92] == 2) {
+                    if (clear == i91 + nlaps * CheckPoints.nsp) {
+                        i4 = 1;
+                    }
+                    if (true && clear == i91 + nlaps * CheckPoints.nsp - 1) {
+                        clear = i91 + nlaps * CheckPoints.nsp;
+                        pcleared = i92;
+                        focus = -1;
+                        break;
+                    }
+                }
+            }
+//            if (py(conto.x / 100, CheckPoints.x[i92] / 100, conto.z / 100, CheckPoints.z[i92] / 100) * i4 < i90 || i90 == 0) {
+//                i89 = i92;
+//                i90 = py(conto.x / 100, CheckPoints.x[i92] / 100, conto.z / 100, CheckPoints.z[i92] / 100) * i4;
+//            }
+        }
+    }
 }
