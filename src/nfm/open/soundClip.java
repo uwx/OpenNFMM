@@ -65,7 +65,7 @@ class SoundClip {
     }
 
     public static void stopAll() {
-        for (SoundClip s : masterList) {{
+        for (SoundClip s : masterList) {
             Madness.ss.stop(s.sourceName);
             s.playing=false;
         }

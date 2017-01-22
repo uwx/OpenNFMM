@@ -1241,7 +1241,7 @@ class Mad {
         } else {
             pxy -= i83;
         }
-        if (i45 == 4) {
+        if (i45 == 4) {//# of touching wheels
             int i86 = 0;
             while (pzy < 360) {
                 pzy += 360;
@@ -1251,12 +1251,14 @@ class Mad {
                 pzy -= 360;
                 conto.zy -= 360;
             }
-            if (pzy < 190 && pzy > 170) {
+            if (pzy < 190 && pzy > 170) {//player zy angle
+                // rounds off the angle, capsizing the player
                 pzy = 180;
                 conto.zy = 180;
                 i86++;
             }
             if (pzy > 350 || pzy < 10) {
+                // this is the opposite, rounds off the angle but lands properly
                 pzy = 0;
                 conto.zy = 0;
                 i86++;
@@ -1269,7 +1271,7 @@ class Mad {
                 pxy -= 360;
                 conto.xy -= 360;
             }
-            if (pxy < 190 && pxy > 170) {
+            if (pxy < 190 && pxy > 170) {//same as above but for xy
                 pxy = 180;
                 conto.xy = 180;
                 i86++;
