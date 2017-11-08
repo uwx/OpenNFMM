@@ -1,4 +1,4 @@
-Copyright (c) 2015-2017 fallk/rafa1231518 (previously chrishansen69)
+Copyright (c) 2015-2017 uwx/fallk
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
