@@ -38,7 +38,7 @@ on_success:
 #
  - cmd: mkdir %USERPROFILE%\gh-pages
 # - cmd: mkdir %USERPROFILE%\gh-pages\doc
- - git clone --quiet --branch=gh-pages https://github.com/rafa1231518/OpenNFMM %USERPROFILE%\gh-pages
+ - git clone --quiet --branch=gh-pages https://github.com/uwx/OpenNFMM %USERPROFILE%\gh-pages
  #>nul
  - cmd: copy /y doc %USERPROFILE%\gh-pages\doc
  - cmd: cd %USERPROFILE%\gh-pages
