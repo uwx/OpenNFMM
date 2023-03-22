@@ -2,6 +2,8 @@ package nfm.open;
 /* Mad - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
+import nfm.open.Graphist.Pair;
+
 import java.awt.Color;
 
 class Mad {
@@ -88,148 +90,152 @@ class Mad {
         this.stat = stat;
     }
 
-    void colide(final ContO conto, final Mad mad118, final ContO conto119) {
-        final float[] fs = new float[4];
-        final float[] fs120 = new float[4];
-        final float[] fs121 = new float[4];
-        final float[] fs122 = new float[4];
-        final float[] fs123 = new float[4];
-        final float[] fs124 = new float[4];
+    void colide(final ContO conto, final Mad otherMad, final ContO otherConto) {
+        final float[] wheelX = new float[4];
+        final float[] wheelY = new float[4];
+        final float[] wheelZ = new float[4];
+        final float[] otherWheelX = new float[4];
+        final float[] otherWheelY = new float[4];
+        final float[] otherWheelZ = new float[4];
         for (int i = 0; i < 4; i++) {
-            fs[i] = conto.x + conto.keyx[i];
+            wheelX[i] = conto.x + conto.keyx[i];
             if (capsized) {
-                fs120[i] = conto.y + stat.flipy + squash;
+                wheelY[i] = conto.y + stat.flipy + squash;
             } else {
-                fs120[i] = conto.y + conto.grat;
+                wheelY[i] = conto.y + conto.grat;
             }
-            fs121[i] = conto.z + conto.keyz[i];
-            fs122[i] = conto119.x + conto119.keyx[i];
+            wheelZ[i] = conto.z + conto.keyz[i];
+            otherWheelX[i] = otherConto.x + otherConto.keyx[i];
             if (capsized) {
-                fs123[i] = conto119.y + mad118.stat.flipy + mad118.squash;
+                otherWheelY[i] = otherConto.y + otherMad.stat.flipy + otherMad.squash;
             } else {
-                fs123[i] = conto119.y + conto119.grat;
+                otherWheelY[i] = otherConto.y + otherConto.grat;
             }
-            fs124[i] = conto119.z + conto119.keyz[i];
+            otherWheelZ[i] = otherConto.z + otherConto.keyz[i];
         }
-        rot(fs, fs120, conto.x, conto.y, conto.xy, 4);
-        rot(fs120, fs121, conto.y, conto.z, conto.zy, 4);
-        rot(fs, fs121, conto.x, conto.z, conto.xz, 4);
-        rot(fs122, fs123, conto119.x, conto119.y, conto119.xy, 4);
-        rot(fs123, fs124, conto119.y, conto119.z, conto119.zy, 4);
-        rot(fs122, fs124, conto119.x, conto119.z, conto119.xz, 4);
-        if (rpy(conto.x, conto119.x, conto.y, conto119.y, conto.z, conto119.z) < (conto.maxR * conto.maxR + conto119.maxR * conto119.maxR) * 1.5) {
-            if (!caught[mad118.im] && (speed != 0.0F || mad118.speed != 0.0F)) {
-                if (Math.abs(power * speed * stat.moment) != Math.abs(mad118.power * mad118.speed * mad118.stat.moment)) {
-                    dominate[mad118.im] = Math.abs(power * speed * stat.moment) > Math.abs(mad118.power * mad118.speed * mad118.stat.moment);
-                } else dominate[mad118.im] = stat.moment > mad118.stat.moment;
-                caught[mad118.im] = true;
+        rot(wheelX, wheelY, conto.x, conto.y, conto.xy, 4);
+        rot(wheelY, wheelZ, conto.y, conto.z, conto.zy, 4);
+        rot(wheelX, wheelZ, conto.x, conto.z, conto.xz, 4);
+        rot(otherWheelX, otherWheelY, otherConto.x, otherConto.y, otherConto.xy, 4);
+        rot(otherWheelY, otherWheelZ, otherConto.y, otherConto.z, otherConto.zy, 4);
+        rot(otherWheelX, otherWheelZ, otherConto.x, otherConto.z, otherConto.xz, 4);
+        if (rpy(conto.x, otherConto.x, conto.y, otherConto.y, conto.z, otherConto.z) < (conto.maxR * conto.maxR + otherConto.maxR * otherConto.maxR) * 1.5) {
+            if (!caught[otherMad.im] && (speed != 0.0F || otherMad.speed != 0.0F)) {
+                if (Math.abs(power * speed * stat.moment) != Math.abs(otherMad.power * otherMad.speed * otherMad.stat.moment)) {
+                    dominate[otherMad.im] = Math.abs(power * speed * stat.moment) > Math.abs(otherMad.power * otherMad.speed * otherMad.stat.moment);
+                } else {
+                    dominate[otherMad.im] = stat.moment > otherMad.stat.moment;
+                }
+                caught[otherMad.im] = true;
             }
-        } else if (caught[mad118.im]) {
-            caught[mad118.im] = false;
+        } else if (caught[otherMad.im]) {
+            caught[otherMad.im] = false;
         }
-        int i = 0;
-        int i125 = 0;
-        if (dominate[mad118.im]) {
-            final int i126 = (int) (((scz[0] - mad118.scz[0] + scz[1] - mad118.scz[1] + scz[2] - mad118.scz[2] + scz[3] - mad118.scz[3]) * (scz[0] - mad118.scz[0] + scz[1] - mad118.scz[1] + scz[2] - mad118.scz[2] + scz[3] - mad118.scz[3]) + (scx[0] - mad118.scx[0] + scx[1] - mad118.scx[1] + scx[2] - mad118.scx[2] + scx[3] - mad118.scx[3]) * (scx[0] - mad118.scx[0] + scx[1] - mad118.scx[1] + scx[2] - mad118.scx[2] + scx[3] - mad118.scx[3])) / 16.0F);
-            int i127 = 7000;
-            float f = 1.0F;
+        int otherDamageTotal = 0;
+        int damageTotal = 0;
+        if (dominate[otherMad.im]) {
+            float speedDifferenceZ = scz[0] - otherMad.scz[0] + scz[1] - otherMad.scz[1] + scz[2] - otherMad.scz[2] + scz[3] - otherMad.scz[3];
+            float speedDifferenceX = scx[0] - otherMad.scx[0] + scx[1] - otherMad.scx[1] + scx[2] - otherMad.scx[2] + scx[3] - otherMad.scx[3];
+            final int speedDifferenceSquaredQuo = (int) ((speedDifferenceZ * speedDifferenceZ + speedDifferenceX * speedDifferenceX) / 16.0F);
+            int baseSpeedDifference = 7000;
+            float damageMult = 1.0F;
             if (xtGraphics.multion != 0) {
-                i127 = 28000;
-                f = 1.27F;
+                baseSpeedDifference = 28000;
+                damageMult = 1.27F;
             }
-            for (int i128 = 0; i128 < 4; i128++) {
-                for (int i129 = 0; i129 < 4; i129++)
-                    if (rpy(fs[i128], fs122[i129], fs120[i128], fs123[i129], fs121[i128], fs124[i129]) < (i126 + i127) * (mad118.stat.comprad + stat.comprad)) {
-                        if (Math.abs(scx[i128] * stat.moment) > Math.abs(mad118.scx[i129] * mad118.stat.moment)) {
-                            float f130 = mad118.scx[i129] * stat.revpush;
-                            if (f130 > 300.0F) {
-                                f130 = 300.0F;
+            for (int wheel = 0; wheel < 4; wheel++) {
+                for (int otherWheel = 0; otherWheel < 4; otherWheel++)
+                    if (rpy(wheelX[wheel], otherWheelX[otherWheel], wheelY[wheel], otherWheelY[otherWheel], wheelZ[wheel], otherWheelZ[otherWheel]) < (speedDifferenceSquaredQuo + baseSpeedDifference) * (otherMad.stat.comprad + stat.comprad)) {
+                        if (Math.abs(scx[wheel] * stat.moment) > Math.abs(otherMad.scx[otherWheel] * otherMad.stat.moment)) {
+                            float pushXSpeed = otherMad.scx[otherWheel] * stat.revpush;
+                            if (pushXSpeed > 300.0F) {
+                                pushXSpeed = 300.0F;
                             }
-                            if (f130 < -300.0F) {
-                                f130 = -300.0F;
+                            if (pushXSpeed < -300.0F) {
+                                pushXSpeed = -300.0F;
                             }
-                            float f131 = scx[i128] * stat.push;
-                            if (f131 > 300.0F) {
-                                f131 = 300.0F;
+                            float otherPushXSpeed = scx[wheel] * stat.push;
+                            if (otherPushXSpeed > 300.0F) {
+                                otherPushXSpeed = 300.0F;
                             }
-                            if (f131 < -300.0F) {
-                                f131 = -300.0F;
+                            if (otherPushXSpeed < -300.0F) {
+                                otherPushXSpeed = -300.0F;
                             }
-                            mad118.scx[i129] += f131;
+                            otherMad.scx[otherWheel] += otherPushXSpeed;
                             if (im == xtGraphics.im) {
-                                mad118.colidim = true;
+                                otherMad.colidim = true;
                             }
-                            i += mad118.regx(i129, f131 * stat.moment * f, conto119);
-                            if (mad118.colidim) {
-                                mad118.colidim = false;
+                            otherDamageTotal += otherMad.regx(otherWheel, otherPushXSpeed * stat.moment * damageMult, otherConto);
+                            if (otherMad.colidim) {
+                                otherMad.colidim = false;
                             }
-                            scx[i128] -= f130;
-                            i125 += regx(i128, -f130 * stat.moment * f, conto);
-                            scy[i128] -= stat.revlift;
+                            scx[wheel] -= pushXSpeed;
+                            damageTotal += regx(wheel, -pushXSpeed * stat.moment * damageMult, conto);
+                            scy[wheel] -= stat.revlift;
                             if (im == xtGraphics.im) {
-                                mad118.colidim = true;
+                                otherMad.colidim = true;
                             }
-                            i += mad118.regy(i129, stat.revlift * 7, conto119);
-                            if (mad118.colidim) {
-                                mad118.colidim = false;
+                            otherDamageTotal += otherMad.regy(otherWheel, stat.revlift * 7, otherConto);
+                            if (otherMad.colidim) {
+                                otherMad.colidim = false;
                             }
                             if (Medium.random() > Medium.random()) {
-                                conto119.sprk((fs[i128] + fs122[i129]) / 2.0F, (fs120[i128] + fs123[i129]) / 2.0F, (fs121[i128] + fs124[i129]) / 2.0F, (mad118.scx[i129] + scx[i128]) / 4.0F, (mad118.scy[i129] + scy[i128]) / 4.0F, (mad118.scz[i129] + scz[i128]) / 4.0F, 2);
+                                otherConto.sprk((wheelX[wheel] + otherWheelX[otherWheel]) / 2.0F, (wheelY[wheel] + otherWheelY[otherWheel]) / 2.0F, (wheelZ[wheel] + otherWheelZ[otherWheel]) / 2.0F, (otherMad.scx[otherWheel] + scx[wheel]) / 4.0F, (otherMad.scy[otherWheel] + scy[wheel]) / 4.0F, (otherMad.scz[otherWheel] + scz[wheel]) / 4.0F, 2);
                             }
                         }
-                        if (Math.abs(scz[i128] * stat.moment) > Math.abs(mad118.scz[i129] * mad118.stat.moment)) {
-                            float f132 = mad118.scz[i129] * stat.revpush;
+                        if (Math.abs(scz[wheel] * stat.moment) > Math.abs(otherMad.scz[otherWheel] * otherMad.stat.moment)) {
+                            float f132 = otherMad.scz[otherWheel] * stat.revpush;
                             if (f132 > 300.0F) {
                                 f132 = 300.0F;
                             }
                             if (f132 < -300.0F) {
                                 f132 = -300.0F;
                             }
-                            float f133 = scz[i128] * stat.push;
+                            float f133 = scz[wheel] * stat.push;
                             if (f133 > 300.0F) {
                                 f133 = 300.0F;
                             }
                             if (f133 < -300.0F) {
                                 f133 = -300.0F;
                             }
-                            mad118.scz[i129] += f133;
+                            otherMad.scz[otherWheel] += f133;
                             if (im == xtGraphics.im) {
-                                mad118.colidim = true;
+                                otherMad.colidim = true;
                             }
-                            i += mad118.regz(i129, f133 * stat.moment * f, conto119);
-                            if (mad118.colidim) {
-                                mad118.colidim = false;
+                            otherDamageTotal += otherMad.regz(otherWheel, f133 * stat.moment * damageMult, otherConto);
+                            if (otherMad.colidim) {
+                                otherMad.colidim = false;
                             }
-                            scz[i128] -= f132;
-                            i125 += regz(i128, -f132 * stat.moment * f, conto);
-                            scy[i128] -= stat.revlift;
+                            scz[wheel] -= f132;
+                            damageTotal += regz(wheel, -f132 * stat.moment * damageMult, conto);
+                            scy[wheel] -= stat.revlift;
                             if (im == xtGraphics.im) {
-                                mad118.colidim = true;
+                                otherMad.colidim = true;
                             }
-                            i += mad118.regy(i129, stat.revlift * 7, conto119);
-                            if (mad118.colidim) {
-                                mad118.colidim = false;
+                            otherDamageTotal += otherMad.regy(otherWheel, stat.revlift * 7, otherConto);
+                            if (otherMad.colidim) {
+                                otherMad.colidim = false;
                             }
                             if (Medium.random() > Medium.random()) {
-                                conto119.sprk((fs[i128] + fs122[i129]) / 2.0F, (fs120[i128] + fs123[i129]) / 2.0F, (fs121[i128] + fs124[i129]) / 2.0F, (mad118.scx[i129] + scx[i128]) / 4.0F, (mad118.scy[i129] + scy[i128]) / 4.0F, (mad118.scz[i129] + scz[i128]) / 4.0F, 2);
+                                otherConto.sprk((wheelX[wheel] + otherWheelX[otherWheel]) / 2.0F, (wheelY[wheel] + otherWheelY[otherWheel]) / 2.0F, (wheelZ[wheel] + otherWheelZ[otherWheel]) / 2.0F, (otherMad.scx[otherWheel] + scx[wheel]) / 4.0F, (otherMad.scy[otherWheel] + scy[wheel]) / 4.0F, (otherMad.scz[otherWheel] + scz[wheel]) / 4.0F, 2);
                             }
                         }
                         if (im == xtGraphics.im) {
-                            mad118.lastcolido = 70;
+                            otherMad.lastcolido = 70;
                         }
-                        if (mad118.im == xtGraphics.im) {
+                        if (otherMad.im == xtGraphics.im) {
                             lastcolido = 70;
                         }
-                        mad118.scy[i129] -= stat.lift;
+                        otherMad.scy[otherWheel] -= stat.lift;
                     }
             }
         }
         if (xtGraphics.multion == 1) {
-            if (mad118.im == xtGraphics.im && i != 0) {
-                xtGraphics.dcrashes[im] += i;
+            if (otherMad.im == xtGraphics.im && otherDamageTotal != 0) {
+                xtGraphics.dcrashes[im] += otherDamageTotal;
             }
-            if (im == xtGraphics.im && i125 != 0) {
-                xtGraphics.dcrashes[mad118.im] += i125;
+            if (im == xtGraphics.im && damageTotal != 0) {
+                xtGraphics.dcrashes[otherMad.im] += damageTotal;
             }
         }
     }
@@ -2095,7 +2101,7 @@ class Mad {
         }
     }
 
-    private void rot(final float[] fs, final float[] fs134, final int i, final int i135, final int i136, final int i137) {
+    private static void rot(final float[] fs, final float[] fs134, final int i, final int i135, final int i136, final int i137) {
         if (i136 != 0) {
             for (int i138 = 0; i138 < i137; i138++) {
                 final float f = fs[i138];
@@ -2106,7 +2112,192 @@ class Mad {
         }
     }
 
-    private int rpy(final float f, final float f140, final float f141, final float f142, final float f143, final float f144) {
-        return (int) ((f - f140) * (f - f140) + (f141 - f142) * (f141 - f142) + (f143 - f144) * (f143 - f144));
+    private static int rpy(final float x1, final float x2, final float y1, final float y2, final float z1, final float z2) {
+        return (int) ((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) + (z1 - z2) * (z1 - z2));
     }
+
+    Pair<Integer, Integer> collideSim(final ContO conto, final Mad otherMad, final ContO otherConto) {
+        final float[] wheelX = new float[4];
+        final float[] wheelY = new float[4];
+        final float[] wheelZ = new float[4];
+        final float[] otherWheelX = new float[4];
+        final float[] otherWheelY = new float[4];
+        final float[] otherWheelZ = new float[4];
+        for (int i = 0; i < 4; i++) {
+            wheelX[i] = conto.x + conto.keyx[i];
+            if (capsized) {
+                wheelY[i] = conto.y + stat.flipy + squash;
+            } else {
+                wheelY[i] = conto.y + conto.grat;
+            }
+            wheelZ[i] = conto.z + conto.keyz[i];
+            otherWheelX[i] = otherConto.x + otherConto.keyx[i];
+            if (capsized) {
+                otherWheelY[i] = otherConto.y + otherMad.stat.flipy + otherMad.squash;
+            } else {
+                otherWheelY[i] = otherConto.y + otherConto.grat;
+            }
+            otherWheelZ[i] = otherConto.z + otherConto.keyz[i];
+        }
+        rot(wheelX, wheelY, conto.x, conto.y, conto.xy, 4);
+        rot(wheelY, wheelZ, conto.y, conto.z, conto.zy, 4);
+        rot(wheelX, wheelZ, conto.x, conto.z, conto.xz, 4);
+        rot(otherWheelX, otherWheelY, otherConto.x, otherConto.y, otherConto.xy, 4);
+        rot(otherWheelY, otherWheelZ, otherConto.y, otherConto.z, otherConto.zy, 4);
+        rot(otherWheelX, otherWheelZ, otherConto.x, otherConto.z, otherConto.xz, 4);
+        if (rpy(conto.x, otherConto.x, conto.y, otherConto.y, conto.z, otherConto.z) < (conto.maxR * conto.maxR + otherConto.maxR * otherConto.maxR) * 1.5) {
+            if (!caught[otherMad.im] && (speed != 0.0F || otherMad.speed != 0.0F)) {
+                float dominateFactor = Math.abs(power * speed * stat.moment);
+                float otherDominateFactor = Math.abs(otherMad.power * otherMad.speed * otherMad.stat.moment);
+                dominate[otherMad.im] = dominateFactor != otherDominateFactor
+                        ? dominateFactor > otherDominateFactor
+                        : stat.moment > otherMad.stat.moment;
+                caught[otherMad.im] = true;
+            }
+        } else if (caught[otherMad.im]) {
+            caught[otherMad.im] = false;
+        }
+        int otherDamageTotal = 0;
+        int damageTotal = 0;
+        if (dominate[otherMad.im]) {
+            float speedDifferenceZ = scz[0] - otherMad.scz[0] + scz[1] - otherMad.scz[1] + scz[2] - otherMad.scz[2] + scz[3] - otherMad.scz[3];
+            float speedDifferenceX = scx[0] - otherMad.scx[0] + scx[1] - otherMad.scx[1] + scx[2] - otherMad.scx[2] + scx[3] - otherMad.scx[3];
+            final int speedDifferenceSquaredQuo = (int) ((speedDifferenceZ * speedDifferenceZ + speedDifferenceX * speedDifferenceX) / 16.0F);
+            int baseSpeedDifference = 7000;
+            float damageMult = 1.0F;
+            for (int wheel = 0; wheel < 4; wheel++)
+            for (int otherWheel = 0; otherWheel < 4; otherWheel++) {
+                if (rpy(wheelX[wheel], otherWheelX[otherWheel], wheelY[wheel], otherWheelY[otherWheel], wheelZ[wheel], otherWheelZ[otherWheel]) < (speedDifferenceSquaredQuo + baseSpeedDifference) * (otherMad.stat.comprad + stat.comprad)) {
+                    if (Math.abs(scx[wheel] * stat.moment) > Math.abs(otherMad.scx[otherWheel] * otherMad.stat.moment)) {
+                        float pushXSpeed = otherMad.scx[otherWheel] * stat.revpush;
+                        if (pushXSpeed > 300.0F) {
+                            pushXSpeed = 300.0F;
+                        }
+                        if (pushXSpeed < -300.0F) {
+                            pushXSpeed = -300.0F;
+                        }
+                        float otherPushXSpeed = scx[wheel] * stat.push;
+                        if (otherPushXSpeed > 300.0F) {
+                            otherPushXSpeed = 300.0F;
+                        }
+                        if (otherPushXSpeed < -300.0F) {
+                            otherPushXSpeed = -300.0F;
+                        }
+                        otherMad.scx[otherWheel] += otherPushXSpeed;
+                        otherDamageTotal += otherMad.regdamSim(otherPushXSpeed * stat.moment * damageMult, otherConto);
+                        scx[wheel] -= pushXSpeed;
+                        damageTotal += regdamSim(-pushXSpeed * stat.moment * damageMult, conto);
+                        scy[wheel] -= stat.revlift;
+                        if (im == xtGraphics.im) {
+                            otherMad.colidim = true;
+                        }
+                        otherDamageTotal += otherMad.regySim(stat.revlift * 7, otherConto);
+                    }
+                    if (Math.abs(scz[wheel] * stat.moment) > Math.abs(otherMad.scz[otherWheel] * otherMad.stat.moment)) {
+                        float f132 = otherMad.scz[otherWheel] * stat.revpush;
+                        if (f132 > 300.0F) {
+                            f132 = 300.0F;
+                        }
+                        if (f132 < -300.0F) {
+                            f132 = -300.0F;
+                        }
+                        float f133 = scz[wheel] * stat.push;
+                        if (f133 > 300.0F) {
+                            f133 = 300.0F;
+                        }
+                        if (f133 < -300.0F) {
+                            f133 = -300.0F;
+                        }
+                        otherMad.scz[otherWheel] += f133;
+                        otherDamageTotal += otherMad.regdamSim(f133 * stat.moment * damageMult, otherConto);
+                        scz[wheel] -= f132;
+                        damageTotal += regdamSim(-f132 * stat.moment * damageMult, conto);
+                        scy[wheel] -= stat.revlift;
+                        otherDamageTotal += otherMad.regySim(stat.revlift * 7, otherConto);
+                    }
+                    otherMad.scy[otherWheel] -= stat.lift;
+                }
+            }
+        }
+        return new Pair<>(damageTotal, otherDamageTotal);
+    }
+
+    private int regdamSim(float baseFactor, final ContO conto) {
+        int damageTotal = 0;
+        baseFactor *= stat.dammult;
+        if (Math.abs(baseFactor) > 100.0F) {
+            if (baseFactor > 100.0F) {
+                baseFactor -= 100.0F;
+            }
+            if (baseFactor < -100.0F) {
+                baseFactor += 100.0F;
+            }
+            for (int poly = 0; poly < conto.npl; poly++) {
+                float damageFactor;
+                for (int point = 0; point < conto.p[poly].n; point++) {
+                    damageFactor = baseFactor / 20.0F * Medium.random();
+                    hitmag += Math.abs(damageFactor);
+                    damageTotal += Math.abs(damageFactor);
+                }
+            }
+        }
+        return damageTotal;
+    }
+
+    private int regySim(float baseFactor, final ContO conto) {
+        int damageTotal = 0;
+        baseFactor *= stat.dammult;
+        if (baseFactor > 100.0F) {
+            baseFactor -= 100.0F;
+            int i98 = 0;
+            int i99 = 0;
+            int zyNorm = conto.zy % 360;
+            int xyNorm = conto.xy % 360;
+            if (zyNorm < 210 && zyNorm > 150) {
+                i98 = -1;
+            }
+            if (zyNorm > 330 || zyNorm < 30) {
+                i98 = 1;
+            }
+            if (xyNorm < 210 && xyNorm > 150) {
+                i99 = -1;
+            }
+            if (xyNorm > 330 || xyNorm < 30) {
+                i99 = 1;
+            }
+            if (i99 * i98 == 0 || mtouch) {
+                for (int poly = 0; poly < conto.npl; poly++) {
+                    float damageFactor;
+                    for (int point = 0; point < conto.p[poly].n; point++) {
+                        damageFactor = baseFactor / 20.0F * Medium.random();
+                        conto.p[poly].oz[point] += damageFactor * Medium.sin(zyNorm);
+                        conto.p[poly].ox[point] -= damageFactor * Medium.sin(xyNorm);
+                        hitmag += Math.abs(damageFactor);
+                        damageTotal += Math.abs(damageFactor);
+                    }
+                }
+            }
+            if (i99 * i98 == -1) {
+                if (nbsq > 0) {
+                    for (int poly = 0; poly < conto.npl; poly++) {
+                        float damageFactor;
+                        for (int point = 0; point < conto.p[poly].n; point++) {
+                            if (conto.p[poly].wz == 0) {
+                                damageFactor = baseFactor / 15.0F * Medium.random();
+                                if ((Math.abs(conto.p[poly].oy[point] - stat.flipy - squash) < stat.msquash * 3 || conto.p[poly].oy[point] < stat.flipy + squash) && squash < stat.msquash) {
+                                    hitmag += Math.abs(damageFactor);
+                                    damageTotal += Math.abs(damageFactor);
+                                }
+                            }
+                        }
+                    }
+                    nbsq = 0;
+                } else {
+                    nbsq++;
+                }
+            }
+        }
+        return damageTotal;
+    }
+
 }

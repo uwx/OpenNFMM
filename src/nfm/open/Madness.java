@@ -2,6 +2,8 @@ package nfm.open;
 /* Madness - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Dimension;
@@ -17,10 +19,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URI;
 import java.util.concurrent.ThreadLocalRandom;
-
-import javax.swing.*;
 
 public class Madness extends Panel {
     static int anti = 1;
@@ -339,6 +340,12 @@ public class Madness extends Panel {
     }
 
     public static void main(final String[] strings) {
+        try {
+            Graphist.graph();
+        } catch (IOException e) {
+            throw new Error(e);
+        }
+
         System.runFinalizersOnExit(true);
         frame = new JFrame("Need for Madness");
         frame.setBackground(Color.black);
